@@ -59,10 +59,6 @@
   <string name="value_pager_page">Síða</string>
   <string name="value_progress_bar">Framvindustika</string>
   <string name="value_webview">Vefyfirlit</string>
-  <string name="value_toolbar">Tækjastika</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Stafir %1$d til %2$d</string>
-  <string name="template_password_traversed">Stafur %1$d</string>
   <string name="value_password">aðgangsorð</string>
   <string name="value_sliding_drawer_opened">Renniskúffa opnuð</string>
   <string name="value_options_menu_open">Valkostir.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Utan lóðréttrar síðubirtingar</string>
   <string name="in_horizontal_pager_with_name">Í láréttri síðubirtingu %1$s</string>
   <string name="in_horizontal_pager">Í láréttri síðubirtingu</string>
-  <string name="out_of_horizontal_pager_with_name">Utan láréttrar síðubirtingar %1$s</string>
   <string name="out_of_horizontal_pager">Utan láréttrar síðubirtingar</string>
   <string name="in_grid_pager_with_name">Í síðubirtingu í töflu %1$s</string>
   <string name="in_grid_pager">Síðubirting í töflu</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Stækkun %1$d%%</string>
   <string name="screen_magnification_off">Slökkt á stækkun</string>
   <string name="template_speech_rate_change">Talhraði %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Hraðara</string>
-  <string name="template_speech_rate_change_slower">Hægara</string>
-  <string name="template_speech_rate_change_fastest">Hraðast</string>
-  <string name="template_speech_rate_change_slowest">Hægast</string>
   <string name="template_volume_change_increase">Auka</string>
   <string name="template_volume_change_decrease">Minnka</string>
   <string name="template_volume_change_maximum">Hámark</string>
   <string name="template_volume_change_minimum">Lágmark</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Kveikt á hljóðlækkun</string>
-  <string name="audio_focus_off">Slökkt á hljóðlækkun</string>
-  <string name="selector_speech_rate_output">Talhraði</string>
-  <string name="selector_verbosity_output">Nákvæmni</string>
-  <string name="selector_granularity_output">Fletting</string>
-  <string name="selector_audio_focus_output">Hljóðlækkun</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Aðgangsorð aðeins lesin upp þegar heyrnartól eru notuð</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s í boði, notaðu %2$s til að skoða.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s í boði.</string>
+  <string name="hint_suggestion">Stafsetningartillögur í boði.</string>
+  <string name="in_window_with_name">Glugginn %1$s</string>
+  <string name="detected_icon_description">%1$s, tákn greindist</string>
+  <string name="ocr_text_description">%1$s, texti</string>
 </resources>

@@ -17,11 +17,11 @@
 package com.google.android.accessibility.talkback.contextmenu;
 
 import android.content.SharedPreferences;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import androidx.annotation.BoolRes;
 import androidx.annotation.StringRes;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
@@ -31,9 +31,9 @@ import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem.Def
 import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
-import com.google.android.accessibility.utils.ScreenMonitor;
 import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.monitor.ScreenMonitor;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -61,7 +61,6 @@ public class TalkbackMenuProcessor {
    * ORDER_SUSPEND_TALKBACK = 24;
    */
   private static final int ORDER_ACTIONS = 1;
-  private static final int ORDER_EDIT_OPTIONS = 2;
   private static final int ORDER_LINKS = 3;
   private static final int ORDER_PAGE_NAVIGATION = 4;
   private static final int ORDER_LABELS = 5;
@@ -72,6 +71,7 @@ public class TalkbackMenuProcessor {
   private static final int ORDER_SHOW_HIDE_SCREEN = 20;
 
   private static final int ORDER_SYSTEM_ACTIONS = 25;
+  public static final int ORDER_IMAGE_CAPTION = 26;
 
   private final TalkBackService service;
   private final ActorState actorState;
@@ -106,9 +106,6 @@ public class TalkbackMenuProcessor {
     // Custom Action
     addItemOrSubMenuForCurrentNode(
         menu, R.id.custom_action_menu, R.string.title_custom_action, ORDER_ACTIONS);
-    // Editing option
-    addItemOrSubMenuForCurrentNode(
-        menu, R.id.editing_menu, R.string.title_edittext_controls, ORDER_EDIT_OPTIONS);
     // Links
     addItemOrSubMenuForCurrentNode(menu, R.id.links_menu, R.string.links, ORDER_LINKS);
     // Page Navigation
@@ -121,6 +118,10 @@ public class TalkbackMenuProcessor {
     // Navigation
     addItemOrSubMenuForCurrentNode(
         menu, R.id.granularity_menu, R.string.title_granularity, ORDER_NAVIGATION);
+
+    // Image caption
+    addItemOrSubMenuForCurrentNode(
+        menu, R.id.image_caption_menu, R.string.title_image_caption, ORDER_IMAGE_CAPTION);
 
     // Read From & Last Phrase Spoken & screen search at context_menu.xml
     addContextMenuXMLMenu(menu);
@@ -352,12 +353,7 @@ public class TalkbackMenuProcessor {
       return;
     }
     AccessibilityNodeInfoCompat node = AccessibilityNodeInfoUtils.obtain(currentNode);
-
-    try {
-      nodeMenuRuleProcessor.prepareTalkbackMenuForNode(menu, node, itemId, titleId, itemOrder);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(node);
-    }
+    nodeMenuRuleProcessor.prepareTalkbackMenuForNode(menu, node, itemId, titleId, itemOrder);
   }
 
   private void addLanguageMenuIfValid(ContextMenu menu) {

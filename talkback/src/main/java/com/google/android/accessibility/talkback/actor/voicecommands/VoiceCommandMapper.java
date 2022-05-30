@@ -27,16 +27,18 @@ import static com.google.android.accessibility.talkback.Feedback.EditText.Action
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.PASTE;
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.SELECT_ALL;
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.START_SELECT;
+import static com.google.android.accessibility.talkback.Feedback.Speech.Action.COPY_SAVED;
 import static com.google.android.accessibility.talkback.Feedback.VoiceRecognition.Action.SHOW_COMMAND_LIST;
 import static com.google.android.accessibility.talkback.actor.SystemActionPerformer.GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS;
 import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
 
 import android.accessibilityservice.AccessibilityService;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.ContinuousRead;
 import com.google.android.accessibility.talkback.Feedback.DimScreen;
+import com.google.android.accessibility.talkback.Feedback.Speech;
 import com.google.android.accessibility.talkback.Feedback.SystemAction;
 import com.google.android.accessibility.talkback.Feedback.VoiceRecognition;
 import com.google.android.accessibility.talkback.Interpretation;
@@ -137,6 +139,9 @@ public class VoiceCommandMapper {
       case VOICE_COMMAND_START_AT_NEXT:
         return toFeedback(eventId, START_AT_NEXT);
 
+      case VOICE_COMMAND_COPY_LAST_SPOKEN_UTTERANCE:
+        return toFeedback(eventId, COPY_SAVED);
+
       case VOICE_COMMAND_FIRST:
         return toFeedback(eventId, Feedback.focusTop(INPUT_MODE_TOUCH).build().focusDirection());
 
@@ -174,6 +179,11 @@ public class VoiceCommandMapper {
         break;
     }
     return null;
+  }
+
+  private static Feedback toFeedback(@Nullable EventId eventId, Speech.Action action) {
+    return Feedback.create(
+        eventId, Feedback.part().setSpeech(Feedback.Speech.create(action)).build());
   }
 
   private static Feedback toFeedback(

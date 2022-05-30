@@ -13,7 +13,7 @@ public class NodeActionPerformer {
 
   private static final String TAG = "NodeActionPerformer";
 
-  @Nullable private NodeActionRecord actionRecord = null;
+  private @Nullable NodeActionRecord actionRecord = null;
 
   /** Creates node-action-record, with copy of node. Caller keeps ownership of actionedNode */
   public static class NodeActionRecord {
@@ -29,14 +29,8 @@ public class NodeActionPerformer {
       this.actionTime = actionTime;
     }
 
-    /** Caller retains node, and must recycle the node-argument. */
     public boolean actionedNodeMatches(AccessibilityNodeInfo node) {
       return targetNode.equalTo(node);
-    }
-
-    public void recycle(String caller) {
-      AccessibilityNode.recycle(caller + " -> NodeActionRecord.recycle()", targetNode);
-      targetNode = null;
     }
   }
 
@@ -69,11 +63,7 @@ public class NodeActionPerformer {
     return success;
   }
 
-  // This function takes ownership of the record, and is responsible to call record.recycle().
   private void setNodeActionRecord(NodeActionRecord record) {
-    if (actionRecord != null) {
-      actionRecord.recycle("NodeActionPerformer.setNodeActionRecord()");
-    }
     actionRecord = record;
   }
 }

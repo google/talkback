@@ -34,19 +34,19 @@ public class FeedbackItem {
   public static final int FLAG_NO_HISTORY = 0x2;
 
   /**
-   * Flag to force feedback from this item to be generated when audio playback is active.
+   * Flag to force feedback from this item even if audio playback is active.
    * REFERTO
    */
-  public static final int FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE = 0x4;
+  public static final int FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE = 0x4;
 
-  /** Flag to force feedback from this item to be generated when microphone is active. */
-  public static final int FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE = 0x8;
+  /** Flag to force feedback from this item even if the microphone is active. */
+  public static final int FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE = 0x8;
 
-  /** Flag to force feedback from this item to be generated for speech recognition/dictation. */
-  public static final int FLAG_FORCED_FEEDBACK_SSB_ACTIVE = 0x10;
+  /** Flag to force feedback from this item even if speech recognition/dictation is active. */
+  public static final int FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE = 0x10;
 
-  /** Flag to force feedback from this item to be generated during phone call. */
-  public static final int FLAG_FORCED_FEEDBACK_PHONE_CALL_ACTIVE = 0x20;
+  /** Flag to force feedback from this item even if a phone call is active. */
+  public static final int FLAG_FORCE_FEEDBACK_EVEN_IF_PHONE_CALL_ACTIVE = 0x20;
 
   // TODO: make a flag that combines all the forced feedback flags
 
@@ -84,7 +84,14 @@ public class FeedbackItem {
    * Flag to force feedback from this item to be generated, even while speech recognition is active
    * or other voice assist app is playing voice feedback.
    */
-  public static final int FLAG_FORCED_FEEDBACK = 0x1000;
+  public static final int FLAG_FORCE_FEEDBACK = 0x1000;
+
+  /**
+   * Flag to indicate that the source of the feedback is the system volume slider panel; the two
+   * subcases are: 1) window change event caused by the volume slider panel appearing, 2) the user
+   * having adjusted one of the volume sliders in that panel.
+   */
+  public static final int FLAG_SOURCE_IS_VOLUME_CONTROL = 0x2000;
 
   /** Unique ID defining this generated feedback */
   private String mUtteranceId = "";
@@ -111,24 +118,24 @@ public class FeedbackItem {
 
   private int mUtteranceGroup = SpeechController.UTTERANCE_GROUP_DEFAULT;
 
-  @Nullable private final EventId mEventId;
+  private final @Nullable EventId mEventId;
 
   /**
    * Returns the {@link UtteranceStartRunnable} to be fired before feedback from this item starts.
    */
-  @Nullable private UtteranceStartRunnable mStartAction;
+  private @Nullable UtteranceStartRunnable mStartAction;
 
   /**
    * Returns the {@link UtteranceRangeStartCallback} to be invoked to update the range of utterance
    * being spoken.
    */
-  @Nullable private UtteranceRangeStartCallback mRangeStartCallback;
+  private @Nullable UtteranceRangeStartCallback mRangeStartCallback;
 
   /**
    * Returns the {@link UtteranceCompleteRunnable} to be fired when feedback from this item is
    * complete.
    */
-  @Nullable private UtteranceCompleteRunnable mCompletedAction;
+  private @Nullable UtteranceCompleteRunnable mCompletedAction;
 
   public FeedbackItem(@Nullable EventId eventId) {
     mCreationTime = System.currentTimeMillis();
@@ -149,8 +156,7 @@ public class FeedbackItem {
     }
   }
 
-  @Nullable
-  public EventId getEventId() {
+  public @Nullable EventId getEventId() {
     return mEventId;
   }
 

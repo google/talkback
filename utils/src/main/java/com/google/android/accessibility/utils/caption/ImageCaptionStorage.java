@@ -16,15 +16,18 @@
 
 package com.google.android.accessibility.utils.caption;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.ViewResourceName;
+import com.google.android.accessibility.utils.screenunderstanding.IconAnnotationsDetector;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.common.collect.Maps;
 import java.util.HashMap;
+import java.util.Locale;
+import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 
 /** Stores and retrieves image caption results. */
 public class ImageCaptionStorage {
@@ -33,6 +36,7 @@ public class ImageCaptionStorage {
   private static final int RESULT_CAPACITY = 500;
 
   private final LimitedCapacityCache imageNodes;
+  private @MonotonicNonNull IconAnnotationsDetector iconAnnotationsDetector;
 
   public ImageCaptionStorage() {
     this(RESULT_CAPACITY);
@@ -48,6 +52,28 @@ public class ImageCaptionStorage {
     return imageNodes.size();
   }
 
+  /** Removes all cached {@link ImageNode}s. */
+  public void clearImageNodesCache() {
+    imageNodes.clear();
+  }
+
+  /** Sets the {@link IconAnnotationsDetector} for retrieving labels of detected icons. */
+  public void setIconAnnotationsDetector(IconAnnotationsDetector iconAnnotationsDetector) {
+    this.iconAnnotationsDetector = iconAnnotationsDetector;
+  }
+
+  /**
+   * Retrieves the localized label of the detected icon which matches the specified node.
+   *
+   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
+   */
+  @Nullable
+  public CharSequence getDetectedIconLabel(Locale locale, AccessibilityNodeInfoCompat node) {
+    return (iconAnnotationsDetector == null)
+        ? null
+        : iconAnnotationsDetector.getIconLabel(locale, node);
+  }
+
   /**
    * Retrieves image caption results for the specified node.
    *
@@ -57,7 +83,11 @@ public class ImageCaptionStorage {
   public ImageNode getCaptionResults(AccessibilityNodeInfoCompat node) {
     AccessibilityNode wrapNode = AccessibilityNode.obtainCopy(node);
     try {
-      return findImageNode(wrapNode);
+      @Nullable ImageNode imageNode = findImageNode(wrapNode);
+      if (imageNode == null || !imageNode.isIconLabelStable() || !imageNode.isValid()) {
+        return null;
+      }
+      return imageNode;
     } finally {
       AccessibilityNode.recycle("ImageManager.getNodeText()", wrapNode);
     }
@@ -85,6 +115,53 @@ public class ImageCaptionStorage {
   }
 
   /**
+   * Stores the label of the detected icons for the specified node in the cache.
+   *
+   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
+   */
+  public void updateDetectedIconLabel(AccessibilityNode node, CharSequence detectedIconLabel) {
+    if (!ImageCaptionStorage.isStorable(node) || TextUtils.isEmpty(detectedIconLabel)) {
+      LogUtils.v(TAG, "DetectedIconLabel (" + detectedIconLabel + ") should not be stored.");
+      return;
+    }
+
+    @Nullable ImageNode imageNode = ImageNode.create(node);
+    if (imageNode == null) {
+      return;
+    }
+    imageNode.setDetectedIconLabel(detectedIconLabel);
+    imageNodes.put(imageNode);
+  }
+
+  /**
+   * Marks the OCR text and the detected icon label for the specific node as invalid in the cache.
+   *
+   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
+   */
+  public void invalidateCaptionForNode(AccessibilityNode node) {
+    if (!ImageCaptionStorage.isStorable(node)) {
+      return;
+    }
+
+    @Nullable final ViewResourceName viewResourceName = node.getPackageNameAndViewId();
+    if (viewResourceName != null) {
+      imageNodes.invalidateImageNode(viewResourceName);
+    }
+  }
+
+  /**
+   * Checks if node has a resource name with a package name and is not in the collection.
+   *
+   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
+   */
+  public static boolean isStorable(AccessibilityNode node) {
+    @Nullable final ViewResourceName viewResourceName = node.getPackageNameAndViewId();
+    return viewResourceName != null
+        // The resource ID of most elements in a collection are the same, so they can't be stored.
+        && !node.isInCollection();
+  }
+
+  /**
    * Retrieves the related {@link ImageNode} for the specified node. The returned ImageNode will be
    * regarded as the newest element.
    *
@@ -102,18 +179,6 @@ public class ImageCaptionStorage {
     }
 
     return imageNodes.get(viewResourceName);
-  }
-
-  /**
-   * Checks if node has unique package name and resource ID and isn't in the collection.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
-  public static boolean isStorable(AccessibilityNode node) {
-    @Nullable final ViewResourceName viewResourceName = node.getPackageNameAndViewId();
-    return viewResourceName != null
-        // The resource ID of most elements in a collection are the same, so they can't be stored.
-        && !node.isInCollection();
   }
 
   /**
@@ -135,8 +200,24 @@ public class ImageCaptionStorage {
       this.imageNodes = Maps.newHashMapWithExpectedSize(capacity);
     }
 
+    /** Removes all {@link ImageNode}s in the cache. */
+    public synchronized void clear() {
+      imageNodes.clear();
+    }
+
     /**
-     * Return a copy of ImageNode which has the same view resource name as input-arguments. The
+     * Finds the ImageNode by its view resource name and sets the ImageNode to invalid when the
+     * ImageNode is not {@code null}.
+     */
+    public synchronized void invalidateImageNode(ViewResourceName viewResourceName) {
+      ImageAndListNode imageAndKeyNode = imageNodes.get(viewResourceName);
+      if (imageAndKeyNode != null) {
+        imageAndKeyNode.imageNode.setValid(false);
+      }
+    }
+
+    /**
+     * Returns a copy of ImageNode which has the same view resource name as input-arguments. The
      * returned ImageNode will be regarded as the newest element.
      */
     @Nullable
@@ -163,8 +244,8 @@ public class ImageCaptionStorage {
         imageNodes.remove(oldestNode.data);
       }
 
-      ViewResourceName viewResourceName = imageNode.viewResourceName();
       // Add a key.
+      ViewResourceName viewResourceName = imageNode.viewResourceName();
       Node<ViewResourceName> keyNode = new Node<>(viewResourceName);
       if (firstOldestKey == null) {
         firstOldestKey = keyNode;
@@ -193,10 +274,25 @@ public class ImageCaptionStorage {
       }
 
       moveToLast(oldImage);
+      if (!oldImage.imageNode.isIconLabelStable()) {
+        return;
+      }
 
       LogUtils.v(TAG, "put() " + imageNode);
       if (!TextUtils.isEmpty(imageNode.getOcrText())) {
+        oldImage.imageNode.setValid(true);
         oldImage.imageNode.setOcrText(imageNode.getOcrText());
+      }
+      if (!TextUtils.isEmpty(imageNode.getDetectedIconLabel())) {
+        // Checks whether detected icon labels are different for the same view id
+        CharSequence oldIconLabel = oldImage.imageNode.getDetectedIconLabel();
+        if ((oldIconLabel != null)
+            && !TextUtils.equals(oldIconLabel, imageNode.getDetectedIconLabel())) {
+          oldImage.imageNode.setIconLabelStable(false);
+          return;
+        }
+        oldImage.imageNode.setValid(true);
+        oldImage.imageNode.setDetectedIconLabel(imageNode.getDetectedIconLabel());
       }
     }
 

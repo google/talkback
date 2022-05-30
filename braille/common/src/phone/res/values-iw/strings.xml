@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">מספר</string>
+  <string name="capitalize_announcement">CapsLock</string>
+  <string name="read_out_deleted">בוצעה מחיקה של %s</string>
+  <plurals name="braille_dots">
+    <item quantity="one">נקודה אחת (%s)</item>
+    <item quantity="two">%s נקודות</item>
+    <item quantity="many">%s נקודות</item>
+    <item quantity="other">%s נקודות</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">אנגלית אחידה לברייל לא מקוצר</string>
+  <string name="code_user_facing_name_ueb2">אנגלית אחידה לברייל מקוצר</string>
+  <string name="code_user_facing_name_es">ספרדית</string>
+  <string name="code_user_facing_name_ar">ערבית</string>
+  <string name="code_user_facing_name_fr">צרפתית</string>
+  <string name="code_user_facing_name_pl">פולנית</string>
+  <string name="screen_away">מצב \'המסך פונה כלפי חוץ\'</string>
+  <string name="screen_away_detail">יש להחזיק את המכשיר כך שהמסך פונה כלפי חוץ (מצב \'המסך פונה כלפי חוץ\')</string>
+  <string name="tabletop">מצב \'על משטח\'</string>
+  <string name="tabletop_detail">עליך להניח את המכשיר במצב שטוח על שולחן (מצב \'על משטח\')</string>
+  <string name="auto_detect">התאמה לאופן שבו אוחזים את המכשיר</string>
+</resources>

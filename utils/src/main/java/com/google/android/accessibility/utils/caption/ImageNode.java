@@ -24,24 +24,35 @@ import com.google.auto.value.AutoValue;
 import java.util.Objects;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-/**
- * The identifiable information of an image node and the result of image captions. The data will be
- * stores in the cache.
- */
+/** The identifiable information of an image node and the result of image captions. */
 @AutoValue
 public abstract class ImageNode {
   public abstract ViewResourceName viewResourceName();
 
   private @Nullable CharSequence ocrText;
 
+  private @Nullable CharSequence detectedIconLabel;
+
+  /**
+   * When isValid is false, it means the view has been clicked and the icon inside the view may
+   * change. When an ImageNode is not valid, the imageNode can become valid again.
+   */
+  private boolean isValid = true;
+
+  /**
+   * Whether the same icon label result has always been detected for this view resource name when
+   * speech locale keeps unchanged. Once an ImageNode becomes unstable for icon label, this
+   * ImageNode will never become stable for icon label again.
+   */
+  private boolean isIconLabelStable = true;
+
   /**
    * Creates an instance of {@link ImageNode} without the results of image captions.
    *
    * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
    */
-  @Nullable
-  static ImageNode create(AccessibilityNode node) {
-    @Nullable final ViewResourceName viewResourceName = node.getPackageNameAndViewId();
+  static @Nullable ImageNode create(AccessibilityNode node) {
+    final @Nullable ViewResourceName viewResourceName = node.getPackageNameAndViewId();
     if (viewResourceName == null) {
       return null;
     }
@@ -54,6 +65,9 @@ public abstract class ImageNode {
   static ImageNode copy(ImageNode imageNode) {
     ImageNode copy = new AutoValue_ImageNode(imageNode.viewResourceName());
     copy.setOcrText(imageNode.ocrText);
+    copy.setDetectedIconLabel(imageNode.detectedIconLabel);
+    copy.isValid = imageNode.isValid;
+    copy.isIconLabelStable = imageNode.isIconLabelStable;
     return copy;
   }
 
@@ -61,8 +75,16 @@ public abstract class ImageNode {
     return ocrText;
   }
 
+  public @Nullable CharSequence getDetectedIconLabel() {
+    return detectedIconLabel;
+  }
+
   public void setOcrText(@Nullable CharSequence ocrText) {
     this.ocrText = ocrText;
+  }
+
+  public void setDetectedIconLabel(@Nullable CharSequence detectedIconLabel) {
+    this.detectedIconLabel = detectedIconLabel;
   }
 
   @Override
@@ -75,12 +97,15 @@ public abstract class ImageNode {
     }
     ImageNode imageNode = (ImageNode) object;
     return viewResourceName().equals(imageNode.viewResourceName())
-        && TextUtils.equals(ocrText, imageNode.getOcrText());
+        && TextUtils.equals(ocrText, imageNode.getOcrText())
+        && TextUtils.equals(detectedIconLabel, imageNode.getDetectedIconLabel())
+        && (isValid == imageNode.isValid)
+        && (isIconLabelStable == imageNode.isIconLabelStable);
   }
 
   @Override
   public final int hashCode() {
-    return Objects.hash(viewResourceName(), getOcrText());
+    return Objects.hash(viewResourceName(), getOcrText(), getDetectedIconLabel(), isValid);
   }
 
   @Override
@@ -88,6 +113,25 @@ public abstract class ImageNode {
     return "ImageNode= "
         + StringBuilderUtils.joinFields(
             StringBuilderUtils.optionalSubObj("viewResourceName", viewResourceName()),
-            StringBuilderUtils.optionalText("ocrText", ocrText));
+            StringBuilderUtils.optionalTag("isIconLabelStable", isIconLabelStable),
+            StringBuilderUtils.optionalTag("isValid", isValid),
+            StringBuilderUtils.optionalText("ocrText", ocrText),
+            StringBuilderUtils.optionalText("detectedIconLabel", detectedIconLabel));
+  }
+
+  boolean isValid() {
+    return isValid;
+  }
+
+  void setValid(boolean valid) {
+    this.isValid = valid;
+  }
+
+  boolean isIconLabelStable() {
+    return isIconLabelStable;
+  }
+
+  void setIconLabelStable(boolean stable) {
+    this.isIconLabelStable = stable;
   }
 }

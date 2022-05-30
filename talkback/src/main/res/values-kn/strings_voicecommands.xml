@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">ಸಾರಾಂಶ</string>
   <string name="voice_commands_read">ಓದಿ</string>
   <string name="voice_commands_read_from_next">ಮುಂದಿನದರಿಂದ ಓದಿ</string>
   <string name="voice_commands_edit_options">ಎಡಿಟ್ ಆಯ್ಕೆಗಳು</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">ಹುಡುಕಿ</string>
   <string name="voice_commands_search">ಹುಡುಕಿ</string>
   <string name="voice_commands_search_for">ಇದನ್ನು ಹುಡುಕಿ</string>
-  <string name="voice_commands_find_again">ಹುಡುಕುತ್ತಾ ಇರಿ</string>
   <string name="voice_commands_next_heading">ಮುಂದಿನ ಶಿರೋನಾಮೆ</string>
   <string name="voice_commands_next_control">ಮುಂದಿನ ನಿಯಂತ್ರಣ</string>
   <string name="voice_commands_next_link">ಮುಂದಿನ ಲಿಂಕ್</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">ಲೇಬಲ್ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">ಧ್ವನಿಯ ಪ್ರಮಾಣವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ</string>
-  <string name="voice_commands_setting_verbosity">ಶಬ್ದ ಬಾಹುಳ್ಯವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ</string>
-  <string name="voice_commands_setting_granularity">ರಚನೆಯನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ</string>
-  <string name="voice_commands_setting_navigation">ನ್ಯಾವಿಗೇಶನ್ ಅನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ</string>
   <string name="voice_commands_first">ಮೊದಲನೆಯದು</string>
   <string name="voice_commands_top">ಮೇಲ್ಭಾಗ</string>
   <string name="voice_commands_last">ಕೊನೆಯದು</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">ಮುಂದಿನ ಲಿಂಕ್ ಇಲ್ಲ</string>
   <string name="voice_commands_no_next_control_feedback">ಮುಂದಿನ ನಿಯಂತ್ರಣವಿಲ್ಲ</string>
   <string name="voice_commands_no_next_landmark_feedback">ಮುಂದಿನ ಲ್ಯಾಂಡ್‌ಮಾರ್ಕ್‌ ಇಲ್ಲ</string>
-  <string name="voice_commands_screen_hidden_feedback">ಸ್ಕ್ರೀನ್ ಮರೆಮಾಡಲಾಗಿದೆ</string>
-  <string name="voice_commands_showing_screen_feedback">ಸ್ಕ್ರೀನ್ ತೋರಿಸಲಾಗುತ್ತಿದೆ</string>
   <string name="voice_commands_help_title">ಧ್ವನಿ ಕಮಾಂಡ್ ಅವಲೋಕನ</string>
   <string name="voice_commands_help_description">ಧ್ವನಿ ಕಮಾಂಡ್‌ಗಳನ್ನು ಬಳಸಲು, ಬಲಕ್ಕೆ, ನಂತರ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ಕಮಾಂಡ್‌ಗಳ ಈ ಪಟ್ಟಿಗಾಗಿ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ \"ಸಹಾಯ\" ಅಥವಾ \"ನಾನು ಏನು ಹೇಳಲಿ?\" ಎಂದು ಹೇಳಿ.</string>
   <string name="voice_commands_help_hint">ಅತ್ಯುತ್ತಮ ಫಲಿತಾಂಶಗಳಿಗಾಗಿ, ಮುಂದಿನ ಸ್ಕ್ರೀನ್‌ಗಳಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡಿರುವ ನಿಖರವಾದ ಪದವನ್ನು ಹೇಳಿ.</string>
@@ -140,7 +133,7 @@
   <string name="voice_commands_help_device_navigation_title">ಸಾಧನ ನ್ಯಾವಿಗೇಶನ್</string>
   <string name="voice_commands_help_device_navigation_description">ಮುಖಪುಟಕ್ಕೆ ಹೋಗಿ, ಹಿಂದಕ್ಕೆ ಹೋಗಿ, ಅಧಿಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ ಮತ್ತು ಇನ್ನಷ್ಟು</string>
   <string name="voice_commands_help_overview_description">ನಿಮ್ಮ ಇತ್ತೀಚಿನ ಆ್ಯಪ್‌ಗಳನ್ನು ನೋಡಿ</string>
-  <string name="voice_commands_help_assistant_description">Google ಅಸಿಸ್ಟೆಂಟ್‌ ಅನ್ನು ತೆರೆಯಿರಿ</string>
+  <string name="voice_commands_help_assistant_description">Google Assistant ಅನ್ನು ತೆರೆಯಿರಿ</string>
   <string name="voice_commands_help_other_commands_title">ಇತರ ಕಮಾಂಡ್‌ಗಳು</string>
   <string name="voice_commands_help_other_commands_description">TalkBack ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ, ಸ್ಕ್ರೀನ್ ಮರೆಮಾಡಿ, ಕ್ರಿಯೆಗಳನ್ನು ನೋಡಿ, ಕಸ್ಟಮ್ ಲೇಬಲ್‌ಗಳನ್ನು ಸೇರಿಸಿ ಮತ್ತು ಇನ್ನಷ್ಟು</string>
   <string name="voice_commands_help_label">ಲೇಬಲ್ [ಸಲ್ಲಿಸಿ]</string>

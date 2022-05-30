@@ -22,16 +22,11 @@ import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 
 /**
  * AbstractOnContextMenuItemClickListener implements {@link OnContextMenuItemClickListener} and is a
- * listener of menu item to store AccessibilityNodeInfo, Pipeline and TalkBackAnalytics. Menu item
- * needs to call {@link #clear()} to recycle node when it is clicked or dismisses. One listener may
- * be shared by multi-contextItems.
+ * listener of menu item to store AccessibilityNodeInfo, Pipeline and TalkBackAnalytics.
  */
 public abstract class AbstractOnContextMenuItemClickListener
     implements OnContextMenuItemClickListener {
-  // It can't be final when this node is recycled by the first item and is assigned to null. The
-  // second item doesn't recycle again and cause crash.
   protected AccessibilityNodeInfoCompat node;
-
   protected final Pipeline.FeedbackReturner pipeline;
   protected final TalkBackAnalytics analytics;
 
@@ -43,12 +38,5 @@ public abstract class AbstractOnContextMenuItemClickListener
     this.node = AccessibilityNodeInfoUtils.obtain(node);
     this.pipeline = pipeline;
     this.analytics = analytics;
-  }
-
-  /** Cleans OnContextMenuItemClickListener of context menu item */
-  @Override
-  public void clear() {
-    AccessibilityNodeInfoUtils.recycleNodes(node);
-    node = null;
   }
 }

@@ -18,7 +18,6 @@ package com.google.android.accessibility.utils.widget;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
-import androidx.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -31,6 +30,7 @@ import android.view.WindowManager.LayoutParams;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
 
 /** Provides a simple full-screen overlay. Behaves like a {@link android.app.Dialog} but simpler. */
 public class SimpleOverlay {

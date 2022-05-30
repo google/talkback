@@ -59,10 +59,6 @@
   <string name="value_pager_page">Leht</string>
   <string name="value_progress_bar">Edenemisriba</string>
   <string name="value_webview">Veebikuva</string>
-  <string name="value_toolbar">Tööriistariba</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Tähemärgid %1$d kuni %2$d</string>
-  <string name="template_password_traversed">Tähemärk %1$d</string>
   <string name="value_password">parool</string>
   <string name="value_sliding_drawer_opened">Liugsahtel on avatud</string>
   <string name="value_options_menu_open">Valikud.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Vertikaalsest programmist väljas</string>
   <string name="in_horizontal_pager_with_name">Horisontaalses programmis %1$s</string>
   <string name="in_horizontal_pager">Horisontaalses programmis</string>
-  <string name="out_of_horizontal_pager_with_name">Horisontaalsest programmist %1$s väljas</string>
   <string name="out_of_horizontal_pager">Horisontaalsest programmist väljas</string>
   <string name="in_grid_pager_with_name">Ruudustikprogrammis %1$s</string>
   <string name="in_grid_pager">Ruudustikprogrammis</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Suurendus on %1$d%%</string>
   <string name="screen_magnification_off">Suurendus on välja lülitatud</string>
   <string name="template_speech_rate_change">Kõne kiirus on %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Kiirem</string>
-  <string name="template_speech_rate_change_slower">Aeglasem</string>
-  <string name="template_speech_rate_change_fastest">Kõige kiirem</string>
-  <string name="template_speech_rate_change_slowest">Kõige aeglasem</string>
   <string name="template_volume_change_increase">Suurenda</string>
   <string name="template_volume_change_decrease">Vähenda</string>
   <string name="template_volume_change_maximum">Maksimaalne</string>
   <string name="template_volume_change_minimum">Miinimaalne</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Heli vaigistamine: sees</string>
-  <string name="audio_focus_off">Heli vaigistamine on välja lülitatud</string>
-  <string name="selector_speech_rate_output">Kõne kiirus</string>
-  <string name="selector_verbosity_output">Sõnaohtrus</string>
-  <string name="selector_granularity_output">Navigeerimine</string>
-  <string name="selector_audio_focus_output">Heli vaigistamine</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Paroolid loetakse ette ainult kõrvaklappide kasutamisel</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s on saadaval, vaatamiseks kasutage liigutust %2$s.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s on saadaval.</string>
+  <string name="hint_suggestion">Saadaval on õigekirjasoovitused.</string>
+  <string name="in_window_with_name">Aken %1$s</string>
+  <string name="detected_icon_description">%1$s, tuvastatud ikoon</string>
+  <string name="ocr_text_description">%1$s, tekst</string>
 </resources>

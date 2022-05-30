@@ -54,8 +54,8 @@ public class ScrollPositionInterpreter implements ScrollEventHandler {
         }
       };
 
-  @Nullable private AccessibilityEvent eventDeduplicated;
-  @Nullable private EventId eventId;
+  private @Nullable AccessibilityEvent eventDeduplicated;
+  private @Nullable EventId eventId;
   private Pipeline.InterpretationReceiver pipeline;
 
   /**
@@ -106,16 +106,11 @@ public class ScrollPositionInterpreter implements ScrollEventHandler {
       AccessibilityNode eventSource = AccessibilityNode.takeOwnership(event.getSource());
       AccessibilityNode deduplicatedSource =
           AccessibilityNode.takeOwnership(eventDeduplicated.getSource());
-      try {
-        if (deduplicatedSource != null
-            && !deduplicatedSource.equals(eventSource)
-            && eventSource.getCollectionInfo() != null
-            && AccessibilityNode.shareParent(eventSource, deduplicatedSource)) {
-          return;
-        }
-      } finally {
-        AccessibilityNode.recycle(
-            "ScrollPositionInterpreter.onScrollEvent", eventSource, deduplicatedSource);
+      if (deduplicatedSource != null
+          && !deduplicatedSource.equals(eventSource)
+          && eventSource.getCollectionInfo() != null
+          && AccessibilityNode.shareParent(eventSource, deduplicatedSource)) {
+        return;
       }
     }
 
@@ -141,9 +136,6 @@ public class ScrollPositionInterpreter implements ScrollEventHandler {
   }
 
   private void clearEventDeduplicated() {
-    if (eventDeduplicated != null) {
-      eventDeduplicated.recycle();
-    }
     eventDeduplicated = null;
     eventId = null;
   }

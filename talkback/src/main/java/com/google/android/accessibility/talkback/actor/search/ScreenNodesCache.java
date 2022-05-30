@@ -32,24 +32,20 @@ final class ScreenNodesCache {
 
   public ScreenNodesCache() {}
 
-  /** Returns the cached nodes which caller must not recycle after using. */
   @NonNull
   synchronized List<AccessibilityNode> getCachedNodes() {
     return cachedNodes.isEmpty() ? Collections.emptyList() : new ArrayList<>(cachedNodes);
   }
 
-  synchronized void clearCachedNodes(String caller) {
-    AccessibilityNode.recycle(caller, cachedNodes);
+  synchronized void clearCachedNodes() {
     cachedNodes.clear();
   }
 
-  /** Caches nodes in current window with node filter. Caller should recycle the window. */
+  /** Caches nodes in current window with node filter. */
   synchronized void cacheCurrentWindow(
       @Nullable AccessibilityWindow currentWindow, Filter<AccessibilityNodeInfoCompat> filter) {
-    final String caller = "ScreenCache.cacheCurrentScreen()";
-
     // Clears before cached.
-    clearCachedNodes(caller);
+    clearCachedNodes();
 
     if (currentWindow == null) {
       return;
@@ -58,11 +54,7 @@ final class ScreenNodesCache {
     // Caches nodes matched filter in current window.
     AccessibilityNode root = currentWindow.getRoot();
     if (root != null) {
-      try {
-        cachedNodes.addAll(root.getMatchingDescendantsOrRoot(filter));
-      } finally {
-        root.recycle(caller);
-      }
+      cachedNodes.addAll(root.getMatchingDescendantsOrRoot(filter));
     }
   }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">الرقم</string>
+  <string name="capitalize_announcement">الكتابة بالأحرف الكبيرة</string>
+  <string name="read_out_deleted">تم حذف %s.</string>
+  <plurals name="braille_dots">
+    <item quantity="zero">%s نقطة</item>
+    <item quantity="one">نقطة واحدة (%s)</item>
+    <item quantity="two">نقطتان (%s)</item>
+    <item quantity="few">%s نقاط</item>
+    <item quantity="many">%s نقطة</item>
+    <item quantity="other">%s نقطة</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">لغة برايل الإنجليزية الموحدة غير المختصرة</string>
+  <string name="code_user_facing_name_ueb2">لغة برايل الإنجليزية الموحدة المختصرة</string>
+  <string name="code_user_facing_name_es">الإسبانية</string>
+  <string name="code_user_facing_name_ar">العربية</string>
+  <string name="code_user_facing_name_fr">الفرنسية</string>
+  <string name="code_user_facing_name_pl">البولندية</string>
+  <string name="screen_away">وضع \"الشاشة البعيدة\"</string>
+  <string name="screen_away_detail">وجِّه الجهاز بحيث لا تكون الشاشة مواجهة لك (وضع \"الشاشة البعيدة\").</string>
+  <string name="tabletop">وضع \" الشاشة المسطحة\"</string>
+  <string name="tabletop_detail">ضَع الجهاز بشكل مسطح على الطاولة (وضع \"الشاشة المسطحة\").</string>
+  <string name="auto_detect">تعديل وضع الشاشة حسب طريقة مسك الجهاز</string>
+</resources>

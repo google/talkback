@@ -4,6 +4,7 @@ apply from: "../shared.gradle"
 
 dependencies {
     implementation project(':proguard')
+    implementation project(':uiunderstanding')
 }
 
 android {

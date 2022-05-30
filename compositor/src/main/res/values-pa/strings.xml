@@ -5,7 +5,7 @@
   <string name="talkback_resumed">TalkBack ਮੁੜ ਚਾਲੂ ਹੋ ਗਿਆ</string>
   <string name="talkback_disabled">TalkBack ਬੰਦ ਹੈ</string>
   <string name="spokenfeedback_on">ਬੋਲੀ ਪ੍ਰਤੀਕਰਮ ਚਾਲੂ ਹੈ</string>
-  <string name="spokenfeedback_suspended">ਬੋਲੀ ਪ੍ਰਤੀਕਰਮ ਨੂੰ ਸਥਗਿਤ ਕੀਤਾ ਗਿਆ ਹੈ</string>
+  <string name="spokenfeedback_suspended">ਬੋਲੀ ਪ੍ਰਤੀਕਰਮ ਨੂੰ ਮੁਅੱਤਲ ਕੀਤਾ ਗਿਆ ਹੈ</string>
   <string name="spokenfeedback_resumed">ਬੋਲੀ ਪ੍ਰਤੀਕਰਮ ਨੂੰ ਮੁੜ-ਚਾਲੂ ਕੀਤਾ ਗਿਆ</string>
   <string name="spokenfeedback_disabled">ਬੋਲੀ ਪ੍ਰਤੀਕਰਮ ਬੰਦ ਹੈ</string>
   <string name="notification_type_beginning_of_field">ਖੇਤਰ ਦੀ ਸ਼ੁਰੂਆਤ</string>
@@ -59,10 +59,6 @@
   <string name="value_pager_page">ਪੰਨਾ</string>
   <string name="value_progress_bar">ਪ੍ਰਗਤੀ ਪੱਟੀ</string>
   <string name="value_webview">ਵੈੱਬ-ਦ੍ਰਿਸ਼</string>
-  <string name="value_toolbar">ਟੂਲਬਾਰ</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">ਅੱਖਰ %1$d ਤੋਂ %2$d</string>
-  <string name="template_password_traversed">ਚਿੰਨ੍ਹ %1$d</string>
   <string name="value_password">ਪਾਸਵਰਡ</string>
   <string name="value_sliding_drawer_opened">ਸਲਾਈਡਿੰਗ ਡ੍ਰਾਅਰ ਖੋਲ੍ਹਿਆ</string>
   <string name="value_options_menu_open">ਚੋਣਾਂ।</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">ਖੜ੍ਹਵੇਂ ਪੇਜਰ ਤੋਂ ਬਾਹਰ</string>
   <string name="in_horizontal_pager_with_name">ਲੇਟਵੇਂ ਪੇਜਰ %1$s ਵਿੱਚ</string>
   <string name="in_horizontal_pager">ਲੇਟਵੇਂ ਪੇਜਰ ਵਿੱਚ</string>
-  <string name="out_of_horizontal_pager_with_name">ਲੇਟਵੇਂ ਪੇਜਰ %1$s ਤੋਂ ਬਾਹਰ</string>
   <string name="out_of_horizontal_pager">ਲੇਟਵੇਂ ਪੇਜਰ ਤੋਂ ਬਾਹਰ</string>
   <string name="in_grid_pager_with_name">ਗਰਿੱਡ ਪੇਜਰ %1$s ਵਿੱਚ</string>
   <string name="in_grid_pager">ਗਰਿੱਡ ਪੇਜਰ ਵਿੱਚ</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">ਵੱਡਦਰਸ਼ੀਕਰਨ %1$d%%</string>
   <string name="screen_magnification_off">ਵੱਡਦਰਸ਼ੀਕਰਨ ਬੰਦ ਹੈ</string>
   <string name="template_speech_rate_change">ਬੋਲਣ ਦੀ ਗਤੀ %1$d%% ਹੈ</string>
-  <string name="template_speech_rate_change_faster">ਵਧੇਰੇ ਤੇਜ਼</string>
-  <string name="template_speech_rate_change_slower">ਬਹੁਤ ਹੌਲੀ</string>
-  <string name="template_speech_rate_change_fastest">ਸਭ ਤੋਂ ਤੇਜ਼</string>
-  <string name="template_speech_rate_change_slowest">ਸਭ ਤੋਂ ਹੌਲੀ</string>
   <string name="template_volume_change_increase">ਵਧਾਓ</string>
   <string name="template_volume_change_decrease">ਘਟਾਓ</string>
   <string name="template_volume_change_maximum">ਵੱਧੋ-ਵੱਧ</string>
   <string name="template_volume_change_minimum">ਘੱਟੋ-ਘੱਟ</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">ਆਡੀਓ ਡੱਕਿੰਗ ਚਾਲੂ ਹੈ</string>
-  <string name="audio_focus_off">ਆਡੀਓ ਡੱਕਿੰਗ ਬੰਦ ਹੈ</string>
-  <string name="selector_speech_rate_output">ਬੋਲਣ ਦੀ ਗਤੀ</string>
-  <string name="selector_verbosity_output">ਸ਼ਬਦ-ਵਰਤੋਂ</string>
-  <string name="selector_granularity_output">ਨੈਵੀਗੇਸ਼ਨ</string>
-  <string name="selector_audio_focus_output">ਆਡੀਓ ਡੱਕਿੰਗ</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">ਪਾਸਵਰਡ ਸਿਰਫ਼ ਹੈੱਡਫ਼ੋਨ ਵਰਤਣ ਵੇਲੇ ਬੋਲੇ ਜਾਂਦੇ ਹਨ</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s ਉਪਲਬਧ, ਦੇਖਣ ਲਈ %2$s ਵਰਤੋ।</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s ਉਪਲਬਧ।</string>
+  <string name="hint_suggestion">ਸ਼ਬਦ-ਜੋੜ ਸੁਝਾਅ ਉਪਲਬਧ ਹਨ।</string>
+  <string name="in_window_with_name">ਵਿੰਡੋ %1$s</string>
+  <string name="detected_icon_description">%1$s, ਪਛਾਣਿਆ ਗਿਆ ਪ੍ਰਤੀਕ</string>
+  <string name="ocr_text_description">%1$s, ਲਿਖਤ</string>
 </resources>

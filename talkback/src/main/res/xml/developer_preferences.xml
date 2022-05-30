@@ -46,7 +46,7 @@
       android:title="@string/title_pref_log_level"/>
   <Preference
       android:key="@string/pref_dump_a11y_event_key"
-      android:title="@string/title_pref_dump_a11y_event">
-    <intent android:action=".TalkBackDumpAccessibilityEventActivity"/>
+      android:title="@string/title_pref_dump_a11y_event"
+      android:fragment="com.google.android.accessibility.talkback.preference.base.TalkBackDumpAccessibilityEventFragment" >
   </Preference>
 </PreferenceScreen>

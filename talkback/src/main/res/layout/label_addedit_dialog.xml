@@ -15,21 +15,35 @@
      limitations under the License.
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:paddingStart="24dp"
-    android:paddingEnd="24dp" >
+    android:theme="@style/TalkBackSettings"
+    android:paddingStart="@dimen/label_dialog_padding"
+    android:paddingEnd="@dimen/label_dialog_padding" >
 
-    <EditText
-        android:id="@+id/label_dialog_edit_text"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/label_dialog_edit_hint"
-        android:inputType="text"
-        android:fontFamily="@string/talkback_font"
-        android:minHeight="@dimen/edittext_min_height">
-    </EditText>
+        android:orientation="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/label_dialog_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/label_dialog_padding"/>
+
+        <EditText
+            android:id="@+id/label_dialog_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/label_dialog_edit_hint"
+            android:inputType="text"
+            android:fontFamily="@string/accessibility_font"
+            android:minHeight="@dimen/edittext_min_height" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">yhteenveto</string>
   <string name="voice_commands_read">lue</string>
   <string name="voice_commands_read_from_next">Lue seuraavasta</string>
   <string name="voice_commands_edit_options">Muokkaa asetuksia</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Hae</string>
   <string name="voice_commands_search">Hae</string>
   <string name="voice_commands_search_for">Hae tätä:</string>
-  <string name="voice_commands_find_again">Toista haku</string>
   <string name="voice_commands_next_heading">Seuraava otsikko</string>
   <string name="voice_commands_next_control">Seuraava asetus</string>
   <string name="voice_commands_next_link">Seuraava linkki</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Tunnistetta ei voi lisätä</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">Puheen nopeuden asetus</string>
-  <string name="voice_commands_setting_verbosity">Puheen määrän asetus</string>
-  <string name="voice_commands_setting_granularity">Tarkkuuden asetus</string>
-  <string name="voice_commands_setting_navigation">Navigoinnin asetus</string>
   <string name="voice_commands_first">Ensimmäinen</string>
   <string name="voice_commands_top">Alkuun</string>
   <string name="voice_commands_last">Viimeinen</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Ei seuraavia linkkejä</string>
   <string name="voice_commands_no_next_control_feedback">Ei seuraavia asetuksia</string>
   <string name="voice_commands_no_next_landmark_feedback">Ei seuraavia osioita</string>
-  <string name="voice_commands_screen_hidden_feedback">Näyttö piilotettu</string>
-  <string name="voice_commands_showing_screen_feedback">Näyttö näkyvillä</string>
   <string name="voice_commands_help_title">Äänikomentojen yleiskatsaus</string>
   <string name="voice_commands_help_description">Jos haluat käyttää äänikomentoja, pyyhkäise oikealle ja sitten ylös. Näet nämä komennot milloin tahansa sanomalla \"Ohje\" tai \"Mitä voin sanoa?\".</string>
   <string name="voice_commands_help_hint">Ominaisuus toimii parhaiten, kun käytät tarkalleen seuraavissa näkymissä olevia sanamuotoja.</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">özet</string>
   <string name="voice_commands_read">oku</string>
   <string name="voice_commands_read_from_next">Sonrakinden başlayarak oku</string>
   <string name="voice_commands_edit_options">Düzenleme seçenekleri</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Bul</string>
   <string name="voice_commands_search">Ara</string>
   <string name="voice_commands_search_for">Şunu ara</string>
-  <string name="voice_commands_find_again">Aramayı tekrarla</string>
   <string name="voice_commands_next_heading">Sonraki başlık</string>
   <string name="voice_commands_next_control">Sonraki denetim</string>
   <string name="voice_commands_next_link">Sonraki bağlantı</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Etiket eklenemiyor</string>
   <string name="voice_commands_assistant">Asistan</string>
   <string name="voice_commands_setting_speech_rate">Konuşma hızı ayarlanıyor</string>
-  <string name="voice_commands_setting_verbosity">Ayrıntı seviyesi ayarlanıyor</string>
-  <string name="voice_commands_setting_granularity">Ayrıntı düzeyi ayarlanıyor</string>
-  <string name="voice_commands_setting_navigation">Gezinme ayarlanıyor</string>
   <string name="voice_commands_first">İlk</string>
   <string name="voice_commands_top">Üste</string>
   <string name="voice_commands_last">Sonuncu</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Sonraki bağlantı yok</string>
   <string name="voice_commands_no_next_control_feedback">Sonraki kontrol yok</string>
   <string name="voice_commands_no_next_landmark_feedback">Sonraki önemli nokta yok</string>
-  <string name="voice_commands_screen_hidden_feedback">Ekran gizlendi</string>
-  <string name="voice_commands_showing_screen_feedback">Ekran gösteriliyor</string>
   <string name="voice_commands_help_title">Sesli komutlara genel bakış</string>
   <string name="voice_commands_help_description">Sesli komutları kullanmak için parmağınızı önce sağa sonra yukarı kaydırın. İstediğiniz zaman \"Yardım\" ya da \"Neler söyleyebilirim?\" diyerek bu komut listesine ulaşabilirsiniz.</string>
   <string name="voice_commands_help_hint">En iyi sonuçlar için aşağıdaki ekranlarda listelenen kelimeleri bire bir söyleyin.</string>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">నంబర్</string>
+  <string name="capitalize_announcement">క్యాపిటలైజేషన్</string>
+  <string name="read_out_deleted">%s తొలగించబడింది</string>
+  <plurals name="braille_dots">
+    <item quantity="one">%s చుక్క</item>
+    <item quantity="other">%s చుక్కలు</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">సంక్షిప్తం కాని యూనిఫైడ్ ఇంగ్లీష్ బ్రెయిలీ</string>
+  <string name="code_user_facing_name_ueb2">సంక్షిప్తం అయిన యూనిఫైడ్ ఇంగ్లీష్ బ్రెయిలీ</string>
+  <string name="code_user_facing_name_es">స్పానిష్</string>
+  <string name="code_user_facing_name_ar">అరబిక్</string>
+  <string name="code_user_facing_name_fr">ఫ్రెంచ్</string>
+  <string name="code_user_facing_name_pl">పోలిష్</string>
+  <string name="screen_away">స్క్రీన్‌కు దూరంగా ఉన్నట్లు సూచించే మోడ్</string>
+  <string name="screen_away_detail">మీ నుండి స్క్రీన్‌ను దూరంగా ఉండేలా పరికరాన్ని పట్టుకోండి (స్క్రీన్‌కు దూరంగా ఉన్నట్లు సూచించే మోడ్)</string>
+  <string name="tabletop">టేబుల్‌టాప్ సెట్టింగ్ మోడ్</string>
+  <string name="tabletop_detail">పరికరాన్ని టేబుల్‌లో ఫ్లాట్‌గా ఉంచండి (టేబుల్‌టాప్ సెట్టింగ్ మోడ్)</string>
+  <string name="auto_detect">మీరు పరికరాన్ని పట్టుకున్న ప్రకారం మార్పులు</string>
+</resources>

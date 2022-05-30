@@ -25,6 +25,7 @@ import static com.google.android.accessibility.talkback.Feedback.Speech.Action.R
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SPELL_SAVED;
 import static com.google.android.accessibility.talkback.Feedback.VoiceRecognition.Action.START_LISTENING;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
+import static com.google.android.accessibility.utils.PreferencesActivity.FRAGMENT_NAME;
 
 import android.content.Intent;
 import android.text.TextUtils;
@@ -34,7 +35,7 @@ import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.talkback.preference.TalkBackVerbosityPreferencesActivity;
+import com.google.android.accessibility.talkback.preference.base.VerbosityPrefFragment;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.output.FeedbackItem;
@@ -107,8 +108,9 @@ public class ContextMenuItemClickProcessor {
       pipeline.returnFeedback(
           eventId, Feedback.part().setSpeech(Feedback.Speech.create(COPY_SAVED)));
     } else if (itemId == R.id.verbosity) {
-      Intent intent = new Intent(service, TalkBackVerbosityPreferencesActivity.class);
+      Intent intent = new Intent(service, TalkBackPreferencesActivity.class);
       intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      intent.putExtra(FRAGMENT_NAME, VerbosityPrefFragment.getFragmentName());
       service.startActivity(intent);
     } else if (itemId == R.id.audio_ducking) {
       switchValueAndEcho(
@@ -132,7 +134,8 @@ public class ContextMenuItemClickProcessor {
       service.startActivity(settingsIntent);
     } else if (itemId == R.id.tts_settings) {
       Intent ttsSettingsIntent = new Intent(TalkBackService.INTENT_TTS_SETTINGS);
-      ttsSettingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      ttsSettingsIntent.addFlags(
+          Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
       service.startActivity(ttsSettingsIntent);
     } else if (itemId == R.id.enable_dimming) {
       pipeline.returnFeedback(eventId, Feedback.dimScreen(DIM));
@@ -186,9 +189,9 @@ public class ContextMenuItemClickProcessor {
               SpeakOptions.create()
                   .setFlags(
                       FeedbackItem.FLAG_NO_HISTORY
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE
                           | FeedbackItem.FLAG_SKIP_DUPLICATE)));
     }
   }

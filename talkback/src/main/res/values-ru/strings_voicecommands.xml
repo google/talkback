@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">краткое описание</string>
   <string name="voice_commands_read">читать</string>
   <string name="voice_commands_read_from_next">Читать со следующего</string>
   <string name="voice_commands_edit_options">Средства редактирования</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Найти</string>
   <string name="voice_commands_search">Поиск</string>
   <string name="voice_commands_search_for">Искать</string>
-  <string name="voice_commands_find_again">Повторить поиск</string>
   <string name="voice_commands_next_heading">Следующий заголовок</string>
   <string name="voice_commands_next_control">Следующий элемент управления</string>
   <string name="voice_commands_next_link">Следующая ссылка</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Не удалось назначить ярлык.</string>
   <string name="voice_commands_assistant">Ассистент</string>
   <string name="voice_commands_setting_speech_rate">Настроить скорость речи</string>
-  <string name="voice_commands_setting_verbosity">Настроить детализацию речи</string>
-  <string name="voice_commands_setting_granularity">Настроить уровень детализации</string>
-  <string name="voice_commands_setting_navigation">Настроить навигацию</string>
   <string name="voice_commands_first">Первый элемент</string>
   <string name="voice_commands_top">Вверх</string>
   <string name="voice_commands_last">Последний элемент</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Следующей ссылки нет</string>
   <string name="voice_commands_no_next_control_feedback">Следующего элемента управления нет</string>
   <string name="voice_commands_no_next_landmark_feedback">Следующей метки нет</string>
-  <string name="voice_commands_screen_hidden_feedback">Подсветка экрана отключена</string>
-  <string name="voice_commands_showing_screen_feedback">Подсветка экрана включена</string>
   <string name="voice_commands_help_title">Обзор голосовых команд</string>
   <string name="voice_commands_help_description">Чтобы использовать голосовые команды, смахните вправо и вверх. Для доступа к списку команд скажите \"Справка\" или \"Что я могу сказать?\".</string>
   <string name="voice_commands_help_hint">Чтобы команды работали, произносите их так, как указано на последующих экранах.</string>

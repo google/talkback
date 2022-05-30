@@ -16,15 +16,17 @@
 package com.google.android.accessibility.talkback.preference;
 
 import android.content.Context;
-import androidx.annotation.Nullable;
+import android.content.SharedPreferences;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 import com.google.android.accessibility.talkback.HelpAndFeedbackUtils;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.talkback.utils.RemoteIntentUtils;
+import com.google.android.accessibility.utils.SharedPreferencesUtils;
 
 /** Utility class for Preferences and Activity */
 public class PreferencesActivityUtils {
@@ -43,7 +45,7 @@ public class PreferencesActivityUtils {
    * @param text The text to announce.
    * @param context The context used to resolve string resources.
    */
-  static void announceText(String text, Context context) {
+  public static void announceText(String text, Context context) {
     AccessibilityManager accessibilityManager =
         (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
     if (accessibilityManager.isEnabled()) {
@@ -62,6 +64,7 @@ public class PreferencesActivityUtils {
       return;
     }
 
+    // Only wear doesn't support help and feedback
     if (HelpAndFeedbackUtils.supportsHelpAndFeedback(fragment.getContext())) {
       pref.setTitle(R.string.title_pref_help_and_feedback);
       pref.setOnPreferenceClickListener(
@@ -71,7 +74,7 @@ public class PreferencesActivityUtils {
           });
     } else {
       pref.setTitle(R.string.title_pref_help);
-      PreferenceSettingsUtils.assignWebIntentToPreference(fragment, pref, HELP_URL);
+      RemoteIntentUtils.assignWebIntentToPreference(fragment, pref, HELP_URL);
     }
   }
 
@@ -90,5 +93,35 @@ public class PreferencesActivityUtils {
       return;
     }
     preference.setSummary(summaryResId);
+  }
+
+  /**
+   * Combines the key value of custom action key and editing key, then removes editing key.
+   *
+   * @param context The context used to resolve string resources.
+   */
+  public static void removeEditingKey(Context context) {
+    SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
+    final SharedPreferences.Editor prefEditor = prefs.edit();
+    String editingKey = context.getString(R.string.pref_show_context_menu_editing_setting_key);
+
+    if (prefs.contains(editingKey)) {
+      boolean editingState =
+          SharedPreferencesUtils.getBooleanPref(
+              prefs,
+              context.getResources(),
+              R.string.pref_show_context_menu_editing_setting_key,
+              R.bool.pref_show_context_menu_editing_default);
+      // Changes custom action key value to true when editingState is true
+      if (editingState) {
+        SharedPreferencesUtils.putBooleanPref(
+            prefs,
+            context.getResources(),
+            R.string.pref_show_context_menu_custom_action_setting_key,
+            editingState);
+      }
+      prefEditor.remove(editingKey);
+      prefEditor.apply();
+    }
   }
 }

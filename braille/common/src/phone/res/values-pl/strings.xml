@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Liczba</string>
+  <string name="capitalize_announcement">Caps Lock</string>
+  <string name="read_out_deleted">Usunięto tekst %s</string>
+  <plurals name="braille_dots">
+    <item quantity="one">punkt %s</item>
+    <item quantity="few">punkty %s</item>
+    <item quantity="many">punkty %s</item>
+    <item quantity="other">punkty %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille (integralny)</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille (skrótowy)</string>
+  <string name="code_user_facing_name_es">Hiszpański</string>
+  <string name="code_user_facing_name_ar">arabski</string>
+  <string name="code_user_facing_name_fr">francuski</string>
+  <string name="code_user_facing_name_pl">Polski</string>
+  <string name="screen_away">Tryb Ekran odsunięty</string>
+  <string name="screen_away_detail">Trzymaj urządzenie tak, by ekran był od Ciebie odsunięty (tryb odsuniętego ekranu)</string>
+  <string name="tabletop">Tryb na stole</string>
+  <string name="tabletop_detail">Połóż urządzenie płasko na stole (tryb na stole)</string>
+  <string name="auto_detect">Dostosuj do swojego sposobu trzymania urządzenia</string>
+</resources>

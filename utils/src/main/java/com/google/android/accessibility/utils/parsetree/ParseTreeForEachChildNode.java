@@ -57,7 +57,6 @@ class ParseTreeForEachChildNode extends ParseTreeNode {
     List<ParseTree.VariableDelegate> children = mChild.resolveToChildArray(delegate, logIndent);
     for (ParseTree.VariableDelegate child : children) {
       result.add(mFunction.resolveToString(child, logIndent));
-      child.cleanup();
     }
     return result;
   }

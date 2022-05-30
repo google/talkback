@@ -59,10 +59,6 @@
   <string name="value_pager_page">পৃষ্ঠা</string>
   <string name="value_progress_bar">প্রগতি বার</string>
   <string name="value_webview">ওয়েবভিউ</string>
-  <string name="value_toolbar">Toolbar</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">%1$d থেকে %2$d পর্যন্ত অক্ষরগুলি</string>
-  <string name="template_password_traversed">%1$d অক্ষর</string>
   <string name="value_password">পাসওয়ার্ড</string>
   <string name="value_sliding_drawer_opened">স্লাইডিং ড্রয়ার খোলা হয়েছে</string>
   <string name="value_options_menu_open">বিকল্পগুলি৷</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">ভার্টিক্যাল পেজারের বাইরে</string>
   <string name="in_horizontal_pager_with_name">হরিজন্টাল পেজারে %1$s</string>
   <string name="in_horizontal_pager">হরিজন্টাল পেজারে</string>
-  <string name="out_of_horizontal_pager_with_name">হরিজন্টাল পেজারের বাইরে %1$s</string>
   <string name="out_of_horizontal_pager">হরিজন্টাল পেজারের বাইরে</string>
   <string name="in_grid_pager_with_name">গ্রিড পেজারে %1$s</string>
   <string name="in_grid_pager">গ্রিড পেজারে</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">%1$d%% শতাংশ বড় করে দেখানো হচ্ছে</string>
   <string name="screen_magnification_off">বড় করে দেখানো বন্ধ করা হয়েছে</string>
   <string name="template_speech_rate_change">ভাষ্যের হার %1$d%%</string>
-  <string name="template_speech_rate_change_faster">আরও দ্রুত</string>
-  <string name="template_speech_rate_change_slower">আরও ধীরে</string>
-  <string name="template_speech_rate_change_fastest">দ্রুততম</string>
-  <string name="template_speech_rate_change_slowest">সবচেয়ে ধীরে</string>
   <string name="template_volume_change_increase">বাড়ান</string>
   <string name="template_volume_change_decrease">কমান</string>
   <string name="template_volume_change_maximum">সর্বোচ্চ</string>
   <string name="template_volume_change_minimum">ন্যূনতম</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">অডিও ডাকিং চালু আছে</string>
-  <string name="audio_focus_off">অডিও ডাকিং বন্ধ আছে</string>
-  <string name="selector_speech_rate_output">ভাষ্যের হার</string>
-  <string name="selector_verbosity_output">ভার্বোসিটি</string>
-  <string name="selector_granularity_output">নেভিগেশন</string>
-  <string name="selector_audio_focus_output">অডিও ডাকিং</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">শুধুমাত্র হেডফোন ব্যবহার করলেই পাসওয়ার্ড বলা যাবে</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s উপলভ্য আছে, এটি দেখতে %2$s ব্যবহার করুন।</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s উপলভ্য আছে।</string>
+  <string name="hint_suggestion">বানানের সাজেশন উপলভ্য আছে।</string>
+  <string name="in_window_with_name">%1$s উইন্ডো</string>
+  <string name="detected_icon_description">%1$s, এই আইকন শনাক্ত করা হয়েছে</string>
+  <string name="ocr_text_description">%1$s, টেক্সট</string>
 </resources>

@@ -72,7 +72,7 @@ public class NodeBlockingOverlay extends SimpleOverlay {
   private long lastHideTime = 0;
   private int lastTouchAction = MotionEvent.ACTION_CANCEL;
   private long lastTouchDownTime = 0;
-  @Nullable private Rect desiredRect = null;
+  private @Nullable Rect desiredRect = null;
 
   public NodeBlockingOverlay(Context context, OnDoubleTapListener doubleTapListener) {
     super(context);
@@ -188,7 +188,6 @@ public class NodeBlockingOverlay extends SimpleOverlay {
                 0 /* y */,
                 0 /* metaState */);
         gestureDetector.onTouchEvent(upEvent);
-        upEvent.recycle();
       }
 
       // Update down time and send actual down event.
@@ -202,7 +201,6 @@ public class NodeBlockingOverlay extends SimpleOverlay {
               0 /* y */,
               0 /* metaState */);
       gestureDetector.onTouchEvent(downEvent);
-      downEvent.recycle();
 
       lastTouchAction = MotionEvent.ACTION_DOWN;
     } else if (event.getEventType() == AccessibilityEvent.TYPE_TOUCH_INTERACTION_END) {
@@ -216,7 +214,6 @@ public class NodeBlockingOverlay extends SimpleOverlay {
               0 /* y */,
               0 /* metaState */);
       gestureDetector.onTouchEvent(upEvent);
-      upEvent.recycle();
 
       // Check if a double tap occurred during the last interaction.
       if (gestureListener.getDoubleTapOccurred()) {

@@ -17,7 +17,6 @@
 package com.google.android.accessibility.utils.traversal;
 
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import java.util.HashMap;
 import java.util.Map;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -33,7 +32,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 @SuppressWarnings("JavadocReference")
 public class OrderedTraversalStrategy implements TraversalStrategy {
 
-  @Nullable private AccessibilityNodeInfoCompat mRootNode;
+  private @Nullable AccessibilityNodeInfoCompat mRootNode;
   private final OrderedTraversalController mController;
   private final Map<AccessibilityNodeInfoCompat, Boolean> mSpeakingNodesCache;
 
@@ -48,14 +47,10 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
     mController.initOrder(mRootNode, false);
   }
 
+  /** @deprecated Accessibility is discontinuing recycling. */
   @Override
-  public void recycle() {
-    if (mRootNode != null) {
-      mRootNode.recycle();
-    }
-
-    mController.recycle();
-  }
+  @Deprecated
+  public void recycle() {}
 
   @Override
   public Map<AccessibilityNodeInfoCompat, Boolean> getSpeakingNodesCache() {
@@ -77,27 +72,11 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
   }
 
   private @Nullable AccessibilityNodeInfoCompat focusNext(AccessibilityNodeInfoCompat node) {
-    AccessibilityNodeInfoCompat rootNode = AccessibilityNodeInfoCompat.obtain(node);
-    AccessibilityNodeInfoCompat targetNode;
-    try {
-      targetNode = mController.findNext(rootNode);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(rootNode);
-    }
-
-    return targetNode;
+    return mController.findNext(node);
   }
 
   private @Nullable AccessibilityNodeInfoCompat focusPrevious(AccessibilityNodeInfoCompat node) {
-    AccessibilityNodeInfoCompat rootNode = AccessibilityNodeInfoCompat.obtain(node);
-    AccessibilityNodeInfoCompat targetNode;
-    try {
-      targetNode = mController.findPrevious(rootNode);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(rootNode);
-    }
-
-    return targetNode;
+    return mController.findPrevious(node);
   }
 
   @Override

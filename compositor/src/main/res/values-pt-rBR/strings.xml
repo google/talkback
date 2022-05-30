@@ -59,10 +59,6 @@
   <string name="value_pager_page">Página</string>
   <string name="value_progress_bar">Barra de progresso</string>
   <string name="value_webview">Visualização da Web</string>
-  <string name="value_toolbar">Barra de ferramentas</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Caracteres de %1$d a %2$d</string>
-  <string name="template_password_traversed">Caractere %1$d</string>
   <string name="value_password">senha</string>
   <string name="value_sliding_drawer_opened">Barra deslizante aberta</string>
   <string name="value_options_menu_open">Opções.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Fora do pager vertical</string>
   <string name="in_horizontal_pager_with_name">No pager horizontal %1$s</string>
   <string name="in_horizontal_pager">No pager horizontal</string>
-  <string name="out_of_horizontal_pager_with_name">Fora do pager horizontal %1$s</string>
   <string name="out_of_horizontal_pager">Fora do pager horizontal</string>
   <string name="in_grid_pager_with_name">No pager em grade %1$s</string>
   <string name="in_grid_pager">No pager em grade</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">%1$d%% de ampliação</string>
   <string name="screen_magnification_off">Ampliação desativada</string>
   <string name="template_speech_rate_change">Velocidade da fala: %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Mais rápida</string>
-  <string name="template_speech_rate_change_slower">Mais lenta</string>
-  <string name="template_speech_rate_change_fastest">Super-rápida</string>
-  <string name="template_speech_rate_change_slowest">Superlenta</string>
   <string name="template_volume_change_increase">Aumentar</string>
   <string name="template_volume_change_decrease">Diminuir</string>
   <string name="template_volume_change_maximum">Máximo</string>
   <string name="template_volume_change_minimum">Mínimo</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Redução de áudio ativada</string>
-  <string name="audio_focus_off">Redução de áudio desativada</string>
-  <string name="selector_speech_rate_output">Velocidade da fala</string>
-  <string name="selector_verbosity_output">Verbosidade</string>
-  <string name="selector_granularity_output">Navegação</string>
-  <string name="selector_audio_focus_output">Redução de áudio</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Senhas faladas apenas ao usar fones de ouvido</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s disponível. Use o gesto %2$s para ver.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s disponível.</string>
+  <string name="hint_suggestion">Sugestões de ortografia disponíveis.</string>
+  <string name="in_window_with_name">Janela %1$s</string>
+  <string name="detected_icon_description">%1$s: ícone detectado</string>
+  <string name="ocr_text_description">%1$s: texto</string>
 </resources>

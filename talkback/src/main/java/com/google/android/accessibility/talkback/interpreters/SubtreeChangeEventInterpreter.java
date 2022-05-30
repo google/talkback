@@ -21,8 +21,8 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 
 import android.os.Handler;
 import android.os.Message;
-import androidx.core.view.accessibility.AccessibilityEventCompat;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
 import com.google.android.accessibility.talkback.Interpretation.ID;
 import com.google.android.accessibility.talkback.Pipeline.InterpretationReceiver;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;

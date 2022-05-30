@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">摘要</string>
   <string name="voice_commands_read">朗讀</string>
   <string name="voice_commands_read_from_next">從下一個項目開始朗讀</string>
   <string name="voice_commands_edit_options">編輯選項</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">尋找</string>
   <string name="voice_commands_search">搜尋</string>
   <string name="voice_commands_search_for">搜尋</string>
-  <string name="voice_commands_find_again">尋找重複的關鍵字</string>
   <string name="voice_commands_next_heading">下一個標題</string>
   <string name="voice_commands_next_control">下一個控制項</string>
   <string name="voice_commands_next_link">下一個連結</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">無法加上標籤</string>
   <string name="voice_commands_assistant">Google 助理</string>
   <string name="voice_commands_setting_speech_rate">設定語音速率</string>
-  <string name="voice_commands_setting_verbosity">設定詳細程度</string>
-  <string name="voice_commands_setting_granularity">設定切分程度</string>
-  <string name="voice_commands_setting_navigation">設定瀏覽切分單位</string>
   <string name="voice_commands_first">第一個</string>
   <string name="voice_commands_top">第一項</string>
   <string name="voice_commands_last">最後一個</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">沒有下一個連結</string>
   <string name="voice_commands_no_next_control_feedback">沒有下一個控制項</string>
   <string name="voice_commands_no_next_landmark_feedback">沒有下一個位置標記</string>
-  <string name="voice_commands_screen_hidden_feedback">螢幕畫面已隱藏</string>
-  <string name="voice_commands_showing_screen_feedback">顯示螢幕</string>
   <string name="voice_commands_help_title">語音指令總覽</string>
   <string name="voice_commands_help_description">如要使用語音指令，請先向右再向上滑動。想查看這份指令清單時，只要說出「我需要協助」或「我可以使用哪些語音指令」即可。</string>
   <string name="voice_commands_help_hint">為了獲得最佳效果，請確實說出後續畫面列出的文字內容。</string>

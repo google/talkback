@@ -34,8 +34,8 @@ import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
-import com.google.android.accessibility.utils.WindowEventInterpreter;
-import com.google.android.accessibility.utils.WindowEventInterpreter.EventInterpretation;
+import com.google.android.accessibility.utils.input.WindowEventInterpreter;
+import com.google.android.accessibility.utils.input.WindowEventInterpreter.EventInterpretation;
 import com.google.android.accessibility.utils.keyboard.KeyComboManager;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
@@ -186,19 +186,19 @@ public class UniversalSearchManager
     // Speak stop search hint.
     CharSequence hint = talkbackService.getString(R.string.search_mode_cancel);
     // Use {@link FeedbackItem#FLAG_NO_HISTORY} not to save this utterance to history.
-    // Use {@link FeedbackItem#FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE} force to speak while
-    // playing audio.
-    // Use {@link FeedbackItem#FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE} force to speak while using
-    // microphone.
-    // Use {@link FeedbackItem#FLAG_FORCED_FEEDBACK_SSB_ACTIVE} force to speak while speech
+    // Use {@link FeedbackItem#FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE} force to speak
+    // while playing audio.
+    // Use {@link FeedbackItem#FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE} force to speak while
+    // using microphone.
+    // Use {@link FeedbackItem#FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE} force to speak while speech
     // recognition.
     SpeakOptions speakOptions =
         SpeakOptions.create()
             .setFlags(
                 FeedbackItem.FLAG_NO_HISTORY
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
     pipeline.returnFeedback(
         eventId,
         Feedback.speech(hint, speakOptions)

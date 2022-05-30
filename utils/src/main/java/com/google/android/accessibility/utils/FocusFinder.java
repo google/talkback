@@ -20,9 +20,9 @@ import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_ACCESSIBILI
 import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_INPUT;
 
 import android.accessibilityservice.AccessibilityService;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

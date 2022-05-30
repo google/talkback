@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">সংখ্যা</string>
+  <string name="capitalize_announcement">সৰ্বাধিক সীমা</string>
+  <string name="read_out_deleted">%s মচা হ\'ল</string>
+  <plurals name="braille_dots">
+    <item quantity="one">বিন্দু %s</item>
+    <item quantity="other">বিন্দু %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">স্পেনিশ্ব</string>
+  <string name="code_user_facing_name_ar">আৰবী</string>
+  <string name="code_user_facing_name_fr">ফৰাচী</string>
+  <string name="code_user_facing_name_pl">প’লিশ্ব</string>
+  <string name="screen_away">স্ক্ৰীন এৱে’ ম’ড</string>
+  <string name="screen_away_detail">স্ক্ৰীনখন আপোনাৰ পৰা আঁতৰলৈ কৰি ডিভাইচটো ধৰি ৰাখক (স্ক্ৰীন এৱে’ ম’ড)</string>
+  <string name="tabletop">টেবুলটপ ম’ড</string>
+  <string name="tabletop_detail">ডিভাইচটো এখন টেবুলত সমতলীয়াকৈ ৰাখক (টেবুলটপ ম’ড)</string>
+  <string name="auto_detect">আপুনি ডিভাইচটো ধৰি ৰখাৰ ধৰণ অনুযায়ী খাপ খাই পৰক</string>
+</resources>

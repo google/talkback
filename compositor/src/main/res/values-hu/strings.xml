@@ -59,10 +59,6 @@
   <string name="value_pager_page">Oldal</string>
   <string name="value_progress_bar">Folyamatjelző</string>
   <string name="value_webview">Webes nézet</string>
-  <string name="value_toolbar">Eszköztár</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Karakterek %1$d és %2$d között</string>
-  <string name="template_password_traversed">Karakter: %1$d</string>
   <string name="value_password">jelszó</string>
   <string name="value_sliding_drawer_opened">A csúszka nyitva van</string>
   <string name="value_options_menu_open">Lehetőségek.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Függőleges oldalon kívül</string>
   <string name="in_horizontal_pager_with_name">%1$s nevű vízszintes oldalon belül</string>
   <string name="in_horizontal_pager">Vízszintes oldalon belül</string>
-  <string name="out_of_horizontal_pager_with_name">%1$s nevű vízszintes oldalon kívül</string>
   <string name="out_of_horizontal_pager">Vízszintes oldalon kívül</string>
   <string name="in_grid_pager_with_name">%1$s nevű rácselrendezésű oldalon belül</string>
   <string name="in_grid_pager">Rácselrendezésű oldalon belül</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Nagyítás mértéke: %1$d%%</string>
   <string name="screen_magnification_off">Nagyítás kikapcsolva</string>
   <string name="template_speech_rate_change">Beszédsebesség %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Gyorsabb</string>
-  <string name="template_speech_rate_change_slower">Lassabb</string>
-  <string name="template_speech_rate_change_fastest">Leggyorsabb</string>
-  <string name="template_speech_rate_change_slowest">Leglassabb</string>
   <string name="template_volume_change_increase">Növelés</string>
   <string name="template_volume_change_decrease">Csökkentés</string>
   <string name="template_volume_change_maximum">Maximum</string>
   <string name="template_volume_change_minimum">Minimum</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Hang automatikus halkítása bekapcsolva</string>
-  <string name="audio_focus_off">Hang automatikus halkítása kikapcsolva</string>
-  <string name="selector_speech_rate_output">Beszéd sebessége</string>
-  <string name="selector_verbosity_output">Részletesség</string>
-  <string name="selector_granularity_output">Navigáció</string>
-  <string name="selector_audio_focus_output">Hang automatikus halkítása</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Jelszavak felolvasása csak fejhallgatónál</string>
   <string name="template_hint_menu_type_high_verbosity">A(z) %1$s rendelkezésre áll. A megtekintéshez használja a(z) %2$s kézmozdulatot.</string>
-  <string name="template_hint_menu_type_low_verbosity">A(z) %1$s rendelkezésre áll.</string>
+  <string name="hint_suggestion">Helyesírási javaslatok állnak rendelkezésre.</string>
+  <string name="in_window_with_name">%1$s ablak</string>
+  <string name="detected_icon_description">Észlelt ikon: %1$s</string>
+  <string name="ocr_text_description">Szöveg: %1$s</string>
 </resources>

@@ -20,7 +20,7 @@ public class TalkBackService extends com.google.android.accessibility.talkback.T
   private static final String TAG = "TalkBackServiceWear";
   private static final int NUM_STEM_BUTTONS_REQUIRED = 3;
   private static final boolean SUPPORT_VOLUME_CHANGE_BY_WEAR_KEY = false;
-  @Nullable private Pair<Integer, Integer> volumeButtons;
+  private @Nullable Pair<Integer, Integer> volumeButtons;
 
   @Override
   public void onCreate() {

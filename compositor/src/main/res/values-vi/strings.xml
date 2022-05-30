@@ -59,10 +59,6 @@
   <string name="value_pager_page">Trang</string>
   <string name="value_progress_bar">Thanh tiến độ</string>
   <string name="value_webview">Chế độ xem web</string>
-  <string name="value_toolbar">Thanh công cụ</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Ký tự từ %1$d đến %2$d</string>
-  <string name="template_password_traversed">Ký tự %1$d</string>
   <string name="value_password">mật khẩu</string>
   <string name="value_sliding_drawer_opened">Đã mở ngăn kéo dạng trượt</string>
   <string name="value_options_menu_open">Tùy chọn.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Ngoài chế độ phân trang dọc</string>
   <string name="in_horizontal_pager_with_name">Trong chế độ phân trang ngang %1$s</string>
   <string name="in_horizontal_pager">Trong chế độ phân trang ngang</string>
-  <string name="out_of_horizontal_pager_with_name">Ngoài chế độ phân trang ngang %1$s</string>
   <string name="out_of_horizontal_pager">Ngoài chế độ phân trang ngang</string>
   <string name="in_grid_pager_with_name">Trong chế độ phân trang lưới %1$s</string>
   <string name="in_grid_pager">Trong chế độ phân trang lưới</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Phóng to %1$d%%</string>
   <string name="screen_magnification_off">Tắt phóng to</string>
   <string name="template_speech_rate_change">Tốc độ lời nói %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Nhanh hơn</string>
-  <string name="template_speech_rate_change_slower">Chậm hơn</string>
-  <string name="template_speech_rate_change_fastest">Nhanh nhất</string>
-  <string name="template_speech_rate_change_slowest">Chậm nhất</string>
   <string name="template_volume_change_increase">Tăng</string>
   <string name="template_volume_change_decrease">Giảm</string>
   <string name="template_volume_change_maximum">Tối đa</string>
   <string name="template_volume_change_minimum">Tối thiểu</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Giảm âm thanh bật</string>
-  <string name="audio_focus_off">Giảm âm thanh tắt</string>
-  <string name="selector_speech_rate_output">Tốc độ lời nói</string>
-  <string name="selector_verbosity_output">Độ chi tiết</string>
-  <string name="selector_granularity_output">Di chuyển</string>
-  <string name="selector_audio_focus_output">Giảm âm thanh</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Chỉ đọc mật khẩu khi dùng tai nghe</string>
   <string name="template_hint_menu_type_high_verbosity">Có sẵn %1$s, hãy sử dụng %2$s để xem.</string>
-  <string name="template_hint_menu_type_low_verbosity">Có sẵn %1$s.</string>
+  <string name="hint_suggestion">Có đề xuất chính tả.</string>
+  <string name="in_window_with_name">Cửa sổ %1$s</string>
+  <string name="detected_icon_description">Đã phát hiện thấy biểu tượng %1$s</string>
+  <string name="ocr_text_description">Văn bản %1$s</string>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">summary</string>
   <string name="voice_commands_read">read</string>
   <string name="voice_commands_read_from_next">Read from next</string>
   <string name="voice_commands_edit_options">Edit options</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Find</string>
   <string name="voice_commands_search">Search</string>
   <string name="voice_commands_search_for">Search for</string>
-  <string name="voice_commands_find_again">Repeat find</string>
   <string name="voice_commands_next_heading">Next heading</string>
   <string name="voice_commands_next_control">Next control</string>
   <string name="voice_commands_next_link">Next link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Cannot label</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">Setting speech rate</string>
-  <string name="voice_commands_setting_verbosity">Setting verbosity</string>
-  <string name="voice_commands_setting_granularity">Setting granularity</string>
-  <string name="voice_commands_setting_navigation">Setting navigation</string>
   <string name="voice_commands_first">First</string>
   <string name="voice_commands_top">Top</string>
   <string name="voice_commands_last">Last</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">No next link</string>
   <string name="voice_commands_no_next_control_feedback">No next control</string>
   <string name="voice_commands_no_next_landmark_feedback">No next landmark</string>
-  <string name="voice_commands_screen_hidden_feedback">Screen hidden</string>
-  <string name="voice_commands_showing_screen_feedback">Showing screen</string>
   <string name="voice_commands_help_title">Voice command overview</string>
   <string name="voice_commands_help_description">To use voice commands, swipe right then up. Say \'Help\' or \'What can I say?\' at any time for this list of commands.</string>
   <string name="voice_commands_help_hint">For best results, say the exact wording listed on the following screens.</string>

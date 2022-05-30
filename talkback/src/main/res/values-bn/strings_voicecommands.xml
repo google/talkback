@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">সারাংশ</string>
   <string name="voice_commands_read">পড়ুন</string>
   <string name="voice_commands_read_from_next">পরের আইটেম থেকে পড়ো</string>
   <string name="voice_commands_edit_options">এডিট করার বিকল্প</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">খুঁজুন</string>
   <string name="voice_commands_search">সার্চ করো</string>
   <string name="voice_commands_search_for">সার্চ করো</string>
-  <string name="voice_commands_find_again">পুনরাবৃত্তি হয় এমন সার্চ</string>
   <string name="voice_commands_next_heading">পরবর্তী শিরোনাম</string>
   <string name="voice_commands_next_control">পরবর্তী কন্ট্রোল</string>
   <string name="voice_commands_next_link">পরবর্তী লিঙ্ক</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">লেবেল করা যাচ্ছে না</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">স্পিচ রেট সেট করা হচ্ছে</string>
-  <string name="voice_commands_setting_verbosity">ভার্বোসিটি সেট করা হচ্ছে</string>
-  <string name="voice_commands_setting_granularity">গ্র্যানুলারিটি সেট করা হচ্ছে</string>
-  <string name="voice_commands_setting_navigation">নেভিগেশন সেট করা হচ্ছে</string>
   <string name="voice_commands_first">প্রথম</string>
   <string name="voice_commands_top">স্ক্রিনের উপরের দিকে</string>
   <string name="voice_commands_last">শেষ</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">এরপর কোনও লিঙ্ক নেই</string>
   <string name="voice_commands_no_next_control_feedback">এরপর কোনও কন্ট্রোল নেই</string>
   <string name="voice_commands_no_next_landmark_feedback">এরপর কোনও ল্যান্ডমার্ক নেই</string>
-  <string name="voice_commands_screen_hidden_feedback">স্ক্রিন লুকানো হয়েছে</string>
-  <string name="voice_commands_showing_screen_feedback">স্ক্রিন দেখানো হচ্ছে</string>
   <string name="voice_commands_help_title">এক নজরে ভয়েস কমান্ড</string>
   <string name="voice_commands_help_description">ভয়েস কমান্ড ব্যবহার করতে প্রথমে ডানদিকে ও পরে উপরের দিকে সোয়াইপ করুন। যেকোনও সময়ে \"আমি কী কী বলতে পারি?\" অথবা \"সাহায্য চাই\" বলুন ও কমান্ডের তালিকা দেখুন।</string>
   <string name="voice_commands_help_hint">সবচেয়ে ভাল ফলাফল পেতে, নিচে স্ক্রিনে দেখানো কথাগুলি হুবহু বলুন।</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">સારાંશ</string>
   <string name="voice_commands_read">વાંચો</string>
   <string name="voice_commands_read_from_next">આગલી આઇટમમાંથી વાંચો</string>
   <string name="voice_commands_edit_options">ફેરફારના વિકલ્પો</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">શોધો</string>
   <string name="voice_commands_search">શોધો</string>
   <string name="voice_commands_search_for">આ શોધો</string>
-  <string name="voice_commands_find_again">શોધતા રહો</string>
   <string name="voice_commands_next_heading">આગલું મથાળું</string>
   <string name="voice_commands_next_control">આગલું નિયંત્રણ</string>
   <string name="voice_commands_next_link">આગલી લિંક</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">લેબલ કરી શકતાં નથી</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">બોલવાની ઝડપને સેટ કરી રહ્યાં છીએ</string>
-  <string name="voice_commands_setting_verbosity">શબ્દબહુલતાને સેટ કરી રહ્યાં છીએ</string>
-  <string name="voice_commands_setting_granularity">ગ્રેન્યુલારિટિને સેટ કરી રહ્યાં છીએ</string>
-  <string name="voice_commands_setting_navigation">નૅવિગેશનને સેટ કરી રહ્યાં છીએ</string>
   <string name="voice_commands_first">પહેલી</string>
   <string name="voice_commands_top">ઉપર</string>
   <string name="voice_commands_last">છેલ્લી</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">કોઈ આગલી લિંક નથી</string>
   <string name="voice_commands_no_next_control_feedback">કોઈ આગલું નિયંત્રણ નથી</string>
   <string name="voice_commands_no_next_landmark_feedback">કોઈ આગલું લૅન્ડમાર્ક નથી</string>
-  <string name="voice_commands_screen_hidden_feedback">સ્ક્રીન છુપાવી</string>
-  <string name="voice_commands_showing_screen_feedback">સ્ક્રીન બતાવી રહ્યાં છીએ</string>
   <string name="voice_commands_help_title">વૉઇસ આદેશનો ઓવરવ્યૂ</string>
   <string name="voice_commands_help_description">વૉઇસ આદેશોનો ઉપયોગ કરવા માટે, જમણે પછી ઉપર સ્વાઇપ કરો. આદેશોની આ સૂચિ માટે, \"સહાય કરો\" અથવા \"હું શું કહી શકું છું?\" એમ કહો.</string>
   <string name="voice_commands_help_hint">શ્રેષ્ઠ પરિણામો માટે, આગલી સ્ક્રીન પર સૂચિબદ્ધ કરવામાં આવેલા બરાબર તે જ શબ્દો કહો.</string>

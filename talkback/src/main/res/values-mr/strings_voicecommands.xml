@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">सारांश</string>
   <string name="voice_commands_read">वाचणे</string>
   <string name="voice_commands_read_from_next">पुढील आयटमपासून वाचा</string>
   <string name="voice_commands_edit_options">संपादनाचे पर्याय</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">शोधा</string>
   <string name="voice_commands_search">शोधा</string>
   <string name="voice_commands_search_for">हे शोधा</string>
-  <string name="voice_commands_find_again">शोधा रिपीट करा</string>
   <string name="voice_commands_next_heading">पुढील शीर्षक</string>
   <string name="voice_commands_next_control">पुढील नियंत्रण</string>
   <string name="voice_commands_next_link">पुढील लिंक</string>
@@ -47,11 +45,8 @@
   <string name="voice_commands_deselect">निवड रद्द करा</string>
   <string name="voice_commands_label">लेबल लावा</string>
   <string name="voice_commands_cannot_label_feedback">लेबल लावू शकत नाही</string>
-  <string name="voice_commands_assistant">Assistant</string>
+  <string name="voice_commands_assistant">असिस्टंट</string>
   <string name="voice_commands_setting_speech_rate">स्पीच रेट सेट करत आहे</string>
-  <string name="voice_commands_setting_verbosity">व्हर्बाेसिटी सेट करत आहे</string>
-  <string name="voice_commands_setting_granularity">ग्रॅन्युलॅरिटी सेट करत आहे</string>
-  <string name="voice_commands_setting_navigation">नेव्हिगेशन सेट करत आहे</string>
   <string name="voice_commands_first">पहिला</string>
   <string name="voice_commands_top">सर्वात वरती</string>
   <string name="voice_commands_last">शेवटचा</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">पुढील लिंक नाही</string>
   <string name="voice_commands_no_next_control_feedback">पुढील नियंत्रण नाही</string>
   <string name="voice_commands_no_next_landmark_feedback">पुढील खूण नाही</string>
-  <string name="voice_commands_screen_hidden_feedback">स्क्रीन लपवली आहे</string>
-  <string name="voice_commands_showing_screen_feedback">स्क्रीन दाखवत आहे</string>
   <string name="voice_commands_help_title">व्हॉइस कमांड अवलोकन</string>
   <string name="voice_commands_help_description">व्हॉइस कमांड वापरण्यासाठी, आधी उजवीकडे त्यानंतर वरती स्‍वाइप करा. या कमांडच्या सूचीसाठी, कधीही \"मदत करा\" किंवा \"मी काय म्हणू?\" म्हणा.</string>
   <string name="voice_commands_help_hint">सर्वोत्तम परिणामांसाठी, खालील स्क्रीनवर सूचीबद्ध केलेले शब्द अचूकपणे म्हणा.</string>

@@ -26,7 +26,7 @@ class ParseTreeFunctionNode extends ParseTreeNode {
 
   private static final String TAG = "ParseTreeFunctionNode";
 
-  private final @ParseTree.VariableType int mType;
+  @ParseTree.VariableType private final int mType;
   private final Object mDelegate;
   private final Method mFunction;
   private final List<ParseTreeNode> mParams = new ArrayList<>();

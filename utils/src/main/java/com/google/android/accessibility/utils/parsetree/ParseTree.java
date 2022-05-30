@@ -17,10 +17,10 @@
 package com.google.android.accessibility.utils.parsetree;
 
 import android.content.res.Resources;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -288,8 +288,6 @@ public class ParseTree {
 
   /** An interface for supplying variables to the ParseTree */
   public interface VariableDelegate {
-    public void cleanup();
-
     boolean getBoolean(int variableId);
 
     int getInteger(int variableId);
@@ -409,7 +407,7 @@ public class ParseTree {
       id = inId;
     }
 
-    final @VariableType int variableType;
+    @VariableType final int variableType;
     final int enumType;
     final int id;
     final String name;
@@ -441,7 +439,7 @@ public class ParseTree {
   private final Map<Pair<Integer, Integer>, ParseTreeNode> mEvents = new HashMap<>();
 
   // Data used to build the parse tree.  It's released once the tree is built.
-  private @Nullable TreeInfo mTreeInfo;
+  @Nullable private TreeInfo mTreeInfo;
 
   private static final Pattern CONSTANT_PATTERN = Pattern.compile("#\\w+");
   private static final Pattern NODE_PATTERN = Pattern.compile("%\\w+");
@@ -888,8 +886,8 @@ public class ParseTree {
    * @param delegate The delegate to retrieve variables from
    * @return A string built from evaluating the event's output definition.
    */
-  public @Nullable CharSequence parseEventToString(
-      int eventId, int outputId, VariableDelegate delegate) {
+  @Nullable
+  public CharSequence parseEventToString(int eventId, int outputId, VariableDelegate delegate) {
     ParseTreeNode eventNode = mEvents.get(Pair.create(eventId, outputId));
     if (eventNode != null) {
       return eventNode.resolveToString(delegate, "");
@@ -1908,7 +1906,8 @@ public class ParseTree {
     return matcher.end();
   }
 
-  private static @ParseTree.OperatorClass int getOperatorClass(String value) {
+  @ParseTree.OperatorClass
+  private static int getOperatorClass(String value) {
     if (OPERATOR_CLASS_PLUS_PATTERN.matcher(value).matches()) {
       return OPERATOR_CLASS_PLUS;
     } else if (OPERATOR_CLASS_MULTIPLY_PATTERN.matcher(value).matches()) {
@@ -1921,7 +1920,8 @@ public class ParseTree {
     throw new IllegalStateException("Unknown operator: " + value);
   }
 
-  private static @ParseTree.OperatorClass int getOperatorClass(@ParseTree.Operator int operator) {
+  @ParseTree.OperatorClass
+  private static int getOperatorClass(@ParseTree.Operator int operator) {
     switch (operator) {
       case OPERATOR_MULTIPLY:
       case OPERATOR_DIVIDE:
@@ -1945,7 +1945,8 @@ public class ParseTree {
     throw new IllegalStateException("Unknown operator: " + operator);
   }
 
-  private static @ParseTree.Operator int getOperator(String value) {
+  @ParseTree.Operator
+  private static int getOperator(String value) {
     if (value.length() == 1) {
       switch (value.charAt(0)) {
         case '+':

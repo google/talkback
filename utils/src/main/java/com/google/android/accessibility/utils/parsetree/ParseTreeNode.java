@@ -26,7 +26,8 @@ abstract class ParseTreeNode {
   private static final String TAG = "ParseTreeNode";
 
   // Returns the type of value this node represents.
-  public abstract @ParseTree.VariableType int getType();
+  @ParseTree.VariableType
+  public abstract int getType();
 
   // Returns the enum type of this node.
   public int getEnumType() {
@@ -64,7 +65,8 @@ abstract class ParseTreeNode {
   }
 
   // Resolve the value of this node to a reference.
-  public @Nullable ParseTree.VariableDelegate resolveToReference(
+  @Nullable
+  public ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     LogUtils.e(TAG, "Cannot coerce " + getClass() + " to Reference");
     return null;

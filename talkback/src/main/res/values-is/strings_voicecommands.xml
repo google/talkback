@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">samantekt</string>
   <string name="voice_commands_read">lesa</string>
   <string name="voice_commands_read_from_next">Read from next</string>
   <string name="voice_commands_edit_options">Edit options</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Finna</string>
   <string name="voice_commands_search">Search</string>
   <string name="voice_commands_search_for">Search for</string>
-  <string name="voice_commands_find_again">Endurtaka leit</string>
   <string name="voice_commands_next_heading">Næsta fyrirsögn</string>
   <string name="voice_commands_next_control">Next control</string>
   <string name="voice_commands_next_link">Next link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Cannot label</string>
   <string name="voice_commands_assistant">Hjálpari</string>
   <string name="voice_commands_setting_speech_rate">Talhraði stilltur</string>
-  <string name="voice_commands_setting_verbosity">Nákvæmni stillt</string>
-  <string name="voice_commands_setting_granularity">Niðurskipting stillt</string>
-  <string name="voice_commands_setting_navigation">Fletting stillt</string>
   <string name="voice_commands_first">Fyrsta</string>
   <string name="voice_commands_top">Top</string>
   <string name="voice_commands_last">Síðasta</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Enginn næsti tengill</string>
   <string name="voice_commands_no_next_control_feedback">Engin næsta stýring</string>
   <string name="voice_commands_no_next_landmark_feedback">Ekkert næsta kennileiti</string>
-  <string name="voice_commands_screen_hidden_feedback">Skjár falinn</string>
-  <string name="voice_commands_showing_screen_feedback">Sýnir skjá</string>
   <string name="voice_commands_help_title">Yfirlit raddskipana</string>
   <string name="voice_commands_help_description">Strjúktu til hægri og svo upp til að nota raddskipanir. Segðu: „Help“ eða „What can I say?“ hvenær sem er til að opna listann yfir skipanir.</string>
   <string name="voice_commands_help_hint">Til að árangurinn verði sem bestur skaltu segja orðrétt það sem birtist á eftirfarandi skjáum.</string>

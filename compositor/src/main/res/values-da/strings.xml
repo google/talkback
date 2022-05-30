@@ -59,10 +59,6 @@
   <string name="value_pager_page">Side</string>
   <string name="value_progress_bar">Statuslinje</string>
   <string name="value_webview">Webvisning</string>
-  <string name="value_toolbar">Værktøjslinje</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Tegn %1$d til %2$d</string>
-  <string name="template_password_traversed">Tegnet %1$d</string>
   <string name="value_password">adgangskode</string>
   <string name="value_sliding_drawer_opened">Glider åbnet</string>
   <string name="value_options_menu_open">Valgmuligheder.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Uden for sideinddeling i lodret format</string>
   <string name="in_horizontal_pager_with_name">I sideinddeling i vandret format %1$s</string>
   <string name="in_horizontal_pager">I sideinddeling i vandret format</string>
-  <string name="out_of_horizontal_pager_with_name">Uden for sideinddeling i vandret format %1$s</string>
   <string name="out_of_horizontal_pager">Uden for sideinddeling i vandret format</string>
   <string name="in_grid_pager_with_name">I sideinddeling i gitterformat %1$s</string>
   <string name="in_grid_pager">I sideinddeling i gitterformat</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Forstørrelse på %1$d%%</string>
   <string name="screen_magnification_off">Forstørrelse er slået fra</string>
   <string name="template_speech_rate_change">Talehastighed %1$d %%</string>
-  <string name="template_speech_rate_change_faster">Hurtigere</string>
-  <string name="template_speech_rate_change_slower">Langsommere</string>
-  <string name="template_speech_rate_change_fastest">Hurtigst</string>
-  <string name="template_speech_rate_change_slowest">Langsomst</string>
   <string name="template_volume_change_increase">Højere</string>
   <string name="template_volume_change_decrease">Lavere</string>
   <string name="template_volume_change_maximum">Maksimum</string>
   <string name="template_volume_change_minimum">Minimum</string>
   <string name="template_seekbar_range">%1$d %%</string>
-  <string name="audio_focus_on">Lyddæmpning er aktiveret</string>
-  <string name="audio_focus_off">Lyddæmpning er deaktiveret</string>
-  <string name="selector_speech_rate_output">Talehastighed</string>
-  <string name="selector_verbosity_output">Detaljering</string>
-  <string name="selector_granularity_output">Navigation</string>
-  <string name="selector_audio_focus_output">Lyddæmpning</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Adgangskoder oplæses kun, når der bruges høretelefoner</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s tilgængelig. Brug bevægelsen %2$s for at se det.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s tilgængelig.</string>
+  <string name="hint_suggestion">Der er tilgængelige staveforslag.</string>
+  <string name="in_window_with_name">Vinduet %1$s</string>
+  <string name="detected_icon_description">%1$s, registreret ikon</string>
+  <string name="ocr_text_description">%1$s, tekst</string>
 </resources>

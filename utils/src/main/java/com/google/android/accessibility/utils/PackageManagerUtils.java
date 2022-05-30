@@ -63,14 +63,12 @@ public class PackageManagerUtils {
   }
 
   /** @return The package version name or <code>null</code> if the package does not exist. */
-  @Nullable
-  public static String getVersionName(Context context) {
+  public static @Nullable String getVersionName(Context context) {
     String packageName = context.getPackageName();
     return (packageName == null) ? null : getVersionName(context, packageName);
   }
 
-  @Nullable
-  public static String getVersionName(Context context, CharSequence packageName) {
+  public static @Nullable String getVersionName(Context context, CharSequence packageName) {
     if (TextUtils.isEmpty(packageName)) {
       return null;
     }

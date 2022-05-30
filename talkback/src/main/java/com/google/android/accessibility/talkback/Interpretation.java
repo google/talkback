@@ -20,6 +20,7 @@ import static com.google.android.accessibility.compositor.Compositor.EVENT_UNKNO
 import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.toStringShort;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
 
+import android.graphics.Rect;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.compositor.EventInterpretation;
@@ -36,9 +37,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Data-structure classes to hold event-interpretations. Many sub-classes are expected. */
 public abstract class Interpretation {
-
-  public void recycle() {}
-
   /** Interpretation sub-type that only contains a general ID. */
   public static final class ID extends Interpretation {
 
@@ -81,10 +79,41 @@ public abstract class Interpretation {
     }
   }
 
+  /** Interpretation sub-type for power-events. */
+  public static final class Power extends Interpretation {
+    public final boolean connected;
+    public final int percent;
+
+    public Power(boolean connected, int percent) {
+      this.connected = connected;
+      this.percent = percent;
+    }
+
+    @Override
+    public boolean equals(Object otherObject) {
+      @Nullable Power other = castOrNull(otherObject, Power.class);
+      return (other != null)
+          && (this.connected == other.connected)
+          && (this.percent == other.percent);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(connected, percent);
+    }
+
+    @Override
+    public String toString() {
+      return StringBuilderUtils.joinFields(
+          StringBuilderUtils.optionalTag("connected", connected),
+          StringBuilderUtils.optionalInt("percent", percent, BatteryMonitor.UNKNOWN_LEVEL));
+    }
+  }
+
   /** Interpretation sub-type that only contains a compositor-event ID. */
   public static final class CompositorID extends Interpretation {
 
-    public final @Compositor.Event int value;
+    @Compositor.Event public final int value;
     private EventInterpretation eventInterpretation;
     private AccessibilityNodeInfoCompat node;
 
@@ -111,14 +140,6 @@ public abstract class Interpretation {
 
     public AccessibilityNodeInfoCompat getNode() {
       return node;
-    }
-
-    @Override
-    public void recycle() {
-      if (node != null) {
-        AccessibilityNodeInfoUtils.recycleNodes(node);
-        node = null;
-      }
     }
 
     @Override
@@ -184,21 +205,17 @@ public abstract class Interpretation {
   @AutoValue
   public abstract static class DirectionNavigation extends Interpretation {
 
-    public abstract @SearchDirection int direction();
+    @SearchDirection
+    public abstract int direction();
 
     /** Caller does not own returned node. */
     public abstract @Nullable AccessibilityNodeInfoCompat destination();
 
-    /** Caller retains ownership of destination, this class makes a copy that it must recycle. */
+    /** Caller retains ownership of destination, this class makes a copy. */
     public static DirectionNavigation create(
         @SearchDirection int direction, @Nullable AccessibilityNodeInfoCompat destination) {
       return new AutoValue_Interpretation_DirectionNavigation(
           direction, AccessibilityNodeInfoUtils.obtain(destination));
-    }
-
-    @Override
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(destination());
     }
 
     @Override
@@ -230,6 +247,7 @@ public abstract class Interpretation {
       VOICE_COMMAND_FIND,
       VOICE_COMMAND_START_AT_TOP,
       VOICE_COMMAND_START_AT_NEXT,
+      VOICE_COMMAND_COPY_LAST_SPOKEN_UTTERANCE,
       VOICE_COMMAND_FIRST,
       VOICE_COMMAND_LAST,
       VOICE_COMMAND_HOME,
@@ -262,11 +280,6 @@ public abstract class Interpretation {
     }
 
     @Override
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(targetNode());
-    }
-
-    @Override
     public final String toString() {
       return StringBuilderUtils.joinFields(
           StringBuilderUtils.optionalField("command", command()),
@@ -279,9 +292,9 @@ public abstract class Interpretation {
   /** Interpretation sub-type for input-focus. */
   public static final class InputFocus extends Interpretation {
 
-    private AccessibilityNodeInfoCompat node; // Owner, must recycle.
+    private AccessibilityNodeInfoCompat node;
 
-    /** Caller retains ownership of node, this class makes a copy that it must recycle. */
+    /** Caller retains ownership of node, this class makes a copy. */
     public InputFocus(AccessibilityNodeInfoCompat node) {
       this.node = AccessibilityNodeInfoUtils.obtain(node);
     }
@@ -289,12 +302,6 @@ public abstract class Interpretation {
     /** Caller does not own returned node. */
     public AccessibilityNodeInfoCompat getNode() {
       return node;
-    }
-
-    @Override
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(node);
-      node = null;
     }
 
     @Override
@@ -324,7 +331,8 @@ public abstract class Interpretation {
   @AutoValue
   public abstract static class ManualScroll extends Interpretation {
 
-    public abstract @TraversalStrategy.SearchDirection int direction();
+    @TraversalStrategy.SearchDirection
+    public abstract int direction();
 
     public abstract @Nullable ScreenState screenState();
 
@@ -375,18 +383,13 @@ public abstract class Interpretation {
     /** Caller does not own returned node. */
     public abstract @Nullable AccessibilityNodeInfoCompat target();
 
-    /** Caller retains ownership of target, this class makes a copy that it must recycle. */
+    /** Caller retains ownership of target, this class makes a copy. */
     public static Touch create(Touch.Action action, @Nullable AccessibilityNodeInfoCompat target) {
       return new AutoValue_Interpretation_Touch(action, AccessibilityNodeInfoUtils.obtain(target));
     }
 
     public static Touch create(Touch.Action action) {
       return new AutoValue_Interpretation_Touch(action, /* target= */ null);
-    }
-
-    @Override
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(target());
     }
 
     @Override
@@ -412,5 +415,43 @@ public abstract class Interpretation {
       return StringBuilderUtils.joinFields(
           StringBuilderUtils.optionalTag("needsCaption", needsCaption()));
     }
+  }
+
+  /** Interpretation sub-type for UI change event. */
+  @AutoValue
+  public abstract static class UiChange extends Interpretation {
+
+    private static final UiChange WHOLE_SCREEN_UI_CHANGE =
+        new AutoValue_Interpretation_UiChange(
+            /* sourceBoundsInScreen= */ null, UiChangeType.WHOLE_SCREEN_UI_CHANGED);
+
+    /** UI change types */
+    public enum UiChangeType {
+      UNKNOWN,
+      WHOLE_SCREEN_UI_CHANGED,
+      VIEW_CLICKED,
+      VIEW_SCROLLED,
+      WINDOW_CONTENT_CHANGED
+    }
+
+    public abstract @Nullable Rect sourceBoundsInScreen();
+
+    public abstract UiChangeType uiChangeType();
+
+    public static UiChange createWholeScreenUiChange() {
+      return WHOLE_SCREEN_UI_CHANGE;
+    }
+
+    public static UiChange createPartialScreenUiChange(
+        Rect sourceBoundsInScreen, UiChangeType uiChangeType) {
+      return new AutoValue_Interpretation_UiChange(sourceBoundsInScreen, uiChangeType);
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // Static utility methods
+
+  private static @Nullable <T> T castOrNull(Object object, Class<T> clazz) {
+    return (object == null || !clazz.isInstance(object)) ? null : clazz.cast(object);
   }
 }

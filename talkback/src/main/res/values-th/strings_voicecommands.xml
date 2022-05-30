@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">สรุป</string>
   <string name="voice_commands_read">อ่าน</string>
   <string name="voice_commands_read_from_next">อ่านจากรายการถัดไป</string>
   <string name="voice_commands_edit_options">ตัวเลือกการแก้ไข</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">ค้นหา</string>
   <string name="voice_commands_search">ค้นหา</string>
   <string name="voice_commands_search_for">ค้นหา</string>
-  <string name="voice_commands_find_again">ค้นหาซ้ำ</string>
   <string name="voice_commands_next_heading">ส่วนหัวถัดไป</string>
   <string name="voice_commands_next_control">การควบคุมถัดไป</string>
   <string name="voice_commands_next_link">ลิงก์ถัดไป</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">ติดป้ายกำกับไม่ได้</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">ตั้งค่าความเร็วของคำพูด</string>
-  <string name="voice_commands_setting_verbosity">ตั้งค่าการพูดรายละเอียด</string>
-  <string name="voice_commands_setting_granularity">ตั้งค่ารายละเอียด</string>
-  <string name="voice_commands_setting_navigation">ตั้งค่าการไปยังส่วนต่างๆ</string>
   <string name="voice_commands_first">แรก</string>
   <string name="voice_commands_top">บนสุด</string>
   <string name="voice_commands_last">สุดท้าย</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">ไม่มีลิงก์ถัดไป</string>
   <string name="voice_commands_no_next_control_feedback">ไม่มีการควบคุมถัดไป</string>
   <string name="voice_commands_no_next_landmark_feedback">ไม่มีจุดสังเกตถัดไป</string>
-  <string name="voice_commands_screen_hidden_feedback">ซ่อนหน้าจอแล้ว</string>
-  <string name="voice_commands_showing_screen_feedback">กำลังแสดงหน้าจอ</string>
   <string name="voice_commands_help_title">ภาพรวมคำสั่งเสียง</string>
   <string name="voice_commands_help_description">หากต้องการใช้คำสั่งเสียง ให้เลื่อนไปทางขวาแล้วขึ้น พูดว่า \"ความช่วยเหลือ\" หรือ \"ฉันพูดอะไรได้บ้าง\" ได้ทุกเมื่อสำหรับรายการคำสั่งนี้</string>
   <string name="voice_commands_help_hint">พูดข้อความตามที่ระบุในหน้าจอต่อไปนี้เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด</string>

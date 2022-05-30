@@ -27,8 +27,8 @@ import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Role;
-import com.google.android.accessibility.utils.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.parsetree.ParseTree;
 import com.google.android.accessibility.utils.parsetree.ParseTree.VariableDelegate;
 import java.util.ArrayList;
@@ -94,16 +94,16 @@ class EventVariables implements VariableDelegate {
   private final Context mContext;
   private final VariableDelegate mParent;
   private final AccessibilityEvent mEvent;
-  private final AccessibilityNodeInfo mSource; // Recycled by cleanup()
+  private final AccessibilityNodeInfo mSource;
   // Stores the user preferred locale changed using language switcher.
-  private @Nullable final Locale mUserPreferredLocale;
+  private final @Nullable Locale mUserPreferredLocale;
 
   /**
    * Constructs an EventVariables, which contains context variables to help generate feedback for an
    * accessibility event. Caller must call {@code cleanup()} when done with this object.
    *
    * @param event The originating event.
-   * @param source The source from the event. Will be recycled by cleanup().
+   * @param source The source from the event.
    */
   EventVariables(
       Context context,
@@ -116,14 +116,6 @@ class EventVariables implements VariableDelegate {
     mParent = parent;
     mEvent = event;
     mSource = source;
-  }
-
-  @Override
-  public void cleanup() {
-    AccessibilityNodeInfoUtils.recycleNodes(mSource);
-    if (mParent != null) {
-      mParent.cleanup();
-    }
   }
 
   @Override

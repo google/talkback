@@ -59,10 +59,6 @@
   <string name="value_pager_page">Ukurasa</string>
   <string name="value_progress_bar">Upau wa kuonyesha hatua</string>
   <string name="value_webview">Mwonekano wa Wavuti</string>
-  <string name="value_toolbar">Upau wa vidhibiti</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Herufi %1$d hadi %2$d</string>
-  <string name="template_password_traversed">Herufi %1$d</string>
   <string name="value_password">nenosiri</string>
   <string name="value_sliding_drawer_opened">Droo ya kutelezesha imefunguliwa</string>
   <string name="value_options_menu_open">Chaguo.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Nje ya peja wima</string>
   <string name="in_horizontal_pager_with_name">Katika peja mlalo %1$s</string>
   <string name="in_horizontal_pager">Katika peja mlalo</string>
-  <string name="out_of_horizontal_pager_with_name">Nje ya peja mlalo %1$s</string>
   <string name="out_of_horizontal_pager">Nje ya peja mlalo</string>
   <string name="in_grid_pager_with_name">Katika peja ya gridi %1$s</string>
   <string name="in_grid_pager">Katika peja ya gridi</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Imekuza skrini kwa %1$d%%</string>
   <string name="screen_magnification_off">Imezima kipengele cha kukuza skrini</string>
   <string name="template_speech_rate_change">Kasi ya matamshi %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Haraka kiasi</string>
-  <string name="template_speech_rate_change_slower">Polepole</string>
-  <string name="template_speech_rate_change_fastest">Kasi zaidi</string>
-  <string name="template_speech_rate_change_slowest">Kasi ya chini zaidi</string>
   <string name="template_volume_change_increase">Ongeza</string>
   <string name="template_volume_change_decrease">Punguza</string>
   <string name="template_volume_change_maximum">Kiwango cha Juu</string>
   <string name="template_volume_change_minimum">Kiwango cha chini zaidi</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Kipengele cha kupunguza sauti kimewashwa</string>
-  <string name="audio_focus_off">Kipengele cha kupunguza sauti kimezimwa</string>
-  <string name="selector_speech_rate_output">Kasi ya kutamka</string>
-  <string name="selector_verbosity_output">Maneno mengi</string>
-  <string name="selector_granularity_output">Usogezaji</string>
-  <string name="selector_audio_focus_output">Upunguzaji wa sauti</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Manenosiri hutamkwa wakati unatumia tu vipokea sauti vinavyobanwa kichwani</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s inapatikana, tumia %2$s ili uangalie.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s inapatikana.</string>
+  <string name="hint_suggestion">Mapendekezo ya tahajia yanapatikana.</string>
+  <string name="in_window_with_name">Dirisha la %1$s</string>
+  <string name="detected_icon_description">%1$s, imetambua aikoni</string>
+  <string name="ocr_text_description">%1$s, tuma SMS</string>
 </resources>

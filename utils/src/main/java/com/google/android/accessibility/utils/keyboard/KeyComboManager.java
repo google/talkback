@@ -19,6 +19,7 @@ package com.google.android.accessibility.utils.keyboard;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.KeyEvent;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -269,6 +270,7 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
    * @param keymap Keymap.
    * @return Key combo model. null will be returned if keymap is invalid.
    */
+  @Nullable
   public KeyComboModel createKeyComboModelFor(String keymap) {
     if (keymap.equals(mContext.getString(R.string.classic_keymap_entry_value))) {
       return new KeyComboModelApp(mContext);

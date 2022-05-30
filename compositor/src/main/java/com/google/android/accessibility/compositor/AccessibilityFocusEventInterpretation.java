@@ -26,11 +26,11 @@ import com.google.android.accessibility.utils.StringBuilderUtils;
  */
 public class AccessibilityFocusEventInterpretation extends ReadOnly {
 
-  private @Compositor.Event int event;
+  @Compositor.Event private int event;
 
-  private boolean forceFeedbackAudioPlaybackActive = true;
-  private boolean forceFeedbackMicrophoneActive = true;
-  private boolean forceFeedbackSsbActive = false;
+  private boolean forceFeedbackEvenIfAudioPlaybackActive = true;
+  private boolean forceFeedbackEvenIfMicrophoneActive = true;
+  private boolean forceFeedbackEvenIfSsbActive = false;
   private boolean isInitialFocusAfterScreenStateChange = false;
   private boolean shouldMuteFeedback = false;
   private boolean isNavigateByUser = false;
@@ -44,35 +44,36 @@ public class AccessibilityFocusEventInterpretation extends ReadOnly {
     this.event = event;
   }
 
-  public @Compositor.Event int getEvent() {
+  @Compositor.Event
+  public int getEvent() {
     return event;
   }
 
-  public void setForceFeedbackAudioPlaybackActive(boolean forceFeedback) {
+  public void setForceFeedbackEvenIfAudioPlaybackActive(boolean forceFeedback) {
     checkIsWritable();
-    this.forceFeedbackAudioPlaybackActive = forceFeedback;
+    this.forceFeedbackEvenIfAudioPlaybackActive = forceFeedback;
   }
 
-  public void setForceFeedbackMicrophoneActive(boolean forceFeedback) {
+  public void setForceFeedbackEvenIfMicrophoneActive(boolean forceFeedback) {
     checkIsWritable();
-    this.forceFeedbackMicrophoneActive = forceFeedback;
+    this.forceFeedbackEvenIfMicrophoneActive = forceFeedback;
   }
 
-  public void setForceFeedbackSsbActive(boolean forceFeedback) {
+  public void setForceFeedbackEvenIfSsbActive(boolean forceFeedback) {
     checkIsWritable();
-    this.forceFeedbackSsbActive = forceFeedback;
+    this.forceFeedbackEvenIfSsbActive = forceFeedback;
   }
 
-  public boolean getForceFeedbackAudioPlaybackActive() {
-    return forceFeedbackAudioPlaybackActive;
+  public boolean getForceFeedbackEvenIfAudioPlaybackActive() {
+    return forceFeedbackEvenIfAudioPlaybackActive;
   }
 
-  public boolean getForceFeedbackMicrophoneActive() {
-    return forceFeedbackMicrophoneActive;
+  public boolean getForceFeedbackEvenIfMicrophoneActive() {
+    return forceFeedbackEvenIfMicrophoneActive;
   }
 
-  public boolean getForceFeedbackSsbActive() {
-    return forceFeedbackSsbActive;
+  public boolean getForceFeedbackEvenIfSsbActive() {
+    return forceFeedbackEvenIfSsbActive;
   }
 
   public void setShouldMuteFeedback(boolean shouldMuteFeedback) {
@@ -109,10 +110,11 @@ public class AccessibilityFocusEventInterpretation extends ReadOnly {
         "AccessibilityFocusEventInterpretation{",
         StringBuilderUtils.optionalInt("event", event, -1),
         StringBuilderUtils.optionalTag(
-            "forceFeedbackAudioPlaybackActive", forceFeedbackAudioPlaybackActive),
+            "forceFeedbackEvenIfAudioPlaybackActive", forceFeedbackEvenIfAudioPlaybackActive),
         StringBuilderUtils.optionalTag(
-            "forceFeedbackMicrophoneActive", forceFeedbackMicrophoneActive),
-        StringBuilderUtils.optionalTag("forceFeedbackSsbActive", forceFeedbackSsbActive),
+            "forceFeedbackEvenIfMicrophoneActive", forceFeedbackEvenIfMicrophoneActive),
+        StringBuilderUtils.optionalTag(
+            "forceFeedbackEvenIfSsbActive", forceFeedbackEvenIfSsbActive),
         StringBuilderUtils.optionalTag("shouldMuteFeedback", shouldMuteFeedback),
         StringBuilderUtils.optionalTag(
             "isInitialFocusAfterScreenStateChange", isInitialFocusAfterScreenStateChange),

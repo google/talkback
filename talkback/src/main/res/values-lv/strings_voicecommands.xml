@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">summary</string>
   <string name="voice_commands_read">read</string>
   <string name="voice_commands_read_from_next">Lasīt no nākamā</string>
   <string name="voice_commands_edit_options">Rediģēšanas opcijas</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Atrast</string>
   <string name="voice_commands_search">Meklēšana</string>
   <string name="voice_commands_search_for">Meklēt</string>
-  <string name="voice_commands_find_again">Atkārtot meklēšanu</string>
   <string name="voice_commands_next_heading">Nākamais virsraksts</string>
   <string name="voice_commands_next_control">Nākamā vadīkla</string>
   <string name="voice_commands_next_link">Nākamā saite</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Nevar pievienot iezīmi</string>
   <string name="voice_commands_assistant">Asistents</string>
   <string name="voice_commands_setting_speech_rate">Runas ātruma iestatīšana</string>
-  <string name="voice_commands_setting_verbosity">Detalizētības iestatīšana</string>
-  <string name="voice_commands_setting_granularity">Precizitātes iestatīšana</string>
-  <string name="voice_commands_setting_navigation">Navigācijas iestatīšana</string>
   <string name="voice_commands_first">Pirmais</string>
   <string name="voice_commands_top">Augšdaļā</string>
   <string name="voice_commands_last">Pēdējais</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Nav nākamās saites</string>
   <string name="voice_commands_no_next_control_feedback">Nav nākamās vadīklas</string>
   <string name="voice_commands_no_next_landmark_feedback">Nav nākamā orientiera</string>
-  <string name="voice_commands_screen_hidden_feedback">Ekrāns ir paslēpts</string>
-  <string name="voice_commands_showing_screen_feedback">Ekrāns tiek rādīts</string>
   <string name="voice_commands_help_title">Balss komandu kopsavilkums</string>
   <string name="voice_commands_help_description">Lai izmantotu balss komandas, velciet pa labi un pēc tam — augšup. Lai iegūtu šo komandu sarakstu, jebkurā laikā sakiet “Palīdzība” vai “Ko varu pateikt?”.</string>
   <string name="voice_commands_help_hint">Lai gūtu vislabākos rezultātus, izrunājiet precīzas komandas, kas norādītas nākamajos ekrānos.</string>

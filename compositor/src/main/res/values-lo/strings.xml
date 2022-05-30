@@ -59,10 +59,6 @@
   <string name="value_pager_page">ໜ້າ</string>
   <string name="value_progress_bar">ແຖບຄວາມຄືບໜ້າ</string>
   <string name="value_webview">ມຸມມອງເວັບ</string>
-  <string name="value_toolbar">ແຖບເຄື່ອງມື</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">ຕົວອັກສອນຈາກ %1$d ຫາ %2$d</string>
-  <string name="template_password_traversed">ຕົວອັກສອນ %1$d</string>
   <string name="value_password">​ລະ​ຫັດ​ຜ່ານ</string>
   <string name="value_sliding_drawer_opened">​ເປີດ​ແຜງ​ເລື່ອນ​ແລ້ວ</string>
   <string name="value_options_menu_open">ໂຕເລືອກ.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">ນອກເພດເຈີລວງຕັ້ງ</string>
   <string name="in_horizontal_pager_with_name">ໃນເພດເຈີລວງນອນ %1$s</string>
   <string name="in_horizontal_pager">ໃນເພດເຈີລວງນອນ</string>
-  <string name="out_of_horizontal_pager_with_name">ນອກເພດເຈີລວງນອນ %1$s</string>
   <string name="out_of_horizontal_pager">ນອກເພດເຈີລວງນອນ</string>
   <string name="in_grid_pager_with_name">ໃນເພດເຈີຕາຕະລາງ %1$s</string>
   <string name="in_grid_pager">ໃນເພດເຈີຕາຕະລາງ</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">ການຂະຫຍາຍ %1$d%%</string>
   <string name="screen_magnification_off">ປິດການຂະຫຍາຍແລ້ວ</string>
   <string name="template_speech_rate_change">ຄວາມໄວການເວົ້າ %1$d%%</string>
-  <string name="template_speech_rate_change_faster">ໄວຂຶ້ນ</string>
-  <string name="template_speech_rate_change_slower">ຊ້າລົງ</string>
-  <string name="template_speech_rate_change_fastest">ໄວທີ່ສຸດ</string>
-  <string name="template_speech_rate_change_slowest">ຊ້າທີ່ສຸດ</string>
   <string name="template_volume_change_increase">ເພີ່ມ</string>
   <string name="template_volume_change_decrease">ຫຼຸດ</string>
   <string name="template_volume_change_maximum">​ສູງ​ສຸດ</string>
   <string name="template_volume_change_minimum">ຕໍ່າສຸດ</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">ການຫຼຸດຜ່ອນສຽງ ເປີດ</string>
-  <string name="audio_focus_off">ການຫຼຸດຜ່ອນສຽງ ປິດ</string>
-  <string name="selector_speech_rate_output">ຄວາມໄວການເວົ້າ</string>
-  <string name="selector_verbosity_output">ການເວົ້າລາຍລະອຽດ</string>
-  <string name="selector_granularity_output">ການນຳທາງ</string>
-  <string name="selector_audio_focus_output">ການຫຼຸດຜ່ອນສຽງ</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">ເວົ້າລະຫັດຜ່ານສະເພາະເມື່ອໃຊ້ຫູຟັງຢູ່ເທົ່ານັ້ນ</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s ສາມາດໃຊ້ໄດ້, ໃຊ້ %2$s ເພື່ອເບິ່ງ.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s ສາມາດໃຊ້ໄດ້.</string>
+  <string name="hint_suggestion">ມີການແນະນຳການສະກົດຄຳ.</string>
+  <string name="in_window_with_name">ໜ້າຈໍ %1$s</string>
+  <string name="detected_icon_description">%1$s, ໄອຄອນທີ່ກວດພົບ</string>
+  <string name="ocr_text_description">%1$s, ຂໍ້ຄວາມ</string>
 </resources>

@@ -39,7 +39,6 @@ public class SimpleTraversalStrategy implements TraversalStrategy {
       return ref.get();
     }
 
-    ref.recycle();
     return null;
   }
 
@@ -57,7 +56,6 @@ public class SimpleTraversalStrategy implements TraversalStrategy {
       if (ref.lastDescendant()) {
         return ref.get();
       } else {
-        ref.recycle();
         return null;
       }
     }

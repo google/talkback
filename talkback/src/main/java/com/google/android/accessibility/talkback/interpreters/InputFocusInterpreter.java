@@ -19,8 +19,8 @@ package com.google.android.accessibility.talkback.interpreters;
 import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_ACCESSIBILITY;
 import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_INPUT;
 
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
@@ -159,39 +159,33 @@ public class InputFocusInterpreter
         "initLastEditableFocusForGlobalVariables() : currentInputFocus: %s",
         currentInputFocus);
     updateInputFocusedNodeInGlobalVariables(currentInputFocus);
-    AccessibilityNodeInfoUtils.recycleNodes(currentInputFocus);
   }
 
   private void handleViewInputFocusedEvent(AccessibilityEvent event, EventId eventId) {
-    AccessibilityNodeInfoCompat sourceNode = null;
-    AccessibilityNodeInfoCompat a11yFocusableNode = null;
+    AccessibilityNodeInfoCompat sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+    if (sourceNode == null) {
+      // Invalid TYPE_VIEW_FOCUSED event.
+      return;
+    }
 
-    try {
-      sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());
-      if (sourceNode == null) {
-        // Invalid TYPE_VIEW_FOCUSED event.
-        return;
+    updateInputFocusedNodeInGlobalVariables(sourceNode);
+
+    if (isFromSavedFocusAction(event)) {
+      clearFocusActionRecord();
+    } else if (!conflictWithFocusActionRecord(event)) {
+      // In case when the user navigate very fast on android TV devices for multiple times, the
+      // result TYPE_VIEW_FOCUSED events might come delayed. At the meantime,
+      // inputFocusActionRecord will be overridden with the last navigation action. If performing
+      // all the navigation actions, we receive the events result from first navigation action, we
+      // might incorrectly sync accessibility focus to it, which leads to focus jumping back
+      // around. Thus we don't try to sync focus if the event might have conflicts with cached
+      // inputFocusActionRecord.
+
+      AccessibilityNodeInfoCompat a11yFocusableNode =
+          getA11yFocusableNodeFromInputFocusedNode(sourceNode, focusFinder);
+      if (a11yFocusableNode != null) {
+        targetViewChangeListener.onViewTargeted(eventId, event, a11yFocusableNode);
       }
-
-      updateInputFocusedNodeInGlobalVariables(sourceNode);
-
-      if (isFromSavedFocusAction(event)) {
-        clearFocusActionRecord();
-      } else if (!conflictWithFocusActionRecord(event)) {
-        // In case when the user navigate very fast on android TV devices for multiple times, the
-        // result TYPE_VIEW_FOCUSED events might come delayed. At the meantime,
-        // inputFocusActionRecord will be overridden with the last navigation action. If performing
-        // all the navigation actions, we receive the events result from first navigation action, we
-        // might incorrectly sync accessibility focus to it, which leads to focus jumping back
-        // around. Thus we don't try to sync focus if the event might have conflicts with cached
-        // inputFocusActionRecord.
-        a11yFocusableNode = getA11yFocusableNodeFromInputFocusedNode(sourceNode, focusFinder);
-        if (a11yFocusableNode != null) {
-          targetViewChangeListener.onViewTargeted(eventId, event, a11yFocusableNode);
-        }
-      }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(sourceNode, a11yFocusableNode);
     }
   }
 
@@ -212,43 +206,38 @@ public class InputFocusInterpreter
   // TODO: Move the logic below into FocusProcessorForSynchronization.
   private static @Nullable AccessibilityNodeInfoCompat getA11yFocusableNodeFromInputFocusedNode(
       AccessibilityNodeInfoCompat eventSourceNode, FocusFinder focusFinder) {
-    AccessibilityNodeInfoCompat existingFocus = null;
-    try {
-      /* Ignore it when the event is sent from a collection container.
-       *
-       * There are three common TYPE_VIEW_FOCUSED events that are not under TalkBack's control:
-       *   1. Input focus changes when navigating with D-pad on bluetooth keyboard.
-       *   2. When opening a new window or fragment, the collection(list/grid) gains input focus.
-       *   3. Developers manually set input focus onto some node.
-       *
-       * The 2nd case is very annoying because it disrupts the "initial focus" feature.
-       * We should prevent FocusManager from syncing focus when the event is sent from a collection.
-       * Logically this won't affect use case 1 and 3 too much: In use case 1, TalkBack usually
-       * receives TYPE_VIEW_SELECTED event from collection, or directly receive TYPE_VIEW_FOCUSED
-       * event from collection  item. In use case 3, developer should sent TYPE_VIEW_FOCUSED event
-       * from collection item to indicate which item to be focused.
-       */
-      @RoleName int role = Role.getRole(eventSourceNode);
-      if (role == Role.ROLE_LIST || role == Role.ROLE_GRID) {
-        LogUtils.d(TAG, "Ignore TYPE_VIEW_FOCUSED event from a collection.");
-        return null;
-      }
+    /* Ignore it when the event is sent from a collection container.
+     *
+     * There are three common TYPE_VIEW_FOCUSED events that are not under TalkBack's control:
+     *   1. Input focus changes when navigating with D-pad on bluetooth keyboard.
+     *   2. When opening a new window or fragment, the collection(list/grid) gains input focus.
+     *   3. Developers manually set input focus onto some node.
+     *
+     * The 2nd case is very annoying because it disrupts the "initial focus" feature.
+     * We should prevent FocusManager from syncing focus when the event is sent from a collection.
+     * Logically this won't affect use case 1 and 3 too much: In use case 1, TalkBack usually
+     * receives TYPE_VIEW_SELECTED event from collection, or directly receive TYPE_VIEW_FOCUSED
+     * event from collection  item. In use case 3, developer should sent TYPE_VIEW_FOCUSED event
+     * from collection item to indicate which item to be focused.
+     */
+    @RoleName int role = Role.getRole(eventSourceNode);
+    if (role == Role.ROLE_LIST || role == Role.ROLE_GRID) {
+      LogUtils.d(TAG, "Ignore TYPE_VIEW_FOCUSED event from a collection.");
+      return null;
+    }
 
-      if (AccessibilityNodeInfoUtils.shouldFocusNode(eventSourceNode)) {
-        return AccessibilityNodeInfoUtils.obtain(eventSourceNode);
-      }
+    if (AccessibilityNodeInfoUtils.shouldFocusNode(eventSourceNode)) {
+      return AccessibilityNodeInfoUtils.obtain(eventSourceNode);
+    }
 
-      // TODO: Doing a BFS looks like searching for a11y focusable node inside a collection.
-      // Since we ignore focus event from list or grid, shall we remove this?
-      existingFocus = focusFinder.findFocusCompat(FOCUS_ACCESSIBILITY);
-      if (existingFocus == null) {
-        return AccessibilityNodeInfoUtils.searchFromBfs(
-            eventSourceNode, AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
-      } else {
-        return null;
-      }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(existingFocus);
+    // TODO: Doing a BFS looks like searching for a11y focusable node inside a collection.
+    // Since we ignore focus event from list or grid, shall we remove this?
+    AccessibilityNodeInfoCompat existingFocus = focusFinder.findFocusCompat(FOCUS_ACCESSIBILITY);
+    if (existingFocus == null) {
+      return AccessibilityNodeInfoUtils.searchFromBfs(
+          eventSourceNode, AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
+    } else {
+      return null;
     }
   }
 
@@ -264,44 +253,31 @@ public class InputFocusInterpreter
     if (selectedNode != null && AccessibilityNodeInfoUtils.shouldFocusNode(selectedNode)) {
       targetViewChangeListener.onViewTargeted(eventId, event, selectedNode);
     }
-    AccessibilityNodeInfoUtils.recycleNodes(selectedNode);
   }
 
-  /**
-   * Gets target child node from the source AdapterView node.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the returned node.
-   */
+  /** Gets target child node from the source AdapterView node. */
   private static @Nullable AccessibilityNodeInfoCompat getTargetChildFromAdapterView(
       AccessibilityEvent event) {
-    AccessibilityNodeInfoCompat sourceNode = null;
-    try {
-      sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());
-      if (sourceNode == null) {
-        return null;
-      }
+    AccessibilityNodeInfoCompat sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+    if (sourceNode == null) {
+      return null;
+    }
 
-      if (event.getItemCount() <= 0
-          || event.getFromIndex() < 0
-          || event.getCurrentItemIndex() < 0) {
-        return null;
-      }
-      int index = event.getCurrentItemIndex() - event.getFromIndex();
-      if (index < 0 || index >= sourceNode.getChildCount()) {
-        return null;
-      }
-      AccessibilityNodeInfoCompat targetChildNode = sourceNode.getChild(index);
+    if (event.getItemCount() <= 0 || event.getFromIndex() < 0 || event.getCurrentItemIndex() < 0) {
+      return null;
+    }
+    int index = event.getCurrentItemIndex() - event.getFromIndex();
+    if (index < 0 || index >= sourceNode.getChildCount()) {
+      return null;
+    }
+    AccessibilityNodeInfoCompat targetChildNode = sourceNode.getChild(index);
 
-      // TODO: Think about to replace childNode check with sourceNode check.
-      if ((targetChildNode == null)
-          || !AccessibilityNodeInfoUtils.isTopLevelScrollItem(targetChildNode)) {
-        AccessibilityNodeInfoUtils.recycleNodes(targetChildNode);
-        return null;
-      } else {
-        return targetChildNode;
-      }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(sourceNode);
+    // TODO: Think about to replace childNode check with sourceNode check.
+    if ((targetChildNode == null)
+        || !AccessibilityNodeInfoUtils.isTopLevelScrollItem(targetChildNode)) {
+      return null;
+    } else {
+      return targetChildNode;
     }
   }
 
@@ -318,7 +294,6 @@ public class InputFocusInterpreter
         ((timeDiff >= 0L) && (timeDiff < INPUT_FOCUS_ACTION_TIMEOUT))
             && node.equals(actorState.getInputFocusActionRecord().inputFocusedNode);
 
-    AccessibilityNodeInfoUtils.recycleNodes(node);
     return isFromFocusAction;
   }
 

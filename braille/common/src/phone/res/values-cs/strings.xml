@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Číslo</string>
+  <string name="capitalize_announcement">Omezení</string>
+  <string name="read_out_deleted">%s úkol byl smazán</string>
+  <plurals name="braille_dots">
+    <item quantity="one">bod %s</item>
+    <item quantity="few">body %s</item>
+    <item quantity="many">body %s</item>
+    <item quantity="other">body %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">španělština</string>
+  <string name="code_user_facing_name_ar">Arabština</string>
+  <string name="code_user_facing_name_fr">francouzština</string>
+  <string name="code_user_facing_name_pl">polština</string>
+  <string name="screen_away">Režim s obrazovkou od sebe</string>
+  <string name="screen_away_detail">Podržte zařízení tak, aby obrazovka směřovala dolů (režim s obrazovkou od sebe)</string>
+  <string name="tabletop">Režim s obrazovkou k sobě</string>
+  <string name="tabletop_detail">Položte zařízení na stůl (režim s obrazovkou nahoru)</string>
+  <string name="auto_detect">Přizpůsobit držení zařízení</string>
+</resources>

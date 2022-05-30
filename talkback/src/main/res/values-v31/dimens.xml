@@ -17,22 +17,6 @@
 
 <resources>
 
-  <!-- Google material dimens -->
-  <dimen name="google_marterial_button_text_size">14sp</dimen>
-  <dimen name="google_material_corner_radius">28dp</dimen>
-  <dimen name="google_marterial_dialog_title_size">24sp</dimen>
-  <dimen name="google_marterial_dialog_title_top_padding">24dp</dimen>
-  <dimen name="google_marterial_alertdialog_buttons_bottom_margin">30dp</dimen>
-  <dimen name="google_marterial_alertdialog_buttons_top_margin">26dp</dimen>
-  <dimen name="google_marterial_alertdialog_buttons_padding_vertical">16dp</dimen>
-  <!-- end margin plus margin between buttons equals to 24dp. There is 8dp between two buttons.-->
-  <dimen name="google_marterial_alertdialog_buttons_end_margin">16dp</dimen>
-  <dimen name="google_marterial_margin_between_buttons">8dp</dimen>
-
-  <!-- alert dialog dimens -->
-  <dimen name="alertdialog_corner_radius">@dimen/google_material_corner_radius</dimen>
-  <dimen name="alertdialog_background_inset">5dp</dimen>
-
   <!-- Training page dimens -->
   <dimen name="training_button_width">50dp</dimen>
   <dimen name="training_list_item_corner_radius">@dimen/google_material_corner_radius</dimen>

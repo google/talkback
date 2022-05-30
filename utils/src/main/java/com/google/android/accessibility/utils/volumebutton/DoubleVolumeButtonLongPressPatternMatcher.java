@@ -17,17 +17,17 @@
 package com.google.android.accessibility.utils.volumebutton;
 
 import android.os.SystemClock;
-import androidx.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
+import androidx.annotation.Nullable;
 
 /** A {@link VolumeButtonPatternMatcher} to detect long pressing on both volume up and down keys. */
 public class DoubleVolumeButtonLongPressPatternMatcher extends VolumeButtonPatternMatcher {
 
   private static final int LONG_PRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout();
 
-  private @Nullable VolumeButtonAction mVolumeUpAction;
-  private @Nullable VolumeButtonAction mVolumeDownAction;
+  @Nullable private VolumeButtonAction mVolumeUpAction;
+  @Nullable private VolumeButtonAction mVolumeDownAction;
 
   public DoubleVolumeButtonLongPressPatternMatcher() {
     super(

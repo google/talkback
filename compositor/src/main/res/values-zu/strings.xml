@@ -59,10 +59,6 @@
   <string name="value_pager_page">Ikhasi</string>
   <string name="value_progress_bar">Ibha lokuqhubeka</string>
   <string name="value_webview">I-Webview</string>
-  <string name="value_toolbar">Ibha yamathuluzi</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Izinhlamvu kusukela ku-%1$d ukuya ku-%2$d</string>
-  <string name="template_password_traversed">Uhlamvu olungu-%1$d</string>
   <string name="value_password">iphasiwedi</string>
   <string name="value_sliding_drawer_opened">Ikhabethe lokuslayida livuliwe</string>
   <string name="value_options_menu_open">Izinketho.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Ngaphandle kwepheyija evundlile</string>
   <string name="in_horizontal_pager_with_name">Kupheyija eqondile %1$s</string>
   <string name="in_horizontal_pager">Ipheyija eqondile</string>
-  <string name="out_of_horizontal_pager_with_name">Ngaphandle kwepheyija eqondile %1$s</string>
   <string name="out_of_horizontal_pager">Phandle kwepheyija eqondile</string>
   <string name="in_grid_pager_with_name">Kupheyija ye-grid %1$s</string>
   <string name="in_grid_pager">Ipheyija ye-grid</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Ukukhuliswa okungu-%1$d%%</string>
   <string name="screen_magnification_off">Ukukhuliswa kuvaliwe</string>
   <string name="template_speech_rate_change">Ukulinganisela kwenkulumo okungu-%1$d%%</string>
-  <string name="template_speech_rate_change_faster">Ukushesha</string>
-  <string name="template_speech_rate_change_slower">Kunensa kakhulu</string>
-  <string name="template_speech_rate_change_fastest">Eshesha kakhulu</string>
-  <string name="template_speech_rate_change_slowest">Okuhamba kancane kakhulu</string>
   <string name="template_volume_change_increase">Khulisa</string>
   <string name="template_volume_change_decrease">Yehlisa</string>
   <string name="template_volume_change_maximum">Ubuningi</string>
   <string name="template_volume_change_minimum">Okuncane</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Ukudakha komsindo kuvuliwe</string>
-  <string name="audio_focus_off">Ukudakha komsindo kuvaliwe</string>
-  <string name="selector_speech_rate_output">Ukulinganisela izwi</string>
-  <string name="selector_verbosity_output">I-Verbosity</string>
-  <string name="selector_granularity_output">Ukuzulazula</string>
-  <string name="selector_audio_focus_output">Ukudakha komsindo</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Amaphasiwedi akhulunywa kuphela uma kusetshenziswa ama-headphone</string>
   <string name="template_hint_menu_type_high_verbosity">I-%1$s iyatholakala, sebenzisa i-%2$s ukuze ubuke.</string>
-  <string name="template_hint_menu_type_low_verbosity">I-%1$s iyatholakala.</string>
+  <string name="hint_suggestion">Iziphakamiso zokupela ziyatholakala.</string>
+  <string name="in_window_with_name">I-Window %1$s</string>
+  <string name="detected_icon_description">%1$s, isithonjana esitholiwe</string>
+  <string name="ocr_text_description">%1$s, umbhalo</string>
 </resources>

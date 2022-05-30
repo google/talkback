@@ -59,10 +59,6 @@
   <string name="value_pager_page">Seite</string>
   <string name="value_progress_bar">Statusleiste</string>
   <string name="value_webview">Webansicht</string>
-  <string name="value_toolbar">Symbolleiste</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Zeichen %1$d bis %2$d</string>
-  <string name="template_password_traversed">Zeichen %1$d</string>
   <string name="value_password">Passwort</string>
   <string name="value_sliding_drawer_opened">Schieberegler geöffnet</string>
   <string name="value_options_menu_open">Optionen</string>
@@ -125,7 +121,7 @@
   <string name="out_of_role_description_with_name">Nicht in %1$s %2$s</string>
   <string name="out_of_role_description">Nicht in %1$s</string>
   <string name="out_of_list_with_name">Nicht in der Liste %1$s</string>
-  <string name="out_of_list">Nicht in der Liste</string>
+  <string name="out_of_list">Liste verlassen</string>
   <string name="in_grid_with_name">Im Raster %1$s</string>
   <string name="in_grid">Im Raster</string>
   <string name="out_of_grid_with_name">Nicht im Raster %1$s</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Außerhalb der vertikalen Seite</string>
   <string name="in_horizontal_pager_with_name">Auf der horizontalen Seite %1$s</string>
   <string name="in_horizontal_pager">Auf der horizontalen Seite</string>
-  <string name="out_of_horizontal_pager_with_name">Außerhalb der horizontalen Seite %1$s</string>
   <string name="out_of_horizontal_pager">Außerhalb der horizontalen Seite</string>
   <string name="in_grid_pager_with_name">Auf der Rasterseite %1$s</string>
   <string name="in_grid_pager">Auf der Rasterseite</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Vergrößerung auf %1$d %% eingestellt</string>
   <string name="screen_magnification_off">Vergrößerung deaktiviert</string>
   <string name="template_speech_rate_change">Sprechgeschwindigkeit: %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Schneller</string>
-  <string name="template_speech_rate_change_slower">Langsamer</string>
-  <string name="template_speech_rate_change_fastest">Am schnellsten</string>
-  <string name="template_speech_rate_change_slowest">Am langsamsten</string>
   <string name="template_volume_change_increase">Erhöhen</string>
   <string name="template_volume_change_decrease">Verringern</string>
   <string name="template_volume_change_maximum">Maximal</string>
   <string name="template_volume_change_minimum">Minimal</string>
   <string name="template_seekbar_range">%1$d %%</string>
-  <string name="audio_focus_on">Audio-Ducking an</string>
-  <string name="audio_focus_off">Audio-Ducking aus</string>
-  <string name="selector_speech_rate_output">Sprechgeschwindigkeit</string>
-  <string name="selector_verbosity_output">Ausführlichkeit</string>
-  <string name="selector_granularity_output">Navigation</string>
-  <string name="selector_audio_focus_output">Audio-Ducking</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Passwörter werden nur bei Verwendung von Kopfhörern gesprochen</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s verfügbar, zum Ansehen %2$s verwenden.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s verfügbar.</string>
+  <string name="hint_suggestion">Korrekturvorschläge verfügbar.</string>
+  <string name="in_window_with_name">%1$s-Fenster</string>
+  <string name="detected_icon_description">%1$s, erkanntes Symbol</string>
+  <string name="ocr_text_description">%1$s, Text</string>
 </resources>

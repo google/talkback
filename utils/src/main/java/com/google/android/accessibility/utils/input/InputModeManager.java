@@ -16,10 +16,10 @@
 
 package com.google.android.accessibility.utils.input;
 
-import androidx.annotation.NonNull;
 import android.view.InputDevice;
 import android.view.KeyEvent;
 import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
 
@@ -45,7 +45,7 @@ public class InputModeManager implements ServiceKeyEventListener {
   public static final int INPUT_MODE_TV_REMOTE = 2;
   public static final int INPUT_MODE_NON_ALPHABETIC_KEYBOARD = 3;
 
-  private @InputMode int mInputMode = INPUT_MODE_UNKNOWN;
+  @InputMode private int mInputMode = INPUT_MODE_UNKNOWN;
 
   public void clear() {
     mInputMode = INPUT_MODE_UNKNOWN;
@@ -61,7 +61,8 @@ public class InputModeManager implements ServiceKeyEventListener {
     mInputMode = inputMode;
   }
 
-  public @InputMode int getInputMode() {
+  @InputMode
+  public int getInputMode() {
     return mInputMode;
   }
 

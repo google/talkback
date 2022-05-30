@@ -31,8 +31,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Handler;
-import com.google.android.accessibility.talkback.controller.SelectorController;
 import com.google.android.accessibility.talkback.preference.GestureChangeNotificationActivity;
+import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
+import com.google.android.accessibility.talkback.selector.SelectorController;
 import com.google.android.accessibility.talkback.utils.NotificationUtils;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
@@ -144,6 +145,13 @@ public class TalkBackUpdateHelper {
       SelectorController.resetSelectorPreferences(service);
     }
 
+    // TalkBack 12.2, Reset Log Level to default
+    // TODO: update build id when 12.2 is final.
+    if (previousVersion < Integer.MAX_VALUE) {
+      editor.remove(service.getString(R.string.pref_log_level_key));
+      PreferencesActivityUtils.removeEditingKey(service.getApplicationContext());
+    }
+
     // Update key combo model.
     KeyComboManager keyComboManager = service.getKeyComboManager();
     if (keyComboManager != null) {
@@ -196,6 +204,11 @@ public class TalkBackUpdateHelper {
     copyPreferenceBoolean(
         editor,
         presetName,
+        R.string.pref_speak_system_window_titles_key,
+        R.bool.pref_speak_system_window_titles_default);
+    copyPreferenceBoolean(
+        editor,
+        presetName,
         R.string.pref_phonetic_letters_key,
         R.bool.pref_phonetic_letters_default);
     copyPreferenceBoolean(
@@ -222,8 +235,8 @@ public class TalkBackUpdateHelper {
     String key = resources.getString(prefKeyId);
     boolean valueDefault = resources.getBoolean(prefDefaultId);
     boolean value = sharedPreferences.getBoolean(key, valueDefault);
-    String keyForPreset = VerbosityPreferences.toPresetPrefKey(presetName, key);
-    editor.putBoolean(keyForPreset, value);
+    String keyForVerbosity = VerbosityPreferences.toVerbosityPrefKey(presetName, key);
+    editor.putBoolean(keyForVerbosity, value);
   }
 
   private void copyPreferenceString(
@@ -232,8 +245,8 @@ public class TalkBackUpdateHelper {
     String key = resources.getString(prefKeyId);
     String valueDefault = resources.getString(prefDefaultId);
     String value = sharedPreferences.getString(key, valueDefault);
-    String keyForPreset = VerbosityPreferences.toPresetPrefKey(presetName, key);
-    editor.putString(keyForPreset, value);
+    String keyForVerbosity = VerbosityPreferences.toVerbosityPrefKey(presetName, key);
+    editor.putString(keyForVerbosity, value);
   }
 
   private void notifyUserThatSideTapShortcutsRemoved() {

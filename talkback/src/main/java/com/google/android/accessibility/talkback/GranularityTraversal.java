@@ -17,14 +17,12 @@
 package com.google.android.accessibility.talkback;
 
 import android.accessibilityservice.AccessibilityService;
-import androidx.annotation.Nullable;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.compositor.EventInterpretation;
-import com.google.android.accessibility.compositor.TextEventInterpretation;
-import com.google.android.accessibility.compositor.TextEventInterpreter;
 import com.google.android.accessibility.talkback.GranularityIterator.TextSegmentIterator;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPhoneticLetters;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -33,7 +31,8 @@ import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import com.google.android.accessibility.utils.input.CursorGranularity;
-import com.google.android.accessibility.utils.keyboard.KeyboardUtils;
+import com.google.android.accessibility.utils.input.TextEventInterpretation;
+import com.google.android.accessibility.utils.input.TextEventInterpreter;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -61,8 +60,6 @@ public final class GranularityTraversal {
 
   /**
    * Manages the cursor position for each node while traversing with granularity within Talkback.
-   * GranularityTraversal object owns the nodes in this cache, and must recycle them when clearing
-   * the cache.
    */
   private final Map<AccessibilityNodeInfoCompat, Integer> cache = new ConcurrentHashMap<>();
 
@@ -80,7 +77,6 @@ public final class GranularityTraversal {
    * GranularityManager#clear() calls this to make sure the cache gets cleared regularly.
    */
   void clearAllCursors() {
-    AccessibilityNodeInfoUtils.recycleNodes(cache.keySet());
     cache.clear();
   }
 
@@ -111,11 +107,9 @@ public final class GranularityTraversal {
       LogUtils.v(TAG, "Granularity traversal not handled by Talkback since its a webview");
       return false;
     }
-    // Edit texts that have input focus with an active keyboard are handled by the framework.
-    if ((Role.getRole(node) == Role.ROLE_EDIT_TEXT)
-        && node.isFocused()
-        && KeyboardUtils.isKeyboardActive(service)) {
-      LogUtils.v(TAG, "Granularity traversal not handled by Talkback as keyboard is active");
+    // Edit texts that have input focus are handled by the framework.
+    if ((Role.getRole(node) == Role.ROLE_EDIT_TEXT) && node.isFocused()) {
+      LogUtils.v(TAG, "Granularity traversal not handled by Talkback as node is focused");
       return false;
     }
 
@@ -181,7 +175,8 @@ public final class GranularityTraversal {
    * @param granularity that has been requested by the user.
    * @return the iterator for text traversal or {@code null}.
    */
-  private static @Nullable TextSegmentIterator getIteratorForGranularity(
+  @Nullable
+  private static TextSegmentIterator getIteratorForGranularity(
       AccessibilityNodeInfoCompat node, int granularity) {
 
     CharSequence text = getIterableTextForAccessibility(node);

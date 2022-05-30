@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">қысқаша мәлімет</string>
   <string name="voice_commands_read">оқу</string>
   <string name="voice_commands_read_from_next">Келесіден бастап оқу</string>
   <string name="voice_commands_edit_options">Өзгерту опциялары</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Іздеу</string>
   <string name="voice_commands_search">Іздеу</string>
   <string name="voice_commands_search_for">Ізделетін сөз</string>
-  <string name="voice_commands_find_again">Іздеуді қайталау</string>
   <string name="voice_commands_next_heading">Келесі тақырып</string>
   <string name="voice_commands_next_control">Келесі басқару элементі</string>
   <string name="voice_commands_next_link">Келесі сілтеме</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Белгі қойылмады</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">Сөйлеу жылдамдығын реттеу</string>
-  <string name="voice_commands_setting_verbosity">Сөз мөлшерін реттеу</string>
-  <string name="voice_commands_setting_granularity">Детализацияны реттеу</string>
-  <string name="voice_commands_setting_navigation">Навигацияны реттеу</string>
   <string name="voice_commands_first">Бірінші</string>
   <string name="voice_commands_top">Үсті</string>
   <string name="voice_commands_last">Соңғы</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Келесі сілтеме жоқ.</string>
   <string name="voice_commands_no_next_control_feedback">Келесі басқару элементі жоқ.</string>
   <string name="voice_commands_no_next_landmark_feedback">Келесі көрнекті белгі жоқ.</string>
-  <string name="voice_commands_screen_hidden_feedback">Экран жасырылды.</string>
-  <string name="voice_commands_showing_screen_feedback">Экран көрсетілді.</string>
   <string name="voice_commands_help_title">Дауыстық пәрменді шолу</string>
   <string name="voice_commands_help_description">Дауыстық пәрмендерді қолдану үшін оңға және жоғары сырғытыңыз. Пәрмендердің осы тізімін көру үшін \"Көмек керек\" немесе \"Не айтуға болады?\" деңіз.</string>
   <string name="voice_commands_help_hint">Бәрі ойдағылай болуы үшін, мына экрандардағы сөздерді айна-қатесіз айтыңыз.</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">resum</string>
   <string name="voice_commands_read">llegeix</string>
   <string name="voice_commands_read_from_next">Llegeix a partir de l\'element següent</string>
   <string name="voice_commands_edit_options">Opcions d\'edició</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Cerca</string>
   <string name="voice_commands_search">Cerca</string>
   <string name="voice_commands_search_for">Busca</string>
-  <string name="voice_commands_find_again">Repeteix la cerca</string>
   <string name="voice_commands_next_heading">Títol següent</string>
   <string name="voice_commands_next_control">Control següent</string>
   <string name="voice_commands_next_link">Enllaç següent</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">No es pot etiquetar</string>
   <string name="voice_commands_assistant">Assistent</string>
   <string name="voice_commands_setting_speech_rate">S\'està configurant la velocitat de parla</string>
-  <string name="voice_commands_setting_verbosity">S\'està configurant la verbositat</string>
-  <string name="voice_commands_setting_granularity">S\'està configurant la granularitat</string>
-  <string name="voice_commands_setting_navigation">S\'està configurant la navegació</string>
   <string name="voice_commands_first">Primer</string>
   <string name="voice_commands_top">Començament</string>
   <string name="voice_commands_last">Últim</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">No hi ha cap més enllaç</string>
   <string name="voice_commands_no_next_control_feedback">No hi ha cap més control</string>
   <string name="voice_commands_no_next_landmark_feedback">No hi ha cap més punt de referència</string>
-  <string name="voice_commands_screen_hidden_feedback">S\'ha amagat la pantalla</string>
-  <string name="voice_commands_showing_screen_feedback">S\'està mostrant la pantalla</string>
   <string name="voice_commands_help_title">Visió general sobre les ordres de veu</string>
   <string name="voice_commands_help_description">Per utilitzar ordres de veu, llisca cap a la dreta i cap amunt. Digues \"Ajuda\" o \"Què puc dir?\" en qualsevol moment per veure aquesta llista d\'ordres.</string>
   <string name="voice_commands_help_hint">Per obtenir els millors resultats, digues les paraules exactes que figuren a les pantalles següents.</string>

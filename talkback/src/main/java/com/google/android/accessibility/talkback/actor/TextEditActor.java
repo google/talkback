@@ -20,9 +20,9 @@ import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTIO
 import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SET_TEXT;
 import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.SELECTION_MODE_OFF;
 import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.SELECTION_MODE_ON;
-import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE;
-import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE;
-import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE;
+import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE;
+import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE;
+import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_NO_HISTORY;
 import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_INTERRUPT;
 
@@ -30,9 +30,9 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
 import com.google.android.accessibility.talkback.R;
@@ -41,8 +41,8 @@ import com.google.android.accessibility.utils.EditTextActionHistory;
 import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
-import com.google.android.accessibility.utils.SpeechCleanupUtils;
-import com.google.android.accessibility.utils.input.TextCursorManager;
+import com.google.android.accessibility.utils.input.TextCursorTracker;
+import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -63,16 +63,16 @@ public class TextEditActor {
           .setQueueMode(QUEUE_MODE_INTERRUPT)
           .setFlags(
               FLAG_NO_HISTORY
-                  | FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                  | FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                  | FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+                  | FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                  | FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                  | FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
 
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Member variables
 
   private final Context context;
   private final EditTextActionHistory editTextActionHistory;
-  private final TextCursorManager textCursorManager;
+  private final TextCursorTracker textCursorTracker;
   private final ClipboardManager clipboard;
   private FeedbackReturner pipeline;
 
@@ -82,11 +82,11 @@ public class TextEditActor {
   public TextEditActor(
       Context context,
       EditTextActionHistory editTextActionHistory,
-      TextCursorManager textCursorManager,
+      TextCursorTracker textCursorTracker,
       ClipboardManager clipboard) {
     this.context = context;
     this.editTextActionHistory = editTextActionHistory;
-    this.textCursorManager = textCursorManager;
+    this.textCursorTracker = textCursorTracker;
     this.clipboard = clipboard;
   }
 
@@ -199,9 +199,9 @@ public class TextEditActor {
     SpeakOptions speakOptions =
         SpeakOptions.create()
             .setFlags(
-                FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                    | FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                    | FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+                FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                    | FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                    | FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
     pipeline.returnFeedback(eventId, Feedback.speech(textToSpeak, speakOptions));
 
     return true;
@@ -420,7 +420,7 @@ public class TextEditActor {
 
     final Bundle args = new Bundle();
     boolean result = false;
-    textCursorManager.forceSetCursorPosition(cursorIndex, cursorIndex);
+    textCursorTracker.forceSetCursorPosition(cursorIndex, cursorIndex);
     @Nullable CharSequence nodeText = AccessibilityNodeInfoUtils.getText(node);
     if (AccessibilityNodeInfoUtils.supportsAction(
         node, AccessibilityNodeInfoCompat.ACTION_SET_SELECTION)) {

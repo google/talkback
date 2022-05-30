@@ -18,10 +18,10 @@ package com.google.android.accessibility.talkback.eventprocessor;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityRecordCompat;
-import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.NodeBlockingOverlay;
@@ -60,7 +60,7 @@ public class ProcessorPermissionDialogs implements AccessibilityEventListener, O
           | AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
 
   private final NodeBlockingOverlay overlay;
-  @Nullable private AccessibilityNodeInfoCompat allowNode = null;
+  private @Nullable AccessibilityNodeInfoCompat allowNode = null;
   private boolean registered = false;
   private final ActorState actorState;
   private final Pipeline.FeedbackReturner pipeline;
@@ -103,8 +103,6 @@ public class ProcessorPermissionDialogs implements AccessibilityEventListener, O
             source.getBoundsInScreen(sourceRect);
             overlay.show(sourceRect);
             allowNode = source;
-          } else {
-            source.recycle();
           }
         }
         break;
@@ -125,16 +123,12 @@ public class ProcessorPermissionDialogs implements AccessibilityEventListener, O
     if (allowNode != null) {
       pipeline.returnFeedback(
           eventId, Feedback.nodeAction(allowNode, AccessibilityNodeInfoCompat.ACTION_CLICK));
-      allowNode.recycle();
       allowNode = null;
     }
   }
 
   private void clearNode() {
     overlay.hide();
-    if (allowNode != null) {
-      allowNode.recycle();
-      allowNode = null;
-    }
+    allowNode = null;
   }
 }

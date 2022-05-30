@@ -137,7 +137,7 @@ public class NavigationAction {
     private boolean shouldWrap = false;
     private boolean shouldScroll = false;
     private boolean useInputFocusAsPivotIfEmpty = false;
-    @Nullable private CursorGranularity originalNavigationGranularity = null;
+    private @Nullable CursorGranularity originalNavigationGranularity = null;
     private int autoScrollAttempt = 0;
 
     public static Builder copy(NavigationAction action) {

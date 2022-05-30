@@ -59,10 +59,6 @@
   <string name="value_pager_page">Sida</string>
   <string name="value_progress_bar">Förloppsindikator</string>
   <string name="value_webview">Webbvy</string>
-  <string name="value_toolbar">Verktygsfält</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Tecken från %1$d till %2$d</string>
-  <string name="template_password_traversed">Tecken %1$d</string>
   <string name="value_password">lösenord</string>
   <string name="value_sliding_drawer_opened">Lådan är öppen</string>
   <string name="value_options_menu_open">Alternativ.</string>
@@ -98,7 +94,7 @@
   <string name="template_custom_hint_for_actions">%1$s om du vill %2$s.</string>
   <string name="template_custom_hint_for_actions_keyboard">Tryck %1$s om du vill %2$s.</string>
   <string name="template_custom_hint_for_long_clickable_actions">%1$s och håll ned om du vill %2$s.</string>
-  <string name="template_sa_custom_hint_scrollable">Rulla genom att %1$s.</string>
+  <string name="template_sa_custom_hint_scrollable">Scrolla genom att %1$s.</string>
   <string name="template_sa_custom_hint_for_multiple_actions">Se vilka åtgärder som är tillgängliga genom att %1$s.</string>
   <string name="template_sa_hint_seek_control">Tryck på Välj brytare om du vill justera detta</string>
   <string name="value_caps_lock_on">Caps Lock har aktiverats.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Utanför vertikal pager</string>
   <string name="in_horizontal_pager_with_name">I horisontell pager %1$s</string>
   <string name="in_horizontal_pager">I horisontell pager</string>
-  <string name="out_of_horizontal_pager_with_name">Utanför horisontell pager %1$s</string>
   <string name="out_of_horizontal_pager">Utanför horisontell pager</string>
   <string name="in_grid_pager_with_name">I rutnätsbaserad pager %1$s</string>
   <string name="in_grid_pager">I rutnätsbaserad pager</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Förstoring %1$d%%</string>
   <string name="screen_magnification_off">Förstoring har inaktiverats</string>
   <string name="template_speech_rate_change">Talhastighet %1$d %%</string>
-  <string name="template_speech_rate_change_faster">Snabbare</string>
-  <string name="template_speech_rate_change_slower">Långsammare</string>
-  <string name="template_speech_rate_change_fastest">Snabbast</string>
-  <string name="template_speech_rate_change_slowest">Långsammast</string>
   <string name="template_volume_change_increase">Höja</string>
   <string name="template_volume_change_decrease">Sänka</string>
   <string name="template_volume_change_maximum">Högsta</string>
   <string name="template_volume_change_minimum">Lägsta</string>
   <string name="template_seekbar_range">%1$d %%</string>
-  <string name="audio_focus_on">Ljudkompression på</string>
-  <string name="audio_focus_off">Ljudkompression av</string>
-  <string name="selector_speech_rate_output">Talhastighet</string>
-  <string name="selector_verbosity_output">Detaljnivå</string>
-  <string name="selector_granularity_output">Navigation</string>
-  <string name="selector_audio_focus_output">Ljudkompression</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Lösenord läses endast upp när hörlurar används</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s är tillgängligt. Visa med hjälp av rörelsen %2$s.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s är tillgängligt.</string>
+  <string name="hint_suggestion">Det finns stavningsförslag.</string>
+  <string name="in_window_with_name">Fönstret %1$s</string>
+  <string name="detected_icon_description">%1$s, identifierad ikon</string>
+  <string name="ocr_text_description">%1$s, text</string>
 </resources>

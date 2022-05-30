@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">خلاصہ</string>
   <string name="voice_commands_read">پڑھیں</string>
   <string name="voice_commands_read_from_next">اگلے سے پڑھیں</string>
   <string name="voice_commands_edit_options">اختیارات میں ترمیم کریں</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">تلاش کریں</string>
   <string name="voice_commands_search">تلاش کریں</string>
   <string name="voice_commands_search_for">تلاش برائے</string>
-  <string name="voice_commands_find_again">دہرائیں تلاش کریں</string>
   <string name="voice_commands_next_heading">اگلا عنوان</string>
   <string name="voice_commands_next_control">اگلا کنٹرول</string>
   <string name="voice_commands_next_link">اگلا لنک</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">لیبل نہیں لگا سکتے</string>
   <string name="voice_commands_assistant">اسسٹنٹ</string>
   <string name="voice_commands_setting_speech_rate">اسپیچ کی شرح سیٹ ہو رہی ہے</string>
-  <string name="voice_commands_setting_verbosity">طوالت بیانی سیٹ ہو رہی ہے</string>
-  <string name="voice_commands_setting_granularity">گرینولیریٹی سیٹ ہو رہی ہے</string>
-  <string name="voice_commands_setting_navigation">نیویگیشن سیٹ ہو رہی ہے</string>
   <string name="voice_commands_first">پہلا</string>
   <string name="voice_commands_top">سر فہرست</string>
   <string name="voice_commands_last">آخری</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">کوئی اگلا لنک نہیں ہے</string>
   <string name="voice_commands_no_next_control_feedback">کوئی اگلا کنٹرول نہیں ہے</string>
   <string name="voice_commands_no_next_landmark_feedback">کوئی اگلا نمایاں مقام نہیں</string>
-  <string name="voice_commands_screen_hidden_feedback">اسکرین چھپا دی گئی</string>
-  <string name="voice_commands_showing_screen_feedback">اسکرین دکھا رہا ہے</string>
   <string name="voice_commands_help_title">صوتی کمانڈ کا مجموعی جائزہ</string>
   <string name="voice_commands_help_description">صوتی کمانڈز کو استعمال کرنے کے لیے، دائیں پھر اوپر سوائپ کریں۔ کمانڈز کی اس فہرست کے لیے \"مدد\" یا \"میں کیا بول سکتا ہوں؟\" کسی بھی وقت کہیں۔</string>
   <string name="voice_commands_help_hint">بہترین نتائج کے لیے درج ذیل اسکرینز پر دیئے گئے عین مطابق الفاظ بولیں۔</string>

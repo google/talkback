@@ -26,12 +26,16 @@ import static com.google.android.accessibility.utils.traversal.TraversalStrategy
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
 
 import android.accessibilityservice.AccessibilityGestureEvent;
+import android.content.res.Configuration;
+import android.graphics.Rect;
 import android.graphics.Region;
 import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback.AdjustVolume.StreamType;
 import com.google.android.accessibility.talkback.Feedback.Scroll.Action;
+import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollTimeout;
 import com.google.android.accessibility.talkback.ScrollEventInterpreter.UserAction;
 import com.google.android.accessibility.talkback.actor.AutoScrollActor.AutoScrollRecord.Source;
 import com.google.android.accessibility.talkback.actor.TalkBackUIActor;
@@ -42,6 +46,7 @@ import com.google.android.accessibility.talkback.focusmanagement.interpreter.Scr
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
@@ -94,12 +99,10 @@ public abstract class Feedback {
   //////////////////////////////////////////////////////////////////////////////////
   // Construction methods
 
-  /** Caller is responsible to recycle the feedback parts. */
   public static Feedback create(@Nullable EventId eventId, List<Part> sequence) {
     return new AutoValue_Feedback(eventId, ImmutableList.copyOf(sequence));
   }
 
-  /** Caller is responsible to recycle the feedback parts. */
   public static Feedback create(@Nullable EventId eventId, Part part) {
     return new AutoValue_Feedback(eventId, ImmutableList.of(part));
   }
@@ -231,16 +234,12 @@ public abstract class Feedback {
       return partBuilder;
     }
     AccessibilityNode accessibilityNode = AccessibilityNode.obtainCopy(target);
-    try {
-      return partBuilder.setNodeAction(
-          NodeAction.builder()
-              .setTarget(accessibilityNode)
-              .setActionId(actionId)
-              .setArgs(args)
-              .build());
-    } finally {
-      AccessibilityNode.recycle(/* caller= */ "Feedback.nodeAction()", accessibilityNode);
-    }
+    return partBuilder.setNodeAction(
+        NodeAction.builder()
+            .setTarget(accessibilityNode)
+            .setActionId(actionId)
+            .setArgs(args)
+            .build());
   }
 
   /** Copies target at {@link WebAction.Builder}, caller retains ownership. */
@@ -327,7 +326,8 @@ public abstract class Feedback {
       AccessibilityNodeInfoCompat nodeCompat,
       @UserAction int userAction,
       int nodeAction,
-      @Nullable Source source) {
+      @Nullable Source source,
+      ScrollTimeout scrollTimeout) {
     return Part.builder()
         .setScroll(
             Scroll.builder()
@@ -336,6 +336,7 @@ public abstract class Feedback {
                 .setUserAction(userAction)
                 .setNodeAction(nodeAction)
                 .setSource(source)
+                .setTimeout(scrollTimeout)
                 .build());
   }
 
@@ -475,6 +476,11 @@ public abstract class Feedback {
     return Part.builder().setTalkBackUI(TalkBackUI.create(action, type));
   }
 
+  public static Part.Builder showToast(
+      ShowToast.Action action, CharSequence message, boolean durationIsLong) {
+    return Part.builder().setShowToast(ShowToast.create(action, message, durationIsLong));
+  }
+
   public static Part.Builder showSelectorUI(
       TalkBackUIActor.Type type, CharSequence message, boolean showIcon) {
     return Part.builder()
@@ -490,14 +496,35 @@ public abstract class Feedback {
     return Part.builder().setGesture(Gesture.create(Gesture.Action.REPORT));
   }
 
+  public static Part.Builder deviceInfo(DeviceInfo.Action action, Configuration configuration) {
+    return Part.builder().setDeviceInfo(DeviceInfo.create(action, configuration));
+  }
+
   /** Copies node at {@link ImageCaption.Builder}, caller retains ownership. */
   public static Part.Builder performImageCaptions(AccessibilityNodeInfoCompat node) {
+    return performImageCaptions(node, /* isUserRequested= */ false);
+  }
+
+  /** Copies node at {@link ImageCaption.Builder}, caller retains ownership. */
+  public static Part.Builder performImageCaptions(
+      AccessibilityNodeInfoCompat node, boolean isUserRequested) {
     return Part.builder()
         .setImageCaption(
             ImageCaption.builder()
                 .setAction(ImageCaption.Action.PERFORM_CAPTIONS)
                 .setTarget(node)
+                .setUserRequested(isUserRequested)
                 .build());
+  }
+
+  public static Part.Builder wholeScreenChange() {
+    return Part.builder()
+        .setUiChange(
+            UiChange.create(UiChange.Action.CLEAR_SCREEN_CACHE, /* sourceBoundsInScreen= */ null));
+  }
+
+  public static Part.Builder partialUiChange(UiChange.Action action, Rect sourceBoundsInScreen) {
+    return Part.builder().setUiChange(UiChange.create(action, sourceBoundsInScreen));
   }
 
   //////////////////////////////////////////////////////////////////////////////////
@@ -517,10 +544,12 @@ public abstract class Feedback {
 
     public abstract int delayMs();
 
-    public abstract @InterruptGroup int interruptGroup();
+    @InterruptGroup
+    public abstract int interruptGroup();
 
     // In the future, may also need to separately set interruptable-level.
-    public abstract @InterruptLevel int interruptLevel();
+    @InterruptLevel
+    public abstract int interruptLevel();
 
     public abstract @Nullable String senderName();
 
@@ -575,9 +604,15 @@ public abstract class Feedback {
 
     public abstract @Nullable TalkBackUI talkBackUI();
 
+    public abstract @Nullable ShowToast showToast();
+
     public abstract @Nullable Gesture gesture();
 
     public abstract @Nullable ImageCaption imageCaption();
+
+    public abstract @Nullable DeviceInfo deviceInfo();
+
+    public abstract @Nullable UiChange uiChange();
 
     public static Builder builder() {
       return new AutoValue_Feedback_Part.Builder()
@@ -591,7 +626,7 @@ public abstract class Feedback {
           .setStopTts(false);
     }
 
-    /** Builder for Feedback.Part. Caller must recycle the feedback part. */
+    /** Builder for Feedback.Part. */
     @AutoValue.Builder
     public abstract static class Builder {
 
@@ -653,20 +688,20 @@ public abstract class Feedback {
 
       public abstract Builder setLanguage(Language language);
 
-      /** Takes ownership of edit, and recycles it. */
+      /** Takes ownership of edit. */
       public abstract Builder setEdit(EditText edit);
 
       public abstract Builder setSystemAction(SystemAction systemAction);
 
-      /** Takes ownership of nodeAction, and recycles it. */
+      /** Takes ownership of nodeAction. */
       public abstract Builder setNodeAction(NodeAction nodeAction);
 
-      /** Takes ownership of nodeAction, and recycles it. */
+      /** Takes ownership of nodeAction. */
       public abstract Builder setWebAction(WebAction webAction);
 
       public abstract Builder setScroll(Scroll scroll);
 
-      /** Takes ownership of focus, and recycles it. */
+      /** Takes ownership of focus. */
       public abstract Builder setFocus(Focus focus);
 
       public abstract Builder setFocusDirection(FocusDirection focusDirection);
@@ -681,54 +716,17 @@ public abstract class Feedback {
 
       public abstract Builder setTalkBackUI(TalkBackUI talkBackUI);
 
+      public abstract Builder setShowToast(ShowToast showToast);
+
       public abstract Builder setGesture(Gesture gesture);
 
       public abstract Builder setImageCaption(ImageCaption imageCaption);
 
+      public abstract Builder setDeviceInfo(DeviceInfo deviceInfo);
+
+      public abstract Builder setUiChange(UiChange uiChange);
+
       public abstract Part build();
-    }
-
-    public void recycle() {
-
-      Label label = label();
-      if (label != null) {
-        label.recycle();
-      }
-
-      EditText edit = edit();
-      if (edit != null) {
-        edit.recycle();
-      }
-
-      NodeAction nodeAction = nodeAction();
-      if (nodeAction != null) {
-        nodeAction.recycle();
-      }
-
-      WebAction webAction = webAction();
-      if (webAction != null) {
-        webAction.recycle();
-      }
-
-      Scroll scroll = scroll();
-      if (scroll != null) {
-        scroll.recycle();
-      }
-
-      Focus focus = focus();
-      if (focus != null) {
-        focus.recycle();
-      }
-
-      FocusDirection direction = focusDirection();
-      if (direction != null) {
-        direction.recycle();
-      }
-
-      ImageCaption imageCaption = imageCaption();
-      if (imageCaption != null) {
-        imageCaption.recycle();
-      }
     }
 
     @Override
@@ -761,8 +759,11 @@ public abstract class Feedback {
               StringBuilderUtils.optionalSubObj("focusDirection", focusDirection()),
               StringBuilderUtils.optionalSubObj("passThroughMode", passThroughMode()),
               StringBuilderUtils.optionalSubObj("talkBackUI", talkBackUI()),
+              StringBuilderUtils.optionalSubObj("showToast", showToast()),
               StringBuilderUtils.optionalSubObj("gesture", gesture()),
               StringBuilderUtils.optionalSubObj("imageCaption", imageCaption()),
+              StringBuilderUtils.optionalSubObj("deviceInfo", deviceInfo()),
+              StringBuilderUtils.optionalSubObj("uiChange", uiChange()),
               StringBuilderUtils.optionalSubObj("speechRate", speechRate()),
               StringBuilderUtils.optionalSubObj("adjustValue", adjustValue()),
               StringBuilderUtils.optionalSubObj("adjustVolume", adjustVolume()));
@@ -810,10 +811,6 @@ public abstract class Feedback {
         return autoBuild();
       }
     }
-
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(node());
-    }
   }
 
   /** Inner data-structure for screen-dimming. */
@@ -842,6 +839,7 @@ public abstract class Feedback {
       SPEAK,
       SAVE_LAST,
       COPY_SAVED,
+      COPY_LAST,
       REPEAT_SAVED,
       SPELL_SAVED,
       PAUSE_OR_RESUME,
@@ -895,6 +893,25 @@ public abstract class Feedback {
       public abstract Builder setHintSpeakOptions(@Nullable SpeakOptions hintSpeakOptions);
 
       public abstract Speech build();
+    }
+
+    @Override
+    public final String toString() {
+      // Implement toString() has the effect of overriding the AutoValue autogenerated toString
+      // method.
+      String string =
+          StringBuilderUtils.joinFields(
+              StringBuilderUtils.optionalField("action", action()),
+              StringBuilderUtils.optionalText(
+                  "text",
+                  FeatureSupport.logcatIncludePsi()
+                      ? text()
+                      : TextUtils.isEmpty(text()) ? null : "***"),
+              StringBuilderUtils.optionalSubObj("options", options()),
+              String.format("%s= %s", "hint", hint()),
+              String.format("%s= %s", "hintSpeakOptions", hintSpeakOptions()));
+
+      return string;
     }
   }
 
@@ -1061,10 +1078,6 @@ public abstract class Feedback {
         return autoBuild();
       }
     }
-
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(node());
-    }
   }
   /** Inner data-structure for performing a global action. */
   @AutoValue
@@ -1080,7 +1093,7 @@ public abstract class Feedback {
   /** Inner data-structure for performing an action on a node. */
   @AutoValue
   public abstract static class NodeAction {
-    /** Owned node, NodeAction must recycle. */
+    /** Owned node. */
     public abstract AccessibilityNode target();
 
     public abstract int actionId();
@@ -1115,10 +1128,6 @@ public abstract class Feedback {
       }
     }
 
-    public void recycle() {
-      AccessibilityNode.recycle("Feedback.NodeAction.recycle()", target());
-    }
-
     @Override
     public final String toString() {
       return StringBuilderUtils.joinFields(
@@ -1140,7 +1149,7 @@ public abstract class Feedback {
 
     public abstract WebAction.Action action();
 
-    /** Owned node, AccessibilityNodeInfoCompat must recycle. */
+    /** Owned node. */
     public abstract AccessibilityNodeInfoCompat target();
 
     public abstract int nodeAction();
@@ -1178,17 +1187,13 @@ public abstract class Feedback {
       abstract WebAction autoBuild();
 
       public WebAction build() {
-        /** Owned node, WebAction must recycle. */
+        /** Owned node. */
         AccessibilityNodeInfoCompat node = target();
         if (node != null) {
           setTarget(AccessibilityNodeInfoCompat.obtain(node));
         }
         return autoBuild();
       }
-    }
-
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(target());
     }
 
     @Override
@@ -1221,14 +1226,18 @@ public abstract class Feedback {
 
     public abstract @Nullable AccessibilityNodeInfoCompat nodeToMoveOnScreen();
 
-    public abstract @UserAction int userAction();
+    @UserAction
+    public abstract int userAction();
 
     public abstract int nodeAction();
 
     public abstract @Nullable Source source();
 
+    public abstract ScrollTimeout timeout();
+
     public static Scroll.Builder builder() {
-      return new AutoValue_Feedback_Scroll.Builder();
+      // By default, use timeout short.
+      return new AutoValue_Feedback_Scroll.Builder().setTimeout(ScrollTimeout.SCROLL_TIMEOUT_SHORT);
     }
 
     /** Builder for Scroll feedback data */
@@ -1251,6 +1260,8 @@ public abstract class Feedback {
 
       public abstract Scroll.Builder setSource(@Nullable Source source);
 
+      public abstract Scroll.Builder setTimeout(ScrollTimeout timeout);
+
       abstract @Nullable AccessibilityNode node();
 
       abstract @Nullable AccessibilityNodeInfoCompat nodeCompat();
@@ -1271,11 +1282,6 @@ public abstract class Feedback {
         }
         return autoBuild();
       }
-    }
-
-    public void recycle() {
-      AccessibilityNode.recycle("Feedback.Scroll.recycle()", node());
-      AccessibilityNodeInfoUtils.recycleNodes(nodeCompat(), nodeToMoveOnScreen());
     }
   }
 
@@ -1313,7 +1319,8 @@ public abstract class Feedback {
 
     public abstract @Nullable AccessibilityNodeInfoCompat target();
 
-    public abstract @SearchDirection int direction();
+    @SearchDirection
+    public abstract int direction();
 
     public abstract @Nullable FocusActionInfo focusActionInfo();
 
@@ -1380,10 +1387,6 @@ public abstract class Feedback {
         setScrolledNode(AccessibilityNodeInfoUtils.obtain(scrolledNode()));
         return autoBuild();
       }
-    }
-
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(start(), target(), scrolledNode());
     }
 
     @Override
@@ -1535,9 +1538,11 @@ public abstract class Feedback {
       NAVIGATE;
     }
 
-    public abstract @SearchDirection int direction();
+    @SearchDirection
+    public abstract int direction();
 
-    public abstract @TargetType int htmlTargetType();
+    @TargetType
+    public abstract int htmlTargetType();
 
     // TODO: Remove follow-focus events & actor logic, and instead pass focused node as
     // argument to all focus-direction feedback.
@@ -1551,7 +1556,8 @@ public abstract class Feedback {
 
     public abstract boolean toWindow();
 
-    public abstract @InputMode int inputMode();
+    @InputMode
+    public abstract int inputMode();
 
     public abstract @Nullable CursorGranularity granularity();
 
@@ -1618,10 +1624,6 @@ public abstract class Feedback {
       }
     }
 
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(targetNode());
-    }
-
     @Override
     public final String toString() {
       return StringBuilderUtils.joinFields(
@@ -1673,6 +1675,27 @@ public abstract class Feedback {
     }
   }
 
+  /** Inner data-structure for displaying toast. */
+  @AutoValue
+  public abstract static class ShowToast {
+
+    /** Types of showing toast actions. */
+    public enum Action {
+      SHOW,
+    }
+
+    public abstract ShowToast.Action action();
+
+    public abstract @Nullable CharSequence message();
+
+    public abstract boolean durationIsLong();
+
+    public static ShowToast create(
+        ShowToast.Action action, CharSequence message, boolean durationIsLong) {
+      return new AutoValue_Feedback_ShowToast(action, message, durationIsLong);
+    }
+  }
+
   /** Inner data-structure for Gesture. */
   @AutoValue
   public abstract static class Gesture {
@@ -1708,11 +1731,14 @@ public abstract class Feedback {
 
     public abstract ImageCaption.Action action();
 
-    /** Owned node, AccessibilityNodeInfoCompat must recycle. */
+    /** Owned node. */
     public abstract AccessibilityNodeInfoCompat target();
 
+    /** Return true, if the image-caption triggers by users. */
+    public abstract boolean userRequested();
+
     public static Builder builder() {
-      return new AutoValue_Feedback_ImageCaption.Builder();
+      return new AutoValue_Feedback_ImageCaption.Builder().setUserRequested(false);
     }
 
     /** Builder for ImageCaption feedback data. */
@@ -1724,6 +1750,8 @@ public abstract class Feedback {
       /** Copies node at{@link ImageCaption.Builder}, caller retains ownership. */
       public abstract Builder setTarget(AccessibilityNodeInfoCompat target);
 
+      public abstract Builder setUserRequested(boolean isUserRequested);
+
       abstract AccessibilityNodeInfoCompat target();
 
       abstract ImageCaption autoBuild();
@@ -1733,9 +1761,42 @@ public abstract class Feedback {
         return autoBuild();
       }
     }
+  }
 
-    public void recycle() {
-      AccessibilityNodeInfoUtils.recycleNodes(target());
+  /** Inner data-structure for controlling device info. */
+  public abstract static class DeviceInfo {
+
+    /** Types of exclusive actions of device info. */
+    public enum Action {
+      CONFIG_CHANGED
+    }
+
+    public abstract DeviceInfo.Action action();
+
+    public abstract @Nullable Configuration configuration();
+
+    public static DeviceInfo create(
+        DeviceInfo.Action action, @Nullable Configuration configuration) {
+      return new AutoValue_Feedback_DeviceInfo(action, configuration);
+    }
+  }
+
+  /** Inner data-structure for UI change. */
+  @AutoValue
+  public abstract static class UiChange {
+
+    /** Types of exclusive UI change actions. */
+    public enum Action {
+      CLEAR_SCREEN_CACHE,
+      CLEAR_CACHE_FOR_VIEW,
+    }
+
+    public abstract Action action();
+
+    public abstract @Nullable Rect sourceBoundsInScreen();
+
+    public static UiChange create(UiChange.Action action, @Nullable Rect sourceBoundsInScreen) {
+      return new AutoValue_Feedback_UiChange(action, sourceBoundsInScreen);
     }
   }
 

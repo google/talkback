@@ -19,10 +19,12 @@ package com.google.android.accessibility.utils;
 import android.annotation.TargetApi;
 import android.graphics.Rect;
 import android.os.Build.VERSION_CODES;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
+import android.view.Display;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.NonNull;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Collections;
 import java.util.Comparator;
@@ -135,8 +137,7 @@ public class AccessibilityWindowInfoUtils {
   }
 
   /** Returns the root node of the tree of {@code windowInfo}. */
-  @Nullable
-  public static AccessibilityNodeInfo getRoot(AccessibilityWindowInfo windowInfo) {
+  public static @Nullable AccessibilityNodeInfo getRoot(AccessibilityWindowInfo windowInfo) {
     AccessibilityNodeInfo nodeInfo = null;
     if (windowInfo == null) {
       return null;
@@ -152,8 +153,7 @@ public class AccessibilityWindowInfoUtils {
   }
 
   /** Returns the root node of the tree of {@code windowInfoCompat}. */
-  @Nullable
-  public static AccessibilityNodeInfoCompat getRoot(
+  public static @Nullable AccessibilityNodeInfoCompat getRoot(
       AccessibilityWindowInfoCompat windowInfoCompat) {
     AccessibilityNodeInfoCompat nodeInfoCompat = null;
     if (windowInfoCompat == null) {
@@ -176,10 +176,82 @@ public class AccessibilityWindowInfoUtils {
    * <p>Before android-N, even {@link AccessibilityWindowInfoCompat#getTitle} will always return
    * null.
    */
-  @Nullable
-  public static CharSequence getTitle(AccessibilityWindowInfo windowInfo) {
+  @TargetApi(VERSION_CODES.N)
+  public static @Nullable CharSequence getTitle(AccessibilityWindowInfo windowInfo) {
     if (windowInfo != null && FeatureSupport.supportGetTitleFromWindows()) {
       return windowInfo.getTitle();
+    }
+    return null;
+  }
+
+  /**
+   * Returns the ID of the display this window is on. If the platform doesn't support multi-display,
+   * it returns {@link Display.DEFAULT_DISPLAY}
+   */
+  @TargetApi(VERSION_CODES.R)
+  public static int getDisplayId(@NonNull AccessibilityWindowInfo windowInfo) {
+    if (FeatureSupport.supportMultiDisplay()) {
+      return windowInfo.getDisplayId();
+    }
+    return Display.DEFAULT_DISPLAY;
+  }
+
+  /**
+   * Gets the node that anchors this window to another.
+   *
+   * @param window the target window to check
+   * @return The anchor node, or {@code null} if none exists.
+   */
+  @TargetApi(VERSION_CODES.N)
+  public static @Nullable AccessibilityNodeInfoCompat getAnchor(AccessibilityWindowInfo window) {
+    AccessibilityNodeInfoCompat nodeInfo = null;
+    if (window == null || !BuildVersionUtils.isAtLeastN()) {
+      return null;
+    }
+
+    try {
+      nodeInfo = AccessibilityNodeInfoUtils.toCompat(window.getAnchor());
+    } catch (SecurityException e) {
+      LogUtils.e(
+          TAG, "SecurityException occurred at AccessibilityWindowInfoUtils#getAnchor(): %s", e);
+    }
+    return nodeInfo;
+  }
+
+  /**
+   * Returns the window anchored by the given node.
+   *
+   * @param anchor the anchor node
+   * @return windowInfo of the anchored window
+   */
+  public static @Nullable AccessibilityWindowInfo getAnchoredWindow(
+      @Nullable AccessibilityNodeInfoCompat anchor) {
+    return (anchor == null) ? null : getAnchoredWindow(anchor.unwrap());
+  }
+
+  /**
+   * Returns the window anchored by the given node.
+   *
+   * @param anchor the anchor node
+   * @return windowInfo of the anchored window
+   */
+  public static @Nullable AccessibilityWindowInfo getAnchoredWindow(
+      @Nullable AccessibilityNodeInfo anchor) {
+    @Nullable AccessibilityNodeInfoCompat node;
+    AccessibilityWindowInfo window = AccessibilityNodeInfoUtils.getWindow(anchor);
+    if (anchor == null || window == null || !BuildVersionUtils.isAtLeastN()) {
+      return null;
+    }
+    for (int i = 0; i < window.getChildCount(); i++) {
+      AccessibilityWindowInfo windowInfo = window.getChild(i);
+      node = AccessibilityWindowInfoUtils.getAnchor(windowInfo);
+      try {
+        if (node != null && anchor.equals(node.unwrap())) {
+          return windowInfo;
+        }
+      } finally {
+        AccessibilityNodeInfoUtils.recycleNodes(node);
+      }
     }
     return null;
   }

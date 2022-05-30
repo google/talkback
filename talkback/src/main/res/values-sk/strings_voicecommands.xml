@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">zhrnutie</string>
   <string name="voice_commands_read">čítať</string>
   <string name="voice_commands_read_from_next">Čítať z nasledujúcich možností</string>
   <string name="voice_commands_edit_options">Upraviť možnosti</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Nájsť</string>
   <string name="voice_commands_search">Hľadať</string>
   <string name="voice_commands_search_for">Hľadať výraz</string>
-  <string name="voice_commands_find_again">Zopakovať vyhľadávanie</string>
   <string name="voice_commands_next_heading">Ďalší nadpis</string>
   <string name="voice_commands_next_control">Ďalší ovládací prvok</string>
   <string name="voice_commands_next_link">Ďalší odkaz</string>
@@ -49,14 +47,11 @@
   <string name="voice_commands_cannot_label_feedback">Nie je možné označiť štítkom</string>
   <string name="voice_commands_assistant">Asistent</string>
   <string name="voice_commands_setting_speech_rate">Nastavenie rýchlosti reči</string>
-  <string name="voice_commands_setting_verbosity">Nastavenie podrobnosti slov</string>
-  <string name="voice_commands_setting_granularity">Nastavenie podrobnosti navigácie</string>
-  <string name="voice_commands_setting_navigation">Nastavenie navigácie</string>
   <string name="voice_commands_first">Prvá</string>
   <string name="voice_commands_top">Hore</string>
   <string name="voice_commands_last">Posledná</string>
   <string name="voice_commands_bottom">Dole</string>
-  <string name="voice_commands_type">Typ</string>
+  <string name="voice_commands_type">Písať</string>
   <string name="voice_commands_input">Vstup</string>
   <string name="voice_commands_dictate">Diktovať</string>
   <string name="voice_commands_write">Zapísať</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Žiadny ďalší odkaz</string>
   <string name="voice_commands_no_next_control_feedback">Žiadny ďalší ovládací prvok</string>
   <string name="voice_commands_no_next_landmark_feedback">Žiadny ďalší orientačný bod</string>
-  <string name="voice_commands_screen_hidden_feedback">Obrazovka je skrytá</string>
-  <string name="voice_commands_showing_screen_feedback">Obrazovka je zobrazená</string>
   <string name="voice_commands_help_title">Prehľad hlasových príkazov</string>
   <string name="voice_commands_help_description">Ak chcete používať hlasové príkazy, potiahnite doprava a nahor. Kedykoľvek si tento zoznam príkazov môžete zobraziť vyslovením „Help“ (Potrebujem pomoc) alebo „What can I say?“ (Čo môžem povedať?).</string>
   <string name="voice_commands_help_hint">Najlepšie výsledky dosiahnete, ak pri vyslovení presne dodržíte formuláciu výrazov uvedených na nasledujúcich obrazovkách.</string>

@@ -27,7 +27,7 @@ import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService.SpeechLanguage;
-import com.google.android.accessibility.utils.ScreenMonitor;
+import com.google.android.accessibility.utils.monitor.ScreenMonitor;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -53,8 +53,7 @@ public class LanguageActor {
       return LanguageActor.this.getCurrentLanguageString();
     }
 
-    @Nullable
-    public Locale getCurrentLanguage() {
+    public @Nullable Locale getCurrentLanguage() {
       return LanguageActor.this.getCurrentLanguage();
     }
   }
@@ -182,8 +181,7 @@ public class LanguageActor {
    *
    * @return returns null, if users haven't set their preferred language.
    */
-  @Nullable
-  public Locale getCurrentLanguage() {
+  public @Nullable Locale getCurrentLanguage() {
     return speechLanguage.getCurrentLanguage();
   }
 

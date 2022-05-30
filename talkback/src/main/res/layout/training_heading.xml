@@ -9,7 +9,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="@dimen/training_padding_top"
-      android:fontFamily="@string/talkback_font"
+      android:fontFamily="@string/accessibility_font"
       android:textStyle="bold"
       android:textColor="@color/training_heading_color"
       android:textSize="@dimen/training_heading_size"

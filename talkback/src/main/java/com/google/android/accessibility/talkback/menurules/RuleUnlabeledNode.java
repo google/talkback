@@ -20,8 +20,8 @@ import static com.google.android.accessibility.talkback.analytics.TalkBackAnalyt
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.Menu;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;

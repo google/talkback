@@ -59,10 +59,6 @@
   <string name="value_pager_page">Pagina</string>
   <string name="value_progress_bar">Voortgangsbalk</string>
   <string name="value_webview">Webweergave</string>
-  <string name="value_toolbar">Werkbalk</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Tekens %1$d tot %2$d</string>
-  <string name="template_password_traversed">Teken %1$d</string>
   <string name="value_password">wachtwoord</string>
   <string name="value_sliding_drawer_opened">Schuiflade is geopend</string>
   <string name="value_options_menu_open">Opties.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Buiten verticale pagina</string>
   <string name="in_horizontal_pager_with_name">Binnen horizontale pagina %1$s</string>
   <string name="in_horizontal_pager">Binnen horizontale pagina</string>
-  <string name="out_of_horizontal_pager_with_name">Buiten horizontale pagina %1$s</string>
   <string name="out_of_horizontal_pager">Buiten horizontale pagina</string>
   <string name="in_grid_pager_with_name">Binnen rasterpagina %1$s</string>
   <string name="in_grid_pager">Binnen rasterpagina</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Vergroting %1$d%%</string>
   <string name="screen_magnification_off">Vergroting uit</string>
   <string name="template_speech_rate_change">Spreeksnelheid %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Sneller</string>
-  <string name="template_speech_rate_change_slower">Langzamer</string>
-  <string name="template_speech_rate_change_fastest">Snelst</string>
-  <string name="template_speech_rate_change_slowest">Langzaamst</string>
   <string name="template_volume_change_increase">Verhogen</string>
   <string name="template_volume_change_decrease">Verlagen</string>
   <string name="template_volume_change_maximum">Maximum</string>
   <string name="template_volume_change_minimum">Minimum</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Audiovolume verlagen aan</string>
-  <string name="audio_focus_off">Audiovolume verlagen uit</string>
-  <string name="selector_speech_rate_output">Spreeksnelheid</string>
-  <string name="selector_verbosity_output">Uitgebreidheidsniveau</string>
-  <string name="selector_granularity_output">Navigatie</string>
-  <string name="selector_audio_focus_output">Audiovolume verlagen</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Wachtwoorden worden alleen voorgelezen bij gebruik van de hoofdtelefoon</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s beschikbaar, gebruik %2$s om te bekijken.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s beschikbaar.</string>
+  <string name="hint_suggestion">Er zijn spellingsuggesties beschikbaar.</string>
+  <string name="in_window_with_name">Venster %1$s</string>
+  <string name="detected_icon_description">%1$s, herkend icoon</string>
+  <string name="ocr_text_description">%1$s, tekst</string>
 </resources>

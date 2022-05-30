@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Numero</string>
+  <string name="capitalize_announcement">Cap</string>
+  <string name="read_out_deleted">%s ang na-delete</string>
+  <plurals name="braille_dots">
+    <item quantity="one">dot %s</item>
+    <item quantity="other">dot %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">Spanish</string>
+  <string name="code_user_facing_name_ar">Arabic</string>
+  <string name="code_user_facing_name_fr">French</string>
+  <string name="code_user_facing_name_pl">Polish</string>
+  <string name="screen_away">Screen-away mode</string>
+  <string name="screen_away_detail">Hawakan ang device nang nakatalikod sa iyo ang screen (screen-away mode)</string>
+  <string name="tabletop">Tabletop mode</string>
+  <string name="tabletop_detail">Ilapag ang device nang naka-flat sa mesa (tabletop mode)</string>
+  <string name="auto_detect">Umangkop sa paghawak mo sa device</string>
+</resources>

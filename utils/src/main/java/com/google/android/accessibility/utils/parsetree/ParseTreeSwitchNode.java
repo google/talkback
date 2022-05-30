@@ -94,7 +94,8 @@ class ParseTreeSwitchNode extends ParseTreeNode {
   }
 
   @Override
-  public @Nullable ParseTree.VariableDelegate resolveToReference(
+  @Nullable
+  public ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     int value = mCondition.resolveToInteger(delegate, logIndent);
     ParseTreeNode node = mCases.get(value);

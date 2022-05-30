@@ -59,10 +59,6 @@
   <string name="value_pager_page">പേജ്</string>
   <string name="value_progress_bar">പ്രോഗ്രസ്സ് ബാർ</string>
   <string name="value_webview">വെബ് കാഴ്‌ച</string>
-  <string name="value_toolbar">Toolbar</string>
-  <string name="template_summary_description">%1$s : %2$s</string>
-  <string name="template_password_selected">%1$d മുതൽ %2$d വരെയുള്ള പ്രതീകങ്ങൾ</string>
-  <string name="template_password_traversed">പ്രതീകം %1$d</string>
   <string name="value_password">പാസ്‌വേഡ്</string>
   <string name="value_sliding_drawer_opened">വലിപ്പ് തുറന്നു</string>
   <string name="value_options_menu_open">ഓപ്ഷനുകൾ.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">വെര്‍ട്ടിക്കല്‍ പേജറിന് പുറത്ത്</string>
   <string name="in_horizontal_pager_with_name">തിരശ്ചീന പേജറിൽ %1$s</string>
   <string name="in_horizontal_pager">തിരശ്ചീന പേജറിൽ</string>
-  <string name="out_of_horizontal_pager_with_name">തിരശ്ചീന പേജറിന് പുറത്ത് %1$s</string>
   <string name="out_of_horizontal_pager">തിരശ്ചീന പേജറിന് പുറത്ത്</string>
   <string name="in_grid_pager_with_name">ഗ്രിഡ് പേജറിൽ %1$s</string>
   <string name="in_grid_pager">ഗ്രിഡ് പേജറിൽ</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">മാഗ്നിഫിക്കേഷൻ %1$d%%</string>
   <string name="screen_magnification_off">മാഗ്നിഫിക്കേഷൻ ഓഫ്</string>
   <string name="template_speech_rate_change">വായനയുടെ വേഗത %1$d%%</string>
-  <string name="template_speech_rate_change_faster">കൂടുതൽ വേഗത്തിൽ</string>
-  <string name="template_speech_rate_change_slower">സാവധാനം</string>
-  <string name="template_speech_rate_change_fastest">ഏറ്റവും വേഗത്തിൽ</string>
-  <string name="template_speech_rate_change_slowest">ഏറ്റവും പതുക്കെ</string>
   <string name="template_volume_change_increase">കൂട്ടുക</string>
   <string name="template_volume_change_decrease">കുറയ്‌ക്കുക</string>
   <string name="template_volume_change_maximum">പരമാവധി</string>
   <string name="template_volume_change_minimum">കുറഞ്ഞത്</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">ഓഡിയോ ഡക്കിംഗ് ഓണാണ്</string>
-  <string name="audio_focus_off">ഓഡിയോ ഡക്കിംഗ് ഓഫാണ്</string>
-  <string name="selector_speech_rate_output">വായനയുടെ വേഗത</string>
-  <string name="selector_verbosity_output">ശബ്‌ദബാഹുല്യം</string>
-  <string name="selector_granularity_output">നാവിഗേഷന്‍‌</string>
-  <string name="selector_audio_focus_output">ഓഡിയോ ഡക്കിംഗ്</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">ഹെഡ്‌ഫോണുകൾ ഉപയോഗിക്കുമ്പോൾ മാത്രമേ പാസ്‌വേഡുകൾ പറയൂ</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s ലഭ്യമാണ്, കാണാനായി %2$s ഉപയോഗിക്കുക.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s ലഭ്യമാണ്.</string>
+  <string name="hint_suggestion">സ്പെല്ലിംഗ് നിർദ്ദേശങ്ങൾ ലഭ്യമാണ്.</string>
+  <string name="in_window_with_name">%1$s വിന്‍‌ഡോ</string>
+  <string name="detected_icon_description">തിരിച്ചറിഞ്ഞ ഐക്കൺ: %1$s</string>
+  <string name="ocr_text_description">ടെക്‌സ്റ്റ്: %1$s</string>
 </resources>

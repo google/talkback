@@ -36,7 +36,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public final class SearchScreenOverlayLayout extends LinearLayout {
   int overlayId;
-  @Nullable private OnKeyListener keyListener;
+  private @Nullable OnKeyListener keyListener;
 
   public SearchScreenOverlayLayout(Context context, AttributeSet attrs) {
     super(context, attrs);

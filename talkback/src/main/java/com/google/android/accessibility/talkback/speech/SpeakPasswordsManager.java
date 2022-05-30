@@ -21,10 +21,9 @@ import android.content.SharedPreferences;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.HeadphoneStateMonitor;
-import com.google.android.accessibility.utils.HeadphoneStateMonitor.Listener;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
-import com.google.android.accessibility.utils.compat.provider.SettingsCompatUtils;
+import com.google.android.accessibility.utils.monitor.HeadphoneStateMonitor;
+import com.google.android.accessibility.utils.monitor.HeadphoneStateMonitor.Listener;
 
 /**
  * Manages whether passwords should be spoken on Android O and above by telling the GlobalVariables
@@ -86,15 +85,13 @@ public class SpeakPasswordsManager {
   }
   /**
    * Gets the current value of the Should Speak Passwords Always (or only with headphones) setting.
-   * This takes into account the previous system setting for passwords to be spoken.
    */
   public static boolean getAlwaysSpeakPasswordsPref(Context context) {
-    boolean speakSysPref = SettingsCompatUtils.SecureCompatUtils.shouldSpeakPasswords(context);
     SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
     return SharedPreferencesUtils.getBooleanPref(
         prefs,
         context.getResources(),
         R.string.pref_speak_passwords_without_headphones,
-        speakSysPref);
+        R.bool.pref_speak_passwords_without_headphones_default);
   }
 }

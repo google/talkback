@@ -23,9 +23,9 @@ import static com.google.android.accessibility.utils.traversal.TraversalStrategy
 
 import android.accessibilityservice.AccessibilityService;
 import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import android.text.TextUtils;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPhoneticLetters;
@@ -184,7 +184,7 @@ public class CursorGranularityManager {
    */
   public boolean setGranularityAt(
       AccessibilityNodeInfoCompat node, CursorGranularity granularity, EventId eventId) {
-    setLockedNode(node, eventId);
+    setLockedNode(node, granularity.isMicroGranularity(), eventId);
 
     // If node is null, setLocked node does not populate supportedGranularities,
     // so we do it here.
@@ -250,7 +250,10 @@ public class CursorGranularityManager {
    */
   public boolean adjustGranularityAt(
       AccessibilityNodeInfoCompat node, int direction, EventId eventId) {
-    setLockedNode(node, eventId);
+    // The Next/Previous granularity is unclear before populating the granularity support list, so
+    // consider it a micro granularity at first to avoid skipping the necessary step(clear the
+    // selection).
+    setLockedNode(node, true, eventId);
 
     // If node is null, setLocked node does not populate supportedGranularities,
     // so we do it here.
@@ -274,19 +277,15 @@ public class CursorGranularityManager {
   }
 
   /**
-   * Clears the currently locked node and associated state variables. Recycles all currently held
-   * nodes. Resets the requested granularity. Most often called by setLockedNode().
+   * Clears the currently locked node and associated state variables. Resets the requested
+   * granularity. Most often called by setLockedNode().
    */
   private void clear() {
     LogUtils.v(TAG, "Clearing the currently locked node and associated state variables");
     currentNodeIndex = 0;
     supportedGranularities.clear();
-
-    AccessibilityNodeInfoUtils.recycleNodes(navigableNodes);
     navigableNodes.clear();
     granularityTraversal.clearAllCursors();
-
-    AccessibilityNodeInfoUtils.recycleNodes(lockedNode);
     lockedNode = null;
 
     setSelectionModeActive(false);
@@ -470,8 +469,10 @@ public class CursorGranularityManager {
    * necessary.
    *
    * @param node The node the user wishes to navigate within.
+   * @param isMicroGranularity The target granularity is micro or not.
    */
-  private void setLockedNode(AccessibilityNodeInfoCompat node, EventId eventId) {
+  private void setLockedNode(
+      AccessibilityNodeInfoCompat node, boolean isMicroGranularity, EventId eventId) {
     // Clear current state if text has changed even with the same node. Supported granularities
     // can be changed.
     if ((lockedNode != null)
@@ -485,7 +486,7 @@ public class CursorGranularityManager {
     if (lockedNode == null && node != null) {
       lockedNode = AccessibilityNodeInfoCompat.obtain(node);
 
-      if (shouldClearSelection(lockedNode)) {
+      if (shouldClearSelection(lockedNode, isMicroGranularity)) {
         // Always reset selection for the locked node, and reset selection for its non-focusable
         // child nodes before locking navigation to the locked node.
         resetNavigableNodesSelection(lockedNode, eventId, pipeline);
@@ -493,10 +494,8 @@ public class CursorGranularityManager {
 
       // Extract the navigable nodes and supported granularities.
       final List<CursorGranularity> supported = supportedGranularities;
-      Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
       final int supportedMask =
-          extractNavigableNodes(lockedNode, navigableNodes, visitedNodes, eventId, service);
-      AccessibilityNodeInfoUtils.recycleNodes(visitedNodes);
+          extractNavigableNodes(lockedNode, navigableNodes, new HashSet<>(), eventId, service);
       final boolean hasWebContent = WebInterfaceUtils.hasNavigableWebContent(lockedNode);
 
       String[] supportedHtmlElements = WebInterfaceUtils.getSupportedHtmlElements(lockedNode);
@@ -511,9 +510,16 @@ public class CursorGranularityManager {
    * it.
    *
    * @param node The node to check.
+   * @param isMicroGranularity The target granularity is micro or not.
    * @return {@code true} if selection should be cleared.
    */
-  private boolean shouldClearSelection(AccessibilityNodeInfoCompat node) {
+  private boolean shouldClearSelection(
+      AccessibilityNodeInfoCompat node, boolean isMicroGranularity) {
+    // Only micro granularity needs to clear the selection.
+    if (!isMicroGranularity) {
+      return false;
+    }
+
     // EditText has has a stable cursor position, so don't clear selection.
     if (Role.getRole(node) == Role.ROLE_EDIT_TEXT) {
       return false;
@@ -533,9 +539,7 @@ public class CursorGranularityManager {
   public static List<CursorGranularity> getSupportedGranularities(
       AccessibilityService service, AccessibilityNodeInfoCompat root, EventId eventId) {
     final List<CursorGranularity> supported = new ArrayList<>();
-    Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
-    final int supportedMask = extractNavigableNodes(root, null, visitedNodes, eventId, service);
-    AccessibilityNodeInfoUtils.recycleNodes(visitedNodes);
+    final int supportedMask = extractNavigableNodes(root, null, new HashSet<>(), eventId, service);
     final boolean hasWebContent = WebInterfaceUtils.hasNavigableWebContent(root);
 
     String[] supportedHtmlElements = WebInterfaceUtils.getSupportedHtmlElements(root);
@@ -548,8 +552,7 @@ public class CursorGranularityManager {
 
   /**
    * Search for granularity-traversable nodes under <strong>node description tree</strong> of {@code
-   * root}. <strong>Note:</strong> Caller should recycle {@code root}, {@code nodes} and {@code
-   * visitedNodes} after use.
+   * root}.
    *
    * @param root The root node of the node description tree.
    * @param nodes The list of granularity-traversable nodes collected.
@@ -568,11 +571,9 @@ public class CursorGranularityManager {
       return supportedGranularities;
     }
 
-    // "root" will be recycled, make a node copy when adding it to {@code visitedNodes}.
     AccessibilityNodeInfoCompat currentNode = AccessibilityNodeInfoUtils.obtain(root);
     if (!visitedNodes.add(currentNode)) {
-      // Root already visited. Recycle root node and stop searching.
-      currentNode.recycle();
+      // Root already visited. Stop searching.
       return supportedGranularities;
     }
     if (GranularityTraversal.shouldHandleGranularityTraversalInTalkback(root, service)) {
@@ -584,8 +585,7 @@ public class CursorGranularityManager {
 
     } else if (AccessibilityNodeInfoUtils.getMovementGranularity(root) != 0) {
       if (nodes != null) {
-        // "root" will be recycled, make a node copy when adding it to collection.
-        nodes.add(AccessibilityNodeInfoUtils.obtain(root));
+        nodes.add(root);
       }
       supportedGranularities |= root.getMovementGranularities();
     }
@@ -597,16 +597,12 @@ public class CursorGranularityManager {
     ReorderedChildrenIterator iterator = ReorderedChildrenIterator.createAscendingIterator(root);
     while (iterator.hasNext()) {
       AccessibilityNodeInfoCompat child = iterator.next();
-      try {
-        // Use the same traversal filter logic as what we use to compose node tree description for
-        // TYPE_VIEW_ACCESSIBILITY_FOCUSED events. See named node "description_for_tree_nodes" in
-        // compositor.json.
-        if (FILTER_NON_FOCUSABLE_VISIBLE_NODE.accept(child)) {
-          supportedGranularities |=
-              extractNavigableNodes(child, nodes, visitedNodes, eventId, service);
-        }
-      } finally {
-        AccessibilityNodeInfoUtils.recycleNodes(child);
+      // Use the same traversal filter logic as what we use to compose node tree description for
+      // TYPE_VIEW_ACCESSIBILITY_FOCUSED events. See named node "description_for_tree_nodes" in
+      // compositor.json.
+      if (FILTER_NON_FOCUSABLE_VISIBLE_NODE.accept(child)) {
+        supportedGranularities |=
+            extractNavigableNodes(child, nodes, visitedNodes, eventId, service);
       }
     }
 
@@ -615,8 +611,7 @@ public class CursorGranularityManager {
 
   /**
    * Reset selection for root and granularity-traversable nodes under <strong>node description
-   * tree</strong> of {@code root}. <strong>Note:</strong> Caller should recycle {@code root} after
-   * use.
+   * tree</strong> of {@code root}.
    *
    * @param root The root node of the node description tree. loop in the node tree.
    */

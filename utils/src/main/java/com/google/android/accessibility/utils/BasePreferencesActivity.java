@@ -54,23 +54,11 @@ public abstract class BasePreferencesActivity extends AppCompatActivity {
   protected void disableExpandActionBar() {}
 
   /**
-   * Sets the title of the action bar
-   *
-   * @param title The title of the action bar which likes to set.
-   */
-  protected void setActionBarTitle(String title) {
-    ActionBar actionBar = getSupportActionBar();
-    if (actionBar != null) {
-      actionBar.setSubtitle(title);
-    }
-  }
-
-  /**
    * Gets Identifier of the container whose fragment(s) at the activity should use.
    *
    * @return The fragments container in the activity.
    */
-  protected final int getContainerId() {
+  protected int getContainerId() {
     return DEFAULT_CONTAINER_ID;
   }
 }

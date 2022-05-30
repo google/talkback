@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">နံပါတ်</string>
+  <string name="capitalize_announcement">အက္ခရာအကြီး</string>
+  <string name="read_out_deleted">%s ကို ဖျက်ပြီးပြီ</string>
+  <plurals name="braille_dots">
+    <item quantity="one">အစက်%s</item>
+    <item quantity="other">အစက်များ%s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">စပိန်</string>
+  <string name="code_user_facing_name_ar">အာရဗီ</string>
+  <string name="code_user_facing_name_fr">ပြင်သစ်</string>
+  <string name="code_user_facing_name_pl">ပိုလန်</string>
+  <string name="screen_away">ဖန်သားပြင်နှင့်ဝေးနေချိန်မုဒ်</string>
+  <string name="screen_away_detail">စက်ကို အခြားတစ်ဖက်သို့ မျက်နှာမူပြီး ကိုင်ထားပါ (ဖန်သားပြင်နှင့်ဝေးနေချိန်မုဒ်)</string>
+  <string name="tabletop">စားပွဲတင်မုဒ်</string>
+  <string name="tabletop_detail">စက်ကို စားပွဲပေါ်တွင် အပြားလိုက်တင်ပါ (စားပွဲတင်မုဒ်)</string>
+  <string name="auto_detect">စက်ပစ္စည်းကိုင်ပုံကိုလိုက်၍ မုဒ်ရွေးပါ</string>
+</resources>

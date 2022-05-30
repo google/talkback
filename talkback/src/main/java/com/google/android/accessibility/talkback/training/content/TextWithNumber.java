@@ -30,6 +30,7 @@ import android.widget.TextView;
 import android.widget.TextView.BufferType;
 import androidx.annotation.StringRes;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 
 /** A text that starts with a number. */
 public class TextWithNumber extends PageContentConfig {
@@ -44,7 +45,8 @@ public class TextWithNumber extends PageContentConfig {
   }
 
   @Override
-  public View createView(LayoutInflater inflater, ViewGroup container, Context context) {
+  public View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_text_with_number, container, false);
     final TextView textView = view.findViewById(R.id.training_text_with_number);
     SpannableString spannableString = new SpannableString(context.getString(textResId));

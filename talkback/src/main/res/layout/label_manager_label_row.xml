@@ -19,17 +19,6 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" >
 
-    <ImageView
-        android:id="@+id/icon_image"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="@string/talkback_title"
-        android:src="@drawable/icon" />
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -50,7 +39,7 @@
             android:gravity="center_vertical"
             android:singleLine="true"
             android:textColor="@color/label_list_item_text_color"
-            android:fontFamily="@string/talkback_font"
+            android:fontFamily="@string/accessibility_font"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -63,7 +52,7 @@
             android:gravity="center_vertical"
             android:singleLine="true"
             android:textColor="@color/label_list_item_text_color"
-            android:fontFamily="@string/talkback_font"
+            android:fontFamily="@string/accessibility_font"
             android:textSize="14sp" />
 
     </LinearLayout>

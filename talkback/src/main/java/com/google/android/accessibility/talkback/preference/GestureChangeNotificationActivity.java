@@ -27,7 +27,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
+import com.google.android.accessibility.utils.MaterialComponentUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 
 public class GestureChangeNotificationActivity extends Activity {
@@ -99,7 +99,7 @@ public class GestureChangeNotificationActivity extends Activity {
           }
         };
 
-    AlertDialogUtils.builder(this)
+    MaterialComponentUtils.alertDialogBuilder(this)
         .setTitle(dialogTitle)
         .setMessage(dialogMessage)
         .setCancelable(false)

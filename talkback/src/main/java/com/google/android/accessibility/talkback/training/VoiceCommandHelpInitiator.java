@@ -166,7 +166,7 @@ public class VoiceCommandHelpInitiator {
   // Training
 
   public static final TrainingConfig VOICE_COMMAND_HELP =
-      TrainingConfig.builder(R.string.new_feature_talkback_91_title)
+      TrainingConfig.builder(R.string.voice_commands_help_title)
           .addPageWithoutNumberAndNavigationBar(voiceCommandOverview)
           .addPageEndOfSection(voiceCommandReadingControls)
           .addPageEndOfSection(voiceCommandFindItems)
@@ -178,7 +178,7 @@ public class VoiceCommandHelpInitiator {
           .build();
 
   public static final TrainingConfig VOICE_COMMAND_HELP_FOR_WATCH =
-      TrainingConfig.builder(R.string.new_feature_talkback_91_title)
+      TrainingConfig.builder(R.string.voice_commands_help_title)
           .addPageWithoutNumberAndNavigationBar(voiceCommandOverview)
           .addPageEndOfSection(voiceCommandReadingControls)
           .addPageEndOfSection(voiceCommandFindItemsForWatch)

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Дугаар</string>
+  <string name="capitalize_announcement">Хамгийн дээд хэмжээ</string>
+  <string name="read_out_deleted">%s-г устгалаа</string>
+  <plurals name="braille_dots">
+    <item quantity="one">цэг %s</item>
+    <item quantity="other">цэгүүд %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">Испани</string>
+  <string name="code_user_facing_name_ar">Араб</string>
+  <string name="code_user_facing_name_fr">Франц</string>
+  <string name="code_user_facing_name_pl">Польш</string>
+  <string name="screen_away">Дэлгэцээс хол байх горим</string>
+  <string name="screen_away_detail">Төхөөрөмжийн дэлгэцийг өөрөөсөө хол барина уу (дэлгэцээс хол байх горим)</string>
+  <string name="tabletop">Ширээн дээр тавих горим</string>
+  <string name="tabletop_detail">Төхөөрөмжийг ширээн дээр тэгшхэн байрлуулна уу (ширээн дээр тавих горим)</string>
+  <string name="auto_detect">Төхөөрөмжийг хэрхэн барихаа тохируулна уу</string>
+</resources>

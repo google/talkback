@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">santrauka</string>
   <string name="voice_commands_read">skaityti</string>
   <string name="voice_commands_read_from_next">Skaityti nuo kito</string>
   <string name="voice_commands_edit_options">Redagavimo parinktys</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Ieškoti</string>
   <string name="voice_commands_search">Paieška</string>
   <string name="voice_commands_search_for">Ieškoti</string>
-  <string name="voice_commands_find_again">Pakartoti paiešką</string>
   <string name="voice_commands_next_heading">Kita antraštė</string>
   <string name="voice_commands_next_control">Kitas valdiklis</string>
   <string name="voice_commands_next_link">Kita nuoroda</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Nepavyksta pažymėti</string>
   <string name="voice_commands_assistant">Padėjėjas</string>
   <string name="voice_commands_setting_speech_rate">Kalbėjimo spartos nustatymas</string>
-  <string name="voice_commands_setting_verbosity">Daugiažodiškumo nustatymas</string>
-  <string name="voice_commands_setting_granularity">Detalumo nustatymas</string>
-  <string name="voice_commands_setting_navigation">Naršymo nustatymas</string>
   <string name="voice_commands_first">Pirmas</string>
   <string name="voice_commands_top">Viršuje</string>
   <string name="voice_commands_last">Paskutinis</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Nėra kitos nuorodos</string>
   <string name="voice_commands_no_next_control_feedback">Nėra kito valdiklio</string>
   <string name="voice_commands_no_next_landmark_feedback">Nėra kito orientyro</string>
-  <string name="voice_commands_screen_hidden_feedback">Ekranas paslėptas</string>
-  <string name="voice_commands_showing_screen_feedback">Ekranas rodomas</string>
   <string name="voice_commands_help_title">Komandos balsu apžvalga</string>
   <string name="voice_commands_help_description">Norėdami naudoti komandas balsu, perbraukite dešinėn, o tada – į viršų. Kad būtų pateiktas šis komandų sąrašas, bet kuriuo metu pasakykite „help“ (pagalba) arba „what can I say“ (ką galiu pasakyti).</string>
   <string name="voice_commands_help_hint">Kad pasiektumėte geriausių rezultatų, tiksliai ištarkite žodžius, išvardytus tolesniuose ekranuose.</string>

@@ -16,10 +16,10 @@
 
 package com.google.android.accessibility.talkback.actor.search;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import android.text.TextUtils;
 import com.google.android.accessibility.talkback.actor.DirectionNavigationActor;
 import com.google.android.accessibility.talkback.actor.search.SearchState.MatchedNodeInfo;
 import com.google.android.accessibility.talkback.actor.search.StringMatcher.MatchResult;
@@ -39,7 +39,7 @@ public final class SearchScreenNodeStrategy {
   @Nullable private final CustomLabelManager labelManager;
 
   /** Stores last-searched keyword. */
-  private @Nullable CharSequence lastKeyword;
+  @Nullable private CharSequence lastKeyword;
 
   /** The cache for all searchable nodes on current screen. */
   private final ScreenNodesCache nodesCache;
@@ -58,7 +58,8 @@ public final class SearchScreenNodeStrategy {
   }
 
   /** Gets last-searched keyword. */
-  public @Nullable CharSequence getLastKeyword() {
+  @Nullable
+  public CharSequence getLastKeyword() {
     return lastKeyword;
   }
 
@@ -78,7 +79,6 @@ public final class SearchScreenNodeStrategy {
    * @param userInput the input to be used for searching
    * @return SearchState containing the nodes in {@code SearchState.result}, the {@code
    *     SearchState.result} will be null if {@code userInput} is empty or contains only spaces.
-   *     Caller must not recycle the nodes in {@code SearchState.result} after using
    */
   @NonNull
   protected SearchState search(@Nullable CharSequence userInput) {
@@ -110,7 +110,7 @@ public final class SearchScreenNodeStrategy {
     return state;
   }
 
-  /** Caches all the searchable nodes in currentWindow. Caller should recycle currentWindow. */
+  /** Caches all the searchable nodes in currentWindow. */
   void cacheNodeTree(@Nullable AccessibilityWindow currentWindow) {
     clearCachedNodes();
 
@@ -132,8 +132,7 @@ public final class SearchScreenNodeStrategy {
   }
 
   void clearCachedNodes() {
-    String caller = "SearchScreenNodeStrategy.clearCachedNodes()";
-    nodesCache.clearCachedNodes(caller);
+    nodesCache.clearCachedNodes();
   }
 
   /**
@@ -142,7 +141,7 @@ public final class SearchScreenNodeStrategy {
    */
   public boolean searchAndFocus(
       boolean startAtRoot,
-      final @Nullable CharSequence target,
+      @Nullable final CharSequence target,
       DirectionNavigationActor directionNavigator) {
 
     // Clean and check target keyword.

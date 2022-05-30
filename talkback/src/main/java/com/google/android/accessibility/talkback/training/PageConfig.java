@@ -27,7 +27,7 @@ import androidx.annotation.ArrayRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import com.google.android.accessibility.talkback.gesture.GestureController;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 import com.google.android.accessibility.talkback.training.content.Divider;
 import com.google.android.accessibility.talkback.training.content.EditTextBox;
 import com.google.android.accessibility.talkback.training.content.Heading;
@@ -36,6 +36,7 @@ import com.google.android.accessibility.talkback.training.content.Note;
 import com.google.android.accessibility.talkback.training.content.PageButton;
 import com.google.android.accessibility.talkback.training.content.PageContentConfig;
 import com.google.android.accessibility.talkback.training.content.Text;
+import com.google.android.accessibility.talkback.training.content.Text.Paragraph;
 import com.google.android.accessibility.talkback.training.content.TextList;
 import com.google.android.accessibility.talkback.training.content.TextWithIcon;
 import com.google.android.accessibility.talkback.training.content.TextWithNumber;
@@ -73,21 +74,21 @@ public abstract class PageConfig {
    * Defines predicates that are evaluated whether the content needs to be shown on the Page or not.
    */
   public enum PageContentPredicate {
-    GESTURE_CHANGED(GestureController::isAnyGestureChanged),
+    GESTURE_CHANGED(ServiceData::isAnyGestureChanged),
     ACCESSIBILITY_SERVICE_TOGGLE_VIA_SHORTCUT(
-        (context) ->
-            isAccessibilityShortcutOrButtonEnabled(context)
-                && !isAccessibilityFloatingButtonEnabled(context)),
-    SUPPORT_SYSTEM_ACTIONS(FeatureSupport::supportSystemActions);
+        (data) ->
+            isAccessibilityShortcutOrButtonEnabled(data.getContext())
+                && !isAccessibilityFloatingButtonEnabled(data.getContext())),
+    SUPPORT_SYSTEM_ACTIONS((data) -> FeatureSupport.supportSystemActions(data.getContext()));
 
-    private final Predicate<Context> predicate;
+    private final Predicate<ServiceData> predicate;
 
-    PageContentPredicate(Predicate<Context> predicate) {
+    PageContentPredicate(Predicate<ServiceData> predicate) {
       this.predicate = predicate;
     }
 
-    public boolean test(Context context) {
-      return predicate.test(context);
+    public boolean test(ServiceData data) {
+      return predicate.test(data);
     }
   }
 
@@ -95,13 +96,6 @@ public abstract class PageConfig {
   public enum PageId {
     PAGE_ID_UNKNOWN,
     PAGE_ID_FINISHED,
-    PAGE_ID_WELCOME_TO_UPDATED_TALKBACK_PRE_R,
-    PAGE_ID_NAVIGATION_AND_SETTING_SELECTOR_PRE_R,
-    PAGE_ID_MORE_NEW_FEATURES_PRE_R,
-    PAGE_ID_WELCOME_TO_UPDATED_TALKBACK,
-    PAGE_ID_NEW_SHORTCUT_GESTURE,
-    PAGE_ID_NAVIGATION_AND_SETTING_SELECTOR,
-    PAGE_ID_MORE_NEW_FEATURES,
     PAGE_ID_WELCOME_TO_UPDATED_TALKBACK_FOR_MULTIFINGER_GESTURES,
     PAGE_ID_WELCOME_TO_TALKBACK_WATCH,
     PAGE_ID_WELCOME_TO_TALKBACK,
@@ -138,6 +132,11 @@ public abstract class PageConfig {
     PAGE_ID_VOICE_COMMAND_TEXT_EDITING,
     PAGE_ID_VOICE_COMMAND_DEVICE_NAVIGATION,
     PAGE_ID_VOICE_COMMAND_OTHER_COMMANDS,
+    PAGE_ID_UPDATE_WELCOME_12_2,
+    PAGE_ID_VOLUME_CONTROL_CHANGES,
+    PAGE_ID_TEXT_IN_IMAGES,
+    PAGE_ID_WINDOW_NAVIGATION,
+    PAGE_ID_WINDOW_NAVIGATION_PRE_R,
   }
 
   /**
@@ -227,20 +226,6 @@ public abstract class PageConfig {
   @Nullable
   public static PageConfig getPage(PageId pageId) {
     switch (pageId) {
-      case PAGE_ID_WELCOME_TO_UPDATED_TALKBACK_PRE_R:
-        return OnboardingInitiator.WELCOME_TO_UPDATED_TALKBACK_PAGE_PRE_R.build();
-      case PAGE_ID_NAVIGATION_AND_SETTING_SELECTOR_PRE_R:
-        return OnboardingInitiator.NAVIGATION_AND_SETTING_SELECTOR_PAGE_PRE_R.build();
-      case PAGE_ID_MORE_NEW_FEATURES_PRE_R:
-        return OnboardingInitiator.MORE_NEW_FEATURES_PAGE_PRE_R.build();
-      case PAGE_ID_WELCOME_TO_UPDATED_TALKBACK:
-        return OnboardingInitiator.WELCOME_TO_UPDATED_TALKBACK_PAGE.build();
-      case PAGE_ID_NEW_SHORTCUT_GESTURE:
-        return OnboardingInitiator.NEW_SHORTCUT_GESTURE_PAGE.build();
-      case PAGE_ID_NAVIGATION_AND_SETTING_SELECTOR:
-        return OnboardingInitiator.NAVIGATION_AND_SETTING_SELECTOR_PAGE.build();
-      case PAGE_ID_MORE_NEW_FEATURES:
-        return OnboardingInitiator.MORE_NEW_FEATURES_PAGE.build();
       case PAGE_ID_WELCOME_TO_UPDATED_TALKBACK_FOR_MULTIFINGER_GESTURES:
         return OnboardingInitiator.WELCOME_TO_UPDATED_TALKBACK_FOR_MULTIFINGER_GESTURES.build();
       case PAGE_ID_WELCOME_TO_TALKBACK_WATCH:
@@ -313,6 +298,16 @@ public abstract class PageConfig {
         return VoiceCommandHelpInitiator.voiceCommandDeviceNavigation.build();
       case PAGE_ID_VOICE_COMMAND_OTHER_COMMANDS:
         return VoiceCommandHelpInitiator.voiceCommandOtherCommands.build();
+      case PAGE_ID_UPDATE_WELCOME_12_2:
+        return OnboardingInitiator.UPDATE_WELCOME_12_2.build();
+      case PAGE_ID_VOLUME_CONTROL_CHANGES:
+        return OnboardingInitiator.VOLUME_CONTROL_CHANGES.build();
+      case PAGE_ID_TEXT_IN_IMAGES:
+        return OnboardingInitiator.TEXT_IN_IMAGES.build();
+      case PAGE_ID_WINDOW_NAVIGATION:
+        return OnboardingInitiator.WINDOW_NAVIGATION.build();
+      case PAGE_ID_WINDOW_NAVIGATION_PRE_R:
+        return OnboardingInitiator.WINDOW_NAVIGATION_PRE_R.build();
       case PAGE_ID_UNKNOWN:
       case PAGE_ID_FINISHED:
       default:
@@ -386,12 +381,18 @@ public abstract class PageConfig {
     }
 
     /** Adds one or multiple lines text to the page. */
-    public Builder addText(@StringRes int textResId, int... textArgResIds) {
-      this.contents.add(new Text(textResId, textArgResIds));
+    public Builder addText(@StringRes int textResId) {
+      this.contents.add(new Text(Paragraph.builder(textResId).build()));
       return this;
     }
 
-    // TODO Too many combinations of text, bullet and gesture. Switch to one function.
+    /** Adds one or multiple lines text with placeholders to the page. */
+    public Builder addText(@StringRes int textResId, ImmutableList<Integer> textArgResIds) {
+      this.contents.add(
+          new Text(Paragraph.builder(textResId).setTextArgResIds(textArgResIds).build()));
+      return this;
+    }
+
     /**
      * Adds one or multiple lines text to the page, including a actual gesture. If no gesture
      * assigned, adds default text to the page.
@@ -400,16 +401,16 @@ public abstract class PageConfig {
         @StringRes int textWithActualGestureResId, int actionKey, @StringRes int defaultTextResId) {
       this.contents.add(
           new Text(
-              defaultTextResId,
-              textWithActualGestureResId,
-              actionKey,
-              /* hasBulletPoint= */ false));
+              Paragraph.builder(defaultTextResId)
+                  .setTextWithActualGestureResId(textWithActualGestureResId)
+                  .setActionKey(actionKey)
+                  .build()));
       return this;
     }
 
     /** Adds a text with a bullet point with a predicate. */
     public Builder addTextWithBullet(@StringRes int textResId, PageContentPredicate predicate) {
-      Text text = new Text(textResId, true);
+      Text text = new Text(Paragraph.builder(textResId).setBulletPoint(true).build());
       text.setShowingPredicate(predicate);
       this.contents.add(text);
       return this;
@@ -417,13 +418,22 @@ public abstract class PageConfig {
 
     /** Adds a text with a bullet point. */
     public Builder addTextWithBullet(@StringRes int textResId) {
-      this.contents.add(new Text(textResId, true));
+      this.contents.add(new Text(Paragraph.builder(textResId).setBulletPoint(true).build()));
+      return this;
+    }
+
+    /** Adds a text and a bullet item which have to be focused at the same time. */
+    public Builder addTextAndBullet(@StringRes int textResId, @StringRes int textWithBulletResId) {
+      this.contents.add(
+          new Text(
+              Paragraph.builder(textResId).build(),
+              Paragraph.builder(textWithBulletResId).setBulletPoint(true).build()));
       return this;
     }
 
     /** Adds sub-text without margin between texts. */
     public Builder addSubText(@StringRes int textResId) {
-      this.contents.add(new Text(textResId, false, true));
+      this.contents.add(new Text(Paragraph.builder(textResId).setSubText(true).build()));
       return this;
     }
 
@@ -435,7 +445,11 @@ public abstract class PageConfig {
         @StringRes int textWithActualGestureResId, int actionKey, @StringRes int defaultTextResId) {
       this.contents.add(
           new Text(
-              defaultTextResId, textWithActualGestureResId, actionKey, /* hasBulletPoint= */ true));
+              Paragraph.builder(defaultTextResId)
+                  .setTextWithActualGestureResId(textWithActualGestureResId)
+                  .setActionKey(actionKey)
+                  .setBulletPoint(true)
+                  .build()));
       return this;
     }
 
@@ -523,14 +537,7 @@ public abstract class PageConfig {
 
     /** Adds a text with an empty {@link URLSpan}. */
     public Builder addTextWithLink(@StringRes int textResId) {
-      this.contents.add(
-          new Text(
-              textResId,
-              UNKNOWN_RESOURCE_ID,
-              UNKNOWN_RESOURCE_ID,
-              /* hasBulletPoint= */ false,
-              /* isSubText= */ false,
-              /* isLink= */ true));
+      this.contents.add(new Text(Paragraph.builder(textResId).setLink(true).build()));
       return this;
     }
 

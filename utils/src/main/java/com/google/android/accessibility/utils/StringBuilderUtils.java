@@ -80,17 +80,30 @@ public class StringBuilderUtils {
     return (fieldValue == defaultValue) ? "" : String.format("%s=%s", fieldName, fieldValue);
   }
 
+  /** Return labeled field-value, only if field-value is not default. */
+  public static String optionalNum(String fieldName, float fieldValue, float defaultValue) {
+    return (fieldValue == defaultValue) ? "" : String.format("%s=%s", fieldName, fieldValue);
+  }
+
   /** Return field-tag, only if field-value is true. */
   public static String optionalTag(String tagName, boolean tagValue) {
     return tagValue ? tagName : "";
   }
 
   public static String joinFields(String... strings) {
+    return joinStrings("  ", strings);
+  }
+
+  public static String joinSubObjects(String... strings) {
+    return joinStrings("\n  ", strings);
+  }
+
+  private static String joinStrings(String delimiter, String[] strings) {
     StringBuilder builder = new StringBuilder();
     for (String s : strings) {
-      if (s != null && !s.equals("")) {
+      if (!TextUtils.isEmpty(s)) {
         builder.append(s);
-        builder.append(" ");
+        builder.append(delimiter);
       }
     }
     return builder.toString();

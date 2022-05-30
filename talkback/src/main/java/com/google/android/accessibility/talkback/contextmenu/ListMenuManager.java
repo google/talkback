@@ -21,11 +21,8 @@ import static com.google.android.accessibility.talkback.Feedback.Focus.Action.MU
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.RESTORE_ON_NEXT_WINDOW;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SAVE_LAST;
 
-import android.app.Dialog;
 import android.os.Handler;
 import android.os.SystemClock;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.appcompat.app.AlertDialog;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,6 +34,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
@@ -48,13 +46,12 @@ import com.google.android.accessibility.talkback.eventprocessor.EventState;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionRecord;
 import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor;
-import com.google.android.accessibility.talkback.utils.MaterialComponentUtils;
+import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.WindowEventInterpreter.EventInterpretation;
-import com.google.android.accessibility.utils.WindowEventInterpreter.WindowEventHandler;
+import com.google.android.accessibility.utils.input.WindowEventInterpreter.EventInterpretation;
+import com.google.android.accessibility.utils.input.WindowEventInterpreter.WindowEventHandler;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
@@ -88,8 +85,8 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
   private final TalkBackAnalytics analytics;
   private int menuShown;
   private final ContextMenuItemClickProcessor menuClickProcessor;
-  @Nullable private DeferredAction deferredAction;
-  @Nullable private Dialog currentDialog;
+  private @Nullable DeferredAction deferredAction;
+  private @Nullable A11yAlertDialogWrapper currentDialog;
   private MenuTransformer menuTransformer;
   private MenuActionInterceptor menuActionInterceptor;
   private long lastMenuDismissUptimeMs;
@@ -177,9 +174,9 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
                   .setQueueMode(SpeechController.QUEUE_MODE_FLUSH_ALL)
                   .setFlags(
                       FeedbackItem.FLAG_NO_HISTORY
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE)));
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE)));
       return false;
     }
     if (menuId == R.menu.context_menu) {
@@ -197,7 +194,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
 
       talkbackMenuProcessor.prepareMenu(menu);
       menu.setTitle(service.getString(R.string.talkback_menu_title));
-    } else if ((menuId == R.id.custom_action_menu) || (menuId == R.id.editing_menu)) {
+    } else if (menuId == R.id.custom_action_menu) {
       final AccessibilityNodeInfoCompat currentNode =
           accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
       if (currentNode == null) {
@@ -206,12 +203,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
 
       nodeMenuRuleProcessor.prepareRuleMenuForNode(menu, currentNode, menuId);
 
-      menu.setTitle(
-          service.getString(
-              (menuId == R.id.custom_action_menu)
-                  ? R.string.title_custom_action
-                  : R.string.title_edittext_controls));
-      currentNode.recycle();
+      menu.setTitle(service.getString(R.string.title_custom_action));
     } else if (menuId == R.menu.language_menu) {
       // Menu for language switcher
       LanguageMenuProcessor.prepareLanguageMenu(service, pipeline, actorState, menu);
@@ -225,7 +217,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
       return;
     }
 
-    AlertDialog.Builder builder = MaterialComponentUtils.alertDialogBuilder(service);
+    A11yAlertDialogWrapper.Builder builder = A11yAlertDialogWrapper.materialDialogBuilder(service);
     builder.setTitle(title);
     View customview =
         prepareCustomView(
@@ -294,7 +286,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
           dialog.dismiss();
           clearMenu();
         });
-    AlertDialog alert = builder.create();
+    A11yAlertDialogWrapper alert = builder.create();
     alert.setOnDismissListener(
         (dialog) -> {
           lastMenuDismissUptimeMs = SystemClock.uptimeMillis();
@@ -318,7 +310,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
     view.setDivider(null);
     ArrayAdapter<CharSequence> adapter =
         new ArrayAdapter<CharSequence>(
-            new ContextThemeWrapper(service, R.style.AlertDialogCustomViewTheme),
+            new ContextThemeWrapper(service, R.style.A11yAlertDialogCustomViewTheme),
             android.R.layout.simple_list_item_1,
             android.R.id.text1,
             items) {
@@ -333,7 +325,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
         };
     view.setAdapter(adapter);
     view.setOnItemClickListener(listener);
-    view.getContext().setTheme(R.style.AlertDialogCustomViewTheme);
+    view.getContext().setTheme(R.style.A11yAlertDialogCustomViewTheme);
     if (FeatureSupport.isWatch(service)) {
       // Support Wear rotary input
       view.requestFocus();
@@ -403,7 +395,6 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
   }
 
   private void clearCurrentNode() {
-    AccessibilityNodeInfoUtils.recycleNodes(currentNode);
     currentNode = null;
   }
 

@@ -49,7 +49,6 @@ class ParseTreeForReferenceNode extends ParseTreeNode {
         mReference.resolveToReference(delegate, logIndent);
     if (referenceDelegate != null) {
       boolean result = mFunction.resolveToBoolean(referenceDelegate, logIndent);
-      referenceDelegate.cleanup();
       return result;
     } else {
       return false;
@@ -62,7 +61,6 @@ class ParseTreeForReferenceNode extends ParseTreeNode {
         mReference.resolveToReference(delegate, logIndent);
     if (referenceDelegate != null) {
       int result = mFunction.resolveToInteger(referenceDelegate, logIndent);
-      referenceDelegate.cleanup();
       return result;
     } else {
       return 0;
@@ -75,7 +73,6 @@ class ParseTreeForReferenceNode extends ParseTreeNode {
         mReference.resolveToReference(delegate, logIndent);
     if (referenceDelegate != null) {
       double result = mFunction.resolveToNumber(referenceDelegate, logIndent);
-      referenceDelegate.cleanup();
       return result;
     } else {
       return 0;
@@ -88,7 +85,6 @@ class ParseTreeForReferenceNode extends ParseTreeNode {
         mReference.resolveToReference(delegate, logIndent);
     if (referenceDelegate != null) {
       CharSequence result = mFunction.resolveToString(referenceDelegate, logIndent);
-      referenceDelegate.cleanup();
       return result;
     } else {
       return "";
@@ -96,14 +92,14 @@ class ParseTreeForReferenceNode extends ParseTreeNode {
   }
 
   @Override
-  public @Nullable ParseTree.VariableDelegate resolveToReference(
+  @Nullable
+  public ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     ParseTree.VariableDelegate referenceDelegate =
         mReference.resolveToReference(delegate, logIndent);
     if (referenceDelegate != null) {
       ParseTree.VariableDelegate result =
           mFunction.resolveToReference(referenceDelegate, logIndent);
-      referenceDelegate.cleanup();
       return result;
     } else {
       return null;
@@ -116,7 +112,6 @@ class ParseTreeForReferenceNode extends ParseTreeNode {
         mReference.resolveToReference(delegate, logIndent);
     if (referenceDelegate != null) {
       List<CharSequence> result = mFunction.resolveToArray(referenceDelegate, logIndent);
-      referenceDelegate.cleanup();
       return result;
     } else {
       return new ArrayList<>();
@@ -131,7 +126,6 @@ class ParseTreeForReferenceNode extends ParseTreeNode {
     if (referenceDelegate != null) {
       List<ParseTree.VariableDelegate> result =
           mFunction.resolveToChildArray(referenceDelegate, logIndent);
-      referenceDelegate.cleanup();
       return result;
     } else {
       return new ArrayList<>();

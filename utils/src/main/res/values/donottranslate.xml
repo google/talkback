@@ -84,4 +84,8 @@
     <string name="keycombo_shortcut_navigate_previous_window">keycombo_shortcut_navigate_previous_window</string>
     <string name="keycombo_shortcut_open_manage_keyboard_shortcuts">keycombo_shortcut_open_manage_keyboard_shortcuts</string>
     <string name="keycombo_shortcut_open_talkback_settings">keycombo_shortcut_open_talkback_settings</string>
+
+    <!-- the shared preference key for log level configuration. -->
+    <string name="pref_log_level_default" translatable="false">6</string>
+    <string name="pref_log_level_key" translatable="false">pref_log_level</string>
 </resources>

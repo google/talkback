@@ -20,15 +20,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import com.google.android.accessibility.compositor.EventFilter;
-import com.google.android.accessibility.utils.AudioPlaybackMonitor;
-import com.google.android.accessibility.utils.HeadphoneStateMonitor;
+import com.google.android.accessibility.utils.monitor.AudioPlaybackMonitor;
+import com.google.android.accessibility.utils.monitor.HeadphoneStateMonitor;
+import com.google.android.accessibility.utils.monitor.MediaRecorderMonitor;
+import com.google.android.accessibility.utils.monitor.VoiceActionDelegate;
 
 /**
  * Monitors voice actions from other applications. Prevents TalkBack's audio feedback from
  * interfering with voice assist applications.
  */
-public class VoiceActionMonitor implements EventFilter.VoiceActionDelegate {
+public class VoiceActionMonitor implements VoiceActionDelegate {
   private final TalkBackService service;
   private final MediaRecorderMonitor mediaRecorderMonitor;
   private final AudioPlaybackMonitor audioPlaybackMonitor;

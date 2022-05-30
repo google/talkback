@@ -26,8 +26,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
@@ -71,9 +71,9 @@ public class FullScreenReadActor {
    * The current state of the controller. Should only be updated through {@link
    * FullScreenReadActor#setReadingState(int)}
    */
-  private @ReadState int currentState = STATE_STOPPED;
+  @ReadState private int currentState = STATE_STOPPED;
 
-  private @ReadState int stateWaitingForContentFocus = STATE_STOPPED;
+  @ReadState private int stateWaitingForContentFocus = STATE_STOPPED;
 
   /** The parent service */
   private final AccessibilityService service;
@@ -158,17 +158,11 @@ public class FullScreenReadActor {
       return;
     }
 
-    @Nullable
-    AccessibilityNodeInfoCompat currentNode =
+    @Nullable AccessibilityNodeInfoCompat currentNode =
         accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
-    try {
-      if (currentNode == null) {
-          LogUtils.w(TAG, "Fail to read from next: Current node is null.");
-          return;
-      }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentNode);
-      currentNode = null;
+    if (currentNode == null) {
+      LogUtils.w(TAG, "Fail to read from next: Current node is null.");
+      return;
     }
 
     setReadingState(STATE_READING_FROM_NEXT);
@@ -195,53 +189,43 @@ public class FullScreenReadActor {
   }
 
   private void startReadingFromBeginningInternal(EventId eventId, int attemptCount) {
-    AccessibilityNodeInfoCompat rootNode = null;
-    AccessibilityNodeInfoCompat currentNode = null;
-
     if (isActive()) {
       return;
     }
 
-    try {
-      rootNode = AccessibilityServiceCompatUtils.getRootInActiveWindow(service);
-      if (rootNode == null) {
-        if (!retryReadingHandler.tryReadFromTopLater(eventId, attemptCount)) {
-          LogUtils.w(TAG, "Fail to read from top: No active window.");
-        }
-        return;
+    AccessibilityNodeInfoCompat rootNode =
+        AccessibilityServiceCompatUtils.getRootInActiveWindow(service);
+    if (rootNode == null) {
+      if (!retryReadingHandler.tryReadFromTopLater(eventId, attemptCount)) {
+        LogUtils.w(TAG, "Fail to read from top: No active window.");
       }
-
-      TraversalStrategy traversal = new OrderedTraversalStrategy(rootNode);
-      try {
-        currentNode =
-            TraversalStrategyUtils.searchFocus(
-                traversal,
-                rootNode,
-                TraversalStrategy.SEARCH_FOCUS_FORWARD,
-                AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
-      } finally {
-        traversal.recycle();
-      }
-
-      if (currentNode == null) {
-        return;
-      }
-
-      setReadingState(STATE_READING_FROM_BEGINNING);
-      // Continuous reading mode (CRM) always uses default granularity.
-      pipeline.returnFeedback(eventId, Feedback.granularity(DEFAULT));
-
-      if (!wakeLock.isHeld()) {
-        wakeLock.acquire();
-      }
-
-      // This is potentially a refocus, so we should set the refocus flag just in case.
-      EventState.getInstance().setFlag(EventState.EVENT_NODE_REFOCUSED);
-      pipeline.returnFeedback(eventId, Feedback.focus(CLEAR));
-      moveForward();
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(rootNode, currentNode);
+      return;
     }
+
+    TraversalStrategy traversal = new OrderedTraversalStrategy(rootNode);
+    AccessibilityNodeInfoCompat currentNode =
+        TraversalStrategyUtils.searchFocus(
+            traversal,
+            rootNode,
+            TraversalStrategy.SEARCH_FOCUS_FORWARD,
+            AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
+
+    if (currentNode == null) {
+      return;
+    }
+
+    setReadingState(STATE_READING_FROM_BEGINNING);
+    // Continuous reading mode (CRM) always uses default granularity.
+    pipeline.returnFeedback(eventId, Feedback.granularity(DEFAULT));
+
+    if (!wakeLock.isHeld()) {
+      wakeLock.acquire();
+    }
+
+    // This is potentially a refocus, so we should set the refocus flag just in case.
+    EventState.getInstance().setFlag(EventState.EVENT_NODE_REFOCUSED);
+    pipeline.returnFeedback(eventId, Feedback.focus(CLEAR));
+    moveForward();
   }
 
   public void readFocusedContent(EventId eventId) {

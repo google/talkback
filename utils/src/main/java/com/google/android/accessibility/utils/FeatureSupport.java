@@ -21,6 +21,7 @@ import static android.content.Context.VIBRATOR_SERVICE;
 
 import android.Manifest;
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.annotation.SuppressLint;
 import android.app.UiModeManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -30,15 +31,13 @@ import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityWindowInfo;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Methods to check hardware and software support for operating system features. */
 public final class FeatureSupport {
-  /** TODO : The flag to enable sending motion events of gestures. */
-  public static final int FLAG_SEND_MOTION_EVENTS = 0x0004000;
-  // This flag is defined in QPR but not yet opened for access directly
-  public static final int FLAG_REQUEST_2_FINGER_PASSTHROUGH = 0x0002000;
 
   public static boolean isWatch(Context context) {
     return context
@@ -79,28 +78,39 @@ public final class FeatureSupport {
     return BuildVersionUtils.isAtLeastO() && !isTv(context);
   }
 
-  /** Return whether fingerprint feature & fingerprint gesture is supported on this device. */
-  public static boolean isFingerprintSupported(Context context) {
-    // PackageManager.FEATURE_FINGERPRINT is supported since M.
-    if (context == null) {
+  /** Return whether fingerprint gesture is supported on this device. */
+  public static boolean isFingerprintGestureSupported(Context context) {
+    // Fingerprint gesture is supported since O.
+    boolean supportFingerprint = isFingerprintSupported(context);
+    if (context == null || !BuildVersionUtils.isAtLeastO() || !supportFingerprint) {
       return false;
     }
+    int fingerprintSupportsGesturesResID =
+        context
+            .getResources()
+            .getIdentifier("config_fingerprintSupportsGestures", "bool", "android");
+    return fingerprintSupportsGesturesResID != 0
+        && context.getResources().getBoolean(fingerprintSupportsGesturesResID);
+  }
 
-    return BuildVersionUtils.isAtLeastO()
-        && context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT)
-        && !isWatch(context);
+  /** Return whether fingerprint feature is supported on this device. */
+  private static boolean isFingerprintSupported(Context context) {
+    if (context == null || isWatch(context)) {
+      return false;
+    }
+    return context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT);
   }
 
   /** Return whether vibrator is supported on this device. */
   public static boolean isVibratorSupported(Context context) {
     final Vibrator vibrator =
         (context == null) ? null : (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
-
     return (vibrator != null) && vibrator.hasVibrator();
   }
 
-  public static boolean supportsVolumeKeyShortcuts() {
-    return !BuildVersionUtils.isAtLeastO();
+  /** Return whether VibrationEffect is supported on this device. */
+  public static boolean supportVibrationEffect() {
+    return BuildVersionUtils.isAtLeastO();
   }
 
   public static boolean disableAnimation() {
@@ -174,7 +184,7 @@ public final class FeatureSupport {
   // TODO: framework support onMagnificationChanged() for Window magnification at next
   // Android.
   public static boolean supportAnnounceMagnificationChanged() {
-    return BuildVersionUtils.isAtLeastN() && Build.VERSION.SDK_INT != BuildVersionUtils.API_S;
+    return BuildVersionUtils.isAtLeastN() && Build.VERSION.SDK_INT != VERSION_CODES.S;
   }
 
   public static boolean isBoundsScaledUpByMagnifier() {
@@ -250,19 +260,13 @@ public final class FeatureSupport {
     return BuildVersionUtils.isAtLeastQ();
   }
 
-  /**
-   * R-QPR supports the 2-finger pass-through. To identify the system is QPR or not depends on a new
-   * AccessibilityServiceInfo flag FLAG_REQUEST_2_FINGER_PASSTHROUGH. Unfortunately, 1. It needs an
-   * accessibility service to access the flag which is not suitable. 2. The flag is at hide so we
-   * can not determine whether the underlying platform support it. We check indirectly via open API
-   * flagToString which is a static method, so no accessibility service needed. TODO: When S is
-   * ready, we can have a more solid way to check the 2-finger pass-through property.
-   *
-   * @return {@code true} if the device supports multi-finger gesture
-   */
+  /** Returns true if the runtime supports full multi-finger gesture support. */
+  @SuppressLint("NewApi")
   public static boolean isMultiFingerGestureSupported() {
     return BuildVersionUtils.isAtLeastR()
-        && AccessibilityServiceInfo.flagToString(FLAG_REQUEST_2_FINGER_PASSTHROUGH) != null;
+        && AccessibilityServiceInfo.flagToString(
+                AccessibilityServiceInfo.FLAG_REQUEST_2_FINGER_PASSTHROUGH)
+            != null;
   }
 
   /**
@@ -283,8 +287,9 @@ public final class FeatureSupport {
 
   /** Returns {@code true} if the device supports sending motion events of gestures. */
   public static boolean supportGestureMotionEvents() {
-    return BuildVersionUtils.isAtLeastR()
-        && AccessibilityServiceInfo.flagToString(FLAG_SEND_MOTION_EVENTS) != null;
+    return BuildVersionUtils.isAtLeastS()
+        && AccessibilityServiceInfo.flagToString(AccessibilityServiceInfo.FLAG_SEND_MOTION_EVENTS)
+            != null;
   }
 
   /** Returns {@code true} if the device supports long version code. */
@@ -329,5 +334,13 @@ public final class FeatureSupport {
    */
   public static boolean hoverEventOutOfOrder() {
     return !BuildVersionUtils.isAtLeastR();
+  }
+
+  /**
+   * Returns true if potentially sensitive information (such as tts text) is allowed to appear in
+   * logcat.
+   */
+  public static boolean logcatIncludePsi() {
+    return BuildConfig.DEBUG || (LogUtils.getLogLevel() < Log.ERROR);
   }
 }

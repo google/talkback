@@ -16,11 +16,11 @@
 
 package com.google.android.accessibility.utils.traversal;
 
+import android.text.SpannableString;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import android.text.SpannableString;
-import android.text.TextUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.SpannableUtils;
 import java.util.HashSet;
@@ -30,10 +30,7 @@ import java.util.Set;
 /** Utility methods for traversing a tree with spannable objects. */
 public class SpannableTraversalUtils {
 
-  /**
-   * Return whether the tree description of node contains target spans. Caller should recycle {@code
-   * node}.
-   */
+  /** Return whether the tree description of node contains target spans. */
   public static boolean hasTargetSpanInNodeTreeDescription(
       AccessibilityNodeInfoCompat node, Class<?> targetSpanClass) {
     if (node == null) {
@@ -42,13 +39,12 @@ public class SpannableTraversalUtils {
     Set<AccessibilityNodeInfoCompat> visitedNode = new HashSet<>();
     try {
       return searchSpannableStringsInNodeTree(
-          AccessibilityNodeInfoUtils.obtain(node), // Root node. Will be recycled in visitedNodes.
-          visitedNode, // Visited nodes. Should be recycled.
+          AccessibilityNodeInfoUtils.obtain(node), // Root node.
+          visitedNode, // Visited nodes.
           null, // Result list. No need to collect result here.
           targetSpanClass // Target span class
           );
     } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(visitedNode);
     }
   }
 
@@ -65,22 +61,20 @@ public class SpannableTraversalUtils {
     }
     Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
     searchSpannableStringsInNodeTree(
-        AccessibilityNodeInfoCompat.obtain(node), // Root node. Will be recycled in visitedNodes.
-        visitedNodes, // Visited nodes. Should be recycled.
+        AccessibilityNodeInfoCompat.obtain(node), // Root node.
+        visitedNodes, // Visited nodes.
         result, // List of SpannableStrings collected.
         targetSpanClass // Target span class
         );
-    AccessibilityNodeInfoUtils.recycleNodes(visitedNodes);
   }
 
   /**
    * Search for SpannableStrings under <strong>node description tree</strong> of {@code root}.
    * <strong>Note:</strong> {@code root} will be added to {@code visitedNodes} if it's not null.
-   * Caller should recycle {@root visitedNodes}.
    *
-   * @param root Root of node tree. Caller does not need to recycle this node.
+   * @param root Root of node tree.
    * @param visitedNodes Set of {@link AccessibilityNodeInfoCompat} to record visited nodes, used to
-   *     avoid loops. Caller should recycle this node set.
+   *     avoid loops.
    * @param result List of SpannableStrings collected.
    * @param targetSpanClass Class of target span.
    * @return true if any SpannableString is found in the description tree.
@@ -94,8 +88,7 @@ public class SpannableTraversalUtils {
       return false;
     }
     if (!visitedNodes.add(root)) {
-      // Root already visited. Recycle root node and stop searching.
-      root.recycle();
+      // Root already visited. Stop searching.
       return false;
     }
     SpannableString string = SpannableUtils.getStringWithTargetSpan(root, targetSpanClass);
@@ -122,14 +115,11 @@ public class SpannableTraversalUtils {
         containsSpannableDescendents |=
             searchSpannableStringsInNodeTree(child, visitedNodes, result, targetSpanClass);
       } else {
-        AccessibilityNodeInfoUtils.recycleNodes(child);
       }
       if (containsSpannableDescendents && result == null) {
-        iterator.recycle();
         return true;
       }
     }
-    iterator.recycle();
     return hasSpannableString || containsSpannableDescendents;
   }
 }

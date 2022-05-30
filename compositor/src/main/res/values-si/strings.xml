@@ -59,10 +59,6 @@
   <string name="value_pager_page">පිටුව</string>
   <string name="value_progress_bar">ප්‍රගති තීරුව</string>
   <string name="value_webview">වෙබ් දසුන</string>
-  <string name="value_toolbar">මෙවලම් තීරුව</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">%1$d සිට %2$d දක්වා අනුලකුණු</string>
-  <string name="template_password_traversed">අනුලකුණ %1$d</string>
   <string name="value_password">මුරපදය</string>
   <string name="value_sliding_drawer_opened">ලිස්සන ලාච්චුව විවෘත විය</string>
   <string name="value_options_menu_open">විකල්ප.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">සිරස් පේජරයෙන් බැහැර</string>
   <string name="in_horizontal_pager_with_name">තිරස් පේජරය තුළ %1$s</string>
   <string name="in_horizontal_pager">තිරස් පේජරය තුළ</string>
-  <string name="out_of_horizontal_pager_with_name">තිරස් පේජරයෙන් බැහැර %1$s</string>
   <string name="out_of_horizontal_pager">තිරස් පේජරයෙන් බැහැර</string>
   <string name="in_grid_pager_with_name">ජාලක පේජරය තුළ %1$s</string>
   <string name="in_grid_pager">ජාලක පේජරය තුළ</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">විශාලනය %1$d%%</string>
   <string name="screen_magnification_off">විශාලනය ක්‍රියාවිරහිතයි</string>
   <string name="template_speech_rate_change">කථන ශීඝ්‍රතාව %1$d%%</string>
-  <string name="template_speech_rate_change_faster">වඩා වේගවත්</string>
-  <string name="template_speech_rate_change_slower">වඩා මන්දගාමී</string>
-  <string name="template_speech_rate_change_fastest">වඩාත්ම වේගවත්</string>
-  <string name="template_speech_rate_change_slowest">වඩාත්ම මන්දගාමී</string>
   <string name="template_volume_change_increase">වැඩි කර ඇත</string>
   <string name="template_volume_change_decrease">අඩු කර ඇත</string>
   <string name="template_volume_change_maximum">උපරිම</string>
   <string name="template_volume_change_minimum">අවම</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">ශ්‍රව්‍ය මැඩපැවැත්වීම ක්‍රියාත්මකයි</string>
-  <string name="audio_focus_off">ශ්‍රව්‍ය මැඩපැවැත්වීම ක්‍රියාවිරහිතයි</string>
-  <string name="selector_speech_rate_output">කථන ශීඝ්‍රතාව</string>
-  <string name="selector_verbosity_output">වාචිකතාව</string>
-  <string name="selector_granularity_output">සංචාලනය</string>
-  <string name="selector_audio_focus_output">ශ්‍රව්‍ය මැඩපැවැත්වීම</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">හෙඩ්ෆෝන භාවිත කරන විට පමණක් මුරපද කථනය කෙරේ</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s ලබා ගත හැකිය, බැලීමට %2$s භාවිත කරන්න.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s ලබා ගත හැකිය.</string>
+  <string name="hint_suggestion">අක්ෂර වින්‍යාස යෝජනා ලබා ගත හැකිය.</string>
+  <string name="in_window_with_name">%1$s කවුළුව</string>
+  <string name="detected_icon_description">%1$s, අනාවරණය කර ගත් නිරූපකය</string>
+  <string name="ocr_text_description">%1$s, පෙළ</string>
 </resources>

@@ -15,14 +15,6 @@
             android:summary="@string/summary_custom_action"/>
         <CheckBoxPreference
             android:layout="@layout/listitem_2texts"
-            android:defaultValue="@bool/pref_show_context_menu_editing_default"
-            android:key="@string/pref_show_context_menu_editing_setting_key"
-            android:order="2"
-            android:title="@string/title_edittext_controls"
-            app:singleLineTitle="false"
-            android:summary="@string/summary_edittext_controls"/>
-        <CheckBoxPreference
-            android:layout="@layout/listitem_2texts"
             android:defaultValue="@bool/pref_show_context_menu_links_default"
             android:key="@string/pref_show_context_menu_links_setting_key"
             android:order="3"
@@ -45,6 +37,14 @@
             android:title="@string/title_labeling_show_or_hide_controls"
             app:singleLineTitle="false"
             android:summary="@string/summary_labeling_controls"/>
+        <CheckBoxPreference
+            android:layout="@layout/listitem_2texts"
+            android:defaultValue="@bool/pref_show_context_menu_image_caption_default"
+            android:key="@string/pref_show_context_menu_image_caption_setting_key"
+            android:order="27"
+            android:title="@string/title_image_caption"
+            app:singleLineTitle="false"
+            android:summary="@string/summary_image_caption"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/pref_show_context_menu_navigation_category_key"
@@ -60,8 +60,8 @@
         <Preference
             android:key="@string/pref_show_context_menu_granularity_detail_setting_key"
             android:order="8"
-            android:title="@string/title_pref_category_navigation_menu">
-            <intent android:action=".preference.TalkBackNavigationMenuPreferencesActivity" />
+            android:title="@string/title_pref_category_navigation_menu"
+            android:fragment="com.google.android.accessibility.talkback.preference.base.NavigationMenuFragment" >
         </Preference>
     </PreferenceCategory>
     <PreferenceCategory

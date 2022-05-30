@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">overzicht</string>
   <string name="voice_commands_read">lezen</string>
   <string name="voice_commands_read_from_next">Vanaf volgende lezen</string>
   <string name="voice_commands_edit_options">Opties voor bewerken</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Zoeken</string>
   <string name="voice_commands_search">Zoeken</string>
   <string name="voice_commands_search_for">Zoeken naar</string>
-  <string name="voice_commands_find_again">Zoeken herhalen</string>
   <string name="voice_commands_next_heading">Volgende kop</string>
   <string name="voice_commands_next_control">Volgend bedieningselement</string>
   <string name="voice_commands_next_link">Volgende link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Label toevoegen niet mogelijk</string>
   <string name="voice_commands_assistant">Assistent</string>
   <string name="voice_commands_setting_speech_rate">Spreeksnelheid instellen</string>
-  <string name="voice_commands_setting_verbosity">Uitgebreidheid instellen</string>
-  <string name="voice_commands_setting_granularity">Detailniveau instellen</string>
-  <string name="voice_commands_setting_navigation">Navigatie instellen</string>
   <string name="voice_commands_first">Eerste</string>
   <string name="voice_commands_top">Boven</string>
   <string name="voice_commands_last">Laatste</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Geen volgende link</string>
   <string name="voice_commands_no_next_control_feedback">Geen volgend bedieningselement</string>
   <string name="voice_commands_no_next_landmark_feedback">Geen volgend herkenningspunt</string>
-  <string name="voice_commands_screen_hidden_feedback">Scherm is verborgen</string>
-  <string name="voice_commands_showing_screen_feedback">Scherm wordt getoond</string>
   <string name="voice_commands_help_title">Overzicht van spraakopdrachten</string>
   <string name="voice_commands_help_description">Swipe naar rechts en daarna omhoog om spraakopdrachten te gebruiken. Zeg \'Help\' of \'Wat kan ik zeggen?\' om deze lijst met spraakopdrachten te openen.</string>
   <string name="voice_commands_help_hint">Zeg voor de beste resultaten de exacte tekst op de volgende schermen.</string>

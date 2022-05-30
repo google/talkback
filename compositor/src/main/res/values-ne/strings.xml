@@ -59,10 +59,6 @@
   <string name="value_pager_page">पृष्ठ</string>
   <string name="value_progress_bar">प्रगति पट्टी</string>
   <string name="value_webview">वेबभ्यू</string>
-  <string name="value_toolbar">उपकरणपट्टी</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">%2$d देखि %1$d सम्मका वर्णहरू</string>
-  <string name="template_password_traversed">वर्ण %1$d</string>
   <string name="value_password">पासवर्ड</string>
   <string name="value_sliding_drawer_opened">स्लाइडिङ दराज खोलिएको</string>
   <string name="value_options_menu_open">विकल्पहरू।</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">ठाडो पेजरको बाहिर</string>
   <string name="in_horizontal_pager_with_name">तेर्सो पेजर %1$s मा</string>
   <string name="in_horizontal_pager">तेर्सो पेजरमा</string>
-  <string name="out_of_horizontal_pager_with_name">तेर्सो पेजर %1$s को बाहिर</string>
   <string name="out_of_horizontal_pager">तेर्सो पेजरको बाहिर</string>
   <string name="in_grid_pager_with_name">ग्रिड पेजर %1$s मा</string>
   <string name="in_grid_pager">ग्रिड पेजरमा</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">म्याग्निफिकेसन %1$d%%</string>
   <string name="screen_magnification_off">म्याग्निफिकेसन निष्क्रिय पारिएको छ</string>
   <string name="template_speech_rate_change">बोल्ने गति %1$d%%</string>
-  <string name="template_speech_rate_change_faster">अझ छिटो</string>
-  <string name="template_speech_rate_change_slower">अझ ढिलो</string>
-  <string name="template_speech_rate_change_fastest">सबैभन्दा छिटो</string>
-  <string name="template_speech_rate_change_slowest">सबैभन्दा ढिलो</string>
   <string name="template_volume_change_increase">बढाउनुहोस्</string>
   <string name="template_volume_change_decrease">घटाउनुहोस्</string>
   <string name="template_volume_change_maximum">अधिकतम</string>
   <string name="template_volume_change_minimum">न्यूनतम</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">अडियो डकिङ अन छ</string>
-  <string name="audio_focus_off">अडियो डकिङ सुविधा निष्क्रिय छ</string>
-  <string name="selector_speech_rate_output">बोल्ने गति</string>
-  <string name="selector_verbosity_output">शब्दको बाहुल्यता</string>
-  <string name="selector_granularity_output">नेभिगेसन</string>
-  <string name="selector_audio_focus_output">अडियो डकिङ सुविधा</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">हेडफोनहरू प्रयोग गर्दा मात्र पासवर्डहरू बोलिन्छन्</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s उपलब्ध छ, हेर्नका लागि %2$s प्रयोग गर्नुहोस्।</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s उपलब्ध छ।</string>
+  <string name="hint_suggestion">हिज्जेसम्बन्धी सुझाव उपलब्ध छन्।</string>
+  <string name="in_window_with_name">विन्डो %1$s</string>
+  <string name="detected_icon_description">%1$s, पत्ता लगाइएको आइकन</string>
+  <string name="ocr_text_description">%1$s, टेक्स्ट</string>
 </resources>

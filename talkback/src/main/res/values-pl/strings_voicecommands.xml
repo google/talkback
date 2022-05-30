@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">podsumowanie</string>
   <string name="voice_commands_read">czytaj</string>
   <string name="voice_commands_read_from_next">Czytaj od następnego</string>
   <string name="voice_commands_edit_options">Opcje edycji</string>
   <string name="voice_commands_text_editing">Edytowanie tekstu</string>
   <string name="voice_commands_edit_text">Edytowanie tekstu</string>
-  <string name="voice_commands_editing_options">Opcje edytowania</string>
+  <string name="voice_commands_editing_options">Opcje edycji</string>
   <string name="voice_commands_edit">edytuj</string>
   <string name="voice_commands_what">co</string>
   <string name="voice_commands_say">powiedz</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Znajdź</string>
   <string name="voice_commands_search">Szukaj</string>
   <string name="voice_commands_search_for">Wyszukaj</string>
-  <string name="voice_commands_find_again">Znajdź powtórzenia</string>
   <string name="voice_commands_next_heading">Następny nagłówek</string>
   <string name="voice_commands_next_control">Następny element sterujący</string>
   <string name="voice_commands_next_link">Następny link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Nie można oznaczyć etykietą</string>
   <string name="voice_commands_assistant">Asystent</string>
   <string name="voice_commands_setting_speech_rate">Ustawianie szybkości mowy</string>
-  <string name="voice_commands_setting_verbosity">Ustawianie szczegółowości</string>
-  <string name="voice_commands_setting_granularity">Ustawianie szczegółowości nawigacji</string>
-  <string name="voice_commands_setting_navigation">Ustawianie nawigacji</string>
   <string name="voice_commands_first">Pierwszy</string>
   <string name="voice_commands_top">Do góry</string>
   <string name="voice_commands_last">Ostatni</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Nie ma następnego linku</string>
   <string name="voice_commands_no_next_control_feedback">Nie ma następnego elementu sterującego</string>
   <string name="voice_commands_no_next_landmark_feedback">Nie ma następnego punktu orientacyjnego</string>
-  <string name="voice_commands_screen_hidden_feedback">Ekran został ukryty</string>
-  <string name="voice_commands_showing_screen_feedback">Pokazuję ekran</string>
   <string name="voice_commands_help_title">Przegląd poleceń głosowych</string>
   <string name="voice_commands_help_description">Aby używać poleceń głosowych, przesuń palcem w prawo, a następnie do góry. Lista dostępnych poleceń głosowych zostanie wyświetlona, gdy powiesz „Pomoc” lub „Co mogę powiedzieć?”.</string>
   <string name="voice_commands_help_hint">By uzyskać jak najlepsze rezultaty, powiedz dokładnie to, co zobaczysz na kolejnych ekranach.</string>

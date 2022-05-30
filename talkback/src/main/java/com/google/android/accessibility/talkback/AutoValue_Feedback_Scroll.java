@@ -17,10 +17,12 @@
 package com.google.android.accessibility.talkback;
 
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.talkback.Feedback.Scroll;
+import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollTimeout;
 import com.google.android.accessibility.talkback.actor.AutoScrollActor;
 import com.google.android.accessibility.utils.AccessibilityNode;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import javax.annotation.Generated;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 // This file is normally auto-generated using the @AutoValue processor.  But
 // that operation has been failing on the gradle-based build, so this file is
@@ -42,6 +44,8 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
 
   private final AutoScrollActor.AutoScrollRecord.@Nullable Source source;
 
+  private final ScrollTimeout timeout;
+
   private AutoValue_Feedback_Scroll(
       Feedback.Scroll.Action action,
       @Nullable AccessibilityNode node,
@@ -49,7 +53,8 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
       @Nullable AccessibilityNodeInfoCompat nodeToMoveOnScreen,
       int userAction,
       int nodeAction,
-      AutoScrollActor.AutoScrollRecord.@Nullable Source source) {
+      AutoScrollActor.AutoScrollRecord.@Nullable Source source,
+      ScrollTimeout timeout) {
     this.action = action;
     this.node = node;
     this.nodeCompat = nodeCompat;
@@ -57,6 +62,7 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
     this.userAction = userAction;
     this.nodeAction = nodeAction;
     this.source = source;
+    this.timeout = timeout;
   }
 
   @Override
@@ -96,15 +102,36 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
   }
 
   @Override
+  public ScrollTimeout timeout() {
+    return timeout;
+  }
+
+  @Override
   public String toString() {
     return "Scroll{"
-        + "action=" + action + ", "
-        + "node=" + node + ", "
-        + "nodeCompat=" + nodeCompat + ", "
-        + "nodeToMoveOnScreen=" + nodeToMoveOnScreen + ", "
-        + "userAction=" + userAction + ", "
-        + "nodeAction=" + nodeAction + ", "
-        + "source=" + source
+        + "action="
+        + action
+        + ", "
+        + "node="
+        + node
+        + ", "
+        + "nodeCompat="
+        + nodeCompat
+        + ", "
+        + "nodeToMoveOnScreen="
+        + nodeToMoveOnScreen
+        + ", "
+        + "userAction="
+        + userAction
+        + ", "
+        + "nodeAction="
+        + nodeAction
+        + ", "
+        + "source="
+        + source
+        + ", "
+        + "timeout="
+        + timeout
         + "}";
   }
 
@@ -117,11 +144,16 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
       Feedback.Scroll that = (Feedback.Scroll) o;
       return this.action.equals(that.action())
           && (this.node == null ? that.node() == null : this.node.equals(that.node()))
-          && (this.nodeCompat == null ? that.nodeCompat() == null : this.nodeCompat.equals(that.nodeCompat()))
-          && (this.nodeToMoveOnScreen == null ? that.nodeToMoveOnScreen() == null : this.nodeToMoveOnScreen.equals(that.nodeToMoveOnScreen()))
+          && (this.nodeCompat == null
+              ? that.nodeCompat() == null
+              : this.nodeCompat.equals(that.nodeCompat()))
+          && (this.nodeToMoveOnScreen == null
+              ? that.nodeToMoveOnScreen() == null
+              : this.nodeToMoveOnScreen.equals(that.nodeToMoveOnScreen()))
           && this.userAction == that.userAction()
           && this.nodeAction == that.nodeAction()
-          && (this.source == null ? that.source() == null : this.source.equals(that.source()));
+          && (this.source == null ? that.source() == null : this.source.equals(that.source()))
+          && this.timeout == that.timeout();
     }
     return false;
   }
@@ -143,6 +175,8 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
     h$ ^= nodeAction;
     h$ *= 1000003;
     h$ ^= (source == null) ? 0 : source.hashCode();
+    h$ *= 1000003;
+    h$ ^= timeout.getTimeoutMillis();
     return h$;
   }
 
@@ -154,6 +188,8 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
     private Integer userAction;
     private Integer nodeAction;
     private AutoScrollActor.AutoScrollRecord.@Nullable Source source;
+    private ScrollTimeout timeout;
+
     Builder() {
     }
     @Override
@@ -206,6 +242,13 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
       this.source = source;
       return this;
     }
+
+    @Override
+    public Scroll.Builder setTimeout(ScrollTimeout timeout) {
+      this.timeout = timeout;
+      return this;
+    }
+
     @Override
     Feedback.Scroll autoBuild() {
       String missing = "";
@@ -218,6 +261,9 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
       if (this.nodeAction == null) {
         missing += " nodeAction";
       }
+      if (this.timeout == null) {
+        missing += " timeout";
+      }
       if (!missing.isEmpty()) {
         throw new IllegalStateException("Missing required properties:" + missing);
       }
@@ -228,7 +274,8 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
           this.nodeToMoveOnScreen,
           this.userAction,
           this.nodeAction,
-          this.source);
+          this.source,
+          this.timeout);
     }
   }
 

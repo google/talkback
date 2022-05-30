@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">რეზიუმე</string>
   <string name="voice_commands_read">წაკითხვა</string>
   <string name="voice_commands_read_from_next">წაკითხვა შემდეგიდან</string>
   <string name="voice_commands_edit_options">რედაქტირების ვარიანტები</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">პოვნა</string>
   <string name="voice_commands_search">ძიება</string>
   <string name="voice_commands_search_for">ძიება</string>
-  <string name="voice_commands_find_again">პოვნის გამეორება</string>
   <string name="voice_commands_next_heading">მომდევნო სათაური</string>
   <string name="voice_commands_next_control">მართვის შემდეგი ელემენტი</string>
   <string name="voice_commands_next_link">შემდეგი ბმული</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">ლეიბლის მიმაგრება შეუძლებელია</string>
   <string name="voice_commands_assistant">ასისტენტი</string>
   <string name="voice_commands_setting_speech_rate">მეტყველების ტემპის დაყენება</string>
-  <string name="voice_commands_setting_verbosity">სიტყვების რაოდენობის დაყენება</string>
-  <string name="voice_commands_setting_granularity">გრანულაციის დაყენება</string>
-  <string name="voice_commands_setting_navigation">ნავიგაციის დაყენება</string>
   <string name="voice_commands_first">პირველი</string>
   <string name="voice_commands_top">ზემოთ</string>
   <string name="voice_commands_last">ბოლო</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">შემდეგი ბმული არ არის</string>
   <string name="voice_commands_no_next_control_feedback">მართვის შემდეგი საშუალება არ არის</string>
   <string name="voice_commands_no_next_landmark_feedback">შემდეგი ორიენტირი არ არის</string>
-  <string name="voice_commands_screen_hidden_feedback">ეკრანი დამალულია</string>
-  <string name="voice_commands_showing_screen_feedback">ეკრანი ნაჩვენებია</string>
   <string name="voice_commands_help_title">ხმოვანი ბრძანების გადახედვა</string>
   <string name="voice_commands_help_description">ხმოვანი ბრძანებების გამოსაყენებლად ჯერ გადაფურცლეთ მარჯვნივ, შემდეგ კი ზევით. თქვით „დამეხმარე“ ან „რისი თქმა შემიძლია“ ნებისმიერ დროს, რათა მიიღოთ ბრძანებათა ეს სია.</string>
   <string name="voice_commands_help_hint">საუკეთესო შედეგების მისაღებად, ზუსტად თქვით ის, რაც მითითებულია მომდევნო ეკრანებზე.</string>

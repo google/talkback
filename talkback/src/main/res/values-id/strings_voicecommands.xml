@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">ringkasan</string>
   <string name="voice_commands_read">baca</string>
   <string name="voice_commands_read_from_next">Baca dari item berikutnya</string>
   <string name="voice_commands_edit_options">Opsi edit</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Cari</string>
   <string name="voice_commands_search">Telusuri</string>
   <string name="voice_commands_search_for">Telusuri</string>
-  <string name="voice_commands_find_again">Ulangi mencari</string>
   <string name="voice_commands_next_heading">Judul berikutnya</string>
   <string name="voice_commands_next_control">Kontrol berikutnya</string>
   <string name="voice_commands_next_link">Link berikutnya</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Tidak dapat memberi label</string>
   <string name="voice_commands_assistant">Asisten</string>
   <string name="voice_commands_setting_speech_rate">Menyetel laju bicara</string>
-  <string name="voice_commands_setting_verbosity">Menyetel verbositas</string>
-  <string name="voice_commands_setting_granularity">Menyetel perincian</string>
-  <string name="voice_commands_setting_navigation">Menyetel navigasi</string>
   <string name="voice_commands_first">Pertama</string>
   <string name="voice_commands_top">Atas</string>
   <string name="voice_commands_last">Terakhir</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Tidak ada link berikutnya</string>
   <string name="voice_commands_no_next_control_feedback">Tidak ada kontrol berikutnya</string>
   <string name="voice_commands_no_next_landmark_feedback">Tidak ada penanda berikutnya</string>
-  <string name="voice_commands_screen_hidden_feedback">Layar disembunyikan</string>
-  <string name="voice_commands_showing_screen_feedback">Menampilkan layar</string>
   <string name="voice_commands_help_title">Ringkasan perintah suara</string>
   <string name="voice_commands_help_description">Untuk menggunakan perintah suara, geser ke kanan lalu ke atas. Ucapkan \"Bantuan\" atau \"Apa yang bisa saya ucapkan?\" kapan saja untuk melihat daftar perintah ini.</string>
   <string name="voice_commands_help_hint">Untuk hasil terbaik, ucapkan kata yang sama persis dengan yang tercantum di daftar pada layar berikut.</string>

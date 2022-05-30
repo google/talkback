@@ -19,7 +19,7 @@ package com.google.android.accessibility.talkback.analytics;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import androidx.annotation.IntDef;
-import com.google.android.accessibility.talkback.controller.SelectorController;
+import com.google.android.accessibility.talkback.selector.SelectorController;
 import com.google.android.accessibility.utils.input.CursorGranularity;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -16,10 +16,10 @@
 
 package com.google.android.accessibility.talkback.utils;
 
-import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.FOCUS_FAIL_FAIL_ALL_FOCUS_TESTS;
-import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_SPEAKABLE;
-import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_VISIBLE;
-import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.FOCUS_FAIL_SAME_WINDOW_BOUNDS_CHILDREN;
+import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_FAIL_ALL_FOCUS_TESTS;
+import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_SPEAKABLE;
+import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_VISIBLE;
+import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_SAME_WINDOW_BOUNDS_CHILDREN;
 
 import android.content.Context;
 import android.graphics.BlendMode;
@@ -29,15 +29,15 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.WindowManager.BadTokenException;
 import android.widget.FrameLayout;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.DiagnosticType;
+import com.google.android.accessibility.utils.DiagnosticOverlayUtils.DiagnosticType;
 import com.google.android.accessibility.utils.widget.SimpleOverlay;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
@@ -49,15 +49,12 @@ public class HighlightOverlay extends SimpleOverlay {
   static View highlightView;
   private static int ORANGE = 0xFFFFA500;
 
-  /** {@code unfocusableNodes} obtained and recycled in
+  /** {@code unfocusableNodes} obtained in
    * {@link DiagnosticOverlayControllerImpl#appendLog and
    * @link DiagnosticOverlayControllerImpl#clearUnfocusedNodes()} respectively}}*/
   private HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> unfocusableNodes = null;
 
-  /**
-   * {@code focusednode} obtained in {@link DiagnosticOverlayControllerImpl#appendLog(Feedback)} and
-   * recycled in {@link HighlightOverlay#clearHighlight()}
-   */
+  /** {@code focusednode} obtained in {@link DiagnosticOverlayControllerImpl#appendLog(Feedback)} */
   private AccessibilityNodeInfoCompat focusedNode;
 
   /** Highlights multiple nodes */

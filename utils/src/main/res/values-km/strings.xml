@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">តួអក្សរ %1$d ទៅ %2$d</string>
+  <string name="template_password_traversed">តួអក្សរ %1$d</string>
   <string name="untitled_window">គ្មានចំណងជើង</string>
-  <string name="template_alert_dialog_template">ជូន​ដំណឹង %1$s</string>
   <string name="template_text_copied">បានថតចម្លង %1$s</string>
   <string name="template_capital_letter">អក្សរ​ធំ %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">ពាក្យ</string>
   <string name="granularity_line">ជួរ</string>
   <string name="granularity_paragraph">កឋាខណ្ឌ</string>
-  <string name="granularity_page">ទំព័រ</string>
   <string name="granularity_window">វិនដូ</string>
   <string name="granularity_web_landmark">ទីតាំង​សម្គាល់</string>
   <string name="granularity_web_heading">ចំណងជើង</string>

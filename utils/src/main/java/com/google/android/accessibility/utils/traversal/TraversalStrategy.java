@@ -16,8 +16,8 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Map;
@@ -67,8 +67,8 @@ public interface TraversalStrategy {
    *
    * @param startNode - pivot node the search is start from
    * @param direction - direction to find focus
-   * @return {@link androidx.core.view.accessibility.AccessibilityNodeInfoCompat} node that has
-   *     next focus
+   * @return {@link androidx.core.view.accessibility.AccessibilityNodeInfoCompat} node that has next
+   *     focus
    */
   public @Nullable AccessibilityNodeInfoCompat findFocus(
       AccessibilityNodeInfoCompat startNode, @SearchDirection int direction);
@@ -99,6 +99,11 @@ public interface TraversalStrategy {
 
   /**
    * When there is no need in traversal strategy object it must be recycled before garbage collected
+   *
+   * <p>TODO: Remove once all dependencies have been removed.
+   *
+   * @deprecated Accessibility is discontinuing recycling.
    */
+  @Deprecated
   public void recycle();
 }

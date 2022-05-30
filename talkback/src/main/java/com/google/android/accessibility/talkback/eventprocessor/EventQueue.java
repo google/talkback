@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
-import androidx.core.view.accessibility.AccessibilityEventCompat;
 import android.util.SparseIntArray;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">%1$d ରୁ %2$d ବର୍ଣ୍ଣ</string>
+  <string name="template_password_traversed">%1$dଟି ବର୍ଣ୍ଣ</string>
   <string name="untitled_window">ବେନାମୀ</string>
-  <string name="template_alert_dialog_template">ଆଲର୍ଟ %1$s</string>
   <string name="template_text_copied">କପୀ ହେଲା, %1$s</string>
   <string name="template_capital_letter">%1$s ବଡ଼ ଅକ୍ଷର</string>
   <string name="character_collapse_template">%1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">ଶବ୍ଦ</string>
   <string name="granularity_line">ଧାଡ଼ି</string>
   <string name="granularity_paragraph">ଅନୁଚ୍ଛେଦ</string>
-  <string name="granularity_page">ପୃଷ୍ଠା</string>
   <string name="granularity_window">ୱିଣ୍ଡୋଗୁଡ଼ିକ</string>
   <string name="granularity_web_landmark">ଲ୍ୟାଣ୍ଡମାର୍କଗୁଡ଼ିକ</string>
   <string name="granularity_web_heading">ହେଡିଂ</string>

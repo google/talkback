@@ -22,10 +22,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.compositor.GestureShortcutProvider;
@@ -213,6 +213,11 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         MULTI_FINGER,
         R.string.pref_shortcut_3finger_3tap_key,
         R.string.pref_shortcut_3finger_3tap_default),
+    THREE_FINGER_TRIPLE_TAP_AND_HOLD(
+        AccessibilityService.GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD,
+        MULTI_FINGER,
+        R.string.pref_shortcut_3finger_3tap_hold_key,
+        R.string.pref_shortcut_3finger_3tap_hold_default),
     FOUR_FINGER_SINGLE_TAP(
         AccessibilityService.GESTURE_4_FINGER_SINGLE_TAP,
         MULTI_FINGER,
@@ -293,6 +298,11 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         MULTI_FINGER,
         R.string.pref_shortcut_2finger_2tap_hold_key,
         R.string.pref_shortcut_2finger_2tap_hold_default),
+    THREE_FINGER_TAP_AND_HOLD(
+        AccessibilityService.GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD,
+        MULTI_FINGER,
+        R.string.pref_shortcut_3finger_1tap_hold_key,
+        R.string.pref_shortcut_3finger_1tap_hold_default),
     THREE_FINGER_DOUBLE_TAP_AND_HOLD(
         AccessibilityService.GESTURE_3_FINGER_DOUBLE_TAP_AND_HOLD,
         MULTI_FINGER,
@@ -304,7 +314,7 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         R.string.pref_shortcut_4finger_2tap_hold_key,
         R.string.pref_shortcut_4finger_2tap_hold_default),
     TWO_FINGER_TRIPLE_TAP_AND_HOLD(
-        GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD,
+        AccessibilityService.GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD,
         MULTI_FINGER,
         R.string.pref_shortcut_2finger_3tap_hold_key,
         R.string.pref_shortcut_2finger_3tap_hold_default),
@@ -412,10 +422,18 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
     START_SELECTION_MODE(
         R.string.shortcut_value_start_selection_mode,
         R.string.title_edittext_breakout_start_selection_mode),
+    MOVE_CURSOR_TO_BEGINNING(
+        R.string.shortcut_value_move_cursor_to_beginning,
+        R.string.title_edittext_breakout_move_to_beginning),
+    MOVE_CURSOR_TO_END(
+        R.string.shortcut_value_move_cursor_to_end, R.string.title_edittext_breakout_move_to_end),
+    SELECT_ALL(R.string.shortcut_value_select_all, android.R.string.selectAll),
     COPY(R.string.shortcut_value_copy, android.R.string.copy),
     CUT(R.string.shortcut_value_cut, android.R.string.cut),
     PASTE(R.string.shortcut_value_paste, android.R.string.paste),
-    EDITING(R.string.shortcut_value_editing, R.string.shortcut_editing),
+    EDITING(R.string.shortcut_value_editing, R.string.shortcut_show_custom_actions),
+    COPY_LAST_SPOKEN_UTTERANCE(
+        R.string.shortcut_value_copy_last_spoken_phrase, R.string.title_copy_last_spoken_phrase),
     BRAILLE_KEYBOARD(R.string.shortcut_value_braille_keyboard, R.string.shortcut_braille_keyboard),
 
     // Special features.
@@ -434,8 +452,8 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         R.string.shortcut_value_practice_gestures, R.string.shortcut_practice_gestures),
     REPORT_GESTURE(R.string.shortcut_value_report_gesture, R.string.shortcut_report_gesture);
 
-    final @StringRes int actionKeyResId;
-    final @StringRes int actionNameResId;
+    @StringRes final int actionKeyResId;
+    @StringRes final int actionNameResId;
 
     TalkbackAction(@StringRes int actionKeyResId, @StringRes int actionNameResId) {
       this.actionKeyResId = actionKeyResId;
@@ -446,7 +464,7 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
   ///////////////////////////////////////////////////////////////////////////
   // Constants
 
-  // TODO  : Remove constants copied from framework since R-QPR.
+  // Copies hidden constants from framework.
   /**
    * The user has performed a touch-exploration gesture on the touch screen without ever triggering
    * gesture detection. This gesture is only dispatched when {@link
@@ -460,28 +478,6 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
    * FeatureSupport#FLAG_SEND_MOTION_EVENTS} is set.
    */
   public static final int GESTURE_PASSTHROUGH = -1;
-
-  /**
-   * The user has performed an unrecognized gesture on the touch screen. This gesture is only
-   * dispatched when {@link FeatureSupport#FLAG_SEND_MOTION_EVENTS} is set.
-   */
-  public static final int GESTURE_UNKNOWN = 0;
-
-  /** The user has performed a double tap gesture on the touch screen. */
-  public static final int GESTURE_DOUBLE_TAP = 17;
-
-  /** The user has performed a double tap and hold gesture on the touch screen. */
-  public static final int GESTURE_DOUBLE_TAP_AND_HOLD = 18;
-
-  /** The user has performed a two-finger triple-tap and hold gesture on the touch screen. */
-  // TODO : Use Android S SDK api to substitute for this.
-  public static final int GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD = 43;
-
-  /** The user has performed a three-finger single-tap and hold gesture on the touch screen. */
-  public static final int GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD = 44;
-
-  /** The user has performed a three-finger triple-tap and hold gesture on the touch screen. */
-  public static final int GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD = 45;
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Member variables
@@ -526,13 +522,15 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
 
   /** Returns gesture shortcut name for talkback context menu. */
   @Override
-  public @Nullable CharSequence nodeMenuShortcut() {
+  @Nullable
+  public CharSequence nodeMenuShortcut() {
     return getGestureFromActionKey(actionTalkbackContextMenu);
   }
 
   /** Returns gesture shortcut name for SeekBar hint. */
   @Override
-  public @Nullable CharSequence nodeSeekBarShortcut() {
+  @Nullable
+  public CharSequence nodeSeekBarShortcut() {
     @Nullable CharSequence gestureReadingMenuUp = getGestureFromActionKey(actionReadingMenuUp);
     @Nullable CharSequence gestureReadingMenuDown = getGestureFromActionKey(actionReadingMenuDown);
 
@@ -570,7 +568,8 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
    * @param action The corresponding action assigned to the gesture
    * @return gesture text, or null if no gesture assigned to the action
    */
-  public @Nullable String getGestureFromActionKey(String action) {
+  @Nullable
+  public String getGestureFromActionKey(String action) {
     if (TextUtils.isEmpty(action) || !actionToGesture.containsKey(action)) {
       return null;
     }
@@ -596,7 +595,8 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
    * @param actions The corresponding actions assigned to the gesture
    * @return a list of gesture texts
    */
-  public @NonNull List<String> getGestureTextsFromActionKeys(String... actions) {
+  @NonNull
+  public List<String> getGestureTextsFromActionKeys(String... actions) {
     List<String> matchedGestures = new ArrayList<>();
 
     for (String action : actions) {
@@ -608,18 +608,41 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
     return matchedGestures;
   }
 
+  /**
+   * Returns an action-gesture mapping including all actions. The map key is an action key. The map
+   * value is the text of the gesture which is assigned to the action.
+   */
+  public HashMap<String, String> getAllGestureTexts() {
+    final HashMap<String, String> actionKeyToGestureText = new HashMap<>();
+    actionToGesture.forEach(
+        (action, gestureCollector) -> {
+          TalkBackGesture gesture = gestureCollector.getPrioritizedGesture();
+          if (gesture == null) {
+            return;
+          }
+
+          if (gesture.gestureType == FINGERPRINT) {
+            actionKeyToGestureText.put(
+                action, getFingerprintGestureString(context, gesture.gestureId));
+          } else {
+            actionKeyToGestureText.put(action, getGestureString(context, gesture.gestureId));
+          }
+        });
+    return actionKeyToGestureText;
+  }
+
   /** Loads gesture-action mappings from shared preference. */
   private void loadGestureIdToActionKeyMap() {
     loadGestureIdToActionKeyMap(
         FeatureSupport.isMultiFingerGestureSupported(),
-        FeatureSupport.isFingerprintSupported(context));
+        FeatureSupport.isFingerprintGestureSupported(context));
   }
 
-  @VisibleForTesting
   /** Loads gesture-action mappings with multi-finger gesture on. It's only for testing purpose. */
+  @VisibleForTesting
   protected void loadGestureIdToActionKeyMapWithMultiFingerGesture() {
     loadGestureIdToActionKeyMap(
-        /* isMultiFingerOn= */ true, FeatureSupport.isFingerprintSupported(context));
+        /* isMultiFingerOn= */ true, FeatureSupport.isFingerprintGestureSupported(context));
   }
 
   private void loadGestureIdToActionKeyMap(boolean isMultiFingerOn, boolean isFingerprintOn) {
@@ -716,6 +739,7 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
   }
 
   /** Returns the corresponding gesture string of gesture id. */
+  @Nullable
   public static String getGestureString(Context context, int gestureId) {
     switch (gestureId) {
       case AccessibilityService.GESTURE_SWIPE_UP:
@@ -806,27 +830,27 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         return FeatureSupport.supportGestureMotionEvents()
             ? context.getString(R.string.gesture_name_pass_through)
             : null;
-      case GESTURE_UNKNOWN:
+      case AccessibilityService.GESTURE_UNKNOWN:
         return FeatureSupport.supportGestureMotionEvents()
             ? context.getString(R.string.gesture_name_unknown)
             : null;
-      case GESTURE_DOUBLE_TAP:
+      case AccessibilityService.GESTURE_DOUBLE_TAP:
         return FeatureSupport.supportGestureMotionEvents()
             ? context.getString(R.string.gesture_name_double_tap)
             : null;
-      case GESTURE_DOUBLE_TAP_AND_HOLD:
+      case AccessibilityService.GESTURE_DOUBLE_TAP_AND_HOLD:
         return FeatureSupport.supportGestureMotionEvents()
             ? context.getString(R.string.gesture_name_double_tap_and_hold)
             : null;
-      case GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD:
+      case AccessibilityService.GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD:
         return FeatureSupport.supportGestureMotionEvents()
             ? context.getString(R.string.gesture_name_2finger_3tap_hold)
             : null;
-      case GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD:
+      case AccessibilityService.GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD:
         return FeatureSupport.supportGestureMotionEvents()
             ? context.getString(R.string.gesture_name_3finger_tap_hold)
             : null;
-      case GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD:
+      case AccessibilityService.GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD:
         return FeatureSupport.supportGestureMotionEvents()
             ? context.getString(R.string.gesture_name_3finger_3tap_hold)
             : null;
@@ -835,6 +859,7 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
     }
   }
 
+  @Nullable
   private static String getFingerprintGestureString(Context context, int fingerprintGestureId) {
     switch (fingerprintGestureId) {
       case FingerprintGestureController.FINGERPRINT_GESTURE_SWIPE_UP:

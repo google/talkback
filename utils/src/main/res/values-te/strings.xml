@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">అక్షరాలు %1$d నుండి %2$d వరకు</string>
+  <string name="template_password_traversed">అక్షరం %1$d</string>
   <string name="untitled_window">శీర్షిక లేనిది</string>
-  <string name="template_alert_dialog_template">హెచ్చరిక %1$s</string>
   <string name="template_text_copied">%1$s, కాపీ చేయబడింది</string>
   <string name="template_capital_letter">క్యాపిటల్ %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">పదాలు</string>
   <string name="granularity_line">లైన్‌లు</string>
   <string name="granularity_paragraph">పేరాలు</string>
-  <string name="granularity_page">పేజీలు</string>
   <string name="granularity_window">విండోలు</string>
   <string name="granularity_web_landmark">ల్యాండ్‌మార్క్‌లు</string>
   <string name="granularity_web_heading">హెడ్డింగులు</string>

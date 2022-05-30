@@ -61,10 +61,6 @@
   <string name="value_pager_page">Stránka</string>
   <string name="value_progress_bar">Ukazatel postupu</string>
   <string name="value_webview">Webové zobrazení</string>
-  <string name="value_toolbar">Lišta</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Znaky %1$d až %2$d</string>
-  <string name="template_password_traversed">Znak %1$d</string>
   <string name="value_password">heslo</string>
   <string name="value_sliding_drawer_opened">Výsuvné okno otevřeno</string>
   <string name="value_options_menu_open">Možnosti.</string>
@@ -142,7 +138,6 @@
   <string name="out_of_vertical_pager">Jste mimo vertikální stránkovač</string>
   <string name="in_horizontal_pager_with_name">Jste v horizontálním stránkovači %1$s</string>
   <string name="in_horizontal_pager">Jste v horizontálním stránkovači</string>
-  <string name="out_of_horizontal_pager_with_name">Jste mimo horizontální stránkovač %1$s</string>
   <string name="out_of_horizontal_pager">Jste mimo horizontální stránkovač</string>
   <string name="in_grid_pager_with_name">Jste ve stránkovači s mřížkou %1$s</string>
   <string name="in_grid_pager">Jste ve stránkovači s mřížkou</string>
@@ -177,22 +172,15 @@
   <string name="template_screen_magnification_scale_changed">Zvětšení %1$d %%</string>
   <string name="screen_magnification_off">Zvětšení je vypnuto</string>
   <string name="template_speech_rate_change">Rychlost řeči %1$d %%</string>
-  <string name="template_speech_rate_change_faster">Rychlejší</string>
-  <string name="template_speech_rate_change_slower">Pomalejší</string>
-  <string name="template_speech_rate_change_fastest">Nejrychlejší</string>
-  <string name="template_speech_rate_change_slowest">Nejpomalejší</string>
   <string name="template_volume_change_increase">Zvýšit</string>
   <string name="template_volume_change_decrease">Snížit</string>
   <string name="template_volume_change_maximum">Maximum</string>
   <string name="template_volume_change_minimum">Minimum</string>
   <string name="template_seekbar_range">%1$d %%</string>
-  <string name="audio_focus_on">Zeslabení zvuku je zapnuté</string>
-  <string name="audio_focus_off">Zeslabení zvuku je vypnuté</string>
-  <string name="selector_speech_rate_output">Rychlost řeči</string>
-  <string name="selector_verbosity_output">Výřečnost</string>
-  <string name="selector_granularity_output">Navigace</string>
-  <string name="selector_audio_focus_output">Zeslabení zvuku</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Hesla jsou vyslovována jen do sluchátek</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s je k dispozici, lze zobrazit pomocí gesta %2$s.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s je k dispozici.</string>
+  <string name="hint_suggestion">K dispozici jsou návrhy pravopisu.</string>
+  <string name="in_window_with_name">Okno %1$s</string>
+  <string name="detected_icon_description">%1$s, zjištěná ikona</string>
+  <string name="ocr_text_description">%1$s, text</string>
 </resources>

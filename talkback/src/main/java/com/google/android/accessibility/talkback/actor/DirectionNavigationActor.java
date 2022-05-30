@@ -23,7 +23,6 @@ import android.accessibilityservice.AccessibilityService;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.compositor.GlobalVariables;
-import com.google.android.accessibility.compositor.TextEventInterpreter.SelectionStateReader;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.CursorGranularityManager;
 import com.google.android.accessibility.talkback.Feedback;
@@ -49,6 +48,7 @@ import com.google.android.accessibility.utils.WindowUtils;
 import com.google.android.accessibility.utils.input.CursorGranularity;
 import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.input.InputModeManager.InputMode;
+import com.google.android.accessibility.utils.input.TextEventInterpreter.SelectionStateReader;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
@@ -260,14 +260,10 @@ public class DirectionNavigationActor {
 
   private boolean isEditingFocusedNode(boolean useInputFocusAsPivotIfEmpty) {
     AccessibilityNodeInfoCompat currentFocus = null;
-    try {
-      currentFocus = accessibilityFocusMonitor.getAccessibilityFocus(useInputFocusAsPivotIfEmpty);
-      return (currentFocus != null)
-          && (currentFocus.isEditable() || (Role.getRole(currentFocus) == Role.ROLE_EDIT_TEXT))
-          && currentFocus.isFocused();
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentFocus);
-    }
+    currentFocus = accessibilityFocusMonitor.getAccessibilityFocus(useInputFocusAsPivotIfEmpty);
+    return (currentFocus != null)
+        && (currentFocus.isEditable() || (Role.getRole(currentFocus) == Role.ROLE_EDIT_TEXT))
+        && currentFocus.isFocused();
   }
 
   /**
@@ -283,16 +279,12 @@ public class DirectionNavigationActor {
   private boolean isNavigatingWithMicroGranularity() {
     AccessibilityNodeInfoCompat currentFocus =
         accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
-    try {
-      if (!cursorGranularityManager.isLockedTo(currentFocus)) {
-        return false;
-      }
-
-      CursorGranularity currentGranularity = cursorGranularityManager.getCurrentGranularity();
-      return (currentGranularity != null) && currentGranularity.isMicroGranularity();
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentFocus);
+    if (!cursorGranularityManager.isLockedTo(currentFocus)) {
+      return false;
     }
+
+    CursorGranularity currentGranularity = cursorGranularityManager.getCurrentGranularity();
+    return (currentGranularity != null) && currentGranularity.isMicroGranularity();
   }
 
   /**
@@ -327,13 +319,6 @@ public class DirectionNavigationActor {
       final boolean useInputFocusAsPivotIfEmpty,
       @InputMode final int inputMode,
       final EventId eventId) {
-    int scrollDirection = TraversalStrategyUtils.convertSearchDirectionToScrollAction(direction);
-    if (scrollDirection == 0) {
-      // We won't be able to handle scrollable views very well on older SDK versions,
-      // so don't allow d-pad navigation.
-      return false;
-    }
-
     // TODO: Remove savedGranularity.
     // SavedGranularity is used to switch between micro granularity when navigating across node
     // bounds. Since we separate node navigation in Focus Management, we don't need to cache it
@@ -341,6 +326,31 @@ public class DirectionNavigationActor {
     CursorGranularity currentGranularity = cursorGranularityManager.getSavedGranularity();
     if (currentGranularity == null) {
       currentGranularity = cursorGranularityManager.getCurrentGranularity();
+    }
+
+    return navigateWithMacroOrDefaultGranularity(
+        direction,
+        currentGranularity,
+        shouldWrap,
+        shouldScroll,
+        useInputFocusAsPivotIfEmpty,
+        inputMode,
+        eventId);
+  }
+
+  private boolean navigateWithMacroOrDefaultGranularity(
+      @TraversalStrategy.SearchDirection final int direction,
+      CursorGranularity granularity,
+      final boolean shouldWrap,
+      final boolean shouldScroll,
+      final boolean useInputFocusAsPivotIfEmpty,
+      @InputMode final int inputMode,
+      final EventId eventId) {
+    int scrollDirection = TraversalStrategyUtils.convertSearchDirectionToScrollAction(direction);
+    if (scrollDirection == 0) {
+      // We won't be able to handle scrollable views very well on older SDK versions,
+      // so don't allow d-pad navigation.
+      return false;
     }
 
     NavigationAction navigationAction =
@@ -351,8 +361,8 @@ public class DirectionNavigationActor {
             .setShouldScroll(shouldScroll)
             .setUseInputFocusAsPivotIfEmpty(useInputFocusAsPivotIfEmpty)
             .setInputMode(inputMode)
-            .setTarget(granularityToTargetType(currentGranularity))
-            .setOriginalNavigationGranularity(currentGranularity)
+            .setTarget(granularityToTargetType(granularity))
+            .setOriginalNavigationGranularity(granularity)
             .build();
 
     return sendNavigationAction(navigationAction, eventId);
@@ -375,6 +385,22 @@ public class DirectionNavigationActor {
       final boolean shouldWrap,
       int inputMode,
       EventId eventId) {
+    // From talkback 9.0 the default granularity had been separated from other granularities. After
+    // this change, talkback supports two granularities(default + 1) to be activated at the same
+    // time. To avoid the time wasting by switching the configuration between "default" and
+    // "currentGranularity", navigating with the default granularity should be handled separately
+    // with others.
+    if (granularity == CursorGranularity.DEFAULT) {
+      return navigateWithMacroOrDefaultGranularity(
+          direction,
+          granularity,
+          /* shouldWrap= */ shouldWrap,
+          /* shouldScroll= */ true,
+          /* useInputFocusAsPivotIfEmpty= */ true,
+          inputMode,
+          eventId);
+    }
+
     // Keep current granularity to set it back after this operation.
     CursorGranularity currentGranularity = cursorGranularityManager.getCurrentGranularity();
     boolean sameGranularity = currentGranularity == granularity;
@@ -386,7 +412,7 @@ public class DirectionNavigationActor {
     boolean result =
         navigate(
             direction,
-            /* shouldWrap= */ (granularity == CursorGranularity.DEFAULT) ? shouldWrap : false,
+            /* shouldWrap= */ false,
             /* shouldScroll= */ true,
             /* useInputFocusAsPivotIfEmpty= */ true,
             inputMode,
@@ -422,7 +448,6 @@ public class DirectionNavigationActor {
     // If we cannot find a pivot, or the pivot is not accessible, choose the root node if the
     // active window.
     if (pivot == null || !pivot.refresh()) {
-      AccessibilityNodeInfoUtils.recycleNodes(pivot);
       pivot = AccessibilityServiceCompatUtils.getRootInActiveWindow(service);
     }
 
@@ -434,8 +459,6 @@ public class DirectionNavigationActor {
     if (result && (inputMode != InputModeManager.INPUT_MODE_UNKNOWN)) {
       inputModeManager.setInputMode(inputMode);
     }
-
-    AccessibilityNodeInfoUtils.recycleNodes(pivot);
 
     return result;
   }
@@ -496,36 +519,32 @@ public class DirectionNavigationActor {
       boolean isFromUser,
       EventId eventId) {
     AccessibilityNodeInfoCompat current = null;
-    try {
-      current =
-          (node == null)
-              ? accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true)
-              : AccessibilityNodeInfoUtils.obtain(node);
+    current =
+        (node == null)
+            ? accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true)
+            : AccessibilityNodeInfoUtils.obtain(node);
 
-      if (current == null) {
-        // Even if there's no focused node on screen, DEFAULT granularity should be acceptable.
-        if (granularity == DEFAULT) {
-          setGranularityToDefault();
-          return true;
-        }
-
-        return false;
-      }
-
-      if (cursorGranularityManager.setGranularityAt(current, granularity, eventId)) {
-        granularityUpdatedAnnouncement(
-            service.getString(granularity.resourceId), isFromUser, eventId);
+    if (current == null) {
+      // Even if there's no focused node on screen, DEFAULT granularity should be acceptable.
+      if (granularity == DEFAULT) {
+        setGranularityToDefault();
         return true;
-      } else {
-        granularityUpdatedAnnouncement(
-            service.getString(
-                R.string.set_granularity_fail, service.getString(granularity.resourceId)),
-            isFromUser,
-            eventId);
-        return false;
       }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(current);
+
+      return false;
+    }
+
+    if (cursorGranularityManager.setGranularityAt(current, granularity, eventId)) {
+      granularityUpdatedAnnouncement(
+          service.getString(granularity.resourceId), isFromUser, eventId);
+      return true;
+    } else {
+      granularityUpdatedAnnouncement(
+          service.getString(
+              R.string.set_granularity_fail, service.getString(granularity.resourceId)),
+          isFromUser,
+          eventId);
+      return false;
     }
   }
 
@@ -551,12 +570,8 @@ public class DirectionNavigationActor {
   // Usage: SelectorController
   public boolean supportedGranularity(CursorGranularity granularity, EventId eventId) {
     AccessibilityNodeInfoCompat current = null;
-    try {
-      current = accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
-      return cursorGranularityManager.supportedGranularity(current, granularity, eventId);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(current);
-    }
+    current = accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
+    return cursorGranularityManager.supportedGranularity(current, granularity, eventId);
   }
 
   /**
@@ -576,10 +591,10 @@ public class DirectionNavigationActor {
               SpeakOptions.create()
                   .setQueueMode(QUEUE_MODE_INTERRUPT)
                   .setFlags(
-                      FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_PHONE_CALL_ACTIVE)));
+                      FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_PHONE_CALL_ACTIVE)));
     }
   }
 
@@ -595,40 +610,35 @@ public class DirectionNavigationActor {
   private boolean adjustGranularity(int direction, EventId eventId) {
     AccessibilityNodeInfoCompat currentNode = null;
 
-    try {
-      currentNode =
-          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
+    currentNode = accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
 
-      final boolean wasAdjusted =
-          cursorGranularityManager.adjustGranularityAt(currentNode, direction, eventId);
+    final boolean wasAdjusted =
+        cursorGranularityManager.adjustGranularityAt(currentNode, direction, eventId);
 
-      CursorGranularity currentGranularity = cursorGranularityManager.getCurrentGranularity();
+    CursorGranularity currentGranularity = cursorGranularityManager.getCurrentGranularity();
 
-      if (wasAdjusted) {
-        // If the current granularity after change is default or native macro granularity
-        // (Headings, controls, etc), we want to keep that change even if the currentNode is null.
-        // The idea is to relax the constraint for native macro granularity to  always have
-        // accessibility focus on screen to switch between them.
-        if (currentGranularity.isNativeMacroGranularity()
-            || currentGranularity == CursorGranularity.DEFAULT
-            || currentGranularity == CursorGranularity.WINDOWS
-            || currentNode != null) {
-          granularityUpdatedAnnouncement(
-              service.getString(currentGranularity.resourceId), /* isFromUser= */ true, eventId);
-        } else {
-          // TODO: Why we need to adjust granularity forth and back? If the current node is
-          // null and the granularity after change is not native macro, we want to discard the
-          // change as micro granularities (characters, words, etc) are always dependent on the node
-          // having accessibility focus.
-          cursorGranularityManager.adjustGranularityAt(currentNode, direction * -1, eventId);
-          return false;
-        }
+    if (wasAdjusted) {
+      // If the current granularity after change is default or native macro granularity
+      // (Headings, controls, etc), we want to keep that change even if the currentNode is null.
+      // The idea is to relax the constraint for native macro granularity to  always have
+      // accessibility focus on screen to switch between them.
+      if (currentGranularity.isNativeMacroGranularity()
+          || currentGranularity == CursorGranularity.DEFAULT
+          || currentGranularity == CursorGranularity.WINDOWS
+          || currentNode != null) {
+        granularityUpdatedAnnouncement(
+            service.getString(currentGranularity.resourceId), /* isFromUser= */ true, eventId);
+      } else {
+        // TODO: Why we need to adjust granularity forth and back? If the current node is
+        // null and the granularity after change is not native macro, we want to discard the
+        // change as micro granularities (characters, words, etc) are always dependent on the node
+        // having accessibility focus.
+        cursorGranularityManager.adjustGranularityAt(currentNode, direction * -1, eventId);
+        return false;
       }
-
-      return wasAdjusted;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentNode);
     }
+
+    return wasAdjusted;
   }
 
   // Usage: RuleEditText

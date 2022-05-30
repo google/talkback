@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">souhrn</string>
   <string name="voice_commands_read">číst</string>
   <string name="voice_commands_read_from_next">Číst od dalšího</string>
   <string name="voice_commands_edit_options">Upravit možnosti</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Najít</string>
   <string name="voice_commands_search">Hledat</string>
   <string name="voice_commands_search_for">Vyhledat</string>
-  <string name="voice_commands_find_again">Najít další</string>
   <string name="voice_commands_next_heading">Další nadpis</string>
   <string name="voice_commands_next_control">Další ovládací prvek</string>
   <string name="voice_commands_next_link">Další odkaz</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Nelze označit</string>
   <string name="voice_commands_assistant">Asistent</string>
   <string name="voice_commands_setting_speech_rate">Nastavení rychlosti řeči</string>
-  <string name="voice_commands_setting_verbosity">Nastavení podrobnosti informací</string>
-  <string name="voice_commands_setting_granularity">Nastavení podrobnosti navigace</string>
-  <string name="voice_commands_setting_navigation">Nastavení navigace</string>
   <string name="voice_commands_first">První</string>
   <string name="voice_commands_top">Nahoře</string>
   <string name="voice_commands_last">Poslední</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Žádný další odkaz není</string>
   <string name="voice_commands_no_next_control_feedback">Žádný další ovládací prvek není</string>
   <string name="voice_commands_no_next_landmark_feedback">Žádný další orientační bod není</string>
-  <string name="voice_commands_screen_hidden_feedback">Obrazovka byla skryta</string>
-  <string name="voice_commands_showing_screen_feedback">Obrazovka se zobrazuje</string>
   <string name="voice_commands_help_title">Přehled hlasových příkazů</string>
   <string name="voice_commands_help_description">Pokud chcete použít hlasové příkazy, přejeďte prstem doprava a poté nahoru. Tento seznam příkazů kdykoli vyvoláte, když řeknete „nápověda“ nebo „co můžu říct“.</string>
   <string name="voice_commands_help_hint">Nejlepších výsledků dosáhnete, když budete používat příkazy uvedené na následujících obrazovkách.</string>

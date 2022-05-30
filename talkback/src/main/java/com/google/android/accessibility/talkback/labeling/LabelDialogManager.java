@@ -26,7 +26,6 @@ import android.content.DialogInterface;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import androidx.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -36,6 +35,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
@@ -104,7 +104,6 @@ public class LabelDialogManager {
     dialogManager.showEditLabelDialog(viewLabelId, needToRestoreFocus, pipeline);
     return true;
   }
-
 
   /**
    * Computes the common name for an application.
@@ -199,6 +198,9 @@ public class LabelDialogManager {
     /** Handles positive button click events in dialog. */
     protected abstract void onPositiveAction();
 
+    /** Returns the message which shows in scrollable customized view. */
+    protected abstract String getCustomizedMessage();
+
     /** Setup customized view */
     protected void setupCustomizedView() {}
 
@@ -221,6 +223,13 @@ public class LabelDialogManager {
     public View getCustomizedView() {
       final LayoutInflater li = LayoutInflater.from(context);
       final View dialogView = li.inflate(R.layout.label_addedit_dialog, null);
+
+      String customizedMessage = getCustomizedMessage();
+      if (!TextUtils.isEmpty(customizedMessage)) {
+        TextView message = dialogView.findViewById(R.id.label_dialog_text);
+        message.setText(customizedMessage);
+      }
+
       editField = dialogView.findViewById(R.id.label_dialog_edit_text);
       editField.setOnEditorActionListener(
           (TextView textView, int actionId, KeyEvent keyEvent) -> {
@@ -260,8 +269,13 @@ public class LabelDialogManager {
     }
 
     @Override
-    public String getMessageString() {
+    protected String getCustomizedMessage() {
       return context.getString(R.string.label_dialog_text, resourceName);
+    }
+
+    @Override
+    public String getMessageString() {
+      return null;
     }
   }
 
@@ -299,8 +313,13 @@ public class LabelDialogManager {
     }
 
     @Override
-    public String getMessageString() {
+    protected String getCustomizedMessage() {
       return context.getString(R.string.label_dialog_text, existing.getViewName());
+    }
+
+    @Override
+    public String getMessageString() {
+      return null;
     }
 
     @Override
@@ -315,9 +334,9 @@ public class LabelDialogManager {
                   SpeakOptions.create()
                       .setFlags(
                           FeedbackItem.FLAG_NO_HISTORY
-                              | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                              | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                              | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE
+                              | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                              | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                              | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE
                               | FeedbackItem.FLAG_SKIP_DUPLICATE)));
         }
       } else {

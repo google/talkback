@@ -29,8 +29,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
-import androidx.annotation.Nullable;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
@@ -51,7 +49,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.TalkBackUI;
 import com.google.android.accessibility.talkback.Pipeline;
@@ -142,16 +142,10 @@ public class SearchScreenOverlay implements SearchObserver {
   /** Instance for finding accessibility/input focus. */
   private FocusFinder focusFinder;
 
-  /**
-   * The AccessibilityWindow that was focused before entering search mode. This window will be
-   * recycled when the overlay view is {@link #hide()}.
-   */
+  /** The AccessibilityWindow that was focused before entering search mode. */
   @Nullable private AccessibilityWindow initialFocusedWindow = null;
 
-  /**
-   * The {@code AccessibilityNode} containing accessibility focus in the base window. The node will
-   * be recycled when the overlay view is {@link #hide()}.
-   */
+  /** The {@code AccessibilityNode} containing accessibility focus in the base window. */
   private AccessibilityNode initialFocusedNode;
 
   /** The scroll actors used for previous/next screen. */
@@ -167,7 +161,7 @@ public class SearchScreenOverlay implements SearchObserver {
     void onAutoScrollFailed(AccessibilityNode nodeToScroll);
   }
 
-  private @Nullable AutoScrollCallback scrollCallback;
+  @Nullable private AutoScrollCallback scrollCallback;
 
   /** Defines functional interface. An action called by hideImeAndPerformAction() */
   private interface Action {
@@ -379,8 +373,7 @@ public class SearchScreenOverlay implements SearchObserver {
         new Runnable() {
           int counter = 0;
           int counterLimit = 20;
-          // The clickedNode is one of the nodes in the node cache, will be recycled when hide() API
-          // been called, don't need to be recycled here.
+          // The clickedNode is one of the nodes in the node cache.
           @Override
           public void run() {
             // Finding clickNodes's matching ancestor or self.
@@ -392,9 +385,6 @@ public class SearchScreenOverlay implements SearchObserver {
               // Set focus on the matching node.
               focusableVisibleNode.performAction(
                   AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null);
-              // Recycle focusableNode.
-              AccessibilityNode.recycle(
-                  "SearchScreenOverlay.postPerformFocusNode()", focusableVisibleNode);
               // Close search UI.
               hide();
             } else {
@@ -470,13 +460,9 @@ public class SearchScreenOverlay implements SearchObserver {
 
     boolean result = false;
 
-    try {
-      pipeline.returnFeedback(
-          EVENT_ID_UNTRACKED,
-          Feedback.scroll(scrollableNode, ACTION_AUTO_SCROLL, action, Source.SEARCH));
-    } finally {
-      AccessibilityNode.recycle("SearchScreenOverlay.scrollScreen()", scrollableNode);
-    }
+    pipeline.returnFeedback(
+        EVENT_ID_UNTRACKED,
+        Feedback.scroll(scrollableNode, ACTION_AUTO_SCROLL, action, Source.SEARCH));
 
     if (result) {
       // Screen is scrolled, clears previous search results.
@@ -506,7 +492,7 @@ public class SearchScreenOverlay implements SearchObserver {
     }
   }
 
-  /** Returns a scrollable node from input window except SeekBar. Caller should recycle it. */
+  /** Returns a scrollable node from input window except SeekBar. */
   @Nullable
   private AccessibilityNode getScrollableNode(int action) {
     AccessibilityNode scrollableNode = getScrollableNodeByFocusedNode(action);
@@ -518,6 +504,7 @@ public class SearchScreenOverlay implements SearchObserver {
   }
 
   /** Returns a scrollable node from focused node except SeekBar. */
+  @Nullable
   private AccessibilityNode getScrollableNodeByFocusedNode(int action) {
     if (initialFocusedNode == null) {
       return null;
@@ -527,6 +514,7 @@ public class SearchScreenOverlay implements SearchObserver {
   }
 
   /** Returns a scrollable node from focused window except SeekBar. */
+  @Nullable
   private AccessibilityNode getScrollableNodeByWindow(int action) {
     if (initialFocusedWindow == null) {
       return null;
@@ -536,12 +524,7 @@ public class SearchScreenOverlay implements SearchObserver {
     if (rootNode == null) {
       return null;
     }
-
-    try {
-      return rootNode.searchFromBfs(getScrollFilter(action));
-    } finally {
-      AccessibilityNode.recycle("SearchScreenOverlay.getScrollableNode()", rootNode);
-    }
+    return rootNode.searchFromBfs(getScrollFilter(action));
   }
 
   // Clear search result adapter and notify UI element.
@@ -583,9 +566,6 @@ public class SearchScreenOverlay implements SearchObserver {
   }
 
   private void onScrolledWithFocusUpdate(AccessibilityNode scrolledNode, int scrollAction) {
-    // Copy the scrolledNode for later usage since it will be recycled after the callback.
-    AccessibilityNode copiedNode = scrolledNode.obtainCopy();
-
     // Delay a small amount of time to make sure all the nodes have been updated before we access
     // them.
     new Handler()
@@ -593,9 +573,7 @@ public class SearchScreenOverlay implements SearchObserver {
             () -> {
               searchStrategy.cacheNodeTree(initialFocusedWindow);
               searchStrategy.searchKeyword(keywordEditText.getText().toString());
-              updateFocusedNodeAfterScrolled(copiedNode, scrollAction);
-              AccessibilityNode.recycle(
-                  "SearchScreenOverlay.onScrolledWithFocusUpdate", copiedNode);
+              updateFocusedNodeAfterScrolled(scrolledNode, scrollAction);
               refreshUiState();
             },
             DELAY_SCROLL_MILLISEC);
@@ -629,13 +607,12 @@ public class SearchScreenOverlay implements SearchObserver {
       if (!button.isEnabled()) {
         enableImageButton(button);
       }
-      AccessibilityNode.recycle("SearchScreenOverlay.updateButtonState()", node);
     }
   }
 
   /**
    * Extracts node texts from {@code searchState} and add them to searchStateAdapter. Nodes without
-   * text will be removed and recycled and won't be added to adapter.
+   * text will be removed and won't be added to adapter.
    *
    * @param searchState The searchState to process.
    */
@@ -647,8 +624,6 @@ public class SearchScreenOverlay implements SearchObserver {
         iterator.hasNext(); ) {
       MatchedNodeInfo matchedInfo = iterator.next();
       if (!matchedInfo.hasMatchedResult()) {
-        AccessibilityNode.recycle(
-            "SearchScreenOverlay.extractNodeTextToAdapter()", matchedInfo.node());
         iterator.remove();
         continue;
       }
@@ -807,9 +782,6 @@ public class SearchScreenOverlay implements SearchObserver {
       searchState.clear();
     }
 
-    // Sets null to just recycle initialFocusedWindow.
-    setInitialFocusedWindow(null);
-
     setInitialFocusedNode(null);
   }
 
@@ -881,6 +853,7 @@ public class SearchScreenOverlay implements SearchObserver {
    *     AccessibilityNodeInfoUtils.FILTER_COULD_SCROLL_BACKWARD}
    * @return the node filter or null if the specified action is not valid
    */
+  @Nullable
   static Filter<AccessibilityNodeInfoCompat> getScrollFilter(int action) {
     if (action == AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD) {
       return AccessibilityNodeInfoUtils.FILTER_COULD_SCROLL_FORWARD.and(FILTER_NO_SEEK_BAR);
@@ -898,6 +871,7 @@ public class SearchScreenOverlay implements SearchObserver {
    *     {@code MatchResult}
    * @return the fullString with all contained keyword set as bold or null if node is not available
    */
+  @Nullable
   static SpannableStringBuilder makeAllKeywordBold(@Nullable MatchedNodeInfo matchedInfo) {
     if (matchedInfo == null || TextUtils.isEmpty(matchedInfo.getNodeText())) {
       return null;
@@ -1010,39 +984,33 @@ public class SearchScreenOverlay implements SearchObserver {
    */
   private void findTargetWindow() {
     AccessibilityNodeInfoCompat rootNode = null;
-    AccessibilityNodeInfoCompat currentNode = null;
+    AccessibilityNodeInfoCompat currentNode =
+        FocusFinder.getAccessibilityFocusNode(service, /* fallbackOnRoot=*/ false);
     TraversalStrategy traversal = null;
-    try {
-      currentNode = FocusFinder.getAccessibilityFocusNode(service, /* fallbackOnRoot=*/ false);
-      if (currentNode == null) {
-        rootNode = AccessibilityServiceCompatUtils.getRootInActiveWindow(service);
-        if (rootNode == null) {
-          return;
-        }
-        traversal = new OrderedTraversalStrategy(rootNode);
-        currentNode =
-            TraversalStrategyUtils.searchFocus(
-                traversal,
-                rootNode,
-                TraversalStrategy.SEARCH_FOCUS_FORWARD,
-                AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
-      }
 
-      if (currentNode == null) {
+    if (currentNode == null) {
+      rootNode = AccessibilityServiceCompatUtils.getRootInActiveWindow(service);
+      if (rootNode == null) {
         return;
       }
-
-      AccessibilityNode focusedNode = AccessibilityNode.takeOwnership(currentNode);
-      setInitialFocusedNode(focusedNode);
-      AccessibilityWindow currentFocusedWindow =
-          AccessibilityWindow.takeOwnership(null, currentNode.getWindow());
-      setInitialFocusedWindow(currentFocusedWindow);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(rootNode);
-      if (traversal != null) {
-        traversal.recycle();
-      }
+      traversal = new OrderedTraversalStrategy(rootNode);
+      currentNode =
+          TraversalStrategyUtils.searchFocus(
+              traversal,
+              rootNode,
+              TraversalStrategy.SEARCH_FOCUS_FORWARD,
+              AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
     }
+
+    if (currentNode == null) {
+      return;
+    }
+
+    AccessibilityNode focusedNode = AccessibilityNode.takeOwnership(currentNode);
+    setInitialFocusedNode(focusedNode);
+    AccessibilityWindow currentFocusedWindow =
+        AccessibilityWindow.takeOwnership(null, currentNode.getWindow());
+    setInitialFocusedWindow(currentFocusedWindow);
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////
@@ -1053,24 +1021,13 @@ public class SearchScreenOverlay implements SearchObserver {
     return overlayPanel;
   }
 
-  /**
-   * Recycles old {@code initialFocusedNode} and sets new one {@code AccessibilityNode} to it.
-   * {@code initialFocusedNode} should be recycled when overlay is hided.
-   */
   @VisibleForTesting
   void setInitialFocusedNode(AccessibilityNode node) {
-    AccessibilityNode.recycle("SearchScreenOverlay.setInitialFocusedNode()", initialFocusedNode);
     initialFocusedNode = node;
   }
 
-  /**
-   * Recycles old {@code initialFocusedWindow} and sets new one {@code window} to it. {@code
-   * initialFocusedWindow} should be recycled when overlay is hided.
-   */
   @VisibleForTesting
   void setInitialFocusedWindow(AccessibilityWindow window) {
-    AccessibilityWindow.recycle(
-        "SearchScreenOverlay.setInitialFocusedWindow()", initialFocusedWindow);
     initialFocusedWindow = window;
   }
 

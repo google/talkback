@@ -25,12 +25,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
 import android.os.Looper;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
@@ -470,6 +470,7 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
       LogUtils.w(TAG, "Unable to create SHA-1 MessageDigest");
     }
 
+    // TODO: Consider including an image with each custom label record.
     // For the current implementation, screenshots are disabled
     Label label =
         new Label(

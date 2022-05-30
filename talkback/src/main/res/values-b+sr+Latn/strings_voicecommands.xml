@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">rezime</string>
   <string name="voice_commands_read">čitaj</string>
   <string name="voice_commands_read_from_next">Čitaj od sledeće stavke</string>
   <string name="voice_commands_edit_options">Opcije izmene</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Pronađi</string>
   <string name="voice_commands_search">Pretraži</string>
   <string name="voice_commands_search_for">Potraži</string>
-  <string name="voice_commands_find_again">Ponovo pronađi</string>
   <string name="voice_commands_next_heading">Sledeći naslov</string>
   <string name="voice_commands_next_control">Sledeća kontrola</string>
   <string name="voice_commands_next_link">Sledeći link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Označavanje nije uspelo</string>
   <string name="voice_commands_assistant">Pomoćnik</string>
   <string name="voice_commands_setting_speech_rate">Podešava se brzina govora</string>
-  <string name="voice_commands_setting_verbosity">Podešava se opširnost govora</string>
-  <string name="voice_commands_setting_granularity">Podešava se preciznost</string>
-  <string name="voice_commands_setting_navigation">Podešava se kretanje</string>
   <string name="voice_commands_first">Prva</string>
   <string name="voice_commands_top">Vrh</string>
   <string name="voice_commands_last">Poslednja</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Nema sledećeg linka</string>
   <string name="voice_commands_no_next_control_feedback">Nema sledeće kontrole</string>
   <string name="voice_commands_no_next_landmark_feedback">Nema sledećeg orijentira</string>
-  <string name="voice_commands_screen_hidden_feedback">Ekran je sakriven</string>
-  <string name="voice_commands_showing_screen_feedback">Ekran se prikazuje</string>
   <string name="voice_commands_help_title">Pregled glasovnih komandi</string>
   <string name="voice_commands_help_description">Da biste koristili glasovne komande, prevucite udesno, pa nagore. Recite „Pomoć“ ili „Šta mogu da kažem“ u bilo kom trenutku da biste videli ovu listu komandi.</string>
   <string name="voice_commands_help_hint">Za najbolje rezultate tačno izgovorite reči prikazane na sledećim ekranima.</string>

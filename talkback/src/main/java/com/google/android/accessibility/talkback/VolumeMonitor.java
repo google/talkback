@@ -17,6 +17,7 @@
 package com.google.android.accessibility.talkback;
 
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
+import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_SOURCE_IS_VOLUME_CONTROL;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -288,7 +289,7 @@ public class VolumeMonitor extends BroadcastReceiver {
     SpeechController.SpeakOptions speakOptions =
         SpeechController.SpeakOptions.create()
             .setQueueMode(SpeechController.QUEUE_MODE_QUEUE)
-            .setFlags(0)
+            .setFlags(FLAG_SOURCE_IS_VOLUME_CONTROL)
             .setUtteranceGroup(SpeechController.UTTERANCE_GROUP_DEFAULT)
             .setCompletedAction(completedAction);
     Feedback.Part.Builder part = Feedback.Part.builder().speech(text, speakOptions);

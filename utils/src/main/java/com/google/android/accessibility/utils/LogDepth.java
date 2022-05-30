@@ -59,7 +59,8 @@ public class LogDepth {
    * @param args String formatter arguments
    */
   @FormatMethod
-  public static void log(String tag, int depth, @FormatString String format, Object... args) {
+  public static void log(
+      String tag, int depth, @FormatString String format, @Nullable Object... args) {
     if (LogUtils.shouldLog(Log.VERBOSE) && depth >= 0) {
       String indent = StringBuilderUtils.repeatChar(' ', depth * 2);
       String messageStr = String.format(format, args);

@@ -3,22 +3,21 @@ package com.google.android.accessibility.talkback.utils;
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.graphics.Color;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.Part;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
+import com.google.android.accessibility.utils.DiagnosticOverlayController;
+import com.google.android.accessibility.utils.DiagnosticOverlayUtils;
+import com.google.android.accessibility.utils.DiagnosticOverlayUtils.DiagnosticType;
 import com.google.android.accessibility.utils.StringBuilderUtils;
-import com.google.android.accessibility.utils.output.DiagnosticOverlayController;
-import com.google.android.accessibility.utils.output.DiagnosticOverlayUtils;
-import com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.DiagnosticType;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.errorprone.annotations.FormatMethod;
 import com.google.errorprone.annotations.FormatString;
@@ -52,14 +51,10 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
   }
 
   private boolean enabled;
-  @NonNull private Context context;
-  @Nullable private DiagnosticOverlay diagnosticOverlay;
-  @Nullable private HighlightOverlay highlightOverlay;
-  /**
-   * Need to recyle {@code unfocusedIdToNode}, {@code traversedIdToNode}, and {@code focusedNode} by
-   * calling {@link DiagnosticOverlayControllerImpl#clearAndRecycleCollectionNodes} each time new
-   * collection is needed
-   */
+  private @NonNull Context context;
+  private @Nullable DiagnosticOverlay diagnosticOverlay;
+  private @Nullable HighlightOverlay highlightOverlay;
+
   private static HashMap<Integer, AccessibilityNodeInfoCompat> traversedIdToNode = null;
 
   private static HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> unfocusedIdToNode = null;
@@ -112,7 +107,7 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
        */
       if (diagnosticInfo == DiagnosticOverlayUtils.SEARCH_FOCUS_FAIL) {
         if (traversedIdToNode == null) {
-          traversedIdToNode = new HashMap<Integer, AccessibilityNodeInfoCompat>();
+          traversedIdToNode = new HashMap<>();
         }
         traversedIdToNode.put(node.hashCode(), node);
         return;
@@ -124,15 +119,13 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
        * highlighted. If not, ignore the node since it wasn't a node affected by gesture swipe.
        */
       if (traversedIdToNode != null && traversedIdToNode.get(node.hashCode()) == null) {
-        AccessibilityNodeInfoUtils.recycleNodes(node);
         return;
       }
       if (unfocusedIdToNode == null) {
-        unfocusedIdToNode = new HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>>();
+        unfocusedIdToNode = new HashMap<>();
       }
       if (unfocusedIdToNode.get(diagnosticInfo) == null) {
-        ArrayList<AccessibilityNodeInfoCompat> currentNodes =
-            new ArrayList<AccessibilityNodeInfoCompat>();
+        ArrayList<AccessibilityNodeInfoCompat> currentNodes = new ArrayList<>();
         currentNodes.add(node);
         unfocusedIdToNode.put(diagnosticInfo, currentNodes);
       } else {
@@ -167,16 +160,10 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
         || diagnosticOverlay == null) {
       return;
     }
-    /**
-     * Clear/recycle traversed/unfocused nodes when window changes/scrolls to new screen because
-     * usually {@link FocusProcessorForLogicalNavigation} tells when clear/recycle, but with new
-     * screen change/scroll, we must call {@link
-     * DiagnosticOverlayControllerImpl#clearAndRecycleCollectionNodes} from here
-     */
+
     if (feedback.eventId().getEventSubtype() == AccessibilityEvent.TYPE_WINDOWS_CHANGED
         || feedback.eventId().getEventSubtype() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
         || failover.scroll() != null) {
-      clearAndRecycleCollectionNodes(/* recycleFocusedNode= */ false);
       highlightOverlay.clearHighlight();
     }
 
@@ -185,14 +172,14 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
       if (focus.target() != null) {
         focusedNode = AccessibilityNodeInfoCompat.obtain(focus.target());
         /**
-         * {@link TraversalStrategyUtils#searchFocus} will append focusedNodes to list of unfocused
+         * {@link TraversalStrategyUtils#searchFocus} will append focusedNode to list of unfocused
          * nodes since it is the last node to get traversed, so we must remove
          */
-        if (traversedIdToNode != null && traversedIdToNode.containsKey(focusedNode.hashCode())) {
-          AccessibilityNodeInfoUtils.recycleNodes(traversedIdToNode.remove(focusedNode.hashCode()));
+        if (traversedIdToNode != null) {
+          traversedIdToNode.remove(focusedNode.hashCode());
         }
-        if (unfocusedIdToNode != null && unfocusedIdToNode.containsKey(focusedNode.hashCode())) {
-          AccessibilityNodeInfoUtils.recycleNodes(unfocusedIdToNode.remove(focusedNode.hashCode()));
+        if (unfocusedIdToNode != null) {
+          unfocusedIdToNode.remove(focusedNode.hashCode());
         }
         highlightOverlay.highlightNodesOnScreen(focusedNode, unfocusedIdToNode);
       }
@@ -275,33 +262,18 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
 
   public static void setNodeCollectionEnabled(boolean collect) {
     if (collect) {
-      clearAndRecycleCollectionNodes(/* recycleFocusedNode= */ true);
+      clearCollectionNodes();
     }
     collectNodes = collect;
   }
 
-  /**
-   * Recycle and clear nodes in collections and only recycle focusedNode {@code recycleFocusedNode}
-   * if a new swipe is registered - scrolls and screen changes do not require focusedNode to be
-   * recycled.
-   */
-  private static void clearAndRecycleCollectionNodes(boolean recycleFocusedNode) {
+  /** Clear nodes in collections. */
+  private static void clearCollectionNodes() {
     if (unfocusedIdToNode != null) {
-      for (ArrayList<AccessibilityNodeInfoCompat> nodes : unfocusedIdToNode.values()) {
-        AccessibilityNodeInfoUtils.recycleNodes(nodes);
-      }
       unfocusedIdToNode.clear();
     }
     if (traversedIdToNode != null) {
-      for (AccessibilityNodeInfoCompat node : traversedIdToNode.values()) {
-        AccessibilityNodeInfoUtils.recycleNodes(node);
-      }
       traversedIdToNode.clear();
-    }
-    if (recycleFocusedNode) {
-      if (focusedNode != null) {
-        AccessibilityNodeInfoUtils.recycleNodes(focusedNode);
-      }
     }
   }
 

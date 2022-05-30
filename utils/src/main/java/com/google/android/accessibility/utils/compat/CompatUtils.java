@@ -18,6 +18,7 @@ package com.google.android.accessibility.utils.compat;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import org.checkerframework.checker.nullness.qual.PolyNull;
@@ -28,6 +29,7 @@ public class CompatUtils {
   /** Whether to log debug output. */
   private static final boolean DEBUG = false;
 
+  @Nullable
   public static Class<?> getClass(String className) {
     if (TextUtils.isEmpty(className)) {
       return null;
@@ -44,6 +46,7 @@ public class CompatUtils {
     return null;
   }
 
+  @Nullable
   public static Method getMethod(Class<?> targetClass, String name, Class<?>... parameterTypes) {
     if ((targetClass == null) || TextUtils.isEmpty(name)) {
       return null;
@@ -60,6 +63,7 @@ public class CompatUtils {
     return null;
   }
 
+  @Nullable
   public static Field getField(Class<?> targetClass, String name) {
     if ((targetClass == null) || (TextUtils.isEmpty(name))) {
       return null;
@@ -76,8 +80,7 @@ public class CompatUtils {
     return null;
   }
 
-  @PolyNull
-  public static Object invoke(
+  public static @PolyNull Object invoke(
       Object receiver, @PolyNull Object defaultValue, Method method, Object... args) {
     if (method == null) {
       return defaultValue;

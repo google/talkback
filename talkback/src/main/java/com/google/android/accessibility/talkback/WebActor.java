@@ -152,7 +152,7 @@ public class WebActor {
     SpeechController.SpeakOptions speakOptions =
         SpeechController.SpeakOptions.create()
             .setQueueMode(SpeechController.QUEUE_MODE_INTERRUPT)
-            .setFlags(FeedbackItem.FLAG_FORCED_FEEDBACK);
+            .setFlags(FeedbackItem.FLAG_FORCE_FEEDBACK);
     pipeline.returnFeedback(eventId, Feedback.speech(ttsText, speakOptions));
   }
 }

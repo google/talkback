@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">oversigt</string>
   <string name="voice_commands_read">læs</string>
   <string name="voice_commands_read_from_next">Læs fra næste</string>
   <string name="voice_commands_edit_options">Valgmuligheder for redigering</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Find</string>
   <string name="voice_commands_search">Søg</string>
   <string name="voice_commands_search_for">Søg efter</string>
-  <string name="voice_commands_find_again">Find flere</string>
   <string name="voice_commands_next_heading">Næste overskrift</string>
   <string name="voice_commands_next_control">Næste styringselement</string>
   <string name="voice_commands_next_link">Næste link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Kan ikke tilføje etiket</string>
   <string name="voice_commands_assistant">Assistent</string>
   <string name="voice_commands_setting_speech_rate">Indstiller talehastighed</string>
-  <string name="voice_commands_setting_verbosity">Indstiller detaljering</string>
-  <string name="voice_commands_setting_granularity">Indstiller granularitet</string>
-  <string name="voice_commands_setting_navigation">Indstiller navigation</string>
   <string name="voice_commands_first">Første</string>
   <string name="voice_commands_top">Øverst</string>
   <string name="voice_commands_last">Sidste</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Der er ikke flere links</string>
   <string name="voice_commands_no_next_control_feedback">Der er ikke flere styringselementer</string>
   <string name="voice_commands_no_next_landmark_feedback">Der er ikke flere pejlemærker</string>
-  <string name="voice_commands_screen_hidden_feedback">Skærmen er skjult</string>
-  <string name="voice_commands_showing_screen_feedback">Skærmen vises</string>
   <string name="voice_commands_help_title">Oversigt over stemmekommandoer</string>
   <string name="voice_commands_help_description">Du kan bruge stemmekommandoer ved at stryge mod højre og derefter opad. Sig \"Hjælp\" eller \"Hvad kan jeg sige?\" for at se denne liste over kommandoer.</string>
   <string name="voice_commands_help_hint">Du får de bedste resultater ved at bruge de eksakte udtryk, der er angivet på følgende skærme.</string>

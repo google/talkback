@@ -18,8 +18,9 @@ package com.google.android.accessibility.talkback.interpreters;
 
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
 
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import android.content.Context;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.compositor.AccessibilityFocusEventInterpretation;
 import com.google.android.accessibility.compositor.AccessibilityFocusEventInterpreter;
 import com.google.android.accessibility.talkback.ActorState;
@@ -66,6 +67,7 @@ public class AccessibilityFocusInterpreter
   private final FocusProcessorForScreenStateChange focusProcessorForScreenStateChange;
   private final AccessibilityFocusMonitor accessibilityFocusMonitor;
   private final ScreenStateMonitor.State screenState;
+  private final Context context;
 
   private Pipeline.InterpretationReceiver pipelineInterpretations;
   private ActorState actorState;
@@ -74,7 +76,10 @@ public class AccessibilityFocusInterpreter
   // Construction methods
 
   public AccessibilityFocusInterpreter(
-      AccessibilityFocusMonitor accessibilityFocusMonitor, ScreenStateMonitor.State screenState) {
+      Context context,
+      AccessibilityFocusMonitor accessibilityFocusMonitor,
+      ScreenStateMonitor.State screenState) {
+    this.context = context;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
     this.screenState = screenState;
     focusProcessorForTapAndTouchExploration = new FocusProcessorForTapAndTouchExploration();
@@ -125,25 +130,17 @@ public class AccessibilityFocusInterpreter
       return;
     }
 
-    AccessibilityNodeInfoCompat currentA11yFocusedNode = null;
-
-    try {
-
-      currentA11yFocusedNode =
-          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
-      if (AccessibilityNodeInfoUtils.shouldFocusNode(currentA11yFocusedNode)) {
-        return;
-      }
-
-      pipelineInterpretations.input(
-          interpretation.eventId(),
-          interpretation.event(),
-          Interpretation.ManualScroll.create(
-              interpretation.direction(), screenState.getStableScreenState()));
-
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentA11yFocusedNode);
+    AccessibilityNodeInfoCompat currentA11yFocusedNode =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
+    if (AccessibilityNodeInfoUtils.shouldFocusNode(currentA11yFocusedNode)) {
+      return;
     }
+
+    pipelineInterpretations.input(
+        interpretation.eventId(),
+        interpretation.event(),
+        Interpretation.ManualScroll.create(
+            interpretation.direction(), screenState.getStableScreenState()));
   }
 
   /** Event-interpreter function, called by {@link InputFocusInterpreter}. */
@@ -166,17 +163,16 @@ public class AccessibilityFocusInterpreter
   // APIs used by other TalkBack components
 
   /** Called by EventFilter. */
-  @Nullable
   @Override
-  public AccessibilityFocusEventInterpretation interpret(AccessibilityEvent event) {
+  public @Nullable AccessibilityFocusEventInterpretation interpret(AccessibilityEvent event) {
     // For user interface interaction (such as quick menu to handle slider/number-picker) and image
     // caption.
     if (event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
       AccessibilityNodeInfoCompat node = AccessibilityNodeInfoUtils.toCompat(event.getSource());
       // Skips caption if the view has already been labeled.
       boolean needsCaption =
-          ImageCaptioner.supportsImageCaption()
-              && ImageCaptionUtils.needImageCaption(event, node)
+          ImageCaptioner.supportsImageCaption(context)
+              && ImageCaptionUtils.needImageCaption(context, node)
               && actorState.getCustomLabel().getLabelIdForViewId(node) == Label.NO_ID;
       pipelineInterpretations.input(
           Performance.getInstance().onEventReceived(event),
@@ -190,9 +186,11 @@ public class AccessibilityFocusInterpreter
     }
     AccessibilityFocusEventInterpretation interpretation =
         new AccessibilityFocusEventInterpretation(event.getEventType());
-    interpretation.setForceFeedbackAudioPlaybackActive(info.isForcedFeedbackAudioPlaybackActive());
-    interpretation.setForceFeedbackMicrophoneActive(info.isForcedFeedbackMicrophoneActive());
-    interpretation.setForceFeedbackSsbActive(info.isForcedFeedbackSsbActive());
+    interpretation.setForceFeedbackEvenIfAudioPlaybackActive(
+        info.forceFeedbackEvenIfAudioPlaybackActive());
+    interpretation.setForceFeedbackEvenIfMicrophoneActive(
+        info.forceFeedbackEvenIfMicrophoneActive());
+    interpretation.setForceFeedbackEvenIfSsbActive(info.forceFeedbackEvenIfSsbActive());
     interpretation.setShouldMuteFeedback(info.forceMuteFeedback);
     interpretation.setIsInitialFocusAfterScreenStateChange(
         info.sourceAction == FocusActionInfo.SCREEN_STATE_CHANGE);
@@ -227,5 +225,14 @@ public class AccessibilityFocusInterpreter
    */
   public void setTypingMethod(@TypingMethod int type) {
     focusProcessorForTapAndTouchExploration.setTypingMethod(type);
+  }
+
+  /**
+   * Gets whether single-tap activation is enabled.
+   *
+   * @return Whether single-tap activation is enabled.
+   */
+  public @TypingMethod int getTypingMethod() {
+    return focusProcessorForTapAndTouchExploration.getTypingMethod();
   }
 }

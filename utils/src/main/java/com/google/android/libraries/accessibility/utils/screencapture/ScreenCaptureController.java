@@ -101,10 +101,10 @@ public class ScreenCaptureController {
    * capture data.
    *
    * @param listener An {@link AuthorizationListener} which can be used to determine when the user
-   *        authorizes this instance to request screen capture data or when the user declines the
-   *        authorization request.
+   *     authorizes this instance to request screen capture data or when the user declines the
+   *     authorization request.
    */
-  public void authorizeCaptureAsync(final @Nullable AuthorizationListener listener) {
+  public void authorizeCaptureAsync(@Nullable final AuthorizationListener listener) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP_MR1) {
       return;
     }
@@ -383,8 +383,9 @@ public class ScreenCaptureController {
     /**
      * @param reader An {@link ImageReader} of format {@link PixelFormat#RGBA_8888}
      * @return a {@link Bitmap} of format {@link android.graphics.Bitmap.Config#ARGB_8888}
-     *         containing screen capture data processed from the ImageReader's frame buffer.
+     *     containing screen capture data processed from the ImageReader's frame buffer.
      */
+    @Nullable
     private Bitmap getBitmapFromImageReader(ImageReader reader) {
       Image frame = reader.acquireLatestImage();
       if (frame == null) {

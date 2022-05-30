@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">muhtasari</string>
   <string name="voice_commands_read">kusoma</string>
   <string name="voice_commands_read_from_next">Soma kuanzia kipengee kinachofuata</string>
   <string name="voice_commands_edit_options">Chaguo za kubadilisha</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Tafuta</string>
   <string name="voice_commands_search">Tafuta</string>
   <string name="voice_commands_search_for">Tafuta</string>
-  <string name="voice_commands_find_again">Rudia kutafuta</string>
   <string name="voice_commands_next_heading">Mada inayofuata</string>
   <string name="voice_commands_next_control">Udhibiti unaofuata</string>
   <string name="voice_commands_next_link">Kiungo kinachofuata</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Imeshindwa kuweka lebo</string>
   <string name="voice_commands_assistant">Mratibu</string>
   <string name="voice_commands_setting_speech_rate">Kuweka mipangilio ya kasi ya kutamka</string>
-  <string name="voice_commands_setting_verbosity">Kuweka mipangilio ya wingi wa maneno</string>
-  <string name="voice_commands_setting_granularity">Kuweka mipangilio ya uzito wa kusogeza</string>
-  <string name="voice_commands_setting_navigation">Kuweka mipangilio ya usogezaji</string>
   <string name="voice_commands_first">Kwanza</string>
   <string name="voice_commands_top">Juu</string>
   <string name="voice_commands_last">Mwisho</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Hakuna kiungo kinachofuata</string>
   <string name="voice_commands_no_next_control_feedback">Hakuna kidhibiti kinachofuata</string>
   <string name="voice_commands_no_next_landmark_feedback">Hakuna alama muhimu inayofuata</string>
-  <string name="voice_commands_screen_hidden_feedback">Skrini imefichwa</string>
-  <string name="voice_commands_showing_screen_feedback">Inaonyesha Skrini</string>
   <string name="voice_commands_help_title">Muhtasari wa amri ya sauti</string>
   <string name="voice_commands_help_description">Ili utumie amri za sauti, telezesha kidole kulia kisha juu. Tamka \"Usaidizi\" au \"Ninaweza kusema nini?\" wakati wowote ili upate orodha hii ya amri.</string>
   <string name="voice_commands_help_hint">Kwa matokeo bora, tamka maneno kamili yaliyoorodheshwa kwenye skrini zinazofuata.</string>

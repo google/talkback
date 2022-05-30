@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Nombor</string>
+  <string name="capitalize_announcement">Huruf besar</string>
+  <string name="read_out_deleted">%s dipadamkan</string>
+  <plurals name="braille_dots">
+    <item quantity="one">titik %s</item>
+    <item quantity="other">titik %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">Bahasa Sepanyol</string>
+  <string name="code_user_facing_name_ar">Arab</string>
+  <string name="code_user_facing_name_fr">Perancis</string>
+  <string name="code_user_facing_name_pl">Bahasa Poland</string>
+  <string name="screen_away">Mod skrin jauh</string>
+  <string name="screen_away_detail">Tahan peranti dengan skrin jauh daripada anda (mod skrin jauh)</string>
+  <string name="tabletop">Mod atas meja</string>
+  <string name="tabletop_detail">Letakkan peranti anda mendatar di atas meja (mod atas meja)</string>
+  <string name="auto_detect">Sesuaikan dengan cara anda memegang peranti</string>
+</resources>

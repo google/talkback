@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">zusammenfassung</string>
   <string name="voice_commands_read">lesen</string>
   <string name="voice_commands_read_from_next">Lies ab dem nächsten Element</string>
   <string name="voice_commands_edit_options">Optionen zum Bearbeiten</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Suchen</string>
   <string name="voice_commands_search">Suche</string>
   <string name="voice_commands_search_for">Suchen nach</string>
-  <string name="voice_commands_find_again">Wiederholungen finden</string>
   <string name="voice_commands_next_heading">Nächste Überschrift</string>
   <string name="voice_commands_next_control">Nächstes Steuerelement</string>
   <string name="voice_commands_next_link">Nächster Link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Label hinzufügen nicht möglich</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">Sprechgeschwindigkeit festlegen</string>
-  <string name="voice_commands_setting_verbosity">Ausführlichkeit festlegen</string>
-  <string name="voice_commands_setting_granularity">Navigationseinheit festlegen</string>
-  <string name="voice_commands_setting_navigation">Navigation festlegen</string>
   <string name="voice_commands_first">Erstes</string>
   <string name="voice_commands_top">Oben</string>
   <string name="voice_commands_last">Letztes</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Kein nächster Link</string>
   <string name="voice_commands_no_next_control_feedback">Kein nächstes Steuerelement</string>
   <string name="voice_commands_no_next_landmark_feedback">Keine nächste Markierung</string>
-  <string name="voice_commands_screen_hidden_feedback">Display ausgeblendet</string>
-  <string name="voice_commands_showing_screen_feedback">Display wird angezeigt</string>
   <string name="voice_commands_help_title">Sprachbefehle – Übersicht</string>
   <string name="voice_commands_help_description">Streiche nach rechts und dann nach oben, um Sprachbefehle zu verwenden. Wenn du die Liste verfügbarer Sprachbefehle aufrufen möchtest, sag „Hilfe“ oder „Was kann ich sagen?“.</string>
   <string name="voice_commands_help_hint">Damit du optimale Ergebnisse erzielst, sag die Worte exakt so, wie sie auf den folgenden Bildschirmen erscheinen.</string>

@@ -17,9 +17,9 @@
 package com.google.android.accessibility.talkback.focusmanagement.interpreter;
 
 import android.os.Message;
+import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.focusmanagement.action.TouchExplorationAction;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -50,9 +50,6 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
 
     /**
      * Callback when the user performs a touch exploration action.
-     *
-     * <p><strong>Note:</strong>Do not recycle {@link TouchExplorationAction#touchedFocusableNode}
-     * in callback method.
      *
      * @return {@code true} if any accessibility action is successfully performed.
      */
@@ -119,7 +116,7 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
     postDelayHandler.executePendingTouchEndAction();
     setLastTouchedNode(/*touchedNode= */ null);
     postDelayHandler.cancelPendingEmptyTouchAction(/* dispatchPendingActionImmediately= */ false);
-    return dispatchAndRecycleTouchExplorationAction(
+    return dispatchTouchExplorationAction(
         new TouchExplorationAction(
             TouchExplorationAction.TOUCH_INTERACTION_START, /* touchedFocusableNode= */ null),
         eventId);
@@ -130,7 +127,7 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
     setLastTouchedNode(/*touchedNode= */ null);
     // Dispatch pending empty touch action immediately.
     postDelayHandler.cancelPendingEmptyTouchAction(/* dispatchPendingActionImmediately= */ true);
-    return dispatchAndRecycleTouchExplorationAction(
+    return dispatchTouchExplorationAction(
         new TouchExplorationAction(
             TouchExplorationAction.TOUCH_INTERACTION_END, /* touchedFocusableNode= */ null),
         eventId);
@@ -147,7 +144,6 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
     if (touchedNode.equals(lastTouchedNode)) {
       // If two consecutive Hover_Enter events have the same source node, we won't dispatch it
       // because it doesn't change anything.
-      AccessibilityNodeInfoUtils.recycleNodes(touchedNode);
       return false;
     }
 
@@ -156,7 +152,6 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
     final AccessibilityNodeInfoCompat touchedFocusableNode =
         AccessibilityNodeInfoUtils.findFocusFromHover(touchedNode);
 
-    AccessibilityNodeInfoUtils.recycleNodes(touchedNode);
     if (touchedFocusableNode == null) {
       // REFERTO. If no focusable node is being touched, don't dispatch empty touch
       // event immediately. Instead, we post delay to dispatch it. If we receive hover enter event
@@ -164,7 +159,7 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
       postDelayHandler.postDelayEmptyTouchAction(eventId);
     } else {
       postDelayHandler.cancelPendingEmptyTouchAction(/* dispatchPendingActionImmediately= */ false);
-      return dispatchAndRecycleTouchExplorationAction(
+      return dispatchTouchExplorationAction(
           new TouchExplorationAction(TouchExplorationAction.HOVER_ENTER, touchedFocusableNode),
           eventId);
     }
@@ -172,31 +167,21 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
   }
 
   /** @return {@code true} if any accessibility action is successfully performed. */
-  private boolean dispatchAndRecycleTouchExplorationAction(
-      TouchExplorationAction action, EventId eventId) {
-    try {
-      boolean result = false;
+  private boolean dispatchTouchExplorationAction(TouchExplorationAction action, EventId eventId) {
+    boolean result = false;
       for (TouchExplorationActionListener listener : listeners) {
         result |= listener.onTouchExplorationAction(action, eventId);
       }
-      return result;
-    } finally {
-      action.recycle();
-    }
+    return result;
   }
 
   private void setInputTouchMode() {
     inputModeManager.setInputMode(InputModeManager.INPUT_MODE_TOUCH);
   }
 
-  /**
-   * Saves the last touched node.
-   *
-   * <p><strong>Note:</strong> Caller is responsible to recycle the touchedNode.
-   */
+  /** Saves the last touched node. */
   private void setLastTouchedNode(@Nullable AccessibilityNodeInfoCompat touchedNode) {
-    AccessibilityNodeInfoUtils.recycleNodes(lastTouchedNode);
-    lastTouchedNode = AccessibilityNodeInfoUtils.obtain(touchedNode);
+    lastTouchedNode = touchedNode;
   }
 
   /**
@@ -215,7 +200,7 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
      * A temp variable to save {@link EventId} of pending {@link
      * TouchExplorationAction#TOUCH_INTERACTION_END}
      */
-    private @Nullable EventId touchEndEventId = null;
+    @Nullable private EventId touchEndEventId = null;
 
     PostDelayHandler(TouchExplorationInterpreter parent) {
       super(parent);
@@ -224,7 +209,7 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
     @Override
     protected void handleMessage(Message msg, TouchExplorationInterpreter parent) {
       if (msg.what == MSG_EMPTY_TOUCH_ACTION) {
-        parent.dispatchAndRecycleTouchExplorationAction(
+        parent.dispatchTouchExplorationAction(
             new TouchExplorationAction(
                 TouchExplorationAction.HOVER_ENTER, /* touchedFocusableNode= */ null),
             (EventId) msg.obj);
@@ -243,7 +228,7 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
       removeMessages(MSG_EMPTY_TOUCH_ACTION);
       if (shouldDispatchEmptyTouchAction) {
         getParent()
-            .dispatchAndRecycleTouchExplorationAction(
+            .dispatchTouchExplorationAction(
                 new TouchExplorationAction(
                     TouchExplorationAction.HOVER_ENTER, /* touchedFocusableNode= */ null),
                 /* eventId= */ null);

@@ -1,19 +1,19 @@
 package com.google.android.accessibility.utils.traversal;
 
-import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.SEARCH_FOCUS_FAIL;
+import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.SEARCH_FOCUS_FAIL;
 
 import android.graphics.Rect;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.DiagnosticOverlayUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.NodeActionFilter;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
-import com.google.android.accessibility.utils.output.DiagnosticOverlayUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,12 +27,13 @@ public class TraversalStrategyUtils {
     // Prevent utility class from being instantiated.
   }
 
-  /** Recycles the given traversal strategy. */
-  public static void recycle(@Nullable TraversalStrategy traversalStrategy) {
-    if (traversalStrategy != null) {
-      traversalStrategy.recycle();
-    }
-  }
+  /**
+   * Recycles the given traversal strategy.
+   *
+   * @deprecated Accessibility is discontinuing recycling.
+   */
+  @Deprecated
+  public static void recycle(@Nullable TraversalStrategy traversalStrategy) {}
 
   /**
    * Depending on whether the direction is spatial or logical, returns the appropriate traversal
@@ -102,7 +103,8 @@ public class TraversalStrategyUtils {
    * Converts a spatial direction to a logical direction based on whether the user is LTR or RTL. If
    * the direction is already a logical direction, it is returned.
    */
-  public static @TraversalStrategy.SearchDirection int getLogicalDirection(
+  @TraversalStrategy.SearchDirection
+  public static int getLogicalDirection(
       @TraversalStrategy.SearchDirection int direction, boolean isRtl) {
     @TraversalStrategy.SearchDirection int left;
     @TraversalStrategy.SearchDirection int right;
@@ -161,8 +163,8 @@ public class TraversalStrategyUtils {
    * {@link TraversalStrategy#SEARCH_FOCUS_UNKNOWN} is returned for a scroll action that can't be
    * handled (e.g. because the current API level doesn't support it).
    */
-  public static @TraversalStrategy.SearchDirectionOrUnknown int
-      convertScrollActionToSearchDirection(int scrollAction) {
+  @TraversalStrategy.SearchDirectionOrUnknown
+  public static int convertScrollActionToSearchDirection(int scrollAction) {
     if (scrollAction == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
       return TraversalStrategy.SEARCH_FOCUS_FORWARD;
     } else if (scrollAction == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
@@ -232,18 +234,26 @@ public class TraversalStrategyUtils {
     if (scrollAction != 0) {
       NodeActionFilter scrollableFilter = new NodeActionFilter(scrollAction);
       Filter<AccessibilityNodeInfoCompat> comboFilter = scrollableFilter.and(filter);
+
       return isMatchingEdgeListItem(
-          pivot, ignoreDescendantsOfPivot, direction, comboFilter, traversalStrategy);
+          pivot,
+          AccessibilityNodeInfoUtils.getMatchingAncestor(pivot, comboFilter),
+          ignoreDescendantsOfPivot,
+          direction,
+          comboFilter,
+          traversalStrategy);
     }
 
     return false;
   }
 
   /**
-   * Convenience method determining if the current item is at the edge of a list and suitable
-   * autoscroll. Calls {@code isEdgeListItem} with {@code FILTER_AUTO_SCROLL}.
+   * Convenience method determining if the current item is at the edge of a scrollable view and
+   * suitable autoscroll. Calls {@code isEdgeListItem} with {@code FILTER_AUTO_SCROLL}.
    *
    * @param pivot The node to check.
+   * @param scrollableNode The scrollable container that for checking the pivot is at the edge or
+   *     not. Will find from the ancestor of the pivot if it's null.
    * @param ignoreDescendantsOfPivot Whether to ignore descendants of pivot when search down the
    *     node tree.
    * @param direction The direction in which to check, one of:
@@ -258,11 +268,22 @@ public class TraversalStrategyUtils {
    */
   public static boolean isAutoScrollEdgeListItem(
       AccessibilityNodeInfoCompat pivot,
+      @Nullable AccessibilityNodeInfoCompat scrollableNode,
       boolean ignoreDescendantsOfPivot,
       int direction,
       TraversalStrategy traversalStrategy) {
-    return isEdgeListItem(
+    if (scrollableNode == null) {
+      return isEdgeListItem(
+          pivot,
+          ignoreDescendantsOfPivot,
+          direction,
+          AccessibilityNodeInfoUtils.FILTER_AUTO_SCROLL,
+          traversalStrategy);
+    }
+
+    return isMatchingEdgeListItem(
         pivot,
+        scrollableNode,
         ignoreDescendantsOfPivot,
         direction,
         AccessibilityNodeInfoUtils.FILTER_AUTO_SCROLL,
@@ -274,6 +295,8 @@ public class TraversalStrategyUtils {
    * a scrollable container.
    *
    * @param cursor Node to check.
+   * @param scrollableNode The scrollable container that for checking the cursor is at the edge or
+   *     not. Caller is responsible to recycle it.
    * @param ignoreDescendantsOfCursor Whether to ignore descendants of cursor when search down the
    *     node tree.
    * @param direction The direction in which to move from the cursor.
@@ -284,79 +307,76 @@ public class TraversalStrategyUtils {
    */
   private static boolean isMatchingEdgeListItem(
       final AccessibilityNodeInfoCompat cursor,
+      final AccessibilityNodeInfoCompat scrollableNode,
       boolean ignoreDescendantsOfCursor,
       @TraversalStrategy.SearchDirection int direction,
       Filter<AccessibilityNodeInfoCompat> filter,
       TraversalStrategy traversalStrategy) {
-    AccessibilityNodeInfoCompat ancestor = null;
-    AccessibilityNodeInfoCompat nextFocusNode = null;
-    AccessibilityNodeInfoCompat searchedAncestor = null;
     AccessibilityNodeInfoCompat webViewNode = null;
 
-    try {
-      ancestor = AccessibilityNodeInfoUtils.getMatchingAncestor(cursor, filter);
-      if (ancestor == null) {
-        // Not contained in a scrollable list.
-        return false;
-      }
-      Filter<AccessibilityNodeInfoCompat> focusNodeFilter =
-          AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS;
-      if (ignoreDescendantsOfCursor) {
-        focusNodeFilter =
-            focusNodeFilter.and(
-                new Filter<AccessibilityNodeInfoCompat>() {
-                  @Override
-                  public boolean accept(AccessibilityNodeInfoCompat obj) {
-                    return !AccessibilityNodeInfoUtils.hasAncestor(obj, cursor);
-                  }
-                });
-      }
-      nextFocusNode = searchFocus(traversalStrategy, cursor, direction, focusNodeFilter);
-      if ((nextFocusNode == null) || nextFocusNode.equals(ancestor)) {
-        // Can't move from this position.
+    boolean cursorNodeNotContainedInScrollableList =
+        scrollableNode == null
+            || !scrollableNode.isScrollable()
+            || !(AccessibilityNodeInfoUtils.hasAncestor(cursor, scrollableNode)
+                || scrollableNode.equals(cursor));
+
+    if (cursorNodeNotContainedInScrollableList) {
+      return false;
+    }
+    Filter<AccessibilityNodeInfoCompat> focusNodeFilter =
+        AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS;
+    if (ignoreDescendantsOfCursor) {
+      focusNodeFilter =
+          focusNodeFilter.and(
+              new Filter<AccessibilityNodeInfoCompat>() {
+                @Override
+                public boolean accept(AccessibilityNodeInfoCompat obj) {
+                  return !AccessibilityNodeInfoUtils.hasAncestor(obj, cursor);
+                }
+              });
+    }
+    AccessibilityNodeInfoCompat nextFocusNode =
+        searchFocus(traversalStrategy, cursor, direction, focusNodeFilter);
+    if ((nextFocusNode == null) || nextFocusNode.equals(scrollableNode)) {
+      // Can't move from this position.
+      return true;
+    }
+
+    // if nextFocusNode is in WebView and not visible to user we still could set
+    // accessibility  focus on it and WebView scrolls itself to show newly focused item
+    // on the screen. But there could be situation that node is inside WebView bounds but
+    // WebView is [partially] outside the screen bounds. In that case we don't ask WebView
+    // to set accessibility focus but try to scroll scrollable parent to get the WebView
+    // with nextFocusNode inside it to the screen bounds.
+    if (!nextFocusNode.isVisibleToUser() && WebInterfaceUtils.hasNativeWebContent(nextFocusNode)) {
+      webViewNode =
+          AccessibilityNodeInfoUtils.getMatchingAncestor(
+              nextFocusNode,
+              new Filter<AccessibilityNodeInfoCompat>() {
+                @Override
+                public boolean accept(AccessibilityNodeInfoCompat node) {
+                  return Role.getRole(node) == Role.ROLE_WEB_VIEW;
+                }
+              });
+
+      if (webViewNode != null
+          && (!webViewNode.isVisibleToUser()
+              || isNodeInBoundsOfOther(webViewNode, nextFocusNode))) {
         return true;
       }
+    }
 
-      // if nextFocusNode is in WebView and not visible to user we still could set
-      // accessibility  focus on it and WebView scrolls itself to show newly focused item
-      // on the screen. But there could be situation that node is inside WebView bounds but
-      // WebView is [partially] outside the screen bounds. In that case we don't ask WebView
-      // to set accessibility focus but try to scroll scrollable parent to get the WebView
-      // with nextFocusNode inside it to the screen bounds.
-      if (!nextFocusNode.isVisibleToUser()
-          && WebInterfaceUtils.hasNativeWebContent(nextFocusNode)) {
-        webViewNode =
-            AccessibilityNodeInfoUtils.getMatchingAncestor(
-                nextFocusNode,
-                new Filter<AccessibilityNodeInfoCompat>() {
-                  @Override
-                  public boolean accept(AccessibilityNodeInfoCompat node) {
-                    return Role.getRole(node) == Role.ROLE_WEB_VIEW;
-                  }
-                });
-
-        if (webViewNode != null
-            && (!webViewNode.isVisibleToUser()
-                || isNodeInBoundsOfOther(webViewNode, nextFocusNode))) {
-          return true;
-        }
-      }
-
-      searchedAncestor = AccessibilityNodeInfoUtils.getMatchingAncestor(nextFocusNode, filter);
+    AccessibilityNodeInfoCompat searchedAncestor =
+        AccessibilityNodeInfoUtils.getMatchingAncestor(nextFocusNode, filter);
       while (searchedAncestor != null) {
-        if (ancestor.equals(searchedAncestor)) {
+        if (scrollableNode.equals(searchedAncestor)) {
           return false;
         }
-        AccessibilityNodeInfoCompat temp = searchedAncestor;
         searchedAncestor = AccessibilityNodeInfoUtils.getMatchingAncestor(searchedAncestor, filter);
-        temp.recycle();
       }
       // Moves outside of the scrollable container.
       return true;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(
-          ancestor, nextFocusNode, searchedAncestor, webViewNode);
-    }
+
   }
 
   /**
@@ -384,7 +404,7 @@ public class TraversalStrategyUtils {
 
     AccessibilityNodeInfoCompat targetNode = AccessibilityNodeInfoCompat.obtain(currentFocus);
     Set<AccessibilityNodeInfoCompat> seenNodes = new HashSet<>();
-    try {
+
       do {
         seenNodes.add(targetNode);
         targetNode = traversal.findFocus(targetNode, direction);
@@ -395,15 +415,12 @@ public class TraversalStrategyUtils {
           return null;
         }
       } while (targetNode != null && !filter.accept(targetNode));
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(seenNodes);
-    }
+
 
     return targetNode;
   }
 
-  @Nullable
-  public static AccessibilityNodeInfoCompat findInitialFocusInNodeTree(
+  public static @Nullable AccessibilityNodeInfoCompat findInitialFocusInNodeTree(
       TraversalStrategy traversalStrategy,
       AccessibilityNodeInfoCompat root,
       @TraversalStrategy.SearchDirection int direction,
@@ -411,18 +428,13 @@ public class TraversalStrategyUtils {
     if (root == null) {
       return null;
     }
-    AccessibilityNodeInfoCompat initialNode = null;
-    try {
-      initialNode = traversalStrategy.focusInitial(root, direction);
+    AccessibilityNodeInfoCompat initialNode = traversalStrategy.focusInitial(root, direction);
 
-      if (nodeFilter.accept(initialNode)) {
-        return AccessibilityNodeInfoUtils.obtain(initialNode);
-      }
-      return TraversalStrategyUtils.searchFocus(
-          traversalStrategy, initialNode, direction, nodeFilter);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(initialNode);
+    if (nodeFilter.accept(initialNode)) {
+      return AccessibilityNodeInfoUtils.obtain(initialNode);
     }
+    return TraversalStrategyUtils.searchFocus(
+        traversalStrategy, initialNode, direction, nodeFilter);
   }
 
   private static boolean isNodeInBoundsOfOther(

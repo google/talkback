@@ -59,10 +59,6 @@
   <string name="value_pager_page">Страница</string>
   <string name="value_progress_bar">Лента за напредъка</string>
   <string name="value_webview">Изглед в мрежата</string>
-  <string name="value_toolbar">Лента с инструменти</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Избрахте знаците от %1$d до %2$d</string>
-  <string name="template_password_traversed">Знак %1$d</string>
   <string name="value_password">парола</string>
   <string name="value_sliding_drawer_opened">Издърпващият се слой е отворен</string>
   <string name="value_options_menu_open">Опции.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Извън вертикално ориентираната страница</string>
   <string name="in_horizontal_pager_with_name">В хоризонтално ориентираната страница %1$s</string>
   <string name="in_horizontal_pager">В хоризонтално ориентираната страница</string>
-  <string name="out_of_horizontal_pager_with_name">Извън хоризонтално ориентираната страница %1$s</string>
   <string name="out_of_horizontal_pager">Извън хоризонтално ориентираната страница</string>
   <string name="in_grid_pager_with_name">В страницата с таблично оформление %1$s</string>
   <string name="in_grid_pager">В страницата с таблично оформление</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Увеличение от %1$d%%</string>
   <string name="screen_magnification_off">Увеличението е изключено</string>
   <string name="template_speech_rate_change">Скоростта на говора е %1$d%%</string>
-  <string name="template_speech_rate_change_faster">По-бърза</string>
-  <string name="template_speech_rate_change_slower">По-бавна</string>
-  <string name="template_speech_rate_change_fastest">Най-бърза</string>
-  <string name="template_speech_rate_change_slowest">Най-бавна</string>
   <string name="template_volume_change_increase">Увеличаване</string>
   <string name="template_volume_change_decrease">Намаляване</string>
   <string name="template_volume_change_maximum">Максимално</string>
   <string name="template_volume_change_minimum">Минимално</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Функцията за заглъхване на аудиото е включена</string>
-  <string name="audio_focus_off">Функцията за заглъхване на аудиото е изключена</string>
-  <string name="selector_speech_rate_output">Скорост на говора</string>
-  <string name="selector_verbosity_output">Детайлност на говора</string>
-  <string name="selector_granularity_output">Навигиране</string>
-  <string name="selector_audio_focus_output">Заглъхване на аудиото</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Паролите ще бъдат изговаряни само при използване на слушалки</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s е налице. За преглед използвайте %2$s.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s е налице.</string>
+  <string name="hint_suggestion">Налице са предложения за правопис.</string>
+  <string name="in_window_with_name">Прозорец %1$s</string>
+  <string name="detected_icon_description">Разпозната икона: %1$s</string>
+  <string name="ocr_text_description">Текст: %1$s</string>
 </resources>

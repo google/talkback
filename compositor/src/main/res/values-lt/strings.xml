@@ -61,10 +61,6 @@
   <string name="value_pager_page">Puslapis</string>
   <string name="value_progress_bar">Eigos juosta</string>
   <string name="value_webview">Žiniatinklio rodinys</string>
-  <string name="value_toolbar">Įrankių juosta</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Simboliai nuo %1$d iki %2$d</string>
-  <string name="template_password_traversed">%1$d simbolis</string>
   <string name="value_password">slaptažodis</string>
   <string name="value_sliding_drawer_opened">Atidaryta slankioji braižyklė</string>
   <string name="value_options_menu_open">Parinktys.</string>
@@ -142,7 +138,6 @@
   <string name="out_of_vertical_pager">Už vertikalaus puslapio ribų</string>
   <string name="in_horizontal_pager_with_name">Horizontaliame puslapyje „%1$s“</string>
   <string name="in_horizontal_pager">Horizontaliame puslapyje</string>
-  <string name="out_of_horizontal_pager_with_name">Už horizontalaus puslapio „%1$s“ ribų</string>
   <string name="out_of_horizontal_pager">Už horizontalaus puslapio ribų</string>
   <string name="in_grid_pager_with_name">Tinklelio puslapyje „%1$s“</string>
   <string name="in_grid_pager">Tinklelio puslapyje</string>
@@ -177,22 +172,15 @@
   <string name="template_screen_magnification_scale_changed">%1$d %% didinimas</string>
   <string name="screen_magnification_off">Didinimas išjungtas</string>
   <string name="template_speech_rate_change">Kalbėjimo sparta: %1$d %%</string>
-  <string name="template_speech_rate_change_faster">Sparčiau</string>
-  <string name="template_speech_rate_change_slower">Lėčiau</string>
-  <string name="template_speech_rate_change_fastest">Sparčiausia</string>
-  <string name="template_speech_rate_change_slowest">Lėčiausia</string>
   <string name="template_volume_change_increase">Padidinti</string>
   <string name="template_volume_change_decrease">Sumažinti</string>
   <string name="template_volume_change_maximum">Maksimalus</string>
   <string name="template_volume_change_minimum">Minimalus</string>
   <string name="template_seekbar_range">%1$d %%</string>
-  <string name="audio_focus_on">Garso įrašo perdengimas įjungtas</string>
-  <string name="audio_focus_off">Garso įrašo perdengimas išjungtas</string>
-  <string name="selector_speech_rate_output">Kalbėjimo sparta</string>
-  <string name="selector_verbosity_output">Daugiažodiškumas</string>
-  <string name="selector_granularity_output">Naršymas</string>
-  <string name="selector_audio_focus_output">Garso įrašo perdengimas</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Slaptažodžiai sakomi tik naudojant ausines</string>
   <string name="template_hint_menu_type_high_verbosity">Pasiekiama: %1$s; norėdami peržiūrėti, atlikite veiksmą: %2$s.</string>
-  <string name="template_hint_menu_type_low_verbosity">Pasiekiama: %1$s.</string>
+  <string name="hint_suggestion">Galimi rašybos pasiūlymai.</string>
+  <string name="in_window_with_name">Langas „%1$s“</string>
+  <string name="detected_icon_description">%1$s, aptikta piktograma</string>
+  <string name="ocr_text_description">%1$s, tekstas</string>
 </resources>

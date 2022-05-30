@@ -21,6 +21,7 @@ import com.google.android.accessibility.utils.caption.ImageCaptionStorage;
 import com.google.android.accessibility.utils.caption.ImageNode;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelManager;
+import java.util.Locale;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -31,6 +32,7 @@ public class ImageContents {
 
   private final LabelManager labelManager;
   private final ImageCaptionStorage imageCaptionStorage;
+  private @Nullable Locale currentSpeechLocale;
 
   public ImageContents(LabelManager labelManager, ImageCaptionStorage imageCaptionStorage) {
     this.labelManager = labelManager;
@@ -42,8 +44,7 @@ public class ImageContents {
    *
    * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
    */
-  @Nullable
-  public String getLabel(AccessibilityNodeInfoCompat node) {
+  public @Nullable String getLabel(AccessibilityNodeInfoCompat node) {
     if (labelManager == null) {
       return null;
     }
@@ -56,8 +57,7 @@ public class ImageContents {
    *
    * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
    */
-  @Nullable
-  public CharSequence getCaptionResult(AccessibilityNodeInfoCompat node) {
+  public @Nullable CharSequence getCaptionResult(AccessibilityNodeInfoCompat node) {
     if (imageCaptionStorage == null) {
       return null;
     }
@@ -65,6 +65,42 @@ public class ImageContents {
     return (captionResult == null || captionResult.getOcrText() == null)
         ? null
         : captionResult.getOcrText();
+  }
+
+  /**
+   * Retrieves the localized label of the detected icon which matches the specified node.
+   *
+   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
+   */
+  public @Nullable CharSequence getDetectedIconLabel(
+      Locale locale, AccessibilityNodeInfoCompat node) {
+    if (imageCaptionStorage == null) {
+      return null;
+    }
+
+    // Clears all cached ImageNodes when current speech locale has changed
+    if (!locale.equals(currentSpeechLocale)) {
+      if (currentSpeechLocale != null) {
+        imageCaptionStorage.clearImageNodesCache();
+      }
+      currentSpeechLocale = locale;
+    }
+
+    CharSequence detectedIconLabel = imageCaptionStorage.getDetectedIconLabel(locale, node);
+    if (detectedIconLabel == null) {
+      ImageNode imageNode = imageCaptionStorage.getCaptionResults(node);
+      if (imageNode != null) {
+        detectedIconLabel = imageNode.getDetectedIconLabel();
+      }
+    } else {
+      AccessibilityNode wrapNode = AccessibilityNode.obtainCopy(node);
+      try {
+        imageCaptionStorage.updateDetectedIconLabel(wrapNode, detectedIconLabel);
+      } finally {
+        AccessibilityNode.recycle("ImageContents.getDetectedIconLabel()", wrapNode);
+      }
+    }
+    return detectedIconLabel;
   }
 
   /**

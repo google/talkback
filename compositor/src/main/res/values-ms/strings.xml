@@ -59,10 +59,6 @@
   <string name="value_pager_page">Halaman</string>
   <string name="value_progress_bar">Bar kemajuan</string>
   <string name="value_webview">Paparan web</string>
-  <string name="value_toolbar">Bar Alat</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Aksara %1$d hingga %2$d</string>
-  <string name="template_password_traversed">Aksara %1$d</string>
   <string name="value_password">kata laluan</string>
   <string name="value_sliding_drawer_opened">Laci gelangsar dibuka</string>
   <string name="value_options_menu_open">Pilihan.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Kehabisan halaman menegak</string>
   <string name="in_horizontal_pager_with_name">Dalam halaman mendatar %1$s</string>
   <string name="in_horizontal_pager">Dalam halaman mendatar</string>
-  <string name="out_of_horizontal_pager_with_name">Kehabisan halaman mendatar %1$s</string>
   <string name="out_of_horizontal_pager">Luar halaman mendatar</string>
   <string name="in_grid_pager_with_name">Halaman dalam grid %1$s</string>
   <string name="in_grid_pager">Halaman dalam grid</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Pembesaran %1$d%%</string>
   <string name="screen_magnification_off">Pembesaran dimatikan</string>
   <string name="template_speech_rate_change">Kadar pertuturan %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Lebih laju</string>
-  <string name="template_speech_rate_change_slower">Lebih perlahan</string>
-  <string name="template_speech_rate_change_fastest">Paling laju</string>
-  <string name="template_speech_rate_change_slowest">Paling perlahan</string>
   <string name="template_volume_change_increase">Tinggikan</string>
   <string name="template_volume_change_decrease">Kurangkan</string>
   <string name="template_volume_change_maximum">Maksimum</string>
   <string name="template_volume_change_minimum">Minimum</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Rendahkan audio dihidupkan</string>
-  <string name="audio_focus_off">Rendahkan audio dimatikan</string>
-  <string name="selector_speech_rate_output">Kadar pertuturan</string>
-  <string name="selector_verbosity_output">Maklumat berjela</string>
-  <string name="selector_granularity_output">Navigasi</string>
-  <string name="selector_audio_focus_output">Merendahkan audio</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Kata laluan hanya dituturkan apabila menggunakan fon kepala</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s tersedia, gunakan %2$s untuk melihat.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s tersedia.</string>
+  <string name="hint_suggestion">Cadangan ejaan tersedia.</string>
+  <string name="in_window_with_name">Tetingkap %1$s</string>
+  <string name="detected_icon_description">%1$s, ikon yang dikesan</string>
+  <string name="ocr_text_description">%1$s, teks</string>
 </resources>

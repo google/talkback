@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!--
-      Source: Possible user requests from voice commands to start the summary of the screen.
-      Description: Looks for keyword "summary" to see if user has asked to start a summary of the screen. [CHAR LIMIT=40]
-    -->
-    <string name="voice_commands_summary">summary</string>
-    <!--
       Source: Possible user requests from voice commands to read from top.
       Description: Looks for keyword "read" to see if user has asked to read from top. [CHAR LIMIT=40]
     -->
@@ -153,8 +148,6 @@
   <!-- Voice-shortcut command word to find a keyword on screen. [CHAR_LIMIT=30] -->
   <string name="voice_commands_search_for">Search for</string>
   <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=40] -->
-  <string name="voice_commands_find_again">Repeat find</string>
-  <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=40] -->
   <string name="voice_commands_next_heading">Next heading</string>
   <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=40] -->
   <string name="voice_commands_next_control">Next control</string>
@@ -188,12 +181,6 @@
   <string name="voice_commands_assistant">Assistant</string>
   <!-- Voice-shortcut command word to set speech-rate. [CHAR_LIMIT=30] -->
   <string name="voice_commands_setting_speech_rate">Setting speech rate</string>
-  <!-- Voice-shortcut command word to set verbosity. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_setting_verbosity">Setting verbosity</string>
-  <!-- Voice-shortcut command word to set the navigation granularity (ex. character, word). [CHAR_LIMIT=30] -->
-  <string name="voice_commands_setting_granularity">Setting granularity</string>
-  <!-- Voice-shortcut command word to set the navigation granularity (ex. character, word). [CHAR_LIMIT=30] -->
-  <string name="voice_commands_setting_navigation">Setting navigation</string>
   <!-- Voice-shortcut command word to move focus to the first item on the screen. [CHAR_LIMIT=20] -->
   <string name="voice_commands_first">First</string>
   <!-- Voice-shortcut command word to move focus to the first item on the screen. [CHAR_LIMIT=20] -->
@@ -308,10 +295,6 @@
     <string name="voice_commands_no_next_control_feedback">No next control</string>
     <!-- Speech feedback when no next landmark available. [CHAR_LIMIT=300] -->
     <string name="voice_commands_no_next_landmark_feedback">No next landmark</string>
-    <!-- Speech feedback when no next landmark available. [CHAR_LIMIT=300] -->
-    <string name="voice_commands_screen_hidden_feedback">Screen hidden</string>
-    <!-- Speech feedback when no next landmark available. [CHAR_LIMIT=300] -->
-    <string name="voice_commands_showing_screen_feedback">Showing Screen</string>
   <!-- Voice command help pages -->
   <!-- The page title of voice command overview. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_help_title">Voice command overview</string>

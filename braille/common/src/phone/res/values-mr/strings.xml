@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">क्रमांक</string>
+  <string name="capitalize_announcement">कॅप</string>
+  <string name="read_out_deleted">%s हटवला</string>
+  <plurals name="braille_dots">
+    <item quantity="one">बिंदू %s</item>
+    <item quantity="other">बिंदू %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">युनिफाइड इंग्रजी ब्रेल विस्तारित</string>
+  <string name="code_user_facing_name_ueb2">युनिफाइड इंग्रजी ब्रेल संक्षिप्त</string>
+  <string name="code_user_facing_name_es">स्पॅनिश</string>
+  <string name="code_user_facing_name_ar">अरबी</string>
+  <string name="code_user_facing_name_fr">फ्रेंच</string>
+  <string name="code_user_facing_name_pl">पोलिश</string>
+  <string name="screen_away">स्क्रीन अवे मोड</string>
+  <string name="screen_away_detail">डिव्हाइस अशाप्रकारे धरा ज्यामुळे स्क्रीन तुमच्यापासून विरुद्ध दिशेला असेल (स्क्रीन अवे मोड)</string>
+  <string name="tabletop">टेबलटॉप मोड</string>
+  <string name="tabletop_detail">डिव्हाइस टेबलवर सपाट ठेवा (टेबलटॉप मोड)</string>
+  <string name="auto_detect">तुम्ही डिव्हाइस कसे धरता ते जाणून घ्या</string>
+</resources>

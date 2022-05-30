@@ -22,7 +22,7 @@ class ParseTreeOperatorNode extends ParseTreeNode {
 
   private static final String TAG = "ParseTreeOperatorNode";
 
-  private final @ParseTree.Operator int mOperator;
+  @ParseTree.Operator private final int mOperator;
   private final ParseTreeNode mLvalue;
   private final ParseTreeNode mRvalue;
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">숫자</string>
+  <string name="capitalize_announcement">대문자</string>
+  <string name="read_out_deleted">%s 삭제됨</string>
+  <plurals name="braille_dots">
+    <item quantity="one">점 %s개</item>
+    <item quantity="other">점 %s개</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">통합 영어 정자 점자</string>
+  <string name="code_user_facing_name_ueb2">통합 영어 약자 점자</string>
+  <string name="code_user_facing_name_es">스페인어</string>
+  <string name="code_user_facing_name_ar">아랍어</string>
+  <string name="code_user_facing_name_fr">프랑스어</string>
+  <string name="code_user_facing_name_pl">폴란드어</string>
+  <string name="screen_away">반대 화면 모드</string>
+  <string name="screen_away_detail">화면이 내 반대쪽을 향하도록 기기를 듭니다(반대 화면 모드).</string>
+  <string name="tabletop">탁자 모드</string>
+  <string name="tabletop_detail">기기를 탁자 위에 평평하게 올려놓습니다(탁자 모드).</string>
+  <string name="auto_detect">기기를 드는 방향에 맞게 조정</string>
+</resources>

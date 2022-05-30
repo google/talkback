@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">зводка</string>
   <string name="voice_commands_read">чытаць</string>
   <string name="voice_commands_read_from_next">Чытаць з наступнага элемента</string>
   <string name="voice_commands_edit_options">Змяніць параметры</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Знайдзі</string>
   <string name="voice_commands_search">Пошук</string>
   <string name="voice_commands_search_for">Шукаць</string>
-  <string name="voice_commands_find_again">Паўтары пошук</string>
   <string name="voice_commands_next_heading">Наступны загаловак</string>
   <string name="voice_commands_next_control">Наступны элемент кантролю</string>
   <string name="voice_commands_next_link">Наступная спасылка</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Не ўдалося дадаць метку</string>
   <string name="voice_commands_assistant">Памочнік</string>
   <string name="voice_commands_setting_speech_rate">Наладжваецца хуткасць маўлення</string>
-  <string name="voice_commands_setting_verbosity">Наладжваецца дэталізацыя</string>
-  <string name="voice_commands_setting_granularity">Наладжваецца структурызацыя</string>
-  <string name="voice_commands_setting_navigation">Наладжваецца навігацыя</string>
   <string name="voice_commands_first">Першы</string>
   <string name="voice_commands_top">Уверсе</string>
   <string name="voice_commands_last">Апошні</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Няма наступнай спасылкі</string>
   <string name="voice_commands_no_next_control_feedback">Няма наступнага элемента кіравання</string>
   <string name="voice_commands_no_next_landmark_feedback">Няма наступнага арыенціра</string>
-  <string name="voice_commands_screen_hidden_feedback">Экран зацемнены</string>
-  <string name="voice_commands_showing_screen_feedback">Паказваецца экран</string>
   <string name="voice_commands_help_title">Агляд галасавой каманды</string>
   <string name="voice_commands_help_description">Каб выкарыстоўваць галасавыя каманды, правядзіце пальцам управа, затым уверх. Для паказу гэтага спіса каманд скажыце \"Даведка\" ці \"Што сказаць?\".</string>
   <string name="voice_commands_help_hint">Каб дасягнуць найлепшых вынікаў, вымаўляйце словы так, як паказана на наступных экранах.</string>

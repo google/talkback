@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">%1$d səhifədən %2$d səhifəyə simvollar</string>
+  <string name="template_password_traversed">Simvol %1$d</string>
   <string name="untitled_window">başlıqsız</string>
-  <string name="template_alert_dialog_template">Siqnal %1$s</string>
   <string name="template_text_copied">kopyalandı, %1$s</string>
   <string name="template_capital_letter">böyük %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">Sözlər</string>
   <string name="granularity_line">Xətlər</string>
   <string name="granularity_paragraph">Paraqraflar</string>
-  <string name="granularity_page">Səhifələr</string>
   <string name="granularity_window">Pəncərələr</string>
   <string name="granularity_web_landmark">Görməli yerlər</string>
   <string name="granularity_web_heading">Başlıqlar</string>

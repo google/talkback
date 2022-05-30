@@ -18,6 +18,7 @@ package com.google.android.accessibility.utils.keyboard;
 
 import android.content.Context;
 import android.view.KeyEvent;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.R;
 import java.util.Map;
@@ -67,6 +68,7 @@ public class KeyComboModelApp implements KeyComboModel {
     return mKeyComboCodeMap;
   }
 
+  @Nullable
   @Override
   public String getKeyForKeyComboCode(long keyComboCode) {
     if (keyComboCode == KEY_COMBO_CODE_UNASSIGNED) {

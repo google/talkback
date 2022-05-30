@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Nummer</string>
+  <string name="capitalize_announcement">Versaler</string>
+  <string name="read_out_deleted">%s har raderats</string>
+  <plurals name="braille_dots">
+    <item quantity="one">punkt %s</item>
+    <item quantity="other">punkterna %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">spanska</string>
+  <string name="code_user_facing_name_ar">arabiska</string>
+  <string name="code_user_facing_name_fr">franska</string>
+  <string name="code_user_facing_name_pl">polska</string>
+  <string name="screen_away">Bortvänt läge</string>
+  <string name="screen_away_detail">Håll enheten med skärmen vänd bort från dig (bortvänt läge)</string>
+  <string name="tabletop">Bordsläge</string>
+  <string name="tabletop_detail">Lägg enheten på ett bord (bordsläge)</string>
+  <string name="auto_detect">Anpassa efter hur jag håller enheten</string>
+</resources>

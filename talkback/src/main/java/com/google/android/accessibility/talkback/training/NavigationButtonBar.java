@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.talkback.training;
 
-import static com.google.android.accessibility.talkback.utils.MaterialComponentUtils.ButtonStyle.DEFAULT_BUTTON;
-import static com.google.android.accessibility.talkback.utils.MaterialComponentUtils.ButtonStyle.FILLED_BUTON;
-import static com.google.android.accessibility.talkback.utils.MaterialComponentUtils.ButtonStyle.OUTLINED_BUTTON;
+import static com.google.android.accessibility.utils.MaterialComponentUtils.ButtonStyle.DEFAULT_BUTTON;
+import static com.google.android.accessibility.utils.MaterialComponentUtils.ButtonStyle.FILLED_BUTON;
+import static com.google.android.accessibility.utils.MaterialComponentUtils.ButtonStyle.OUTLINED_BUTTON;
 
 import android.content.Context;
 import android.text.TextUtils.TruncateAt;
@@ -31,7 +31,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.utils.MaterialComponentUtils;
+import com.google.android.accessibility.utils.MaterialComponentUtils;
 import com.google.common.collect.ImmutableList;
 import java.util.List;
 
@@ -292,7 +292,8 @@ public class NavigationButtonBar extends LinearLayout {
    * Returns an alternate resource ID for the specified button to avoid the focus still keeping on
    * the last focused node when the page is changed.
    */
-  private @IdRes int getButtonId(@ButtonType int type) {
+  @IdRes
+  private int getButtonId(@ButtonType int type) {
     switch (type) {
       case BUTTON_TYPE_BACK:
         return (currentPageNumber % 2 == 0)

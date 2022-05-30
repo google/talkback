@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">összegzés</string>
   <string name="voice_commands_read">olvasás</string>
   <string name="voice_commands_read_from_next">Olvasás a következőtől</string>
   <string name="voice_commands_edit_options">Szerkesztési beállítások</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Keresés</string>
   <string name="voice_commands_search">Keresés</string>
   <string name="voice_commands_search_for">Kifejezés keresése</string>
-  <string name="voice_commands_find_again">Ismételt keresés</string>
   <string name="voice_commands_next_heading">Következő címsor</string>
   <string name="voice_commands_next_control">Következő vezérlőelem</string>
   <string name="voice_commands_next_link">Következő link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Nem lehetséges a címkézés</string>
   <string name="voice_commands_assistant">Segéd</string>
   <string name="voice_commands_setting_speech_rate">Beszéd sebességének beállítása</string>
-  <string name="voice_commands_setting_verbosity">Bőbeszédűség beállítása</string>
-  <string name="voice_commands_setting_granularity">Részletesség beállítása</string>
-  <string name="voice_commands_setting_navigation">Navigáció beállítása</string>
   <string name="voice_commands_first">Első</string>
   <string name="voice_commands_top">Legfelső</string>
   <string name="voice_commands_last">Utolsó</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Nincs következő link</string>
   <string name="voice_commands_no_next_control_feedback">Nincs következő vezérlő</string>
   <string name="voice_commands_no_next_landmark_feedback">Nincs következő határjel</string>
-  <string name="voice_commands_screen_hidden_feedback">Képernyő elrejtve</string>
-  <string name="voice_commands_showing_screen_feedback">Képernyő megjelenítve</string>
   <string name="voice_commands_help_title">Hangalapú utasítások áttekintése</string>
   <string name="voice_commands_help_description">Hangalapú utasítások használatához csúsztasson jobbra, majd felfelé. Mondja azt bármikor, hogy „Help” (Súgó) vagy „What can I say?” (Miket mondhatok?) a parancsok listájának meghallgatásához.</string>
   <string name="voice_commands_help_hint">A legjobb eredmények érdekében pontosan a következő képernyőkön látható megfogalmazásokat használja.</string>

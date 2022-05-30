@@ -19,8 +19,12 @@
 
     <!-- Quick menu overlays -->
     <dimen name="quick_menu_overlay_text_size">18sp</dimen>
+    <dimen name="quick_menu_overlay_margin">8dp</dimen>
     <dimen name="quick_menu_overlay_padding_top">6dp</dimen>
     <dimen name="quick_menu_overlay_padding_bottom">6dp</dimen>
+    <dimen name="quick_menu_overlay_padding">8dp</dimen>
+    <dimen name="quick_menu_overlay_padding_start">8dp</dimen>
+    <dimen name="quick_menu_overlay_padding_end">8dp</dimen>
 
     <!-- Training -->
     <dimen name="training_padding_start">24dp</dimen>
@@ -31,13 +35,16 @@
     <dimen name="training_button_text_padding_bottom">10dp</dimen>
     <dimen name="training_title_text_size">13sp</dimen>
     <dimen name="training_title_height">16sp</dimen>
-    <dimen name="training_text_size">12sp</dimen>
-    <dimen name="training_text_height">12sp</dimen>
+    <dimen name="training_text_size">14sp</dimen>
+    <dimen name="training_text_height">16sp</dimen>
     <dimen name="training_subtext_size">14sp</dimen>
     <dimen name="training_subtext_height">20sp</dimen>
-    <dimen name="training_button_text_size">12sp</dimen>
+    <dimen name="training_button_text_size">13sp</dimen>
     <dimen name="training_button_height">32dp</dimen>
     <dimen name="training_heading_size">12sp</dimen>
     <dimen name="training_heading_height">20sp</dimen>
+
+    <!-- Labels -->
+    <dimen name="label_dialog_padding">8dp</dimen>
 
 </resources>

@@ -59,10 +59,6 @@
   <string name="value_pager_page">เพจ</string>
   <string name="value_progress_bar">แถบความคืบหน้า</string>
   <string name="value_webview">มุมมองเว็บ</string>
-  <string name="value_toolbar">แถบเครื่องมือ</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">ตัว %1$d จนถึงตัว %2$d</string>
-  <string name="template_password_traversed">อักขระตัวที่ %1$d</string>
   <string name="value_password">รหัสผ่าน</string>
   <string name="value_sliding_drawer_opened">เปิดบานเลื่อนแล้ว</string>
   <string name="value_options_menu_open">ตัวเลือก</string>
@@ -71,8 +67,8 @@
   <string name="value_selected">เลือกแล้ว</string>
   <string name="value_checked">เลือกไว้</string>
   <string name="value_not_checked">ไม่ได้เลือกไว้</string>
-  <string name="value_on">เปิด</string>
-  <string name="value_off">ปิด</string>
+  <string name="value_on">เปิดอยู่</string>
+  <string name="value_off">ปิดอยู่</string>
   <string name="value_disabled">ปิดอยู่</string>
   <string name="value_expanded">ขยายแล้ว</string>
   <string name="value_collapsed">ยุบแล้ว</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">ไม่อยู่ในเพจเจอร์ที่มีการวางแนวแบบแนวตั้ง</string>
   <string name="in_horizontal_pager_with_name">อยู่ในเพจเจอร์ %1$s ที่มีการวางแนวแบบแนวนอน</string>
   <string name="in_horizontal_pager">อยู่ในเพจเจอร์ที่มีการวางแนวแบบแนวนอน</string>
-  <string name="out_of_horizontal_pager_with_name">ไม่อยู่ในเพจเจอร์ %1$s ที่มีการวางแนวแบบแนวนอน</string>
   <string name="out_of_horizontal_pager">ไม่อยู่ในเพจเจอร์ที่มีการวางแนวแบบแนวนอน</string>
   <string name="in_grid_pager_with_name">อยู่ในเพจเจอร์ %1$s ที่มีการวางแนวแบบตาราง</string>
   <string name="in_grid_pager">อยู่ในเพจเจอร์ที่มีการวางแนวแบบตาราง</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">การขยาย %1$d%%</string>
   <string name="screen_magnification_off">ปิดการขยายแล้ว</string>
   <string name="template_speech_rate_change">ความเร็วในการพูด %1$d%%</string>
-  <string name="template_speech_rate_change_faster">เร็วขึ้น</string>
-  <string name="template_speech_rate_change_slower">ช้าลง</string>
-  <string name="template_speech_rate_change_fastest">เร็วที่สุด</string>
-  <string name="template_speech_rate_change_slowest">ช้าที่สุด</string>
   <string name="template_volume_change_increase">เพิ่ม</string>
   <string name="template_volume_change_decrease">ลด</string>
   <string name="template_volume_change_maximum">สูงสุด</string>
   <string name="template_volume_change_minimum">ต่ำสุด</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">เปิดการลดเสียงอยู่</string>
-  <string name="audio_focus_off">ปิดการลดเสียงอยู่</string>
-  <string name="selector_speech_rate_output">ความเร็วในการพูด</string>
-  <string name="selector_verbosity_output">การพูดรายละเอียด</string>
-  <string name="selector_granularity_output">การนำทาง</string>
-  <string name="selector_audio_focus_output">การลดเสียง</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">พูดรหัสผ่านเมื่อใช้หูฟังเท่านั้น</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s ใช้งานได้ ใช้ %2$s เพื่อดู</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s ใช้งานได้</string>
+  <string name="hint_suggestion">คำแนะนำการสะกดพร้อมใช้งาน</string>
+  <string name="in_window_with_name">หน้าต่าง %1$s</string>
+  <string name="detected_icon_description">%1$s, ตรวจพบไอคอน</string>
+  <string name="ocr_text_description">%1$s, ข้อความ</string>
 </resources>

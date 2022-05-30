@@ -19,13 +19,14 @@ package com.google.android.accessibility.utils;
 import android.app.Notification;
 import android.os.Build;
 import android.os.Parcelable;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.view.Display;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import com.google.common.base.Function;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -52,7 +53,7 @@ public class AccessibilityEventUtils {
     // This class is not instantiable.
   }
 
-  /** Returns the source node, which the caller must recycle. */
+  /** Returns the source node. */
   public static @Nullable AccessibilityNodeInfoCompat sourceCompat(
       @Nullable AccessibilityEvent event) {
     return (event == null) ? null : AccessibilityNodeInfoUtils.toCompat(event.getSource());
@@ -70,11 +71,19 @@ public class AccessibilityEventUtils {
     }
     // Try to get window id from event source.
     AccessibilityNodeInfo source = event.getSource();
-    try {
-      return (source == null) ? WINDOW_ID_NONE : source.getWindowId();
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(source);
+    return (source == null) ? WINDOW_ID_NONE : source.getWindowId();
+  }
+
+  /** Returns the source display id from event. */
+  public static int getDisplayId(AccessibilityEvent event) {
+    if (!FeatureSupport.supportMultiDisplay()) {
+      return Display.DEFAULT_DISPLAY;
     }
+    AccessibilityNodeInfo source = event.getSource();
+    AccessibilityWindowInfo window = AccessibilityNodeInfoUtils.getWindow(source);
+    return (window == null)
+        ? Display.DEFAULT_DISPLAY
+        : AccessibilityWindowInfoUtils.getDisplayId(window);
   }
 
   /**
@@ -97,7 +106,7 @@ public class AccessibilityEventUtils {
    * @param event The event.
    * @return The event text.
    */
-  public static CharSequence getEventTextOrDescription(AccessibilityEvent event) {
+  public static @Nullable CharSequence getEventTextOrDescription(AccessibilityEvent event) {
     if (event == null) {
       return null;
     }
@@ -118,7 +127,7 @@ public class AccessibilityEventUtils {
    * @param event The event.
    * @return The event text.
    */
-  public static CharSequence getEventAggregateText(AccessibilityEvent event) {
+  public static @Nullable CharSequence getEventAggregateText(AccessibilityEvent event) {
     if (event == null) {
       return null;
     }
@@ -149,28 +158,21 @@ public class AccessibilityEventUtils {
     // If there's an actual window ID, we need to check the window type (if window available).
     AccessibilityNodeInfo source = event.getSource();
     AccessibilityWindowInfo window = AccessibilityNodeInfoUtils.getWindow(source);
-    try {
-      if (window == null) {
-        // It may get null window after receiving TYPE_WINDOW_STATE_CHANGED
-        // because of framework timing issue. So we can't treat null window as non-main window
-        // directly, here use package name to check GBoard and volume cases.
-        if (isFromGBoardPackage(event.getPackageName()) || isFromVolumeControlPanel(event)) {
-          return true;
-        }
-      } else {
-        switch (window.getType()) {
-          case AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD:
-            // Filters out TYPE_INPUT_METHOD_DIALOG.
-            return Role.getSourceRole(event) != Role.ROLE_ALERT_DIALOG;
-          case AccessibilityWindowInfoCompat.TYPE_SYSTEM:
-            return isFromVolumeControlPanel(event);
-          default: // fall out
-        }
+    if (window == null) {
+      // It may get null window after receiving TYPE_WINDOW_STATE_CHANGED
+      // because of framework timing issue. So we can't treat null window as non-main window
+      // directly, here use package name to check GBoard and volume cases.
+      if (isFromGBoardPackage(event.getPackageName()) || isFromVolumeControlPanel(event)) {
+        return true;
       }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(source);
-      if (window != null) {
-        window.recycle();
+    } else {
+      switch (window.getType()) {
+        case AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD:
+          // Filters out TYPE_INPUT_METHOD_DIALOG.
+          return Role.getSourceRole(event) != Role.ROLE_ALERT_DIALOG;
+        case AccessibilityWindowInfoCompat.TYPE_SYSTEM:
+          return isFromVolumeControlPanel(event);
+        default: // fall out
       }
     }
 
@@ -313,11 +315,16 @@ public class AccessibilityEventUtils {
       return false;
     }
     AccessibilityNodeInfo source = event.getSource();
-    try {
-      return source != null;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(source);
+    return source != null;
+  }
+
+  /** Returns {@code true} if the event source window is anchored. */
+  public static boolean hasAnchoredWindow(AccessibilityEvent event) {
+    if (event == null) {
+      return false;
     }
+    AccessibilityWindowInfo sourceWindow = AccessibilityNodeInfoUtils.getWindow(event.getSource());
+    return AccessibilityWindowInfoUtils.getAnchor(sourceWindow) != null;
   }
 
   /**
@@ -330,27 +337,20 @@ public class AccessibilityEventUtils {
    * // Use lastEvent...
    * lastEvent = replaceWithCopy(lastEvent, secondEvent);
    * // Use lastEvent...
-   * lastEvent.recycle();
    * }</pre>
    *
-   * @param old An old event, which will be recycled by this function.
-   * @param newEvent A new event which will be copied by this function. Caller must recycle
-   *     newEvent.
-   * @return A copy of newEvent, that the caller must eventually recycle.
+   * @param old An old event, which will be replaced by this function.
+   * @param newEvent A new event which will be copied by this function.
+   * @return A copy of newEvent.
    */
-  public static AccessibilityEvent replaceWithCopy(
+  public static @Nullable AccessibilityEvent replaceWithCopy(
       @Nullable AccessibilityEvent old, @Nullable AccessibilityEvent newEvent) {
-    if (old != null) {
-      old.recycle();
-    }
     return (newEvent == null) ? null : AccessibilityEvent.obtain(newEvent);
   }
 
-  public static void recycle(AccessibilityEvent event) {
-    if (event != null) {
-      event.recycle();
-    }
-  }
+  /** @deprecated Accessibility is discontinuing recycling. */
+  @Deprecated
+  public static void recycle(AccessibilityEvent event) {}
 
   public static int[] getAllEventTypes() {
     return new int[] {
@@ -466,7 +466,14 @@ public class AccessibilityEventUtils {
         StringBuilderUtils.optionalInt("time", event.getEventTime(), 0),
         StringBuilderUtils.optionalText("class", event.getClassName()),
         StringBuilderUtils.optionalText("package", event.getPackageName()),
-        (text == null || text.isEmpty()) ? null : String.format("text=%s", text),
+        StringBuilderUtils.optionalText(
+            "text",
+            (text == null || text.isEmpty())
+                ? null
+                : FeatureSupport.logcatIncludePsi()
+                    // Logs for DEBUG build or user had opt-in
+                    ? String.format("text=%s", text)
+                    : "***"),
         StringBuilderUtils.optionalText("description", event.getContentDescription()),
         StringBuilderUtils.optionalField(
             "movementGranularity",

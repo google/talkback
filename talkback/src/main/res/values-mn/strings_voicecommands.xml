@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">хураангуй</string>
   <string name="voice_commands_read">унших</string>
   <string name="voice_commands_read_from_next">Дараагийн зүйлээс унших</string>
   <string name="voice_commands_edit_options">Засах сонголтууд</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Олох</string>
   <string name="voice_commands_search">Хайх</string>
   <string name="voice_commands_search_for">Дараах зүйлийг хайх</string>
-  <string name="voice_commands_find_again">Хайлтыг давтах</string>
   <string name="voice_commands_next_heading">Дараагийн гарчиг</string>
   <string name="voice_commands_next_control">Дараагийн хяналт</string>
   <string name="voice_commands_next_link">Дараагийн холбоос</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Шошголох боломжгүй</string>
   <string name="voice_commands_assistant">Туслах</string>
   <string name="voice_commands_setting_speech_rate">Ярианы хурдыг тохируулах</string>
-  <string name="voice_commands_setting_verbosity">Нуршилтыг тохируулах</string>
-  <string name="voice_commands_setting_granularity">Дэлгэрэнгүй мэдээллийг тохируулах</string>
-  <string name="voice_commands_setting_navigation">Навигацыг тохируулах</string>
   <string name="voice_commands_first">Эхний</string>
   <string name="voice_commands_top">Дээр</string>
   <string name="voice_commands_last">Сүүлийн</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Дараагийн холбоос байхгүй байна</string>
   <string name="voice_commands_no_next_control_feedback">Дараагийн хяналт байхгүй байна</string>
   <string name="voice_commands_no_next_landmark_feedback">Дараагийн газрын тэмдэглэгээ байхгүй байна</string>
-  <string name="voice_commands_screen_hidden_feedback">Дэлгэцийг нуусан</string>
-  <string name="voice_commands_showing_screen_feedback">Дэлгэцийг харуулж байна</string>
   <string name="voice_commands_help_title">Дуут тушаалын тойм</string>
   <string name="voice_commands_help_description">Дуут тушаалыг ашиглахын тулд баруун, дараа нь дээш шударна уу. Энэ тушаалын жагсаалтыг харахын тулд хүссэн үедээ \"Тусламж\" эсвэл \"Би юу хэлж болох вэ?\" гэж хэлнэ үү.</string>
   <string name="voice_commands_help_hint">Хамгийн сайн үр дүнд хүрэхийн тулд дараах дэлгэц дээр жагсаасан үгнүүдийг яг байгаагаар нь хэлнэ үү.</string>

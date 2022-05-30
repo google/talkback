@@ -19,11 +19,11 @@ package com.google.android.accessibility.talkback;
 
 import android.annotation.TargetApi;
 import android.os.Build.VERSION_CODES;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.IntDef;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.actor.AutoScrollActor.AutoScrollRecord;
 import com.google.android.accessibility.talkback.interpreters.AutoScrollInterpreter;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
@@ -85,9 +85,9 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
             SCROLL_INSTANCE_ID_UNDEFINED);
 
     /** Source {@link UserAction} that leads to the scroll event. */
-    public final @UserAction int userAction;
+    @UserAction public final int userAction;
 
-    public final @SearchDirectionOrUnknown int scrollDirection;
+    @SearchDirectionOrUnknown public final int scrollDirection;
 
     /**
      * Sets to {@code true} if the event has valid AdapterView index(fromIndex, toIndex) or valid
@@ -168,9 +168,22 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
 
   /**
    * Timeout to determine whether a scroll event could be resulted from the last scroll action.
-   * REFERTO Extends the timeout for M devices due to late TYPE_VIEW_SCROLLED event.
+   * REFERTO Extends the timeout due to late TYPE_VIEW_SCROLLED event.
    */
-  public static final int SCROLL_TIMEOUT_MS = BuildVersionUtils.isAtLeastN() ? 500 : 1000;
+  public enum ScrollTimeout {
+    SCROLL_TIMEOUT_LONG(1000),
+    SCROLL_TIMEOUT_SHORT(500);
+
+    private final int timeoutMillis;
+
+    ScrollTimeout(int timeoutMillis) {
+      this.timeoutMillis = timeoutMillis;
+    }
+
+    public int getTimeoutMillis() {
+      return this.timeoutMillis;
+    }
+  }
 
   /** Undefined scroll position index. */
   private static final int INDEX_UNDEFINED = -1;
@@ -259,7 +272,6 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
     }
 
     final NodeIdentifier sourceNodeIdentifier = new NodeIdentifier(sourceNode);
-    AccessibilityNodeInfoUtils.recycleNodes(sourceNode);
 
     @SearchDirectionOrUnknown
     final int scrollDirection = getScrollDirection(sourceNodeIdentifier, event);
@@ -306,17 +318,13 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
     // the autoScrollRecord until next auto scroll happened and use the time diff to distinguish if
     // the current scroll is from the same scroll action.
     long timeDiff = event.getEventTime() - autoScrollRecord.autoScrolledTime;
-    if ((timeDiff < 0L) || (timeDiff > SCROLL_TIMEOUT_MS)) {
+    if ((timeDiff < 0L) || (timeDiff > ScrollTimeout.SCROLL_TIMEOUT_LONG.getTimeoutMillis())) {
       return null;
     }
 
     AccessibilityNodeInfoCompat node = null;
-    try {
-      node = AccessibilityNodeInfoUtils.toCompat(event.getSource());
-      return autoScrollRecord.scrolledNodeMatches(node) ? autoScrollRecord : null;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(node);
-    }
+    node = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+    return autoScrollRecord.scrolledNodeMatches(node) ? autoScrollRecord : null;
   }
 
   /**
@@ -406,7 +414,6 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
     }
 
     cachedPositionInfo.put(new NodeIdentifier(sourceNode), new PositionInfo(event));
-    AccessibilityNodeInfoUtils.recycleNodes(sourceNode);
   }
 
   /** Caches scroll position from {@link AccessibilityEvent}. */

@@ -6,6 +6,12 @@
         android:title="@string/menu_category_reading_controls">
         <CheckBoxPreference
             android:layout="@layout/listitem_2texts"
+            android:defaultValue="@bool/pref_selector_actions_default"
+            android:key="@string/pref_selector_actions_key"
+            android:title="@string/actions"
+            android:summary="@string/summary_actions"/>
+        <CheckBoxPreference
+            android:layout="@layout/listitem_2texts"
             android:defaultValue="@bool/pref_selector_granularity_characters_default"
             android:key="@string/pref_selector_granularity_characters_key"
             android:title="@string/granularity_character"

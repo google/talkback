@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">សេចក្តី​សង្ខេប</string>
   <string name="voice_commands_read">អាន</string>
   <string name="voice_commands_read_from_next">អានពីធាតុបន្ទាប់</string>
   <string name="voice_commands_edit_options">ជម្រើស​កែ</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">ស្វែង​រក</string>
   <string name="voice_commands_search">ស្វែងរក</string>
   <string name="voice_commands_search_for">ស្វែងរក</string>
-  <string name="voice_commands_find_again">​ស្វែងរក​ម្ដងទៀត</string>
   <string name="voice_commands_next_heading">ចំណងជើង​បន្ទាប់</string>
   <string name="voice_commands_next_control">ការបញ្ជា​បន្ទាប់</string>
   <string name="voice_commands_next_link">តំណ​បន្ទាប់</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">មិនអាច​ដាក់ស្លាក​បានទេ</string>
   <string name="voice_commands_assistant">ជំនួយការ</string>
   <string name="voice_commands_setting_speech_rate">កំណត់អត្រា​នៃ​ការនិយាយ</string>
-  <string name="voice_commands_setting_verbosity">កំណត់​ការបរិយាយ</string>
-  <string name="voice_commands_setting_granularity">កំណត់​បន្សំ</string>
-  <string name="voice_commands_setting_navigation">កំណត់​ការរុករក</string>
   <string name="voice_commands_first">ដំបូង</string>
   <string name="voice_commands_top">ខាងលើ</string>
   <string name="voice_commands_last">ចុងក្រោយ</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">គ្មានតំណបន្ទាប់ទេ</string>
   <string name="voice_commands_no_next_control_feedback">គ្មានការបញ្ជាបន្ទាប់ទេ</string>
   <string name="voice_commands_no_next_landmark_feedback">គ្មានទីតាំងសម្គាល់បន្ទាប់ទេ</string>
-  <string name="voice_commands_screen_hidden_feedback">បានលាក់អេក្រង់</string>
-  <string name="voice_commands_showing_screen_feedback">កំពុងបង្ហាញ​អេក្រង់</string>
   <string name="voice_commands_help_title">ទិដ្ឋភាព​រួមនៃការបញ្ជាដោយសំឡេង</string>
   <string name="voice_commands_help_description">ដើម្បីប្រើការបញ្ជាដោយសំឡេង សូមអូសទៅស្ដាំ រួចអូសឡើងលើ។ សូមនិយាយថា \"ជួយ\" ឬ \"តើខ្ញុំអាចនិយាយថាម៉េច?\" នៅពេលណាក៏បានដើម្បីឱ្យបង្ហាញបញ្ជីនៃការបញ្ជានេះ។</string>
   <string name="voice_commands_help_hint">ដើម្បីទទួលបានលទ្ធផលល្អបំផុត សូមនិយាយឱ្យដូចគ្នាបេះបិទនឹងពាក្យដែលមាននៅលើអេក្រង់បន្ទាប់។</string>

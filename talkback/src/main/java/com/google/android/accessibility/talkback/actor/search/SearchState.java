@@ -32,10 +32,7 @@ final class SearchState {
     // TODO: [Screen Search] Enables AutoValue for screen search when AOSP verified to
     // allow using AutoValue
 
-    /**
-     * Node containing the matched info. {@code MatchedNodeInfo} won't recycle the node after using,
-     * caller must be responsible for the recycling.
-     */
+    /** Node containing the matched info. */
     private AccessibilityNode node;
 
     private List<MatchResult> matchResults;
@@ -43,8 +40,7 @@ final class SearchState {
     /**
      * Creates a {@code MatchedNodeInfo}.
      *
-     * @param node node containing the matched info. {@code MatchedNodeInfo} won't recycle the node
-     *     after using, caller must responsible for the recycling.
+     * @param node node containing the matched info.
      * @param matchResults containing the {@code MatchResult} to indicate the keyword match info
      *     presented in the {@code node.getNodeText()}
      */
@@ -53,10 +49,7 @@ final class SearchState {
       this.matchResults = new ArrayList<>(matchResults);
     }
 
-    /**
-     * Gets the {@code AccessibilityNode} that containing the matched content. Caller must not
-     * recycle the node after using.
-     */
+    /** Gets the {@code AccessibilityNode} that containing the matched content. */
     public AccessibilityNode node() {
       return node;
     }
@@ -92,7 +85,6 @@ final class SearchState {
   }
 
   public void clear() {
-    // The node will be recycled during screen change, do not recycle them here.
     result.clear();
   }
 

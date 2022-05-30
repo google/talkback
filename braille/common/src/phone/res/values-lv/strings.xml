@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Cipari</string>
+  <string name="capitalize_announcement">Lielie burti</string>
+  <string name="read_out_deleted">Teksts “%s” ir izdzēsts.</string>
+  <plurals name="braille_dots">
+    <item quantity="zero">punkti %s</item>
+    <item quantity="one">punkti %s</item>
+    <item quantity="other">punkti %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Vienotais angļu valodas Braila raksts (nesaīsināts)</string>
+  <string name="code_user_facing_name_ueb2">Vienotais angļu valodas Braila raksts (saīsināts)</string>
+  <string name="code_user_facing_name_es">Spāņu</string>
+  <string name="code_user_facing_name_ar">Arābu</string>
+  <string name="code_user_facing_name_fr">Franču</string>
+  <string name="code_user_facing_name_pl">Poļu</string>
+  <string name="screen_away">Prom vērsta ekrāna režīms</string>
+  <string name="screen_away_detail">Turiet ierīci ar prom vērstu ekrānu (prom vērsta ekrāna režīms).</string>
+  <string name="tabletop">Galda režīms</string>
+  <string name="tabletop_detail">Novietojiet ierīci plakaniski uz galda (galda režīms).</string>
+  <string name="auto_detect">Pielāgoties ierīces turēšanas veidam</string>
+</resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">ਸਾਰਾਂਸ਼</string>
   <string name="voice_commands_read">ਪੜ੍ਹੋ</string>
   <string name="voice_commands_read_from_next">ਅਗਲੀ ਆਈਟਮ ਤੋਂ ਪੜ੍ਹੋ</string>
   <string name="voice_commands_edit_options">ਸੰਪਾਦਨ ਵਿਕਲਪ</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">ਲੱਭੋ</string>
   <string name="voice_commands_search">ਖੋਜੋ</string>
   <string name="voice_commands_search_for">ਇਹ ਖੋਜੋ</string>
-  <string name="voice_commands_find_again">ਦੁਬਾਰਾ ਲੱਭੋ</string>
   <string name="voice_commands_next_heading">ਅਗਲਾ ਸਿਰਲੇਖ</string>
   <string name="voice_commands_next_control">ਅਗਲਾ ਕੰਟਰੋਲ</string>
   <string name="voice_commands_next_link">ਅਗਲਾ ਲਿੰਕ</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">ਲੇਬਲਬੱਧ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">ਬੋਲਣ ਦੀ ਗਤੀ ਸੈੱਟ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
-  <string name="voice_commands_setting_verbosity">ਸ਼ਬਦ-ਵਰਤੋਂ ਦੀ ਸੈਟਿੰਗ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
-  <string name="voice_commands_setting_granularity">ਗ੍ਰੈਨਿਊਲੈਰਿਟੀ ਦੀ ਸੈਟਿੰਗ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
-  <string name="voice_commands_setting_navigation">ਨੈਵੀਗੇਸ਼ਨ ਦੀ ਸੈਟਿੰਗ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
   <string name="voice_commands_first">ਪਹਿਲਾ</string>
   <string name="voice_commands_top">ਸਿਖਰ \'ਤੇ</string>
   <string name="voice_commands_last">ਆਖਰੀ</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">ਕੋਈ ਅਗਲਾ ਲਿੰਕ ਨਹੀਂ</string>
   <string name="voice_commands_no_next_control_feedback">ਕੋਈ ਅਗਲਾ ਕੰਟਰੋਲ ਨਹੀਂ</string>
   <string name="voice_commands_no_next_landmark_feedback">ਕੋਈ ਅਗਲਾ ਭੂਮੀ ਚਿੰਨ੍ਹ ਨਹੀਂ</string>
-  <string name="voice_commands_screen_hidden_feedback">ਸਕ੍ਰੀਨ ਨੂੰ ਲੁਕਾਇਆ ਗਿਆ</string>
-  <string name="voice_commands_showing_screen_feedback">ਸਕ੍ਰੀਨ ਦਿਖਾਈ ਜਾ ਰਹੀ ਹੈ</string>
   <string name="voice_commands_help_title">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ ਦੀ ਰੂਪ-ਰੇਖਾ</string>
   <string name="voice_commands_help_description">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਸੱਜੇ ਪਾਸੇ ਫਿਰ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਆਦੇਸ਼ਾਂ ਦੀ ਇਸ ਸੂਚੀ ਲਈ \"ਮਦਦ\" ਜਾਂ \"ਮੈਂ ਕੀ ਕਹਾਂ?\" ਕਹੋ।</string>
   <string name="voice_commands_help_hint">ਬਿਹਤਰ ਨਤੀਜਿਆਂ ਲਈ, ਅੱਗੇ ਦਿੱਤੀਆਂ ਸਕ੍ਰੀਨਾਂ \'ਤੇ ਸੂਚੀਬੱਧ ਸ਼ਬਦ ਨੂੰ ਸਹੀ ਢੰਗ ਨਾਲ ਬੋਲੋ।</string>

@@ -61,10 +61,6 @@
   <string name="value_pager_page">Страница</string>
   <string name="value_progress_bar">Индикатор выполнения</string>
   <string name="value_webview">Веб-представление</string>
-  <string name="value_toolbar">Панель инструментов</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Символы %1$d‒%2$d</string>
-  <string name="template_password_traversed">Символ \"%1$d\"</string>
   <string name="value_password">пароль.</string>
   <string name="value_sliding_drawer_opened">Выдвигающаяся панель открыта.</string>
   <string name="value_options_menu_open">Параметры.</string>
@@ -142,7 +138,6 @@
   <string name="out_of_vertical_pager">Вне зоны постраничной вертикальной навигации</string>
   <string name="in_horizontal_pager_with_name">В зоне постраничной горизонтальной навигации %1$s</string>
   <string name="in_horizontal_pager">В зоне постраничной горизонтальной навигации</string>
-  <string name="out_of_horizontal_pager_with_name">Вне зоны постраничной горизонтальной навигации %1$s</string>
   <string name="out_of_horizontal_pager">Вне зоны постраничной горизонтальной навигации</string>
   <string name="in_grid_pager_with_name">В зоне постраничной навигации в виде сетки %1$s</string>
   <string name="in_grid_pager">В зоне постраничной навигации в виде сетки</string>
@@ -177,22 +172,15 @@
   <string name="template_screen_magnification_scale_changed">Масштаб: %1$d%%</string>
   <string name="screen_magnification_off">Увеличение выключено</string>
   <string name="template_speech_rate_change">Скорость речи %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Быстрее</string>
-  <string name="template_speech_rate_change_slower">Медленнее</string>
-  <string name="template_speech_rate_change_fastest">Максимальная</string>
-  <string name="template_speech_rate_change_slowest">Минимальная</string>
   <string name="template_volume_change_increase">Громкость увеличена</string>
   <string name="template_volume_change_decrease">Громкость уменьшена</string>
   <string name="template_volume_change_maximum">Максимум</string>
   <string name="template_volume_change_minimum">Минимум</string>
   <string name="template_seekbar_range">%1$d %%</string>
-  <string name="audio_focus_on">Приглушение звука приложений включено</string>
-  <string name="audio_focus_off">Приглушение звука приложений отключено</string>
-  <string name="selector_speech_rate_output">Скорость речи</string>
-  <string name="selector_verbosity_output">Детализация</string>
-  <string name="selector_granularity_output">Навигация</string>
-  <string name="selector_audio_focus_output">Приглушение звука приложений</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Пароли озвучиваются только при использовании наушников</string>
   <string name="template_hint_menu_type_high_verbosity">Доступно: %1$s. Чтобы посмотреть, используйте жест %2$s.</string>
-  <string name="template_hint_menu_type_low_verbosity">Доступно: %1$s.</string>
+  <string name="hint_suggestion">Доступны исправления опечаток.</string>
+  <string name="in_window_with_name">Окно \"%1$s\"</string>
+  <string name="detected_icon_description">Обнаружен значок: \"%1$s\"</string>
+  <string name="ocr_text_description">Текст: \"%1$s\"</string>
 </resources>

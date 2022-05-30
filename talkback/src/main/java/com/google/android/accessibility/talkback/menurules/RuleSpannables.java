@@ -25,7 +25,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -33,6 +32,7 @@ import android.text.style.ClickableSpan;
 import android.text.style.URLSpan;
 import android.view.Menu;
 import android.view.MenuItem;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenu;
@@ -68,10 +68,6 @@ public class RuleSpannables extends NodeMenuRule {
       AccessibilityService service, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
     final List<SpannableString> spannableStrings = new ArrayList<>();
 
-    // Could copy node, and recycle it through *SpanMenuItemClickListener. But the
-    // span-click-listener would rarely recycle the node, because most text has no spans, and thus
-    // no click listeners to recycle copies. And even nodes with spans usually exit the menu through
-    // some other menu-item other than span-click.
     // TODO: Refactor to provide a general menu-cleanup method.
     // TODO: When Robolectric copies extras bundle, add unit test.
     SpannableTraversalUtils.collectSpannableStringsWithTargetSpanInNodeDescriptionTree(

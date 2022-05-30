@@ -33,11 +33,13 @@ public abstract class VolumeButtonPatternMatcher {
     mButtonCombination = buttonCombination;
   }
 
-  public @ButtonSequence int getPatternCode() {
+  @ButtonSequence
+  public int getPatternCode() {
     return mPatternCode;
   }
 
-  public @ButtonsUsed int getButtonCombination() {
+  @ButtonsUsed
+  public int getButtonCombination() {
     return mButtonCombination;
   }
 

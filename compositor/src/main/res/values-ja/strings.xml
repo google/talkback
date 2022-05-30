@@ -59,10 +59,6 @@
   <string name="value_pager_page">ページ</string>
   <string name="value_progress_bar">進行状況バー</string>
   <string name="value_webview">ウェブ表示</string>
-  <string name="value_toolbar">ツールバー</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">文字 %1$d～%2$d</string>
-  <string name="template_password_traversed">%1$d文字目</string>
   <string name="value_password">パスワード</string>
   <string name="value_sliding_drawer_opened">ドロワーを開きました</string>
   <string name="value_options_menu_open">オプション</string>
@@ -70,7 +66,7 @@
   <string name="value_text_max_length">長さの上限に達しました</string>
   <string name="value_selected">選択済み</string>
   <string name="value_checked">ON</string>
-  <string name="value_not_checked">OFF</string>
+  <string name="value_not_checked">未選択</string>
   <string name="value_on">ON</string>
   <string name="value_off">OFF</string>
   <string name="value_disabled">無効</string>
@@ -79,8 +75,8 @@
   <string name="value_double_tap">ダブルタップ</string>
   <string name="value_single_tap">タップ</string>
   <string name="value_switch_press">選択スイッチを押す</string>
-  <string name="value_press_select">選択を押す</string>
-  <string name="template_hint_clickable">%1$sすると有効になります。</string>
+  <string name="value_press_select">選択</string>
+  <string name="template_hint_clickable">%1$sできるメニューです。</string>
   <string name="template_hint_clickable_keyboard">有効にするには、%1$s キーを押します。</string>
   <string name="template_hint_long_clickable">押し続けるには%1$sしたままにします。</string>
   <string name="template_hint_long_clickable_keyboard">押し続けるには、%1$s キーを押します。</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">縦方向ページャの外です</string>
   <string name="in_horizontal_pager_with_name">横方向ページャ%1$sの中です</string>
   <string name="in_horizontal_pager">横方向ページャの中です</string>
-  <string name="out_of_horizontal_pager_with_name">横方向ページャ%1$sの外です</string>
   <string name="out_of_horizontal_pager">横方向ページャの外です</string>
   <string name="in_grid_pager_with_name">グリッドページャ%1$sの中です</string>
   <string name="in_grid_pager">グリッドページャの中です</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">%1$d%% に拡大しています</string>
   <string name="screen_magnification_off">拡大は OFF です</string>
   <string name="template_speech_rate_change">音声の速度は %1$d%% です</string>
-  <string name="template_speech_rate_change_faster">より速い</string>
-  <string name="template_speech_rate_change_slower">より遅い</string>
-  <string name="template_speech_rate_change_fastest">最高速</string>
-  <string name="template_speech_rate_change_slowest">最低速</string>
   <string name="template_volume_change_increase">上げる</string>
   <string name="template_volume_change_decrease">下げる</string>
   <string name="template_volume_change_maximum">最大</string>
   <string name="template_volume_change_minimum">最小</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">[他の音量を下げる] はオンです</string>
-  <string name="audio_focus_off">[他の音量を下げる] はオフです</string>
-  <string name="selector_speech_rate_output">音声の速度</string>
-  <string name="selector_verbosity_output">読み上げの詳細設定</string>
-  <string name="selector_granularity_output">ナビゲーション</string>
-  <string name="selector_audio_focus_output">他の音量を下げる</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">ヘッドフォンの使用時のみパスワードが読み上げられます</string>
   <string name="template_hint_menu_type_high_verbosity">%1$sを使用できます。%2$sで確認できます。</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$sを使用できます。</string>
+  <string name="hint_suggestion">スペルの候補表示を使用できます。</string>
+  <string name="in_window_with_name">ウィンドウ（%1$s）</string>
+  <string name="detected_icon_description">%1$s、検出されたアイコンです</string>
+  <string name="ocr_text_description">%1$s、テキストです</string>
 </resources>

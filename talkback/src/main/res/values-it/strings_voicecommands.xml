@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">riassunto</string>
   <string name="voice_commands_read">lettura</string>
   <string name="voice_commands_read_from_next">Leggi dall\'elemento successivo</string>
   <string name="voice_commands_edit_options">Modifica opzioni</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Trova</string>
   <string name="voice_commands_search">Cerca</string>
   <string name="voice_commands_search_for">Cerca</string>
-  <string name="voice_commands_find_again">Ripeti trova</string>
   <string name="voice_commands_next_heading">Intestazione successiva</string>
   <string name="voice_commands_next_control">Controllo successivo</string>
   <string name="voice_commands_next_link">Link successivo</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Impossibile etichettare</string>
   <string name="voice_commands_assistant">Assistente</string>
   <string name="voice_commands_setting_speech_rate">Impostazione Velocità voce</string>
-  <string name="voice_commands_setting_verbosity">Impostazione Preferenze di lettura</string>
-  <string name="voice_commands_setting_granularity">Impostazione Granularità</string>
-  <string name="voice_commands_setting_navigation">Impostazione Navigazione</string>
   <string name="voice_commands_first">Primo</string>
   <string name="voice_commands_top">Torna all\'inizio</string>
   <string name="voice_commands_last">Ultimo</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Nessun link successivo</string>
   <string name="voice_commands_no_next_control_feedback">Nessun controllo successivo</string>
   <string name="voice_commands_no_next_landmark_feedback">Nessun punto di riferimento successivo</string>
-  <string name="voice_commands_screen_hidden_feedback">Schermo nascosto</string>
-  <string name="voice_commands_showing_screen_feedback">Schermo visualizzato</string>
   <string name="voice_commands_help_title">Panoramica dei comandi vocali</string>
   <string name="voice_commands_help_description">Per usare i comandi vocali, scorri verso destra e verso l\'alto. Per consultare in qualsiasi momento l\'elenco di comandi vocali disponibili, di\' \"Guida\" o \"Cosa posso dire\".</string>
   <string name="voice_commands_help_hint">Per ottenere risultati migliori, di\' le parole esatte elencate nelle schermate seguenti.</string>

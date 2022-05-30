@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">概要</string>
   <string name="voice_commands_read">読む</string>
   <string name="voice_commands_read_from_next">次から読み上げ</string>
   <string name="voice_commands_edit_options">編集オプション</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">検索</string>
   <string name="voice_commands_search">検索</string>
   <string name="voice_commands_search_for">検索</string>
-  <string name="voice_commands_find_again">繰り返しを検索</string>
   <string name="voice_commands_next_heading">次のキーワード</string>
   <string name="voice_commands_next_control">次のコントロール</string>
   <string name="voice_commands_next_link">次のリンク</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">ラベルを作成できません</string>
   <string name="voice_commands_assistant">アシスタント</string>
   <string name="voice_commands_setting_speech_rate">音声の速度を設定しています</string>
-  <string name="voice_commands_setting_verbosity">読み上げの詳細設定を設定しています</string>
-  <string name="voice_commands_setting_granularity">粒度を設定しています</string>
-  <string name="voice_commands_setting_navigation">ナビゲーションを設定しています</string>
   <string name="voice_commands_first">最初</string>
   <string name="voice_commands_top">上</string>
   <string name="voice_commands_last">最後</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">次のリンクはありません</string>
   <string name="voice_commands_no_next_control_feedback">次のコントロールはありません</string>
   <string name="voice_commands_no_next_landmark_feedback">次のランドマークはありません</string>
-  <string name="voice_commands_screen_hidden_feedback">画面を非表示にしました</string>
-  <string name="voice_commands_showing_screen_feedback">画面を表示しています</string>
   <string name="voice_commands_help_title">音声コマンドの概要</string>
   <string name="voice_commands_help_description">音声コマンドを使用するには、右にスワイプしてから上にスワイプしてください。このコマンドリストは「ヘルプ」または「何と言えばいいですか」と言うことでいつでも確認できます。</string>
   <string name="voice_commands_help_hint">次の画面に表示されるフレーズを正確に言うことをおすすめします。</string>

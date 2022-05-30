@@ -30,7 +30,7 @@ public class WorkingTree {
   private static final String TAG = "WorkingTree";
 
   private AccessibilityNodeInfoCompat mNode;
-  @Nullable private WorkingTree mParent;
+  private @Nullable WorkingTree mParent;
   private final List<WorkingTree> mChildren = new ArrayList<>();
 
   public WorkingTree(AccessibilityNodeInfoCompat node, @Nullable WorkingTree parent) {
@@ -84,8 +84,6 @@ public class WorkingTree {
 
   /** Checks whether subTree is a descendant of this WorkingTree node. */
   public boolean ancestorsHaveLoop() {
-
-    // Not owner of contained nodes, do not call recycle().
     Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
 
     // For each ancestor node...

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">%1$d부터 %2$d까지의 문자</string>
+  <string name="template_password_traversed">문자 %1$d</string>
   <string name="untitled_window">제목 없음</string>
-  <string name="template_alert_dialog_template">%1$s 알림</string>
   <string name="template_text_copied">%1$s 복사 완료</string>
   <string name="template_capital_letter">대문자 %1$s</string>
   <string name="character_collapse_template"> %1$d개의 %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">단어</string>
   <string name="granularity_line">줄</string>
   <string name="granularity_paragraph">단락</string>
-  <string name="granularity_page">페이지</string>
   <string name="granularity_window">창</string>
   <string name="granularity_web_landmark">랜드마크</string>
   <string name="granularity_web_heading">제목</string>

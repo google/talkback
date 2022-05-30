@@ -16,8 +16,8 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ class ParseTreeVariableNode extends ParseTreeNode {
   private static final String TAG = "ParseTreeVariableNode";
 
   private final String mName;
-  private final @ParseTree.VariableType int mType;
+  @ParseTree.VariableType private final int mType;
   private final int mId;
   private final int mEnumType;
 
@@ -258,7 +258,8 @@ class ParseTreeVariableNode extends ParseTreeNode {
   }
 
   @Override
-  public @Nullable ParseTree.VariableDelegate resolveToReference(
+  @Nullable
+  public ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     if (mType == ParseTree.VARIABLE_REFERENCE) {
       return delegate.getReference(mId);

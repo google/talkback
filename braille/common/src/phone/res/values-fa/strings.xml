@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">عدد</string>
+  <string name="capitalize_announcement">بزرگ‌نویسی</string>
+  <string name="read_out_deleted">%s حذف شد</string>
+  <plurals name="braille_dots">
+    <item quantity="one">نقاط %s</item>
+    <item quantity="other">نقاط %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">بریل انگلیسی یکپارچه خلاصه‌نشده</string>
+  <string name="code_user_facing_name_ueb2">بریل انگلیسی یکپارچه خلاصه‌شده</string>
+  <string name="code_user_facing_name_es">اسپانیایی</string>
+  <string name="code_user_facing_name_ar">عربی</string>
+  <string name="code_user_facing_name_fr">فرانسوی</string>
+  <string name="code_user_facing_name_pl">لهستانی</string>
+  <string name="screen_away">حالت پشت به‌صورت</string>
+  <string name="screen_away_detail">پشت دستگاه را رو به‌خود نگه دارید (حالت پشت به‌صورت)</string>
+  <string name="tabletop">حالت افقی روبه‌صورت</string>
+  <string name="tabletop_detail">دستگاه را صاف روی میز قرار دهید (حالت افقی روبه‌صورت)</string>
+  <string name="auto_detect">تطبیق با نحوه نگه داشته شدن دستگاه</string>
+</resources>

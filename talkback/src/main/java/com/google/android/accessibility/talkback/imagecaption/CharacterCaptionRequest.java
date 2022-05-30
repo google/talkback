@@ -18,14 +18,14 @@ package com.google.android.accessibility.talkback.imagecaption;
 
 import android.accessibilityservice.AccessibilityService;
 import android.graphics.Bitmap;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.StringBuilderUtils;
-import com.google.android.accessibility.utils.ocr.OCRController;
-import com.google.android.accessibility.utils.ocr.OCRController.OCRListener;
-import com.google.android.accessibility.utils.ocr.OCRInfo;
+import com.google.android.accessibility.utils.ocr.OcrController;
+import com.google.android.accessibility.utils.ocr.OcrController.OcrListener;
+import com.google.android.accessibility.utils.ocr.OcrInfo;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,9 +33,9 @@ import java.util.List;
  * A {@link CaptionRequest} for performing OCR (optical character recognition) to recognize text
  * from the screenshot.
  */
-public class CharacterCaptionRequest extends CaptionRequest implements OCRListener {
+public class CharacterCaptionRequest extends CaptionRequest implements OcrListener {
 
-  private final OCRController ocrController;
+  private final OcrController ocrController;
   private final Bitmap screenCapture;
 
   /** This object takes ownership of node, caller should not recycle. */
@@ -44,9 +44,10 @@ public class CharacterCaptionRequest extends CaptionRequest implements OCRListen
       AccessibilityNodeInfoCompat node,
       Bitmap screenCapture,
       @NonNull OnFinishListener onFinishListener,
-      @NonNull OnErrorListener onErrorListener) {
-    super(node, onFinishListener, onErrorListener);
-    ocrController = new OCRController(service, this);
+      @NonNull OnErrorListener onErrorListener,
+      boolean isUserRequested) {
+    super(node, onFinishListener, onErrorListener, isUserRequested);
+    ocrController = new OcrController(service, this);
     this.screenCapture = screenCapture;
   }
 
@@ -56,8 +57,8 @@ public class CharacterCaptionRequest extends CaptionRequest implements OCRListen
    */
   @Override
   public void perform() {
-    final List<OCRInfo> ocrInfos = new ArrayList<>();
-    ocrInfos.add(new OCRInfo(AccessibilityNodeInfoCompat.obtain(node)));
+    final List<OcrInfo> ocrInfos = new ArrayList<>();
+    ocrInfos.add(new OcrInfo(AccessibilityNodeInfoCompat.obtain(node)));
     ocrController.recognizeTextForNodes(
         screenCapture, ocrInfos, /* selectionBounds= */ null, new Filter.NodeCompat(node -> true));
 
@@ -65,10 +66,10 @@ public class CharacterCaptionRequest extends CaptionRequest implements OCRListen
   }
 
   @Override
-  public void onOCRStarted() {}
+  public void onOcrStarted() {}
 
   @Override
-  public void onOCRFinished(List<OCRInfo> ocrResults) {
+  public void onOcrFinished(List<OcrInfo> ocrResults) {
     stopTimeoutRunnable();
     if (ocrResults == null) {
       onError(ERROR_IMAGE_CAPTION_NO_RESULT);
@@ -76,8 +77,8 @@ public class CharacterCaptionRequest extends CaptionRequest implements OCRListen
     }
 
     List<CharSequence> texts = new ArrayList<>();
-    for (OCRInfo ocrResult : ocrResults) {
-      String text = OCRController.getTextFromBlocks(ocrResult.getTextBlocks());
+    for (OcrInfo ocrResult : ocrResults) {
+      String text = OcrController.getTextFromBlocks(ocrResult.getTextBlocks());
       if (TextUtils.isEmpty(text)) {
         continue;
       }

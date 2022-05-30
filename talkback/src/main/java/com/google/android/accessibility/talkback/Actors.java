@@ -28,10 +28,13 @@ import static com.google.android.accessibility.utils.traversal.TraversalStrategy
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
+import android.widget.Toast;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback.AdjustValue;
 import com.google.android.accessibility.talkback.Feedback.AdjustVolume;
 import com.google.android.accessibility.talkback.Feedback.ContinuousRead;
+import com.google.android.accessibility.talkback.Feedback.DeviceInfo;
 import com.google.android.accessibility.talkback.Feedback.DimScreen;
 import com.google.android.accessibility.talkback.Feedback.EditText;
 import com.google.android.accessibility.talkback.Feedback.Focus;
@@ -43,12 +46,14 @@ import com.google.android.accessibility.talkback.Feedback.Language;
 import com.google.android.accessibility.talkback.Feedback.NodeAction;
 import com.google.android.accessibility.talkback.Feedback.PassThroughMode;
 import com.google.android.accessibility.talkback.Feedback.Scroll;
+import com.google.android.accessibility.talkback.Feedback.ShowToast;
 import com.google.android.accessibility.talkback.Feedback.Sound;
 import com.google.android.accessibility.talkback.Feedback.Speech;
 import com.google.android.accessibility.talkback.Feedback.SpeechRate;
 import com.google.android.accessibility.talkback.Feedback.SystemAction;
 import com.google.android.accessibility.talkback.Feedback.TalkBackUI;
 import com.google.android.accessibility.talkback.Feedback.TriggerIntent;
+import com.google.android.accessibility.talkback.Feedback.UiChange;
 import com.google.android.accessibility.talkback.Feedback.Vibration;
 import com.google.android.accessibility.talkback.Feedback.VoiceRecognition;
 import com.google.android.accessibility.talkback.Feedback.WebAction;
@@ -78,7 +83,6 @@ import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
 import com.google.android.accessibility.talkback.preference.TalkBackHelpPreferencesActivity;
 import com.google.android.accessibility.talkback.training.TutorialInitiator;
 import com.google.android.accessibility.utils.AccessibilityNode;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
@@ -227,10 +231,6 @@ class Actors {
     directionNavigator.setUserInterface(userInterface);
   }
 
-  public void recycle() {
-    actorState.recycle();
-  }
-
   //////////////////////////////////////////////////////////////////////////
   // Pipeline methods
 
@@ -294,14 +294,14 @@ class Actors {
     if (speech != null && speech.action() != null) {
       switch (speech.action()) {
         case SPEAK:
-          if (speech.text() != null) {
-            speaker.speak(speech.text(), eventId, speech.options());
-          }
           if ((speech.hint() != null)
               && (speech.hintSpeakOptions() != null)
               && (speech.hintSpeakOptions().mCompletedAction != null)) {
             speaker.addUtteranceCompleteAction(
                 speaker.peekNextUtteranceId(), speech.hintSpeakOptions().mCompletedAction);
+          }
+          if (speech.text() != null) {
+            speaker.speak(speech.text(), eventId, speech.options());
           }
           break;
         case SAVE_LAST:
@@ -309,6 +309,9 @@ class Actors {
           break;
         case COPY_SAVED:
           speaker.copySavedUtteranceToClipboard(eventId);
+          break;
+        case COPY_LAST:
+          speaker.copyLastUtteranceToClipboard(eventId);
           break;
         case REPEAT_SAVED:
           speaker.repeatSavedUtterance();
@@ -472,6 +475,7 @@ class Actors {
                   scroll.nodeCompat(),
                   scroll.nodeAction(),
                   scroll.source(),
+                  scroll.timeout(),
                   eventId);
           break;
 
@@ -486,6 +490,7 @@ class Actors {
                   scroll.nodeCompat(),
                   scroll.nodeToMoveOnScreen(),
                   scroll.source(),
+                  scroll.timeout(),
                   eventId);
           break;
 
@@ -766,6 +771,20 @@ class Actors {
       }
     }
 
+    // Show Toast
+    @Nullable ShowToast showToast = part.showToast();
+    if (showToast != null) {
+      switch (showToast.action()) {
+        case SHOW:
+          Toast.makeText(
+                  context,
+                  showToast.message(),
+                  showToast.durationIsLong() ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT)
+              .show();
+          break;
+      }
+    }
+
     // Gesture
     @Nullable Gesture gesture = part.gesture();
     if (gesture != null) {
@@ -784,7 +803,37 @@ class Actors {
     if (imageCaption != null) {
       switch (imageCaption.action()) {
         case PERFORM_CAPTIONS:
-          success &= imageCaptioner.caption(imageCaption.target());
+          success &=
+              imageCaptioner.caption(
+                  imageCaption.target(), /* isUserRequested= */ imageCaption.userRequested());
+          break;
+      }
+    }
+
+    // Device info
+    @Nullable DeviceInfo deviceInfo = part.deviceInfo();
+    if (deviceInfo != null) {
+      switch (deviceInfo.action()) {
+        case CONFIG_CHANGED:
+          success &= talkBackUIActor.onConfigurationChanged();
+          break;
+      }
+    }
+
+    // UI change events
+    @Nullable UiChange uiChange = part.uiChange();
+    if (uiChange != null) {
+      @Nullable Rect sourceBounds = uiChange.sourceBoundsInScreen();
+      switch (uiChange.action()) {
+        case CLEAR_SCREEN_CACHE:
+          if (sourceBounds == null) {
+            success &= imageCaptioner.clearWholeScreenCache();
+          } else {
+            success &= imageCaptioner.clearPartialScreenCache(sourceBounds);
+          }
+          break;
+        case CLEAR_CACHE_FOR_VIEW:
+          success &= imageCaptioner.clearCacheForView(sourceBounds);
           break;
       }
     }
@@ -806,6 +855,8 @@ class Actors {
     // TalkBack is not allowed to display overlay at this state.
     speaker.setOverlayEnabled(false);
     speaker.setSpeechVolume(finalAnnouncementVolume);
+    speaker.setMute(true);
+    soundAndVibration.shutdown();
   }
 
   public void interruptAllFeedback(boolean stopTtsSpeechCompletely) {
@@ -826,16 +877,10 @@ class Actors {
    * </ul>
    */
   public void interruptGentle(EventId eventId) {
-    @Nullable
-    AccessibilityNodeInfoCompat currentFocus =
+    @Nullable AccessibilityNodeInfoCompat currentFocus =
         accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
-
-    try {
-      if (Role.getRole(currentFocus) == Role.ROLE_WEB_VIEW) {
-        return;
-      }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentFocus);
+    if (Role.getRole(currentFocus) == Role.ROLE_WEB_VIEW) {
+      return;
     }
 
     if (actorState.continuousRead.isActive()) {

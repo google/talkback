@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">%1$d سے %2$d کریکٹرز</string>
+  <string name="template_password_traversed">کریکٹر %1$d</string>
   <string name="untitled_window">بلا عنوان</string>
-  <string name="template_alert_dialog_template">الرٹ %1$s</string>
   <string name="template_text_copied">کاپی ہو گیا، %1$s</string>
   <string name="template_capital_letter">بڑا حرف %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">الفاظ</string>
   <string name="granularity_line">لائنیں</string>
   <string name="granularity_paragraph">پیراگرافس</string>
-  <string name="granularity_page">صفحات</string>
   <string name="granularity_window">Windows</string>
   <string name="granularity_web_landmark">نمایاں مقامات</string>
   <string name="granularity_web_heading">ہیڈنگز</string>

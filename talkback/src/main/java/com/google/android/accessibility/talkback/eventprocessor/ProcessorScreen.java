@@ -16,18 +16,25 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
-
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.gesture.GestureShortcutMapping;
+import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.PureFunction;
+import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.StringBuilderUtils;
-import com.google.android.accessibility.utils.WindowEventInterpreter;
-import com.google.android.accessibility.utils.feedback.ScreenFeedbackManager;
+import com.google.android.accessibility.utils.feedbackpolicy.ScreenFeedbackManager;
+import com.google.android.accessibility.utils.input.WindowEventInterpreter;
 import com.google.android.accessibility.utils.keyboard.KeyComboManager;
 import com.google.android.accessibility.utils.keyboard.KeyComboModel;
 import com.google.android.accessibility.utils.output.FeedbackItem;
@@ -48,6 +55,8 @@ public class ProcessorScreen extends ScreenFeedbackManager {
       final TalkBackService service,
       ProcessorAccessibilityHints processorAccessibilityHints,
       KeyComboManager keyComboManager,
+      FocusFinder focusFinder,
+      GestureShortcutMapping gestureShortcutMapping,
       Pipeline.FeedbackReturner pipeline) {
     super(
         service,
@@ -57,11 +66,16 @@ public class ProcessorScreen extends ScreenFeedbackManager {
         service.isScreenOrientationLandscape());
     this.keyComboManager = keyComboManager;
     this.pipeline = pipeline;
+
+    if (feedbackComposer != null) {
+      ((TalkBackFeedbackComposer) feedbackComposer).setFocusFinder(focusFinder);
+      ((TalkBackFeedbackComposer) feedbackComposer)
+          .setGestureShortcutMapping(gestureShortcutMapping);
+    }
   }
 
   @Override
-  @Nullable
-  protected UserPreferences createPreferences() {
+  protected @Nullable UserPreferences createPreferences() {
     return new UserPreferences() {
       @Override
       public @Nullable String keyComboResIdToString(int keyComboId) {
@@ -87,7 +101,7 @@ public class ProcessorScreen extends ScreenFeedbackManager {
   }
 
   public WindowEventInterpreter getWindowEventInterpreter() {
-    return interpreter;
+    return getInterpreter();
   }
 
   @Override
@@ -143,18 +157,27 @@ public class ProcessorScreen extends ScreenFeedbackManager {
       CharSequence utterance,
       @Nullable CharSequence hint,
       EventId eventId,
-      boolean forceAudioPlaybackActive,
-      boolean forceMicrophoneActive,
-      boolean forceSsbActive) {
+      boolean forceFeedbackEvenIfAudioPlaybackActive,
+      boolean forceFeedbackEvenIfMicrophoneActive,
+      boolean forceFeedbackEvenIfSsbActive,
+      boolean sourceIsVolumeControl) {
     if ((hint != null) && (accessibilityHintsManager != null)) {
       accessibilityHintsManager.postHintForScreen(hint);
     }
 
     int flags =
-        (forceAudioPlaybackActive ? FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE : 0)
-            | FeedbackItem.FLAG_FORCED_FEEDBACK_PHONE_CALL_ACTIVE
-            | (forceMicrophoneActive ? FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE : 0)
-            | (forceSsbActive ? FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE : 0);
+        (forceFeedbackEvenIfAudioPlaybackActive
+                ? FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                : 0)
+            | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_PHONE_CALL_ACTIVE
+            | (forceFeedbackEvenIfMicrophoneActive
+                ? FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                : 0)
+            | (forceFeedbackEvenIfSsbActive
+                ? FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE
+                : 0)
+            | (sourceIsVolumeControl ? FeedbackItem.FLAG_SOURCE_IS_VOLUME_CONTROL : 0);
+    ;
 
     SpeechController.SpeakOptions speakOptions =
         SpeechController.SpeakOptions.create()
@@ -170,11 +193,66 @@ public class ProcessorScreen extends ScreenFeedbackManager {
 
   @PureFunction
   private static class TalkBackFeedbackComposer extends ScreenFeedbackManager.FeedbackComposer {
+
+    @Nullable private FocusFinder focusFinder;
+    @Nullable private GestureShortcutMapping gestureShortcutMapping;
+
+    @Override
+    public Feedback customizeFeedback(
+        AllContext allContext,
+        Feedback feedback,
+        WindowEventInterpreter.EventInterpretation interpretation,
+        final int logDepth) {
+      // Compose feedback for the popup window, such as auto-complete suggestions window.
+      // To navigate to access the suggestions window when the suggestions window popups,
+      // the user can
+      // 1. perform a previous-window gesture when a11y focus is on IME window.
+      // 2. perform a next-item gesture when a11y focus is on the auto-complete textView.
+      if (focusFinder == null || gestureShortcutMapping == null) {
+        return feedback;
+      }
+      if (interpretation.getAnchorNodeRole() == Role.ROLE_EDIT_TEXT) {
+        logCompose(logDepth, "customComposeFeedback", "auto-complete suggestions");
+        AccessibilityNodeInfoCompat focus =
+            focusFinder == null
+                ? null
+                : focusFinder.findFocusCompat(AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
+        if (focus == null) {
+          return feedback;
+        }
+        final String gesture;
+        if ((Role.getRole(focus) == Role.ROLE_EDIT_TEXT
+            && AccessibilityWindowInfoUtils.getAnchoredWindow(focus) != null)) {
+          gesture =
+              gestureShortcutMapping.getGestureFromActionKey(
+                  allContext.getContext().getString(R.string.shortcut_value_next));
+        } else if (focus.getWindow().getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD) {
+          gesture =
+              gestureShortcutMapping.getGestureFromActionKey(
+                  allContext.getContext().getString(R.string.shortcut_value_previous_window));
+        } else {
+          return feedback;
+        }
+        String utterance =
+            (FeatureSupport.isMultiFingerGestureSupported() && gesture != null)
+                ? allContext
+                    .getContext()
+                    .getString(R.string.suggestions_window_available_with_gesture, gesture)
+                : allContext.getContext().getString(R.string.suggestions_window_available);
+        feedback.addPart(
+            new FeedbackPart(utterance)
+                .earcon(true)
+                .forceFeedbackEvenIfAudioPlaybackActive(true)
+                .forceFeedbackEvenIfMicrophoneActive(true));
+      }
+      return feedback;
+    }
+
     @Override
     protected CharSequence formatAnnouncementForArc(
-        Context context, CharSequence title, final int logDepth) {
+        Context context, @Nullable CharSequence title, final int logDepth) {
       logCompose(logDepth, "formatAnnouncementForArc", "");
-      SpannableStringBuilder builder = new SpannableStringBuilder(title);
+      SpannableStringBuilder builder = new SpannableStringBuilder((title == null) ? "" : title);
 
       StringBuilderUtils.appendWithSeparator(
           builder, context.getString(R.string.arc_android_window));
@@ -210,6 +288,14 @@ public class ProcessorScreen extends ScreenFeedbackManager {
           R.string.keycombo_shortcut_open_talkback_settings);
 
       return builder;
+    }
+
+    void setFocusFinder(FocusFinder focusFinder) {
+      this.focusFinder = focusFinder;
+    }
+
+    void setGestureShortcutMapping(GestureShortcutMapping gestureShortcutMapping) {
+      this.gestureShortcutMapping = gestureShortcutMapping;
     }
 
     private void appendKeyboardShortcutHint(

@@ -15,16 +15,16 @@
  */
 package com.google.android.accessibility.utils;
 
-import androidx.core.view.accessibility.AccessibilityEventCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
-import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -128,7 +128,8 @@ public class Role {
    * #ROLE_NONE}, fallback to check {@link AccessibilityNodeInfoCompat#getClassName()} of the source
    * node.
    */
-  public static @RoleName int getSourceRole(AccessibilityEvent event) {
+  @RoleName
+  public static int getSourceRole(AccessibilityEvent event) {
     if (event == null) {
       return ROLE_NONE;
     }
@@ -150,7 +151,8 @@ public class Role {
   }
 
   /** Find role from source event's class name string. */
-  private static @RoleName int sourceClassNameToRole(AccessibilityEvent event) {
+  @RoleName
+  private static int sourceClassNameToRole(AccessibilityEvent event) {
     if (event == null) {
       return ROLE_NONE;
     }
@@ -179,8 +181,7 @@ public class Role {
     // Inheritance: View->ViewGroup->DrawerLayout
     if (ClassLoadingCache.checkInstanceOf(
             eventClassName, androidx.drawerlayout.widget.DrawerLayout.class)
-        || ClassLoadingCache.checkInstanceOf(
-            eventClassName, "android.support.v4.widget.DrawerLayout")) {
+        || ClassLoadingCache.checkInstanceOf(eventClassName, "androidx.core.widget.DrawerLayout")) {
       return ROLE_DRAWER_LAYOUT;
     }
 
@@ -234,7 +235,8 @@ public class Role {
   }
 
   /** Gets {@link Role} for {@link AccessibilityNodeInfoCompat}. */
-  public static @RoleName int getRole(@Nullable AccessibilityNodeInfoCompat node) {
+  @RoleName
+  public static int getRole(@Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return ROLE_NONE;
     }
@@ -350,21 +352,10 @@ public class Role {
 
     // Inheritance: View->ViewGroup->ViewPager
     if (ClassLoadingCache.checkInstanceOf(className, androidx.viewpager.widget.ViewPager.class)
-        || ClassLoadingCache.checkInstanceOf(className, "android.support.v4.view.ViewPager")) {
+        || ClassLoadingCache.checkInstanceOf(className, "android.support.v4.view.ViewPager")
+        || ClassLoadingCache.checkInstanceOf(className, "androidx.core.view.ViewPager")) {
       return ROLE_PAGER;
     }
-
-    // TODO: Check if we should add Role RecyclerView.
-    // By default, RecyclerView node has CollectionInfo, so that it will be classified as a List or
-    // Grid.
-    // View->ViewGroup->RecyclerView
-    /* TODO:
-    if (ClassLoadingCache.checkInstanceOf(className, "androidx.recyclerview.widget.RecyclerView")
-        || ClassLoadingCache.checkInstanceOf(
-            className, "androidx.recyclerview.widget.RecyclerView")) {
-      return ROLE_RECYCLER_VIEW;
-    }
-    */
 
     // Inheritance: View->ViewGroup->AdapterView->AbsSpinner->Spinner
     if (ClassLoadingCache.checkInstanceOf(className, android.widget.Spinner.class)) {
@@ -415,7 +406,8 @@ public class Role {
    * Gets {@link Role} for {@link AccessibilityNodeInfo}. @See {@link
    * #getRole(AccessibilityNodeInfoCompat)}
    */
-  public static @RoleName int getRole(AccessibilityNodeInfo node) {
+  @RoleName
+  public static int getRole(@Nullable AccessibilityNodeInfo node) {
     if (node == null) {
       return Role.ROLE_NONE;
     }

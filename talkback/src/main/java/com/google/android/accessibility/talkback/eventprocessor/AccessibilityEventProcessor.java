@@ -22,10 +22,6 @@ import android.content.res.Configuration;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
-import androidx.core.view.accessibility.AccessibilityEventCompat;
-import androidx.core.view.accessibility.AccessibilityManagerCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -33,6 +29,10 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityRecord;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityManagerCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.RingerModeAndScreenMonitor;
@@ -238,10 +238,6 @@ public class AccessibilityEventProcessor {
 
     // We need to save the last focused event so that we can filter out related selected events.
     if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_FOCUSED) {
-      if (lastFocusedEvent != null) {
-        lastFocusedEvent.recycle();
-      }
-
       lastFocusedEvent = AccessibilityEvent.obtain(event);
     }
 
@@ -308,8 +304,6 @@ public class AccessibilityEventProcessor {
           }
         } catch (Exception e) {
           LogUtils.d(TAG, "Exception accessing field: " + e.toString());
-        } finally {
-          AccessibilityNodeInfoUtils.recycleNodes(source);
         }
       }
       return true;
@@ -437,13 +431,9 @@ public class AccessibilityEventProcessor {
     if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_FOCUSED) {
       AccessibilityNodeInfoCompat node = null;
 
-      try {
-        node = record.getSource();
-        if (Role.getRole(node) == Role.ROLE_EDIT_TEXT) {
-          return true;
-        }
-      } finally {
-        AccessibilityNodeInfoUtils.recycleNodes(node);
+      node = record.getSource();
+      if (Role.getRole(node) == Role.ROLE_EDIT_TEXT) {
+        return true;
       }
     }
 
@@ -470,36 +460,22 @@ public class AccessibilityEventProcessor {
     if (event.getEventTime() - lastFocusedEvent.getEventTime() > DELAY_SELECTED_AFTER_FOCUS) {
       return true;
     }
-
-    // AccessibilityEvent.getSource will obtain() an AccessibilityNodeInfo, so it is our
-    // responsibility to recycle() it.
     AccessibilityNodeInfo selectedSource = event.getSource();
     AccessibilityNodeInfo focusedSource = lastFocusedEvent.getSource();
 
-    try {
-      // Note: AccessibilityNodeInfoCompat constructor will silently succeed when wrapping
-      // a null object.
-      if (selectedSource != null && focusedSource != null) {
-        AccessibilityNodeInfoCompat selectedSourceCompat =
-            AccessibilityNodeInfoUtils.toCompat(selectedSource);
-        AccessibilityNodeInfoCompat focusedSourceCompat =
-            AccessibilityNodeInfoUtils.toCompat(focusedSource);
+    if (selectedSource != null && focusedSource != null) {
+      AccessibilityNodeInfoCompat selectedSourceCompat =
+          AccessibilityNodeInfoUtils.toCompat(selectedSource);
+      AccessibilityNodeInfoCompat focusedSourceCompat =
+          AccessibilityNodeInfoUtils.toCompat(focusedSource);
 
-        if (AccessibilityNodeInfoUtils.areInSameBranch(selectedSourceCompat, focusedSourceCompat)) {
-          return false;
-        }
-      }
-
-      // In different branch (or we could not check branches of accessibility node tree).
-      return true;
-    } finally {
-      if (selectedSource != null) {
-        selectedSource.recycle();
-      }
-      if (focusedSource != null) {
-        focusedSource.recycle();
+      if (AccessibilityNodeInfoUtils.areInSameBranch(selectedSourceCompat, focusedSourceCompat)) {
+        return false;
       }
     }
+
+    // In different branch (or we could not check branches of accessibility node tree).
+    return true;
   }
 
   /**
@@ -593,7 +569,6 @@ public class AccessibilityEventProcessor {
           EventIdAnd<AccessibilityEvent> eventAndId = (EventIdAnd<AccessibilityEvent>) message.obj;
           AccessibilityEvent event = eventAndId.object;
           processEvent(event, eventAndId.eventId);
-          event.recycle();
           break;
 
         case MESSAGE_WHAT_PROCESSOR_IDLE:

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">ସାରାଂଶ</string>
   <string name="voice_commands_read">ପଢ଼ାଯାଇଛି</string>
   <string name="voice_commands_read_from_next">ପରବର୍ତ୍ତୀରୁ ପଢ଼ନ୍ତୁ</string>
   <string name="voice_commands_edit_options">ଏଡିଟ୍ କରିବା ବିକଳ୍ପଗୁଡ଼ିକ</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">ଖୋଜନ୍ତୁ</string>
   <string name="voice_commands_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
   <string name="voice_commands_search_for">ଏହା ପାଇଁ ଖୋଜନ୍ତୁ</string>
-  <string name="voice_commands_find_again">ଆଉଥରେ ଖୋଜନ୍ତୁ</string>
   <string name="voice_commands_next_heading">ପରବର୍ତ୍ତୀ ଶୀର୍ଷକ</string>
   <string name="voice_commands_next_control">ପରବର୍ତ୍ତୀ ନିୟନ୍ତ୍ରଣ</string>
   <string name="voice_commands_next_link">ପରବର୍ତ୍ତୀ ଲିଙ୍କ୍</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">ଲେବଲ୍ କରାଯାଇପାରିବ ନାହିଁ</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">ସ୍ପୀଚ୍ ରେଟ୍ ସେଟିଂ</string>
-  <string name="voice_commands_setting_verbosity">ଶବ୍ଦବହୁଳତା ସେଟିଂ</string>
-  <string name="voice_commands_setting_granularity">ବିବରଣ ସେଟିଂ</string>
-  <string name="voice_commands_setting_navigation">ନେଭିଗେସନ୍ ସେଟିଂ</string>
   <string name="voice_commands_first">ପ୍ରଥମ</string>
   <string name="voice_commands_top">ଶୀର୍ଷରେ</string>
   <string name="voice_commands_last">ଶେଷ</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">କୌଣସି ପରବର୍ତ୍ତୀ ଲିଙ୍କ୍ ନାହିଁ</string>
   <string name="voice_commands_no_next_control_feedback">କୌଣସି ପରବର୍ତ୍ତୀ ନିୟନ୍ତ୍ରଣ ନାହିଁ</string>
   <string name="voice_commands_no_next_landmark_feedback">କୌଣସି ପରବର୍ତ୍ତୀ ଲ୍ୟାଣ୍ଡମାର୍କ ନାହିଁ</string>
-  <string name="voice_commands_screen_hidden_feedback">ସ୍କ୍ରିନ୍ ଲୁଚାଯାଇଛି</string>
-  <string name="voice_commands_showing_screen_feedback">ସ୍କ୍ରିନ୍ ଦେଖାଯାଉଛି</string>
   <string name="voice_commands_help_title">ଭଏସ୍ କମାଣ୍ଡ ଓଭରଭିଉ</string>
   <string name="voice_commands_help_description">ଭଏସ୍ କମାଣ୍ଡଗୁଡ଼ିକୁ ବ୍ୟବହାର କରିବା ପାଇଁ, ପ୍ରଥମେ ଡାହାଣକୁ ତା\'ପରେ ଉପରକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ। ଏହି କମାଣ୍ଡଗୁଡ଼ିକର ତାଲିକା ପାଇଁ ଯେ କୌଣସି ସମୟରେ \"ସାହାଯ୍ୟ\" କିମ୍ବା \"ମୁଁ କ’ଣ କହିପାରିବି?\" କୁହନ୍ତୁ।</string>
   <string name="voice_commands_help_hint">ସର୍ବୋତ୍ତମ ଫଳାଫଳଗୁଡ଼ିକ ପାଇଁ ନିମ୍ନ ସ୍କ୍ରିନରେ ତାଲିକାଭୁକ୍ତ ଶବ୍ଦଗୁଡ଼ିକ ସଠିକ୍ ଭାବରେ କୁହନ୍ତୁ।</string>

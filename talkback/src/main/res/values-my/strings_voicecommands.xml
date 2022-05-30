@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">အကျဉ်းချုပ်</string>
   <string name="voice_commands_read">ဖတ်ပြပါ</string>
   <string name="voice_commands_read_from_next">နောက်အကြောင်းအရာမှ ဖတ်ပါ</string>
   <string name="voice_commands_edit_options">တည်းဖြတ်နည်းများ</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">ရှာရန်</string>
   <string name="voice_commands_search">ရှာပါ</string>
   <string name="voice_commands_search_for">ရှာပါ</string>
-  <string name="voice_commands_find_again">ထပ်ရှာရန်</string>
   <string name="voice_commands_next_heading">နောက် ခေါင်းစီး</string>
   <string name="voice_commands_next_control">နောက်ထိန်းချုပ်မှု</string>
   <string name="voice_commands_next_link">နောက်လင့်ခ်</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">အညွှန်းမတပ်နိုင်ပါ</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">စကားပြောနှုန်း ဆက်တင်</string>
-  <string name="voice_commands_setting_verbosity">စကားလုံးအရှည် ဆက်တင်</string>
-  <string name="voice_commands_setting_granularity">စကားအကြမ်း ဆက်တင်</string>
-  <string name="voice_commands_setting_navigation">သွားလာမှု ဆက်တင်</string>
   <string name="voice_commands_first">ပထမ</string>
   <string name="voice_commands_top">ထိပ်ပိုင်း</string>
   <string name="voice_commands_last">နောက်ဆုံး</string>
@@ -86,7 +81,7 @@
   <string name="voice_commands_quit">ထွက်ပါ</string>
   <string name="voice_commands_quiet">အသံတိတ်ပါ</string>
   <string name="voice_commands_pause">ခဏရပ်ပါ</string>
-  <string name="voice_commands_nevermind">ကိစ္စမရှိပါ</string>
+  <string name="voice_commands_nevermind">ထားလိုက်ပါ</string>
   <string name="voice_commands_shut_up">တိတ်တိတ်နေပါ</string>
   <string name="voice_commands_faster">ပိုမြန်ပါ</string>
   <string name="voice_commands_increase_speech_rate">စကားပြောနှုန်း တိုးပါ</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">နောက်လင့်ခ် မရှိပါ</string>
   <string name="voice_commands_no_next_control_feedback">နောက်ထိန်းချုပ်မှု မရှိပါ</string>
   <string name="voice_commands_no_next_landmark_feedback">နောက်အထင်ကရနေရာ မရှိပါ</string>
-  <string name="voice_commands_screen_hidden_feedback">ဖန်သားပြင်ကို ဝှက်ထားသည်</string>
-  <string name="voice_commands_showing_screen_feedback">ဖန်သားပြင်ကို ပြထားသည်</string>
   <string name="voice_commands_help_title">အသံကွန်မန်း အနှစ်ချုပ်</string>
   <string name="voice_commands_help_description">အသံကွန်မန်းများ အသုံးပြုရန် ညာဘက်သို့ ပွတ်ဆွဲပြီးနောက် အပေါ်သို့ ပွတ်ဆွဲပါ။ ဤကွန်မန်းများ၏ စာရင်းအတွက် \"Help\" သို့မဟုတ် \"What can I say။\" ကို အချိန်မရွေး ပြောပါ။</string>
   <string name="voice_commands_help_hint">အကောင်းဆုံးရလဒ်များအတွက် အောက်ပါဖန်သားပြင်များတွင် ဖော်ပြထားသော အသုံးအနှုန်းကို အတိအကျ ပြောပါ။</string>

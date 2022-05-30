@@ -60,7 +60,6 @@ public class AccessibilityFocusMonitor {
    * <p><strong>Note:</strong>
    *
    * <ul>
-   *   <li>The client is responsible for recycling the returned node.
    *   <li>The returned node might not pass {@link
    *       AccessibilityNodeInfoUtils#shouldFocusNode(AccessibilityNodeInfoCompat)}, the caller
    *       should validate the result if needed.
@@ -72,13 +71,7 @@ public class AccessibilityFocusMonitor {
 
   /** Return true if currently there's a focused node on screen. */
   public boolean hasAccessibilityFocus(boolean useInputFocusIfEmpty) {
-    @Nullable AccessibilityNodeInfoCompat node = null;
-    try {
-      node = getAccessibilityFocus(useInputFocusIfEmpty);
-      return (node != null);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(node);
-    }
+    return getAccessibilityFocus(useInputFocusIfEmpty) != null;
   }
 
   /**
@@ -91,66 +84,53 @@ public class AccessibilityFocusMonitor {
    */
   public @Nullable AccessibilityNodeInfoCompat getAccessibilityFocus(
       boolean useInputFocusIfEmpty, boolean requireEditable) {
-    // Nodes to be recycled.
-    AccessibilityNodeInfoCompat a11yFocusedNode = null;
-    AccessibilityNodeInfoCompat inputFocusedNode = null;
-    AccessibilityNodeInfoCompat lastFocusedEditFieldInHistory = null;
+    // First, see if we've already placed accessibility focus.
+    AccessibilityNodeInfoCompat a11yFocusedNode = focusFinder.findFocusCompat(FOCUS_ACCESSIBILITY);
 
-    try {
-      // First, see if we've already placed accessibility focus.
-      a11yFocusedNode = focusFinder.findFocusCompat(FOCUS_ACCESSIBILITY);
-
-      if ((a11yFocusedNode != null) && AccessibilityNodeInfoUtils.isVisible(a11yFocusedNode)) {
-        return AccessibilityNodeInfoUtils.obtain(a11yFocusedNode);
-      }
-
-      if (!useInputFocusIfEmpty) {
-        return null;
-      }
-
-      // TODO: If there's no focused node, we should either mimic following
-      // focus from new window or try to be smart for things like list views.
-      inputFocusedNode = focusFinder.findFocusCompat(FOCUS_INPUT);
-      if (inputFocusedNode != null) {
-        boolean isEditable =
-            inputFocusedNode.isEditable() || Role.getRole(inputFocusedNode) == Role.ROLE_EDIT_TEXT;
-        if (inputFocusedNode.isFocused() && (!requireEditable || isEditable)) {
-          return AccessibilityNodeInfoUtils.obtain(inputFocusedNode);
-        }
-      }
-
-      // If we can't find the focused node but the keyboard is showing, return the last editable.
-      // This will occur if the input-focused view is actually a virtual view (e.g. in WebViews).
-      // Note: need to refresh() in order to verify that the node is still available on-screen.
-      FocusActionRecord record = history.getLastEditableFocusActionRecord();
-
-      lastFocusedEditFieldInHistory = (record == null) ? null : record.getFocusedNode();
-
-      if ((lastFocusedEditFieldInHistory != null) && lastFocusedEditFieldInHistory.refresh()) {
-        // TODO: Shall we check the presence of IME window?
-        // IME window check below is copied from legacy CursorController. What if the device is
-        // connected to bluetooth keyboard?
-        if (AccessibilityServiceCompatUtils.isInputWindowOnScreen(service)) {
-          return AccessibilityNodeInfoCompat.obtain(lastFocusedEditFieldInHistory);
-        }
-      }
-      return null;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(
-          a11yFocusedNode, inputFocusedNode, lastFocusedEditFieldInHistory);
+    if ((a11yFocusedNode != null) && AccessibilityNodeInfoUtils.isVisible(a11yFocusedNode)) {
+      return AccessibilityNodeInfoUtils.obtain(a11yFocusedNode);
     }
+
+    if (!useInputFocusIfEmpty) {
+      return null;
+    }
+
+    // TODO: If there's no focused node, we should either mimic following
+    // focus from new window or try to be smart for things like list views.
+    AccessibilityNodeInfoCompat inputFocusedNode = focusFinder.findFocusCompat(FOCUS_INPUT);
+    if (inputFocusedNode != null) {
+      boolean isEditable =
+          inputFocusedNode.isEditable() || Role.getRole(inputFocusedNode) == Role.ROLE_EDIT_TEXT;
+      if (inputFocusedNode.isFocused() && (!requireEditable || isEditable)) {
+        return AccessibilityNodeInfoUtils.obtain(inputFocusedNode);
+      }
+    }
+
+    // If we can't find the focused node but the keyboard is showing, return the last editable.
+    // This will occur if the input-focused view is actually a virtual view (e.g. in WebViews).
+    // Note: need to refresh() in order to verify that the node is still available on-screen.
+    FocusActionRecord record = history.getLastEditableFocusActionRecord();
+
+    AccessibilityNodeInfoCompat lastFocusedEditFieldInHistory =
+        (record == null) ? null : record.getFocusedNode();
+
+    if ((lastFocusedEditFieldInHistory != null) && lastFocusedEditFieldInHistory.refresh()) {
+      // TODO: Shall we check the presence of IME window?
+      // IME window check below is copied from legacy CursorController. What if the device is
+      // connected to bluetooth keyboard?
+      if (AccessibilityServiceCompatUtils.isInputWindowOnScreen(service)) {
+        return AccessibilityNodeInfoCompat.obtain(lastFocusedEditFieldInHistory);
+      }
+    }
+    return null;
   }
 
   /**
    * get node with class type is Role.ROLE_SEEK_CONTROL or Role.ROLE_NUMBER_PICKER.
    *
-   * <p><strong>Note:</strong> It is a client responsibility to recycle the received info by calling
-   * {@link AccessibilityNodeInfoCompat#recycle()} .
-   *
    * @return Either the SeekBar or NumberPicker node info, null otherwise.
    */
-  @Nullable
-  public AccessibilityNodeInfoCompat getSupportedAdjustableNode() {
+  public @Nullable AccessibilityNodeInfoCompat getSupportedAdjustableNode() {
     // get current focus node
     AccessibilityNodeInfoCompat focusNode =
         getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
@@ -159,13 +139,9 @@ public class AccessibilityFocusMonitor {
       return focusNode;
     }
 
-    try {
-      // The focused node for the NumberPicker is the child node(Button or EditText), so it has to
-      // customize the node matching rule for NumberPicker here.
-      return AccessibilityNodeInfoUtils.getMatchingAncestor(
-          focusNode, NUMBER_PICKER_FILTER_FOR_ADJUST);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(focusNode);
-    }
+    // The focused node for the NumberPicker is the child node(Button or EditText), so it has to
+    // customize the node matching rule for NumberPicker here.
+    return AccessibilityNodeInfoUtils.getMatchingAncestor(
+        focusNode, NUMBER_PICKER_FILTER_FOR_ADJUST);
   }
 }

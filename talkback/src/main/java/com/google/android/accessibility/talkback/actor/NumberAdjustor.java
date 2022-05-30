@@ -21,8 +21,8 @@ import static android.view.accessibility.AccessibilityNodeInfo.AccessibilityActi
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.content.Context;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
@@ -57,62 +57,55 @@ public class NumberAdjustor {
    * Check whether the focused node is Role.ROLE_SEEK_CONTROL, and the current value has reached its
    * upper/lower bound.
    *
-   * <p><strong>Note:</strong> It is a client responsibility to recycle the received info by calling
-   * {@link AccessibilityNodeInfoCompat#recycle()} .
-   *
    * @return true when the value adjusting succeeds. Return false otherwise.
    */
   public boolean adjustValue(boolean decrease) {
-    @Nullable AccessibilityNodeInfoCompat node = null;
-    try {
-      node = accessibilityFocusMonitor.getSupportedAdjustableNode();
-      if (node == null) {
-        return false;
-      }
-      if (Role.getRole(node) == Role.ROLE_SEEK_CONTROL) {
-        final AccessibilityNodeInfoCompat.RangeInfoCompat rangeInfo = node.getRangeInfo();
-        if (rangeInfo != null) {
-          CharSequence stateDescription = node.getStateDescription();
-          if (decrease && (rangeInfo.getCurrent() <= rangeInfo.getMin())) {
-            // Notify user it reaches lower bound: 0%
-            pipeline.returnFeedback(
-                EVENT_ID_UNTRACKED,
-                Feedback.speech(
-                    TextUtils.isEmpty(stateDescription)
-                        ? context.getString(R.string.template_seekbar_range, 0)
-                        : stateDescription,
-                    SpeakOptions.create()));
-            return false;
-          } else if (!decrease && (rangeInfo.getCurrent() >= rangeInfo.getMax())) {
-            // Notify user it reaches upper bound: 100%
-            pipeline.returnFeedback(
-                EVENT_ID_UNTRACKED,
-                Feedback.speech(
-                    TextUtils.isEmpty(stateDescription)
-                        ? context.getString(R.string.template_seekbar_range, 100)
-                        : stateDescription,
-                    SpeakOptions.create()));
-            return false;
-          }
-        }
-      }
-      if (decrease) {
-        if (AccessibilityNodeInfoUtils.supportsAction(node, ACTION_SCROLL_BACKWARD.getId())) {
-          pipeline.returnFeedback(
-              EVENT_ID_UNTRACKED, Feedback.nodeAction(node, ACTION_SCROLL_BACKWARD.getId()));
-          return true;
-        }
-      } else {
-        if (AccessibilityNodeInfoUtils.supportsAction(node, ACTION_SCROLL_FORWARD.getId())) {
-          pipeline.returnFeedback(
-              EVENT_ID_UNTRACKED, Feedback.nodeAction(node, ACTION_SCROLL_FORWARD.getId()));
-          return true;
-        }
-      }
-      LogUtils.d(TAG, "adjustValue does not happen");
+    @Nullable AccessibilityNodeInfoCompat node =
+        accessibilityFocusMonitor.getSupportedAdjustableNode();
+    if (node == null) {
       return false;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(node);
     }
+    if (Role.getRole(node) == Role.ROLE_SEEK_CONTROL) {
+      final AccessibilityNodeInfoCompat.RangeInfoCompat rangeInfo = node.getRangeInfo();
+      if (rangeInfo != null) {
+        CharSequence stateDescription = node.getStateDescription();
+        if (decrease && (rangeInfo.getCurrent() <= rangeInfo.getMin())) {
+          // Notify user it reaches lower bound: 0%
+          pipeline.returnFeedback(
+              EVENT_ID_UNTRACKED,
+              Feedback.speech(
+                  TextUtils.isEmpty(stateDescription)
+                      ? context.getString(R.string.template_seekbar_range, 0)
+                      : stateDescription,
+                  SpeakOptions.create()));
+          return false;
+        } else if (!decrease && (rangeInfo.getCurrent() >= rangeInfo.getMax())) {
+          // Notify user it reaches upper bound: 100%
+          pipeline.returnFeedback(
+              EVENT_ID_UNTRACKED,
+              Feedback.speech(
+                  TextUtils.isEmpty(stateDescription)
+                      ? context.getString(R.string.template_seekbar_range, 100)
+                      : stateDescription,
+                  SpeakOptions.create()));
+          return false;
+        }
+      }
+    }
+    if (decrease) {
+      if (AccessibilityNodeInfoUtils.supportsAction(node, ACTION_SCROLL_BACKWARD.getId())) {
+        pipeline.returnFeedback(
+            EVENT_ID_UNTRACKED, Feedback.nodeAction(node, ACTION_SCROLL_BACKWARD.getId()));
+        return true;
+      }
+    } else {
+      if (AccessibilityNodeInfoUtils.supportsAction(node, ACTION_SCROLL_FORWARD.getId())) {
+        pipeline.returnFeedback(
+            EVENT_ID_UNTRACKED, Feedback.nodeAction(node, ACTION_SCROLL_FORWARD.getId()));
+        return true;
+      }
+    }
+    LogUtils.d(TAG, "adjustValue does not happen");
+    return false;
   }
 }

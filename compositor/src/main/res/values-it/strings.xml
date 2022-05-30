@@ -59,10 +59,6 @@
   <string name="value_pager_page">Pagina</string>
   <string name="value_progress_bar">Barra di avanzamento</string>
   <string name="value_webview">Visualizzazione Web</string>
-  <string name="value_toolbar">Barra degli strumenti</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Caratteri da %1$d a %2$d</string>
-  <string name="template_password_traversed">Carattere %1$d</string>
   <string name="value_password">password</string>
   <string name="value_sliding_drawer_opened">Riquadro a scomparsa scorrevole aperto</string>
   <string name="value_options_menu_open">Opzioni.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Fuori dal pager verticale</string>
   <string name="in_horizontal_pager_with_name">Nel pager orizzontale %1$s</string>
   <string name="in_horizontal_pager">Nel pager orizzontale</string>
-  <string name="out_of_horizontal_pager_with_name">Fuori dal pager orizzontale %1$s</string>
   <string name="out_of_horizontal_pager">Fuori dal pager orizzontale</string>
   <string name="in_grid_pager_with_name">Nel pager a griglia %1$s</string>
   <string name="in_grid_pager">Nel pager a griglia</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Ingrandimento attuale: %1$d%%</string>
   <string name="screen_magnification_off">Ingrandimento disattivato</string>
   <string name="template_speech_rate_change">Velocità voce del %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Più veloce</string>
-  <string name="template_speech_rate_change_slower">Più lenta</string>
-  <string name="template_speech_rate_change_fastest">Massima</string>
-  <string name="template_speech_rate_change_slowest">Minima</string>
   <string name="template_volume_change_increase">Alza</string>
   <string name="template_volume_change_decrease">Abbassa</string>
   <string name="template_volume_change_maximum">Volume massimo</string>
   <string name="template_volume_change_minimum">Volume minimo</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Attenuazione automatica audio attiva</string>
-  <string name="audio_focus_off">Attenuazione automatica audio disattivata</string>
-  <string name="selector_speech_rate_output">Velocità voce</string>
-  <string name="selector_verbosity_output">Preferenze di lettura</string>
-  <string name="selector_granularity_output">Navigazione</string>
-  <string name="selector_audio_focus_output">Attenuazione automatica audio</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Le password vengono lette soltanto se vengono usate le cuffie</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s disponibile, usa %2$s per visualizzare.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s disponibile.</string>
+  <string name="hint_suggestion">Suggerimenti ortografici disponibili.</string>
+  <string name="in_window_with_name">Finestra %1$s</string>
+  <string name="detected_icon_description">%1$s, icona rilevata</string>
+  <string name="ocr_text_description">%1$s, testo</string>
 </resources>

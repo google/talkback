@@ -20,7 +20,9 @@ import static android.widget.Toast.LENGTH_LONG;
 
 import android.content.Context;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.style.BulletSpan;
 import android.text.style.URLSpan;
 import android.view.LayoutInflater;
@@ -29,13 +31,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.gesture.GestureShortcutMapping;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.auto.value.AutoValue;
 import com.google.common.base.Ascii;
-import java.util.List;
+import com.google.common.collect.ImmutableList;
 
 /** Multiple paragraphs of text. */
 public class Text extends PageContentConfig {
@@ -43,87 +45,29 @@ public class Text extends PageContentConfig {
   private static final int GAP_WIDTH = 50;
   private static final int BULLET_RADIUS = 8;
 
-  @StringRes private final int textResId;
-  @Nullable private final int[] textArgResIds;
-  @StringRes private final int textWithActualGestureResId;
-  @StringRes private final int actionKey;
-  private final boolean hasBulletPoint;
-  private final boolean isSubText;
-  private final boolean isLink;
+  private final Paragraph[] paragraphs;
 
-  public Text(@StringRes int textResId, int... textArgResIds) {
-    this(
-        textResId,
-        UNKNOWN_RESOURCE_ID,
-        UNKNOWN_RESOURCE_ID,
-        /* hasBulletPoint= */ false,
-        /* isSubText= */ false,
-        /* isLink= */ false,
-        textArgResIds);
-  }
-
-  public Text(@StringRes int textResId, boolean hasBulletPoint) {
-    this(textResId, hasBulletPoint, false);
-  }
-
-  public Text(@StringRes int textResId, boolean hasBulletPoint, boolean isSubText) {
-    this(
-        textResId,
-        UNKNOWN_RESOURCE_ID,
-        UNKNOWN_RESOURCE_ID,
-        hasBulletPoint,
-        isSubText,
-        /* isLink= */ false);
-  }
-
-  /**
-   * The text with a gesture that should be replaced with actual gesture if user has customized it.
-   * If no gesture is assigned, shows default text.
-   */
-  public Text(
-      @StringRes int defaultTextResId,
-      @StringRes int textWithActualGestureResId,
-      @StringRes int actionKey,
-      boolean hasBulletPoint) {
-    this(
-        defaultTextResId,
-        textWithActualGestureResId,
-        actionKey,
-        hasBulletPoint,
-        /* isSubText= */ false,
-        /* isLink= */ false);
-  }
-
-  // TODO  Adds a builder to create different type of Text.
-  /**
-   * The text with a gesture that should be replaced with actual gesture if user has customized it.
-   * If no gesture is assigned, shows default text.
-   *
-   * @param hasBulletPoint if the text has a bullet point
-   * @param isLink if the text needs an empty {@link URLSpan} or not
-   */
-  public Text(
-      @StringRes int defaultTextResId,
-      @StringRes int textWithActualGestureResId,
-      @StringRes int actionKey,
-      boolean hasBulletPoint,
-      boolean isSubText,
-      boolean isLink,
-      @Nullable int... textArgResIds) {
-    this.textResId = defaultTextResId;
-    this.textArgResIds = textArgResIds;
-    this.textWithActualGestureResId = textWithActualGestureResId;
-    this.actionKey = actionKey;
-    this.hasBulletPoint = hasBulletPoint;
-    this.isSubText = isSubText;
-    this.isLink = isLink;
+  public Text(Paragraph... paragraphs) {
+    this.paragraphs = paragraphs;
   }
 
   @Override
-  public View createView(LayoutInflater inflater, ViewGroup container, Context context) {
+  public View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_text, container, false);
     final TextView textView = view.findViewById(R.id.training_text);
-    String text = getText(context);
+    boolean isSubText = false;
+    SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+    for (Paragraph paragraph : paragraphs) {
+      if (paragraph.subText()) {
+        isSubText = true;
+      }
+
+      if (!TextUtils.isEmpty(spannableStringBuilder)) {
+        spannableStringBuilder.append("\n\n");
+      }
+      spannableStringBuilder.append(getText(context, paragraph, data));
+    }
 
     if (isSubText) {
       LinearLayout.LayoutParams layoutParams =
@@ -133,69 +77,79 @@ public class Text extends PageContentConfig {
       textView.setLayoutParams(layoutParams);
     }
 
-    if (!hasBulletPoint) {
-      textView.setText(isLink ? getSpannedText(context, text) : text);
-      return view;
-    }
-
-    SpannableString spannableString = new SpannableString(text);
-    if (FeatureSupport.customBulletRadius()) {
-      spannableString.setSpan(
-          new BulletSpan(GAP_WIDTH, context.getColor(R.color.training_text_color), BULLET_RADIUS),
-          0,
-          spannableString.length(),
-          Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-    } else {
-      spannableString.setSpan(
-          new BulletSpan(GAP_WIDTH, context.getColor(R.color.training_text_color)),
-          0,
-          spannableString.length(),
-          Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-    }
-
-    textView.setText(spannableString);
+    textView.setText(spannableStringBuilder);
     return view;
   }
 
-  private String getText(Context context) {
-    if (textArgResIds == null || textArgResIds.length < 1) {
-      return getTextWithRealGesture(context);
+  private SpannableString getText(Context context, Paragraph paragraph, ServiceData data) {
+    String text;
+    if (paragraph.textArgResIds() == null || paragraph.textArgResIds().size() < 1) {
+      text = getTextWithRealGesture(context, paragraph, data);
+    } else {
+      // Returns a text with format arguments.
+      Object[] textArgs = new Object[paragraph.textArgResIds().size()];
+      for (int i = 0; i < paragraph.textArgResIds().size(); i++) {
+        textArgs[i] = Ascii.toLowerCase(context.getString(paragraph.textArgResIds().get(i)));
+      }
+      text = context.getString(paragraph.textResId(), textArgs);
     }
 
-    // Returns a text with format arguments.
-    Object[] textArgs = new Object[textArgResIds.length];
-    for (int i = 0; i < textArgResIds.length; i++) {
-      textArgs[i] = Ascii.toLowerCase(context.getString(textArgResIds[i]));
+    SpannableString spannableString = new SpannableString(text);
+    if (paragraph.link()) {
+      setURLSpan(context, spannableString, text);
     }
-    return context.getString(textResId, textArgs);
+
+    if (paragraph.bulletPoint()) {
+      setBulletSpan(context, spannableString, text);
+    }
+
+    return spannableString;
   }
 
   /**
    * Returns a text includes a gesture that is replaced with an actual gesture. If no gesture is
    * assigned, returns the default text.
    */
-  private String getTextWithRealGesture(Context context) {
-    if (actionKey == UNKNOWN_RESOURCE_ID || textWithActualGestureResId == UNKNOWN_RESOURCE_ID) {
-      return context.getString(textResId);
+  private String getTextWithRealGesture(Context context, Paragraph paragraph, ServiceData data) {
+    if (paragraph.actionKey() == UNKNOWN_RESOURCE_ID
+        || paragraph.textWithActualGestureResId() == UNKNOWN_RESOURCE_ID) {
+      return context.getString(paragraph.textResId());
     }
 
     // Finds actual gesture.
-    GestureShortcutMapping mapping = new GestureShortcutMapping(context);
-    List<String> gestures = mapping.getGestureTextsFromActionKeys(context.getString(actionKey));
-    return gestures.isEmpty()
-        ? context.getString(textResId)
-        : context.getString(textWithActualGestureResId, Ascii.toLowerCase(gestures.get(0)));
+    String gesture = data.getGestureFromActionKey(paragraph.actionKey());
+    return gesture == null
+        ? context.getString(paragraph.textResId())
+        : context.getString(paragraph.textWithActualGestureResId(), Ascii.toLowerCase(gesture));
   }
 
   /** Adds a @link ToastURLSpan}. */
-  private static CharSequence getSpannedText(Context context, String text) {
-    SpannableString textWithLinks = new SpannableString(text);
-    textWithLinks.setSpan(
+  private static SpannableString setURLSpan(
+      Context context, SpannableString spannableString, String text) {
+    spannableString.setSpan(
         new ToastURLSpan(context, context.getString(R.string.activated_view, text)),
         0,
         text.length(),
         Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-    return textWithLinks;
+    return spannableString;
+  }
+
+  private static SpannableString setBulletSpan(
+      Context context, SpannableString spannableString, String text) {
+    if (FeatureSupport.customBulletRadius()) {
+      spannableString.setSpan(
+          new BulletSpan(GAP_WIDTH, context.getColor(R.color.training_text_color), BULLET_RADIUS),
+          0,
+          1,
+          Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    } else {
+      spannableString.setSpan(
+          new BulletSpan(GAP_WIDTH, context.getColor(R.color.training_text_color)),
+          0,
+          1,
+          Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+    return spannableString;
   }
 
   /** Shows a Toast when the span is clicked. */
@@ -214,6 +168,67 @@ public class Text extends PageContentConfig {
     public void onClick(View view) {
       super.onClick(view);
       Toast.makeText(context, text, LENGTH_LONG).show();
+    }
+  }
+
+  /** The information of a paragraph in TextView, including style and data. */
+  @AutoValue
+  public abstract static class Paragraph {
+    @StringRes
+    public abstract int textResId();
+
+    public abstract ImmutableList<Integer> textArgResIds();
+
+    @StringRes
+    public abstract int textWithActualGestureResId();
+
+    @StringRes
+    public abstract int actionKey();
+
+    /** Return true, if the text has a bullet point. */
+    public abstract boolean bulletPoint();
+
+    /** Return true, if the text is a subtext whose size is smaller than others. */
+    public abstract boolean subText();
+
+    /** Return true, if the text needs a {@link ToastURLSpan}. */
+    public abstract boolean link();
+
+    public static Builder builder(@StringRes int textResId) {
+      return new AutoValue_Text_Paragraph.Builder()
+          .setTextResId(textResId)
+          .setTextArgResIds(ImmutableList.of())
+          .setTextWithActualGestureResId(UNKNOWN_RESOURCE_ID)
+          .setActionKey(UNKNOWN_RESOURCE_ID)
+          .setBulletPoint(false)
+          .setSubText(false)
+          .setLink(false);
+    }
+
+    /** Builder for a paragraph in TextView. */
+    @AutoValue.Builder
+    public abstract static class Builder {
+
+      public abstract Builder setTextResId(@StringRes int textResId);
+
+      public abstract Builder setTextArgResIds(ImmutableList<Integer> textArgResIds);
+
+      public abstract Builder setTextWithActualGestureResId(
+          @StringRes int textWithActualGestureResId);
+
+      public abstract Builder setActionKey(@StringRes int actionKey);
+
+      public abstract Builder setBulletPoint(boolean hasBulletPoint);
+
+      public abstract Builder setSubText(boolean isSubText);
+
+      public abstract Builder setLink(boolean isLink);
+
+      abstract Paragraph autoBuild();
+
+      public Paragraph build() {
+        return autoBuild();
+      }
     }
   }
 }

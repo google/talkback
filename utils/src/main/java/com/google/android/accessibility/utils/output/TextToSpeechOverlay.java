@@ -40,10 +40,11 @@ import com.google.android.libraries.accessibility.widgets.simple.SimpleOverlay;
 public class TextToSpeechOverlay extends SimpleOverlay {
 
   private static final String LOG_TAG = "TextToSpeechOverlay";
-
-  private static final int MSG_CLEAR_TEXT = 1;
-
-  private TextView mText;
+  private static final int DISPLAY_MS = 2000;
+  private static final int MSG_SET_TEXT = 1;
+  private static final int MSG_CLEAR_TEXT = 2;
+  private final OverlayHandler handler = new OverlayHandler(this);
+  private final TextView text;
 
   public TextToSpeechOverlay(Context context) {
     this(context, /* id= */ 0, /* sendsAccessibilityEvents= */ false);
@@ -66,43 +67,32 @@ public class TextToSpeechOverlay extends SimpleOverlay {
     int bottomMargin =
         context.getResources().getDimensionPixelSize(R.dimen.tts_overlay_text_bottom_margin);
 
-    mText = new TextView(context);
-    mText.setBackgroundColor(0xAA000000);
-    mText.setTextColor(Color.WHITE);
-    mText.setPadding(padding, padding, padding, padding);
-    mText.setGravity(Gravity.CENTER);
+    text = new TextView(context);
+    text.setBackgroundColor(0xAA000000);
+    text.setTextColor(Color.WHITE);
+    text.setPadding(padding, padding, padding, padding);
+    text.setGravity(Gravity.CENTER);
 
     FrameLayout layout = new FrameLayout(context);
     FrameLayout.LayoutParams layoutParams =
         new FrameLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     layoutParams.setMargins(0, 0, 0, bottomMargin);
-    layout.addView(mText, layoutParams);
+    layout.addView(text, layoutParams);
 
     setContentView(layout);
   }
 
   public void displayText(CharSequence text) {
     if (TextUtils.isEmpty(text)) {
-      hide();
+      handler.sendEmptyMessage(MSG_CLEAR_TEXT);
       return;
     }
-
-    try {
-      show();
-    } catch (BadTokenException e) {
-      LogUtils.e(LOG_TAG, e, "Caught WindowManager.BadTokenException while displaying text.");
-    }
-
-    final long displayTime = Math.max(2000, text.length() * 100);
-
-    // TODO: (b/193547663) Move removeMessages to before show() block
-    mHandler.removeMessages(MSG_CLEAR_TEXT);
-    mText.setText(text.toString().trim());
-    mHandler.sendEmptyMessageDelayed(MSG_CLEAR_TEXT, displayTime);
+    final long displayTimeMs = Math.max(DISPLAY_MS, text.length() * 100);
+    handler.removeMessages(MSG_CLEAR_TEXT);
+    handler.sendMessage(Message.obtain(handler, MSG_SET_TEXT, text.toString().trim()));
+    handler.sendEmptyMessageDelayed(MSG_CLEAR_TEXT, displayTimeMs);
   }
-
-  private final OverlayHandler mHandler = new OverlayHandler(this);
 
   private static class OverlayHandler extends WeakReferenceHandler<TextToSpeechOverlay> {
     public OverlayHandler(TextToSpeechOverlay parent) {
@@ -112,8 +102,16 @@ public class TextToSpeechOverlay extends SimpleOverlay {
     @Override
     protected void handleMessage(Message msg, TextToSpeechOverlay parent) {
       switch (msg.what) {
+        case MSG_SET_TEXT:
+          try {
+            parent.show();
+          } catch (BadTokenException e) {
+            LogUtils.e(LOG_TAG, e, "Caught WindowManager.BadTokenException while displaying text.");
+          }
+          parent.text.setText((CharSequence) msg.obj);
+          break;
         case MSG_CLEAR_TEXT:
-          parent.mText.setText("");
+          parent.text.setText("");
           parent.hide();
           break;
         default: // fall out

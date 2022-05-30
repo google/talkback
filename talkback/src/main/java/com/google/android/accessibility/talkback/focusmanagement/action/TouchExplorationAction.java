@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.action;
 
+import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -46,12 +46,6 @@ public class TouchExplorationAction {
       @ActionType int type, @Nullable AccessibilityNodeInfoCompat touchedFocusableNode) {
     this.type = type;
     this.touchedFocusableNode = touchedFocusableNode;
-  }
-
-  public void recycle() {
-    if (touchedFocusableNode != null) {
-      touchedFocusableNode.recycle();
-    }
   }
 
   @Override

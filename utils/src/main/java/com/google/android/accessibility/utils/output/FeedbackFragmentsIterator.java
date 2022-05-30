@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.utils.output;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.text.TextUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.common.collect.Iterators;

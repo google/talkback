@@ -36,13 +36,13 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Build;
 import android.os.Message;
 import android.os.SystemClock;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.SpannableStringBuilder;
 import android.util.SparseLongArray;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 import android.widget.AdapterView;
 import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
@@ -117,12 +117,12 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
         @Override
         public void onReceive(Context context, Intent intent) {
           if (treeDebugEnabled) {
-            TreeDebug.logNodeTrees(AccessibilityServiceCompatUtils.getWindows(service));
+            logNodeTreesOnAllDisplays();
           }
         }
       };
 
-  private @RemoteMode int mode = MODE_NAVIGATE;
+  @RemoteMode private int mode = MODE_NAVIGATE;
   private TelevisionKeyHandler handler = new TelevisionKeyHandler(this);
   private final String treeDebugPrefKey;
   private boolean treeDebugEnabled = false;
@@ -172,19 +172,15 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
     AccessibilityNodeInfoCompat cursor =
         accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
 
-    try {
-      if (shouldHandleEvent(cursor, event)) {
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {
-          onKeyDown(event.getKeyCode());
-        } else {
-          onKeyUp(cursor, event, eventId);
-        }
-        return true;
+    if (shouldHandleEvent(cursor, event)) {
+      if (event.getAction() == KeyEvent.ACTION_DOWN) {
+        onKeyDown(event.getKeyCode());
+      } else {
+        onKeyUp(cursor, event, eventId);
       }
-      return false;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(cursor);
+      return true;
     }
+    return false;
   }
 
   private void onKeyUp(AccessibilityNodeInfoCompat cursor, KeyEvent event, EventId eventId) {
@@ -226,7 +222,7 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
         onCenterKey(cursor, eventId);
         break;
       case KeyEvent.KEYCODE_SEARCH:
-        TreeDebug.logNodeTrees(AccessibilityServiceCompatUtils.getWindows(service));
+        logNodeTreesOnAllDisplays();
         break;
       default: // fall out
     }
@@ -332,6 +328,14 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
     }
   }
 
+  private void logNodeTreesOnAllDisplays() {
+    AccessibilityServiceCompatUtils.forEachWindowInfoListOnAllDisplays(
+        service,
+        windowInfoList -> {
+          TreeDebug.logNodeTrees(windowInfoList);
+        });
+  }
+
   @Override
   public boolean processWhenServiceSuspended() {
     return false;
@@ -410,24 +414,18 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
           return true;
         } else {
           // See if the current node (BUT only consider A11y focused node) is not null.
-          AccessibilityNodeInfoCompat currentFocus = null;
-          AccessibilityNodeInfoCompat nodeToClick = null;
-          try {
-            currentFocus =
-                accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
-            if (currentFocus == null) {
-              return false;
-            }
-            if (shouldProcessDPadCenterKeyEventOnInputFocusNodeWhenInsync) {
-              nodeToClick =
-                  AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
-                      currentFocus, AccessibilityNodeInfoUtils.FILTER_CLICKABLE);
-              return nodeToClick != null;
-            } else {
-              return true;
-            }
-          } finally {
-            AccessibilityNodeInfoUtils.recycleNodes(currentFocus, nodeToClick);
+          AccessibilityNodeInfoCompat currentFocus =
+              accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
+          if (currentFocus == null) {
+            return false;
+          }
+          if (shouldProcessDPadCenterKeyEventOnInputFocusNodeWhenInsync) {
+            AccessibilityNodeInfoCompat nodeToClick =
+                AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
+                    currentFocus, AccessibilityNodeInfoUtils.FILTER_CLICKABLE);
+            return nodeToClick != null;
+          } else {
+            return true;
           }
         }
       case MODE_SEEK_CONTROL:
@@ -478,9 +476,9 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
         SpeechController.SpeakOptions.create()
             .setQueueMode(SpeechController.QUEUE_MODE_INTERRUPT)
             .setFlags(
-                FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+                FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
     pipeline.returnFeedback(eventId, Feedback.speech(ttsText, speakOptions));
 
     mode = newMode;
@@ -517,8 +515,6 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
           break;
         default: // fall out
       }
-
-      AccessibilityNodeInfoUtils.recycleNodes(cursor);
     }
 
     public void postDirectionalKeyEvent(

@@ -20,7 +20,7 @@
     android:layout_height="wrap_content"
     android:textDirection="locale"
     android:scrollbarStyle="outsideOverlay"
-    android:theme="@style/AlertDialogCustomViewTheme"
+    android:theme="@style/A11yAlertDialogCustomViewTheme"
     android:gravity="top">
 
     <LinearLayout
@@ -40,7 +40,7 @@
             android:paddingBottom="8dp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:textAppearance="@style/AlertDialogContentTextStyle"/>
+            android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
 
         <TextView
             android:id="@+id/dialog_second_content"
@@ -51,7 +51,7 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:visibility="gone"
-            android:textAppearance="@style/AlertDialogContentTextStyle"/>
+            android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
 
         <TextView
             android:id="@+id/dialog_third_content"
@@ -62,7 +62,7 @@
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:visibility="gone"
-            android:textAppearance="@style/AlertDialogContentTextStyle"/>
+            android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
 
         <CheckBox
             android:id="@+id/show_message_checkbox"
@@ -71,7 +71,7 @@
             android:theme="@style/CheckBoxTheme"
             android:minHeight="48dp"
             android:checked="true"
-            android:textAppearance="@style/AlertDialogContentTextStyle"
+            android:textAppearance="@style/A11yAlertDialogContentTextStyle"
             android:text="@string/always_show_this_message_label" />
     </LinearLayout>
 

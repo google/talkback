@@ -28,9 +28,9 @@ import static com.google.android.accessibility.utils.input.CursorGranularity.WEB
 import static com.google.android.accessibility.utils.input.CursorGranularity.WINDOWS;
 
 import android.content.Context;
+import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.annotation.IntDef;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Filter;

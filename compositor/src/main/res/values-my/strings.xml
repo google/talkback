@@ -59,10 +59,6 @@
   <string name="value_pager_page">စာမျက်နှာ</string>
   <string name="value_progress_bar">တိုးတက်မှုပြ ဘားတန်း</string>
   <string name="value_webview">ဝက်ဘ်မြင်ကွင်း</string>
-  <string name="value_toolbar">ကိရိယာဘား</string>
-  <string name="template_summary_description">%1$s- %2$s</string>
-  <string name="template_password_selected">စကားလုံး %1$d ကနေ %2$d</string>
-  <string name="template_password_traversed">စာလုံး %1$d</string>
   <string name="value_password">စကားဝှက်</string>
   <string name="value_sliding_drawer_opened">ဆွဲယူအံဆွဲ ဖွင့်ထား</string>
   <string name="value_options_menu_open">ရွေးစရာများ။</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">ထောင်လိုက်ပေဂျာရဲ့ အပြင်မှာ ရှိနေပါတယ်</string>
   <string name="in_horizontal_pager_with_name">အလျားလိုက်ပေဂျာ %1$s ထဲမှာ ရှိနေပါတယ်</string>
   <string name="in_horizontal_pager">အလျားလိုက်ပေဂျာထဲမှာ ရှိနေပါတယ်</string>
-  <string name="out_of_horizontal_pager_with_name">အလျားလိုက်ပေဂျာ %1$s ရဲ့ အပြင်မှာ ရှိနေပါတယ်</string>
   <string name="out_of_horizontal_pager">အလျားလိုက်ပေဂျာရဲ့ အပြင်မှာ ရှိနေပါတယ်</string>
   <string name="in_grid_pager_with_name">ဇယားကွက် ပေဂျာ %1$s ထဲမှာ ရှိနေပါတယ်</string>
   <string name="in_grid_pager">ဇယားကွက် ပေဂျာထဲမှာ ရှိနေပါတယ်</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">%1$d%% ချဲ့ထားပါသည်</string>
   <string name="screen_magnification_off">ပုံကြီးချဲ့ခြင်းကို ပိတ်ထားပါသည်</string>
   <string name="template_speech_rate_change">စကားပြောနှုန်း %1$d%%</string>
-  <string name="template_speech_rate_change_faster">ပိုမြန်</string>
-  <string name="template_speech_rate_change_slower">ပိုနှေး</string>
-  <string name="template_speech_rate_change_fastest">အမြန်ဆုံး</string>
-  <string name="template_speech_rate_change_slowest">အနှေးဆုံး</string>
   <string name="template_volume_change_increase">အသံချဲ့လိုက်သည်</string>
   <string name="template_volume_change_decrease">အသံတိုးလိုက်သည်</string>
   <string name="template_volume_change_maximum">အကျယ်ဆုံး</string>
   <string name="template_volume_change_minimum">အတိုးဆုံး</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">နောက်ခံသံလျှော့ချခြင်းအား ဖွင့်ထားပါသည်</string>
-  <string name="audio_focus_off">နောက်ခံသံလျှော့ချခြင်းအား ပိတ်ထားပါသည်</string>
-  <string name="selector_speech_rate_output">စကားပြောနှုန်း</string>
-  <string name="selector_verbosity_output">အကျယ်ချဲ့ရှင်းပြရန်</string>
-  <string name="selector_granularity_output">လမ်းညွှန်ချက်</string>
-  <string name="selector_audio_focus_output">နောက်ခံသံလျှော့ချခြင်း</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">နားကြပ်သုံးချိန်မှသာ စကားဝှက်များကို အသံထွက်ဖတ်ပေးရန်</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s ရနိုင်သည်၊ ကြည့်ရန် %2$s ကို အသုံးပြုပါ။</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s ရနိုင်သည်။</string>
+  <string name="hint_suggestion">စာလုံးပေါင်း အကြံပြုချက်များ ရှိသည်။</string>
+  <string name="in_window_with_name">%1$s ဝင်းဒိုး</string>
+  <string name="detected_icon_description">%1$s၊ တွေ့ရှိသောသင်္ကေတ</string>
+  <string name="ocr_text_description">%1$s၊ စာသား</string>
 </resources>

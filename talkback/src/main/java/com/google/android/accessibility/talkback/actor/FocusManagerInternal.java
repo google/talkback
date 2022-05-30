@@ -24,10 +24,10 @@ import static com.google.android.accessibility.utils.traversal.TraversalStrategy
 
 import android.accessibilityservice.AccessibilityService;
 import android.os.SystemClock;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorStateWritable;
 import com.google.android.accessibility.talkback.CursorGranularityManager;
 import com.google.android.accessibility.talkback.Feedback;
@@ -119,8 +119,6 @@ class FocusManagerInternal {
    * <p>This method attempts to focus the node only when the node is not accessibility focus or when
    * {@code forceRefocusIfAlreadyFocused} is {@code true}.
    *
-   * <p><strong>Note: </strong> Caller is responsible to recycle {@code node}.
-   *
    * @param node Node to be focused.
    * @param forceRefocusIfAlreadyFocused Whether we should perform ACTION_ACCESSIBILITY_FOCUS if the
    *     node is already accessibility focused.
@@ -172,31 +170,27 @@ class FocusManagerInternal {
     long currentTime = SystemClock.uptimeMillis();
     AccessibilityNodeInfoCompat newFocus = null;
 
-    try {
-      newFocus = focusFinder.findFocusCompat(FOCUS_ACCESSIBILITY);
+    newFocus = focusFinder.findFocusCompat(FOCUS_ACCESSIBILITY);
 
-      LogUtils.d(
-          TAG,
-          "Navigate in web:result=%s\nNode:%s\nFocusActionInfo:%s",
-          newFocus,
-          pivot,
-          focusActionInfo);
+    LogUtils.d(
+        TAG,
+        "Navigate in web:result=%s\nNode:%s\nFocusActionInfo:%s",
+        newFocus,
+        pivot,
+        focusActionInfo);
 
-      FocusActionInfo updatedFocusActionInfo =
-          updateFocusActionInfoIfNecessary(focusActionInfo, newFocus);
+    FocusActionInfo updatedFocusActionInfo =
+        updateFocusActionInfoIfNecessary(focusActionInfo, newFocus);
 
-      if (newFocus == null || pivot.equals(newFocus)) {
-        // The focus should have been changed, otherwise we have to wait for the next
-        // TYPE_VIEW_ACCESSIBILITY_FOCUSED event to get the correct focused node.
-        // Usually this logic will not be invoked. A known case for this is navigating in Firefox.
-        history.onPendingAccessibilityFocusActionOnWebElement(
-            updatedFocusActionInfo, currentTime, screenState.getStableScreenState());
-      } else {
-        history.onAccessibilityFocusAction(
-            newFocus, updatedFocusActionInfo, currentTime, screenState.getStableScreenState());
-      }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(newFocus);
+    if (newFocus == null || pivot.equals(newFocus)) {
+      // The focus should have been changed, otherwise we have to wait for the next
+      // TYPE_VIEW_ACCESSIBILITY_FOCUSED event to get the correct focused node.
+      // Usually this logic will not be invoked. A known case for this is navigating in Firefox.
+      history.onPendingAccessibilityFocusActionOnWebElement(
+          updatedFocusActionInfo, currentTime, screenState.getStableScreenState());
+    } else {
+      history.onAccessibilityFocusAction(
+          newFocus, updatedFocusActionInfo, currentTime, screenState.getStableScreenState());
     }
   }
 
@@ -227,21 +221,18 @@ class FocusManagerInternal {
 
     // Try to generate the focus on the same window with the last focused node. It avoids the focus
     // jumping to another window after a node tree changed. (Especially on IME windows.)
-    @Nullable AccessibilityNodeInfoCompat nodeToFocus = null;
-    try {
-      nodeToFocus = findFocusableNodeFromFocusRecord(history.getLastFocusActionRecord());
-      if (nodeToFocus != null) {
-        FocusActionInfo focusActionInfo =
-            FocusActionInfo.builder().setSourceAction(FocusActionInfo.SCREEN_STATE_CHANGE).build();
-        return pipeline.returnFeedback(
-            eventId,
-            Focus.builder()
-                .setAction(Focus.Action.FOCUS)
-                .setFocusActionInfo(focusActionInfo)
-                .setTarget(nodeToFocus));
-      }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(nodeToFocus);
+    @Nullable
+    AccessibilityNodeInfoCompat nodeToFocus =
+        findFocusableNodeFromFocusRecord(history.getLastFocusActionRecord());
+    if (nodeToFocus != null) {
+      FocusActionInfo focusActionInfo =
+          FocusActionInfo.builder().setSourceAction(FocusActionInfo.SCREEN_STATE_CHANGE).build();
+      return pipeline.returnFeedback(
+          eventId,
+          Focus.builder()
+              .setAction(Focus.Action.FOCUS)
+              .setFocusActionInfo(focusActionInfo)
+              .setTarget(nodeToFocus));
     }
 
     ArrayList<Feedback.Part> feedbackFailovers = new ArrayList<>();
@@ -278,27 +269,24 @@ class FocusManagerInternal {
     }
 
     AccessibilityNodeInfoCompat lastFocus = record.getFocusedNode();
-    AccessibilityNodeInfoCompat root = null;
-    OrderedTraversalStrategy strategy = null;
-    AccessibilityNodeInfoCompat nodeToFocus;
 
-    try {
-      if (lastFocus == null) {
+    if (lastFocus == null) {
         return null;
       }
 
-      root = AccessibilityNodeInfoUtils.getRoot(lastFocus);
+    AccessibilityNodeInfoCompat root = AccessibilityNodeInfoUtils.getRoot(lastFocus);
       if (root == null || !root.refresh()) {
         return null;
       }
 
-      // Try to restore focus by the focus record.
-      nodeToFocus = FocusActionRecord.getFocusableNodeFromFocusRecord(root, record);
+    // Try to restore focus by the focus record.
+    AccessibilityNodeInfoCompat nodeToFocus =
+        FocusActionRecord.getFocusableNodeFromFocusRecord(root, focusFinder, record);
 
       // If couldn't restore the focus from the record directly, then try to find focus node
       // on the same root.
       if (nodeToFocus == null) {
-        strategy = new OrderedTraversalStrategy(root);
+      OrderedTraversalStrategy strategy = new OrderedTraversalStrategy(root);
         Filter.NodeCompat nodeFilter =
             new Filter.NodeCompat((node) -> AccessibilityNodeInfoUtils.shouldFocusNode(node));
         nodeToFocus =
@@ -306,11 +294,7 @@ class FocusManagerInternal {
                 strategy, root, SEARCH_FOCUS_FORWARD, nodeFilter);
       }
 
-      return nodeToFocus;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(lastFocus, root);
-      TraversalStrategyUtils.recycle(strategy);
-    }
+    return nodeToFocus;
   }
 
   /**
@@ -332,8 +316,6 @@ class FocusManagerInternal {
    * AccessibilityNodeInfoCompat#isAccessibilityFocused()}. This is in case that if we want to
    * bypass framework's touch exploration and maintain our own accessibility focus, we can easily
    * override this method.
-   *
-   * <p><strong>Note:</strong> Caller is responsible to recycle the node.
    */
   private boolean isAccessibilityFocused(AccessibilityNodeInfoCompat node) {
     return node != null && node.isAccessibilityFocused();
@@ -421,8 +403,6 @@ class FocusManagerInternal {
   /**
    * Clears accessibility focus on the given node.
    *
-   * <p><strong>Note: </strong> Caller is responsible to recycle the node.
-   *
    * @return {@code true} if successfully perform {@link
    *     AccessibilityNodeInfo#ACTION_CLEAR_ACCESSIBILITY_FOCUS} on the given node.
    */
@@ -434,14 +414,11 @@ class FocusManagerInternal {
 
   void clearAccessibilityFocus(EventId eventId) {
     AccessibilityNodeInfoCompat currentFocus = null;
-    try {
-      currentFocus =
-          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
-      if (currentFocus != null) {
-        clearAccessibilityFocus(currentFocus, eventId);
-      }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentFocus);
+
+    currentFocus =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
+    if (currentFocus != null) {
+      clearAccessibilityFocus(currentFocus, eventId);
     }
   }
 }

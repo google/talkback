@@ -18,9 +18,9 @@ package com.google.android.accessibility.talkback.contextmenu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
 import android.view.SubMenu;
 import android.view.View;
+import androidx.annotation.NonNull;
 
 /** Class that provides sub menu function */
 public class ListSubMenu extends ContextMenu implements SubMenu {

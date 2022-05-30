@@ -16,8 +16,8 @@
 
 package com.google.android.accessibility.compositor;
 
-import androidx.annotation.Nullable;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.Nullable;
 
 /**
  * Interprets {@link AccessibilityEvent#TYPE_VIEW_ACCESSIBILITY_FOCUSED} events. attaches source

@@ -24,6 +24,7 @@ import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
+import com.google.android.accessibility.utils.input.TextEventInterpreter;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**
@@ -50,9 +51,12 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
   private final EventQueue eventQueue = new EventQueue();
 
   private EventFilter eventFilter;
+  private TextEventInterpreter textEventInterpreter;
 
-  public ProcessorEventQueue(EventFilter eventFilter) {
+  public ProcessorEventQueue(EventFilter eventFilter, TextEventInterpreter textEventInterpreter) {
     this.eventFilter = eventFilter;
+    this.textEventInterpreter = textEventInterpreter;
+    textEventInterpreter.addListener(eventFilter::accept);
   }
 
   @Override
@@ -75,20 +79,18 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
 
   /**
    * Processes an <code>event</code> by asking the {@link Compositor} to match it against its rules
-   * and in case an utterance is generated it is spoken. This method is responsible for recycling of
-   * the processed event.
+   * and in case an utterance is generated it is spoken.
    *
    * @param event The event to process.
    */
-  private void processAndRecycleEvent(AccessibilityEvent event, EventId eventId) {
+  private void processEvent(AccessibilityEvent event, EventId eventId) {
     if (event == null) {
       return;
     }
     LogUtils.d(TAG, "Processing event: %s", event);
 
     eventFilter.sendEvent(event, eventId);
-
-    event.recycle();
+    textEventInterpreter.interpret(event, eventId);
   }
 
   private static final int WHAT_SPEAK = 1;
@@ -127,7 +129,7 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
         // the EventQueue to hold event ids.
         EventId eventId = Performance.getInstance().toEventId(event);
 
-        parent.processAndRecycleEvent(event, eventId);
+        parent.processEvent(event, eventId);
       }
     }
 

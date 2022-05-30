@@ -18,13 +18,12 @@ package com.google.android.accessibility.talkback.imagecaption;
 
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.Nullable;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.imagecaption.RequestList.Request;
 import com.google.android.accessibility.utils.AccessibilityNode;
-import com.google.android.accessibility.utils.BuildConfig;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
@@ -36,9 +35,6 @@ import com.google.android.libraries.accessibility.utils.log.LogUtils;
  * CaptionRequest#onCaptionFinish(CharSequence)} (String) or {@link CaptionRequest#onError(int)} to
  * notify the request is completed. Otherwise, The request will be cancelled if it isn't finished
  * within {@link CaptionRequest#CAPTION_TIMEOUT_MS}.
- *
- * <p><strong>Note:</strong> Caller is responsible for recycling the request via {@link
- * CaptionRequest#recycle()}.
  */
 public abstract class CaptionRequest implements Request {
 
@@ -47,18 +43,18 @@ public abstract class CaptionRequest implements Request {
     /**
      * Called when the image caption is finished.
      *
-     * <p><strong>Note:</strong> This method is responsible for recycling the node-argument.
-     *
      * @param node caption is finished for this node.
      * @param result ocr result
+     * @param isUserRequested return true if the user asks the request
      */
-    void onCaptionFinish(AccessibilityNode node, @Nullable CharSequence result);
+    void onCaptionFinish(
+        AccessibilityNode node, @Nullable CharSequence result, boolean isUserRequested);
   }
 
   /** A listener to be invoked when the image caption is failed. */
   public interface OnErrorListener {
     /** Called when the image caption ends in failure. */
-    void onError(@ErrorCode int errorCode);
+    void onError(AccessibilityNode node, @ErrorCode int errorCode, boolean isUserRequested);
   }
 
   /** The reasons of image captions. */
@@ -74,51 +70,40 @@ public abstract class CaptionRequest implements Request {
 
   private static final String TAG = "CaptionRequest";
 
-  /** Copied node which must be recycled via {@link CaptionRequest#recycle()}. */
   @NonNull protected final AccessibilityNodeInfoCompat node;
 
   @NonNull private final OnFinishListener onFinishListener;
   @NonNull private final OnErrorListener onErrorListener;
   private final Handler handler;
   private final Runnable timeoutRunnable;
-  /** Whether the captioned node has been recycled. */
-  private boolean isRecycled = false;
+
+  private final boolean isUserRequested;
 
   protected CaptionRequest(
       @NonNull AccessibilityNodeInfoCompat node,
       @NonNull OnFinishListener onFinishListener,
-      @NonNull OnErrorListener onErrorListener) {
+      @NonNull OnErrorListener onErrorListener,
+      boolean isUserRequested) {
     this.node = AccessibilityNodeInfoCompat.obtain(node);
     this.onFinishListener = onFinishListener;
     this.onErrorListener = onErrorListener;
+    this.isUserRequested = isUserRequested;
     handler = new Handler(Looper.myLooper());
     timeoutRunnable =
         () -> {
           LogUtils.e(TAG, "CaptionRequest timeout is reached. " + this);
-          onErrorListener.onError(ERROR_TIMEOUT);
+          onErrorListener.onError(
+              AccessibilityNode.obtainCopy(node), ERROR_TIMEOUT, isUserRequested);
         };
-  }
-
-  @Override
-  public void recycle() {
-    // Prevents double-recycling.
-    if (isRecycled) {
-      if (BuildConfig.DEBUG) {
-        throw new IllegalStateException(
-            String.format("The node has already been recycled. node= %s", node));
-      } else {
-        LogUtils.e(TAG, "The node has already been recycled. node= %s", node);
-        return;
-      }
-    }
-
-    isRecycled = true;
-    node.recycle();
   }
 
   /** Performs the image caption. */
   @Override
   public abstract void perform();
+
+  public boolean isUserRequested() {
+    return isUserRequested;
+  }
 
   protected void runTimeoutRunnable() {
     handler.postDelayed(timeoutRunnable, CAPTION_TIMEOUT_MS);
@@ -155,12 +140,12 @@ public abstract class CaptionRequest implements Request {
             + StringBuilderUtils.joinFields(
                 StringBuilderUtils.optionalSubObj("node", node),
                 StringBuilderUtils.optionalText("ocrText", result)));
-    onFinishListener.onCaptionFinish(AccessibilityNode.obtainCopy(node), result);
+    onFinishListener.onCaptionFinish(AccessibilityNode.obtainCopy(node), result, isUserRequested);
   }
 
   protected void onError(@ErrorCode int errorCode) {
     stopTimeoutRunnable();
     LogUtils.e(TAG, "onError() error= %s", errorName(errorCode));
-    onErrorListener.onError(errorCode);
+    onErrorListener.onError(AccessibilityNode.obtainCopy(node), errorCode, isUserRequested);
   }
 }

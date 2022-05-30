@@ -29,9 +29,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 /**
  * Calculates the utility bounds of the node. If node is not supposed to get accessibility focus the
  * utility bounds is calculated on the base of minimum rect that contains all accessibility
- * focusable nodes inside node hierarchy rooted by this node. WARNING: Calculator does not obtain or
- * recycle nodes for performance reason. If any of the nodes that was calculated is recycled the
- * calculator could get wrong results
+ * focusable nodes inside node hierarchy rooted by this node.
  */
 public class NodeCachedBoundsCalculator {
 
@@ -119,7 +117,6 @@ public class NodeCachedBoundsCalculator {
           }
         }
       } finally {
-        AccessibilityNodeInfoUtils.recycleNodes(child);
       }
     }
 

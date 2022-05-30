@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">համառոտ բնութագիր</string>
   <string name="voice_commands_read">ընթերցել</string>
   <string name="voice_commands_read_from_next">Ընթերցել հաջորդը</string>
   <string name="voice_commands_edit_options">Խմբագրման ընտրանքներ</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Գտնել</string>
   <string name="voice_commands_search">Որոնել</string>
   <string name="voice_commands_search_for">Որոնել</string>
-  <string name="voice_commands_find_again">Էլի գտնել</string>
   <string name="voice_commands_next_heading">Հաջորդ վերնագիրը</string>
   <string name="voice_commands_next_control">Հաջորդ կառավարման տարրը</string>
   <string name="voice_commands_next_link">Հաջորդ հղումը</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Չհաջողվեց կցել պիտակը</string>
   <string name="voice_commands_assistant">Օգնական</string>
   <string name="voice_commands_setting_speech_rate">Կարգավորել խոսքի արագությունը</string>
-  <string name="voice_commands_setting_verbosity">Կարգավորել խոսքի մանրամասնումը</string>
-  <string name="voice_commands_setting_granularity">Կարգավորել մանրամասնության մակարդակը</string>
-  <string name="voice_commands_setting_navigation">Կարգավորել նավիգացիան</string>
   <string name="voice_commands_first">Առաջին տարր</string>
   <string name="voice_commands_top">Կենտրոնից վերև</string>
   <string name="voice_commands_last">Վերջին տարր</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Հաջորդ հղում չկա</string>
   <string name="voice_commands_no_next_control_feedback">Հաջորդ կառավարման տարր չկա</string>
   <string name="voice_commands_no_next_landmark_feedback">Հաջորդ ուղենիշ չկա</string>
-  <string name="voice_commands_screen_hidden_feedback">Էկրանը թաքցված է</string>
-  <string name="voice_commands_showing_screen_feedback">Էկրանը ցուցադրվում է</string>
   <string name="voice_commands_help_title">Ձայնային հրահանգների համայնապատկեր</string>
   <string name="voice_commands_help_description">Ձայնային հրահանգներ օգտագործելու համար մատը սահեցրեք աջ, ապա վերև։ Այս հրահանգների ցանկը տեսնելու համար ցանկացած պահի ասեք «help» (օգնություն) կամ «what can I say?» (ի՞նչ կարող եմ ասել)։</string>
   <string name="voice_commands_help_hint">Որպեսզի հրահանգներն աշխատեն, արտասանեք դրանք այնպես, ինչպես նշված են հաջորդ էկրաններում։</string>

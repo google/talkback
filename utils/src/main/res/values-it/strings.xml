@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">Caratteri da %1$d a %2$d</string>
+  <string name="template_password_traversed">Carattere %1$d</string>
   <string name="untitled_window">senza titolo</string>
-  <string name="template_alert_dialog_template">Avviso %1$s</string>
   <string name="template_text_copied">copiato, %1$s</string>
   <string name="template_capital_letter">%1$s maiuscola</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">Parole</string>
   <string name="granularity_line">Righe</string>
   <string name="granularity_paragraph">Paragrafi</string>
-  <string name="granularity_page">Pagine</string>
   <string name="granularity_window">Finestre</string>
   <string name="granularity_web_landmark">Punti di riferimento</string>
   <string name="granularity_web_heading">Intestazioni</string>

@@ -17,13 +17,13 @@
 package com.google.android.accessibility.utils;
 
 import android.os.Build;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat;
 import android.util.SparseArray;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.HashSet;
@@ -79,11 +79,11 @@ public class CollectionState {
   static final String EVENT_COLUMN = "AccessibilityNodeInfo.CollectionItemInfo.columnIndex";
   static final String EVENT_HEADING = "AccessibilityNodeInfo.CollectionItemInfo.heading";
 
-  private @CollectionTransition int mCollectionTransition = NAVIGATE_NONE;
-  private @RowColumnTransition int mRowColumnTransition = TYPE_NONE;
-  @Nullable private AccessibilityNodeInfoCompat mCollectionRoot;
-  @Nullable private AccessibilityNodeInfoCompat mLastAnnouncedNode;
-  @Nullable private ItemState mItemState;
+  @CollectionTransition private int mCollectionTransition = NAVIGATE_NONE;
+  @RowColumnTransition private int mRowColumnTransition = TYPE_NONE;
+  private @Nullable AccessibilityNodeInfoCompat mCollectionRoot;
+  private @Nullable AccessibilityNodeInfoCompat mLastAnnouncedNode;
+  private @Nullable ItemState mItemState;
   private SparseArray<CharSequence> mRowHeaders = new SparseArray<>();
   private SparseArray<CharSequence> mColumnHeaders = new SparseArray<>();
   private int mCollectionLevel = -1;
@@ -136,7 +136,8 @@ public class CollectionState {
      *     {@code from} state and the current state are of incompatible types, should return {@code
      *     TYPE_ROW | TYPE_COLUMN}.
      */
-    public @RowColumnTransition int getTransition(@NonNull ItemState from);
+    @RowColumnTransition
+    public int getTransition(@NonNull ItemState from);
   }
 
   public static class ListItemState implements ItemState {
@@ -154,7 +155,8 @@ public class CollectionState {
     }
 
     @Override
-    public @RowColumnTransition int getTransition(@NonNull ItemState from) {
+    @RowColumnTransition
+    public int getTransition(@NonNull ItemState from) {
       if (!(from instanceof ListItemState)) {
         return TYPE_ROW | TYPE_COLUMN;
       }
@@ -233,11 +235,11 @@ public class CollectionState {
 
   public static class TableItemState implements ItemState {
     /** Indicates whether the table cell is a row, column, or indeterminate heading. */
-    private final @TableHeadingType int mHeading;
+    @TableHeadingType private final int mHeading;
     /** The row name, or {@code null} if the row is unnamed. */
-    @Nullable private final CharSequence mRowName;
+    private final @Nullable CharSequence mRowName;
     /** The column name, or {@code null} if the column is unnamed. */
-    @Nullable private final CharSequence mColumnName;
+    private final @Nullable CharSequence mColumnName;
     /** The row index. */
     private final int mRowIndex;
     /** The column index. */
@@ -261,7 +263,8 @@ public class CollectionState {
     }
 
     @Override
-    public @RowColumnTransition int getTransition(@NonNull ItemState other) {
+    @RowColumnTransition
+    public int getTransition(@NonNull ItemState other) {
       if (!(other instanceof TableItemState)) {
         return TYPE_ROW | TYPE_COLUMN;
       }
@@ -278,7 +281,8 @@ public class CollectionState {
       return transition;
     }
 
-    public @TableHeadingType int getHeadingType() {
+    @TableHeadingType
+    public int getHeadingType() {
       return mHeading;
     }
 
@@ -309,11 +313,13 @@ public class CollectionState {
 
   public CollectionState() {}
 
-  public @CollectionTransition int getCollectionTransition() {
+  @CollectionTransition
+  public int getCollectionTransition() {
     return mCollectionTransition;
   }
 
-  public @RowColumnTransition int getRowColumnTransition() {
+  @RowColumnTransition
+  public int getRowColumnTransition() {
     return mRowColumnTransition;
   }
 
@@ -326,7 +332,8 @@ public class CollectionState {
    *     com.google.android.accessibility.utils.Role#ROLE_GRID} if there is a collection, or {@link
    *     com.google.android.accessibility.utils.Role#ROLE_NONE} if there isn't one.
    */
-  public @Role.RoleName int getCollectionRole() {
+  @Role.RoleName
+  public int getCollectionRole() {
     return Role.getRole(mCollectionRoot);
   }
 
@@ -354,7 +361,8 @@ public class CollectionState {
     return mCollectionRoot.getCollectionInfo().getColumnCount();
   }
 
-  public @CollectionAlignment int getCollectionAlignment() {
+  @CollectionAlignment
+  public int getCollectionAlignment() {
     if (mCollectionRoot == null || !mShouldComputeNumbering) {
       return ALIGNMENT_VERTICAL;
     } else {
@@ -362,8 +370,8 @@ public class CollectionState {
     }
   }
 
-  public static @CollectionAlignment int getCollectionAlignmentInternal(
-      @Nullable CollectionInfoCompat collection) {
+  @CollectionAlignment
+  public static int getCollectionAlignmentInternal(@Nullable CollectionInfoCompat collection) {
     if (collection == null || collection.getRowCount() >= collection.getColumnCount()) {
       return ALIGNMENT_VERTICAL;
     } else {
@@ -385,8 +393,7 @@ public class CollectionState {
    * not {@link #TYPE_NONE} and {@link #getCollectionRole()} is {@link
    * com.google.android.accessibility.utils.Role#ROLE_LIST}.
    */
-  @Nullable
-  public ListItemState getListItemState() {
+  public @Nullable ListItemState getListItemState() {
     if (mItemState != null && mItemState instanceof ListItemState) {
       return (ListItemState) mItemState;
     }
@@ -394,8 +401,7 @@ public class CollectionState {
     return null;
   }
 
-  @Nullable
-  private static ListItemState getListItemState(
+  private static @Nullable ListItemState getListItemState(
       AccessibilityNodeInfoCompat collectionRoot,
       AccessibilityNodeInfoCompat announcedNode,
       boolean computeNumbering) {
@@ -425,7 +431,6 @@ public class CollectionState {
       index = getColumnIndex(item, collection);
     }
 
-    collectionItem.recycle();
     return new ListItemState(heading, index, computeNumbering);
   }
 
@@ -434,8 +439,7 @@ public class CollectionState {
    * #TYPE_NONE} and {@link #getCollectionRole()} is {@link
    * com.google.android.accessibility.utils.Role#ROLE_PAGER}.
    */
-  @Nullable
-  public PagerItemState getPagerItemState() {
+  public @Nullable PagerItemState getPagerItemState() {
     if (mItemState instanceof PagerItemState) {
       return (PagerItemState) mItemState;
     }
@@ -455,8 +459,7 @@ public class CollectionState {
    *     #shouldComputeHeaders(AccessibilityNodeInfoCompat)} returns {@code true}
    * @return
    */
-  @Nullable
-  private static PagerItemState extractPagerItemState(
+  private static @Nullable PagerItemState extractPagerItemState(
       AccessibilityNodeInfoCompat collectionRoot,
       AccessibilityNodeInfoCompat announcedNode,
       boolean computeHeaders) {
@@ -487,7 +490,6 @@ public class CollectionState {
 
       return new PagerItemState(heading, rowIndex, columnIndex);
     } finally {
-      collectionItem.recycle("CollectionState.extractPagerItemState");
     }
   }
 
@@ -496,8 +498,7 @@ public class CollectionState {
    * not {@link #TYPE_NONE} and {@link #getCollectionRole()} is {@link
    * com.google.android.accessibility.utils.Role#ROLE_GRID}.
    */
-  @Nullable
-  public TableItemState getTableItemState() {
+  public @Nullable TableItemState getTableItemState() {
     if (mItemState != null && mItemState instanceof TableItemState) {
       return (TableItemState) mItemState;
     }
@@ -505,8 +506,7 @@ public class CollectionState {
     return null;
   }
 
-  @Nullable
-  private static TableItemState getTableItemState(
+  private static @Nullable TableItemState getTableItemState(
       AccessibilityNodeInfoCompat collectionRoot,
       AccessibilityNodeInfoCompat announcedNode,
       SparseArray<CharSequence> rowHeaders,
@@ -537,7 +537,6 @@ public class CollectionState {
     CharSequence rowName = rowIndex != -1 ? rowHeaders.get(rowIndex) : null;
     CharSequence columnName = columnIndex != -1 ? columnHeaders.get(columnIndex) : null;
 
-    collectionItem.recycle();
     return new TableItemState(
         heading, rowName, columnName, rowIndex, columnIndex, computeNumbering);
   }
@@ -582,7 +581,6 @@ public class CollectionState {
       try {
         newCollectionRoot = AccessibilityNodeInfoUtils.getCollectionRoot(announcedNodeParent);
       } finally {
-        AccessibilityNodeInfoUtils.recycleNodes(announcedNodeParent);
       }
     }
 
@@ -655,7 +653,6 @@ public class CollectionState {
             mRowColumnTransition = TYPE_ROW | TYPE_COLUMN;
           }
 
-          AccessibilityNodeInfoUtils.recycleNodes(mCollectionRoot, mLastAnnouncedNode);
           mCollectionRoot = newCollectionRoot;
           mLastAnnouncedNode = AccessibilityNodeInfoCompat.obtain(announcedNode);
           mItemState = newItemState;
@@ -693,7 +690,6 @@ public class CollectionState {
             mRowColumnTransition = newItemState.getTransition(mItemState);
           }
 
-          AccessibilityNodeInfoUtils.recycleNodes(mCollectionRoot, mLastAnnouncedNode);
           mCollectionRoot = newCollectionRoot;
           mLastAnnouncedNode = AccessibilityNodeInfoCompat.obtain(announcedNode);
           mItemState = newItemState;
@@ -702,7 +698,6 @@ public class CollectionState {
       case NAVIGATE_EXIT:
         {
           // We can clear the item state, but we need to keep the collection root.
-          AccessibilityNodeInfoUtils.recycleNodes(mLastAnnouncedNode, newCollectionRoot);
           mRowColumnTransition = 0;
           mLastAnnouncedNode = null;
           mItemState = null;
@@ -712,8 +707,6 @@ public class CollectionState {
       default:
         {
           // Safe to clear everything.
-          AccessibilityNodeInfoUtils.recycleNodes(
-              mCollectionRoot, mLastAnnouncedNode, newCollectionRoot);
           mRowColumnTransition = 0;
           mCollectionRoot = null;
           mLastAnnouncedNode = null;
@@ -757,11 +750,8 @@ public class CollectionState {
             continue;
           }
           updateSingleTableHeader(grandchild, collectionInfo, rowHeaders, columnHeaders);
-          grandchild.recycle();
         }
       }
-
-      child.recycle();
     }
   }
 
@@ -811,7 +801,6 @@ public class CollectionState {
       while (currentNode != null) {
         if (!visitedNodes.add(currentNode)) {
           // Cycle in traversal.
-          currentNode.recycle();
           return null;
         }
 
@@ -827,7 +816,6 @@ public class CollectionState {
         currentNode = currentNode.getChild(0);
       }
     } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(visitedNodes);
     }
 
     return null;
@@ -841,7 +829,8 @@ public class CollectionState {
    *     TYPE_INDETERMINATE} for cells marked as headers that are neither row nor column headers;
    *     {@code TYPE_NONE} for all other cells.
    */
-  private static @TableHeadingType int getTableHeading(
+  @TableHeadingType
+  private static int getTableHeading(
       @NonNull AccessibilityNodeInfoCompat node,
       @NonNull CollectionItemInfoCompat item,
       @NonNull CollectionInfoCompat collection) {

@@ -91,7 +91,8 @@ class ParseTreeIfNode extends ParseTreeNode {
   }
 
   @Override
-  public @Nullable ParseTree.VariableDelegate resolveToReference(
+  @Nullable
+  public ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     if (mCondition.resolveToBoolean(delegate, logIndent)) {
       return mOnTrue.resolveToReference(delegate, logIndent);

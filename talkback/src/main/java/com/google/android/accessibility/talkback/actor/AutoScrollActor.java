@@ -19,14 +19,15 @@ package com.google.android.accessibility.talkback.actor;
 import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SHOW_ON_SCREEN;
 
 import android.os.SystemClock;
+import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.Pipeline.SyntheticEvent;
 import com.google.android.accessibility.talkback.ScrollEventInterpreter;
+import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollTimeout;
 import com.google.android.accessibility.talkback.ScrollEventInterpreter.UserAction;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -66,17 +67,17 @@ public class AutoScrollActor {
     }
 
     public final int scrollInstanceId;
-    public @UserAction final int userAction;
+    @UserAction public final int userAction;
 
     /**
      * During transition from AccessibilityNodeInfoCompat to AccessibilityNode, some callers provide
      * AccessibilityNode, others provide compat -- either works. AutoScrollRecord recyles node.
      */
-    public final @Nullable AccessibilityNode scrolledNode;
+    @Nullable public final AccessibilityNode scrolledNode;
 
     // TODO: Switch focus-management to use AccessibilityNode, and remove this
     // redundant field.
-    public final @Nullable AccessibilityNodeInfoCompat scrolledNodeCompat;
+    @Nullable public final AccessibilityNodeInfoCompat scrolledNodeCompat;
 
     // SystemClock.uptimeMillis(), used to compare with AccessibilityEvent.getEventTime().
     public final long autoScrolledTime;
@@ -122,11 +123,6 @@ public class AutoScrollActor {
       if (scrolledNodeCompat != null) {
         scrolledNodeCompat.refresh();
       }
-    }
-
-    public void recycle(String caller) {
-      AccessibilityNode.recycle(caller + " -> AutoScrollRecord.recycle()", scrolledNode);
-      AccessibilityNodeInfoUtils.recycleNodes(scrolledNodeCompat);
     }
   }
 
@@ -190,13 +186,12 @@ public class AutoScrollActor {
    * Performs scroll action at the given node. Invoke the callback when the result {@link
    * AccessibilityEvent#TYPE_VIEW_SCROLLED} event is received.
    *
-   * <p><strong>Note:</strong> Caller is responsible to recycle the node.
-   *
    * @param userAction Source {@link UserAction} that leads to scroll action.
    * @param node Node to scroll
    * @param nodeCompat Node to scroll
    * @param scrollAccessibilityAction Accessibility scroll action
    * @param scrollSource The type of scroll caller
+   * @param scrollTimeout Timeout of the scrolling result from framework
    * @param eventId EventId for performance tracking.
    * @return {@code true} If the action is successfully performed.
    */
@@ -206,6 +201,7 @@ public class AutoScrollActor {
       @Nullable AccessibilityNodeInfoCompat nodeCompat,
       int scrollAccessibilityAction,
       AutoScrollRecord.Source scrollSource,
+      ScrollTimeout scrollTimeout,
       EventId eventId) {
     if (node == null && nodeCompat == null) {
       return false;
@@ -217,7 +213,7 @@ public class AutoScrollActor {
                 && PerformActionUtils.performAction(
                     nodeCompat, scrollAccessibilityAction, eventId));
     if (result) {
-      setScrollRecord(userAction, node, nodeCompat, scrollSource, currentTime);
+      setScrollRecord(userAction, node, nodeCompat, scrollSource, currentTime, scrollTimeout);
     }
     LogUtils.d(
         TAG,
@@ -235,6 +231,7 @@ public class AutoScrollActor {
       @NonNull AccessibilityNodeInfoCompat nodeCompat,
       @NonNull AccessibilityNodeInfoCompat actionNodeCompat,
       AutoScrollRecord.Source scrollSource,
+      ScrollTimeout scrollTimeout,
       EventId eventId) {
     if (actionNodeCompat == null || nodeCompat == null) {
       return false;
@@ -244,7 +241,7 @@ public class AutoScrollActor {
     boolean result =
         PerformActionUtils.performAction(actionNodeCompat, ACTION_SHOW_ON_SCREEN.getId(), eventId);
     if (result) {
-      setScrollRecord(userAction, null, nodeCompat, scrollSource, currentTime);
+      setScrollRecord(userAction, null, nodeCompat, scrollSource, currentTime, scrollTimeout);
     }
     LogUtils.d(
         TAG,
@@ -264,7 +261,8 @@ public class AutoScrollActor {
       @Nullable AccessibilityNode node,
       @Nullable AccessibilityNodeInfoCompat nodeCompat,
       AutoScrollRecord.Source scrollSource,
-      long currentTime) {
+      long currentTime,
+      ScrollTimeout scrollTimeout) {
     final int scrollInstanceId = createScrollInstanceId();
     setAutoScrollRecord(
         new AutoScrollRecord(
@@ -272,31 +270,19 @@ public class AutoScrollActor {
 
     postDelayHandler.removeMessages();
     postDelayHandler.delay(
-        ScrollEventInterpreter.SCROLL_TIMEOUT_MS, /* handlerArg= */ new EventIdAnd<>(false, null));
+        scrollTimeout.getTimeoutMillis(), /* handlerArg= */ new EventIdAnd<>(false, null));
   }
 
   private void setAutoScrollRecord(AutoScrollRecord newRecord) {
-    if (autoScrollRecord != null) {
-      autoScrollRecord.recycle("AutoScrollActor.setAutoScrollRecord()");
-    }
-
     // Ignores previous failed auto-scroll record if there is a new auto-scroll record (when next
     // auto-scroll action performs).
-    if (failedAutoScrollRecord != null) {
-      failedAutoScrollRecord.recycle("AutoScrollActor.setAutoScrollRecord()");
-      failedAutoScrollRecord = null;
-    }
-
+    failedAutoScrollRecord = null;
     autoScrollRecord = newRecord;
   }
 
   private void handleAutoScrollFailed() {
     if (autoScrollRecord == null) {
       return;
-    }
-
-    if (failedAutoScrollRecord != null) {
-      failedAutoScrollRecord.recycle("AutoScrollActor.handleAutoScrollFailed()");
     }
     // Caches the failed auto-scroll record, which will be used at {@link
     // AutoScrollInterpreter#handleAutoScrollFailed()}.

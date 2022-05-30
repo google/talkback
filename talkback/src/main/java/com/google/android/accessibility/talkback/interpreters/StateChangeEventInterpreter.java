@@ -2,9 +2,9 @@ package com.google.android.accessibility.talkback.interpreters;
 
 import static com.google.android.accessibility.talkback.Interpretation.ID.Value.STATE_CHANGE;
 
-import androidx.core.view.accessibility.AccessibilityEventCompat;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation.ID;
 import com.google.android.accessibility.talkback.Pipeline.InterpretationReceiver;
@@ -55,25 +55,20 @@ public class StateChangeEventInterpreter implements AccessibilityEventListener {
     if (node == null) {
       return;
     }
-    try {
-      NodeActionRecord actionRecord =
-          actorState.getNodeActionPerformerState().getNodeActionRecord();
-      if (actionRecord == null) {
-        return;
-      }
-      long timeDiff = event.getEventTime() - actionRecord.actionTime;
-      if ((timeDiff < 0L) || (timeDiff > ACTION_TIMEOUT_MS)) {
-        return;
-      }
-      // When the node is within accessibility focus, it is handled by
-      // "TYPE_WINDOW_CONTENT_CHANGED" in compositor.json.
-      if (!AccessibilityNodeInfoUtils.isSelfOrAncestorFocused(
-              AccessibilityNodeInfoUtils.toCompat(node))
-          && actionRecord.actionedNodeMatches(node)) {
-        pipeline.input(eventId, event, new ID(STATE_CHANGE));
-      }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(node);
+    NodeActionRecord actionRecord = actorState.getNodeActionPerformerState().getNodeActionRecord();
+    if (actionRecord == null) {
+      return;
+    }
+    long timeDiff = event.getEventTime() - actionRecord.actionTime;
+    if ((timeDiff < 0L) || (timeDiff > ACTION_TIMEOUT_MS)) {
+      return;
+    }
+    // When the node is within accessibility focus, it is handled by
+    // "TYPE_WINDOW_CONTENT_CHANGED" in compositor.json.
+    if (!AccessibilityNodeInfoUtils.isSelfOrAncestorFocused(
+            AccessibilityNodeInfoUtils.toCompat(node))
+        && actionRecord.actionedNodeMatches(node)) {
+      pipeline.input(eventId, event, new ID(STATE_CHANGE));
     }
   }
 }

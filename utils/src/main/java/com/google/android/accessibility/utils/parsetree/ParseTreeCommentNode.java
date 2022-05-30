@@ -26,7 +26,7 @@ class ParseTreeCommentNode extends ParseTreeNode {
 
   private static final String TAG = "ParseTreeCommentNode";
 
-  private final @Nullable ParseTreeNode mChild;
+  @Nullable private final ParseTreeNode mChild;
   private final String mCommentFormat;
   private final Object[] mArgs;
   private final boolean mIndent;
@@ -101,7 +101,8 @@ class ParseTreeCommentNode extends ParseTreeNode {
   }
 
   @Override
-  public @Nullable ParseTree.VariableDelegate resolveToReference(
+  @Nullable
+  public ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     logIndent = updateIndent(logIndent);
     LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));

@@ -20,7 +20,8 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.PackageManagerUtils;
-import com.google.android.accessibility.utils.SpeechCleanupUtils;
+import com.google.android.accessibility.utils.input.TextEventInterpretation;
+import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.parsetree.ParseTree;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashMap;
@@ -43,13 +44,12 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
   private static final int EVENT_IS_CUT = 5007;
   private static final int EVENT_IS_PASTE = 5008;
   private static final int EVENT_HINT_TYPE = 5009;
-  private static final int EVENT_HINT_FORCE_AUDIO_PLAYBACK_ACTIVE = 5010;
+  private static final int EVENT_HINT_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE = 5010;
   private static final int EVENT_HINT_FORCE_MICROPHONE_ACTIVE = 5011;
   private static final int EVENT_HINT_TEXT = 5012;
-  private static final int EVENT_IS_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE = 5013;
-  private static final int EVENT_IS_FORCED_FEEDBACK_MICROPHONE_ACTIVE = 5014;
-  private static final int EVENT_IS_FORCED_FEEDBACK_SSB_ACTIVE = 5015;
-  private static final int EVENT_NODE_MULTIPLE_SWITCH_ACCESS_ACTIONS = 5016;
+  private static final int EVENT_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE = 5013;
+  private static final int EVENT_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE = 5014;
+  private static final int EVENT_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE = 5015;
   private static final int EVENT_IS_INITIAL_FOCUS = 5017;
   private static final int EVENT_IS_USER_NAVIGATION = 5018;
 
@@ -59,11 +59,11 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
   private final Context mContext;
   private final ParseTree.VariableDelegate mParent;
   private final EventInterpretation mEventInterpretation;
-  private @Nullable final Locale mUserPreferredLocale;
+  @Nullable private final Locale mUserPreferredLocale;
 
   /**
    * Constructs InterpretationVariables, which contains context variables to help generate feedback
-   * for an accessibility event. Caller must call {@code cleanup()} when done with this object.
+   * for an accessibility event.
    */
   InterpretationVariables(
       Context context,
@@ -82,45 +82,33 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public void cleanup() {
-    if (mParent != null) {
-      mParent.cleanup();
-    }
-  }
-
-  @Override
   public boolean getBoolean(int variableId) {
     switch (variableId) {
       case EVENT_IS_CUT:
         return safeTextInterpretation().getIsCutAction();
       case EVENT_IS_PASTE:
         return safeTextInterpretation().getIsPasteAction();
-      case EVENT_HINT_FORCE_AUDIO_PLAYBACK_ACTIVE:
+      case EVENT_HINT_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE:
         {
           @Nullable HintEventInterpretation hintInterp = mEventInterpretation.getHint();
-          return (hintInterp != null) && hintInterp.getForceFeedbackAudioPlaybackActive();
+          return (hintInterp != null) && hintInterp.getForceFeedbackEvenIfAudioPlaybackActive();
         }
       case EVENT_HINT_FORCE_MICROPHONE_ACTIVE:
         {
           @Nullable HintEventInterpretation hintInterp = mEventInterpretation.getHint();
-          return (hintInterp != null) && hintInterp.getForceFeedbackMicrophoneActive();
+          return (hintInterp != null) && hintInterp.getForceFeedbackEvenIfMicrophoneActive();
         }
-      case EVENT_IS_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE:
+      case EVENT_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE:
         {
-          return safeAccessibilityFocusInterpretation().getForceFeedbackAudioPlaybackActive();
+          return safeAccessibilityFocusInterpretation().getForceFeedbackEvenIfAudioPlaybackActive();
         }
-      case EVENT_IS_FORCED_FEEDBACK_MICROPHONE_ACTIVE:
+      case EVENT_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE:
         {
-          return safeAccessibilityFocusInterpretation().getForceFeedbackMicrophoneActive();
+          return safeAccessibilityFocusInterpretation().getForceFeedbackEvenIfMicrophoneActive();
         }
-      case EVENT_IS_FORCED_FEEDBACK_SSB_ACTIVE:
+      case EVENT_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE:
         {
-          return safeAccessibilityFocusInterpretation().getForceFeedbackSsbActive();
-        }
-      case EVENT_NODE_MULTIPLE_SWITCH_ACCESS_ACTIONS:
-        {
-          return (mEventInterpretation != null)
-              && (mEventInterpretation.getHasMultipleSwitchAccessActions());
+          return safeAccessibilityFocusInterpretation().getForceFeedbackEvenIfSsbActive();
         }
       case EVENT_IS_INITIAL_FOCUS:
         {
@@ -146,7 +134,8 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public @Nullable CharSequence getString(int variableId) {
+  @Nullable
+  public CharSequence getString(int variableId) {
     // TODO: Remove collapseRepeatedCharactersAndCleanUp() from VariableDelegate classes. Instead,
     // apply collapseRepeatedCharactersAndCleanUp() to Compositor ttsOutput result whenever
     // Compositor output ttsOutputClean returns true (default is true).
@@ -160,7 +149,8 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
     }
   }
 
-  private @Nullable CharSequence getStringInternal(int variableId) {
+  @Nullable
+  private CharSequence getStringInternal(int variableId) {
     switch (variableId) {
       case EVENT_TEXT_OR_DESCRIPTION:
         return safeTextInterpretation().getTextOrDescription();
@@ -213,7 +203,8 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public @Nullable ParseTree.VariableDelegate getReference(int variableId) {
+  @Nullable
+  public ParseTree.VariableDelegate getReference(int variableId) {
     return mParent.getReference(variableId);
   }
 
@@ -223,13 +214,14 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public @Nullable CharSequence getArrayStringElement(int variableId, int index) {
+  @Nullable
+  public CharSequence getArrayStringElement(int variableId, int index) {
     return mParent.getArrayStringElement(variableId, index);
   }
 
-  /** Caller must call VariableDelegate.cleanup() on returned instance. */
   @Override
-  public @Nullable ParseTree.VariableDelegate getArrayChildElement(int variableId, int index) {
+  @Nullable
+  public ParseTree.VariableDelegate getArrayChildElement(int variableId, int index) {
     return mParent.getArrayChildElement(variableId, index);
   }
 
@@ -265,6 +257,7 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
     hintTypes.put(HintEventInterpretation.HINT_TYPE_INPUT_FOCUS, "input_focus");
     hintTypes.put(HintEventInterpretation.HINT_TYPE_SCREEN, "screen");
     hintTypes.put(HintEventInterpretation.HINT_TYPE_SELECTOR, "selector");
+    hintTypes.put(HintEventInterpretation.HINT_TYPE_TEXT_SUGGESTION, "text_suggestion");
     parseTree.addEnum(ENUM_HINT_TYPE, hintTypes);
 
     parseTree.addStringVariable("event.textOrDescription", EVENT_TEXT_OR_DESCRIPTION);
@@ -278,20 +271,20 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
     parseTree.addBooleanVariable("event.isPaste", EVENT_IS_PASTE);
     parseTree.addEnumVariable("event.hintType", EVENT_HINT_TYPE, ENUM_HINT_TYPE);
     parseTree.addBooleanVariable(
-        "event.hintForceAudioPlaybackActive", EVENT_HINT_FORCE_AUDIO_PLAYBACK_ACTIVE);
+        "event.hintForceFeedbackEvenIfAudioPlaybackActive",
+        EVENT_HINT_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE);
     parseTree.addBooleanVariable(
-        "event.hintForceMicrophoneActive", EVENT_HINT_FORCE_MICROPHONE_ACTIVE);
+        "event.hintForceFeedackEvenIfMicrophoneActive", EVENT_HINT_FORCE_MICROPHONE_ACTIVE);
     parseTree.addStringVariable("event.hintText", EVENT_HINT_TEXT);
     parseTree.addBooleanVariable(
-        "event.isForcedFeedbackAudioPlaybackActive",
-        EVENT_IS_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE);
+        "event.forceFeedbackEvenIfAudioPlaybackActive",
+        EVENT_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE);
     parseTree.addBooleanVariable(
-        "event.isForcedFeedbackMicrophoneActive", EVENT_IS_FORCED_FEEDBACK_MICROPHONE_ACTIVE);
+        "event.forceFeedbackEvenIfMicrophoneActive",
+        EVENT_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE);
     parseTree.addBooleanVariable(
-        "event.isForcedFeedbackSsbActive", EVENT_IS_FORCED_FEEDBACK_SSB_ACTIVE);
+        "event.forceFeedbackEvenIfSsbActive", EVENT_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
     parseTree.addBooleanVariable("event.isInitialFocus", EVENT_IS_INITIAL_FOCUS);
     parseTree.addBooleanVariable("event.isNavigateByUser", EVENT_IS_USER_NAVIGATION);
-    parseTree.addBooleanVariable(
-        "event.hasMultipleSwitchAccessActions", EVENT_NODE_MULTIPLE_SWITCH_ACCESS_ACTIONS);
   }
 }

@@ -3,6 +3,15 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
   <PreferenceCategory
+      android:key="@string/pref_category_audio_key"
+      android:title="@string/title_pref_category_audio" >
+    <SwitchPreference
+        android:title="@string/title_pref_speak_passwords_without_headphones"
+        android:summaryOff="@string/summaryOff_pref_speak_passwords_without_headphones"
+        android:summaryOn="@string/summaryOn_pref_speak_passwords_without_headphones"
+        android:key="@string/pref_speak_passwords_without_headphones" />
+  </PreferenceCategory>
+  <PreferenceCategory
       android:key="@string/pref_category_controls_key"
       android:title="@string/title_pref_category_controls" >
     <Preference
@@ -38,8 +47,8 @@
           android:title="@string/title_pref_typing_confirmation" />
       <Preference
           android:key="@string/pref_category_manage_keyboard_shortcut_key"
-          android:title="@string/title_pref_manage_keyboard_shortcuts" >
-        <intent android:action=".TalkBackKeyboardShortcutPreferencesActivity" />
+          android:title="@string/title_pref_manage_keyboard_shortcuts"
+          android:fragment="com.google.android.accessibility.talkback.preference.base.TalkBackKeyboardShortcutPreferenceFragment" >
       </Preference>
     </PreferenceCategory>
     <SwitchPreference
@@ -47,11 +56,6 @@
         android:key="@string/pref_two_volume_long_press_key"
         android:summary="@string/value_long_volume_pressed_suspend_talkback"
         android:title="@string/title_pref_two_volume_button_long_click" />
-    <SwitchPreference
-        android:defaultValue="@bool/pref_dim_volume_three_clicks_default"
-        android:key="@string/pref_dim_volume_three_clicks_key"
-        android:summary="@string/value_dim_volume_three_clicks"
-        android:title="@string/title_pref_dim_volume_three_clicks" />
     <ListPreference
         android:defaultValue="@string/pref_resume_talkback_default"
         android:dialogTitle="@string/title_pref_resume_talkback"
@@ -64,8 +68,8 @@
   <Preference
       android:key="@string/pref_category_developer_key"
       android:title="@string/title_pref_category_developer_settings"
-      app:allowDividerAbove="true" >
-    <intent android:action=".TalkBackDeveloperPreferencesActivity" />
+      app:allowDividerAbove="true"
+      android:fragment="com.google.android.accessibility.talkback.preference.base.DeveloperPrefFragment" >
   </Preference>
   <Preference
       android:key="@string/pref_policy_key"

@@ -61,10 +61,6 @@
   <string name="value_pager_page">דף</string>
   <string name="value_progress_bar">סרגל התקדמות</string>
   <string name="value_webview">תצוגת אינטרנט.</string>
-  <string name="value_toolbar">סרגל כלים</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">תווים %1$d עד %2$d</string>
-  <string name="template_password_traversed">תו %1$d</string>
   <string name="value_password">סיסמה</string>
   <string name="value_sliding_drawer_opened">חלונית הזזה נפתחה</string>
   <string name="value_options_menu_open">אפשרויות.</string>
@@ -142,7 +138,6 @@
   <string name="out_of_vertical_pager">מחוץ לתצוגת הדפים האנכית</string>
   <string name="in_horizontal_pager_with_name">בתצוגת הדפים האופקית %1$s</string>
   <string name="in_horizontal_pager">בתצוגת דפים אופקית</string>
-  <string name="out_of_horizontal_pager_with_name">מחוץ לתצוגת הדפים האופקית %1$s</string>
   <string name="out_of_horizontal_pager">מחוץ לתצוגת הדפים האופקית</string>
   <string name="in_grid_pager_with_name">בתצוגת דפים רשתית %1$s</string>
   <string name="in_grid_pager">בתצוגת דפים רשתית</string>
@@ -177,22 +172,15 @@
   <string name="template_screen_magnification_scale_changed">הגדלה ל-%%%1$d</string>
   <string name="screen_magnification_off">כיבית את ההגדלה</string>
   <string name="template_speech_rate_change">קצב דיבור %%%1$d</string>
-  <string name="template_speech_rate_change_faster">מהיר יותר</string>
-  <string name="template_speech_rate_change_slower">איטי יותר</string>
-  <string name="template_speech_rate_change_fastest">הכי מהיר</string>
-  <string name="template_speech_rate_change_slowest">הכי איטי</string>
   <string name="template_volume_change_increase">הגברת עוצמת הקול</string>
   <string name="template_volume_change_decrease">הפחתת עוצמת הקול</string>
   <string name="template_volume_change_maximum">מקסימום</string>
   <string name="template_volume_change_minimum">מינימום</string>
   <string name="template_seekbar_range">‎%1$d%%‎‎</string>
-  <string name="audio_focus_on">התאמה של עוצמת השמע מופעלת</string>
-  <string name="audio_focus_off">התאמה של עוצמת השמע מושבתת</string>
-  <string name="selector_speech_rate_output">קצב דיבור</string>
-  <string name="selector_verbosity_output">רמת הנגשה</string>
-  <string name="selector_granularity_output">ניווט</string>
-  <string name="selector_audio_focus_output">התאמה של עוצמת השמע</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">הסיסמאות מוקראות רק בשימוש באוזניות</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s זמין, יש להשתמש ב-%2$s כדי להציג.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s זמין.</string>
+  <string name="hint_suggestion">יש הצעות לאיות.</string>
+  <string name="in_window_with_name">החלון %1$s</string>
+  <string name="detected_icon_description">הסמל שזוהה: %1$s</string>
+  <string name="ocr_text_description">הודעת הטקסט שזוהתה: %1$s</string>
 </resources>

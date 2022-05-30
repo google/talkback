@@ -27,6 +27,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.annotation.XmlRes;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceDialogFragmentCompat;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceGroup;
 import java.util.HashSet;
@@ -134,6 +135,11 @@ public final class PreferenceSettingsUtils {
 
   /**
    * Assigns an URL intent to the preference. When clicking the preference, it would jump to URL.
+   * This function can't be used by wear.
+   *
+   * @param fragment PreferenceFragmentCompat to get context.
+   * @param preference Preference to send Intent
+   * @param url URL which launches web page
    */
   public static void assignWebIntentToPreference(
       PreferenceFragmentCompat fragment, Preference preference, String url) {
@@ -141,14 +147,11 @@ public final class PreferenceSettingsUtils {
       return;
     }
 
-    final boolean isWatch = FeatureSupport.isWatch(fragment.getContext());
     Uri uri = Uri.parse(url);
     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
     Activity activity = fragment.getActivity();
     if (activity != null) {
-      if (isWatch) {
-        intent = RemoteIntentUtils.intentToOpenUriOnPhone(uri);
-      } else if (!systemCanHandleIntent(fragment.getActivity(), intent)) {
+      if (!systemCanHandleIntent(fragment.getActivity(), intent)) {
         intent = new Intent(activity, WebActivity.class);
         intent.setData(uri);
       }
@@ -189,13 +192,29 @@ public final class PreferenceSettingsUtils {
   public static @Nullable Preference findPreference(FragmentActivity activity, String key) {
     List<Fragment> fragments = activity.getSupportFragmentManager().getFragments();
     for (Fragment fragment : fragments) {
-      PreferenceFragmentCompat preferenceFragment = (PreferenceFragmentCompat) fragment;
-      Preference preference = preferenceFragment.findPreference(key);
-      if (preference != null) {
-        return preference;
+      if (fragment instanceof PreferenceFragmentCompat) {
+        return ((PreferenceFragmentCompat) fragment).findPreference(key);
+      } else if (fragment instanceof PreferenceDialogFragmentCompat) {
+        return ((PreferenceDialogFragmentCompat) fragment).getPreference();
       }
     }
 
     return null;
+  }
+
+  /**
+   * Finds the preference by the key Id.
+   *
+   * @param fragment Fragment which contain preference key.
+   * @param prefKeyId key Id of Preference which likes to find
+   * @return Preference by search key.
+   */
+  public static @Nullable Preference findPreference(
+      PreferenceFragmentCompat fragment, int prefKeyId) {
+    if (fragment == null) {
+      return null;
+    }
+    Context context = fragment.getContext();
+    return fragment.findPreference(context.getString(prefKeyId));
   }
 }

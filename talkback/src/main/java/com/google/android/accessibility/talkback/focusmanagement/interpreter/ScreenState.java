@@ -16,18 +16,14 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.interpreter;
 
-import androidx.annotation.Nullable;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
-import com.google.android.accessibility.utils.WindowsDelegate;
+import com.google.android.accessibility.utils.input.WindowsDelegate;
 import java.util.Objects;
 
-/**
- * A helper class to get the active window and window titles on the current screen.
- *
- * <p><strong>Note: </strong>This class is not responsible for recycling {@code activeWindow}.
- */
+/** A helper class to get the active window and window titles on the current screen. */
 public final class ScreenState implements WindowsDelegate {
   private final AccessibilityWindowInfo activeWindow;
   private WindowsDelegate windowsDelegate;
@@ -48,8 +44,8 @@ public final class ScreenState implements WindowsDelegate {
 
   /** Returns whether is split screen mode. */
   @Override
-  public boolean isSplitScreenMode() {
-    return windowsDelegate.isSplitScreenMode();
+  public boolean isSplitScreenMode(int displayId) {
+    return windowsDelegate.isSplitScreenMode(displayId);
   }
 
   /** Returns the current active window. */

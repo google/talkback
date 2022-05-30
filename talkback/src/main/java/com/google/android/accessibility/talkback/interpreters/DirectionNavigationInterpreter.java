@@ -16,11 +16,10 @@
 
 package com.google.android.accessibility.talkback.interpreters;
 
-import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
 
 import android.content.Context;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
@@ -83,29 +82,24 @@ public class DirectionNavigationInterpreter
       LogUtils.w(TAG, "Unable to find source action info for event: %s", event);
       return;
     }
-    AccessibilityNodeInfoCompat sourceNode = null;
-    try {
-      sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+    AccessibilityNodeInfoCompat sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());
 
-      if (actionInfo.sourceAction == FocusActionInfo.LOGICAL_NAVIGATION) {
-        NavigationAction navigationAction = actionInfo.navigationAction;
-        if ((navigationAction != null)
-            && (navigationAction.originalNavigationGranularity != null)
-            && navigationAction.originalNavigationGranularity.isMicroGranularity()) {
-          // Node reference only, do not recyle.
-          AccessibilityNodeInfoCompat moveToNode =
-              AccessibilityNodeInfoUtils.isKeyboard(event, sourceNode) ? null : sourceNode;
-          @SearchDirection int linearDirection = SEARCH_FOCUS_UNKNOWN;
-          // Try to automatically perform micro-granularity movement.
-          linearDirection =
-              TraversalStrategyUtils.getLogicalDirection(
-                  navigationAction.searchDirection, WindowUtils.isScreenLayoutRTL(context));
-          pipeline.input(
-              eventId, Interpretation.DirectionNavigation.create(linearDirection, moveToNode));
-        }
+    if (actionInfo.sourceAction == FocusActionInfo.LOGICAL_NAVIGATION) {
+      NavigationAction navigationAction = actionInfo.navigationAction;
+      if ((navigationAction != null)
+          && (navigationAction.originalNavigationGranularity != null)
+          && navigationAction.originalNavigationGranularity.isMicroGranularity()) {
+        // Node reference only, do not recyle.
+        AccessibilityNodeInfoCompat moveToNode =
+            AccessibilityNodeInfoUtils.isKeyboard(event, sourceNode) ? null : sourceNode;
+        // Try to automatically perform micro-granularity movement.
+        @SearchDirection
+        int linearDirection =
+            TraversalStrategyUtils.getLogicalDirection(
+                navigationAction.searchDirection, WindowUtils.isScreenLayoutRTL(context));
+        pipeline.input(
+            eventId, Interpretation.DirectionNavigation.create(linearDirection, moveToNode));
       }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(sourceNode);
     }
   }
 

@@ -18,6 +18,8 @@ package com.google.android.accessibility.utils;
 
 import android.graphics.Rect;
 import androidx.annotation.NonNull;
+import com.google.common.base.Function;
+import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -195,5 +197,64 @@ public final class RectUtils {
       }
     }
     rectList.add(tmp);
+  }
+
+  /**
+   * Sorts elements by their bounds.
+   *
+   * <p>If current screen layout is RTL, the order is from right to left, from top to bottom.
+   *
+   * <p>If current screen layout is not RTL, the order is from left to right, from top to bottom.
+   *
+   * @param elements The elements which have bounds
+   * @param rectExtractor The function used to extract bounds from the element
+   * @param isRTL Whether the current screen layout is RTL
+   * @param <T> The type of the element
+   */
+  public static <T> ImmutableList<T> sortByRows(
+      ImmutableList<T> elements, Function<T, Rect> rectExtractor, boolean isRTL) {
+    if (elements.size() <= 1) {
+      return elements;
+    }
+
+    List<T> list = new ArrayList<>(elements);
+    ImmutableList.Builder<T> results = ImmutableList.builder();
+    while (!list.isEmpty()) {
+      // Finds the element with the minimum top value
+      T minTopElement = list.get(0);
+      int minTop = rectExtractor.apply(minTopElement).top;
+      for (int i = 1; i < list.size(); i++) {
+        Rect bounds = rectExtractor.apply(list.get(i));
+        if (bounds.top < minTop) {
+          minTop = bounds.top;
+          minTopElement = list.get(i);
+        }
+      }
+
+      // Finds all elements which are considered in the same row as the element with the minimum top
+      // value
+      List<T> newRow = new ArrayList<>();
+      int bottom = rectExtractor.apply(minTopElement).bottom;
+      for (int i = list.size() - 1; i >= 0; i--) {
+        T element = list.get(i);
+        Rect bounds = rectExtractor.apply(element);
+        if (bounds.top < bottom) {
+          newRow.add(element);
+          list.remove(i);
+        }
+      }
+
+      Collections.sort(
+          newRow,
+          (t1, t2) -> {
+            Rect r1 = rectExtractor.apply(t1);
+            Rect r2 = rectExtractor.apply(t2);
+            int start1 = isRTL ? r1.right : r2.left;
+            int start2 = isRTL ? r2.right : r1.left;
+            return (start1 == start2) ? (r1.top - r2.top) : (start2 - start1);
+          });
+      results.addAll(newRow);
+    }
+    return results.build();
   }
 }

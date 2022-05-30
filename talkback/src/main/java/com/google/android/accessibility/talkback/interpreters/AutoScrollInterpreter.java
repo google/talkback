@@ -19,8 +19,8 @@ package com.google.android.accessibility.talkback.interpreters;
 import static com.google.android.accessibility.talkback.Interpretation.ID.Value.SCROLL_CANCEL_TIMEOUT;
 import static com.google.android.accessibility.talkback.actor.AutoScrollActor.UNKNOWN_SCROLL_INSTANCE_ID;
 
-import androidx.annotation.Nullable;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation;
@@ -145,7 +145,8 @@ public class AutoScrollInterpreter implements ScrollEventHandler {
   }
 
   /** Returns AutoScrollRecord from actor-state, only if that record has not yet been handled. */
-  private @Nullable AutoScrollRecord getUnhandledAutoScrollRecord() {
+  @Nullable
+  private AutoScrollRecord getUnhandledAutoScrollRecord() {
     @Nullable AutoScrollRecord record = actorState.getScrollerState().getAutoScrollRecord();
     if ((record == null) || (record.autoScrolledTime <= handledAutoScrollUptimeMs)) {
       return null;
@@ -157,7 +158,8 @@ public class AutoScrollInterpreter implements ScrollEventHandler {
    * Returns AutoScrollRecord from actor-state for failed auto-scroll, only if the record hasn't
    * been handled yet.
    */
-  private @Nullable AutoScrollRecord getUnhandledAutoScrollFailRecord() {
+  @Nullable
+  private AutoScrollRecord getUnhandledAutoScrollFailRecord() {
     @Nullable AutoScrollRecord record = actorState.getScrollerState().getFailedAutoScrollRecord();
     if ((record == null) || (record.autoScrolledTime <= handledAutoScrollUptimeMs)) {
       return null;

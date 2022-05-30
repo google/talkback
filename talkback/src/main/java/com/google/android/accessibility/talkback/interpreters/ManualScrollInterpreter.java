@@ -16,8 +16,8 @@
 
 package com.google.android.accessibility.talkback.interpreters;
 
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.ScrollEventInterpreter;
 import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollEventHandler;
@@ -48,12 +48,12 @@ public class ManualScrollInterpreter implements ScrollEventHandler {
   @AutoValue
   public abstract static class ManualScrollInterpretation {
 
-    @Nullable
-    public abstract EventId eventId();
+    public abstract @Nullable EventId eventId();
 
     public abstract AccessibilityEvent event();
 
-    public abstract @TraversalStrategy.SearchDirection int direction();
+    @TraversalStrategy.SearchDirection
+    public abstract int direction();
 
     public static ManualScrollInterpretation create(
         @Nullable EventId eventId, AccessibilityEvent event, int direction) {
@@ -93,25 +93,21 @@ public class ManualScrollInterpreter implements ScrollEventHandler {
       return;
     }
 
-    try {
-      NodePathDescription lastFocusNodePathDescription =
-          actorState.getFocusHistory().getLastFocusNodePathDescription();
-      if (lastFocusNodePathDescription == null) {
-        return;
-      }
-
-      // Match ancestor node. Before android-OMR1, need refresh to get viewIdResourceName.
-      if (!BuildVersionUtils.isAtLeastOMR1()) {
-        scrolledNode.refresh();
-      }
-      if (!lastFocusNodePathDescription.containsNodeByHashAndIdentity(scrolledNode)) {
-        return;
-      }
-
-      listener.onManualScroll(
-          ManualScrollInterpretation.create(eventId, event, interpretation.scrollDirection));
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(scrolledNode);
+    NodePathDescription lastFocusNodePathDescription =
+        actorState.getFocusHistory().getLastFocusNodePathDescription();
+    if (lastFocusNodePathDescription == null) {
+      return;
     }
+
+    // Match ancestor node. Before android-OMR1, need refresh to get viewIdResourceName.
+    if (!BuildVersionUtils.isAtLeastOMR1()) {
+      scrolledNode.refresh();
+    }
+    if (!lastFocusNodePathDescription.containsNodeByHashAndIdentity(scrolledNode)) {
+      return;
+    }
+
+    listener.onManualScroll(
+        ManualScrollInterpretation.create(eventId, event, interpretation.scrollDirection));
   }
 }

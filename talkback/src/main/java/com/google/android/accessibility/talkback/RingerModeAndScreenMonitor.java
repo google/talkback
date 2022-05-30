@@ -288,10 +288,10 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
                 // For android wear devices, use forced feedback, since speech is being suppressed
                 // when turning on the screen.
                 isWatch
-                    ? (FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                        | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                        | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE)
-                    : FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE);
+                    ? (FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                        | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                        | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE)
+                    : FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE);
 
     pipeline.returnFeedback(eventId, Feedback.speech(ttsText, speakOptions));
 

@@ -22,25 +22,26 @@ import static com.google.android.accessibility.utils.output.SpeechController.QUE
 import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
-import androidx.core.view.accessibility.AccessibilityEventCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityRecordCompat;
-import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo.RangeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
+import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.FailoverTextToSpeech.SpeechParam;
 import com.google.android.accessibility.utils.ImageContents;
 import com.google.android.accessibility.utils.JsonUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
-import com.google.android.accessibility.utils.SpeechCleanupUtils;
+import com.google.android.accessibility.utils.input.TextEventInterpretation;
+import com.google.android.accessibility.utils.output.FailoverTextToSpeech.SpeechParam;
 import com.google.android.accessibility.utils.output.FeedbackItem;
+import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.accessibility.utils.output.SpeechController.UtteranceCompleteRunnable;
@@ -65,15 +66,14 @@ public class Compositor {
   private static final String TAG = "Compositor";
 
   /** Flavors used to load different configurations for different device types and applications. */
-  @IntDef({FLAVOR_NONE, FLAVOR_ARC, FLAVOR_TV, FLAVOR_SWITCH_ACCESS, FLAVOR_JASPER})
+  @IntDef({FLAVOR_NONE, FLAVOR_ARC, FLAVOR_TV, FLAVOR_JASPER})
   @Retention(RetentionPolicy.SOURCE)
   public @interface Flavor {}
 
   public static final int FLAVOR_NONE = 0;
   public static final int FLAVOR_ARC = 1;
   public static final int FLAVOR_TV = 2;
-  public static final int FLAVOR_SWITCH_ACCESS = 3;
-  public static final int FLAVOR_JASPER = 4;
+  public static final int FLAVOR_JASPER = 3;
 
   /** Identity numbers for incoming events, including AccessibilityEvents & interpreted events. */
   @IntDef({
@@ -118,8 +118,8 @@ public class Compositor {
   @Retention(RetentionPolicy.SOURCE)
   public @interface Event {}
 
-  // Events start from an arbitrary largish number to avoid conflicting with AccessibilityEvent.
-  private static final int BASE_EVENT_ID = 0x40000001;
+  // Events start from a large number to avoid conflict with AccessibilityEvent.getEventType()
+  private static final int BASE_EVENT_ID = TextEventInterpretation.AFTER_TEXT_EVENTS;
   public static final int EVENT_UNKNOWN = BASE_EVENT_ID - 1;
   public static final int EVENT_SPOKEN_FEEDBACK_ON = BASE_EVENT_ID;
   public static final int EVENT_SPOKEN_FEEDBACK_SUSPENDED = BASE_EVENT_ID + 1;
@@ -133,42 +133,60 @@ public class Compositor {
   public static final int EVENT_SCROLL_LOCK_OFF = BASE_EVENT_ID + 9;
   public static final int EVENT_ORIENTATION_PORTRAIT = BASE_EVENT_ID + 10;
   public static final int EVENT_ORIENTATION_LANDSCAPE = BASE_EVENT_ID + 11;
-  public static final int EVENT_TYPE_INPUT_TEXT_CLEAR = BASE_EVENT_ID + 12;
-  public static final int EVENT_TYPE_INPUT_TEXT_REMOVE = BASE_EVENT_ID + 13;
-  public static final int EVENT_TYPE_INPUT_TEXT_ADD = BASE_EVENT_ID + 14;
-  public static final int EVENT_TYPE_INPUT_TEXT_REPLACE = BASE_EVENT_ID + 15;
-  public static final int EVENT_TYPE_INPUT_TEXT_PASSWORD_ADD = BASE_EVENT_ID + 16;
-  public static final int EVENT_TYPE_INPUT_TEXT_PASSWORD_REMOVE = BASE_EVENT_ID + 17;
-  public static final int EVENT_TYPE_INPUT_TEXT_PASSWORD_REPLACE = BASE_EVENT_ID + 18;
-  public static final int EVENT_TYPE_INPUT_CHANGE_INVALID = BASE_EVENT_ID + 19;
-  public static final int EVENT_TYPE_INPUT_SELECTION_FOCUS_EDIT_TEXT = BASE_EVENT_ID + 20;
-  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_TO_BEGINNING = BASE_EVENT_ID + 21;
-  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_TO_END = BASE_EVENT_ID + 22;
-  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_NO_SELECTION = BASE_EVENT_ID + 23;
-  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_WITH_SELECTION =
-      BASE_EVENT_ID + 24;
-  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_SELECTION_CLEARED =
-      BASE_EVENT_ID + 25;
-  public static final int EVENT_TYPE_INPUT_SELECTION_CUT = BASE_EVENT_ID + 26;
-  public static final int EVENT_TYPE_INPUT_SELECTION_PASTE = BASE_EVENT_ID + 27;
-  public static final int EVENT_TYPE_INPUT_SELECTION_TEXT_TRAVERSAL = BASE_EVENT_ID + 28;
-  public static final int EVENT_TYPE_INPUT_SELECTION_SELECT_ALL = BASE_EVENT_ID + 29;
-  public static final int EVENT_TYPE_INPUT_SELECTION_SELECT_ALL_WITH_KEYBOARD = BASE_EVENT_ID + 30;
-  public static final int EVENT_TYPE_INPUT_SELECTION_RESET_SELECTION = BASE_EVENT_ID + 31;
-  public static final int EVENT_SPEAK_HINT = BASE_EVENT_ID + 32;
-  public static final int EVENT_SCROLL_POSITION = BASE_EVENT_ID + 33;
-  public static final int EVENT_INPUT_DESCRIBE_NODE = BASE_EVENT_ID + 34;
+  public static final int EVENT_SPEAK_HINT = BASE_EVENT_ID + 12;
+  public static final int EVENT_SCROLL_POSITION = BASE_EVENT_ID + 13;
+  public static final int EVENT_INPUT_DESCRIBE_NODE = BASE_EVENT_ID + 14;
+  public static final int EVENT_SCREEN_MAGNIFICATION_CHANGED = BASE_EVENT_ID + 15;
 
-  public static final int EVENT_SCREEN_MAGNIFICATION_CHANGED = BASE_EVENT_ID + 36;
+  public static final int BASE_TEXT_EVENT_ID = BASE_EVENT_ID + 100;
+  public static final int EVENT_TYPE_INPUT_TEXT_CLEAR = TextEventInterpretation.TEXT_CLEAR;
+  public static final int EVENT_TYPE_INPUT_TEXT_REMOVE = TextEventInterpretation.TEXT_REMOVE;
+  public static final int EVENT_TYPE_INPUT_TEXT_ADD = TextEventInterpretation.TEXT_ADD;
+  public static final int EVENT_TYPE_INPUT_TEXT_REPLACE = TextEventInterpretation.TEXT_REPLACE;
+  public static final int EVENT_TYPE_INPUT_TEXT_PASSWORD_ADD =
+      TextEventInterpretation.TEXT_PASSWORD_ADD;
+  public static final int EVENT_TYPE_INPUT_TEXT_PASSWORD_REMOVE =
+      TextEventInterpretation.TEXT_PASSWORD_REMOVE;
+  public static final int EVENT_TYPE_INPUT_TEXT_PASSWORD_REPLACE =
+      TextEventInterpretation.TEXT_PASSWORD_REPLACE;
+  public static final int EVENT_TYPE_INPUT_CHANGE_INVALID = TextEventInterpretation.CHANGE_INVALID;
+  public static final int EVENT_TYPE_INPUT_SELECTION_FOCUS_EDIT_TEXT =
+      TextEventInterpretation.SELECTION_FOCUS_EDIT_TEXT;
+  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_TO_BEGINNING =
+      TextEventInterpretation.SELECTION_MOVE_CURSOR_TO_BEGINNING;
+  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_TO_END =
+      TextEventInterpretation.SELECTION_MOVE_CURSOR_TO_END;
+  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_NO_SELECTION =
+      TextEventInterpretation.SELECTION_MOVE_CURSOR_NO_SELECTION;
+  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_WITH_SELECTION =
+      TextEventInterpretation.SELECTION_MOVE_CURSOR_WITH_SELECTION;
+  public static final int EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_SELECTION_CLEARED =
+      TextEventInterpretation.SELECTION_MOVE_CURSOR_SELECTION_CLEARED;
+  public static final int EVENT_TYPE_INPUT_SELECTION_CUT = TextEventInterpretation.SELECTION_CUT;
+  public static final int EVENT_TYPE_INPUT_SELECTION_PASTE =
+      TextEventInterpretation.SELECTION_PASTE;
+  public static final int EVENT_TYPE_INPUT_SELECTION_TEXT_TRAVERSAL =
+      TextEventInterpretation.SELECTION_TEXT_TRAVERSAL;
+  public static final int EVENT_TYPE_INPUT_SELECTION_SELECT_ALL =
+      TextEventInterpretation.SELECTION_SELECT_ALL;
+  public static final int EVENT_TYPE_INPUT_SELECTION_SELECT_ALL_WITH_KEYBOARD =
+      TextEventInterpretation.SELECTION_SELECT_ALL_WITH_KEYBOARD;
+  public static final int EVENT_TYPE_INPUT_SELECTION_RESET_SELECTION =
+      TextEventInterpretation.SELECTION_RESET_SELECTION;
+
+  @Event
+  public static int toCompositorEvent(@TextEventInterpretation.TextEvent int textEvent) {
+    return textEvent;
+  }
 
   // IDs of the output types.
   private static final int OUTPUT_TTS_OUTPUT = 0;
   private static final int OUTPUT_TTS_QUEUE_MODE = 1;
   private static final int OUTPUT_TTS_ADD_TO_HISTORY = 2;
-  private static final int OUTPUT_TTS_FORCE_FEEDBACK_AUDIO_PLAYBACK_ACTIVE = 3;
-  private static final int OUTPUT_TTS_FORCE_FEEDBACK_MICROPHONE_ACTIVE = 4;
-  private static final int OUTPUT_TTS_FORCE_FEEDBACK_SSB_ACTIVE = 5;
-  private static final int OUTPUT_TTS_FORCE_FEEDBACK_PHONE_CALL_ACTIVE = 6;
+  private static final int OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE = 3;
+  private static final int OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE = 4;
+  private static final int OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE = 5;
+  private static final int OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_PHONE_CALL_ACTIVE = 6;
   private static final int OUTPUT_TTS_INTERRUPT_SAME_GROUP = 7;
   private static final int OUTPUT_TTS_SKIP_DUPLICATE = 8;
   private static final int OUTPUT_TTS_CLEAR_QUEUE_GROUP = 9;
@@ -245,6 +263,7 @@ public class Compositor {
     boolean mSpeakCollectionInfo = true;
     @DescriptionOrder int mDescriptionOrder = DESC_ORDER_ROLE_NAME_STATE_POSITION;
     boolean mSpeakElementIds = false;
+    boolean mSpeakSystemWindowTitles = true;
   }
 
   private final Constants mConstants = new Constants();
@@ -301,6 +320,13 @@ public class Compositor {
   public void setSpeakRoles(boolean speakRoles) {
     if (speakRoles != mConstants.mSpeakRoles) {
       mConstants.mSpeakRoles = speakRoles;
+      mParseTreeIsStale = true;
+    }
+  }
+
+  public void setSpeakSystemWindowTitles(boolean speakSystemWindowTitles) {
+    if (speakSystemWindowTitles != mConstants.mSpeakSystemWindowTitles) {
+      mConstants.mSpeakSystemWindowTitles = speakSystemWindowTitles;
       mParseTreeIsStale = true;
     }
   }
@@ -384,7 +410,7 @@ public class Compositor {
    * @param eventInterpretation Information about the event
    */
   public void handleEvent(
-      AccessibilityNodeInfoCompat source,
+      @Nullable AccessibilityNodeInfoCompat source,
       @Nullable EventId eventId,
       EventInterpretation eventInterpretation) {
     ParseTree.VariableDelegate variables =
@@ -402,7 +428,7 @@ public class Compositor {
     @Event int eventType = eventInterpreted.getEvent();
 
     // TODO: getSource may cost time
-    // Allocate source node & delegate which must be recycled.
+    // Allocate source node & delegate.
     AccessibilityNodeInfoCompat sourceNode = record.getSource();
     ParseTree.VariableDelegate delegate =
         mVariablesFactory.createLocalVariableDelegate(event, sourceNode, eventInterpreted);
@@ -411,7 +437,6 @@ public class Compositor {
     HandleEventOptions options =
         new HandleEventOptions().object(event).interpretation(eventInterpreted).source(sourceNode);
     handleEvent(eventType, eventId, delegate, options);
-    AccessibilityNodeInfoUtils.recycleNodes(sourceNode);
   }
 
   private void handleEvent(
@@ -436,12 +461,10 @@ public class Compositor {
               event, OUTPUT_REFRESH_SOURCE_NODE, false /* default */, delegate);
       if (refreshSource) {
         AccessibilityNodeInfoCompat newSourceNode =
-            AccessibilityNodeInfoUtils.refreshNode(sourceNode); // Must recycle newSourceNode.
-        delegate.cleanup();
+            AccessibilityNodeInfoUtils.refreshNode(sourceNode);
         delegate =
             mVariablesFactory.createLocalVariableDelegate(
                 eventObject, newSourceNode, eventInterpretation);
-        AccessibilityNodeInfoUtils.recycleNodes(newSourceNode);
       }
     }
 
@@ -544,12 +567,9 @@ public class Compositor {
         runnable.run(SpeechController.STATUS_NOT_SPOKEN);
       }
     }
-
-    delegate.cleanup();
   }
 
-  @Nullable
-  public String parseTTSText(
+  public @Nullable String parseTTSText(
       @Nullable AccessibilityNodeInfoCompat source,
       int event,
       EventInterpretation eventInterpretation) {
@@ -569,10 +589,10 @@ public class Compositor {
   }
 
   private static class HandleEventOptions {
-    @Nullable public AccessibilityEvent eventObject;
-    @Nullable public EventInterpretation eventInterpretation;
-    @Nullable public AccessibilityNodeInfoCompat sourceNode; // Not owner, does not recycle node.
-    @Nullable public UtteranceCompleteRunnable onCompleteRunnable;
+    public @Nullable AccessibilityEvent eventObject;
+    public @Nullable EventInterpretation eventInterpretation;
+    public @Nullable AccessibilityNodeInfoCompat sourceNode;
+    public @Nullable UtteranceCompleteRunnable onCompleteRunnable;
 
     public HandleEventOptions object(AccessibilityEvent eventObjArg) {
       eventObject = eventObjArg;
@@ -584,7 +604,7 @@ public class Compositor {
       return this;
     }
 
-    public HandleEventOptions source(AccessibilityNodeInfoCompat sourceArg) {
+    public HandleEventOptions source(@Nullable AccessibilityNodeInfoCompat sourceArg) {
       sourceNode = sourceArg;
       return this;
     }
@@ -620,23 +640,23 @@ public class Compositor {
       flags = flags | FeedbackItem.FLAG_NO_HISTORY;
     }
     if (mParseTree.parseEventToBool(event, OUTPUT_TTS_FORCE_FEEDBACK, false, variables)) {
-      flags = flags | FeedbackItem.FLAG_FORCED_FEEDBACK;
+      flags = flags | FeedbackItem.FLAG_FORCE_FEEDBACK;
     }
     if (mParseTree.parseEventToBool(
-        event, OUTPUT_TTS_FORCE_FEEDBACK_AUDIO_PLAYBACK_ACTIVE, false, variables)) {
-      flags = flags | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE;
+        event, OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE, false, variables)) {
+      flags = flags | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE;
     }
     if (mParseTree.parseEventToBool(
-        event, OUTPUT_TTS_FORCE_FEEDBACK_MICROPHONE_ACTIVE, false, variables)) {
-      flags = flags | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE;
+        event, OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE, false, variables)) {
+      flags = flags | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE;
     }
     if (mParseTree.parseEventToBool(
-        event, OUTPUT_TTS_FORCE_FEEDBACK_SSB_ACTIVE, false, variables)) {
-      flags = flags | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE;
+        event, OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE, false, variables)) {
+      flags = flags | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE;
     }
     if (mParseTree.parseEventToBool(
-        event, OUTPUT_TTS_FORCE_FEEDBACK_PHONE_CALL_ACTIVE, true, variables)) {
-      flags = flags | FeedbackItem.FLAG_FORCED_FEEDBACK_PHONE_CALL_ACTIVE;
+        event, OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_PHONE_CALL_ACTIVE, true, variables)) {
+      flags = flags | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_PHONE_CALL_ACTIVE;
     }
     if (mParseTree.parseEventToBool(event, OUTPUT_TTS_SKIP_DUPLICATE, false, variables)) {
       flags = flags | FeedbackItem.FLAG_SKIP_DUPLICATE;
@@ -677,6 +697,8 @@ public class Compositor {
     // Declare constans from verbosity settings.
     parseTree.setConstantBool("VERBOSITY_SPEAK_ROLE", constants.mSpeakRoles);
     parseTree.setConstantBool("VERBOSITY_SPEAK_COLLECTION_INFO", constants.mSpeakCollectionInfo);
+    parseTree.setConstantBool(
+        "VERBOSITY_SPEAK_SYSTEM_WINDOW_TITLE", constants.mSpeakSystemWindowTitles);
     parseTree.setConstantEnum(
         "VERBOSITY_DESCRIPTION_ORDER",
         ENUM_VERBOSITY_DESCRIPTION_ORDER,
@@ -849,8 +871,6 @@ public class Compositor {
     parseTree.addEvent(
         "EVENT_TYPE_INPUT_SELECTION_SELECT_ALL_WITH_KEYBOARD",
         EVENT_TYPE_INPUT_SELECTION_SELECT_ALL_WITH_KEYBOARD);
-    parseTree.addEvent(
-        "EVENT_TYPE_INPUT_SELECTION_RESET_SELECTION", EVENT_TYPE_INPUT_SELECTION_RESET_SELECTION);
     parseTree.addEvent("EVENT_SCROLL_POSITION", EVENT_SCROLL_POSITION);
     parseTree.addEvent("EVENT_INPUT_DESCRIBE_NODE", EVENT_INPUT_DESCRIBE_NODE);
 
@@ -864,12 +884,16 @@ public class Compositor {
     parseTree.addBooleanOutput("ttsAddToHistory", OUTPUT_TTS_ADD_TO_HISTORY);
     parseTree.addBooleanOutput("ttsForceFeedback", OUTPUT_TTS_FORCE_FEEDBACK);
     parseTree.addBooleanOutput(
-        "ttsForceFeedbackAudioPlaybackActive", OUTPUT_TTS_FORCE_FEEDBACK_AUDIO_PLAYBACK_ACTIVE);
+        "ttsForceFeedbackEvenIfAudioPlaybackActive",
+        OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE);
     parseTree.addBooleanOutput(
-        "ttsForceFeedbackMicrophoneActive", OUTPUT_TTS_FORCE_FEEDBACK_MICROPHONE_ACTIVE);
-    parseTree.addBooleanOutput("ttsForceFeedbackSsbActive", OUTPUT_TTS_FORCE_FEEDBACK_SSB_ACTIVE);
+        "ttsForceFeedbackEvenIfMicrophoneActive",
+        OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE);
     parseTree.addBooleanOutput(
-        "ttsForceFeedbackPhoneCallActive", OUTPUT_TTS_FORCE_FEEDBACK_PHONE_CALL_ACTIVE);
+        "ttsForceFeedbackEvenIfSsbActive", OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
+    parseTree.addBooleanOutput(
+        "ttsForceFeedbackEvenIfPhoneCallActive",
+        OUTPUT_TTS_FORCE_FEEDBACK_EVEN_IF_PHONE_CALL_ACTIVE);
     parseTree.addNumberOutput("ttsPitch", OUTPUT_TTS_PITCH);
     parseTree.addBooleanOutput("advanceContinuousReading", OUTPUT_ADVANCE_CONTINUOUS_READING);
     parseTree.addBooleanOutput("preventDeviceSleep", OUTPUT_PREVENT_DEVICE_SLEEP);
@@ -970,8 +994,6 @@ public class Compositor {
         return "FLAVOR_ARC";
       case FLAVOR_TV:
         return "FLAVOR_TV";
-      case FLAVOR_SWITCH_ACCESS:
-        return "FLAVOR_SWITCH_ACCESS";
       case FLAVOR_JASPER:
         return "FLAVOR_JASPER";
       default:

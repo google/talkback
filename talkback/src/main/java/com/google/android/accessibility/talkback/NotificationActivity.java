@@ -23,7 +23,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
+import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 public class NotificationActivity extends Activity {
@@ -97,7 +97,7 @@ public class NotificationActivity extends Activity {
           }
         };
 
-    AlertDialogUtils.builder(this)
+    A11yAlertDialogWrapper.materialDialogBuilder(this)
         .setTitle(dialogTitle)
         .setMessage(dialogMessage)
         .setCancelable(false)

@@ -203,7 +203,7 @@ public class ContextMenu implements Menu {
   }
 
   @Override
-  public ContextMenuItem findItem(int id) {
+  public @Nullable ContextMenuItem findItem(int id) {
     if (id == ID_CANCEL) {
       return null;
     }
@@ -287,7 +287,7 @@ public class ContextMenu implements Menu {
    * @param keyCode for the shortcut
    * @return the {@link MenuItem} that responds to a given shortcut key
    */
-  protected ContextMenuItem getItemForShortcut(int keyCode) {
+  protected @Nullable ContextMenuItem getItemForShortcut(int keyCode) {
     for (ContextMenuItem item : items) {
       if (item.getAlphabeticShortcut() == keyCode || item.getNumericShortcut() == keyCode) {
         return item;

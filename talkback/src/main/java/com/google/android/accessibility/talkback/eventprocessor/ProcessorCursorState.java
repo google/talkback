@@ -22,12 +22,12 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
-import android.text.TextUtils;
-import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.NodeBlockingOverlay;
@@ -79,7 +79,7 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
   private final Pipeline.FeedbackReturner pipeline;
   private final NodeBlockingOverlay overlay;
   private final GlobalVariables globalVariables;
-  @Nullable private AccessibilityNodeInfoCompat focusedNode = null;
+  private @Nullable AccessibilityNodeInfoCompat focusedNode = null;
   private boolean registered = false;
 
   public ProcessorCursorState(
@@ -176,8 +176,6 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
         refreshedNode.getBoundsInScreen(r);
         overlay.showDelayed(r);
       }
-      refreshedNode.recycle();
-
       overlay.onAccessibilityEvent(event, eventId);
     }
   }
@@ -185,7 +183,6 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
   private void touchEnd(AccessibilityEvent event, EventId eventId) {
     AccessibilityNodeInfoCompat refreshedNode = AccessibilityNodeInfoUtils.refreshNode(focusedNode);
     if (refreshedNode != null) {
-      refreshedNode.recycle();
       overlay.onAccessibilityEvent(event, eventId);
     }
 
@@ -221,17 +218,11 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
   }
 
   private void saveFocusedNode(AccessibilityRecordCompat record) {
-    if (focusedNode != null) {
-      focusedNode.recycle();
-      focusedNode = null;
-    }
-
+    focusedNode = null;
     AccessibilityNodeInfoCompat source = record.getSource();
     if (source != null) {
       if (Role.getRole(source) == Role.ROLE_EDIT_TEXT) {
         focusedNode = source;
-      } else {
-        source.recycle();
       }
     }
   }
@@ -260,9 +251,9 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
               SpeechController.SpeakOptions.create()
                   .setQueueMode(SpeechController.QUEUE_MODE_QUEUE)
                   .setFlags(
-                      FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                          | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+                      FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                          | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
           Feedback.Part.Builder part =
               Feedback.Part.builder()
                   .speech(context.getString(R.string.notification_type_end_of_field), speakOptions)
@@ -275,8 +266,6 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
           pipeline.returnFeedback(EVENT_ID_UNTRACKED, part);
         }
       }
-
-      source.recycle();
     }
   }
 }

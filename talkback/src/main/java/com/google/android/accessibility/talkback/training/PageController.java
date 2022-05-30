@@ -163,7 +163,8 @@ public class PageController {
     return UNKNOWN_PAGE_NUMBER;
   }
 
-  private @Nullable Pair<Integer, Integer> getShownPageNumber() {
+  @Nullable
+  private Pair<Integer, Integer> getShownPageNumber() {
     PageConfig targetPage = training.getPages().get(currentPageNumber);
     int pageNumber = currentPageNumber;
     int totalNumber = training.getTotalPageNumber();

@@ -16,8 +16,8 @@
 
 package com.google.android.accessibility.talkback;
 
-import androidx.annotation.Nullable;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.Nullable;
 import java.text.BreakIterator;
 import java.util.Locale;
 
@@ -67,8 +67,8 @@ public final class GranularityIterator {
    * @param granularity that has been requested by the user.
    * @return the iterator for text traversal or {@code null}.
    */
-  static @Nullable TextSegmentIterator getIteratorForGranularity(
-      CharSequence text, int granularity) {
+  @Nullable
+  static TextSegmentIterator getIteratorForGranularity(CharSequence text, int granularity) {
 
     switch (granularity) {
       case AccessibilityNodeInfo.MOVEMENT_GRANULARITY_CHARACTER:
@@ -130,6 +130,8 @@ public final class GranularityIterator {
   }
 
   private static class CharacterTextSegmentIterator extends AbstractTextSegmentIterator {
+    // TODO: For BreakIterator, migrating to android.icu APIs from other Android SDK
+    // APIs.
     final BreakIterator breakIterator;
 
     private static CharacterTextSegmentIterator instance;
@@ -160,7 +162,8 @@ public final class GranularityIterator {
     }
 
     @Override
-    public @Nullable int[] following(int offset) {
+    @Nullable
+    public int[] following(int offset) {
       final int textLegth = getIteratorText().length();
       if (textLegth <= 0) {
         return null;
@@ -186,7 +189,8 @@ public final class GranularityIterator {
     }
 
     @Override
-    public @Nullable int[] preceding(int offset) {
+    @Nullable
+    public int[] preceding(int offset) {
       final int textLegth = getIteratorText().length();
       if (textLegth <= 0) {
         return null;
@@ -235,7 +239,8 @@ public final class GranularityIterator {
     }
 
     @Override
-    public @Nullable int[] following(int offset) {
+    @Nullable
+    public int[] following(int offset) {
       final int textLegth = getIteratorText().length();
       if (textLegth <= 0) {
         return null;
@@ -247,21 +252,22 @@ public final class GranularityIterator {
       if (start < 0) {
         start = 0;
       }
-      while (!isLetterOrDigit(start) && !isStartBoundary(start)) {
+      while (!isLetterOrDigit(start)) {
         start = breakIterator.following(start);
         if (start == BreakIterator.DONE) {
           return null;
         }
       }
       final int end = breakIterator.following(start);
-      if (end == BreakIterator.DONE || !isEndBoundary(end)) {
+      if (end == BreakIterator.DONE) {
         return null;
       }
       return getRange(start, end);
     }
 
     @Override
-    public @Nullable int[] preceding(int offset) {
+    @Nullable
+    public int[] preceding(int offset) {
       final int textLegth = getIteratorText().length();
       if (textLegth <= 0) {
         return null;
@@ -273,26 +279,17 @@ public final class GranularityIterator {
       if (end > textLegth) {
         end = textLegth;
       }
-      while (end > 0 && !isLetterOrDigit(end - 1) && !isEndBoundary(end)) {
+      while (end > 0 && !isLetterOrDigit(end - 1)) {
         end = breakIterator.preceding(end);
         if (end == BreakIterator.DONE) {
           return null;
         }
       }
-      final int start = breakIterator.preceding(end);
-      if (start == BreakIterator.DONE || !isStartBoundary(start)) {
+      int start = breakIterator.preceding(end);
+      if (start == BreakIterator.DONE) {
         return null;
       }
       return getRange(start, end);
-    }
-
-    private boolean isStartBoundary(int index) {
-      return isLetterOrDigit(index) && (index == 0 || !isLetterOrDigit(index - 1));
-    }
-
-    private boolean isEndBoundary(int index) {
-      return (index > 0 && isLetterOrDigit(index - 1))
-          && (index == getIteratorText().length() || !isLetterOrDigit(index));
     }
 
     private boolean isLetterOrDigit(int index) {
@@ -316,7 +313,8 @@ public final class GranularityIterator {
     }
 
     @Override
-    public @Nullable int[] following(int offset) {
+    @Nullable
+    public int[] following(int offset) {
       final int textLength = getIteratorText().length();
       if (textLength <= 0) {
         return null;
@@ -344,7 +342,8 @@ public final class GranularityIterator {
     }
 
     @Override
-    public @Nullable int[] preceding(int offset) {
+    @Nullable
+    public int[] preceding(int offset) {
       final int textLength = getIteratorText().length();
       if (textLength <= 0) {
         return null;

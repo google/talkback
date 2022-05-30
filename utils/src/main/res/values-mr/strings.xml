@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">%1$d पासून %2$d पर्यंत वर्ण</string>
+  <string name="template_password_traversed">वर्ण %1$d</string>
   <string name="untitled_window">अशीर्षकांकित</string>
-  <string name="template_alert_dialog_template">सूचना %1$s</string>
   <string name="template_text_copied">%1$s, कॉपी केला</string>
   <string name="template_capital_letter">कॅपिटल %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">शब्द</string>
   <string name="granularity_line">ओळी</string>
   <string name="granularity_paragraph">परिच्छेद</string>
-  <string name="granularity_page">पेज</string>
   <string name="granularity_window">Windows</string>
   <string name="granularity_web_landmark">खुणा</string>
   <string name="granularity_web_heading">शीर्षक</string>

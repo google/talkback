@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">Dari karakter %1$d hingga %2$d</string>
+  <string name="template_password_traversed">Karakter %1$d</string>
   <string name="untitled_window">tanpa judul</string>
-  <string name="template_alert_dialog_template">Notifikasi %1$s</string>
   <string name="template_text_copied">%1$s disalin</string>
   <string name="template_capital_letter">huruf besar %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">Kata</string>
   <string name="granularity_line">Baris</string>
   <string name="granularity_paragraph">Paragraf</string>
-  <string name="granularity_page">Halaman</string>
   <string name="granularity_window">Jendela</string>
   <string name="granularity_web_landmark">Penanda</string>
   <string name="granularity_web_heading">Judul</string>

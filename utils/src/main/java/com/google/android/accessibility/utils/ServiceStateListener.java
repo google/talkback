@@ -30,6 +30,12 @@ public interface ServiceStateListener {
   final int SERVICE_STATE_ACTIVE = 1;
   /** The state of the service when it has been suspended by the user. */
   final int SERVICE_STATE_SUSPENDED = 2;
+  /**
+   * The state of the service when it is in the process of beeing shut down by the user. Unhandled
+   * exceptions will be logged in this state but will not be passed on to the system's unhandled
+   * exception handler.
+   */
+  final int SERVICE_STATE_SHUTTING_DOWN = 3;
 
   void onServiceStateChanged(int newState);
 }

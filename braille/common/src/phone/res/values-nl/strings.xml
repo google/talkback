@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Cijfer</string>
+  <string name="capitalize_announcement">Hoofdletters</string>
+  <string name="read_out_deleted">%s verwijderd</string>
+  <plurals name="braille_dots">
+    <item quantity="one">punt %s</item>
+    <item quantity="other">punten %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille (volledig)</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille (kortschrift)</string>
+  <string name="code_user_facing_name_es">Spaans</string>
+  <string name="code_user_facing_name_ar">Arabisch</string>
+  <string name="code_user_facing_name_fr">Frans</string>
+  <string name="code_user_facing_name_pl">Pools</string>
+  <string name="screen_away">Modus Scherm weg</string>
+  <string name="screen_away_detail">Houd het apparaat vast met het scherm van je af (modus Scherm weg)</string>
+  <string name="tabletop">Tafelbladmodus</string>
+  <string name="tabletop_detail">Leg het apparaat plat op een tafel (tafelbladmodus)</string>
+  <string name="auto_detect">Aanpassen aan hoe je het apparaat vasthoudt</string>
+</resources>

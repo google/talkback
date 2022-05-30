@@ -19,6 +19,8 @@ package com.google.android.accessibility.talkback.actor;
 import android.accessibilityservice.AccessibilityGestureEvent;
 import android.content.Context;
 import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.gesture.GestureHistory;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -31,23 +33,30 @@ public class GestureReporter {
 
   private Context context;
   private GestureHistory gestureHistory;
+  private boolean enabled;
 
-  public GestureReporter(Context context) {
+  public GestureReporter(Context context, @NonNull GestureHistory gestureHistory) {
     this.context = context;
-    gestureHistory = new GestureHistory();
+    this.gestureHistory = gestureHistory;
+    setEnabled(ENABLED);
   }
 
   /** Records gestures to history queue. */
   public boolean record(AccessibilityGestureEvent accessibilityGestureEvent) {
-    if (!ENABLED) {
+    if (!enabled) {
       return false;
     }
     return gestureHistory.save(accessibilityGestureEvent);
   }
 
+  @VisibleForTesting
+  void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
+
   /** Reports gesture data by Share intent. */
   public boolean report() {
-    if (!ENABLED) {
+    if (!enabled) {
       LogUtils.w(GestureReporter.TAG, "Not support ReportingGesture");
       return false;
     }

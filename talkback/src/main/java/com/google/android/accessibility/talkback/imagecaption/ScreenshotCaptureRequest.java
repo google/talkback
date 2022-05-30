@@ -18,10 +18,9 @@ package com.google.android.accessibility.talkback.imagecaption;
 
 import android.accessibilityservice.AccessibilityService;
 import android.graphics.Bitmap;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.annotation.NonNull;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.imagecaption.RequestList.Request;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.screencapture.ScreenshotCapture;
 
@@ -31,21 +30,23 @@ public class ScreenshotCaptureRequest implements Request {
   /** A listener to be invoked when taking screenshot is finished. */
   public interface OnFinishListener {
     /** Called when taking screenshot is finished. */
-    void onFinish(AccessibilityNodeInfoCompat node, Bitmap bitmap);
+    void onFinish(AccessibilityNodeInfoCompat node, Bitmap bitmap, boolean isUserRequested);
   }
 
   private final AccessibilityService service;
   private final AccessibilityNodeInfoCompat node;
   @NonNull private final OnFinishListener onFinishListener;
+  private final boolean isUserRequested;
 
   public ScreenshotCaptureRequest(
       AccessibilityService service,
       AccessibilityNodeInfoCompat node,
-      @NonNull OnFinishListener onFinishListener) {
+      @NonNull OnFinishListener onFinishListener,
+      boolean isUserRequested) {
     this.service = service;
-    // Copies node which must be recycled when the request is finished.
-    this.node = AccessibilityNodeInfoCompat.obtain(node);
+    this.node = node;
     this.onFinishListener = onFinishListener;
+    this.isUserRequested = isUserRequested;
   }
 
   @Override
@@ -53,13 +54,9 @@ public class ScreenshotCaptureRequest implements Request {
     ScreenshotCapture.takeScreenshot(
         service,
         (screenCapture, isFormatSupported) -> {
-          onFinishListener.onFinish(node, screenCapture);
-          AccessibilityNodeInfoUtils.recycleNodes(node);
+          onFinishListener.onFinish(node, screenCapture, isUserRequested);
         });
   }
-
-  @Override
-  public void recycle() {}
 
   @Override
   public String toString() {

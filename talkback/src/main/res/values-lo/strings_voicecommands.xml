@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">ສະຫຼຸບ</string>
   <string name="voice_commands_read">ອ່ານ</string>
   <string name="voice_commands_read_from_next">ອ່ານຈາກຕໍ່ໄປ</string>
   <string name="voice_commands_edit_options">ແກ້ໄຂຕົວເລືອກ</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">ຊອກຫາ</string>
   <string name="voice_commands_search">ຊອກຫາ</string>
   <string name="voice_commands_search_for">ຊອກຫາ</string>
-  <string name="voice_commands_find_again">ຊອກຫາຊ້ຳ</string>
   <string name="voice_commands_next_heading">ຫົວ​ຂໍ້​ຕໍ່​ໄປ</string>
   <string name="voice_commands_next_control">ຕົວຄວບຄຸມຕໍ່ໄປ</string>
   <string name="voice_commands_next_link">​ລິ້ງ​ຕໍ່ໄປ</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">ບໍ່ສາມາດຕັ້ງປ້າຍກຳກັບໄດ້</string>
   <string name="voice_commands_assistant">ຜູ້ຊ່ວຍ</string>
   <string name="voice_commands_setting_speech_rate">ຕັ້ງຄ່າອັດຕາການເວົ້າ</string>
-  <string name="voice_commands_setting_verbosity">ຕັ້ງຄ່າການເວົ້າລາຍລະອຽດ</string>
-  <string name="voice_commands_setting_granularity">ຕັ້ງຄ່າລາຍລະອຽດ</string>
-  <string name="voice_commands_setting_navigation">ຕັ້ງຄ່າການນຳທາງ</string>
   <string name="voice_commands_first">ທຳອິດ</string>
   <string name="voice_commands_top">ເທິງສຸດ</string>
   <string name="voice_commands_last">ສຸດທ້າຍ</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">ບໍ່ມີລິ້ງຕໍ່ໄປ</string>
   <string name="voice_commands_no_next_control_feedback">ບໍ່ມີການຄວບຄຸມຕໍ່ໄປ</string>
   <string name="voice_commands_no_next_landmark_feedback">ບໍ່ມີແລນມາກຕໍ່ໄປ</string>
-  <string name="voice_commands_screen_hidden_feedback">ເຊື່ອງໜ້າຈໍແລ້ວ</string>
-  <string name="voice_commands_showing_screen_feedback">ກຳລັງສະແດງໜ້າຈໍ</string>
   <string name="voice_commands_help_title">ພາບຮວມຄຳສັ່ງສຽງ</string>
   <string name="voice_commands_help_description">ເພື່ອໃຊ້ຄຳສັ່ງສຽງ, ໃຫ້ປັດຂວາແລ້ວປັດຂຶ້ນ. ໃຫ້ເວົ້າວ່າ \"ຊ່ວຍເຫຼືອ\" ຫຼື \"ຂ້ອຍເວົ້າຫຍັງໄດ້ແດ່?\" ຕອນໃດກໍໄດ້ເພື່ອເບິ່ງລາຍຊື່ຄຳສັ່ງຕ່າງໆ.</string>
   <string name="voice_commands_help_hint">ເພື່ອໃຫ້ໄດ້ຜົນດີທີ່ສຸດ, ໃຫ້ເວົ້າຄຳສັບກົງກັບທີ່ມີໃນລາຍຊື່ຢູ່ໜ້າຈໍຕໍ່ໄປນີ້.</string>

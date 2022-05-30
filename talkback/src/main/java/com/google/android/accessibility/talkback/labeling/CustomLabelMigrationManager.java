@@ -19,9 +19,9 @@ package com.google.android.accessibility.talkback.labeling;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -218,7 +218,8 @@ public class CustomLabelMigrationManager {
   }
 
   // public visibility for tests
-  public @NonNull List<Label> parseLabels(String jsonText) throws JSONException {
+  @NonNull
+  public List<Label> parseLabels(String jsonText) throws JSONException {
     JSONObject root = new JSONObject(jsonText);
     JSONArray labelsArray = root.getJSONArray(JSON_LABELS_ARRAY);
     if (labelsArray == null) {

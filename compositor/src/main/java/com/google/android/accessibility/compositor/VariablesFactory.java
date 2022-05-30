@@ -17,9 +17,9 @@
 package com.google.android.accessibility.compositor;
 
 import android.content.Context;
+import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.utils.ImageContents;
 import com.google.android.accessibility.utils.parsetree.ParseTree;
 import com.google.android.accessibility.utils.parsetree.ParseTree.VariableDelegate;
@@ -32,7 +32,7 @@ class VariablesFactory {
   @Nullable private final ImageContents imageContents;
   @Nullable private NodeMenuProvider nodeMenuProvider;
   // Stores the user preferred locale changed using language switcher.
-  private @Nullable Locale mUserPreferredLocale;
+  @Nullable private Locale mUserPreferredLocale;
 
   VariablesFactory(
       Context context, GlobalVariables globalVariables, @Nullable ImageContents imageContents) {
@@ -61,7 +61,7 @@ class VariablesFactory {
     this.nodeMenuProvider = nodeMenuProvider;
   }
 
-  // Copies node, does not recycle original node.
+  // Copies node.
   VariableDelegate createLocalVariableDelegate(
       @Nullable AccessibilityEvent event,
       @Nullable AccessibilityNodeInfoCompat node,

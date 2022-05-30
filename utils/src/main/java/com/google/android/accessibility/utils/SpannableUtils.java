@@ -19,7 +19,6 @@ package com.google.android.accessibility.utils;
 import android.os.Build;
 import android.os.LocaleList;
 import android.os.PersistableBundle;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.ParcelableSpan;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -31,6 +30,7 @@ import android.text.style.LocaleSpan;
 import android.text.style.TtsSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Locale;
 import java.util.Set;
@@ -61,7 +61,7 @@ public final class SpannableUtils {
       return false;
     }
     if (shouldTrim) {
-      text = SpeechCleanupUtils.trimText(text);
+      text = trimText(text);
     }
     if (TextUtils.isEmpty(text)) {
       return false;
@@ -75,6 +75,21 @@ public final class SpannableUtils {
     T span = spans[0];
     return (spannable.getSpanStart(span) == 0)
         && (spannable.getSpanEnd(span) == spannable.length());
+  }
+
+  // Avoid using String.trim() so that Span info is not lost. Use this method for CharSequence trim.
+  public static CharSequence trimText(CharSequence text) {
+    int start = 0;
+    int last = text.length() - 1;
+    while ((start <= last) && Character.isWhitespace(text.charAt(start))) {
+      start++;
+    }
+
+    while ((last > start) && Character.isWhitespace(text.charAt(last))) {
+      last--;
+    }
+    CharSequence trimmedText = text.subSequence(start, (last + 1));
+    return trimmedText;
   }
 
   /**
@@ -133,7 +148,7 @@ public final class SpannableUtils {
    *
    * @param text Text to be logged
    */
-  public static String spansToStringForLogging(CharSequence text) {
+  public static @Nullable String spansToStringForLogging(CharSequence text) {
     if (!LogUtils.shouldLog(Log.VERBOSE)) {
       return null;
     }

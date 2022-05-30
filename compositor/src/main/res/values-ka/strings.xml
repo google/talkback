@@ -59,10 +59,6 @@
   <string name="value_pager_page">გვერდი</string>
   <string name="value_progress_bar">პროგრესის ზოლი</string>
   <string name="value_webview">ვებხედი</string>
-  <string name="value_toolbar">ხელსაწყოთა ზოლი</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">სიმბოლო %1$d-დან %2$d-მდე</string>
-  <string name="template_password_traversed">სიმბოლო %1$d</string>
   <string name="value_password">პაროლი</string>
   <string name="value_sliding_drawer_opened">გახსნილია გამოსასრიალებელი უჯრა</string>
   <string name="value_options_menu_open">პარამეტრები.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">გვერდის ნავიგაციის ვერტიკალური მოდულის გარეთ</string>
   <string name="in_horizontal_pager_with_name">გვერდის ნავიგაციის ჰორიზონტალურ მოდულში %1$s</string>
   <string name="in_horizontal_pager">გვერდის ნავიგაციის ჰორიზონტალურ მოდულში</string>
-  <string name="out_of_horizontal_pager_with_name">გვერდის ნავიგაციის ჰორიზონტალური მოდულის %1$s გარეთ</string>
   <string name="out_of_horizontal_pager">გვერდის ნავიგაციის ჰორიზონტალური მოდულის გარეთ</string>
   <string name="in_grid_pager_with_name">გვერდის ნავიგაციის ბადიან მოდულში %1$s</string>
   <string name="in_grid_pager">გვერდის ნავიგაციის ბადიან მოდულში</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">გადიდება — %1$d%%</string>
   <string name="screen_magnification_off">გადიდება გამორთულია</string>
   <string name="template_speech_rate_change">მეტყველების ტემპი %1$d%%</string>
-  <string name="template_speech_rate_change_faster">უფრო სწრაფი</string>
-  <string name="template_speech_rate_change_slower">უფრო ნელი</string>
-  <string name="template_speech_rate_change_fastest">უსწრაფესი</string>
-  <string name="template_speech_rate_change_slowest">უნელესი</string>
   <string name="template_volume_change_increase">გაზრდა</string>
   <string name="template_volume_change_decrease">შემცირება</string>
   <string name="template_volume_change_maximum">მაქსიმუმი</string>
   <string name="template_volume_change_minimum">მინიმუმი</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">აუდიო დაკინგი ჩართულია</string>
-  <string name="audio_focus_off">აუდიო დაკინგი გამორთულია</string>
-  <string name="selector_speech_rate_output">მეტყველების ტემპი</string>
-  <string name="selector_verbosity_output">დეტალიზაცია</string>
-  <string name="selector_granularity_output">ნავიგაცია</string>
-  <string name="selector_audio_focus_output">აუდიო დაკინგი</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">პაროლები გახმოვანდება მხოლოდ ყურსასმენების გამოყენებისას</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s ხელმისაწვდომია, სანახავად გამოიყენეთ %2$s.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s ხელმისაწვდომია.</string>
+  <string name="hint_suggestion">მართლწერის შეთავაზებაბი ხელმისაწვდომია</string>
+  <string name="in_window_with_name">ფანჯარა: %1$s</string>
+  <string name="detected_icon_description">აღმოჩენილი ხატულა: %1$s</string>
+  <string name="ocr_text_description">ტექსტი: %1$s</string>
 </resources>

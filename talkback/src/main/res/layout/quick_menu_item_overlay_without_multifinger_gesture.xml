@@ -34,7 +34,7 @@
         android:textColor="@color/quick_menu_overlay_text_color"
         android:textSize="@dimen/quick_menu_overlay_text_size"
         android:textFontWeight="@integer/quick_menu_overlay_font_weight"
-        android:fontFamily="@string/talkback_font"/>
+        android:fontFamily="@string/accessibility_font"/>
     <ImageView
         android:id="@+id/quick_menu_right_icon"
         android:layout_width="wrap_content"

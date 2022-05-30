@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Number</string>
+  <string name="capitalize_announcement">Suurtäht</string>
+  <string name="read_out_deleted">%s kustutati</string>
+  <plurals name="braille_dots">
+    <item quantity="one">punkt %s</item>
+    <item quantity="other">punktid %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">hispaania</string>
+  <string name="code_user_facing_name_ar">araabia</string>
+  <string name="code_user_facing_name_fr">Prantsuse keel</string>
+  <string name="code_user_facing_name_pl">poola</string>
+  <string name="screen_away">Režiim Ekraan eemal</string>
+  <string name="screen_away_detail">Hoidke seadet nii, et ekraan oleks teist eemale suunatud (režiim Ekraan eemal)</string>
+  <string name="tabletop">Režiim Laual</string>
+  <string name="tabletop_detail">Asetage seade lauale (režiim Laual).</string>
+  <string name="auto_detect">Kohanda seadme hoidmise viisi alusel</string>
+</resources>

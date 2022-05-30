@@ -16,7 +16,9 @@
 
 package com.google.android.accessibility.talkback.training;
 
-import static com.google.android.accessibility.talkback.TalkBackService.PERMISSION_TALKBACK;
+import static com.google.android.accessibility.talkback.ipc.IpcService.EXTRA_TRAINING_PAGE_ID;
+import static com.google.android.accessibility.talkback.ipc.IpcService.MSG_REQUEST_GESTURES;
+import static com.google.android.accessibility.talkback.ipc.IpcService.MSG_TRAINING_PAGE_SWITCHED;
 import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_FINISHED;
 import static com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants.TALKBACK_SERVICE;
 import static com.google.android.accessibility.utils.PackageManagerUtils.TALBACK_PACKAGE;
@@ -24,23 +26,26 @@ import static com.google.android.accessibility.utils.PackageManagerUtils.TALBACK
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.core.view.ViewCompat;
 import android.util.Pair;
 import android.widget.LinearLayout;
 import android.widget.Toolbar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.ViewCompat;
 import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.ipc.IpcService;
 import com.google.android.accessibility.talkback.training.NavigationButtonBar.NavigationListener;
 import com.google.android.accessibility.talkback.training.PageConfig.PageId;
 import com.google.android.accessibility.talkback.training.PageController.OnPageChangeCallback;
 import com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId;
-import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
+import com.google.android.accessibility.utils.BuildVersionUtils;
+import com.google.android.accessibility.utils.AlertDialogUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**
@@ -52,13 +57,11 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
   private static final String TAG = "TrainingActivity";
   public static final String EXTRA_TRAINING = "training";
   public static final int ROOT_RES_ID = R.id.training_root;
-  public static final String ACTION_TRAINING_PAGE_SWITCHED =
-      "com.google.android.marvin.talkback.action.TRAINING_PAGE_SWITCHED";
-  public static final String EXTRA_TRAINING_PAGE_ID = "training_page_id";
 
   @Nullable private TrainingConfig training;
   @Nullable private NavigationButtonBar navigationButtonBar;
   private PageController pageController;
+  private TrainingIpcClient ipcClient;
 
   private final NavigationListener navigationListener =
       new NavigationListener() {
@@ -114,7 +117,7 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
     setWindowTitle(getString(targetPage.getPageName()));
 
     // Passes a page ID to TalkBackService.
-    passPageId(this, targetPage.getPageId());
+    passPageIdToService(targetPage.getPageId());
   }
 
   private TrainingFragment createFragment(
@@ -131,6 +134,7 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
     TrainingFragment fragment = new TrainingFragment();
     fragment.setArguments(args);
     fragment.setLinkHandler((first) -> pageController.handleLink(first));
+    fragment.setData(ipcClient.getServiceData());
     return fragment;
   }
 
@@ -167,9 +171,16 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
   }
 
   @Override
-  public void finish() {
-    passPageId(this, PAGE_ID_FINISHED);
-    super.finish();
+  protected void onResume() {
+    super.onResume();
+    ipcClient.bindService();
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    passPageIdToService(PAGE_ID_FINISHED);
+    ipcClient.unbindService();
   }
 
   @Override
@@ -198,26 +209,33 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
     return training == null ? null : training.getPages().get(pageController.getCurrentPageNumber());
   }
 
+  @Nullable
+  private PageId getCurrentPageId() {
+    @Nullable PageConfig currentPage = getCurrentPage();
+    return currentPage == null ? null : currentPage.getPageId();
+  }
+
   private static boolean isTalkBackEnabled(Context context) {
     return AccessibilityServiceCompatUtils.isAccessibilityServiceEnabled(
         context, TALKBACK_SERVICE.flattenToShortString());
   }
 
-  /**
-   * Notifies TalkBackService that which page is shown on the screen. The data isn't sent to
-   * TalkBackService if it is disabled.
-   *
-   * <p>This method has responsibility for checking the service state.
-   */
-  private static void passPageId(Context context, PageId pageId) {
-    // Do not send the data to TalkBackService if it is not enabled.
-    if (!isTalkBackEnabled(context)) {
+  /** Passes the current page ID to TalkBack. */
+  private void passPageIdToService(@Nullable PageId pageId) {
+    if (pageId == null) {
       return;
     }
 
-    Intent intent = new Intent(ACTION_TRAINING_PAGE_SWITCHED);
-    intent.putExtra(EXTRA_TRAINING_PAGE_ID, pageId);
-    context.sendBroadcast(intent, PERMISSION_TALKBACK);
+    Message message = Message.obtain(null, MSG_TRAINING_PAGE_SWITCHED);
+    Bundle data = new Bundle();
+    data.putSerializable(EXTRA_TRAINING_PAGE_ID, pageId);
+    message.setData(data);
+    sendMessageToService(message);
+  }
+
+  /** Asks TalkBack about gesture information. */
+  private void requestGesturesFromService() {
+    sendMessageToService(Message.obtain(null, MSG_REQUEST_GESTURES));
   }
 
   /** Initializes activity. */
@@ -227,6 +245,18 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
       finish();
       return;
     }
+
+    if (ipcClient == null) {
+      ipcClient =
+          new TrainingIpcClient(
+              getApplicationContext(),
+              () -> {
+                passPageIdToService(getCurrentPageId());
+                requestGesturesFromService();
+              });
+    }
+    ipcClient.bindService();
+
     setupTrainingView(training);
   }
 
@@ -293,7 +323,14 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
     // avoid announcing the title twice. Then, the focus will land on the next element after the
     // title.
     setTitle(pageTitle);
-    ViewCompat.setAccessibilityPaneTitle(findViewById(R.id.training_root), pageTitle);
+    // TODO: Until TalkBack supports managing the focus position by pane-changed
+    // events, not use accessibility-pane on the tutorial.
+    // TODO: The code should be removed after upgrading minSDK to 26.
+    if (!BuildVersionUtils.isAtLeastO()) {
+      // On Android M/N, the tutorial needs a pane title changed event to trigger the window
+      // transition behavior, which contains changing focus and the announcement.
+      ViewCompat.setAccessibilityPaneTitle(findViewById(R.id.training_root), pageTitle);
+    }
   }
 
   private void showExitDialog() {
@@ -332,6 +369,19 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
     LinearLayout navigationBar = findViewById(R.id.training_bottom);
     navigationBar.removeView(navigationButtonBar);
     navigationButtonBar = null;
+  }
+
+  /**
+   * Sends the message to {@link IpcService}.
+   *
+   * <p>This method has responsibility to check the service state.
+   */
+  private void sendMessageToService(Message message) {
+    // Do not send the data to the IpcService if TalkBack is not enabled.
+    if (!isTalkBackEnabled(getApplicationContext()) || ipcClient == null) {
+      return;
+    }
+    ipcClient.sendMessage(message);
   }
 
   @VisibleForTesting

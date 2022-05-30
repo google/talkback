@@ -17,12 +17,12 @@
 package com.google.android.accessibility.talkback.actor.search;
 
 import android.graphics.Color;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

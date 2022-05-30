@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.utils;
 
-import androidx.core.view.accessibility.AccessibilityEventCompat;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -28,7 +28,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * <ul>
  *   <li>handling null events
- *   <li>recycling event
  *   <li>using compat vs bare methods
  *   <li>using correct methods for various android versions
  * </ul>
@@ -37,15 +36,13 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * <ul>
  *   <li>reduce duplication of source node
- *   <li>reduce number of recycle() calls needed for source node copies
  * </ul>
  *
  * <p>The event-wrapper contains both an event, and a source node. This way, we don't generate so
- * many copies of source node. Also, we would just recycle event once, instead of generating and
- * recycling many copies of source node. And similarly, node contains window info. There are a lot
- * of pass-through functions, which handle null-checking and recycling intermediate objects. As a
- * result, there is little reason for callers directly use a node or window-info. Just call
- * top-level event functions.
+ * many copies of source node. And similarly, node contains window info. There are a lot of
+ * pass-through functions which handle null-checking intermediate objects. As a result, there is
+ * little reason for callers directly use a node or window-info. Just call top-level event
+ * functions.
  */
 public class Event {
 
@@ -57,33 +54,24 @@ public class Event {
    */
   private AccessibilityEvent eventBare;
 
-  /* Event wrapper might own & recycle contained event, or just reference event owned by caller. */
-  private boolean isEventOwner;
-
-  @Nullable private AccessibilityNode source;
-
-  /** Name of calling method that recycled this event. */
-  private String recycledBy;
+  private @Nullable AccessibilityNode source;
 
   ///////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
-  /** Takes ownership of eventArg. Caller must recycle returned Event. */
-  @Nullable
-  public static Event takeOwnership(@Nullable AccessibilityEvent eventArg) {
-    return construct(eventArg, /* copy= */ false, /* own= */ true, FACTORY);
+  /** Takes ownership of eventArg. */
+  public static @Nullable Event takeOwnership(@Nullable AccessibilityEvent eventArg) {
+    return construct(eventArg, /* copy= */ false, FACTORY);
   }
 
-  /** Caller keeps ownership of eventArg. Caller must also recycle returned Event. */
-  @Nullable
-  public static Event obtainCopy(@Nullable AccessibilityEvent eventArg) {
-    return construct(eventArg, /* copy= */ true, /* own= */ true, FACTORY);
+  /** Caller keeps ownership of eventArg. */
+  public static @Nullable Event obtainCopy(@Nullable AccessibilityEvent eventArg) {
+    return construct(eventArg, /* copy= */ true, FACTORY);
   }
 
-  /** Caller keeps ownership of eventArg. Caller must also recycle returned Event. */
-  @Nullable
-  public static Event reference(@Nullable AccessibilityEvent eventArg) {
-    return construct(eventArg, /* copy= */ false, /* own= */ false, FACTORY);
+  /** Caller keeps ownership of eventArg. */
+  public static @Nullable Event reference(@Nullable AccessibilityEvent eventArg) {
+    return construct(eventArg, /* copy= */ false, FACTORY);
   }
 
   /**
@@ -93,18 +81,12 @@ public class Event {
    * when result should be null. Method is protected so that it can be called by sub-classes without
    * duplicating null-checking logic.
    *
-   * @param eventArg wrapped event info, which caller may need to recycle
-   * @param copy flag whether to wrap a copy of eventArg, that caller must recycle
-   * @param own flag whether wrapped event will be recycled
+   * @param eventArg wrapped event info
+   * @param copy flag whether to wrap a copy of eventArg
    * @param factory creates instances of Event or sub-classes
    */
-  @Nullable
-  protected static <T extends Event> T construct(
-      @Nullable AccessibilityEvent eventArg, boolean copy, boolean own, Factory<T> factory) {
-
-    if (copy && !own) {
-      throw new IllegalStateException("Cannot create Event that wraps an un-owned copy.");
-    }
+  protected static <T extends Event> @Nullable T construct(
+      @Nullable AccessibilityEvent eventArg, boolean copy, Factory<T> factory) {
     if (eventArg == null) {
       return null;
     }
@@ -112,7 +94,6 @@ public class Event {
     T instance = factory.create();
     Event instanceBase = instance;
     instanceBase.eventBare = copy ? AccessibilityEvent.obtain(eventArg) : eventArg;
-    instanceBase.isEventOwner = own;
     return instance;
   }
 
@@ -134,68 +115,43 @@ public class Event {
   ///////////////////////////////////////////////////////////////////////////////////////
   // Recycling
 
-  /** Returns whether the wrapped event is already recycled. */
+  /**
+   * Returns whether the wrapped event is already recycled.
+   *
+   * <p>TODO: Remove once all dependencies have been removed.
+   *
+   * @deprecated Accessibility is discontinuing recycling. Function will return false.
+   */
+  @Deprecated
   public final synchronized boolean isRecycled() {
-    return (recycledBy != null);
+    return false;
   }
 
-  /** Recycles the wrapped node & window. Errors if called more than once. */
-  public final synchronized void recycle(String caller) {
-
-    // Check for double-recycling.
-    if (recycledBy == null) {
-      recycledBy = caller;
-    } else {
-      logOrThrow("Event already recycled by %s then by %s", recycledBy, caller);
-      return;
-    }
-
-    // Recycle wrapped AccessibilityEvent only if this wrapper owns the event.
-    if (eventBare != null && isEventOwner) {
-      try {
-        eventBare.recycle();
-      } catch (IllegalStateException e) {
-        logOrThrow(
-            e,
-            "Caught IllegalStateException from accessibility framework with %s trying to recycle"
-                + " event %s",
-            caller,
-            eventBare);
-      }
-    }
-
-    // Recycle source node, if it exists.
-    if (source != null && !source.isRecycled()) {
-      source.recycle(caller);
-    }
-
-    recycledBy = caller;
-  }
+  /**
+   * Recycles the wrapped node & window. Errors if called more than once.
+   *
+   * @deprecated Accessibility is discontinuing recycling.
+   */
+  @Deprecated
+  public final synchronized void recycle(String caller) {}
 
   ///////////////////////////////////////////////////////////////////////////////////////
   // AccessibilityEvent/Compat methods. Also see:
   // https://developer.android.com/reference/android/view/accessibility/AccessibilityEvent
 
-  private final AccessibilityEvent getEvent() {
-    if (isRecycled()) {
-      throwError("getEvent() called on node already recycled by %s", recycledBy);
-    }
-    return eventBare;
-  }
-
   /** Returns a bitmap of custom actions. See public documentation of AccessibilityEvent. */
   public final int getAction() {
-    return getEvent().getAction();
+    return eventBare.getAction();
   }
 
   /** Returns a bitmap of content changes. See public documentation of AccessibilityEvent. */
   public final int getContentChangeTypes() {
-    return AccessibilityEventCompat.getContentChangeTypes(getEvent());
+    return AccessibilityEventCompat.getContentChangeTypes(eventBare);
   }
 
   /** Returns an enum of event type. See public documentation of AccessibilityEvent. */
   public final int getEventType() {
-    return getEvent().getEventType();
+    return eventBare.getEventType();
   }
 
   // TODO: Add more methods on demand. Keep alphabetic order.
@@ -204,27 +160,21 @@ public class Event {
   // AccessibilityNodeInfo methods on source node.
 
   /** Returns an instance of source node, kept inside this event wrapper. */
-  @Nullable
-  private final AccessibilityNode getSource() {
-    if (isRecycled()) {
-      throwError("getSource() called on node already recycled by %s", recycledBy);
-    }
+  private final @Nullable AccessibilityNode getSource() {
     if (source == null) {
-      source = AccessibilityNode.takeOwnership(getEvent().getSource());
+      source = AccessibilityNode.takeOwnership(eventBare.getSource());
     }
     return source;
   }
 
   /** Returns source node's class name. See public documentation of AccessibilityNodeInfo. */
-  @Nullable
-  public final CharSequence sourceGetClassName() {
+  public final @Nullable CharSequence sourceGetClassName() {
     @Nullable AccessibilityNode sourceNode = getSource();
     return (sourceNode == null) ? null : sourceNode.getClassName();
   }
 
   /** Returns source node's custom actions. See public documentation of AccessibilityNodeInfo. */
-  @Nullable
-  public final List<AccessibilityNodeInfo.AccessibilityAction> sourceGetActionList() {
+  public final @Nullable List<AccessibilityNodeInfo.AccessibilityAction> sourceGetActionList() {
     @Nullable AccessibilityNode sourceNode = getSource();
     return (sourceNode == null) ? null : sourceNode.getActionList();
   }
@@ -239,36 +189,18 @@ public class Event {
    * AccessibilityEventUtils.
    */
   public final boolean eventMatchesAnyType(int typeMask) {
-    return AccessibilityEventUtils.eventMatchesAnyType(getEvent(), typeMask);
+    return AccessibilityEventUtils.eventMatchesAnyType(eventBare, typeMask);
   }
 
   /** Returns event description, or falls back to event text. See AccessibilityEventUtils. */
   public final CharSequence getEventTextOrDescription() {
-    return AccessibilityEventUtils.getEventTextOrDescription(getEvent());
+    return AccessibilityEventUtils.getEventTextOrDescription(eventBare);
   }
 
   // TODO: Add methods on demand. Keep alphabetic order.
 
   ///////////////////////////////////////////////////////////////////////////////////////
   // Error methods
-
-  private final void logOrThrow(String format, Object... parameters) {
-    if (isDebug()) {
-      throwError(String.format(format, parameters));
-    } else {
-      logError(format, parameters);
-    }
-  }
-
-  private final void logOrThrow(
-      IllegalStateException exception, String format, Object... parameters) {
-    if (isDebug()) {
-      throw exception;
-    } else {
-      logError(format, parameters);
-      logError("%s", exception);
-    }
-  }
 
   /** Overridable for testing. */
   protected boolean isDebug() {
@@ -277,9 +209,5 @@ public class Event {
 
   protected void logError(String format, Object... parameters) {
     LogUtils.e(TAG, format, parameters);
-  }
-
-  private final void throwError(String format, Object... parameters) {
-    throw new IllegalStateException(String.format(format, parameters));
   }
 }

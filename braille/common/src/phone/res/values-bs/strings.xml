@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Broj</string>
+  <string name="capitalize_announcement">Gornja granica</string>
+  <string name="read_out_deleted">Izbrisano: %s</string>
+  <plurals name="braille_dots">
+    <item quantity="one">%s tačka</item>
+    <item quantity="few">%s tačke</item>
+    <item quantity="other">%s tačaka</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">španski</string>
+  <string name="code_user_facing_name_ar">arapski</string>
+  <string name="code_user_facing_name_fr">francuski</string>
+  <string name="code_user_facing_name_pl">poljski</string>
+  <string name="screen_away">Način rada s ekranom okrenutim od korisnika</string>
+  <string name="screen_away_detail">Držite uređaj s ekranom okrenutim od sebe (način rada s ekranom okrenutim od korisnika)</string>
+  <string name="tabletop">Način rada na stolu</string>
+  <string name="tabletop_detail">Postavite uređaj ravno na stol (način rada na stolu)</string>
+  <string name="auto_detect">Prilagodi načinu na koji držim uređaj</string>
+</resources>

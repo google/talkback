@@ -17,11 +17,11 @@
 package com.google.android.accessibility.talkback.focusmanagement.record;
 
 import android.os.SystemClock;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.util.Pair;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.VisibleForTesting;
 import androidx.collection.LruCache;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -121,25 +121,25 @@ public final class AccessibilityFocusActionHistory {
 
   /**
    * A queue of {@link FocusActionRecord} with maximum size of {@link #MAXIMUM_RECORD_QUEUE_SIZE}.
-   * The earliest record will be dropped and recycled when the queue grows up to its maximum size.
+   * The earliest record will be dropped when the queue grows up to its maximum size.
    */
   private final Deque<FocusActionRecord> focusActionRecordList;
 
   /**
    * Keeps the last focus action record in each window. Map from window ID and title pair to {@link
    * FocusActionRecord} in each window with maximum size of {@link #MAXIMUM_WINDOW_MAP_SIZE}. The
-   * eldest-accessed record will be removed and recycled when the map grows up to its maximum size.
+   * eldest-accessed record will be removed when the map grows up to its maximum size.
    */
   private final LruCache<Pair<Integer, CharSequence>, FocusActionRecord>
       windowIdTitlePairToFocusActionRecordMap;
 
   /** The last {@link FocusActionRecord} on an editable node. */
-  @Nullable private FocusActionRecord lastEditableFocusActionRecord;
+  private @Nullable FocusActionRecord lastEditableFocusActionRecord;
 
-  @Nullable private AccessibilityNodeInfoCompat cachedNodeToRestoreFocus;
+  private @Nullable AccessibilityNodeInfoCompat cachedNodeToRestoreFocus;
 
-  @Nullable private FocusActionInfo pendingWebFocusActionInfo = null;
-  @Nullable private ScreenState pendingScreenState = null;
+  private @Nullable FocusActionInfo pendingWebFocusActionInfo = null;
+  private @Nullable ScreenState pendingScreenState = null;
   private long pendingWebFocusActionTime = -1;
 
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -148,22 +148,7 @@ public final class AccessibilityFocusActionHistory {
   public AccessibilityFocusActionHistory() {
     focusActionRecordList = new ArrayDeque<>();
     windowIdTitlePairToFocusActionRecordMap =
-        new LruCache<Pair<Integer, CharSequence>, FocusActionRecord>(MAXIMUM_WINDOW_MAP_SIZE) {
-          /**
-           * Recycles the source node in the record when the focus action record is removed from the
-           * cache.
-           */
-          @Override
-          protected void entryRemoved(
-              boolean evicted,
-              Pair<Integer, CharSequence> key,
-              FocusActionRecord oldValue,
-              FocusActionRecord newValue) {
-            if (oldValue != null) {
-              oldValue.recycle();
-            }
-          }
-        };
+        new LruCache<Pair<Integer, CharSequence>, FocusActionRecord>(MAXIMUM_WINDOW_MAP_SIZE);
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -172,8 +157,6 @@ public final class AccessibilityFocusActionHistory {
   /**
    * Registers the action information. Called immediately after an accessibility focus action is
    * performed.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the {@code node}.
    *
    * @param node Node being accessibility focused.
    * @param extraData Extra information of the action.
@@ -191,8 +174,8 @@ public final class AccessibilityFocusActionHistory {
     // Add to the record queue.
     focusActionRecordList.offer(record);
     if (focusActionRecordList.size() > MAXIMUM_RECORD_QUEUE_SIZE) {
-      // Poll and recycle the eldest order if the queue grows up its maximum size.
-      focusActionRecordList.pollFirst().recycle();
+      // Poll the eldest order if the queue grows up its maximum size.
+      focusActionRecordList.pollFirst();
     }
 
     final int windowId = node.getWindowId();
@@ -204,9 +187,6 @@ public final class AccessibilityFocusActionHistory {
 
     // Update the last editable node focus action.
     if (node.isEditable() || (Role.getRole(node) == Role.ROLE_EDIT_TEXT)) {
-      if (lastEditableFocusActionRecord != null) {
-        lastEditableFocusActionRecord.recycle();
-      }
       lastEditableFocusActionRecord = FocusActionRecord.copy(record);
     }
   }
@@ -224,14 +204,12 @@ public final class AccessibilityFocusActionHistory {
     pendingWebFocusActionTime = actionTime;
   }
 
-  @Nullable
-  public FocusActionRecord getLastFocusActionRecordInWindow(
+  public @Nullable FocusActionRecord getLastFocusActionRecordInWindow(
       int windowId, CharSequence windowTitle) {
     return windowIdTitlePairToFocusActionRecordMap.get(Pair.create(windowId, windowTitle));
   }
 
-  @Nullable
-  public FocusActionRecord getLastFocusActionRecordInWindow(int windowId) {
+  public @Nullable FocusActionRecord getLastFocusActionRecordInWindow(int windowId) {
     Map<Pair<Integer, CharSequence>, FocusActionRecord> orderedMap =
         windowIdTitlePairToFocusActionRecordMap.snapshot();
     List<Pair<Integer, CharSequence>> list = new ArrayList<>(orderedMap.keySet());
@@ -246,8 +224,7 @@ public final class AccessibilityFocusActionHistory {
   }
 
   /** Returns the last focus action. */
-  @Nullable
-  public FocusActionRecord getLastFocusActionRecord() {
+  public @Nullable FocusActionRecord getLastFocusActionRecord() {
     return focusActionRecordList.peekLast();
   }
 
@@ -258,8 +235,7 @@ public final class AccessibilityFocusActionHistory {
   }
 
   /** Returns the last focus action on editable node. */
-  @Nullable
-  public FocusActionRecord getLastEditableFocusActionRecord() {
+  public @Nullable FocusActionRecord getLastEditableFocusActionRecord() {
     return lastEditableFocusActionRecord;
   }
 
@@ -275,8 +251,7 @@ public final class AccessibilityFocusActionHistory {
    * @param event The {@link AccessibilityEvent} queried.
    * @return The matched FocusActionRecord or null.
    */
-  @Nullable
-  public FocusActionRecord matchFocusActionRecordFromEvent(AccessibilityEvent event) {
+  public @Nullable FocusActionRecord matchFocusActionRecordFromEvent(AccessibilityEvent event) {
     if (!AccessibilityEventUtils.eventMatchesAnyType(
         event, AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED)) {
       return null;
@@ -299,13 +274,11 @@ public final class AccessibilityFocusActionHistory {
 
       boolean timeMatches = timeDiff >= 0 && timeDiff < TIMEOUT_TOLERANCE_MS;
       boolean nodeMatches = eventNode.equals(recordNode);
-      AccessibilityNodeInfoUtils.recycleNodes(recordNode);
       if (timeMatches && nodeMatches) {
         result = FocusActionRecord.copy(record);
         break;
       }
     }
-    AccessibilityNodeInfoUtils.recycleNodes(eventNode);
     return result;
   }
 
@@ -324,21 +297,13 @@ public final class AccessibilityFocusActionHistory {
   /**
    * Caches current focused node especially for context menu and dialogs, which is used to restore
    * focus when context menu or dialog closes.
-   *
-   * <p><strong>Note:</strong> Caller should not recycle the {@code node}.
    */
   public void cacheNodeToRestoreFocus(AccessibilityNodeInfoCompat focus) {
-    AccessibilityNodeInfoUtils.recycleNodes(cachedNodeToRestoreFocus);
     cachedNodeToRestoreFocus = focus;
   }
 
-  /**
-   * Returns the cached node for context menu/dialog closes and clears it.
-   *
-   * <p><strong>Note:</strong> Caller is responsible to recycle returned node.
-   */
-  @Nullable
-  public AccessibilityNodeInfoCompat popCachedNodeToRestoreFocus() {
+  /** Returns the cached node for context menu/dialog closes and clears it. */
+  public @Nullable AccessibilityNodeInfoCompat popCachedNodeToRestoreFocus() {
     AccessibilityNodeInfoCompat nodeToReturn = cachedNodeToRestoreFocus;
     cachedNodeToRestoreFocus = null;
     return nodeToReturn;
@@ -346,23 +311,15 @@ public final class AccessibilityFocusActionHistory {
 
   /** Clears all the action records. */
   public void clear() {
-    // Recycle and clear the record list.
-    FocusActionRecord.recycle(focusActionRecordList);
+    // Clear the record list.
     focusActionRecordList.clear();
 
     // Clear the LruCache.
     windowIdTitlePairToFocusActionRecordMap.evictAll();
 
-    // Recycle and clear editable node focus record.
-    if (lastEditableFocusActionRecord != null) {
-      lastEditableFocusActionRecord.recycle();
-      lastEditableFocusActionRecord = null;
-    }
-
-    if (cachedNodeToRestoreFocus != null) {
-      cachedNodeToRestoreFocus.recycle();
-      cachedNodeToRestoreFocus = null;
-    }
+    // Clear editable node focus record.
+    lastEditableFocusActionRecord = null;
+    cachedNodeToRestoreFocus = null;
 
     clearPendingFocusAction();
   }

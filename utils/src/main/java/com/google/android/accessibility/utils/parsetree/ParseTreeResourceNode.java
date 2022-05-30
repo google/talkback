@@ -48,7 +48,7 @@ class ParseTreeResourceNode extends ParseTreeNode {
 
   private final Resources mResources;
   private final int mResourceId;
-  private final @Type int mType;
+  @Type private final int mType;
   private final List<ParseTreeNode> mParams = new ArrayList<>();
 
   ParseTreeResourceNode(Resources resources, String resourceName, String packageName) {

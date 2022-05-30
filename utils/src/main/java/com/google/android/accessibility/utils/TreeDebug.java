@@ -16,10 +16,12 @@
 
 package com.google.android.accessibility.utils;
 
+import android.accessibilityservice.AccessibilityService;
 import android.graphics.Rect;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.NonNull;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.traversal.OrderedTraversalStrategy;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashSet;
@@ -33,10 +35,11 @@ public class TreeDebug {
 
   /** Logs the layout hierarchy of node trees for given list of windows. */
   public static void logNodeTrees(List<AccessibilityWindowInfo> windows) {
-    if (windows == null) {
+    if (windows == null || windows.isEmpty()) {
       return;
     }
-    LogUtils.v(TAG, "------------Node tree------------");
+    int displayId = AccessibilityWindowInfoUtils.getDisplayId(windows.get(0));
+    LogUtils.v(TAG, "------------Node tree------------ display %d", displayId);
     for (AccessibilityWindowInfo window : windows) {
       if (window == null) {
         continue;
@@ -256,10 +259,11 @@ public class TreeDebug {
 
   /** Logs the traversal order of node trees for given list of windows. */
   public static void logOrderedTraversalTree(List<AccessibilityWindowInfo> windows) {
-    if (windows == null) {
+    if (windows == null || windows.isEmpty()) {
       return;
     }
-    LogUtils.v(TAG, "------------Node tree traversal order------------");
+    int displayId = AccessibilityWindowInfoUtils.getDisplayId(windows.get(0));
+    LogUtils.v(TAG, "------------Node tree traversal order---------- display %d", displayId);
     for (AccessibilityWindowInfo window : windows) {
       if (window == null) {
         continue;
@@ -280,5 +284,20 @@ public class TreeDebug {
     OrderedTraversalStrategy orderTraversalStrategy = new OrderedTraversalStrategy(node);
     orderTraversalStrategy.dumpTree();
     orderTraversalStrategy.recycle();
+  }
+
+  /**
+   * Logs the layout hierarchy of node trees and the traversal order of node tree of all the
+   * displays.
+   *
+   * @param service The parent service
+   */
+  public static void logNodeTreesOnAllDisplays(@NonNull AccessibilityService service) {
+    AccessibilityServiceCompatUtils.forEachWindowInfoListOnAllDisplays(
+        service,
+        windowInfoList -> {
+          TreeDebug.logNodeTrees(windowInfoList);
+          TreeDebug.logOrderedTraversalTree(windowInfoList);
+        });
   }
 }

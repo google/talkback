@@ -25,6 +25,7 @@ import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 
 /** Includes two multiline texts and a icon. */
 public class TextWithIcon extends PageContentConfig {
@@ -47,7 +48,8 @@ public class TextWithIcon extends PageContentConfig {
   }
 
   @Override
-  public View createView(LayoutInflater inflater, ViewGroup container, Context context) {
+  public View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_text_with_icon, container, false);
     final ImageView icon = view.findViewById(R.id.training_icon);
     final TextView text = view.findViewById(R.id.training_text);

@@ -19,7 +19,6 @@ package com.google.android.accessibility.utils.output;
 import android.media.AudioManager;
 import android.os.Bundle;
 import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.FailoverTextToSpeech;
 import com.google.android.accessibility.utils.Performance.EventId;
 import java.util.Objects;
 import java.util.Set;
@@ -253,6 +252,8 @@ public interface SpeechController {
   }
 
   void toggleVoiceFeedback();
+
+  void setMute(boolean mute);
 
   /**
    * Cleans up and speaks an <code>utterance</code>. The <code>queueMode</code> determines whether

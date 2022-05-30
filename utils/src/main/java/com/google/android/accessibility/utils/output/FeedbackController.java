@@ -24,10 +24,11 @@ import android.content.res.Resources.NotFoundException;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.media.SoundPool.OnLoadCompleteListener;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.SparseIntArray;
 import com.google.android.accessibility.utils.BuildVersionUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -112,7 +113,11 @@ public class FeedbackController {
     for (HapticFeedbackListener listener : mHapticFeedbackListeners) {
       listener.onHapticFeedbackStarting(nanoTime);
     }
-    mVibrator.vibrate(pattern, -1);
+    if (FeatureSupport.supportVibrationEffect()) {
+      mVibrator.vibrate(VibrationEffect.createWaveform(pattern, -1));
+    } else {
+      mVibrator.vibrate(pattern, -1);
+    }
     return true;
   }
 
@@ -167,12 +172,9 @@ public class FeedbackController {
       // The sound could not be played from the cache. Start loading the sound into the
       // SoundPool for future use, and use a listener to play the sound ASAP.
       mSoundPool.setOnLoadCompleteListener(
-          new OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-              if (sampleId != 0) {
-                new EarconsPlayTask(mSoundPool, sampleId, adjustedVolume, rate).execute();
-              }
+          (soundPool, sampleId, status) -> {
+            if (mAuditoryEnabled && sampleId != 0) {
+              new EarconsPlayTask(mSoundPool, sampleId, adjustedVolume, rate).execute();
             }
           });
       mSoundIds.put(resId, mSoundPool.load(mContext, resId, 1));
@@ -193,6 +195,8 @@ public class FeedbackController {
     mHapticFeedbackListeners.clear();
     mSoundPool.release();
     mVibrator.cancel();
+    mAuditoryEnabled = false;
+    mHapticEnabled = false;
   }
 
   /**

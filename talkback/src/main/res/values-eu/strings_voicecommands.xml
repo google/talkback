@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">laburpena</string>
   <string name="voice_commands_read">irakurri</string>
   <string name="voice_commands_read_from_next">Irakurri hurrengotik hasita</string>
   <string name="voice_commands_edit_options">Editatzeko aukerak</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Bilatu</string>
   <string name="voice_commands_search">Bilatu</string>
   <string name="voice_commands_search_for">Bilatu hau:</string>
-  <string name="voice_commands_find_again">Errepikatu bilaketa</string>
   <string name="voice_commands_next_heading">Hurrengo goiburua</string>
   <string name="voice_commands_next_control">Kontrolatzeko hurrengo aukera</string>
   <string name="voice_commands_next_link">Hurrengo esteka</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Ezin da etiketatu</string>
   <string name="voice_commands_assistant">Laguntzailea</string>
   <string name="voice_commands_setting_speech_rate">Ezarri hizketaren abiadura</string>
-  <string name="voice_commands_setting_verbosity">Ezarri adierazgarritasuna</string>
-  <string name="voice_commands_setting_granularity">Ezarri xehetasun-maila</string>
-  <string name="voice_commands_setting_navigation">Ezarri nabigazioa</string>
   <string name="voice_commands_first">Lehena</string>
   <string name="voice_commands_top">Lehenengoa</string>
   <string name="voice_commands_last">Azkena</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Ez dago beste estekarik honen ondoren</string>
   <string name="voice_commands_no_next_control_feedback">Ez dago kontrolatzeko beste aukerarik honen ondoren</string>
   <string name="voice_commands_no_next_landmark_feedback">Ez dago beste mugarririk honen ondoren</string>
-  <string name="voice_commands_screen_hidden_feedback">Pantaila ezkutatuta dago</string>
-  <string name="voice_commands_showing_screen_feedback">Pantaila ikusgai dago</string>
   <string name="voice_commands_help_title">Ahozko aginduei buruzko informazio orokorra</string>
   <string name="voice_commands_help_description">Ahozko aginduak erabiltzeko, pasatu hatza eskuinera eta, gero, gora. Aginduen zerrenda ikusteko, esan \"laguntza\" edo \"zer esan dezaket?\".</string>
   <string name="voice_commands_help_hint">Emaitza hobeak lortzeko, esan hurrengo pantailetan ageri diren hitz zehatzak.</string>

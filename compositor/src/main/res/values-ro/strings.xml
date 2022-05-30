@@ -60,10 +60,6 @@
   <string name="value_pager_page">Pagină</string>
   <string name="value_progress_bar">Bară de progres</string>
   <string name="value_webview">Afișare conținut web</string>
-  <string name="value_toolbar">Bară de instrumente</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Caracterele de la %1$d la %2$d</string>
-  <string name="template_password_traversed">Caracterul %1$d</string>
   <string name="value_password">parolă</string>
   <string name="value_sliding_drawer_opened">Panou culisant deschis</string>
   <string name="value_options_menu_open">Opțiuni.</string>
@@ -141,7 +137,6 @@
   <string name="out_of_vertical_pager">În afara paginii verticale</string>
   <string name="in_horizontal_pager_with_name">În pagina orizontală %1$s</string>
   <string name="in_horizontal_pager">În pagina orizontală</string>
-  <string name="out_of_horizontal_pager_with_name">În afara paginii orizontale %1$s</string>
   <string name="out_of_horizontal_pager">În afara paginii orizontale</string>
   <string name="in_grid_pager_with_name">În pagina tip grilă %1$s</string>
   <string name="in_grid_pager">În pagina tip grilă</string>
@@ -172,22 +167,15 @@
   <string name="template_screen_magnification_scale_changed">Mărire %1$d%%</string>
   <string name="screen_magnification_off">Mărire dezactivată</string>
   <string name="template_speech_rate_change">Ritmul vorbirii %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Mai rapid</string>
-  <string name="template_speech_rate_change_slower">Mai lent</string>
-  <string name="template_speech_rate_change_fastest">Cel mai rapid</string>
-  <string name="template_speech_rate_change_slowest">Cel mai lent</string>
   <string name="template_volume_change_increase">Măriți</string>
   <string name="template_volume_change_decrease">Micșorați</string>
   <string name="template_volume_change_maximum">Maxim</string>
   <string name="template_volume_change_minimum">Minim</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Reducerea volumului audio activată</string>
-  <string name="audio_focus_off">Reducerea volumului audio dezactivată</string>
-  <string name="selector_speech_rate_output">Ritmul vorbirii</string>
-  <string name="selector_verbosity_output">Informații rostite</string>
-  <string name="selector_granularity_output">Navigare</string>
-  <string name="selector_audio_focus_output">Reducerea volumului audio</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Parole rostite doar când folosiți căști</string>
   <string name="template_hint_menu_type_high_verbosity">Sunt disponibile %1$s, folosiți %2$s pentru a vizualiza.</string>
-  <string name="template_hint_menu_type_low_verbosity">Sunt disponibile %1$s.</string>
+  <string name="hint_suggestion">Sunt disponibile sugestii de ortografie.</string>
+  <string name="in_window_with_name">Fereastra %1$s</string>
+  <string name="detected_icon_description">%1$s, pictogramă detectată</string>
+  <string name="ocr_text_description">%1$s, text</string>
 </resources>

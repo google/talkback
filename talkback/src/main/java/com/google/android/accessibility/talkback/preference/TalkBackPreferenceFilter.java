@@ -48,16 +48,18 @@ public class TalkBackPreferenceFilter {
     HIDDEN_NO_VIBRATION,
     HIDDEN_SETUP,
     HIDDEN_HAS_ACCESSIBILITY_SHORTCUT,
-    SHOW_IF_VOLUME_KEY_SHORTCUT,
     HIDE_NO_PROXIMITY_SENSOR,
     HIDE_HAS_VOLUME_KEY,
     HIDE_NO_BRAILLE_KEYBOARD,
+    HIDE_NO_BRAILLE_DISPLAY,
     SHOW_IF_MULTI_FINGER,
     SHOW_IF_FINGER_PRINT,
     SHOW_SYSTEM_ACTION,
     SHOW_IF_MULTI_FINGER_TAP_AND_HOLD,
     SHOW_FOCUS_INDICATOR,
+    HIDE_NO_ACCESSIBILITY_AUDIO_STREAM,
     HIDDEN_ON_RELEASE_BUILD,
+    HIDDEN
   })
   @Retention(RetentionPolicy.SOURCE)
   private @interface FilterFlag {}
@@ -76,8 +78,6 @@ public class TalkBackPreferenceFilter {
   private static final int HIDDEN_SETUP = 0x20;
   /** Flag to hide preference if the device support accessibility shortcut. */
   private static final int HIDDEN_HAS_ACCESSIBILITY_SHORTCUT = 0x40;
-  /** Flag to show preference if the device has volume key shortcut . */
-  private static final int SHOW_IF_VOLUME_KEY_SHORTCUT = 0x80;
   /** Flag to hide preference if no proximity sensor. */
   private static final int HIDE_NO_PROXIMITY_SENSOR = 0x100;
   /** Flag to hide volume settings if system supports volume keys. */
@@ -96,6 +96,10 @@ public class TalkBackPreferenceFilter {
   private static final int SHOW_FOCUS_INDICATOR = 0x8000;
   /** Flag to hide if the runtime is a release build. */
   private static final int HIDDEN_ON_RELEASE_BUILD = 0x10000;
+  /** Flag to hide Braille display if system doesn't support it. */
+  private static final int HIDE_NO_BRAILLE_DISPLAY = 0x20000;
+
+  private static final int HIDE_NO_ACCESSIBILITY_AUDIO_STREAM = 0x40000;
 
   /** List TalkBack preferences. */
   enum TalkBackPreference {
@@ -114,9 +118,6 @@ public class TalkBackPreferenceFilter {
     SUSPEND_AND_RESUME(
         R.string.pref_two_volume_long_press_key,
         HIDDEN_ON_TV | HIDDEN_ON_ARC | HIDDEN_ON_WATCH | HIDDEN_HAS_ACCESSIBILITY_SHORTCUT),
-    HIDE_SCREEN(
-        R.string.pref_dim_volume_three_clicks_key,
-        HIDDEN_ON_TV | HIDDEN_ON_ARC | SHOW_IF_VOLUME_KEY_SHORTCUT),
     RESUME_FROM_SUSPEND(
         R.string.pref_resume_talkback_key,
         HIDDEN_ON_TV | HIDDEN_ON_ARC | HIDDEN_ON_WATCH | HIDDEN_HAS_ACCESSIBILITY_SHORTCUT),
@@ -129,18 +130,17 @@ public class TalkBackPreferenceFilter {
     TUTORIAL(R.string.pref_tutorial_entry_point_key, HIDDEN_ON_TV),
     // Basic settings.
     NEW_FEATURE(
-        R.string.pref_new_feature_talkback91_entry_point_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH),
+        R.string.pref_new_feature_in_talkback_entry_point_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH),
     PROXIMITY(R.string.pref_proximity_key, HIDDEN_ON_ARC | HIDDEN_ON_TV | HIDE_NO_PROXIMITY_SENSOR),
     TTS_SETTINGS(R.string.pref_tts_settings_key, HIDDEN_ON_WATCH),
     SPEECH_VOLUME(R.string.pref_speech_volume_key, HIDE_HAS_VOLUME_KEY),
     SOUND_AND_VIBRATION(R.string.pref_sound_and_vibration_key, HIDDEN_ON_TV),
     BRAILLE_KEYBOARD(
         R.string.pref_brailleime_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDE_NO_BRAILLE_KEYBOARD),
-    BRAILLE_DISPLAY(R.string.pref_brailledisplay_key, HIDDEN | HIDDEN_ON_TV | HIDDEN_ON_WATCH),
+    BRAILLE_DISPLAY(
+        R.string.pref_brailledisplay_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDE_NO_BRAILLE_DISPLAY),
     CUSTOMIZE_MENU(R.string.pref_manage_customize_menus_key, HIDDEN_ON_TV),
     // TalkBack/Reading Menu
-    CUSTOMIZE_TALKBACK_MENU_EDIT_OPTIONS(
-        R.string.pref_show_context_menu_editing_setting_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_TALKBACK_MENU_EDIT_NAVIGATION_CONTROLS(
         R.string.pref_show_navigation_menu_controls_setting_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_TALKBACK_MENU_EDIT_NAVIGATION_LINKS(
@@ -162,13 +162,18 @@ public class TalkBackPreferenceFilter {
     CUSTOMIZE_TALKBACK_MENU_PAUSE_TALKBACK(
         R.string.pref_show_context_menu_pause_feedback_setting_key,
         HIDDEN_ON_WATCH | HIDDEN_HAS_ACCESSIBILITY_SHORTCUT),
+    CUSTOMIZE_TALKBACK_MENU_IMAGE_CAPTION(
+        R.string.pref_show_context_menu_image_caption_setting_key, HIDDEN_ON_WATCH),
 
+    CUSTOMIZE_READING_MENU_DO_ACTION(R.string.pref_selector_actions_key, HIDDEN),
     CUSTOMIZE_READING_MENU_NAVIGATION_LINKS(
         R.string.pref_selector_granularity_links_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_READING_MENU_NAVIGATION_LANDMARKS(
         R.string.pref_selector_granularity_landmarks_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_READING_MENU_NAVIGATION_WINDOWS(
         R.string.pref_selector_granularity_windows_key, HIDDEN_ON_WATCH),
+    CUSTOMIZE_READING_MENU_ADJUST_VOLUME(
+        R.string.pref_selector_change_a11y_volume_key, HIDE_NO_ACCESSIBILITY_AUDIO_STREAM),
     // Developer settings/
     EXPLORE_BY_TOUCH(R.string.pref_explore_by_touch_reflect_key, HIDDEN_ON_ARC),
     // Gesture/Verbosity Settings.
@@ -177,6 +182,7 @@ public class TalkBackPreferenceFilter {
     SPEAK_LIST_AND_GRID(R.string.pref_speak_container_element_positions_key, HIDDEN_ON_WATCH),
     SPEAK_NUMBER_OF_LIST_(R.string.pref_verbose_scroll_announcement_key, HIDDEN_ON_WATCH),
     SPEAK_ELEMENT_TYPE(R.string.pref_speak_roles_key, HIDDEN_ON_WATCH),
+    SPEAK_WINDOW_TITLES(R.string.pref_speak_system_window_titles_key, HIDDEN_ON_WATCH),
     SPEAK_PHONETIC_LETTERS(R.string.pref_phonetic_letters_key, HIDDEN_ON_WATCH),
     USE_PITCH_CHANGE(R.string.pref_intonation_key, HIDDEN_ON_WATCH),
     SPEAK_WHEN_SCREEN_OFF(R.string.pref_screenoff_key, HIDDEN_ON_WATCH),
@@ -192,9 +198,12 @@ public class TalkBackPreferenceFilter {
         R.string.pref_category_fingerprint_touch_shortcuts_key, SHOW_IF_FINGER_PRINT),
     CUSTOMIZE_GESTURE_2FINGER_3TAP_HOLD(
         R.string.pref_shortcut_2finger_3tap_hold_key, SHOW_IF_MULTI_FINGER_TAP_AND_HOLD),
+    CUSTOMIZE_GESTURE_3FINGER_1TAP_HOLD(
+        R.string.pref_shortcut_3finger_1tap_hold_key, SHOW_IF_MULTI_FINGER_TAP_AND_HOLD),
+    CUSTOMIZE_GESTURE_3FINGER_3TAP_HOLD(
+        R.string.pref_shortcut_3finger_3tap_hold_key, SHOW_IF_MULTI_FINGER_TAP_AND_HOLD),
     CUSTOMIZE_FOCUS_INDICATOR(
-        R.string.pref_category_manage_focus_indicator_key, SHOW_FOCUS_INDICATOR),
-    ;
+        R.string.pref_category_manage_focus_indicator_key, SHOW_FOCUS_INDICATOR);
 
     TalkBackPreference(int resId, int hideFlags) {
       this.resId = resId;
@@ -278,11 +287,6 @@ public class TalkBackPreferenceFilter {
       return true;
     }
 
-    if (hasFlag(pref.get(), SHOW_IF_VOLUME_KEY_SHORTCUT)
-        && !FeatureSupport.supportsVolumeKeyShortcuts()) {
-      return true;
-    }
-
     if (hasFlag(pref.get(), HIDE_NO_PROXIMITY_SENSOR)
         && !FeatureSupport.supportProximitySensor(context)) {
       return true;
@@ -305,6 +309,13 @@ public class TalkBackPreferenceFilter {
       }
     }
 
+    if (hasFlag(pref.get(), HIDE_NO_BRAILLE_DISPLAY)) {
+      Intent activityIntent = new Intent().setComponent(Constants.BRAILLE_DISPLAY_SETTINGS);
+      if (activityIntent.resolveActivityInfo(context.getPackageManager(), 0) == null) {
+        return true;
+      }
+    }
+
     if (hasFlag(pref.get(), SHOW_IF_MULTI_FINGER)
         && !FeatureSupport.isMultiFingerGestureSupported()) {
       return true;
@@ -316,7 +327,7 @@ public class TalkBackPreferenceFilter {
     }
 
     if (hasFlag(pref.get(), SHOW_IF_FINGER_PRINT)
-        && !FeatureSupport.isFingerprintSupported(context)) {
+        && !FeatureSupport.isFingerprintGestureSupported(context)) {
       return true;
     }
 
@@ -326,6 +337,11 @@ public class TalkBackPreferenceFilter {
 
     if (hasFlag(pref.get(), SHOW_FOCUS_INDICATOR)
         && !FeatureSupport.supportCustomizingFocusIndicator()) {
+      return true;
+    }
+
+    if (hasFlag(pref.get(), HIDE_NO_ACCESSIBILITY_AUDIO_STREAM)
+        && !FeatureSupport.hasAccessibilityAudioStream(context)) {
       return true;
     }
 

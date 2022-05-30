@@ -76,7 +76,7 @@ public class Utterance {
    *
    * @param flag The flag to add. One of:
    *     <ul>
-   *       <li>{@link FeedbackItem#FLAG_FORCED_FEEDBACK}
+   *       <li>{@link FeedbackItem#FLAG_FORCE_FEEDBACK}
    *       <li>{@link FeedbackItem#FLAG_NO_HISTORY}
    *       <li>{@link FeedbackItem#FLAG_ADVANCE_CONTINUOUS_READING}
    *       <li>{@link FeedbackItem#FLAG_CLEAR_QUEUED_UTTERANCES_WITH_SAME_UTTERANCE_GROUP}

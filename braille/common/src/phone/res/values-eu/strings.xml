@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Zenbakia</string>
+  <string name="capitalize_announcement">Maiuskula</string>
+  <string name="read_out_deleted">Ezabatu da %s</string>
+  <plurals name="braille_dots">
+    <item quantity="one">%s puntu</item>
+    <item quantity="other">%s puntu</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Ingelesezko Braille bateratu osoa</string>
+  <string name="code_user_facing_name_ueb2">Ingelesezko Braille bateratu laburtua</string>
+  <string name="code_user_facing_name_es">Gaztelania</string>
+  <string name="code_user_facing_name_ar">Arabiera</string>
+  <string name="code_user_facing_name_fr">Frantsesa</string>
+  <string name="code_user_facing_name_pl">Poloniera</string>
+  <string name="screen_away">Pantaila urrunduaren modua</string>
+  <string name="screen_away_detail">Eutsi gailuari eta alden ezazu, pantaila aurrez aurre duzula (pantaila urrunduaren modua)</string>
+  <string name="tabletop">Mahaigaineko modua</string>
+  <string name="tabletop_detail">Jarri gailua mahai baten gainean horizontalki (mahaigaineko modua)</string>
+  <string name="auto_detect">Egokitu gailua eusten duzun modura</string>
+</resources>

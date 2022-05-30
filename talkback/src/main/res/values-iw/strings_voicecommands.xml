@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">סיכום</string>
   <string name="voice_commands_read">קריאה</string>
   <string name="voice_commands_read_from_next">הקראה מהפריט הבא</string>
   <string name="voice_commands_edit_options">אפשרויות עריכה</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">חיפוש</string>
   <string name="voice_commands_search">חיפוש</string>
   <string name="voice_commands_search_for">חיפוש של</string>
-  <string name="voice_commands_find_again">חזרה על החיפוש</string>
   <string name="voice_commands_next_heading">הכותרת הבאה</string>
   <string name="voice_commands_next_control">הפקד הבא</string>
   <string name="voice_commands_next_link">הקישור הבא</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">לא ניתן להוסיף תווית</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">הגדרת קצב הדיבור</string>
-  <string name="voice_commands_setting_verbosity">הגדרת דרגות מלל</string>
-  <string name="voice_commands_setting_granularity">הגדרת רמת פירוט</string>
-  <string name="voice_commands_setting_navigation">הגדרת ניווט</string>
   <string name="voice_commands_first">ראשון</string>
   <string name="voice_commands_top">למעלה</string>
   <string name="voice_commands_last">אחרון</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">אין עוד קישורים</string>
   <string name="voice_commands_no_next_control_feedback">אין עוד פקדים</string>
   <string name="voice_commands_no_next_landmark_feedback">אין עוד ציוני דרך</string>
-  <string name="voice_commands_screen_hidden_feedback">המסך מוסתר</string>
-  <string name="voice_commands_showing_screen_feedback">המסך מוצג</string>
   <string name="voice_commands_help_title">סקירה כללית של הפקודות הקוליות</string>
   <string name="voice_commands_help_description">‏כדי להשתמש בפקודות קוליות, יש להחליק שמאלה ואז למעלה. בכל שלב אפשר לומר \"Help\" או \"What can I say?‎\" לקבלת הרשימה של כל הפקודות.</string>
   <string name="voice_commands_help_hint">כדי לקבל את התוצאות הטובות ביותר, יש לומר בדיוק את הניסוח שרשום במסכים הבאים.</string>

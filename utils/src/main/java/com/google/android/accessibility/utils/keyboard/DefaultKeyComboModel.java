@@ -19,6 +19,7 @@ package com.google.android.accessibility.utils.keyboard;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.KeyEvent;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.R;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
@@ -203,6 +204,7 @@ public class DefaultKeyComboModel implements KeyComboModel {
     return mKeyComboCodeMap;
   }
 
+  @Nullable
   @Override
   public String getKeyForKeyComboCode(long keyComboCode) {
     for (Map.Entry<String, Long> entry : mKeyComboCodeMap.entrySet()) {

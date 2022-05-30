@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">%1$d இலிருந்து %2$d வரையிலான எழுத்துக்குறிகள்</string>
+  <string name="template_password_traversed">எழுத்துக்குறி %1$d</string>
   <string name="untitled_window">பெயரிடப்படாதது</string>
-  <string name="template_alert_dialog_template">விழிப்பூட்டல் %1$s</string>
   <string name="template_text_copied">%1$s நகலெடுக்கப்பட்டது</string>
   <string name="template_capital_letter">பேரெழுத்து %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">சொற்கள்</string>
   <string name="granularity_line">வரிகள்</string>
   <string name="granularity_paragraph">பத்திகள்</string>
-  <string name="granularity_page">பக்கங்கள்</string>
   <string name="granularity_window">சாளரங்கள்</string>
   <string name="granularity_web_landmark">அடையாளங்கள்</string>
   <string name="granularity_web_heading">தலைப்புகள்</string>

@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 
 /** Shows current page name and total page number. */
 public class PageNumber extends PageContentConfig {
@@ -34,7 +35,8 @@ public class PageNumber extends PageContentConfig {
   }
 
   @Override
-  public View createView(LayoutInflater inflater, ViewGroup container, Context context) {
+  public View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_page_number, container, false);
     final TextView pageNumberText = view.findViewById(R.id.training_page_number);
     pageNumberText.setText(

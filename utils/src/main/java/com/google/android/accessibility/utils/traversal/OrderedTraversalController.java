@@ -16,9 +16,8 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.TreeDebug;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -30,7 +29,7 @@ public class OrderedTraversalController {
 
   private static final String TAG = "OrderedTraversalCont";
 
-  @Nullable private WorkingTree mTree;
+  private @Nullable WorkingTree mTree;
   private Map<AccessibilityNodeInfoCompat, WorkingTree> mNodeTreeMap;
   private Map<AccessibilityNodeInfoCompat, Boolean> mSpeakNodesCache;
 
@@ -110,10 +109,6 @@ public class OrderedTraversalController {
         tree.addChild(childSubTree);
       }
     }
-
-    if (iterator != null) {
-      iterator.recycle();
-    }
     return tree;
   }
 
@@ -128,13 +123,11 @@ public class OrderedTraversalController {
       if (beforeNode != null) {
         WorkingTree targetTree = mNodeTreeMap.get(beforeNode);
         moveNodeBefore(subtree, targetTree);
-        beforeNode.recycle();
       } else {
         AccessibilityNodeInfoCompat afterNode = node.getTraversalAfter();
         if (afterNode != null) {
           WorkingTree targetTree = mNodeTreeMap.get(afterNode);
           moveNodeAfter(subtree, targetTree);
-          afterNode.recycle();
         }
       }
     }
@@ -300,15 +293,6 @@ public class OrderedTraversalController {
     return AccessibilityNodeInfoCompat.obtain(tree.getLastNode().getNode());
   }
 
-  /** when controller finishes its search it should be recycled */
-  public void recycle() {
-    for (AccessibilityNodeInfoCompat subtree : mNodeTreeMap.keySet()) {
-      subtree.recycle();
-    }
-
-    mNodeTreeMap.clear();
-  }
-
   /** Dumps the traversal order tree. */
   protected void dumpTree() {
     AccessibilityNodeInfoCompat node = findFirst();
@@ -319,9 +303,7 @@ public class OrderedTraversalController {
           node.hashCode(),
           TreeDebug.nodeDebugDescription(node),
           getCustomizedTraversalNodeString(node));
-      AccessibilityNodeInfoCompat nextNode = findNext(node);
-      AccessibilityNodeInfoUtils.recycleNodes(node);
-      node = nextNode;
+      node = findNext(node);
     }
   }
 
@@ -336,12 +318,10 @@ public class OrderedTraversalController {
     if (beforeNode != null) {
       builder.append(" before:");
       builder.append(beforeNode.hashCode());
-      AccessibilityNodeInfoUtils.recycleNodes(beforeNode);
     }
     if (afterNode != null) {
       builder.append(" after:");
       builder.append(afterNode.hashCode());
-      AccessibilityNodeInfoUtils.recycleNodes(afterNode);
     }
     return builder.toString();
   }

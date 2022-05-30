@@ -60,10 +60,6 @@
   <string name="value_pager_page">Strana</string>
   <string name="value_progress_bar">Traka napretka</string>
   <string name="value_webview">Web prikaz</string>
-  <string name="value_toolbar">Alatna traka</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Znakovi od %1$d do %2$d</string>
-  <string name="template_password_traversed">Znak %1$d</string>
   <string name="value_password">lozinka</string>
   <string name="value_sliding_drawer_opened">Klizna ladica je otvorena</string>
   <string name="value_options_menu_open">Opcije</string>
@@ -141,7 +137,6 @@
   <string name="out_of_vertical_pager">Izvan alata za pregled stranica s vertikalnom orijentacijom</string>
   <string name="in_horizontal_pager_with_name">U alatu za pregled stranica s horizontalnom orijentacijom %1$s</string>
   <string name="in_horizontal_pager">U alatu za pregled stranica s horizontalnom orijentacijom</string>
-  <string name="out_of_horizontal_pager_with_name">Izvan alata za pregled stranica s horizontalnom orijentacijom %1$s</string>
   <string name="out_of_horizontal_pager">Izvan alata za pregled stranica s horizontalnom orijentacijom</string>
   <string name="in_grid_pager_with_name">U alatu za pregled stranica s mrežnim prikazom %1$s</string>
   <string name="in_grid_pager">U alatu za pregled stranica s mrežnim prikazom</string>
@@ -172,22 +167,15 @@
   <string name="template_screen_magnification_scale_changed">Uvećavanje %1$d%%</string>
   <string name="screen_magnification_off">Uvećavanje je isključeno</string>
   <string name="template_speech_rate_change">Brzina govora %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Brže</string>
-  <string name="template_speech_rate_change_slower">Sporije</string>
-  <string name="template_speech_rate_change_fastest">Najbrže</string>
-  <string name="template_speech_rate_change_slowest">Najsporije</string>
   <string name="template_volume_change_increase">Pojačavanje</string>
   <string name="template_volume_change_decrease">Smanjivanje</string>
   <string name="template_volume_change_maximum">Maksimalno</string>
   <string name="template_volume_change_minimum">Minimalno</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Redukcija jačine zvuka tokom govora je uključena</string>
-  <string name="audio_focus_off">Redukcija jačine zvuka tokom govora je isključena</string>
-  <string name="selector_speech_rate_output">Brzina govora</string>
-  <string name="selector_verbosity_output">Rječitost</string>
-  <string name="selector_granularity_output">Navigacija</string>
-  <string name="selector_audio_focus_output">Redukcija jačine zvuka tokom govora</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Lozinke se izgovaraju samo kada se koriste slušalice</string>
   <string name="template_hint_menu_type_high_verbosity">Radnja %1$s je dostupna, koristite %2$s za prikaz.</string>
-  <string name="template_hint_menu_type_low_verbosity">Radnja %1$s je dostupna.</string>
+  <string name="hint_suggestion">Dostupni su prijedlozi ispravno napisanih riječi.</string>
+  <string name="in_window_with_name">Prozor %1$s</string>
+  <string name="detected_icon_description">%1$s, otkrivena je ikona</string>
+  <string name="ocr_text_description">%1$s, tekst</string>
 </resources>

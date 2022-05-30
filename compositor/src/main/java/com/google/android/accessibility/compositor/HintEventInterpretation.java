@@ -16,8 +16,8 @@
 
 package com.google.android.accessibility.compositor;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.ReadOnly;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import java.lang.annotation.Retention;
@@ -35,7 +35,8 @@ public class HintEventInterpretation extends ReadOnly {
     HINT_TYPE_ACCESSIBILITY_FOCUS,
     HINT_TYPE_INPUT_FOCUS,
     HINT_TYPE_SCREEN,
-    HINT_TYPE_SELECTOR
+    HINT_TYPE_SELECTOR,
+    HINT_TYPE_TEXT_SUGGESTION
   })
   @Retention(RetentionPolicy.SOURCE)
   public @interface HintType {}
@@ -45,14 +46,15 @@ public class HintEventInterpretation extends ReadOnly {
   public static final int HINT_TYPE_INPUT_FOCUS = 2;
   public static final int HINT_TYPE_SCREEN = 3;
   public static final int HINT_TYPE_SELECTOR = 4;
+  public static final int HINT_TYPE_TEXT_SUGGESTION = 5;
 
   //////////////////////////////////////////////////////////////////////////////////////////
   // Member variables
 
-  private @HintType final int mHintType;
-  private boolean forceFeedbackAudioPlaybackActive = false;
-  private boolean forceFeedbackMicrophoneActive = false;
-  private @Nullable CharSequence mText;
+  @HintType private final int mHintType;
+  private boolean forceFeedbackEvenIfAudioPlaybackActive = false;
+  private boolean forceFeedbackEvenIfMicrophoneActive = false;
+  @Nullable private CharSequence mText;
 
   //////////////////////////////////////////////////////////////////////////////////////////
   // Construction
@@ -64,26 +66,27 @@ public class HintEventInterpretation extends ReadOnly {
   //////////////////////////////////////////////////////////////////////////////////////////
   // Methods
 
-  public @HintType int getHintType() {
+  @HintType
+  public int getHintType() {
     return mHintType;
   }
 
-  public void setForceFeedbackAudioPlaybackActive(boolean force) {
+  public void setForceFeedbackEvenIfAudioPlaybackActive(boolean force) {
     checkIsWritable();
-    forceFeedbackAudioPlaybackActive = force;
+    forceFeedbackEvenIfAudioPlaybackActive = force;
   }
 
-  public void setForceFeedbackMicropphoneActive(boolean force) {
+  public void setForceFeedbackEvenIfMicrophoneActive(boolean force) {
     checkIsWritable();
-    forceFeedbackMicrophoneActive = force;
+    forceFeedbackEvenIfMicrophoneActive = force;
   }
 
-  public boolean getForceFeedbackAudioPlaybackActive() {
-    return forceFeedbackAudioPlaybackActive;
+  public boolean getForceFeedbackEvenIfAudioPlaybackActive() {
+    return forceFeedbackEvenIfAudioPlaybackActive;
   }
 
-  public boolean getForceFeedbackMicrophoneActive() {
-    return forceFeedbackMicrophoneActive;
+  public boolean getForceFeedbackEvenIfMicrophoneActive() {
+    return forceFeedbackEvenIfMicrophoneActive;
   }
 
   public void setText(CharSequence text) {
@@ -91,7 +94,8 @@ public class HintEventInterpretation extends ReadOnly {
     mText = text;
   }
 
-  public @Nullable CharSequence getText() {
+  @Nullable
+  public CharSequence getText() {
     return mText;
   }
 
@@ -101,9 +105,9 @@ public class HintEventInterpretation extends ReadOnly {
         hintTypeToString(mHintType),
         StringBuilderUtils.optionalText("Text", mText),
         StringBuilderUtils.optionalTag(
-            "ForceFeedbackAudioPlaybackActive", forceFeedbackAudioPlaybackActive),
+            "forceFeedbackEvenIfAudioPlaybackActive", forceFeedbackEvenIfAudioPlaybackActive),
         StringBuilderUtils.optionalTag(
-            "ForceFeedbackMicrophoneActive", forceFeedbackMicrophoneActive));
+            "forceFeedbackEvenIfMicrophoneActive", forceFeedbackEvenIfMicrophoneActive));
   }
 
   public static String hintTypeToString(@HintType int hintType) {
@@ -118,6 +122,8 @@ public class HintEventInterpretation extends ReadOnly {
         return "HINT_TYPE_SCREEN";
       case HINT_TYPE_SELECTOR:
         return "HINT_TYPE_SELECTOR";
+      case HINT_TYPE_TEXT_SUGGESTION:
+        return "HINT_TYPE_TEXT_SUGGESTION";
       default:
         return "(unhandled)";
     }

@@ -26,18 +26,20 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.StringRes;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 
 /** A button with a text on training pages. */
 public class PageButton extends PageContentConfig {
 
-  private final @StringRes int textResId;
+  @StringRes private final int textResId;
 
   public PageButton(@StringRes int textResId) {
     this.textResId = textResId;
   }
 
   @Override
-  public View createView(LayoutInflater inflater, ViewGroup container, Context context) {
+  public View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_button, container, false);
     final Button button = view.findViewById(R.id.training_button);
     button.setText(textResId);

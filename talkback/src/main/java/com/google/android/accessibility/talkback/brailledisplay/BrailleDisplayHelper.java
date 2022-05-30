@@ -6,10 +6,10 @@ import static com.google.android.accessibility.utils.input.CursorGranularity.DEF
 import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
 
 import android.accessibilityservice.AccessibilityService;
+import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleDisplay.ScreenReaderAction;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
 import com.google.android.accessibility.utils.Performance;
-import com.google.android.accessibility.utils.brailledisplay.TalkBackForBrailleDisplay.ScreenReaderAction;
 import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 
@@ -35,6 +35,12 @@ public final class BrailleDisplayHelper {
       case GLOBAL_NOTIFICATIONS:
         return performGlobalAction(
             feedbackReturner, AccessibilityService.GLOBAL_ACTION_NOTIFICATIONS);
+      case GLOBAL_QUICK_SETTINGS:
+        return performGlobalAction(
+            feedbackReturner, AccessibilityService.GLOBAL_ACTION_QUICK_SETTINGS);
+      case GLOBAL_ALL_APPS:
+        return performGlobalAction(
+            feedbackReturner, AccessibilityService.GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS);
       case SCROLL_FORWARD:
         return feedbackReturner.returnFeedback(
             Performance.EVENT_ID_UNTRACKED, Feedback.focusDirection(NEXT_PAGE));

@@ -37,29 +37,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.text.TextUtils;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Feedback.ShowToast;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.permission.PermissionRequestActivity;
 import com.google.android.accessibility.talkback.training.VoiceCommandHelpInitiator;
-import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
 import com.google.android.accessibility.utils.DelayHandler;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
-import com.google.android.accessibility.utils.widget.DialogUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -75,7 +70,7 @@ public class SpeechRecognizerActor {
   public String language;
   private final Context talkbackContext;
   private final TalkBackAnalytics analytics;
-  @Nullable private AlertDialog helpDialog;
+  private @Nullable AlertDialog helpDialog;
   private SpeechRecognitionDialog speechRecognitionDialog;
   private static final int TURN_OFF_RECOGNITION_DELAY_MS = 10000;
   static final int RECOGNITION_SPEECH_DELAY_MS = 100;
@@ -120,17 +115,18 @@ public class SpeechRecognizerActor {
             }
           }
           // If not accepted, show a toast for the user.
-          Toast.makeText(
-                  context,
+          pipeline.returnFeedback(
+              EVENT_ID_UNTRACKED,
+              Feedback.showToast(
+                  ShowToast.Action.SHOW,
                   context.getString(R.string.voice_commands_no_mic_permissions),
-                  Toast.LENGTH_LONG)
-              .show();
+                  true));
         }
       };
   private boolean listening = false;
   private boolean hasMicPermission = false;
-  @Nullable public SpeechRecognizer speechRecognizer;
-  @Nullable public Intent recognizerIntent;
+  public @Nullable SpeechRecognizer speechRecognizer;
+  public @Nullable Intent recognizerIntent;
   private final VoiceCommandProcessor voiceCommandProcessor;
   public RecognitionListener speechRecognitionListener =
       new RecognitionListener() {
@@ -313,12 +309,12 @@ public class SpeechRecognizerActor {
   public void getSpeechPermissionAndListen(boolean checkDialog) {
     if (!SpeechRecognizer.isRecognitionAvailable(talkbackContext)) {
       LogUtils.e(TAG, "Platform does not support voice command.");
-      // TODO: Should send toasts to pipeline.
-      Toast.makeText(
-              talkbackContext,
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.showToast(
+              ShowToast.Action.SHOW,
               talkbackContext.getString(R.string.voice_commands_no_action),
-              Toast.LENGTH_SHORT)
-          .show();
+              false));
       return;
     }
     if (!hasMicPermission()) {
@@ -407,11 +403,12 @@ public class SpeechRecognizerActor {
     // Checks if user can use voice recognition.
     speechRecognizer = SpeechRecognizer.createSpeechRecognizer(talkbackContext);
     if (!SpeechRecognizer.isRecognitionAvailable(talkbackContext)) {
-      Toast.makeText(
-              talkbackContext,
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.showToast(
+              ShowToast.Action.SHOW,
               talkbackContext.getString(R.string.voice_commands_no_voice_recognition_ability),
-              Toast.LENGTH_SHORT)
-          .show();
+              false));
       return;
     }
   }
@@ -433,8 +430,8 @@ public class SpeechRecognizerActor {
     speechRecognizer.setRecognitionListener(speechRecognitionListener);
   }
 
-  @VisibleForTesting
   /** Calls activity that asks user for mic access for talkback. */
+  @VisibleForTesting
   protected void getMicPermission() {
     // Creates the intent needed for the permission request activity.
     Intent intent = new Intent(talkbackContext, PermissionRequestActivity.class);
@@ -466,40 +463,6 @@ public class SpeechRecognizerActor {
         VoiceCommandHelpInitiator.createVoiceCommandHelpIntent(talkbackContext));
   }
 
-  @Deprecated
-  public void showCommandsList() {
-    // Close the dialog if its already open.
-    if (helpDialog != null && helpDialog.isShowing()) {
-      helpDialog.dismiss();
-      helpDialog = null;
-    }
-    AlertDialog.Builder builder =
-        AlertDialogUtils.builder(talkbackContext)
-            .setTitle(talkbackContext.getString(R.string.voice_commands_possible_options_title))
-            .setNegativeButton(
-                talkbackContext.getString(R.string.title_cancel_button),
-                (dialog, id) -> dialog.cancel());
-
-    Resources res = talkbackContext.getResources();
-    String[] commands = res.getStringArray(R.array.voice_commands);
-    // TODO: Instead of string-array, use a layout so that we can include headings.
-    ArrayAdapter<String> adapter =
-        new ArrayAdapter<String>(talkbackContext, android.R.layout.simple_list_item_1, commands) {
-          @Override
-          public boolean isEnabled(int position) {
-            return false;
-          }
-        };
-    ListView listView = new ListView(talkbackContext);
-    listView.setAdapter(adapter);
-    helpDialog = builder.create();
-    helpDialog.setView(listView);
-
-    // Without setting a window type, alert dialog shows an error.
-    DialogUtils.setWindowTypeToDialog(helpDialog.getWindow());
-    helpDialog.show();
-  }
-
   // TODO: Remove this once the bug is resolved.
   /** Speak into the voice-commands speech queue. Used internally and by GestureController. */
   public void speakDelayed(Context context, int stringResourceId) {
@@ -511,9 +474,9 @@ public class SpeechRecognizerActor {
         SpeakOptions.create()
             .setFlags(
                 FeedbackItem.FLAG_NO_HISTORY
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
     pipeline.returnFeedback(
         // TODO: Add performance EventId support for speech commands.
         EVENT_ID_UNTRACKED,

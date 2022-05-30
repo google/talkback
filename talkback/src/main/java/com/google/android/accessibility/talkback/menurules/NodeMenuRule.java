@@ -61,9 +61,7 @@ abstract class NodeMenuRule {
    * Processes the specified node and returns a {@link List} of relevant local {@link
    * ContextMenuItem}s for that node.
    *
-   * <p>Note: The validity of the node is guaranteed only within the scope of this method. If this
-   * node is used for future actions, as in an onItemClicked callback, a copy of this node must be
-   * retained and recycled by the rule.
+   * <p>Note: The validity of the node is guaranteed only within the scope of this method.
    *
    * <p>
    *

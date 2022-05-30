@@ -26,6 +26,7 @@ import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Includes two multiline texts and an icon. Links to some pages when view is clicked. */
@@ -49,7 +50,8 @@ public class Link extends ClickableContent {
   }
 
   @Override
-  public View createView(LayoutInflater inflater, ViewGroup container, Context context) {
+  public View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view =
         inflater.inflate(R.layout.training_link, container, /* attachToRoot= */ false);
     final ImageView icon = view.findViewById(R.id.training_link_icon);

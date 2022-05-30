@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">buod</string>
   <string name="voice_commands_read">magbasa</string>
   <string name="voice_commands_read_from_next">Magbasa mula sa susunod</string>
   <string name="voice_commands_edit_options">Mga opsyon sa pag-edit</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Maghanap</string>
   <string name="voice_commands_search">Hanapin</string>
   <string name="voice_commands_search_for">Maghanap ng</string>
-  <string name="voice_commands_find_again">Ulitin ang paghahanap</string>
   <string name="voice_commands_next_heading">Susunod na heading</string>
   <string name="voice_commands_next_control">Susunod na kontrol</string>
   <string name="voice_commands_next_link">Susunod na link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Hindi puwedeng lagyan ng label</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">Itinatakda ang rate ng pagsasalita</string>
-  <string name="voice_commands_setting_verbosity">Itinatakda ang verbosity</string>
-  <string name="voice_commands_setting_granularity">Itinatakda ang granularity</string>
-  <string name="voice_commands_setting_navigation">Itinatakda ang navigation</string>
   <string name="voice_commands_first">Una</string>
   <string name="voice_commands_top">Itaas</string>
   <string name="voice_commands_last">Huli</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Walang susunod na link</string>
   <string name="voice_commands_no_next_control_feedback">Walang susunod na kontrol</string>
   <string name="voice_commands_no_next_landmark_feedback">Walang susunod na landmark</string>
-  <string name="voice_commands_screen_hidden_feedback">Itinago ang screen</string>
-  <string name="voice_commands_showing_screen_feedback">Ipinapakita ang Screen</string>
   <string name="voice_commands_help_title">Pangkalahatang-ideya ng command gamit ang boses</string>
   <string name="voice_commands_help_description">Para gamitin ang mga command gamit ang boses, mag-swipe pakanan at pagkatapos ay pataas. Sabihin ang \"Tulong\" o \"Ano ang puwede kong sabihin?\" anumang oras para sa listahan ng mga command na ito.</string>
   <string name="voice_commands_help_hint">Para sa pinakamahuhusay na resulta, sabihin ang eksaktong salitang nakalista sa mga sumusunod na screen.</string>

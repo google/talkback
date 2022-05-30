@@ -78,7 +78,6 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     // To work-around, manually refresh AccessibilityNodeInfo if it initially
     // looks like there's nothing to focus on.
     if (mFocusables.isEmpty() && !BuildVersionUtils.isAtLeastN()) {
-      recycle(false /* recycleRoot */);
       processNodes(mRoot, true /* forceRefresh */);
     }
   }
@@ -128,7 +127,6 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
         AccessibilityNodeInfoCompat child = rootNode.getChild(i);
         if (child != null) {
           hasFocusableDescendants |= processNodes(child, forceRefresh);
-          child.recycle();
         }
       }
 
@@ -155,7 +153,6 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     return findFocus(startNode, focusedRect, direction);
   }
 
-  /** Caller must recycle returned node. */
   public @Nullable AccessibilityNodeInfoCompat findFocus(
       AccessibilityNodeInfoCompat focused, Rect focusedRect, int direction) {
     // Using roughly the same algorithm as
@@ -220,30 +217,20 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     // 1. Attempt to find input-focused node.
     AccessibilityNodeInfoCompat inputFocused = focusFinder.findFocusCompat(FOCUS_INPUT);
 
-    try {
       AccessibilityNodeInfoCompat target =
           AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(inputFocused, filter);
       if (target != null) {
         return target;
-      }
-    } finally {
-      if (inputFocused != null) {
-        inputFocused.recycle();
-      }
     }
 
     // 2. Just use the OrderedTraversalStrategy.
     final OrderedTraversalStrategy orderedStrategy = new OrderedTraversalStrategy(mRoot);
-    try {
-      // Should not need to obtain() here; the inner code should do this for us.
-      return TraversalStrategyUtils.searchFocus(
-          orderedStrategy, mRoot, TraversalStrategy.SEARCH_FOCUS_FORWARD, filter);
-    } finally {
-      orderedStrategy.recycle();
-    }
+
+    // Should not need to obtain() here; the inner code should do this for us.
+    return TraversalStrategyUtils.searchFocus(
+        orderedStrategy, mRoot, TraversalStrategy.SEARCH_FOCUS_FORWARD, filter);
   }
 
-  /** Caller must recycle returned node. */
   @Override
   public @Nullable AccessibilityNodeInfoCompat focusInitial(
       AccessibilityNodeInfoCompat root, int direction) {
@@ -277,25 +264,14 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     return null;
   }
 
-  private void recycle(boolean recycleRoot) {
-    for (AccessibilityNodeInfoCompat node : visitedNodes) {
-      node.recycle();
-    }
-    visitedNodes.clear();
-    mFocusables.clear(); // No recycle needed for mFocusables or mContainers because their
-    mContainers.clear(); // nodes were already recycled from visitedNodes.
-    mSpeakingNodesCache.clear();
-
-    if (recycleRoot) {
-      mRoot.recycle();
-      mRoot = null;
-    }
-  }
-
+  /**
+   * TODO: Remove once all dependencies have been removed.
+   *
+   * @deprecated Accessibility is discontinuing recycling.
+   */
   @Override
-  public void recycle() {
-    recycle(true);
-  }
+  @Deprecated
+  public void recycle() {}
 
   /**
    * Returns the bounding rect of the given node for directional navigation purposes. Any node that

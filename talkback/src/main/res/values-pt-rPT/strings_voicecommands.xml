@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">resumo</string>
   <string name="voice_commands_read">ler</string>
   <string name="voice_commands_read_from_next">Ler a partir do seguinte</string>
   <string name="voice_commands_edit_options">Opções de edição</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Localizar</string>
   <string name="voice_commands_search">Pesquisar</string>
   <string name="voice_commands_search_for">Pesquisar por</string>
-  <string name="voice_commands_find_again">Repetir localizar</string>
   <string name="voice_commands_next_heading">Título seguinte</string>
   <string name="voice_commands_next_control">Controlo seguinte</string>
   <string name="voice_commands_next_link">Link seguinte</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Não é possível etiquetar.</string>
   <string name="voice_commands_assistant">Assistente</string>
   <string name="voice_commands_setting_speech_rate">Definir taxa de voz</string>
-  <string name="voice_commands_setting_verbosity">Definir verbosidade</string>
-  <string name="voice_commands_setting_granularity">Definir nível de detalhe</string>
-  <string name="voice_commands_setting_navigation">Definir navegação</string>
   <string name="voice_commands_first">Primeiro</string>
   <string name="voice_commands_top">Parte superior</string>
   <string name="voice_commands_last">Último</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Não existe nenhum link seguinte</string>
   <string name="voice_commands_no_next_control_feedback">Não existe nenhum controlo seguinte</string>
   <string name="voice_commands_no_next_landmark_feedback">Não existe nenhum ponto de referência seguinte</string>
-  <string name="voice_commands_screen_hidden_feedback">Ecrã oculto</string>
-  <string name="voice_commands_showing_screen_feedback">A mostrar o ecrã</string>
   <string name="voice_commands_help_title">Vista geral do comando de voz</string>
   <string name="voice_commands_help_description">Para utilizar comandos de voz, deslize rapidamente para a direita e, em seguida, para cima. Diga \"Ajuda\" ou \"O que posso dizer?\" em qualquer altura para obter a lista de comandos.</string>
   <string name="voice_commands_help_hint">Para obter os melhores resultados, diga as palavras exatas indicadas nos seguintes ecrãs.</string>

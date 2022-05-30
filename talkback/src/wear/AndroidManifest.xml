@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.google.android.accessibility.talkback">
 
+    <uses-sdk
+        android:minSdkVersion="28"/>
+
     <uses-feature
         android:name="android.hardware.type.watch"
         android:required="true" />

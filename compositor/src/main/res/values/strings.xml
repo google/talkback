@@ -242,26 +242,6 @@
   <string name="value_progress_bar">Progress bar</string>
   <!-- Spoken description of a web view. -->
   <string name="value_webview">Webview</string>
-  <!-- Spoken description of a toolbar. -->
-  <string name="value_toolbar">Toolbar</string>
-  <!--
-    Source: String spoken or displayed on screen that is a description of a node on screen. For use in the screen summary feature. Connects the role of a node, such as "button" or "tab bar" to a description of the contents of the node.[CHAR LIMIT="NONE"]
-   -->
-  <string name="template_summary_description"><xliff:g id="role">%1$s</xliff:g>: <xliff:g id="content_description">%2$s</xliff:g></string>
-  <!--
-    Source: String spoken when a user as selected some characters in a password
-    field, indicating the start and end point of the selection cursor. The word "characters" in
-    this string means letters, numbers, or other symbols, NOT a person.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
-   -->
-  <string name="template_password_selected">Characters <xliff:g id="from_index">%1$d</xliff:g> to <xliff:g id="to_index">%2$d</xliff:g></string>
-  <!--
-    Source: String spoken when a user has moved the text cursor inside a password field and the
-    actual characters in the field are unknown. The word "character" in this string means a
-    letter, number, or other symbol, NOT a person.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
-   -->
-  <string name="template_password_traversed">Character <xliff:g id="index">%1$d</xliff:g></string>
   <!-- VALUES -->
   <!--
     Source: A value for announcing a password field.
@@ -557,12 +537,6 @@
    -->
   <string name="in_horizontal_pager">In horizontal pager</string>
   <!--
-    Source: string indicating that the user is out of the horizontal pager that has a name,
-    either by swiping linearly out of it or by touching outside of the pager area.
-    Description: This is spoken to the user. [CHAR LIMIT=NONE]
-   -->
-  <string name="out_of_horizontal_pager_with_name">Out of horizontal pager <xliff:g id="pager_description">%1$s</xliff:g></string>
-  <!--
     Source: string indicating that the user is out of the horizontal pager that does not have a
     name, either by swiping linearly out of it or by touching outside of the pager area.
     Description: This is spoken to the user. [CHAR LIMIT=NONE]
@@ -656,26 +630,6 @@
     Deprecated TODO
   -->
   <string name="template_speech_rate_change">Speech rate <xliff:g id="scaleInPercent" example="200">%1$d</xliff:g>%%</string>
-  <!--
-    Source: String for notifying the user the new speech rate value is some level faster than the original value.
-    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
-  -->
-  <string name="template_speech_rate_change_faster">Faster</string>
-  <!--
-    Source: String for notifying the user the new speech rate value is some level slower than the original value.
-    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
-  -->
-  <string name="template_speech_rate_change_slower">Slower</string>
-  <!--
-    Source: String for notifying the user the speech rate value has reached the highest value.
-    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
-  -->
-  <string name="template_speech_rate_change_fastest">Fastest</string>
-  <!--
-    Source: String for notifying the user the speech rate value has reached the lowest value.
-    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
-  -->
-  <string name="template_speech_rate_change_slowest">Slowest</string>
 
   <!--
     Source: String for notifying the user the stream volume is increased.
@@ -704,19 +658,6 @@
   -->
   <string name="template_seekbar_range"><xliff:g id="scaleInPercent" example="0">%1$d</xliff:g>%%</string>
 
-  <!-- Announced when audio focus is turned on with selector-->
-  <string name="audio_focus_on">Audio ducking on</string>
-  <!-- Announced when audio focus is turned off with selector-->
-  <string name="audio_focus_off">Audio ducking off</string>
-  <!-- Announced when the current selector setting is set to speech rate-->
-  <string name="selector_speech_rate_output">Speech rate</string>
-  <!-- Announced when the current selector setting is set to verbosity-->
-  <string name="selector_verbosity_output">Verbosity</string>
-  <!-- Announced when the current selector setting is set to granularity-->
-  <string name="selector_granularity_output">Navigation</string>
-  <!-- Announced when the current selector setting is set to audio_ducking-->
-  <string name="selector_audio_focus_output">Audio ducking</string>
-
   <!--
     Source: Summary subtext for the Speak passwords setting when the setting is off.
     Description: Explains that the passwords will only be spoken when using headphones. [CHAR+LIMIT="NONE"]
@@ -725,7 +666,26 @@
 
   <!-- Hint spoken when the menu actions available in high verbosity.[CHAR_LIMIT=100] -->
   <string name="template_hint_menu_type_high_verbosity"><xliff:g id="type" example="action">%1$s</xliff:g> available, use <xliff:g id="gesture" example="up-then-right">%2$s</xliff:g> to view.</string>
-  <!-- Hint spoken when the menu actions available in low verbosity.[CHAR_LIMIT=100] -->
-  <string name="template_hint_menu_type_low_verbosity"><xliff:g id="type" example="action">%1$s</xliff:g> available.</string>
+
+  <!-- Hint spoken when suggestions are available for a mis-spelled word or phrase. [CHAR_LIMIT=NONE] -->
+  <string name="hint_suggestion">Spelling suggestions available.</string>
+
+  <!--
+    Source: string indicating that the user is focused in the window that has a name,
+    [CHAR LIMIT=NONE]
+  -->
+  <string name="in_window_with_name">Window <xliff:g id="window_title">%1$s</xliff:g></string>
+
+  <!--
+  Source: The description of the icon which is recognized from an screenshot.
+  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="detected_icon_description"><xliff:g example="add">%1$s</xliff:g>, detected icon</string>
+
+  <!--
+  Source: The description of the text which is recognized from an image.
+  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="ocr_text_description"><xliff:g example="recognized_text">%1$s</xliff:g>, text</string>
 
 </resources>

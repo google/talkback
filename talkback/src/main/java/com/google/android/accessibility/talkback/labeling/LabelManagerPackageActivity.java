@@ -31,7 +31,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.google.android.accessibility.talkback.R;
@@ -151,9 +150,6 @@ public class LabelManagerPackageActivity extends BasePreferencesActivity {
           getString(R.string.label_manager_timestamp_text, dateFormat.format(date));
       timestampView.setText(timestampMessage);
 
-      final ImageView iconImage = (ImageView) view.findViewById(R.id.icon_image);
-      new LoadScreenshotTask(label, iconImage).execute();
-
       view.setOnClickListener(
           new OnClickListener() {
             @Override
@@ -197,38 +193,6 @@ public class LabelManagerPackageActivity extends BasePreferencesActivity {
       labelList.setAdapter(
           new LabelAdapter(
               LabelManagerPackageActivity.this, R.layout.label_manager_label_row, result));
-    }
-  }
-
-  /** A task for loading a screenshot from a label into a view. */
-  private static class LoadScreenshotTask extends AsyncTask<Void, Void, Drawable> {
-    private Label label;
-    private ImageView imageView;
-
-    /**
-     * Constructs a new task for loading a screenshot.
-     *
-     * @param label The label from which to load the screenshot.
-     * @param imageView The view into which to load the screenshot.
-     */
-    public LoadScreenshotTask(Label label, ImageView imageView) {
-      this.label = label;
-      this.imageView = imageView;
-    }
-
-    @Override
-    protected Drawable doInBackground(Void... params) {
-      final String screenshotPath = label.getScreenshotPath();
-
-      LogUtils.v(TAG, "Spawning new LoadScreenshotTask(%d) for %s.", hashCode(), screenshotPath);
-
-      return Drawable.createFromPath(screenshotPath);
-    }
-
-    @Override
-    protected void onPostExecute(Drawable result) {
-      imageView.setImageDrawable(result);
-      imageView.invalidate();
     }
   }
 }

@@ -104,10 +104,9 @@ public class TutorialInitiator {
   static final PageConfig.Builder WELCOME_TO_TALKBACK_WATCH_PAGE =
       PageConfig.builder(
               PageId.PAGE_ID_WELCOME_TO_TALKBACK_WATCH, R.string.welcome_to_talkback_title)
-          .addText(R.string.welcome_to_talkback_text)
+          .addTextAndBullet(R.string.welcome_to_talkback_text, R.string.watch_2_finger_scroll_text)
           .addTextWithBullet(R.string.watch_swipe_left_right_text)
-          .addTextWithBullet(R.string.watch_double_tap_text)
-          .addTextWithBullet(R.string.watch_2_finger_scroll_text);
+          .addTextWithBullet(R.string.watch_double_tap_text);
 
   static final PageConfig.Builder WELCOME_TO_TALKBACK_PAGE =
       PageConfig.builder(PageId.PAGE_ID_WELCOME_TO_TALKBACK, R.string.welcome_to_talkback_title)
@@ -257,15 +256,20 @@ public class TutorialInitiator {
 
   static final PageConfig.Builder READ_BY_CHARACTER =
       PageConfig.builder(PageId.PAGE_ID_READ_BY_CHARACTER, R.string.read_by_character_title)
-          .addText(R.string.read_by_character_text, R.string.granularity_character);
+          .addText(
+              R.string.read_by_character_text, ImmutableList.of(R.string.granularity_character));
 
   static final PageConfig.Builder READ_BY_CHARACTER_PRE_R =
       PageConfig.builder(PageId.PAGE_ID_READ_BY_CHARACTER_PRE_R, R.string.read_by_character_title)
-          .addText(R.string.read_by_character_text_pre_r, R.string.granularity_character);
+          .addText(
+              R.string.read_by_character_text_pre_r,
+              ImmutableList.of(R.string.granularity_character));
 
   static final PageConfig.Builder JUMP_BETWEEN_CONTROLS =
       PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_CONTROLS, R.string.jump_between_controls_title)
-          .addText(R.string.jump_between_controls_text, R.string.granularity_native_control)
+          .addText(
+              R.string.jump_between_controls_text,
+              ImmutableList.of(R.string.granularity_native_control))
           .addButton(R.string.button_1)
           .addButton(R.string.button_2)
           .addButton(R.string.button_3)
@@ -274,7 +278,9 @@ public class TutorialInitiator {
   static final PageConfig.Builder JUMP_BETWEEN_CONTROLS_PRE_R =
       PageConfig.builder(
               PageId.PAGE_ID_JUMP_BETWEEN_CONTROLS_PRE_R, R.string.jump_between_controls_title)
-          .addText(R.string.jump_between_controls_text_pre_r, R.string.granularity_native_control)
+          .addText(
+              R.string.jump_between_controls_text_pre_r,
+              ImmutableList.of(R.string.granularity_native_control))
           .addButton(R.string.button_1)
           .addButton(R.string.button_2)
           .addButton(R.string.button_3)
@@ -282,7 +288,8 @@ public class TutorialInitiator {
 
   static final PageConfig.Builder JUMP_BETWEEN_LINKS =
       PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_LINKS, R.string.jump_between_links_title)
-          .addText(R.string.jump_between_links_text, R.string.granularity_native_link)
+          .addText(
+              R.string.jump_between_links_text, ImmutableList.of(R.string.granularity_native_link))
           .addText(R.string.paragraph1_text)
           .addTextWithLink(R.string.link1_text)
           .addText(R.string.paragraph2_text)
@@ -295,7 +302,9 @@ public class TutorialInitiator {
 
   static final PageConfig.Builder JUMP_BETWEEN_LINKS_PRE_R =
       PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_LINKS_PRE_R, R.string.jump_between_links_title)
-          .addText(R.string.jump_between_links_text_pre_r, R.string.granularity_native_link)
+          .addText(
+              R.string.jump_between_links_text_pre_r,
+              ImmutableList.of(R.string.granularity_native_link))
           .addText(R.string.paragraph1_text)
           .addTextWithLink(R.string.link1_text)
           .addText(R.string.paragraph2_text)
@@ -308,7 +317,9 @@ public class TutorialInitiator {
 
   static final PageConfig.Builder JUMP_BETWEEN_HEADINGS =
       PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_HEADINGS, R.string.jump_between_headings_title)
-          .addText(R.string.jump_between_headings_text, R.string.granularity_native_heading)
+          .addText(
+              R.string.jump_between_headings_text,
+              ImmutableList.of(R.string.granularity_native_heading))
           .addDivider()
           .addHeading(R.string.content_heading)
           .addText(R.string.content_text)
@@ -319,7 +330,9 @@ public class TutorialInitiator {
   static final PageConfig.Builder JUMP_BETWEEN_HEADINGS_PRE_R =
       PageConfig.builder(
               PageId.PAGE_ID_JUMP_BETWEEN_HEADINGS_PRE_R, R.string.jump_between_headings_title)
-          .addText(R.string.jump_between_headings_text_pre_r, R.string.granularity_native_heading)
+          .addText(
+              R.string.jump_between_headings_text_pre_r,
+              ImmutableList.of(R.string.granularity_native_heading))
           .addDivider()
           .addHeading(R.string.content_heading)
           .addText(R.string.content_text)
@@ -345,13 +358,13 @@ public class TutorialInitiator {
   // First-run Training
 
   static final TrainingConfig TUTORIAL_FOR_WATCH =
-      TrainingConfig.builder(R.string.new_feature_talkback_91_title)
+      TrainingConfig.builder(R.string.welcome_to_talkback_title)
           .addPages(WELCOME_TO_TALKBACK_WATCH_PAGE)
           .setButtons(ImmutableList.of(BUTTON_TYPE_EXIT))
           .build();
 
   static final TrainingConfig FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER =
-      TrainingConfig.builder(R.string.new_feature_talkback_91_title)
+      TrainingConfig.builder(R.string.welcome_to_talkback_title)
           .addPages(
               WELCOME_TO_TALKBACK_PAGE,
               EXPLORE_BY_TOUCH_PAGE,
@@ -378,7 +391,7 @@ public class TutorialInitiator {
           .build();
 
   static final TrainingConfig FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R =
-      TrainingConfig.builder(R.string.new_feature_talkback_91_title)
+      TrainingConfig.builder(R.string.welcome_to_talkback_title)
           .addPages(
               WELCOME_TO_TALKBACK_PAGE,
               EXPLORE_BY_TOUCH_PAGE,
@@ -408,7 +421,7 @@ public class TutorialInitiator {
           .build();
 
   static final TrainingConfig FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER =
-      TrainingConfig.builder(R.string.new_feature_talkback_91_title)
+      TrainingConfig.builder(R.string.welcome_to_talkback_title)
           .addPages(
               WELCOME_TO_TALKBACK_PAGE,
               EXPLORE_BY_TOUCH_PAGE,
@@ -436,7 +449,7 @@ public class TutorialInitiator {
           .build();
 
   static final TrainingConfig FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R =
-      TrainingConfig.builder(R.string.new_feature_talkback_91_title)
+      TrainingConfig.builder(R.string.welcome_to_talkback_title)
           .addPages(
               WELCOME_TO_TALKBACK_PAGE,
               EXPLORE_BY_TOUCH_PAGE,

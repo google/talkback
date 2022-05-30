@@ -25,6 +25,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -113,6 +114,7 @@ public class LabelProviderClient {
    * @return A new label object with the assigned label ID from the database, or {@code null} if the
    *     insert operation failed.
    */
+  @Nullable
   public Label insertLabel(Label label, int sourceType) {
     LogUtils.d(TAG, "Inserting label: %s.", label);
 
@@ -137,7 +139,8 @@ public class LabelProviderClient {
     try {
       resultUri = mClient.insert(mLabelsContentUri, values);
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return null;
     }
 
@@ -158,6 +161,7 @@ public class LabelProviderClient {
    * @return An unmodifiable list of all labels in the database, or an empty list if the query
    *     returns no results, or {@code null} if the query fails.
    */
+  @Nullable
   public List<Label> getCurrentLabels() {
     LogUtils.d(TAG, "Querying all labels.");
 
@@ -178,7 +182,8 @@ public class LabelProviderClient {
 
       return getLabelListFromCursor(cursor);
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return null;
     } finally {
       if (cursor != null) {
@@ -207,7 +212,8 @@ public class LabelProviderClient {
 
       return cursor != null && cursor.getCount() > 0;
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return false;
     } finally {
       if (cursor != null) {
@@ -224,6 +230,7 @@ public class LabelProviderClient {
    * @return An unmodifiable list of {@link PackageLabelInfo} objects, or an empty map if the query
    *     returns no results, or {@code null} if the query fails.
    */
+  @Nullable
   public List<PackageLabelInfo> getPackageSummary(String locale) {
     LogUtils.d(TAG, "Querying package summary.");
 
@@ -245,7 +252,8 @@ public class LabelProviderClient {
 
       return getPackageSummaryFromCursor(cursor);
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return null;
     } finally {
       if (cursor != null) {
@@ -265,6 +273,7 @@ public class LabelProviderClient {
    * @return An unmodifiable map from view names to label objects that contains all labels matching
    *     the criteria, or {@code null} if the query failed.
    */
+  @Nullable
   public Map<String, Label> getLabelsForPackage(
       String packageName, String locale, int maxPackageVersion) {
     LogUtils.d(
@@ -298,7 +307,8 @@ public class LabelProviderClient {
 
       return getLabelMapFromCursor(cursor);
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return null;
     } finally {
       if (cursor != null) {
@@ -329,6 +339,7 @@ public class LabelProviderClient {
    * @param id The ID of the label to find.
    * @return The label with the given ID, or {@code null} if no such label was found.
    */
+  @Nullable
   public Label getLabelById(long id) {
     LogUtils.d(TAG, "Querying single label: id=%d.", id);
 
@@ -349,7 +360,8 @@ public class LabelProviderClient {
 
       return getLabelFromCursor(cursor);
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return null;
     } finally {
       if (cursor != null) {
@@ -393,7 +405,8 @@ public class LabelProviderClient {
           mClient.update(uri, values, null /* selection */, null /* selectionArgs */);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return false;
     }
   }
@@ -418,7 +431,8 @@ public class LabelProviderClient {
       final int rowsAffected = mClient.update(uri, values, null, null);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return false;
     }
   }
@@ -438,7 +452,8 @@ public class LabelProviderClient {
       final int rowsAffected = mClient.update(mLabelsContentUri, values, selection, null);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return false;
     }
   }
@@ -469,7 +484,8 @@ public class LabelProviderClient {
       final int rowsAffected = mClient.delete(uri, null /* selection */, null /* selectionArgs */);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return false;
     }
   }
@@ -502,7 +518,8 @@ public class LabelProviderClient {
       final int rowsAffected = mClient.delete(mLabelsContentUri, DELETE_LABEL_SELECTION, whereArgs);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return false;
     }
   }
@@ -519,7 +536,8 @@ public class LabelProviderClient {
       int rowsAffected = mClient.delete(mLabelsContentUri, selection, null);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.e(TAG, e.toString());
+      LogUtils.e(TAG, "RemoteException caught!");
+      LogUtils.d(TAG, e.toString());
       return false;
     }
   }
@@ -569,6 +587,7 @@ public class LabelProviderClient {
    * @return The label at the current cursor position, or {@code null} if the current cursor
    *     position has no row.
    */
+  @Nullable
   private Label getLabelFromCursorAtCurrentPosition(Cursor cursor) {
     if (cursor == null || cursor.isClosed() || cursor.isAfterLast()) {
       LogUtils.w(TAG, "Failed to get label from cursor.");
@@ -605,6 +624,7 @@ public class LabelProviderClient {
    * @return A pair of package name and label count, or {@code null} if the current cursor position
    *     has no row.
    */
+  @Nullable
   private PackageLabelInfo getPackageLabelInfoFromCursor(Cursor cursor) {
     if (cursor == null || cursor.isClosed() || cursor.isAfterLast()) {
       LogUtils.w(TAG, "Failed to get PackageLabelInfo from cursor.");
@@ -623,6 +643,7 @@ public class LabelProviderClient {
    * @param cursor The cursor from which to get the label.
    * @return The label returned from the query, or {@code null} if no valid label was returned.
    */
+  @Nullable
   private Label getLabelFromCursor(Cursor cursor) {
     if (cursor == null) {
       return null;

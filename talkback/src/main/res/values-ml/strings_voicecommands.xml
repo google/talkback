@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">സംഗ്രഹം</string>
   <string name="voice_commands_read">വായിക്കുക</string>
   <string name="voice_commands_read_from_next">അടുത്തതിൽ നിന്ന് വായിക്കുക</string>
   <string name="voice_commands_edit_options">എഡിറ്റ് ചെയ്യാനുള്ള ഓപ്ഷനുകൾ</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">കണ്ടെത്തുക</string>
   <string name="voice_commands_search">തിരയുക</string>
   <string name="voice_commands_search_for">ഇത് തിരയുക</string>
-  <string name="voice_commands_find_again">\'കണ്ടെത്തുക\' ആവർത്തിക്കുക</string>
   <string name="voice_commands_next_heading">അടുത്ത തലക്കെട്ട്</string>
   <string name="voice_commands_next_control">അടുത്ത നിയന്ത്രണം</string>
   <string name="voice_commands_next_link">അടുത്ത ലിങ്ക്</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">ലേബൽ ചെയ്യാനാകില്ല</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">സ്പീച്ച് റേറ്റ് സജ്ജീകരിക്കുന്നു</string>
-  <string name="voice_commands_setting_verbosity">വെർബോസിറ്റി സജ്ജീകരിക്കുന്നു</string>
-  <string name="voice_commands_setting_granularity">ഗ്രാനുലാരിറ്റി സജ്ജീകരിക്കുന്നു</string>
-  <string name="voice_commands_setting_navigation">നാവിഗേഷൻ സജ്ജീകരിക്കുന്നു</string>
   <string name="voice_commands_first">ആദ്യത്തെ</string>
   <string name="voice_commands_top">മുകളിൽ</string>
   <string name="voice_commands_last">അവസാനത്തെ</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">അടുത്ത ലിങ്ക് ഒന്നുമില്ല</string>
   <string name="voice_commands_no_next_control_feedback">അടുത്ത നിയന്ത്രണമൊന്നുമില്ല</string>
   <string name="voice_commands_no_next_landmark_feedback">അടുത്ത ലാൻഡ്‌മാർക്ക് ഒന്നുമില്ല</string>
-  <string name="voice_commands_screen_hidden_feedback">സ്ക്രീൻ മറച്ചിരിക്കുന്നു</string>
-  <string name="voice_commands_showing_screen_feedback">സ്ക്രീൻ കാണിക്കുന്നു</string>
   <string name="voice_commands_help_title">ശബ്ദ കമാൻഡ് അവലോകനം</string>
   <string name="voice_commands_help_description">ശബ്ദ കമാൻഡുകൾ ഉപയോഗിക്കാൻ, വലത്തേക്കും തുടർന്ന് മുകളിലേക്കും സ്വൈപ്പ് ചെയ്യുക. ശബ്‌ദ കമാൻഡുകളുകളുടെ ഈ ലിസ്റ്റ് ലഭിക്കുന്നതിന് ഏതുസമയത്തും \"സഹായിക്കൂ\" അല്ലെങ്കിൽ \"എനിക്കെന്താണ് പറയാനാകുക?\" എന്ന് പറയുക.</string>
   <string name="voice_commands_help_hint">മികച്ച ഫലങ്ങൾക്ക്, പിന്തുടരുന്ന സ്ക്രീനുകളിൽ ലിസ്റ്റ് ചെയ്തിരിക്കുന്ന കൃത്യമായ വാക്കുകൾ പറയുക.</string>

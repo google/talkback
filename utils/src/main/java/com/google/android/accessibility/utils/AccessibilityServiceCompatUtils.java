@@ -24,10 +24,13 @@ import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.Build;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import android.util.SparseArray;
+import android.view.Display;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.NonNull;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Collections;
 import java.util.List;
@@ -48,9 +51,6 @@ public class AccessibilityServiceCompatUtils {
     /** The package name for the Gboard app. */
     public static final String GBOARD_PACKAGE_NAME = "com.google.android.inputmethod.latin";
 
-    /** The package name for the Keep app. */
-    public static final String KEEP_NOTES_PACKAGE_NAME = "com.google.android.keep";
-
     private static final String ACCESSIBILITY_SUITE_PACKAGE_NAME =
         PackageManagerUtils.TALBACK_PACKAGE;
 
@@ -69,10 +69,17 @@ public class AccessibilityServiceCompatUtils {
         new ComponentName(
             ACCESSIBILITY_SUITE_PACKAGE_NAME,
             "com.google.android.accessibility.brailleime.BrailleIme");
+
+    /** The name of the Braille display settings activity. */
+    public static final ComponentName BRAILLE_DISPLAY_SETTINGS =
+        new ComponentName(
+            ACCESSIBILITY_SUITE_PACKAGE_NAME,
+            "com.google.android.accessibility.braille.brailledisplay.BrailleDisplaySettingsActivity");
   }
 
   /** @return root node of the Application window */
-  public static AccessibilityNodeInfoCompat getRootInActiveWindow(AccessibilityService service) {
+  public static @Nullable AccessibilityNodeInfoCompat getRootInActiveWindow(
+      AccessibilityService service) {
     if (service == null) {
       return null;
     }
@@ -95,6 +102,11 @@ public class AccessibilityServiceCompatUtils {
     }
   }
 
+  /**
+   * Gets the windows on the screen of the default display.
+   *
+   * @see AccessibilityService#getWindows()
+   */
   public static List<AccessibilityWindowInfo> getWindows(AccessibilityService service) {
     if (BuildVersionUtils.isAtLeastN()) {
       // Use try/catch to fix REFERTO
@@ -115,7 +127,49 @@ public class AccessibilityServiceCompatUtils {
     }
   }
 
-  public static AccessibilityWindowInfo getActiveWidow(AccessibilityService service) {
+  /**
+   * Gets the windows on the screen of all displays.
+   *
+   * @see AccessibilityService#getWindowsOnAllDisplays()
+   */
+  @NonNull
+  public static SparseArray<List<AccessibilityWindowInfo>> getWindowsOnAllDisplays(
+      AccessibilityService service) {
+    if (FeatureSupport.supportMultiDisplay()) {
+      try {
+        return service.getWindowsOnAllDisplays();
+      } catch (SecurityException e) {
+        LogUtils.e(
+            TAG,
+            "SecurityException occurred at AccessibilityService#getWindowsOnAllDisplays(): %s",
+            e);
+        return new SparseArray<>();
+      }
+    } else {
+      SparseArray<List<AccessibilityWindowInfo>> windows = new SparseArray<>();
+      windows.put(Display.DEFAULT_DISPLAY, getWindows(service));
+      return windows;
+    }
+  }
+
+  /**
+   * Iterate through all window info list on all displays and operate the task on all of the window
+   * info list.
+   *
+   * @param service The parent service
+   * @param task The task to be performed for each element
+   */
+  public static void forEachWindowInfoListOnAllDisplays(
+      AccessibilityService service, @NonNull Consumer<List<AccessibilityWindowInfo>> task) {
+    SparseArray<List<AccessibilityWindowInfo>> windowsOnAllDisplays =
+        AccessibilityServiceCompatUtils.getWindowsOnAllDisplays(service);
+    final int displaySize = windowsOnAllDisplays.size();
+    for (int i = 0; i < displaySize; i++) {
+      task.accept(windowsOnAllDisplays.valueAt(i));
+    }
+  }
+
+  public static @Nullable AccessibilityWindowInfo getActiveWidow(AccessibilityService service) {
     if (service == null) {
       return null;
     }
@@ -218,8 +272,7 @@ public class AccessibilityServiceCompatUtils {
 
   /** Returns if accessibility service is enabled. */
   public static boolean isAccessibilityServiceEnabled(Context context, String packageName) {
-    @Nullable
-    AccessibilityManager manager =
+    @Nullable AccessibilityManager manager =
         (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
     if (manager == null) {
       return false;

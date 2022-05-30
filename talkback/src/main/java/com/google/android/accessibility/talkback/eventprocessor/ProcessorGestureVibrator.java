@@ -18,8 +18,8 @@ package com.google.android.accessibility.talkback.eventprocessor;
 
 import static com.google.android.accessibility.talkback.Feedback.GESTURE_VIBRATION;
 
-import androidx.core.view.accessibility.AccessibilityEventCompat;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;

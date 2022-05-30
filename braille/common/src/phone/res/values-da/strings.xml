@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Tal</string>
+  <string name="capitalize_announcement">Store bogstaver</string>
+  <string name="read_out_deleted">%s er slettet</string>
+  <plurals name="braille_dots">
+    <item quantity="one">punktet %s</item>
+    <item quantity="other">punkterne %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="code_user_facing_name_es">Spansk</string>
+  <string name="code_user_facing_name_ar">Arabisk</string>
+  <string name="code_user_facing_name_fr">Fransk</string>
+  <string name="code_user_facing_name_pl">Polsk</string>
+  <string name="screen_away">Tilstanden Skærm vendt væk</string>
+  <string name="screen_away_detail">Hold enheden, så skærmen vender væk fra dig (tilstanden Skærm vendt væk)</string>
+  <string name="tabletop">Tilstanden Skærm vendt op</string>
+  <string name="tabletop_detail">Læg din enhed fladt på et bord (tilstanden Skærm vendt op)</string>
+  <string name="auto_detect">Tilpas efter, hvordan du holder enheden</string>
+</resources>

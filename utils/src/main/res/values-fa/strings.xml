@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">نویسه‌های %1$d تا %2$d</string>
+  <string name="template_password_traversed">نویسه %1$d</string>
   <string name="untitled_window">بدون عنوان</string>
-  <string name="template_alert_dialog_template">هشدار %1$s</string>
   <string name="template_text_copied">کپی شد، %1$s</string>
   <string name="template_capital_letter">%1$s بزرگ</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">کلمه</string>
   <string name="granularity_line">خط</string>
   <string name="granularity_paragraph">پاراگراف</string>
-  <string name="granularity_page">صفحه</string>
   <string name="granularity_window">پنجره</string>
   <string name="granularity_web_landmark">نشانگر مکانی</string>
   <string name="granularity_web_heading">سرصفحه‌ها</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">opsomming</string>
   <string name="voice_commands_read">lees</string>
   <string name="voice_commands_read_from_next">Lees uit volgende</string>
   <string name="voice_commands_edit_options">Redigeringopsies</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Soek</string>
   <string name="voice_commands_search">Soek</string>
   <string name="voice_commands_search_for">Soek na</string>
-  <string name="voice_commands_find_again">Vind nog</string>
   <string name="voice_commands_next_heading">Volgende opskrif</string>
   <string name="voice_commands_next_control">Volgende kontrole</string>
   <string name="voice_commands_next_link">Volgende skakel</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Kan nie etiketteer nie</string>
   <string name="voice_commands_assistant">Assistent</string>
   <string name="voice_commands_setting_speech_rate">Stel tans spraaktempo</string>
-  <string name="voice_commands_setting_verbosity">Stel tans woordrykheid</string>
-  <string name="voice_commands_setting_granularity">Stel tans korrelrigheid</string>
-  <string name="voice_commands_setting_navigation">Stel tans navigasie</string>
   <string name="voice_commands_first">Eerste</string>
   <string name="voice_commands_top">Boaan</string>
   <string name="voice_commands_last">Laaste</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Geen volgende skakel nie</string>
   <string name="voice_commands_no_next_control_feedback">Geen volgende kontrole nie</string>
   <string name="voice_commands_no_next_landmark_feedback">Geen volgende landmerk nie</string>
-  <string name="voice_commands_screen_hidden_feedback">Skerm word versteek</string>
-  <string name="voice_commands_showing_screen_feedback">Wys tans skerm</string>
   <string name="voice_commands_help_title">Stemopdragoorsig</string>
   <string name="voice_commands_help_description">Swiep regs en dan op om stemopdragte te gebruik. Sê enige tyd \"Help\" of \"What can I say?\" (wat kan ek sê) vir hierdie lys opdragte.</string>
   <string name="voice_commands_help_hint">Vir die beste resultate moet jy die presiese woorde sê wat op die volgende skerms gelys is.</string>

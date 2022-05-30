@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.utils.volumebutton;
 
-import androidx.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
+import androidx.annotation.Nullable;
 import java.util.concurrent.TimeUnit;
 
 /** Matches 3 short presses on both volume buttons. */
@@ -29,8 +29,8 @@ public class DoubleVolumeButtonThreeShortPressPatternMatcher extends VolumeButto
 
   private int mDoubleButtonPresses;
   private long mLastDoubleButtonPressEndTimestamp;
-  private @Nullable VolumeButtonAction mLastVolumeUpAction;
-  private @Nullable VolumeButtonAction mLastVolumeDownAction;
+  @Nullable private VolumeButtonAction mLastVolumeUpAction;
+  @Nullable private VolumeButtonAction mLastVolumeDownAction;
 
   public DoubleVolumeButtonThreeShortPressPatternMatcher() {
     super(
@@ -128,7 +128,8 @@ public class DoubleVolumeButtonThreeShortPressPatternMatcher extends VolumeButto
     return false;
   }
 
-  private @Nullable VolumeButtonAction getCurrentAction(KeyEvent keyEvent) {
+  @Nullable
+  private VolumeButtonAction getCurrentAction(KeyEvent keyEvent) {
     if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP) {
       return mLastVolumeUpAction;
     } else {
@@ -136,7 +137,8 @@ public class DoubleVolumeButtonThreeShortPressPatternMatcher extends VolumeButto
     }
   }
 
-  private @Nullable VolumeButtonAction getOtherAction(KeyEvent keyEvent) {
+  @Nullable
+  private VolumeButtonAction getOtherAction(KeyEvent keyEvent) {
     if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP) {
       return mLastVolumeDownAction;
     } else {

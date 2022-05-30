@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">обобщение</string>
   <string name="voice_commands_read">четене</string>
   <string name="voice_commands_read_from_next">Четене от следващия елемент</string>
   <string name="voice_commands_edit_options">Опции за редактиране</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Намиране</string>
   <string name="voice_commands_search">Търсене</string>
   <string name="voice_commands_search_for">Търсене на</string>
-  <string name="voice_commands_find_again">Повтаряне на намирането</string>
   <string name="voice_commands_next_heading">Следващото заглавие</string>
   <string name="voice_commands_next_control">Следваща контрола</string>
   <string name="voice_commands_next_link">Следваща връзка</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Не може да се постави етикет</string>
   <string name="voice_commands_assistant">Асистент</string>
   <string name="voice_commands_setting_speech_rate">Задаване на скорост на речта</string>
-  <string name="voice_commands_setting_verbosity">Задаване на детайлност на говора</string>
-  <string name="voice_commands_setting_granularity">Задаване на ниво на детайлност</string>
-  <string name="voice_commands_setting_navigation">Задаване на детайлност при навигиране</string>
   <string name="voice_commands_first">Първи елемент</string>
   <string name="voice_commands_top">Начало</string>
   <string name="voice_commands_last">Последен елемент</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Няма следваща връзка</string>
   <string name="voice_commands_no_next_control_feedback">Няма следваща контрола</string>
   <string name="voice_commands_no_next_landmark_feedback">Няма следващо срещане</string>
-  <string name="voice_commands_screen_hidden_feedback">Екранът е затъмнен</string>
-  <string name="voice_commands_showing_screen_feedback">Екранът е осветен</string>
   <string name="voice_commands_help_title">Общ преглед на гласовите команди</string>
   <string name="voice_commands_help_description">За да използвате гласови команди, прекарайте пръст надясно и след това нагоре. Кажете „Help“ или „What can I say?“ по всяко време, за да видите този списък с команди.</string>
   <string name="voice_commands_help_hint">За най-добри резултати произнасяйте командите точно както са посочени на следващите екрани.</string>

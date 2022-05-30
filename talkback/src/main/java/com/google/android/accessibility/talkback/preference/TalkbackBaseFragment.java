@@ -16,6 +16,8 @@
 package com.google.android.accessibility.talkback.preference;
 
 import android.os.Bundle;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceDialogFragmentCompat;
 import androidx.preference.PreferenceFragmentCompat;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 
@@ -44,6 +46,18 @@ public class TalkbackBaseFragment extends PreferenceFragmentCompat {
       TalkBackPreferenceFilter talkBackPreferenceFilter =
           new TalkBackPreferenceFilter(getActivity().getApplicationContext());
       talkBackPreferenceFilter.filterPreferences(getPreferenceScreen());
+    }
+  }
+
+  @Override
+  public void onDisplayPreferenceDialog(Preference preference) {
+    if (preference instanceof WearListPreference) {
+      PreferenceDialogFragmentCompat dialogFragment =
+          ((WearListPreference) preference).createDialogFragment();
+      dialogFragment.setTargetFragment(this, 0);
+      dialogFragment.show(getParentFragmentManager(), preference.getKey());
+    } else {
+      super.onDisplayPreferenceDialog(preference);
     }
   }
 }

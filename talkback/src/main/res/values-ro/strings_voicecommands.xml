@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">rezumat</string>
   <string name="voice_commands_read">citiți</string>
   <string name="voice_commands_read_from_next">Citește de la elementul următor</string>
   <string name="voice_commands_edit_options">Opțiuni de editare</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Găsește</string>
   <string name="voice_commands_search">Căutare</string>
   <string name="voice_commands_search_for">Caută</string>
-  <string name="voice_commands_find_again">Repetă găsirea</string>
   <string name="voice_commands_next_heading">Titlul următor</string>
   <string name="voice_commands_next_control">Comanda următoare</string>
   <string name="voice_commands_next_link">Următorul link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Nu se poate eticheta</string>
   <string name="voice_commands_assistant">Asistent</string>
   <string name="voice_commands_setting_speech_rate">Setați ritmul vorbirii</string>
-  <string name="voice_commands_setting_verbosity">Setați detaliile privind informațiile rostite</string>
-  <string name="voice_commands_setting_granularity">Setați nivelul de detaliere</string>
-  <string name="voice_commands_setting_navigation">Setați navigarea</string>
   <string name="voice_commands_first">Primul</string>
   <string name="voice_commands_top">Sus</string>
   <string name="voice_commands_last">Ultimul</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Nu există un link următor</string>
   <string name="voice_commands_no_next_control_feedback">Nu există o comandă următoare</string>
   <string name="voice_commands_no_next_landmark_feedback">Nu există un reper următor</string>
-  <string name="voice_commands_screen_hidden_feedback">Ecranul a fost ascuns</string>
-  <string name="voice_commands_showing_screen_feedback">Se afișează ecranul</string>
   <string name="voice_commands_help_title">Prezentare generală a comenzilor vocale</string>
   <string name="voice_commands_help_description">Pentru a folosi comenzi vocale, glisați spre dreapta, apoi în sus. Rostiți oricând „Ajutor” sau „Ce pot spune?” pentru lista comenzilor.</string>
   <string name="voice_commands_help_hint">Pentru rezultate optime, folosiți exact cuvintele de pe ecranele următoare.</string>

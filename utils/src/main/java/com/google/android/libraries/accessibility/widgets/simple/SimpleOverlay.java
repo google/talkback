@@ -41,10 +41,10 @@ public class SimpleOverlay {
   private final int id;
 
   private SimpleOverlayListener listener;
-  private OnTouchListener touchListener;
+  private @Nullable OnTouchListener touchListener;
   private OnKeyListener keyListener;
   private boolean isVisible;
-  @Nullable private CharSequence rootViewClassName = null;
+  private @Nullable CharSequence rootViewClassName = null;
 
   /**
    * Creates a new simple overlay that does not send {@link AccessibilityEvent}s.
@@ -162,7 +162,7 @@ public class SimpleOverlay {
   }
 
   /** Sets the touch listener. */
-  public void setOnTouchListener(OnTouchListener touchListener) {
+  public void setOnTouchListener(@Nullable OnTouchListener touchListener) {
     this.touchListener = touchListener;
   }
 

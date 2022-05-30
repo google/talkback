@@ -40,14 +40,4 @@
     <item name="android:windowNoTitle">true</item>
   </style>
 
-  <!--The theme for alert dialog-->
-  <style name="AlertDialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert">
-    <item name="colorAccent">@color/colorAccent</item>
-    <item name="android:background">@color/alert_dialog_bg_color</item>
-    <item name="android:textAllCaps">false</item>
-  </style>
-
-  <!--The theme for the view content inside alert dialog-->
-  <style name="AlertDialogCustomViewTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert" />
-
 </resources>

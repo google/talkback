@@ -59,10 +59,6 @@
   <string name="value_pager_page">Page</string>
   <string name="value_progress_bar">Progress bar</string>
   <string name="value_webview">Web view</string>
-  <string name="value_toolbar">Toolbar</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Characters %1$d to %2$d</string>
-  <string name="template_password_traversed">Character %1$d</string>
   <string name="value_password">password</string>
   <string name="value_sliding_drawer_opened">Sliding drawer opened</string>
   <string name="value_options_menu_open">Options.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Out of vertical pager</string>
   <string name="in_horizontal_pager_with_name">In horizontal pager %1$s</string>
   <string name="in_horizontal_pager">In horizontal pager</string>
-  <string name="out_of_horizontal_pager_with_name">Out of horizontal pager %1$s</string>
   <string name="out_of_horizontal_pager">Out of horizontal pager</string>
   <string name="in_grid_pager_with_name">In grid pager %1$s</string>
   <string name="in_grid_pager">In grid pager</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Magnification %1$d%%</string>
   <string name="screen_magnification_off">Magnification off</string>
   <string name="template_speech_rate_change">Speech rate %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Faster</string>
-  <string name="template_speech_rate_change_slower">Slower</string>
-  <string name="template_speech_rate_change_fastest">Fastest</string>
-  <string name="template_speech_rate_change_slowest">Slowest</string>
   <string name="template_volume_change_increase">Increase</string>
   <string name="template_volume_change_decrease">Decrease</string>
   <string name="template_volume_change_maximum">Maximum</string>
   <string name="template_volume_change_minimum">Minimum</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Audio ducking on</string>
-  <string name="audio_focus_off">Audio ducking off</string>
-  <string name="selector_speech_rate_output">Speech rate</string>
-  <string name="selector_verbosity_output">Verbosity</string>
-  <string name="selector_granularity_output">Navigation</string>
-  <string name="selector_audio_focus_output">Audio ducking</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Passwords only spoken when using headphones</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s available; use %2$s to view.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s available.</string>
+  <string name="hint_suggestion">Spelling suggestions available.</string>
+  <string name="in_window_with_name">Window %1$s</string>
+  <string name="detected_icon_description">%1$s, detected icon</string>
+  <string name="ocr_text_description">%1$s, text</string>
 </resources>

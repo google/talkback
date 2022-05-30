@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">корутунду</string>
   <string name="voice_commands_read">окуу</string>
   <string name="voice_commands_read_from_next">Кийинкиден окуу</string>
   <string name="voice_commands_edit_options">Параметрлерди түзөтүү</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Табуу</string>
   <string name="voice_commands_search">Издөө</string>
   <string name="voice_commands_search_for">Издөө</string>
-  <string name="voice_commands_find_again">Кайталанма ачкыч сөздөрдү табуу</string>
   <string name="voice_commands_next_heading">Кийинки натыйжалар</string>
   <string name="voice_commands_next_control">Кийинки башкаруу каражаты</string>
   <string name="voice_commands_next_link">Кийинки шилтеме</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Энбелги кошууга болбойт</string>
   <string name="voice_commands_assistant">Жардамчы</string>
   <string name="voice_commands_setting_speech_rate">Кеп ылдамдыгын жөндөө</string>
-  <string name="voice_commands_setting_verbosity">Кепти дааналатуу жөндөөсү</string>
-  <string name="voice_commands_setting_granularity">Киргизүүнү майдалоо жөндөөсү</string>
-  <string name="voice_commands_setting_navigation">Чабыттоо жөндөөсү</string>
   <string name="voice_commands_first">Биринчи</string>
   <string name="voice_commands_top">Жогору жакта</string>
   <string name="voice_commands_last">Акыркы</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Кийинки шилтеме жок</string>
   <string name="voice_commands_no_next_control_feedback">Кийинки көзөмөлдөө жок</string>
   <string name="voice_commands_no_next_landmark_feedback">Кийинки белги жер жок</string>
-  <string name="voice_commands_screen_hidden_feedback">Экран жашырылды</string>
-  <string name="voice_commands_showing_screen_feedback">Экран көрсөтүлүүдө</string>
   <string name="voice_commands_help_title">Үн буйругу жөнүндө жалпы маалымат</string>
   <string name="voice_commands_help_description">Үй буйруктарын колдонуу үчүн экранды оңго жана өйдө сүрүңүз. Үй буйруктарынын тизмесин көрүү үчүн каалаган убакта \"Жардам\" же \"Эмне десем болот?\" деп айтыңыз.</string>
   <string name="voice_commands_help_hint">Туура натыйжаларды алуу үчүн төмөнкү экрандарда тизмеленген сөздөрдү так айтыңыз.</string>

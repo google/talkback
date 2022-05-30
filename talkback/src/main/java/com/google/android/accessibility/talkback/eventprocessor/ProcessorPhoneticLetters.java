@@ -19,10 +19,8 @@ package com.google.android.accessibility.talkback.eventprocessor;
 import static com.google.android.accessibility.talkback.Feedback.HINT;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -30,8 +28,7 @@ import android.text.style.LocaleSpan;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.view.inputmethod.InputMethodSubtype;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
@@ -165,19 +162,6 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
         break;
       }
     }
-    // Old version of Gboard does not provide content description wrapped in the locale of the IME
-    // so we try using InputMethodManager.
-    if (localeString == null) {
-      InputMethodManager inputMethodManager =
-          (InputMethodManager) service.getSystemService(Context.INPUT_METHOD_SERVICE);
-      InputMethodSubtype inputMethod = inputMethodManager.getCurrentInputMethodSubtype();
-      if (inputMethod != null) {
-        String localeStringFromIme = inputMethod.getLocale();
-        if (!localeStringFromIme.isEmpty()) {
-          localeString = localeStringFromIme;
-        }
-      }
-    }
     // Use system locale as the fallback option.
     if (localeString == null) {
       localeString = Locale.getDefault().toString();
@@ -207,7 +191,6 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
     // Input Method.
     final AccessibilityNodeInfo source = event.getSource();
     AccessibilityWindowInfo window = AccessibilityNodeInfoUtils.getWindow(source);
-    AccessibilityNodeInfoUtils.recycleNodes(source);
     return (window != null) && (window.getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD);
   }
 
@@ -305,6 +288,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
           stringBuilder.append(input);
         }
         stream.close();
+        reader.close();
 
         JSONObject locales = new JSONObject(stringBuilder.toString());
         JSONObject phoneticLetters = locales.getJSONObject(locale);
@@ -337,9 +321,9 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
             .setQueueMode(SpeechController.QUEUE_MODE_QUEUE)
             .setFlags(
                 FeedbackItem.FLAG_NO_HISTORY
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
-                    | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
     pipeline.returnFeedback(
         eventId,
         Feedback.speech(phoneticLetter, speakOptions)

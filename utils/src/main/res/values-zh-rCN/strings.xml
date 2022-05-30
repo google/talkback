@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">第 %1$d 到 %2$d 个字符</string>
+  <string name="template_password_traversed">字符 %1$d</string>
   <string name="untitled_window">无标题</string>
-  <string name="template_alert_dialog_template">提醒%1$s</string>
   <string name="template_text_copied">已复制，%1$s</string>
   <string name="template_capital_letter">大写的 %1$s</string>
   <string name="character_collapse_template"> %1$d 个%2$s﻿</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">字词</string>
   <string name="granularity_line">行</string>
   <string name="granularity_paragraph">段落</string>
-  <string name="granularity_page">页</string>
   <string name="granularity_window">窗口</string>
   <string name="granularity_web_landmark">地标</string>
   <string name="granularity_web_heading">标题</string>

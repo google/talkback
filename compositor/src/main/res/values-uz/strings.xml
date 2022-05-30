@@ -59,10 +59,6 @@
   <string name="value_pager_page">Sahifa</string>
   <string name="value_progress_bar">Jarayon indikatori</string>
   <string name="value_webview">Vebdagi ko‘rinishi</string>
-  <string name="value_toolbar">Asboblar paneli</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Belgilar: %1$d – %2$d</string>
-  <string name="template_password_traversed">%1$d-belgi</string>
   <string name="value_password">parol</string>
   <string name="value_sliding_drawer_opened">Tortma panel ochildi</string>
   <string name="value_options_menu_open">Tanlanmalar.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Vertikal sahifadan tashqarida</string>
   <string name="in_horizontal_pager_with_name">%1$s gorizontal sahifasida</string>
   <string name="in_horizontal_pager">Gorizontal sahifada</string>
-  <string name="out_of_horizontal_pager_with_name">%1$s gorizontal sahifasidan tashqarida</string>
   <string name="out_of_horizontal_pager">Gorizontal sahifadan tashqarida</string>
   <string name="in_grid_pager_with_name">%1$s katakcha shaklidagi sahifasida</string>
   <string name="in_grid_pager">Katakcha shaklidagi sahifada</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Masshtab: %1$d%%</string>
   <string name="screen_magnification_off">Kattalashtirish o‘chiq</string>
   <string name="template_speech_rate_change">Nutq tezligi %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Tezroq</string>
-  <string name="template_speech_rate_change_slower">Sekinroq</string>
-  <string name="template_speech_rate_change_fastest">Eng tez</string>
-  <string name="template_speech_rate_change_slowest">Eng sekin</string>
   <string name="template_volume_change_increase">Balandlatish</string>
   <string name="template_volume_change_decrease">Pasaytirish</string>
   <string name="template_volume_change_maximum">Maksimum</string>
   <string name="template_volume_change_minimum">Minimal</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Ilovalarni ovozsiz qilish yoniq</string>
-  <string name="audio_focus_off">Ilovalarni ovozsiz qilish o‘chiq</string>
-  <string name="selector_speech_rate_output">Nutq tezligi</string>
-  <string name="selector_verbosity_output">Tafsilotlar</string>
-  <string name="selector_granularity_output">Navigatsiya</string>
-  <string name="selector_audio_focus_output">Ilovalarni ovozsiz qilish</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Quloqliklardan foydalanilgandagina parollar talaffuz qilinadi</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s mavjud, ochish uchun %2$s qiling.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s mavjud.</string>
+  <string name="hint_suggestion">Imloviy xatolarni tuzatishga oid takliflar bor.</string>
+  <string name="in_window_with_name">%1$s oynasi</string>
+  <string name="detected_icon_description">Aniqlangan belgi: %1$s</string>
+  <string name="ocr_text_description">Matn: %1$s</string>
 </resources>

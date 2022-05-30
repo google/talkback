@@ -69,7 +69,7 @@ public class ActorStateWritable {
   /** Read-only on-demand data-puller for focus history. */
   public final AccessibilityFocusActionHistory.Reader focusHistory;
 
-  /** Last input focus action. This class must recycle contained node. */
+  /** Last input focus action. */
   private @Nullable InputFocusActionRecord inputFocusActionRecord;
 
   /** Window ID from last focus action. */
@@ -133,23 +133,13 @@ public class ActorStateWritable {
     this.labelerState = labelerState;
   }
 
-  public void recycle() {
-    if (inputFocusActionRecord != null) {
-      AccessibilityNodeInfoUtils.recycleNodes(inputFocusActionRecord.inputFocusedNode);
-      inputFocusActionRecord = null;
-    }
-  }
-
   //////////////////////////////////////////////////////////////////////////
   // Data accessor methods
 
-  /** Stores information about completed input-focus action. Caller must recycle node. */
+  /** Stores information about completed input-focus action. */
   public void setInputFocus(AccessibilityNodeInfoCompat node, long currentTime) {
     lastWindowId = node.getWindowId();
     lastWindowIdUptimeMs = currentTime;
-    if (inputFocusActionRecord != null) {
-      AccessibilityNodeInfoUtils.recycleNodes(inputFocusActionRecord.inputFocusedNode);
-    }
     inputFocusActionRecord =
         new InputFocusActionRecord(AccessibilityNodeInfoUtils.obtain(node), currentTime);
   }
@@ -183,7 +173,8 @@ public class ActorStateWritable {
     return StringBuilderUtils.joinFields(
         StringBuilderUtils.optionalTag("isSpeaking", speechState.isSpeaking()),
         StringBuilderUtils.optionalTag(
-            "isSpeakingOrSpeechQueued", speechState.isSpeakingOrSpeechQueued()),
+            "isSpeakingOrQueuedAndNotSourceIsVolumeAnnouncment",
+            speechState.isSpeakingOrQueuedAndNotSourceIsVolumeAnnouncment()),
         StringBuilderUtils.optionalInt("lastWindowId", lastWindowId, -1),
         StringBuilderUtils.optionalInt("lastWindowIdUptimeMs", lastWindowIdUptimeMs, 0),
         StringBuilderUtils.optionalSubObj("inputFocusActionRecord", inputFocusActionRecord),

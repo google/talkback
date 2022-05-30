@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">σύνοψη</string>
   <string name="voice_commands_read">ανάγνωση</string>
   <string name="voice_commands_read_from_next">Ανάγνωση από το επόμενο στοιχείο</string>
   <string name="voice_commands_edit_options">Επεξεργασία επιλογών</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Εύρεση</string>
   <string name="voice_commands_search">Αναζήτηση</string>
   <string name="voice_commands_search_for">Αναζήτηση για</string>
-  <string name="voice_commands_find_again">Επανάληψη εύρεσης</string>
   <string name="voice_commands_next_heading">Επόμενη επικεφαλίδα</string>
   <string name="voice_commands_next_control">Επόμενο στοιχείο ελέγχου</string>
   <string name="voice_commands_next_link">Επόμενος σύνδεσμος</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Αδυναμία προσθήκης ετικέτας</string>
   <string name="voice_commands_assistant">Βοηθός</string>
   <string name="voice_commands_setting_speech_rate">Ρύθμιση ρυθμού ομιλίας</string>
-  <string name="voice_commands_setting_verbosity">Ρύθμιση έκτασης</string>
-  <string name="voice_commands_setting_granularity">Ρύθμιση ευαισθησίας</string>
-  <string name="voice_commands_setting_navigation">Ρύθμιση πλοήγησης</string>
   <string name="voice_commands_first">Πρώτη</string>
   <string name="voice_commands_top">Επάνω</string>
   <string name="voice_commands_last">Τελευταίο</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Δεν υπάρχει επόμενος σύνδεσμος.</string>
   <string name="voice_commands_no_next_control_feedback">Δεν υπάρχει επόμενο στοιχείο ελέγχου.</string>
   <string name="voice_commands_no_next_landmark_feedback">Δεν υπάρχει επόμενο ορόσημο.</string>
-  <string name="voice_commands_screen_hidden_feedback">Έχει γίνει απόκρυψη της οθόνης.</string>
-  <string name="voice_commands_showing_screen_feedback">Εμφάνιση οθόνης</string>
   <string name="voice_commands_help_title">Επισκόπηση φωνητικών εντολών</string>
   <string name="voice_commands_help_description">Για να χρησιμοποιήσετε φωνητικές εντολές, σύρετε προς τα δεξιά και έπειτα προς τα πάνω. Πείτε \"Βοήθεια\" ή \"Τι μπορώ να πω\" ανά πάσα στιγμή για να δείτε μια λίστα με τις εντολές.</string>
   <string name="voice_commands_help_hint">Για καλύτερα αποτελέσματα, χρησιμοποιήστε την ακριβή διατύπωση που αναφέρεται στις παρακάτω οθόνες.</string>

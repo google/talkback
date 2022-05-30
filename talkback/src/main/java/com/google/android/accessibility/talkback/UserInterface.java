@@ -19,7 +19,7 @@ package com.google.android.accessibility.talkback;
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
 
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.talkback.controller.SelectorController;
+import com.google.android.accessibility.talkback.selector.SelectorController;
 import com.google.android.accessibility.utils.Performance.EventId;
 
 /** A wrapper class for all user interfaces which need to response some input events. */

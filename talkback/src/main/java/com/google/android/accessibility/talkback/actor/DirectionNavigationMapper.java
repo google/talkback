@@ -73,12 +73,18 @@ public class DirectionNavigationMapper {
             eventId,
             Feedback.focusDirection(SEARCH_FOCUS_FORWARD)
                 .setInputMode(INPUT_MODE_KEYBOARD)
+                .setWrap(true)
+                .setScroll(true)
+                .setDefaultToInputFocus(true)
                 .setGranularity(DEFAULT));
       case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_DEFAULT:
         return toFeedback(
             eventId,
             Feedback.focusDirection(SEARCH_FOCUS_BACKWARD)
                 .setInputMode(INPUT_MODE_KEYBOARD)
+                .setWrap(true)
+                .setScroll(true)
+                .setDefaultToInputFocus(true)
                 .setGranularity(DEFAULT));
       case KeyComboManager.ACTION_NAVIGATE_UP:
         return toFeedback(

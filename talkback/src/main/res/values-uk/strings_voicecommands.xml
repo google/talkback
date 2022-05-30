@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">підсумок</string>
   <string name="voice_commands_read">читання</string>
   <string name="voice_commands_read_from_next">Читати з наступного</string>
   <string name="voice_commands_edit_options">Параметри редагування</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Знайти</string>
   <string name="voice_commands_search">Пошук</string>
   <string name="voice_commands_search_for">Пошук за словами:</string>
-  <string name="voice_commands_find_again">Знайти ще</string>
   <string name="voice_commands_next_heading">Наступний заголовок</string>
   <string name="voice_commands_next_control">Наступний елемент керування</string>
   <string name="voice_commands_next_link">Наступне посилання</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Не вдалося призначити мітку</string>
   <string name="voice_commands_assistant">Асистент</string>
   <string name="voice_commands_setting_speech_rate">Налаштування темпу мовлення</string>
-  <string name="voice_commands_setting_verbosity">Налаштування деталізації</string>
-  <string name="voice_commands_setting_granularity">Налаштування деталізації</string>
-  <string name="voice_commands_setting_navigation">Налаштування навігації</string>
   <string name="voice_commands_first">Перший</string>
   <string name="voice_commands_top">Угорі</string>
   <string name="voice_commands_last">Останній</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Немає наступного посилання</string>
   <string name="voice_commands_no_next_control_feedback">Немає наступного елемента керування</string>
   <string name="voice_commands_no_next_landmark_feedback">Немає наступного орієнтира</string>
-  <string name="voice_commands_screen_hidden_feedback">Екран приховано</string>
-  <string name="voice_commands_showing_screen_feedback">Екран показано</string>
   <string name="voice_commands_help_title">Огляд голосових команд</string>
   <string name="voice_commands_help_description">Щоб активувати голосові команди, проведіть по екрану праворуч, а потім угору. Щоб переглянути цей список команд, промовте будь-коли \"Допомога\" або \"Що можна сказати\".</string>
   <string name="voice_commands_help_hint">Щоб отримати найкращі результати, промовте точну фразу з наведених на екранах нижче.</string>

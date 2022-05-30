@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">요약</string>
   <string name="voice_commands_read">읽기</string>
   <string name="voice_commands_read_from_next">다음 항목부터 읽기</string>
   <string name="voice_commands_edit_options">옵션 수정</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">찾기</string>
   <string name="voice_commands_search">검색</string>
   <string name="voice_commands_search_for">찾기</string>
-  <string name="voice_commands_find_again">찾기 반복</string>
   <string name="voice_commands_next_heading">다음 제목</string>
   <string name="voice_commands_next_control">다음 컨트롤</string>
   <string name="voice_commands_next_link">다음 링크</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">라벨을 지정할 수 없음</string>
   <string name="voice_commands_assistant">어시스턴트</string>
   <string name="voice_commands_setting_speech_rate">말하는 속도 설정</string>
-  <string name="voice_commands_setting_verbosity">상세 출력 설정</string>
-  <string name="voice_commands_setting_granularity">세부 탐색 설정</string>
-  <string name="voice_commands_setting_navigation">탐색 설정</string>
   <string name="voice_commands_first">첫번째</string>
   <string name="voice_commands_top">상단</string>
   <string name="voice_commands_last">마지막</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">다음 링크가 없음</string>
   <string name="voice_commands_no_next_control_feedback">다음 컨트롤이 없음</string>
   <string name="voice_commands_no_next_landmark_feedback">다음 랜드마크가 없음</string>
-  <string name="voice_commands_screen_hidden_feedback">화면 숨겨짐</string>
-  <string name="voice_commands_showing_screen_feedback">화면 표시 중</string>
   <string name="voice_commands_help_title">음성 명령 개요</string>
   <string name="voice_commands_help_description">음성 명령을 사용하려면 오른쪽으로 스와이프한 후 위로 스와이프하세요. 음성 명령 목록을 보려면 언제든지 \"도와줘\" 또는 \"뭐라고 말해야 해?\"라고 말하세요.</string>
   <string name="voice_commands_help_hint">다음 화면에 표시된 말을 그대로 따라 하는 것이 가장 효과가 좋습니다.</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">qisqacha tavsifi</string>
   <string name="voice_commands_read">o‘qish</string>
   <string name="voice_commands_read_from_next">Keyingi elementni oʻqish</string>
   <string name="voice_commands_edit_options">Tahrirlash parametrlari</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Topish</string>
   <string name="voice_commands_search">Qidiruv</string>
   <string name="voice_commands_search_for">Qidirish</string>
-  <string name="voice_commands_find_again">Qayta qidirish</string>
   <string name="voice_commands_next_heading">Keyingi sarlavha</string>
   <string name="voice_commands_next_control">Keyingi boshqaruv elementi</string>
   <string name="voice_commands_next_link">Keyingi havola</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Yorliq belgilanmadi</string>
   <string name="voice_commands_assistant">Assistent</string>
   <string name="voice_commands_setting_speech_rate">Nutq tezligi sozlamasi</string>
-  <string name="voice_commands_setting_verbosity">Tafsilotlar sozlamasi</string>
-  <string name="voice_commands_setting_granularity">Teranlik sozlamasi</string>
-  <string name="voice_commands_setting_navigation">Navigatsiya sozlamasi</string>
   <string name="voice_commands_first">Birinchisi</string>
   <string name="voice_commands_top">Yuqori</string>
   <string name="voice_commands_last">Oxirgisi</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Bundan keyin havola mavjud emas</string>
   <string name="voice_commands_no_next_control_feedback">Keyingi boshqaruv elementi mavjud emas</string>
   <string name="voice_commands_no_next_landmark_feedback">Keyingi belgi mavjud emas</string>
-  <string name="voice_commands_screen_hidden_feedback">Ekran xira</string>
-  <string name="voice_commands_showing_screen_feedback">Ekran yorqin</string>
   <string name="voice_commands_help_title">Ovozli buyruqlar bilan tanishish</string>
   <string name="voice_commands_help_description">Ovozli buyruqlardan foydalanish uchun avval oʻngga, keyin tepaga suring. Buyruqlar roʻyxatini istalgan vaqtida ochish uchun “Yordam“ yoki “Nima deyishim mumkin?” deng</string>
   <string name="voice_commands_help_hint">Buyruqlar bajarilish uchun quyidagi ekranda koʻrsatilganidek talaffuz qiling.</string>

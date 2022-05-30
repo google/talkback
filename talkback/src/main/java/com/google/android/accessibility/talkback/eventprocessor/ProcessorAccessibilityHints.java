@@ -17,14 +17,17 @@
 package com.google.android.accessibility.talkback.eventprocessor;
 
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_FOCUSED;
+import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED;
 import static com.google.android.accessibility.compositor.Compositor.EVENT_SPEAK_HINT;
 import static com.google.android.accessibility.talkback.Feedback.HINT;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
-import androidx.core.view.accessibility.AccessibilityEventCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import android.text.Spannable;
+import android.text.style.SuggestionSpan;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.compositor.EventInterpretation;
 import com.google.android.accessibility.compositor.HintEventInterpretation;
@@ -37,7 +40,9 @@ import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
-import com.google.android.accessibility.utils.feedback.AbstractAccessibilityHintsManager;
+import com.google.android.accessibility.utils.feedbackpolicy.AbstractAccessibilityHintsManager;
+import java.util.HashSet;
+import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -52,7 +57,8 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
       AccessibilityEvent.TYPE_VIEW_CLICKED
           | AccessibilityEvent.TYPE_TOUCH_INTERACTION_START
           | AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED
-          | TYPE_VIEW_FOCUSED;
+          | TYPE_VIEW_FOCUSED
+          | TYPE_VIEW_TEXT_CHANGED;
 
   private ActorState actorState;
   private Pipeline.InterpretationReceiver pipelineInterpretationReceiver;
@@ -72,16 +78,22 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
     this.pipelineInterpretationReceiver = pipeline;
   }
 
-  @Nullable
-  private EventInterpretation getEventInterpretation() {
+  private @Nullable EventInterpretation getEventInterpretation() {
     @HintEventInterpretation.HintType int hintEventType;
     @Nullable EventInterpretation eventInterp = null;
     @Nullable HintEventInterpretation hintInterp = null;
     if (hintInfo.getPendingHintSource() != null) {
-      hintEventType =
-          (hintInfo.getPendingHintEventType() == TYPE_VIEW_FOCUSED)
-              ? HintEventInterpretation.HINT_TYPE_INPUT_FOCUS
-              : HintEventInterpretation.HINT_TYPE_ACCESSIBILITY_FOCUS;
+      switch (hintInfo.getPendingHintEventType()) {
+        case TYPE_VIEW_FOCUSED:
+          hintEventType = HintEventInterpretation.HINT_TYPE_INPUT_FOCUS;
+          break;
+        case TYPE_VIEW_TEXT_CHANGED:
+          hintEventType = HintEventInterpretation.HINT_TYPE_TEXT_SUGGESTION;
+          break;
+        default:
+          hintEventType = HintEventInterpretation.HINT_TYPE_ACCESSIBILITY_FOCUS;
+          break;
+      }
       hintInterp = new HintEventInterpretation(hintEventType);
       eventInterp = new EventInterpretation(Compositor.EVENT_SPEAK_HINT);
     } else if (hintInfo.getPendingScreenHint() != null) {
@@ -98,10 +110,10 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
       return null;
     }
 
-    hintInterp.setForceFeedbackAudioPlaybackActive(
-        hintInfo.getNodeHintForcedFeedbackAudioPlaybackActive());
-    hintInterp.setForceFeedbackMicropphoneActive(
-        hintInfo.getNodeHintForcedFeedbackMicrophoneActive());
+    hintInterp.setForceFeedbackEvenIfAudioPlaybackActive(
+        hintInfo.getNodeHintForceFeedbackEvenIfAudioPlaybackActive());
+    hintInterp.setForceFeedbackEvenIfMicrophoneActive(
+        hintInfo.getNodeHintForceFeedbackEvenIfMicrophoneActive());
     eventInterp.setHint(hintInterp);
     return eventInterp;
   }
@@ -139,13 +151,9 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
     final int eventType = event.getEventType();
     if (eventType == TYPE_VIEW_FOCUSED) {
       AccessibilityNodeInfoCompat source = AccessibilityNodeInfoUtils.toCompat(event.getSource());
-      try {
-        if (source != null) {
-          postHintForNode(event, source); // postHintForNode() doesn't take ownership of source.
-          return;
-        }
-      } finally {
-        AccessibilityNodeInfoUtils.recycleNodes(source);
+      if (source != null) {
+        postHintForNode(event, source); // postHintForNode() doesn't take ownership of source.
+        return;
       }
     }
 
@@ -161,33 +169,69 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
       FocusActionInfo focusActionInfo =
           actorState.getFocusHistory().getFocusActionInfoFromEvent(event);
 
-        if (focusActionInfo != null) {
-          if (focusActionInfo.forceMuteFeedback) {
-            return;
-          }
-          // We don't announce node hints when navigating with micro granularity.
-          if ((focusActionInfo.navigationAction != null)
-              && (focusActionInfo.navigationAction.originalNavigationGranularity != null)
-              && focusActionInfo.navigationAction.originalNavigationGranularity
-                  .isMicroGranularity()) {
-            return;
-          }
+      if (focusActionInfo != null) {
+        if (focusActionInfo.forceMuteFeedback) {
+          return;
         }
+        // We don't announce node hints when navigating with micro granularity.
+        if ((focusActionInfo.navigationAction != null)
+            && (focusActionInfo.navigationAction.originalNavigationGranularity != null)
+            && focusActionInfo.navigationAction.originalNavigationGranularity
+                .isMicroGranularity()) {
+          return;
+        }
+      }
 
       AccessibilityNodeInfoCompat source = AccessibilityNodeInfoUtils.toCompat(event.getSource());
-      boolean isForcedFeedbackAudioPlaybackActive =
-          (focusActionInfo != null) && focusActionInfo.isForcedFeedbackAudioPlaybackActive();
-      boolean isForcedFeedbackMicrophoneActive =
-          (focusActionInfo != null) && focusActionInfo.isForcedFeedbackMicrophoneActive();
+      boolean forceFeedbackEvenIfAudioPlaybackActive =
+          (focusActionInfo != null) && focusActionInfo.forceFeedbackEvenIfAudioPlaybackActive();
+      boolean forceFeedbackEvenIfMicrophoneActive =
+          (focusActionInfo != null) && focusActionInfo.forceFeedbackEvenIfMicrophoneActive();
 
-      try {
-        if (source != null) {
-          // postHintForNode() doesn't take ownership of source.
-          postHintForNode(
-              event, source, isForcedFeedbackAudioPlaybackActive, isForcedFeedbackMicrophoneActive);
-        }
-      } finally {
-        AccessibilityNodeInfoUtils.recycleNodes(source);
+      if (source != null) {
+        // postHintForNode() doesn't take ownership of source.
+        postHintForNode(
+            event,
+            source,
+            forceFeedbackEvenIfAudioPlaybackActive,
+            forceFeedbackEvenIfMicrophoneActive);
+      }
+    }
+
+    // Schedule earcon and delayed hints for spelling suggestions.
+    // TODO Pipeline ProcessorAccessibilityHints and move this part to
+    //  TextEventInterpreter after TextEventInterpreter is pipelined.
+    if (eventType == TYPE_VIEW_TEXT_CHANGED) {
+      final List<CharSequence> afterTexts = event.getText();
+      final CharSequence afterText =
+          (afterTexts == null || afterTexts.isEmpty()) ? null : afterTexts.get(0);
+      if (!(afterText instanceof Spannable)) {
+        return;
+      }
+      int fromIndex = event.getFromIndex();
+      int toIndex = event.getToIndex();
+      HashSet<Integer> matchedAfterSpanFlags =
+          getExactMatchSuggestionSpanFlags((Spannable) afterText, fromIndex, toIndex);
+      if (matchedAfterSpanFlags.size() == 0) {
+        return;
+      }
+
+      boolean spanAdded = true;
+      final CharSequence beforeText = event.getBeforeText();
+      if (beforeText instanceof Spannable) {
+        HashSet<Integer> matchedBeforeSpanFlags =
+            getExactMatchSuggestionSpanFlags((Spannable) beforeText, fromIndex, toIndex);
+        // The flags will determine the visual underline. For SuggestionSpans with the same from
+        // and to index, we may visually notice it only when a new span with a new color is added.
+        spanAdded = !matchedBeforeSpanFlags.containsAll(matchedAfterSpanFlags);
+      }
+      if (!spanAdded) {
+        return;
+      }
+
+      AccessibilityNodeInfoCompat source = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+      if (source != null) {
+        postHintForNode(event, source); // postHintForNode() doesn't take ownership of source.
       }
     }
   }
@@ -207,5 +251,17 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
   @Override
   public boolean processWhenServiceSuspended() {
     return false;
+  }
+
+  private HashSet<Integer> getExactMatchSuggestionSpanFlags(
+      Spannable spannable, int fromIndex, int toIndex) {
+    SuggestionSpan[] spans = spannable.getSpans(fromIndex, toIndex, SuggestionSpan.class);
+    HashSet<Integer> matchedSpanFlags = new HashSet<>();
+    for (SuggestionSpan span : spans) {
+      if ((spannable.getSpanStart(span) == fromIndex) && (spannable.getSpanEnd(span) == toIndex)) {
+        matchedSpanFlags.add(span.getFlags());
+      }
+    }
+    return matchedSpanFlags;
   }
 }

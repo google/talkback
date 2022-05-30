@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.utils.volumebutton;
 
-import androidx.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
+import androidx.annotation.Nullable;
 import java.util.concurrent.TimeUnit;
 
 /** Matches the double short press of the play/pause button on wired headset * */

@@ -33,9 +33,9 @@ import android.text.TextUtils;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.talkback.permission.PermissionRequestActivity;
+import com.google.android.accessibility.talkback.training.OnboardingInitiator;
 import com.google.android.accessibility.utils.FeatureSupport;
-import com.google.android.accessibility.utils.ScreenMonitor;
-import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.monitor.ScreenMonitor;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -172,9 +172,7 @@ public class CallStateMonitor extends BroadcastReceiver {
    * @param prefs Shared preferences from which to obtain the value
    */
   public void requestPhonePermissionIfNeeded(SharedPreferences prefs) {
-    boolean tutorialShown =
-        SharedPreferencesUtils.getBooleanPref(
-            prefs, service.getResources(), R.string.pref_update_talkback91_shown_key, false);
+    boolean tutorialShown = OnboardingInitiator.hasOnboardingBeenShown(prefs, service);
     if (FeatureSupport.callStateRequiresPermission()
         && tutorialShown
         && !isCallStatePermissionGranted()

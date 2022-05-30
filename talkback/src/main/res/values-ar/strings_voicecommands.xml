@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">ملخّص</string>
   <string name="voice_commands_read">قراءة</string>
   <string name="voice_commands_read_from_next">القراءة من العنصر التالي</string>
   <string name="voice_commands_edit_options">خيارات التعديل</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">بحث</string>
   <string name="voice_commands_search">بحث</string>
   <string name="voice_commands_search_for">البحث عن</string>
-  <string name="voice_commands_find_again">تكرار البحث</string>
   <string name="voice_commands_next_heading">العنوان التالي</string>
   <string name="voice_commands_next_control">عنصر التحكّم التالي</string>
   <string name="voice_commands_next_link">الرابط التالي</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">لا يمكن تصنيف المحتوى.</string>
   <string name="voice_commands_assistant">‏مساعد Google</string>
   <string name="voice_commands_setting_speech_rate">ضبط معدّل الكلام</string>
-  <string name="voice_commands_setting_verbosity">ضبط الإسهاب</string>
-  <string name="voice_commands_setting_granularity">ضبط الدقة</string>
-  <string name="voice_commands_setting_navigation">ضبط التنقل</string>
   <string name="voice_commands_first">الأول</string>
   <string name="voice_commands_top">الأعلى</string>
   <string name="voice_commands_last">الأخير</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">ليس هناك رابط تالٍ.</string>
   <string name="voice_commands_no_next_control_feedback">ليس هناك عنصر تحكّم تالٍ.</string>
   <string name="voice_commands_no_next_landmark_feedback">ليس هناك مَعلم تالٍ.</string>
-  <string name="voice_commands_screen_hidden_feedback">تم تعتيم الشاشة.</string>
-  <string name="voice_commands_showing_screen_feedback">إلغاء تعتيم الشاشة</string>
   <string name="voice_commands_help_title">نظرة عامة على الطلب الصوتي</string>
   <string name="voice_commands_help_description">لاستخدام الطلبات الصوتية، يُرجى التمرير سريعًا لليسار ثم للأعلى. وما عليك سوى قول \"مساعدة\" أو \"ما الذي يمكنني قوله؟\" في أي وقت للاطّلاع على قائمة الطلبات هذه.</string>
   <string name="voice_commands_help_hint">للحصول على أفضل النتائج، ننصحك بقول العبارات كما ترد بالضبط في الشاشات التالية.</string>

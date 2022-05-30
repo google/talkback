@@ -17,7 +17,7 @@
 package com.google.android.accessibility.utils.screenunderstanding;
 
 import android.graphics.Bitmap;
-import androidx.annotation.Nullable;
+import android.graphics.Rect;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import java.util.Locale;
 
@@ -30,7 +30,7 @@ public interface ScreenAnnotationsDetector {
      * Invoked when detecting screen annotations from a given screenshot has finished.
      *
      * <p>When detecting screen annotations has successfully finished, invoke {@link
-     * ScreenAnnotationsDetector#getIconLabel(Locale, AccessibilityNodeInfoCompat)} to get the label
+     * IconAnnotationsDetector#getIconLabel(Locale, AccessibilityNodeInfoCompat)} to get the label
      * of the detected icons for a given node.
      */
     void onDetectionFinished(boolean success);
@@ -51,11 +51,12 @@ public interface ScreenAnnotationsDetector {
    */
   void processScreenshotAsync(Bitmap screenshot, ProcessScreenshotResultListener listener);
 
+  /** Invoked when a UI change happens which changes the whole screen content. */
+  void clearWholeScreenCache();
+
   /**
-   * If icons identified by screen understanding matches the specified {@code node}, returns the
-   * localized label of the matched icons. Returns {@code null} if no detected icon matches the
-   * specified {@code node}.
+   * Invoked when a UI change happens which only changes the content inside the specific {@code
+   * rect}.
    */
-  @Nullable
-  CharSequence getIconLabel(Locale locale, AccessibilityNodeInfoCompat node);
+  void clearPartialScreenCache(Rect rect);
 }

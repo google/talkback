@@ -17,15 +17,15 @@
 package com.google.android.accessibility.talkback.focusmanagement.interpreter;
 
 import android.accessibilityservice.AccessibilityService;
-import androidx.annotation.Nullable;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.WindowEventInterpreter.EventInterpretation;
-import com.google.android.accessibility.utils.WindowEventInterpreter.WindowEventHandler;
-import com.google.android.accessibility.utils.WindowsDelegate;
+import com.google.android.accessibility.utils.input.WindowEventInterpreter.EventInterpretation;
+import com.google.android.accessibility.utils.input.WindowEventInterpreter.WindowEventHandler;
+import com.google.android.accessibility.utils.input.WindowsDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

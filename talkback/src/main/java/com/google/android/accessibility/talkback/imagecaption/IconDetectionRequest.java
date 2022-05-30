@@ -19,35 +19,36 @@ package com.google.android.accessibility.talkback.imagecaption;
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.utils.screenunderstanding.ScreenAnnotationsDetector;
+import com.google.android.accessibility.utils.screenunderstanding.IconAnnotationsDetector;
 import java.util.Locale;
 
 /**
  * A {@link CaptionRequest} for detecting screen annotations (including icons) from the screenshot.
  */
 public class IconDetectionRequest extends CaptionRequest
-    implements ScreenAnnotationsDetector.ProcessScreenshotResultListener {
+    implements IconAnnotationsDetector.ProcessScreenshotResultListener {
 
-  private final ScreenAnnotationsDetector screenAnnotationsDetector;
+  private final IconAnnotationsDetector iconAnnotationsDetector;
   private final Bitmap screenCapture;
   private final Locale locale;
 
   public IconDetectionRequest(
       @NonNull AccessibilityNodeInfoCompat node,
       @NonNull Bitmap screenCapture,
-      @NonNull ScreenAnnotationsDetector screenAnnotationsDetector,
+      @NonNull IconAnnotationsDetector iconAnnotationsDetector,
       @NonNull Locale locale,
       @NonNull OnFinishListener onFinishListener,
-      @NonNull OnErrorListener onErrorListener) {
-    super(node, onFinishListener, onErrorListener);
+      @NonNull OnErrorListener onErrorListener,
+      boolean isUserRequested) {
+    super(node, onFinishListener, onErrorListener, isUserRequested);
     this.screenCapture = screenCapture;
-    this.screenAnnotationsDetector = screenAnnotationsDetector;
+    this.iconAnnotationsDetector = iconAnnotationsDetector;
     this.locale = locale;
   }
 
   @Override
   public void perform() {
-    screenAnnotationsDetector.processScreenshotAsync(screenCapture, this);
+    iconAnnotationsDetector.processScreenshotAsync(screenCapture, this);
     runTimeoutRunnable();
   }
 
@@ -59,6 +60,6 @@ public class IconDetectionRequest extends CaptionRequest
       return;
     }
 
-    onCaptionFinish(screenAnnotationsDetector.getIconLabel(locale, node));
+    onCaptionFinish(iconAnnotationsDetector.getIconLabel(locale, node));
   }
 }

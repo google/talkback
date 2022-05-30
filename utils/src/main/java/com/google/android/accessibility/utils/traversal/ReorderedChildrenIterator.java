@@ -18,7 +18,6 @@ package com.google.android.accessibility.utils.traversal;
 
 import android.graphics.Rect;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,8 +32,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * rectangle that contains all focusable children nodes. If that rectangle differs from real node
  * bounds that node is reordered according needSwapNodeOrder() logic and could be traversed later.
  *
- * <p>This class obtains new instances of AccessibilityNodeCompat. Call recycle to recycle those
- * instances. Do not use the iterator once it's been recycled.
+ * <p>This class obtains new instances of AccessibilityNodeCompat.
  */
 public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfoCompat> {
 
@@ -48,7 +46,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
     return createDescendingIterator(parent, null);
   }
 
-  public static ReorderedChildrenIterator createAscendingIterator(
+  public static @Nullable ReorderedChildrenIterator createAscendingIterator(
       AccessibilityNodeInfoCompat parent, @Nullable NodeCachedBoundsCalculator boundsCalculator) {
     if (parent == null) {
       return null;
@@ -57,7 +55,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
     return new ReorderedChildrenIterator(parent, true, boundsCalculator);
   }
 
-  public static ReorderedChildrenIterator createDescendingIterator(
+  public static @Nullable ReorderedChildrenIterator createDescendingIterator(
       AccessibilityNodeInfoCompat parent, @Nullable NodeCachedBoundsCalculator boundsCalculator) {
     if (parent == null) {
       return null;
@@ -241,11 +239,6 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
     return -1;
   }
 
-  public void recycle() {
-    AccessibilityNodeInfoUtils.recycleNodes(mNodes);
-    mNodes.clear();
-  }
-
   private void fillNodesFromParent() {
     int count = mParent.getChildCount();
     for (int i = 0; i < count; i++) {
@@ -261,9 +254,8 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
     return mIsAscending ? mCurrentIndex < mNodes.size() : mCurrentIndex >= 0;
   }
 
-  /** Caller must recycle returned AccessibilityNodeInfoCompat. */
   @Override
-  public AccessibilityNodeInfoCompat next() {
+  public @Nullable AccessibilityNodeInfoCompat next() {
     AccessibilityNodeInfoCompat nextNode = mNodes.get(mCurrentIndex);
     if (mIsAscending) {
       mCurrentIndex++;

@@ -24,8 +24,8 @@ import static com.google.android.accessibility.talkback.Feedback.Focus.Action.IN
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.LONG_CLICK_NODE;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.RESTORE;
 
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.NodeAction;
 import com.google.android.accessibility.talkback.Mappers;
@@ -92,7 +92,7 @@ public class FocusFeedbackMapper {
   }
 
   /** Maps touch-events to focus actions. */
-  public static Feedback mapTouchToFocusAction(
+  public static @Nullable Feedback mapTouchToFocusAction(
       EventId eventId, Mappers.Variables variables, int depth) {
 
     LogDepth.logFunc(Mappers.LOG_TAG, ++depth, "mapTouchToFocusAction");
@@ -141,7 +141,7 @@ public class FocusFeedbackMapper {
   }
 
   /** Feedback-mapping function. */
-  public static Feedback.Part.Builder onNodeManuallyScrolled(
+  public static Feedback.Part.@Nullable Builder onNodeManuallyScrolled(
       Variables variables, int depth, FocusFinder focusFinder) {
 
     LogDepth.logFunc(Mappers.LOG_TAG, ++depth, "onNodeManuallyScrolled");
@@ -152,42 +152,32 @@ public class FocusFeedbackMapper {
       return null;
     }
 
-    @Nullable AccessibilityNodeInfoCompat nodeToFocus = null;
-    @Nullable AccessibilityNode nodeToFocusCopy = null;
-    TraversalStrategy traversalStrategy = null;
-    try {
-      // Try to focus on the next/previous focusable node.
-      traversalStrategy =
-          TraversalStrategyUtils.getTraversalStrategy(scrolledNode, focusFinder, direction);
-      final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache =
-          traversalStrategy.getSpeakingNodesCache();
-      Filter.NodeCompat nodeFilter =
-          new Filter.NodeCompat(
-              (node) -> AccessibilityNodeInfoUtils.shouldFocusNode(node, speakingNodeCache));
-      nodeToFocus =
-          TraversalStrategyUtils.findInitialFocusInNodeTree(
-              traversalStrategy, scrolledNode, direction, nodeFilter);
+    // Try to focus on the next/previous focusable node.
+    TraversalStrategy traversalStrategy =
+        TraversalStrategyUtils.getTraversalStrategy(scrolledNode, focusFinder, direction);
+    final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache =
+        traversalStrategy.getSpeakingNodesCache();
+    Filter.NodeCompat nodeFilter =
+        new Filter.NodeCompat(
+            (node) -> AccessibilityNodeInfoUtils.shouldFocusNode(node, speakingNodeCache));
+    @Nullable AccessibilityNodeInfoCompat nodeToFocus =
+        TraversalStrategyUtils.findInitialFocusInNodeTree(
+            traversalStrategy, scrolledNode, direction, nodeFilter);
 
-      if (nodeToFocus == null) {
-        return null;
-      }
-
-      FocusActionInfo focusActionInfo =
-          new FocusActionInfo.Builder().setSourceAction(FocusActionInfo.MANUAL_SCROLL).build();
-
-      nodeToFocusCopy = AccessibilityNode.obtainCopy(nodeToFocus);
-      return Feedback.part()
-          .setFocus(Feedback.focus(nodeToFocus, focusActionInfo).build())
-          .setNodeAction(
-              NodeAction.builder()
-                  .setTarget(nodeToFocusCopy)
-                  .setActionId(AccessibilityAction.ACTION_SHOW_ON_SCREEN.getId())
-                  .build());
-
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(nodeToFocus);
-      AccessibilityNode.recycle(/* caller= */ "onNodeManuallyScrolled", nodeToFocusCopy);
-      TraversalStrategyUtils.recycle(traversalStrategy);
+    if (nodeToFocus == null) {
+      return null;
     }
+
+    FocusActionInfo focusActionInfo =
+        new FocusActionInfo.Builder().setSourceAction(FocusActionInfo.MANUAL_SCROLL).build();
+
+    @Nullable AccessibilityNode nodeToFocusCopy = AccessibilityNode.obtainCopy(nodeToFocus);
+    return Feedback.part()
+        .setFocus(Feedback.focus(nodeToFocus, focusActionInfo).build())
+        .setNodeAction(
+            NodeAction.builder()
+                .setTarget(nodeToFocusCopy)
+                .setActionId(AccessibilityAction.ACTION_SHOW_ON_SCREEN.getId())
+                .build());
   }
 }

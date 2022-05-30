@@ -17,25 +17,27 @@
 package com.google.android.accessibility.talkback.training.content;
 
 import android.content.Context;
-import androidx.core.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.StringRes;
+import androidx.core.view.ViewCompat;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 
 /** A heading shows at the top of context in general. */
 public class Heading extends PageContentConfig {
 
-  private final @StringRes int textResId;
+  @StringRes private final int textResId;
 
   public Heading(@StringRes int textResId) {
     this.textResId = textResId;
   }
 
   @Override
-  public View createView(LayoutInflater inflater, ViewGroup container, Context context) {
+  public View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_heading, container, false);
     final TextView heading = view.findViewById(R.id.training_heading);
     heading.setText(textResId);

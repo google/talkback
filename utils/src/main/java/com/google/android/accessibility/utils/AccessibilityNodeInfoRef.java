@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.utils;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.traversal.ReorderedChildrenIterator;
 import java.util.HashSet;
@@ -26,8 +27,7 @@ import java.util.Set;
  * A class that simplifies traversal of node trees.
  *
  * <p>This class keeps track of an {@link AccessibilityNodeInfoCompat} object and can traverse to
- * other nodes in the tree, or be reset to other nodes. The node can be owned, in which case it will
- * be recycled when traversed away from or when a new node is assigned to an object of this class.
+ * other nodes in the tree, or be reset to other nodes. The node can be owned.
  *
  * <p>Any node can be assigned to objects of this class, including nodes that are not visible to the
  * user. The traversal methods, however, will only traverse to visible nodes.
@@ -43,26 +43,13 @@ public class AccessibilityNodeInfoRef {
     return mNode;
   }
 
-  /**
-   * Clears this object, recycling the underlying node if owned. This object should not be used
-   * after this method is called.
-   */
-  // TODO: Add a pool if proven necessary.
-  public void recycle() {
-    clear();
-  }
-
-  /** Clears this object, recycling the underlying node if owned. */
+  /** Clears this object. */
   public void clear() {
     reset((AccessibilityNodeInfoCompat) null);
   }
 
   /** Resets this object to contain a new node, taking ownership of the new node. */
-  @SuppressWarnings("ReferenceEquality") // We do actually want to check if it is the same node.
   public void reset(AccessibilityNodeInfoCompat newNode) {
-    if (mNode != newNode && mNode != null && mOwned) {
-      mNode.recycle();
-    }
     mNode = newNode;
     mOwned = true;
   }
@@ -83,11 +70,13 @@ public class AccessibilityNodeInfoRef {
   }
 
   /** Creates a new instance of this class without assuming ownership of {@code node}. */
+  @Nullable
   public static AccessibilityNodeInfoRef unOwned(AccessibilityNodeInfoCompat node) {
     return node != null ? new AccessibilityNodeInfoRef(node, false) : null;
   }
 
   /** Creates a new instance of this class taking ownership of {@code node}. */
+  @Nullable
   public static AccessibilityNodeInfoRef owned(AccessibilityNodeInfoCompat node) {
     return node != null ? new AccessibilityNodeInfoRef(node, true) : null;
   }
@@ -140,22 +129,16 @@ public class AccessibilityNodeInfoRef {
     }
 
     ReorderedChildrenIterator iterator = ReorderedChildrenIterator.createDescendingIterator(mNode);
-    try {
-      while (iterator.hasNext()) {
-        AccessibilityNodeInfoCompat newNode = iterator.next();
-        if (newNode == null) {
-          return false;
-        }
-
-        if (AccessibilityNodeInfoUtils.isVisible(newNode)) {
-          reset(newNode);
-          return true;
-        }
-
-        newNode.recycle();
+    while (iterator.hasNext()) {
+      AccessibilityNodeInfoCompat newNode = iterator.next();
+      if (newNode == null) {
+        return false;
       }
-    } finally {
-      iterator.recycle();
+
+      if (AccessibilityNodeInfoUtils.isVisible(newNode)) {
+        reset(newNode);
+        return true;
+      }
     }
     return false;
   }
@@ -173,25 +156,19 @@ public class AccessibilityNodeInfoRef {
       return false;
     }
     ReorderedChildrenIterator iterator = ReorderedChildrenIterator.createDescendingIterator(parent);
-    try {
-      if (!moveIteratorAfterNode(iterator, mNode)) {
+    if (!moveIteratorAfterNode(iterator, mNode)) {
+      return false;
+    }
+
+    while (iterator.hasNext()) {
+      AccessibilityNodeInfoCompat newNode = iterator.next();
+      if (newNode == null) {
         return false;
       }
-
-      while (iterator.hasNext()) {
-        AccessibilityNodeInfoCompat newNode = iterator.next();
-        if (newNode == null) {
-          return false;
-        }
-        if (AccessibilityNodeInfoUtils.isVisible(newNode)) {
-          reset(newNode);
-          return true;
-        }
-        newNode.recycle();
+      if (AccessibilityNodeInfoUtils.isVisible(newNode)) {
+        reset(newNode);
+        return true;
       }
-    } finally {
-      iterator.recycle();
-      parent.recycle();
     }
     return false;
   }
@@ -203,20 +180,15 @@ public class AccessibilityNodeInfoRef {
     }
 
     ReorderedChildrenIterator iterator = ReorderedChildrenIterator.createAscendingIterator(mNode);
-    try {
-      while (iterator.hasNext()) {
-        AccessibilityNodeInfoCompat newNode = iterator.next();
-        if (newNode == null) {
-          return false;
-        }
-        if (AccessibilityNodeInfoUtils.isVisible(newNode)) {
-          reset(newNode);
-          return true;
-        }
-        newNode.recycle();
+    while (iterator.hasNext()) {
+      AccessibilityNodeInfoCompat newNode = iterator.next();
+      if (newNode == null) {
+        return false;
       }
-    } finally {
-      iterator.recycle();
+      if (AccessibilityNodeInfoUtils.isVisible(newNode)) {
+        reset(newNode);
+        return true;
+      }
     }
     return false;
   }
@@ -234,25 +206,19 @@ public class AccessibilityNodeInfoRef {
       return false;
     }
     ReorderedChildrenIterator iterator = ReorderedChildrenIterator.createAscendingIterator(parent);
-    try {
-      if (!moveIteratorAfterNode(iterator, mNode)) {
+    if (!moveIteratorAfterNode(iterator, mNode)) {
+      return false;
+    }
+
+    while (iterator.hasNext()) {
+      AccessibilityNodeInfoCompat newNode = iterator.next();
+      if (newNode == null) {
         return false;
       }
-
-      while (iterator.hasNext()) {
-        AccessibilityNodeInfoCompat newNode = iterator.next();
-        if (newNode == null) {
-          return false;
-        }
-        if (AccessibilityNodeInfoUtils.isVisible(newNode)) {
-          reset(newNode);
-          return true;
-        }
-        newNode.recycle();
+      if (AccessibilityNodeInfoUtils.isVisible(newNode)) {
+        reset(newNode);
+        return true;
       }
-    } finally {
-      iterator.recycle();
-      parent.recycle();
     }
     return false;
   }
@@ -265,12 +231,8 @@ public class AccessibilityNodeInfoRef {
     }
     while (iterator.hasNext()) {
       AccessibilityNodeInfoCompat nextNode = iterator.next();
-      try {
-        if (node.equals(nextNode)) {
-          return true;
-        }
-      } finally {
-        AccessibilityNodeInfoUtils.recycleNodes(nextNode);
+      if (node.equals(nextNode)) {
+        return true;
       }
     }
 
@@ -288,22 +250,17 @@ public class AccessibilityNodeInfoRef {
     Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
     visitedNodes.add(AccessibilityNodeInfoCompat.obtain(mNode));
     AccessibilityNodeInfoCompat parentNode = mNode.getParent();
-    try {
-      while (parentNode != null) {
-        if (visitedNodes.contains(parentNode)) {
-          parentNode.recycle();
-          return false;
-        }
-
-        if (AccessibilityNodeInfoUtils.isVisible(parentNode)) {
-          reset(parentNode);
-          return true;
-        }
-        visitedNodes.add(parentNode);
-        parentNode = parentNode.getParent();
+    while (parentNode != null) {
+      if (visitedNodes.contains(parentNode)) {
+        return false;
       }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(visitedNodes);
+
+      if (AccessibilityNodeInfoUtils.isVisible(parentNode)) {
+        reset(parentNode);
+        return true;
+      }
+      visitedNodes.add(parentNode);
+      parentNode = parentNode.getParent();
     }
     return false;
   }
@@ -348,15 +305,11 @@ public class AccessibilityNodeInfoRef {
       return false;
     }
     Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
-    try {
-      while (lastChild()) {
-        if (visitedNodes.contains(mNode)) {
-          return false;
-        }
-        visitedNodes.add(AccessibilityNodeInfoCompat.obtain(mNode));
+    while (lastChild()) {
+      if (visitedNodes.contains(mNode)) {
+        return false;
       }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(visitedNodes);
+      visitedNodes.add(AccessibilityNodeInfoCompat.obtain(mNode));
     }
     return true;
   }

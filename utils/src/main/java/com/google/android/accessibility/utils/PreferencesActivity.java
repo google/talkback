@@ -16,10 +16,9 @@
 package com.google.android.accessibility.utils;
 
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.view.View;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.TwoStatePreference;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -27,8 +26,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * {@link BasePreferencesActivity} and provide common functions for a11y preference activity.
  */
 public abstract class PreferencesActivity extends BasePreferencesActivity {
-
-  private PreferenceFragmentCompat preferenceFragment;
+  // This variable is used as argument of Intent to identify which fragment should be created.
+  public static final String FRAGMENT_NAME = "FragmentName";
 
   /** Creates a PreferenceFragmentCompat when AccessibilityPreferencesActivity is called. */
   protected abstract PreferenceFragmentCompat createPreferenceFragment();
@@ -48,52 +47,59 @@ public abstract class PreferencesActivity extends BasePreferencesActivity {
       disableExpandActionBar();
     }
 
-    int preferenceContainerId = getContainerId();
     if (supportHatsSurvey()) {
       setContentView(R.layout.preference_with_survey);
-      preferenceContainerId = R.id.preference_root;
     }
 
     // Creates UI for the preferenceFragment created by the child class of
     // AccessibilityBasePreferencesActivity.
-    preferenceFragment = createPreferenceFragment();
+    PreferenceFragmentCompat preferenceFragment = createPreferenceFragment();
     if (preferenceFragment != null) {
       getSupportFragmentManager()
           .beginTransaction()
-          .replace(preferenceContainerId, preferenceFragment, getFragmentTag())
+          .replace(getContainerId(), preferenceFragment, getFragmentTag())
+          // Add root page to back-history
+          .addToBackStack(/* name= */ null)
           .commit();
     }
   }
 
-  /** If action-bar "navigate up" button is pressed, end this sub-activity. */
+  /**
+   * If action-bar "navigate up" button is pressed, end this sub-activity when there is no fragment
+   * in the stack. Otherwise, it will go to last fragment.
+   */
   @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case android.R.id.home:
-        finish();
-        return true;
-      default:
-        return super.onOptionsItemSelected(item);
+  public boolean onNavigateUp() {
+    if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+      getSupportFragmentManager().popBackStackImmediate();
     }
+
+    // Closes the activity if there is no fragment inside the stack. Otherwise the activity will has
+    // a blank screen since there is no any fragment.
+    if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+      finishAfterTransition();
+    }
+    return true;
   }
 
   @Override
   protected void onStart() {
     super.onStart();
-    if (preferenceFragment != null) {
-      // To avoid texts showing outside of the watch face, set a padding value if the preference
-      // fragment is shown on watch. Square screen and round screen have different values.
-      if (FeatureSupport.isWatch(getApplicationContext())
-          && preferenceFragment.getListView() != null) {
-        int padding =
-            (int)
-                getResources()
-                    .getDimension(R.dimen.full_screen_preference_fragment_padding_on_watch);
-        preferenceFragment.getListView().setPadding(0, padding, 0, padding);
-        // To support rotary-button input, it needs to request focus of the scrollable view.
-        preferenceFragment.getListView().requestFocus();
-      }
+    // To avoid texts showing outside of the watch face, set a padding value if the preference
+    // fragment is shown on watch. Square screen and round screen have different values.
+    if (FeatureSupport.isWatch(getApplicationContext())) {
+      int padding =
+          (int)
+              getResources().getDimension(R.dimen.full_screen_preference_fragment_padding_on_watch);
+      View activityView = getWindow().getDecorView();
+      activityView.setBackgroundResource(R.color.google_black);
+      activityView.setPadding(/* left= */ 0, padding, /* right= */ 0, padding);
     }
+  }
+
+  @Override
+  protected final int getContainerId() {
+    return supportHatsSurvey() ? R.id.preference_root : super.getContainerId();
   }
 
   /**
@@ -110,32 +116,11 @@ public abstract class PreferencesActivity extends BasePreferencesActivity {
   }
 
   /**
-   * Updates the status of preference to on or off after the selector or context menu change the
-   * state while the activity is visible.
-   */
-  protected void updateTwoStatePreferenceStatus(
-      int preferenceKeyResId, int preferenceDefaultKeyResId) {
-    @Nullable Preference preference = findPreference(getString(preferenceKeyResId));
-    if (preference instanceof TwoStatePreference) {
-      // Make sure that we have the latest value of preference before continuing.
-      boolean enabledState =
-          SharedPreferencesUtils.getBooleanPref(
-              SharedPreferencesUtils.getSharedPreferences(getApplicationContext()),
-              getResources(),
-              preferenceKeyResId,
-              preferenceDefaultKeyResId);
-
-      ((TwoStatePreference) preference).setChecked(enabledState);
-    }
-  }
-
-  /**
    * Gets tag of the fragment(s) are to be used.
    *
    * @return tag of the fragment.
    */
-  @Nullable
-  protected String getFragmentTag() {
+  protected @Nullable String getFragmentTag() {
     return null;
   }
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">yekun</string>
   <string name="voice_commands_read">oxunmuş</string>
   <string name="voice_commands_read_from_next">Növbətidən oxuyun</string>
   <string name="voice_commands_edit_options">Redaktə seçimləri</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Tapın</string>
   <string name="voice_commands_search">Axtarın</string>
   <string name="voice_commands_search_for">Axtarın:</string>
-  <string name="voice_commands_find_again">Axtarışı təkrarlayın</string>
   <string name="voice_commands_next_heading">Növbəti başlıq</string>
   <string name="voice_commands_next_control">Növbəti nizamlayıcı</string>
   <string name="voice_commands_next_link">Növbəti keçid</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Etiketləmək mümkün deyil</string>
   <string name="voice_commands_assistant">Assistent</string>
   <string name="voice_commands_setting_speech_rate">Nitq sürətini ayarlayın</string>
-  <string name="voice_commands_setting_verbosity">Çoxsözlülüyü ayarlayın</string>
-  <string name="voice_commands_setting_granularity">Detallılığı ayarlayın</string>
-  <string name="voice_commands_setting_navigation">Naviqasiyanı ayarlayın</string>
   <string name="voice_commands_first">Birinci</string>
   <string name="voice_commands_top">Üst</string>
   <string name="voice_commands_last">Sonuncu</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Növbəti keçid yoxdur</string>
   <string name="voice_commands_no_next_control_feedback">Növbəti nizamlayıcı yoxdur</string>
   <string name="voice_commands_no_next_landmark_feedback">Növbəti orientir yoxdur</string>
-  <string name="voice_commands_screen_hidden_feedback">Ekran gizlədilib</string>
-  <string name="voice_commands_showing_screen_feedback">Ekran göstərilir</string>
   <string name="voice_commands_help_title">Səs əmri icmalı</string>
   <string name="voice_commands_help_description">Səs əmrlərindən istifadə etmək üçün sağa, sonra yuxarı sürüşdürün. Bu əmrlərin siyahısı üçün istənilən vaxt \"Yardım\" və ya \"Nə deyə bilərəm?\" deyin.</string>
   <string name="voice_commands_help_hint">Nəticələrin yaxşı olması üçün aşağıdakı ekranlarda verilmiş sözləri dəqiqliklə deyin.</string>

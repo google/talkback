@@ -59,10 +59,6 @@
   <string name="value_pager_page">પૃષ્ઠ</string>
   <string name="value_progress_bar">પ્રગતિ બાર</string>
   <string name="value_webview">વેબવ્યૂ</string>
-  <string name="value_toolbar">ટૂલબાર</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">%1$d થી %2$d સુધીના અક્ષર</string>
-  <string name="template_password_traversed">અક્ષર %1$d</string>
   <string name="value_password">પાસવર્ડ</string>
   <string name="value_sliding_drawer_opened">સ્લાઇડિંગ ડ્રોઅર ખોલ્યું</string>
   <string name="value_options_menu_open">વિકલ્પો.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">ઊભા પેજરની બહાર છે</string>
   <string name="in_horizontal_pager_with_name">આડા પેજર %1$sમાં છે</string>
   <string name="in_horizontal_pager">આડા પેજરમાં છે</string>
-  <string name="out_of_horizontal_pager_with_name">આડા પેજર %1$sની બહાર છે</string>
   <string name="out_of_horizontal_pager">આડા પેજરની બહાર છે</string>
   <string name="in_grid_pager_with_name">ગ્રિડ પેજર %1$sમાં છે</string>
   <string name="in_grid_pager">ગ્રિડ પેજરમાં છે</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">વિસ્તૃતીકરણ %1$d%%</string>
   <string name="screen_magnification_off">વિસ્તૃતીકરણ બંધ</string>
   <string name="template_speech_rate_change">બોલવાની ઝડપ %1$d%%</string>
-  <string name="template_speech_rate_change_faster">વધુ ઝડપી</string>
-  <string name="template_speech_rate_change_slower">વધુ ધીમી</string>
-  <string name="template_speech_rate_change_fastest">સૌથી ઝડપી</string>
-  <string name="template_speech_rate_change_slowest">સૌથી ધીમી</string>
   <string name="template_volume_change_increase">વધારો</string>
   <string name="template_volume_change_decrease">ઘટાડો</string>
   <string name="template_volume_change_maximum">મહત્તમ</string>
   <string name="template_volume_change_minimum">ન્યૂનતમ</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">ઑડિઓ ઘટાડવો ચાલુ છે</string>
-  <string name="audio_focus_off">ઑડિઓ ઘટાડવો બંધ છે</string>
-  <string name="selector_speech_rate_output">બોલવાની ઝડપ</string>
-  <string name="selector_verbosity_output">શબ્દબહુલતા</string>
-  <string name="selector_granularity_output">નૅવિગેશન</string>
-  <string name="selector_audio_focus_output">ઑડિયો ઘટાડવો</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">જ્યારે હૅડફોનનો ઉપયોગ કરાતો હોય ત્યારે જ માત્ર પાસવર્ડ બોલવામાં આવે છે</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s ઉપલબ્ધ છે, જોવા માટે %2$s સંકેતનો ઉપયોગ કરો.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s ઉપલબ્ધ છે.</string>
+  <string name="hint_suggestion">જોડણી સંબંધિત સૂચનો ઉપલબ્ધ છે.</string>
+  <string name="in_window_with_name">વિન્ડો %1$s</string>
+  <string name="detected_icon_description">%1$s, આઇકનની ભાળ મળી છે</string>
+  <string name="ocr_text_description">%1$s, ટેક્સ્ટ</string>
 </resources>

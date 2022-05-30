@@ -17,9 +17,9 @@
 package com.google.android.accessibility.utils.volumebutton;
 
 import android.os.SystemClock;
-import androidx.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.volumebutton.VolumeButtonPatternDetector.ButtonSequence;
 
 /** A {@link VolumeButtonPatternMatcher} to detect short pressing or long pressing on a key. */
@@ -27,7 +27,7 @@ public class SingleVolumeButtonPressPatternMatcher extends VolumeButtonPatternMa
 
   private static final int LONG_PRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout();
 
-  private @Nullable VolumeButtonAction mAction;
+  @Nullable private VolumeButtonAction mAction;
   @ButtonSequence private final int patternCode;
 
   public SingleVolumeButtonPressPatternMatcher(@ButtonSequence int patternCode, int keyCode) {

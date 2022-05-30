@@ -59,10 +59,6 @@
   <string name="value_pager_page">Σελίδα</string>
   <string name="value_progress_bar">Γραμμή προόδου</string>
   <string name="value_webview">Προβολή στον ιστό</string>
-  <string name="value_toolbar">Γραμμή εργαλείων</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Χαρακτήρες %1$d έως %2$d</string>
-  <string name="template_password_traversed">Χαρακτήρας %1$d</string>
   <string name="value_password">κωδικός πρόσβασης</string>
   <string name="value_sliding_drawer_opened">Το συρτάρι άνοιξε</string>
   <string name="value_options_menu_open">Επιλογές.</string>
@@ -140,7 +136,6 @@
   <string name="out_of_vertical_pager">Εκτός κατακόρυφης σελιδοποίησης</string>
   <string name="in_horizontal_pager_with_name">Εντός οριζόντιας σελιδοποίησης %1$s</string>
   <string name="in_horizontal_pager">Εντός οριζόντιας σελιδοποίησης</string>
-  <string name="out_of_horizontal_pager_with_name">Εκτός οριζόντιας σελιδοποίησης %1$s</string>
   <string name="out_of_horizontal_pager">Εκτός οριζόντιας σελιδοποίησης</string>
   <string name="in_grid_pager_with_name">Εντός σελιδοποίησης πλέγματος %1$s</string>
   <string name="in_grid_pager">Εντός σελιδοποίησης πλέγματος</string>
@@ -167,22 +162,15 @@
   <string name="template_screen_magnification_scale_changed">Μεγιστοποίηση %1$d%%</string>
   <string name="screen_magnification_off">Απενεργοποίηση μεγιστοποίησης</string>
   <string name="template_speech_rate_change">Ρυθμός ομιλίας %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Πιο γρήγορη</string>
-  <string name="template_speech_rate_change_slower">Πιο αργή</string>
-  <string name="template_speech_rate_change_fastest">Μέγιστη ταχύτητα</string>
-  <string name="template_speech_rate_change_slowest">Ελάχιστη ταχύτητα</string>
   <string name="template_volume_change_increase">Αύξηση</string>
   <string name="template_volume_change_decrease">Μείωση</string>
   <string name="template_volume_change_maximum">Μέγιστη</string>
   <string name="template_volume_change_minimum">Ελάχιστη</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Η μείωση έντασης ήχου είναι ενεργή</string>
-  <string name="audio_focus_off">Η μείωση έντασης ήχου είναι ανενεργή</string>
-  <string name="selector_speech_rate_output">Ρυθμός ομιλίας</string>
-  <string name="selector_verbosity_output">Έκταση</string>
-  <string name="selector_granularity_output">Πλοήγηση</string>
-  <string name="selector_audio_focus_output">Μείωση έντασης ήχου</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Οι κωδικοί πρόσβασης εκφωνούνται μόνο όταν χρησιμοποιείτε ακουστικά</string>
   <string name="template_hint_menu_type_high_verbosity">Διατίθεται η επιλογή %1$s, χρησιμοποιήστε την κίνηση %2$s για προβολή.</string>
-  <string name="template_hint_menu_type_low_verbosity">Διατίθεται η επιλογή %1$s.</string>
+  <string name="hint_suggestion">Υπάρχουν διαθέσιμες προτάσεις ορθογραφίας.</string>
+  <string name="in_window_with_name">Παράθυρο %1$s</string>
+  <string name="detected_icon_description">%1$s, εντοπίστηκε εικονίδιο</string>
+  <string name="ocr_text_description">%1$s, κείμενο</string>
 </resources>

@@ -21,11 +21,10 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import androidx.core.app.ActivityCompat;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.utils.MaterialComponentUtils;
+import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
 
 /** Activity for TalkBack to request the permission. */
 public class PermissionRequestActivity extends Activity {
@@ -61,8 +60,8 @@ public class PermissionRequestActivity extends Activity {
         && shouldShowRequestPermissionRationale(permission.READ_PHONE_STATE)) {
       final DialogInterface.OnClickListener onClickListener =
           (dialog, buttonClicked) -> requestPermission(permission.READ_PHONE_STATE);
-      final AlertDialog alertDialog =
-          MaterialComponentUtils.alertDialogBuilder(this)
+      final A11yAlertDialogWrapper alertDialog =
+          A11yAlertDialogWrapper.materialDialogBuilder(this)
               .setTitle(R.string.title_request_phone_permission)
               .setMessage(R.string.message_request_phone_permission)
               .setPositiveButton(R.string.continue_button, onClickListener)

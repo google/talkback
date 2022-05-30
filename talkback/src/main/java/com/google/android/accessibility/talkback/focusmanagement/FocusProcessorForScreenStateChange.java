@@ -17,9 +17,9 @@
 package com.google.android.accessibility.talkback.focusmanagement;
 
 import android.os.SystemClock;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
@@ -141,16 +141,11 @@ public class FocusProcessorForScreenStateChange {
   }
 
   private boolean hasValidAccessibilityFocusInWindow(AccessibilityWindowInfo window) {
-    AccessibilityNodeInfoCompat currentFocus = null;
-    try {
-      currentFocus =
-          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
-      return (currentFocus != null)
-          && AccessibilityNodeInfoUtils.isVisible(currentFocus)
-          && (currentFocus.getWindowId() == window.getId());
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentFocus);
-    }
+    AccessibilityNodeInfoCompat currentFocus =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
+    return (currentFocus != null)
+        && AccessibilityNodeInfoUtils.isVisible(currentFocus)
+        && (currentFocus.getWindowId() == window.getId());
   }
 
 }

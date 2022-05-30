@@ -102,7 +102,7 @@ public class Performance {
     "EVENT_TYPE_FINGERPRINT_GESTURE"
   };
 
-  @Nullable public static final EventId EVENT_ID_UNTRACKED = null;
+  public static final @Nullable EventId EVENT_ID_UNTRACKED = null;
 
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Member data
@@ -649,7 +649,7 @@ public class Performance {
     displayStatistics(mAllEventStats);
   }
 
-  private void displayStatistics(Statistics stats) {
+  public static void displayStatistics(Statistics stats) {
     // Display summary statistics.
     display(
         "    missing=%s count=%s  mean=%sms  stdDev=%sms  median=%sms",
@@ -678,7 +678,7 @@ public class Performance {
    * @param bars Series of bar labels & sizes
    * @param barUnits Units to append to each bar value
    */
-  protected void displayBarGraph(
+  private static void displayBarGraph(
       String prefix, String title, ArrayList<BarInfo> bars, String barUnits) {
     if (!TextUtils.isEmpty(title)) {
       display("  %s", title);
@@ -693,7 +693,7 @@ public class Performance {
     float barScale = maxBarLength / maxValue;
 
     // For each bar... scale bar size, display bar.
-    String barCharacter = "\u001B[7m#\u001B[0m"; // Use ANSI escape code to invert color.
+    String barCharacter = "#";
     for (BarInfo barInfo : bars) {
       int barLength = (int) ((float) barInfo.value * barScale);
       String bar = repeat(barCharacter, barLength + 1);
@@ -708,7 +708,7 @@ public class Performance {
     display("");
   }
 
-  protected String floatToString(float value) {
+  private static String floatToString(float value) {
     // If float is an integer... do not show fractional part of number.
     return ((int) value == value) ? String.format("%d", (int) value) : String.format("%f", value);
   }
@@ -724,7 +724,7 @@ public class Performance {
     }
   }
 
-  protected void display(String format, Object... args) {
+  private static void display(String format, Object... args) {
     LogUtils.i(TAG, format, args);
   }
 
@@ -742,7 +742,7 @@ public class Performance {
   /** Key for looking up EventData in HashMap. */
   public static class EventId {
     private final long mEventTimeMs;
-    private final @EventTypeId int mEventType;
+    @EventTypeId private final int mEventType;
     private final int mEventSubtype;
 
     /**
@@ -764,7 +764,8 @@ public class Performance {
       return mEventTimeMs;
     }
 
-    public @EventTypeId int getEventType() {
+    @EventTypeId
+    public int getEventType() {
       return mEventType;
     }
 
@@ -889,7 +890,7 @@ public class Performance {
   @SuppressWarnings("ComparableType")
   public static class StatisticsKey implements Comparable<Object> {
     private final String mLabel;
-    private final @StageId int mStage;
+    @StageId private final int mStage;
 
     public StatisticsKey(String label, @StageId int stage) {
       mLabel = label;
@@ -1084,7 +1085,7 @@ public class Performance {
   /** A message object with a corresponding EventId, for use by deferred event handlers. */
   public static class EventIdAnd<T> {
     public final T object;
-    @Nullable public final EventId eventId;
+    public final @Nullable EventId eventId;
 
     public EventIdAnd(T objectArg, @Nullable EventId eventIdArg) {
       object = objectArg;

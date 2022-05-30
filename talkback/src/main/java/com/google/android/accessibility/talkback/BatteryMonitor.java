@@ -23,29 +23,28 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
-import android.telephony.TelephonyManager;
-import com.google.android.accessibility.utils.output.FeedbackItem;
-import com.google.android.accessibility.utils.output.SpeechController;
+import androidx.annotation.VisibleForTesting;
+import com.google.android.accessibility.talkback.Pipeline.InterpretationReceiver;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /** Monitor battery charging status changes. Start charging Stop changing */
 public class BatteryMonitor extends BroadcastReceiver {
-  private Pipeline.FeedbackReturner pipeline;
-
-  private final CallStateMonitor callStateMonitor;
+  private Pipeline.InterpretationReceiver pipeline;
 
   private Context context;
 
-  private int batteryLevel = -1;
+  public static final int UNKNOWN_LEVEL = -1;
+  private int batteryLevel = UNKNOWN_LEVEL;
 
-  public BatteryMonitor(
-      Context context, Pipeline.FeedbackReturner pipeline, CallStateMonitor callStateMonitor) {
+  public BatteryMonitor(Context context) {
+    this.context = context;
+  }
+
+  public void setPipeline(@NonNull InterpretationReceiver pipeline) {
     if (pipeline == null) {
       throw new IllegalStateException();
     }
-
-    this.context = context;
     this.pipeline = pipeline;
-    this.callStateMonitor = callStateMonitor;
   }
 
   public IntentFilter getFilter() {
@@ -58,16 +57,11 @@ public class BatteryMonitor extends BroadcastReceiver {
 
   @Override
   public void onReceive(Context context, Intent intent) {
-    if ((callStateMonitor != null)
-        && (callStateMonitor.getCurrentCallState() != TelephonyManager.CALL_STATE_IDLE)) {
-      return;
-    }
     final String action = intent.getAction();
     if (action == null) {
       return;
     }
 
-    String announcement = null;
     switch (action) {
       case Intent.ACTION_BATTERY_CHANGED:
         int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
@@ -75,49 +69,20 @@ public class BatteryMonitor extends BroadcastReceiver {
         batteryLevel = getBatteryLevel(scale, level);
         break;
       case Intent.ACTION_POWER_DISCONNECTED:
-        // Announces the battery level only when we have updated battery level information.
-        if (batteryLevel == -1) {
-          announcement =
-              this.context.getString(
-                  R.string.template_charging_lite,
-                  this.context.getString(R.string.notification_type_status_stopped));
-        } else {
-          announcement =
-              this.context.getString(
-                  R.string.template_charging,
-                  this.context.getString(R.string.notification_type_status_stopped),
-                  String.valueOf(batteryLevel));
-        }
+        pipeline.input(
+            EVENT_ID_UNTRACKED, new Interpretation.Power(/* connected= */ false, batteryLevel));
         break;
       case Intent.ACTION_POWER_CONNECTED:
-        if (batteryLevel == -1) {
-          announcement =
-              this.context.getString(
-                  R.string.template_charging_lite,
-                  this.context.getString(R.string.notification_type_status_started));
-        } else {
-          announcement =
-              this.context.getString(
-                  R.string.template_charging,
-                  this.context.getString(R.string.notification_type_status_started),
-                  String.valueOf(batteryLevel));
-        }
+        pipeline.input(
+            EVENT_ID_UNTRACKED, new Interpretation.Power(/* connected= */ true, batteryLevel));
         break;
-    }
-    if (announcement != null) {
-      SpeechController.SpeakOptions speakOptions =
-          SpeechController.SpeakOptions.create()
-              .setQueueMode(SpeechController.QUEUE_MODE_INTERRUPT)
-              .setFlags(
-                  FeedbackItem.FLAG_NO_HISTORY
-                      | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
-                      | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE);
-      Feedback.Part.Builder part = Feedback.Part.builder().speech(announcement, speakOptions);
-      pipeline.returnFeedback(EVENT_ID_UNTRACKED, part);
+      default:
+        // Do nothing.
     }
   }
 
-  static int getBatteryLevel(int scale, int level) {
-    return (scale > 0 ? Math.round((level / (float) scale) * 100) : -1);
+  @VisibleForTesting
+  public static int getBatteryLevel(int scale, int level) {
+    return (scale > 0 ? Math.round((level / (float) scale) * 100) : UNKNOWN_LEVEL);
   }
 }

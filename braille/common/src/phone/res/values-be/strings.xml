@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Нумар</string>
+  <string name="capitalize_announcement">Вялікая літара</string>
+  <string name="read_out_deleted">Выдалена: %s</string>
+  <plurals name="braille_dots">
+    <item quantity="one">кропкі %s</item>
+    <item quantity="few">кропкі %s</item>
+    <item quantity="many">кропкі %s</item>
+    <item quantity="other">кропкі %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Поўная версія адзінай англійскай клавіятуры Брайля</string>
+  <string name="code_user_facing_name_ueb2">Скарочаная версія англійскай клавіятуры Брайля</string>
+  <string name="code_user_facing_name_es">Іспанская</string>
+  <string name="code_user_facing_name_ar">Арабская мова</string>
+  <string name="code_user_facing_name_fr">Французская мова</string>
+  <string name="code_user_facing_name_pl">Польская</string>
+  <string name="screen_away">Рэжым \"Экран ад сябе\"</string>
+  <string name="screen_away_detail">Трымайце прыладу з адвернутым ад сябе экранам (рэжым \"Экран ад сябе\")</string>
+  <string name="tabletop">Настольны рэжым</string>
+  <string name="tabletop_detail">Пакладзіце прыладу на стол (настольны рэжым)</string>
+  <string name="auto_detect">Падладжвацца пад спосаб трымання прылады</string>
+</resources>

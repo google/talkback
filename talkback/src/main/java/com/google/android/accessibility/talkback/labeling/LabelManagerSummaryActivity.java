@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.talkback.labeling;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -26,20 +27,19 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.core.content.FileProvider;
 import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.BasePreferencesActivity;
@@ -62,10 +62,8 @@ public class LabelManagerSummaryActivity extends BasePreferencesActivity
   private static final String FILE_AUTHORITY =
       BuildConfig.APPLICATION_ID + ".providers.FileProvider";
 
-  private LabelProviderClient labelProviderClient;
-  private ListView packageList;
-  private TextView noPackagesMessage;
-  private View revertButton;
+  private RecyclerView packageList;
+  private PackageLabelInfoAdapter packageLabelInfoAdapter;
   private CustomLabelManager labelManager;
 
   @Override
@@ -76,28 +74,25 @@ public class LabelManagerSummaryActivity extends BasePreferencesActivity
 
     prepareActionBar(/* icon= */ null);
 
-    packageList = (ListView) findViewById(R.id.package_list);
-    noPackagesMessage = (TextView) findViewById(R.id.no_packages_message);
+    packageList = (RecyclerView) findViewById(R.id.package_list);
 
-    labelProviderClient = new LabelProviderClient(this, LabelProvider.AUTHORITY);
     labelManager = new CustomLabelManager(this);
 
-    initializeImportLabelButton();
-    initializeExportLabelButton();
-    initializeRevertImportButton();
+    packageList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+    packageLabelInfoAdapter = new PackageLabelInfoAdapter(this, this, labelManager);
+    packageList.setAdapter(packageLabelInfoAdapter);
+    packageList.setVisibility(View.VISIBLE);
   }
 
   @Override
   protected void onResume() {
     super.onResume();
-    checkImportedLabels();
     updatePackageSummary();
   }
 
   @Override
   protected void onDestroy() {
     super.onDestroy();
-    labelProviderClient.shutdown();
     labelManager.shutdown();
   }
 
@@ -149,54 +144,21 @@ public class LabelManagerSummaryActivity extends BasePreferencesActivity
 
   private void onRevertImportButtonClicked() {
     labelManager.revertImportedLabels(
-        new RevertImportedLabelsRequest.OnImportLabelsRevertedListener() {
-          @Override
-          public void onImportLabelsReverted() {
-            if (isDestroyed()) {
-              return;
-            }
-
-            checkImportedLabels();
-            updatePackageSummary();
-            Toast.makeText(
-                    getApplicationContext(), R.string.imported_labels_reverted, Toast.LENGTH_SHORT)
-                .show();
+        () -> {
+          if (isDestroyed()) {
+            return;
           }
-        });
-  }
 
-  private void initializeImportLabelButton() {
-    final Button importLabel = (Button) findViewById(R.id.import_labels);
-    importLabel.setOnClickListener(this);
-  }
-
-  private void initializeExportLabelButton() {
-    final Button exportLabel = (Button) findViewById(R.id.export_labels);
-    exportLabel.setOnClickListener(this);
-  }
-
-  private void initializeRevertImportButton() {
-    revertButton = findViewById(R.id.revert_import);
-    revertButton.setOnClickListener(this);
-  }
-
-  private void checkImportedLabels() {
-    revertButton.setEnabled(false);
-    labelManager.hasImportedLabels(
-        new HasImportedLabelsRequest.OnHasImportedLabelsCompleteListener() {
-          @Override
-          public void onHasImportedRequestCompleted(boolean hasImportedLabels) {
-            if (isDestroyed()) {
-              return;
-            }
-            revertButton.setEnabled(hasImportedLabels);
-          }
+          updatePackageSummary();
+          Toast.makeText(
+                  getApplicationContext(), R.string.imported_labels_reverted, Toast.LENGTH_SHORT)
+              .show();
         });
   }
 
   /** Fetches an updated package summary from the content provider and updates the adapter. */
   private void updatePackageSummary() {
-    new UpdatePackageSummaryTask().execute();
+    new UpdatePackageSummaryTask(getApplicationContext(), packageLabelInfoAdapter).execute();
   }
 
   private final CustomLabelMigrationManager.SimpleLabelMigrationCallback exportLabelsCallBack =
@@ -239,80 +201,187 @@ public class LabelManagerSummaryActivity extends BasePreferencesActivity
         }
       };
 
-  /** An adapter that processes information about packages and their labels. */
-  private class PackageLabelInfoAdapter extends ArrayAdapter<PackageLabelInfo> {
+  /**
+   * An adapter that processes information about UI(buttons and message) and packages and their
+   * labels.
+   */
+  private static class PackageLabelInfoAdapter
+      extends RecyclerView.Adapter<PackageLabelInfoAdapter.PackageLabelViewHolder> {
+    // The type of item is button.
+    private static final int TYPE_BUTTON = 0;
+    // The type of item is label.
+    private static final int TYPE_LABEL = 1;
+    // The type of item is message TextView.
+    private static final int TYPE_MESSAGE = 2;
+
+    private final Activity activity;
     private final LayoutInflater layoutInflater;
+    private List<PackageLabelInfo> items;
+    private OnClickListener onClickListener;
+    private CustomLabelManager labelManager;
+    private Button revertButton;
 
-    public PackageLabelInfoAdapter(
-        Context context, int textViewResourceId, List<PackageLabelInfo> items) {
-      super(context, textViewResourceId, items);
-
-      layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    PackageLabelInfoAdapter(
+        Activity activity, OnClickListener onClickListener, CustomLabelManager labelManager) {
+      this.activity = activity;
+      this.onClickListener = onClickListener;
+      this.labelManager = labelManager;
+      layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
-      if (view == null) {
-        view = layoutInflater.inflate(R.layout.label_manager_package_row, parent, false);
+    public int getItemCount() {
+      // There are only 2 items, button and message, if items have no any label item. Otherwise,
+      // itemCount is equal to the size of items plus 1 (button).
+      return ((items == null) || (items.isEmpty())) ? 2 : items.size() + 1;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+      if (position == 0) {
+        return TYPE_BUTTON;
       }
 
-      final PackageLabelInfo packageLabelInfo = getItem(position);
-      if (packageLabelInfo == null) {
-        return view;
+      // The message will show when there is no label and itemCount is 2.
+      if ((items == null) || (items.isEmpty()) && (position == 1)) {
+        return TYPE_MESSAGE;
+      }
+      return TYPE_LABEL;
+    }
+
+    @Override
+    public PackageLabelViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+      View view = null;
+      if (viewType == TYPE_BUTTON) {
+        view =
+            layoutInflater.inflate(
+                R.layout.label_manager_buttons, parent, /* attachToRoot= */ false);
+        revertButton = view.findViewById(R.id.revert_import);
+        revertButton.setOnClickListener(onClickListener);
+        checkImportedLabels();
+
+        Button importButton = view.findViewById(R.id.import_labels);
+        importButton.setOnClickListener(onClickListener);
+        Button exportButton = view.findViewById(R.id.export_labels);
+        exportButton.setOnClickListener(onClickListener);
+      } else if (viewType == TYPE_MESSAGE) {
+        view =
+            layoutInflater.inflate(
+                R.layout.label_manager_no_package_message, parent, /* attachToRoot= */ false);
+      } else if (viewType == TYPE_LABEL) {
+        view =
+            layoutInflater.inflate(
+                R.layout.label_manager_package_row, parent, /* attachToRoot= */ false);
       }
 
-      final PackageManager packageManager = getPackageManager();
-      final String packageName = packageLabelInfo.getPackageName();
-      CharSequence applicationLabel = null;
-      Drawable applicationIcon = null;
+      return new PackageLabelViewHolder(activity.getApplicationContext(), view);
+    }
 
-      try {
-        final PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
-        applicationLabel = packageManager.getApplicationLabel(packageInfo.applicationInfo);
-        applicationIcon = packageManager.getApplicationIcon(packageName);
-      } catch (NameNotFoundException e) {
-        LogUtils.i(
-            TAG, "Could not load package info for package %s.", packageLabelInfo.getPackageName());
-      } finally {
-        if (TextUtils.isEmpty(applicationLabel)) {
-          applicationLabel = packageName;
-        }
-
-        if (applicationIcon == null) {
-          applicationIcon = packageManager.getDefaultActivityIcon();
-        }
+    @Override
+    public void onBindViewHolder(PackageLabelViewHolder holder, int position) {
+      // Do nothing when item is button (position is 0) or message (no label item).
+      int viewType = getItemViewType(position);
+      if ((viewType == TYPE_BUTTON) || (viewType == TYPE_MESSAGE)) {
+        return;
       }
 
-      final TextView textView = (TextView) view.findViewById(R.id.package_label_info_text);
-      textView.setText(applicationLabel);
+      // Label items always start from position 1. "No custom labels" message will be shown if there
+      // are label items.
+      PackageLabelInfo packageLabelInfo = items.get(position - 1);
+      holder.setLabelItemView(packageLabelInfo);
+    }
 
-      final TextView countView = (TextView) view.findViewById(R.id.package_label_info_count);
-      countView.setText(Integer.toString(packageLabelInfo.getLabelCount()));
+    void setLabelItemList(List<PackageLabelInfo> items) {
+      this.items = items;
+      checkImportedLabels();
+    }
 
-      final ImageView iconImage = (ImageView) view.findViewById(R.id.icon_image);
-      iconImage.setImageDrawable(applicationIcon);
-
-      final Intent packageActivityIntent =
-          new Intent(LabelManagerSummaryActivity.this, LabelManagerPackageActivity.class);
-      packageActivityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      packageActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-      packageActivityIntent.putExtra(LabelManagerPackageActivity.EXTRA_PACKAGE_NAME, packageName);
-
-      view.setOnClickListener(
-          new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              startActivity(packageActivityIntent);
+    private void checkImportedLabels() {
+      if (revertButton == null) {
+        return;
+      }
+      revertButton.setEnabled(false);
+      labelManager.hasImportedLabels(
+          (hasImportedLabels) -> {
+            if (activity.isDestroyed()) {
+              return;
             }
+            revertButton.setEnabled(hasImportedLabels);
           });
+    }
 
-      return view;
+    private static class PackageLabelViewHolder extends RecyclerView.ViewHolder {
+      private final Context context;
+      private final View view;
+
+      PackageLabelViewHolder(Context context, View view) {
+        super(view);
+        this.context = context;
+        this.view = view;
+      }
+
+      /**
+       * Sets the info of package label to the view of the item in the view of the package list.
+       *
+       * @param packageLabelInfo The {@link PackageLabelInfo} which shows on the view of label item.
+       */
+      void setLabelItemView(PackageLabelInfo packageLabelInfo) {
+        final TextView textView = (TextView) view.findViewById(R.id.package_label_info_text);
+        final TextView countView = (TextView) view.findViewById(R.id.package_label_info_count);
+        final ImageView iconImage = (ImageView) view.findViewById(R.id.icon_image);
+
+        final PackageManager packageManager = context.getPackageManager();
+        final String packageName = packageLabelInfo.getPackageName();
+        CharSequence applicationLabel = null;
+        Drawable applicationIcon = null;
+
+        try {
+          final PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
+          applicationLabel = packageManager.getApplicationLabel(packageInfo.applicationInfo);
+          applicationIcon = packageManager.getApplicationIcon(packageName);
+        } catch (NameNotFoundException e) {
+          LogUtils.i(
+              TAG,
+              "Could not load package info for package %s.",
+              packageLabelInfo.getPackageName());
+        } finally {
+          if (TextUtils.isEmpty(applicationLabel)) {
+            applicationLabel = packageName;
+          }
+
+          if (applicationIcon == null) {
+            applicationIcon = packageManager.getDefaultActivityIcon();
+          }
+        }
+
+        textView.setText(applicationLabel);
+        countView.setText(Integer.toString(packageLabelInfo.getLabelCount()));
+        iconImage.setImageDrawable(applicationIcon);
+
+        final Intent packageActivityIntent = new Intent(context, LabelManagerPackageActivity.class);
+        packageActivityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        packageActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        packageActivityIntent.putExtra(LabelManagerPackageActivity.EXTRA_PACKAGE_NAME, packageName);
+
+        view.setOnClickListener(
+            (view) -> {
+              context.startActivity(packageActivityIntent);
+            });
+      }
     }
   }
 
   /** A task for getting a package summary and updating the adapter. */
-  private class UpdatePackageSummaryTask extends AsyncTask<Void, Void, List<PackageLabelInfo>> {
+  private static class UpdatePackageSummaryTask
+      extends AsyncTask<Void, Void, List<PackageLabelInfo>> {
     private String locale;
+    private final LabelProviderClient labelProviderClient;
+    private PackageLabelInfoAdapter packageLabelInfoAdapter;
+
+    UpdatePackageSummaryTask(Context context, PackageLabelInfoAdapter packageLabelInfoAdapter) {
+      this.labelProviderClient = new LabelProviderClient(context, LabelProvider.AUTHORITY);
+      this.packageLabelInfoAdapter = packageLabelInfoAdapter;
+    }
 
     @Override
     protected void onPreExecute() {
@@ -328,23 +397,9 @@ public class LabelManagerSummaryActivity extends BasePreferencesActivity
 
     @Override
     protected void onPostExecute(List<PackageLabelInfo> result) {
-      if (result != null && result.size() > 0) {
-        packageList.setAdapter(
-            new PackageLabelInfoAdapter(
-                LabelManagerSummaryActivity.this, R.layout.label_manager_package_row, result));
-        // ListView inside a ScrollView will be limited to one row heigh, so give it at least half
-        // screen high to ensure the list items are visible to users.
-        // TODO: Relayout this page to avoid the nested scrollable view problem on
-        // ScrollView.
-        LayoutParams params = packageList.getLayoutParams();
-        params.height = getResources().getDisplayMetrics().heightPixels / 2;
-        packageList.setLayoutParams(params);
-        packageList.setVisibility(View.VISIBLE);
-        noPackagesMessage.setVisibility(View.GONE);
-      } else {
-        packageList.setVisibility(View.GONE);
-        noPackagesMessage.setVisibility(View.VISIBLE);
-      }
+      packageLabelInfoAdapter.setLabelItemList(result);
+      packageLabelInfoAdapter.notifyDataSetChanged();
+      labelProviderClient.shutdown();
     }
   }
 

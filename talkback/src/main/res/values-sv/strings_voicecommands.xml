@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">sammanfattning</string>
   <string name="voice_commands_read">läs</string>
   <string name="voice_commands_read_from_next">Läs från nästa</string>
   <string name="voice_commands_edit_options">Redigeringsalternativ</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Sök</string>
   <string name="voice_commands_search">Sök</string>
   <string name="voice_commands_search_for">Sök efter</string>
-  <string name="voice_commands_find_again">Hitta fler</string>
   <string name="voice_commands_next_heading">Nästa rubrik</string>
   <string name="voice_commands_next_control">Nästa kontroll</string>
   <string name="voice_commands_next_link">Nästa länk</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Det går inte att sätta etikett</string>
   <string name="voice_commands_assistant">Assistent</string>
   <string name="voice_commands_setting_speech_rate">Ställa in talhastighet</string>
-  <string name="voice_commands_setting_verbosity">Ställa in detaljnivå</string>
-  <string name="voice_commands_setting_granularity">Ställa in detaljnivå</string>
-  <string name="voice_commands_setting_navigation">Ställa in navigering</string>
   <string name="voice_commands_first">Första</string>
   <string name="voice_commands_top">Högst upp</string>
   <string name="voice_commands_last">Sista</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Det finns inga fler länkar</string>
   <string name="voice_commands_no_next_control_feedback">Det finns inga fler kontroller</string>
   <string name="voice_commands_no_next_landmark_feedback">Det finns inga fler landmärken</string>
-  <string name="voice_commands_screen_hidden_feedback">Skärmen har dolts</string>
-  <string name="voice_commands_showing_screen_feedback">Skärmen visas</string>
   <string name="voice_commands_help_title">Översikt över röstkommandon</string>
   <string name="voice_commands_help_description">Svep till höger och sen uppåt för att använda röstkommandon. Du kan när som helst säga ”Hjälp” eller ”Vad kan jag säga?” för att se den här listan över kommandon.</string>
   <string name="voice_commands_help_hint">Säg exakt som det står på följande skärmar för bästa resultat.</string>

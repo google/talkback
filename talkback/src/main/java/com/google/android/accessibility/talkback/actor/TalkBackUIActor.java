@@ -45,8 +45,6 @@ public class TalkBackUIActor {
     SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER,
     /** Shows the current action after adjusting the selected item via selector. */
     SELECTOR_ITEM_ACTION_OVERLAY,
-    /** Uses when the device configuration changes. */
-    SELECTOR_MENU_CONFIG_CHANGED,
   }
 
   private final Map<Type, QuickMenuOverlay> typeToOverlay = new EnumMap<>(Type.class);
@@ -79,9 +77,6 @@ public class TalkBackUIActor {
    * <p>The show method always hides other overlays before showing the new overlay.
    */
   public boolean showQuickMenu(Type type, @Nullable CharSequence message, boolean showIcon) {
-    if (type == Type.SELECTOR_MENU_CONFIG_CHANGED) {
-      return onConfigurationChanged();
-    }
     @Nullable QuickMenuOverlay overlay = typeToOverlay.get(type);
     if (overlay == null) {
       return false;

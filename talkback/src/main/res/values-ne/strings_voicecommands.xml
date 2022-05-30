@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">सारांश</string>
   <string name="voice_commands_read">पढ्नुहोस्</string>
   <string name="voice_commands_read_from_next">अर्को वस्तुदेखि पढेर सुनाऊ</string>
   <string name="voice_commands_edit_options">सम्पादनसम्बन्धी विकल्पहरू</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">खोज्नुहोस्</string>
   <string name="voice_commands_search">खोज</string>
   <string name="voice_commands_search_for">यो कुरा खोज</string>
-  <string name="voice_commands_find_again">फेला पार्ने कार्य दोहोऱ्याउनु…</string>
   <string name="voice_commands_next_heading">अर्को शीर्षक</string>
   <string name="voice_commands_next_control">नियन्त्रण गर्ने अर्को विकल्प</string>
   <string name="voice_commands_next_link">अर्को लिंक</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">लेबल राख्न सकिएन</string>
   <string name="voice_commands_assistant">सहायक</string>
   <string name="voice_commands_setting_speech_rate">बोलीको दर सेट गरिँदै</string>
-  <string name="voice_commands_setting_verbosity">शब्द बहुलता विकल्प सेट गरिँदै</string>
-  <string name="voice_commands_setting_granularity">ग्र्यानुलारिटी विकल्प सेट गरिँदै</string>
-  <string name="voice_commands_setting_navigation">नेभिगेसन सेट गरिँदै</string>
   <string name="voice_commands_first">पहिलो</string>
   <string name="voice_commands_top">सिरान</string>
   <string name="voice_commands_last">अन्तिम</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">अर्को लिंक छैन</string>
   <string name="voice_commands_no_next_control_feedback">नियन्त्रण गर्ने अर्को विकल्प छैन</string>
   <string name="voice_commands_no_next_landmark_feedback">अर्को ल्यान्डमार्क छैन</string>
-  <string name="voice_commands_screen_hidden_feedback">स्क्रिन लुकाइयो</string>
-  <string name="voice_commands_showing_screen_feedback">स्क्रिन देखाइँदै छ</string>
   <string name="voice_commands_help_title">बोलेर निर्देशन दिने सुविधाका बारेमा संक्षिप्त जानकारी</string>
   <string name="voice_commands_help_description">बोलेर निर्देशन दिन दायाँ अनि माथितिर स्वाइप गर्नुहोस्। बोलेर दिन सकिने निर्देशनहरूको यो सूची हेर्न जुनसुक‍ै बेला \"मद्दत गर\" वा \"म के भन्न सक्छु?\" भन्नुहोस्।</string>
   <string name="voice_commands_help_hint">उत्कृष्ट परिणाम प्राप्त गर्न यसपछि देखाइने स्क्रिनहरूमा सूचीबद्ध गरिएका शब्दहरू जस्ताको तस्तै भन्नुहोस्।</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">sammendrag</string>
   <string name="voice_commands_read">les</string>
   <string name="voice_commands_read_from_next">Les fra neste</string>
   <string name="voice_commands_edit_options">Redigeringsalternativer</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Finn</string>
   <string name="voice_commands_search">Søk</string>
   <string name="voice_commands_search_for">Søk etter</string>
-  <string name="voice_commands_find_again">Finn flere</string>
   <string name="voice_commands_next_heading">Neste overskrift</string>
   <string name="voice_commands_next_control">Neste kontroll</string>
   <string name="voice_commands_next_link">Neste link</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Kan ikke sette på en etikett</string>
   <string name="voice_commands_assistant">Assistent</string>
   <string name="voice_commands_setting_speech_rate">Angi talehastighet</string>
-  <string name="voice_commands_setting_verbosity">Angi detaljnivå</string>
-  <string name="voice_commands_setting_granularity">Angi granularitet</string>
-  <string name="voice_commands_setting_navigation">Angi navigering</string>
   <string name="voice_commands_first">Første</string>
   <string name="voice_commands_top">Øverst</string>
   <string name="voice_commands_last">Siste</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Det finnes ingen flere linker</string>
   <string name="voice_commands_no_next_control_feedback">Det finnes ingen flere kontroller</string>
   <string name="voice_commands_no_next_landmark_feedback">Det finnes ingen flere landemerker</string>
-  <string name="voice_commands_screen_hidden_feedback">Skjermen er skjult</string>
-  <string name="voice_commands_showing_screen_feedback">Skjermen vises</string>
   <string name="voice_commands_help_title">Oversikt over talekommandoer</string>
   <string name="voice_commands_help_description">For å bruke talekommandoer, sveip til høyre og så opp. Si «Hjelp» eller «Hva kan jeg si?» når som helst for å åpne denne listen over kommandoer.</string>
   <string name="voice_commands_help_hint">Du får best resultat ved å si den nøyaktige ordlyden som er oppført på de neste skjermene.</string>

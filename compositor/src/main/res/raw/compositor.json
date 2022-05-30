@@ -5,88 +5,88 @@
     "SpokenFeedbackOn": {
       "ttsOutput": "@string/talkback_on",
       "ttsQueueMode": "uninterruptible",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "SpokenFeedbackSuspended": {
       "ttsOutput": "@string/talkback_suspended",
       "ttsQueueMode": "uninterruptible",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "SpokenFeedbackResumed": {
       "ttsOutput": "@string/talkback_resumed",
       "ttsQueueMode": "uninterruptible",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "SpokenFeedbackDisabled": {
       "ttsOutput": "@string/talkback_disabled",
       "ttsQueueMode": "uninterruptible",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     // Changes to keyboard state.
     "CapsLockOn": {
       "ttsOutput": "@string/value_caps_lock_on",
       "ttsQueueMode": "interrupt",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "CapsLockOff": {
       "ttsOutput": "@string/value_caps_lock_off",
       "ttsQueueMode": "interrupt",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "NumLockOn": {
       "ttsOutput": "@string/value_num_lock_on",
       "ttsQueueMode": "interrupt",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "NumLockOff": {
       "ttsOutput": "@string/value_num_lock_off",
       "ttsQueueMode": "interrupt",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "ScrollLockOn": {
       "ttsOutput": "@string/value_scroll_lock_on",
       "ttsQueueMode": "interrupt",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "ScrollLockOff": {
       "ttsOutput": "@string/value_scroll_lock_off",
       "ttsQueueMode": "interrupt",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     // Changes in device orientation.
     "OrientationPortrait": {
       "ttsOutput": "@string/orientation_portrait",
       "ttsQueueMode": "uninterruptible",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "OrientationLandscape": {
       "ttsOutput": "@string/orientation_landscape",
       "ttsQueueMode": "uninterruptible",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     // These hint events deal with focus-event hints, not window-event hints.
     "Hint": {
@@ -113,9 +113,9 @@
       },
       "refreshSourceNode": true,
       "ttsQueueMode": "queue",
-      "ttsForceFeedbackAudioPlaybackActive": "$event.hintForceAudioPlaybackActive",
-      "ttsForceFeedbackMicrophoneActive": "$event.hintForceMicrophoneActive",
-      "ttsForceFeedbackSsbActive": false
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": "$event.hintForceFeedbackEvenIfAudioPlaybackActive",
+      "ttsForceFeedbackEvenIfMicrophoneActive": "$event.hintForceFeedackEvenIfMicrophoneActive",
+      "ttsForceFeedbackEvenIfSsbActive": false
     },
     "ScreenMagnificationChanged": {
       "ttsOutput": {
@@ -130,17 +130,16 @@
       "ttsClearQueueGroup": "screen_magnification",
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "uninterruptible",
-      "ttsForceFeedbackAudioPlaybackActive": false,
-      "ttsForceFeedbackMicrophoneActive": false,
-      "ttsForceFeedbackSsbActive": false
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": false,
+      "ttsForceFeedbackEvenIfMicrophoneActive": false,
+      "ttsForceFeedbackEvenIfSsbActive": false
     },
     // Accessibility Events.
     "TYPE_VIEW_ACCESSIBILITY_FOCUSED": {
       "ttsOutput": {
         "join": [
-          "%window_transition",
           {
-            "if": "equals(%get_description_for_tree, @string/value_unlabelled)",
+            "if": "equals(%unlabel_node_description, @string/value_unlabelled)",
             "then": {
               "fallback": [
                 "%event_description",
@@ -163,12 +162,15 @@
               {
                 "_comment": "Don't announce heading for web container.",
                 "_comment": "REFERTO and REFERTO for details.",
-                "if": "!$node.isWebContainer && $node.isHeading",
+                "if": "#VERBOSITY_SPEAK_ROLE",
                 "then": {
-                  "fallback":[
-                    "$node.roleDescription",
-                    "@string/heading_template"
-                  ]
+                  "if": "!$node.isWebContainer && $node.isHeading",
+                  "then": {
+                    "fallback": [
+                      "$node.roleDescription",
+                      "@string/heading_template"
+                    ]
+                  }
                 }
               }
             ]
@@ -176,7 +178,8 @@
           {
             "if": "#VERBOSITY_SPEAK_COLLECTION_INFO",
             "then": "%collection_transition"
-          }
+          },
+          "%window_transition"
         ]
       },
       "ttsQueueMode": {
@@ -185,11 +188,9 @@
         "else":"flush"
       },
       "ttsAddToHistory": true,
-      // TODO: Remove the next line when focus management feature is settled down.
-      //"ttsForceFeedback": "!$global.syncedAccessibilityFocusLatch && $node.role != 'web_view'",
-      "ttsForceFeedbackAudioPlaybackActive": "$event.isForcedFeedbackAudioPlaybackActive",
-      "ttsForceFeedbackMicrophoneActive": "$event.isForcedFeedbackMicrophoneActive",
-      "ttsForceFeedbackSsbActive": "$event.isForcedFeedbackSsbActive",
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": "$event.forceFeedbackEvenIfAudioPlaybackActive",
+      "ttsForceFeedbackEvenIfMicrophoneActive": "$event.forceFeedbackEvenIfMicrophoneActive",
+      "ttsForceFeedbackEvenIfSsbActive": "$event.forceFeedbackEvenIfSsbActive",
       "advanceContinuousReading": true,
       "earcon": {
         "if": "($node.windowType == 'split_screen_divider') && ($windows.lastWindowId != $node.windowId)",
@@ -233,9 +234,9 @@
       "ttsOutput": "%event_description",
       "ttsAddToHistory": true,
       // TODO: respect user settings
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true,
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true,
       // From FallbackFormatter
       "earcon": {
         "if": "$event.sourceIsNull",
@@ -268,10 +269,10 @@
         "default": "queue"
       },
       "ttsAddToHistory": true,
-      "ttsForceFeedbackAudioPlaybackActive": "$event.sourceRole == 'toast'",
-      "ttsForceFeedbackMicrophoneActive": "$event.sourceRole == 'toast'",
-      "ttsForceFeedbackSsbActive": false,
-      "ttsForceFeedbackPhoneCallActive": "$event.sourceRole == 'toast'"
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": "$event.sourceRole == 'toast'",
+      "ttsForceFeedbackEvenIfMicrophoneActive": "$event.sourceRole == 'toast'",
+      "ttsForceFeedbackEvenIfSsbActive": false,
+      "ttsForceFeedbackEvenIfPhoneCallActive": "$event.sourceRole == 'toast'"
     },
     "TYPE_ANNOUNCEMENT": {
       // From speechstrategy.xml
@@ -279,9 +280,9 @@
       "ttsQueueMode": "queue",
       "ttsAddToHistory": true,
       "ttsSkipDuplicate": true,
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": false,
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": false,
       "haptic": "@array/notification_pattern"
     },
     "TYPE_VIEW_CLICKED": {
@@ -295,9 +296,9 @@
       },
       "ttsQueueMode": "queue",
       "ttsAddToHistory": true,
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true,
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true,
       "ttsSkipDuplicate": true,
       "refreshSourceNode": true,
       "earcon": "@raw/tick",
@@ -335,9 +336,9 @@
         }
       },
       "ttsAddToHistory": true,
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "TYPE_WINDOW_CONTENT_CHANGED": {
       // From speechstrategy.xml
@@ -389,9 +390,9 @@
             }
         }
       },
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": false,
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": false,
       "earcon": {
         "switch": "$node.role",
         "cases": {
@@ -458,9 +459,9 @@
         // From speechstrategy.xml
       },
       "ttsAddToHistory": true,
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": false,
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": false,
       "earcon": {
         "switch": "$node.role",
         "cases": {
@@ -551,9 +552,9 @@
           }
         }
       },
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": false,
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": false,
       "refreshSourceNode": true,
       "ttsQueueMode": "queue",
       "ttsPitch": 1.2
@@ -561,9 +562,9 @@
     "EVENT_INPUT_DESCRIBE_NODE": {
       "ttsOutput": "%get_description_for_node",
       "ttsAddToHistory": true,
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true,
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true,
       "advanceContinuousReading": true,
       "ttsQueueMode": "queue"
     },
@@ -587,9 +588,9 @@
       "ttsClearQueueGroup": "text_selection",
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": false
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": false
     },
     "EVENT_TYPE_INPUT_TEXT_REMOVE": {
       "ttsOutput": {
@@ -607,9 +608,9 @@
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
       "ttsPitch": 1.2,
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_TEXT_ADD": {
       "ttsOutput": {
@@ -632,9 +633,9 @@
       "ttsClearQueueGroup": "text_selection",
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_TEXT_REPLACE": {
       "ttsOutput": {
@@ -653,9 +654,9 @@
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
       "ttsPitch": 1.2,
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_TEXT_PASSWORD_ADD": {
       "ttsOutput": {
@@ -669,9 +670,9 @@
       "ttsClearQueueGroup": "text_selection",
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_TEXT_PASSWORD_REMOVE": {
       "ttsOutput": {
@@ -685,9 +686,9 @@
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
       "ttsPitch": 1.2,
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_TEXT_PASSWORD_REPLACE": {
       "ttsOutput": {
@@ -702,9 +703,9 @@
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
       "ttsPitch": 1.2,
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_NO_SELECTION": {
       "ttsOutput": {
@@ -724,9 +725,9 @@
       "ttsClearQueueGroup": "text_selection",
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_WITH_SELECTION": {
       "ttsOutput": {
@@ -744,9 +745,9 @@
       "ttsClearQueueGroup": "text_selection",
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_SELECTION_CLEARED": {
       "ttsOutput": {
@@ -765,9 +766,9 @@
       "ttsClearQueueGroup": "text_selection",
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_SELECTION_TEXT_TRAVERSAL": {
       // TODO: Make this the same as EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_NO_SELECTION ?
@@ -777,10 +778,10 @@
       "ttsInterruptSameGroup": true,
       "ttsForceFeedback": true,
       "ttsQueueMode": "interruptible_if_long",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
       "advanceContinuousReading": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     "EVENT_TYPE_INPUT_SELECTION_SELECT_ALL_WITH_KEYBOARD": {
       "ttsOutput": "@string/template_announce_selected_text($event.textOrDescription)",
@@ -788,9 +789,9 @@
       "ttsClearQueueGroup": "text_selection",
       "ttsInterruptSameGroup": true,
       "ttsQueueMode": "interruptible_if_long",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
+      "ttsForceFeedbackEvenIfAudioPlaybackActive": true,
+      "ttsForceFeedbackEvenIfMicrophoneActive": true,
+      "ttsForceFeedbackEvenIfSsbActive": true
     },
     // Text events with no speech feedback
     "EVENT_TYPE_INPUT_CHANGE_INVALID": {},
@@ -801,7 +802,6 @@
     "EVENT_TYPE_INPUT_SELECTION_CUT": {},
     // Feedback handled by EVENT_TYPE_INPUT_TEXT_ADD/REMOVE
     "EVENT_TYPE_INPUT_SELECTION_PASTE": {},
-    "EVENT_TYPE_INPUT_SELECTION_RESET_SELECTION": {},
     "EVENT_TYPE_INPUT_SELECTION_SELECT_ALL": {}
     // Feedback handled by menurules.RuleEditText
   },
@@ -907,7 +907,10 @@
       "then": {
         "if": "$node.windowType == 'picture_in_picture'",
         "then": "@string/template_overlay_window(getWindowTitle($node.windowId))",
-        "else": "getWindowTitle($node.windowId)"
+        "else": {
+          "if": "$node.windowType != 'system' || #VERBOSITY_SPEAK_SYSTEM_WINDOW_TITLE",
+          "then": "@string/in_window_with_name(getWindowTitle($node.windowId))"
+        }
       }
     },
     // Nodes
@@ -961,7 +964,7 @@
     },
     "label_description": {
       "for_reference": "$node.labeledBy",
-      "evaluate": "%append_description_for_tree"
+      "evaluate": "%node_text_or_label_or_id"
     },
     // From NodeSpeechRuleProccessor.appendDescriptionForTree()
     "append_description_for_tree": {
@@ -1022,33 +1025,38 @@
       ]
     },
     "get_description_for_node": {
-      "if": "$node.needsLabel && !%get_role_description_or_default && !$node.stateDescription && $node.role != 'seek_control' && $node.role != 'progress_bar' && !$node.isCheckable",
-      "then": "%rule_non_text_views",
-      "else": {
-        "switch": "$node.role",
-        "cases": {
-          "drop_down_list": "%rule_default",
-          //RuleSimpleHintTemplate. Falls down to RuleDefault.
-          "switch": "%rule_switch",
-          "toggle_button": "%rule_switch",
-          "image": "%rule_non_text_views",
-          "image_button": "%rule_non_text_views",
-          "edit_text": "%rule_edit_text",
-          "seek_control": "%rule_seek_bar",
-          "progress_bar": "%rule_seek_bar",
-          "pager": "%rule_default"
-          // RulePager. Falls down to RuleDefault
-        },
-        "default": {
-          // From RulePagerPage
-          "if": {
-            "for_reference": "$node.parent",
-            "evaluate": "$node.role == 'pager' && $node.visibleChildCount == 1"
+      "fallback": [
+        "%unlabel_node_description",
+        {
+          "switch": "$node.role",
+          "cases": {
+            "drop_down_list": "%rule_default",
+            //RuleSimpleHintTemplate. Falls down to RuleDefault.
+            "switch": "%rule_switch",
+            "toggle_button": "%rule_switch",
+            "image": "%rule_non_text_views",
+            "image_button": "%rule_non_text_views",
+            "edit_text": "%rule_edit_text",
+            "seek_control": "%rule_seek_bar",
+            "progress_bar": "%rule_seek_bar",
+            "pager": "%rule_default"
+            // RulePager. Falls down to RuleDefault
           },
-          "then": "%rule_pager_page",
-          "else": "%rule_default"
+          "default": {
+            // From RulePagerPage
+            "if": {
+              "for_reference": "$node.parent",
+              "evaluate": "$node.role == 'pager' && $node.visibleChildCount == 1"
+            },
+            "then": "%rule_pager_page",
+            "else": "%rule_default"
+          }
         }
-      }
+      ]
+    },
+    "unlabel_node_description": {
+      "if": "$node.needsLabel && !%get_role_description_or_default && !$node.stateDescription && $node.role != 'seek_control' && $node.role != 'progress_bar' && !$node.isCheckable && !%node_text_or_label_or_id",
+      "then": "@string/value_unlabelled"
     },
     "get_node_text": {
       // AccessibilityNodeInfoUtils.getNodeText()
@@ -1151,17 +1159,14 @@
     },
     "_comment": "Talkback doesn't need to read out unlabelled or element IDs ",
     "_comment": "for the node that has extra information, ",
-    "_comment": "like CheckBox, which has state description.",
+    "_comment": "like CheckBox, which has state description, ",
+    "_comment": "or like OCR text, icon label recognized from captured screenshot.",
     "node_text_or_label": {
       "fallback": [
         "%get_node_text",
-        "prependCapital($node.labelText)"
-      ]
-    },
-    "get_node_text_and_caption": {
-      "join": [
-        "%node_text_or_label_or_id",
-        "$node.captionText"
+        "prependCapital($node.labelText)",
+        "$node.captionText",
+        "$node.detectedIconLabel"
       ]
     },
     // SpeechRules
@@ -1227,9 +1232,9 @@
     "rule_non_text_views": {
       "switch": "#VERBOSITY_DESCRIPTION_ORDER",
       "cases": {
-        "RoleNameStatePosition": "dedupJoin(%get_non_text_view_role, %get_node_text_and_caption, %get_non_text_view_state)",
-        "StateNameRolePosition": "dedupJoin(%get_non_text_view_state, %get_node_text_and_caption, %get_non_text_view_role)",
-        "NameRoleStatePosition": "dedupJoin(%get_node_text_and_caption, %get_non_text_view_role, %get_non_text_view_state)"
+        "RoleNameStatePosition": "dedupJoin(%get_non_text_view_role, %node_text_or_label_or_id, %get_non_text_view_state)",
+        "StateNameRolePosition": "dedupJoin(%get_non_text_view_state, %node_text_or_label_or_id, %get_non_text_view_role)",
+        "NameRoleStatePosition": "dedupJoin(%node_text_or_label_or_id, %get_non_text_view_role, %get_non_text_view_state)"
       }
     },
     // Utils for speech rules.
@@ -1420,7 +1425,7 @@
         "if": "$global.inputMode == 'non_alphabetic_keyboard'",
         "then": "@string/template_hint_spinner(@string/value_press_select)",
         "else": {
-          "if": "$node.role != 'text_entry_key'",
+          "if": "$node.role != 'text_entry_key' && (!$global.isInterpretAsEntryKey || !$node.isImeWindow)",
           "then": {
             "if": "$global.useSingleTap",
             "then": "@string/template_hint_spinner(@string/value_single_tap)",
@@ -1441,7 +1446,7 @@
               "if": "$global.inputMode == 'non_alphabetic_keyboard'",
               "then": "@string/template_hint_edit_text(@string/value_press_select)",
               "else": {
-                "if": "$node.role != 'text_entry_key'",
+                "if": "$node.role != 'text_entry_key' && (!$global.isInterpretAsEntryKey || !$node.isImeWindow)",
                 "then": {
                   "if": "$global.useSingleTap",
                   "then": "@string/template_hint_edit_text(@string/value_single_tap)",
@@ -1483,7 +1488,7 @@
                 "if": "$global.inputMode == 'non_alphabetic_keyboard'",
                 "then": "@string/template_custom_hint_for_long_clickable_actions(@string/value_press_select, $action.label)",
                 "else": {
-                  "if": "$node.role != 'text_entry_key'",
+                  "if": "$node.role != 'text_entry_key' && (!$global.isInterpretAsEntryKey || !$node.isImeWindow)",
                   "then": {
                     "if": "$global.useSingleTap",
                     "then": "@string/template_custom_hint_for_long_clickable_actions(@string/value_single_tap, $action.label)",
@@ -1503,7 +1508,7 @@
               "if": "$global.inputMode == 'non_alphabetic_keyboard'",
               "then": "@string/template_hint_long_clickable(@string/value_press_select)",
               "else": {
-                "if": "$node.role != 'text_entry_key'",
+                "if": "$node.role != 'text_entry_key' && (!$global.isInterpretAsEntryKey || !$node.isImeWindow)",
                 "then": {
                   "if": "$global.useSingleTap",
                   "then": "@string/template_hint_long_clickable(@string/value_single_tap)",
@@ -1528,7 +1533,7 @@
                 "if": "$global.inputMode == 'non_alphabetic_keyboard'",
                 "then": "@string/template_custom_hint_for_actions(@string/value_press_select, $action.label)",
                 "else": {
-                    "if": "$node.role != 'text_entry_key'",
+                    "if": "$node.role != 'text_entry_key' && (!$global.isInterpretAsEntryKey || !$node.isImeWindow)",
                     "then": {
                       "if": "$global.useSingleTap",
                       "then": "@string/template_custom_hint_for_actions(@string/value_single_tap, $action.label)",
@@ -1548,7 +1553,7 @@
               "if": "$global.inputMode == 'non_alphabetic_keyboard'",
               "then": "@string/template_hint_checkable(@string/value_press_select)",
               "else": {
-                "if": "$node.role != 'text_entry_key'",
+                "if": "$node.role != 'text_entry_key' && (!$global.isInterpretAsEntryKey || !$node.isImeWindow)",
                 "then":{
                   "if": "$node.isClickable",
                   "then": {
@@ -1570,7 +1575,7 @@
               "if": "$global.inputMode == 'non_alphabetic_keyboard'",
               "then": "@string/template_hint_clickable(@string/value_press_select)",
               "else": {
-                "if": "$node.role != 'text_entry_key'",
+                "if": "$node.role != 'text_entry_key' && (!$global.isInterpretAsEntryKey || !$node.isImeWindow)",
                 "then": {
                   "if": "$global.useSingleTap",
                   "then": "@string/template_hint_clickable(@string/value_single_tap)",

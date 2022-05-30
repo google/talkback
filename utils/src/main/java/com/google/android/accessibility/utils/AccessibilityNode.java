@@ -18,10 +18,10 @@ package com.google.android.accessibility.utils;
 
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat;
-import android.view.accessibility.AccessibilityNodeInfo;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.ViewResourceName;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role.RoleName;
@@ -41,7 +41,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * <ul>
  *   <li>handling null nodes
  *   <li>refreshing
- *   <li>recycling
  *   <li>using compat vs bare methods
  *   <li>using correct methods for various android versions
  * </ul>
@@ -51,11 +50,9 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * <ul>
  *   <li>reducing duplication of window info
  *   <li>handling null window info
- *   <li>recycling window info
  * </ul>
  *
- * <p>Does not wrap null node-info to safely chain calls, because intermediate objects cannot be
- * chained, because intermediate objects must be recycled. Does contain intermediate objects, like
+ * <p>Does not wrap null node-info to safely chain calls. Does contain intermediate objects, like
  * window info, for pass-through functions instead of chaining.
  */
 public class AccessibilityNode {
@@ -66,46 +63,45 @@ public class AccessibilityNode {
    * AccessibilityNodeInfoCompat should only be wrapper on AccessibilityNodeInfo. One may be null,
    * created on demand from the other. Never expose these nodes.
    */
-  @Nullable private AccessibilityNodeInfo nodeBare;
+  private @Nullable AccessibilityNodeInfo nodeBare;
 
   private AccessibilityNodeInfoCompat nodeCompat;
 
   /** Window data, created on demand. */
-  @Nullable private AccessibilityWindow window;
-
-  /** Name of calling method that recycled this node. */
-  private String recycledBy;
+  private @Nullable AccessibilityWindow window;
 
   ///////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
-  /** Caller keeps ownership of nodeArg. Caller must also recycle returned AccessibilityNode. */
-  @Nullable
-  public static AccessibilityNode obtainCopy(@Nullable AccessibilityNodeInfo nodeArg) {
+  /** Caller keeps ownership of nodeArg. */
+  public static @Nullable AccessibilityNode obtainCopy(@Nullable AccessibilityNodeInfo nodeArg) {
     return construct(nodeArg, /* copy= */ true, FACTORY);
   }
 
-  /** Caller keeps ownership of nodeArg. Caller must also recycle returned AccessibilityNode. */
-  @Nullable
-  public static AccessibilityNode obtainCopy(@Nullable AccessibilityNodeInfoCompat nodeArg) {
+  /** Caller keeps ownership of nodeArg. */
+  public static @Nullable AccessibilityNode obtainCopy(
+      @Nullable AccessibilityNodeInfoCompat nodeArg) {
     return construct(nodeArg, /* copy= */ true, FACTORY);
   }
 
-  /** Gets a copy of this node. Caller must recycle the returned AccessibilityNode. */
-  @Nullable
-  public AccessibilityNode obtainCopy() {
+  /** Gets a copy of this node. */
+  public @Nullable AccessibilityNode obtainCopy() {
     return obtainCopy(getCompat());
   }
 
-  /** Takes ownership of nodeArg. Caller must recycle returned AccessibilityNode. */
-  @Nullable
-  public static AccessibilityNode takeOwnership(@Nullable AccessibilityNodeInfo nodeArg) {
+  /** Gets a copy of this node. */
+  public @Nullable AccessibilityNodeInfoCompat obtainCopyCompat() {
+    return AccessibilityNodeInfoCompat.obtain(getCompat());
+  }
+
+  /** Takes ownership of nodeArg. */
+  public static @Nullable AccessibilityNode takeOwnership(@Nullable AccessibilityNodeInfo nodeArg) {
     return construct(nodeArg, /* copy= */ false, FACTORY);
   }
 
-  /** Takes ownership of nodeArg. Caller must recycle returned AccessibilityNode. */
-  @Nullable
-  public static AccessibilityNode takeOwnership(@Nullable AccessibilityNodeInfoCompat nodeArg) {
+  /** Takes ownership of nodeArg. */
+  public static @Nullable AccessibilityNode takeOwnership(
+      @Nullable AccessibilityNodeInfoCompat nodeArg) {
     return construct(nodeArg, /* copy= */ false, FACTORY);
   }
 
@@ -115,13 +111,12 @@ public class AccessibilityNode {
    * creating unnecessary instances when result should be null. Method is protected so that it can
    * be called by sub-classes without duplicating null-checking logic.
    *
-   * @param nodeArg The wrapped node info. Caller may retain responsibility to recycle.
-   * @param copy If true, a copy is wrapped, and caller must recycle nodeArg.
+   * @param nodeArg The wrapped node info.
+   * @param copy If true, a copy is wrapped.
    * @param factory Creates instances of AccessibilityNode or sub-classes.
-   * @return AccessibilityNode instance, that caller must recycle.
+   * @return AccessibilityNode instance.
    */
-  @Nullable
-  protected static <T extends AccessibilityNode> T construct(
+  protected static <T extends AccessibilityNode> @Nullable T construct(
       @Nullable AccessibilityNodeInfo nodeArg, boolean copy, Factory<T> factory) {
     if (nodeArg == null) {
       return null;
@@ -133,8 +128,7 @@ public class AccessibilityNode {
   }
 
   /** Returns a node instance, or null. Should only be called by this class and sub-classes. */
-  @Nullable
-  protected static <T extends AccessibilityNode> T construct(
+  protected static <T extends AccessibilityNode> @Nullable T construct(
       @Nullable AccessibilityNodeInfoCompat nodeArg, boolean copy, Factory<T> factory) {
     // See implementation notes in overloaded construct() method, above.
     if (nodeArg == null) {
@@ -164,20 +158,11 @@ public class AccessibilityNode {
   ///////////////////////////////////////////////////////////////////////////////////////
   // Refreshing
 
-  /** Returns flag for success versus node already recycled. */
+  /** Returns flag for success. */
   public final synchronized boolean refresh() {
 
     // Remove stale window info, so that refreshed node can re-generate window info.
-    if (window != null && !window.isRecycled()) {
-      window.recycle("AccessibilityNode.refresh()");
-      window = null;
-    }
-
-    // Error if already recycled.
-    if (recycledBy != null) {
-      throwError("Trying to refresh node already recycled by %s", recycledBy);
-      return false;
-    }
+    window = null;
 
     // Try to refresh node.
     try {
@@ -197,90 +182,61 @@ public class AccessibilityNode {
   ///////////////////////////////////////////////////////////////////////////////////////
   // Recycling
 
-  /** Returns whether the wrapped event is already recycled. */
+  /**
+   * Returns whether the wrapped event is already recycled.
+   *
+   * <p>TODO: Remove once all dependencies have been removed.
+   *
+   * @deprecated Accessibility is discontinuing recycling. Function will return false.
+   */
+  @Deprecated
   public final synchronized boolean isRecycled() {
-    return (recycledBy != null);
+    return false;
   }
 
-  /** Recycles non-null nodes and empties collection. */
+  /**
+   * Recycles non-null nodes and empties collection.
+   *
+   * @deprecated Accessibility is discontinuing recycling. Function will still clear nodes.
+   */
+  @Deprecated
   public static void recycle(String caller, Collection<AccessibilityNode> nodes) {
-    if (nodes == null) {
-      return;
-    }
-
-    for (AccessibilityNode node : nodes) {
-      if (node != null) {
-        node.recycle(caller);
-      }
-    }
-
-    nodes.clear();
-  }
-
-  /** Recycles non-null nodes. */
-  public static void recycle(String caller, AccessibilityNode... nodes) {
-    if (nodes == null) {
-      return;
-    }
-
-    for (@Nullable AccessibilityNode node : nodes) {
-      if (node != null) {
-        node.recycle(caller);
-      }
+    if (nodes != null) {
+      nodes.clear();
     }
   }
 
-  /** Recycles the wrapped node & window. Errors if called more than once. */
-  public final synchronized void recycle(String caller) {
+  /**
+   * Recycles non-null nodes.
+   *
+   * @deprecated Accessibility is discontinuing recycling.
+   */
+  @Deprecated
+  public static void recycle(@Nullable AccessibilityNode... nodes) {}
 
-    // Check for double-recycling.
-    if (recycledBy == null) {
-      recycledBy = caller;
-    } else {
-      logOrThrow("AccessibilityNode already recycled by %s then by %s", recycledBy, caller);
-      return;
-    }
+  /**
+   * Recycles non-null nodes.
+   *
+   * @deprecated Accessibility is discontinuing recycling.
+   */
+  @Deprecated
+  public static void recycle(String caller, @Nullable AccessibilityNode... nodes) {}
 
-    // Recycle compat or bare node -- not both.
-    if (nodeCompat != null) {
-      // Recycling nodeCompat will also recycle nodeBare, because nodeCompat contains nodeBare.
-      recycle(nodeCompat, caller);
-    } else if (nodeBare != null) {
-      recycle(nodeBare, caller);
-    }
+  /**
+   * Recycles the wrapped node & window. Errors if called more than once.
+   *
+   * @deprecated Accessibility is discontinuing recycling.
+   */
+  @Deprecated
+  public final void recycle() {}
 
-    if (window != null && !window.isRecycled()) {
-      window.recycle(caller);
-    }
-
-    recycledBy = caller;
-  }
-
-  private final void recycle(AccessibilityNodeInfo node, String caller) {
-    try {
-      node.recycle();
-    } catch (IllegalStateException e) {
-      logOrThrow(
-          e,
-          "Caught IllegalStateException from accessibility framework with %s trying to recycle"
-              + " node %s",
-          caller,
-          node);
-    }
-  }
-
-  private final void recycle(AccessibilityNodeInfoCompat node, String caller) {
-    try {
-      node.recycle();
-    } catch (IllegalStateException e) {
-      logOrThrow(
-          e,
-          "Caught IllegalStateException from accessibility framework with %s trying to recycle"
-              + " node %s",
-          caller,
-          node);
-    }
-  }
+  /**
+   * Recycles the wrapped node & window. Errors if called more than once.
+   *
+   * @deprecated Accessibility is discontinuing recycling.
+   */
+  @Deprecated
+  public final synchronized void recycle(String caller) {}
 
   /** Overridable for testing. */
   protected boolean isDebug() {
@@ -295,9 +251,6 @@ public class AccessibilityNode {
 
   /** Access bare node, which always exists. Extracts reference to bare node on demand. */
   private AccessibilityNodeInfo getBare() {
-    if (isRecycled()) {
-      throwError("getBare() called on node already recycled by %s", recycledBy);
-    }
     if (nodeBare == null) {
       nodeBare = nodeCompat.unwrap(); // Available since compat library 26.1.0
     }
@@ -306,21 +259,13 @@ public class AccessibilityNode {
 
   /** Create and use compat wrapper on demand. */
   private AccessibilityNodeInfoCompat getCompat() {
-    if (isRecycled()) {
-      throwError("getCompat() called on node already recycled by %s", recycledBy);
-    }
     if (nodeCompat == null) {
       nodeCompat = AccessibilityNodeInfoCompat.wrap(nodeBare); // Available since compat 26.1.0
     }
     return nodeCompat;
   }
 
-  /**
-   * Returns hash-code for use as a HashMap key.
-   *
-   * <p><b>Warning:</b> Hash-code will change if node is recycled. Remove from hash keys before
-   * recycling.
-   */
+  /** Returns hash-code for use as a HashMap key. */
   @Override
   public final int hashCode() {
     return getBare().hashCode();
@@ -379,7 +324,7 @@ public class AccessibilityNode {
     return getCompat().getCollectionItemInfo();
   }
 
-  /** Gets the parent. Caller must recycle the returned node. */
+  /** Gets the parent. */
   public AccessibilityNode getParent() {
     return takeOwnership(getCompat().getParent());
   }
@@ -387,6 +332,10 @@ public class AccessibilityNode {
   @RoleName
   public int getRole() {
     return Role.getRole(getCompat());
+  }
+
+  public final @Nullable CharSequence getContentDescription() {
+    return getCompat().getContentDescription();
   }
 
   public final @Nullable CharSequence getText() {
@@ -420,7 +369,18 @@ public class AccessibilityNode {
   ///////////////////////////////////////////////////////////////////////////////////////
   // Utility methods.  Call AccessibilityNodeInfoUtils methods, do not duplicate them.
 
-  /** Returns all descendants that match filter. Caller must recycle returned nodes. */
+  public int findDepth() {
+    return AccessibilityNodeInfoUtils.findDepth(getCompat());
+  }
+
+  public boolean hasMatchingDescendantOrRoot(Filter<AccessibilityNodeInfoCompat> filter) {
+    if (filter.accept(getCompat())) {
+      return true;
+    }
+    return AccessibilityNodeInfoUtils.hasMatchingDescendant(getCompat(), filter);
+  }
+
+  /** Returns all descendants that match filter. */
   public List<AccessibilityNode> getMatchingDescendantsOrRoot(
       Filter<AccessibilityNodeInfoCompat> filter) {
     List<AccessibilityNodeInfoCompat> matchesCompat =
@@ -434,7 +394,7 @@ public class AccessibilityNode {
 
   /**
    * Returns duplicated current AccessibilityNode if it matches the {@code filter}, or the first
-   * matching ancestor. Returns {@code null} if no nodes match. Caller must recycle returned node.
+   * matching ancestor. Returns {@code null} if no nodes match.
    */
   public AccessibilityNode getSelfOrMatchingAncestor(Filter<AccessibilityNodeInfoCompat> filter) {
     AccessibilityNodeInfoCompat matchCompat =
@@ -474,11 +434,9 @@ public class AccessibilityNode {
    * Returns the result of applying a filter using breadth-first traversal from current node.
    *
    * @param filter The filter to satisfy.
-   * @return The first node reached via BFS traversal that satisfies the filter. Must be recycled by
-   *     caller.
+   * @return The first node reached via BFS traversal that satisfies the filter.
    */
-  @Nullable
-  public AccessibilityNode searchFromBfs(Filter<AccessibilityNodeInfoCompat> filter) {
+  public @Nullable AccessibilityNode searchFromBfs(Filter<AccessibilityNodeInfoCompat> filter) {
     AccessibilityNodeInfoCompat matchCompat =
         AccessibilityNodeInfoUtils.searchFromBfs(getCompat(), filter);
     return AccessibilityNode.takeOwnership(matchCompat);
@@ -487,8 +445,8 @@ public class AccessibilityNode {
   /**
    * Returns true if two nodes share the same parent.
    *
-   * @param node1 the node to check. Caller must recycle.
-   * @param node2 the node to check. Caller must recycle.
+   * @param node1 the node to check.
+   * @param node2 the node to check.
    * @return {@code true} if node and comparedNode share the same parent.
    */
   public static boolean shareParent(
@@ -498,11 +456,7 @@ public class AccessibilityNode {
     }
     AccessibilityNode node1Parent = node1.getParent();
     AccessibilityNode node2Parent = node2.getParent();
-    try {
-      return (node1Parent != null && node1Parent.equals(node2Parent));
-    } finally {
-      recycle("AccessibilityNode.shareParent()", node1Parent, node2Parent);
-    }
+    return (node1Parent != null && node1Parent.equals(node2Parent));
   }
 
   // TODO: Add methods on demand. Keep alphabetic order.
@@ -512,11 +466,7 @@ public class AccessibilityNode {
 
   /** Gets or creates window info, owned by AccessibilityNode. */
   private @Nullable AccessibilityWindow getWindow() {
-    if (isRecycled()) {
-      throwError("getWindow() called on node already recycled by %s", recycledBy);
-    }
     if (window == null) {
-      // Window will be recycled by AccessibilityNode.recycle()
       window =
           AccessibilityWindow.takeOwnership(
               AccessibilityNodeInfoUtils.getWindow(getBare()),
@@ -540,7 +490,8 @@ public class AccessibilityNode {
     return (window != null) && window.isFocused();
   }
 
-  public final @AccessibilityWindow.WindowType int windowGetType() {
+  @AccessibilityWindow.WindowType
+  public final int windowGetType() {
     AccessibilityWindow window = getWindow();
     return (window == null) ? AccessibilityWindow.TYPE_UNKNOWN : window.getType();
   }
@@ -563,8 +514,7 @@ public class AccessibilityNode {
     return TraversalStrategyUtils.getTraversalStrategy(getCompat(), focusFinder, direction);
   }
 
-  @Nullable
-  public AccessibilityNode findInitialFocusInNodeTree(
+  public @Nullable AccessibilityNode findInitialFocusInNodeTree(
       TraversalStrategy traversalStrategy,
       @TraversalStrategy.SearchDirection int searchDirection,
       Filter<AccessibilityNodeInfoCompat> nodeFilter) {
@@ -577,8 +527,7 @@ public class AccessibilityNode {
   ///////////////////////////////////////////////////////////////////////////////////////
   // ImageNode methods
 
-  @Nullable
-  public ViewResourceName getPackageNameAndViewId() {
+  public @Nullable ViewResourceName getPackageNameAndViewId() {
     return ViewResourceName.create(getCompat());
   }
 
@@ -588,15 +537,6 @@ public class AccessibilityNode {
 
   ///////////////////////////////////////////////////////////////////////////////////////
   // Error methods
-
-  @FormatMethod
-  private void logOrThrow(@FormatString String format, Object... parameters) {
-    if (isDebug()) {
-      throwError(format, parameters);
-    } else {
-      logError(format, parameters);
-    }
-  }
 
   @FormatMethod
   private void logOrThrow(

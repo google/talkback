@@ -103,6 +103,13 @@
                 android:resource="@xml/accessibilityservice" />
         </service>
 
+        <service
+            android:icon="@drawable/icon"
+            android:name="com.google.android.accessibility.talkback.ipc.IpcService"
+            android:enabled="true"
+            android:exported="false"
+            android:label="TalkBackIpcService" />
+
         <!-- TalkBack Preferences -->
         <activity
             android:name="com.android.talkback.TalkBackPreferencesActivity"
@@ -137,158 +144,14 @@
             </intent-filter>
         </activity>
 
-        <!-- TalkBack Focus Indicator Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackFocusIndicatorPreferenceActivity"
-            android:exported="false"
-            android:label="@string/title_pref_category_manage_focus_indicator"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings"
-            android:configChanges="orientation|screenSize"
-            tools:ignore="ExportedActivity" >
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".TalkBackFocusIndicatorPreferenceActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <!-- TalkBack permission request activity proxy -->
         <activity
             android:name="com.google.android.accessibility.talkback.permission.PermissionRequestActivity"
             android:excludeFromRecents="true"
             android:theme="@style/BlankActivityTheme"
+            android:directBootAware="true"
             android:exported="false"
             android:noHistory="false" >
-        </activity>
-
-        <!-- TalkBack Keyboard Shortcut Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackKeyboardShortcutPreferencesActivity"
-            android:exported="false"
-            android:label="@string/title_pref_manage_keyboard_shortcuts"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings"
-            tools:ignore="ExportedActivity" >
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".TalkBackKeyboardShortcutPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack Verbosity Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackVerbosityPreferencesActivity"
-            android:exported="false"
-            android:label="@string/pref_verbosity_title"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings"
-            android:configChanges="orientation|screenSize"
-            tools:ignore="ExportedActivity" >
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".TalkBackVerbosityPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack dump event preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackDumpAccessibilityEventActivity"
-            android:exported="false"
-            android:label="@string/title_activity_dump_a11y_event"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings" >
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".TalkBackDumpAccessibilityEventActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack customize menus Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackCustomizeMenusPreferencesActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:label="@string/title_pref_manage_customize_menus"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings">
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".preference.TalkBackCustomizeMenusPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack customize Talkback context menu Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackContextMenuPreferencesActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:label="@string/title_pref_category_context_menu"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings">
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".preference.TalkBackContextMenuPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack customize Talkback navigation menu Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackNavigationMenuPreferencesActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:label="@string/title_pref_category_navigation_menu"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings">
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".preference.TalkBackNavigationMenuPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack customize Talkback selector menu Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackSelectorMenuPreferencesActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:label="@string/title_pref_category_selector_menu"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings">
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".preference.TalkBackSelectorMenuPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack sound and vibration preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackSoundAndVibrationPreferencesActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:label="@string/title_pref_sound_and_vibration"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings">
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".preference.TalkBackSoundAndVibrationPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
 
         <!-- TalkBack tutorial and help preferences -->
@@ -303,38 +166,6 @@
             <!-- This preference activity can receive an implicit intent action -->
             <intent-filter>
                 <action android:name=".preference.TalkBackHelpPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack advanced preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackAdvancedPreferencesActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:label="@string/title_pref_advanced_settings"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings">
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".preference.TalkBackAdvancedPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <!-- TalkBack developer Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackDeveloperPreferencesActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:label="@string/title_pref_category_developer_settings"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings">
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".TalkBackDeveloperPreferencesActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -427,6 +258,10 @@
         <meta-data
             android:name="support_lift_to_type"
             android:value="@bool/support_lift_to_type" />
+
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="ocr" />
 
     </application>
 </manifest>

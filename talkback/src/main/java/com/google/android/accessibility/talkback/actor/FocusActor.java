@@ -17,10 +17,9 @@
 package com.google.android.accessibility.talkback.actor;
 
 import android.accessibilityservice.AccessibilityService;
-import androidx.annotation.Nullable;
+import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
-import android.view.accessibility.AccessibilityWindowInfo;
 import com.google.android.accessibility.talkback.ActorStateWritable;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.WebActor;
@@ -98,21 +97,17 @@ public class FocusActor {
   public boolean clickCurrentHierarchical(EventId eventId) {
     AccessibilityNodeInfoCompat currentFocus = null;
     AccessibilityNodeInfoCompat nodeToClick = null;
-    try {
-      currentFocus =
-          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
-      if (currentFocus == null) {
-        return false;
-      }
-      nodeToClick =
-          AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
-              currentFocus, AccessibilityNodeInfoUtils.FILTER_CLICKABLE);
-      return (nodeToClick != null)
-          && PerformActionUtils.performAction(
-              nodeToClick, AccessibilityNodeInfoCompat.ACTION_CLICK, eventId);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentFocus, nodeToClick);
+    currentFocus =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
+    if (currentFocus == null) {
+      return false;
     }
+    nodeToClick =
+        AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
+            currentFocus, AccessibilityNodeInfoUtils.FILTER_CLICKABLE);
+    return (nodeToClick != null)
+        && PerformActionUtils.performAction(
+            nodeToClick, AccessibilityNodeInfoCompat.ACTION_CLICK, eventId);
   }
 
   public void clearAccessibilityFocus(EventId eventId) {
@@ -184,12 +179,7 @@ public class FocusActor {
    * existed.
    */
   public boolean popCachedNodeToRestoreFocus() {
-    @Nullable AccessibilityNodeInfoCompat node = history.popCachedNodeToRestoreFocus();
-    try {
-      return (node != null);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(node);
-    }
+    return (history.popCachedNodeToRestoreFocus() != null);
   }
 
   /** Restore focus with the node cached before context menu or dialog appeared. */
@@ -199,25 +189,20 @@ public class FocusActor {
       return false;
     }
 
-    try {
-      if (!nodeToRestoreFocus.refresh() || !nodeToRestoreFocus.isVisibleToUser()) {
-        return false;
-      }
-
-      return AccessibilityNodeInfoUtils.isInWindow(
-              nodeToRestoreFocus, AccessibilityNodeInfoUtils.getWindow(nodeToRestoreFocus))
-          && focusManagerInternal.setAccessibilityFocus(
-              nodeToRestoreFocus,
-              /* forceRefocusIfAlreadyFocused= */ false,
-              FocusActionInfo.builder()
-                  .setSourceAction(FocusActionInfo.SCREEN_STATE_CHANGE)
-                  .setInitialFocusType(FocusActionInfo.RESTORED_LAST_FOCUS)
-                  .build(),
-              eventId);
-
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(nodeToRestoreFocus);
+    if (!nodeToRestoreFocus.refresh() || !nodeToRestoreFocus.isVisibleToUser()) {
+      return false;
     }
+
+    return AccessibilityNodeInfoUtils.isInWindow(
+            nodeToRestoreFocus, AccessibilityNodeInfoUtils.getWindow(nodeToRestoreFocus))
+        && focusManagerInternal.setAccessibilityFocus(
+            nodeToRestoreFocus,
+            /* forceRefocusIfAlreadyFocused= */ false,
+            FocusActionInfo.builder()
+                .setSourceAction(FocusActionInfo.SCREEN_STATE_CHANGE)
+                .setInitialFocusType(FocusActionInfo.RESTORED_LAST_FOCUS)
+                .build(),
+            eventId);
   }
 
   /** At next {@link ScreenState} change, precisely restores focus when context menu closes. */
@@ -234,15 +219,10 @@ public class FocusActor {
   }
 
   private boolean performActionOnCurrentFocus(int action, EventId eventId) {
-    AccessibilityNodeInfoCompat currentFocus = null;
-    try {
-      currentFocus =
-          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
-      return (currentFocus != null)
-          && PerformActionUtils.performAction(currentFocus, action, eventId);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(currentFocus);
-    }
+    AccessibilityNodeInfoCompat currentFocus =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
+    return (currentFocus != null)
+        && PerformActionUtils.performAction(currentFocus, action, eventId);
   }
 
 }

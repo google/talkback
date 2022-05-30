@@ -22,9 +22,9 @@ import android.annotation.TargetApi;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.os.Build;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -40,7 +40,7 @@ public class ProcessorMagnification implements AccessibilityEventListener {
 
   private static final int EVENT_MASK =
       AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED | AccessibilityEvent.TYPE_VIEW_FOCUSED;
-  @Nullable private final MagnificationController magnificationController;
+  private final @Nullable MagnificationController magnificationController;
 
   public ProcessorMagnification(AccessibilityService service) {
     if (FeatureSupport.supportMagnificationController()) {
@@ -61,19 +61,15 @@ public class ProcessorMagnification implements AccessibilityEventListener {
       return;
     }
     AccessibilityNodeInfoCompat sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());
-    try {
-      // It’s unnecessary to recenter the magnifier if the focus is on the keyboard because Keyboard
-      // isn't in the magnifier and when the magnifier is not magnifying.
-      // TODO: recenter magnifier for window magnification
-      if (sourceNode == null
-          || AccessibilityNodeInfoUtils.isKeyboard(event, sourceNode)
-          || magnificationController.getScale() <= 1) {
-        return;
-      }
-      recenterMagnifier(sourceNode);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(sourceNode);
+    // It’s unnecessary to recenter the magnifier if the focus is on the keyboard because Keyboard
+    // isn't in the magnifier and when the magnifier is not magnifying.
+    // TODO: recenter magnifier for window magnification
+    if (sourceNode == null
+        || AccessibilityNodeInfoUtils.isKeyboard(event, sourceNode)
+        || magnificationController.getScale() <= 1) {
+      return;
     }
+    recenterMagnifier(sourceNode);
   }
 
   @TargetApi(Build.VERSION_CODES.N)

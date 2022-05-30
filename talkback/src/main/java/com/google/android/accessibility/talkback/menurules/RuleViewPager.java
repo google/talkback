@@ -25,9 +25,9 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.Menu;
 import android.view.MenuItem;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
@@ -65,21 +65,14 @@ public class RuleViewPager extends NodeMenuRule {
 
   @Override
   public boolean accept(AccessibilityService service, AccessibilityNodeInfoCompat node) {
-    AccessibilityNodeInfoCompat rootNode = null;
-    AccessibilityNodeInfoCompat pagerNode = null;
-
-    try {
-      rootNode = AccessibilityNodeInfoUtils.getRoot(node);
-      if (rootNode == null) {
-        return false;
-      }
-
-      pagerNode = AccessibilityNodeInfoUtils.searchFromBfs(rootNode, FILTER_PAGED);
-      return pagerNode != null;
-
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(rootNode, pagerNode);
+    AccessibilityNodeInfoCompat rootNode = AccessibilityNodeInfoUtils.getRoot(node);
+    if (rootNode == null) {
+      return false;
     }
+
+    AccessibilityNodeInfoCompat pagerNode =
+        AccessibilityNodeInfoUtils.searchFromBfs(rootNode, FILTER_PAGED);
+    return pagerNode != null;
   }
 
   @Override
@@ -92,33 +85,29 @@ public class RuleViewPager extends NodeMenuRule {
     if (pagerNode == null) {
       return items;
     }
-    try {
-      if (!includeAncestors && !pagerNode.equals(node)) {
-        return items;
-      }
-
-      addPageActions(items, service, pagerNode);
-
-      // Check for scroll actions if no page items were added. A node with page actions shouldn't be
-      // using scroll actions to navigate pages.
-      if (items.isEmpty()) {
-        addScrollActions(items, service, pagerNode);
-      }
-
-      if (items.isEmpty()) {
-        return items;
-      }
-
-      final ViewPagerItemClickListener itemClickListener =
-          new ViewPagerItemClickListener(pagerNode, pipeline, analytics);
-      for (ContextMenuItem item : items) {
-        item.setOnMenuItemClickListener(itemClickListener);
-      }
-
+    if (!includeAncestors && !pagerNode.equals(node)) {
       return items;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(pagerNode);
     }
+
+    addPageActions(items, service, pagerNode);
+
+    // Check for scroll actions if no page items were added. A node with page actions shouldn't be
+    // using scroll actions to navigate pages.
+    if (items.isEmpty()) {
+      addScrollActions(items, service, pagerNode);
+    }
+
+    if (items.isEmpty()) {
+      return items;
+    }
+
+    final ViewPagerItemClickListener itemClickListener =
+        new ViewPagerItemClickListener(pagerNode, pipeline, analytics);
+    for (ContextMenuItem item : items) {
+      item.setOnMenuItemClickListener(itemClickListener);
+    }
+
+    return items;
   }
 
   /** Appends to items list. */

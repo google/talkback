@@ -17,9 +17,9 @@
 package com.google.android.accessibility.utils;
 
 import android.os.Bundle;
+import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 

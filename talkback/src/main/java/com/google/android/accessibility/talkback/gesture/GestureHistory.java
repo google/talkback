@@ -20,11 +20,10 @@ import static com.google.common.base.StandardSystemProperty.LINE_SEPARATOR;
 import android.accessibilityservice.AccessibilityGestureEvent;
 import android.content.Context;
 import android.net.Uri;
-import androidx.core.content.FileProvider;
 import android.view.MotionEvent;
+import androidx.core.content.FileProvider;
 import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.talkback.actor.GestureReporter;
-import com.google.android.accessibility.utils.compat.CompatUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
@@ -32,7 +31,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
@@ -62,15 +60,7 @@ public class GestureHistory {
 
   /** Save {@code accessibilityGestureEvent} to the history queue and maintain the size. */
   public boolean save(AccessibilityGestureEvent accessibilityGestureEvent) {
-    // TODO  : Remove the code to use reflection to get motion events after public API
-    // is ready.
-    @SuppressWarnings("unchecked")
-    List<MotionEvent> motionEvents =
-        (List<MotionEvent>)
-            CompatUtils.invoke(
-                accessibilityGestureEvent,
-                new ArrayList<>(),
-                CompatUtils.getMethod(AccessibilityGestureEvent.class, "getMotionEvents"));
+    List<MotionEvent> motionEvents = accessibilityGestureEvent.getMotionEvents();
     if (motionEvents.isEmpty()) {
       return false;
     }

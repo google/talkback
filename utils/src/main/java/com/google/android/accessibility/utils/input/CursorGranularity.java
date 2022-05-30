@@ -80,7 +80,7 @@ public enum CursorGranularity {
    * @param resourceId The key associated with a granularity.
    * @return The granularity associated with the key, or {@code null} if the key is invalid.
    */
-  public static CursorGranularity fromResourceId(int resourceId) {
+  public static @Nullable CursorGranularity fromResourceId(int resourceId) {
     for (CursorGranularity value : values()) {
       if (value.resourceId == resourceId) {
         return value;
@@ -90,7 +90,7 @@ public enum CursorGranularity {
     return null;
   }
 
-  public static CursorGranularity fromId(int id) {
+  public static @Nullable CursorGranularity fromId(int id) {
     for (CursorGranularity value : values()) {
       if (value.id == id) {
         return value;

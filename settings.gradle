@@ -1,6 +1,21 @@
 include ':talkback'
 include ':compositor'
 include ':utils'
+include ':uiunderstanding'
 include ':proguard'
-include ':braille'
+
+// Those subroots which are not direct sub-folders root need to be specially declared.
+include ':braillecommon'
+project(':braillecommon').projectDir = new File('braille/common')
+include ':brailleinterfaces'
+project(':brailleinterfaces').projectDir = new File('braille/interfaces')
 include ':brailleime'
+project(':brailleime').projectDir = new File('braille/brailleime')
+include 'brailleimeanalytics'
+project(':brailleimeanalytics').projectDir = new File('braille/brailleimeanalytics')
+include 'brailletranslate'
+project(':brailletranslate').projectDir = new File('braille/translate')
+include 'brailledisplay'
+project(':brailledisplay').projectDir = new File('braille/brailledisplay')
+include 'brailledisplayanalytics'
+project(':brailledisplayanalytics').projectDir = new File('braille/brailledisplayanalytics')

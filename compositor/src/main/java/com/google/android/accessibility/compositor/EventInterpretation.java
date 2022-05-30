@@ -19,6 +19,7 @@ package com.google.android.accessibility.compositor;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.ReadOnly;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.android.accessibility.utils.input.TextEventInterpretation;
 
 /**
  * Data structure containing a more specific event type, along with extracted data from the event.
@@ -29,23 +30,17 @@ public class EventInterpretation extends ReadOnly {
   ////////////////////////////////////////////////////////////////////////////////////
   // Member data
 
-  private @Compositor.Event int mEvent;
-  private @Nullable CharSequence mPackageName;
-  private @Nullable TextEventInterpretation mText;
-  private @Nullable AccessibilityFocusEventInterpretation mAccessibilityFocus;
-  private @Nullable SelectorEventInterpretation mSelector;
-  private @Nullable ScrollEventInterpretation mScroll;
-  private @Nullable HintEventInterpretation mHint;
-  // Whether the node associated with the event has multiple Switch Access actions. This variable
-  // is only used when the event was generated from Switch Access.
-  private boolean hasMultipleSwitchAccessActions;
+  @Compositor.Event private int mEvent;
+  @Nullable private CharSequence mPackageName;
+  @Nullable private TextEventInterpretation mText;
+  @Nullable private AccessibilityFocusEventInterpretation mAccessibilityFocus;
+  @Nullable private HintEventInterpretation mHint;
 
   ////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
   public EventInterpretation(@Compositor.Event int compositorEvent) {
     mEvent = compositorEvent;
-    hasMultipleSwitchAccessActions = false;
   }
 
   ////////////////////////////////////////////////////////////////////////////////////
@@ -56,7 +51,8 @@ public class EventInterpretation extends ReadOnly {
     mEvent = event;
   }
 
-  public @Compositor.Event int getEvent() {
+  @Compositor.Event
+  public int getEvent() {
     return mEvent;
   }
 
@@ -65,7 +61,8 @@ public class EventInterpretation extends ReadOnly {
     mPackageName = name;
   }
 
-  public @Nullable CharSequence getPackageName() {
+  @Nullable
+  public CharSequence getPackageName() {
     return mPackageName;
   }
 
@@ -74,7 +71,8 @@ public class EventInterpretation extends ReadOnly {
     mText = text;
   }
 
-  public @Nullable TextEventInterpretation getText() {
+  @Nullable
+  public TextEventInterpretation getText() {
     return mText;
   }
 
@@ -83,26 +81,9 @@ public class EventInterpretation extends ReadOnly {
     mAccessibilityFocus = interpretation;
   }
 
-  public @Nullable AccessibilityFocusEventInterpretation getAccessibilityFocusInterpretation() {
+  @Nullable
+  public AccessibilityFocusEventInterpretation getAccessibilityFocusInterpretation() {
     return mAccessibilityFocus;
-  }
-
-  public void setSelector(SelectorEventInterpretation selector) {
-    checkIsWritable();
-    mSelector = selector;
-  }
-
-  public @Nullable SelectorEventInterpretation getSelector() {
-    return mSelector;
-  }
-
-  public void setScroll(ScrollEventInterpretation scroll) {
-    checkIsWritable();
-    mScroll = scroll;
-  }
-
-  public @Nullable ScrollEventInterpretation getScroll() {
-    return mScroll;
   }
 
   public void setHint(HintEventInterpretation hint) {
@@ -110,17 +91,9 @@ public class EventInterpretation extends ReadOnly {
     mHint = hint;
   }
 
-  public @Nullable HintEventInterpretation getHint() {
+  @Nullable
+  public HintEventInterpretation getHint() {
     return mHint;
-  }
-
-  public void setHasMultipleSwitchAccessActions(boolean hasMultipleSwitchAccessActions) {
-    checkIsWritable();
-    this.hasMultipleSwitchAccessActions = hasMultipleSwitchAccessActions;
-  }
-
-  public boolean getHasMultipleSwitchAccessActions() {
-    return hasMultipleSwitchAccessActions;
   }
 
   ////////////////////////////////////////////////////////////////////////////////////
@@ -133,10 +106,6 @@ public class EventInterpretation extends ReadOnly {
         Compositor.eventTypeToString(mEvent),
         StringBuilderUtils.optionalText("Package", mPackageName),
         StringBuilderUtils.optionalSubObj("Text", mText),
-        StringBuilderUtils.optionalSubObj("Selector", mSelector),
-        StringBuilderUtils.optionalSubObj("Scroll", mScroll),
-        StringBuilderUtils.optionalSubObj("Hint", mHint),
-        StringBuilderUtils.optionalTag(
-            "HasMultipleSwitchAccessActions", hasMultipleSwitchAccessActions));
+        StringBuilderUtils.optionalSubObj("Hint", mHint));
   }
 }

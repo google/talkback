@@ -63,10 +63,6 @@
   <string name="value_pager_page">صفحة</string>
   <string name="value_progress_bar">شريط التقدم</string>
   <string name="value_webview">عرض الويب</string>
-  <string name="value_toolbar">شريط الأدوات</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">الأحرف %1$d إلى %2$d</string>
-  <string name="template_password_traversed">الرمز %1$d</string>
   <string name="value_password">كلمة المرور</string>
   <string name="value_sliding_drawer_opened">تم فتح درج التمرير</string>
   <string name="value_options_menu_open">الخيارات.</string>
@@ -75,8 +71,8 @@
   <string name="value_selected">محدد</string>
   <string name="value_checked">تم التحديد</string>
   <string name="value_not_checked">لم يتم التحديد</string>
-  <string name="value_on">مفعّلة</string>
-  <string name="value_off">تم الإيقاف</string>
+  <string name="value_on">مفعّل</string>
+  <string name="value_off">غير مفعّل</string>
   <string name="value_disabled">غير مفعّل</string>
   <string name="value_expanded">تم التوسيع</string>
   <string name="value_collapsed">تم التصغير</string>
@@ -144,7 +140,6 @@
   <string name="out_of_vertical_pager">خارج الصفحة الرأسية</string>
   <string name="in_horizontal_pager_with_name">في الصفحة الأفقية %1$s</string>
   <string name="in_horizontal_pager">في الصفحة الأفقية</string>
-  <string name="out_of_horizontal_pager_with_name">خارج الصفحة الأفقية %1$s</string>
   <string name="out_of_horizontal_pager">خارج الصفحة الأفقية</string>
   <string name="in_grid_pager_with_name">في الصفحة الشبكية %1$s</string>
   <string name="in_grid_pager">في الصفحة الشبكية</string>
@@ -187,22 +182,15 @@
   <string name="template_screen_magnification_scale_changed">التكبير %1$d%%</string>
   <string name="screen_magnification_off">تم إيقاف التكبير</string>
   <string name="template_speech_rate_change">معدل سرعة الكلام %1$d%%</string>
-  <string name="template_speech_rate_change_faster">أسرع</string>
-  <string name="template_speech_rate_change_slower">أبطأ</string>
-  <string name="template_speech_rate_change_fastest">الأسرع</string>
-  <string name="template_speech_rate_change_slowest">الأبطأ</string>
   <string name="template_volume_change_increase">زيادة</string>
   <string name="template_volume_change_decrease">تقليل</string>
   <string name="template_volume_change_maximum">الحد الأقصى</string>
   <string name="template_volume_change_minimum">الحد الأدنى</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">ميزة تجنب التداخل مع أصوات أخرى مفعّلة</string>
-  <string name="audio_focus_off">إيقاف تجنب التداخل مع أصوات أخرى</string>
-  <string name="selector_speech_rate_output">معدل سرعة الكلام</string>
-  <string name="selector_verbosity_output">الإسهاب</string>
-  <string name="selector_granularity_output">التنقل</string>
-  <string name="selector_audio_focus_output">تجنب التداخل مع أصوات أخرى</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">لا يتم قول كلمات المرور إلا عند استخدام سماعات الرأس</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s متاح، استخدِم %2$s لعرضه.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s متاح.</string>
+  <string name="hint_suggestion">اقتراحات التدقيق الإملائي متاحة.</string>
+  <string name="in_window_with_name">نافذة %1$s</string>
+  <string name="detected_icon_description">%1$s، الرمز الذي تم التعرّف عليه تلقائيًا</string>
+  <string name="ocr_text_description">%1$s، النص</string>
 </resources>

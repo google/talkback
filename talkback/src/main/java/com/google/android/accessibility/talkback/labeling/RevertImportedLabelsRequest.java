@@ -34,9 +34,10 @@ public class RevertImportedLabelsRequest extends LabelClientRequest<Boolean> {
       return false;
     }
 
-    mClient.deleteLabels(CustomLabelManager.SOURCE_TYPE_IMPORT);
-    return mClient.updateSourceType(
+    boolean result = mClient.deleteLabels(CustomLabelManager.SOURCE_TYPE_IMPORT);
+    mClient.updateSourceType(
         CustomLabelManager.SOURCE_TYPE_BACKUP, CustomLabelManager.SOURCE_TYPE_USER);
+    return result;
   }
 
   @Override

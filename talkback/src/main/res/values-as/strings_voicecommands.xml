@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">সাৰাংশ</string>
   <string name="voice_commands_read">পঢ়ক</string>
   <string name="voice_commands_read_from_next">পৰৱৰ্তীৰ পৰা পঢ়ক</string>
   <string name="voice_commands_edit_options">সম্পাদনাৰ বিকল্প</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">বিচাৰক</string>
   <string name="voice_commands_search">সন্ধান কৰক</string>
   <string name="voice_commands_search_for">ইয়াৰ সন্ধান কৰক</string>
-  <string name="voice_commands_find_again">পুনৰাই বিচাৰক</string>
   <string name="voice_commands_next_heading">পৰৱর্তী শিৰোনাম</string>
   <string name="voice_commands_next_control">পৰৱৰ্তী নিয়ন্ত্ৰণ</string>
   <string name="voice_commands_next_link">পৰৱৰ্তী লিংক</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">লেবেল যোগ দিব নোৱাৰি</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">কথা কোৱাৰ হাৰ ছেট কৰি থকা হৈছে</string>
-  <string name="voice_commands_setting_verbosity">শব্দৰ বাহুল্য ছেট কৰি থকা হৈছে</string>
-  <string name="voice_commands_setting_granularity">গ্ৰেনুলাৰেটী ছেট কৰি থকা হৈছে</string>
-  <string name="voice_commands_setting_navigation">নেভিগেশ্বন ছেট কৰি থকা হৈছে</string>
   <string name="voice_commands_first">প্ৰথম</string>
   <string name="voice_commands_top">একেবাৰে ওপৰৰ</string>
   <string name="voice_commands_last">অন্তিম বস্তু</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">কোনো পৰৱৰ্তী লিংক নাই</string>
   <string name="voice_commands_no_next_control_feedback">কোনো পৰৱৰ্তী নিয়ন্ত্ৰণ নাই</string>
   <string name="voice_commands_no_next_landmark_feedback">কোনো পৰৱৰ্তী লেণ্ডমাৰ্ক নাই</string>
-  <string name="voice_commands_screen_hidden_feedback">স্ক্ৰীনখন লুকুওৱা হৈছে</string>
-  <string name="voice_commands_showing_screen_feedback">স্ক্ৰীনখন দেখুৱাই থকা হৈছে</string>
   <string name="voice_commands_help_title">কণ্ঠস্বৰৰ নিৰ্দেশৰ ৰূপৰেখা</string>
   <string name="voice_commands_help_description">কণ্ঠস্বৰৰ নিৰ্দেশ ব্যৱহাৰ কৰিবলৈ প্ৰথমে সোঁফালে তাৰ পাছত ওপৰলৈ ছোৱাইপ কৰক। আটাইবোৰ নিৰ্দেশৰ সূচীৰ বাবে যিকোনো সময়তে \"সহায়\" অথবা \"মই কি ক’ব পাৰোঁ?\" বুলি কওক।</string>
   <string name="voice_commands_help_hint">শ্ৰেষ্ঠ ফলাফলৰ বাবে তলৰ স্ক্ৰীনসমূহত সূচীবদ্ধ কৰি থোৱা শব্দবোৰ ঠিক যেনেকৈ আছে তেনেকৈ কওক।</string>

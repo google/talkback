@@ -20,21 +20,22 @@ import static com.google.android.accessibility.talkback.Feedback.HINT;
 import static com.google.android.accessibility.talkback.Feedback.InterruptGroup;
 import static com.google.android.accessibility.talkback.Feedback.InterruptLevel;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
-import static com.google.android.accessibility.utils.feedback.AccessibilityHintsManager.DELAY_HINT;
+import static com.google.android.accessibility.utils.feedbackpolicy.AbstractAccessibilityHintsManager.DELAY_HINT;
 
 import android.content.Context;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.talkback.TalkBackService.ProximitySensorListener;
 import com.google.android.accessibility.talkback.eventprocessor.AccessibilityEventProcessor.AccessibilityEventIdleListener;
 import com.google.android.accessibility.talkback.utils.DiagnosticOverlayControllerImpl;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
+import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Performance.EventIdAnd;
 import com.google.android.accessibility.utils.ProximitySensor;
@@ -42,6 +43,7 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
+import com.google.android.accessibility.utils.output.SpeechController.UtteranceCompleteRunnable;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -139,7 +141,7 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
    * class) for easier test mocking.
    */
   public interface FeedbackReturner {
-    /** Executes and recycles feedback, and returns success flag. */
+    /** Executes feedback, and returns success flag. */
     boolean returnFeedback(Feedback feedback);
 
     default boolean returnFeedback(EventId eventId, Feedback.Part.Builder part) {
@@ -204,12 +206,14 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
   // Member data
 
   private final Context context;
+  private final @NonNull Monitors monitors;
   private final Interpreters interpreters;
   private final Mappers mappers;
   private final Actors actors;
   private final SpeechObserver speechObserver;
   private final UserInterface userInterface;
   private final DiagnosticOverlayControllerImpl diagnosticOverlayController;
+  private final Compositor compositor;
 
   private CharSequence hintTTSOutput;
   private int hintFlags;
@@ -217,7 +221,7 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
   /** Asynchronous message-handler to delay executing feedback. */
   private final FeedbackDelayer feedbackDelayer;
 
-  /** Collection of delayed-feedback, to ensure cancelled delayed-feedback is recycled. */
+  /** Collection of delayed-feedback, to ensure cancelled delayed-feedback can be logged. */
   @VisibleForTesting
   final HashMap<Integer, List<Feedback.Part>> messageIdToDelayedFeedback = new HashMap<>();
 
@@ -226,22 +230,30 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
 
   public Pipeline(
       Context context,
+      @NonNull Monitors monitors,
       Interpreters interpreters,
       Mappers mappers,
       Actors actors,
       ProximitySensorListener proximitySensorListener,
       SpeechController speechController,
       DiagnosticOverlayControllerImpl diagnosticOverlayController,
+      Compositor compositor,
       UserInterface userInterface) {
     this.context = context;
+    this.monitors = monitors;
     this.interpreters = interpreters;
     this.mappers = mappers;
     this.actors = actors;
     this.diagnosticOverlayController = diagnosticOverlayController;
+    this.compositor = compositor;
     this.userInterface = userInterface;
+
+    monitors.setPipelineInterpretationReceiver(interpretationReceiver);
 
     interpreters.setPipelineInterpretationReceiver(interpretationReceiver);
     interpreters.setActorState(actors.getState());
+
+    mappers.setMonitors(monitors.state);
 
     actors.setPipelineEventReceiver(eventReceiver);
     actors.setPipelineFeedbackReturner(feedbackReturner);
@@ -252,10 +264,6 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
 
     feedbackDelayer = new FeedbackDelayer(this, actors);
     speechObserver = new SpeechObserver(proximitySensorListener, speechController);
-  }
-
-  public void recycle() {
-    actors.recycle();
   }
 
   //////////////////////////////////////////////////////////////////////////////////
@@ -302,17 +310,16 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
 
     userInterface.handleEvent(eventId, event, eventInterpretation);
 
-    // Map event-interpretation to feedback, and recycle interpretation.  Feedback must be recycled.
-    @Nullable
-    Feedback feedback = mappers.mapToFeedback(eventId, event, eventInterpretation, eventSourceNode);
+    // Map event-interpretation to feedback.
+    @Nullable Feedback feedback =
+        mappers.mapToFeedback(eventId, event, eventInterpretation, eventSourceNode);
     if (feedback == null) {
       return false;
     }
-    // Execute and recycle feedback.
     return execute(feedback);
   }
 
-  /** Execute feedback returned by feedback-mappers. Recycles feedback. Returns success flag. */
+  /** Execute feedback returned by feedback-mappers. Returns success flag. */
   boolean execute(Feedback feedback) {
 
     LogUtils.d(LOG, "execute() feedback=%s", feedback);
@@ -360,17 +367,12 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
         // Execute feedback immediately.
         success = actors.act(feedback.eventId(), part);
         LogUtils.v(LOG, "execute() success=%s for part=%s", success, part);
-        part.recycle();
       } else {
         // Start feedback delay.
         startDelay(feedback.eventId(), part);
       }
 
       if (success) {
-        // Recycle unused failover parts, and exit early.
-        for (int s = p + 1; s < parts.size(); ++s) {
-          parts.get(s).recycle();
-        }
         return true;
       }
     }
@@ -422,13 +424,6 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
   /** Cancels all delayed feedback, all groups, all levels. */
   private void cancelAllDelays() {
     feedbackDelayer.removeCallbacksAndMessages(/* token= */ null);
-
-    // Recycle delayed feedback.
-    for (List<Feedback.Part> feedbackParts : messageIdToDelayedFeedback.values()) {
-      for (Feedback.Part feedbackPart : feedbackParts) {
-        feedbackPart.recycle();
-      }
-    }
     messageIdToDelayedFeedback.clear();
   }
 
@@ -467,8 +462,13 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
     actors.onBoot(quiet);
   }
 
-  public void onUnbind(float finalAnnouncementVolume) {
+  public void onUnbind(
+      float finalAnnouncementVolume, UtteranceCompleteRunnable disableTalkBackCompleteAction) {
     cancelAllDelays();
+    compositor.handleEventWithCompletionHandler(
+        Compositor.EVENT_SPOKEN_FEEDBACK_DISABLED,
+        Performance.EVENT_ID_UNTRACKED,
+        disableTalkBackCompleteAction);
     actors.onUnbind(finalAnnouncementVolume);
   }
 
@@ -512,7 +512,7 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
   }
 
   ///////////////////////////////////////////////////////////////////////////////
-  // Methods to collect and recycle delayed feedback
+  // Methods to collect delayed feedback
 
   /** Remove all delayed feedback for messageId, and log interruption. */
   private void clearInterruptedDelayedFeedback(int messageId, String interrupterName) {
@@ -531,15 +531,10 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
             interrupterName,
             messageIdToGroupString(messageId));
       }
-      // Recycle delayed feedback.
-      feedbackPart.recycle();
     }
   }
 
   private void clearCompletedDelayedFeedback(int messageId, Feedback.Part feedbackPart) {
-    // Recycle delayed feedback.
-    feedbackPart.recycle();
-
     // Remove collected delayed feedback.
     @Nullable List<Feedback.Part> feedbackParts = messageIdToDelayedFeedback.get(messageId);
     if (feedbackParts == null) {

@@ -65,16 +65,16 @@ public class FocusActionInfo {
   @InitialFocusType public final int initialFocusType;
   public final boolean forceMuteFeedback;
 
-  public boolean isForcedFeedbackAudioPlaybackActive() {
+  public boolean forceFeedbackEvenIfAudioPlaybackActive() {
     return sourceAction != UNKNOWN;
   }
 
-  public boolean isForcedFeedbackMicrophoneActive() {
+  public boolean forceFeedbackEvenIfMicrophoneActive() {
     return sourceAction != UNKNOWN;
   }
 
   // TODO: have better name for voice recognition/dictation than ssb
-  public boolean isForcedFeedbackSsbActive() {
+  public boolean forceFeedbackEvenIfSsbActive() {
     return (sourceAction == TOUCH_EXPLORATION) || (sourceAction == LOGICAL_NAVIGATION);
   }
 
@@ -120,7 +120,7 @@ public class FocusActionInfo {
   public static class Builder {
     @SourceAction private int sourceAction = UNKNOWN;
     private boolean isFromRefocusAction = false;
-    @Nullable private NavigationAction navigationAction = null;
+    private @Nullable NavigationAction navigationAction = null;
     @InitialFocusType private int initialFocusType = UNDEFINED;
     private boolean forceMuteFeedback = false;
 
@@ -175,10 +175,11 @@ public class FocusActionInfo {
             "initialFocusType", initialFocusTypeToString(initialFocusType)),
         StringBuilderUtils.optionalTag("forceMuteFeedback", forceMuteFeedback),
         StringBuilderUtils.optionalTag(
-            "isForcedFeedbackAudioPlaybackActive", isForcedFeedbackAudioPlaybackActive()),
+            "forceFeedbackEvenIfAudioPlaybackActive", forceFeedbackEvenIfAudioPlaybackActive()),
         StringBuilderUtils.optionalTag(
-            "isForcedFeedbackMicrophoneActive", isForcedFeedbackMicrophoneActive()),
-        StringBuilderUtils.optionalTag("isForcedFeedbackSsbActive", isForcedFeedbackSsbActive()),
+            "forceFeedbackEvenIfMicrophoneActive", forceFeedbackEvenIfMicrophoneActive()),
+        StringBuilderUtils.optionalTag(
+            "forceFeedbackEvenIfSsbActive", forceFeedbackEvenIfSsbActive()),
         "}");
   }
 

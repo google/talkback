@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">ማጠቃለያ</string>
   <string name="voice_commands_read">ንባብ</string>
   <string name="voice_commands_read_from_next">ከቀጣዩ ያንብቡ</string>
   <string name="voice_commands_edit_options">የአርትዕ ማድረጊያ አማራጮች</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">አግኝ</string>
   <string name="voice_commands_search">ፍለጋ</string>
   <string name="voice_commands_search_for">ይህን ፈልግ</string>
-  <string name="voice_commands_find_again">የተገኘውን ድገም</string>
   <string name="voice_commands_next_heading">ቀጣይ ርዕስ</string>
   <string name="voice_commands_next_control">ቀጣይ ቁጥጥር</string>
   <string name="voice_commands_next_link">ቀጣይ አገናኝ</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">መሰየሚያን መስጠት አይቻልም</string>
   <string name="voice_commands_assistant">ረዳት</string>
   <string name="voice_commands_setting_speech_rate">የንግግር ፍጥነትን በማቀናበር ላይ</string>
-  <string name="voice_commands_setting_verbosity">የብዙ ቃላትን ቅንብርን ማቀናበር</string>
-  <string name="voice_commands_setting_granularity">አንኳርነትን ማቀናበር</string>
-  <string name="voice_commands_setting_navigation">ዳሰሳን ማቀናበር</string>
   <string name="voice_commands_first">መጀመሪያ</string>
   <string name="voice_commands_top">ከላይ</string>
   <string name="voice_commands_last">መጨረሻ</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">ምንም ቀጣይ አገናኝ የለም</string>
   <string name="voice_commands_no_next_control_feedback">ምንም ቀጣይ መቆጣጠሪያ የለም</string>
   <string name="voice_commands_no_next_landmark_feedback">ምንም ቀጣይ የመሬት ምልክት የለም</string>
-  <string name="voice_commands_screen_hidden_feedback">የተደበቀ ማያ ገጽ</string>
-  <string name="voice_commands_showing_screen_feedback">ማያ ገጽ በማሳየት ላይ</string>
   <string name="voice_commands_help_title">የየድምጽ ትዕዛዝ አጠቃላይ እይታ</string>
   <string name="voice_commands_help_description">የድምጽ ትዕዛዞችን ለመጠቀም፣ ወደ ቀኝ ከዚያ ወደ ላይ ያንሸራትቱ። ለዚህ የትዕዛዞች ዝርዝር «እገዛ» ወይም «ምን ማለት እችላለሁ» በማንኛውም ጊዜ ይበሉ።</string>
   <string name="voice_commands_help_hint">ለተሻሉ ውጤቶች በሚቀጥሉት ማያ ገጾች ላይ የተዘረዘሩትን ትክክለኛ ቃላት ይበሉ።</string>

@@ -95,22 +95,27 @@
     <!-- Shortcut preference of text editing -->
     <string-array name="shortcut_text_editing">
         <item>@string/title_edittext_breakout_start_selection_mode</item>
+        <item>@string/title_edittext_breakout_move_to_beginning</item>
+        <item>@string/title_edittext_breakout_move_to_end</item>
+        <item>@android:string/selectAll</item>
         <item>@android:string/copy</item>
         <item>@android:string/cut</item>
         <item>@android:string/paste</item>
-        <item>@string/shortcut_editing</item>
+        <item>@string/title_copy_last_spoken_phrase</item>
     </string-array>
 
     <!-- Shortcut preference value of text editing -->
     <string-array name="shortcut_value_text_editing">
         <item>@string/shortcut_value_start_selection_mode</item>
+        <item>@string/shortcut_value_move_cursor_to_beginning</item>
+        <item>@string/shortcut_value_move_cursor_to_end</item>
+        <item>@string/shortcut_value_select_all</item>
         <item>@string/shortcut_value_copy</item>
         <item>@string/shortcut_value_cut</item>
         <item>@string/shortcut_value_paste</item>
-        <item>@string/shortcut_value_editing</item>
+        <item>@string/shortcut_value_copy_last_spoken_phrase</item>
     </string-array>
 
-    <bool name="pref_show_context_menu_editing_default">false</bool>
     <bool name="pref_show_context_menu_labeling_default">false</bool>
     <bool name="pref_show_context_menu_read_from_top_default">true</bool>
     <bool name="pref_show_context_menu_read_from_current_default">false</bool>
@@ -120,6 +125,7 @@
     <bool name="pref_show_context_menu_tts_settings_default">false</bool>
     <bool name="pref_show_context_menu_voice_commands_default">false</bool>
     <bool name="pref_show_context_menu_pause_feedback_default">false</bool>
+    <bool name="pref_show_context_menu_image_caption_default">false</bool>
     <bool name="pref_show_navigation_menu_controls_default">false</bool>
     <bool name="pref_show_navigation_menu_links_default">false</bool>
     <bool name="pref_show_navigation_menu_landmarks_default">false</bool>
@@ -127,6 +133,7 @@
     <bool name="pref_show_navigation_menu_other_web_navigation_default">false</bool>
     <bool name="pref_show_navigation_menu_window_default">false</bool>
 
+    <bool name="pref_selector_actions_default">false</bool>
     <bool name="pref_selector_granularity_lines_default">false</bool>
     <bool name="pref_selector_granularity_paragraphs_default">false</bool>
     <bool name="pref_selector_granularity_controls_default">false</bool>

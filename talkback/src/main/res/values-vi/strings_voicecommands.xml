@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">tóm tắt</string>
   <string name="voice_commands_read">đọc</string>
   <string name="voice_commands_read_from_next">Đọc từ mục tiếp theo</string>
   <string name="voice_commands_edit_options">Chỉnh sửa tùy chọn</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Tìm</string>
   <string name="voice_commands_search">Tìm kiếm</string>
   <string name="voice_commands_search_for">Tìm kiếm</string>
-  <string name="voice_commands_find_again">Tìm tiếp</string>
   <string name="voice_commands_next_heading">Tiêu đề tiếp theo</string>
   <string name="voice_commands_next_control">Tùy chọn điều khiển tiếp theo</string>
   <string name="voice_commands_next_link">Đường liên kết tiếp theo</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Không gắn nhãn được</string>
   <string name="voice_commands_assistant">Trợ lý</string>
   <string name="voice_commands_setting_speech_rate">Đặt tốc độ lời nói</string>
-  <string name="voice_commands_setting_verbosity">Đặt mức độ chi tiết</string>
-  <string name="voice_commands_setting_granularity">Đặt độ chi tiết</string>
-  <string name="voice_commands_setting_navigation">Đặt cách di chuyển</string>
   <string name="voice_commands_first">Đầu tiên</string>
   <string name="voice_commands_top">Trên cùng</string>
   <string name="voice_commands_last">Cuối cùng</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Không có đường liên kết tiếp theo</string>
   <string name="voice_commands_no_next_control_feedback">Không có tùy chọn điều khiển tiếp theo</string>
   <string name="voice_commands_no_next_landmark_feedback">Không có mốc tiếp theo</string>
-  <string name="voice_commands_screen_hidden_feedback">Đã làm mờ màn hình</string>
-  <string name="voice_commands_showing_screen_feedback">Hiển thị màn hình</string>
   <string name="voice_commands_help_title">Tổng quan về lệnh thoại</string>
   <string name="voice_commands_help_description">Để dùng các lệnh thoại, hãy vuốt sang phải rồi vuốt lên. Hãy nói \"Trợ giúp\" hoặc \"Tôi có thể nói gì?\" bất cứ lúc nào để xem danh sách các lệnh này.</string>
   <string name="voice_commands_help_hint">Để có kết quả tốt nhất, hãy nói chính xác từ được liệt kê trên các màn hình sau.</string>

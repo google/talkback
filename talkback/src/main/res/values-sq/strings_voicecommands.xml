@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">përmbledhje</string>
   <string name="voice_commands_read">lexo</string>
   <string name="voice_commands_read_from_next">Lexo nga artikulli tjetër</string>
   <string name="voice_commands_edit_options">Opsionet e redaktimit</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Gjej</string>
   <string name="voice_commands_search">Kërko</string>
   <string name="voice_commands_search_for">Kërko për</string>
-  <string name="voice_commands_find_again">Gjej përsëri</string>
   <string name="voice_commands_next_heading">Titulli tjetër</string>
   <string name="voice_commands_next_control">Kontrolli tjetër</string>
   <string name="voice_commands_next_link">Lidhja tjetër</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Nuk mund të etiketohet</string>
   <string name="voice_commands_assistant">Asistenti</string>
   <string name="voice_commands_setting_speech_rate">Caktimi i shpejtësisë së të folurit</string>
-  <string name="voice_commands_setting_verbosity">Caktimi i detajimit</string>
-  <string name="voice_commands_setting_granularity">Caktimi i nivelit të detajeve</string>
-  <string name="voice_commands_setting_navigation">Caktimi i navigimit</string>
   <string name="voice_commands_first">I pari</string>
   <string name="voice_commands_top">Në krye</string>
   <string name="voice_commands_last">I fundit</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Nuk ka asnjë lidhje tjetër</string>
   <string name="voice_commands_no_next_control_feedback">Nuk ka asnjë kontroll tjetër</string>
   <string name="voice_commands_no_next_landmark_feedback">Nuk ka asnjë pikë tjetër referimi</string>
-  <string name="voice_commands_screen_hidden_feedback">Ekrani u fsheh</string>
-  <string name="voice_commands_showing_screen_feedback">Ekrani po shfaqet</string>
   <string name="voice_commands_help_title">Përmbledhja e komandave zanore</string>
   <string name="voice_commands_help_description">Për të përdorur komandat zanore, rrëshqit shpejt djathtas dhe më pas lart. Thuaj \"Ndihmë\" ose \"Çfarë mund të them?\" në çdo kohë për këtë listë komandash.</string>
   <string name="voice_commands_help_hint">Për rezultatet më të mira, thuaj me saktësi fjalët e listuara në ekranet vijuese.</string>

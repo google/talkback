@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">සාරාංශය</string>
   <string name="voice_commands_read">කියවූ</string>
   <string name="voice_commands_read_from_next">ඊළඟ සිට කියවන්න</string>
   <string name="voice_commands_edit_options">සංස්කරණ විකල්ප</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">සොයන්න</string>
   <string name="voice_commands_search">සොයන්න</string>
   <string name="voice_commands_search_for">මේ සඳහා සොයන්න</string>
-  <string name="voice_commands_find_again">සොයා ගැනීම නැවත කරන්න</string>
   <string name="voice_commands_next_heading">ඊළඟ ශීර්ෂය</string>
   <string name="voice_commands_next_control">ඊළඟ පාලනය</string>
   <string name="voice_commands_next_link">ඊළඟ සබැඳිය</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">ලේබල් කිරීමට නොහැකිය</string>
   <string name="voice_commands_assistant">සහායක</string>
   <string name="voice_commands_setting_speech_rate">කථන ශීඝ්‍රතාව සැකසීම</string>
-  <string name="voice_commands_setting_verbosity">වචන බහුලකම සැකසීම</string>
-  <string name="voice_commands_setting_granularity">කැටිති බව සැකසීම</string>
-  <string name="voice_commands_setting_navigation">සංචාලනය සැකසීම</string>
   <string name="voice_commands_first">පළමු</string>
   <string name="voice_commands_top">ඉහළට යන්න</string>
   <string name="voice_commands_last">අවසාන</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">ඊළඟ සබැඳිය නැත</string>
   <string name="voice_commands_no_next_control_feedback">ඊලඟ පාලනය නැත</string>
   <string name="voice_commands_no_next_landmark_feedback">ඊළඟ බිම් සලකුණ නැත</string>
-  <string name="voice_commands_screen_hidden_feedback">තිරය සඟවා ඇත</string>
-  <string name="voice_commands_showing_screen_feedback">තිරය පෙන්වමින්</string>
   <string name="voice_commands_help_title">කටහඬ විධාන දළ විශ්ලේෂණය</string>
   <string name="voice_commands_help_description">කටහඬ විධාන භාවිත කිරීමට, දකුණට අනතුරුව ඉහළට ස්වයිප් කරන්න. ඕනෑම අවස්ථාවක මෙම විධාන ලැයිස්තුව සඳහා \"Help\" හෝ \"What can I say?\" කියන්න.</string>
   <string name="voice_commands_help_hint">හොඳම ප්‍රතිඵල සඳහා, පහත දැක්වෙන තිරවල ලැයිස්තුගත කර ඇති නිශ්චිත වචන කියන්න</string>

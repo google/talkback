@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Број</string>
+  <string name="capitalize_announcement">Големи букви</string>
+  <string name="read_out_deleted">Текстот „%s“ е избришан</string>
+  <plurals name="braille_dots">
+    <item quantity="one">точки %s</item>
+    <item quantity="other">точки %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Нескратено унифицирано брајово англиско писмо</string>
+  <string name="code_user_facing_name_ueb2">Скратено унифицирано брајово англиско писмо</string>
+  <string name="code_user_facing_name_es">шпански</string>
+  <string name="code_user_facing_name_ar">арапски</string>
+  <string name="code_user_facing_name_fr">француски</string>
+  <string name="code_user_facing_name_pl">полски</string>
+  <string name="screen_away">Режим на екран свртен обратно</string>
+  <string name="screen_away_detail">Држете го уредот со екранот свртен обратно од вас (режим на екран свртен обратно)</string>
+  <string name="tabletop">Режим за на маса</string>
+  <string name="tabletop_detail">Ставете го уредот рамно на масата (режим за на маса)</string>
+  <string name="auto_detect">Приспособи според начинот на кој го држам уредот</string>
+</resources>

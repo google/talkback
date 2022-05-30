@@ -21,15 +21,14 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 
 import android.content.Context;
 import android.content.DialogInterface;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
 import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.talkback.utils.MaterialComponentUtils;
+import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
 import com.google.android.accessibility.utils.widget.DialogUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
@@ -44,8 +43,8 @@ public abstract class BaseDialog {
 
   protected final Context context;
   private final int dialogTitleResId;
-  private @Nullable AlertDialog dialog;
-  private @Nullable FeedbackReturner pipeline;
+  @Nullable private A11yAlertDialogWrapper dialog;
+  @Nullable private FeedbackReturner pipeline;
   private boolean isSoftInputMode = false;
   private boolean needToRestoreFocus = false;
   private int positiveButtonStringRes;
@@ -70,7 +69,15 @@ public abstract class BaseDialog {
   /** Handles dialog dismissed event. */
   public abstract void handleDialogDismiss();
 
-  /** Gets the message string for dialog to display. */
+  /**
+   * Gets the message string for dialog to display.
+   *
+   * <p>The message which is shown in the customized message area should be set by {@link
+   * BaseDialog#getCustomizedView()}.
+   *
+   * @return the dialog message which is shown in the default message area. Return null, if the
+   *     message is shown in the customized message area.
+   */
   public abstract String getMessageString();
 
   /** Gets the customized view for dialog to display. */
@@ -142,7 +149,7 @@ public abstract class BaseDialog {
    * button by {@link #setNeutralButtonStringRes(int)} to show neutral button for specifical
    * function before call this function.
    */
-  public AlertDialog showDialog() {
+  public A11yAlertDialogWrapper showDialog() {
     // Only show one dialog at a time.
     if (dialog != null && dialog.isShowing()) {
       return dialog;
@@ -152,8 +159,8 @@ public abstract class BaseDialog {
         (dialog, buttonClicked) -> clickDialogInternal(buttonClicked);
     final DialogInterface.OnDismissListener onDismissListener = dialog -> dismissDialogInternal();
 
-    AlertDialog.Builder dialogBuilder =
-        MaterialComponentUtils.alertDialogBuilder(context)
+    A11yAlertDialogWrapper.Builder dialogBuilder =
+        A11yAlertDialogWrapper.materialDialogBuilder(context)
             .setTitle(dialogTitleResId)
             .setNegativeButton(negativeButtonStringRes, onClickListener)
             .setPositiveButton(positiveButtonStringRes, onClickListener)

@@ -22,8 +22,7 @@ import static com.google.android.accessibility.talkback.preference.GestureListPr
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcelable;
-import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
+import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +32,9 @@ import android.widget.BaseAdapter;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.view.ViewCompat;
 import androidx.preference.PreferenceDialogFragmentCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.preference.GestureListPreference.ActionItem;
@@ -203,6 +204,22 @@ public class GesturePreferenceFragmentCompat extends PreferenceDialogFragmentCom
           textView.setText(item.text);
           return view;
       }
+    }
+  }
+
+  @Override
+  protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
+    super.onPrepareDialogBuilder(builder);
+
+    if (FeatureSupport.isWatch(getContext())) {
+      // Sets custom title.
+      View titlePanel =
+          getActivity()
+              .getLayoutInflater()
+              .inflate(R.layout.list_preference_dialog_title, /* root= */ null);
+      TextView title = titlePanel.findViewById(R.id.dialog_title_text);
+      title.setText(getPreference().getTitle());
+      builder.setCustomTitle(titlePanel);
     }
   }
 }

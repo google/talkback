@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.training.PageConfig.PageId;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 import com.google.android.accessibility.talkback.training.content.ClickableContent;
 import com.google.android.accessibility.talkback.training.content.ClickableContent.LinkHandler;
 import com.google.android.accessibility.talkback.training.content.PageContentConfig;
@@ -48,6 +49,7 @@ public class TrainingFragment extends Fragment {
   @Nullable private PageConfig page;
   private LinearLayout pageLayout;
   private LinkHandler linkHandler;
+  private ServiceData data;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
@@ -78,6 +80,10 @@ public class TrainingFragment extends Fragment {
     this.linkHandler = linkHandler;
   }
 
+  public void setData(ServiceData data) {
+    this.data = data;
+  }
+
   /** Creates and adds all contents to the fragment. */
   private void addView(LayoutInflater inflater, ViewGroup container) {
     if (page == null) {
@@ -85,24 +91,25 @@ public class TrainingFragment extends Fragment {
     }
 
     // Sets title.
-    addView(new Title(page.getPageName()).createView(inflater, container, getContext()));
+    addView(new Title(page.getPageName()).createView(inflater, container, getContext(), data));
 
     // Sets page number.
     int pageNumber = getArguments().getInt(EXTRA_PAGE_NUMBER);
     int totalNumber = getArguments().getInt(EXTRA_TOTAL_NUMBER);
     if (pageNumber > 0 && totalNumber > 0) {
       addView(
-          new PageNumber(pageNumber, totalNumber).createView(inflater, container, getContext()));
+          new PageNumber(pageNumber, totalNumber)
+              .createView(inflater, container, getContext(), data));
     }
 
     List<PageContentConfig> contents = page.getContents();
     for (PageContentConfig content : contents) {
-      if (content.isNeedToShow(getContext())) {
+      if (content.isNeedToShow(data)) {
         // For the navigation contents, like Link and button.
         if (content instanceof ClickableContent) {
           ((ClickableContent) content).setLinkHandler(linkHandler);
         }
-        addView(content.createView(inflater, container, getContext()));
+        addView(content.createView(inflater, container, getContext(), data));
       }
     }
   }

@@ -3,6 +3,8 @@
 ### The following environment variables must be set before executing this script
 ###   ANDROID_SDK           # path to local copy of Android SDK
 ###   ANDROID_NDK           # path to local copy of Android NDK
+###   JAVA_HOME             # path to local copy of Java SDK. Should be Java 8.
+# On gLinux, use 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64'
 
 
 GRADLE_DOWNLOAD_VERSION=5.4.1
@@ -39,11 +41,6 @@ log "ls \${ANDROID_NDK}:"; ls "${ANDROID_NDK}"
 log
 
 
-log "java -version:"; java -version
-log "javac -version:"; javac -version
-log
-
-
 log "Write local.properties file"
 echo "sdk.dir=${ANDROID_SDK}" > local.properties
 echo "ndk.dir=${ANDROID_NDK}" >> local.properties
@@ -51,8 +48,32 @@ log "cat local.properties"; cat local.properties
 log
 
 
+if [[ -z "${JAVA_HOME}" ]]; then
+  fail_with_message "JAVA_HOME environment variable is unset. It should be set to a Java 8 SDK (in order for the license acceptance to work)"
+fi
+log "\${JAVA_HOME}: ${JAVA_HOME}"
+log "ls \${JAVA_HOME}:"; ls "${JAVA_HOME}"
+log "java -version:"; java -version
+log "javac -version:"; javac -version
+log
+
+
 log "Accept SDK licenses"
-yes | "${ANDROID_SDK}"/tools/bin/sdkmanager --licenses
+log "${ANDROID_SDK}"/tools/bin/sdkmanager --licenses; yes | "${ANDROID_SDK}"/tools/bin/sdkmanager --licenses
+ACCEPT_SDK_LICENSES_EXIT_CODE=$?
+log
+if [[ $ACCEPT_SDK_LICENSES_EXIT_CODE -ne 0 ]]; then
+  fail_with_message "Build Error: SDK license acceptance failed. This can happen if your JAVA_HOME is not set to Java 8"
+fi
+
+
+# Having compileSdkVersion=31 leads to javac error "unrecognized Attribute name MODULE (class com.sun.tools.javac.util.UnsharedNameTable$NameImpl)"; switching to Java 11 fixes this problem.
+sudo update-java-alternatives --set java-1.11.0-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
+log "\${JAVA_HOME}: ${JAVA_HOME}"
+log "ls \${JAVA_HOME}:"; ls "${JAVA_HOME}"
+log "java -version:"; java -version
+log "javac -version:"; javac -version
 log
 
 

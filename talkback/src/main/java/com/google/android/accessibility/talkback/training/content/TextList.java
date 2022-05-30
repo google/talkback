@@ -26,19 +26,21 @@ import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.ArrayRes;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 
 /** A list view. */
 public class TextList extends PageContentConfig {
 
   /** A string array of list texts. */
-  private final @ArrayRes int textsResId;
+  @ArrayRes private final int textsResId;
 
   public TextList(@ArrayRes int textsResId) {
     this.textsResId = textsResId;
   }
 
   @Override
-  public View createView(LayoutInflater inflater, ViewGroup container, Context context) {
+  public View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_text_list, container, false);
     final ListView listView = view.findViewById(R.id.training_text_list);
     final String[] texts = context.getResources().getStringArray(textsResId);
@@ -73,14 +75,21 @@ public class TextList extends PageContentConfig {
           }
         });
     LayoutParams layoutParams = listView.getLayoutParams();
-    layoutParams.height =
-        texts.length
-            * (int)
-                (context.getResources().getDimension(R.dimen.training_list_item_height)
-                    + context.getResources().getDimension(R.dimen.training_list_item_margin_top)
-                    + context
-                        .getResources()
-                        .getDimension(R.dimen.training_list_item_margin_bottom));
+    if (texts.length > 0) {
+      layoutParams.height =
+          texts.length
+                  * (int)
+                      (context.getResources().getDimension(R.dimen.training_list_item_height)
+                          + context
+                              .getResources()
+                              .getDimension(R.dimen.training_list_item_margin_top)
+                          + context
+                              .getResources()
+                              .getDimension(R.dimen.training_list_item_margin_bottom))
+              + (texts.length - 1) * listView.getDividerHeight();
+    } else {
+      layoutParams.height = 0;
+    }
     listView.setLayoutParams(layoutParams);
     return view;
   }

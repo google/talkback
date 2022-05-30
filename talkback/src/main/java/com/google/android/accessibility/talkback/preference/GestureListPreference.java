@@ -22,10 +22,10 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import androidx.preference.DialogPreference;
 import androidx.preference.PreferenceDialogFragmentCompat;
 import com.google.android.accessibility.talkback.R;
@@ -115,6 +115,10 @@ public final class GestureListPreference extends DialogPreference {
     if (TextUtils.equals(
         targetValue, getContext().getString(R.string.shortcut_value_local_breakout))) {
       return getContext().getString(R.string.shortcut_value_talkback_breakout);
+    }
+    // returns "SHOW_CUSTOM_ACTIONS" if targetText is "EDITING"
+    if (TextUtils.equals(targetValue, getContext().getString(R.string.shortcut_value_editing))) {
+      return getContext().getString(R.string.shortcut_value_show_custom_actions);
     }
 
     return targetValue;

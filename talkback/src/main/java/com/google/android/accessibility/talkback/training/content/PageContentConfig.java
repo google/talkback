@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.training.PageConfig.PageContentPredicate;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 
 // TODO Creates Contents and set text/condition by builder.
 /** Pages are composed of contents. */
@@ -36,10 +37,11 @@ public abstract class PageContentConfig {
   }
 
   /** Returns true if the condition is right or no condition. */
-  public boolean isNeedToShow(Context context) {
-    return predicate == null || predicate.test(context);
+  public boolean isNeedToShow(ServiceData data) {
+    return predicate == null || predicate.test(data);
   }
 
   /** Creates a view for this component. */
-  public abstract View createView(LayoutInflater inflater, ViewGroup container, Context context);
+  public abstract View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data);
 }

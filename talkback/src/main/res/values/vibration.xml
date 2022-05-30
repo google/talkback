@@ -12,4 +12,14 @@
         <item>70</item>
         <item>10</item>
     </integer-array>
+
+    <!-- Vibration pattern for haptic feedback when a typo appears. -->
+    <integer-array name="typo_pattern">
+        <item>0</item>
+        <item>10</item>
+        <item>30</item>
+        <item>30</item>
+        <item>10</item>
+        <item>60</item>
+    </integer-array>
 </resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">Say</string>
+  <string name="capitalize_announcement">Böyük hərf</string>
+  <string name="read_out_deleted">%s silindi</string>
+  <plurals name="braille_dots">
+    <item quantity="one">nöqtə %s</item>
+    <item quantity="other">nöqtə %s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">Qısaldılmamış Vahid İngiliscə Brayl</string>
+  <string name="code_user_facing_name_ueb2">Qısaldılmış Vahid İngiliscə Brayl</string>
+  <string name="code_user_facing_name_es">İspan</string>
+  <string name="code_user_facing_name_ar">Ərəb</string>
+  <string name="code_user_facing_name_fr">Fransız</string>
+  <string name="code_user_facing_name_pl">Polyak dili</string>
+  <string name="screen_away">\"Ekran tərsinə\" rejimi</string>
+  <string name="screen_away_detail">Cihazı ekranın üzü sizə tərsinə olacaq şəkildə tutun (\"ekran tərsinə\" rejimi)</string>
+  <string name="tabletop">Masaüstü rejimi</string>
+  <string name="tabletop_detail">Cihazı masanın üstünə arxası üstə yerləşdirin (masaüstü rejimi)</string>
+  <string name="auto_detect">Cihazı tutduğunuz vəziyyətə uyğunlaşdırın</string>
+</resources>

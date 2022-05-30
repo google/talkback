@@ -32,7 +32,7 @@ class LongPressHandler extends Handler implements View.OnTouchListener {
   private final int touchSlopSquared;
 
   private LongPressListener listener;
-  @Nullable private MotionEvent previousEvent;
+  private @Nullable MotionEvent previousEvent;
 
   private float moved;
 
@@ -91,12 +91,7 @@ class LongPressHandler extends Handler implements View.OnTouchListener {
       case MotionEvent.ACTION_CANCEL:
       case MotionEvent.ACTION_HOVER_EXIT:
         removeMessages(MSG_LONG_PRESS);
-
-        if (previousEvent != null) {
-          previousEvent.recycle();
-          previousEvent = null;
-        }
-
+        previousEvent = null;
         break;
     }
 

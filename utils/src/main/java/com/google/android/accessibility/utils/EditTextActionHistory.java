@@ -20,6 +20,35 @@ import android.os.SystemClock;
 
 /** Maintains a history of when EditText actions occurred. */
 public class EditTextActionHistory {
+
+  /** Read-only interface, for use by event-interpreters. */
+  public interface Provider {
+    public boolean hasPasteActionAtTime(long eventTime);
+
+    public boolean hasCutActionAtTime(long eventTime);
+
+    public boolean hasSelectAllActionAtTime(long eventTime);
+  }
+
+  /** Instance of read-only interface. */
+  public final Provider provider =
+      new Provider() {
+        @Override
+        public boolean hasPasteActionAtTime(long eventTime) {
+          return EditTextActionHistory.this.hasPasteActionAtTime(eventTime);
+        }
+
+        @Override
+        public boolean hasCutActionAtTime(long eventTime) {
+          return EditTextActionHistory.this.hasCutActionAtTime(eventTime);
+        }
+
+        @Override
+        public boolean hasSelectAllActionAtTime(long eventTime) {
+          return EditTextActionHistory.this.hasSelectAllActionAtTime(eventTime);
+        }
+      };
+
   /** Map of action identifiers to start times. */
   private long mCutStartTime = -1;
 

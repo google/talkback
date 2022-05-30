@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">%1$d-ից մինչև %2$d նիշեր</string>
+  <string name="template_password_traversed">%1$d նիշ</string>
   <string name="untitled_window">անվերնագիր</string>
-  <string name="template_alert_dialog_template">Նախազգուշացում %1$s</string>
   <string name="template_text_copied">պատճենվել է, %1$s</string>
   <string name="template_capital_letter">մեծատառ %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s</string>
@@ -22,7 +23,6 @@
   <string name="granularity_word">Բառեր</string>
   <string name="granularity_line">Տողեր</string>
   <string name="granularity_paragraph">Պարբերություններ</string>
-  <string name="granularity_page">Էջեր</string>
   <string name="granularity_window">Պատուհաններ</string>
   <string name="granularity_web_landmark">Ուղենիշներ</string>
   <string name="granularity_web_heading">Վերնագրեր</string>

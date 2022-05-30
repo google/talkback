@@ -37,7 +37,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 // TODO: Changes to NodeMenuRule.
 public class LanguageMenuProcessor {
 
-  private static List<ContextMenuItem> getMenuItems(
+  private static @Nullable List<ContextMenuItem> getMenuItems(
       Context context, Pipeline.FeedbackReturner pipeline, ActorState actorState) {
 
     @Nullable

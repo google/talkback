@@ -60,10 +60,6 @@
   <string name="value_pager_page">Lapa</string>
   <string name="value_progress_bar">Norises josla</string>
   <string name="value_webview">Tīmekļa skats</string>
-  <string name="value_toolbar">Rīkjosla</string>
-  <string name="template_summary_description">%1$s: %2$s</string>
-  <string name="template_password_selected">Rakstzīmes no %1$d līdz %2$d</string>
-  <string name="template_password_traversed">Rakstzīme %1$d</string>
   <string name="value_password">parole</string>
   <string name="value_sliding_drawer_opened">Bīdāmā atvilktne ir atvērta</string>
   <string name="value_options_menu_open">Opcijas.</string>
@@ -141,7 +137,6 @@
   <string name="out_of_vertical_pager">Ārpus vertikālā lapas apgabala</string>
   <string name="in_horizontal_pager_with_name">Horizontālā lapas apgabalā: %1$s</string>
   <string name="in_horizontal_pager">Horizontālā lapas apgabalā</string>
-  <string name="out_of_horizontal_pager_with_name">Ārpus horizontālā lapas apgabala: %1$s</string>
   <string name="out_of_horizontal_pager">Ārpus horizontālā lapas apgabala</string>
   <string name="in_grid_pager_with_name">Lapas režģa apgabalā: %1$s</string>
   <string name="in_grid_pager">Lapas režģa apgabalā</string>
@@ -172,22 +167,15 @@
   <string name="template_screen_magnification_scale_changed">Palielinājums: %1$d%%</string>
   <string name="screen_magnification_off">Palielinājums ir izslēgts</string>
   <string name="template_speech_rate_change">Runas ātrums: %1$d%%</string>
-  <string name="template_speech_rate_change_faster">Ātrāk</string>
-  <string name="template_speech_rate_change_slower">Lēnāk</string>
-  <string name="template_speech_rate_change_fastest">Visātrāk</string>
-  <string name="template_speech_rate_change_slowest">Vislēnāk</string>
   <string name="template_volume_change_increase">Palielināt</string>
   <string name="template_volume_change_decrease">Samazināt</string>
   <string name="template_volume_change_maximum">Maksimālā vērtība</string>
   <string name="template_volume_change_minimum">Minimālā vērtība</string>
   <string name="template_seekbar_range">%1$d%%</string>
-  <string name="audio_focus_on">Audio klusināšana ieslēgta</string>
-  <string name="audio_focus_off">Audio klusināšana izslēgta</string>
-  <string name="selector_speech_rate_output">Runas ātrums</string>
-  <string name="selector_verbosity_output">Detalizētība</string>
-  <string name="selector_granularity_output">Navigācija</string>
-  <string name="selector_audio_focus_output">Audio klusināšana</string>
   <string name="summaryOff_pref_speak_passwords_without_headphones">Paroles tiek izrunātas, tikai izmantojot austiņas.</string>
   <string name="template_hint_menu_type_high_verbosity">%1$s: darbība pieejama; izmantojiet žestu “%2$s”, lai skatītu.</string>
-  <string name="template_hint_menu_type_low_verbosity">%1$s: darbība pieejama.</string>
+  <string name="hint_suggestion">Ir pieejami pareizrakstības ieteikumi.</string>
+  <string name="in_window_with_name">Logs “%1$s”</string>
+  <string name="detected_icon_description">%1$s, noteiktā ikona</string>
+  <string name="ocr_text_description">%1$s, teksts</string>
 </resources>

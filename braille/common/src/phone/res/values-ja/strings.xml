@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="number_announcement">番号</string>
+  <string name="capitalize_announcement">大文字</string>
+  <string name="read_out_deleted">%sを削除しました</string>
+  <plurals name="braille_dots">
+    <item quantity="one">ドット%s</item>
+    <item quantity="other">ドット%s</item>
+  </plurals>
+  <string name="code_user_facing_name_ueb1">統一英語点字（非縮約形）</string>
+  <string name="code_user_facing_name_ueb2">統一英語点字（縮約形）</string>
+  <string name="code_user_facing_name_es">スペイン語</string>
+  <string name="code_user_facing_name_ar">アラビア語</string>
+  <string name="code_user_facing_name_fr">フランス語</string>
+  <string name="code_user_facing_name_pl">ポーランド語</string>
+  <string name="screen_away">画面裏返しモード</string>
+  <string name="screen_away_detail">デバイスの画面を自分とは反対側に向けた状態にします（画面裏返しモード）</string>
+  <string name="tabletop">テーブルトップ モード</string>
+  <string name="tabletop_detail">テーブルの上にデバイスを平らに置きます（テーブルトップ モード）</string>
+  <string name="auto_detect">デバイスの持ち方に合わせる</string>
+</resources>

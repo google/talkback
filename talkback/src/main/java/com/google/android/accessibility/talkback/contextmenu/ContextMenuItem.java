@@ -38,7 +38,7 @@ public class ContextMenuItem implements MenuItem {
   private ListSubMenu subMenu;
   private char alphaShortcut;
   private char numericShortcut;
-  @Nullable private Drawable icon;
+  private @Nullable Drawable icon;
   private final int order;
   private Intent intent;
   private boolean enabled = true;

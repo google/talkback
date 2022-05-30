@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">ringkasan</string>
   <string name="voice_commands_read">baca</string>
   <string name="voice_commands_read_from_next">Baca daripada seterusnya</string>
   <string name="voice_commands_edit_options">Edit pilihan</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Cari</string>
   <string name="voice_commands_search">Cari</string>
   <string name="voice_commands_search_for">Cari</string>
-  <string name="voice_commands_find_again">Ulangi carian</string>
   <string name="voice_commands_next_heading">Tajuk seterusnya</string>
   <string name="voice_commands_next_control">Kawalan seterusnya</string>
   <string name="voice_commands_next_link">Pautan seterusnya</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Tidak boleh memberikan label</string>
   <string name="voice_commands_assistant">Assistant</string>
   <string name="voice_commands_setting_speech_rate">Menetapkan kadar pertuturan</string>
-  <string name="voice_commands_setting_verbosity">Menetapkan jela</string>
-  <string name="voice_commands_setting_granularity">Menetapkan granulariti</string>
-  <string name="voice_commands_setting_navigation">Menetapkan navigasi</string>
   <string name="voice_commands_first">Pertama</string>
   <string name="voice_commands_top">Atas</string>
   <string name="voice_commands_last">Terakhir</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Tiada pautan seterusnya</string>
   <string name="voice_commands_no_next_control_feedback">Tiada kawalan seterusnya</string>
   <string name="voice_commands_no_next_landmark_feedback">Tiada tanda tempat seterusnya</string>
-  <string name="voice_commands_screen_hidden_feedback">Skrin disembunyikan</string>
-  <string name="voice_commands_showing_screen_feedback">Menunjukkan Skrin</string>
   <string name="voice_commands_help_title">Ikhtisar perintah suara</string>
   <string name="voice_commands_help_description">Untuk menggunakan perintah suara, leret ke kanan kemudian ke atas. Sebut \"Bantuan\" atau \"Apakah yang boleh saya katakan?\" pada bila-bila masa untuk senarai perintah ini.</string>
   <string name="voice_commands_help_hint">Untuk mendapatkan hasil terbaik, sebut ayat yang sama yang tersenarai pada skrin berikut.</string>

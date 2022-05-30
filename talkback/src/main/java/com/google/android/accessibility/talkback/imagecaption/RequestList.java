@@ -34,8 +34,6 @@ public class RequestList<T extends Request> {
   public interface Request {
     /** Starts the action. */
     void perform();
-    /** Clears and recycles data when the request is finished. */
-    void recycle();
   }
 
   private static final String TAG = "RequestListForCaption";
@@ -66,8 +64,8 @@ public class RequestList<T extends Request> {
   }
 
   /**
-   * Recycles the finished request and performs the next request. If there are too many requests
-   * waiting to be executed in the list, discards the older requests.
+   * Performs the next request. If there are too many requests waiting to be executed in the list,
+   * discards the older requests.
    */
   public void performNextRequest() {
     if (requests.isEmpty()) {
@@ -75,11 +73,9 @@ public class RequestList<T extends Request> {
     }
 
     T finishedRequest = requests.removeFirst();
-    finishedRequest.recycle();
 
     while (requests.size() > capacity) {
       T request = requests.removeFirst();
-      request.recycle();
     }
 
     if (!requests.isEmpty()) {
@@ -95,7 +91,6 @@ public class RequestList<T extends Request> {
   public void clear() {
     while (!requests.isEmpty()) {
       T request = requests.removeFirst();
-      request.recycle();
     }
   }
 

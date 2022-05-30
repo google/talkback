@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.StringRes;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
 
 /** A title shows at the beginning in general. */
 public class Title extends PageContentConfig {
@@ -34,7 +35,8 @@ public class Title extends PageContentConfig {
   }
 
   @Override
-  public View createView(LayoutInflater inflater, ViewGroup container, Context context) {
+  public View createView(
+      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_title, container, false);
     final TextView title = view.findViewById(R.id.training_title);
     title.setText(titleResId);

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="voice_commands_summary">isifinyezo</string>
   <string name="voice_commands_read">funda</string>
   <string name="voice_commands_read_from_next">Funda kokulandelayo</string>
   <string name="voice_commands_edit_options">Hlela izinketho</string>
@@ -31,7 +30,6 @@
   <string name="voice_commands_find">Thola</string>
   <string name="voice_commands_search">Sesha</string>
   <string name="voice_commands_search_for">Sesha i-</string>
-  <string name="voice_commands_find_again">Phinda ukuthola</string>
   <string name="voice_commands_next_heading">Isihloko esilandelayo</string>
   <string name="voice_commands_next_control">Isilawuli esilandelayo</string>
   <string name="voice_commands_next_link">Isixhumanisi esilandelayo</string>
@@ -49,9 +47,6 @@
   <string name="voice_commands_cannot_label_feedback">Ayikwazi ukulebula</string>
   <string name="voice_commands_assistant">Umsizi</string>
   <string name="voice_commands_setting_speech_rate">Ilungiselela isilinganiso senkulumo</string>
-  <string name="voice_commands_setting_verbosity">Ilungiselela i-verbosity</string>
-  <string name="voice_commands_setting_granularity">Ilungiselela i-granularity</string>
-  <string name="voice_commands_setting_navigation">Ilungiselela ukuzulazula</string>
   <string name="voice_commands_first">Igama</string>
   <string name="voice_commands_top">Phezulu</string>
   <string name="voice_commands_last">Ekugcineni</string>
@@ -107,8 +102,6 @@
   <string name="voice_commands_no_next_link_feedback">Asikho isixhumanisi esilandelayo</string>
   <string name="voice_commands_no_next_control_feedback">Akukho ukulawulwa okulandelayo</string>
   <string name="voice_commands_no_next_landmark_feedback">Asikho isici sokubonisa izwe esilandelayo</string>
-  <string name="voice_commands_screen_hidden_feedback">Isikrini sifihliwe</string>
-  <string name="voice_commands_showing_screen_feedback">Ibonisa isikrini</string>
   <string name="voice_commands_help_title">Ukubuka konke komyalo wezwi</string>
   <string name="voice_commands_help_description">Ukuze usebenzise imiyalo yezwi, swayiphela ngakwesokudla bese phezulu. Ithi \"Usizo\" noma \"Ngingathini?\" noma nini ukuthola uhlu lwemiyalo.</string>
   <string name="voice_commands_help_hint">Ukuze uthole imiphumela engcono kakhulu, isho igama langempela eliboniswe kwizikrini ezilandelayo.</string>
