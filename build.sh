@@ -52,7 +52,7 @@ log
 
 
 log "Accept SDK licenses"
-yes | "${ANDROID_SDK}"/tools/bin/sdkmanager --licenses
+yes | "${ANDROID_SDK}"/cmdline-tools/latest/bin/sdkmanager --licenses
 log
 
 
