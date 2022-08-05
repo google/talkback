@@ -35,6 +35,8 @@ public class BrailleLanguages {
   public static final String PRINT_LANGUAGE_AR = "ar";
   public static final String PRINT_LANGUAGE_FR = "fr";
   public static final String PRINT_LANGUAGE_PL = "pl";
+  public static final String PRINT_LANGUAGE_HR = "hr";
+  public static final String PRINT_LANGUAGE_SR = "sr";
 
   /**
    * Finds and produces a {@link EditBuffer} based on {@code code}, {@code translatorFactory}, and
@@ -117,6 +119,30 @@ public class BrailleLanguages {
       EditBuffer createEditBuffer(
           Context context, TalkBackSpeaker talkBack, BrailleTranslator translator) {
         return new EditBufferPolish(context, translator, talkBack);
+      }
+    },
+    CROATIAN(PRINT_LANGUAGE_HR) {
+      @Override
+      public CharSequence getUserFacingName(Resources resources) {
+        return resources.getString(R.string.code_user_facing_name_hr);
+      }
+
+      @Override
+      EditBuffer createEditBuffer(
+          Context context, TalkBackSpeaker talkBack, BrailleTranslator translator) {
+        return new EditBufferCroatian(context, translator, talkBack);
+      }
+    },
+    SERBIAN(PRINT_LANGUAGE_SR) {
+      @Override
+      public CharSequence getUserFacingName(Resources resources) {
+        return resources.getString(R.string.code_user_facing_name_sr);
+      }
+
+      @Override
+      EditBuffer createEditBuffer(
+          Context context, TalkBackSpeaker talkBack, BrailleTranslator translator) {
+        return new EditBufferSerbian(context, translator, talkBack);
       }
     },
     SPANISH(PRINT_LANGUAGE_ES) {
