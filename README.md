@@ -1,6 +1,6 @@
 # Introduction
 
-This repository contains source code for Google's TalkBack, which is a screen
+This repository contains **forked** source code for Google's TalkBack, which is a screen
 reader for blind and visually-impaired users of Android. For usage instructions,
 see
 [TalkBack User Guide](https://support.google.com/accessibility/android/answer/6283677?hl=en).
@@ -30,4 +30,15 @@ Java 11 is not a problem, just use it everywhere. Running `java -version` was in
 
 'com.android.talkback/com.google.android.marvin.talkback.TalkBackService', 'com.google.android.apps.accessibility.voiceaccess/com.google.android.apps.accessibility.voiceaccess.JustSpeakService:com.android.talkback/com.google.android.marvin.talkback.TalkBackService'
 
+## TODO
+- Hide screen via ADB? (Customise reading controls)
+- Organise gestures by action
+- Add curtain
+- Dev tools: Colour contrast check
+- Dev tools: Touch target size check
+- Dev tools: Developer-friendly details on curtain (add to announcements)
+
+## FIXED
+- Menus lacking dark mode / styling
+- Back button in menus?
 

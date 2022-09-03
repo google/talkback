@@ -16,7 +16,10 @@
 package com.google.android.accessibility.utils;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -68,6 +71,13 @@ public abstract class PreferencesActivity extends BasePreferencesActivity {
    * If action-bar "navigate up" button is pressed, end this sub-activity when there is no fragment
    * in the stack. Otherwise, it will go to last fragment.
    */
+
+  @Override
+  public boolean onSupportNavigateUp() {
+    onNavigateUp();
+    return true;
+  }
+
   @Override
   public boolean onNavigateUp() {
     if (getSupportFragmentManager().getBackStackEntryCount() > 0) {

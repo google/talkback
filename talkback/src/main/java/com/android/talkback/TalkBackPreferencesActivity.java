@@ -99,10 +99,4 @@ public class TalkBackPreferencesActivity extends PreferencesActivity {
     // using the material next theme.
     return !FeatureSupport.supportSettingsTheme();
   }
-
-  @Override
-  public void onBackPressed() {
-    Toast.makeText(this, "Pressed back", Toast.LENGTH_SHORT).show();
-    super.onBackPressed();
-  }
 }

@@ -6,10 +6,18 @@
 ###   JAVA_HOME             # path to local copy of Java SDK. Should be Java 8.
 # On gLinux, use 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64'
 
-#QUINTIN
-#jenv local 1.8
-#./gradlew assembleDebug
-#exit 0
+INSTALL=false
+DEVICE=""
+USAGE="./build.sh [-i] [-s | --device SERIAL_NUMBER]\n\ti\t: install to phone\n\t-s\t: android serial number, if there is more than one device"
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -i) INSTALL=true; ;;
+        -s|--device) DEVICE="-s $2"; shift ;;
+        -h|--help) echo $USAGE; exit 0 ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
 
 GRADLE_DOWNLOAD_VERSION=5.4.1
 GRADLE_TRACE=false   # change to true to enable verbose logging of gradlew
@@ -133,7 +141,8 @@ if [[ $BUILD_EXIT_CODE -eq 0 ]]; then
   log
 fi
 
-
-adb install ./build/outputs/apk/phone/debug/talkback-phone-debug.apk
+if [[ "$INSTALL" = true ]]; then
+  adb ${DEVICE} install ./build/outputs/apk/phone/debug/talkback-phone-debug.apk
+fi
 
 exit $BUILD_EXIT_CODE   ### This should be the last line in this file
