@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="is_phone_sized">false</bool>
+    <dimen name="abc_action_bar_content_inset_material">24dp</dimen>
+    <dimen name="abc_action_bar_content_inset_with_nav">80dp</dimen>
+    <dimen name="abc_action_bar_default_height_material">64dp</dimen>
+    <dimen name="abc_action_bar_default_padding_end_material">8dp</dimen>
+    <dimen name="abc_action_bar_default_padding_start_material">8dp</dimen>
+    <dimen name="abc_config_prefDialogWidth">580dp</dimen>
+    <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
+    <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <dimen name="design_navigation_max_width">320dp</dimen>
+    <dimen name="design_snackbar_action_inline_max_width">0dp</dimen>
+    <dimen name="design_snackbar_background_corner_radius">2dp</dimen>
+    <dimen name="design_snackbar_extra_spacing_horizontal">24dp</dimen>
+    <dimen name="design_snackbar_max_width">576dp</dimen>
+    <dimen name="design_snackbar_min_width">320dp</dimen>
+    <dimen name="design_snackbar_padding_vertical_2lines">@dimen/design_snackbar_padding_vertical
+  </dimen>
+    <dimen name="design_tab_scrollable_min_width">160dp</dimen>
+    <dimen name="mtrl_bottomappbar_height">64dp</dimen>
+    <dimen name="mtrl_toolbar_default_height">64dp</dimen>
+    <integer name="design_snackbar_text_max_lines">1</integer>
+    <string name="finish_tutorial_announcement">Showing braille keyboard.</string>
+    <string name="open_context_menu_announcement">The options menu is open. You can now use regular TalkBack gestures to navigate. Swipe right to see more options.</string>
+    <string name="swipe_up_3_fingers_announcement">To finish the tutorial, swipe up with 3 fingers, and find the finish tutorial option</string>
+    <string name="tutorial_intro_description">With the braille keyboard, you can tap your screen to enter 6-dot braille.\n\nYou’re using Unified English Braille. To switch your input language, go to TalkBack settings.</string>
+    <string name="type_letter_a_announcement">Your %1$s should be on dot 1. Now, tap dot 1 to type the letter “A”.</string>
+    <style name="Widget.Design.TabLayout" parent="Base.Widget.Design.TabLayout">
+    <item name="tabGravity">center</item>
+    <item name="tabMode">fixed</item>
+  </style>
+</resources>

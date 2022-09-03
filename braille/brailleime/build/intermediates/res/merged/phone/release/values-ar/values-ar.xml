@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="zero">%s نقطة</item>
+    <item quantity="one">نقطة واحدة (%s)</item>
+    <item quantity="two">نقطتان (%s)</item>
+    <item quantity="few">%s نقاط</item>
+    <item quantity="many">%s نقطة</item>
+    <item quantity="other">%s نقطة</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="zero">%d إشعار جديد</item>
+    <item quantity="one">إشعار جديد واحد (%d)</item>
+    <item quantity="two">إشعاران جديدان (%d)</item>
+    <item quantity="few">%d إشعارات جديدة</item>
+    <item quantity="many">%d إشعارًا جديدًا</item>
+    <item quantity="other">%d إشعار جديد</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"التوجه إلى المنزل"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"التنقل إلى أعلى"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"خيارات أكثر"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"تم"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"عرض الكل"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"اختيار تطبيق"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"إيقاف"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"مفعّلة"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"حذف"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"فضاء"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"القائمة+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"بحث…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"محو طلب البحث"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"طلب بحث"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"البحث"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"إرسال طلب البحث"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"بحث صوتي"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"مشاركة مع"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"مشاركة مع <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"تصغير"</string>
+    <string name="auto_detect">تعديل وضع الشاشة حسب طريقة مسك الجهاز</string>
+    <string name="bottomsheet_action_expand_halfway">توسيع البطاقة السفلية</string>
+    <string name="braille_ime_displayed_name">لوحة مفاتيح برايل</string>
+    <string name="braille_ime_service_name">‏لوحة مفاتيح برايل TalkBack</string>
+    <string name="braille_keyboard">لوحة مفاتيح برايل</string>
+    <string name="braille_keyboard_gestures">إيماءات لوحة مفاتيح برايل</string>
+    <string name="braille_keyboard_strip_button">الانتقال إلى لوحة المفاتيح على الشاشة التي تعمل باللمس</string>
+    <string name="braille_keyboard_strip_summary">تم توصيل جهاز عرض خارجي بلغة برايل يمكن استخدامه لكتابة نص على هذا الجهاز، أو يمكنك التبديل إلى لوحة مفاتيح برايل على الشاشة التي تعمل باللمس أو اختيار أسلوب الإدخال التالي.</string>
+    <string name="braille_tutorial_title">الدليل التوجيهي للوحة مفاتيح برايل</string>
+    <string name="bring_ime_settings_page">ليس هناك أي لوحة مفاتيح أخرى مفعَّلة، انتقِل إلى إعدادات لوحة المفاتيح.</string>
+    <string name="calibration_fail_announcement">تعذّر تعديل موضع النقاط. انقر مع الاستمرار على الشاشة باستخدام 6 أصابع ثم أعِد المحاولة.</string>
+    <string name="calibration_finish_announcement">تم تعديل موضع النقاط.</string>
+    <string name="calibration_step1_hold_left_finger_announcement">تعديل موضع النقاط: لنبدأ أولاً بتسجيل موضع النقاط لأصابع يدك اليسرى. انقر مع الاستمرار على الشاشة بالأصابع الثلاثة الوسطى من يدك اليسرى.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">تعديل موضع النقاط: لنبدأ أولاً بتسجيل موضع النقاط لأصابع يدك اليمنى. انقر مع الاستمرار على الشاشة بالأصابع الثلاثة الوسطى من يدك اليمنى.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">المواضع المُعدَّلة للنقاط 1 و2 و3: لنسجّل بعد ذلك موضع النقاط لأصابع يدك اليسرى. انقر مع الاستمرار على الشاشة بالأصابع الثلاثة الوسطى من يدك اليسرى.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">المواضع المُعدَّلة للنقاط 1 و2 و3: لنسجّل بعد ذلك موضع النقاط لأصابع يدك اليمنى. انقر مع الاستمرار على الشاشة بالأصابع الثلاثة الوسطى من يدك اليمنى.</string>
+    <string name="capitalize_announcement">الكتابة بالأحرف الكبيرة</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">تمّ إدخال %1$d حرف من إجمالي %2$d.</string>
+    <string name="character_counter_overflowed_content_description">تجاوز عدد الأحرف المسموح به %1$d من %2$d.</string>
+    <string name="clear_text_end_icon_content_description">محو النص</string>
+    <string name="code_user_facing_name_ar">العربية</string>
+    <string name="code_user_facing_name_es">الإسبانية</string>
+    <string name="code_user_facing_name_fr">الفرنسية</string>
+    <string name="code_user_facing_name_pl">البولندية</string>
+    <string name="code_user_facing_name_ueb1">لغة برايل الإنجليزية الموحدة غير المختصرة</string>
+    <string name="code_user_facing_name_ueb2">لغة برايل الإنجليزية الموحدة المختصرة</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">تفعيل</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">‏لن يعمل %1$s ما لم يتم تفعيل خدمات Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">‏تفعيل خدمات Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">تثبيت</string>
+    <string name="common_google_play_services_install_text">‏لن يتم تشغيل %1$s بدون خدمات Google Play، والتي لا تتوفر على جهازك.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">‏الحصول على خدمات Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">‏مدى توفّر خدمات Google Play</string>
+    <string name="common_google_play_services_notification_ticker">‏خطأ في خدمات Google Play</string>
+    <string name="common_google_play_services_unknown_issue">‏لدى %1$s مشكلة في خدمات Google Play. يُرجى إعادة المحاولة.</string>
+    <string name="common_google_play_services_unsupported_text">‏لن يتم تشغيل %1$s بدون خدمات Google Play التي لا يوفرها جهازك.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">تحديث</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">‏لن يتم تشغيل %1$s ما لم يتم تحديث خدمات Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">‏تحديث خدمات Google Play</string>
+    <string name="common_google_play_services_updating_text">‏لن يتم تشغيل %1$s بدون خدمات Google Play، والتي يتم تحديثها حاليًا.</string>
+    <string name="common_google_play_services_wear_update_text">‏يجب توفر إصدار جديد من خدمات Google Play. سيتم تحديثها تلقائيًا قريبًا.</string>
+    <string name="common_open_on_phone">فتح على الهاتف</string>
+    <string name="common_signin_button_text">تسجل الدخول</string>
+    <string name="common_signin_button_text_long">‏تسجيل الدخول عبر Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"تعذَّر إتمام العملية."</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"تم الفتح على هاتفك."</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"تم تنفيذ الإجراء بنجاح."</string>
+    <string name="context_menu_input_language_selection">التبديل إلى اللغة التالية: %s</string>
+    <string name="context_menu_input_language_selection_summary">يتم حاليًا استخدام: %s</string>
+    <string name="context_menu_layout_selection">التنسيق</string>
+    <string name="context_menu_see_all_gestures_selection">مراجعة كل الإيماءات</string>
+    <string name="context_menu_settings_selection">الإعدادات</string>
+    <string name="context_menu_title">خيارات لوحة مفاتيح برايل</string>
+    <string name="context_menu_tutorial_finish">إنهاء الدليل التوجيهي</string>
+    <string name="context_menu_tutorial_selection">فتح الدليل التوجيهي</string>
+    <string name="continue_tutorial_announcement">لنواصل الدليل التوجيهي. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"نسخ"</string>
+    <string name="done">تم</string>
+    <string name="dont_show_again">عدم إظهار هذا مجددًا</string>
+    <string name="error_icon_content_description">خطأ</string>
+    <string name="exit_scrim">خروج</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"إعدادات متقدمة"</string>
+    <string name="exposed_dropdown_menu_content_description">عرض القائمة المنسدلة</string>
+    <string name="finish_tutorial_announcement">إظهار لوحة مفاتيح برايل: يجب قلب الهاتف بحيث لا تكون الشاشة مواجهة لك. بعد ذلك، يُرجى حمل الهاتف أفقيًا ثم بدء الكتابة.</string>
+    <string name="function_off">ميزة التعليقات والملاحظات المنطوقة غير مفعَّلة.</string>
+    <string name="function_on">ميزة التعليقات والملاحظات المنطوقة مفعَّلة.</string>
+    <string name="gesture_add_space">لإضافة <b>مسافة</b>، مرّر سريعًا لليسار.</string>
+    <string name="gesture_delete"><b>للحذف</b>، مرّر سريعًا لليمين.</string>
+    <string name="gesture_delete_word"><b>لحذف كلمة</b>، مرّر سريعًا لليمين بإصبعين.</string>
+    <string name="gesture_hide_keyboard"><b>لإخفاء لوحة المفاتيح</b>، مرّر سريعًا للأسفل بإصبعين.</string>
+    <string name="gesture_move_cursor_backward"><b>لنقل المؤشر للخلف</b>، مرِّر سريعًا للأعلى.</string>
+    <string name="gesture_move_cursor_forward"><b>لنقل المؤشر للأمام</b>، مرِّر سريعًا للأسفل.</string>
+    <string name="gesture_new_line">لإضافة <b>سطر جديد</b>، مرّر سريعًا لليسار بإصبعين.</string>
+    <string name="gesture_next_keyboard">للتبديل إلى <b>لوحة المفاتيح التالية</b>، مرّر سريعًا للأسفل بثلاثة أصابع.</string>
+    <string name="gesture_open_context_menu">للحصول على <b>المساعدة والخيارات الأخرى</b>، مرّر سريعًا للأعلى بثلاثة أصابع.</string>
+    <string name="gesture_submit_text"><b>لإرسال نص</b>، مرّر سريعًا للأعلى بإصبعين.</string>
+    <string name="granularity_character">الأحرف</string>
+    <string name="granularity_default">تلقائي</string>
+    <string name="granularity_line">الأسطر</string>
+    <string name="granularity_native_control">عناصر التحكم</string>
+    <string name="granularity_native_heading">العناوين</string>
+    <string name="granularity_native_link">الروابط</string>
+    <string name="granularity_paragraph">الفقرات</string>
+    <string name="granularity_pseudo_web_special_content">محتوى خاص</string>
+    <string name="granularity_web_control">عناصر التحكم</string>
+    <string name="granularity_web_heading">العناوين</string>
+    <string name="granularity_web_landmark">معالم</string>
+    <string name="granularity_web_link">الروابط</string>
+    <string name="granularity_web_list">القوائم</string>
+    <string name="granularity_window">النوافذ</string>
+    <string name="granularity_word">الكلمات</string>
+    <string name="hide_keyboard_window">لوحة المفاتيح مخفية</string>
+    <string name="hold_six_fingers_announcement">‏%s\nضَع جهازك بشكل مسطح على الطاولة ثم انقر مع الاستمرار على الشاشة بأصابعك الثلاثة الوسطى في كل يد في الموضع الذي يريحك في الكتابة.</string>
+    <string name="hold_six_fingers_description">‏لن تتمكن من استخدام إيماءات TalkBack المعتادة في لوحة مفاتيح برايل\n\n.للبدء، يجب ضبط موضع 6 نقاط للغة برايل عند الكتابة.</string>
+    <string name="hold_six_fingers_inactive_announcement">ضَع جهازك بشكل مسطح على الطاولة ثم انقر مع الاستمرار على الشاشة بأصابعك الثلاثة الوسطى في كل يد في الموضع الذي يريحك في الكتابة.</string>
+    <string name="how_to_use_braille_keyboard">كيفية استخدام لوحة مفاتيح برايل</string>
+    <string name="icon_content_description">رمز مربع الحوار</string>
+    <string name="input_view_caption">‏لوحة مفاتيح برايل TalkBack، للحصول على مساعدة، يُرجى الانتقال إلى g.co/help/braille.</string>
+    <string name="instruction_swipe_down">لنقل المؤشر للأمام، مرِّر سريعًا للأسفل.</string>
+    <string name="instruction_swipe_down_2_fingers">لإخفاء لوحة المفاتيح، مرّر سريعًا للأسفل بإصبعين.</string>
+    <string name="instruction_swipe_down_3_fingers">للتبديل إلى لوحة مفاتيح أخرى، مرّر سريعًا للأسفل بثلاثة أصابع.</string>
+    <string name="instruction_swipe_left">لحذف حرف، مرّر سريعًا لليمين.</string>
+    <string name="instruction_swipe_right">لإضافة مسافة، مرّر سريعًا لليسار.</string>
+    <string name="instruction_swipe_up">لنقل المؤشر للخلف، مرِّر سريعًا للأعلى.</string>
+    <string name="instruction_swipe_up_3_fingers">لإنهاء الدليل التوجيهي، مرّر سريعًا للأعلى بثلاثة أصابع.</string>
+    <string name="instruction_type_letter_a">‏انقر على النقطة رقم \"1\" بإصبع السبابة الأيسر لكتابة الحرف \"A\".</string>
+    <string name="instruction_type_letter_bcd">‏بعد ذلك، حاوِل كتابة الأحرف \"B\" و\"C\" و\"D\".</string>
+    <string name="item_view_role_description">علامة تبويب</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">اضغط على مجموعة مفاتيح مع مفتاح تعديل %1$s لضبط اختصار جديد.</string>
+    <string name="keycombo_assign_dialog_instruction">‏اضغط على مجموعة المفاتيح لضبط اختصار جديد والتي يجب أن تحتوي على مفتاح ALT أو Control على الأقل.</string>
+    <string name="keycombo_key_arrow_down">سهم متّجه للأسفل</string>
+    <string name="keycombo_key_arrow_left">سهم لليسار</string>
+    <string name="keycombo_key_arrow_right">سهم لليمين</string>
+    <string name="keycombo_key_arrow_up">سهم متّجه للأعلى</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">بحث</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">غير محدد</string>
+    <string name="leave_keyboard">مغادرة لوحة مفاتيح برايل</string>
+    <string name="material_clock_toggle_content_description">يُرجى اختيار صباحًا أو مساءً.</string>
+    <string name="material_hour_selection">تحديد الساعة</string>
+    <string name="material_hour_suffix">الساعة %1$s</string>
+    <string name="material_minute_selection">تحديد الدقائق</string>
+    <string name="material_minute_suffix">%1$s دقيقة</string>
+    <string name="material_timepicker_am">صباحًا</string>
+    <string name="material_timepicker_clock_mode_description">يُرجى التبديل إلى وضع الساعة لإدخال الوقت.</string>
+    <string name="material_timepicker_hour">الساعة</string>
+    <string name="material_timepicker_minute">دقيقة</string>
+    <string name="material_timepicker_pm">مساءً</string>
+    <string name="material_timepicker_select_time">اختيار الوقت</string>
+    <string name="material_timepicker_text_input_mode_description">يُرجى التبديل إلى وضع إدخال النص لإدخال الوقت.</string>
+    <string name="mtrl_badge_numberless_content_description">إشعار جديد</string>
+    <string name="mtrl_chip_close_icon_content_description">إزالة %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">يبلغ عدد الإشعارات الجديدة أكثر من %1$d.</string>
+    <string name="mtrl_picker_a11y_next_month">التغيير إلى الشهر التالي</string>
+    <string name="mtrl_picker_a11y_prev_month">التغيير إلى الشهر السابق</string>
+    <string name="mtrl_picker_announce_current_selection">الاختيار الحالي: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">يُرجى اختيار تاريخ.</string>
+    <string name="mtrl_picker_date_header_unselected">التاريخ المحدَّد</string>
+    <string name="mtrl_picker_day_of_week_column_header">عمود الأيام: %1$s</string>
+    <string name="mtrl_picker_invalid_format">التنسيق غير صالح</string>
+    <string name="mtrl_picker_invalid_format_example">مثال: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">استخدام: %1$s</string>
+    <string name="mtrl_picker_invalid_range">النطاق غير صالح</string>
+    <string name="mtrl_picker_navigate_to_year_description">التنقل إلى العام %1$s</string>
+    <string name="mtrl_picker_out_of_range">خارج النطاق: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">تاريخ البدء – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – تاريخ الانتهاء</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">يُرجى اختيار نطاق زمني.</string>
+    <string name="mtrl_picker_range_header_unselected">تاريخ البدء - تاريخ الانتهاء</string>
+    <string name="mtrl_picker_save">حفظ</string>
+    <string name="mtrl_picker_text_input_date_hint">التاريخ</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">تاريخ الانتهاء</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">تاريخ البدء</string>
+    <string name="mtrl_picker_text_input_day_abbr">ي</string>
+    <string name="mtrl_picker_text_input_month_abbr">ش</string>
+    <string name="mtrl_picker_text_input_year_abbr">س</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">التبديل إلى وضع \"الإدخال في التقويم\"</string>
+    <string name="mtrl_picker_toggle_to_day_selection">انقر للتبديل إلى اختيار يوم</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">التبديل إلى وضع \"إدخال النص\"</string>
+    <string name="mtrl_picker_toggle_to_year_selection">انقر للتبديل إلى اختيار عام</string>
+    <string name="multiple_languages_braille_ime_displayed_name">لوحة مفاتيح برايل، %s</string>
+    <string name="next_keyboard">لوحة المفاتيح التالية</string>
+    <string name="next_step">الخطوة التالية</string>
+    <string name="not_enough_touch_points_dialog_message">لا يتّسع جهازك لنقاط لمس كافية. لمزيد من المعلومات، يُرجى التواصل مع الشركة المصنّعة لجهازك.</string>
+    <string name="not_enough_touch_points_dialog_title">جهازك غير متوافق مع لوحة مفاتيح برايل.</string>
+    <string msgid="478774118347071097" name="not_set">"لم يتمّ تحديد قيمة."</string>
+    <string name="number_announcement">الرقم</string>
+    <string name="open_context_menu_announcement">‏تم فتح قائمة الخيارات. أدِر هاتفك مرة أخرى بحيث تكون الشاشة مواجهة لك وامسِكه بطريقة طبيعية. يمكنك الآن استخدام الإيماءات العادية في TalkBack للتنقل. مرِّر سريعًا لليسار لعرض المزيد من الخيارات.</string>
+    <string name="password_toggle_content_description">عرض كلمة المرور</string>
+    <string name="perform_action_next">التالي</string>
+    <string name="perform_action_submitting">إرسال النص</string>
+    <string name="perform_add_new_line_announcement">تمت إضافة سطر جديد.</string>
+    <string name="perform_add_space_announcement">مسافة</string>
+    <string name="perform_delete_letter_announcement">تم حذف الحرف.</string>
+    <string name="perform_delete_word_announcement">تم حذف الكلمة.</string>
+    <string name="perform_hide_keyboard_announcement">إخفاء لوحة المفاتيح</string>
+    <string name="perform_submit_text_announcement">إرسال النص</string>
+    <string name="perform_switch_keyboard_announcement">تبديل لوحة المفاتيح</string>
+    <string msgid="7961817945132860002" name="preference_copied">"تم نسخ \"<ns1:g id="SUMMARY">%1$s</ns1:g>\" إلى الحافظة."</string>
+    <string name="preferred_language_title">اللغة المفضّلة</string>
+    <string name="read_out_deleted">تم حذف %s.</string>
+    <string name="remaining_calibration_finish_announcement">تم تعديل كل مواضع النقاط.</string>
+    <string name="reminder_announcement">مرّر سريعًا بثلاثة أصابع للاطَلاع على المزيد من الخيارات.</string>
+    <string name="result_swipe_down">تم نقل المؤشر للأمام.</string>
+    <string name="result_swipe_down_2_fingers">إخفاء لوحة المفاتيح</string>
+    <string name="result_swipe_down_3_fingers">لوحة المفاتيح التالية</string>
+    <string name="result_swipe_left">حذف</string>
+    <string name="result_swipe_right">مسافة</string>
+    <string name="result_swipe_up">تم نقل المؤشر للخلف.</string>
+    <string name="rotate_orientation_announcement">‏اعتبارًا من الآن، لا يمكن استخدام إيماءات TalkBack العادية لأنّ ميزة TalkBack غير متاحة أثناء استخدام لوحة مفاتيح برايل.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">هاتفك في الوضع الرأسي. للمتابعة، قم بتدوير الهاتف أفقيًا بحيث يكون الجانب الطويل في الأسفل ثم قم بتدوير الشاشة مع توجيهها بعيدًا عنك. عندما تكون مستعدًا، انقر مرتين على الشاشة للمتابعة.</string>
+    <string name="rotate_orientation_description_1">‏اعتبارًا من الآن، لن تتمكن من استخدام إيماءات TalkBack العادية. ميزة TalkBack غير متاحة أثناء استخدام لوحة مفاتيح برايل.</string>
+    <string name="rotate_orientation_description_2">للبدء، امسِك هاتفك بهذه الطريقة بحيث لا تكون الشاشة مواجهة لك.</string>
+    <string name="rotate_orientation_inactive_announcement">‏أولاً، يجب قلب الهاتف بحيث لا تكون الشاشة مواجهة لحامل الجهاز.\n\nبعد ذلك، يُرجى حمل الهاتف أفقيًا. يجب إمساك الهاتف من أقصى الجانبين، على أن تكون يدك اليمنى من الجانب المزوّد بمنفذ USB. يُرجى وضع الأصابع الثلاثة الوسطى على الشاشة، واستخدام الخنصر والإبهام لتثبيت الهاتف.\n\nبعد ذلك، يكفي النقر مرتين على الشاشة للمتابعة.\n\nلإغلاق لوحة مفاتيح برايل، يُرجى التمرير سريعًا للأسفل بثلاثة أصابع. سيؤدي هذا الإجراء إلى العودة إلى لوحة المفاتيح الأصلية.</string>
+    <string name="screen_away">وضع \"الشاشة البعيدة\"</string>
+    <string name="screen_away_detail">وجِّه الجهاز بحيث لا تكون الشاشة مواجهة لك (وضع \"الشاشة البعيدة\").</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"البحث"</string>
+    <string name="set_up_braille_keyboard">إعداد لوحة مفاتيح برايل</string>
+    <string name="show_keyboard_window">يتم الآن عرض %1$s.</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>، <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">كل نقطة يتم الضغط عليها هي جزء من الإدخال حتى إذا تم تحريرها قبل النقاط الأخرى.</string>
+    <string name="summary_pref_reverse_dots">تبديل مواضع النقاط: مثلاً يتم تبديل النقطة رقم \"1\" مع النقطة رقم \"4\".</string>
+    <string name="swipe_down_2_fingers_announcement">لإخفاء لوحة المفاتيح، مرّر سريعًا للأسفل بإصبعين. جرِّب الآن.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">إخفاء لوحة المفاتيح: سيؤدي غالبًا هذا الإجراء إلى إخفاء لوحة المفاتيح. ستظل لوحة مفاتيح برايل مفتوحة لأنك لا تزال في الدليل التوجيهي.</string>
+    <string name="swipe_down_3_fingers_announcement">للتبديل إلى لوحة مفاتيح أخرى، مرّر سريعًا للأسفل بثلاثة أصابع. جرِّب الآن.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">لوحة المفاتيح التالية: سيؤدي هذا الإجراء عادةً إلى التبديل إلى لوحة المفاتيح التالية. في الوقت الحالي، لن تغادر لوحة مفاتيح برايل لأنك لا تزال في الدليل التوجيهي.</string>
+    <string name="swipe_down_announcement">لنقل المؤشر للأمام، مرِّر سريعًا للأسفل. حاوِل تنفيذ هذا الإجراء الآن.</string>
+    <string name="swipe_left_action_result_announcement">‏حذف حرف \"d\".</string>
+    <string name="swipe_left_announcement">لحذف حرف، مرّر سريعًا لليمين. جرِّب الآن.</string>
+    <string name="swipe_right_announcement">لإضافة مسافة، مرّر سريعًا لليسار. جرِّب الآن.</string>
+    <string name="swipe_up_3_fingers_announcement">يمكنك أيضًا الكتابة في وضع \"الشاشة المسطحة\" عن طريق وضع هاتفك مسطحًا على طاولة. لإنهاء الدليل التوجيهي، مرِّر سريعًا للأعلى بثلاثة أصابع وابحث عن خيار إنهائه.</string>
+    <string name="swipe_up_announcement">لنقل المؤشر للخلف، مرِّر سريعًا للأعلى. حاوِل تنفيذ هذا الإجراء الآن.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">لتغيير اللغة أثناء الكتابة باستخدام لوحة برايل، مرِّر سريعًا للأعلى باستخدام 3 أصابع ثم اختَر \"التبديل إلى اللغة التالية\".</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">تغيير اللغة بسرعة أثناء الكتابة</string>
+    <string name="switch_to_language_announcement">تم التبديل إلى %s.</string>
+    <string name="switch_to_screen_away_announcement">وضع \"الشاشة البعيدة\"</string>
+    <string name="switch_to_tabletop_announcement">وضع \"الشاشة المسطحة\": ضَع الجهاز بشكل مسطح واحرِص على أن يكون منفذ الشحن إلى جهة اليسار. لتعديل موضع النقاط، يُرجى الضغط مع الاستمرار بستة أصابع.</string>
+    <string name="symbol_almost_equals">يساوي تقريبًا</string>
+    <string name="symbol_ampersand">علامة العطف</string>
+    <string name="symbol_angle_bracket_left">علامة أقل من</string>
+    <string name="symbol_angle_bracket_right">علامة أكبر من</string>
+    <string name="symbol_apostrophe">الفاصلة العليا</string>
+    <string name="symbol_approximately_equals">يساوي تقريبًا</string>
+    <string name="symbol_asterisk">العلامة النجمية</string>
+    <string name="symbol_at_sign">‏علامة At</string>
+    <string name="symbol_backslash">شرطة مائلة للخلف</string>
+    <string name="symbol_beamed_sixteenth_note">علامات موسيقية وزنها جزء من ستة عشرة ومرتبطة برابط</string>
+    <string name="symbol_black_circle">دائرة سوداء</string>
+    <string name="symbol_black_heart">قلب أسود</string>
+    <string name="symbol_black_smallsquare">مربع أسود صغير</string>
+    <string name="symbol_black_square">مربع أسود</string>
+    <string name="symbol_black_star">نجمة سوداء</string>
+    <string name="symbol_black_suit_of_diamonds">رموز من المعينات السوداء</string>
+    <string name="symbol_black_triangle_pointing_down">مثلث أسود يشير للأسفل</string>
+    <string name="symbol_black_triangle_pointing_up">مثلث أسود يشير للأعلى</string>
+    <string name="symbol_broken_bar">شريط عمودي مقطوع</string>
+    <string name="symbol_bullet">تعداد نقطي</string>
+    <string name="symbol_bullseye">مركز الهدف</string>
+    <string name="symbol_caret">علامة الإقحام</string>
+    <string name="symbol_celsius_degree">درجة مئوية</string>
+    <string name="symbol_cent">علامة السنت</string>
+    <string name="symbol_circle_left_half_black">دائرة نصفها الأيسر بلون أسود</string>
+    <string name="symbol_circle_right_half_black">دائرة نصفها الأيمن بلون أسود</string>
+    <string name="symbol_colon">نقطتان</string>
+    <string name="symbol_comma">فاصلة</string>
+    <string name="symbol_copyright">حقوق الطبع والنشر</string>
+    <string name="symbol_curly_bracket_left">قوس متعرج أيسر</string>
+    <string name="symbol_curly_bracket_right">قوس متعرج أيمن</string>
+    <string name="symbol_currency_sign">علامة العملة</string>
+    <string name="symbol_degree">علامة الدرجة</string>
+    <string name="symbol_division">علامة القسمة</string>
+    <string name="symbol_dollar_sign">علامة الدولار</string>
+    <string name="symbol_downwards_arrow">سهم متّجه للأسفل</string>
+    <string name="symbol_eighth_note">علامة موسيقية وزنها جزء من ثمانية</string>
+    <string name="symbol_ellipsis">علامة حذف</string>
+    <string name="symbol_em_dash">شرطة طويلة</string>
+    <string name="symbol_en_dash">شرطة قصيرة</string>
+    <string name="symbol_equal">علامة يساوي</string>
+    <string name="symbol_euro">يورو</string>
+    <string name="symbol_exclamation_mark">علامة التعجب</string>
+    <string name="symbol_fahrenheit_degree">درجة فهرنهايت</string>
+    <string name="symbol_female">رمز أنثى</string>
+    <string name="symbol_full_width_ampersand">علامة العطف بالعرض الكامل</string>
+    <string name="symbol_full_width_asterisk">علامة نجمية بالعرض الكامل</string>
+    <string name="symbol_full_width_circumflex">مدة معقوفة بالعرض الكامل</string>
+    <string name="symbol_full_width_colon">علامة نقطتين بالعرض الكامل</string>
+    <string name="symbol_full_width_comma">فاصلة بالعرض الكامل</string>
+    <string name="symbol_full_width_exclamation_mark">علامة تعجب بالعرض الكامل</string>
+    <string name="symbol_full_width_greater_than_sign">علامة أكبر من بالعرض الكامل</string>
+    <string name="symbol_full_width_ideographic_full_stop">نقطة في الكتابة المصوّرة</string>
+    <string name="symbol_full_width_left_curly_bracket">قوس مزهّر أيسر بالعرض الكامل</string>
+    <string name="symbol_full_width_left_parenthesis">قوس أيسر بالعرض الكامل</string>
+    <string name="symbol_full_width_less_than_sign">علامة أقل من بالعرض الكامل</string>
+    <string name="symbol_full_width_question_mark">علامة استفهام بالعرض الكامل</string>
+    <string name="symbol_full_width_right_curly_bracket">قوس مزهّر أيمن بالعرض الكامل</string>
+    <string name="symbol_full_width_right_parenthesis">قوس أيمن بالعرض الكامل</string>
+    <string name="symbol_full_width_semicolon">فاصلة منقوطة بالعرض الكامل</string>
+    <string name="symbol_full_width_tilde">علامة المد بالعرض الكامل</string>
+    <string name="symbol_full_width_underscore">شرطة سفلية بالعرض الكامل</string>
+    <string name="symbol_grave_accent">العلامة النطقية</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">نقطة متوسطة كاتاكانا بنصف عرضها</string>
+    <string name="symbol_hyphen_minus">شرطة</string>
+    <string name="symbol_ideographic_comma">فاصلة في الكتابة المصوّرة</string>
+    <string name="symbol_integral">تكامل</string>
+    <string name="symbol_inverted_exclamation_mark">علامة تعجب مقلوبة</string>
+    <string name="symbol_inverted_question_mark">علامة استفهام مقلوبة</string>
+    <string name="symbol_left_angle_bracket">قوس زاوية مزدوجة يسرى</string>
+    <string name="symbol_left_black_lenticular_bracket">قوس عدسي أيسر أسود</string>
+    <string name="symbol_left_corner_bracket">قوس أيسر بزاوية</string>
+    <string name="symbol_left_double_quotation_mark">علامة اقتباس مزدوجة يسرى</string>
+    <string name="symbol_left_single_quotation_mark">علامة اقتباس مفردة يسرى</string>
+    <string name="symbol_leftwards_arrow">سهم لليسار</string>
+    <string name="symbol_liter">لتر</string>
+    <string name="symbol_low_double_quote">علامة الاقتباس المزدوجة السفلية</string>
+    <string name="symbol_male">رمز ذكر</string>
+    <string name="symbol_mathematical_left_angle_bracket">ذراع الزاوية الرياضية اليسرى</string>
+    <string name="symbol_mathematical_right_angle_bracket">ذراع الزاوية الرياضية اليمنى</string>
+    <string name="symbol_micro_sign">علامة ميكرو</string>
+    <string name="symbol_middle_dot">نقطة متوسطة</string>
+    <string name="symbol_multiplication">علامة الضرب</string>
+    <string name="symbol_new_line">خط جديد</string>
+    <string name="symbol_not_equals">غير مساوٍ لـ</string>
+    <string name="symbol_not_sign">علامة النفي</string>
+    <string name="symbol_paragraph_mark">علامة الفقرة</string>
+    <string name="symbol_parenthesis_left">قوس أيسر</string>
+    <string name="symbol_parenthesis_right">قوس أيمن</string>
+    <string name="symbol_percent">نسبة مئوية</string>
+    <string name="symbol_period">نقطة</string>
+    <string name="symbol_pi">باي</string>
+    <string name="symbol_plus_minus_sign">علامة زائد ناقص</string>
+    <string name="symbol_postal_mark">علامة بريدية</string>
+    <string name="symbol_pound">علامة المربّع</string>
+    <string name="symbol_pound_sterling">علامة عملة الجنيه</string>
+    <string name="symbol_quarter_note">علامة موسيقية وزنها جزء من أربعة</string>
+    <string name="symbol_question_mark">علامة استفهام</string>
+    <string name="symbol_quotation_mark">علامة اقتباس</string>
+    <string name="symbol_reference">علامة مرجعية</string>
+    <string name="symbol_registered_trademark">علامة تجارية مسجلة</string>
+    <string name="symbol_right_angle_bracket">قوس زاوية مزدوجة يمنى</string>
+    <string name="symbol_right_black_lenticular_bracket">قوس عدسي أيمن أسود</string>
+    <string name="symbol_right_corner_bracket">قوس أيمن بزاوية</string>
+    <string name="symbol_right_double_quotation_mark">علامة اقتباس مزدوجة يمنى</string>
+    <string name="symbol_right_single_quotation_mark">علامة اقتباس مفردة يمنى</string>
+    <string name="symbol_rightwards_arrow">سهم لليمين</string>
+    <string name="symbol_rupee">روبية</string>
+    <string name="symbol_section_sign">علامة المادة</string>
+    <string name="symbol_semicolon">فاصلة منقوطة</string>
+    <string name="symbol_slash">شرطة مائلة</string>
+    <string name="symbol_solar">رمز شمسي</string>
+    <string name="symbol_space">مسافة</string>
+    <string name="symbol_square_bracket_left">قوس مربع أيسر</string>
+    <string name="symbol_square_bracket_right">قوس مربع أيمن</string>
+    <string name="symbol_square_root">جذر تربيعي</string>
+    <string name="symbol_tilde">علامة المد (تلدة)</string>
+    <string name="symbol_trademark">علامة تجارية</string>
+    <string name="symbol_underscore">شَرْطَة سُفْلِيَّة</string>
+    <string name="symbol_upwards_arrow">سهم متّجه للأعلى</string>
+    <string name="symbol_vertical_bar">خط عمودي</string>
+    <string name="symbol_white_circle">دائرة بيضاء</string>
+    <string name="symbol_white_club_suit">رمز على شكل نبات نفل أبيض</string>
+    <string name="symbol_white_diamond">معين أبيض</string>
+    <string name="symbol_white_down_pointing_triangle">مثلث أبيض رأسه متجهة لأسفل</string>
+    <string name="symbol_white_heart">قلب أبيض</string>
+    <string name="symbol_white_left_pointing_index">رمز أبيض للتوجيه إلى اليسار</string>
+    <string name="symbol_white_left_pointing_triangle">مثلث أبيض رأسه متجهة لليسار</string>
+    <string name="symbol_white_right_pointing_index">رمز أبيض للتوجيه إلى اليمين</string>
+    <string name="symbol_white_right_pointing_triangle">مثلث أبيض رأسه متجهة لليمين</string>
+    <string name="symbol_white_spade_suit">بستوني أبيض</string>
+    <string name="symbol_white_square">مربع أبيض</string>
+    <string name="symbol_white_star">نجمة بيضاء</string>
+    <string name="symbol_white_up_pointing_triangle">مثلث أبيض رأسه متجهة لأعلى</string>
+    <string name="symbol_won">علامة عملة الوون</string>
+    <string name="symbol_won_sign">علامة عملة الوون</string>
+    <string name="symbol_yen">الين</string>
+    <string name="tabletop">وضع \" الشاشة المسطحة\"</string>
+    <string name="tabletop_detail">ضَع الجهاز بشكل مسطح على الطاولة (وضع \"الشاشة المسطحة\").</string>
+    <string name="talkback_off_dialog_positive_button">تفعيل الميزة في إعدادات سهولة الاستخدام</string>
+    <string name="talkback_off_dialog_title">‏تفعيل TalkBack لاستخدام لوحة مفاتيح برايل</string>
+    <string name="talkback_off_or_suspend_dialog_message">‏عندما تكون ميزة TalkBack مفعَّلة، يمكنك النقر على الشاشة لإدخال رموز برايل.</string>
+    <string name="talkback_suspend_dialog_title">‏استئناف تفعيل ميزة TalkBack لاستخدام لوحة مفاتيح برايل</string>
+    <string name="tap_to_continue">انقر مرتين في أي مكان للمتابعة.</string>
+    <string name="template_capital_letter">حرف %1$s كبير</string>
+    <string name="template_current_tts_engine">استخدام %1$s</string>
+    <string name="template_overlay_window">صورة %1$s داخل صورة</string>
+    <string name="template_password_selected">الأحرف %1$d إلى %2$d</string>
+    <string name="template_password_traversed">الرمز %1$d</string>
+    <string name="template_scroll_from_count">عرض العنصر %1$d من إجمالي %2$d.</string>
+    <string name="template_scroll_from_to_count">عرض العناصر من %1$d إلى %2$d من إجمالي %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s على اليسار و%2$s على اليمين</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s على اليمين، و%2$s على اليسار</string>
+    <string name="template_split_screen_mode_portrait">%1$s في الجزء العلوي و%2$s في الجزء السفلي</string>
+    <string name="template_text_copied">تم نسخ %1$s</string>
+    <string name="template_viewpager_index_count">صفحة %1$d من %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d من %2$d</string>
+    <string name="title_pref_accumulate_presses">تضمين كل النقاط التي تم الضغط عليها</string>
+    <string name="title_pref_reverse_dots">عكس النقاط</string>
+    <string name="tutorial_intro_description">‏باستخدام لوحة مفاتيح برايل، يمكنك النقر على الشاشة لإدخال رموز برايل المكونة من 6 نقاط.\n\nأنت تستخدم لغة برايل الإنجليزية الموحدة. لتبديل لغة الكتابة، انتقِل إلى إعدادات TalkBack.‏\n\nللكتابة بلغة برايل، يجب مسك الهاتف واستخدامه بطريقة مختلفة.</string>
+    <string name="type_letter_a_announcement">‏وجِّه الشاشة بحيث لا تكون مواجهة لك. امسِك الهاتف بيديك الاثنتَين عند الحافتين القصيرتَين للهاتف بحيث تتمكن الأصابع الثلاثة الوسطى من كل يد من لمس الشاشة.\n\nيجب أن يكون إصبع السبابة الأيسر على النقطة رقم \"1\". والآن انقر على النقطة رقم \"1\" لكتابة الحرف \"A\".</string>
+    <string name="type_letter_a_inactive_announcement">‏انقر على النقطة رقم \"1\" بإصبع السبابة الأيسر لكتابة الحرف \"A\".</string>
+    <string name="type_letter_inactive_announcement">انقر على %1$s لكتابة الحرف %2$s.</string>
+    <string name="typing_languages_title">لغات الكتابة</string>
+    <string name="untitled_window">بلا عنوان</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">الإعدادات</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">‏1- &lt;b>تفعيل لوحة برايل&lt;/b>: انقر على \"الإعدادات\" أدناه. في الشاشة التالية، فعِّل \"%1$s.\"
+    &lt;br>&lt;br>2- &lt;b>استخدام لوحة مفاتيح برايل&lt;/b>: افتَح لوحة المفاتيح العادية، ثم انقر على رمز اختيار لوحة المفاتيح %2$s (يكون عادةً في أسفل يسار الشاشة). اختَر \"%1$s\".
+  &lt;br>&lt;br>إذا لم يظهر لك خيار لتبديل لوحات المفاتيح، حاوِل تثبيت %3$s، \"لوحة مفاتيح Google\".</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">‏لاستخدام لوحة مفاتيح برايل، افتَح لوحة المفاتيح العادية، ثم انقر على رمز اختيار لوحة المفاتيح %1$s (يكون عادةً في أسفل يسار الشاشة). اختَر \"%2$s.\"
+  &lt;br>&lt;br>إذا لم يظهر لك خيار لتبديل لوحات المفاتيح، حاوِل تثبيت %3$s، \"لوحة مفاتيح Google\".</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"إيقاف"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"تفعيل"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"دُرج الإجراءات"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"لائحة التنقل"</string>
+</resources>

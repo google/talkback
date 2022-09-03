@@ -1,0 +1,48 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-lv-watch-v20/values-lv-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-lv-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,268",
+                        "endColumns": "214,131",
+                        "endOffsets": "265,397"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,272",
+                        "endColumns": "216,133",
+                        "endOffsets": "267,401"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/wear/release/values-lv-watch-v20/values-lv-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-lv-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,268",
+                        "endColumns": "214,131",
+                        "endOffsets": "265,397"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,272",
+                        "endColumns": "216,133",
+                        "endOffsets": "267,401"
+                    }
+                }
+            ]
+        }
+    ]
+}

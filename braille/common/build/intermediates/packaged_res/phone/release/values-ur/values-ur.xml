@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">%s ڈاٹ</item>
+    <item quantity="other">%s نقطے</item>
+  </plurals>
+    <string name="auto_detect">اپنا آلہ پکڑنے کے طریقے کو موافق بنائیں</string>
+    <string name="capitalize_announcement">کیپ</string>
+    <string name="code_user_facing_name_ar">عربی</string>
+    <string name="code_user_facing_name_es">ہسپانوی</string>
+    <string name="code_user_facing_name_fr">فرانسيسی</string>
+    <string name="code_user_facing_name_pl">پولش</string>
+    <string name="code_user_facing_name_ueb1">غیر معاہدہ کردہ یونیفائیڈ انگریزی بریل</string>
+    <string name="code_user_facing_name_ueb2">معاہدہ کردہ یونیفائیڈ انگریزی بریل</string>
+    <string name="number_announcement">نمبر</string>
+    <string name="read_out_deleted">%s حذف ہو گیا</string>
+    <string name="screen_away">اسکرین سے دور کی وضع</string>
+    <string name="screen_away_detail">آلے کو اس طرح پکڑیں کہ اس کی سکرین آپ سے دور ہو (اسکرین سے دور کی وضع)</string>
+    <string name="tabletop">ٹیبل ٹاپ وضع</string>
+    <string name="tabletop_detail">آلے کو ایک ٹیبل پر سیدھا رکھیں (ٹیبل ٹاپ وضع)</string>
+</resources>

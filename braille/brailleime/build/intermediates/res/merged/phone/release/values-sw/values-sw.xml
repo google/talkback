@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">nukta nundu ya %s</item>
+    <item quantity="other">nukta nundu za %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">Arifa %d mpya</item>
+    <item quantity="other">Arifa %d mpya</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Nenda mwanzo"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Sogeza juu"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Chaguo zaidi"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Nimemaliza"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Angalia zote"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Chagua programu"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"IMEZIMWA"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"IMEWASHWA"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Tafuta…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Futa hoja"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Hoja ya utafutaji"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Tafuta"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Wasilisha hoja"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Kutafuta kwa kutamka"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Shiriki na"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Shiriki ukitumia <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Kunja"</string>
+    <string name="auto_detect">Tambua jinsi unavyoshika kifaa</string>
+    <string name="bottomsheet_action_expand_halfway">Panua nusu</string>
+    <string name="braille_ime_displayed_name">kibodi ya nukta nundu</string>
+    <string name="braille_ime_service_name">Kibodi ya nukta nundu ya TalkBack</string>
+    <string name="braille_keyboard">Kibodi ya nukta nundu</string>
+    <string name="braille_keyboard_gestures">Ishara za kibodi ya nukta nundu</string>
+    <string name="braille_keyboard_strip_button">Badilisha utumie kibodi ya skrini ya kugusa</string>
+    <string name="braille_keyboard_strip_summary">Onyesho la nje la braille limeunganishwa, unaloweza kutumia kuandika katika kifaa hiki.\nAu, unaweza kubadilisha utumie Kibodi ya Nukta nundu ya skrini ya kugusa au mbinu inayofuata ya kuingiza data.</string>
+    <string name="braille_tutorial_title">Mafunzo ya kibodi ya nukta nundu</string>
+    <string name="bring_ime_settings_page">Hujawasha kibodi nyingine, nenda kwenye mipangilio ya kibodi</string>
+    <string name="calibration_fail_announcement">Imeshindwa kusasisha nafasi ya nukta nundu. Gusa na ushikilie skrini kwa vidole sita. Kisha ujaribu tena.</string>
+    <string name="calibration_finish_announcement">Umesasisha nafasi ya nukta nundu</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Inasasisha nafasi ya nukta nundu. Kwanza, hebu turekodi nukta nundu za mkono wako wa kushoto. Gusa na ushikilie skrini ukitumia vidole vitatu vya kati vya mkono wako wa kushoto.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Inasasisha nafasi ya nukta nundu. Kwanza, hebu turekodi nukta nundu za mkono wako wa kulia. Gusa na ushikilie skrini kwa vidole vitatu vya kati vya mkono wako wa kulia.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">Umesasisha nafasi za nukta nundu ya kwanza, ya pili na ya tatu. Kisha, turekodi nukta nundu za mkono wako wa kushoto. Gusa na ushikilie skrini ukitumia vidole vitatu vya kati vya mkono wako wa kushoto.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">Umesasisha nafasi za nukta nundu ya kwanza, ya pili na ya tatu. Kisha, turekodi nukta nundu za mkono wako wa kulia. Gusa na ushikilie skrini kwa vidole vitatu vya kati vya mkono wako wa kulia.</string>
+    <string name="capitalize_announcement">Herufi kubwa</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Umeweka herufi %1$d kati ya %2$d</string>
+    <string name="character_counter_overflowed_content_description">Umepitisha idadi ya juu ya herufi %1$d kati ya %2$d</string>
+    <string name="clear_text_end_icon_content_description">Futa maandishi</string>
+    <string name="code_user_facing_name_ar">Kiarabu</string>
+    <string name="code_user_facing_name_es">Kihispania</string>
+    <string name="code_user_facing_name_fr">Kifaransa</string>
+    <string name="code_user_facing_name_pl">Kipolandi</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Washa</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s haitafanya kazi isipokuwa uwashe huduma za Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Washa huduma za Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Sakinisha</string>
+    <string name="common_google_play_services_install_text">%1$s haitafanya kazi bila huduma za Google Play. Huduma hizi hazipatikani kwenye kifaa chako.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Pata huduma za Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Upatikanaji wa huduma za Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Hitilafu kwenye huduma za Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s inakumbwa na hitilafu ya huduma za Google Play. Tafadhali jaribu tena.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s haitafanya kazi bila huduma za Google Play. Huduma hizi hazitumiki kwenye kifaa chako.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Sasisha</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s haitafanya kazi hadi usasishe huduma za Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Sasisha huduma za Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s haitafanya kazi bila huduma za Google Play. Huduma hizi zinasasishwa sasa.</string>
+    <string name="common_google_play_services_wear_update_text">Toleo jipya la huduma za Google Play linahitajika. Litajisasisha baada ya muda mfupi.</string>
+    <string name="common_open_on_phone">Fungua kwenye simu</string>
+    <string name="common_signin_button_text">Ingia katika akaunti</string>
+    <string name="common_signin_button_text_long">Ingia katika akaunti ukitumia Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Imeshindwa"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Imefunguliwa kwenye simu yako"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Imefaulu"</string>
+    <string name="context_menu_input_language_selection">Badilisha utumie lugha inayofuata: %s</string>
+    <string name="context_menu_input_language_selection_summary">Kwa sasa unatumia: %s</string>
+    <string name="context_menu_layout_selection">Muundo</string>
+    <string name="context_menu_see_all_gestures_selection">Kagua ishara zote</string>
+    <string name="context_menu_settings_selection">Mipangilio</string>
+    <string name="context_menu_title">Chaguo za kibodi ya nukta nundu</string>
+    <string name="context_menu_tutorial_finish">Kamilisha mafunzo</string>
+    <string name="context_menu_tutorial_selection">Anzisha mafunzo</string>
+    <string name="continue_tutorial_announcement">Tuendelee na mafunzo. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Nakili"</string>
+    <string name="done">Nimemaliza</string>
+    <string name="dont_show_again">Usionyeshe hii tena</string>
+    <string name="error_icon_content_description">Hitilafu</string>
+    <string name="exit_scrim">Funga</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Mipangilio ya Kina"</string>
+    <string name="exposed_dropdown_menu_content_description">Onyesha menyu kunjuzi</string>
+    <string name="finish_tutorial_announcement">Inaonyesha kibodi ya nukta nundu. Geuza simu yako ili skrini iangalie kinyume na ulipo. Zungusha simu ikae katika mkao wa mlalo. Kisha uanze kuandika.</string>
+    <string name="function_off">Kipengele cha maelezo yanayotamkwa kimezimwa</string>
+    <string name="function_on">Kipengele cha maelezo yanayotamkwa kimewashwa</string>
+    <string name="gesture_add_space">Ili uweke <b>nafasi</b>, telezesha kidole kulia</string>
+    <string name="gesture_delete">Ili <b>ufute</b>, telezesha kidole kushoto</string>
+    <string name="gesture_delete_word">Ili <b>ufute neno</b>, telezesha vidole viwili kushoto</string>
+    <string name="gesture_hide_keyboard">Ili <b>ufiche kibodi</b>, telezesha vidole viwili chini</string>
+    <string name="gesture_move_cursor_backward">Ili <b>usogeze nyuma kiteuzi cha maandishi</b>, telezesha kidole juu</string>
+    <string name="gesture_move_cursor_forward">Ili <b>usogeze mbele kiteuzi cha maandishi</b>, telezesha kidole chini</string>
+    <string name="gesture_new_line">Kuweka <b>mstari mpya</b>, telezesha vidole viwili kulia</string>
+    <string name="gesture_next_keyboard">Kubadilisha ili utumie <b>kibodi inayofuata</b>, telezesha vidole vitatu chini</string>
+    <string name="gesture_open_context_menu">Kwa <b>usaidizi na chaguo zingine</b>, telezesha vidole vitatu juu</string>
+    <string name="gesture_submit_text">Ili <b>utume maandishi</b>, telezesha vidole viwili juu</string>
+    <string name="granularity_character">Herufi</string>
+    <string name="granularity_default">Chaguomsingi</string>
+    <string name="granularity_line">Mistari</string>
+    <string name="granularity_native_control">Vidhibiti</string>
+    <string name="granularity_native_heading">Vichwa</string>
+    <string name="granularity_native_link">Viungo</string>
+    <string name="granularity_paragraph">Aya</string>
+    <string name="granularity_pseudo_web_special_content">Maudhui maalum</string>
+    <string name="granularity_web_control">Vidhibiti</string>
+    <string name="granularity_web_heading">Vichwa</string>
+    <string name="granularity_web_landmark">Maeneo maarufu</string>
+    <string name="granularity_web_link">Viungo</string>
+    <string name="granularity_web_list">Orodha</string>
+    <string name="granularity_window">Madirisha</string>
+    <string name="granularity_word">Maneno</string>
+    <string name="hide_keyboard_window">kibodi imefichwa</string>
+    <string name="hold_six_fingers_announcement">%s\nLaza kifaa chako mezani. Kisha gusa na ushikilie skrini ukitumia vidole vitatu vya kati vya kila mkono katika mkao unaokuruhusu uandike vizuri.</string>
+    <string name="hold_six_fingers_description">Hutaweza kutumia ishara za kawaida za TalkBack katika kibodi ya nukta nundu.\n\nIli uanze, hebu tuweke nafasi ya nukta nundu sita unapoandika.</string>
+    <string name="hold_six_fingers_inactive_announcement">Laza kifaa chako mezani. Kisha gusa na ushikilie skrini ukitumia vidole vitatu vya kati vya kila mkono katika mkao unaokuruhusu uandike vizuri.</string>
+    <string name="how_to_use_braille_keyboard">Jinsi ya kutumia kibodi ya nukta nundu</string>
+    <string name="icon_content_description">Aikoni ya Kidirisha</string>
+    <string name="input_view_caption">Kibodi ya TalkBack ya nukta nundu - kwa usaidizi, tembelea g.co/help/braille</string>
+    <string name="instruction_swipe_down">Ili usogeze mbele kiteuzi cha maandishi, telezesha kidole chini</string>
+    <string name="instruction_swipe_down_2_fingers">Ili ufiche kibodi, telezesha vidole viwili chini</string>
+    <string name="instruction_swipe_down_3_fingers">Kubadilisha ili utumie kibodi yako nyingine, telezesha vidole vitatu chini</string>
+    <string name="instruction_swipe_left">Ili ufute herufi, telezesha kidole kushoto</string>
+    <string name="instruction_swipe_right">Ili uweke nafasi, telezesha kidole kulia</string>
+    <string name="instruction_swipe_up">Ili usogeze nyuma kiteuzi cha maandishi, telezesha kidole juu</string>
+    <string name="instruction_swipe_up_3_fingers">Ili ukamilishe mafunzo, telezesha vidole vitatu juu</string>
+    <string name="instruction_type_letter_a">Gusa nukta nundu ya kwanza ukitumia kidole cha shahada cha kushoto ili uandike herufi \"A\"</string>
+    <string name="instruction_type_letter_bcd">Kisha, jaribu kuandika herufi B, C na D</string>
+    <string name="item_view_role_description">Kichupo</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Bonyeza mchanganyiko wa vitufe pamoja na kitufe cha kurekebisha cha %1$s ili uweke njia mpya ya mkato.</string>
+    <string name="keycombo_assign_dialog_instruction">Bonyeza mchanganyiko wa vitufe ili uweke njia mpya ya mkato. Ni lazima iwe na angalau kitufe cha ALT au Control.</string>
+    <string name="keycombo_key_arrow_down">Kishale cha Chini</string>
+    <string name="keycombo_key_arrow_left">Kishale cha Kushoto</string>
+    <string name="keycombo_key_arrow_right">Kishale cha Kulia</string>
+    <string name="keycombo_key_arrow_up">Kishale cha Juu</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Tafuta</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Haijapewa jukumu</string>
+    <string name="leave_keyboard">Ondoka kwenye kibodi ya nukta nundu</string>
+    <string name="material_clock_toggle_content_description">Chagua AM au PM</string>
+    <string name="material_hour_selection">Chagua saa</string>
+    <string name="material_hour_suffix">Saa %1$s kamili</string>
+    <string name="material_minute_selection">Chagua dakika</string>
+    <string name="material_minute_suffix">Dakika %1$s</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Badilisha umbo liwe la saa ya mishale wakati wa kuweka muda.</string>
+    <string name="material_timepicker_hour">Saa</string>
+    <string name="material_timepicker_minute">Dakika</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Chagua wakati</string>
+    <string name="material_timepicker_text_input_mode_description">Badilisha iwe katika hali ya maandishi wakati wa kuweka muda.</string>
+    <string name="mtrl_badge_numberless_content_description">Arifa mpya</string>
+    <string name="mtrl_chip_close_icon_content_description">Ondoa %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Zaidi ya arifa %1$d mpya</string>
+    <string name="mtrl_picker_a11y_next_month">Nenda kwenye mwezi unaofuata</string>
+    <string name="mtrl_picker_a11y_prev_month">Rudi kwenye mwezi uliotangulia</string>
+    <string name="mtrl_picker_announce_current_selection">Uteuzi wa sasa: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Chagua Tarehe</string>
+    <string name="mtrl_picker_date_header_unselected">Tarehe uliyochagua</string>
+    <string name="mtrl_picker_day_of_week_column_header">Safu wima ya siku: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Muundo si sahihi</string>
+    <string name="mtrl_picker_invalid_format_example">Mfano: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Tumia: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Kipindi si sahihi.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Sogeza kwenye mwaka wa %1$s</string>
+    <string name="mtrl_picker_out_of_range">Nje ya kipindi: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Tarehe ya kuanza – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Tarehe ya mwisho</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Chagua Kipindi cha Tarehe</string>
+    <string name="mtrl_picker_range_header_unselected">Tarehe ya kuanza – Tarehe ya mwisho</string>
+    <string name="mtrl_picker_save">Hifadhi</string>
+    <string name="mtrl_picker_text_input_date_hint">Tarehe</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Tarehe ya mwisho</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Tarehe ya kuanza</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Tumia programu ya kuingiza data kwenye kalenda</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Gusa ili uende kwenye sehemu ya kuchagua siku</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Tumia programu ya kuingiza data ya maandishi</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Gusa ili uende kwenye sehemu ya kuchagua mwaka</string>
+    <string name="multiple_languages_braille_ime_displayed_name">kibodi ya nukta nundu, %s</string>
+    <string name="next_keyboard">Kibodi inayofuata</string>
+    <string name="next_step">Nenda mbele</string>
+    <string name="not_enough_touch_points_dialog_message">Kifaa chako hakitumii njia za kutosha za kugusa. Kwa maelezo zaidi, wasiliana na mtengenezaji wa kifaa.</string>
+    <string name="not_enough_touch_points_dialog_title">Kifaa chako hakitumii kibodi ya nukta nundu</string>
+    <string msgid="478774118347071097" name="not_set">"Haijawekwa"</string>
+    <string name="number_announcement">Nambari</string>
+    <string name="open_context_menu_announcement">Menyu ya chaguo imefunguliwa. Geuza simu yako ili skrini ikuangalie na uishike kama kawaida. Sasa unaweza kusogeza kwa kutumia ishara za kawaida za TalkBack. Telezesha kidole kulia ili uone chaguo zaidi.</string>
+    <string name="password_toggle_content_description">Onyesha nenosiri</string>
+    <string name="perform_action_next">Endelea</string>
+    <string name="perform_action_submitting">Inatuma maandishi</string>
+    <string name="perform_add_new_line_announcement">Umeweka mstari mpya</string>
+    <string name="perform_add_space_announcement">Nafasi</string>
+    <string name="perform_delete_letter_announcement">Umefuta herufi</string>
+    <string name="perform_delete_word_announcement">Umefuta neno</string>
+    <string name="perform_hide_keyboard_announcement">Ficha Kibodi</string>
+    <string name="perform_submit_text_announcement">Tuma maandishi</string>
+    <string name="perform_switch_keyboard_announcement">Badili kibodi</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" imenakiliwa kwenye ubao wa kunakili."</string>
+    <string name="preferred_language_title">Lugha inayopendelewa</string>
+    <string name="read_out_deleted">Umefuta %s</string>
+    <string name="remaining_calibration_finish_announcement">Nafasi zote za nukta zimesasishwa</string>
+    <string name="reminder_announcement">Telezesha vidole vitatu juu ili upate chaguo zaidi</string>
+    <string name="result_swipe_down">UMESOGEZA MBELE KITEUZI CHA MAANDISHI</string>
+    <string name="result_swipe_down_2_fingers">FICHA KIBODI</string>
+    <string name="result_swipe_down_3_fingers">KIBODI INAYOFUATA</string>
+    <string name="result_swipe_left">FUTA</string>
+    <string name="result_swipe_right">NAFASI</string>
+    <string name="result_swipe_up">UMESOGEZA NYUMA KITEUZI CHA MAANDISHI</string>
+    <string name="rotate_orientation_announcement">Kuanzia sasa, hutaweza kutumia ishara za kawaida za TalkBack. Kipengele cha TalkBack hakipatikani unapotumia kibodi ya nukta nundu.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">Simu yako iko katika mkao wima. Ili uendelee, zungusha simu yako kwa njia ya mlalo ili upande mrefu uwe chini. Kisha uigeuze skrini iangalie kinyume na ulipo. Ukiwa tayari, gusa skrini mara mbili ili uendelee.</string>
+    <string name="rotate_orientation_description_1">Kuanzia sasa, hutaweza kutumia ishara za kawaida za TalkBack. Kipengele cha TalkBack hakipatikani unapotumia kibodi ya nukta nundu.</string>
+    <string name="rotate_orientation_description_2">Ili uanze, shika simu yako hivi, skrini ikiwa imeangalia kinyume na ulipo.</string>
+    <string name="rotate_orientation_inactive_announcement">Kwanza, geuza simu yako ili skrini iangalie kinyume na ulipo.\n\nKisha, zungusha simu ikae katika mkao wa mlalo. Mikono yako inafaa kushikilia kingo fupi za simu. Mkono wako wa kulia unafaa kushikilia ukingo wenye mlango wa USB. Weka vidole vyako vitatu vya kati kwenye skrini na utumie kidole cha mwisho na cha gumba kushikilia simu.\n\nUkiwa tayari, gusa skrini mara mbili ili uendelee.\n\nIli ufunge kibodi ya nukta nundu, telezesha vidole vitatu chini ukielekeza sakafuni. Hatua hii hukurejesha kwenye kibodi yako halisi.</string>
+    <string name="screen_away">Hali ya skrini kuangalia mbele</string>
+    <string name="screen_away_detail">Shikilia kifaa skrini ikiwa imeangalia kinyume na ulipo (hali ya skrini kuangalia mbele)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Tafuta"</string>
+    <string name="set_up_braille_keyboard">Weka mipangilio ya kibodi ya nukta nundu</string>
+    <string name="show_keyboard_window">Inaonyesha %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Kila nukta nundu uliyobonyeza ni sehemu ya uingizaji, hata ikiachiliwa kabla ya nukta nundu nyingine</string>
+    <string name="summary_pref_reverse_dots">Badilisha nafasi za nukta nundu ili nukta nundu ya kwanza na ya nne zibadilishane nafasi, kwa mfano</string>
+    <string name="swipe_down_2_fingers_announcement">Ili ufiche kibodi, telezesha vidole viwili chini. Ijaribu sasa.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Ficha kibodi. Kwa kawaida hatua hii itaficha kibodi. Kibodi ya nukta nundu haitafungwa kwa sababu ungali kwenye mafunzo.</string>
+    <string name="swipe_down_3_fingers_announcement">Kubadilisha ili utumie kibodi yako nyingine, telezesha chini vidole vitatu. Ijaribu sasa.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Kibodi inayofuata. Kwa kawaida hatua hii itabadilisha ifungue kibodi inayofuata. Wakati huu, unaendelea kutumia kibodi ya nukta nundu kwa sababu ungali kwenye mafunzo.</string>
+    <string name="swipe_down_announcement">Ili usogeze mbele kiteuzi cha maandishi, telezesha kidole chini. Ijaribu sasa.</string>
+    <string name="swipe_left_action_result_announcement">d imefutwa.</string>
+    <string name="swipe_left_announcement">Ili ufute herufi, telezesha kidole kushoto. Ijaribu sasa.</string>
+    <string name="swipe_right_announcement">Ili uweke nafasi, telezesha kidole kulia. Ijaribu sasa.</string>
+    <string name="swipe_up_3_fingers_announcement">Unaweza pia kuandika katika hali ya juu ya meza kwa kuilaza simu yako mezani. Ili ukamilishe mafunzo, telezesha vidole vitatu juu kisha utafute chaguo la kukamilisha mafunzo</string>
+    <string name="swipe_up_announcement">Ili usogeze nyuma kiteuzi cha maandishi, telezesha kidole juu. Ijaribu sasa.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Ili ubadilishe lugha huku ukiandika kwa kutumia kibodi ya nukta nundu, telezesha juu ukitumia vidole vitatu. Kisha uchague \"badilisha utumie lugha inayofuata\".</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Badilisha lugha kwa haraka huku ukiandika</string>
+    <string name="switch_to_language_announcement">Sasa unatumia %s</string>
+    <string name="switch_to_screen_away_announcement">Hali ya skrini kuangalia mbele</string>
+    <string name="switch_to_tabletop_announcement">Hali ya juu ya meza. Weka kifaa chako na uelekeze mlango wa kuchaji upande wa kushoto. Ili usasishe nafasi za nukta nundu, shikilia kwa vidole sita.</string>
+    <string name="symbol_almost_equals">Inakaribia kuwa sawa na</string>
+    <string name="symbol_ampersand">Ishara ya \'na\'</string>
+    <string name="symbol_angle_bracket_left">Alama ya \'chini ya\'</string>
+    <string name="symbol_angle_bracket_right">Alama ya \'zaidi ya\'</string>
+    <string name="symbol_apostrophe">Alama ya nukuu</string>
+    <string name="symbol_approximately_equals">Takriban sawa</string>
+    <string name="symbol_asterisk">Kinyota</string>
+    <string name="symbol_at_sign">Kwa</string>
+    <string name="symbol_backslash">Mkwajunyuma</string>
+    <string name="symbol_beamed_sixteenth_note">Ishara za muziki za kumi na sita</string>
+    <string name="symbol_black_circle">Mduara mweusi</string>
+    <string name="symbol_black_heart">Roho Nyeusi</string>
+    <string name="symbol_black_smallsquare">Mraba mdogo mweusi</string>
+    <string name="symbol_black_square">Mraba mweusi</string>
+    <string name="symbol_black_star">Nyota nyeusi</string>
+    <string name="symbol_black_suit_of_diamonds">Seti ya uru nyeusi</string>
+    <string name="symbol_black_triangle_pointing_down">Pembe tatu nyeusi inayoelekeza chini</string>
+    <string name="symbol_black_triangle_pointing_up">Pembe tatu nyeusi inayoelekeza juu</string>
+    <string name="symbol_broken_bar">Upau uliovunjika</string>
+    <string name="symbol_bullet">Kitone</string>
+    <string name="symbol_bullseye">Alama ya kulenga katikati</string>
+    <string name="symbol_caret">Kareti</string>
+    <string name="symbol_celsius_degree">Selsiasi digrii</string>
+    <string name="symbol_cent">Alama ya senti</string>
+    <string name="symbol_circle_left_half_black">Mduara wenye nusu nyeusi ya kushoto</string>
+    <string name="symbol_circle_right_half_black">Mduara wenye nusu nyeusi ya kulia</string>
+    <string name="symbol_colon">Nukta mbili</string>
+    <string name="symbol_comma">Koma</string>
+    <string name="symbol_copyright">Hakimiliki</string>
+    <string name="symbol_curly_bracket_left">Mabano ya kushoto yaliyopindwa</string>
+    <string name="symbol_curly_bracket_right">Mabano ya kulia yaliyopindwa</string>
+    <string name="symbol_currency_sign">Ishara ya sarafu</string>
+    <string name="symbol_degree">Alama ya digrii</string>
+    <string name="symbol_division">Alama ya kugawa</string>
+    <string name="symbol_dollar_sign">Ishara ya dola</string>
+    <string name="symbol_downwards_arrow">Kishale kinachoelekeza Chini</string>
+    <string name="symbol_eighth_note">Ishara ya muziki ya Nane</string>
+    <string name="symbol_ellipsis">Ritifaa</string>
+    <string name="symbol_em_dash">Kistari cha Em</string>
+    <string name="symbol_en_dash">Kistari cha En</string>
+    <string name="symbol_equal">Ishara ya sawa</string>
+    <string name="symbol_euro">Yuro</string>
+    <string name="symbol_exclamation_mark">Alama hisi</string>
+    <string name="symbol_fahrenheit_degree">Farenhaiti digrii</string>
+    <string name="symbol_female">Ishara ya kike</string>
+    <string name="symbol_full_width_ampersand">Ishara ya \'na\' ya upana kamili</string>
+    <string name="symbol_full_width_asterisk">Alama za kinyota za upana kamili</string>
+    <string name="symbol_full_width_circumflex">Alama ya mpindo ya upana kamili</string>
+    <string name="symbol_full_width_colon">Koloni ya upana kamili</string>
+    <string name="symbol_full_width_comma">Koma ya upana kamili</string>
+    <string name="symbol_full_width_exclamation_mark">Alama hisi ya upana kamili</string>
+    <string name="symbol_full_width_greater_than_sign">Alama ya \'zaidi ya\' ya upana kamili</string>
+    <string name="symbol_full_width_ideographic_full_stop">Kitone cha idiografia</string>
+    <string name="symbol_full_width_left_curly_bracket">Bano lililopinda kushoto lenye upana kamili</string>
+    <string name="symbol_full_width_left_parenthesis">Mabano ya upana kamili ya kushoto</string>
+    <string name="symbol_full_width_less_than_sign">Alama ya \'chini ya\' ya upana kamili</string>
+    <string name="symbol_full_width_question_mark">Alama ya kiulizi ya upana kamili</string>
+    <string name="symbol_full_width_right_curly_bracket">Bano lililopinda kulia lenye upana kamili</string>
+    <string name="symbol_full_width_right_parenthesis">Mabano ya upana kamili ya kulia</string>
+    <string name="symbol_full_width_semicolon">Semikoloni ya upana kamili</string>
+    <string name="symbol_full_width_tilde">Alama ya kiwimbi ya upana kamili</string>
+    <string name="symbol_full_width_underscore">Mstari chini wa upana kamili</string>
+    <string name="symbol_grave_accent">Alama ya kiinitoni</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Nukta ya katikati ya upana nusu ya Kikatakana</string>
+    <string name="symbol_hyphen_minus">Dashi</string>
+    <string name="symbol_ideographic_comma">Koma ya idiografia</string>
+    <string name="symbol_integral">Muhimu</string>
+    <string name="symbol_inverted_exclamation_mark">Alama hisi iliyogeuzwa juu chini</string>
+    <string name="symbol_inverted_question_mark">Kiulizi kilichogeuzwa juu chini</string>
+    <string name="symbol_left_angle_bracket">Mabano ya pembe mbili ya kushoto</string>
+    <string name="symbol_left_black_lenticular_bracket">Mabano Meusi Yaliyopinda kama lenzi ya Kushoto</string>
+    <string name="symbol_left_corner_bracket">Mabano ya Kona ya Kushoto</string>
+    <string name="symbol_left_double_quotation_mark">Alama mbili za kunukuu za kushoto</string>
+    <string name="symbol_left_single_quotation_mark">Alama moja ya kunukuu ya kushoto</string>
+    <string name="symbol_leftwards_arrow">Kishale cha upande wa kushoto</string>
+    <string name="symbol_liter">Lita</string>
+    <string name="symbol_low_double_quote">Nukuu  ya chini maradufu</string>
+    <string name="symbol_male">Ishara ya kiume</string>
+    <string name="symbol_mathematical_left_angle_bracket">Mabano ya kihisabati ya sehemu ya kushoto</string>
+    <string name="symbol_mathematical_right_angle_bracket">Mabano ya kihisabati ya sehemu ya kulia</string>
+    <string name="symbol_micro_sign">Ishara ndogo</string>
+    <string name="symbol_middle_dot">Nukta ya kati</string>
+    <string name="symbol_multiplication">Alama ya kuzidisha</string>
+    <string name="symbol_new_line">Mstari mpya</string>
+    <string name="symbol_not_equals">Si sawa na</string>
+    <string name="symbol_not_sign">Ishara ya siyo</string>
+    <string name="symbol_paragraph_mark">Alama ya aya</string>
+    <string name="symbol_parenthesis_left">Bano la kushoto</string>
+    <string name="symbol_parenthesis_right">Bano la kulia</string>
+    <string name="symbol_percent">Asilimia</string>
+    <string name="symbol_period">Muda</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Ishara ya kuongeza na kutoa</string>
+    <string name="symbol_postal_mark">Alama ya posta</string>
+    <string name="symbol_pound">Ratili</string>
+    <string name="symbol_pound_sterling">Alama ya sarafu ya pauni</string>
+    <string name="symbol_quarter_note">Alama ya Muziki ya Robo</string>
+    <string name="symbol_question_mark">Alama ya kuuliza</string>
+    <string name="symbol_quotation_mark">Nukuu</string>
+    <string name="symbol_reference">Alama ya Rejeleo</string>
+    <string name="symbol_registered_trademark">Alama ya biashara iliyosajiliwa</string>
+    <string name="symbol_right_angle_bracket">Mabano ya pembe mbili ya kulia</string>
+    <string name="symbol_right_black_lenticular_bracket">Mabano Meusi Yaliyopinda kama lenzi ya Kulia</string>
+    <string name="symbol_right_corner_bracket">Mabano ya Kona ya Kulia</string>
+    <string name="symbol_right_double_quotation_mark">Alama mbili za kunukuu za kulia</string>
+    <string name="symbol_right_single_quotation_mark">Alama moja ya kunukuu ya kulia</string>
+    <string name="symbol_rightwards_arrow">Kishale kinachoelekeza Kulia</string>
+    <string name="symbol_rupee">Rupia</string>
+    <string name="symbol_section_sign">Ishara ya sehemu</string>
+    <string name="symbol_semicolon">nukta mkato</string>
+    <string name="symbol_slash">Mkwaju</string>
+    <string name="symbol_solar">Ishara ya jua</string>
+    <string name="symbol_space">Nafasi</string>
+    <string name="symbol_square_bracket_left">Mabano ya mraba ya kushoto</string>
+    <string name="symbol_square_bracket_right">Mabano ya mraba ya kulia</string>
+    <string name="symbol_square_root">Kipeo cha pili</string>
+    <string name="symbol_tilde">Kiwimbi</string>
+    <string name="symbol_trademark">Chapa ya Biashara</string>
+    <string name="symbol_underscore">Mstari chini</string>
+    <string name="symbol_upwards_arrow">Kishale cha upande wa juu</string>
+    <string name="symbol_vertical_bar">Mstari wima</string>
+    <string name="symbol_white_circle">Mduara mweupe</string>
+    <string name="symbol_white_club_suit">Karata nyeupe za maua</string>
+    <string name="symbol_white_diamond">Almasi nyeupe</string>
+    <string name="symbol_white_down_pointing_triangle">Pembetatu nyeupe inayoelekeza chini</string>
+    <string name="symbol_white_heart">Roho Nyeupe</string>
+    <string name="symbol_white_left_pointing_index">Kidole cha kwanza cheupe kinachoelekeza kushoto</string>
+    <string name="symbol_white_left_pointing_triangle">Pembetatu nyeupe inayoelekeza kushoto</string>
+    <string name="symbol_white_right_pointing_index">Kidole cha kwanza cheupe kinachoelekeza kulia</string>
+    <string name="symbol_white_right_pointing_triangle">Pembetatu nyeupe inayoelekeza kulia</string>
+    <string name="symbol_white_spade_suit">Karata za shupaza nyeupe</string>
+    <string name="symbol_white_square">Mraba mweupe</string>
+    <string name="symbol_white_star">Nyota nyeupe</string>
+    <string name="symbol_white_up_pointing_triangle">Pembetatu nyeupe inayoelekeza juu</string>
+    <string name="symbol_won">Alama ya sarafu ya Won</string>
+    <string name="symbol_won_sign">Alama ya sarafu ya Won</string>
+    <string name="symbol_yen">Yeni</string>
+    <string name="tabletop">Hali ya juu ya meza</string>
+    <string name="tabletop_detail">Laza kifaa chako mezani (hali ya juu ya meza)</string>
+    <string name="talkback_off_dialog_positive_button">Washa katika mipangilio ya ufikivu</string>
+    <string name="talkback_off_dialog_title">Washa TalkBack ili utumie kibodi ya nukta nundu</string>
+    <string name="talkback_off_or_suspend_dialog_message">Ukiwasha TalkBack, unaweza kugusa skrini yako ili uweke ishara za nukta nundu.</string>
+    <string name="talkback_suspend_dialog_title">Endelea kutumia TalkBack ili utumie kibodi ya nukta nundu</string>
+    <string name="tap_to_continue">Gusa mara mbili mahali popote ili uendelee</string>
+    <string name="template_capital_letter">herufi kubwa %1$s</string>
+    <string name="template_current_tts_engine">Inatumia %1$s</string>
+    <string name="template_overlay_window">%1$s picha ndani ya picha</string>
+    <string name="template_password_selected">Herufi %1$d hadi %2$d</string>
+    <string name="template_password_traversed">Herufi %1$d</string>
+    <string name="template_scroll_from_count">Inaonyesha kipengee cha %1$d kati ya %2$d</string>
+    <string name="template_scroll_from_to_count">Inaonyesha vipengee %1$d hadi %2$d kati ya %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s upande wa kushoto, %2$s upande wa kulia</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s upande wa kulia, %2$s upande wa kushoto</string>
+    <string name="template_split_screen_mode_portrait">%1$s sehemu ya juu, %2$s sehemu ya chini</string>
+    <string name="template_text_copied">%1$s, yamenakiliwa</string>
+    <string name="template_viewpager_index_count">Ukurasa wa %1$d kati ya %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d kati ya %2$d</string>
+    <string name="title_pref_accumulate_presses">Jumuisha nukta nundu zote ulizobonyeza</string>
+    <string name="title_pref_reverse_dots">Geuza nukta nundu</string>
+    <string name="tutorial_intro_description">Ukitumia kibodi ya nukta nundu, unaweza kugusa skrini yako ili uweke nukta nundu ya nukta sita.\n\nUnatumia Nukta nundu ya Kiingereza Jumuishi. Ili ubadilishe lugha yako ya kuandika, nenda kwenye mipangilio ya TalkBack.\n\nIli uandike kwa kutumia nukta nundu, unahitaji kushika na kutumia simu yako kwa njia tofauti.</string>
+    <string name="type_letter_a_announcement">Weka skrini iangalie kinyume na ulipo. Shikilia simu kwa mikono yote miwili, kwenye kingo fupi za simu, ili vidole vitatu vya kati vya kila mkono viweze kugusa skrini.\n\nKidole chako cha shahada cha mkono wa kushoto kinafaa kuwa kwenye nukta nundu ya kwanza. Sasa, gusa nukta nundu ya kwanza ili uandike herufi \"A\".</string>
+    <string name="type_letter_a_inactive_announcement">Gusa nukta nundu ya kwanza ukitumia kidole cha shahada cha kushoto ili uandike herufi “A”</string>
+    <string name="type_letter_inactive_announcement">Gusa %1$s ili uandike herufi %2$s</string>
+    <string name="typing_languages_title">Lugha za kuandika</string>
+    <string name="untitled_window">Jina halijawekwa</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Mipangilio</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Washa kibodi ya nukta nundu&lt;/b>: Gusa Mipangilio hapa chini. Kwenye skrini inayofuata, washa \"%1$s.\"
+    &lt;br>&lt;br>2. &lt;b>Tumia kibodi ya nukta nundu&lt;/b>: Fungua kibodi yako ya kawaida, kisha uguse aikoni ya kuchagua kibodi %2$s (kwa kawaida kwenye pembe ya chini upande wa kulia). Chagua \"%1$s.\"
+    &lt;br>&lt;br>Ikiwa huoni chaguo la kubadilisha kibodi, jaribu kusakinisha, %3$s, kibodi ya Google.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Ili utumie kibodi ya nukta nundu, fungua kibodi yako ya kawaida, kisha uguse aikoni ya kuchagua kibodi %1$s (kwa kawaida kwenye pembe ya chini upande wa kulia). Chagua \"%2$s.\"
+  &lt;br>&lt;br>Ikiwa huoni chaguo la kubadili kibodi, jaribu kusakinisha %3$s, kibodi ya Google.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"IMEZIMWA"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"IMEWASHWA"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Droo ya vitendo"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Droo ya kusogeza"</string>
+</resources>

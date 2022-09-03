@@ -1,0 +1,48 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-ms-watch-v20/values-ms-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-ms-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,269",
+                        "endColumns": "215,150",
+                        "endOffsets": "266,417"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,273",
+                        "endColumns": "217,152",
+                        "endOffsets": "268,421"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/phone/release/values-ms-watch-v20/values-ms-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-ms-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,269",
+                        "endColumns": "215,150",
+                        "endOffsets": "266,417"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,273",
+                        "endColumns": "217,152",
+                        "endOffsets": "268,421"
+                    }
+                }
+            ]
+        }
+    ]
+}

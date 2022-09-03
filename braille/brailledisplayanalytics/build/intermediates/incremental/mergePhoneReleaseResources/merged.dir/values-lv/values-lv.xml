@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="zero">punkti %s</item>
+    <item quantity="one">punkti %s</item>
+    <item quantity="other">punkti %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="zero">%d jaunu paziņojumu</item>
+    <item quantity="one">%d jauns paziņojums</item>
+    <item quantity="other">%d jauni paziņojumi</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Pārvietoties uz sākuma ekrānu"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Pārvietoties uz augšu"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Citas opcijas"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Gatavs"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Skatīt visu"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Izvēlieties lietotni"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"IZSLĒGT"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"IESLĒGT"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alternēšanas taustiņš +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Vadīšanas taustiņš +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"dzēšanas taustiņš"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"ievadīšanas taustiņš"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Funkcijas taustiņš +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta taustiņš +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Pārslēgšanas taustiņš +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"atstarpes taustiņš"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Simbolu taustiņš +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Poga Izvēlne +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Meklējiet…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Notīrīt vaicājumu"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Meklēšanas vaicājums"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Meklēt"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Iesniegt vaicājumu"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Meklēt ar balsi"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Kopīgot ar:"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Kopīgot ar lietojumprogrammu <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Sakļaut"</string>
+    <string name="auto_detect">Pielāgoties ierīces turēšanas veidam</string>
+    <string name="bottomsheet_action_expand_halfway">Izvērst līdz pusei</string>
+    <string name="capitalize_announcement">Lielie burti</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Ievadītās rakstzīmes: %1$d no %2$d</string>
+    <string name="character_counter_overflowed_content_description">Pārsniegts rakstzīmju skaita ierobežojums (%1$d no %2$d)</string>
+    <string name="clear_text_end_icon_content_description">Notīrīt tekstu</string>
+    <string name="code_user_facing_name_ar">Arābu</string>
+    <string name="code_user_facing_name_es">Spāņu</string>
+    <string name="code_user_facing_name_fr">Franču</string>
+    <string name="code_user_facing_name_pl">Poļu</string>
+    <string name="code_user_facing_name_ueb1">Vienotais angļu valodas Braila raksts (nesaīsināts)</string>
+    <string name="code_user_facing_name_ueb2">Vienotais angļu valodas Braila raksts (saīsināts)</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Iespējot</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Lai lietotne %1$s darbotos, ir jāiespējo Google Play pakalpojumi.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play pakalpojumu iespējošana</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instalēt</string>
+    <string name="common_google_play_services_install_text">Lai lietotne %1$s darbotos, ierīcē ir jāinstalē Google Play pakalpojumi.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play pakalpojumu iegūšana</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play pakalpojumu pieejamība</string>
+    <string name="common_google_play_services_notification_ticker">Google Play pakalpojumu kļūda</string>
+    <string name="common_google_play_services_unknown_issue">Lietotnē %1$s ir radusies problēma ar Google Play pakalpojumu darbību. Lūdzu, mēģiniet vēlreiz.</string>
+    <string name="common_google_play_services_unsupported_text">Lai lietotne %1$s darbotos, ir nepieciešami Google Play pakalpojumi, taču jūsu ierīce tos neatbalsta.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Atjaunināt</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Lai lietotne %1$s darbotos, jums ir jāatjaunina Google Play pakalpojumi.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play pakalpojumu atjaunināšana</string>
+    <string name="common_google_play_services_updating_text">Lai lietotne %1$s darbotos, ir jāinstalē Google Play pakalpojumi. Pašlaik notiek to atjaunināšana.</string>
+    <string name="common_google_play_services_wear_update_text">Ir nepieciešama jauna Google Play pakalpojumu versija. Drīzumā tā tiks instalēta.</string>
+    <string name="common_open_on_phone">Atvērt tālrunī</string>
+    <string name="common_signin_button_text">Pierakstīties</string>
+    <string name="common_signin_button_text_long">Pierakstīties ar Google kontu</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Kļūme"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Atvērts jūsu tālrunī"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Gatavs"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopēt"</string>
+    <string name="error_icon_content_description">Kļūda</string>
+    <string name="exit_scrim">Iziet</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Papildu iestatījumi"</string>
+    <string name="exposed_dropdown_menu_content_description">Rādīt nolaižamo izvēlni</string>
+    <string name="function_off">Balss komentāri ir izslēgti</string>
+    <string name="function_on">Balss komentāri ir ieslēgti</string>
+    <string name="granularity_character">Rakstzīmes</string>
+    <string name="granularity_default">Noklusējuma</string>
+    <string name="granularity_line">Rindiņas</string>
+    <string name="granularity_native_control">Vadīklas</string>
+    <string name="granularity_native_heading">Virsraksti</string>
+    <string name="granularity_native_link">Saites</string>
+    <string name="granularity_paragraph">Rindkopas</string>
+    <string name="granularity_pseudo_web_special_content">Īpašs saturs</string>
+    <string name="granularity_web_control">Vadīklas</string>
+    <string name="granularity_web_heading">Virsraksti</string>
+    <string name="granularity_web_landmark">Orientieri</string>
+    <string name="granularity_web_link">Saites</string>
+    <string name="granularity_web_list">Saraksti</string>
+    <string name="granularity_window">Logi</string>
+    <string name="granularity_word">Vārdi</string>
+    <string name="hide_keyboard_window">tastatūra paslēpta</string>
+    <string name="icon_content_description">Dialoglodziņa ikona</string>
+    <string name="item_view_role_description">Cilne</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Lai iestatītu jaunu īsinājumtaustiņu, nospiediet taustiņu kombināciju kopā ar modificētājtaustiņu %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Nospiediet taustiņu kombināciju, lai iestatītu jaunu īsinājumtaustiņu. Kombinācijā ir jābūt ietvertam vismaz taustiņam ALT vai Control.</string>
+    <string name="keycombo_key_arrow_down">Lejupvērstais bulttaustiņš</string>
+    <string name="keycombo_key_arrow_left">Kreisais bulttaustiņš</string>
+    <string name="keycombo_key_arrow_right">Labais bulttaustiņš</string>
+    <string name="keycombo_key_arrow_up">Augšupvērstais bulttaustiņš</string>
+    <string name="keycombo_key_modifier_alt">Alternēšanas taustiņš</string>
+    <string name="keycombo_key_modifier_ctrl">Vadīšanas taustiņš</string>
+    <string name="keycombo_key_modifier_meta">Meklēšanas taustiņš</string>
+    <string name="keycombo_key_modifier_shift">Pārslēgšanas taustiņš</string>
+    <string name="keycombo_unassigned">Nav piešķirts</string>
+    <string name="material_clock_toggle_content_description">Atlasiet “AM” (priekšpusdienā) vai “PM” (pēcpusdienā).</string>
+    <string name="material_hour_selection">Atlasiet stundu</string>
+    <string name="material_hour_suffix">plkst. %1$s</string>
+    <string name="material_minute_selection">Atlasiet minūtes.</string>
+    <string name="material_minute_suffix">%1$s min</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Lai ievadītu laiku, ieslēdziet pulksteņa režīmu.</string>
+    <string name="material_timepicker_hour">Stunda</string>
+    <string name="material_timepicker_minute">Minūte</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Laika atlasīšana</string>
+    <string name="material_timepicker_text_input_mode_description">Lai ievadītu laiku, ieslēdziet teksta ievades režīmu.</string>
+    <string name="mtrl_badge_numberless_content_description">Jauns paziņojums</string>
+    <string name="mtrl_chip_close_icon_content_description">Noņemt: %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Vairāk nekā %1$d jauni paziņojumi</string>
+    <string name="mtrl_picker_a11y_next_month">Pāriet uz nākamo mēnesi</string>
+    <string name="mtrl_picker_a11y_prev_month">Pāriet uz iepriekšējo mēnesi</string>
+    <string name="mtrl_picker_announce_current_selection">Pašreizējā atlase: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Atlasiet datumu</string>
+    <string name="mtrl_picker_date_header_unselected">Atlasītais datums</string>
+    <string name="mtrl_picker_day_of_week_column_header">Dienu sleja: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Nederīgs formāts.</string>
+    <string name="mtrl_picker_invalid_format_example">Piemērs: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Izmantojiet: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Nederīgs diapazons.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Pāriet uz šo gadu: %1$s</string>
+    <string name="mtrl_picker_out_of_range">Ārpus diapazona: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Sākuma datums–%1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s–beigu datums</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_title">Atlasiet diapazonu</string>
+    <string name="mtrl_picker_range_header_unselected">Sākuma datums–beigu datums</string>
+    <string name="mtrl_picker_save">Saglabāt</string>
+    <string name="mtrl_picker_text_input_date_hint">Datums</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Beigu datums</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Sākuma datums</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">g</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Pārslēgties uz kalendāra ievades režīmu</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Pieskarties, lai pārslēgtos uz dienas atlasīšanu</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Pārslēgties uz teksta ievades režīmu</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Pieskarties, lai pārslēgtos uz gada atlasīšanu</string>
+    <string msgid="478774118347071097" name="not_set">"Nav iestatīts"</string>
+    <string name="number_announcement">Cipari</string>
+    <string name="password_toggle_content_description">Rādīt paroli</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Preference “<ns1:g id="SUMMARY">%1$s</ns1:g>” ir kopēta starpliktuvē."</string>
+    <string name="read_out_deleted">Teksts “%s” ir izdzēsts.</string>
+    <string name="screen_away">Prom vērsta ekrāna režīms</string>
+    <string name="screen_away_detail">Turiet ierīci ar prom vērstu ekrānu (prom vērsta ekrāna režīms).</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Meklēt"</string>
+    <string name="show_keyboard_window">Tiek rādīts logs “%1$s”</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Aptuveni vienāds ar</string>
+    <string name="symbol_ampersand">&amp; zīme</string>
+    <string name="symbol_angle_bracket_left">Zīme “mazāks nekā”</string>
+    <string name="symbol_angle_bracket_right">Zīme “lielāks nekā”</string>
+    <string name="symbol_apostrophe">Apostrofs</string>
+    <string name="symbol_approximately_equals">Aptuveni vienāds</string>
+    <string name="symbol_asterisk">Zvaigznīte</string>
+    <string name="symbol_at_sign">Et</string>
+    <string name="symbol_backslash">Atpakaļvērstā slīpsvītra</string>
+    <string name="symbol_beamed_sixteenth_note">Sešpadsmitdaļnotis ar slitu</string>
+    <string name="symbol_black_circle">Melns aplis</string>
+    <string name="symbol_black_heart">Melna sirds</string>
+    <string name="symbol_black_smallsquare">Neliels melns kvadrāts</string>
+    <string name="symbol_black_square">Melns kvadrāts</string>
+    <string name="symbol_black_star">Melna zvaigzne</string>
+    <string name="symbol_black_suit_of_diamonds">Melnu dimantu kopa</string>
+    <string name="symbol_black_triangle_pointing_down">Melns trijstūris, kas norāda uz leju</string>
+    <string name="symbol_black_triangle_pointing_up">Melns trijstūris, kas norāda uz augšu</string>
+    <string name="symbol_broken_bar">Pārtraukta vertikāla līnija</string>
+    <string name="symbol_bullet">Aizzīme</string>
+    <string name="symbol_bullseye">Mērķis</string>
+    <string name="symbol_caret">Jumtiņš</string>
+    <string name="symbol_celsius_degree">Celsija grādu simbols</string>
+    <string name="symbol_cent">Centa zīme</string>
+    <string name="symbol_circle_left_half_black">Aplis ar melnu kreiso pusi</string>
+    <string name="symbol_circle_right_half_black">Aplis ar melnu labo pusi</string>
+    <string name="symbol_colon">Kols</string>
+    <string name="symbol_comma">Komats</string>
+    <string name="symbol_copyright">Autortiesības</string>
+    <string name="symbol_curly_bracket_left">Kreisā figūriekava</string>
+    <string name="symbol_curly_bracket_right">Labā figūriekava</string>
+    <string name="symbol_currency_sign">Valūtas zīme</string>
+    <string name="symbol_degree">Grāda zīme</string>
+    <string name="symbol_division">Dalīšanas zīme</string>
+    <string name="symbol_dollar_sign">Dolāra zīme</string>
+    <string name="symbol_downwards_arrow">Lejupvērsta bultiņa</string>
+    <string name="symbol_eighth_note">Astotdaļnots</string>
+    <string name="symbol_ellipsis">Daudzpunkte</string>
+    <string name="symbol_em_dash">Domuzīme</string>
+    <string name="symbol_en_dash">Vienotājdomuzīme</string>
+    <string name="symbol_equal">Vienādības zīme</string>
+    <string name="symbol_euro">Eiro</string>
+    <string name="symbol_exclamation_mark">Izsaukuma zīme</string>
+    <string name="symbol_fahrenheit_degree">Fārenheita grādu simbols</string>
+    <string name="symbol_female">Sievišķais simbols</string>
+    <string name="symbol_full_width_ampersand">Pilna platuma rakstzīme “&amp;”</string>
+    <string name="symbol_full_width_asterisk">Pilna platuma zvaigznīte</string>
+    <string name="symbol_full_width_circumflex">Pilna platuma cirkumflekss</string>
+    <string name="symbol_full_width_colon">Pilna platuma kols</string>
+    <string name="symbol_full_width_comma">Pilna platuma komats</string>
+    <string name="symbol_full_width_exclamation_mark">Pilna platuma izsaukuma zīme</string>
+    <string name="symbol_full_width_greater_than_sign">Pilna platuma zīme “lielāks nekā”</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideogrāfisks punkts</string>
+    <string name="symbol_full_width_left_curly_bracket">Pilna platuma kreisā figūriekava</string>
+    <string name="symbol_full_width_left_parenthesis">Pilna platuma kreisā iekava</string>
+    <string name="symbol_full_width_less_than_sign">Pilna platuma zīme “mazāks nekā”</string>
+    <string name="symbol_full_width_question_mark">Pilna platuma jautājuma zīme</string>
+    <string name="symbol_full_width_right_curly_bracket">Pilna platuma labā figūriekava</string>
+    <string name="symbol_full_width_right_parenthesis">Pilna platuma labā iekava</string>
+    <string name="symbol_full_width_semicolon">Pilna platuma semikols</string>
+    <string name="symbol_full_width_tilde">Pilna platuma tilde</string>
+    <string name="symbol_full_width_underscore">Pilna platuma pasvītra</string>
+    <string name="symbol_grave_accent">Uzsvara zīme</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Punkts rindiņas vidū pusplatuma katakanas rakstībā</string>
+    <string name="symbol_hyphen_minus">Defise</string>
+    <string name="symbol_ideographic_comma">Ideogrāfisks komats</string>
+    <string name="symbol_integral">Integrālis</string>
+    <string name="symbol_inverted_exclamation_mark">Apgriezta izsaukuma zīme</string>
+    <string name="symbol_inverted_question_mark">Apgriezta jautājuma zīme</string>
+    <string name="symbol_left_angle_bracket">Kreisā dubultā leņķiekava</string>
+    <string name="symbol_left_black_lenticular_bracket">Melna kreisā lēcveidīgā iekava</string>
+    <string name="symbol_left_corner_bracket">Kreisā taisnleņķa iekava</string>
+    <string name="symbol_left_double_quotation_mark">Kreisās puses pēdiņas</string>
+    <string name="symbol_left_single_quotation_mark">Viena kreisās puses pēdiņa</string>
+    <string name="symbol_leftwards_arrow">Bultiņa pa kreisi</string>
+    <string name="symbol_liter">Litru simbols</string>
+    <string name="symbol_low_double_quote">Apakšējās pēdiņas</string>
+    <string name="symbol_male">Vīrišķais simbols</string>
+    <string name="symbol_mathematical_left_angle_bracket">Kreisā leņķiekava (matemātika)</string>
+    <string name="symbol_mathematical_right_angle_bracket">Labā leņķiekava (matemātika)</string>
+    <string name="symbol_micro_sign">Mikro zīme</string>
+    <string name="symbol_middle_dot">Punkts rindiņas vidū</string>
+    <string name="symbol_multiplication">Reizināšanas zīme</string>
+    <string name="symbol_new_line">Jauna rindiņa</string>
+    <string name="symbol_not_equals">Nav vienāds ar</string>
+    <string name="symbol_not_sign">Nolieguma zīme</string>
+    <string name="symbol_paragraph_mark">Rindkopas atzīme</string>
+    <string name="symbol_parenthesis_left">Kreisā iekava</string>
+    <string name="symbol_parenthesis_right">Labā iekava</string>
+    <string name="symbol_percent">Procentu simbols</string>
+    <string name="symbol_period">Punkts</string>
+    <string name="symbol_pi">Pī</string>
+    <string name="symbol_plus_minus_sign">Pluszīme/mīnuszīme</string>
+    <string name="symbol_postal_mark">Pasta zīme</string>
+    <string name="symbol_pound">Numura simbols</string>
+    <string name="symbol_pound_sterling">Sterliņu mārciņas zīme</string>
+    <string name="symbol_quarter_note">Ceturtdaļnots</string>
+    <string name="symbol_question_mark">Jautājuma zīme</string>
+    <string name="symbol_quotation_mark">Pēdiņas</string>
+    <string name="symbol_reference">Atsauces zīme</string>
+    <string name="symbol_registered_trademark">Reģistrētas preču zīmes simbols</string>
+    <string name="symbol_right_angle_bracket">Labā dubultā leņķiekava</string>
+    <string name="symbol_right_black_lenticular_bracket">Melna labā lēcveidīgā iekava</string>
+    <string name="symbol_right_corner_bracket">Labā taisnleņķa iekava</string>
+    <string name="symbol_right_double_quotation_mark">Labās puses pēdiņas</string>
+    <string name="symbol_right_single_quotation_mark">Viena labās puses pēdiņa</string>
+    <string name="symbol_rightwards_arrow">Augšupvērsta bultiņa</string>
+    <string name="symbol_rupee">Rūpija</string>
+    <string name="symbol_section_sign">Nodaļas zīme</string>
+    <string name="symbol_semicolon">Semikols</string>
+    <string name="symbol_slash">Slīpsvītra</string>
+    <string name="symbol_solar">Saules simbols</string>
+    <string name="symbol_space">Atstarpe</string>
+    <string name="symbol_square_bracket_left">Kreisā kvadrātiekava</string>
+    <string name="symbol_square_bracket_right">Labā kvadrātiekava</string>
+    <string name="symbol_square_root">Kvadrātsakne</string>
+    <string name="symbol_tilde">Tilde</string>
+    <string name="symbol_trademark">Preču zīme</string>
+    <string name="symbol_underscore">Pasvītra</string>
+    <string name="symbol_upwards_arrow">Bultiņa uz augšu</string>
+    <string name="symbol_vertical_bar">Vertikāla līnija</string>
+    <string name="symbol_white_circle">Balts aplis</string>
+    <string name="symbol_white_club_suit">Balts kreicis</string>
+    <string name="symbol_white_diamond">Balts kāravs</string>
+    <string name="symbol_white_down_pointing_triangle">Balts lejupvērsts trijstūris</string>
+    <string name="symbol_white_heart">Balta sirds</string>
+    <string name="symbol_white_left_pointing_index">Balts pa kreisi vērsts rādītājpirksts</string>
+    <string name="symbol_white_left_pointing_triangle">Balts pa kreisi vērsts trijstūris</string>
+    <string name="symbol_white_right_pointing_index">Balts pa labi vērsts rādītājpirksts</string>
+    <string name="symbol_white_right_pointing_triangle">Balts pa labi vērsts trijstūris</string>
+    <string name="symbol_white_spade_suit">Balts pīķis</string>
+    <string name="symbol_white_square">Balts kvadrāts</string>
+    <string name="symbol_white_star">Balta zvaigzne</string>
+    <string name="symbol_white_up_pointing_triangle">Balts augšupvērsts trijstūris</string>
+    <string name="symbol_won">Vonas zīme</string>
+    <string name="symbol_won_sign">Vonas zīme</string>
+    <string name="symbol_yen">Jena</string>
+    <string name="tabletop">Galda režīms</string>
+    <string name="tabletop_detail">Novietojiet ierīci plakaniski uz galda (galda režīms).</string>
+    <string name="template_capital_letter">lielais burts %1$s</string>
+    <string name="template_current_tts_engine">Izmantojot %1$s</string>
+    <string name="template_overlay_window">%1$s: attēls attēlā</string>
+    <string name="template_password_selected">Rakstzīmes no %1$d līdz %2$d</string>
+    <string name="template_password_traversed">Rakstzīme %1$d</string>
+    <string name="template_scroll_from_count">Tiek rādīts %1$d. vienums no %2$d.</string>
+    <string name="template_scroll_from_to_count">Tiek rādīts %1$d.–%2$d. vienums no %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s pa kreisi, %2$s pa labi</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s pa labi, %2$s pa kreisi</string>
+    <string name="template_split_screen_mode_portrait">%1$s augšā, %2$s apakšā</string>
+    <string name="template_text_copied">nokopēts, %1$s</string>
+    <string name="template_viewpager_index_count">%1$d. lapa no %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d. no %2$d</string>
+    <string name="untitled_window">bez nosaukuma</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"IZSLĒGTS"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"IESLĒGTS"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Darbību atvilktne"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Navigācijas atvilktne"</string>
+</resources>

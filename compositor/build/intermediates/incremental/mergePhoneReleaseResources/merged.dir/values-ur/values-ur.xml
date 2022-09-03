@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d نئی اطلاع</item>
+    <item quantity="other">%d نئی اطلاعات</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s میں %2$d آئٹم نظر آ رہا ہے۔</item>
+    <item quantity="other">%1$s میں %2$d آئٹمز نظر آ رہے ہیں۔</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d کالم</item>
+    <item quantity="other">%1$d کالمز</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d قطار</item>
+    <item quantity="other">%1$d قطاریں</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d آئٹم</item>
+    <item quantity="other">%1$d آئٹمز</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d کریکٹر</item>
+    <item quantity="other">%1$d کریکٹرز</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"گھر کی طرف نیویگیٹ کریں"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"اوپر نیویگیٹ کریں"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"مزید اختیارات"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"ہو گیا"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"سبھی دیکھیں"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"ایک ایپ منتخب کریں"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"آف"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"آن"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+‎"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+‎"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+‎"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+‎"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+‎"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+‎"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+‎"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"تلاش کریں…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"استفسار صاف کریں"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"تلاش کا استفسار"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"تلاش کریں"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"استفسار جمع کرائیں"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"صوتی تلاش"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"اس کے ساتھ اشتراک کریں"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> کے ساتھ اشتراک کریں"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"سکیڑیں"</string>
+    <string name="bottomsheet_action_expand_halfway">نصف تک پھیلائیں</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%2$d میں سے %1$d حروف درج کیے گئے</string>
+    <string name="character_counter_overflowed_content_description">حروف کی تعداد کی حد %2$d سے %1$d پہنچ گئی</string>
+    <string name="clear_text_end_icon_content_description">ٹیکسٹ صاف کریں</string>
+    <string name="column_heading_template">کالم ہیڈنگ</string>
+    <string name="column_index_template">کالم %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">فعال کریں</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">‏جب تک آپ Google Play سروسز فعال نہیں کر لیتے، %1$s کام نہیں کرے گی۔</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">‏Google Play سروسز فعال کریں</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">انسٹال کریں</string>
+    <string name="common_google_play_services_install_text">‏%1$s Google Play سروسز کے بغیر نہیں چلے گی، جو آپ کے آلہ سے غائب ہیں۔</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">‏Google Play سروسز حاصل کریں</string>
+    <string name="common_google_play_services_notification_channel_name">‏Google Play سروسز کی دستیابی</string>
+    <string name="common_google_play_services_notification_ticker">‏Google Play سروسز کی خرابی</string>
+    <string name="common_google_play_services_unknown_issue">‏%1$s کو Google Play سروسز کے ساتھ مسئلہ پیش آ رہا ہے۔ براہ کرم دوبارہ کوشش کریں۔</string>
+    <string name="common_google_play_services_unsupported_text">‏%1$s Google Play سروسز کے بغیر نہیں چلے گی، جن کی آپ کا آلہ معاونت نہیں کرتا۔</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">اپ ڈیٹ کریں</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">‏جب تک آپ Google Play سروسز اپ ڈیٹ نہیں کر لیتے ہیں %1$s تب تک نہیں چلے گی۔</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">‏Google Play سروسز اپ ڈیٹ کریں</string>
+    <string name="common_google_play_services_updating_text">‏%1$s Google Play سروسز کے بغیر نہیں چلے گی، جو فی الحال اپ ڈیٹ ہو رہی ہیں۔</string>
+    <string name="common_google_play_services_wear_update_text">‏Google Play سروسز کے نئے ورژن کی ضرورت ہے۔ یہ تھوڑی دیر میں خود ہی اپنے آپ کو اپ ڈیٹ کر لے گا۔</string>
+    <string name="common_open_on_phone">فون پر کھولیں</string>
+    <string name="common_signin_button_text">سائن ان کریں</string>
+    <string name="common_signin_button_text_long">‏Google کے ساتھ سائن ان کریں</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"ناکام"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"آپ کے فون پر کھول دی گئی"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"کامیاب"</string>
+    <string msgid="3209159573327985035" name="copy">"کاپی کریں"</string>
+    <string name="detected_icon_description">%1$s، پتہ لگایا گیا آئیکن</string>
+    <string name="error_icon_content_description">خرابی</string>
+    <string name="exit_scrim">باہر نکلیں</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"جدید ترین"</string>
+    <string name="exposed_dropdown_menu_content_description">ڈراپ ڈاؤن مینو دکھائیں</string>
+    <string name="function_off">صوتی تاثرات آف ہے</string>
+    <string name="function_on">صوتی تاثرات آن ہے</string>
+    <string name="granularity_character">حروف</string>
+    <string name="granularity_default">ڈیفالٹ</string>
+    <string name="granularity_line">لائنیں</string>
+    <string name="granularity_native_control">کنٹرولز</string>
+    <string name="granularity_native_heading">ہیڈنگز</string>
+    <string name="granularity_native_link">لنکس</string>
+    <string name="granularity_paragraph">پیراگرافس</string>
+    <string name="granularity_pseudo_web_special_content">خصوصی مواد</string>
+    <string name="granularity_web_control">کنٹرولز</string>
+    <string name="granularity_web_heading">ہیڈنگز</string>
+    <string name="granularity_web_landmark">نمایاں مقامات</string>
+    <string name="granularity_web_link">لنکس</string>
+    <string name="granularity_web_list">فہرستیں</string>
+    <string name="granularity_window">Windows</string>
+    <string name="granularity_word">الفاظ</string>
+    <string name="heading_template">ہیڈنگ</string>
+    <string name="hide_keyboard_window">کی بورڈ پوشیدہ ہے</string>
+    <string name="hint_suggestion">ہجے سے متعلق تجاویز دستیاب ہیں۔</string>
+    <string name="icon_content_description">ڈائیلاگ کا آئیکن</string>
+    <string name="in_collection_role_description">%1$s میں</string>
+    <string name="in_collection_role_description_with_name">%2$s %1$s میں ہے</string>
+    <string name="in_grid">گرڈ میں</string>
+    <string name="in_grid_pager">گرڈ پیجر میں</string>
+    <string name="in_grid_pager_with_name">گرڈ پیجر میں %1$s</string>
+    <string name="in_grid_with_name">گرڈ میں %1$s</string>
+    <string name="in_horizontal_pager">افقی پیجر میں</string>
+    <string name="in_horizontal_pager_with_name">افقی پیجر میں %1$s</string>
+    <string name="in_list">فہرست میں</string>
+    <string name="in_list_with_name">فہرست میں %1$s</string>
+    <string name="in_pager">پیجر میں</string>
+    <string name="in_pager_with_name">پیجر میں %1$s</string>
+    <string name="in_vertical_pager">عمودی پیجر میں</string>
+    <string name="in_vertical_pager_with_name">عمودی پیجر میں %1$s</string>
+    <string name="in_window_with_name">%1$s ونڈو</string>
+    <string name="item_view_role_description">ٹیب</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">نیا شارٹ کٹ سیٹ کرنے کیلئے %1$s موڈیفائر کلید کے ساتھ کلید کا مجموعہ دبائیں۔</string>
+    <string name="keycombo_assign_dialog_instruction">‏نیا شارٹ کٹ سیٹ کرنے کیلئے کلید کا جوڑا دبائیں۔ اس میں کم از کم ALT یا Control کلید ہونا لازمی ہے۔</string>
+    <string name="keycombo_key_arrow_down">نیچے کی طرف تیر کا نشان</string>
+    <string name="keycombo_key_arrow_left">بائیں طرف تیر کا نشان</string>
+    <string name="keycombo_key_arrow_right">دائیں طرف تیر کا نشان</string>
+    <string name="keycombo_key_arrow_up">اوپر کی طرف تیر کا نشان</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">تلاش</string>
+    <string name="keycombo_key_modifier_shift">شفٹ</string>
+    <string name="keycombo_unassigned">غیر مختص</string>
+    <string name="list_index_template">%2$d کا %1$d</string>
+    <string name="material_clock_toggle_content_description">AM یا PM منتخب کریں</string>
+    <string name="material_hour_selection">گھنٹہ منتخب کریں</string>
+    <string name="material_hour_suffix">%1$s بجے</string>
+    <string name="material_minute_selection">منٹ منتخب کریں</string>
+    <string name="material_minute_suffix">%1$s منٹ</string>
+    <string name="material_timepicker_am">قبل از دوپہر</string>
+    <string name="material_timepicker_clock_mode_description">وقت ان پٹ کے لیے گھڑی و‏ضع پر سوئچ کریں۔</string>
+    <string name="material_timepicker_hour">گھنٹہ</string>
+    <string name="material_timepicker_minute">منٹ</string>
+    <string name="material_timepicker_pm">رات</string>
+    <string name="material_timepicker_select_time">وقت منتخب کریں</string>
+    <string name="material_timepicker_text_input_mode_description">وقت ان پٹ کے لیے ٹیکسٹ ان پٹ وضع پر سوئچ کریں۔</string>
+    <string name="mtrl_badge_numberless_content_description">نئی اطلاع</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s کو ہٹائیں</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d سے زیادہ نئی اطلاعات</string>
+    <string name="mtrl_picker_a11y_next_month">اگلے مہینہ میں منتقل کریں</string>
+    <string name="mtrl_picker_a11y_prev_month">گزشتہ ماہ میں منتقل کریں</string>
+    <string name="mtrl_picker_announce_current_selection">موجودہ انتخاب: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">تاریخ منتخب کریں</string>
+    <string name="mtrl_picker_date_header_unselected">منتخب کردہ تاریخ</string>
+    <string name="mtrl_picker_day_of_week_column_header">دنوں کا کالم: %1$s</string>
+    <string name="mtrl_picker_invalid_format">غلط فارمیٹ۔</string>
+    <string name="mtrl_picker_invalid_format_example">مثال: %1$s۔</string>
+    <string name="mtrl_picker_invalid_format_use">%1$s استعمال کریں</string>
+    <string name="mtrl_picker_invalid_range">غلط رینج۔</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s سال پر نیویگیٹ کریں</string>
+    <string name="mtrl_picker_out_of_range">حد سے باہر: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">تاریخ آغاز – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – تاریخ اختتام</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">رینج منتخب کریں</string>
+    <string name="mtrl_picker_range_header_unselected">تاریخ آغاز - تاریخ اختتام</string>
+    <string name="mtrl_picker_save">محفوظ کریں</string>
+    <string name="mtrl_picker_text_input_date_hint">تاریخ</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">تاریخ اختتام</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">تاریخ آغاز</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">کیلنڈر ان پٹ وضع پر سوئچ کریں</string>
+    <string name="mtrl_picker_toggle_to_day_selection">دن کو منتخب کرنے کے ليے سوئچ پر تھپتھپائیں</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">متنی ان پٹ وضع پر سوئچ کریں</string>
+    <string name="mtrl_picker_toggle_to_year_selection">سال کو منتخب کرنے کے ليے سوئچ پر تھپتھپائیں</string>
+    <string msgid="478774118347071097" name="not_set">"سیٹ نہیں ہے"</string>
+    <string name="notification_category_alarm">الارم</string>
+    <string name="notification_category_call">کال</string>
+    <string name="notification_category_email">ای میل</string>
+    <string name="notification_category_err">خرابی</string>
+    <string name="notification_category_event">ایونٹ</string>
+    <string name="notification_category_msg">پیغام</string>
+    <string name="notification_category_progress">پیشرفت</string>
+    <string name="notification_category_promo">پرومو</string>
+    <string name="notification_category_service">سروس</string>
+    <string name="notification_category_social">سوشل</string>
+    <string name="notification_category_sys">سسٹم کی صورتحال</string>
+    <string name="notification_category_transport">میڈیا کنٹرول</string>
+    <string name="notification_type_beginning_of_field">فیلڈ کی شروعات</string>
+    <string name="notification_type_end_of_field">فیلڈ کا اختتام</string>
+    <string name="notification_type_selection_cleared">انتخاب صاف ہو گیا</string>
+    <string name="notification_type_selection_mode_off">انتخاب موڈ آف ہے</string>
+    <string name="notification_type_selection_mode_on">انتخاب موڈ آن ہے</string>
+    <string name="ocr_text_description">%1$s، ٹیکسٹ</string>
+    <string name="orientation_landscape">لینڈ اسکیپ</string>
+    <string name="orientation_portrait">پورٹریٹ</string>
+    <string name="out_of_grid">گرڈ سے باہر</string>
+    <string name="out_of_grid_pager">گرڈ پیجر کے باہر</string>
+    <string name="out_of_grid_pager_with_name">گرڈ پیجر کے باہر %1$s</string>
+    <string name="out_of_grid_with_name">گرڈ سے باہر %1$s</string>
+    <string name="out_of_horizontal_pager">افقی پیجر کے باہر</string>
+    <string name="out_of_list">فہرست سے باہر</string>
+    <string name="out_of_list_with_name">فہرست سے باہر %1$s</string>
+    <string name="out_of_pager">پیجر کے باہر</string>
+    <string name="out_of_pager_with_name">پیجر کے باہر %1$s</string>
+    <string name="out_of_role_description">%1$s کا ڈیٹا ختم ہو گیا ہے</string>
+    <string name="out_of_role_description_with_name">%2$s میں سے %1$s</string>
+    <string name="out_of_vertical_pager">عمودی پیجر کر باہر</string>
+    <string name="out_of_vertical_pager_with_name">عمودی پیجر کر باہر %1$s</string>
+    <string name="password_toggle_content_description">پاس ورڈ دکھائیں</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" کلپ بورڈ میں کاپی ہو گیا۔"</string>
+    <string name="row_heading_template">قطار ہیڈنگ</string>
+    <string name="row_index_template">قطار %1$d</string>
+    <string name="screen_magnification_off">میگنیفکیشن آف ہے</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"تلاش کریں"</string>
+    <string name="show_keyboard_window">%1$s دکھایا جا رہا ہے</string>
+    <string name="spokenfeedback_disabled">صوتی تاثرات آف ہیں</string>
+    <string name="spokenfeedback_on">صوتی تاثرات آن ہیں</string>
+    <string name="spokenfeedback_resumed">صوتی تاثرات دوبارہ شروع کر دیے گئے ہیں</string>
+    <string name="spokenfeedback_suspended">صوتی تاثرات معطل کر دیے گئے ہیں</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"+999"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">ہیڈ فونز کا استعمال کرتے وقت ہی پاس ورڈز بولے جاتے ہیں</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>، <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">تقریبا اس کے برابر</string>
+    <string name="symbol_ampersand">ایمپرسینڈ</string>
+    <string name="symbol_angle_bracket_left">اس سے کم کا نشان</string>
+    <string name="symbol_angle_bracket_right">اس سے بڑا کا نشان</string>
+    <string name="symbol_apostrophe">علامت حذف</string>
+    <string name="symbol_approximately_equals">تقریباً برابر</string>
+    <string name="symbol_asterisk">ستارہ کا نشان</string>
+    <string name="symbol_at_sign">ایٹ</string>
+    <string name="symbol_backslash">بیک سلیش</string>
+    <string name="symbol_beamed_sixteenth_note">بیم کیے ہوئے سولہویں نوٹس</string>
+    <string name="symbol_black_circle">سیاہ دائرہ</string>
+    <string name="symbol_black_heart">سیاہ دل</string>
+    <string name="symbol_black_smallsquare">چھوٹا سیاہ چوکور</string>
+    <string name="symbol_black_square">سیاہ مربع</string>
+    <string name="symbol_black_star">سیاہ ستارہ</string>
+    <string name="symbol_black_suit_of_diamonds">ڈائمنڈز کا سیاہ سوٹ</string>
+    <string name="symbol_black_triangle_pointing_down">نیچے کی طرف اشارہ کرتا ہوا سیاہ مثلث</string>
+    <string name="symbol_black_triangle_pointing_up">اوپر کی طرف اشارہ کرتا ہوا سیاہ مثلث</string>
+    <string name="symbol_broken_bar">ٹوٹا ہوا بار</string>
+    <string name="symbol_bullet">نقطہ</string>
+    <string name="symbol_bullseye">بلز آئی</string>
+    <string name="symbol_caret">کیرٹ</string>
+    <string name="symbol_celsius_degree">سیلسیس ڈگری</string>
+    <string name="symbol_cent">سینٹ کا نشان</string>
+    <string name="symbol_circle_left_half_black">بائیں نصف سیاہ کے ساتھ دائرہ</string>
+    <string name="symbol_circle_right_half_black">دائیں نصف سیاہ کے ساتھ دائرہ</string>
+    <string name="symbol_colon">کولن</string>
+    <string name="symbol_comma">کاما</string>
+    <string name="symbol_copyright">کاپی رائٹ</string>
+    <string name="symbol_curly_bracket_left">بایاں گھونگرا بریکٹ</string>
+    <string name="symbol_curly_bracket_right">دایاں گھونگرا بریکٹ</string>
+    <string name="symbol_currency_sign">کرنسی کا نشان</string>
+    <string name="symbol_degree">ڈگری کا نشان</string>
+    <string name="symbol_division">ڈویژن کا اشان</string>
+    <string name="symbol_dollar_sign">ڈالر کا نشان</string>
+    <string name="symbol_downwards_arrow">نیچے کی طرف والا تیر کا نشان</string>
+    <string name="symbol_eighth_note">آٹھواں نوٹ</string>
+    <string name="symbol_ellipsis">ایلپسیس</string>
+    <string name="symbol_em_dash">ایم ڈیش</string>
+    <string name="symbol_en_dash">این ڈیش</string>
+    <string name="symbol_equal">برابر کا نشان</string>
+    <string name="symbol_euro">یورو</string>
+    <string name="symbol_exclamation_mark">فجائیہ کا نشان</string>
+    <string name="symbol_fahrenheit_degree">فارن ہائٹ ڈگری</string>
+    <string name="symbol_female">مؤنث کی علامت</string>
+    <string name="symbol_full_width_ampersand">پوری چوڑائی والا ایمپرسینڈ</string>
+    <string name="symbol_full_width_asterisk">پوری چوڑائی والا ستارہ کا نشان</string>
+    <string name="symbol_full_width_circumflex">پوری چوڑائی والا سرکمفلیکس</string>
+    <string name="symbol_full_width_colon">پوری چوڑائی والا کولن</string>
+    <string name="symbol_full_width_comma">پوری چوڑائی والا کوما</string>
+    <string name="symbol_full_width_exclamation_mark">پوری چوڑائی والا استعجابیہ نشان</string>
+    <string name="symbol_full_width_greater_than_sign">پوری چوڑائی والا از زائد کا نشان</string>
+    <string name="symbol_full_width_ideographic_full_stop">تصور نگاری کا وقف لازم</string>
+    <string name="symbol_full_width_left_curly_bracket">پوری چوڑائی والا بائیں کرلی بریکٹ</string>
+    <string name="symbol_full_width_left_parenthesis">پوری چوڑائی والا بایاں قوسین</string>
+    <string name="symbol_full_width_less_than_sign">پوری چوڑائی والا از کم کا نشان</string>
+    <string name="symbol_full_width_question_mark">پوری چوڑائی والا سوالیہ نشان</string>
+    <string name="symbol_full_width_right_curly_bracket">پوری چوڑائی والا دائیں کرلی بریکٹ</string>
+    <string name="symbol_full_width_right_parenthesis">پوری چوڑائی والا دایاں قوسین</string>
+    <string name="symbol_full_width_semicolon">پوری چوڑائی والا سیمی کولن</string>
+    <string name="symbol_full_width_tilde">پوری چوڑائی والا ٹلڈ</string>
+    <string name="symbol_full_width_underscore">پوری چوڑائی والا انڈرسکور</string>
+    <string name="symbol_grave_accent">سنجیدہ تلفظ کا نشان</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">کٹاکانا کا نصف چوڑائی والا نقطہ</string>
+    <string name="symbol_hyphen_minus">ڈیش</string>
+    <string name="symbol_ideographic_comma">تصور نگاری والا کوما</string>
+    <string name="symbol_integral">سالم</string>
+    <string name="symbol_inverted_exclamation_mark">الٹی علامت استعجاب</string>
+    <string name="symbol_inverted_question_mark">الٹا سوالیہ نشان</string>
+    <string name="symbol_left_angle_bracket">بائیں ڈبل زاویہ والا بریکٹ</string>
+    <string name="symbol_left_black_lenticular_bracket">بائیں سیاہ عدسی بریکٹ</string>
+    <string name="symbol_left_corner_bracket">بائیں کونے کا بریکٹ</string>
+    <string name="symbol_left_double_quotation_mark">بائیں ڈبل کوٹیشن مارک</string>
+    <string name="symbol_left_single_quotation_mark">بائیں سنگل کوٹیشن مارک</string>
+    <string name="symbol_leftwards_arrow">بائیں جانب تیر کا نشان</string>
+    <string name="symbol_liter">لیٹر</string>
+    <string name="symbol_low_double_quote">کم ڈبل کوٹ</string>
+    <string name="symbol_male">مذکر کی علامت</string>
+    <string name="symbol_mathematical_left_angle_bracket">ریاضیاتی بائیں زاویہ والا بریکٹ</string>
+    <string name="symbol_mathematical_right_angle_bracket">ریاضیاتی دائیں زاویہ والا بریکٹ</string>
+    <string name="symbol_micro_sign">مائیکرو کا نشان</string>
+    <string name="symbol_middle_dot">درمیانی ڈاٹ</string>
+    <string name="symbol_multiplication">ضرب کا نشان</string>
+    <string name="symbol_new_line">نئی لکیر</string>
+    <string name="symbol_not_equals">کے برابر نہیں</string>
+    <string name="symbol_not_sign">علامت نفی</string>
+    <string name="symbol_paragraph_mark">پیراگراف کا نشان</string>
+    <string name="symbol_parenthesis_left">بایاں قوسین</string>
+    <string name="symbol_parenthesis_right">دایاں قوسین</string>
+    <string name="symbol_percent">فیصد</string>
+    <string name="symbol_period">پیریڈ</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">جمع تفریق کا نشان</string>
+    <string name="symbol_postal_mark">پوسٹل مارک</string>
+    <string name="symbol_pound">پاؤنڈ</string>
+    <string name="symbol_pound_sterling">پاؤنڈ کرنسی کا نشان</string>
+    <string name="symbol_quarter_note">کوارٹر نوٹ</string>
+    <string name="symbol_question_mark">سوالیہ نشان</string>
+    <string name="symbol_quotation_mark">علامت اقتباس</string>
+    <string name="symbol_reference">حوالہ کا نشان</string>
+    <string name="symbol_registered_trademark">رجسٹرڈ ٹریڈ مارک</string>
+    <string name="symbol_right_angle_bracket">دائیں ڈبل زاویہ والا بریکٹ</string>
+    <string name="symbol_right_black_lenticular_bracket">دائیں سیاہ عدسی بریکٹ</string>
+    <string name="symbol_right_corner_bracket">دائیں کونے کا بریکٹ</string>
+    <string name="symbol_right_double_quotation_mark">دائیں ڈبل کوٹیشن مارک</string>
+    <string name="symbol_right_single_quotation_mark">دائیں سنگل کوٹیشن مارک</string>
+    <string name="symbol_rightwards_arrow">دائیں طرف تیر کا نشان</string>
+    <string name="symbol_rupee">روپیہ</string>
+    <string name="symbol_section_sign">سیکشن کا نشان</string>
+    <string name="symbol_semicolon">سیمی کولن</string>
+    <string name="symbol_slash">سلیش</string>
+    <string name="symbol_solar">شمسی علامت</string>
+    <string name="symbol_space">اسپیس</string>
+    <string name="symbol_square_bracket_left">بایاں سکوئیر بریکٹ</string>
+    <string name="symbol_square_bracket_right">دایاں سکوئیر بریکٹ</string>
+    <string name="symbol_square_root">جذر مربع</string>
+    <string name="symbol_tilde">اعراب</string>
+    <string name="symbol_trademark">ٹریڈ مارک</string>
+    <string name="symbol_underscore">انڈرسکور</string>
+    <string name="symbol_upwards_arrow">اوپر کی طرف تیر کا نشان</string>
+    <string name="symbol_vertical_bar">عمودی لائن</string>
+    <string name="symbol_white_circle">سفید دائرہ</string>
+    <string name="symbol_white_club_suit">سفید کلب سوٹ</string>
+    <string name="symbol_white_diamond">سفید ہیرا</string>
+    <string name="symbol_white_down_pointing_triangle">سفید نیچے اشارہ کرتا ہوا مثلث</string>
+    <string name="symbol_white_heart">سفید دل</string>
+    <string name="symbol_white_left_pointing_index">سفید بائیں اشارہ کرتا ہوا اشاریہ</string>
+    <string name="symbol_white_left_pointing_triangle">سفید بائیں اشارہ کرتا ہوا مثلث</string>
+    <string name="symbol_white_right_pointing_index">سفید دائیں اشارہ کرتا ہوا اشاریہ</string>
+    <string name="symbol_white_right_pointing_triangle">سفید دائیں اشارہ کرتا ہوا مثلث</string>
+    <string name="symbol_white_spade_suit">سفید اسپیڈ سوٹ</string>
+    <string name="symbol_white_square">سفید مربع</string>
+    <string name="symbol_white_star">سفید ستارہ</string>
+    <string name="symbol_white_up_pointing_triangle">سفید اوپر اشارہ کرتا ہوا مثلث</string>
+    <string name="symbol_won">وون کرنسی کا نشان</string>
+    <string name="symbol_won_sign">وون کرنسی کا نشان</string>
+    <string name="symbol_yen">ین</string>
+    <string name="talkback_disabled">‏TalkBack آف ہے</string>
+    <string name="talkback_on">‏TalkBack آن ہے</string>
+    <string name="talkback_resumed">‏TalkBack دوبارہ شروع ہو گئی</string>
+    <string name="talkback_suspended">‏TalkBack معطل ہو گئی</string>
+    <string name="template_announce_selected_text">منتخب شدہ متن: %1$s</string>
+    <string name="template_capital_letter">بڑا حرف %1$s</string>
+    <string name="template_collection_level">سطح %1$d</string>
+    <string name="template_current_tts_engine">%1$s کا استعمال کر رہا ہے</string>
+    <string name="template_custom_hint_for_actions">%1$s پر %2$s۔</string>
+    <string name="template_custom_hint_for_actions_keyboard">%2$s کیلئے %1$s دبائیں۔</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s اور %2$s کیلئے پکڑے رکھیں۔</string>
+    <string name="template_drawer_opened">%1$s مینو</string>
+    <string name="template_hint_checkable">ٹوگل کرنے کیلئے %1$s۔</string>
+    <string name="template_hint_checkable_keyboard">ٹوگل کرنے کیلئے %1$s دبائیں۔</string>
+    <string name="template_hint_clickable">فعال کرنے کیلئے %1$s۔</string>
+    <string name="template_hint_clickable_keyboard">فعال کرنے کیلئے %1$s دبائیں۔</string>
+    <string name="template_hint_custom_actions">کارروائیاں:</string>
+    <string name="template_hint_edit_text">متن میں ترمیم کرنے کے ليے %1$s۔</string>
+    <string name="template_hint_edit_text_keyboard">متن میں ترمیم کرنے کے ليے %1$s پر دبائیں۔</string>
+    <string name="template_hint_long_clickable">دیر تک دبانے کیلئے %1$s اور دبائے رکھیں۔</string>
+    <string name="template_hint_long_clickable_keyboard">دیر تک دبانے کیلئے %1$s دبائیں۔</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s دستیاب، دیکھنے کے ليے %2$s کا استعمال کریں۔</string>
+    <string name="template_hint_pager">صفحات سوئچ کرنے کیلئے دو انگلیوں سے سوائپ کریں۔</string>
+    <string name="template_hint_pager_single_page">مزید صفحات نہیں ہیں۔</string>
+    <string name="template_hint_seek_control">ایڈجسٹ کرنے کے لیے والیوم کلیدوں کا استعمال کریں</string>
+    <string name="template_hint_seek_control_tv">تبدیل کرنے کیلئے %1$s۔</string>
+    <string name="template_hint_spinner">تبدیل کرنے کیلئے %1$s۔</string>
+    <string name="template_hint_spinner_keyboard">تبدیل کرنے کیلئے %1$s دبائیں۔</string>
+    <string name="template_labeled_item">%1$s برائے %2$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s تصویر میں تصویر</string>
+    <string name="template_password_selected">%1$d سے %2$d کریکٹرز</string>
+    <string name="template_password_traversed">کریکٹر %1$d</string>
+    <string name="template_percent">%1$s فیصد۔</string>
+    <string name="template_replaced_characters">%1$s حروف کو %2$s حروف کے ساتھ تبدیل کر دیا گیا</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">دستیاب کارروائیوں کے لیے %1$s۔</string>
+    <string name="template_sa_custom_hint_scrollable">اسکرول کرنے کے لیے %1$s۔</string>
+    <string name="template_sa_hint_seek_control">ایڈجسٹ کرنے کے لئے سوئچ منتخب کریں</string>
+    <string name="template_screen_magnification_on">میگنیفکیشن آن ہے %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">میگنیفکیشن %1$d%%</string>
+    <string name="template_scroll_from_count">%2$d میں سے %1$d آئٹم دکھا رہا ہے۔</string>
+    <string name="template_scroll_from_to_count">%3$d میں سے %1$d سے %2$d تک آئٹمز دکھا رہا ہے۔</string>
+    <string name="template_seekbar_range">%%%1$d</string>
+    <string name="template_speech_rate_change">اسپیچ کی شرح %%%1$d</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s بائیں طرف، %2$s دائیں طرف</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s دائیں طرف، %2$s بائیں طرف</string>
+    <string name="template_split_screen_mode_portrait">%1$s اوپر، %2$s نیچے</string>
+    <string name="template_text_copied">کاپی ہو گیا، %1$s</string>
+    <string name="template_text_cut">کٹ ہو گیا، %1$s</string>
+    <string name="template_text_error">غلط ان پٹ %1$s</string>
+    <string name="template_text_pasted">پیسٹ ہو گیا، %1$s</string>
+    <string name="template_text_removed">%1$s حذف کیا گیا</string>
+    <string name="template_text_replaced">%2$s کو %1$s سے تبدیل کر دیا گیا</string>
+    <string name="template_text_selected">%1$s، منتخب کردہ</string>
+    <string name="template_text_unselected">%1$s، غیر منتخب کردہ</string>
+    <string name="template_viewpager_index_count">صفحہ %1$d از %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d از %2$d</string>
+    <string name="template_volume_change_decrease">کم کریں</string>
+    <string name="template_volume_change_increase">بڑھائیں</string>
+    <string name="template_volume_change_maximum">زیادہ سے زیادہ</string>
+    <string name="template_volume_change_minimum">کم از کم</string>
+    <string name="title_action_collapse">سکیڑیں</string>
+    <string name="title_action_dismiss">برخاست کریں</string>
+    <string name="title_action_expand">پھیلائیں</string>
+    <string name="untitled_window">بلا عنوان</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"آف ہے"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"آن"</string>
+    <string name="value_button">بٹن</string>
+    <string name="value_caps_lock_off">‏Caps Lock آف ہے۔</string>
+    <string name="value_caps_lock_on">‏Caps Lock آن ہے۔</string>
+    <string name="value_checkbox">چیک باکس</string>
+    <string name="value_checked">چیک کیا گیا</string>
+    <string name="value_collapsed">سکڑا ہوا</string>
+    <string name="value_disabled">غیر فعال ہے</string>
+    <string name="value_double_tap">دو بار تھپتھپائیں</string>
+    <string name="value_edit_box">ترمیمی باکس</string>
+    <string name="value_edit_box_editing">ترمیم ہو رہی ہے</string>
+    <string name="value_expanded">پھیلا ہوا</string>
+    <string name="value_gridview">گرڈ</string>
+    <string name="value_image">تصویر</string>
+    <string name="value_listview">فہرست</string>
+    <string name="value_not_checked">چیک نہیں کیا گیا</string>
+    <string name="value_num_lock_off">‏Num Lock آف ہے۔</string>
+    <string name="value_num_lock_on">‏Num Lock آن ہے۔</string>
+    <string name="value_off">آف</string>
+    <string name="value_on">آن</string>
+    <string name="value_options_menu_open">اختیارات۔</string>
+    <string name="value_pager">متعدد صفحات منظر</string>
+    <string name="value_pager_page">صفحہ</string>
+    <string name="value_password">پاس ورڈ</string>
+    <string name="value_press_select">منتخب کریں دبائیں</string>
+    <string name="value_progress_bar">پیش رفت کا بار</string>
+    <string name="value_radio_button">ریڈیو بٹن</string>
+    <string name="value_scroll_lock_off">‏Scroll Lock آف ہے۔</string>
+    <string name="value_scroll_lock_on">‏Scroll Lock آن ہے۔</string>
+    <string name="value_seek_bar">سلائیڈر</string>
+    <string name="value_selected">منتخب کردہ</string>
+    <string name="value_single_tap">تھپتھپائیں</string>
+    <string name="value_sliding_drawer_opened">سلائیڈ کرنے والا دراز کھول دیا گیا</string>
+    <string name="value_spinner">ڈراپ ڈاؤن فہرست</string>
+    <string name="value_switch">سوئچ</string>
+    <string name="value_switch_press">سوئچ منتخب کریں کو دبائیں</string>
+    <string name="value_tabwidget">ٹیب بار</string>
+    <string name="value_text_cleared">متن صاف کر دیا گیا</string>
+    <string name="value_text_max_length">زیادہ سے زیادہ لمبائی تک پہنچ گیا</string>
+    <string name="value_unlabelled">بغیر لیبل والا</string>
+    <string name="value_webview">ویب منظر</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"کارروائی دراز"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"نیویگیشن دراز"</string>
+</resources>

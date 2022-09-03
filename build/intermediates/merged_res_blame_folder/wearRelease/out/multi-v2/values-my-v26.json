@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-my-v26/values-my-v26.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/build/intermediates/packaged_res/wear/release/values-my-v26/values-my-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,167,264,361",
+                        "endColumns": "111,96,96,96",
+                        "endOffsets": "162,259,356,453"
+                    }
+                }
+            ]
+        }
+    ]
+}

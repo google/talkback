@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tutorial_background"
+    android:paddingStart="@dimen/tutorial_horizontal_padding"
+    android:paddingTop="@dimen/tutorial_vertical_padding"
+    android:paddingEnd="@dimen/tutorial_horizontal_padding">
+  <LinearLayout
+      android:layout_width="@dimen/tutorial_width"
+      android:layout_height="match_parent"
+      android:layout_gravity="center"
+      android:orientation="vertical">
+    <TextView
+        android:id="@+id/tutorial_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="@string/braille_tutorial_title"
+        android:textColor="@color/google_white"
+        android:textSize="@dimen/tutorial_title_text_size"
+        android:textStyle="bold" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tutorial_description_min_height"
+        android:layout_weight="2">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:lineSpacingExtra="@dimen/tutorial_description_line_space"
+          android:scrollbars="vertical"
+          android:text="@string/tutorial_intro_description"
+          android:textColor="@color/google_white"
+          android:textSize="@dimen/tutorial_description_text_size" />
+    </ScrollView>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+      <ImageView
+          android:id="@+id/tutorial_animation"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:adjustViewBounds="true"
+          android:scaleType="fitCenter"
+          android:layout_margin="@dimen/tutorial_animation_margin"
+          android:src="@drawable/intro_animation_tabletop"/>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+      <Button
+          android:id="@+id/next_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/tutorial_button_margin"
+          android:background="@color/tutorial_button_background"
+          android:text="@string/next_step"
+          android:textSize="@dimen/tutorial_description_text_size" />
+      <Button
+          android:id="@+id/leave_keyboard_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="@dimen/tutorial_button_margin"
+          android:background="@color/google_transparent"
+          android:text="@string/leave_keyboard"
+          android:textColor="@color/tutorial_leave_button_text_color"
+          android:textSize="@dimen/tutorial_description_text_size" />
+    </LinearLayout>
+  </LinearLayout>
+</FrameLayout>

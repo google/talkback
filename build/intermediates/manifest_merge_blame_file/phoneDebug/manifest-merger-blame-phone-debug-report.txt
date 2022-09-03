@@ -1,0 +1,677 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.android.talkback4d"
+4    android:versionName="TfGH_release_12_2-2022_09_03_1544" >
+5
+6    <uses-sdk
+7        android:minSdkVersion="26"
+7-->/Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+8        android:targetSdkVersion="30" />
+8-->/Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+9
+10    <!--
+11  Strings with the format ${foo}, such as ${applicationId}, are called
+12  placeholders, and they get replaced by the build system with the appropriate
+13  value when a build executes.
+14    -->
+15
+16
+17    <!-- Permission used to restrict sending gestures and resuming feedback. -->
+18    <permission
+19        android:name="com.android.talkback.permission.TALKBACK"
+19-->/Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:13:7-47
+20        android:description="@string/permission_talkback_desc"
+20-->/Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:14:7-61
+21        android:icon="@drawable/ic_launcher"
+21-->/Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:15:7-43
+22        android:label="@string/permission_talkback_label"
+22-->/Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:16:7-56
+23        android:protectionLevel="signature" />
+23-->/Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:17:7-42
+24
+25    <!-- Required for shortcuts and widgets. -->
+26    <uses-permission android:name="com.android.talkback.permission.TALKBACK" />
+26-->/Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:20:20-60
+27
+28    <!--
+29    Strings with the format ${foo}, such as ${applicationId}, are called
+30    placeholders, and they get replaced by the build system with the appropriate
+31    value when a build executes.
+32    -->
+33    <!--
+34    The <queries> element allows us to ask the package manager about
+35    the installation status of external components we are interested in. This
+36    policy change was introduced in Android 11.
+37    -->
+38    <queries>
+38-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:20:5-27:15
+39        <intent>
+39-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:21:9-23:18
+40            <action android:name="android.intent.action.TTS_SERVICE" />
+40-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:22:13-72
+40-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:22:21-69
+41        </intent>
+42        <intent>
+42-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:24:9-26:18
+43            <action android:name="android.speech.RecognitionService" />
+43-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:25:13-72
+43-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:25:21-69
+44        </intent>
+45    </queries> <!-- Used by voice commands. -->
+46    <uses-feature
+46-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:30:5-32:36
+47        android:name="android.hardware.microphone"
+47-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:31:9-51
+48        android:required="false" />
+48-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:32:9-33
+49    <uses-feature
+49-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:33:5-35:36
+50        android:name="android.hardware.location"
+50-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:34:9-49
+51        android:required="false" /> <!-- Required for fingerprint gesture. -->
+51-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:35:9-33
+52    <uses-permission android:name="android.permission.USE_FINGERPRINT" /> <!-- Required to monitor phone busy state. -->
+52-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:38:5-74
+52-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:38:22-71
+53    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- Required for haptic feedback. -->
+53-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:41:5-75
+53-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:41:22-72
+54    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Required for keeping the screen awake during continuous reading and key filtering. -->
+54-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:44:5-66
+54-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:44:22-63
+55    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required for managing audio levels on GB. -->
+55-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:47:5-68
+55-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:47:22-65
+56    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- Required for speech recognition and hearing user's audio -->
+56-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:50:5-80
+56-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:50:22-77
+57    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- Required for App Enumeration -->
+57-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:53:5-71
+57-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:53:22-68
+58    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" /> <!-- Required for sending data to Google Analytics. -->
+58-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:56:5-77
+58-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:56:22-74
+59    <uses-permission android:name="android.permission.INTERNET" />
+59-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:59:5-67
+59-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:59:22-64
+60    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+60-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:60:5-79
+60-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:60:22-76
+61    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- Required for calling Service.startForeground after API 28. -->
+61-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:61:5-81
+61-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:61:22-78
+62    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Required for Primes. -->
+62-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:64:5-77
+62-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:64:22-74
+63    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" /> <!-- Used to control Primes collection using Gservices flags -->
+63-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:67:5-75
+63-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:67:22-72
+64    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /> <!-- Hardware compatibility. -->
+64-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:70:5-98
+64-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:70:22-95
+65    <uses-feature
+65-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:73:5-75:36
+66        android:name="android.hardware.touchscreen"
+66-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:74:9-52
+67        android:required="false" />
+67-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:75:9-33
+68    <uses-feature
+68-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:76:5-78:36
+69        android:name="android.hardware.sensor.accelerometer"
+69-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:77:9-61
+70        android:required="false" />
+70-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:78:9-33
+71
+72    <permission
+72-->[androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:22:5-24:47
+73        android:name="com.android.talkback4d.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+73-->[androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:23:9-81
+74        android:protectionLevel="signature" />
+74-->[androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:24:9-44
+75
+76    <uses-permission android:name="com.android.talkback4d.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+76-->[androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:26:5-97
+76-->[androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:26:22-94
+77
+78    <application
+78-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:80:5-282:19
+79        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+79-->[androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:28:18-86
+80        android:debuggable="true"
+81        android:extractNativeLibs="false"
+82        android:icon="@drawable/ic_launcher"
+82-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:81:9-45
+83        android:label="@string/app_name"
+83-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:82:9-41
+84        android:roundIcon="@drawable/ic_launcher_round"
+84-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:83:9-56
+85        android:supportsRtl="true"
+85-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:84:9-35
+86        android:theme="@style/BrailleDisplayTheme" >
+86-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:13:18-60
+87        <receiver
+87-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:85:9-95:20
+88            android:name="com.google.android.accessibility.talkback.BootReceiver"
+88-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:86:13-82
+89            android:directBootAware="true"
+89-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:87:13-43
+90            android:exported="true" >
+90-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:88:13-36
+91            <intent-filter>
+91-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:89:13-94:29
+92                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+92-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:90:17-86
+92-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:90:25-83
+93                <action android:name="android.intent.action.BOOT_COMPLETED" />
+93-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:91:17-79
+93-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:91:25-76
+94
+95                <category android:name="android.intent.category.DEFAULT" />
+95-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:17-76
+95-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:27-73
+96            </intent-filter>
+97        </receiver>
+98
+99        <!-- TalkBack -->
+100        <service
+100-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:98:9-117:19
+101            android:name="com.developer.talkback.TalkBackDevService"
+101-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:99:13-69
+102            android:directBootAware="true"
+102-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:100:13-43
+103            android:exported="true"
+103-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:101:13-36
+104            android:icon="@drawable/ic_launcher"
+104-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:102:13-49
+105            android:label="@string/talkback_title"
+105-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:103:13-51
+106            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+106-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:104:13-79
+107            android:settingsActivity="com.android.talkback.TalkBackPreferencesActivity" >
+107-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:105:13-88
+108            <intent-filter>
+108-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:106:13-112:29
+109                <action android:name="android.accessibilityservice.AccessibilityService" />
+109-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:107:17-92
+109-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:107:25-89
+110
+111                <category android:name="android.accessibilityservice.category.FEEDBACK_AUDIBLE" />
+111-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:109:17-99
+111-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:109:27-96
+112                <category android:name="android.accessibilityservice.category.FEEDBACK_HAPTIC" />
+112-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:110:17-98
+112-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:110:27-95
+113                <category android:name="android.accessibilityservice.category.FEEDBACK_SPOKEN" />
+113-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:111:17-98
+113-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:111:27-95
+114            </intent-filter>
+115
+116            <meta-data
+116-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:114:13-116:64
+117                android:name="android.accessibilityservice"
+117-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:115:17-60
+118                android:resource="@xml/accessibilityservice" />
+118-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:116:17-61
+119        </service>
+120        <service
+120-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:118:9-123:50
+121            android:name="com.google.android.accessibility.talkback.ipc.IpcService"
+121-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:119:13-84
+122            android:enabled="true"
+122-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:120:13-35
+123            android:exported="false"
+123-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:121:13-37
+124            android:icon="@drawable/icon"
+124-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:122:13-42
+125            android:label="TalkBackIpcService" />
+125-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:123:13-47
+126
+127        <!-- TalkBack Preferences -->
+128        <activity
+128-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:126:9-140:20
+129            android:name="com.android.talkback.TalkBackPreferencesActivity"
+129-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:127:13-76
+130            android:configChanges="orientation|screenSize"
+130-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:128:13-59
+131            android:exported="true"
+131-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:129:13-36
+132            android:label="@string/talkback_preferences_title"
+132-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:130:13-63
+133            android:launchMode="singleTop"
+133-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:131:13-43
+134            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+134-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:132:13-94
+135            android:theme="@style/TalkBackSettings" >
+135-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:133:13-52
+136            <intent-filter>
+136-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:135:13-139:29
+137                <action android:name="android.intent.action.MAIN" />
+137-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:136:17-69
+137-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:136:25-66
+138
+139                <category android:name="android.accessibilityservice.SERVICE_SETTINGS" />
+139-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:138:17-90
+139-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:138:27-87
+140            </intent-filter>
+141        </activity>
+142
+143        <!-- TalkBack Gesture Shortcut Preferences -->
+144        <activity
+144-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:143:9-159:20
+145            android:name="com.google.android.accessibility.talkback.preference.TalkBackShortcutPreferencesActivity"
+145-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:144:13-116
+146            android:configChanges="orientation|screenSize"
+146-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:145:13-59
+147            android:exported="true"
+147-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:146:13-36
+148            android:label="@string/title_pref_category_manage_gestures"
+148-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:147:13-72
+149            android:launchMode="singleTop"
+149-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:148:13-43
+150            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+150-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:149:13-94
+151            android:theme="@style/TalkBackSettings" >
+151-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:150:13-52
+152
+153            <!-- This preference activity can receive an implicit intent action -->
+154            <intent-filter>
+154-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:154:13-158:29
+155                <action android:name=".TalkBackShortcutPreferencesActivity" />
+156
+157                <category android:name="android.intent.category.DEFAULT" />
+157-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:17-76
+157-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:27-73
+158            </intent-filter>
+159        </activity>
+160
+161        <!-- TalkBack permission request activity proxy -->
+162        <activity
+162-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:162:9-169:20
+163            android:name="com.google.android.accessibility.talkback.permission.PermissionRequestActivity"
+163-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:163:13-106
+164            android:directBootAware="true"
+164-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:164:13-43
+165            android:excludeFromRecents="true"
+165-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:165:13-46
+166            android:exported="false"
+166-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:166:13-37
+167            android:noHistory="false"
+167-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:167:13-38
+168            android:theme="@style/BlankActivityTheme" >
+168-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:168:13-54
+169        </activity>
+170
+171        <!-- TalkBack tutorial and help preferences -->
+172        <activity
+172-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:172:9-187:20
+173            android:name="com.google.android.accessibility.talkback.preference.TalkBackHelpPreferencesActivity"
+173-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:173:13-112
+174            android:configChanges="orientation|screenSize"
+174-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:174:13-59
+175            android:exported="false"
+175-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:175:13-37
+176            android:label="@string/title_pref_category_tutorial_and_help"
+176-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:176:13-74
+177            android:launchMode="singleTop"
+177-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:177:13-43
+178            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+178-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:178:13-94
+179            android:theme="@style/TalkBackSettings" >
+179-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:179:13-52
+180
+181            <!-- This preference activity can receive an implicit intent action -->
+182            <intent-filter>
+182-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:182:13-186:29
+183                <action android:name=".preference.TalkBackHelpPreferencesActivity" />
+184
+185                <category android:name="android.intent.category.DEFAULT" />
+185-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:17-76
+185-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:27-73
+186            </intent-filter>
+187        </activity>
+188
+189        <!-- TalkBack training -->
+190        <!-- To prevent slowdown of talkback event-handlers, arrange to run on a separate process. -->
+191        <activity
+191-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:191:9-201:20
+192            android:name="com.google.android.accessibility.talkback.training.TrainingActivity"
+192-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:192:13-95
+193            android:configChanges="keyboardHidden|orientation|screenSize"
+193-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:193:13-74
+194            android:directBootAware="true"
+194-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:194:13-43
+195            android:exported="true"
+195-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:195:13-36
+196            android:launchMode="singleTop"
+196-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:196:13-43
+197            android:process=":Tutorial"
+197-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:197:13-40
+198            android:theme="@style/TrainingActivityTheme"
+198-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:198:13-57
+199            android:windowSoftInputMode="adjustResize" >
+199-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:199:13-55
+200        </activity>
+201        <activity
+201-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:202:9-208:20
+202            android:name="com.google.android.accessibility.talkback.labeling.LabelImportActivity"
+202-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:203:13-98
+203            android:excludeFromRecents="true"
+203-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:204:13-46
+204            android:exported="true"
+204-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:205:13-36
+205            android:launchMode="singleInstance"
+205-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:206:13-48
+206            android:theme="@style/DialogStyle" >
+206-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:207:13-47
+207        </activity>
+208
+209        <!-- Custom Label Manager - Summary Activity -->
+210        <activity
+210-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:211:9-225:20
+211            android:name="com.google.android.accessibility.talkback.labeling.LabelManagerSummaryActivity"
+211-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:212:13-106
+212            android:exported="false"
+212-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:213:13-37
+213            android:label="@string/label_manager_summary_title"
+213-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:214:13-64
+214            android:launchMode="singleTop"
+214-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:215:13-43
+215            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+215-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:216:13-94
+216            android:theme="@style/TalkBackSettings" >
+216-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:217:13-52
+217
+218            <!-- This preference activity can receive an implicit intent action -->
+219            <intent-filter>
+219-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:220:13-224:29
+220                <action android:name=".labeling.TalkBackSelectorPreferencesActivity" />
+221
+222                <category android:name="android.intent.category.DEFAULT" />
+222-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:17-76
+222-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:27-73
+223            </intent-filter>
+224        </activity>
+225
+226        <!-- Custom Label Manager - Package Activity -->
+227        <activity
+227-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:228:9-234:55
+228            android:name="com.google.android.accessibility.talkback.labeling.LabelManagerPackageActivity"
+228-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:229:13-106
+229            android:exported="false"
+229-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:230:13-37
+230            android:label="@string/manage_label"
+230-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:231:13-49
+231            android:launchMode="singleTop"
+231-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:232:13-43
+232            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+232-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:233:13-94
+233            android:theme="@style/TalkBackSettings" />
+233-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:234:13-52
+234
+235        <!-- Gesture Change Notification Activity -->
+236        <activity
+236-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:237:9-246:20
+237            android:name="com.google.android.accessibility.talkback.preference.GestureChangeNotificationActivity"
+237-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:238:13-114
+238            android:directBootAware="true"
+238-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:239:13-43
+239            android:exported="true"
+239-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:240:13-36
+240            android:theme="@style/DialogStyle" >
+240-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:241:13-47
+241            <intent-filter>
+241-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:243:13-245:29
+242                <action android:name="android.intent.action.MAIN" />
+242-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:136:17-69
+242-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:136:25-66
+243            </intent-filter>
+244        </activity>
+245
+246        <!-- Notification Activity used periodically to inform the user of changes -->
+247        <activity
+247-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:249:9-258:20
+248            android:name="com.google.android.accessibility.talkback.NotificationActivity"
+248-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:250:13-90
+249            android:directBootAware="true"
+249-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:251:13-43
+250            android:exported="true"
+250-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:252:13-36
+251            android:theme="@style/DialogStyle" >
+251-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:253:13-47
+252            <intent-filter>
+252-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:243:13-245:29
+253                <action android:name="android.intent.action.MAIN" />
+253-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:136:17-69
+253-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:136:25-66
+254            </intent-filter>
+255        </activity>
+256
+257        <!-- Content provider for custom label data -->
+258        <provider
+258-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:261:9-265:39
+259            android:name="com.google.android.accessibility.talkback.labeling.LabelProvider"
+259-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:262:13-92
+260            android:authorities="com.android.talkback4d.providers.LabelProvider"
+260-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:263:13-75
+261            android:directBootAware="true"
+261-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:264:13-43
+262            android:exported="true" />
+262-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:265:13-36
+263        <provider
+263-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:266:9-274:20
+264            android:name="androidx.core.content.FileProvider"
+264-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:267:13-62
+265            android:authorities="com.android.talkback4d.providers.FileProvider"
+265-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:268:13-74
+266            android:exported="false"
+266-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:269:13-37
+267            android:grantUriPermissions="true" >
+267-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:270:13-47
+268            <meta-data
+268-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:271:13-273:54
+269                android:name="android.support.FILE_PROVIDER_PATHS"
+269-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:272:17-67
+270                android:resource="@xml/file_paths" />
+270-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:273:17-51
+271        </provider>
+272
+273        <meta-data
+273-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:276:9-278:58
+274            android:name="support_lift_to_type"
+274-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:277:13-48
+275            android:value="@bool/support_lift_to_type" />
+275-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:278:13-55
+276        <meta-data
+276-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:279:9-281:35
+277            android:name="com.google.mlkit.vision.DEPENDENCIES"
+277-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:280:13-64
+278            android:value="ocr" />
+278-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:281:13-32
+279
+280        <service
+280-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:14:9-28:19
+281            android:name="com.google.android.accessibility.brailleime.BrailleIme"
+281-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:15:13-82
+282            android:directBootAware="true"
+282-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:16:13-43
+283            android:enabled="false"
+283-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:17:13-36
+284            android:exported="true"
+284-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:18:13-36
+285            android:label="@string/braille_ime_service_name"
+285-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:19:13-61
+286            android:permission="android.permission.BIND_INPUT_METHOD" >
+286-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:20:13-70
+287            <intent-filter>
+287-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:21:13-23:29
+288                <action android:name="android.view.InputMethod" />
+288-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:22:17-67
+288-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:22:25-64
+289            </intent-filter>
+290
+291            <meta-data
+291-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:25:13-27:55
+292                android:name="android.view.im"
+292-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:26:17-47
+293                android:resource="@xml/braille_ime" />
+293-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:27:17-52
+294        </service>
+295
+296        <activity
+296-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:30:9-44:20
+297            android:name="com.google.android.accessibility.brailleime.settings.BrailleImePreferencesActivity"
+297-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:31:13-110
+298            android:configChanges="orientation|screenSize"
+298-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:32:13-59
+299            android:exported="true"
+299-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:33:13-36
+300            android:label="@string/braille_keyboard"
+300-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:34:13-53
+301            android:launchMode="singleTop"
+301-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:35:13-43
+302            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+302-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:36:13-94
+303            android:theme="@style/SettingsTheme" >
+303-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:37:13-49
+304            <intent-filter>
+304-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:39:13-43:29
+305                <action android:name=".BrailleImePreferencesActivity" />
+306
+307                <category android:name="android.intent.category.DEFAULT" />
+307-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:17-76
+307-->[:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:93:27-73
+308            </intent-filter>
+309        </activity>
+310
+311        <receiver
+311-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:46:9-53:20
+312            android:name="com.google.android.accessibility.brailleime.MyPackageReplacedReceiver"
+312-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:47:13-97
+313            android:enabled="true"
+313-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:48:13-35
+314            android:exported="true" >
+314-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:49:13-36
+315            <intent-filter>
+315-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:50:13-52:29
+316                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+316-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:51:17-84
+316-->[:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneDebug/AndroidManifest.xml:51:25-81
+317            </intent-filter>
+318        </receiver>
+319
+320        <uses-library
+320-->[com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:10:9-12:40
+321            android:name="com.google.android.wearable"
+321-->[com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:11:13-55
+322            android:required="false" />
+322-->[com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:12:13-37
+323
+324        <service
+324-->[com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:9:9-15:19
+325            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+325-->[com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:10:13-91
+326            android:directBootAware="true"
+326-->[com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:17:13-43
+327            android:exported="false" >
+327-->[com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:11:13-37
+328            <meta-data
+328-->[com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:12:13-14:85
+329                android:name="com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar"
+329-->[com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:13:17-114
+330                android:value="com.google.firebase.components.ComponentRegistrar" />
+330-->[com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:14:17-82
+331            <meta-data
+331-->[com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:12:13-14:85
+332                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+332-->[com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:13:17-124
+333                android:value="com.google.firebase.components.ComponentRegistrar" />
+333-->[com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:14:17-82
+334            <meta-data
+334-->[com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:20:13-22:85
+335                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+335-->[com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:21:17-120
+336                android:value="com.google.firebase.components.ComponentRegistrar" />
+336-->[com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:22:17-82
+337        </service>
+338
+339        <provider
+339-->[com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:9:9-13:38
+340            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+340-->[com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:10:13-78
+341            android:authorities="com.android.talkback4d.mlkitinitprovider"
+341-->[com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:11:13-69
+342            android:exported="false"
+342-->[com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:12:13-37
+343            android:initOrder="99" />
+343-->[com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:13:13-35
+344
+345        <activity
+345-->[com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+346            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+346-->[com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+347            android:exported="false"
+347-->[com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+348            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+348-->[com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+349
+350        <meta-data
+350-->[com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+351            android:name="com.google.android.gms.version"
+351-->[com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+352            android:value="@integer/google_play_services_version" />
+352-->[com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+353
+354        <provider
+354-->[androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+355            android:name="androidx.startup.InitializationProvider"
+355-->[androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+356            android:authorities="com.android.talkback4d.androidx-startup"
+356-->[androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+357            android:exported="false" >
+357-->[androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+358            <meta-data
+358-->[androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+359                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+359-->[androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+360                android:value="androidx.startup" />
+360-->[androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+361            <meta-data
+361-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+362                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+362-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+363                android:value="androidx.startup" />
+363-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+364        </provider>
+365
+366        <service
+366-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+367            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+367-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+368            android:exported="false" >
+368-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+369            <meta-data
+369-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+370                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+370-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+371                android:value="cct" />
+371-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+372        </service>
+373        <service
+373-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
+374            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+374-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
+375            android:exported="false"
+375-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
+376            android:permission="android.permission.BIND_JOB_SERVICE" >
+376-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
+377        </service>
+378
+379        <receiver
+379-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
+380            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+380-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
+381            android:exported="false" />
+381-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
+382    </application>
+383
+384</manifest>

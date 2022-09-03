@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d notificació nova</item>
+    <item quantity="other">%d notificacions noves</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s mostra %2$d element.</item>
+    <item quantity="other">%1$s mostra %2$d elements.</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d columna</item>
+    <item quantity="other">%1$d columnes</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d fila</item>
+    <item quantity="other">%1$d files</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d element</item>
+    <item quantity="other">%1$d elements</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d caràcter</item>
+    <item quantity="other">%1$d caràcters</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navega fins a la pàgina d\'inici"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navega cap amunt"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Més opcions"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Fet"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Mostra-ho tot"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Selecciona una aplicació"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"DESACTIVA"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ACTIVA"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Supr"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Retorn"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Funció+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Maj+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Espai"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menú+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Cerca…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Esborra la consulta"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Consulta de cerca"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Cerca"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Envia la consulta"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Cerca per veu"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Comparteix amb"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Comparteix amb <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Replega"</string>
+    <string name="bottomsheet_action_expand_halfway">Desplega fins a la meitat</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Caràcters introduïts: %1$d de %2$d</string>
+    <string name="character_counter_overflowed_content_description">S\'ha superat el límit de caràcters (%1$d de %2$d)</string>
+    <string name="clear_text_end_icon_content_description">Esborra el text</string>
+    <string name="column_heading_template">Títol de la columna</string>
+    <string name="column_index_template">Columna %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Activa</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s no funcionarà si no actives Serveis de Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Activa Serveis de Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instal·la</string>
+    <string name="common_google_play_services_install_text">%1$s no s\'executarà si Serveis de Google Play no està instal·lat al dispositiu.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Obtén Serveis de Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Disponibilitat de serveis de Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Error de Serveis de Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s té problemes amb Serveis de Google Play. Torna-ho a provar.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s no es pot executar sense Serveis de Google Play, que no és compatible amb el teu dispositiu.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Actualitza</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s no s\'executarà si no actualitzes Serveis de Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Actualitza Serveis de Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s no s\'executarà sense Serveis de Google Play, que s\'està actualitzant en aquest moment.</string>
+    <string name="common_google_play_services_wear_update_text">Cal una nova versió de Serveis de Google Play. S\'actualitzarà automàticament aviat.</string>
+    <string name="common_open_on_phone">Obre al telèfon</string>
+    <string name="common_signin_button_text">Inicia sessió</string>
+    <string name="common_signin_button_text_long">Inicia la sessió amb Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Error"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"S\'ha obert al telèfon"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Correcte"</string>
+    <string msgid="3209159573327985035" name="copy">"Copia"</string>
+    <string name="detected_icon_description">%1$s, icona detectada</string>
+    <string name="error_icon_content_description">Error</string>
+    <string name="exit_scrim">Surt</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Opcions avançades"</string>
+    <string name="exposed_dropdown_menu_content_description">Mostra el menú desplegable</string>
+    <string name="function_off">Els avisos de veu estan desactivats</string>
+    <string name="function_on">Els avisos de veu estan activats</string>
+    <string name="granularity_character">Caràcters</string>
+    <string name="granularity_default">Predeterminat</string>
+    <string name="granularity_line">Línies</string>
+    <string name="granularity_native_control">Controls</string>
+    <string name="granularity_native_heading">Títols</string>
+    <string name="granularity_native_link">Enllaços</string>
+    <string name="granularity_paragraph">Paràgrafs</string>
+    <string name="granularity_pseudo_web_special_content">Contingut especial</string>
+    <string name="granularity_web_control">Controls</string>
+    <string name="granularity_web_heading">Títols</string>
+    <string name="granularity_web_landmark">Punts de referència</string>
+    <string name="granularity_web_link">Enllaços</string>
+    <string name="granularity_web_list">Llistes</string>
+    <string name="granularity_window">Finestres</string>
+    <string name="granularity_word">Paraules</string>
+    <string name="heading_template">Encapçalament</string>
+    <string name="hide_keyboard_window">el teclat està amagat</string>
+    <string name="hint_suggestion">Suggeriments ortogràfics disponibles.</string>
+    <string name="icon_content_description">Icona del quadre de diàleg</string>
+    <string name="in_collection_role_description">A %1$s</string>
+    <string name="in_collection_role_description_with_name">A %1$s %2$s</string>
+    <string name="in_grid">A la quadrícula</string>
+    <string name="in_grid_pager">Dins la pàgina de quadrícula</string>
+    <string name="in_grid_pager_with_name">Dins la pàgina de quadrícula %1$s</string>
+    <string name="in_grid_with_name">A la quadrícula %1$s</string>
+    <string name="in_horizontal_pager">Dins la pàgina horitzontal</string>
+    <string name="in_horizontal_pager_with_name">Dins la pàgina horitzontal %1$s</string>
+    <string name="in_list">A la llista</string>
+    <string name="in_list_with_name">A la llista %1$s</string>
+    <string name="in_pager">Dins la pàgina</string>
+    <string name="in_pager_with_name">Dins la pàgina %1$s</string>
+    <string name="in_vertical_pager">Dins la pàgina vertical</string>
+    <string name="in_vertical_pager_with_name">Dins la pàgina vertical %1$s</string>
+    <string name="in_window_with_name">Finestra %1$s</string>
+    <string name="item_view_role_description">Tabulador</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Prem la combinació de tecles amb la tecla modificadora %1$s per definir una drecera nova.</string>
+    <string name="keycombo_assign_dialog_instruction">Prem una combinació de tecles per definir una drecera nova. S\'ha de fer servir, com a mínim, la tecla ALT o Control.</string>
+    <string name="keycombo_key_arrow_down">Fletxa avall</string>
+    <string name="keycombo_key_arrow_left">Fletxa esquerra</string>
+    <string name="keycombo_key_arrow_right">Fletxa dreta</string>
+    <string name="keycombo_key_arrow_up">Fletxa amunt</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Cerca</string>
+    <string name="keycombo_key_modifier_shift">Maj</string>
+    <string name="keycombo_unassigned">Sense assignar</string>
+    <string name="list_index_template">%1$d de %2$d</string>
+    <string name="material_clock_toggle_content_description">Selecciona a. m. o p. m.</string>
+    <string name="material_hour_selection">Seleccioneu l\'hora</string>
+    <string name="material_hour_suffix">%1$s en punt</string>
+    <string name="material_minute_selection">Selecciona els minuts</string>
+    <string name="material_minute_suffix">%1$s minuts</string>
+    <string name="material_timepicker_am">a. m.</string>
+    <string name="material_timepicker_clock_mode_description">Canvia al mode de rellotge per introduir l\'hora.</string>
+    <string name="material_timepicker_hour">Hora</string>
+    <string name="material_timepicker_minute">Minut</string>
+    <string name="material_timepicker_pm">p. m.</string>
+    <string name="material_timepicker_select_time">Selecció de l\'hora</string>
+    <string name="material_timepicker_text_input_mode_description">Canvia al mode d\'introducció de text per introduir l\'hora.</string>
+    <string name="mtrl_badge_numberless_content_description">Notificació nova</string>
+    <string name="mtrl_chip_close_icon_content_description">Suprimeix %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Més de %1$d notificacions noves</string>
+    <string name="mtrl_picker_a11y_next_month">Canvia al mes següent</string>
+    <string name="mtrl_picker_a11y_prev_month">Canvia al mes anterior</string>
+    <string name="mtrl_picker_announce_current_selection">Selecció actual: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Selecciona una data</string>
+    <string name="mtrl_picker_date_header_unselected">Data seleccionada</string>
+    <string name="mtrl_picker_day_of_week_column_header">Columna de dies: %1$s</string>
+    <string name="mtrl_picker_invalid_format">El format no és vàlid.</string>
+    <string name="mtrl_picker_invalid_format_example">Exemple: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Utilitza: %1$s</string>
+    <string name="mtrl_picker_invalid_range">L\'interval no és vàlid.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Canvia a l\'any %1$s</string>
+    <string name="mtrl_picker_out_of_range">La data està fora de l\'interval: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Data d\'inici - %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s - data de finalització</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_title">Selecciona un interval</string>
+    <string name="mtrl_picker_range_header_unselected">Data d\'inici - data de finalització</string>
+    <string name="mtrl_picker_save">Desa</string>
+    <string name="mtrl_picker_text_input_date_hint">Data</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Data de finalització</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Data d\'inici</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">a</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Canvia al mode d\'introducció de dades del calendari</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Toca per canviar a la selecció del dia</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Canvia al mode d\'introducció de text</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Toca per canviar a la selecció de l\'any</string>
+    <string msgid="478774118347071097" name="not_set">"Sense definir"</string>
+    <string name="notification_category_alarm">Alarma</string>
+    <string name="notification_category_call">Trucada</string>
+    <string name="notification_category_email">Correu electrònic</string>
+    <string name="notification_category_err">Error</string>
+    <string name="notification_category_event">Esdeveniment</string>
+    <string name="notification_category_msg">Missatge</string>
+    <string name="notification_category_progress">Progrés</string>
+    <string name="notification_category_promo">Promoció</string>
+    <string name="notification_category_service">Servei</string>
+    <string name="notification_category_social">Xarxes socials</string>
+    <string name="notification_category_sys">Estat del sistema</string>
+    <string name="notification_category_transport">Control d\'elements multimèdia</string>
+    <string name="notification_type_beginning_of_field">Inici del camp</string>
+    <string name="notification_type_end_of_field">Fi del camp</string>
+    <string name="notification_type_selection_cleared">S\'ha esborrat la selecció</string>
+    <string name="notification_type_selection_mode_off">S\'ha desactivat el mode de selecció</string>
+    <string name="notification_type_selection_mode_on">S\'ha activat el mode de selecció</string>
+    <string name="ocr_text_description">%1$s, text</string>
+    <string name="orientation_landscape">Horitzontal</string>
+    <string name="orientation_portrait">Vertical</string>
+    <string name="out_of_grid">Fora de la quadrícula</string>
+    <string name="out_of_grid_pager">Fora de la pàgina de quadrícula</string>
+    <string name="out_of_grid_pager_with_name">Fora de la pàgina de quadrícula %1$s</string>
+    <string name="out_of_grid_with_name">Fora de la quadrícula %1$s</string>
+    <string name="out_of_horizontal_pager">Fora de la pàgina horitzontal</string>
+    <string name="out_of_list">Fora de la llista</string>
+    <string name="out_of_list_with_name">Fora de la llista %1$s</string>
+    <string name="out_of_pager">Fora de la pàgina</string>
+    <string name="out_of_pager_with_name">Fora de la pàgina %1$s</string>
+    <string name="out_of_role_description">Fora de %1$s</string>
+    <string name="out_of_role_description_with_name">Fora de %1$s %2$s</string>
+    <string name="out_of_vertical_pager">Fora de la pàgina vertical</string>
+    <string name="out_of_vertical_pager_with_name">Fora de la pàgina vertical %1$s</string>
+    <string name="password_toggle_content_description">Mostra la contrasenya</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" s\'ha copiat al porta-retalls"</string>
+    <string name="row_heading_template">Títol de la fila</string>
+    <string name="row_index_template">Fila %1$d</string>
+    <string name="screen_magnification_off">S\'ha desactivat l\'ampliació</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Cerca"</string>
+    <string name="show_keyboard_window">S\'està mostrant la finestra %1$s</string>
+    <string name="spokenfeedback_disabled">S\'han desactivat els avisos de veu</string>
+    <string name="spokenfeedback_on">S\'han activat els avisos de veu</string>
+    <string name="spokenfeedback_resumed">S\'han reprès els avisos de veu</string>
+    <string name="spokenfeedback_suspended">S\'han suspès els avisos de veu</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">Es llegeixen les contrasenyes només amb auriculars</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Aproximadament igual a</string>
+    <string name="symbol_ampersand">Signe &amp;</string>
+    <string name="symbol_angle_bracket_left">Símbol de menor que</string>
+    <string name="symbol_angle_bracket_right">Símbol de major que</string>
+    <string name="symbol_apostrophe">Apòstrof</string>
+    <string name="symbol_approximately_equals">Aproximadament és igual a</string>
+    <string name="symbol_asterisk">Asterisc</string>
+    <string name="symbol_at_sign">Arrova</string>
+    <string name="symbol_backslash">Barra inversa</string>
+    <string name="symbol_beamed_sixteenth_note">Semicorxeres agrupades</string>
+    <string name="symbol_black_circle">Cercle negre</string>
+    <string name="symbol_black_heart">Cor negre</string>
+    <string name="symbol_black_smallsquare">Quadrat negre petit</string>
+    <string name="symbol_black_square">Quadrat negre</string>
+    <string name="symbol_black_star">Estrella negra</string>
+    <string name="symbol_black_suit_of_diamonds">Diamant negre</string>
+    <string name="symbol_black_triangle_pointing_down">Triangle negre que assenyala cap avall</string>
+    <string name="symbol_black_triangle_pointing_up">Triangle negre que assenyala cap amunt</string>
+    <string name="symbol_broken_bar">Barra trencada</string>
+    <string name="symbol_bullet">Pic</string>
+    <string name="symbol_bullseye">Diana</string>
+    <string name="symbol_caret">Accent circumflex</string>
+    <string name="symbol_celsius_degree">Grau Celsius</string>
+    <string name="symbol_cent">Símbol de cèntim</string>
+    <string name="symbol_circle_left_half_black">Cercle amb la meitat esquerra negra</string>
+    <string name="symbol_circle_right_half_black">Cercle amb la meitat dreta negra</string>
+    <string name="symbol_colon">Dos punts</string>
+    <string name="symbol_comma">Coma</string>
+    <string name="symbol_copyright">Drets d\'autor</string>
+    <string name="symbol_curly_bracket_left">Clau d\'obertura</string>
+    <string name="symbol_curly_bracket_right">Clau de tancament</string>
+    <string name="symbol_currency_sign">Signe de moneda</string>
+    <string name="symbol_degree">Símbol de grau</string>
+    <string name="symbol_division">Signe de divisió</string>
+    <string name="symbol_dollar_sign">Signe de dòlar</string>
+    <string name="symbol_downwards_arrow">Fletxa avall</string>
+    <string name="symbol_eighth_note">Corxera</string>
+    <string name="symbol_ellipsis">Punts suspensius</string>
+    <string name="symbol_em_dash">Guió llarg</string>
+    <string name="symbol_en_dash">Guió curt</string>
+    <string name="symbol_equal">Signe igual</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Signe d\'admiració</string>
+    <string name="symbol_fahrenheit_degree">Grau Fahrenheit</string>
+    <string name="symbol_female">Símbol de dona</string>
+    <string name="symbol_full_width_ampersand">Signe et d\'ampada completa</string>
+    <string name="symbol_full_width_asterisk">Asterisc d\'amplada completa</string>
+    <string name="symbol_full_width_circumflex">Accent circumflex d\'amplada completa</string>
+    <string name="symbol_full_width_colon">Dos punts d\'amplada completa</string>
+    <string name="symbol_full_width_comma">Coma d\'amplada completa</string>
+    <string name="symbol_full_width_exclamation_mark">Signe d\'exclamació d\'amplada completa</string>
+    <string name="symbol_full_width_greater_than_sign">Símbol de major que d\'amplada completa</string>
+    <string name="symbol_full_width_ideographic_full_stop">Punt ideogràfic</string>
+    <string name="symbol_full_width_left_curly_bracket">Clau d\'obertura d\'amplada completa</string>
+    <string name="symbol_full_width_left_parenthesis">Parèntesi d\'obertura d\'amplada completa</string>
+    <string name="symbol_full_width_less_than_sign">Símbol de menor que d\'amplada completa</string>
+    <string name="symbol_full_width_question_mark">Signe d\'interrogació d\'amplada completa</string>
+    <string name="symbol_full_width_right_curly_bracket">Clau de tancament d\'amplada completa</string>
+    <string name="symbol_full_width_right_parenthesis">Parèntesi de tancament d\'amplada completa</string>
+    <string name="symbol_full_width_semicolon">Punt i coma d\'amplada completa</string>
+    <string name="symbol_full_width_tilde">Titlla d\'amplada completa</string>
+    <string name="symbol_full_width_underscore">Ratlla baixa d\'amplada completa</string>
+    <string name="symbol_grave_accent">Accent greu</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Punt al mig Katakana de mitja amplada</string>
+    <string name="symbol_hyphen_minus">Guió</string>
+    <string name="symbol_ideographic_comma">Coma ideogràfica</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Signe d\'exclamació invertit</string>
+    <string name="symbol_inverted_question_mark">Signe d\'interrogació invertit</string>
+    <string name="symbol_left_angle_bracket">Claudàtor angular doble esquerre</string>
+    <string name="symbol_left_black_lenticular_bracket">Parèntesi lenticular esquerre negre</string>
+    <string name="symbol_left_corner_bracket">Parèntesi angular esquerre</string>
+    <string name="symbol_left_double_quotation_mark">Cometes dobles d\'obertura</string>
+    <string name="symbol_left_single_quotation_mark">Cometa simple d\'obertura</string>
+    <string name="symbol_leftwards_arrow">Fletxa esquerra</string>
+    <string name="symbol_liter">Litre</string>
+    <string name="symbol_low_double_quote">Cometes angulars</string>
+    <string name="symbol_male">Símbol d\'home</string>
+    <string name="symbol_mathematical_left_angle_bracket">Parèntesi angular matemàtic d\'obertura</string>
+    <string name="symbol_mathematical_right_angle_bracket">Parèntesi angular matemàtic de tancament</string>
+    <string name="symbol_micro_sign">Signe de micro</string>
+    <string name="symbol_middle_dot">Punt volat</string>
+    <string name="symbol_multiplication">Signe de multiplicació</string>
+    <string name="symbol_new_line">Línia nova</string>
+    <string name="symbol_not_equals">No és igual a</string>
+    <string name="symbol_not_sign">Signe de negació</string>
+    <string name="symbol_paragraph_mark">Marca de paràgraf</string>
+    <string name="symbol_parenthesis_left">Parèntesi d\'obertura</string>
+    <string name="symbol_parenthesis_right">Parèntesi de tancament</string>
+    <string name="symbol_percent">Percentatge</string>
+    <string name="symbol_period">Punt</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Signe més o menys</string>
+    <string name="symbol_postal_mark">Marca del servei postal</string>
+    <string name="symbol_pound">Coixinet</string>
+    <string name="symbol_pound_sterling">Símbol de moneda de la lliura esterlina</string>
+    <string name="symbol_quarter_note">Negra</string>
+    <string name="symbol_question_mark">Signe d\'interrogació</string>
+    <string name="symbol_quotation_mark">Cometes</string>
+    <string name="symbol_reference">Marca de referència</string>
+    <string name="symbol_registered_trademark">Marca comercial registrada</string>
+    <string name="symbol_right_angle_bracket">Claudàtor angular doble dret</string>
+    <string name="symbol_right_black_lenticular_bracket">Parèntesi lenticular dret negre</string>
+    <string name="symbol_right_corner_bracket">Parèntesi angular dret</string>
+    <string name="symbol_right_double_quotation_mark">Cometes dobles de tancament</string>
+    <string name="symbol_right_single_quotation_mark">Cometa simple de tancament</string>
+    <string name="symbol_rightwards_arrow">Fletxa dreta</string>
+    <string name="symbol_rupee">Rupia</string>
+    <string name="symbol_section_sign">Signe de secció</string>
+    <string name="symbol_semicolon">Punt i coma</string>
+    <string name="symbol_slash">Barra</string>
+    <string name="symbol_solar">Símbol solar</string>
+    <string name="symbol_space">Espai</string>
+    <string name="symbol_square_bracket_left">Claudàtor d\'obertura</string>
+    <string name="symbol_square_bracket_right">Claudàtor de tancament</string>
+    <string name="symbol_square_root">Arrel quadrada</string>
+    <string name="symbol_tilde">Titlla</string>
+    <string name="symbol_trademark">Marca comercial</string>
+    <string name="symbol_underscore">Ratlla baixa</string>
+    <string name="symbol_upwards_arrow">Fletxa amunt</string>
+    <string name="symbol_vertical_bar">Barra vertical</string>
+    <string name="symbol_white_circle">Cercle blanc</string>
+    <string name="symbol_white_club_suit">Trèvol blanc</string>
+    <string name="symbol_white_diamond">Diamant blanc</string>
+    <string name="symbol_white_down_pointing_triangle">Triangle blanc que apunta cap avall</string>
+    <string name="symbol_white_heart">Cor blanc</string>
+    <string name="symbol_white_left_pointing_index">Dit índex que apunta cap a l\'esquerra</string>
+    <string name="symbol_white_left_pointing_triangle">Triangle blanc que apunta cap a l\'esquerra</string>
+    <string name="symbol_white_right_pointing_index">Dit índex que apunta cap a la dreta</string>
+    <string name="symbol_white_right_pointing_triangle">Triangle blanc que apunta cap a la dreta</string>
+    <string name="symbol_white_spade_suit">Pica blanca</string>
+    <string name="symbol_white_square">Quadre blanc</string>
+    <string name="symbol_white_star">Estrella blanca</string>
+    <string name="symbol_white_up_pointing_triangle">Triangle blanc que apunta cap amunt</string>
+    <string name="symbol_won">Símbol de moneda del won</string>
+    <string name="symbol_won_sign">Símbol de moneda del won</string>
+    <string name="symbol_yen">Ien</string>
+    <string name="talkback_disabled">TalkBack està desactivat</string>
+    <string name="talkback_on">TalkBack activat</string>
+    <string name="talkback_resumed">S\'ha reprès TalkBack</string>
+    <string name="talkback_suspended">S\'ha suspès TalkBack</string>
+    <string name="template_announce_selected_text">Text seleccionat: %1$s</string>
+    <string name="template_capital_letter">%1$s majúscula</string>
+    <string name="template_collection_level">Nivell %1$d</string>
+    <string name="template_current_tts_engine">S\'està utilitzant %1$s</string>
+    <string name="template_custom_hint_for_actions">%1$s per %2$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">Prem %1$s per %2$s.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s i mantén premut per %2$s.</string>
+    <string name="template_drawer_opened">Menú %1$s</string>
+    <string name="template_hint_checkable">%1$s per canviar.</string>
+    <string name="template_hint_checkable_keyboard">Prem %1$s per alternar.</string>
+    <string name="template_hint_clickable">%1$s per activar.</string>
+    <string name="template_hint_clickable_keyboard">Prem %1$s per activar.</string>
+    <string name="template_hint_custom_actions">Accions:</string>
+    <string name="template_hint_edit_text">%1$s per editar el text</string>
+    <string name="template_hint_edit_text_keyboard">Prem %1$s per editar el text.</string>
+    <string name="template_hint_long_clickable">%1$s i mantén premut per fer un toc llarg.</string>
+    <string name="template_hint_long_clickable_keyboard">Prem %1$s per mantenir premut.</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s disponible, utilitza %2$s per veure-ho.</string>
+    <string name="template_hint_pager">Llisca dos dits per canviar de pàgina.</string>
+    <string name="template_hint_pager_single_page">No hi ha més pàgines.</string>
+    <string name="template_hint_seek_control">Utilitza les tecles de volum per ajustar-lo</string>
+    <string name="template_hint_seek_control_tv">%1$s per canviar-ho.</string>
+    <string name="template_hint_spinner">%1$s per canviar.</string>
+    <string name="template_hint_spinner_keyboard">Prem %1$s per canviar.</string>
+    <string name="template_labeled_item">%1$s per a %2$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s en pantalla en pantalla</string>
+    <string name="template_password_selected">Caràcters de %1$d a %2$d</string>
+    <string name="template_password_traversed">Caràcter %1$d</string>
+    <string name="template_percent">%1$s per cent</string>
+    <string name="template_replaced_characters">%1$s caràcters substituïts per %2$s caràcters</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">%1$s per veure les accions disponibles.</string>
+    <string name="template_sa_custom_hint_scrollable">%1$s per desplaçar-te.</string>
+    <string name="template_sa_hint_seek_control">Prem l\'interruptor de selecció per ajustar-ho</string>
+    <string name="template_screen_magnification_on">S\'ha activat l\'ampliació en un %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">Ampliació del %1$d%%</string>
+    <string name="template_scroll_from_count">S\'està mostrant l\'element %1$d de %2$d.</string>
+    <string name="template_scroll_from_to_count">S\'estan mostrant els elements de %1$d a %2$d de %3$d.</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">Velocitat de parla %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s a l\'esquerra; %2$s a la dreta</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s a la dreta; %2$s a l\'esquerra</string>
+    <string name="template_split_screen_mode_portrait">%1$s a la part superior; %2$s a la part inferior</string>
+    <string name="template_text_copied">s\'ha copiat %1$s</string>
+    <string name="template_text_cut">s\'ha retallat %1$s</string>
+    <string name="template_text_error">Entrada no vàlida: %1$s</string>
+    <string name="template_text_pasted">s\'ha enganxat %1$s</string>
+    <string name="template_text_removed">S\'ha suprimit: %1$s</string>
+    <string name="template_text_replaced">%1$s substituït per %2$s</string>
+    <string name="template_text_selected">S\'ha seleccionat %1$s</string>
+    <string name="template_text_unselected">S\'ha anul·lat la selecció de %1$s</string>
+    <string name="template_viewpager_index_count">Pàgina %1$d de %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d de %2$d</string>
+    <string name="template_volume_change_decrease">Abaixa</string>
+    <string name="template_volume_change_increase">Apuja</string>
+    <string name="template_volume_change_maximum">Màxim</string>
+    <string name="template_volume_change_minimum">Mínim</string>
+    <string name="title_action_collapse">Replega</string>
+    <string name="title_action_dismiss">Ignora</string>
+    <string name="title_action_expand">Desplega</string>
+    <string name="untitled_window">sense títol</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"DESACTIVAT"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ACTIVAT"</string>
+    <string name="value_button">Botó</string>
+    <string name="value_caps_lock_off">Bloqueig de majúscules desactivat.</string>
+    <string name="value_caps_lock_on">Bloqueig de majúscules activat.</string>
+    <string name="value_checkbox">Casella de selecció</string>
+    <string name="value_checked">marcat</string>
+    <string name="value_collapsed">està replegat</string>
+    <string name="value_disabled">desactivat</string>
+    <string name="value_double_tap">Doble toc</string>
+    <string name="value_edit_box">Quadre d\'edició</string>
+    <string name="value_edit_box_editing">Edició</string>
+    <string name="value_expanded">està desplegat</string>
+    <string name="value_gridview">Graella</string>
+    <string name="value_image">Imatge</string>
+    <string name="value_listview">Llista</string>
+    <string name="value_not_checked">no marcat</string>
+    <string name="value_num_lock_off">Bloqueig de teclat numèric desactivat.</string>
+    <string name="value_num_lock_on">Bloqueig de teclat numèric activat.</string>
+    <string name="value_off">desactivat</string>
+    <string name="value_on">activat</string>
+    <string name="value_options_menu_open">Opcions</string>
+    <string name="value_pager">Visualització de diverses pàgines</string>
+    <string name="value_pager_page">Pàgina</string>
+    <string name="value_password">contrasenya</string>
+    <string name="value_press_select">Prem el botó de selecció</string>
+    <string name="value_progress_bar">Barra de progrés</string>
+    <string name="value_radio_button">Botó d\'opció</string>
+    <string name="value_scroll_lock_off">Bloqueig de desplaçament desactivat.</string>
+    <string name="value_scroll_lock_on">Bloqueig de desplaçament activat.</string>
+    <string name="value_seek_bar">Control lliscant</string>
+    <string name="value_selected">seleccionat</string>
+    <string name="value_single_tap">Toca</string>
+    <string name="value_sliding_drawer_opened">Calaix lliscant obert</string>
+    <string name="value_spinner">Llista desplegable</string>
+    <string name="value_switch">Interruptor</string>
+    <string name="value_switch_press">Prem l\'interruptor de selecció</string>
+    <string name="value_tabwidget">Barra de pestanyes</string>
+    <string name="value_text_cleared">Text esborrat</string>
+    <string name="value_text_max_length">S\'ha arribat a la longitud màxima.</string>
+    <string name="value_unlabelled">Sense etiquetar</string>
+    <string name="value_webview">Visualització web</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Tauler d\'accions"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Tauler de navegació"</string>
+</resources>

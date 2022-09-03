@@ -1,6 +1,12 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply from: "../../shared.gradle"
 
 dependencies {
     implementation project(':braillecommon')
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

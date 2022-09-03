@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d ново обавештење</item>
+    <item quantity="few">%d нова обавештења</item>
+    <item quantity="other">%d нових обавештења</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s приказује %2$d ставку.</item>
+    <item quantity="few">%1$s приказује %2$d ставке.</item>
+    <item quantity="other">%1$s приказује %2$d ставки.</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d колона</item>
+    <item quantity="few">%1$d колоне</item>
+    <item quantity="other">%1$d колона</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d ред</item>
+    <item quantity="few">%1$d реда</item>
+    <item quantity="other">%1$d редова</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d ставка</item>
+    <item quantity="few">%1$d ставке</item>
+    <item quantity="other">%1$d ставки</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d знак</item>
+    <item quantity="few">%1$d знака</item>
+    <item quantity="other">%1$d знакова</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Идите на почетну"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Идите нагоре"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Још опција"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Готово"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Прикажи све"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Изаберите апликацију"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ИСКЉУЧЕНО"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"УКЉУЧЕНО"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"тастер за размак"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Претражите…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Обришите упит"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Претражите упит"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Претражите"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Пошаљите упит"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Гласовна претрага"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Делите помоћу"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Делите помоћу апликације <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Скупи"</string>
+    <string name="bottomsheet_action_expand_halfway">Проширите до пола</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Унети знакови: %1$d од %2$d</string>
+    <string name="character_counter_overflowed_content_description">Прекорачено је ограничење броја знакова: %1$d од %2$d</string>
+    <string name="clear_text_end_icon_content_description">Обриши текст</string>
+    <string name="column_heading_template">Наслов колоне</string>
+    <string name="column_index_template">Колона %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Омогући</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s неће функционисати ако не омогућите Google Play услуге.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Омогућите Google Play услуге</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Инсталирај</string>
+    <string name="common_google_play_services_install_text">%1$s не може да се покрене без Google Play услуга, које нису инсталиране на уређају.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Преузмите Google Play услуге</string>
+    <string name="common_google_play_services_notification_channel_name">Доступност Google Play услуга</string>
+    <string name="common_google_play_services_notification_ticker">Грешка Google Play услуга</string>
+    <string name="common_google_play_services_unknown_issue">%1$s има проблема са Google Play услугама. Пробајте поново.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s не може да се покрене без Google Play услуга, које уређај не подржава.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Ажурирај</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s не може да се покрене ако не ажурирате Google Play услуге.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Ажурирајте Google Play услуге</string>
+    <string name="common_google_play_services_updating_text">%1$s не може да се покрене без Google Play услуга, које се тренутно ажурирају.</string>
+    <string name="common_google_play_services_wear_update_text">Потребна је нова верзија Google Play услуга. Ускоро ће се ажурирати.</string>
+    <string name="common_open_on_phone">Отвори на телефону</string>
+    <string name="common_signin_button_text">Пријави ме</string>
+    <string name="common_signin_button_text_long">Пријави ме на Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Грешка"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Отворено је на телефону"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Успело је"</string>
+    <string msgid="3209159573327985035" name="copy">"Копирај"</string>
+    <string name="detected_icon_description">%1$s, откривена икона</string>
+    <string name="error_icon_content_description">Грешка</string>
+    <string name="exit_scrim">Затвори</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Напредно"</string>
+    <string name="exposed_dropdown_menu_content_description">Прикажи падајући мени</string>
+    <string name="function_off">Говорне повратне информације су искључене</string>
+    <string name="function_on">Говорне повратне информације су укључене</string>
+    <string name="granularity_character">Знакови</string>
+    <string name="granularity_default">Подразумевано</string>
+    <string name="granularity_line">Редови</string>
+    <string name="granularity_native_control">Контроле</string>
+    <string name="granularity_native_heading">Наслови</string>
+    <string name="granularity_native_link">Линкови</string>
+    <string name="granularity_paragraph">Пасуси</string>
+    <string name="granularity_pseudo_web_special_content">Специјалан садржај</string>
+    <string name="granularity_web_control">Контроле</string>
+    <string name="granularity_web_heading">Наслови</string>
+    <string name="granularity_web_landmark">Обележја</string>
+    <string name="granularity_web_link">Линкови</string>
+    <string name="granularity_web_list">Листе</string>
+    <string name="granularity_window">Прозори</string>
+    <string name="granularity_word">Речи</string>
+    <string name="heading_template">Наслов</string>
+    <string name="hide_keyboard_window">тастатура је сакривена</string>
+    <string name="hint_suggestion">Доступни су правописни предлози</string>
+    <string name="icon_content_description">Икона дијалога</string>
+    <string name="in_collection_role_description">У улози %1$s</string>
+    <string name="in_collection_role_description_with_name">У улози %1$s у оквиру колекције %2$s</string>
+    <string name="in_grid">На мрежи</string>
+    <string name="in_grid_pager">У алатки за преглед страница помоћу мреже</string>
+    <string name="in_grid_pager_with_name">У алатки за преглед страница помоћу мреже %1$s</string>
+    <string name="in_grid_with_name">На мрежи %1$s</string>
+    <string name="in_horizontal_pager">У хоризонталној алатки за преглед страница</string>
+    <string name="in_horizontal_pager_with_name">У хоризонталној алатки за преглед страница %1$s</string>
+    <string name="in_list">На листи</string>
+    <string name="in_list_with_name">На листи %1$s</string>
+    <string name="in_pager">У алатки за преглед страница</string>
+    <string name="in_pager_with_name">У алатки за преглед страница %1$s</string>
+    <string name="in_vertical_pager">У вертикалној алатки за преглед страница</string>
+    <string name="in_vertical_pager_with_name">У вертикалној алатки за преглед страница %1$s</string>
+    <string name="in_window_with_name">Прозор %1$s</string>
+    <string name="item_view_role_description">Картица</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Притисните комбинацију тастера са модификујућим тастером %1$s да бисте подесили нову пречицу.</string>
+    <string name="keycombo_assign_dialog_instruction">Притисните комбинацију тастера да бисте подесили нову пречицу. Она мора да садржи бар тастере Alt или Ctrl.</string>
+    <string name="keycombo_key_arrow_down">Стрелица надоле</string>
+    <string name="keycombo_key_arrow_left">Стрелица улево</string>
+    <string name="keycombo_key_arrow_right">Стрелица удесно</string>
+    <string name="keycombo_key_arrow_up">Стрелица нагоре</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Претрага</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Недодељено</string>
+    <string name="list_index_template">%1$d. од %2$d</string>
+    <string name="material_clock_toggle_content_description">Изаберите пре подне или по подне</string>
+    <string name="material_hour_selection">Изаберите сат</string>
+    <string name="material_hour_suffix">%1$s с</string>
+    <string name="material_minute_selection">Изаберите минуте</string>
+    <string name="material_minute_suffix">%1$s мин</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Пређите у режим сата ради уноса времена.</string>
+    <string name="material_timepicker_hour">Сат</string>
+    <string name="material_timepicker_minute">Минут</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Изаберите време</string>
+    <string name="material_timepicker_text_input_mode_description">Пређите у режим уноса текста ради уноса времена.</string>
+    <string name="mtrl_badge_numberless_content_description">Ново обавештење</string>
+    <string name="mtrl_chip_close_icon_content_description">Уклоните %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Нових обавештења: више од %1$d</string>
+    <string name="mtrl_picker_a11y_next_month">Пређите на следећи месец</string>
+    <string name="mtrl_picker_a11y_prev_month">Пређите на претходни месец</string>
+    <string name="mtrl_picker_announce_current_selection">Актуелни избор: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Изаберите датум</string>
+    <string name="mtrl_picker_date_header_unselected">Изабрани датум</string>
+    <string name="mtrl_picker_day_of_week_column_header">Колона са данима: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Формат је неважећи.</string>
+    <string name="mtrl_picker_invalid_format_example">Пример: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Користите: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Неважећи период.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Идите на годину %1$s</string>
+    <string name="mtrl_picker_out_of_range">Изван периода: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Датум почетка – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Датум завршетка</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_title">Изаберите период</string>
+    <string name="mtrl_picker_range_header_unselected">Датум почетка – Датум завршетка</string>
+    <string name="mtrl_picker_save">Сачувај</string>
+    <string name="mtrl_picker_text_input_date_hint">Датум</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Датум завршетка</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Датум почетка</string>
+    <string name="mtrl_picker_text_input_day_abbr">д</string>
+    <string name="mtrl_picker_text_input_month_abbr">м</string>
+    <string name="mtrl_picker_text_input_year_abbr">г</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Пређите на режим уноса у Календару</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Додирните да бисте прешли на избор дана</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Пређите на режим уноса текста</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Додирните да бисте прешли на избор године</string>
+    <string msgid="478774118347071097" name="not_set">"Није подешено"</string>
+    <string name="notification_category_alarm">Аларм</string>
+    <string name="notification_category_call">Позив</string>
+    <string name="notification_category_email">Имејл</string>
+    <string name="notification_category_err">Грешка</string>
+    <string name="notification_category_event">Догађај</string>
+    <string name="notification_category_msg">Порука</string>
+    <string name="notification_category_progress">Напредак</string>
+    <string name="notification_category_promo">Промоција</string>
+    <string name="notification_category_service">Услуга</string>
+    <string name="notification_category_social">Друштвена мрежа</string>
+    <string name="notification_category_sys">Статус система</string>
+    <string name="notification_category_transport">Контрола медијских датотека</string>
+    <string name="notification_type_beginning_of_field">Почетак поља</string>
+    <string name="notification_type_end_of_field">Крај поља</string>
+    <string name="notification_type_selection_cleared">Избор је обрисан</string>
+    <string name="notification_type_selection_mode_off">Режим избора је искључен</string>
+    <string name="notification_type_selection_mode_on">Режим избора је укључен</string>
+    <string name="ocr_text_description">%1$s, текст</string>
+    <string name="orientation_landscape">Водоравно</string>
+    <string name="orientation_portrait">Усправно</string>
+    <string name="out_of_grid">Ван мреже</string>
+    <string name="out_of_grid_pager">Ван алатке за преглед страница помоћу мреже</string>
+    <string name="out_of_grid_pager_with_name">Ван алатке за преглед страница помоћу мреже %1$s</string>
+    <string name="out_of_grid_with_name">Ван мреже %1$s</string>
+    <string name="out_of_horizontal_pager">Ван хоризонталне алатке за преглед страница</string>
+    <string name="out_of_list">Ван листе</string>
+    <string name="out_of_list_with_name">Ван листе %1$s</string>
+    <string name="out_of_pager">Ван алатке за преглед страница</string>
+    <string name="out_of_pager_with_name">Ван алатке за преглед страница %1$s</string>
+    <string name="out_of_role_description">Ван улоге %1$s</string>
+    <string name="out_of_role_description_with_name">Ван улоге %1$s у оквиру колекције %2$s</string>
+    <string name="out_of_vertical_pager">Ван вертикалне алатке за преглед страница</string>
+    <string name="out_of_vertical_pager_with_name">Ван вертикалне алатке за преглед страница %1$s</string>
+    <string name="password_toggle_content_description">Прикажи лозинку</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Резиме „<ns1:g id="SUMMARY">%1$s</ns1:g>“ је копиран у привремену меморију."</string>
+    <string name="row_heading_template">Наслов реда</string>
+    <string name="row_index_template">Ред %1$d</string>
+    <string name="screen_magnification_off">Увећање је искључено</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Претражите"</string>
+    <string name="show_keyboard_window">Приказује се %1$s</string>
+    <string name="spokenfeedback_disabled">Говорне повратне информације су искључене</string>
+    <string name="spokenfeedback_on">Говорне повратне информације су укључене</string>
+    <string name="spokenfeedback_resumed">Говорне повратне информације су настављене</string>
+    <string name="spokenfeedback_suspended">Говорне повратне информације су обустављене</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">Лозинке се изговарају само када користите слушалице</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Приближно једнако</string>
+    <string name="symbol_ampersand">Амперсанд</string>
+    <string name="symbol_angle_bracket_left">Знак за мање</string>
+    <string name="symbol_angle_bracket_right">Знак за Веће од</string>
+    <string name="symbol_apostrophe">Апостроф</string>
+    <string name="symbol_approximately_equals">Знак за приближан износ</string>
+    <string name="symbol_asterisk">Звездица</string>
+    <string name="symbol_at_sign">Мајмунче</string>
+    <string name="symbol_backslash">Обрнута коса црта</string>
+    <string name="symbol_beamed_sixteenth_note">Две шеснаестине ноте</string>
+    <string name="symbol_black_circle">Црни круг</string>
+    <string name="symbol_black_heart">Црно срце</string>
+    <string name="symbol_black_smallsquare">Мали црни квадрат</string>
+    <string name="symbol_black_square">Црни квадрат</string>
+    <string name="symbol_black_star">Црна звездица</string>
+    <string name="symbol_black_suit_of_diamonds">Црни ромбови</string>
+    <string name="symbol_black_triangle_pointing_down">Црни троугао са врхом надоле</string>
+    <string name="symbol_black_triangle_pointing_up">Црни троугао са врхом нагоре</string>
+    <string name="symbol_broken_bar">Испрекидана усправна црта</string>
+    <string name="symbol_bullet">Набрајање</string>
+    <string name="symbol_bullseye">Мета</string>
+    <string name="symbol_caret">Карет</string>
+    <string name="symbol_celsius_degree">Степен Целзијуса</string>
+    <string name="symbol_cent">знак за цент</string>
+    <string name="symbol_circle_left_half_black">Круг са црном левом половином</string>
+    <string name="symbol_circle_right_half_black">Круг са црном десном половином</string>
+    <string name="symbol_colon">Две тачке</string>
+    <string name="symbol_comma">Зарез</string>
+    <string name="symbol_copyright">Ауторска права</string>
+    <string name="symbol_curly_bracket_left">Отворена витичаста заграда</string>
+    <string name="symbol_curly_bracket_right">Затворена витичаста заграда</string>
+    <string name="symbol_currency_sign">Знак валуте</string>
+    <string name="symbol_degree">Знак за степен</string>
+    <string name="symbol_division">Знак за дељење</string>
+    <string name="symbol_dollar_sign">Знак за долар</string>
+    <string name="symbol_downwards_arrow">Стрелица надоле</string>
+    <string name="symbol_eighth_note">Осмина ноте</string>
+    <string name="symbol_ellipsis">Три тачке</string>
+    <string name="symbol_em_dash">Дужа повлака</string>
+    <string name="symbol_en_dash">Краћа повлака</string>
+    <string name="symbol_equal">Знак једнакости</string>
+    <string name="symbol_euro">Евро</string>
+    <string name="symbol_exclamation_mark">Знак узвика</string>
+    <string name="symbol_fahrenheit_degree">Степен Фаренхајта</string>
+    <string name="symbol_female">Женски симбол</string>
+    <string name="symbol_full_width_ampersand">Амперсанд пуне ширине</string>
+    <string name="symbol_full_width_asterisk">Звездица пуне ширине</string>
+    <string name="symbol_full_width_circumflex">Циркумфлекс пуне ширине</string>
+    <string name="symbol_full_width_colon">Две тачке пуне ширине</string>
+    <string name="symbol_full_width_comma">Зарез пуне ширине</string>
+    <string name="symbol_full_width_exclamation_mark">Знак узвика пуне ширине</string>
+    <string name="symbol_full_width_greater_than_sign">Знак за више пуне ширине</string>
+    <string name="symbol_full_width_ideographic_full_stop">Идеографска тачка</string>
+    <string name="symbol_full_width_left_curly_bracket">Отворена витичаста заграда пуне ширине</string>
+    <string name="symbol_full_width_left_parenthesis">Отворена заграда пуне ширине</string>
+    <string name="symbol_full_width_less_than_sign">Знак за мање пуне ширине</string>
+    <string name="symbol_full_width_question_mark">Знак питања пуне ширине</string>
+    <string name="symbol_full_width_right_curly_bracket">Затворена витичаста заграда пуне ширине</string>
+    <string name="symbol_full_width_right_parenthesis">Затворена заграда пуне ширине</string>
+    <string name="symbol_full_width_semicolon">Тачка-зарез пуне ширине</string>
+    <string name="symbol_full_width_tilde">Знак тилда пуне ширине</string>
+    <string name="symbol_full_width_underscore">Доња црта пуне ширине</string>
+    <string name="symbol_grave_accent">Тешки акценат</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Полуширока катакана средња тачка</string>
+    <string name="symbol_hyphen_minus">Црта</string>
+    <string name="symbol_ideographic_comma">Идеографски зарез</string>
+    <string name="symbol_integral">Интеграл</string>
+    <string name="symbol_inverted_exclamation_mark">Обрнути знак узвика</string>
+    <string name="symbol_inverted_question_mark">Обрнути знак питања</string>
+    <string name="symbol_left_angle_bracket">Отворена двострука угаона заграда</string>
+    <string name="symbol_left_black_lenticular_bracket">Лева црна лентикуларна заграда</string>
+    <string name="symbol_left_corner_bracket">Лева угласта заграда</string>
+    <string name="symbol_left_double_quotation_mark">Отворени наводник</string>
+    <string name="symbol_left_single_quotation_mark">Отворени полунаводник</string>
+    <string name="symbol_leftwards_arrow">Стрелица улево</string>
+    <string name="symbol_liter">Мало слово л</string>
+    <string name="symbol_low_double_quote">Доњи двоструки наводници</string>
+    <string name="symbol_male">Мушки симбол</string>
+    <string name="symbol_mathematical_left_angle_bracket">Математичка лева угласта заграда</string>
+    <string name="symbol_mathematical_right_angle_bracket">Математичка десна угласта заграда</string>
+    <string name="symbol_micro_sign">Знак микро</string>
+    <string name="symbol_middle_dot">Средња тачка</string>
+    <string name="symbol_multiplication">Знак за множење</string>
+    <string name="symbol_new_line">Нови ред</string>
+    <string name="symbol_not_equals">Није једнако</string>
+    <string name="symbol_not_sign">Знак Није</string>
+    <string name="symbol_paragraph_mark">Ознака пасуса</string>
+    <string name="symbol_parenthesis_left">Отворена заграда</string>
+    <string name="symbol_parenthesis_right">Затворена заграда</string>
+    <string name="symbol_percent">Проценат</string>
+    <string name="symbol_period">Тачка</string>
+    <string name="symbol_pi">Пи</string>
+    <string name="symbol_plus_minus_sign">Знак плус минус</string>
+    <string name="symbol_postal_mark">Поштанска ознака</string>
+    <string name="symbol_pound">Фунта</string>
+    <string name="symbol_pound_sterling">Знак валуте за фунту</string>
+    <string name="symbol_quarter_note">Четвртина ноте</string>
+    <string name="symbol_question_mark">Знак питања</string>
+    <string name="symbol_quotation_mark">Наводник</string>
+    <string name="symbol_reference">Знак за фусноту</string>
+    <string name="symbol_registered_trademark">Регистровани жиг</string>
+    <string name="symbol_right_angle_bracket">Затворена двострука угаона заграда</string>
+    <string name="symbol_right_black_lenticular_bracket">Десна црна лентикуларна заграда</string>
+    <string name="symbol_right_corner_bracket">Десна угаона заграда</string>
+    <string name="symbol_right_double_quotation_mark">Затворени наводник</string>
+    <string name="symbol_right_single_quotation_mark">Затворени полунаводник</string>
+    <string name="symbol_rightwards_arrow">Стрелица удесно</string>
+    <string name="symbol_rupee">Рупија</string>
+    <string name="symbol_section_sign">Знак параграфа</string>
+    <string name="symbol_semicolon">Тачка и зарез</string>
+    <string name="symbol_slash">Коса црта</string>
+    <string name="symbol_solar">Симбол сунца</string>
+    <string name="symbol_space">Размак</string>
+    <string name="symbol_square_bracket_left">Отворена угласта заграда</string>
+    <string name="symbol_square_bracket_right">Затворена угласта заграда</string>
+    <string name="symbol_square_root">Квадратни корен</string>
+    <string name="symbol_tilde">Тилда</string>
+    <string name="symbol_trademark">Жиг</string>
+    <string name="symbol_underscore">Доња црта</string>
+    <string name="symbol_upwards_arrow">Стрелица нагоре</string>
+    <string name="symbol_vertical_bar">Вертикална линија</string>
+    <string name="symbol_white_circle">Бели круг</string>
+    <string name="symbol_white_club_suit">Бели симбол треф</string>
+    <string name="symbol_white_diamond">Бели симбол каро</string>
+    <string name="symbol_white_down_pointing_triangle">Бели троугао усмерен надоле</string>
+    <string name="symbol_white_heart">Бело срце</string>
+    <string name="symbol_white_left_pointing_index">Бели кажипрст окренут улево</string>
+    <string name="symbol_white_left_pointing_triangle">Бели троугао усмерен улево</string>
+    <string name="symbol_white_right_pointing_index">Бели кажипрст окренут удесно</string>
+    <string name="symbol_white_right_pointing_triangle">Бели троугао усмерен удесно</string>
+    <string name="symbol_white_spade_suit">Бели симбол пик</string>
+    <string name="symbol_white_square">Бели квадрат</string>
+    <string name="symbol_white_star">Бела звездица</string>
+    <string name="symbol_white_up_pointing_triangle">Бели троугао усмерен нагоре</string>
+    <string name="symbol_won">Знак валуте за вон</string>
+    <string name="symbol_won_sign">Знак валуте за вон</string>
+    <string name="symbol_yen">Јен</string>
+    <string name="talkback_disabled">TalkBack је искључен</string>
+    <string name="talkback_on">TalkBack је укључен</string>
+    <string name="talkback_resumed">Коришћење TalkBack-а је настављено</string>
+    <string name="talkback_suspended">TalkBack је суспендован</string>
+    <string name="template_announce_selected_text">Изабрани текст: %1$s</string>
+    <string name="template_capital_letter">велико %1$s</string>
+    <string name="template_collection_level">%1$d. ниво</string>
+    <string name="template_current_tts_engine">Користи се %1$s</string>
+    <string name="template_custom_hint_for_actions">%1$s за радњу %2$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">Притисните %1$s да бисте %2$s.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s и задржите за радњу %2$s.</string>
+    <string name="template_drawer_opened">Мени %1$s</string>
+    <string name="template_hint_checkable">%1$s да бисте пребацивали.</string>
+    <string name="template_hint_checkable_keyboard">Притисните %1$s да бисте укључили/искључили.</string>
+    <string name="template_hint_clickable">%1$s да бисте активирали.</string>
+    <string name="template_hint_clickable_keyboard">Притисните %1$s да бисте активирали.</string>
+    <string name="template_hint_custom_actions">Радње:</string>
+    <string name="template_hint_edit_text">Да бисте изменили текст: %1$s</string>
+    <string name="template_hint_edit_text_keyboard">Притисните %1$s да бисте изменили текст.</string>
+    <string name="template_hint_long_clickable">%1$s и задржите за дуги притисак.</string>
+    <string name="template_hint_long_clickable_keyboard">Притисните %1$s за дуги притисак.</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s вам је на располагању. Прегледајте помоћу покрета %2$s.</string>
+    <string name="template_hint_pager">Превуците са два прста да бисте променили страницу.</string>
+    <string name="template_hint_pager_single_page">Нема више страница.</string>
+    <string name="template_hint_seek_control">Користите тастере за јачину звука да бисте прилагодили</string>
+    <string name="template_hint_seek_control_tv">%1$s да бисте променили.</string>
+    <string name="template_hint_spinner">%1$s да бисте променили.</string>
+    <string name="template_hint_spinner_keyboard">Притисните %1$s да бисте променили.</string>
+    <string name="template_labeled_item">%1$s за %2$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">Слика у слици за апликацију %1$s</string>
+    <string name="template_password_selected">Знакови %1$d до %2$d</string>
+    <string name="template_password_traversed">%1$d. знак</string>
+    <string name="template_percent">%1$s посто.</string>
+    <string name="template_replaced_characters">Стари број знакова (%1$s) замењен је новим бројем знакова (%2$s)</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">%1$s за доступне радње.</string>
+    <string name="template_sa_custom_hint_scrollable">%1$s да бисте се померали.</string>
+    <string name="template_sa_hint_seek_control">Притисните прекидач Изабери да бисте подесили</string>
+    <string name="template_screen_magnification_on">Увећање је %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">Увећање %1$d%%</string>
+    <string name="template_scroll_from_count">Приказује се ставка %1$d од %2$d.</string>
+    <string name="template_scroll_from_to_count">Приказују се ставке %1$d до %2$d од %3$d.</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">Брзина говора %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s ће бити лево, %2$s а ће бити десно</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s ће бити десно, а %2$s ће бити лево</string>
+    <string name="template_split_screen_mode_portrait">%1$s ће бити у врху, а %2$s ће бити у дну</string>
+    <string name="template_text_copied">копирано, %1$s</string>
+    <string name="template_text_cut">исечено, %1$s</string>
+    <string name="template_text_error">Неважећи унос %1$s</string>
+    <string name="template_text_pasted">налепљено, %1$s</string>
+    <string name="template_text_removed">Текст %1$s је избрисан</string>
+    <string name="template_text_replaced">Текст %1$s је заменио текст %2$s</string>
+    <string name="template_text_selected">%1$s, изабрано</string>
+    <string name="template_text_unselected">%1$s, избор је опозван</string>
+    <string name="template_viewpager_index_count">Страница %1$d од %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d од %2$d</string>
+    <string name="template_volume_change_decrease">Смањивање</string>
+    <string name="template_volume_change_increase">Повећавање</string>
+    <string name="template_volume_change_maximum">Максимум</string>
+    <string name="template_volume_change_minimum">Минимум</string>
+    <string name="title_action_collapse">Скупи</string>
+    <string name="title_action_dismiss">Одбаци</string>
+    <string name="title_action_expand">Прошири</string>
+    <string name="untitled_window">ненасловљено</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ИСКЉУЧЕНО"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"УКЉУЧЕНО"</string>
+    <string name="value_button">Дугме</string>
+    <string name="value_caps_lock_off">Caps Lock је искључен.</string>
+    <string name="value_caps_lock_on">Caps Lock је укључен.</string>
+    <string name="value_checkbox">Поље за потврду</string>
+    <string name="value_checked">обележено је</string>
+    <string name="value_collapsed">скупљено</string>
+    <string name="value_disabled">онемогућено је</string>
+    <string name="value_double_tap">Додирните двапут</string>
+    <string name="value_edit_box">Оквир за измене</string>
+    <string name="value_edit_box_editing">Измена је у току</string>
+    <string name="value_expanded">проширено</string>
+    <string name="value_gridview">Мрежа</string>
+    <string name="value_image">Слика</string>
+    <string name="value_listview">Листа</string>
+    <string name="value_not_checked">није означено</string>
+    <string name="value_num_lock_off">Num Lock је искључен.</string>
+    <string name="value_num_lock_on">Num Lock је укључен.</string>
+    <string name="value_off">искључено</string>
+    <string name="value_on">укључено</string>
+    <string name="value_options_menu_open">Опције.</string>
+    <string name="value_pager">Приказ са више страница</string>
+    <string name="value_pager_page">Страница</string>
+    <string name="value_password">лозинка</string>
+    <string name="value_press_select">Притисните Изабери</string>
+    <string name="value_progress_bar">Трака напретка</string>
+    <string name="value_radio_button">Дугме за избор</string>
+    <string name="value_scroll_lock_off">Scroll Lock је искључен.</string>
+    <string name="value_scroll_lock_on">Scroll Lock је укључен.</string>
+    <string name="value_seek_bar">Клизач</string>
+    <string name="value_selected">изабрано је</string>
+    <string name="value_single_tap">Додирните</string>
+    <string name="value_sliding_drawer_opened">Клизна фиока је отворена</string>
+    <string name="value_spinner">Падајућа листа</string>
+    <string name="value_switch">Прекидач</string>
+    <string name="value_switch_press">Притисните прекидач Изабери</string>
+    <string name="value_tabwidget">Трака са картицама</string>
+    <string name="value_text_cleared">Текст је обрисан</string>
+    <string name="value_text_max_length">Достигнута је максимална дужина</string>
+    <string name="value_unlabelled">Нема ознаку</string>
+    <string name="value_webview">Веб-приказ</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Фиока за радњу"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Фиока за навигацију"</string>
+</resources>

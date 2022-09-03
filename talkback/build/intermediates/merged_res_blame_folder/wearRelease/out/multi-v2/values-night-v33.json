@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-night-v33/values-night-v33.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-night-v33/colors.xml",
+                    "from": {
+                        "startLines": "30,31,32,35,39,38,29,27,18,19,20,26,23,22,24,21,25",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1359,1433,1493,1596,1765,1702,1295,1239,692,753,811,1186,1008,947,1072,888,1132",
+                        "endColumns": "73,59,66,67,72,62,63,54,60,57,76,52,63,60,59,58,53",
+                        "endOffsets": "1428,1488,1555,1659,1833,1760,1354,1289,748,806,883,1234,1067,1003,1127,942,1181"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,129,189,256,324,397,460,524,579,640,698,775,828,892,953,1013,1072",
+                        "endColumns": "73,59,66,67,72,62,63,54,60,57,76,52,63,60,59,58,53",
+                        "endOffsets": "124,184,251,319,392,455,519,574,635,693,770,823,887,948,1008,1067,1121"
+                    }
+                }
+            ]
+        }
+    ]
+}

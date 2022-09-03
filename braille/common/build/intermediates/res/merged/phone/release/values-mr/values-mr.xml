@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">बिंदू %s</item>
+    <item quantity="other">बिंदू %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d नवीन सूचना</item>
+    <item quantity="other">%d नवीन सूचना</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"घराकडे नेव्हिगेट करा"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"वर नेव्‍हिगेट करा"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"आणखी पर्याय"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"पूर्ण झाले"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"सर्व पहा"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"अ‍ॅप निवडा"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"बंद"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"सुरू"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"हटवा"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"एंटर करा"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"मेनू+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"शोधा…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"क्‍वेरी साफ करा"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"शोध क्वेरी"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"शोधा"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"क्वेरी सबमिट करा"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"व्हॉइस शोध"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"यांच्यासोबत शेअर करा"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> सह शेअर करा"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"कोलॅप्स करा"</string>
+    <string name="auto_detect">तुम्ही डिव्हाइस कसे धरता ते जाणून घ्या</string>
+    <string name="bottomsheet_action_expand_halfway">पूर्णपणे विस्तृत करा</string>
+    <string name="capitalize_announcement">कॅप</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%2$d पैकी %1$d वर्ण एंटर केले आहे</string>
+    <string name="character_counter_overflowed_content_description">%2$d पैकी %1$d वर्णमर्यादा ओलांडली आहे</string>
+    <string name="clear_text_end_icon_content_description">मजकूर साफ करा</string>
+    <string name="code_user_facing_name_ar">अरबी</string>
+    <string name="code_user_facing_name_es">स्पॅनिश</string>
+    <string name="code_user_facing_name_fr">फ्रेंच</string>
+    <string name="code_user_facing_name_pl">पोलिश</string>
+    <string name="code_user_facing_name_ueb1">युनिफाइड इंग्रजी ब्रेल विस्तारित</string>
+    <string name="code_user_facing_name_ueb2">युनिफाइड इंग्रजी ब्रेल संक्षिप्त</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">सुरू करा</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">तुम्ही Google Play सेवा सक्षम केल्याशिवाय %1$s हा अ‍ॅप कार्य करणार नाही.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play सेवा सुरू करा</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">स्‍थापित करा</string>
+    <string name="common_google_play_services_install_text">Google Play सेवा आपल्या डिव्हाइसवर उपलब्ध नाही, त्याशिवाय %1$s चालणार नाही.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play सेवा मिळवा</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play सेवा उपलब्धता</string>
+    <string name="common_google_play_services_notification_ticker">Google Play सेवा एरर</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ला Google Play सेवांमध्ये समस्या येत आहे. कृपया पुन्हा प्रयत्न करा.</string>
+    <string name="common_google_play_services_unsupported_text">तुमचे डिव्हाइस सपोर्ट करत नसलेल्या, Google Play सेवांशिवाय %1$s चालणार नाही.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">अपडेट करा</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">तुम्ही Google Play सेवा अपडेट करेपर्यंत %1$s चालणार नाही.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play सेवा अपडेट करा</string>
+    <string name="common_google_play_services_updating_text">सध्‍या अपडेट होत असलेल्‍या, Google Play सेवांशिवाय %1$s चालणार नाही.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play सेवांच्या नवीन आवृत्तीची आवश्यकता आहे. हे स्वत:ला लवकरच अपडेट करेल.</string>
+    <string name="common_open_on_phone">फोनवर उघडा</string>
+    <string name="common_signin_button_text">साइन इन करा</string>
+    <string name="common_signin_button_text_long">Google सह साइन इन करा</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"पूर्ण करता आली नाही"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"तुमच्या फोनवर उघडले"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"यशस्वीरीत्या पूर्ण केली"</string>
+    <string msgid="3209159573327985035" name="copy">"कॉपी करा"</string>
+    <string name="error_icon_content_description">एरर</string>
+    <string name="exit_scrim">बाहेर पडा</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"प्रगत"</string>
+    <string name="exposed_dropdown_menu_content_description">ड्रॉपडाउन मेनू दाखवा</string>
+    <string name="function_off">वाचिक फीडबॅक बंद आहे</string>
+    <string name="function_on">वाचिक फीडबॅक सुरू आहे</string>
+    <string name="granularity_character">वर्ण</string>
+    <string name="granularity_default">डीफॉल्ट</string>
+    <string name="granularity_line">ओळी</string>
+    <string name="granularity_native_control">नियंत्रणे</string>
+    <string name="granularity_native_heading">शीर्षके</string>
+    <string name="granularity_native_link">लिंक</string>
+    <string name="granularity_paragraph">परिच्छेद</string>
+    <string name="granularity_pseudo_web_special_content">विशिष्ट आशय</string>
+    <string name="granularity_web_control">नियंत्रणे</string>
+    <string name="granularity_web_heading">शीर्षक</string>
+    <string name="granularity_web_landmark">खुणा</string>
+    <string name="granularity_web_link">लिंक</string>
+    <string name="granularity_web_list">सूची</string>
+    <string name="granularity_window">Windows</string>
+    <string name="granularity_word">शब्द</string>
+    <string name="hide_keyboard_window">कीबोर्ड लपवलेला आहे</string>
+    <string name="icon_content_description">डायलॉग आयकन</string>
+    <string name="item_view_role_description">टॅब</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">नवीन शॉर्टकट सेट करण्‍यासाठी %1$s सुधारणा की सह की संयोग सेट करा.</string>
+    <string name="keycombo_assign_dialog_instruction">नवीन शॉर्टकट सेट करण्‍यासाठी की संयोग दाबा. त्यात कमीतकमी ALT किंवा Control की असणे आवश्‍यक आहे.</string>
+    <string name="keycombo_key_arrow_down">खाली बाण</string>
+    <string name="keycombo_key_arrow_left">डावा बाण</string>
+    <string name="keycombo_key_arrow_right">उजवा बाण</string>
+    <string name="keycombo_key_arrow_up">वर बाण</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">सर्च</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">नियुक्त न केलेले</string>
+    <string name="material_clock_toggle_content_description">AM किंवा PM निवडा</string>
+    <string name="material_hour_selection">वेळ निवडा</string>
+    <string name="material_hour_suffix">%1$s वाजता</string>
+    <string name="material_minute_selection">मिनिटे निवडा</string>
+    <string name="material_minute_suffix">%1$s मिनिटे</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">वेळेच्या इनपुटसाठी घड्याळ मोडवर स्विच करा.</string>
+    <string name="material_timepicker_hour">तास</string>
+    <string name="material_timepicker_minute">मिनिट</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">वेळ निवडा</string>
+    <string name="material_timepicker_text_input_mode_description">वेळ इनपुटसाठी मजकूर इनपुट मोडवर स्विच करा.</string>
+    <string name="mtrl_badge_numberless_content_description">नवीन सूचना</string>
+    <string name="mtrl_chip_close_icon_content_description">काढून टाका %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d पेक्षा अधिक नवीन सूचना</string>
+    <string name="mtrl_picker_a11y_next_month">पुढील महिन्यावर बदला</string>
+    <string name="mtrl_picker_a11y_prev_month">मागील महिन्यावर बदला</string>
+    <string name="mtrl_picker_announce_current_selection">सध्याची निवड: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">तारीख निवडा</string>
+    <string name="mtrl_picker_date_header_unselected">निवडलेली तारीख</string>
+    <string name="mtrl_picker_day_of_week_column_header">दिवसांचा स्तंभ: %1$s</string>
+    <string name="mtrl_picker_invalid_format">चुकीचा फॉरमॅट.</string>
+    <string name="mtrl_picker_invalid_format_example">उदाहरण: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">%1$s: वापरा</string>
+    <string name="mtrl_picker_invalid_range">चुकीची श्रेणी.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s वर्षावर नेव्हिगेट करा</string>
+    <string name="mtrl_picker_out_of_range">रेंजच्या बाहेर: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">सुरू होण्याची तारीख – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – संपण्याची तारीख</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">रेंज निवडा</string>
+    <string name="mtrl_picker_range_header_unselected">सुरू होण्याची तारीख – संपण्याची तारीख</string>
+    <string name="mtrl_picker_save">सेव्ह करा</string>
+    <string name="mtrl_picker_text_input_date_hint">तारीख</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">संपण्याची तारीख</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">सुरू होण्याची तारीख</string>
+    <string name="mtrl_picker_text_input_day_abbr">दि</string>
+    <string name="mtrl_picker_text_input_month_abbr">म</string>
+    <string name="mtrl_picker_text_input_year_abbr">व</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">कॅलेंडर इनपुट मोडवर स्विच करा</string>
+    <string name="mtrl_picker_toggle_to_day_selection">दिवस निवडण्यासाठी स्विच करा वर टॅप करा</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">मजकूर इनपुट मोडवर स्विच करा</string>
+    <string name="mtrl_picker_toggle_to_year_selection">वर्ष निवडण्यासाठी स्विच करा वर टॅप करा</string>
+    <string msgid="478774118347071097" name="not_set">"सेट केलेले नाही"</string>
+    <string name="number_announcement">क्रमांक</string>
+    <string name="password_toggle_content_description">पासवर्ड दाखवा</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" क्लिपबोर्डवर कॉपी केली."</string>
+    <string name="read_out_deleted">%s हटवला</string>
+    <string name="screen_away">स्क्रीन अवे मोड</string>
+    <string name="screen_away_detail">डिव्हाइस अशाप्रकारे धरा ज्यामुळे स्क्रीन तुमच्यापासून विरुद्ध दिशेला असेल (स्क्रीन अवे मोड)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"शोध"</string>
+    <string name="show_keyboard_window">%1$s दाखवत आहे</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"९९९+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">जवळपस बरोबर</string>
+    <string name="symbol_ampersand">जोडाक्षर</string>
+    <string name="symbol_angle_bracket_left">यापेक्षा कमीचे चिन्ह</string>
+    <string name="symbol_angle_bracket_right">यापेक्षा जास्तचे चिन्ह</string>
+    <string name="symbol_apostrophe">ॲपॉस्ट्रॉफी</string>
+    <string name="symbol_approximately_equals">अंदाजे समान</string>
+    <string name="symbol_asterisk">ताराचिन्ह</string>
+    <string name="symbol_at_sign">At</string>
+    <string name="symbol_backslash">बॅकस्लॅश</string>
+    <string name="symbol_beamed_sixteenth_note">सोळाव्‍या टिपा बीम केल्या</string>
+    <string name="symbol_black_circle">काळे मंडळ</string>
+    <string name="symbol_black_heart">काळे हृदय</string>
+    <string name="symbol_black_smallsquare">लहान काळा चौकोन</string>
+    <string name="symbol_black_square">काळा चौरस</string>
+    <string name="symbol_black_star">काळा तारा</string>
+    <string name="symbol_black_suit_of_diamonds">चौकटचे काळ्या रंगाचे पत्ते</string>
+    <string name="symbol_black_triangle_pointing_down">खालच्या दिशेला पॉइंट करणारा काळा त्रिकोण</string>
+    <string name="symbol_black_triangle_pointing_up">वरच्या दिशेला पॉइंट करणारा काळा त्रिकोण</string>
+    <string name="symbol_broken_bar">ब्रोकन बार</string>
+    <string name="symbol_bullet">बुलेट</string>
+    <string name="symbol_bullseye">बुल्‍सआय</string>
+    <string name="symbol_caret">कॅरेट</string>
+    <string name="symbol_celsius_degree">सेल्‍सिअस अंश</string>
+    <string name="symbol_cent">सेंटचे चिन्ह</string>
+    <string name="symbol_circle_left_half_black">डावे अर्धे काळे सह मंडळ</string>
+    <string name="symbol_circle_right_half_black">उजवे अर्धे काळे सह मंडळ</string>
+    <string name="symbol_colon">अपूर्ण विराम</string>
+    <string name="symbol_comma">स्वल्पविराम</string>
+    <string name="symbol_copyright">कॉपीराइट</string>
+    <string name="symbol_curly_bracket_left">डावा महिरपी कंस</string>
+    <string name="symbol_curly_bracket_right">उजवा महिरपी कंस</string>
+    <string name="symbol_currency_sign">चलन आयकन</string>
+    <string name="symbol_degree">अंशाचे चिन्ह</string>
+    <string name="symbol_division">भागिले आयकन</string>
+    <string name="symbol_dollar_sign">डॉलर आयकन</string>
+    <string name="symbol_downwards_arrow">खालील बाण</string>
+    <string name="symbol_eighth_note">आठवी टीप</string>
+    <string name="symbol_ellipsis">पदलोप</string>
+    <string name="symbol_em_dash">Em डॅश</string>
+    <string name="symbol_en_dash">En डॅश</string>
+    <string name="symbol_equal">समान आयकन</string>
+    <string name="symbol_euro">युरो</string>
+    <string name="symbol_exclamation_mark">उद्गारचिन्ह आयकन</string>
+    <string name="symbol_fahrenheit_degree">फॅरेनहाइट अंश</string>
+    <string name="symbol_female">महिला आयकन</string>
+    <string name="symbol_full_width_ampersand">पूर्ण रुंदीचे अँपरसँड</string>
+    <string name="symbol_full_width_asterisk">पूर्ण रुंदीचे ॲस्टेरिस्क</string>
+    <string name="symbol_full_width_circumflex">पूर्ण रुंदीचे सर्कमफ्लेक्स</string>
+    <string name="symbol_full_width_colon">पूर्ण रुंदीचा अपूर्णविराम</string>
+    <string name="symbol_full_width_comma">पूर्ण रुंदीचा स्वल्पविराम</string>
+    <string name="symbol_full_width_exclamation_mark">पूर्ण रुंदीचे उद्गारवाचक चिन्ह</string>
+    <string name="symbol_full_width_greater_than_sign">पूर्ण रुंदीचे गुरुतर चिन्ह</string>
+    <string name="symbol_full_width_ideographic_full_stop">इडियोग्राफिक पूर्णविराम</string>
+    <string name="symbol_full_width_left_curly_bracket">पूर्ण रुंदीचा डावा महिरपी कंस</string>
+    <string name="symbol_full_width_left_parenthesis">पूर्ण रुंदीचा डावा कंस</string>
+    <string name="symbol_full_width_less_than_sign">पूर्ण रुंदीचे लघुतर चिन्ह</string>
+    <string name="symbol_full_width_question_mark">पूर्ण रुंदीचे प्रश्न चिन्ह</string>
+    <string name="symbol_full_width_right_curly_bracket">पूर्ण रुंदीचा उजवा महिरपी कंस</string>
+    <string name="symbol_full_width_right_parenthesis">पूर्ण रुंदीचा उजवा कंस</string>
+    <string name="symbol_full_width_semicolon">पूर्ण रुंदीचा अर्धविराम</string>
+    <string name="symbol_full_width_tilde">पूर्ण रुंदीचे टिल्डे</string>
+    <string name="symbol_full_width_underscore">पूर्ण रुंदीचा अंडरस्कोअर</string>
+    <string name="symbol_grave_accent">अनुदात्त स्वर</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">काताकानातील अर्ध्या रुंदीचा मधला बिंदू</string>
+    <string name="symbol_hyphen_minus">डॅश</string>
+    <string name="symbol_ideographic_comma">इडियोग्राफिक स्वल्पविराम</string>
+    <string name="symbol_integral">संकलनात्मक</string>
+    <string name="symbol_inverted_exclamation_mark">उलटे उद्गारवाचक चिन्ह</string>
+    <string name="symbol_inverted_question_mark">उलटे प्रश्नचिन्ह</string>
+    <string name="symbol_left_angle_bracket">डावा दुहेरी कोनदार कंस</string>
+    <string name="symbol_left_black_lenticular_bracket">डावा काळा भिंगासारखा कंस</string>
+    <string name="symbol_left_corner_bracket">डावा कोपरा कंस</string>
+    <string name="symbol_left_double_quotation_mark">डावे दुहेरी अवतरणचिन्ह</string>
+    <string name="symbol_left_single_quotation_mark">डावे एकेरी अवतरणचिन्ह</string>
+    <string name="symbol_leftwards_arrow">डावीकडचा बाण</string>
+    <string name="symbol_liter">लीटर</string>
+    <string name="symbol_low_double_quote">खालील दुहेरी अवतरण</string>
+    <string name="symbol_male">पुरूष आयकन</string>
+    <string name="symbol_mathematical_left_angle_bracket">गणितीय डावे कोन कंस</string>
+    <string name="symbol_mathematical_right_angle_bracket">गणितीय उजवे कोन कंस</string>
+    <string name="symbol_micro_sign">सूक्ष्म आयकन</string>
+    <string name="symbol_middle_dot">मधला बिंदू</string>
+    <string name="symbol_multiplication">गुणिले आयकन</string>
+    <string name="symbol_new_line">नवीन रेखा</string>
+    <string name="symbol_not_equals">बरोबर नाही</string>
+    <string name="symbol_not_sign">आयकन नाही</string>
+    <string name="symbol_paragraph_mark">परिच्छेद खूण</string>
+    <string name="symbol_parenthesis_left">डावा कंस</string>
+    <string name="symbol_parenthesis_right">उजवा कंस</string>
+    <string name="symbol_percent">टक्के</string>
+    <string name="symbol_period">पूर्णविरामचिन्ह</string>
+    <string name="symbol_pi">पाय</string>
+    <string name="symbol_plus_minus_sign">अधिक वजा आयकन</string>
+    <string name="symbol_postal_mark">पोस्टल चिन्ह</string>
+    <string name="symbol_pound">पाउंड</string>
+    <string name="symbol_pound_sterling">पाउंड या चलनाचे चिन्ह</string>
+    <string name="symbol_quarter_note">एक चतुर्थांश</string>
+    <string name="symbol_question_mark">प्रश्नचिन्ह</string>
+    <string name="symbol_quotation_mark">अवतरण</string>
+    <string name="symbol_reference">संदर्भ आयकन</string>
+    <string name="symbol_registered_trademark">नोंदणीकृत ट्रेडमार्क</string>
+    <string name="symbol_right_angle_bracket">उजवा दुहेरी कोनदार कंस</string>
+    <string name="symbol_right_black_lenticular_bracket">उजवा काळा भिंगासारखा कंस</string>
+    <string name="symbol_right_corner_bracket">उजवा कोपरा कंस</string>
+    <string name="symbol_right_double_quotation_mark">उजवे दुहेरी अवतरणचिन्ह</string>
+    <string name="symbol_right_single_quotation_mark">उजवे एकेरी अवतरणचिन्ह</string>
+    <string name="symbol_rightwards_arrow">उजवीकडील बाण</string>
+    <string name="symbol_rupee">रुपया</string>
+    <string name="symbol_section_sign">अनुभाग आयकन</string>
+    <string name="symbol_semicolon">अर्धविराम</string>
+    <string name="symbol_slash">स्लॅश</string>
+    <string name="symbol_solar">सोलर आयकन</string>
+    <string name="symbol_space">Space</string>
+    <string name="symbol_square_bracket_left">डावा चौकोनी कंस</string>
+    <string name="symbol_square_bracket_right">उजवा चौकोनी कंस</string>
+    <string name="symbol_square_root">वर्गमूळ</string>
+    <string name="symbol_tilde">टिल्डे आयकन</string>
+    <string name="symbol_trademark">ट्रेडमार्क</string>
+    <string name="symbol_underscore">अंडरस्कोअर</string>
+    <string name="symbol_upwards_arrow">वरदर्शी बाण</string>
+    <string name="symbol_vertical_bar">उभी रेष</string>
+    <string name="symbol_white_circle">पांढरे मंडळ</string>
+    <string name="symbol_white_club_suit">सफेद किलवर पत्ते</string>
+    <string name="symbol_white_diamond">पांढरा हीरा</string>
+    <string name="symbol_white_down_pointing_triangle">पांढरा खाली निर्देशित करणारा त्रिकोण</string>
+    <string name="symbol_white_heart">पांढरे बदाम</string>
+    <string name="symbol_white_left_pointing_index">पांढरे डावे निर्देशित करणारी तर्जनी</string>
+    <string name="symbol_white_left_pointing_triangle">पांढरे डावे निर्देशित करणारा त्रिकोण</string>
+    <string name="symbol_white_right_pointing_index">पांढरे उजवे निर्देशित करणारी तर्जनी</string>
+    <string name="symbol_white_right_pointing_triangle">पांढरे उजवे निर्देशित करणारा त्रिकोण</string>
+    <string name="symbol_white_spade_suit">पांढरे इस्‍पिक पत्ते</string>
+    <string name="symbol_white_square">पांढरा चौरस</string>
+    <string name="symbol_white_star">पांढरा तारा</string>
+    <string name="symbol_white_up_pointing_triangle">पांढरा वर निर्देशित करणारा त्रिकोण</string>
+    <string name="symbol_won">वोन या चलनाचे चिन्ह</string>
+    <string name="symbol_won_sign">वोन या चलनाचे चिन्ह</string>
+    <string name="symbol_yen">येन</string>
+    <string name="tabletop">टेबलटॉप मोड</string>
+    <string name="tabletop_detail">डिव्हाइस टेबलवर सपाट ठेवा (टेबलटॉप मोड)</string>
+    <string name="template_capital_letter">कॅपिटल %1$s</string>
+    <string name="template_current_tts_engine">%1$s वापरत आहे</string>
+    <string name="template_overlay_window">%1$s चित्रामध्ये चित्र</string>
+    <string name="template_password_selected">%1$d पासून %2$d पर्यंत वर्ण</string>
+    <string name="template_password_traversed">वर्ण %1$d</string>
+    <string name="template_scroll_from_count">%2$d पैकी %1$d आयटम दर्शवित आहोत.</string>
+    <string name="template_scroll_from_to_count">%3$d पैकी %1$d ते %2$d आयटम दर्शवित आहोत.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s डावीकडे, %2$s उजवीकडे</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s उजवीकडे %2$s डावीकडे</string>
+    <string name="template_split_screen_mode_portrait">%1$s शीर्षस्थानी, %2$s तळाशी</string>
+    <string name="template_text_copied">%1$s, कॉपी केला</string>
+    <string name="template_viewpager_index_count">%2$d पैकी %1$d पृष्ठ</string>
+    <string name="template_viewpager_index_count_short">%2$d पैकी %1$d</string>
+    <string name="untitled_window">अशीर्षकांकित</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"बंद"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"चालू"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"क्रिया ड्रॉवर"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"नेव्हिगेशन ड्रॉवर"</string>
+</resources>

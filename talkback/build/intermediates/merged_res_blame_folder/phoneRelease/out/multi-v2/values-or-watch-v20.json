@@ -1,0 +1,48 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/phone/release/values-or-watch-v20/values-or-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-or-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,270",
+                        "endColumns": "216,138",
+                        "endOffsets": "267,406"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,274",
+                        "endColumns": "218,140",
+                        "endOffsets": "269,410"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-or-watch-v20/values-or-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-or-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,270",
+                        "endColumns": "216,138",
+                        "endOffsets": "267,406"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,274",
+                        "endColumns": "218,140",
+                        "endOffsets": "269,410"
+                    }
+                }
+            ]
+        }
+    ]
+}

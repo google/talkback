@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">punktet %s</item>
+    <item quantity="other">punkterne %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d ny notifikation</item>
+    <item quantity="other">%d nye notifikationer</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d dag</item>
+<item quantity="other">%d dage</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d t.</item>
+<item quantity="other">%d t.</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d min.</item>
+<item quantity="other">%d min.</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d dag</item>
+<item quantity="other">%d dage</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d time</item>
+<item quantity="other">%d timer</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d min.</item>
+<item quantity="other">%d min.</item>
+</plurals>
+    <string name="a11y_no_data">Der er ingen data</string>
+    <string name="a11y_no_permission">Der er ikke givet adgang til data</string>
+    <string name="a11y_template_range">%1$f af %2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Find hjem"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Gå op"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Flere valgmuligheder"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Udfør"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Se alle"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Vælg en app"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"FRA"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"TIL"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"slet"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"mellemrum"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Søg…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Ryd forespørgsel"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Søgeforespørgsel"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Søg"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Indsend forespørgsel"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Talesøgning"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Del med"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Del med <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Skjul"</string>
+    <string name="auto_detect">Tilpas efter, hvordan du holder enheden</string>
+    <string name="bottomsheet_action_expand_halfway">Udvid halvdelen</string>
+    <string name="braille_ime_displayed_name">brailletastatur</string>
+    <string name="braille_ime_service_name">TalkBack-brailletastatur</string>
+    <string name="braille_keyboard">Braille-tastatur</string>
+    <string name="braille_keyboard_gestures">Bevægelser for braille-tastatur</string>
+    <string name="braille_keyboard_strip_button">Skift til tastatur på touchskærm</string>
+    <string name="braille_keyboard_strip_summary">En ekstern brailleskærm er forbundet, og du kan bruge den til at indtaste tekst på denne enhed.\nDu kan også skifte til brailletastaturet på touchskærmen eller næste indtastningsmetode.</string>
+    <string name="braille_tutorial_title">Selvstudie til braille-tastatur</string>
+    <string name="bring_ime_settings_page">Ingen andre tastaturer er aktiveret. Gå til indstillingerne for tastatur</string>
+    <string name="buttons_rect_bottom_center">Nederst</string>
+    <string name="buttons_rect_bottom_left">Nederst til venstre</string>
+    <string name="buttons_rect_bottom_right">Nederst til højre</string>
+    <string name="buttons_rect_left_bottom">Nederst i venstre side</string>
+    <string name="buttons_rect_left_center">Til venstre for midten</string>
+    <string name="buttons_rect_left_top">Øverst i venstre side</string>
+    <string name="buttons_rect_right_bottom">Nederst i højre side</string>
+    <string name="buttons_rect_right_center">Til højre for midten</string>
+    <string name="buttons_rect_right_top">Øverst i højre side</string>
+    <string name="buttons_rect_top_center">Øverst</string>
+    <string name="buttons_rect_top_left">Øverst til venstre</string>
+    <string name="buttons_rect_top_right">Øverst til højre</string>
+    <string name="buttons_round_bottom_center">Nederst</string>
+    <string name="buttons_round_bottom_left">Nederst til venstre</string>
+    <string name="buttons_round_bottom_left_lower">Nederst til venstre, forneden</string>
+    <string name="buttons_round_bottom_left_upper">Nederst til venstre, foroven</string>
+    <string name="buttons_round_bottom_right">Nederst til højre</string>
+    <string name="buttons_round_bottom_right_lower">Nederst til højre, forneden</string>
+    <string name="buttons_round_bottom_right_upper">Nederst til højre, foroven</string>
+    <string name="buttons_round_center_left">Til venstre for midten</string>
+    <string name="buttons_round_center_right">Til højre for midten</string>
+    <string name="buttons_round_top_center">Øverst</string>
+    <string name="buttons_round_top_left">Øverst til venstre</string>
+    <string name="buttons_round_top_left_lower">Øverst til venstre, forneden</string>
+    <string name="buttons_round_top_left_upper">Øverst til venstre, foroven</string>
+    <string name="buttons_round_top_right">Øverst til højre</string>
+    <string name="buttons_round_top_right_lower">Øverst til højre, forneden</string>
+    <string name="buttons_round_top_right_upper">Øverst til højre, foroven</string>
+    <string name="calibration_fail_announcement">Punkternes placering kunne ikke opdateres. Hold 6 fingre nede på skærmen. Prøv derefter igen.</string>
+    <string name="calibration_finish_announcement">Punkternes placering er opdateret</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Opdaterer punkternes placering. Lad os starte med at registrere punkterne på din venstre hånd. Hold de tre midterste fingre på din venstre hånd nede på skærmen.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Opdaterer punkternes placering. Lad os starte med at registrere punkterne på din højre hånd. Hold de tre midterste fingre på din højre hånd nede på skærmen.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">Placeringerne for punkt 1, 2 og 3 er opdateret. Lad os nu registrere punkterne på din venstre hånd. Hold de tre midterste fingre på din venstre hånd nede på skærmen.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">Placeringerne for punkt 1, 2 og 3 er opdateret. Lad os nu registrere punkterne på din højre hånd. Hold de tre midterste fingre på din højre hånd nede på skærmen.</string>
+    <string name="capitalize_announcement">Store bogstaver</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Du har brugt %1$d ud af %2$d tegn</string>
+    <string name="character_counter_overflowed_content_description">Du har brugt %1$d tegn og dermed overskredet tegnbegrænsningen på %2$d.</string>
+    <string name="clear_text_end_icon_content_description">Ryd tekst</string>
+    <string name="code_user_facing_name_ar">Arabisk</string>
+    <string name="code_user_facing_name_es">Spansk</string>
+    <string name="code_user_facing_name_fr">Fransk</string>
+    <string name="code_user_facing_name_pl">Polsk</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktivér</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Du skal aktivere Google Play-tjenester, for at %1$s kan fungere.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktivér Google Play-tjenester</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installer</string>
+    <string name="common_google_play_services_install_text">Du skal installere Google Play-tjenester, før %1$s kan køre på din enhed.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Hent Google Play-tjenester</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play-tjenesters tilgængelighed</string>
+    <string name="common_google_play_services_notification_ticker">Fejl i Google Play-tjenester</string>
+    <string name="common_google_play_services_unknown_issue">%1$s har problemer med Google Play-tjenester. Prøv igen.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s fungerer ikke uden Google Play-tjenester, som ikke understøttes på din enhed.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Opdater</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s kan ikke køre, medmindre du opdaterer Google Play-tjenester.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Opdater Google Play-tjenester</string>
+    <string name="common_google_play_services_updating_text">%1$s kan ikke køre uden Google Play-tjenester, som i øjeblikket opdateres.</string>
+    <string name="common_google_play_services_wear_update_text">Du skal bruge en ny version af Google Play-tjenester. Opdateringen gennemføres automatisk om et øjeblik.</string>
+    <string name="common_open_on_phone">Åbn på telefonen</string>
+    <string name="common_signin_button_text">Log ind</string>
+    <string name="common_signin_button_text_long">Log ind med Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Fejl"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Åbnet på din telefon"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Gennemført"</string>
+    <string name="context_menu_input_language_selection">Skift til næste sprog: %s</string>
+    <string name="context_menu_input_language_selection_summary">Du bruger i øjeblikket: %s</string>
+    <string name="context_menu_layout_selection">Layout</string>
+    <string name="context_menu_see_all_gestures_selection">Se alle bevægelser</string>
+    <string name="context_menu_settings_selection">Indstillinger</string>
+    <string name="context_menu_title">Indstillinger for braille-tastatur</string>
+    <string name="context_menu_tutorial_finish">Afslut selvstudiet</string>
+    <string name="context_menu_tutorial_selection">Åbn selvstudiet</string>
+    <string name="continue_tutorial_announcement">Lad os fortsætte selvstudiet. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Kopiér"</string>
+    <string name="dismiss_overlay_button_label">Afslut</string>
+    <string name="done">Luk</string>
+    <string name="dont_show_again">Vis ikke igen</string>
+    <string name="error_icon_content_description">Fejl</string>
+    <string name="exit_scrim">Luk</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Avanceret"</string>
+    <string name="exposed_dropdown_menu_content_description">Vis rullemenuen</string>
+    <string name="finish_tutorial_announcement">Viser braille-tastaturet. Vend din telefon, så skærmen vender væk fra dig. Drej telefonen vandret, så den er i liggende format. Du kan nu begynde at skrive.</string>
+    <string name="function_off">Talefeedback er deaktiveret</string>
+    <string name="function_on">Talefeedback er aktiveret</string>
+    <string name="generic_cancel">Annuller</string>
+    <string name="generic_yes">Ja</string>
+    <string name="gesture_add_space">Hvis du vil tilføje et <b>mellemrum</b>, skal du stryge mod højre</string>
+    <string name="gesture_delete">Hvis du vil <b>slette</b>, skal du stryge mod venstre</string>
+    <string name="gesture_delete_word">Hvis du vil <b>slette et ord</b>, skal du stryge mod venstre med to fingre</string>
+    <string name="gesture_hide_keyboard">Hvis du vil <b>skjule tastaturet</b>, kan du stryge nedad med to fingre</string>
+    <string name="gesture_move_cursor_backward">Hvis du vil <b>flytte markøren tilbage</b>, skal du stryge opad</string>
+    <string name="gesture_move_cursor_forward">Hvis du vil <b>flytte markøren frem</b>, skal du stryge nedad</string>
+    <string name="gesture_new_line">Hvis du vil tilføje en <b>ny linje</b>, skal du stryge mod højre med to fingre</string>
+    <string name="gesture_next_keyboard">Hvis du vil skifte til det <b>næste tastatur</b>, skal du stryge nedad med tre fingre</string>
+    <string name="gesture_open_context_menu">Hvis du skal bruge <b>hjælp og andre indstillinger</b>, skal du stryge opad med tre fingre</string>
+    <string name="gesture_submit_text">Hvis du vil <b>sende tekst</b>, skal du stryge opad med to fingre</string>
+    <string name="granularity_character">Tegn</string>
+    <string name="granularity_default">Standard</string>
+    <string name="granularity_line">Linjer</string>
+    <string name="granularity_native_control">Kontrolelementer</string>
+    <string name="granularity_native_heading">Overskrifter</string>
+    <string name="granularity_native_link">Links</string>
+    <string name="granularity_paragraph">Afsnit</string>
+    <string name="granularity_pseudo_web_special_content">Særligt indhold</string>
+    <string name="granularity_web_control">Kontrolelementer</string>
+    <string name="granularity_web_heading">Overskrifter</string>
+    <string name="granularity_web_landmark">Orienteringspunkter</string>
+    <string name="granularity_web_link">Link</string>
+    <string name="granularity_web_list">Lister</string>
+    <string name="granularity_window">Vinduer</string>
+    <string name="granularity_word">Ord</string>
+    <string name="hide_keyboard_window">tastaturet er skjult</string>
+    <string name="hold_six_fingers_announcement">%s\nLæg din enhed fladt på et bord. Derefter skal du holde nede på skærmen med de tre midterste fingre på hver hånd i en position, der er behagelig for dig at skrive i.</string>
+    <string name="hold_six_fingers_description">Du kan ikke bruge almindelige TalkBack-bevægelser på braille-tastaturet.\n\nLad os starte med at konfigurere placeringen af de seks braille-punkter, når du skriver.</string>
+    <string name="hold_six_fingers_inactive_announcement">Læg din enhed fladt på et bord. Derefter skal du holde nede på skærmen med de tre midterste fingre på hver hånd i en position, der er behagelig for dig at skrive i.</string>
+    <string name="how_to_use_braille_keyboard">Sådan bruger du brailletastaturet</string>
+    <string name="icon_content_description">Ikon for dialogboks</string>
+    <string name="input_view_caption">TalkBack-braille-tastatur – du kan få hjælp på g.co/help/braille</string>
+    <string name="instruction_swipe_down">Hvis du vil flytte markøren frem, skal du stryge nedad</string>
+    <string name="instruction_swipe_down_2_fingers">Hvis du vil skjule tastaturet, skal du stryge nedad med to fingre</string>
+    <string name="instruction_swipe_down_3_fingers">Hvis du vil skifte til dit andet tastatur, skal du stryge nedad med tre fingre</string>
+    <string name="instruction_swipe_left">Hvis du vil slette et bogstav, skal du stryge mod venstre</string>
+    <string name="instruction_swipe_right">Hvis du vil tilføje et mellemrum, skal du stryge mod højre</string>
+    <string name="instruction_swipe_up">Hvis du vil flytte markøren tilbage, skal du stryge opad</string>
+    <string name="instruction_swipe_up_3_fingers">Hvis du vil afslutte selvstudiet, skal du stryge opad med tre fingre</string>
+    <string name="instruction_type_letter_a">Tryk på punkt 1 med din venstre pegefinger for at skrive bogstavet \"A\"</string>
+    <string name="instruction_type_letter_bcd">Prøv så at skrive bogstaverne B, C og D</string>
+    <string name="item_view_role_description">Fane</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Tryk på tastekombinationen med ændringstasten %1$s for at angive en ny genvej.</string>
+    <string name="keycombo_assign_dialog_instruction">Tryk på en tastekombination for at oprette en ny genvej. Den skal mindst indeholde ALT- eller Ctrl-tasten.</string>
+    <string name="keycombo_key_arrow_down">Pil ned</string>
+    <string name="keycombo_key_arrow_left">Venstrepil</string>
+    <string name="keycombo_key_arrow_right">Højrepil</string>
+    <string name="keycombo_key_arrow_up">Pil op</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Søg</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Ikke tildelt</string>
+    <string name="leave_keyboard">Luk braille-tastatur</string>
+    <string name="material_clock_toggle_content_description">Vælg AM eller PM</string>
+    <string name="material_hour_selection">Vælg time</string>
+    <string name="material_hour_suffix">klokken %1$s</string>
+    <string name="material_minute_selection">Vælg minutter</string>
+    <string name="material_minute_suffix">%1$s minutter</string>
+    <string name="material_timepicker_am">f.m.</string>
+    <string name="material_timepicker_clock_mode_description">Skift til urtilstand for at angive klokkeslæt.</string>
+    <string name="material_timepicker_hour">Time</string>
+    <string name="material_timepicker_minute">Minut</string>
+    <string name="material_timepicker_pm">e.m.</string>
+    <string name="material_timepicker_select_time">Vælg tidspunkt</string>
+    <string name="material_timepicker_text_input_mode_description">Skift til teksttilstand for at angive klokkeslæt.</string>
+    <string name="mtrl_badge_numberless_content_description">Ny notifikation</string>
+    <string name="mtrl_chip_close_icon_content_description">Fjern %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Flere end %1$d nye notifikationer</string>
+    <string name="mtrl_picker_a11y_next_month">Skift til næste måned</string>
+    <string name="mtrl_picker_a11y_prev_month">Skift til forrige måned</string>
+    <string name="mtrl_picker_announce_current_selection">Aktuelt valg: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Vælg dato</string>
+    <string name="mtrl_picker_date_header_unselected">Valgt dato</string>
+    <string name="mtrl_picker_day_of_week_column_header">Kolonne med dage: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Ugyldigt format.</string>
+    <string name="mtrl_picker_invalid_format_example">Eksempel: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Brug: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Ugyldigt interval.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Gå til år %1$s</string>
+    <string name="mtrl_picker_out_of_range">Uden for interval: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Startdato – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – slutdato</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Vælg interval</string>
+    <string name="mtrl_picker_range_header_unselected">Startdato – slutdato</string>
+    <string name="mtrl_picker_save">Gem</string>
+    <string name="mtrl_picker_text_input_date_hint">Dato</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Slutdato</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Startdato</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">å</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Skift til input-tilstand for kalender</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Tryk for at gå til valg af dag</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Skift til input-tilstand for tekst</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Tryk for at gå til valg af år</string>
+    <string name="multiple_languages_braille_ime_displayed_name">brailletastatur, %s</string>
+    <string name="navigation_drawer_content_description">Sidemenu</string>
+    <string name="next_keyboard">Næste tastatur</string>
+    <string name="next_step">Næste</string>
+    <string name="not_enough_touch_points_dialog_message">Din enhed understøtter ikke nok trykpunkter. Kontakt producenten af din enhed for at få flere oplysninger.</string>
+    <string name="not_enough_touch_points_dialog_title">Din enhed understøtter ikke braille-tastatur</string>
+    <string msgid="478774118347071097" name="not_set">"Ikke angivet"</string>
+    <string name="number_announcement">Tal</string>
+    <string name="open_context_menu_announcement">Indstillingsmenuen er åben. Vend din telefon om igen, så den er rettet mod dig, og hold den normalt. Du kan nu bruge almindelige TalkBack-bevægelser til at navigere på telefonen. Stryg til højre for at se flere valgmuligheder.</string>
+    <string name="password_toggle_content_description">Vis adgangskode</string>
+    <string name="perform_action_next">Næste</string>
+    <string name="perform_action_submitting">Indsender tekst</string>
+    <string name="perform_add_new_line_announcement">Ny linje er tilføjet</string>
+    <string name="perform_add_space_announcement">Mellemrum</string>
+    <string name="perform_delete_letter_announcement">Bogstav er slettet</string>
+    <string name="perform_delete_word_announcement">Ord er slettet</string>
+    <string name="perform_hide_keyboard_announcement">Skjul tastaturet</string>
+    <string name="perform_submit_text_announcement">Send tekst</string>
+    <string name="perform_switch_keyboard_announcement">Skift tastatur</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" blev kopieret til udklipsholderen."</string>
+    <string name="preferred_language_title">Foretrukket sprog</string>
+    <string name="read_out_deleted">%s er slettet</string>
+    <string name="remaining_calibration_finish_announcement">Alle punktplaceringer er opdateret</string>
+    <string name="reminder_announcement">Stryg opad med tre fingre for at se flere indstillinger</string>
+    <string name="result_swipe_down">MARKØREN BLEV FLYTTET FREM</string>
+    <string name="result_swipe_down_2_fingers">SKJUL TASTATURET</string>
+    <string name="result_swipe_down_3_fingers">NÆSTE TASTATUR</string>
+    <string name="result_swipe_left">SLET</string>
+    <string name="result_swipe_right">MELLEMRUM</string>
+    <string name="result_swipe_up">MARKØREN BLEV FLYTTET TILBAGE</string>
+    <string name="rotate_orientation_announcement">Du kan nu ikke længere bruge almindelige TalkBack-bevægelser. TalkBack er ikke tilgængelig, når du bruger braille-tastaturet.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">Din telefon er i stående format. Hvis du vil fortsætte, skal du rotere din telefon til liggende format, så den lange side vender nedad. Derefter skal du vende skærmen væk fra dig selv. Når du er klar, skal du trykke to gange på skærmen for at fortsætte.</string>
+    <string name="rotate_orientation_description_1">Fra nu af kan du ikke bruge almindelige TalkBack-bevægelser. TalkBack er ikke tilgængelig, når du bruger braille-tastaturet.</string>
+    <string name="rotate_orientation_description_2">For at komme i gang skal du holde din telefon sådan, med skærmen vendt væk fra dig selv.</string>
+    <string name="rotate_orientation_inactive_announcement">Først skal du vende din telefon, så skærmen vender væk fra dig selv.\n\nDerefter skal du rotere telefonen til liggende format. Dine hænder skal holde om telefonens korte sider. Højre hånd skal holde om den ende, hvor USB-porten er. Lad dine tre midterste fingre hvile på skærmen, og brug din lillefinger og tommelfinger til at holde telefonen.\n\nNår du er klar, skal du trykke to gange på skærmen for at fortsætte.\n\nHvis du vil lukke braille-tastaturet, skal du stryge nedad mod jorden med tre fingre. Dermed skiftes der tilbage til dit oprindelige tastatur.</string>
+    <string name="screen_away">Tilstanden Skærm vendt væk</string>
+    <string name="screen_away_detail">Hold enheden, så skærmen vender væk fra dig (tilstanden Skærm vendt væk)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Søg"</string>
+    <string name="set_up_braille_keyboard">Konfigurer brailletastatur</string>
+    <string name="show_keyboard_window">Viser %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Hvert punkt, der trykkes på, er en del af inputtet, selv hvis punktet slippes inden andre punkter</string>
+    <string name="summary_pref_reverse_dots">Byt rundt på punktplaceringer, så punkterne 1 og 4 f.eks. skifter plads</string>
+    <string name="swipe_down_2_fingers_announcement">Hvis du vil skjule tastaturet, skal du stryge nedad med to fingre. Prøv det nu.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Skjul tastaturet. Dette skjuler normalt tastaturet. Braille-tastaturet forbliver åbent, fordi du stadig er i selvstudiet.</string>
+    <string name="swipe_down_3_fingers_announcement">Hvis du vil skifte til dit andet tastatur, skal du stryge nedad med tre fingre. Prøv det nu.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Næste tastatur. Dette skifter normalt til det næste tastatur. I øjeblikket beholder du braille-tastaturet, fordi du stadig er i selvstudiet.</string>
+    <string name="swipe_down_announcement">Hvis du vil flytte markøren frem, skal du stryge nedad. Prøv det nu.</string>
+    <string name="swipe_left_action_result_announcement">d er slettet.</string>
+    <string name="swipe_left_announcement">Hvis du vil slette et bogstav, skal du stryge mod venstre. Prøv det nu.</string>
+    <string name="swipe_right_announcement">Hvis du vil tilføje et mellemrum, skal du stryge mod højre. Prøv det nu.</string>
+    <string name="swipe_up_3_fingers_announcement">Du kan også skrive i tilstanden Skærm vendt op ved at placere din telefon fladt på et bord. Hvis du vil afslutte selvstudiet, skal du stryge opad med tre fingre og finde muligheden for at afslutte selvstudiet.</string>
+    <string name="swipe_up_announcement">Hvis du vil flytte markøren tilbage, skal du stryge opad. Prøv det nu.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Hvis du vil skifte sprog, mens du skriver via brailletastaturet, skal du stryge opad med 3 fingre. Vælg derefter \"skift til næste sprog\".</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Skift hurtigt sprog, mens du skriver</string>
+    <string name="switch_to_language_announcement">Der blev skiftet til %s</string>
+    <string name="switch_to_screen_away_announcement">Tilstanden Skærm vendt væk</string>
+    <string name="switch_to_tabletop_announcement">Tilstanden Skærm vendt op. Placer enheden, så opladerporten vender mod venstre. Hold seks fingre nede for at opdatere punkternes placering.</string>
+    <string name="symbol_almost_equals">Næsten lig med</string>
+    <string name="symbol_ampersand">Og-tegn</string>
+    <string name="symbol_angle_bracket_left">Mindre end-tegn</string>
+    <string name="symbol_angle_bracket_right">Større end-tegn</string>
+    <string name="symbol_apostrophe">Apostrof</string>
+    <string name="symbol_approximately_equals">Svarer tilnærmelsesvis til</string>
+    <string name="symbol_asterisk">Asterisk</string>
+    <string name="symbol_at_sign">Snabel-a</string>
+    <string name="symbol_backslash">Omvendt skråstreg</string>
+    <string name="symbol_beamed_sixteenth_note">Sammenbundne sekstendedelsnoder</string>
+    <string name="symbol_black_circle">Sort cirkel</string>
+    <string name="symbol_black_heart">Sort hjerte</string>
+    <string name="symbol_black_smallsquare">Lille sort firkant</string>
+    <string name="symbol_black_square">Sort firkant</string>
+    <string name="symbol_black_star">Sort stjerne</string>
+    <string name="symbol_black_suit_of_diamonds">Sort diamant</string>
+    <string name="symbol_black_triangle_pointing_down">Sort trekant, der peger nedad</string>
+    <string name="symbol_black_triangle_pointing_up">Sort trekant, der peger opad</string>
+    <string name="symbol_broken_bar">Brudt lodret streg</string>
+    <string name="symbol_bullet">Punkttegn</string>
+    <string name="symbol_bullseye">Målskive</string>
+    <string name="symbol_caret">Cirkumfleks</string>
+    <string name="symbol_celsius_degree">Celsiusgrad</string>
+    <string name="symbol_cent">Centtegn</string>
+    <string name="symbol_circle_left_half_black">Cirkel med venstre halvdel i sort</string>
+    <string name="symbol_circle_right_half_black">Cirkel med højre halvdel i sort</string>
+    <string name="symbol_colon">Kolon</string>
+    <string name="symbol_comma">Komma</string>
+    <string name="symbol_copyright">Ophavsret</string>
+    <string name="symbol_curly_bracket_left">Venstre krøllet parentes</string>
+    <string name="symbol_curly_bracket_right">Højre krøllet parentes</string>
+    <string name="symbol_currency_sign">Valutategn</string>
+    <string name="symbol_degree">Gradtegn</string>
+    <string name="symbol_division">Divisionstegn</string>
+    <string name="symbol_dollar_sign">Dollartegn</string>
+    <string name="symbol_downwards_arrow">Pil ned</string>
+    <string name="symbol_eighth_note">Ottendedelsnode</string>
+    <string name="symbol_ellipsis">Ellipse</string>
+    <string name="symbol_em_dash">Lang tankestreg</string>
+    <string name="symbol_en_dash">Kort tankestreg</string>
+    <string name="symbol_equal">Lighedstegn</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Udråbstegn</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheit-grad</string>
+    <string name="symbol_female">Kvindesymbol</string>
+    <string name="symbol_full_width_ampersand">Og-tegn i fuld bredde</string>
+    <string name="symbol_full_width_asterisk">Stjerne i fuld bredde</string>
+    <string name="symbol_full_width_circumflex">Cirkumfleks i fuld bredde</string>
+    <string name="symbol_full_width_colon">Kolon i fuld bredde</string>
+    <string name="symbol_full_width_comma">Komma i fuld bredde</string>
+    <string name="symbol_full_width_exclamation_mark">Udråbstegn i fuld bredde</string>
+    <string name="symbol_full_width_greater_than_sign">Større end-tegn i fuld bredde</string>
+    <string name="symbol_full_width_ideographic_full_stop">ideografisk punktum</string>
+    <string name="symbol_full_width_left_curly_bracket">Venstre krøllet parentes i fuld bredde</string>
+    <string name="symbol_full_width_left_parenthesis">Venstreparentes i fuld bredde</string>
+    <string name="symbol_full_width_less_than_sign">Mindre end-tegn i fuld bredde</string>
+    <string name="symbol_full_width_question_mark">Spørgsmålstegn i fuld bredde</string>
+    <string name="symbol_full_width_right_curly_bracket">Højre krøllet parentes i fuld bredde</string>
+    <string name="symbol_full_width_right_parenthesis">Højreparentes i fuld bredde</string>
+    <string name="symbol_full_width_semicolon">Semikolon i fuld bredde</string>
+    <string name="symbol_full_width_tilde">Tilde i fuld bredde</string>
+    <string name="symbol_full_width_underscore">Understregning i fuld bredde</string>
+    <string name="symbol_grave_accent">Accent grave</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Halvhøjt katakana-punkt i halv bredde</string>
+    <string name="symbol_hyphen_minus">Tankestreg</string>
+    <string name="symbol_ideographic_comma">ideografisk komma</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Omvendt udråbstegn</string>
+    <string name="symbol_inverted_question_mark">Omvendt spørgsmålstegn</string>
+    <string name="symbol_left_angle_bracket">Dobbelt venstre vinkelparentes</string>
+    <string name="symbol_left_black_lenticular_bracket">Venstre sort linseformet parentes</string>
+    <string name="symbol_left_corner_bracket">Venstre hjørneparentes</string>
+    <string name="symbol_left_double_quotation_mark">Dobbelt venstre anførselstegn</string>
+    <string name="symbol_left_single_quotation_mark">Enkelt venstre anførselstegn</string>
+    <string name="symbol_leftwards_arrow">Venstrevendt pil</string>
+    <string name="symbol_liter">Liter</string>
+    <string name="symbol_low_double_quote">Lave dobbelte anførselstegn</string>
+    <string name="symbol_male">Mandesymbol</string>
+    <string name="symbol_mathematical_left_angle_bracket">Matematisk venstre vinkelparentes</string>
+    <string name="symbol_mathematical_right_angle_bracket">Matematisk højre vinkelparentes</string>
+    <string name="symbol_micro_sign">Mikrotegn</string>
+    <string name="symbol_middle_dot">Halvhøjt punkt</string>
+    <string name="symbol_multiplication">Multiplikationstegn</string>
+    <string name="symbol_new_line">Ny linje</string>
+    <string name="symbol_not_equals">Ikke lig med</string>
+    <string name="symbol_not_sign">Ikke-tegn</string>
+    <string name="symbol_paragraph_mark">Afsnitstegn</string>
+    <string name="symbol_parenthesis_left">Venstre parentes</string>
+    <string name="symbol_parenthesis_right">Højre parentes</string>
+    <string name="symbol_percent">Procent</string>
+    <string name="symbol_period">Punktum</string>
+    <string name="symbol_pi">pi</string>
+    <string name="symbol_plus_minus_sign">Plus- og minustegn</string>
+    <string name="symbol_postal_mark">Posttegn</string>
+    <string name="symbol_pound">Pund</string>
+    <string name="symbol_pound_sterling">Pundtegn</string>
+    <string name="symbol_quarter_note">Fjerdedelsnode</string>
+    <string name="symbol_question_mark">Spørgsmålstegn</string>
+    <string name="symbol_quotation_mark">Citationstegn</string>
+    <string name="symbol_reference">Henvisningstegn</string>
+    <string name="symbol_registered_trademark">Registreret varemærke</string>
+    <string name="symbol_right_angle_bracket">Dobbelt højre vinkelparentes</string>
+    <string name="symbol_right_black_lenticular_bracket">Højre sort linseformet parentes</string>
+    <string name="symbol_right_corner_bracket">Højre hjørneparentes</string>
+    <string name="symbol_right_double_quotation_mark">Dobbelt højre anførselstegn</string>
+    <string name="symbol_right_single_quotation_mark">Enkelt højre anførselstegn</string>
+    <string name="symbol_rightwards_arrow">Højrepil</string>
+    <string name="symbol_rupee">Rupi</string>
+    <string name="symbol_section_sign">Paragraftegn</string>
+    <string name="symbol_semicolon">Semikolon</string>
+    <string name="symbol_slash">Skråstreg</string>
+    <string name="symbol_solar">Solsymbol</string>
+    <string name="symbol_space">Mellemrum</string>
+    <string name="symbol_square_bracket_left">Venstre firkantet parentes</string>
+    <string name="symbol_square_bracket_right">Højre firkantet parentes</string>
+    <string name="symbol_square_root">Kvadratrod</string>
+    <string name="symbol_tilde">Tilde</string>
+    <string name="symbol_trademark">Varemærke</string>
+    <string name="symbol_underscore">Understregning</string>
+    <string name="symbol_upwards_arrow">Opadvendt pil</string>
+    <string name="symbol_vertical_bar">Lodret linje</string>
+    <string name="symbol_white_circle">Hvid cirkel</string>
+    <string name="symbol_white_club_suit">Hvid klør</string>
+    <string name="symbol_white_diamond">Hvid rombe</string>
+    <string name="symbol_white_down_pointing_triangle">Hvid nedadvendt trekant</string>
+    <string name="symbol_white_heart">Hvidt hjerte</string>
+    <string name="symbol_white_left_pointing_index">Hvidt venstrevendt indeks</string>
+    <string name="symbol_white_left_pointing_triangle">Hvid venstrevendt trekant</string>
+    <string name="symbol_white_right_pointing_index">Hvidt højrevendt indeks</string>
+    <string name="symbol_white_right_pointing_triangle">Hvid højrevendt trekant</string>
+    <string name="symbol_white_spade_suit">Hvid spar</string>
+    <string name="symbol_white_square">Hvid firkant</string>
+    <string name="symbol_white_star">Hvid stjerne</string>
+    <string name="symbol_white_up_pointing_triangle">Hvid opadvendt trekant</string>
+    <string name="symbol_won">Won-tegn</string>
+    <string name="symbol_won_sign">Won-tegn</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="tabletop">Tilstanden Skærm vendt op</string>
+    <string name="tabletop_detail">Læg din enhed fladt på et bord (tilstanden Skærm vendt op)</string>
+    <string name="talkback_off_dialog_positive_button">Aktivér funktionen i indstillingerne for hjælpefunktioner</string>
+    <string name="talkback_off_dialog_title">Aktivér TalkBack for at bruge braille-tastaturet</string>
+    <string name="talkback_off_or_suspend_dialog_message">Når TalkBack er aktiveret, kan du trykke på din skærm for at indtaste braille-tegn</string>
+    <string name="talkback_suspend_dialog_title">Aktivér TalkBack igen for at bruge braille-tastaturet</string>
+    <string name="tap_to_continue">Tryk to gange et vilkårligt sted for at fortsætte</string>
+    <string name="template_capital_letter">stort %1$s</string>
+    <string name="template_current_tts_engine">Bruger %1$s</string>
+    <string name="template_overlay_window">Integreret billede i %1$s</string>
+    <string name="template_password_selected">Tegn %1$d til %2$d</string>
+    <string name="template_password_traversed">Tegnet %1$d</string>
+    <string name="template_scroll_from_count">Viser element %1$d ud af %2$d.</string>
+    <string name="template_scroll_from_to_count">Viser element %1$d til %2$d ud af %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s til venstre, %2$s til højre</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s til højre, %2$s til venstre</string>
+    <string name="template_split_screen_mode_portrait">%1$s øverst, %2$s nederst</string>
+    <string name="template_text_copied">kopieret, %1$s</string>
+    <string name="template_viewpager_index_count">Side %1$d af %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d af %2$d</string>
+    <string name="time_difference_now">Nu</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="title_pref_accumulate_presses">Medtag alle punkter, der trykkes på</string>
+    <string name="title_pref_reverse_dots">Omvendte punkter</string>
+    <string name="tutorial_intro_description">Med brailletastaturet kan du trykke på din skærm for at indtaste 6-punkts braille.\n\nDu bruger i øjeblikket Unified English Braille. Hvis du vil skifte dit indtastningssprog, skal du gå til TalkBack-indstillinger.\n\nHvis du vil skrive braille, skal du holde og bruge din telefon på en anden måde.</string>
+    <string name="type_letter_a_announcement">Hold skærmen væk fra dig selv. Hold din telefon med begge hænder på de korte sider, så de tre midterste fingre på hver hånd kan røre skærmen.\n\nDin venstre pegefinger skal være på punkt 1. Tryk så på punkt 1 for at skrive bogstavet \"A\".</string>
+    <string name="type_letter_a_inactive_announcement">Tryk på punkt 1 med din venstre pegefinger for at skrive \"A\"</string>
+    <string name="type_letter_inactive_announcement">Tryk på %1$s for at skrive bogstavet %2$s</string>
+    <string name="typing_languages_title">Tastatursprog</string>
+    <string name="untitled_window">unavngivet</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Indstillinger</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Slå braille-tastaturet til&lt;/b>: Tryk på Indstillinger nedenfor. På den næste skærm kan du slå \"%1$s\" til.
+    &lt;br>&lt;br>2. &lt;b>Brug braille-tastaturet&lt;/b>: Åbn dit normale tastatur og tryk på ikonet til at vælge tastatur %2$s (findes som regel nederst til højre) Vælg \"%1$s\".
+  &lt;br>&lt;br>Hvis du ikke kan se muligheden for at skifte tastatur, kan du prøve at installere Google-tastaturet %3$s.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Hvis du vil bruge braille-tastaturet, skal du åbne dit normale tastatur og trykke på ikonet til at vælge tastatur %1$s (findes som regel nederst til højre). Vælg \"%2$s\".
+  &lt;br>&lt;br>Hvis du ikke kan se muligheden for at skifte tastatur, kan du prøve at installere Google-tastaturet %3$s.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"FRA"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"TIL"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Handlingsmenu"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Sidemenu"</string>
+</resources>

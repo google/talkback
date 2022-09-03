@@ -26,6 +26,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+
+// TODO: QUINTIN POI
 public class DimmingOverlayView extends LinearLayout {
 
   private View content;

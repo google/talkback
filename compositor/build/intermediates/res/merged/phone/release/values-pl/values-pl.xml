@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d nowe powiadomienie</item>
+    <item quantity="few">%d nowe powiadomienia</item>
+    <item quantity="many">%d nowych powiadomień</item>
+    <item quantity="other">%d nowego powiadomienia</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s z %2$d elementem.</item>
+    <item quantity="few">%1$s z %2$d elementami.</item>
+    <item quantity="many">%1$s z %2$d elementami.</item>
+    <item quantity="other">%1$s z %2$d elementu.</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d kolumna</item>
+    <item quantity="few">%1$d kolumny</item>
+    <item quantity="many">%1$d kolumn</item>
+    <item quantity="other">%1$d kolumny</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d wiersz</item>
+    <item quantity="few">%1$d wiersze</item>
+    <item quantity="many">%1$d wierszy</item>
+    <item quantity="other">%1$d wiersza</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d element</item>
+    <item quantity="few">%1$d elementy</item>
+    <item quantity="many">%1$d elementów</item>
+    <item quantity="other">%1$d elementu</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d znak</item>
+    <item quantity="few">%1$d znaki</item>
+    <item quantity="many">%1$d znaków</item>
+    <item quantity="other">%1$d znaku</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d d</item>
+<item quantity="few">%d d</item>
+<item quantity="many">%d d</item>
+<item quantity="other">%d d</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d g</item>
+<item quantity="few">%d g</item>
+<item quantity="many">%d g</item>
+<item quantity="other">%d g</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d m</item>
+<item quantity="few">%d m</item>
+<item quantity="many">%d m</item>
+<item quantity="other">%d m</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d dzień</item>
+<item quantity="few">%d dni</item>
+<item quantity="many">%d dni</item>
+<item quantity="other">%d dnia</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d godz.</item>
+<item quantity="few">%d godz.</item>
+<item quantity="many">%d godz.</item>
+<item quantity="other">%d godz.</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d min</item>
+<item quantity="few">%d min</item>
+<item quantity="many">%d min</item>
+<item quantity="other">%d min</item>
+</plurals>
+    <string name="a11y_no_data">Brak danych</string>
+    <string name="a11y_no_permission">Brak dostępu do danych</string>
+    <string name="a11y_template_range">%1$f z %2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Przejdź na stronę główną"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Przejdź wyżej"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Więcej opcji"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Gotowe"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Pokaż wszystko"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Wybierz aplikację"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"WYŁ."</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"WŁ."</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Funkcyjny+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"spacja"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Szukaj…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Wyczyść zapytanie"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Zapytanie"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Szukaj"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Wyślij zapytanie"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Wyszukiwanie głosowe"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Udostępnij przez:"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Udostępnij przez: <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Zwiń"</string>
+    <string name="bottomsheet_action_expand_halfway">Rozwiń do połowy</string>
+    <string name="buttons_rect_bottom_center">Na dole</string>
+    <string name="buttons_rect_bottom_left">W lewym dolnym rogu</string>
+    <string name="buttons_rect_bottom_right">W prawym dolnym rogu</string>
+    <string name="buttons_rect_left_bottom">Na dole po lewej</string>
+    <string name="buttons_rect_left_center">Na środku po lewej</string>
+    <string name="buttons_rect_left_top">Na górze po lewej</string>
+    <string name="buttons_rect_right_bottom">Na dole po prawej</string>
+    <string name="buttons_rect_right_center">Na środku po prawej</string>
+    <string name="buttons_rect_right_top">Na górze po prawej</string>
+    <string name="buttons_rect_top_center">Na górze</string>
+    <string name="buttons_rect_top_left">W lewym górnym rogu</string>
+    <string name="buttons_rect_top_right">W prawym górnym rogu</string>
+    <string name="buttons_round_bottom_center">Na dole</string>
+    <string name="buttons_round_bottom_left">Na dole po lewej</string>
+    <string name="buttons_round_bottom_left_lower">Na dole po lewej, niżej</string>
+    <string name="buttons_round_bottom_left_upper">Na dole po lewej, wyżej</string>
+    <string name="buttons_round_bottom_right">Na dole po prawej</string>
+    <string name="buttons_round_bottom_right_lower">Na dole po prawej, niżej</string>
+    <string name="buttons_round_bottom_right_upper">Na dole po prawej, wyżej</string>
+    <string name="buttons_round_center_left">Na środku po lewej</string>
+    <string name="buttons_round_center_right">Na środku po prawej</string>
+    <string name="buttons_round_top_center">Na górze</string>
+    <string name="buttons_round_top_left">Na górze po lewej</string>
+    <string name="buttons_round_top_left_lower">Na górze po lewej, niżej</string>
+    <string name="buttons_round_top_left_upper">Na górze po lewej, wyżej</string>
+    <string name="buttons_round_top_right">Na górze po prawej</string>
+    <string name="buttons_round_top_right_lower">Na górze po prawej, niżej</string>
+    <string name="buttons_round_top_right_upper">Na górze po prawej, wyżej</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%1$d z %2$d znaków</string>
+    <string name="character_counter_overflowed_content_description">Przekroczono limit znaków (%1$d z %2$d)</string>
+    <string name="clear_text_end_icon_content_description">Wyczyść tekst</string>
+    <string name="column_heading_template">Nagłówek kolumny</string>
+    <string name="column_index_template">Kolumna %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Włącz</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Aplikacja %1$s nie będzie działać, jeśli nie włączysz Usług Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Włącz Usługi Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Zainstaluj</string>
+    <string name="common_google_play_services_install_text">%1$s nie będzie działać, jeśli nie zainstalujesz na urządzeniu Usług Google Play.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Pobierz Usługi Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Dostępność Usług Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Błąd Usług Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ma problem z dostępem do Usług Google Play. Spróbuj jeszcze raz.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s nie będzie działać bez Usług Google Play, które nie są obecnie obsługiwane przez urządzenie.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Aktualizuj</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Aplikacja %1$s nie będzie działać, jeśli nie zaktualizujesz Usług Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Zaktualizuj Usługi Google Play</string>
+    <string name="common_google_play_services_updating_text">Aplikacja %1$s nie będzie działać bez Usług Google Play, które są obecnie aktualizowane.</string>
+    <string name="common_google_play_services_wear_update_text">Wymagana jest nowa wersja Usług Google Play. Wkrótce nastąpi automatyczna aktualizacja.</string>
+    <string name="common_open_on_phone">Otwórz na telefonie</string>
+    <string name="common_signin_button_text">Zaloguj się</string>
+    <string name="common_signin_button_text_long">Zaloguj się przez Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Błąd"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Otwarto na telefonie"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Udało się"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopiuj"</string>
+    <string name="detected_icon_description">%1$s, wykryta ikona</string>
+    <string name="dismiss_overlay_button_label">Zakończ</string>
+    <string name="error_icon_content_description">Błąd</string>
+    <string name="exit_scrim">Zamknij</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Zaawansowane"</string>
+    <string name="exposed_dropdown_menu_content_description">Pokaż menu</string>
+    <string name="function_off">Komunikaty głosowe są wyłączone</string>
+    <string name="function_on">Komunikaty głosowe są włączone</string>
+    <string name="generic_cancel">Anuluj</string>
+    <string name="generic_yes">Tak</string>
+    <string name="granularity_character">Znaki</string>
+    <string name="granularity_default">Domyślny</string>
+    <string name="granularity_line">Wiersze</string>
+    <string name="granularity_native_control">Elementy sterujące</string>
+    <string name="granularity_native_heading">Nagłówki</string>
+    <string name="granularity_native_link">Linki</string>
+    <string name="granularity_paragraph">Akapity</string>
+    <string name="granularity_pseudo_web_special_content">Zawartość specjalna</string>
+    <string name="granularity_web_control">Elementy sterujące</string>
+    <string name="granularity_web_heading">Nagłówki</string>
+    <string name="granularity_web_landmark">Punkty orientacyjne</string>
+    <string name="granularity_web_link">Linki</string>
+    <string name="granularity_web_list">Listy</string>
+    <string name="granularity_window">Okna</string>
+    <string name="granularity_word">Słowa</string>
+    <string name="heading_template">Nagłówek</string>
+    <string name="hide_keyboard_window">klawiatura ukryta</string>
+    <string name="hint_suggestion">Dostępne są sugestie pisowni.</string>
+    <string name="icon_content_description">Ikona okna</string>
+    <string name="in_collection_role_description">%1$s</string>
+    <string name="in_collection_role_description_with_name">%1$s %2$s</string>
+    <string name="in_grid">W siatce</string>
+    <string name="in_grid_pager">W miejscu podziału siatki na strony</string>
+    <string name="in_grid_pager_with_name">W miejscu podziału siatki na strony %1$s</string>
+    <string name="in_grid_with_name">W siatce %1$s</string>
+    <string name="in_horizontal_pager">W miejscu podziału na strony w poziomie</string>
+    <string name="in_horizontal_pager_with_name">W miejscu podziału na strony w poziomie %1$s</string>
+    <string name="in_list">Na liście</string>
+    <string name="in_list_with_name">Na liście %1$s</string>
+    <string name="in_pager">W miejscu podziału na strony</string>
+    <string name="in_pager_with_name">W miejscu podziału na strony %1$s</string>
+    <string name="in_vertical_pager">W miejscu podziału na strony w pionie</string>
+    <string name="in_vertical_pager_with_name">W miejscu podziału na strony w pionie %1$s</string>
+    <string name="in_window_with_name">Okno %1$s</string>
+    <string name="item_view_role_description">Karta</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Aby ustawić nowy skrót, naciśnij kombinację klawiszy z wciśniętym klawiszem %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Naciśnij kombinację klawiszy, by ustawić nowy skrót. Musi ona zawierać co najmniej klawisz ALT lub Ctrl.</string>
+    <string name="keycombo_key_arrow_down">Strzałka w dół</string>
+    <string name="keycombo_key_arrow_left">Strzałka w lewo</string>
+    <string name="keycombo_key_arrow_right">Strzałka w prawo</string>
+    <string name="keycombo_key_arrow_up">Strzałka w górę</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Szukaj</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Nieprzypisano</string>
+    <string name="list_index_template">%1$d/%2$d</string>
+    <string name="material_clock_toggle_content_description">Wybierz: przed południem czy po południu</string>
+    <string name="material_hour_selection">Wybierz godzinę</string>
+    <string name="material_hour_suffix">%1$s</string>
+    <string name="material_minute_selection">Wybierz minuty</string>
+    <string name="material_minute_suffix">%1$s minut</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Aby wprowadzić czas, włącz tryb zegara.</string>
+    <string name="material_timepicker_hour">Godzina</string>
+    <string name="material_timepicker_minute">Minuta</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Określ czas</string>
+    <string name="material_timepicker_text_input_mode_description">Aby wprowadzić czas, włącz tryb wprowadzania tekstu.</string>
+    <string name="mtrl_badge_numberless_content_description">Nowe powiadomienie</string>
+    <string name="mtrl_chip_close_icon_content_description">Usuń: (%1$s)</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Liczba nowych powiadomień przekracza %1$d</string>
+    <string name="mtrl_picker_a11y_next_month">Zmień na następny miesiąc</string>
+    <string name="mtrl_picker_a11y_prev_month">Zmień na poprzedni miesiąc</string>
+    <string name="mtrl_picker_announce_current_selection">Bieżący wybór: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Wybierz datę</string>
+    <string name="mtrl_picker_date_header_unselected">Wybrana data</string>
+    <string name="mtrl_picker_day_of_week_column_header">Kolumna z dniami: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Nieprawidłowy format.</string>
+    <string name="mtrl_picker_invalid_format_example">Przykład: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Użyj formatu: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Nieprawidłowy zakres.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Przejdź do roku %1$s</string>
+    <string name="mtrl_picker_out_of_range">Poza zakresem: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Data rozpoczęcia – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – data zakończenia</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_title">Wybierz zakres</string>
+    <string name="mtrl_picker_range_header_unselected">Data rozpoczęcia – data zakończenia</string>
+    <string name="mtrl_picker_save">Zapisz</string>
+    <string name="mtrl_picker_text_input_date_hint">Data</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Data zakończenia</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Data rozpoczęcia</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">r</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Włącz kalendarzowy tryb wprowadzania</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Kliknij, by wybrać dzień</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Włącz tekstowy tryb wprowadzania</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Kliknij, by wybrać rok</string>
+    <string name="navigation_drawer_content_description">Panel nawigacji</string>
+    <string msgid="478774118347071097" name="not_set">"Nie ustawiono"</string>
+    <string name="notification_category_alarm">Alarm</string>
+    <string name="notification_category_call">Połączenie</string>
+    <string name="notification_category_email">E-mail</string>
+    <string name="notification_category_err">Błąd</string>
+    <string name="notification_category_event">Wydarzenie</string>
+    <string name="notification_category_msg">Wiadomość</string>
+    <string name="notification_category_progress">Postęp</string>
+    <string name="notification_category_promo">Promocja</string>
+    <string name="notification_category_service">Usługa</string>
+    <string name="notification_category_social">Społeczności</string>
+    <string name="notification_category_sys">Stan systemu</string>
+    <string name="notification_category_transport">Sterowanie multimediami</string>
+    <string name="notification_type_beginning_of_field">Początek pola</string>
+    <string name="notification_type_end_of_field">Koniec pola</string>
+    <string name="notification_type_selection_cleared">Usunięto zaznaczenie</string>
+    <string name="notification_type_selection_mode_off">Tryb zaznaczania wyłączony</string>
+    <string name="notification_type_selection_mode_on">Tryb zaznaczania włączony</string>
+    <string name="ocr_text_description">%1$s, tekst</string>
+    <string name="orientation_landscape">Orientacja pozioma</string>
+    <string name="orientation_portrait">Orientacja pionowa</string>
+    <string name="out_of_grid">Poza siatką</string>
+    <string name="out_of_grid_pager">Poza miejscem podziału siatki na strony</string>
+    <string name="out_of_grid_pager_with_name">Poza miejscem podziału siatki na strony %1$s</string>
+    <string name="out_of_grid_with_name">Poza siatką %1$s</string>
+    <string name="out_of_horizontal_pager">Poza miejscem podziału na strony w poziomie</string>
+    <string name="out_of_list">Poza listą</string>
+    <string name="out_of_list_with_name">Poza listą %1$s</string>
+    <string name="out_of_pager">Poza miejscem podziału na strony</string>
+    <string name="out_of_pager_with_name">Poza miejscem podziału na strony %1$s</string>
+    <string name="out_of_role_description">Skończył się pakiet danych %1$s</string>
+    <string name="out_of_role_description_with_name">Z: %1$s %2$s</string>
+    <string name="out_of_vertical_pager">Poza miejscem podziału na strony w pionie</string>
+    <string name="out_of_vertical_pager_with_name">Poza miejscem podziału na strony w pionie %1$s</string>
+    <string name="password_toggle_content_description">Pokaż hasło</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Skopiowano „<ns1:g id="SUMMARY">%1$s</ns1:g>” do schowka."</string>
+    <string name="row_heading_template">Nagłówek wiersza</string>
+    <string name="row_index_template">Wiersz %1$d</string>
+    <string name="screen_magnification_off">Powiększenie wyłączone</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Szukaj"</string>
+    <string name="show_keyboard_window">Pokazuję okno %1$s</string>
+    <string name="spokenfeedback_disabled">Komunikaty głosowe są wyłączone</string>
+    <string name="spokenfeedback_on">Komunikaty głosowe są włączone</string>
+    <string name="spokenfeedback_resumed">Komunikaty głosowe są wznowione</string>
+    <string name="spokenfeedback_suspended">Komunikaty głosowe są zawieszone</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">Hasła są odczytywane tylko podczas korzystania ze słuchawek</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Prawie równe</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Znak mniejszości</string>
+    <string name="symbol_angle_bracket_right">Znak większości</string>
+    <string name="symbol_apostrophe">Apostrof</string>
+    <string name="symbol_approximately_equals">Równa się około</string>
+    <string name="symbol_asterisk">Gwiazdka</string>
+    <string name="symbol_at_sign">Małpa</string>
+    <string name="symbol_backslash">Odwrócony ukośnik</string>
+    <string name="symbol_beamed_sixteenth_note">Nuty szesnastkowe połączone</string>
+    <string name="symbol_black_circle">Czarne koło</string>
+    <string name="symbol_black_heart">Czarny znak kier</string>
+    <string name="symbol_black_smallsquare">Mały czarny kwadrat</string>
+    <string name="symbol_black_square">Czarny kwadrat</string>
+    <string name="symbol_black_star">Czarna gwiazda</string>
+    <string name="symbol_black_suit_of_diamonds">Czarne karo</string>
+    <string name="symbol_black_triangle_pointing_down">Czarny trójkąt skierowany w dół</string>
+    <string name="symbol_black_triangle_pointing_up">Czarny trójkąt skierowany w górę</string>
+    <string name="symbol_broken_bar">Przerwana kreska pionowa</string>
+    <string name="symbol_bullet">Punktor</string>
+    <string name="symbol_bullseye">Strzał w dziesiątkę</string>
+    <string name="symbol_caret">Daszek</string>
+    <string name="symbol_celsius_degree">Stopnie Celsjusza</string>
+    <string name="symbol_cent">Znak centa</string>
+    <string name="symbol_circle_left_half_black">Koło z lewą połową czarną</string>
+    <string name="symbol_circle_right_half_black">Koło z prawą połową czarną</string>
+    <string name="symbol_colon">Dwukropek</string>
+    <string name="symbol_comma">Przecinek</string>
+    <string name="symbol_copyright">Znak praw autorskich</string>
+    <string name="symbol_curly_bracket_left">Lewy nawias klamrowy</string>
+    <string name="symbol_curly_bracket_right">Prawy nawias klamrowy</string>
+    <string name="symbol_currency_sign">Znak waluty</string>
+    <string name="symbol_degree">Znak stopni</string>
+    <string name="symbol_division">Znak dzielenia</string>
+    <string name="symbol_dollar_sign">Znak dolara</string>
+    <string name="symbol_downwards_arrow">Strzałka w dół</string>
+    <string name="symbol_eighth_note">Nuta ósemkowa</string>
+    <string name="symbol_ellipsis">Wielokropek</string>
+    <string name="symbol_em_dash">Pauza</string>
+    <string name="symbol_en_dash">Półpauza</string>
+    <string name="symbol_equal">Znak równości</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Wykrzyknik</string>
+    <string name="symbol_fahrenheit_degree">Stopnie Fahrenheita</string>
+    <string name="symbol_female">Symbol kobiety</string>
+    <string name="symbol_full_width_ampersand">Ampersand o pełnej szerokości</string>
+    <string name="symbol_full_width_asterisk">Gwiazdka o pełnej szerokości</string>
+    <string name="symbol_full_width_circumflex">Daszek o pełnej szerokości</string>
+    <string name="symbol_full_width_colon">Dwukropek o pełnej szerokości</string>
+    <string name="symbol_full_width_comma">Przecinek o pełnej szerokości</string>
+    <string name="symbol_full_width_exclamation_mark">Wykrzyknik o pełnej szerokości</string>
+    <string name="symbol_full_width_greater_than_sign">Znak większości o pełnej szerokości</string>
+    <string name="symbol_full_width_ideographic_full_stop">Kropka ideograficzna</string>
+    <string name="symbol_full_width_left_curly_bracket">Nawias klamrowy o pełnej szerokości otwierający</string>
+    <string name="symbol_full_width_left_parenthesis">Nawias otwierający o pełnej szerokości</string>
+    <string name="symbol_full_width_less_than_sign">Znak mniejszości o pełnej szerokości</string>
+    <string name="symbol_full_width_question_mark">Znak zapytania o pełnej szerokości</string>
+    <string name="symbol_full_width_right_curly_bracket">Nawias klamrowy o pełnej szerokości zamykający</string>
+    <string name="symbol_full_width_right_parenthesis">Nawias zamykający o pełnej szerokości</string>
+    <string name="symbol_full_width_semicolon">Średnik o pełnej szerokości</string>
+    <string name="symbol_full_width_tilde">Tylda o pełnej szerokości</string>
+    <string name="symbol_full_width_underscore">Podkreślenie o pełnej szerokości</string>
+    <string name="symbol_grave_accent">Akcent słaby</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Kropka środkowa katakana na półfirecie</string>
+    <string name="symbol_hyphen_minus">Kreska</string>
+    <string name="symbol_ideographic_comma">Przecinek ideograficzny</string>
+    <string name="symbol_integral">Całka</string>
+    <string name="symbol_inverted_exclamation_mark">Odwrócony wykrzyknik</string>
+    <string name="symbol_inverted_question_mark">Odwrócony pytajnik</string>
+    <string name="symbol_left_angle_bracket">Podwójny nawias ostrokątny otwierający</string>
+    <string name="symbol_left_black_lenticular_bracket">Nawias soczewkowy otwierający czarny</string>
+    <string name="symbol_left_corner_bracket">Lewy narożnik</string>
+    <string name="symbol_left_double_quotation_mark">Podwójny cudzysłów otwierający</string>
+    <string name="symbol_left_single_quotation_mark">Pojedynczy cudzysłów otwierający</string>
+    <string name="symbol_leftwards_arrow">Strzałka w lewo</string>
+    <string name="symbol_liter">Litr</string>
+    <string name="symbol_low_double_quote">Cudzysłów podwójny dolny</string>
+    <string name="symbol_male">Symbol mężczyzny</string>
+    <string name="symbol_mathematical_left_angle_bracket">Matematyczny lewy nawias trójkątny</string>
+    <string name="symbol_mathematical_right_angle_bracket">Matematyczny prawy nawias trójkątny</string>
+    <string name="symbol_micro_sign">Znak mikro</string>
+    <string name="symbol_middle_dot">Kropka środkowa</string>
+    <string name="symbol_multiplication">Znak mnożenia</string>
+    <string name="symbol_new_line">Nowy wiersz</string>
+    <string name="symbol_not_equals">Nierówne</string>
+    <string name="symbol_not_sign">Znak zaprzeczenia</string>
+    <string name="symbol_paragraph_mark">Znak akapitu</string>
+    <string name="symbol_parenthesis_left">Lewy nawias</string>
+    <string name="symbol_parenthesis_right">Prawy nawias</string>
+    <string name="symbol_percent">Procent</string>
+    <string name="symbol_period">Kropka</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Znak plus-minus</string>
+    <string name="symbol_postal_mark">Znaczek pocztowy</string>
+    <string name="symbol_pound">Krzyżyk</string>
+    <string name="symbol_pound_sterling">Znak waluty funt</string>
+    <string name="symbol_quarter_note">Ćwierćnuta</string>
+    <string name="symbol_question_mark">Pytajnik</string>
+    <string name="symbol_quotation_mark">Cudzysłów</string>
+    <string name="symbol_reference">Znak przypisu</string>
+    <string name="symbol_registered_trademark">Zastrzeżony znak towarowy</string>
+    <string name="symbol_right_angle_bracket">Podwójny nawias ostrokątny zamykający</string>
+    <string name="symbol_right_black_lenticular_bracket">Nawias soczewkowy zamykający czarny</string>
+    <string name="symbol_right_corner_bracket">Narożnik prawy</string>
+    <string name="symbol_right_double_quotation_mark">Podwójny cudzysłów zamykający</string>
+    <string name="symbol_right_single_quotation_mark">Pojedynczy cudzysłów zamykający</string>
+    <string name="symbol_rightwards_arrow">Strzałka w prawo</string>
+    <string name="symbol_rupee">Rupia</string>
+    <string name="symbol_section_sign">Znak paragrafu</string>
+    <string name="symbol_semicolon">Średnik</string>
+    <string name="symbol_slash">Ukośnik</string>
+    <string name="symbol_solar">Symbol słońca</string>
+    <string name="symbol_space">Spacja</string>
+    <string name="symbol_square_bracket_left">Lewy nawias kwadratowy</string>
+    <string name="symbol_square_bracket_right">Prawy nawias kwadratowy</string>
+    <string name="symbol_square_root">Pierwiastek kwadratowy</string>
+    <string name="symbol_tilde">Tylda</string>
+    <string name="symbol_trademark">Znak towarowy</string>
+    <string name="symbol_underscore">Podkreślenie</string>
+    <string name="symbol_upwards_arrow">Strzałka w górę</string>
+    <string name="symbol_vertical_bar">Linia pionowa</string>
+    <string name="symbol_white_circle">Białe koło</string>
+    <string name="symbol_white_club_suit">Biały znak trefl</string>
+    <string name="symbol_white_diamond">Biały znak karo</string>
+    <string name="symbol_white_down_pointing_triangle">Biały trójkąt w dół</string>
+    <string name="symbol_white_heart">Biały znak kier</string>
+    <string name="symbol_white_left_pointing_index">Biała dłoń w lewo</string>
+    <string name="symbol_white_left_pointing_triangle">Biały trójkąt w lewo</string>
+    <string name="symbol_white_right_pointing_index">Biała dłoń w prawo</string>
+    <string name="symbol_white_right_pointing_triangle">Biały trójkąt w prawo</string>
+    <string name="symbol_white_spade_suit">Biały znak pik</string>
+    <string name="symbol_white_square">Biały kwadrat</string>
+    <string name="symbol_white_star">Biała gwiazda</string>
+    <string name="symbol_white_up_pointing_triangle">Biały trójkąt w górę</string>
+    <string name="symbol_won">Znak waluty won</string>
+    <string name="symbol_won_sign">Symbol południowokoreańskiego wona</string>
+    <string name="symbol_yen">Jen</string>
+    <string name="talkback_disabled">Usługa TalkBack jest wyłączona</string>
+    <string name="talkback_on">TalkBack włączony</string>
+    <string name="talkback_resumed">Wznowiono działanie TalkBack</string>
+    <string name="talkback_suspended">Funkcja TalkBack jest zawieszona</string>
+    <string name="template_announce_selected_text">Zaznaczony tekst: %1$s</string>
+    <string name="template_capital_letter">wielka litera %1$s</string>
+    <string name="template_collection_level">Poziom %1$d</string>
+    <string name="template_current_tts_engine">Używam %1$s</string>
+    <string name="template_custom_hint_for_actions">%1$s, by %2$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">Naciśnij %1$s, by %2$s.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s i przytrzymaj, by %2$s.</string>
+    <string name="template_drawer_opened">Menu %1$s</string>
+    <string name="template_hint_checkable">%1$s, by przełączyć.</string>
+    <string name="template_hint_checkable_keyboard">Naciśnij %1$s, by przełączyć.</string>
+    <string name="template_hint_clickable">%1$s, by uaktywnić.</string>
+    <string name="template_hint_clickable_keyboard">Naciśnij %1$s, by aktywować.</string>
+    <string name="template_hint_custom_actions">Działania:</string>
+    <string name="template_hint_edit_text">%1$s, aby edytować tekst.</string>
+    <string name="template_hint_edit_text_keyboard">Naciśnij %1$s, by edytować tekst.</string>
+    <string name="template_hint_long_clickable">%1$s i przytrzymaj, by wykonać długie naciśnięcie.</string>
+    <string name="template_hint_long_clickable_keyboard">Naciśnij %1$s, by wykonać długie naciśnięcie.</string>
+    <string name="template_hint_menu_type_high_verbosity">Dostępne jest działanie %1$s; użyj gestu %2$s, aby wyświetlić.</string>
+    <string name="template_hint_pager">Przesuń dwoma palcami, by zmienić stronę.</string>
+    <string name="template_hint_pager_single_page">Nie ma więcej stron.</string>
+    <string name="template_hint_seek_control">Dostosuj, używając przycisków głośności</string>
+    <string name="template_hint_seek_control_tv">%1$s, by zmienić.</string>
+    <string name="template_hint_spinner">%1$s, by zmienić.</string>
+    <string name="template_hint_spinner_keyboard">Naciśnij %1$s, by zmienić.</string>
+    <string name="template_labeled_item">%1$s dla: %2$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s – obraz w obrazie</string>
+    <string name="template_password_selected">Znaki od %1$d do %2$d</string>
+    <string name="template_password_traversed">Znak %1$d</string>
+    <string name="template_percent">%1$s procent.</string>
+    <string name="template_replaced_characters">Znaki w liczbie %1$s zastąpiono %2$s znakami</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">%1$s, by zobaczyć dostępne czynności.</string>
+    <string name="template_sa_custom_hint_scrollable">%1$s, by przewinąć.</string>
+    <string name="template_sa_hint_seek_control">Naciśnij przełącznik wyboru, by dostosować ustawienia</string>
+    <string name="template_screen_magnification_on">Włączono powiększenie %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">Powiększenie %1$d%%</string>
+    <string name="template_scroll_from_count">Wyświetlam element %1$d z %2$d.</string>
+    <string name="template_scroll_from_to_count">Wyświetlam elementy od %1$d do %2$d z %3$d.</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">Szybkość mowy %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s po lewej, %2$s po prawej</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s po prawej, %2$s po lewej</string>
+    <string name="template_split_screen_mode_portrait">%1$s na górze, %2$s na dole</string>
+    <string name="template_text_copied">tekst skopiowany, %1$s</string>
+    <string name="template_text_cut">tekst wycięty, %1$s</string>
+    <string name="template_text_error">Nieprawidłowe dane wejściowe %1$s</string>
+    <string name="template_text_pasted">tekst wklejony, %1$s</string>
+    <string name="template_text_removed">Usunięto %1$s</string>
+    <string name="template_text_replaced">%1$s zastępuje %2$s</string>
+    <string name="template_text_selected">tekst zaznaczony, %1$s</string>
+    <string name="template_text_unselected">zaznaczenie tekstu usunięte, %1$s</string>
+    <string name="template_viewpager_index_count">Strona %1$d z %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d z %2$d</string>
+    <string name="template_volume_change_decrease">Zmniejsz</string>
+    <string name="template_volume_change_increase">Zwiększ</string>
+    <string name="template_volume_change_maximum">Wartość maksymalna</string>
+    <string name="template_volume_change_minimum">Wartość minimalna</string>
+    <string name="time_difference_now">Teraz</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="title_action_collapse">Zwiń</string>
+    <string name="title_action_dismiss">Zamknij</string>
+    <string name="title_action_expand">Rozwiń</string>
+    <string name="untitled_window">bez tytułu</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"WYŁ."</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"WŁ."</string>
+    <string name="value_button">Przycisk</string>
+    <string name="value_caps_lock_off">Caps Lock wyłączony.</string>
+    <string name="value_caps_lock_on">Caps Lock włączony.</string>
+    <string name="value_checkbox">Pole wyboru</string>
+    <string name="value_checked">zaznaczono</string>
+    <string name="value_collapsed">widok zwinięty</string>
+    <string name="value_disabled">wyłączono</string>
+    <string name="value_double_tap">Kliknij dwukrotnie</string>
+    <string name="value_edit_box">Pole edycji</string>
+    <string name="value_edit_box_editing">Edytowanie</string>
+    <string name="value_expanded">widok rozwinięty</string>
+    <string name="value_gridview">Siatka</string>
+    <string name="value_image">Zdjęcie</string>
+    <string name="value_listview">Lista</string>
+    <string name="value_not_checked">nie zaznaczono</string>
+    <string name="value_num_lock_off">Num Lock wyłączony.</string>
+    <string name="value_num_lock_on">Num Lock włączony.</string>
+    <string name="value_off">wył.</string>
+    <string name="value_on">wł.</string>
+    <string name="value_options_menu_open">Opcje.</string>
+    <string name="value_pager">Widok z wieloma stronami</string>
+    <string name="value_pager_page">Strona</string>
+    <string name="value_password">hasło</string>
+    <string name="value_press_select">Naciśnij przycisk wyboru</string>
+    <string name="value_progress_bar">Pasek postępu</string>
+    <string name="value_radio_button">Przycisk opcji</string>
+    <string name="value_scroll_lock_off">Scroll Lock wyłączony.</string>
+    <string name="value_scroll_lock_on">Scroll Lock włączony.</string>
+    <string name="value_seek_bar">Suwak</string>
+    <string name="value_selected">wybrano</string>
+    <string name="value_single_tap">Kliknij</string>
+    <string name="value_sliding_drawer_opened">Wysuwany panel otwarty</string>
+    <string name="value_spinner">Lista</string>
+    <string name="value_switch">Przełącz</string>
+    <string name="value_switch_press">Naciśnij przełącznik wyboru</string>
+    <string name="value_tabwidget">Pasek kart</string>
+    <string name="value_text_cleared">Tekst został usunięty</string>
+    <string name="value_text_max_length">Osiągnięto maksymalną długość</string>
+    <string name="value_unlabelled">Bez etykiety</string>
+    <string name="value_webview">Komponent WebView</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Panel działań"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Panel nawigacji"</string>
+</resources>

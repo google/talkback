@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d жаңы билдирме</item>
+    <item quantity="other">%d жаңы билдирме</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s %2$d нерсе бар.</item>
+    <item quantity="other">%1$s %2$d нерсе бар.</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d тилке</item>
+    <item quantity="other">%1$d тилке</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d сап</item>
+    <item quantity="other">%1$d сап</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d нерсе</item>
+    <item quantity="other">%1$d нерсе</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d белги</item>
+    <item quantity="other">%1$d белги</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Башкы бетке чабыттоо"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Мурунку экранга өтүү"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Дагы параметрлер"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Бүттү"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Баарын көрүү"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Колдонмо тандоо"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ӨЧҮК"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"КҮЙҮК"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"боштук"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Издөө…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Сурамды өчүрүү"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Изделген сурам"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Издөө"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Сурам тапшыруу"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Айтып издөө"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Төмөнкү менен бөлүшүү"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> аркылуу бөлүшүү"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Жыйыштыруу"</string>
+    <string name="bottomsheet_action_expand_halfway">Жарымын жайып көрсөтүү</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%2$d ичинен %1$d символ киргизилди</string>
+    <string name="character_counter_overflowed_content_description">Символдордун саны коюлган %2$d чегинен %1$d символго ашып кетти</string>
+    <string name="clear_text_end_icon_content_description">Текстти тазалоо</string>
+    <string name="column_heading_template">Тилкенин аталышы</string>
+    <string name="column_index_template">Мамыча %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Иштетүү</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play кызматтарын иштетмейиңизче %1$s иштебейт.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play кызматтарын иштетүү</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Орнотуу</string>
+    <string name="common_google_play_services_install_text">Google Play кызматтарысыз %1$s иштебейт. Алар түзмөгүңүздө жок болуп жатат.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play кызматтарын алуу</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play кызматтарынын иштеши</string>
+    <string name="common_google_play_services_notification_ticker">Google Play кызматтарынын катасы</string>
+    <string name="common_google_play_services_unknown_issue">%1$s колдонмосунун Google Play кызматтары менен иштөөдө көйгөй чыкты. Кайталап көрүңүз.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s колдонмосу сиздин түзмөгүңүздө колдоого алынбаган Google Play кызматтары болбосо иштебейт.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Жаңыртуу</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play кызматтары жаңыртылмайынча %1$s иштебейт.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play кызматтарын жаңыртуу</string>
+    <string name="common_google_play_services_updating_text">Google Play кызматтарысыз %1$s иштебейт, алар учурда жаңыртылууда.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play кызматтарынын жаңы версиясы талап кылынат. Бир аздан кийин ал өзү эле жаңырат.</string>
+    <string name="common_open_on_phone">Телефондо ачык</string>
+    <string name="common_signin_button_text">Кирүү</string>
+    <string name="common_signin_button_text_long">Google менен кирүү</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Ката"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Саатыңызда ачылды"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Ийгилик"</string>
+    <string msgid="3209159573327985035" name="copy">"Көчүрүү"</string>
+    <string name="detected_icon_description">%1$s, аныкталган сүрөтчө</string>
+    <string name="error_icon_content_description">Ката</string>
+    <string name="exit_scrim">Чыгуу</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Өркүндөтүлгөн"</string>
+    <string name="exposed_dropdown_menu_content_description">Түрүлмө менюну көрсөтүү</string>
+    <string name="function_off">Экрандагы текстти окуп берүү функциясы өчүк</string>
+    <string name="function_on">Экрандагы текстти окуп берүү функциясы күйүк</string>
+    <string name="granularity_character">Символдор</string>
+    <string name="granularity_default">Демейки</string>
+    <string name="granularity_line">Саптар</string>
+    <string name="granularity_native_control">Башкаруу элементтери</string>
+    <string name="granularity_native_heading">Аталыштар</string>
+    <string name="granularity_native_link">Шилтемелер</string>
+    <string name="granularity_paragraph">Абзацтар</string>
+    <string name="granularity_pseudo_web_special_content">Өзгөчө мазмун</string>
+    <string name="granularity_web_control">Башкаруу элементтери</string>
+    <string name="granularity_web_heading">Аталыштар</string>
+    <string name="granularity_web_landmark">Белгиленген жерлер</string>
+    <string name="granularity_web_link">Шилтемелер</string>
+    <string name="granularity_web_list">Тизмелер</string>
+    <string name="granularity_window">Терезелер</string>
+    <string name="granularity_word">Сөздөр</string>
+    <string name="heading_template">Баш аты</string>
+    <string name="hide_keyboard_window">баскычтоп жашырылган</string>
+    <string name="hint_suggestion">Орфографияны оңдоо жеткиликтүү.</string>
+    <string name="icon_content_description">Диалог сүрөтчөсү</string>
+    <string name="in_collection_role_description">Төмөнкүдө: %1$s</string>
+    <string name="in_collection_role_description_with_name">Төмөнкүдө: %1$s %2$s</string>
+    <string name="in_grid">Торчодо</string>
+    <string name="in_grid_pager">Тор формасындагы баракчада</string>
+    <string name="in_grid_pager_with_name">%1$s тор формасындагы баракчасында</string>
+    <string name="in_grid_with_name">%1$s торчосундасыз</string>
+    <string name="in_horizontal_pager">Горизонталдуу баракчада</string>
+    <string name="in_horizontal_pager_with_name">Горизонталдуу баракчада %1$s</string>
+    <string name="in_list">Тизмеде</string>
+    <string name="in_list_with_name">%1$s тизмесиндесиз</string>
+    <string name="in_pager">Баракчасында</string>
+    <string name="in_pager_with_name">%1$s баракчасында</string>
+    <string name="in_vertical_pager">Вертикалдуу баракчада</string>
+    <string name="in_vertical_pager_with_name">%1$s вертикалдуу баракчасында</string>
+    <string name="in_window_with_name">%1$s терезеси</string>
+    <string name="item_view_role_description">Өтмөк</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Жаңы тез кирүү баскычын киргизүү үчүн аны %1$s өзгөрткүч баскычы менен чогуу басыңыз.</string>
+    <string name="keycombo_assign_dialog_instruction">Жаңы кыска жол орнотуу үчүн баскычтар айкалышын басыңыз. Ал жок дегенде ALT же Control баскычын камтышы керек.</string>
+    <string name="keycombo_key_arrow_down">Төмөн жебе</string>
+    <string name="keycombo_key_arrow_left">Солго жебе</string>
+    <string name="keycombo_key_arrow_right">Оңго жебе</string>
+    <string name="keycombo_key_arrow_up">Өйдө жебе</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Издөө</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Дайындалган эмес</string>
+    <string name="list_index_template">%2$d ичинен %1$d</string>
+    <string name="material_clock_toggle_content_description">Тандоо: AM же PM</string>
+    <string name="material_hour_selection">Саат тандоо</string>
+    <string name="material_hour_suffix">Саат %1$s</string>
+    <string name="material_minute_selection">Мүнөттөрдү тандаңыз</string>
+    <string name="material_minute_suffix">%1$s мүнөт</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Убакытты дубал саатынын режиминде киргизиңиз.</string>
+    <string name="material_timepicker_hour">Саат</string>
+    <string name="material_timepicker_minute">Мүнөт</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Убакыт тандоо</string>
+    <string name="material_timepicker_text_input_mode_description">Убакытты текст киргизүү режиминде киргизиңиз.</string>
+    <string name="mtrl_badge_numberless_content_description">Жаңы билдирме</string>
+    <string name="mtrl_chip_close_icon_content_description">Мазмунду алып салуу (%1$s)</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d ашуун жаңы билдирме</string>
+    <string name="mtrl_picker_a11y_next_month">Кийинки айга өзгөртүү</string>
+    <string name="mtrl_picker_a11y_prev_month">Мурунку айга өзгөртүү</string>
+    <string name="mtrl_picker_announce_current_selection">Учурдагы тандоо: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Күн тандоо</string>
+    <string name="mtrl_picker_date_header_unselected">Тандалган күн</string>
+    <string name="mtrl_picker_day_of_week_column_header">Күндөр тилкеси: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Жараксыз формат.</string>
+    <string name="mtrl_picker_invalid_format_example">Мисалы: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">%1$s формтын колднуңуз</string>
+    <string name="mtrl_picker_invalid_range">Жараксыз диапазон.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s-жылга өтүү</string>
+    <string name="mtrl_picker_out_of_range">Диапазондон тышкары: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Баштоо күнү – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Аяктоо күнү</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Даталар диапазонун тандоо</string>
+    <string name="mtrl_picker_range_header_unselected">Баштоо күнү – Аяктоо күнү</string>
+    <string name="mtrl_picker_save">Сактоо</string>
+    <string name="mtrl_picker_text_input_date_hint">Күн</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Аяктоо күнү</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Баштоо күнү</string>
+    <string name="mtrl_picker_text_input_day_abbr">к</string>
+    <string name="mtrl_picker_text_input_month_abbr">а</string>
+    <string name="mtrl_picker_text_input_year_abbr">ж</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Жылнаамага иш-чара киргизүү режимине которулуу</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Күн тандоо үчүн таптап коюңуз</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Текст киргизүү режимине которулуу</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Жыл тандоо үчүн таптап коюңуз</string>
+    <string msgid="478774118347071097" name="not_set">"Коюлган эмес"</string>
+    <string name="notification_category_alarm">Ойготкуч</string>
+    <string name="notification_category_call">Чалуу</string>
+    <string name="notification_category_email">Электрондук почта</string>
+    <string name="notification_category_err">Ката</string>
+    <string name="notification_category_event">Иш-чара</string>
+    <string name="notification_category_msg">Билдирүү</string>
+    <string name="notification_category_progress">Илгерилөө</string>
+    <string name="notification_category_promo">Жарнама</string>
+    <string name="notification_category_service">Кызмат</string>
+    <string name="notification_category_social">Коомдук желелер</string>
+    <string name="notification_category_sys">Системанын абалы</string>
+    <string name="notification_category_transport">Медиа файлды көзөмөлдөө</string>
+    <string name="notification_type_beginning_of_field">Талаанын башы</string>
+    <string name="notification_type_end_of_field">Талаанын аягы</string>
+    <string name="notification_type_selection_cleared">Тандалган текст тазаланды</string>
+    <string name="notification_type_selection_mode_off">Тандоо режими өчүк</string>
+    <string name="notification_type_selection_mode_on">Тандоо режими күйүк</string>
+    <string name="ocr_text_description">%1$s, текст</string>
+    <string name="orientation_landscape">Туурасынан</string>
+    <string name="orientation_portrait">Тигинен</string>
+    <string name="out_of_grid">Торчодо жок</string>
+    <string name="out_of_grid_pager">Тор формасындагы баракчада эмес</string>
+    <string name="out_of_grid_pager_with_name">%1$s тор формасындагы баракчада эмес</string>
+    <string name="out_of_grid_with_name">%1$s торчосунун сыртындасыз</string>
+    <string name="out_of_horizontal_pager">Горизонталду баракчада эмес</string>
+    <string name="out_of_list">Тизмеде жок</string>
+    <string name="out_of_list_with_name">%1$s тизмесинин сыртындасыз</string>
+    <string name="out_of_pager">Баракчада эмес</string>
+    <string name="out_of_pager_with_name">%1$s баракчасында эмес</string>
+    <string name="out_of_role_description">%1$s бүтүп калды</string>
+    <string name="out_of_role_description_with_name">%2$s ичинен %1$s</string>
+    <string name="out_of_vertical_pager">Вертикалдуу баракчада эмес</string>
+    <string name="out_of_vertical_pager_with_name">%1$s вертикалдуу баракчасында эмес</string>
+    <string name="password_toggle_content_description">Сырсөздү көрсөтүү</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" алмашуу буферине көчүрүлдү."</string>
+    <string name="row_heading_template">Катардын аталышы</string>
+    <string name="row_index_template">Катар %1$d</string>
+    <string name="screen_magnification_off">Чоңойтуу өчүрүлгөн</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Издөө"</string>
+    <string name="show_keyboard_window">%1$s көрсөтүлүүдө</string>
+    <string name="spokenfeedback_disabled">Экрандагы текстти окуп берүү функциясы өчүрүлгөн</string>
+    <string name="spokenfeedback_on">Экрандагы текстти окуп берүү функциясы күйгүзүлгөн</string>
+    <string name="spokenfeedback_resumed">Экрандагы текстти окуп берүү функциясы кайра иштетилди</string>
+    <string name="spokenfeedback_suspended">Экрандагы текстти окуп берүү функциясы убактылуу токтотулган</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">Сырсөздөр гарнитура колдонулуп жатканда гана айтылат</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Дээрлик барабар</string>
+    <string name="symbol_ampersand">Амперсанд</string>
+    <string name="symbol_angle_bracket_left">\"Кичинерээк\" белгиси</string>
+    <string name="symbol_angle_bracket_right">Салыштырмалуу чоң белгиси</string>
+    <string name="symbol_apostrophe">Апостроф</string>
+    <string name="symbol_approximately_equals">Болжол менен барабар</string>
+    <string name="symbol_asterisk">Жылдызча</string>
+    <string name="symbol_at_sign">Маймылча</string>
+    <string name="symbol_backslash">Тескери жантык сызык</string>
+    <string name="symbol_beamed_sixteenth_note">Өткөрүлгөн он алтынчы эскертүү</string>
+    <string name="symbol_black_circle">Кара тегерек</string>
+    <string name="symbol_black_heart">Кара ача</string>
+    <string name="symbol_black_smallsquare">Кичинекей кара чарчы</string>
+    <string name="symbol_black_square">Кара чарчы</string>
+    <string name="symbol_black_star">Кара жылдыз</string>
+    <string name="symbol_black_suit_of_diamonds">Алмаздан турган кара костюм</string>
+    <string name="symbol_black_triangle_pointing_down">Кара үч бурчтук ылдый көрсөтүүдө</string>
+    <string name="symbol_black_triangle_pointing_up">Кара үч бурчтук өйдө көрсөтүүдө</string>
+    <string name="symbol_broken_bar">Үзүк сызык</string>
+    <string name="symbol_bullet">Маркер</string>
+    <string name="symbol_bullseye">Музоо көз</string>
+    <string name="symbol_caret">Каре</string>
+    <string name="symbol_celsius_degree">Цельсий даражасы</string>
+    <string name="symbol_cent">Цент белгиси</string>
+    <string name="symbol_circle_left_half_black">Сол жарымы кара тегерек</string>
+    <string name="symbol_circle_right_half_black">Оң жарымы кара тегерек</string>
+    <string name="symbol_colon">Кош чекит</string>
+    <string name="symbol_comma">Үтүр</string>
+    <string name="symbol_copyright">Автордук укук</string>
+    <string name="symbol_curly_bracket_left">Сол ийри кашаа</string>
+    <string name="symbol_curly_bracket_right">Оң ийри кашаа</string>
+    <string name="symbol_currency_sign">Валюта белгиси</string>
+    <string name="symbol_degree">Градустун белгиси</string>
+    <string name="symbol_division">Бөлүү белгиси</string>
+    <string name="symbol_dollar_sign">Доллар белгиси</string>
+    <string name="symbol_downwards_arrow">Төмөн багытка жебе</string>
+    <string name="symbol_eighth_note">Сегизинчи эскертүү</string>
+    <string name="symbol_ellipsis">Көп чекит</string>
+    <string name="symbol_em_dash">Узун тире</string>
+    <string name="symbol_en_dash">Кыска тире</string>
+    <string name="symbol_equal">Барабар белгиси</string>
+    <string name="symbol_euro">Евро</string>
+    <string name="symbol_exclamation_mark">Илеп белгиси</string>
+    <string name="symbol_fahrenheit_degree">Фаренгейт даражасы</string>
+    <string name="symbol_female">Аял символу</string>
+    <string name="symbol_full_width_ampersand">Толук жазылыктагы амперсанд</string>
+    <string name="symbol_full_width_asterisk">Толук жазылыктагы жылдызча</string>
+    <string name="symbol_full_width_circumflex">Толук жазылыктагы циркумфлекс</string>
+    <string name="symbol_full_width_colon">Толук жазылыктагы кош чекит</string>
+    <string name="symbol_full_width_comma">Толук жазылыктагы үтүр</string>
+    <string name="symbol_full_width_exclamation_mark">Толук жазылыктагы илеп белгиси</string>
+    <string name="symbol_full_width_greater_than_sign">Толук жазылыктагы салыштырмалуу чоң белгиси</string>
+    <string name="symbol_full_width_ideographic_full_stop">Идеографикалык чекит</string>
+    <string name="symbol_full_width_left_curly_bracket">Толук жазылыктагы сол ийри узун кашаа</string>
+    <string name="symbol_full_width_left_parenthesis">Толук жазылыктагы сол кашаа</string>
+    <string name="symbol_full_width_less_than_sign">Толук жазылыктагы салыштырмалуу кичине белгиси</string>
+    <string name="symbol_full_width_question_mark">Толук жазылыктагы суроо белгиси</string>
+    <string name="symbol_full_width_right_curly_bracket">Толук жазылыктагы оң ийри узун кашаа</string>
+    <string name="symbol_full_width_right_parenthesis">Толук жазылыктагы оң кашаа</string>
+    <string name="symbol_full_width_semicolon">Толук жазылыктагы үтүрлүү чекит</string>
+    <string name="symbol_full_width_tilde">Толук жазылыктагы тильда</string>
+    <string name="symbol_full_width_underscore">Толук жазылыктагы ылдыйкы сызык</string>
+    <string name="symbol_grave_accent">Гравис</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Жарым жазылыктагы катакана орто чекити</string>
+    <string name="symbol_hyphen_minus">Тире</string>
+    <string name="symbol_ideographic_comma">Идеографикалык үтүр</string>
+    <string name="symbol_integral">Ажырагыс</string>
+    <string name="symbol_inverted_exclamation_mark">Көңтөрүлгөн илеп белгиси</string>
+    <string name="symbol_inverted_question_mark">Көңтөрүлгөн суроо белгиси</string>
+    <string name="symbol_left_angle_bracket">Сол жуп бурч кашаасы</string>
+    <string name="symbol_left_black_lenticular_bracket">Сол жаккы калың кара кашаа</string>
+    <string name="symbol_left_corner_bracket">Сол жаккы тик бурчтуу кашаа</string>
+    <string name="symbol_left_double_quotation_mark">Солду карап турган кош тырмакча</string>
+    <string name="symbol_left_single_quotation_mark">Солду карап турган жалгыз тырмакча</string>
+    <string name="symbol_leftwards_arrow">Солго жебе</string>
+    <string name="symbol_liter">Литр</string>
+    <string name="symbol_low_double_quote">Ылдыйкы кош тырмакча</string>
+    <string name="symbol_male">Эркек символу</string>
+    <string name="symbol_mathematical_left_angle_bracket">Математикалык сол бурчтук кашаа</string>
+    <string name="symbol_mathematical_right_angle_bracket">Математикалык оң бурчтук кашаа</string>
+    <string name="symbol_micro_sign">Микро белги</string>
+    <string name="symbol_middle_dot">Ортоңку чекит</string>
+    <string name="symbol_multiplication">Көбөйтүү белгиси</string>
+    <string name="symbol_new_line">Жаңы сап</string>
+    <string name="symbol_not_equals">Барабар эмес</string>
+    <string name="symbol_not_sign">Белги эмес</string>
+    <string name="symbol_paragraph_mark">Абзац белгиси</string>
+    <string name="symbol_parenthesis_left">Сол кашаа</string>
+    <string name="symbol_parenthesis_right">Оң кашаа</string>
+    <string name="symbol_percent">Пайыз</string>
+    <string name="symbol_period">Чекит</string>
+    <string name="symbol_pi">Пи</string>
+    <string name="symbol_plus_minus_sign">Кошуу кемитүү белгиси</string>
+    <string name="symbol_postal_mark">Почта маркасы</string>
+    <string name="symbol_pound">Фунт</string>
+    <string name="symbol_pound_sterling">Фунт валютасынын белгиси</string>
+    <string name="symbol_quarter_note">Чейрек эскертүү</string>
+    <string name="symbol_question_mark">Суроо белгиси</string>
+    <string name="symbol_quotation_mark">Цитата</string>
+    <string name="symbol_reference">Шилтеме белгиси</string>
+    <string name="symbol_registered_trademark">Катталган соода белгиси</string>
+    <string name="symbol_right_angle_bracket">Оң жуп бурч кашаасы</string>
+    <string name="symbol_right_black_lenticular_bracket">Оң жаккы кара калың кашаа</string>
+    <string name="symbol_right_corner_bracket">Оң жаккы тик бурчтуу кашаа</string>
+    <string name="symbol_right_double_quotation_mark">Оңду карап турган кош тырмакча</string>
+    <string name="symbol_right_single_quotation_mark">Оңду карап турган жалгыз тырмакча</string>
+    <string name="symbol_rightwards_arrow">Оң багытка жебе</string>
+    <string name="symbol_rupee">Рупий</string>
+    <string name="symbol_section_sign">Параграф белгиси</string>
+    <string name="symbol_semicolon">Үтүрлүү чекит</string>
+    <string name="symbol_slash">Жантык сызык</string>
+    <string name="symbol_solar">Күн символу</string>
+    <string name="symbol_space">Боштук</string>
+    <string name="symbol_square_bracket_left">Сол төрт бурчтуу кашаа</string>
+    <string name="symbol_square_bracket_right">Оң төрт бурчтуу кашаа</string>
+    <string name="symbol_square_root">Квадраттык тамыр</string>
+    <string name="symbol_tilde">Тильда</string>
+    <string name="symbol_trademark">Соода белгиси</string>
+    <string name="symbol_underscore">Астын сызуу</string>
+    <string name="symbol_upwards_arrow">Өйдө жебе</string>
+    <string name="symbol_vertical_bar">Тик сызык</string>
+    <string name="symbol_white_circle">Ак тегерек</string>
+    <string name="symbol_white_club_suit">Ак чырым</string>
+    <string name="symbol_white_diamond">Ак момун</string>
+    <string name="symbol_white_down_pointing_triangle">Ак төмөн караган үч бурчтук</string>
+    <string name="symbol_white_heart">Ак ача</string>
+    <string name="symbol_white_left_pointing_index">Ак солго багытталган сөөмөй</string>
+    <string name="symbol_white_left_pointing_triangle">Ак сол жакты караган үч бурчтук</string>
+    <string name="symbol_white_right_pointing_index">Ак оңго багытталган сөөмөй</string>
+    <string name="symbol_white_right_pointing_triangle">Ак оң жакты караган үч бурчтук</string>
+    <string name="symbol_white_spade_suit">Ак карга</string>
+    <string name="symbol_white_square">Ак чарчы</string>
+    <string name="symbol_white_star">Ак жылдыз</string>
+    <string name="symbol_white_up_pointing_triangle">Ак өйдө караган үч бурчтук</string>
+    <string name="symbol_won">Вон валютасынын белгиси</string>
+    <string name="symbol_won_sign">Вон валютасынын белгиси</string>
+    <string name="symbol_yen">Йен</string>
+    <string name="talkback_disabled">TalkBack өчүк</string>
+    <string name="talkback_on">TalkBack күйүк</string>
+    <string name="talkback_resumed">TalkBack кайра иштетилди</string>
+    <string name="talkback_suspended">TalkBack убактылуу токтотулду</string>
+    <string name="template_announce_selected_text">Тандалган текст: %1$s</string>
+    <string name="template_capital_letter">баш тамга %1$s</string>
+    <string name="template_collection_level">%1$d-деңгээл</string>
+    <string name="template_current_tts_engine">%1$s колдонуу</string>
+    <string name="template_custom_hint_for_actions">%2$s үчүн %1$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">%2$s үчүн %1$s баскычтарын басыңыз.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%2$s үчүн %1$s, кармап туруңуз.</string>
+    <string name="template_drawer_opened">%1$s меню</string>
+    <string name="template_hint_checkable">Которуу үчүн %1$s.</string>
+    <string name="template_hint_checkable_keyboard">Которуштуруу үчүн %1$s баскычтарын басыңыз.</string>
+    <string name="template_hint_clickable">Жандыруу үчүн %1$s.</string>
+    <string name="template_hint_clickable_keyboard">Жандыруу үчүн %1$s баскычтарын басыңыз.</string>
+    <string name="template_hint_custom_actions">Аракеттер:</string>
+    <string name="template_hint_edit_text">%1$s менен текстти түзөтүңүз.</string>
+    <string name="template_hint_edit_text_keyboard">Текстти түзөтүү үчүн %1$s басыңыз.</string>
+    <string name="template_hint_long_clickable">Көпкө басуу үчүн %1$s, кармап туруңуз.</string>
+    <string name="template_hint_long_clickable_keyboard">Көпкө басып кармап туруу үчүн %1$s баскычтарын басыңыз.</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s жеткиликтүү. Көрүү үчүн %2$s.</string>
+    <string name="template_hint_pager">Барактарды которуштуруу үчүн, эки манжа менен сүрүп коюңуз.</string>
+    <string name="template_hint_pager_single_page">Мындан башка беттер жок.</string>
+    <string name="template_hint_seek_control">Тууралоо үчүн үнүн чоңойтуп/кичирейтүү баскычтарын колдонуңуз</string>
+    <string name="template_hint_seek_control_tv">Өзгөртүү үчүн %1$s.</string>
+    <string name="template_hint_spinner">Өзгөртүү үчүн %1$s.</string>
+    <string name="template_hint_spinner_keyboard">Өзгөртүү үчүн %1$s баскычтарын басыңыз.</string>
+    <string name="template_labeled_item">%2$s үчүн %1$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s сүрөт ичиндеги сүрөт</string>
+    <string name="template_password_selected">%1$d – %2$d белги</string>
+    <string name="template_password_traversed">Белги %1$d</string>
+    <string name="template_percent">%1$s пайыз.</string>
+    <string name="template_replaced_characters">%1$s белгилеринин ордуна %2$s белгилери коюлду</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">Жеткиликтүү аракеттерди көрүү үчүн %1$s.</string>
+    <string name="template_sa_custom_hint_scrollable">Сыдыруу үчүн %1$s.</string>
+    <string name="template_sa_hint_seek_control">Тууралоо үчүн \"Которуштургучту тандоону\" басыңыз</string>
+    <string name="template_screen_magnification_on">Чоңойтуу күйгүзүлгөн. Масштабы: %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">Масштабы: %1$d%%</string>
+    <string name="template_scroll_from_count">%2$d ичинен %1$d нерсе көрсөтүлүүдө.</string>
+    <string name="template_scroll_from_to_count">%3$d ичинен %1$d – %2$d нерсе көрсөтүлүүдө.</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">Кеп ылдамдыгы %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s сол жакта, %2$s оң жакта</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s оң жакта, %2$s сол жакта</string>
+    <string name="template_split_screen_mode_portrait">%1$s үстүндө, %2$s астында</string>
+    <string name="template_text_copied">%1$s көчүрүлдү</string>
+    <string name="template_text_cut">%1$s кесилди</string>
+    <string name="template_text_error">Жараксыз киргизүү %1$s</string>
+    <string name="template_text_pasted">%1$s чапталды</string>
+    <string name="template_text_removed">%1$s өчүрүлдү</string>
+    <string name="template_text_replaced">%2$s ордуна %1$s</string>
+    <string name="template_text_selected">%1$s тандалды</string>
+    <string name="template_text_unselected">%1$s тандоодон чыгарылды</string>
+    <string name="template_viewpager_index_count">%2$d беттин %1$d-бети</string>
+    <string name="template_viewpager_index_count_short">%2$d беттин %1$d-бети</string>
+    <string name="template_volume_change_decrease">Төмөндөтүү</string>
+    <string name="template_volume_change_increase">Жогорулатуу</string>
+    <string name="template_volume_change_maximum">Эң көп</string>
+    <string name="template_volume_change_minimum">Кеминде</string>
+    <string name="title_action_collapse">Жыйыштыруу</string>
+    <string name="title_action_dismiss">Этибарга албоо</string>
+    <string name="title_action_expand">Жайып көрсөтүү</string>
+    <string name="untitled_window">аталышсыз</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ӨЧҮК"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"КҮЙҮК"</string>
+    <string name="value_button">Баскыч</string>
+    <string name="value_caps_lock_off">Caps Lock өчүк.</string>
+    <string name="value_caps_lock_on">Caps Lock күйүк.</string>
+    <string name="value_checkbox">Белгилеме кутуча</string>
+    <string name="value_checked">белгиленген</string>
+    <string name="value_collapsed">жыйыштырылды</string>
+    <string name="value_disabled">өчүрүлгөн</string>
+    <string name="value_double_tap">Эки жолу таптоо</string>
+    <string name="value_edit_box">Түзөтүү кутучасы</string>
+    <string name="value_edit_box_editing">Түзөтүүдө</string>
+    <string name="value_expanded">жайылып көрсөтүлдү</string>
+    <string name="value_gridview">Торчо</string>
+    <string name="value_image">Сүрөт</string>
+    <string name="value_listview">Тизме</string>
+    <string name="value_not_checked">белгилене элек</string>
+    <string name="value_num_lock_off">Num Lock өчүк.</string>
+    <string name="value_num_lock_on">Num Lock күйүк.</string>
+    <string name="value_off">өчүк</string>
+    <string name="value_on">күйүк</string>
+    <string name="value_options_menu_open">Параметрлер.</string>
+    <string name="value_pager">Көп барактуу көрүнүш</string>
+    <string name="value_pager_page">Барак</string>
+    <string name="value_password">сырсөз</string>
+    <string name="value_press_select">\"Тандоо\" баскычын басыңыз</string>
+    <string name="value_progress_bar">Аткаруу көрсөткүчү</string>
+    <string name="value_radio_button">Радио баскычы</string>
+    <string name="value_scroll_lock_off">Scroll Lock өчүк.</string>
+    <string name="value_scroll_lock_on">Scroll Lock күйүк.</string>
+    <string name="value_seek_bar">Сыдырма</string>
+    <string name="value_selected">тандалган</string>
+    <string name="value_single_tap">Таптап коюңуз</string>
+    <string name="value_sliding_drawer_opened">Жылмышма суурма ачылды</string>
+    <string name="value_spinner">Ылдый түшүүчү тизме</string>
+    <string name="value_switch">Которуштуруу</string>
+    <string name="value_switch_press">\"Которуштургучту тандоону\" басыңыз</string>
+    <string name="value_tabwidget">Өтмөк тилкеси</string>
+    <string name="value_text_cleared">Тазаланган текст</string>
+    <string name="value_text_max_length">Максималдык узундукка жетти</string>
+    <string name="value_unlabelled">Белгиленбеген</string>
+    <string name="value_webview">Веб көрүнүшү</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Аракет суурмасы"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Чабыттоо суурмасы"</string>
+</resources>

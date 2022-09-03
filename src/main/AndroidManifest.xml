@@ -12,7 +12,7 @@
   <permission
       android:name="${talkbackMainPermission}"
       android:description="@string/permission_talkback_desc"
-      android:icon="@drawable/icon"
+      android:icon="@drawable/ic_launcher"
       android:label="@string/permission_talkback_label"
       android:protectionLevel="signature" />
 

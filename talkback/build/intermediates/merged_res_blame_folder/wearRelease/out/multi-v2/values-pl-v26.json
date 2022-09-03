@@ -1,0 +1,48 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/wear/release/values-pl-v26/values-pl-v26.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-pl-v26/strings.xml",
+                    "from": {
+                        "startLines": "2,5,4,3",
+                        "startColumns": "2,2,2,2",
+                        "startOffsets": "121,390,303,216",
+                        "endColumns": "94,86,86,86",
+                        "endOffsets": "213,474,387,300"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,152,241,330",
+                        "endColumns": "96,88,88,88",
+                        "endOffsets": "147,236,325,414"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-pl-v26/values-pl-v26.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-pl-v26/strings.xml",
+                    "from": {
+                        "startLines": "2,5,4,3",
+                        "startColumns": "2,2,2,2",
+                        "startOffsets": "121,390,303,216",
+                        "endColumns": "94,86,86,86",
+                        "endOffsets": "213,474,387,300"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,152,241,330",
+                        "endColumns": "96,88,88,88",
+                        "endOffsets": "147,236,325,414"
+                    }
+                }
+            ]
+        }
+    ]
+}

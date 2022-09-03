@@ -1,0 +1,48 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-my-watch-v20/values-my-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-my-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,294",
+                        "endColumns": "240,128",
+                        "endOffsets": "291,420"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,298",
+                        "endColumns": "242,130",
+                        "endOffsets": "293,424"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/wear/release/values-my-watch-v20/values-my-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-my-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,294",
+                        "endColumns": "240,128",
+                        "endOffsets": "291,420"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,298",
+                        "endColumns": "242,130",
+                        "endOffsets": "293,424"
+                    }
+                }
+            ]
+        }
+    ]
+}

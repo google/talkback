@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">тачке %s</item>
+    <item quantity="few">тачке %s</item>
+    <item quantity="other">тачке %s</item>
+  </plurals>
+    <string name="auto_detect">Прилагодите начину на који држите уређај</string>
+    <string name="capitalize_announcement">Велико слово</string>
+    <string name="code_user_facing_name_ar">арапски</string>
+    <string name="code_user_facing_name_es">шпански</string>
+    <string name="code_user_facing_name_fr">француски</string>
+    <string name="code_user_facing_name_pl">пољски</string>
+    <string name="code_user_facing_name_ueb1">Обједињена енглеска брајева азбука без скраћеница</string>
+    <string name="code_user_facing_name_ueb2">Обједињена енглеска брајева азбука са скраћеницама</string>
+    <string name="number_announcement">Број</string>
+    <string name="read_out_deleted">Избрисано: %s</string>
+    <string name="screen_away">Режим рада са екраном надоле</string>
+    <string name="screen_away_detail">Држите уређај тако да екран буде окренут од вас (режим рада са екраном надоле)</string>
+    <string name="tabletop">Стони режим</string>
+    <string name="tabletop_detail">Поставите уређај равно на сто (стони режим)</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">punt %s</item>
+    <item quantity="other">punts %s</item>
+  </plurals>
+    <string name="auto_detect">Adapta a la forma d\'agafar el dispositiu</string>
+    <string name="capitalize_announcement">Majúscula</string>
+    <string name="code_user_facing_name_ar">Àrab</string>
+    <string name="code_user_facing_name_es">Espanyol</string>
+    <string name="code_user_facing_name_fr">Francès</string>
+    <string name="code_user_facing_name_pl">Polonès</string>
+    <string name="code_user_facing_name_ueb1">Braille anglès unificat no contret</string>
+    <string name="code_user_facing_name_ueb2">Braille anglès unificat contret</string>
+    <string name="number_announcement">Número</string>
+    <string name="read_out_deleted">S\'ha suprimit %s</string>
+    <string name="screen_away">Mode amb pantalla allunyada</string>
+    <string name="screen_away_detail">Mantén el dispositiu amb la pantalla allunyada (mode amb pantalla allunyada)</string>
+    <string name="tabletop">Mode de taula</string>
+    <string name="tabletop_detail">Col·loca el dispositiu pla en una taula (mode de taula)</string>
+</resources>

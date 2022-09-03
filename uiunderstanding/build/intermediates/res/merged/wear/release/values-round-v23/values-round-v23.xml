@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="action_choose_expand_selected">false</bool>
+    <bool name="action_choose_symmetrical_dimen">true</bool>
+    <dimen name="confirmation_overlay_image_size">72dp</dimen>
+    <dimen name="diag_button_padding_bottom">@dimen/screen_percentage_12</dimen>
+    <dimen name="diag_button_padding_horizontal">@dimen/screen_percentage_15</dimen>
+    <dimen name="diag_button_size">48dp</dimen>
+    <dimen name="diag_icon_margin_top">@dimen/screen_percentage_10</dimen>
+    <dimen name="diag_preferred_padding">@dimen/screen_percentage_15</dimen>
+    <dimen name="list_default_padding">@dimen/screen_percentage_15</dimen>
+    <item name="confirmation_overlay_margin_above_text" type="fraction">4.167%</item>
+    <item name="confirmation_overlay_margin_side" type="fraction">18.75%</item>
+    <item name="confirmation_overlay_text_inset_margin" type="fraction">7.28%</item>
+</resources>

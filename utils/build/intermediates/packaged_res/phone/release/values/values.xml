@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <integer-array name="window_state_pattern">
+    <item>0</item>
+    <item>10</item>
+    <item>20</item>
+    <item>20</item>
+    <item>10</item>
+    <item>40</item>
+  </integer-array>
+    <bool name="supports_text_replacement">true</bool>
+    <color name="a11y_alert_dialog_bg_color">@color/google_white</color>
+    <color name="a11y_alert_dialog_button_color">@color/a11y_colorAccent</color>
+    <color name="a11y_alert_dialog_button_focused_color">@color/a11y_colorAccentFocused</color>
+    <color name="a11y_alert_dialog_content_message_text_color">@color/google_black</color>
+    <color name="a11y_button_background_color">@color/google_grey200</color>
+    <color name="a11y_button_stroke_color">@color/google_grey200</color>
+    <color name="a11y_button_text_color">@color/google_black</color>
+    <color name="a11y_colorAccent">@color/google_blue600</color>
+    <color name="a11y_colorAccentFocused">@color/google_blue900</color>
+    <color name="google_black">#000000</color>
+    <color name="google_blue100">#d2e3fc</color>
+    <color name="google_blue300">#8AB4F8</color>
+    <color name="google_blue600">#1a73e8</color>
+    <color name="google_blue900">#174ea6</color>
+    <color name="google_grey100">#f1f3f4</color>
+    <color name="google_grey200">#e8eaed</color>
+    <color name="google_grey50">#f8f9fa</color>
+    <color name="google_grey500">#9aa0a6</color>
+    <color name="google_grey700">#5f6368</color>
+    <color name="google_grey900">#202124</color>
+    <color name="google_transparent">#00000000</color>
+    <color name="google_white">#ffffff</color>
+    <color name="toast_back_color">@color/google_grey200</color>
+    <color name="toast_border_color_center">@color/google_white</color>
+    <color name="toast_border_color_end">@color/google_grey200</color>
+    <color name="toast_border_color_start">#00de7a</color>
+    <dimen name="full_screen_preference_fragment_padding_on_watch">8dp</dimen>
+    <dimen name="tts_overlay_text_bottom_margin">12dp</dimen>
+    <dimen name="tts_overlay_text_padding">8dp</dimen>
+    <integer name="frame_delay">80</integer>
+    <string name="accessibility_font" translatable="false">sans-serif</string>
+    <string name="accessibility_font_medium" translatable="false">sans-serif-medium</string>
+    <string name="character_collapse_template">\u0020<ns1:g example="7" id="number">%1$d</ns1:g> <ns1:g example="equal sign" id="character">%2$s</ns1:g>      </string>
+    <string name="classic_keymap_entry_value">classic_keymap</string>
+    <string name="default_keymap_entry_value">default_keymap</string>
+    <string name="exit_scrim">
+        Exit
+    </string>
+    <string name="function_off">Spoken feedback is off</string>
+    <string name="function_on">Spoken feedback is on</string>
+    <string name="granularity_character">Characters</string>
+    <string name="granularity_default">Default</string>
+    <string name="granularity_line">Lines</string>
+    <string name="granularity_native_control">Controls</string>
+    <string name="granularity_native_heading">Headings</string>
+    <string name="granularity_native_link">Links</string>
+    <string name="granularity_paragraph">Paragraphs</string>
+    <string name="granularity_pseudo_web_special_content">Special content</string>
+    <string name="granularity_web_control">Controls</string>
+    <string name="granularity_web_heading">Headings</string>
+    <string name="granularity_web_landmark">Landmarks</string>
+    <string name="granularity_web_link">Links</string>
+    <string name="granularity_web_list">Lists</string>
+    <string name="granularity_window">Windows</string>
+    <string name="granularity_word">Words</string>
+    <string name="hide_keyboard_window">keyboard hidden</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Press key combination with <ns1:g example="alt" id="trigger_modifier_name">%1$s</ns1:g> modifier key to set new shortcut.</string>
+    <string name="keycombo_assign_dialog_instruction">Press key combination to set new shortcut. It must contain at least ALT or Control key.</string>
+    <string name="keycombo_key_arrow_down">Arrow Down</string>
+    <string name="keycombo_key_arrow_left">Arrow Left</string>
+    <string name="keycombo_key_arrow_right">Arrow Right</string>
+    <string name="keycombo_key_arrow_up">Arrow Up</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Search</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_shortcut_global_adjust_reading_setting_next" translatable="false">keycombo_shortcut_global_adjust_reading_setting_next</string>
+    <string name="keycombo_shortcut_global_adjust_reading_settings_previous" translatable="false">keycombo_shortcut_global_adjust_reading_settings_previous</string>
+    <string name="keycombo_shortcut_global_back">keycombo_shortcut_global_back</string>
+    <string name="keycombo_shortcut_global_home">keycombo_shortcut_global_home</string>
+    <string name="keycombo_shortcut_global_notifications">keycombo_shortcut_global_notifications</string>
+    <string name="keycombo_shortcut_global_play_pause_media" translatable="false">keycombo_shortcut_global_play_pause_media</string>
+    <string name="keycombo_shortcut_global_recents">keycombo_shortcut_global_recents</string>
+    <string name="keycombo_shortcut_global_scroll_backward_reading_menu" translatable="false">keycombo_shortcut_global_scroll_backward_reading_menu</string>
+    <string name="keycombo_shortcut_global_scroll_forward_reading_menu" translatable="false">keycombo_shortcut_global_scroll_forward_reading_menu</string>
+    <string name="keycombo_shortcut_global_suspend">keycombo_shortcut_global_suspend</string>
+    <string name="keycombo_shortcut_granularity_decrease">keycombo_shortcut_granularity_decrease</string>
+    <string name="keycombo_shortcut_granularity_increase">keycombo_shortcut_granularity_increase</string>
+    <string name="keycombo_shortcut_navigate_down">keycombo_shortcut_navigate_down</string>
+    <string name="keycombo_shortcut_navigate_first">keycombo_shortcut_navigate_first</string>
+    <string name="keycombo_shortcut_navigate_last">keycombo_shortcut_navigate_last</string>
+    <string name="keycombo_shortcut_navigate_next">keycombo_shortcut_navigate_next</string>
+    <string name="keycombo_shortcut_navigate_next_aria_landmark">keycombo_shortcut_navigate_next_aria_landmark</string>
+    <string name="keycombo_shortcut_navigate_next_button">keycombo_shortcut_navigate_next_button</string>
+    <string name="keycombo_shortcut_navigate_next_character">keycombo_shortcut_navigate_next_character</string>
+    <string name="keycombo_shortcut_navigate_next_checkbox">keycombo_shortcut_navigate_next_checkbox</string>
+    <string name="keycombo_shortcut_navigate_next_combobox">keycombo_shortcut_navigate_next_combobox</string>
+    <string name="keycombo_shortcut_navigate_next_control">keycombo_shortcut_navigate_next_control</string>
+    <string name="keycombo_shortcut_navigate_next_default">keycombo_shortcut_navigate_next_default</string>
+    <string name="keycombo_shortcut_navigate_next_edit_field">keycombo_shortcut_navigate_next_edit_field</string>
+    <string name="keycombo_shortcut_navigate_next_focusable_item">keycombo_shortcut_navigate_next_focusable_item</string>
+    <string name="keycombo_shortcut_navigate_next_graphic">keycombo_shortcut_navigate_next_graphic</string>
+    <string name="keycombo_shortcut_navigate_next_heading">keycombo_shortcut_navigate_next_heading</string>
+    <string name="keycombo_shortcut_navigate_next_heading_1">keycombo_shortcut_navigate_next_heading_1</string>
+    <string name="keycombo_shortcut_navigate_next_heading_2">keycombo_shortcut_navigate_next_heading_2</string>
+    <string name="keycombo_shortcut_navigate_next_heading_3">keycombo_shortcut_navigate_next_heading_3</string>
+    <string name="keycombo_shortcut_navigate_next_heading_4">keycombo_shortcut_navigate_next_heading_4</string>
+    <string name="keycombo_shortcut_navigate_next_heading_5">keycombo_shortcut_navigate_next_heading_5</string>
+    <string name="keycombo_shortcut_navigate_next_heading_6">keycombo_shortcut_navigate_next_heading_6</string>
+    <string name="keycombo_shortcut_navigate_next_link">keycombo_shortcut_navigate_next_link</string>
+    <string name="keycombo_shortcut_navigate_next_list">keycombo_shortcut_navigate_next_list</string>
+    <string name="keycombo_shortcut_navigate_next_list_item">keycombo_shortcut_navigate_next_list_item</string>
+    <string name="keycombo_shortcut_navigate_next_table">keycombo_shortcut_navigate_next_table</string>
+    <string name="keycombo_shortcut_navigate_next_window">keycombo_shortcut_navigate_next_window</string>
+    <string name="keycombo_shortcut_navigate_next_word">keycombo_shortcut_navigate_next_word</string>
+    <string name="keycombo_shortcut_navigate_previous">keycombo_shortcut_navigate_previous</string>
+    <string name="keycombo_shortcut_navigate_previous_aria_landmark">keycombo_shortcut_navigate_previous_aria_landmark</string>
+    <string name="keycombo_shortcut_navigate_previous_button">keycombo_shortcut_navigate_previous_button</string>
+    <string name="keycombo_shortcut_navigate_previous_character">keycombo_shortcut_navigate_previous_character</string>
+    <string name="keycombo_shortcut_navigate_previous_checkbox">keycombo_shortcut_navigate_previous_checkbox</string>
+    <string name="keycombo_shortcut_navigate_previous_combobox">keycombo_shortcut_navigate_previous_combobox</string>
+    <string name="keycombo_shortcut_navigate_previous_control">keycombo_shortcut_navigate_previous_control</string>
+    <string name="keycombo_shortcut_navigate_previous_default">keycombo_shortcut_navigate_previous_default</string>
+    <string name="keycombo_shortcut_navigate_previous_edit_field">keycombo_shortcut_navigate_previous_edit_field</string>
+    <string name="keycombo_shortcut_navigate_previous_focusable_item">keycombo_shortcut_navigate_previous_focusable_item</string>
+    <string name="keycombo_shortcut_navigate_previous_graphic">keycombo_shortcut_navigate_previous_graphic</string>
+    <string name="keycombo_shortcut_navigate_previous_heading">keycombo_shortcut_navigate_previous_heading</string>
+    <string name="keycombo_shortcut_navigate_previous_heading_1">keycombo_shortcut_navigate_previous_heading_1</string>
+    <string name="keycombo_shortcut_navigate_previous_heading_2">keycombo_shortcut_navigate_previous_heading_2</string>
+    <string name="keycombo_shortcut_navigate_previous_heading_3">keycombo_shortcut_navigate_previous_heading_3</string>
+    <string name="keycombo_shortcut_navigate_previous_heading_4">keycombo_shortcut_navigate_previous_heading_4</string>
+    <string name="keycombo_shortcut_navigate_previous_heading_5">keycombo_shortcut_navigate_previous_heading_5</string>
+    <string name="keycombo_shortcut_navigate_previous_heading_6">keycombo_shortcut_navigate_previous_heading_6</string>
+    <string name="keycombo_shortcut_navigate_previous_link">keycombo_shortcut_navigate_previous_link</string>
+    <string name="keycombo_shortcut_navigate_previous_list">keycombo_shortcut_navigate_previous_list</string>
+    <string name="keycombo_shortcut_navigate_previous_list_item">keycombo_shortcut_navigate_previous_list_item</string>
+    <string name="keycombo_shortcut_navigate_previous_table">keycombo_shortcut_navigate_previous_table</string>
+    <string name="keycombo_shortcut_navigate_previous_window">keycombo_shortcut_navigate_previous_window</string>
+    <string name="keycombo_shortcut_navigate_previous_word">keycombo_shortcut_navigate_previous_word</string>
+    <string name="keycombo_shortcut_navigate_up">keycombo_shortcut_navigate_up</string>
+    <string name="keycombo_shortcut_open_manage_keyboard_shortcuts">keycombo_shortcut_open_manage_keyboard_shortcuts</string>
+    <string name="keycombo_shortcut_open_talkback_settings">keycombo_shortcut_open_talkback_settings</string>
+    <string name="keycombo_shortcut_other_custom_actions">keycombo_shortcut_other_custom_actions</string>
+    <string name="keycombo_shortcut_other_language_options">keycombo_shortcut_other_language_options</string>
+    <string name="keycombo_shortcut_other_read_from_next_item">keycombo_shortcut_other_read_from_next_item</string>
+    <string name="keycombo_shortcut_other_read_from_top">keycombo_shortcut_other_read_from_top</string>
+    <string name="keycombo_shortcut_other_talkback_context_menu">keycombo_shortcut_other_global_context_menu</string>
+    <string name="keycombo_shortcut_other_toggle_search">keycombo_shortcut_other_toggle_search</string>
+    <string name="keycombo_shortcut_perform_click">keycombo_shortcut_perform_click</string>
+    <string name="keycombo_shortcut_perform_long_click">keycombo_shortcut_perform_long_click</string>
+    <string name="keycombo_unassigned">Unassigned</string>
+    <string name="pref_default_keymap_trigger_modifier_key">pref_default_keymap_trigger_modifier</string>
+    <string name="pref_log_level_default" translatable="false">6</string>
+    <string name="pref_log_level_key" translatable="false">pref_log_level</string>
+    <string name="pref_select_keymap_key">pref_select_keymap</string>
+    <string name="show_keyboard_window">Showing <ns1:g example="Gboard" id="window_title">%1$s</ns1:g></string>
+    <string name="symbol_almost_equals">Almost equal to</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Less than sign</string>
+    <string name="symbol_angle_bracket_right">Greater than sign</string>
+    <string name="symbol_apostrophe">Apostrophe</string>
+    <string name="symbol_approximately_equals">Approximately equals</string>
+    <string name="symbol_asterisk">Asterisk</string>
+    <string name="symbol_at_sign">At</string>
+    <string name="symbol_backslash">Backslash</string>
+    <string name="symbol_beamed_sixteenth_note">Beamed sixteenth notes</string>
+    <string name="symbol_black_circle">Black circle</string>
+    <string name="symbol_black_heart">Black Heart</string>
+    <string name="symbol_black_smallsquare">Small black square</string>
+    <string name="symbol_black_square">Black square</string>
+    <string name="symbol_black_star">Black star</string>
+    <string name="symbol_black_suit_of_diamonds">Black suit of diamonds</string>
+    <string name="symbol_black_triangle_pointing_down">Black triangle pointing down</string>
+    <string name="symbol_black_triangle_pointing_up">Black triangle pointing up</string>
+    <string name="symbol_broken_bar">Broken bar</string>
+    <string name="symbol_bullet">Bullet</string>
+    <string name="symbol_bullseye">Bullseye</string>
+    <string name="symbol_caret">Caret</string>
+    <string name="symbol_celsius_degree">Celsius degree</string>
+    <string name="symbol_cent">Cent sign</string>
+    <string name="symbol_circle_left_half_black">Circle with left half black</string>
+    <string name="symbol_circle_right_half_black">Circle with right half black</string>
+    <string name="symbol_colon">Colon</string>
+    <string name="symbol_comma">Comma</string>
+    <string name="symbol_copyright">Copyright</string>
+    <string name="symbol_curly_bracket_left">Left curly bracket</string>
+    <string name="symbol_curly_bracket_right">Right curly bracket</string>
+    <string name="symbol_currency_sign">Currency sign</string>
+    <string name="symbol_damma" translatable="false">ضَمَّة</string>
+    <string name="symbol_dammatan" translatable="false">ضَمَّة تَنْوِين</string>
+    <string name="symbol_degree">Degree sign</string>
+    <string name="symbol_division">Division sign</string>
+    <string name="symbol_dollar_sign">Dollar sign</string>
+    <string name="symbol_downwards_arrow">Downwards Arrow</string>
+    <string name="symbol_eighth_note">Eighth Note</string>
+    <string name="symbol_ellipsis">Ellipsis</string>
+    <string name="symbol_em_dash">Em dash</string>
+    <string name="symbol_en_dash">En dash</string>
+    <string name="symbol_equal">Equal sign</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Exclamation mark</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheit degree</string>
+    <string name="symbol_fatha" translatable="false">فَتْحَة</string>
+    <string name="symbol_fathatan" translatable="false">فتحَة تنوين</string>
+    <string name="symbol_female">Female symbol</string>
+    <string name="symbol_full_width_ampersand">Full-width ampersand</string>
+    <string name="symbol_full_width_asterisk">Full-width asterisk</string>
+    <string name="symbol_full_width_circumflex">Full-width circumflex</string>
+    <string name="symbol_full_width_colon">Full-width colon</string>
+    <string name="symbol_full_width_comma">Full-width comma</string>
+    <string name="symbol_full_width_exclamation_mark">Full-width exclamation mark</string>
+    <string name="symbol_full_width_greater_than_sign">Full-width greater than sign</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideographic full stop</string>
+    <string name="symbol_full_width_left_curly_bracket">Full-width left curly bracket</string>
+    <string name="symbol_full_width_left_parenthesis">Full-width left parenthesis</string>
+    <string name="symbol_full_width_less_than_sign">Full-width less than sign</string>
+    <string name="symbol_full_width_question_mark">Full-width question mark</string>
+    <string name="symbol_full_width_right_curly_bracket">Full-width right curly bracket</string>
+    <string name="symbol_full_width_right_parenthesis">Full-width right parenthesis</string>
+    <string name="symbol_full_width_semicolon">Full-width semicolon</string>
+    <string name="symbol_full_width_tilde">Full-width tilde</string>
+    <string name="symbol_full_width_underscore">Full-width underscore</string>
+    <string name="symbol_grave_accent">Grave accent</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Halfwidth Katakana middle dot</string>
+    <string name="symbol_hyphen_minus">Dash</string>
+    <string name="symbol_ideographic_comma">Ideographic comma</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Inverted exclamation mark</string>
+    <string name="symbol_inverted_question_mark">Inverted question mark</string>
+    <string name="symbol_kasra" translatable="false">كَسْرَة</string>
+    <string name="symbol_kasratan" translatable="false">كَسْرَة تَنْوِين</string>
+    <string name="symbol_left_angle_bracket">Left double angle bracket</string>
+    <string name="symbol_left_black_lenticular_bracket">Left Black Lenticular Bracket</string>
+    <string name="symbol_left_corner_bracket">Left Corner Bracket</string>
+    <string name="symbol_left_double_quotation_mark">Left double quotation mark</string>
+    <string name="symbol_left_single_quotation_mark">Left single quotation mark</string>
+    <string name="symbol_leftwards_arrow">Leftwards arrow</string>
+    <string name="symbol_liter">Liter</string>
+    <string name="symbol_low_double_quote">Low double quote</string>
+    <string name="symbol_male">Male symbol</string>
+    <string name="symbol_mathematical_left_angle_bracket">Mathematical left angle bracket</string>
+    <string name="symbol_mathematical_right_angle_bracket">Mathematical right angle bracket</string>
+    <string name="symbol_micro_sign">Micro sign</string>
+    <string name="symbol_middle_dot">Middle dot</string>
+    <string name="symbol_multiplication">Multiplication sign</string>
+    <string name="symbol_new_line">New line</string>
+    <string name="symbol_not_equals">Not equal to</string>
+    <string name="symbol_not_sign">Not sign</string>
+    <string name="symbol_paragraph_mark">Paragraph mark</string>
+    <string name="symbol_parenthesis_left">Left paren</string>
+    <string name="symbol_parenthesis_right">Right paren</string>
+    <string name="symbol_percent">Percent</string>
+    <string name="symbol_period">Period</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Plus minus sign</string>
+    <string name="symbol_postal_mark">Postal mark</string>
+    <string name="symbol_pound">Pound</string>
+    <string name="symbol_pound_sterling">Pound currency sign</string>
+    <string name="symbol_quarter_note">Quarter Note</string>
+    <string name="symbol_question_mark">Question mark</string>
+    <string name="symbol_quotation_mark">Quote</string>
+    <string name="symbol_reference">Reference Mark</string>
+    <string name="symbol_registered_trademark">Registered trademark</string>
+    <string name="symbol_right_angle_bracket">Right double angle bracket</string>
+    <string name="symbol_right_black_lenticular_bracket">Right Black Lenticular Bracket</string>
+    <string name="symbol_right_corner_bracket">Right Corner Bracket</string>
+    <string name="symbol_right_double_quotation_mark">Right double quotation mark</string>
+    <string name="symbol_right_single_quotation_mark">Right single quotation mark</string>
+    <string name="symbol_rightwards_arrow">Rightwards Arrow</string>
+    <string name="symbol_rupee">Rupee</string>
+    <string name="symbol_section_sign">Section sign</string>
+    <string name="symbol_semicolon">Semicolon</string>
+    <string name="symbol_shadda" translatable="false">شَدّة‎</string>
+    <string name="symbol_slash">Slash</string>
+    <string name="symbol_solar">Solar symbol</string>
+    <string name="symbol_space">Space</string>
+    <string name="symbol_square_bracket_left">Left square bracket</string>
+    <string name="symbol_square_bracket_right">Right square bracket</string>
+    <string name="symbol_square_root">Square root</string>
+    <string name="symbol_sukun" translatable="false">سُكُونْ</string>
+    <string name="symbol_tilde">Tilde</string>
+    <string name="symbol_trademark">Trademark</string>
+    <string name="symbol_underscore">Underscore</string>
+    <string name="symbol_upwards_arrow">Upwards arrow</string>
+    <string name="symbol_vertical_bar">Vertical line</string>
+    <string name="symbol_white_circle">White circle</string>
+    <string name="symbol_white_club_suit">White club suit</string>
+    <string name="symbol_white_diamond">White diamond</string>
+    <string name="symbol_white_down_pointing_triangle">White down pointing triangle</string>
+    <string name="symbol_white_heart">White Heart</string>
+    <string name="symbol_white_left_pointing_index">White left pointing index</string>
+    <string name="symbol_white_left_pointing_triangle">White left pointing triangle</string>
+    <string name="symbol_white_right_pointing_index">White right pointing index</string>
+    <string name="symbol_white_right_pointing_triangle">White right pointing triangle</string>
+    <string name="symbol_white_spade_suit">White spade suit</string>
+    <string name="symbol_white_square">White square</string>
+    <string name="symbol_white_star">White star</string>
+    <string name="symbol_white_up_pointing_triangle">White up pointing triangle</string>
+    <string name="symbol_won">Won currency sign</string>
+    <string name="symbol_won_sign">Won currency sign</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="template_capital_letter">capital <ns1:g id="uppercase_character">%1$s</ns1:g></string>
+    <string name="template_current_tts_engine">Using <ns1:g id="engine_name">%1$s</ns1:g></string>
+    <string name="template_overlay_window"><ns1:g example="Application A" id="application_window_title">%1$s</ns1:g> picture in picture</string>
+    <string name="template_password_selected">Characters <ns1:g id="from_index">%1$d</ns1:g> to <ns1:g id="to_index">%2$d</ns1:g></string>
+    <string name="template_password_traversed">Character <ns1:g id="index">%1$d</ns1:g></string>
+    <string name="template_scroll_from_count">Showing item <ns1:g id="from_index">%1$d</ns1:g> of <ns1:g id="total_count">%2$d</ns1:g>.</string>
+    <string name="template_scroll_from_to_count">Showing items <ns1:g id="from_index">%1$d</ns1:g> to <ns1:g id="to_index">%2$d</ns1:g> of <ns1:g id="total_count">%3$d</ns1:g>.</string>
+    <string name="template_split_screen_mode_landscape_ltr"><ns1:g example="Application A" name="window_title_a">%1$s</ns1:g> on left, <ns1:g example="Application B" name="window_title_b">%2$s</ns1:g> on right</string>
+    <string name="template_split_screen_mode_landscape_rtl"><ns1:g example="Application A" name="window_title_a">%1$s</ns1:g> on right, <ns1:g example="Application B" name="window_title_b">%2$s</ns1:g> on left</string>
+    <string name="template_split_screen_mode_portrait"><ns1:g example="Application A" name="window_title_a">%1$s</ns1:g> on top, <ns1:g example="Application B" name="window_title_b">%2$s</ns1:g> on bottom</string>
+    <string name="template_text_copied">copied, <ns1:g id="text">%1$s</ns1:g></string>
+    <string name="template_viewpager_index_count">Page <ns1:g id="page_index">%1$d</ns1:g> of <ns1:g id="total_count">%2$d</ns1:g></string>
+    <string name="template_viewpager_index_count_short"><ns1:g id="page_index">%1$d</ns1:g> of <ns1:g id="total_count">%2$d</ns1:g></string>
+    <string name="trigger_modifier_alt_entry_value">trigger_modifier_alt</string>
+    <string name="trigger_modifier_meta_entry_value">trigger_modifier_meta</string>
+    <string name="untitled_window">untitled</string>
+    <string name="url_dialog_table"><ns1:g example="Google" id="dialog_text">%1$s</ns1:g> (<ns1:g example="www.google.com" id="dialog_url">%2$s</ns1:g>)</string>
+    <style name="A11yAlertDialogContentTextStyle">
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:textColor">@color/a11y_alert_dialog_content_message_text_color</item>
+    <item name="android:fontFamily">@string/accessibility_font</item>
+    <item name="android:textSize">14sp</item>
+  </style>
+    <style name="A11yAlertDialogCustomViewTheme" parent="Theme.AppCompat.Light.Dialog.Alert"/>
+    <style name="A11yAlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+    <item name="colorAccent">@color/a11y_colorAccent</item>
+    <item name="android:background">@color/a11y_alert_dialog_bg_color</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+    <style name="A11yMaterialComponentsTheme" parent="Theme.MaterialComponents"/>
+</resources>

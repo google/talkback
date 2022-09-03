@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.google.android.accessibility.talkback" >
+
+    <uses-sdk android:minSdkVersion="23" />
+
+    <uses-feature
+        android:name="android.hardware.type.watch"
+        android:required="true" />
+    <!--
+     Strings with the format ${foo}, such as ${applicationId}, are called
+    placeholders, and they get replaced by the build system with the appropriate
+    value when a build executes.
+    -->
+    <!--
+ The <queries> element allows us to ask the package manager about
+    the installation status of external components we are interested in. This
+    policy change was introduced in Android 11.
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+        <intent>
+            <action android:name="android.speech.RecognitionService" />
+        </intent>
+    </queries> <!-- Used by voice commands. -->
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" /> <!-- Required for fingerprint gesture. -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" /> <!-- Required to monitor phone busy state. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- Required for haptic feedback. -->
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- Required for keeping the screen awake during continuous reading and key filtering. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required for managing audio levels on GB. -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> <!-- Required for speech recognition and hearing user's audio -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- Required for App Enumeration -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" /> <!-- Required for sending data to Google Analytics. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- Required for calling Service.startForeground after API 28. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Required for Primes. -->
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" /> <!-- Used to control Primes collection using Gservices flags -->
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /> <!-- Hardware compatibility. -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="false" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_launcher_round"
+        android:supportsRtl="true" >
+        <receiver
+            android:name="com.google.android.accessibility.talkback.BootReceiver"
+            android:directBootAware="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <!-- TalkBack -->
+        <service
+            android:name="com.developer.talkback.TalkBackDevService"
+            android:directBootAware="true"
+            android:exported="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/talkback_title"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:settingsActivity="com.android.talkback.TalkBackPreferencesActivity" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+
+                <category android:name="android.accessibilityservice.category.FEEDBACK_AUDIBLE" />
+                <category android:name="android.accessibilityservice.category.FEEDBACK_HAPTIC" />
+                <category android:name="android.accessibilityservice.category.FEEDBACK_SPOKEN" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibilityservice" />
+        </service>
+        <service
+            android:name="com.google.android.accessibility.talkback.ipc.IpcService"
+            android:enabled="true"
+            android:exported="false"
+            android:icon="@drawable/icon"
+            android:label="TalkBackIpcService" />
+
+        <!-- TalkBack Preferences -->
+        <activity
+            android:name="com.android.talkback.TalkBackPreferencesActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:label="@string/talkback_preferences_title"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.accessibilityservice.SERVICE_SETTINGS" />
+            </intent-filter>
+        </activity>
+
+        <!-- TalkBack Gesture Shortcut Preferences -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.preference.TalkBackShortcutPreferencesActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:label="@string/title_pref_category_manage_gestures"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings"
+            tools:ignore="ExportedActivity" >
+
+            <!-- This preference activity can receive an implicit intent action -->
+            <intent-filter>
+                <action android:name=".TalkBackShortcutPreferencesActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- TalkBack permission request activity proxy -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.permission.PermissionRequestActivity"
+            android:directBootAware="true"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:noHistory="false"
+            android:theme="@style/BlankActivityTheme" >
+        </activity>
+
+        <!-- TalkBack tutorial and help preferences -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.preference.TalkBackHelpPreferencesActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:label="@string/title_pref_category_tutorial_and_help"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings" >
+
+            <!-- This preference activity can receive an implicit intent action -->
+            <intent-filter>
+                <action android:name=".preference.TalkBackHelpPreferencesActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- TalkBack training -->
+        <!-- To prevent slowdown of talkback event-handlers, arrange to run on a separate process. -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.training.TrainingActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:directBootAware="true"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:process=":Tutorial"
+            android:theme="@style/TrainingActivityTheme"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="ExportedActivity" >
+        </activity>
+        <activity
+            android:name="com.google.android.accessibility.talkback.labeling.LabelImportActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:theme="@style/DialogStyle" >
+        </activity>
+
+        <!-- Custom Label Manager - Summary Activity -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.labeling.LabelManagerSummaryActivity"
+            android:exported="false"
+            android:label="@string/label_manager_summary_title"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings" >
+
+            <!-- This preference activity can receive an implicit intent action -->
+            <intent-filter>
+                <action android:name=".labeling.TalkBackSelectorPreferencesActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Custom Label Manager - Package Activity -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.labeling.LabelManagerPackageActivity"
+            android:exported="false"
+            android:label="@string/manage_label"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings" />
+
+        <!-- Gesture Change Notification Activity -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.preference.GestureChangeNotificationActivity"
+            android:directBootAware="true"
+            android:exported="true"
+            android:theme="@style/DialogStyle"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- Notification Activity used periodically to inform the user of changes -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.NotificationActivity"
+            android:directBootAware="true"
+            android:exported="true"
+            android:theme="@style/DialogStyle"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- Content provider for custom label data -->
+        <provider
+            android:name="com.google.android.accessibility.talkback.labeling.LabelProvider"
+            android:authorities="${applicationId}.providers.LabelProvider"
+            android:directBootAware="true"
+            android:exported="true" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.providers.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="support_lift_to_type"
+            android:value="@bool/support_lift_to_type" />
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="ocr" />
+    </application>
+
+</manifest>

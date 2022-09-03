@@ -1,0 +1,150 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/compositor/build/intermediates/res/merged/wear/release/values-v23/values-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/f79630c35828e626fbb082ef1264d9ca/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "58",
+                        "startColumns": "4",
+                        "startOffsets": "3566",
+                        "endLines": "60",
+                        "endColumns": "12",
+                        "endOffsets": "3711"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/res/values-v23/values.xml",
+                    "from": {
+                        "startLines": "4,8,12,20,23",
+                        "startColumns": "0,0,0,0,0",
+                        "startOffsets": "211,373,537,938,1079",
+                        "endLines": "7,11,19,22,24",
+                        "endColumns": "8,8,8,8,8",
+                        "endOffsets": "372,536,937,1078,1178"
+                    },
+                    "to": {
+                        "startLines": "50,54,67,75,78",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "3232,3398,4142,4547,4692",
+                        "endLines": "53,57,74,77,79",
+                        "endColumns": "8,8,8,8,8",
+                        "endOffsets": "3393,3561,4542,4687,4791"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/1f984c915f794057b1c0d60d4c300ad2/transformed/material-1.6.1/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,8,13,17,20,23,26,31,34,38",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,271,481,801,1038,1245,1452,1655,1987,2189,2454",
+                        "endLines": "4,7,12,16,19,22,25,30,33,37,41",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "266,476,796,1033,1240,1447,1650,1982,2184,2449,2722"
+                    },
+                    "to": {
+                        "startLines": "61,64,80,85,89,92,95,98,103,106,110",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3716,3932,4796,5116,5353,5560,5767,5970,6302,6504,6769",
+                        "endLines": "63,66,84,88,91,94,97,102,105,109,113",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "3927,4137,5111,5348,5555,5762,5965,6297,6499,6764,7037"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/60605009dc95ef8d03ceba17b5260c72/transformed/appcompat-1.5.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1225,1975,2094,2221,2443,2667,2782,2889,3002",
+                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1220,1970,2089,2216,2438,2662,2777,2884,2997,3227"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/compositor/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-v23/values-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/f79630c35828e626fbb082ef1264d9ca/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "58",
+                        "startColumns": "4",
+                        "startOffsets": "3566",
+                        "endLines": "60",
+                        "endColumns": "12",
+                        "endOffsets": "3711"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/res/values-v23/values.xml",
+                    "from": {
+                        "startLines": "4,8,12,20,23",
+                        "startColumns": "0,0,0,0,0",
+                        "startOffsets": "211,373,537,938,1079",
+                        "endLines": "7,11,19,22,24",
+                        "endColumns": "8,8,8,8,8",
+                        "endOffsets": "372,536,937,1078,1178"
+                    },
+                    "to": {
+                        "startLines": "50,54,67,75,78",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "3232,3398,4142,4547,4692",
+                        "endLines": "53,57,74,77,79",
+                        "endColumns": "8,8,8,8,8",
+                        "endOffsets": "3393,3561,4542,4687,4791"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/1f984c915f794057b1c0d60d4c300ad2/transformed/material-1.6.1/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,5,8,13,17,20,23,26,31,34,38",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,271,481,801,1038,1245,1452,1655,1987,2189,2454",
+                        "endLines": "4,7,12,16,19,22,25,30,33,37,41",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "266,476,796,1033,1240,1447,1650,1982,2184,2449,2722"
+                    },
+                    "to": {
+                        "startLines": "61,64,80,85,89,92,95,98,103,106,110",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3716,3932,4796,5116,5353,5560,5767,5970,6302,6504,6769",
+                        "endLines": "63,66,84,88,91,94,97,102,105,109,113",
+                        "endColumns": "10,10,10,10,10,10,10,10,10,10,10",
+                        "endOffsets": "3927,4137,5111,5348,5555,5762,5965,6297,6499,6764,7037"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/60605009dc95ef8d03ceba17b5260c72/transformed/appcompat-1.5.0/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1225,1975,2094,2221,2443,2667,2782,2889,3002",
+                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1220,1970,2089,2216,2438,2662,2777,2884,2997,3227"
+                    }
+                }
+            ]
+        }
+    ]
+}

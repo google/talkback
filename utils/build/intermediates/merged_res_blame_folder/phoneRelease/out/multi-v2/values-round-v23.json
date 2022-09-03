@@ -1,0 +1,154 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/utils/build/intermediates/res/merged/phone/release/values-round-v23/values-round-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-round/styles.xml",
+                    "from": {
+                        "startLines": "19",
+                        "startColumns": "2",
+                        "startOffsets": "691",
+                        "endLines": "26",
+                        "endColumns": "10",
+                        "endOffsets": "1157"
+                    },
+                    "to": {
+                        "startLines": "15",
+                        "startColumns": "4",
+                        "startOffsets": "1011",
+                        "endLines": "22",
+                        "endColumns": "10",
+                        "endOffsets": "1477"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/res/values-round-v23/values.xml",
+                    "from": {
+                        "startLines": "4,5,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "213,269,472,531,608,689,733,804,877,948,1030",
+                        "endColumns": "55,56,58,76,80,43,70,72,70,81,75",
+                        "endOffsets": "268,325,530,607,688,732,803,876,947,1029,1105"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,115,176,239,320,405,453,528,685,760,846",
+                        "endColumns": "59,60,62,80,84,47,74,76,74,85,79",
+                        "endOffsets": "110,171,234,315,400,448,523,600,755,841,921"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/res/values-round-v23/values-round-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "84",
+                        "endOffsets": "135"
+                    },
+                    "to": {
+                        "startLines": "14",
+                        "startColumns": "4",
+                        "startOffsets": "926",
+                        "endColumns": "84",
+                        "endOffsets": "1006"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-round/dimens.xml",
+                    "from": {
+                        "startLines": "18",
+                        "startColumns": "2",
+                        "startOffsets": "690",
+                        "endColumns": "77",
+                        "endOffsets": "765"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "605",
+                        "endColumns": "79",
+                        "endOffsets": "680"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/utils/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-round-v23/values-round-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-round/styles.xml",
+                    "from": {
+                        "startLines": "19",
+                        "startColumns": "2",
+                        "startOffsets": "691",
+                        "endLines": "26",
+                        "endColumns": "10",
+                        "endOffsets": "1157"
+                    },
+                    "to": {
+                        "startLines": "15",
+                        "startColumns": "4",
+                        "startOffsets": "1011",
+                        "endLines": "22",
+                        "endColumns": "10",
+                        "endOffsets": "1477"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/res/values-round-v23/values.xml",
+                    "from": {
+                        "startLines": "4,5,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "213,269,472,531,608,689,733,804,877,948,1030",
+                        "endColumns": "55,56,58,76,80,43,70,72,70,81,75",
+                        "endOffsets": "268,325,530,607,688,732,803,876,947,1029,1105"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,115,176,239,320,405,453,528,685,760,846",
+                        "endColumns": "59,60,62,80,84,47,74,76,74,85,79",
+                        "endOffsets": "110,171,234,315,400,448,523,600,755,841,921"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/res/values-round-v23/values-round-v23.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "84",
+                        "endOffsets": "135"
+                    },
+                    "to": {
+                        "startLines": "14",
+                        "startColumns": "4",
+                        "startOffsets": "926",
+                        "endColumns": "84",
+                        "endOffsets": "1006"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-round/dimens.xml",
+                    "from": {
+                        "startLines": "18",
+                        "startColumns": "2",
+                        "startOffsets": "690",
+                        "endColumns": "77",
+                        "endOffsets": "765"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "605",
+                        "endColumns": "79",
+                        "endOffsets": "680"
+                    }
+                }
+            ]
+        }
+    ]
+}

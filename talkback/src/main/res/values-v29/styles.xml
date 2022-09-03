@@ -29,6 +29,7 @@
   <style name="TalkBackSettings" parent="Theme.MaterialComponents.DayNight.Bridge" >
     <item name="colorAccent">@color/colorAccent</item>
     <item name="actionBarTheme">@style/SettingsActionBar</item>
+    <item name="android:background">@color/settings_bg_color</item>
   </style>
 
   <style name="SettingsActionBar" parent="@style/ThemeOverlay.AppCompat.ActionBar">

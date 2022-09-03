@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">točke %s</item>
+    <item quantity="few">točke %s</item>
+    <item quantity="other">točke %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d nova obavijest</item>
+    <item quantity="few">%d nove obavijesti</item>
+    <item quantity="other">%d novih obavijesti</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Idi na početnu"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Natrag"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Više opcija"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Gotovo"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Prikaži sve"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Odabir aplikacije"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ISKLJUČENO"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"UKLJUČENO"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"svemir"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Pretražite…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Izbriši upit"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Upit za pretraživanje"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Pretraži"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Pošalji upit"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Glasovno pretraživanje"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Dijeli s"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Dijeli putem aplikacije <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Sažmi"</string>
+    <string name="auto_detect">Prilagodite načinu na koji držite uređaj</string>
+    <string name="bottomsheet_action_expand_halfway">Proširi donju polovicu</string>
+    <string name="capitalize_announcement">Veliko slovo</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Uneseno znakova: %1$d od %2$d</string>
+    <string name="character_counter_overflowed_content_description">Premašeno je ograničenje broja znakova: %1$d od %2$d</string>
+    <string name="clear_text_end_icon_content_description">Brisanje teksta</string>
+    <string name="code_user_facing_name_ar">arapski</string>
+    <string name="code_user_facing_name_es">španjolski</string>
+    <string name="code_user_facing_name_fr">francuski</string>
+    <string name="code_user_facing_name_pl">poljski</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Omogući</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s neće funkcionirati ako ne omogućite usluge Google Playa.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Omogućivanje usluga Google Playa</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instaliraj</string>
+    <string name="common_google_play_services_install_text">%1$s neće funkcionirati bez usluga Google Playa koje nisu instalirane na vašem uređaju.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Preuzimanje usluga Google Playa</string>
+    <string name="common_google_play_services_notification_channel_name">Dostupnost usluga za Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Pogreška Usluga za Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ima poteškoća s uslugama Google Playa. Pokušajte ponovo.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s neće funkcionirati bez usluga Google Playa koje vaš uređaj ne podržava.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Ažuriraj</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s neće funkcionirati ako ne ažurirate Google Play usluge.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Ažuriranje usluga Google Playa</string>
+    <string name="common_google_play_services_updating_text">%1$s neće se pokrenuti bez usluga Google Playa koje se trenutačno ažuriraju.</string>
+    <string name="common_google_play_services_wear_update_text">Potrebna je nova verzija usluga Google Playa. Uskoro će se ažurirati.</string>
+    <string name="common_open_on_phone">Otvori na telefonu</string>
+    <string name="common_signin_button_text">Prijava</string>
+    <string name="common_signin_button_text_long">Prijava putem Googlea</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Nije uspjelo"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Otvoreno na telefonu"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Uspjelo je"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopiraj"</string>
+    <string name="error_icon_content_description">Pogreška</string>
+    <string name="exit_scrim">Izlaz</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Napredno"</string>
+    <string name="exposed_dropdown_menu_content_description">Prikaži padajući izbornik</string>
+    <string name="function_off">Govorne povratne informacije su isključene</string>
+    <string name="function_on">Govorne povratne informacije su uključene</string>
+    <string name="granularity_character">Znakovi</string>
+    <string name="granularity_default">Zadano</string>
+    <string name="granularity_line">Redci</string>
+    <string name="granularity_native_control">Kontrole</string>
+    <string name="granularity_native_heading">Naslovi</string>
+    <string name="granularity_native_link">Veze</string>
+    <string name="granularity_paragraph">Odlomci</string>
+    <string name="granularity_pseudo_web_special_content">Poseban sadržaj</string>
+    <string name="granularity_web_control">Kontrole</string>
+    <string name="granularity_web_heading">Naslovi</string>
+    <string name="granularity_web_landmark">Orijentiri</string>
+    <string name="granularity_web_link">Veze</string>
+    <string name="granularity_web_list">Popisi</string>
+    <string name="granularity_window">Prozori</string>
+    <string name="granularity_word">Riječi</string>
+    <string name="hide_keyboard_window">tipkovnica je skrivena</string>
+    <string name="icon_content_description">Ikona dijaloga</string>
+    <string name="item_view_role_description">Kartica</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Pritisnite kombinaciju tipki uz modifikatorsku tipku %1$s da biste postavili novi prečac.</string>
+    <string name="keycombo_assign_dialog_instruction">Pritisnite kombinaciju tipki da biste postavili novi prečac. Mora sadržavati barem tipku ALT ili Control.</string>
+    <string name="keycombo_key_arrow_down">Strelica dolje</string>
+    <string name="keycombo_key_arrow_left">Strelica lijevo</string>
+    <string name="keycombo_key_arrow_right">Strelica desno</string>
+    <string name="keycombo_key_arrow_up">Strelica gore</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Pretraži</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Nije dodijeljeno</string>
+    <string name="material_clock_toggle_content_description">Odaberite prijepodne ili poslijepodne</string>
+    <string name="material_hour_selection">Odaberite sat</string>
+    <string name="material_hour_suffix">%1$s h</string>
+    <string name="material_minute_selection">Odaberite minute</string>
+    <string name="material_minute_suffix">%1$s min</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Prijeđite na način rada sata da biste unijeli vrijeme.</string>
+    <string name="material_timepicker_hour">Sat</string>
+    <string name="material_timepicker_minute">Minuta</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Odabir vremena</string>
+    <string name="material_timepicker_text_input_mode_description">Prijeđite na način unosa teksta da biste unijeli vrijeme.</string>
+    <string name="mtrl_badge_numberless_content_description">Nova obavijest</string>
+    <string name="mtrl_chip_close_icon_content_description">Ukloni %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Više od %1$d novih obavijesti</string>
+    <string name="mtrl_picker_a11y_next_month">Prijelaz na sljedeći mjesec</string>
+    <string name="mtrl_picker_a11y_prev_month">Pomicanje na prethodni mjesec</string>
+    <string name="mtrl_picker_announce_current_selection">Trenutačan odabir: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Odaberite datum</string>
+    <string name="mtrl_picker_date_header_unselected">Odabrani datum</string>
+    <string name="mtrl_picker_day_of_week_column_header">Stupac s danima: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Nevažeći format.</string>
+    <string name="mtrl_picker_invalid_format_example">Primjer: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Koristi format: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Raspon nije važeći.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Prijelaz na godinu %1$s</string>
+    <string name="mtrl_picker_out_of_range">Izvan raspona: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Datum početka – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – datum završetka</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Odaberite raspon</string>
+    <string name="mtrl_picker_range_header_unselected">Datum početka – datum završetka</string>
+    <string name="mtrl_picker_save">Spremi</string>
+    <string name="mtrl_picker_text_input_date_hint">Datum</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Datum završetka</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Datum početka</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">g</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Prijelaz na način unosa u Kalendaru</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Dodirnite za prijelaz na odabir dana</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Prijelaz na način unosa teksta</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Dodirnite za prijelaz na odabir godine</string>
+    <string msgid="478774118347071097" name="not_set">"Nije postavljeno"</string>
+    <string name="number_announcement">Broj</string>
+    <string name="password_toggle_content_description">Prikaži zaporku</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Sažetak \"<ns1:g id="SUMMARY">%1$s</ns1:g>\" kopiran je u međuspremnik."</string>
+    <string name="read_out_deleted">Izbrisano: %s</string>
+    <string name="screen_away">Zaslon prema dolje</string>
+    <string name="screen_away_detail">Držite uređaj sa zaslonom prema dolje (zaslon prema dolje)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Pretraži"</string>
+    <string name="show_keyboard_window">Prikazuje se prozor %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Gotovo jednako</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Znak za manje od</string>
+    <string name="symbol_angle_bracket_right">Znak za veće od</string>
+    <string name="symbol_apostrophe">Izostavnik</string>
+    <string name="symbol_approximately_equals">Približno jednako</string>
+    <string name="symbol_asterisk">Zvjezdica</string>
+    <string name="symbol_at_sign">Znak pri</string>
+    <string name="symbol_backslash">Obrnuta kosa crta</string>
+    <string name="symbol_beamed_sixteenth_note">Šesnaestinke s gredom</string>
+    <string name="symbol_black_circle">Crni krug</string>
+    <string name="symbol_black_heart">Crno srce</string>
+    <string name="symbol_black_smallsquare">Mali crni kvadrat</string>
+    <string name="symbol_black_square">Crni kvadrat</string>
+    <string name="symbol_black_star">Crna zvijezda</string>
+    <string name="symbol_black_suit_of_diamonds">Crni rombovi</string>
+    <string name="symbol_black_triangle_pointing_down">Crni trokut s vrhom prema dolje</string>
+    <string name="symbol_black_triangle_pointing_up">Crni trokut s vrhom prema gore</string>
+    <string name="symbol_broken_bar">Okomita crta</string>
+    <string name="symbol_bullet">Grafička oznaka</string>
+    <string name="symbol_bullseye">Meta</string>
+    <string name="symbol_caret">Karet</string>
+    <string name="symbol_celsius_degree">Celzijev stupanj</string>
+    <string name="symbol_cent">Znak za cent</string>
+    <string name="symbol_circle_left_half_black">Krug s crnom lijevom polovicom</string>
+    <string name="symbol_circle_right_half_black">Krug s crnom desnom polovicom</string>
+    <string name="symbol_colon">Dvotočka</string>
+    <string name="symbol_comma">Zarez</string>
+    <string name="symbol_copyright">Autorska prava</string>
+    <string name="symbol_curly_bracket_left">Lijeva vitičasta zagrada</string>
+    <string name="symbol_curly_bracket_right">Desna vitičasta zagrada</string>
+    <string name="symbol_currency_sign">Znak valute</string>
+    <string name="symbol_degree">Znak za stupanj</string>
+    <string name="symbol_division">Znak dijeljenja</string>
+    <string name="symbol_dollar_sign">Znak za dolar</string>
+    <string name="symbol_downwards_arrow">Strelica prema dolje</string>
+    <string name="symbol_eighth_note">Osminka</string>
+    <string name="symbol_ellipsis">Tri točke</string>
+    <string name="symbol_em_dash">Duga crtica</string>
+    <string name="symbol_en_dash">Kratka crtica</string>
+    <string name="symbol_equal">Znak jednakosti</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Uskličnik</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheitov stupanj</string>
+    <string name="symbol_female">Ženski simbol</string>
+    <string name="symbol_full_width_ampersand">Ampersand pune širine</string>
+    <string name="symbol_full_width_asterisk">Zvjezdica pune širine</string>
+    <string name="symbol_full_width_circumflex">Cirkumfleks pune širine</string>
+    <string name="symbol_full_width_colon">Dvotočka pune širine</string>
+    <string name="symbol_full_width_comma">Zarez pune širine</string>
+    <string name="symbol_full_width_exclamation_mark">Uskličnik pune širine</string>
+    <string name="symbol_full_width_greater_than_sign">Znak za veće pune širine</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideogramska točka</string>
+    <string name="symbol_full_width_left_curly_bracket">Lijeva vitičasta zagrada pune širine</string>
+    <string name="symbol_full_width_left_parenthesis">Lijeva zagrada pune širine</string>
+    <string name="symbol_full_width_less_than_sign">Znak za manje pune širine</string>
+    <string name="symbol_full_width_question_mark">Upitnik pune širine</string>
+    <string name="symbol_full_width_right_curly_bracket">Desna vitičasta zagrada pune širine</string>
+    <string name="symbol_full_width_right_parenthesis">Desna zagrada pune širine</string>
+    <string name="symbol_full_width_semicolon">Točka sa zarezom pune širine</string>
+    <string name="symbol_full_width_tilde">Tilda pune širine</string>
+    <string name="symbol_full_width_underscore">Podvlaka pune širine</string>
+    <string name="symbol_grave_accent">Kratkouzlazni naglasak</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Srednja točka polovične širine u katakani</string>
+    <string name="symbol_hyphen_minus">Crtica</string>
+    <string name="symbol_ideographic_comma">Ideogramski zarez</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Obrnuti uskličnik</string>
+    <string name="symbol_inverted_question_mark">Obrnuti upitnik</string>
+    <string name="symbol_left_angle_bracket">Lijeva dvostruka šiljasta zagrada</string>
+    <string name="symbol_left_black_lenticular_bracket">Otvorena crna zagrada u obliku leće</string>
+    <string name="symbol_left_corner_bracket">Otvorena uglata zagrada</string>
+    <string name="symbol_left_double_quotation_mark">Lijevi dvostruki navodnik</string>
+    <string name="symbol_left_single_quotation_mark">Lijevi jednostruki navodnik</string>
+    <string name="symbol_leftwards_arrow">Strelica ulijevo</string>
+    <string name="symbol_liter">Litra</string>
+    <string name="symbol_low_double_quote">Donji dvostruki navodnici</string>
+    <string name="symbol_male">Muški simbol</string>
+    <string name="symbol_mathematical_left_angle_bracket">Matematička lijeva uglata zagrada</string>
+    <string name="symbol_mathematical_right_angle_bracket">Matematička desna uglata zagrada</string>
+    <string name="symbol_micro_sign">Znak mikro</string>
+    <string name="symbol_middle_dot">Srednja točka</string>
+    <string name="symbol_multiplication">Znak množenja</string>
+    <string name="symbol_new_line">Novi redak</string>
+    <string name="symbol_not_equals">Nije jednako</string>
+    <string name="symbol_not_sign">Znak ne</string>
+    <string name="symbol_paragraph_mark">Oznaka odlomka</string>
+    <string name="symbol_parenthesis_left">Lijeva zagrada</string>
+    <string name="symbol_parenthesis_right">Desna zagrada</string>
+    <string name="symbol_percent">Postotak</string>
+    <string name="symbol_period">Točka</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Znak plusa i minusa</string>
+    <string name="symbol_postal_mark">Poštanska oznaka</string>
+    <string name="symbol_pound">Funta</string>
+    <string name="symbol_pound_sterling">Znak funte</string>
+    <string name="symbol_quarter_note">Četvrtinka</string>
+    <string name="symbol_question_mark">Upitnik</string>
+    <string name="symbol_quotation_mark">Navodnik</string>
+    <string name="symbol_reference">Znak upućivanja</string>
+    <string name="symbol_registered_trademark">Registrirani zaštitni znak</string>
+    <string name="symbol_right_angle_bracket">Desna dvostruka šiljasta zagrada</string>
+    <string name="symbol_right_black_lenticular_bracket">Zatvorena crna zagrada u obliku leće</string>
+    <string name="symbol_right_corner_bracket">Zatvorena uglata zagrada</string>
+    <string name="symbol_right_double_quotation_mark">Desni dvostruki navodnik</string>
+    <string name="symbol_right_single_quotation_mark">Desni jednostruki navodnik</string>
+    <string name="symbol_rightwards_arrow">Desna strelica</string>
+    <string name="symbol_rupee">Rupija</string>
+    <string name="symbol_section_sign">Paragraf</string>
+    <string name="symbol_semicolon">Točka-zarez</string>
+    <string name="symbol_slash">Kosa crta</string>
+    <string name="symbol_solar">Simbol sunca</string>
+    <string name="symbol_space">Razmaknica</string>
+    <string name="symbol_square_bracket_left">Lijeva uglata zagrada</string>
+    <string name="symbol_square_bracket_right">Desna uglata zagrada</string>
+    <string name="symbol_square_root">Kvadratni korijen</string>
+    <string name="symbol_tilde">Tilda</string>
+    <string name="symbol_trademark">Zaštitni znak</string>
+    <string name="symbol_underscore">Podvlaka</string>
+    <string name="symbol_upwards_arrow">Strelica prema gore</string>
+    <string name="symbol_vertical_bar">Okomita crta</string>
+    <string name="symbol_white_circle">Bijeli krug</string>
+    <string name="symbol_white_club_suit">Bijeli tref</string>
+    <string name="symbol_white_diamond">Bijeli karo</string>
+    <string name="symbol_white_down_pointing_triangle">Bijeli trokut s vrhom prema dolje</string>
+    <string name="symbol_white_heart">Bijelo srce</string>
+    <string name="symbol_white_left_pointing_index">Bijeli kažiprst usmjeren ulijevo</string>
+    <string name="symbol_white_left_pointing_triangle">Bijeli trokut s vrhom prema lijevo</string>
+    <string name="symbol_white_right_pointing_index">Bijeli kažiprst usmjeren udesno</string>
+    <string name="symbol_white_right_pointing_triangle">Bijeli trokut s vrhom prema desno</string>
+    <string name="symbol_white_spade_suit">Bijeli pik</string>
+    <string name="symbol_white_square">Bijeli kvadrat</string>
+    <string name="symbol_white_star">Bijela zvijezda</string>
+    <string name="symbol_white_up_pointing_triangle">Bijeli trokut s vrhom prema gore</string>
+    <string name="symbol_won">Znak za valutu von</string>
+    <string name="symbol_won_sign">Znak za valutu von</string>
+    <string name="symbol_yen">Jen</string>
+    <string name="tabletop">Stolni način</string>
+    <string name="tabletop_detail">Položite uređaj na stol (stolni način)</string>
+    <string name="template_capital_letter">veliko slovo %1$s</string>
+    <string name="template_current_tts_engine">Upotreba tražilice %1$s</string>
+    <string name="template_overlay_window">%1$s slika u slici</string>
+    <string name="template_password_selected">Znakovi od %1$d do %2$d</string>
+    <string name="template_password_traversed">Znak %1$d</string>
+    <string name="template_scroll_from_count">Prikazuje se stavka %1$d od ukupno %2$d.</string>
+    <string name="template_scroll_from_to_count">Prikazuju se stavke od %1$d do %2$d od ukupno %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s slijeva, %2$s zdesna</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s zdesna, %2$s slijeva</string>
+    <string name="template_split_screen_mode_portrait">%1$s gore, %2$s dolje</string>
+    <string name="template_text_copied">kopirano, %1$s</string>
+    <string name="template_viewpager_index_count">Stranica %1$d od %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d od %2$d</string>
+    <string name="untitled_window">bez naslova</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ISKLJUČENO"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"UKLJUČENO"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Ladica za radnju"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Ladica za navigaciju"</string>
+</resources>

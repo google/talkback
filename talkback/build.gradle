@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply from: "../shared.gradle"
 
 dependencies {
@@ -9,6 +10,8 @@ dependencies {
     implementation project(':brailleime')
     implementation project(':brailleinterfaces')
     implementation project(':brailledisplay')
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 def talkbackMainPermission = '"com.android.talkback.permission.TALKBACK"'
@@ -16,5 +19,9 @@ def talkbackMainPermission = '"com.android.talkback.permission.TALKBACK"'
 android {
     defaultConfig {
         buildConfigField("String", "TALKBACK_MAIN_PERMISSION", talkbackMainPermission)
+        buildConfigField("String", "APPLICATION_ID", '"com.spotify.talkback"')
     }
+}
+repositories {
+    mavenCentral()
 }

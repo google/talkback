@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">punct %s</item>
+    <item quantity="few">puncte %s</item>
+    <item quantity="other">puncte %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d notificare nouă</item>
+    <item quantity="few">%d notificări noi</item>
+    <item quantity="other">%d de notificări noi</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navigați la ecranul de pornire"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navigați în sus"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Mai multe opțiuni"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Gata"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Afișați tot"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Alegeți o aplicație"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"DEZACTIVAT"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ACTIVAT"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Meniu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Căutați…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Ștergeți interogarea"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Termen de căutare"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Căutați"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Trimiteți interogarea"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Căutare vocală"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Trimiteți la"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Trimiteți folosind <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Restrângeți"</string>
+    <string name="auto_detect">Adaptați-vă la cum țineți dispozitivul</string>
+    <string name="bottomsheet_action_expand_halfway">Extinde pe ecran complet</string>
+    <string name="braille_ime_displayed_name">Tastatura Braille</string>
+    <string name="braille_ime_service_name">Tastatură Braille TalkBack</string>
+    <string name="braille_keyboard">Tastatura Braille</string>
+    <string name="braille_keyboard_gestures">Gesturi pentru tastatura Braille</string>
+    <string name="braille_keyboard_strip_button">Treceți la tastatura pe ecran tactil</string>
+    <string name="braille_keyboard_strip_summary">S-a conectat un afișaj braille extern pe care-l puteți folosi ca să introduceți text pe dispozitiv.\nAlternativ, treceți la tastatura Braille pe ecran tactil sau următoarea metodă de introducere text.</string>
+    <string name="braille_tutorial_title">Tutorial pentru tastatura Braille</string>
+    <string name="bring_ime_settings_page">Nu există altă tastatură activată; accesați setările tastaturii</string>
+    <string name="calibration_fail_announcement">Nu s-a putut actualiza poziția punctelor. Atingeți lung cu șase degete pe ecran. Apoi, încercați din nou.</string>
+    <string name="calibration_finish_announcement">Poziția punctelor s-a actualizat</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Se actualizează poziția punctului. Mai întâi, să înregistrăm punctele de pe mâna stângă. Atingeți lung ecranul cu cele trei degete din mijloc de la mâna stângă.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Se actualizează poziția punctului. Mai întâi, să înregistrăm punctele de pe mâna dreaptă. Atingeți lung ecranul cu cele trei degete din mijloc de la mâna dreaptă.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">S-au actualizat pozițiile punctelor 1, 2 și 3. Să înregistrăm punctele de pe mâna stângă. Atingeți lung ecranul cu cele trei degete din mijloc de la mâna stângă.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">S-au actualizat pozițiile punctelor 1, 2 și 3. Să înregistrăm punctele de pe mâna dreaptă. Atingeți lung ecranul cu cele trei degete din mijloc de la mâna dreaptă.</string>
+    <string name="capitalize_announcement">Scriere cu majuscule</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Caractere introduse: %1$d din %2$d</string>
+    <string name="character_counter_overflowed_content_description">Limita de caractere a depășit %1$d din %2$d</string>
+    <string name="clear_text_end_icon_content_description">Ștergeți textul</string>
+    <string name="code_user_facing_name_ar">Arabă</string>
+    <string name="code_user_facing_name_es">Spaniolă</string>
+    <string name="code_user_facing_name_fr">Franceză</string>
+    <string name="code_user_facing_name_pl">Poloneză</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille necontractat</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille contractat</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Activați</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s nu va funcționa decât dacă activați serviciile Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Activați serviciile Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instalați</string>
+    <string name="common_google_play_services_install_text">%1$s nu va rula fără serviciile Google Play, care lipsesc de pe dispozitivul dvs.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Descărcați serviciile Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Disponibilitatea serviciilor Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Eroare a serviciilor Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s întâmpină probleme privind serviciile Google Play. Încercați din nou.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s nu va rula fără serviciile Google Play, care nu sunt acceptate de dispozitivul dvs.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Actualizați</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s nu va rula decât dacă actualizați serviciile Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Actualizați serviciile Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s nu va rula fără serviciile Google Play, care momentan se actualizează.</string>
+    <string name="common_google_play_services_wear_update_text">Este necesară o nouă versiune a serviciilor Google Play. Se vor actualiza automat în curând.</string>
+    <string name="common_open_on_phone">Deschideți pe telefon</string>
+    <string name="common_signin_button_text">Conectați-vă</string>
+    <string name="common_signin_button_text_long">Conectați-vă cu Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Nereușită"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"S-a deschis pe telefon"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Succes"</string>
+    <string name="context_menu_input_language_selection">Comutați la următoarea limbă: %s</string>
+    <string name="context_menu_input_language_selection_summary">Acum folosiți: %s</string>
+    <string name="context_menu_layout_selection">Aspect</string>
+    <string name="context_menu_see_all_gestures_selection">Examinați toate gesturile</string>
+    <string name="context_menu_settings_selection">Setări</string>
+    <string name="context_menu_title">Opțiuni pentru tastatura Braille</string>
+    <string name="context_menu_tutorial_finish">Finalizați tutorialul</string>
+    <string name="context_menu_tutorial_selection">Deschideți tutorialul</string>
+    <string name="continue_tutorial_announcement">Să continuăm tutorialul. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Copiați"</string>
+    <string name="done">Gata</string>
+    <string name="dont_show_again">Nu mai afișa acest mesaj</string>
+    <string name="error_icon_content_description">Eroare</string>
+    <string name="exit_scrim">Ieșiți</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Avansat"</string>
+    <string name="exposed_dropdown_menu_content_description">Afișați meniul drop-down</string>
+    <string name="finish_tutorial_announcement">Se afișează tastatura Braille. Întoarceți telefonul astfel încât ecranul să fie în direcția opusă dvs. Rotiți telefonul pe orizontală în poziția peisaj. Apoi începeți să tastați.</string>
+    <string name="function_off">Feedbackul rostit este dezactivat</string>
+    <string name="function_on">Feedbackul rostit este activat</string>
+    <string name="gesture_add_space">Ca să adăugați un <b>spațiu</b>, glisați spre dreapta</string>
+    <string name="gesture_delete">Ca să <b>ștergeți</b>, glisați spre stânga</string>
+    <string name="gesture_delete_word">Ca să <b>ștergeți un cuvânt</b>, glisați spre stânga cu două degete</string>
+    <string name="gesture_hide_keyboard">Ca să <b>ascundeți tastatura</b>, glisați în jos cu două degete</string>
+    <string name="gesture_move_cursor_backward">Glisați în sus pentru a <b>muta cursorul înapoi</b></string>
+    <string name="gesture_move_cursor_forward">Glisați în jos pentru a <b>muta cursorul înainte</b></string>
+    <string name="gesture_new_line">Pentru un <b>rând nou</b>, glisați spre dreapta cu două degete</string>
+    <string name="gesture_next_keyboard">Ca să treceți la <b>tastatura următoare</b>, glisați în jos cu trei degete</string>
+    <string name="gesture_open_context_menu">Pentru <b>ajutor și alte opțiuni</b>, glisați în sus cu trei degete</string>
+    <string name="gesture_submit_text">Ca să <b>trimiteți text</b>, glisați în sus cu două degete</string>
+    <string name="granularity_character">Caractere</string>
+    <string name="granularity_default">Prestabilit</string>
+    <string name="granularity_line">Rânduri</string>
+    <string name="granularity_native_control">Comenzi</string>
+    <string name="granularity_native_heading">Titluri</string>
+    <string name="granularity_native_link">Linkuri</string>
+    <string name="granularity_paragraph">Paragrafe</string>
+    <string name="granularity_pseudo_web_special_content">Conținut special</string>
+    <string name="granularity_web_control">Comenzi</string>
+    <string name="granularity_web_heading">Titluri</string>
+    <string name="granularity_web_landmark">Repere</string>
+    <string name="granularity_web_link">Linkuri</string>
+    <string name="granularity_web_list">Liste</string>
+    <string name="granularity_window">Ferestre</string>
+    <string name="granularity_word">Cuvinte</string>
+    <string name="hide_keyboard_window">tastatura este ascunsă</string>
+    <string name="hold_six_fingers_announcement">%s\nAșezați dispozitivul pe o masă. Apoi atingeți lung ecranul cu cele trei degete din mijloc ale fiecărei mâini, într-o poziție comodă pentru tastat.</string>
+    <string name="hold_six_fingers_description">Nu veți putea folosi gesturi TalkBack obișnuite cu tastatura Braille.\n\nPentru început, să configurăm poziția celor șase puncte Braille când tastați.</string>
+    <string name="hold_six_fingers_inactive_announcement">Așezați dispozitivul pe o masă. Apoi atingeți lung ecranul cu cele trei degete din mijloc ale fiecărei mâini, într-o poziție comodă pentru tastat.</string>
+    <string name="how_to_use_braille_keyboard">Cum se folosește tastatura braille</string>
+    <string name="icon_content_description">Pictogramă de dialog</string>
+    <string name="input_view_caption">Tastatura Braille TalkBack – pentru ajutor, accesați g.co/help/braille</string>
+    <string name="instruction_swipe_down">Glisați în jos pentru a muta cursorul înainte</string>
+    <string name="instruction_swipe_down_2_fingers">Ca să ascundeți tastatura, glisați în jos cu două degete</string>
+    <string name="instruction_swipe_down_3_fingers">Ca să treceți la cealaltă tastatură, glisați în jos cu trei degete</string>
+    <string name="instruction_swipe_left">Ca să ștergeți o literă, glisați spre stânga</string>
+    <string name="instruction_swipe_right">Ca să adăugați un spațiu, glisați spre dreapta</string>
+    <string name="instruction_swipe_up">Glisați în sus pentru a muta cursorul înapoi</string>
+    <string name="instruction_swipe_up_3_fingers">Ca să terminați tutorialul, glisați în sus cu trei degete</string>
+    <string name="instruction_type_letter_a">Atingeți punctul 1 cu arătătorul stâng ca să introduceți litera „A”</string>
+    <string name="instruction_type_letter_bcd">Apoi încercați să introduceți literele B, C și D</string>
+    <string name="item_view_role_description">Filă</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Ca să setați o comandă rapidă nouă, apăsați combinația de taste folosind tasta de modificare %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Apăsați combinația de taste pentru a seta o nouă comandă rapidă. Trebuie să conțină cel puțin tasta ALT sau CTRL.</string>
+    <string name="keycombo_key_arrow_down">Săgeată în jos</string>
+    <string name="keycombo_key_arrow_left">Săgeată la stânga</string>
+    <string name="keycombo_key_arrow_right">Săgeată la dreapta</string>
+    <string name="keycombo_key_arrow_up">Săgeată în sus</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Căutați</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Neatribuit</string>
+    <string name="leave_keyboard">Părăsiți tastatura Braille</string>
+    <string name="material_clock_toggle_content_description">Selectați ora</string>
+    <string name="material_hour_selection">Selectați ora</string>
+    <string name="material_hour_suffix">Ora %1$s</string>
+    <string name="material_minute_selection">Selectați minutele</string>
+    <string name="material_minute_suffix">%1$s minute</string>
+    <string name="material_timepicker_am">a.m.</string>
+    <string name="material_timepicker_clock_mode_description">Pentru a introduce ora, comutați la modul ceas.</string>
+    <string name="material_timepicker_hour">Ora</string>
+    <string name="material_timepicker_minute">Minut</string>
+    <string name="material_timepicker_pm">p.m.</string>
+    <string name="material_timepicker_select_time">Selectați ora</string>
+    <string name="material_timepicker_text_input_mode_description">Pentru a introduce ora, comutați la modul de introducere a textului.</string>
+    <string name="mtrl_badge_numberless_content_description">Notificare nouă</string>
+    <string name="mtrl_chip_close_icon_content_description">Eliminați %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Peste %1$d notificări noi</string>
+    <string name="mtrl_picker_a11y_next_month">Treceți la luna următoare</string>
+    <string name="mtrl_picker_a11y_prev_month">Treceți la luna anterioară</string>
+    <string name="mtrl_picker_announce_current_selection">Selecția actuală: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Selectați data</string>
+    <string name="mtrl_picker_date_header_unselected">Data selectată</string>
+    <string name="mtrl_picker_day_of_week_column_header">Coloana cu zile: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Format nevalid.</string>
+    <string name="mtrl_picker_invalid_format_example">Exemplu: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Folosiți: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Interval nevalid.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Navigați la anul %1$s</string>
+    <string name="mtrl_picker_out_of_range">Fără acoperire: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Data de începere – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – data de încheiere</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Selectați intervalul</string>
+    <string name="mtrl_picker_range_header_unselected">Data de începere – data de încheiere</string>
+    <string name="mtrl_picker_save">Salvați</string>
+    <string name="mtrl_picker_text_input_date_hint">Dată</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Data de încheiere</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Data de începere</string>
+    <string name="mtrl_picker_text_input_day_abbr">z</string>
+    <string name="mtrl_picker_text_input_month_abbr">l</string>
+    <string name="mtrl_picker_text_input_year_abbr">a</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Comutați la modul introducere în calendar</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Atingeți pentru a comuta la selectarea unei zile</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Comutați la modul de introducere a textului</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Atingeți pentru a comuta la selectarea unui an</string>
+    <string name="multiple_languages_braille_ime_displayed_name">Tastatura Braille, %s</string>
+    <string name="next_keyboard">Următoarea tastatură</string>
+    <string name="next_step">Înainte</string>
+    <string name="not_enough_touch_points_dialog_message">Dispozitivul dvs. nu acceptă destule puncte tactile. Pentru mai multe informații, contactați producătorul dispozitivului.</string>
+    <string name="not_enough_touch_points_dialog_title">Dispozitivul dvs. nu acceptă tastatura Braille</string>
+    <string msgid="478774118347071097" name="not_set">"Nesetată"</string>
+    <string name="number_announcement">Număr</string>
+    <string name="open_context_menu_announcement">Meniul de opțiuni este deschis. Întoarceți telefonul cu fața spre dvs. și țineți-l normal. Acum puteți folosi gesturi TalkBack obișnuite pentru a naviga. Glisați spre dreapta pentru a vedea mai multe opțiuni.</string>
+    <string name="password_toggle_content_description">Afișați parola</string>
+    <string name="perform_action_next">Înainte</string>
+    <string name="perform_action_submitting">Se trimite textul</string>
+    <string name="perform_add_new_line_announcement">S-a adăugat un rând nou</string>
+    <string name="perform_add_space_announcement">Spațiu</string>
+    <string name="perform_delete_letter_announcement">S-a șters litera</string>
+    <string name="perform_delete_word_announcement">S-a șters cuvântul</string>
+    <string name="perform_hide_keyboard_announcement">Ascundeți tastatura</string>
+    <string name="perform_submit_text_announcement">Trimiteți textul</string>
+    <string name="perform_switch_keyboard_announcement">Schimbați tastatura</string>
+    <string msgid="7961817945132860002" name="preference_copied">"„<ns1:g id="SUMMARY">%1$s</ns1:g>” a fost copiat în clipboard."</string>
+    <string name="preferred_language_title">Limba preferată</string>
+    <string name="read_out_deleted">S-a șters %s</string>
+    <string name="remaining_calibration_finish_announcement">Toate pozițiile punctelor au fost actualizate</string>
+    <string name="reminder_announcement">Glisați în sus cu trei degete pentru mai multe opțiuni</string>
+    <string name="result_swipe_down">AȚI MUTAT CURSORUL ÎNAINTE</string>
+    <string name="result_swipe_down_2_fingers">ASCUNDEȚI TASTATURA</string>
+    <string name="result_swipe_down_3_fingers">URMĂTOAREA TASTATURĂ</string>
+    <string name="result_swipe_left">ȘTERGEȚI</string>
+    <string name="result_swipe_right">SPAȚIU</string>
+    <string name="result_swipe_up">AȚI MUTAT CURSORUL ÎNAPOI</string>
+    <string name="rotate_orientation_announcement">Începând de acum, nu veți mai putea folosi gesturi TalkBack obișnuite. TalkBack nu este disponibil în timp ce folosiți tastatura Braille.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">Telefonul dvs. este în poziție verticală. Ca să continuați, rotiți-l orizontal, astfel încât latura lungă să fie în partea de jos. Întoarceți ecranul în direcția opusă dvs. Când sunteți gata, atingeți de două ori ecranul pentru a continua.</string>
+    <string name="rotate_orientation_description_1">Începând de acum, nu veți mai putea folosi gesturi TalkBack obișnuite. TalkBack nu este disponibil în timp ce folosiți tastatura Braille.</string>
+    <string name="rotate_orientation_description_2">Pentru început, țineți telefonul așa, cu ecranul în direcția opusă dvs.</string>
+    <string name="rotate_orientation_inactive_announcement">În primul rând, țineți telefonul cu ecranul în direcția opusă dvs.\n\nApoi rotiți-l orizontal, în poziția peisaj. Mâinile dvs. trebuie să țină laturile scurte ale telefonului. Trebuie să țineți capătul cu portul USB cu mâna dreaptă. Țineți cele trei degete din mijloc pe ecran și folosiți degetul mic și cel mare pentru a ține telefonul.\n\nCând sunteți gata, atingeți de două ori ecranul pentru a continua.\n\nCa să ieșiți din tastatura Braille, glisați în jos spre podea cu trei degete. Astfel, comutați înapoi la tastatura inițială.</string>
+    <string name="screen_away">Modul ecran întors cu spatele</string>
+    <string name="screen_away_detail">Țineți dispozitivul întors cu spatele (modul ecran întors cu spatele)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Căutați"</string>
+    <string name="set_up_braille_keyboard">Configurați tastatura braille</string>
+    <string name="show_keyboard_window">Se afișează %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Fiecare punct apăsat face parte din intrare, chiar dacă este eliberat înaintea altora</string>
+    <string name="summary_pref_reverse_dots">Inversați pozițiile punctelor, de exemplu, pentru ca punctele 1 și 4 să facă schimb de locuri</string>
+    <string name="swipe_down_2_fingers_announcement">Ca să ascundeți tastatura, glisați în jos cu două degete. Încercați acum.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Ascundeți tastatura. De obicei, acest lucru va ascunde tastatura. Tastatura Braille va rămâne deschisă, deoarece sunteți încă în tutorial.</string>
+    <string name="swipe_down_3_fingers_announcement">Ca să treceți la cealaltă tastatură, glisați în jos cu trei degete. Încercați acum.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Următoarea tastatură. De obicei, acest lucru va trece la următoarea tastatură. De data aceasta, rămâneți în tastatura Braille, deoarece sunteți încă în tutorial.</string>
+    <string name="swipe_down_announcement">Glisați în jos pentru a muta cursorul înainte. Încercați acum.</string>
+    <string name="swipe_left_action_result_announcement">d s-a șters.</string>
+    <string name="swipe_left_announcement">Ca să ștergeți o literă, glisați spre stânga. Încercați acum.</string>
+    <string name="swipe_right_announcement">Ca să adăugați un spațiu, glisați spre dreapta. Încercați acum.</string>
+    <string name="swipe_up_3_fingers_announcement">Puteți tasta în modul Pe masă și dacă așezați telefonul pe o masă. Ca să terminați tutorialul, glisați în sus cu trei degete și găsiți opțiunea de terminare a tutorialului</string>
+    <string name="swipe_up_announcement">Glisați în sus pentru a muta cursorul înapoi. Încercați acum.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Pentru a trece la tastatura braille în timp ce introduceți text, glisați în sus cu trei degete. Apoi selectați Comutați la următoarea limbă.</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Schimbați rapid limba în timp ce introduceți text</string>
+    <string name="switch_to_language_announcement">Ați trecut la %s</string>
+    <string name="switch_to_screen_away_announcement">Modul ecran întors cu spatele</string>
+    <string name="switch_to_tabletop_announcement">Modul pe masă. Așezați dispozitivul cu portul de încărcare spre stânga. Ca să actualizați poziția punctului, apăsați cu șase degete.</string>
+    <string name="symbol_almost_equals">Aproape egal cu</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Semnul mai mic decât</string>
+    <string name="symbol_angle_bracket_right">Semnul mai mare decât</string>
+    <string name="symbol_apostrophe">Apostrof</string>
+    <string name="symbol_approximately_equals">Aproximativ egal cu</string>
+    <string name="symbol_asterisk">Asterisc</string>
+    <string name="symbol_at_sign">A rond</string>
+    <string name="symbol_backslash">Bară oblică inversă</string>
+    <string name="symbol_beamed_sixteenth_note">Note muzicale șaisprezecimi grupate</string>
+    <string name="symbol_black_circle">Cerc negru</string>
+    <string name="symbol_black_heart">Inimă neagră</string>
+    <string name="symbol_black_smallsquare">Pătrat negru mic</string>
+    <string name="symbol_black_square">Pătrat negru</string>
+    <string name="symbol_black_star">Stea neagră</string>
+    <string name="symbol_black_suit_of_diamonds">Carouri negre</string>
+    <string name="symbol_black_triangle_pointing_down">Triunghi negru care indică în jos</string>
+    <string name="symbol_black_triangle_pointing_up">Triunghi negru care indică în sus</string>
+    <string name="symbol_broken_bar">Bară verticală întreruptă</string>
+    <string name="symbol_bullet">Marcator</string>
+    <string name="symbol_bullseye">Țintă</string>
+    <string name="symbol_caret">Simbol de inserție</string>
+    <string name="symbol_celsius_degree">Grad Celsius</string>
+    <string name="symbol_cent">Simbolul pentru cent</string>
+    <string name="symbol_circle_left_half_black">Cerc cu jumătatea stângă neagră</string>
+    <string name="symbol_circle_right_half_black">Cerc cu jumătatea dreaptă neagră</string>
+    <string name="symbol_colon">Două puncte</string>
+    <string name="symbol_comma">Virgulă</string>
+    <string name="symbol_copyright">Copyright</string>
+    <string name="symbol_curly_bracket_left">Acoladă stânga</string>
+    <string name="symbol_curly_bracket_right">Acoladă dreapta</string>
+    <string name="symbol_currency_sign">Semn pentru monedă</string>
+    <string name="symbol_degree">Semnul pentru grad</string>
+    <string name="symbol_division">Semnul împărțirii</string>
+    <string name="symbol_dollar_sign">Dolar</string>
+    <string name="symbol_downwards_arrow">Săgeată în jos</string>
+    <string name="symbol_eighth_note">Notă muzicală optime</string>
+    <string name="symbol_ellipsis">Puncte de suspensie</string>
+    <string name="symbol_em_dash">Cratimă lungă</string>
+    <string name="symbol_en_dash">Cratimă scurtă</string>
+    <string name="symbol_equal">Semn egal</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Semn de exclamație</string>
+    <string name="symbol_fahrenheit_degree">Grad Fahrenheit</string>
+    <string name="symbol_female">Simbol feminin</string>
+    <string name="symbol_full_width_ampersand">Ampersand cu lățimea întreagă</string>
+    <string name="symbol_full_width_asterisk">Asterisc cu lățimea întreagă</string>
+    <string name="symbol_full_width_circumflex">Accent circumflex cu lățimea întreagă</string>
+    <string name="symbol_full_width_colon">Două puncte cu lățimea întreagă</string>
+    <string name="symbol_full_width_comma">Virgulă cu lățimea întreagă</string>
+    <string name="symbol_full_width_exclamation_mark">Semnul exclamării cu lățimea întreagă</string>
+    <string name="symbol_full_width_greater_than_sign">Semn mai mare decât lățimea întreagă</string>
+    <string name="symbol_full_width_ideographic_full_stop">Punct ideografic</string>
+    <string name="symbol_full_width_left_curly_bracket">Acoladă de deschidere, de lățime întreagă</string>
+    <string name="symbol_full_width_left_parenthesis">Paranteze de deschidere cu lățimea întreagă</string>
+    <string name="symbol_full_width_less_than_sign">Semn mai mic decât lățimea întreagă</string>
+    <string name="symbol_full_width_question_mark">Semnul întrebării cu lățimea întreagă</string>
+    <string name="symbol_full_width_right_curly_bracket">Acoladă de închidere, de lățime întreagă</string>
+    <string name="symbol_full_width_right_parenthesis">Paranteze de închidere cu lățimea întreagă</string>
+    <string name="symbol_full_width_semicolon">Punct și virgulă cu lățimea întreagă</string>
+    <string name="symbol_full_width_tilde">Tildă cu lățimea întreagă</string>
+    <string name="symbol_full_width_underscore">Caracter de subliniere cu lățimea întreagă</string>
+    <string name="symbol_grave_accent">Accent grav</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Punct median Katakana cu lățimea pe jumătate</string>
+    <string name="symbol_hyphen_minus">Cratimă</string>
+    <string name="symbol_ideographic_comma">Virgulă ideografică</string>
+    <string name="symbol_integral">Integrală</string>
+    <string name="symbol_inverted_exclamation_mark">Semnul exclamării inversat</string>
+    <string name="symbol_inverted_question_mark">Semnul întrebării inversat</string>
+    <string name="symbol_left_angle_bracket">Paranteză unghiulară dublă stânga</string>
+    <string name="symbol_left_black_lenticular_bracket">Paranteză neagră ovală de deschidere</string>
+    <string name="symbol_left_corner_bracket">Paranteză unghiulară de deschidere</string>
+    <string name="symbol_left_double_quotation_mark">Ghilimele duble la stânga</string>
+    <string name="symbol_left_single_quotation_mark">Ghilimele simple la stânga</string>
+    <string name="symbol_leftwards_arrow">Săgeată spre stânga</string>
+    <string name="symbol_liter">Litru</string>
+    <string name="symbol_low_double_quote">Ghilimele duble de deschidere</string>
+    <string name="symbol_male">Simbol masculin</string>
+    <string name="symbol_mathematical_left_angle_bracket">Paranteză matematică unghiulară stânga</string>
+    <string name="symbol_mathematical_right_angle_bracket">Paranteză matematică unghiulară dreapta</string>
+    <string name="symbol_micro_sign">Semnul miu</string>
+    <string name="symbol_middle_dot">Interpunct</string>
+    <string name="symbol_multiplication">Semnul înmulțirii</string>
+    <string name="symbol_new_line">Rând nou</string>
+    <string name="symbol_not_equals">Nu este egal cu</string>
+    <string name="symbol_not_sign">Semn pentru negație logică</string>
+    <string name="symbol_paragraph_mark">Semn pentru paragraf</string>
+    <string name="symbol_parenthesis_left">Paranteză stânga</string>
+    <string name="symbol_parenthesis_right">Paranteză dreapta</string>
+    <string name="symbol_percent">Procent</string>
+    <string name="symbol_period">Punct</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Semn plus minus</string>
+    <string name="symbol_postal_mark">Marcă poștală</string>
+    <string name="symbol_pound">Diez</string>
+    <string name="symbol_pound_sterling">Semnul de monedă pentru liră</string>
+    <string name="symbol_quarter_note">Notă muzicală pătrime</string>
+    <string name="symbol_question_mark">Semnul întrebării</string>
+    <string name="symbol_quotation_mark">Semnul citării</string>
+    <string name="symbol_reference">Semn de referință</string>
+    <string name="symbol_registered_trademark">Marcă comercială înregistrată</string>
+    <string name="symbol_right_angle_bracket">Paranteză unghiulară dublă dreapta</string>
+    <string name="symbol_right_black_lenticular_bracket">Paranteză neagră ovală de închidere</string>
+    <string name="symbol_right_corner_bracket">Paranteză unghiulară de închidere</string>
+    <string name="symbol_right_double_quotation_mark">Ghilimele duble la dreapta</string>
+    <string name="symbol_right_single_quotation_mark">Ghilimele simple la dreapta</string>
+    <string name="symbol_rightwards_arrow">Săgeată spre dreapta</string>
+    <string name="symbol_rupee">Rupie</string>
+    <string name="symbol_section_sign">Semnul pentru secțiune</string>
+    <string name="symbol_semicolon">Punct și virgulă</string>
+    <string name="symbol_slash">Bară oblică</string>
+    <string name="symbol_solar">Simbol solar</string>
+    <string name="symbol_space">Spațiu</string>
+    <string name="symbol_square_bracket_left">Paranteză pătrată stânga</string>
+    <string name="symbol_square_bracket_right">Paranteză pătrată dreapta</string>
+    <string name="symbol_square_root">Rădăcină pătrată</string>
+    <string name="symbol_tilde">Tildă</string>
+    <string name="symbol_trademark">Marcă comercială</string>
+    <string name="symbol_underscore">Caracter de subliniere</string>
+    <string name="symbol_upwards_arrow">Săgeată în sus</string>
+    <string name="symbol_vertical_bar">Bară verticală</string>
+    <string name="symbol_white_circle">Cerc alb</string>
+    <string name="symbol_white_club_suit">Treflă albă</string>
+    <string name="symbol_white_diamond">Romb alb</string>
+    <string name="symbol_white_down_pointing_triangle">Triunghi alb orientat în jos</string>
+    <string name="symbol_white_heart">Inimă albă</string>
+    <string name="symbol_white_left_pointing_index">Arătător alb orientat spre stânga</string>
+    <string name="symbol_white_left_pointing_triangle">Triunghi alb orientat spre stânga</string>
+    <string name="symbol_white_right_pointing_index">Arătător alb orientat spre dreapta</string>
+    <string name="symbol_white_right_pointing_triangle">Triunghi alb orientat spre dreapta</string>
+    <string name="symbol_white_spade_suit">Pică albă</string>
+    <string name="symbol_white_square">Pătrat alb</string>
+    <string name="symbol_white_star">Stea albă</string>
+    <string name="symbol_white_up_pointing_triangle">Triunghi alb orientat în sus</string>
+    <string name="symbol_won">Semnul de monedă pentru Won</string>
+    <string name="symbol_won_sign">Semnul de monedă pentru Won</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="tabletop">Modul Pe masă</string>
+    <string name="tabletop_detail">Așezați dispozitivul pe o masă (modul pe masă).</string>
+    <string name="talkback_off_dialog_positive_button">Activați în setările de accesibilitate</string>
+    <string name="talkback_off_dialog_title">Activați TalkBack ca să folosiți tastatura Braille</string>
+    <string name="talkback_off_or_suspend_dialog_message">Când TalkBack este activat, puteți atinge ecranul ca să introduceți simboluri Braille.</string>
+    <string name="talkback_suspend_dialog_title">Reluați TalkBack ca să folosiți tastatura Braille</string>
+    <string name="tap_to_continue">Atingeți de două ori oriunde ca să continuați</string>
+    <string name="template_capital_letter">%1$s mare</string>
+    <string name="template_current_tts_engine">Se utilizează %1$s</string>
+    <string name="template_overlay_window">%1$s în modul picture-in-picture</string>
+    <string name="template_password_selected">Caracterele de la %1$d la %2$d</string>
+    <string name="template_password_traversed">Caracterul %1$d</string>
+    <string name="template_scroll_from_count">Se afișează articolul %1$d din %2$d.</string>
+    <string name="template_scroll_from_to_count">Se afișează articolele %1$d – %2$d din %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s în stânga, %2$s în dreapta</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s în dreapta, %2$s în stânga</string>
+    <string name="template_split_screen_mode_portrait">%1$s în partea de sus, %2$s în partea de jos</string>
+    <string name="template_text_copied">copiat, %1$s</string>
+    <string name="template_viewpager_index_count">Pagina %1$d din %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d din %2$d</string>
+    <string name="title_pref_accumulate_presses">Includeți toate punctele apăsate</string>
+    <string name="title_pref_reverse_dots">Inversați punctele</string>
+    <string name="tutorial_intro_description">Cu tastatura Braille, puteți atinge ecranul pentru a introduce caractere Braille cu șase puncte.\n\nFolosiți Unified English Braille. Ca să schimbați limba de tastare, accesați setările TalkBack.\n\nCa să tastați în Braille, trebuie să țineți și să folosiți altfel telefonul.</string>
+    <string name="type_letter_a_announcement">Țineți ecranul în direcția opusă dvs. Țineți ecranul cu ambele mâini, de laturile scurte ale telefonului, astfel încât să puteți atinge ecranul cu cele trei degete din mijloc.\n\nArătătorul stâng trebuie să fie pe punctul 1. Atingeți punctul 1 ca să introduceți litera „A”.</string>
+    <string name="type_letter_a_inactive_announcement">Atingeți punctul 1 cu arătătorul stâng ca să introduceți „A”</string>
+    <string name="type_letter_inactive_announcement">Atingeți %1$s ca să introduceți litera %2$s</string>
+    <string name="typing_languages_title">Limbi în care se introduce textul</string>
+    <string name="untitled_window">fără titlu</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Setări</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Activați tastatura Braille&lt;/b>: atingeți Setări mai jos. Pe ecranul următor, atingeți „%1$s.”
+    &lt;br>&lt;br>2. &lt;b>Folosiți tastatura Braille&lt;/b>: deschideți tastatura obișnuită, apoi atingeți pictograma Alegeți tastatura %2$s (de obicei în colțul din dreapta jos). Selectați „%1$s.”
+    &lt;br>&lt;br>Dacă nu vedeți opțiunea de schimbare a tastaturii, instalați %3$s, tastatura Google.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Ca să folosiți tastatura Braille, deschideți tastatura obișnuită, apoi atingeți pictograma Alegeți tastatura %1$s (de obicei în colțul din dreapta jos). Selectați „%2$s.”
+  &lt;br>&lt;br>Dacă nu vedeți opțiunea de schimbare a tastaturii, instalați %3$s, tastatura Google.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"DEZACTIVAT"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ACTIVAT"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Panou de acțiune"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Panou de navigare"</string>
+</resources>

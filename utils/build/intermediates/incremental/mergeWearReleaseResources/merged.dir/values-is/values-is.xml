@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d ný tilkynning</item>
+    <item quantity="other">%d nýjar tilkynningar</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Fara heim"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Fara upp"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Fleiri valkostir"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Lokið"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Sjá allt"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Veldu forrit"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"SLÖKKT"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"KVEIKT"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"eyða"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Aðgerðarlykill+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"bilslá"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Valmynd+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Leita…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Hreinsa fyrirspurn"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Leitarfyrirspurn"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Leit"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Senda fyrirspurn"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Raddleit"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Deila með"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Deila með <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Minnka"</string>
+    <string name="bottomsheet_action_expand_halfway">Stækka til hálfs</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Innslegnir stafir %1$d af %2$d</string>
+    <string name="character_counter_overflowed_content_description">Yfir hámarksstafafjölda, %1$d af %2$d</string>
+    <string name="clear_text_end_icon_content_description">Hreinsa texta</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Kveikja</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s virkar ekki nema þú gerir þjónustu Google Play virka.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Virkja þjónustu Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Setja upp</string>
+    <string name="common_google_play_services_install_text">%1$s getur ekki keyrt án þjónustu Google Play, sem vantar í tækið þitt.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Sækja þjónustu Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Staða þjónustu Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Villa í þjónustu Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s á í vandræðum með þjónustu Google Play. Reyndu aftur.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s getur ekki keyrt án þjónustu Google Play, sem er ekki studd af tækinu þínu.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Uppfæra</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s getur ekki keyrt nema þú uppfærir þjónustu Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Uppfæra þjónustu Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s getur ekki keyrt án þjónustu Google Play, sem verið er að uppfæra.</string>
+    <string name="common_google_play_services_wear_update_text">Nýja útgáfu af þjónustu Google Play vantar. Hún uppfærir sig sjálf innan skamms.</string>
+    <string name="common_open_on_phone">Opna í símanum</string>
+    <string name="common_signin_button_text">Skrá inn</string>
+    <string name="common_signin_button_text_long">Skrá inn með Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Tókst ekki"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Opnað í símanum þínum"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Tókst"</string>
+    <string msgid="3209159573327985035" name="copy">"Afrita"</string>
+    <string name="error_icon_content_description">Villa</string>
+    <string name="exit_scrim">Loka</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Ítarlegt"</string>
+    <string name="exposed_dropdown_menu_content_description">Sýna fellivalmynd</string>
+    <string name="function_off">Slökkt er á raddsvörun</string>
+    <string name="function_on">Kveikt er á raddsvörun</string>
+    <string name="granularity_character">Stafir</string>
+    <string name="granularity_default">Sjálfgefið</string>
+    <string name="granularity_line">Línur</string>
+    <string name="granularity_native_control">Stýringar</string>
+    <string name="granularity_native_heading">Fyrirsagnir</string>
+    <string name="granularity_native_link">Tenglar</string>
+    <string name="granularity_paragraph">Efnisgreinar</string>
+    <string name="granularity_pseudo_web_special_content">Sérstakt efni</string>
+    <string name="granularity_web_control">Stýringar</string>
+    <string name="granularity_web_heading">Fyrirsagnir</string>
+    <string name="granularity_web_landmark">Kennileiti</string>
+    <string name="granularity_web_link">Tenglar</string>
+    <string name="granularity_web_list">Listar</string>
+    <string name="granularity_window">Windows</string>
+    <string name="granularity_word">Orð</string>
+    <string name="hide_keyboard_window">lyklaborð falið</string>
+    <string name="icon_content_description">Gluggatákn</string>
+    <string name="item_view_role_description">Flipi</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Til að búa til nýja flýtileið skaltu ýta á lyklasamsetningu með breytilyklinum %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Ýttu á lyklasamsetningu til að vista nýja flýtileið. Hún verður að innihalda að minnsta kosti Alt-lykilinn eða Control-lykilinn.</string>
+    <string name="keycombo_key_arrow_down">Ör niður</string>
+    <string name="keycombo_key_arrow_left">Ör til vinstri</string>
+    <string name="keycombo_key_arrow_right">Ör til hægri</string>
+    <string name="keycombo_key_arrow_up">Ör upp</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Leita</string>
+    <string name="keycombo_key_modifier_shift">Shift-lykill</string>
+    <string name="keycombo_unassigned">Ekki úthlutað</string>
+    <string name="material_clock_toggle_content_description">Velja f.h. eða e.h.</string>
+    <string name="material_hour_selection">Velja tíma</string>
+    <string name="material_hour_suffix">klukkan %1$s</string>
+    <string name="material_minute_selection">Veldu mínútur</string>
+    <string name="material_minute_suffix">%1$s mínútur</string>
+    <string name="material_timepicker_am">f.h.</string>
+    <string name="material_timepicker_clock_mode_description">Skipta yfir í klukkustillingu til að færa inn tíma.</string>
+    <string name="material_timepicker_hour">Klukkustund</string>
+    <string name="material_timepicker_minute">Mínúta</string>
+    <string name="material_timepicker_pm">e.h.</string>
+    <string name="material_timepicker_select_time">Veldu tíma</string>
+    <string name="material_timepicker_text_input_mode_description">Skipta yfir í textastillingu til að færa inn tíma.</string>
+    <string name="mtrl_badge_numberless_content_description">Ný tilkynning</string>
+    <string name="mtrl_chip_close_icon_content_description">Fjarlægja %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Yfir %1$d nýjar tilkynningar</string>
+    <string name="mtrl_picker_a11y_next_month">Breyta í næsta mánuð</string>
+    <string name="mtrl_picker_a11y_prev_month">Breyta í fyrri mánuð</string>
+    <string name="mtrl_picker_announce_current_selection">Núverandi val: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Veldu dagsetningu</string>
+    <string name="mtrl_picker_date_header_unselected">Valin dagsetning</string>
+    <string name="mtrl_picker_day_of_week_column_header">Dálkur með dögum: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Ógilt snið.</string>
+    <string name="mtrl_picker_invalid_format_example">Dæmi: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Nota: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Ógilt svið.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Fara í árið %1$s</string>
+    <string name="mtrl_picker_out_of_range">Utan sviðs: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Upphafsdagur – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – lokadagur</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Veldu tímabil</string>
+    <string name="mtrl_picker_range_header_unselected">Upphafsdagur – lokadagur</string>
+    <string name="mtrl_picker_save">Vista</string>
+    <string name="mtrl_picker_text_input_date_hint">Dagsetning</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Lokadagur</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Upphafsdagur</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">á</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Skipta yfir í innfærsluaðferð fyrir dagatal</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Ýttu til að skipta yfir í að velja dag</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Skipta yfir í innfærsluaðferð fyrir texta</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Ýttu til að skipta yfir í að velja ár</string>
+    <string msgid="478774118347071097" name="not_set">"Ekki stillt"</string>
+    <string name="password_toggle_content_description">Sýna aðgangsorð</string>
+    <string msgid="7961817945132860002" name="preference_copied">"„<ns1:g id="SUMMARY">%1$s</ns1:g>“ afritað á klippiborðið."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Leit"</string>
+    <string name="show_keyboard_window">Sýnir %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Um það bil</string>
+    <string name="symbol_ampersand">Og-merki</string>
+    <string name="symbol_angle_bracket_left">Minna en-merki</string>
+    <string name="symbol_angle_bracket_right">Meira en-merki</string>
+    <string name="symbol_apostrophe">Úrfellingarkomma</string>
+    <string name="symbol_approximately_equals">Námundunarmerki</string>
+    <string name="symbol_asterisk">Stjarna</string>
+    <string name="symbol_at_sign">Att-merki</string>
+    <string name="symbol_backslash">Öfugt skástrik</string>
+    <string name="symbol_beamed_sixteenth_note">Sextándapartsnótur á bjálka</string>
+    <string name="symbol_black_circle">Fylltur hringur</string>
+    <string name="symbol_black_heart">Fyllt hjarta</string>
+    <string name="symbol_black_smallsquare">Lítill svartur ferningur</string>
+    <string name="symbol_black_square">Fylltur ferningur</string>
+    <string name="symbol_black_star">Fyllt stjarna</string>
+    <string name="symbol_black_suit_of_diamonds">Svartur tígull</string>
+    <string name="symbol_black_triangle_pointing_down">Svartur þríhyrningur sem vísar niður</string>
+    <string name="symbol_black_triangle_pointing_up">Svartur þríhyrningur sem vísar upp</string>
+    <string name="symbol_broken_bar">Brotin pípa</string>
+    <string name="symbol_bullet">Áherslumerki</string>
+    <string name="symbol_bullseye">Skotmark</string>
+    <string name="symbol_caret">Innskotsmerki</string>
+    <string name="symbol_celsius_degree">Celsíus-gráða</string>
+    <string name="symbol_cent">Sent-merki</string>
+    <string name="symbol_circle_left_half_black">Hringur fylltur vinstra megin</string>
+    <string name="symbol_circle_right_half_black">Hringur fylltur hægra megin</string>
+    <string name="symbol_colon">Tvípunktur</string>
+    <string name="symbol_comma">Komma</string>
+    <string name="symbol_copyright">Höfundarréttur</string>
+    <string name="symbol_curly_bracket_left">Vinstri slaufusvigi</string>
+    <string name="symbol_curly_bracket_right">Hægri slaufusvigi</string>
+    <string name="symbol_currency_sign">Gjaldmiðilsmerki</string>
+    <string name="symbol_degree">Gráðumerki</string>
+    <string name="symbol_division">Deilingarmerki</string>
+    <string name="symbol_dollar_sign">Dollaramerki</string>
+    <string name="symbol_downwards_arrow">Niðurör</string>
+    <string name="symbol_eighth_note">Áttundapartsnóta</string>
+    <string name="symbol_ellipsis">Þrípunktur</string>
+    <string name="symbol_em_dash">Langt þankastrik</string>
+    <string name="symbol_en_dash">Stutt þankastrik</string>
+    <string name="symbol_equal">Samasemmerki</string>
+    <string name="symbol_euro">Evra</string>
+    <string name="symbol_exclamation_mark">Upphrópunarmerki</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheit-gráða</string>
+    <string name="symbol_female">Kvenkynstákn</string>
+    <string name="symbol_full_width_ampersand">Táknið &amp; í fullri breidd</string>
+    <string name="symbol_full_width_asterisk">Stjörnumerki í fullri breidd</string>
+    <string name="symbol_full_width_circumflex">Tvíbroddur í fullri breidd</string>
+    <string name="symbol_full_width_colon">Tvípunktur í fullri breidd</string>
+    <string name="symbol_full_width_comma">Komma í fullri breidd</string>
+    <string name="symbol_full_width_exclamation_mark">Upphrópunarmerki í fullri breidd</string>
+    <string name="symbol_full_width_greater_than_sign">Hægri fleygur í fullri breidd</string>
+    <string name="symbol_full_width_ideographic_full_stop">Myndleturstáknspunktur</string>
+    <string name="symbol_full_width_left_curly_bracket">Vinstri slaufusvigi í fullri breidd</string>
+    <string name="symbol_full_width_left_parenthesis">Vinstri svigi í fullri breidd</string>
+    <string name="symbol_full_width_less_than_sign">Vinstri fleygur í fullri breidd</string>
+    <string name="symbol_full_width_question_mark">Spurningarmerki í fullri breidd</string>
+    <string name="symbol_full_width_right_curly_bracket">Hægri slaufusvigi í fullri breidd</string>
+    <string name="symbol_full_width_right_parenthesis">Hægri svigi í fullri breidd</string>
+    <string name="symbol_full_width_semicolon">Semíkomma í fullri breidd</string>
+    <string name="symbol_full_width_tilde">Tilda í fullri breidd</string>
+    <string name="symbol_full_width_underscore">Undirstrik í fullri breidd</string>
+    <string name="symbol_grave_accent">Öfugur broddur</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Miðpunktur Katakana í hálfri breidd</string>
+    <string name="symbol_hyphen_minus">Bandstrik</string>
+    <string name="symbol_ideographic_comma">Myndleturstáknskomma</string>
+    <string name="symbol_integral">Heildunarmerki</string>
+    <string name="symbol_inverted_exclamation_mark">Öfugt upphrópunarmerki</string>
+    <string name="symbol_inverted_question_mark">Öfugt spurningarmerki</string>
+    <string name="symbol_left_angle_bracket">Tvöfaldur vinstri oddklofi</string>
+    <string name="symbol_left_black_lenticular_bracket">Fylltur kúptur vinstrisvigi</string>
+    <string name="symbol_left_corner_bracket">Vinstri hornsvigi</string>
+    <string name="symbol_left_double_quotation_mark">Tvöfaldar vinstri gæsalappir</string>
+    <string name="symbol_left_single_quotation_mark">Einfaldar vinstri gæsalappir</string>
+    <string name="symbol_leftwards_arrow">Ör til vinstri</string>
+    <string name="symbol_liter">Lítri</string>
+    <string name="symbol_low_double_quote">Gæsalappir opnast</string>
+    <string name="symbol_male">Karlkynstákn</string>
+    <string name="symbol_mathematical_left_angle_bracket">Stærðfræðilegt „minna en“ tákn</string>
+    <string name="symbol_mathematical_right_angle_bracket">Stærðfræðilegt „stærra en“ tákn</string>
+    <string name="symbol_micro_sign">Míkrómerki</string>
+    <string name="symbol_middle_dot">Miðjupunktur</string>
+    <string name="symbol_multiplication">Margföldunarmerki</string>
+    <string name="symbol_new_line">Ný lína</string>
+    <string name="symbol_not_equals">Ekki jafnt og</string>
+    <string name="symbol_not_sign">Ekki-merki</string>
+    <string name="symbol_paragraph_mark">Efnisgreinarmerki</string>
+    <string name="symbol_parenthesis_left">Vinstri svigi</string>
+    <string name="symbol_parenthesis_right">Hægri svigi</string>
+    <string name="symbol_percent">Prósent</string>
+    <string name="symbol_period">Punktur</string>
+    <string name="symbol_pi">Pí</string>
+    <string name="symbol_plus_minus_sign">Plúsmínus-merki</string>
+    <string name="symbol_postal_mark">Póststimpill</string>
+    <string name="symbol_pound">Myllumerki</string>
+    <string name="symbol_pound_sterling">Gjaldmiðilsmerki sterlingspunds</string>
+    <string name="symbol_quarter_note">Fjórðapartsnóta</string>
+    <string name="symbol_question_mark">Spurningarmerki</string>
+    <string name="symbol_quotation_mark">Gæsalappir</string>
+    <string name="symbol_reference">Tilvísunarmerki</string>
+    <string name="symbol_registered_trademark">Skráð vörumerki</string>
+    <string name="symbol_right_angle_bracket">Tvöfaldur hægri oddklofi</string>
+    <string name="symbol_right_black_lenticular_bracket">Fylltur kúptur hægrisvigi</string>
+    <string name="symbol_right_corner_bracket">Hægri hornsvigi</string>
+    <string name="symbol_right_double_quotation_mark">Tvöfaldar hægri gæsalappir</string>
+    <string name="symbol_right_single_quotation_mark">Einfaldar hægri gæsalappir</string>
+    <string name="symbol_rightwards_arrow">Hægriör</string>
+    <string name="symbol_rupee">Rúpía</string>
+    <string name="symbol_section_sign">Kaflamerki</string>
+    <string name="symbol_semicolon">Semíkomma</string>
+    <string name="symbol_slash">Skástrik</string>
+    <string name="symbol_solar">Sólartákn</string>
+    <string name="symbol_space">Bil</string>
+    <string name="symbol_square_bracket_left">Vinstri hornklofi</string>
+    <string name="symbol_square_bracket_right">Hægri hornklofi</string>
+    <string name="symbol_square_root">Kvaðratrót</string>
+    <string name="symbol_tilde">Tilda</string>
+    <string name="symbol_trademark">Vörumerki</string>
+    <string name="symbol_underscore">Undirstrik</string>
+    <string name="symbol_upwards_arrow">Ör upp</string>
+    <string name="symbol_vertical_bar">Lóðrétt strik</string>
+    <string name="symbol_white_circle">Ófylltur hringur</string>
+    <string name="symbol_white_club_suit">Ófyllt lauf</string>
+    <string name="symbol_white_diamond">Ófylltur tígull</string>
+    <string name="symbol_white_down_pointing_triangle">Ófylltur þríhyrningur sem vísar niður</string>
+    <string name="symbol_white_heart">Ófyllt hjarta</string>
+    <string name="symbol_white_left_pointing_index">Ófylltur vísifingur sem bendir til vinstri</string>
+    <string name="symbol_white_left_pointing_triangle">Ófylltur þríhyrningur sem vísar til vinstri</string>
+    <string name="symbol_white_right_pointing_index">Ófylltur vísifingur sem bendir til hægri</string>
+    <string name="symbol_white_right_pointing_triangle">Ófylltur þríhyrningur sem vísar til hægri</string>
+    <string name="symbol_white_spade_suit">Ófylltur spaði</string>
+    <string name="symbol_white_square">Ófylltur ferningur</string>
+    <string name="symbol_white_star">Ófyllt stjarna</string>
+    <string name="symbol_white_up_pointing_triangle">Ófylltur þríhyrningur sem vísar upp</string>
+    <string name="symbol_won">Gjaldmiðilsmerki Won</string>
+    <string name="symbol_won_sign">Gjaldmiðilsmerki Won</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="template_capital_letter">hástafurinn %1$s</string>
+    <string name="template_current_tts_engine">%1$s í notkun</string>
+    <string name="template_overlay_window">%1$s mynd í mynd</string>
+    <string name="template_password_selected">Stafir %1$d til %2$d</string>
+    <string name="template_password_traversed">Stafur %1$d</string>
+    <string name="template_scroll_from_count">Sýnir atriði %1$d af %2$d.</string>
+    <string name="template_scroll_from_to_count">Sýnir atriði %1$d til %2$d af %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s til vinstri, %2$s til hægri</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s til hægri, %2$s til vinstri</string>
+    <string name="template_split_screen_mode_portrait">%1$s fyrir ofan, %2$s fyrir neðan</string>
+    <string name="template_text_copied">afritað, %1$s</string>
+    <string name="template_viewpager_index_count">Síða %1$d af %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d af %2$d</string>
+    <string name="untitled_window">ónefnt</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"SLÖKKT"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"KVEIKT"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Aðgerðaskúffa"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Yfirlitsskúffa"</string>
+</resources>

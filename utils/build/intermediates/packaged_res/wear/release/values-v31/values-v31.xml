@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="a11y_alertdialog_background_inset">5dp</dimen>
+    <dimen name="a11y_alertdialog_corner_radius">@dimen/google_material_corner_radius</dimen>
+    <dimen name="google_marterial_alertdialog_buttons_bottom_margin">30dp</dimen>
+    <dimen name="google_marterial_alertdialog_buttons_end_margin">16dp</dimen>
+    <dimen name="google_marterial_alertdialog_buttons_padding_vertical">16dp</dimen>
+    <dimen name="google_marterial_alertdialog_buttons_top_margin">26dp</dimen>
+    <dimen name="google_marterial_button_text_size">14sp</dimen>
+    <dimen name="google_marterial_dialog_title_size">24sp</dimen>
+    <dimen name="google_marterial_dialog_title_top_padding">24dp</dimen>
+    <dimen name="google_marterial_margin_between_buttons">8dp</dimen>
+    <dimen name="google_material_corner_radius">28dp</dimen>
+    <string name="accessibility_font" translatable="false">google-sans</string>
+    <string name="accessibility_font_medium" translatable="false">google-sans-medium</string>
+</resources>

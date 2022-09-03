@@ -1,25 +1,28 @@
 // For building the open-source release of TalkBack.
 
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-android'
 apply from: 'shared.gradle'
-
 apply from: 'version.gradle'
 
 final BUILD_TIMESTAMP = new Date().format('yyyy_MM_dd_HHmm')
 
 dependencies {
     implementation project(':talkback')
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 buildscript {
+    ext.kotlin_version = '1.6.21'
     repositories {
         jcenter()
         google()
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'com.android.tools.build:gradle:3.5.4'
+        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -58,4 +61,7 @@ android {
             versionNameSuffix "-wear"
         }
     }
+}
+repositories {
+    mavenCentral()
 }

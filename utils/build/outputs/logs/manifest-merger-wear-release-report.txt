@@ -1,0 +1,19 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml:2:1-62
+INJECTED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml:2:1-62
+INJECTED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml:2:1-62
+	package
+		ADDED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml:2:11-59
+		INJECTED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml
+		INJECTED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml:2:1-62
+uses-sdk
+INJECTED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml
+INJECTED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml
+		ADDED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml
+		INJECTED from /Users/quintinb/repo/talkback/utils/src/main/AndroidManifest.xml

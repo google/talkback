@@ -46,12 +46,14 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityNodeInfo;
+
 import androidx.annotation.IdRes;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
+
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.Speech;
@@ -76,11 +78,13 @@ import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.common.base.Ascii;
 import com.google.common.collect.ImmutableList;
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Class to handle changes to selector and calls from {@link GestureController}. */
 public class SelectorController {
@@ -1125,7 +1129,7 @@ public class SelectorController {
   }
 
   /** Moves to the next or previous at specific granularity. */
-  private void moveAtGranularity(EventId eventId, Granularity granularity, boolean isNext) {
+  public void moveAtGranularity(EventId eventId, Granularity granularity, boolean isNext) {
     // Sets granularity and locks navigate within the focused node.
     pipeline.returnFeedback(eventId, Feedback.granularity(granularity.cursorGranularity));
 

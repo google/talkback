@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">amachashazi %s</item>
+    <item quantity="other">amachashazi %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d izaziso ezintsha</item>
+    <item quantity="other">%d izaziso ezintsha</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Zulazulela ekhaya"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Zulazulela phezulu"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Ezinye izinketho"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Kwenziwe"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Buka konke"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Khetha insiza"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"VALA"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"VULA"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Imenyu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Sesha…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Sula inkinga"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Sesha umbuzo"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Sesha"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Thumela umbuzo"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Ukusesha ngezwi"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Yabelana no"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Yabelana ne-<ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Goqa"</string>
+    <string name="auto_detect">Jwayelana nendlela obamba ngayo idivayisi</string>
+    <string name="bottomsheet_action_expand_halfway">Nweba phakathi</string>
+    <string name="braille_ime_displayed_name">ikhibhodi ye-braille</string>
+    <string name="braille_ime_service_name">Ikhibhodi ye-TalkBack braille</string>
+    <string name="braille_keyboard">Ikhibhodi ye-braille</string>
+    <string name="braille_keyboard_gestures">Ukuthintwa kwekhibhothi ye-Braille</string>
+    <string name="braille_keyboard_strip_button">Shintshela kukhibhodi yesikrini esithintwayo</string>
+    <string name="braille_keyboard_strip_summary">Isibonisi se-braille sangaphandle sixhunyiwe, ongasisebenzisa ukuthayipha umbhalo kule divayisi.\nNoma, ungashintshela kukhibhodi ye-Braille yesikrini sokuthinta noma indlela yokufaka elandelay.</string>
+    <string name="braille_tutorial_title">Okokufundisa kwekhibhodi ye-braille</string>
+    <string name="bring_ime_settings_page">Ayikho enye ikhibhodi enikwe amandla, iya kuzilungiselelo zekhibhodi</string>
+    <string name="calibration_fail_announcement">Ayikwazanga ukubuyekeza ukuma kwechashazi. Thinta uphinde ubambe isikrini ngeminwe eyisi-6. Bese uzame futhi.</string>
+    <string name="calibration_finish_announcement">Ukuma kwechashazi kubuyekeziwe</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Ibuyekeza indawo yechashazi. Okokuqala, ake sirekhode amachashazi asesandleni sakho esingakwesokunxele. Thinta uphinde ubambe isikrini ngeminwe engaphakathi emi-3 yesandla sakho esingakwesokunxele.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Ibuyekeza indawo yechashazi. Okokuqala, asirekhode amachashazi asesandleni sakho esingakwesokudla. Thinta uphinde ubambe isikrini ngeminwe engaphakathi emi-3 yesandla sakho esingakwesokudla.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">Ukuma okubuyekeziwe kwamachashazi 1, 2, no-3. Okulandelayo, asirekhode amachashazi asesandleni sakho esingakwesokunxele. Thinta uphinde ubambe isikrini ngeminwe engaphakathi emi-3 yesandla sakho esingakwesokunxele.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">Ukuma okubuyekeziwe kwamachashazi 1, 2, no-3. Okulandelayo, asirekhode amachashazi asesandleni sakho esingakwesokudla. Thinta uphinde ubambe isikrini ngeminwe engaphakathi emi-3 yesandla sakho esingakwesokudla.</string>
+    <string name="capitalize_announcement">Umkhawulo</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Izinhlamvu ezifakiwe ezingu-%1$d zokungu-%2$d</string>
+    <string name="character_counter_overflowed_content_description">Umkhawulo wezinhlamvu udlule u-%1$d kokungu-%2$d</string>
+    <string name="clear_text_end_icon_content_description">Sula umbhalo</string>
+    <string name="code_user_facing_name_ar">Isi-Arabic</string>
+    <string name="code_user_facing_name_es">Isi-Spanish</string>
+    <string name="code_user_facing_name_fr">Isi-French</string>
+    <string name="code_user_facing_name_pl">Isi-Polish</string>
+    <string name="code_user_facing_name_ueb1">I-Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">I-Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Nika amandla</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">I-%1$s ngeke isebenze ngaphandle kokuthi unike amandla amasevisi we-Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Nika amandla amasevisi we-Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Faka</string>
+    <string name="common_google_play_services_install_text">I-%1$s ngeke ize iqalise ngaphandle kwamasevisi we-Google Play, angekho kusukela kudivayisi yakho.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Thola amasevisi we-Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Ukungatholakali kwamasevisi e-Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Iphutha lamasevisi we-Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s inenkinga ngamasevisi e-Google Play. Sicela uzame futhi.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ngeke isebenze ngaphandle kwamasevisi e-Google Play, angasekelwa idivayisi yakho.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Isibuyekezo</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">I-%1$s ngeke ize iqalise ngaphandle kokuthi ubuyekeze i-Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Buyekeza amasevisi we-Google Play</string>
+    <string name="common_google_play_services_updating_text">I-%1$s ngeke ize iqalise ngaphandle kwamasevisi we-Google Play, okwamanje abuyekezwayo.</string>
+    <string name="common_google_play_services_wear_update_text">Kudingeka inguqulo entsha yamasevisi we-Google Play. Izozibuyekeza ngokwayo maduze.</string>
+    <string name="common_open_on_phone">Vula kufoni</string>
+    <string name="common_signin_button_text">Ngena ngemvume</string>
+    <string name="common_signin_button_text_long">Ngena ngemvume nge-Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Ukwehluleka"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Ivuliwe kufoni yakho"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Impumelelo"</string>
+    <string name="context_menu_input_language_selection">Shintshela olimini olulandelayo: %s</string>
+    <string name="context_menu_input_language_selection_summary">Okwamanje isebenzisa: %s</string>
+    <string name="context_menu_layout_selection">Isakhiwo</string>
+    <string name="context_menu_see_all_gestures_selection">Buyekeza konke ukuthinta</string>
+    <string name="context_menu_settings_selection">Izilungiselelo</string>
+    <string name="context_menu_title">Izinketho zekhibhodi ye-braille</string>
+    <string name="context_menu_tutorial_finish">Qeda okokufundisa</string>
+    <string name="context_menu_tutorial_selection">Vula okokufundisa</string>
+    <string name="continue_tutorial_announcement">Asiqhubeke nokokufundisa. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Kopisha"</string>
+    <string name="done">Kwenziwe</string>
+    <string name="dont_show_again">Ungaphinde ubonise lokhu</string>
+    <string name="error_icon_content_description">Iphutha</string>
+    <string name="exit_scrim">Phuma</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Okuthuthukisiwe"</string>
+    <string name="exposed_dropdown_menu_content_description">Bonisa imenyu yokudonsela phansi</string>
+    <string name="finish_tutorial_announcement">Ibonisa ikhibhodi ye-braille. Jikisa ifoni yakho ukuze isikrini sibheke kude nawe. Zungezisa ifoni ngokuvundlile ngokuma kokwakheka kwezwe. Bese uqala ukuthayipha.</string>
+    <string name="function_off">Impendulo ekhulunywayo ivaliwe</string>
+    <string name="function_on">Impendulo ekhulunywayo ivuliwe</string>
+    <string name="gesture_add_space">Ukwengeza <b>isikhala</b>, swayiphela ngakwesokudla</string>
+    <string name="gesture_delete">Ukuze <b>ususe</b>, swayiphela ngakwesokunxele</string>
+    <string name="gesture_delete_word">Ukuze <b>ususe igama</b>, swayiphela ngakwesokunxele ngeminwe engu-2</string>
+    <string name="gesture_hide_keyboard">Ukuze <b>ufihle ikhibhodi</b>, swayiphela phansi ngeminwe engu-2</string>
+    <string name="gesture_move_cursor_backward">Ukuze <b>uhambise i-cursor yombhalo emuva</b>, swayiphela phezulu</string>
+    <string name="gesture_move_cursor_forward">Ukuze <b>uhambise i-cursor yombhalo phambili</b>, swayiphela phansi</string>
+    <string name="gesture_new_line">Ukuthola <b>ulayini omusha</b>, swayiphela ngakwesokudla ngeminwe engu-2</string>
+    <string name="gesture_next_keyboard">Ukushintshela <b>kwikhibhodi elandelayo</b>, swayiphela ngenzansi ngeminwe engu-3</string>
+    <string name="gesture_open_context_menu">Ukuthola <b>usizo nezinye izinketho</b>, swayiphela phezulu ngeminwe engu-3</string>
+    <string name="gesture_submit_text">Ukuthumela <b>umbhalo</b>, swayiphela ngeminwe engu-2</string>
+    <string name="granularity_character">Izinhlamvu</string>
+    <string name="granularity_default">Okuzenzakalelayo</string>
+    <string name="granularity_line">Imigqa</string>
+    <string name="granularity_native_control">Izilawuli</string>
+    <string name="granularity_native_heading">Izihloko</string>
+    <string name="granularity_native_link">Izixhumanisi</string>
+    <string name="granularity_paragraph">Amapharagrafu</string>
+    <string name="granularity_pseudo_web_special_content">Okuqukethwe okubalulekile</string>
+    <string name="granularity_web_control">Izilawuli</string>
+    <string name="granularity_web_heading">Izihloko</string>
+    <string name="granularity_web_landmark">Isici sokubonisa izwe</string>
+    <string name="granularity_web_link">Izixhumanisi</string>
+    <string name="granularity_web_list">Uhlu</string>
+    <string name="granularity_window">Amawindi</string>
+    <string name="granularity_word">Amagama</string>
+    <string name="hide_keyboard_window">Ikhibhodi ifihliwe</string>
+    <string name="hold_six_fingers_announcement">%s\nBeka phansi idivayisi yakho etafuleni. Bese, uthinta uphinde ubambe isikrini ngeminwe emi-3 engaphakathi yesandla ngasinye ngokuma okhululeke ukuthayipha ngakho.</string>
+    <string name="hold_six_fingers_description">Ngeke ukwazi ukusebenzisa ukuthinta kwe-TalkBack okuvamile kwikhibhodi ye-braille.\n\nUkuze uqalise, asisethe ukuma kwamachashazi we-braille ayi-6 lapho uthayipha.</string>
+    <string name="hold_six_fingers_inactive_announcement">Beka phansi idivayisi yakho etafuleni. Bese, uthinta uphinde ubambe isikrini ngeminwe emi-3 engaphakathi yesandla ngasinye ngokuma okhululeke ukuthayipha ngakho.</string>
+    <string name="how_to_use_braille_keyboard">Indlela yokusebenzisa ikhibhodi ye-braille</string>
+    <string name="icon_content_description">Isithonjana sebhokisi</string>
+    <string name="input_view_caption">Ikhobhodi ye-TalkBack - ukuthola usizo, vakashela ku-g.co/help/braille</string>
+    <string name="instruction_swipe_down">Ukuze uhambise i-cursor yombhalo phambili, swayiphela phansi</string>
+    <string name="instruction_swipe_down_2_fingers">Ukufihla ikhibhodi, swayipha ngenzansi ngeminwe engu-2</string>
+    <string name="instruction_swipe_down_3_fingers">Ukushintshela kwenye ikhibhodi yakho, swayipha ngenzansi ngeminwe engu-3</string>
+    <string name="instruction_swipe_left">Ukususa iletha, swayipha ngakwesokunxele</string>
+    <string name="instruction_swipe_right">Ukwengeza isikhala, swayipha ngakwesokudla</string>
+    <string name="instruction_swipe_up">Ukuze uhambise i-cursor yombhalo emuva, swayiphela phezulu</string>
+    <string name="instruction_swipe_up_3_fingers">Ukuqeda okokufundisa, swayipha phezulu ngeminwe engu-3</string>
+    <string name="instruction_type_letter_a">Thepha ichashazi 1 ngomunwe wakho wenkomba ongakwesokunxele ukuthayipha uhlamvu \"A\"</string>
+    <string name="instruction_type_letter_bcd">Okulandelayo, zama ukuthayipha amaletha athi B, C, no-D</string>
+    <string name="item_view_role_description">Ithebhu</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Cindezela ukuhlanganiswa kokhiye ngokhiye wokushintsha ongu-%1$s ukuze kusethwe isinqamuleli esisha.</string>
+    <string name="keycombo_assign_dialog_instruction">Cindezela ukuhlanganiswa kokhiye ukuze usethe isinqamuleli esisha. Kumele kuqukathe okungenani ukhiye ongu-ALT noma ongu-Control.</string>
+    <string name="keycombo_key_arrow_down">Umcibisholo waphansi</string>
+    <string name="keycombo_key_arrow_left">Umcimbisholo wangakwesokunxele</string>
+    <string name="keycombo_key_arrow_right">Umcibisholo wangakwesokudla</string>
+    <string name="keycombo_key_arrow_up">Umcibisholo waphezulu</string>
+    <string name="keycombo_key_modifier_alt">U-Alt</string>
+    <string name="keycombo_key_modifier_ctrl">U-Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Sesha</string>
+    <string name="keycombo_key_modifier_shift">U-Shift</string>
+    <string name="keycombo_unassigned">Akunikezwanga</string>
+    <string name="leave_keyboard">Shiya ikhibhodi ye-braille</string>
+    <string name="material_clock_toggle_content_description">Khetha u-AM noma u-PM</string>
+    <string name="material_hour_selection">Khetha ihora</string>
+    <string name="material_hour_suffix">%1$s ezimpondweni</string>
+    <string name="material_minute_selection">Khetha amaminithi</string>
+    <string name="material_minute_suffix">amaminithi angu-%1$s</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Shintshela kumodi yewashi ngokufakwa kwesikhathi.</string>
+    <string name="material_timepicker_hour">Ihora</string>
+    <string name="material_timepicker_minute">Iminithi</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Khetha isikhathi</string>
+    <string name="material_timepicker_text_input_mode_description">Shintshela kumodi yokufaka umbhalo ngokufaka isikhathi.</string>
+    <string name="mtrl_badge_numberless_content_description">Isaziso esisha</string>
+    <string name="mtrl_chip_close_icon_content_description">Susa i-%1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Izaziso ezintsha ezingaphezu kokungu-%1$d</string>
+    <string name="mtrl_picker_a11y_next_month">Shintshela kunyanga elandelayo</string>
+    <string name="mtrl_picker_a11y_prev_month">Shintshela kunyanga edlule</string>
+    <string name="mtrl_picker_announce_current_selection">Ukukhetha kwamanje: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Khetha Idethi</string>
+    <string name="mtrl_picker_date_header_unselected">Khetha idethi</string>
+    <string name="mtrl_picker_day_of_week_column_header">Ikholomu yezinsuku: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Ifomethi engavumelekile.</string>
+    <string name="mtrl_picker_invalid_format_example">Isibonelo: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Sebenzisa: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Ibanga elingavumelekile.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Zulela onyakeni %1$s</string>
+    <string name="mtrl_picker_out_of_range">Ikude kubanga: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Idethi yokuqala – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Idethi yokuphela</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Khetha Ibanga</string>
+    <string name="mtrl_picker_range_header_unselected">Idethi yokuqala – Idethi yokuphela</string>
+    <string name="mtrl_picker_save">Londoloza</string>
+    <string name="mtrl_picker_text_input_date_hint">Idethi</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Idethi yokuphela</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Idethi yokuqala</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Shintshela kwimodi yokufaka yekhalenda</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Thepha ukuze ushintshe ekukhetheni usuku</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Shintshela kwimodi yokufaka yombhalo</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Thepha ukuze ushintshele ekukhetheni unyaka</string>
+    <string name="multiple_languages_braille_ime_displayed_name">ikhibhodi ye-braille, %s</string>
+    <string name="next_keyboard">Ikhibhodi elandelayo</string>
+    <string name="next_step">Okulandelayo</string>
+    <string name="not_enough_touch_points_dialog_message">Idivayisi yakho ayisekeli amaphoyinti wokuthinta anele. Ukuthola ulwazi olwengeziwe, xhumana nomkhiqizi wedivayisi yakho</string>
+    <string name="not_enough_touch_points_dialog_title">Idivayisi yakho ayisekeli ikhibhodi ye-braille</string>
+    <string msgid="478774118347071097" name="not_set">"Ayisethiwe"</string>
+    <string name="number_announcement">Inombolo</string>
+    <string name="open_context_menu_announcement">Imenyu yezinketho ivuliwe. Jikisa ifoni yakho ibeke ngakuwe bese uyibamba ngendlela evamile. Manje usungakwazi ukusebenzisa ukuthinta kwe-TalkBack ukuzulazula. Swayiphela ngakwesokudla ukuze ubone okunye okungakhethwa.</string>
+    <string name="password_toggle_content_description">Bonisa iphasiwedi</string>
+    <string name="perform_action_next">Okulandelayo</string>
+    <string name="perform_action_submitting">Ukuthumela umbhalo</string>
+    <string name="perform_add_new_line_announcement">Umugqa omusha wengeziwe</string>
+    <string name="perform_add_space_announcement">Isikhala</string>
+    <string name="perform_delete_letter_announcement">Iletha isusiwe</string>
+    <string name="perform_delete_word_announcement">Igama lisusiwe</string>
+    <string name="perform_hide_keyboard_announcement">Fihla ikhibhodi</string>
+    <string name="perform_submit_text_announcement">Thumela umbhalo</string>
+    <string name="perform_switch_keyboard_announcement">Shintsha ikhibhodi</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" kukopishelwe kuklibhodi."</string>
+    <string name="preferred_language_title">Ulimi oluncanyelwayo</string>
+    <string name="read_out_deleted">%s kususiwe</string>
+    <string name="remaining_calibration_finish_announcement">Zonke izindawo zamachashazi zibuyekeziwe</string>
+    <string name="reminder_announcement">Swayipha phezulu ngeminwe engu-3 ukuthola okunye okungakhethwa</string>
+    <string name="result_swipe_down">I-CURSOR IHANJISWE PHAMBILI</string>
+    <string name="result_swipe_down_2_fingers">FIHLA IKHIBHODI</string>
+    <string name="result_swipe_down_3_fingers">IKHIBHODI ELANDELAYO</string>
+    <string name="result_swipe_left">SUSA</string>
+    <string name="result_swipe_right">ISIKHALA</string>
+    <string name="result_swipe_up">I-CURSOR IHANJISWE EMUVA</string>
+    <string name="rotate_orientation_announcement">Kusukela manje, ngeke ukwazi ukusebenzisa ukuthinta okuvamile kwe-TalkBack. I-TalkBack ayitholakali uma usebenzisa ikhibhodi ye-braille.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">Ifoni yakho iqondile. Ukuze uqhubeke, zungezisa ifoni yakho ivundle ukuze uhlangothi olude lube ngenzansi. Lokhu kujikisa isikrini ukuze singabheki ngakuwe. Lapho usukulungele, thepha kabili isikrini ukuze uqhubeke.</string>
+    <string name="rotate_orientation_description_1">Kusuka manje, ngeke ukwazi ukusebenzisa ukuthinta okuvamile kwe-TalkBack. I-TalkBack ayitholakali lapho usebenzisa ikhibhodi ye-braille.</string>
+    <string name="rotate_orientation_description_2">Ukuqala, bamba ifoni yakho ngale ndlela, isikrini sibheke kude nawe.</string>
+    <string name="rotate_orientation_inactive_announcement">Okokuqala, jikisa ifoni yakho ukuze isikrini sibheke kude nawe.\n\Okulandelayo, zungezisa ifoni ngokuvundlile ukuze ibe ukuma okundlaleke ngobubanzi. Izandla zakho kufanele zibambe amaphethelo amafushane wefoni. Isandla sakho sokudla kufanele sibambe ekugcineni ngembobo ye-USB. Phumuza iminwe yakho engaphakathi engu-3 kusikrini, futhi usebenzise ucikicane nesithupha sakho ukusekela ifoni.\n\nLapho usukulungele, thepha kabili kusikrini ukuze uqhubeke.\n\nUkuphuma kukhibhodi ye-braille, swayipha ngenzansi kuya phansi ngeminwe engu-3. Lokhu kushintshela kwikhibhodi yakho evamile.</string>
+    <string name="screen_away">Imodi yokuba kude nesikrini</string>
+    <string name="screen_away_detail">Bamba idivayisi ukude nesikrini (imodi yokuba kude nesikrini)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Sesha"</string>
+    <string name="set_up_braille_keyboard">Setha ikhibhodi ye-braille</string>
+    <string name="show_keyboard_window">Ibonisa i-%1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Ichashazi ngalinye elicindezelwe liyingxenye yokokufaka, ngisho noma ichashazi likhishwe ngaphambi kwamanye amachashazi</string>
+    <string name="summary_pref_reverse_dots">Ngokwesibonelo, shintsha izindawo zechashazi, ukuze amachashazi 1 no-4 ashintshe izindawo</string>
+    <string name="swipe_down_2_fingers_announcement">Ukufihla ikhibhodi, swayipha ngenzansi ngeminwe engu-2. Izame manje.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Fihla ikhibhodi. Ngokuvamile, lokhu kufihla ikhibhodi. Ikhibhodi ye-braille izohlala ivuliwe ngoba usephakathi nokokufundisa.</string>
+    <string name="swipe_down_3_fingers_announcement">Ukushintshela kwenye ikhibhodi yakho, swayipha ngenzansi ngeminwe engu-3. Izame manje.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Ikhibhodi elandelayo. Ngokuvamile, lokhu kushintshela kwibhodi elandelayo. Manje, uzohlala kukhibhodi ye-braille ngoba usephakathi nokokufundisa.</string>
+    <string name="swipe_down_announcement">Ukuze uhambise i-cursor yombhalo phambili, swayiphela phansi Izame manje.</string>
+    <string name="swipe_left_action_result_announcement">d isusiwe.</string>
+    <string name="swipe_left_announcement">Ukususa iletha, swayipha ngakwesokunxele. Izame manje.</string>
+    <string name="swipe_right_announcement">Ukwengeza isikhala, swayipha ngakwesokudla Izame manje.</string>
+    <string name="swipe_up_3_fingers_announcement">Ungase futhi uthayiphe kumodi ye-tabletop ngokubeka ifoni yakho phansi etafuleni. Ukuze uqedele okokufundisa, swayipha phezulu ngeminwe emi-3, bese uthola inketho yokokufundisa yokuqedela</string>
+    <string name="swipe_up_announcement">Ukuze uhambise i-cursor yombhalo emuva, swayiphela phezulu Izame manje.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Ukuze ushintshe ulimi lwakho ngenkathi uthayipha ngekhibhodi ye-braille, swayiphela phezulu ngeminwe emi-3. Bese ukhetha okuthi \"shintshela olimini olulandelayo\".</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Shintsha ulimi ngokushesha ngenkathi uthayipha</string>
+    <string name="switch_to_language_announcement">Ishintshelwe ku-%s</string>
+    <string name="switch_to_screen_away_announcement">Imodi yokuba kude nesikrini</string>
+    <string name="switch_to_tabletop_announcement">Imodi ye-tabletop. Beka idivayisi yakho nembobo yokushaja ngakwesokunxele. Ukuze ubuyekeze ukuma kwechashazi, cindezela iminwe eyi-6.</string>
+    <string name="symbol_almost_equals">Cishe kulingana ne-</string>
+    <string name="symbol_ampersand">I-Ampersand</string>
+    <string name="symbol_angle_bracket_left">Uphawu lokuncane kunokunye</string>
+    <string name="symbol_angle_bracket_right">Uphawu lokukhulu kunokunye</string>
+    <string name="symbol_apostrophe">I-aphostrofi</string>
+    <string name="symbol_approximately_equals">Cishe kuyalingana</string>
+    <string name="symbol_asterisk">I-Asterisk</string>
+    <string name="symbol_at_sign">E-</string>
+    <string name="symbol_backslash">I-Backslash</string>
+    <string name="symbol_beamed_sixteenth_note">Amanothi weshumu nesithupha avumelanisiwe</string>
+    <string name="symbol_black_circle">Umbuthano omnyama</string>
+    <string name="symbol_black_heart">Inhliziyo emnyama</string>
+    <string name="symbol_black_smallsquare">Isikwele esincane esimnyama</string>
+    <string name="symbol_black_square">Isikwele esimnyama</string>
+    <string name="symbol_black_star">Inkanyezi emnyama</string>
+    <string name="symbol_black_suit_of_diamonds">Isudi emnyama yamadayimane</string>
+    <string name="symbol_black_triangle_pointing_down">Unxantathu omnyama ukhombe phansi</string>
+    <string name="symbol_black_triangle_pointing_up">Unxantantu omnyama ukhombe phezulu</string>
+    <string name="symbol_broken_bar">Ibha ephukile</string>
+    <string name="symbol_bullet">Inhlamvu</string>
+    <string name="symbol_bullseye">Bullseye</string>
+    <string name="symbol_caret">Ikharethi</string>
+    <string name="symbol_celsius_degree">I-Celsius degree</string>
+    <string name="symbol_cent">Uphawu lwesenti</string>
+    <string name="symbol_circle_left_half_black">Indingilizi enohhafu omnyama ngakwesokunxele</string>
+    <string name="symbol_circle_right_half_black">Indingilizi enohhafu omnyama ngakwesokudla</string>
+    <string name="symbol_colon">Ikholoni</string>
+    <string name="symbol_comma">Ikhefu</string>
+    <string name="symbol_copyright">I-Copyright</string>
+    <string name="symbol_curly_bracket_left">Ubakaki ojikayo ongakwesobunxele</string>
+    <string name="symbol_curly_bracket_right">Ubakaki ojikayo ongakwesokudla</string>
+    <string name="symbol_currency_sign">Uphawu lwemali</string>
+    <string name="symbol_degree">Uphawu lwe-degree</string>
+    <string name="symbol_division">Uphawu lokuhlukanisa</string>
+    <string name="symbol_dollar_sign">Uphawu ledola</string>
+    <string name="symbol_downwards_arrow">Umcibisholo oya phansi</string>
+    <string name="symbol_eighth_note">Inothi lesishiyagalombili</string>
+    <string name="symbol_ellipsis">Okuqhubekayo</string>
+    <string name="symbol_em_dash">Ideshi le-Em</string>
+    <string name="symbol_en_dash">Ideshi le-En</string>
+    <string name="symbol_equal">Uphawu lokulingana</string>
+    <string name="symbol_euro">I-Euro</string>
+    <string name="symbol_exclamation_mark">Umbabazi</string>
+    <string name="symbol_fahrenheit_degree">I-Fahrenheit degree</string>
+    <string name="symbol_female">Uphawu lowesifazane</string>
+    <string name="symbol_full_width_ampersand">Ububanzi obugcwele be-ampersand</string>
+    <string name="symbol_full_width_asterisk">Ububanzi obugcwele benkanyezana</string>
+    <string name="symbol_full_width_circumflex">Ububanzi obugcwele be-circumflex</string>
+    <string name="symbol_full_width_colon">Ububanzi obugcwele bekholoni</string>
+    <string name="symbol_full_width_comma">Ububanzi obugcwele bekhefu</string>
+    <string name="symbol_full_width_exclamation_mark">Ububanzi obugcwele bophawu lokubabaza</string>
+    <string name="symbol_full_width_greater_than_sign">Ububanzi obugcwele bophawu lokukhulu</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ungci we-Ideographic</string>
+    <string name="symbol_full_width_left_curly_bracket">Ububanzi obugcwele bobakaki ojikayo ngakwesobunxele</string>
+    <string name="symbol_full_width_left_parenthesis">Ububanzi obugcwele be-parenthesis engakwesokunxele</string>
+    <string name="symbol_full_width_less_than_sign">Ububanzi obugcwele bophawu lokuncane</string>
+    <string name="symbol_full_width_question_mark">Ububanzi obugcwele bophawu lombuzo</string>
+    <string name="symbol_full_width_right_curly_bracket">Ububanzi obugcwele bobakaki ojikayo ngakwesokudla</string>
+    <string name="symbol_full_width_right_parenthesis">Ububanzi obugcwele be-parenthesis engakwesokudla</string>
+    <string name="symbol_full_width_semicolon">Ububanzi obugcwele bekhefanangqi</string>
+    <string name="symbol_full_width_tilde">Ububanzi obugcwele be-tilde</string>
+    <string name="symbol_full_width_underscore">Ububanzi obugcwele be-underscore</string>
+    <string name="symbol_grave_accent">I-Grave accent</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Icashaza elimaphakathi le-Halfwidth Katakana</string>
+    <string name="symbol_hyphen_minus">Ideshi</string>
+    <string name="symbol_ideographic_comma">Ukhefana we-Ideographic</string>
+    <string name="symbol_integral">I-Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Umbabazi okokushiwo</string>
+    <string name="symbol_inverted_question_mark">Umbuzi okokushiwo</string>
+    <string name="symbol_left_angle_bracket">Abakaki be-engele ekabili ngakwesobunxele</string>
+    <string name="symbol_left_black_lenticular_bracket">Ibhulakhethi le-Lenticular elimnyama ngakwesokunxele</string>
+    <string name="symbol_left_corner_bracket">Ibhulakhethi elikhoneni ngakwesokunxele</string>
+    <string name="symbol_left_double_quotation_mark">Uphawu olungakwesokunxele lwezicaphuni eziphindwe kabili</string>
+    <string name="symbol_left_single_quotation_mark">Uphawu olungakwesokunxele lwezicaphuni olulodwa</string>
+    <string name="symbol_leftwards_arrow">Umcibisholo ongakwesokunxele</string>
+    <string name="symbol_liter">Ilitha</string>
+    <string name="symbol_low_double_quote">Isilinganiso esikabili esiphansi</string>
+    <string name="symbol_male">Uphawu lowesilisa</string>
+    <string name="symbol_mathematical_left_angle_bracket">Ibhulakhethi le-engeli engakwesokunxele lezibalo</string>
+    <string name="symbol_mathematical_right_angle_bracket">Ibhulakhethi le-engeli engakwesokunxele lezibalo</string>
+    <string name="symbol_micro_sign">Uphawu olukhulu</string>
+    <string name="symbol_middle_dot">Icashaza eliphakathi</string>
+    <string name="symbol_multiplication">Uphawu lokuphindaphinda</string>
+    <string name="symbol_new_line">Umugqa omusha</string>
+    <string name="symbol_not_equals">Akulingani ne-</string>
+    <string name="symbol_not_sign">Akulona uphawu</string>
+    <string name="symbol_paragraph_mark">Umaki wepharagrafu</string>
+    <string name="symbol_parenthesis_left">Umkaki wangakwesokunxele</string>
+    <string name="symbol_parenthesis_right">Umkaki wangakwesokudla</string>
+    <string name="symbol_percent">Iphesenti</string>
+    <string name="symbol_period">Isikhathi</string>
+    <string name="symbol_pi">i-Pi</string>
+    <string name="symbol_plus_minus_sign">Uphawu lokuhlanganisa nokukhipha</string>
+    <string name="symbol_postal_mark">Uphawu lweposi</string>
+    <string name="symbol_pound">Iphawundi</string>
+    <string name="symbol_pound_sterling">Uphawu lohlobo lwemali lephawundi</string>
+    <string name="symbol_quarter_note">Inothi yekhotha</string>
+    <string name="symbol_question_mark">Uphawu lombuzo</string>
+    <string name="symbol_quotation_mark">Izicaphuni</string>
+    <string name="symbol_reference">Umaki wereferensi</string>
+    <string name="symbol_registered_trademark">Uphawu lentengiso olubhalisiwe</string>
+    <string name="symbol_right_angle_bracket">Abakaki be-engele ekabili ngakwesokudla</string>
+    <string name="symbol_right_black_lenticular_bracket">Ibhulakhethi le-Lenticular elimnyama ngakwesokudla</string>
+    <string name="symbol_right_corner_bracket">Ibhulakhethi elikhoneni ngakwesokudla</string>
+    <string name="symbol_right_double_quotation_mark">Uphawu olungakwesokudla lwezicaphuni eziphindwe kabili</string>
+    <string name="symbol_right_single_quotation_mark">Uphawu olungakwesokudla lwezicaphuni olulodwa</string>
+    <string name="symbol_rightwards_arrow">Umcibisholo wangakwesokudla</string>
+    <string name="symbol_rupee">I-Rupee</string>
+    <string name="symbol_section_sign">Uphawu lwesigaba</string>
+    <string name="symbol_semicolon">Ikhefanangqi</string>
+    <string name="symbol_slash">Umhwaphuluzo</string>
+    <string name="symbol_solar">Uphawu le-Solar</string>
+    <string name="symbol_space">Isikhala</string>
+    <string name="symbol_square_bracket_left">Ubakaku wesikwele ongakwesokunxele</string>
+    <string name="symbol_square_bracket_right">Ubakaki wangakwesokudla</string>
+    <string name="symbol_square_root">Impande yesikwele</string>
+    <string name="symbol_tilde">I-tilde</string>
+    <string name="symbol_trademark">Uphawu lomkhiqizo</string>
+    <string name="symbol_underscore">I-Underscore</string>
+    <string name="symbol_upwards_arrow">Umcibisholo waphezulu</string>
+    <string name="symbol_vertical_bar">Umugqa omile</string>
+    <string name="symbol_white_circle">Indingilizi emhlophe</string>
+    <string name="symbol_white_club_suit">Insudu yeklabhu emnyama</string>
+    <string name="symbol_white_diamond">Idayimondi emhlophe</string>
+    <string name="symbol_white_down_pointing_triangle">Unxantathu okhombe ezansi omhlophe</string>
+    <string name="symbol_white_heart">Inhliziyo emhlophe</string>
+    <string name="symbol_white_left_pointing_index">Inkomba ekhombe ngakwesokunxele emhlophe</string>
+    <string name="symbol_white_left_pointing_triangle">Unxantathu okhombe ngakwesokunxele omhlophe</string>
+    <string name="symbol_white_right_pointing_index">Inkomba ekhombe ngakwesokudla emhlophe</string>
+    <string name="symbol_white_right_pointing_triangle">Unxantathu okhombe ngakwesokudla omhlophe</string>
+    <string name="symbol_white_spade_suit">Insudu emhlophe</string>
+    <string name="symbol_white_square">Isikwele esimhlophe</string>
+    <string name="symbol_white_star">Inkanyezi emhlophe</string>
+    <string name="symbol_white_up_pointing_triangle">Unxantathu okhombe phezulu omhlophe</string>
+    <string name="symbol_won">Uphawu lwemali lwe-Won</string>
+    <string name="symbol_won_sign">Uwine uphawu lohlobo lwemali</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="tabletop">Imodi ye-tabletop</string>
+    <string name="tabletop_detail">Beka phansi idivayisi (imodi ye-tabletop)</string>
+    <string name="talkback_off_dialog_positive_button">Vula izilungiselelo zokufinyeleleka</string>
+    <string name="talkback_off_dialog_title">Vula i-TalkBack ukusebenzisa ikhibhodi ye-braille</string>
+    <string name="talkback_off_or_suspend_dialog_message">Uma i-TalkBack ivuliwe, ungathepha isikrini sakho ukuze ufake amasimbuli e-braille.</string>
+    <string name="talkback_suspend_dialog_title">Qhubeka ne-TalkBack ukuze usebenzise ikhibhothi ye-braille</string>
+    <string name="tap_to_continue">Thepha kabili noma yikuphi ukuqhubeka</string>
+    <string name="template_capital_letter">usonhlamvukazi %1$s</string>
+    <string name="template_current_tts_engine">Isebenzisa i-%1$s</string>
+    <string name="template_overlay_window">%1$s isithombe esingaphakathi kwesithombe</string>
+    <string name="template_password_selected">Izinhlamvu kusukela ku-%1$d ukuya ku-%2$d</string>
+    <string name="template_password_traversed">Uhlamvu olungu-%1$d</string>
+    <string name="template_scroll_from_count">Ibonisa into esuka ku-%1$d kwezingu-%2$d.</string>
+    <string name="template_scroll_from_to_count">Ibonisa izinto ezisuka ku-%1$d ukuya ku-%2$d kwezingu-%3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s ngakwesokunxele, %2$s ngakwesokudla</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s ngakwesokudla, %2$s ngakwesokunxele</string>
+    <string name="template_split_screen_mode_portrait">%1$s phezulu, %2$s phansi</string>
+    <string name="template_text_copied">kukopishiwe, %1$s</string>
+    <string name="template_viewpager_index_count">Ikhasi elingu-%1$d kwangu-%2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d kwangu-%2$d</string>
+    <string name="title_pref_accumulate_presses">Faka phakathi wonke amachashazi acindezelwe</string>
+    <string name="title_pref_reverse_dots">Buyisela emuva amachashazi</string>
+    <string name="tutorial_intro_description">Ngekhibhodi ye-braille, ungathepha isikrini sakho ukuze ufake i-braille yamachashazi ayi-6.\n\nAwusebenzisi i-Unified English Braille. Ukuze ushintshe ulimi lwakho lokuthayipha, iya kumasethingi e-TalkBack.\n\nUkuze uthayiphe i-braille, kudingeka ubambe futhi usebenzise ifoni yakho ngokwehlukile.</string>
+    <string name="type_letter_a_announcement">Gcina isikrini sibheke kude nawe. Bamba ifoni yakho ngazo zombili izandla, kunqenqema olufushane lwefoni, ukuze iminwe engu-3 emaphakathi yesandla ngasinye ikwazi ukuthinta isikrini.\n\nUmunwe wakho oyinkomba ongakwesokunxele kufanele ube echashazini 1. Manje, thepha ichashazi 1 ukuthayipha iletha “A”.</string>
+    <string name="type_letter_a_inactive_announcement">Thepha ichashazi 1 ngomunwe wakho oyinkomba ongakwesokunxele ukuthayipha “A”</string>
+    <string name="type_letter_inactive_announcement">Thepha %1$s ukuthayipha iletha %2$s</string>
+    <string name="typing_languages_title">Izilimi zokuthayipha</string>
+    <string name="untitled_window">okungenasihloko</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Izilungiselelo</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Vula ikhibhodi ye-braille&lt;/b>: Thepha okuthi Izilungiselelo ngezansi. Kusikrini esilandelayo, vula i-\"%1$s.\"
+    &lt;br>&lt;br>2. &lt;b>Sebenzisa ikhibhodi ye-braille&lt;/b>: Vula ikhibhodi yakho evamile, bese uthepha isithonjana esithi khetha ikhibhodi %2$s (ngokuvamile siba kwikhona elingezansi ngakwesokudla). Khetha i-\"%1$s.\"
+    &lt;br>&lt;br>Uma ungayiboni inketho yokushintsha amakhibhodi, zama ukufaka %3$s, ikhibhodi ye-Google.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Ukusebenzisa ikhibhodi ye-braille, vula ikhibhodi yakho evamile, bese uthepha isithonjana esithi khetha ikhibhodi%1$s (ngokuvamile siba kwikhona elingezansi ngakwesokudla). Khetha \"%2$s.\"
+  &lt;br>&lt;br>Uma ungayiboni inketho yokushintsha amakhibhodi, zama ukufaka %3$s, ikhibhodi ye-Google.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"VALA"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"VULA"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Ikhabethe lesenzo"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Ikhabethe lokuzulazula"</string>
+</resources>

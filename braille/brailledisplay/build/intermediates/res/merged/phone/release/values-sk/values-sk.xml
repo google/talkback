@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d nové upozornenie</item>
+    <item quantity="few">%d nové upozornenia</item>
+    <item quantity="many">%d new notifications</item>
+    <item quantity="other">%d nových upozornení</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Prejsť na plochu"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Prejsť nahor"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Ďalšie možnosti"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Hotovo"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Zobraziť všetky"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Vybrať aplikáciu"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"VYP."</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ZAP."</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"odstrániť"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"medzerník"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Vyhľadať…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Vymazať dopyt"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Vyhľadávací dopyt"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Hľadať"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Odoslať dopyt"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Hlasové vyhľadávanie"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Zdieľať s"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Zdieľať s aplikáciou <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Zbaliť"</string>
+    <string name="bottomsheet_action_expand_halfway">Rozbaliť napoly</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Zadané znaky: %1$d z %2$d</string>
+    <string name="character_counter_overflowed_content_description">Bol prekročený povolený počet znakov (%1$d z %2$d)</string>
+    <string name="clear_text_end_icon_content_description">Vymazať text</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Povoliť</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Aplikácia %1$s bude fungovať až po povolení služieb Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Povoliť služby Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Inštalovať</string>
+    <string name="common_google_play_services_install_text">Na spustenie aplikácie %1$s sa vyžadujú služby Google Play, ktoré na zariadení nemáte.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Inštalovať služby Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Dostupnosť služieb Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Chyba služieb Google Play</string>
+    <string name="common_google_play_services_unknown_issue">Aplikácia %1$s má problémy so službami Google Play. Skúste to znova.</string>
+    <string name="common_google_play_services_unsupported_text">Aplikáciu %1$s nebude možné spustiť bez služieb Google Play, ktoré vaše zariadenie nepodporuje.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Aktualizovať</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Aplikáciu %1$s bude možné spustiť až po aktualizácii služieb Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Aktualizácia služieb Google Play</string>
+    <string name="common_google_play_services_updating_text">Na spustenie aplikácie %1$s sa vyžadujú služby Google Play, ktoré sa momentálne aktualizujú.</string>
+    <string name="common_google_play_services_wear_update_text">Vyžaduje sa nová verzia služieb Google Play. Aktualizujú sa automaticky v najbližšom čase.</string>
+    <string name="common_open_on_phone">Otvoriť v telefóne</string>
+    <string name="common_signin_button_text">Prihlásiť sa</string>
+    <string name="common_signin_button_text_long">Prihlásiť sa do účtu Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Nepodarilo sa"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Otvorené v telefóne"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Úspech"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopírovať"</string>
+    <string name="error_icon_content_description">Chyba</string>
+    <string name="exit_scrim">Ukončiť</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Rozšírené"</string>
+    <string name="exposed_dropdown_menu_content_description">Zobraziť rozbaľovaciu ponuku</string>
+    <string name="function_off">Hovorená spätná väzba je vypnutá</string>
+    <string name="function_on">Hovorená spätná väzba je zapnutá</string>
+    <string name="granularity_character">Znaky</string>
+    <string name="granularity_default">Predvolené</string>
+    <string name="granularity_line">Riadky</string>
+    <string name="granularity_native_control">Ovládanie</string>
+    <string name="granularity_native_heading">Nadpisy</string>
+    <string name="granularity_native_link">Odkazy</string>
+    <string name="granularity_paragraph">Odseky</string>
+    <string name="granularity_pseudo_web_special_content">Špeciálny obsah</string>
+    <string name="granularity_web_control">Ovládanie</string>
+    <string name="granularity_web_heading">Nadpisy</string>
+    <string name="granularity_web_landmark">Orientačné body</string>
+    <string name="granularity_web_link">Odkazy</string>
+    <string name="granularity_web_list">Zoznamy</string>
+    <string name="granularity_window">Okná</string>
+    <string name="granularity_word">Slová</string>
+    <string name="hide_keyboard_window">klávesnica je skrytá</string>
+    <string name="icon_content_description">Ikona dialógového okna</string>
+    <string name="item_view_role_description">Tabulátor</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Ak chcete nastaviť novú skratku, stlačte kombináciu klávesov s modifikačným klávesom %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Stlačením kombinácie klávesov nastavíte novú skratku. Musí obsahovať kláves ALT alebo CTRL.</string>
+    <string name="keycombo_key_arrow_down">Šípka nadol</string>
+    <string name="keycombo_key_arrow_left">Šípka doľava</string>
+    <string name="keycombo_key_arrow_right">Šípka doprava</string>
+    <string name="keycombo_key_arrow_up">Šípka nahor</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Hľadať</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Nepriradené</string>
+    <string name="material_clock_toggle_content_description">Vyberte AM alebo PM</string>
+    <string name="material_hour_selection">Vybrať hodinu</string>
+    <string name="material_hour_suffix">%1$s</string>
+    <string name="material_minute_selection">Vyberte minúty</string>
+    <string name="material_minute_suffix">%1$s min</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Ak chcete zadať čas, prepnite na režim hodín.</string>
+    <string name="material_timepicker_hour">Hodina</string>
+    <string name="material_timepicker_minute">Minúta</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Vyberte čas</string>
+    <string name="material_timepicker_text_input_mode_description">Ak chcete zadať čas, prepnite na textový režim vstupu</string>
+    <string name="mtrl_badge_numberless_content_description">Nové upozornenie</string>
+    <string name="mtrl_chip_close_icon_content_description">Odstrániť položku %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Viac než %1$d nových upozornení</string>
+    <string name="mtrl_picker_a11y_next_month">Ďalší mesiac</string>
+    <string name="mtrl_picker_a11y_prev_month">Predchádzajúci mesiac</string>
+    <string name="mtrl_picker_announce_current_selection">Aktuálny výber: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Vyberte dátum</string>
+    <string name="mtrl_picker_date_header_unselected">Vybraný dátum</string>
+    <string name="mtrl_picker_day_of_week_column_header">Stĺpec dní: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Neplatný formát.</string>
+    <string name="mtrl_picker_invalid_format_example">Príklad: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Použite: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Neplatný rozsah.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Prejsť na rok %1$s</string>
+    <string name="mtrl_picker_out_of_range">Mimo rozsahu: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Dátum začatia – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – dátum ukončenia</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Vyberte rozsah</string>
+    <string name="mtrl_picker_range_header_unselected">Dátum začatia – dátum ukončenia</string>
+    <string name="mtrl_picker_save">Uložiť</string>
+    <string name="mtrl_picker_text_input_date_hint">Dátum</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Dátum ukončenia</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Dátum začatia</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">r</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Prepnúť na kalendárový režim vstupu</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Klepnutím prepnete na výber dňa</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Prepnúť na textový režim vstupu</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Klepnutím prepnete na výber roka</string>
+    <string msgid="478774118347071097" name="not_set">"Nenastavené"</string>
+    <string name="password_toggle_content_description">Zobraziť heslo</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Položka <ns1:g id="SUMMARY">%1$s</ns1:g> bola skopírovaná do schránky."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Hľadať"</string>
+    <string name="show_keyboard_window">Zobrazuje sa %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Približne sa rovná</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Znak menej ako</string>
+    <string name="symbol_angle_bracket_right">Znak viac ako</string>
+    <string name="symbol_apostrophe">Apostrof</string>
+    <string name="symbol_approximately_equals">Približne sa rovná</string>
+    <string name="symbol_asterisk">Hviezdička</string>
+    <string name="symbol_at_sign">Zavináč</string>
+    <string name="symbol_backslash">Obrátená lomka</string>
+    <string name="symbol_beamed_sixteenth_note">Spojené šestnástinové noty</string>
+    <string name="symbol_black_circle">Čierny kruh</string>
+    <string name="symbol_black_heart">Čierne srdce</string>
+    <string name="symbol_black_smallsquare">Malý čierny štvorec</string>
+    <string name="symbol_black_square">Čierny štvorec</string>
+    <string name="symbol_black_star">Čierna hviezda</string>
+    <string name="symbol_black_suit_of_diamonds">Čierne kára</string>
+    <string name="symbol_black_triangle_pointing_down">Čierny trojuholník smerujúci nadol</string>
+    <string name="symbol_black_triangle_pointing_up">Čierny trojuholník smerujúci nahor</string>
+    <string name="symbol_broken_bar">Prerušená zvislá čiara</string>
+    <string name="symbol_bullet">Odrážka</string>
+    <string name="symbol_bullseye">Dva sústredené kruhy</string>
+    <string name="symbol_caret">Strieška</string>
+    <string name="symbol_celsius_degree">Stupeň Celzia</string>
+    <string name="symbol_cent">Znak centa</string>
+    <string name="symbol_circle_left_half_black">Kruh s čiernou ľavou polovicou</string>
+    <string name="symbol_circle_right_half_black">Kruh s čiernou pravou polovicou</string>
+    <string name="symbol_colon">Dvojbodka</string>
+    <string name="symbol_comma">Čiarka</string>
+    <string name="symbol_copyright">Kopirajt</string>
+    <string name="symbol_curly_bracket_left">Ľavá zložená zátvorka</string>
+    <string name="symbol_curly_bracket_right">Pravá zložená zátvorka</string>
+    <string name="symbol_currency_sign">Znak meny</string>
+    <string name="symbol_degree">Znak stupňa</string>
+    <string name="symbol_division">Znak delenia</string>
+    <string name="symbol_dollar_sign">Dolár</string>
+    <string name="symbol_downwards_arrow">Šípka dole</string>
+    <string name="symbol_eighth_note">Osminová nota</string>
+    <string name="symbol_ellipsis">Tri bodky</string>
+    <string name="symbol_em_dash">Dlhá pomlčka</string>
+    <string name="symbol_en_dash">Stredná pomlčka</string>
+    <string name="symbol_equal">Rovná sa</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Výkričník</string>
+    <string name="symbol_fahrenheit_degree">Stupeň Fahrenheita</string>
+    <string name="symbol_female">Symbol ženy</string>
+    <string name="symbol_full_width_ampersand">Ampersand</string>
+    <string name="symbol_full_width_asterisk">Hviezdička</string>
+    <string name="symbol_full_width_circumflex">Vokáň</string>
+    <string name="symbol_full_width_colon">Dvojbodka</string>
+    <string name="symbol_full_width_comma">Čiarka</string>
+    <string name="symbol_full_width_exclamation_mark">Výkričník</string>
+    <string name="symbol_full_width_greater_than_sign">Znak viac ako</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideografická bodka</string>
+    <string name="symbol_full_width_left_curly_bracket">Ľavá zložená zátvorka</string>
+    <string name="symbol_full_width_left_parenthesis">Ľavá zátvorka</string>
+    <string name="symbol_full_width_less_than_sign">Znak menej ako</string>
+    <string name="symbol_full_width_question_mark">Otáznik</string>
+    <string name="symbol_full_width_right_curly_bracket">Pravá zložená zátvorka</string>
+    <string name="symbol_full_width_right_parenthesis">Pravá zátvorka</string>
+    <string name="symbol_full_width_semicolon">Bodkočiarka</string>
+    <string name="symbol_full_width_tilde">Vlnovka</string>
+    <string name="symbol_full_width_underscore">Podčiarkovník</string>
+    <string name="symbol_grave_accent">Gravis</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Stredová bodka Katakana s polovičnou hrúbkou</string>
+    <string name="symbol_hyphen_minus">Pomlčka</string>
+    <string name="symbol_ideographic_comma">Ideografická čiarka</string>
+    <string name="symbol_integral">Integrál</string>
+    <string name="symbol_inverted_exclamation_mark">Obrátený výkričník</string>
+    <string name="symbol_inverted_question_mark">Obrátený otáznik</string>
+    <string name="symbol_left_angle_bracket">Ľavá dvojitá lomená zátvorka</string>
+    <string name="symbol_left_black_lenticular_bracket">Ľavá čierna šošovkovitá zátvorka</string>
+    <string name="symbol_left_corner_bracket">Ľavá rohová zátvorka</string>
+    <string name="symbol_left_double_quotation_mark">Ľavá dvojitá úvodzovka</string>
+    <string name="symbol_left_single_quotation_mark">Ľavá jednoduchá úvodzovka</string>
+    <string name="symbol_leftwards_arrow">Šípka doľava</string>
+    <string name="symbol_liter">Liter</string>
+    <string name="symbol_low_double_quote">Dolné úvodzovky</string>
+    <string name="symbol_male">Symbol muža</string>
+    <string name="symbol_mathematical_left_angle_bracket">Matematická ľavá lomená zátvorka</string>
+    <string name="symbol_mathematical_right_angle_bracket">Matematická pravá lomená zátvorka</string>
+    <string name="symbol_micro_sign">Znak mikro</string>
+    <string name="symbol_middle_dot">Stredová bodka</string>
+    <string name="symbol_multiplication">Znak násobenia</string>
+    <string name="symbol_new_line">Nový riadok</string>
+    <string name="symbol_not_equals">Nerovná sa</string>
+    <string name="symbol_not_sign">Znak logického záporu</string>
+    <string name="symbol_paragraph_mark">Znak odseku</string>
+    <string name="symbol_parenthesis_left">Ľavá zátvorka</string>
+    <string name="symbol_parenthesis_right">Pravá zátvorka</string>
+    <string name="symbol_percent">Percento</string>
+    <string name="symbol_period">Bodka</string>
+    <string name="symbol_pi">Pí</string>
+    <string name="symbol_plus_minus_sign">Znamienko plus mínus</string>
+    <string name="symbol_postal_mark">Poštová pečiatka</string>
+    <string name="symbol_pound">Krížik</string>
+    <string name="symbol_pound_sterling">Znak meny (libra)</string>
+    <string name="symbol_quarter_note">Štvrtinová nota</string>
+    <string name="symbol_question_mark">Otáznik</string>
+    <string name="symbol_quotation_mark">Úvodzovky</string>
+    <string name="symbol_reference">Znak odkazu</string>
+    <string name="symbol_registered_trademark">Registrovaná ochranná známka</string>
+    <string name="symbol_right_angle_bracket">Pravá dvojitá lomená zátvorka</string>
+    <string name="symbol_right_black_lenticular_bracket">Pravá čierna šošovkovitá zátvorka</string>
+    <string name="symbol_right_corner_bracket">Pravá rohová zátvorka</string>
+    <string name="symbol_right_double_quotation_mark">Pravá dvojitá úvodzovka</string>
+    <string name="symbol_right_single_quotation_mark">Pravá jednoduchá úvodzovka</string>
+    <string name="symbol_rightwards_arrow">Šípka doprava</string>
+    <string name="symbol_rupee">Rupia</string>
+    <string name="symbol_section_sign">Paragraf</string>
+    <string name="symbol_semicolon">Bodkočiarka</string>
+    <string name="symbol_slash">Lomka</string>
+    <string name="symbol_solar">Bodka v kruhu</string>
+    <string name="symbol_space">Medzerník</string>
+    <string name="symbol_square_bracket_left">Ľavá hranatá zátvorka</string>
+    <string name="symbol_square_bracket_right">Pravá hranatá zátvorka</string>
+    <string name="symbol_square_root">Odmocnina</string>
+    <string name="symbol_tilde">Tilda</string>
+    <string name="symbol_trademark">Ochranná známka</string>
+    <string name="symbol_underscore">Podčiarkovník</string>
+    <string name="symbol_upwards_arrow">Šípka hore</string>
+    <string name="symbol_vertical_bar">Zvislá čiara</string>
+    <string name="symbol_white_circle">Biely kruh</string>
+    <string name="symbol_white_club_suit">Biely kríž</string>
+    <string name="symbol_white_diamond">Biele káro</string>
+    <string name="symbol_white_down_pointing_triangle">Biely trojuholník špičkou dole</string>
+    <string name="symbol_white_heart">Biele srdce</string>
+    <string name="symbol_white_left_pointing_index">Biely symbol ukazováka doľava</string>
+    <string name="symbol_white_left_pointing_triangle">Biely trojuholník špičkou doľava</string>
+    <string name="symbol_white_right_pointing_index">Biely symbol ukazováka doprava</string>
+    <string name="symbol_white_right_pointing_triangle">Biely trojuholník špičkou doprava</string>
+    <string name="symbol_white_spade_suit">Biela pika</string>
+    <string name="symbol_white_square">Biely štvorec</string>
+    <string name="symbol_white_star">Biela hviezda</string>
+    <string name="symbol_white_up_pointing_triangle">Biely trojuholník špičkou nahor</string>
+    <string name="symbol_won">Znak meny (won)</string>
+    <string name="symbol_won_sign">Znak meny (won)</string>
+    <string name="symbol_yen">Jen</string>
+    <string name="template_capital_letter">veľké %1$s</string>
+    <string name="template_current_tts_engine">Používa sa %1$s</string>
+    <string name="template_overlay_window">%1$s, obraz v obraze</string>
+    <string name="template_password_selected">Znaky %1$d až %2$d</string>
+    <string name="template_password_traversed">Znak %1$d</string>
+    <string name="template_scroll_from_count">Zobrazuje sa položka %1$d z %2$d</string>
+    <string name="template_scroll_from_to_count">Zobrazujú sa položky %1$d až %2$d z %3$d</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s vľavo, %2$s vpravo</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s vpravo, %2$s vľavo</string>
+    <string name="template_split_screen_mode_portrait">%1$s hore, %2$s dole</string>
+    <string name="template_text_copied">skopírované, %1$s</string>
+    <string name="template_viewpager_index_count">Stránka %1$d z %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d z %2$d</string>
+    <string name="untitled_window">bez názvu</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"VYP."</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ZAP."</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Vysúvací panel akcií"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Navigačný vysúvací panel"</string>
+</resources>

@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-es-v26/values-es-v26.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/build/intermediates/packaged_res/phone/release/values-es-v26/values-es-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,149,246,343",
+                        "endColumns": "93,96,96,96",
+                        "endOffsets": "144,241,338,435"
+                    }
+                }
+            ]
+        }
+    ]
+}

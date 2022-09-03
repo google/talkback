@@ -1,0 +1,26 @@
+{
+  "buildFiles": [
+    "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk",
+    "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-23 NDK_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/obj NDK_LIBS_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/lib clean"
+  ],
+  "buildTargetsCommand": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-23 NDK_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/obj NDK_LIBS_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/lib {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "louis-wearDebug-x86_64": {
+      "artifactName": "louis",
+      "buildCommand": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-23 NDK_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/obj NDK_LIBS_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/lib /Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/obj/local/x86_64/liblouis.so",
+      "abi": "x86_64",
+      "output": "/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/obj/local/x86_64/liblouis.so",
+      "runtimeFiles": []
+    },
+    "louiswrap-wearDebug-x86_64": {
+      "artifactName": "louiswrap",
+      "buildCommand": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk APP_ABI\u003dx86_64 NDK_ALL_ABIS\u003dx86_64 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-23 NDK_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/obj NDK_LIBS_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/lib /Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/obj/local/x86_64/liblouiswrap.so",
+      "abi": "x86_64",
+      "output": "/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearDebug/obj/local/x86_64/liblouiswrap.so",
+      "runtimeFiles": []
+    }
+  }
+}

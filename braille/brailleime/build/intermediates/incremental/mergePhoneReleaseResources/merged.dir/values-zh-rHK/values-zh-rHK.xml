@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">%s 點</item>
+    <item quantity="other">%s 點</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d 個新通知</item>
+    <item quantity="other">%d 個新通知</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d 天</item>
+<item quantity="other">%d 天</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d 小時</item>
+<item quantity="other">%d 小時</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d 分鐘</item>
+<item quantity="other">%d 分鐘</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d 天</item>
+<item quantity="other">%d 天</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d 小時</item>
+<item quantity="other">%d 小時</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d 分鐘</item>
+<item quantity="other">%d 分鐘</item>
+</plurals>
+    <string name="a11y_no_data">冇資料</string>
+    <string name="a11y_no_permission">冇權存取資料</string>
+    <string name="a11y_template_range">%1$f (一共 %2$f)</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"瀏覽主頁"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"向上瀏覽"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"更多選項"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"完成"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"查看全部"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"選擇應用程式"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"關閉"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"開啟"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"刪除"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter 鍵"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"空白鍵"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"搜尋…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"清除查詢"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"搜尋查詢"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"搜尋"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"提交查詢"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"語音搜尋"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"分享對象"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"使用「<ns1:g id="APPLICATION_NAME">%s</ns1:g>」分享"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"收合"</string>
+    <string name="auto_detect">配合您手持裝置的方式</string>
+    <string name="bottomsheet_action_expand_halfway">展開一半</string>
+    <string name="braille_ime_displayed_name">點字鍵盤</string>
+    <string name="braille_ime_service_name">TalkBack 點字鍵盤</string>
+    <string name="braille_keyboard">點字鍵盤</string>
+    <string name="braille_keyboard_gestures">點字鍵盤手勢</string>
+    <string name="braille_keyboard_strip_button">切換至觸控螢幕鍵盤</string>
+    <string name="braille_keyboard_strip_summary">已連接外部點字顯示器，您可以使用這個點字顯示器在此裝置上輸入文字。\n您亦可以切換為觸控螢幕的點字鍵盤或下一種輸入法。</string>
+    <string name="braille_tutorial_title">點字鍵盤教學課程</string>
+    <string name="bring_ime_settings_page">您未啟用其他鍵盤，請前往鍵盤設定</string>
+    <string name="buttons_rect_bottom_center">正下方</string>
+    <string name="buttons_rect_bottom_left">左下方</string>
+    <string name="buttons_rect_bottom_right">右下方</string>
+    <string name="buttons_rect_left_bottom">下方靠左</string>
+    <string name="buttons_rect_left_center">中間靠左</string>
+    <string name="buttons_rect_left_top">上方靠左</string>
+    <string name="buttons_rect_right_bottom">下方靠右</string>
+    <string name="buttons_rect_right_center">中間靠右</string>
+    <string name="buttons_rect_right_top">上方靠右</string>
+    <string name="buttons_rect_top_center">正上方</string>
+    <string name="buttons_rect_top_left">左上方</string>
+    <string name="buttons_rect_top_right">右上方</string>
+    <string name="buttons_round_bottom_center">正下方</string>
+    <string name="buttons_round_bottom_left">左下方</string>
+    <string name="buttons_round_bottom_left_lower">左下方較低位置</string>
+    <string name="buttons_round_bottom_left_upper">左下方較高位置</string>
+    <string name="buttons_round_bottom_right">右下方</string>
+    <string name="buttons_round_bottom_right_lower">右下方較低位置</string>
+    <string name="buttons_round_bottom_right_upper">右下方較高位置</string>
+    <string name="buttons_round_center_left">中間靠左</string>
+    <string name="buttons_round_center_right">中間靠右</string>
+    <string name="buttons_round_top_center">正上方</string>
+    <string name="buttons_round_top_left">左上方</string>
+    <string name="buttons_round_top_left_lower">左上方較低位置</string>
+    <string name="buttons_round_top_left_upper">左上方較高位置</string>
+    <string name="buttons_round_top_right">右上方</string>
+    <string name="buttons_round_top_right_lower">右上方較低位置</string>
+    <string name="buttons_round_top_right_upper">右上方較高位置</string>
+    <string name="calibration_fail_announcement">更新唔到圓點位置。請用 6 隻手指㩒住螢幕，然後再試一次。</string>
+    <string name="calibration_finish_announcement">更新咗圓點位置</string>
+    <string name="calibration_step1_hold_left_finger_announcement">更新緊圓點位置。首先，記錄左手嘅圓點。請用左手中間 3 隻手指㩒住螢幕。</string>
+    <string name="calibration_step1_hold_right_finger_announcement">更新緊圓點位置。首先，記錄右手嘅圓點。請用右手中間 3 隻手指㩒住螢幕。</string>
+    <string name="calibration_step2_hold_left_finger_announcement">更新咗點 1、點 2 同點 3 嘅位置。跟住，記錄左手嘅圓點。請用左手中間 3 隻手指㩒住螢幕。</string>
+    <string name="calibration_step2_hold_right_finger_announcement">更新咗點 1、點 2 同點 3 嘅位置。跟住，記錄右手嘅圓點。請用右手中間 3 隻手指㩒住螢幕。</string>
+    <string name="capitalize_announcement">大楷</string>
+    <string name="character_collapse_template"> %1$d 個%2$s﻿</string>
+    <string name="character_counter_content_description">已輸入 %1$d 個字元 (共 %2$d 個)</string>
+    <string name="character_counter_overflowed_content_description">超出字元限制 %1$d 個字元 (上限 %2$d 個字元)</string>
+    <string name="clear_text_end_icon_content_description">清除文字</string>
+    <string name="code_user_facing_name_ar">阿拉伯文</string>
+    <string name="code_user_facing_name_es">西班牙文</string>
+    <string name="code_user_facing_name_fr">法文</string>
+    <string name="code_user_facing_name_pl">波蘭文</string>
+    <string name="code_user_facing_name_ueb1">統一英文一級點字</string>
+    <string name="code_user_facing_name_ueb2">統一英文二級點字</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">啟用</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">您必須啟用 Google Play 服務，方可執行「%1$s」。</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">啟用 Google Play 服務</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">安裝</string>
+    <string name="common_google_play_services_install_text">您的裝置尚未安裝 Google Play 服務，因此無法執行「%1$s」。</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">安裝 Google Play 服務</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play 服務的適用範圍</string>
+    <string name="common_google_play_services_notification_ticker">Google Play 服務錯誤</string>
+    <string name="common_google_play_services_unknown_issue">「%1$s」存取 Google Play 服務時發生問題。請稍後再試一次。</string>
+    <string name="common_google_play_services_unsupported_text">您的裝置不支援 Google Play 服務，因此無法執行「%1$s」。</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">更新</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">您必須更新「Google Play 服務」，才能執行 %1$s。</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">更新 Google Play 服務</string>
+    <string name="common_google_play_services_updating_text">正在更新 Google Play 服務，更新完成後方可執行「%1$s」。</string>
+    <string name="common_google_play_services_wear_update_text">需要使用新版本的 Google Play 服務。更新會即將自動開始。</string>
+    <string name="common_open_on_phone">在手機開啟</string>
+    <string name="common_signin_button_text">登入</string>
+    <string name="common_signin_button_text_long">透過 Google 登入</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"失敗"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"已經喺手機度開咗"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"成功"</string>
+    <string name="context_menu_input_language_selection">切換至下一個輸入語言：%s</string>
+    <string name="context_menu_input_language_selection_summary">目前使用的語言是：%s</string>
+    <string name="context_menu_layout_selection">版面配置</string>
+    <string name="context_menu_see_all_gestures_selection">查看所有手勢</string>
+    <string name="context_menu_settings_selection">設定</string>
+    <string name="context_menu_title">點字鍵盤選項</string>
+    <string name="context_menu_tutorial_finish">完成教學課程</string>
+    <string name="context_menu_tutorial_selection">開啟教學課程</string>
+    <string name="continue_tutorial_announcement">宜家繼續教學課程。%1$s</string>
+    <string msgid="3209159573327985035" name="copy">"複製"</string>
+    <string name="dismiss_overlay_button_label">結束</string>
+    <string name="done">完成</string>
+    <string name="dont_show_again">不要再顯示此選框</string>
+    <string name="error_icon_content_description">錯誤</string>
+    <string name="exit_scrim">退出</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"進階"</string>
+    <string name="exposed_dropdown_menu_content_description">顯示下拉式選單</string>
+    <string name="finish_tutorial_announcement">顯示緊點字鍵盤。轉一轉手機方向，令到螢幕向外。水平旋轉打橫部手機，然後開始打字。</string>
+    <string name="function_off">閂咗朗讀功能</string>
+    <string name="function_on">開咗朗讀功能</string>
+    <string name="generic_cancel">取消</string>
+    <string name="generic_yes">是</string>
+    <string name="gesture_add_space">如要新增<b>空格</b>，請向右滑動</string>
+    <string name="gesture_delete">如要<b>刪除</b>點字，請向左滑動</string>
+    <string name="gesture_delete_word">如要<b>刪除某個字詞</b>，請以 2 隻手指向左滑動</string>
+    <string name="gesture_hide_keyboard">如果要<b>隱藏鍵盤</b>，請用 2 隻手指向下掃</string>
+    <string name="gesture_move_cursor_backward">如要<b>將游標向後移</b>，請向上滑動</string>
+    <string name="gesture_move_cursor_forward">如要<b>將游標向前移</b>，請向下滑動</string>
+    <string name="gesture_new_line">如要<b>插入新行</b>，請以 2 隻手指向右滑動</string>
+    <string name="gesture_next_keyboard">如要切換至<b>下一個鍵盤</b>，請以 3 隻手指向下滑動</string>
+    <string name="gesture_open_context_menu">如需<b>說明和其他選項</b>，請以 3 隻手指向上滑動</string>
+    <string name="gesture_submit_text">如要<b>提交文字</b>，請以 2 隻手指向上滑動</string>
+    <string name="granularity_character">字元</string>
+    <string name="granularity_default">預設</string>
+    <string name="granularity_line">行</string>
+    <string name="granularity_native_control">控制項</string>
+    <string name="granularity_native_heading">標題</string>
+    <string name="granularity_native_link">連結</string>
+    <string name="granularity_paragraph">段</string>
+    <string name="granularity_pseudo_web_special_content">特殊內容</string>
+    <string name="granularity_web_control">控制</string>
+    <string name="granularity_web_heading">標題</string>
+    <string name="granularity_web_landmark">位置標記</string>
+    <string name="granularity_web_link">連結</string>
+    <string name="granularity_web_list">清單</string>
+    <string name="granularity_window">視窗</string>
+    <string name="granularity_word">字</string>
+    <string name="hide_keyboard_window">隱藏咗鍵盤</string>
+    <string name="hold_six_fingers_announcement">%s\n請將裝置平放喺枱面。然後用雙手中間 3 隻手指喺螢幕上面㩒住方便你輸入點字嘅位置。</string>
+    <string name="hold_six_fingers_description">標準嘅 TalkBack 手勢唔可以同點字鍵盤一齊用。\n\n如果要開始使用，請設定 6 個輸入點字嘅位置。</string>
+    <string name="hold_six_fingers_inactive_announcement">請將裝置平放喺枱面。然後用雙手中間 3 隻手指喺螢幕上面㩒住方便你輸入點字嘅位置。</string>
+    <string name="how_to_use_braille_keyboard">如何使用點字鍵盤</string>
+    <string name="icon_content_description">對話框圖示</string>
+    <string name="input_view_caption">TalkBack 點字鍵盤 - 請前往 g.co/help/braille 尋求協助</string>
+    <string name="instruction_swipe_down">如要將游標向前移，請向下滑動</string>
+    <string name="instruction_swipe_down_2_fingers">如要隱藏鍵盤，請以 2 隻手指向下滑動</string>
+    <string name="instruction_swipe_down_3_fingers">如要切換至其他鍵盤，請以 3 隻手指向下滑動</string>
+    <string name="instruction_swipe_left">如要刪除某個字母，請向左滑動</string>
+    <string name="instruction_swipe_right">如要新增空格，請向右滑動</string>
+    <string name="instruction_swipe_up">如要將游標向後移，請向上滑動</string>
+    <string name="instruction_swipe_up_3_fingers">如要結束教學課程，請以 3 隻手指向上滑動</string>
+    <string name="instruction_type_letter_a">以左手食指輕按點 1，即可輸入字母「A」</string>
+    <string name="instruction_type_letter_bcd">接下來，請嘗試輸入字母 B、C 和 D</string>
+    <string name="item_view_role_description">分頁</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">按下包含 %1$s 輔助鍵的按鍵組合即可設定新快速鍵。</string>
+    <string name="keycombo_assign_dialog_instruction">請按下組合鍵來設定新的快速鍵。它必須至少包含 ALT 或 Control 鍵。</string>
+    <string name="keycombo_key_arrow_down">向下方向鍵</string>
+    <string name="keycombo_key_arrow_left">向左方向鍵</string>
+    <string name="keycombo_key_arrow_right">向右方向鍵</string>
+    <string name="keycombo_key_arrow_up">向上方向鍵</string>
+    <string name="keycombo_key_modifier_alt">Alt 鍵</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl 鍵</string>
+    <string name="keycombo_key_modifier_meta">搜尋鍵</string>
+    <string name="keycombo_key_modifier_shift">Shift 鍵</string>
+    <string name="keycombo_unassigned">未指派</string>
+    <string name="leave_keyboard">離開點字鍵盤</string>
+    <string name="material_clock_toggle_content_description">選擇上午或下午</string>
+    <string name="material_hour_selection">選取時段</string>
+    <string name="material_hour_suffix">%1$s 點</string>
+    <string name="material_minute_selection">選取分鐘</string>
+    <string name="material_minute_suffix">%1$s 分</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">切換至時鐘模式即可輸入時間。</string>
+    <string name="material_timepicker_hour">小時</string>
+    <string name="material_timepicker_minute">分鐘</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">選取時間</string>
+    <string name="material_timepicker_text_input_mode_description">切換至文字輸入模式即可輸入時間。</string>
+    <string name="mtrl_badge_numberless_content_description">新通知</string>
+    <string name="mtrl_chip_close_icon_content_description">移除「%1$s」</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">超過 %1$d 則新通知</string>
+    <string name="mtrl_picker_a11y_next_month">變更為下個月</string>
+    <string name="mtrl_picker_a11y_prev_month">變更為上個月</string>
+    <string name="mtrl_picker_announce_current_selection">目前選取：%1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">請選擇日期</string>
+    <string name="mtrl_picker_date_header_unselected">已選取日期</string>
+    <string name="mtrl_picker_day_of_week_column_header">日期欄：%1$s</string>
+    <string name="mtrl_picker_invalid_format">格式無效。</string>
+    <string name="mtrl_picker_invalid_format_example">例如：%1$s</string>
+    <string name="mtrl_picker_invalid_format_use">使用：%1$s</string>
+    <string name="mtrl_picker_invalid_range">範圍無效。</string>
+    <string name="mtrl_picker_navigate_to_year_description">瀏覽至 %1$s 年</string>
+    <string name="mtrl_picker_out_of_range">超出範圍：%1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">開始日期 – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – 結束日期</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">請選擇範圍</string>
+    <string name="mtrl_picker_range_header_unselected">開始日期 – 結束日期</string>
+    <string name="mtrl_picker_save">儲存</string>
+    <string name="mtrl_picker_text_input_date_hint">日期</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">結束日期</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">開始日期</string>
+    <string name="mtrl_picker_text_input_day_abbr">日</string>
+    <string name="mtrl_picker_text_input_month_abbr">月</string>
+    <string name="mtrl_picker_text_input_year_abbr">年</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">切換至日曆輸入模式</string>
+    <string name="mtrl_picker_toggle_to_day_selection">輕按以切換至選擇日期</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">切換至文字輸入模式</string>
+    <string name="mtrl_picker_toggle_to_year_selection">輕按以切換至選擇年份</string>
+    <string name="multiple_languages_braille_ime_displayed_name">點字鍵盤，%s</string>
+    <string name="navigation_drawer_content_description">導覽列</string>
+    <string name="next_keyboard">下一個鍵盤</string>
+    <string name="next_step">下一步</string>
+    <string name="not_enough_touch_points_dialog_message">您裝置支援的接觸點不足。如需瞭解詳情，請聯絡您的裝置製造商。</string>
+    <string name="not_enough_touch_points_dialog_title">您的裝置不支援點字鍵盤</string>
+    <string msgid="478774118347071097" name="not_set">"未設定"</string>
+    <string name="number_announcement">數字</string>
+    <string name="open_context_menu_announcement">開咗選項選單。請將手機轉返去向住自己嘅方向，同埋用平常嘅方式拎手機。你宜家可以用標準嘅 TalkBack 手勢嚟用部手機，向右掃就可以睇到多啲選項。</string>
+    <string name="password_toggle_content_description">顯示密碼</string>
+    <string name="perform_action_next">繼續</string>
+    <string name="perform_action_submitting">正在提交文字</string>
+    <string name="perform_add_new_line_announcement">加咗新行</string>
+    <string name="perform_add_space_announcement">空白</string>
+    <string name="perform_delete_letter_announcement">刪除咗字母</string>
+    <string name="perform_delete_word_announcement">刪除咗文字</string>
+    <string name="perform_hide_keyboard_announcement">隱藏鍵盤</string>
+    <string name="perform_submit_text_announcement">提交文字</string>
+    <string name="perform_switch_keyboard_announcement">轉鍵盤</string>
+    <string msgid="7961817945132860002" name="preference_copied">"「<ns1:g id="SUMMARY">%1$s</ns1:g>」已複製到剪貼簿。"</string>
+    <string name="preferred_language_title">偏好語言</string>
+    <string name="read_out_deleted">刪除咗%s</string>
+    <string name="remaining_calibration_finish_announcement">更新咗所有點嘅位置</string>
+    <string name="reminder_announcement">用 3 隻手指向上掃就可以睇到多啲選項</string>
+    <string name="result_swipe_down">將游標向前移</string>
+    <string name="result_swipe_down_2_fingers">隱藏鍵盤</string>
+    <string name="result_swipe_down_3_fingers">下一個鍵盤</string>
+    <string name="result_swipe_left">刪除</string>
+    <string name="result_swipe_right">空白</string>
+    <string name="result_swipe_up">將游標向後移</string>
+    <string name="rotate_orientation_announcement">由宜家開始，你用唔到標準嘅 TalkBack 手勢，TalkBack 功能唔可以同點字鍵盤一齊用。\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">手機宜家係垂直，如果要繼續操作，請水平旋轉部手機，長嗰邊喺底，然後轉一轉手機方向，令到螢幕向外，準備好之後，喺螢幕上面㩒兩下就可以去下一個步驟。</string>
+    <string name="rotate_orientation_description_1">由宜家開始，你用唔到標準嘅 TalkBack 手勢，TalkBack 功能無法與點字鍵盤配搭使用。</string>
+    <string name="rotate_orientation_description_2">如要開始使用，請以螢幕向外的方式握住手機，如下圖所示。</string>
+    <string name="rotate_orientation_inactive_announcement">首先轉一轉手機方向，令到螢幕向外。\n\n然後水平旋轉打橫部手機，你對手應該拎住手機較短嗰兩邊，右手應該拎住有 USB 連接埠嗰邊。將中間 3 隻手指放喺螢幕上面，然後用手指尾同手指公固定手機。\n\n準備好之後，喺螢幕上面㩒兩下就可以去下一個步驟。\n\n用 3 隻手指向下掃就可以離開點字鍵盤，咁樣就會轉返去原本用嘅鍵盤。</string>
+    <string name="screen_away">螢幕向外模式</string>
+    <string name="screen_away_detail">握住裝置，並將螢幕 (螢幕向外模式)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"搜尋"</string>
+    <string name="set_up_braille_keyboard">設定點字鍵盤</string>
+    <string name="show_keyboard_window">宜家顯示嘅係%1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>、<ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">即使您先放開其中某個點，每個您按下的點都是輸入內容的一部分，並不影響拼字</string>
+    <string name="summary_pref_reverse_dots">你可以將點嘅位置對掉，例如 1 點同 4 點對掉位置</string>
+    <string name="swipe_down_2_fingers_announcement">如果要隱藏鍵盤，請用 2 隻手指向下掃，宜家試下啦。</string>
+    <string name="swipe_down_2_fingers_completed_announcement">隱藏鍵盤，咁樣通常就可以隱藏鍵盤，不過你宜家仲係上緊教學課程，所以點字鍵盤會繼續開住。</string>
+    <string name="swipe_down_3_fingers_announcement">如果要轉去其他鍵盤，請用 3 隻手指向下掃，宜家試下啦。</string>
+    <string name="swipe_down_3_fingers_completed_announcement">下一個鍵盤，咁樣通常就可以轉去下一個鍵盤，不過你宜家仲係上緊教學課程，所以點字鍵盤會繼續顯示，唔會轉去其他鍵盤。</string>
+    <string name="swipe_down_announcement">如要將游標向前移，請向下滑動。立即試試吧。</string>
+    <string name="swipe_left_action_result_announcement">刪除咗「d」。</string>
+    <string name="swipe_left_announcement">如果要刪除某個字母，請向左掃，宜家試下啦。</string>
+    <string name="swipe_right_announcement">如果要新增空格，請向右掃，宜家試下啦。</string>
+    <string name="swipe_up_3_fingers_announcement">你亦可以將手機平放喺枱面，喺桌面模式下輸入點字。如果要結束教學課程，只要 3 隻手指向上掃，就會搵到 [結束教學課程] 選項</string>
+    <string name="swipe_up_announcement">如要將游標向後移，請向上滑動。立即試試吧。</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">如要在使用點字鍵盤輸入內容時變更語言，請用 3 隻手指向上滑動，然後選取 [切換至下一個輸入語言]。</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">輸入內容時快速變更語言</string>
+    <string name="switch_to_language_announcement">轉咗做%s</string>
+    <string name="switch_to_screen_away_announcement">螢幕向外模式</string>
+    <string name="switch_to_tabletop_announcement">桌面模式。將裝置放喺枱面嘅時候，請將充電連接埠向左放。用 6 隻手指㩒住螢幕就可以更新圓點位置。</string>
+    <string name="symbol_almost_equals">幾乎等於</string>
+    <string name="symbol_ampersand">&amp; 符號</string>
+    <string name="symbol_angle_bracket_left">細於符號</string>
+    <string name="symbol_angle_bracket_right">大於符號</string>
+    <string name="symbol_apostrophe">撇號</string>
+    <string name="symbol_approximately_equals">約等號</string>
+    <string name="symbol_asterisk">星號</string>
+    <string name="symbol_at_sign">「At」符號</string>
+    <string name="symbol_backslash">反斜線</string>
+    <string name="symbol_beamed_sixteenth_note">連寫十六分音符</string>
+    <string name="symbol_black_circle">黑色圓形</string>
+    <string name="symbol_black_heart">黑色心形</string>
+    <string name="symbol_black_smallsquare">黑色小正方形</string>
+    <string name="symbol_black_square">黑色方形</string>
+    <string name="symbol_black_star">黑色星形</string>
+    <string name="symbol_black_suit_of_diamonds">黑色菱形</string>
+    <string name="symbol_black_triangle_pointing_down">指向下方的黑色三角形</string>
+    <string name="symbol_black_triangle_pointing_up">指向上方的黑色三角形</string>
+    <string name="symbol_broken_bar">斷裂線</string>
+    <string name="symbol_bullet">項目符號</string>
+    <string name="symbol_bullseye">靶心</string>
+    <string name="symbol_caret">插入符號</string>
+    <string name="symbol_celsius_degree">攝氏溫度符號</string>
+    <string name="symbol_cent">仙符號</string>
+    <string name="symbol_circle_left_half_black">左半邊黑色圓形</string>
+    <string name="symbol_circle_right_half_black">右半邊黑色圓形</string>
+    <string name="symbol_colon">冒號</string>
+    <string name="symbol_comma">逗號</string>
+    <string name="symbol_copyright">版權符號</string>
+    <string name="symbol_curly_bracket_left">左大括弧</string>
+    <string name="symbol_curly_bracket_right">右大括弧</string>
+    <string name="symbol_currency_sign">貨幣符號</string>
+    <string name="symbol_degree">度數符號</string>
+    <string name="symbol_division">除號</string>
+    <string name="symbol_dollar_sign">貨幣符號</string>
+    <string name="symbol_downwards_arrow">向下箭頭</string>
+    <string name="symbol_eighth_note">八分音符</string>
+    <string name="symbol_ellipsis">省略號</string>
+    <string name="symbol_em_dash">長破折號</string>
+    <string name="symbol_en_dash">短破折號</string>
+    <string name="symbol_equal">等號</string>
+    <string name="symbol_euro">歐元符號</string>
+    <string name="symbol_exclamation_mark">感歎號</string>
+    <string name="symbol_fahrenheit_degree">華氏溫度符號</string>
+    <string name="symbol_female">女性符號</string>
+    <string name="symbol_full_width_ampersand">全形「&amp;」符號</string>
+    <string name="symbol_full_width_asterisk">全形星號</string>
+    <string name="symbol_full_width_circumflex">全形抑揚符</string>
+    <string name="symbol_full_width_colon">全形冒號</string>
+    <string name="symbol_full_width_comma">全形逗號</string>
+    <string name="symbol_full_width_exclamation_mark">全形感嘆號</string>
+    <string name="symbol_full_width_greater_than_sign">全形大於符號</string>
+    <string name="symbol_full_width_ideographic_full_stop">表意文字句號</string>
+    <string name="symbol_full_width_left_curly_bracket">全形左大括號</string>
+    <string name="symbol_full_width_left_parenthesis">全形左括號</string>
+    <string name="symbol_full_width_less_than_sign">全形細於符號</string>
+    <string name="symbol_full_width_question_mark">全形問號</string>
+    <string name="symbol_full_width_right_curly_bracket">全形右大括號</string>
+    <string name="symbol_full_width_right_parenthesis">全形右括號</string>
+    <string name="symbol_full_width_semicolon">全形分號</string>
+    <string name="symbol_full_width_tilde">全形波浪號</string>
+    <string name="symbol_full_width_underscore">全形底線</string>
+    <string name="symbol_grave_accent">重音符號</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">半形片假名中間點</string>
+    <string name="symbol_hyphen_minus">破折號</string>
+    <string name="symbol_ideographic_comma">表意文字逗號</string>
+    <string name="symbol_integral">積分符號</string>
+    <string name="symbol_inverted_exclamation_mark">倒轉嘅感嘆號</string>
+    <string name="symbol_inverted_question_mark">倒問號</string>
+    <string name="symbol_left_angle_bracket">雙書名號開引號</string>
+    <string name="symbol_left_black_lenticular_bracket">左邊黑方頭括號</string>
+    <string name="symbol_left_corner_bracket">左邊單引號</string>
+    <string name="symbol_left_double_quotation_mark">左雙引號</string>
+    <string name="symbol_left_single_quotation_mark">左單引號</string>
+    <string name="symbol_leftwards_arrow">向左箭頭</string>
+    <string name="symbol_liter">公升</string>
+    <string name="symbol_low_double_quote">下雙引號</string>
+    <string name="symbol_male">男性符號</string>
+    <string name="symbol_mathematical_left_angle_bracket">數學左角括號</string>
+    <string name="symbol_mathematical_right_angle_bracket">數學右角括號</string>
+    <string name="symbol_micro_sign">Micro 符號</string>
+    <string name="symbol_middle_dot">中間點</string>
+    <string name="symbol_multiplication">乘號</string>
+    <string name="symbol_new_line">新行</string>
+    <string name="symbol_not_equals">唔等於</string>
+    <string name="symbol_not_sign">邏輯非符號</string>
+    <string name="symbol_paragraph_mark">段落標記</string>
+    <string name="symbol_parenthesis_left">左括弧</string>
+    <string name="symbol_parenthesis_right">右括弧</string>
+    <string name="symbol_percent">百分比符號</string>
+    <string name="symbol_period">句號</string>
+    <string name="symbol_pi">圓周率符號</string>
+    <string name="symbol_plus_minus_sign">加減符號</string>
+    <string name="symbol_postal_mark">郵局記號</string>
+    <string name="symbol_pound">井號</string>
+    <string name="symbol_pound_sterling">英鎊貨幣符號</string>
+    <string name="symbol_quarter_note">四分音符</string>
+    <string name="symbol_question_mark">問號</string>
+    <string name="symbol_quotation_mark">引號</string>
+    <string name="symbol_reference">參考標記</string>
+    <string name="symbol_registered_trademark">註冊商標符號</string>
+    <string name="symbol_right_angle_bracket">雙書名號閂引號</string>
+    <string name="symbol_right_black_lenticular_bracket">右邊黑方頭括號</string>
+    <string name="symbol_right_corner_bracket">右邊單引號</string>
+    <string name="symbol_right_double_quotation_mark">右雙引號</string>
+    <string name="symbol_right_single_quotation_mark">右單引號</string>
+    <string name="symbol_rightwards_arrow">向右箭頭</string>
+    <string name="symbol_rupee">盧比符號</string>
+    <string name="symbol_section_sign">章節符號</string>
+    <string name="symbol_semicolon">分號</string>
+    <string name="symbol_slash">斜線</string>
+    <string name="symbol_solar">太陽符號</string>
+    <string name="symbol_space">空格</string>
+    <string name="symbol_square_bracket_left">左方括弧</string>
+    <string name="symbol_square_bracket_right">右方括弧</string>
+    <string name="symbol_square_root">平方根</string>
+    <string name="symbol_tilde">波浪號</string>
+    <string name="symbol_trademark">商標符號</string>
+    <string name="symbol_underscore">下劃線</string>
+    <string name="symbol_upwards_arrow">向上箭頭</string>
+    <string name="symbol_vertical_bar">直線</string>
+    <string name="symbol_white_circle">白色圓形</string>
+    <string name="symbol_white_club_suit">白色梅花</string>
+    <string name="symbol_white_diamond">白色階磚</string>
+    <string name="symbol_white_down_pointing_triangle">白色倒三角形</string>
+    <string name="symbol_white_heart">白色心形</string>
+    <string name="symbol_white_left_pointing_index">白色向左指示標記</string>
+    <string name="symbol_white_left_pointing_triangle">白色向左三角形</string>
+    <string name="symbol_white_right_pointing_index">白色向右指示標記</string>
+    <string name="symbol_white_right_pointing_triangle">白色向右三角形</string>
+    <string name="symbol_white_spade_suit">白色葵扇</string>
+    <string name="symbol_white_square">白色方形</string>
+    <string name="symbol_white_star">白色星形</string>
+    <string name="symbol_white_up_pointing_triangle">白色正三角形</string>
+    <string name="symbol_won">韓圜貨幣符號</string>
+    <string name="symbol_won_sign">韓圜貨幣符號</string>
+    <string name="symbol_yen">日元符號</string>
+    <string name="tabletop">桌面模式</string>
+    <string name="tabletop_detail">將裝置平放在桌面上 (桌面模式)</string>
+    <string name="talkback_off_dialog_positive_button">在無障礙功能設定中開啟</string>
+    <string name="talkback_off_dialog_title">開啟 TalkBack 才能使用點字鍵盤</string>
+    <string name="talkback_off_or_suspend_dialog_message">開啟 TalkBack 後，輕按螢幕即可輸入點字符號。</string>
+    <string name="talkback_suspend_dialog_title">恢復 TalkBack 才能使用點字鍵盤</string>
+    <string name="tap_to_continue">在任何位置輕按兩下即可繼續</string>
+    <string name="template_capital_letter">大寫：%1$s</string>
+    <string name="template_current_tts_engine">正在使用 %1$s</string>
+    <string name="template_overlay_window">「%1$s」畫中畫</string>
+    <string name="template_password_selected">第 %1$d 到第 %2$d 個字元</string>
+    <string name="template_password_traversed">第 %1$d 個字元</string>
+    <string name="template_scroll_from_count">顯示第 %1$d 個項目 (共 %2$d 個)。</string>
+    <string name="template_scroll_from_to_count">顯示第 %1$d 至 %2$d 個項目 (共 %3$d 個)。</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s喺左邊，%2$s喺右邊</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s喺右邊，%2$s喺左邊</string>
+    <string name="template_split_screen_mode_portrait">%1$s喺上面，%2$s喺下面</string>
+    <string name="template_text_copied">已經複製：%1$s</string>
+    <string name="template_viewpager_index_count">%2$d 頁中嘅第 %1$d 頁</string>
+    <string name="template_viewpager_index_count_short">%2$d 頁中嘅第 %1$d 頁</string>
+    <string name="time_difference_now">現在</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="title_pref_accumulate_presses">包括所有已按下的點</string>
+    <string name="title_pref_reverse_dots">反轉點</string>
+    <string name="tutorial_intro_description">有了點字鍵盤，只需輕按螢幕即可輸入 6 個點的點字。\n\n您正在使用統一英文點字。如要切換輸入語言，請前往 TalkBack 設定。\n\n輸入點字時，手機的拿法及使用方式會有所不同。</string>
+    <string name="type_letter_a_announcement">將手機螢幕向外，用雙手拎住手機較短嗰兩邊，令到中間 3 隻手指可以掂到螢幕。\n\n左手食指嘅位置應該喺點 1 上面，現在，㩒一下點 1 就可以輸入字母「A」。</string>
+    <string name="type_letter_a_inactive_announcement">用左手食指㩒一下點 1 就可以輸入「A」。</string>
+    <string name="type_letter_inactive_announcement">㩒一下點 %1$s 就可以輸入 %2$s</string>
+    <string name="typing_languages_title">輸入語言</string>
+    <string name="untitled_window">無標題</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">設定</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1.&lt;b>開啟點字鍵盤&lt;/b>：輕按下方的 [設定]，然後在下一個畫面中開啟 [%1$s]。
+    &lt;br>&lt;br>2. &lt;b>使用點字鍵盤&lt;/b>：請開啟標準鍵盤，然後輕觸「選擇鍵盤」圖示 %2$s (通常位於右下角)，並選取 [%1$s]。
+  &lt;br>&lt;br>如果您找不到切換鍵盤的選項，請嘗試安裝 %3$s (即 Google 鍵盤)。</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">如要使用點字鍵盤，請開啟標準鍵盤，然後輕按「選擇鍵盤」圖示 %1$s (通常位於右下角)，並選取 [%2$s]。
+  如果您找不到切換鍵盤的選項，請嘗試安裝 %3$s (即 Google 鍵盤)。</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"關閉"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"開啟"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"操作導覽列"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"導覽列"</string>
+</resources>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d ta yangi bildirishnoma</item>
+    <item quantity="other">%d ta yangi bildirishnoma</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s %2$d ta element ko‘rsatilmoqda.</item>
+    <item quantity="other">%1$s %2$d ta element ko‘rsatilmoqda.</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d ta ustun</item>
+    <item quantity="other">%1$d ta ustun</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d ta qator</item>
+    <item quantity="other">%1$d ta qator</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d ta element</item>
+    <item quantity="other">%1$d ta element</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d ta belgi</item>
+    <item quantity="other">%1$d ta belgi</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Boshiga o‘tish"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Yopish"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Yana"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"OK"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Hammasi"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Ilovani tanlang"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"YOQILMAGAN"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"YONIQ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Probel"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menyu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Qidirish…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"So‘rovni o‘chirish"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Qidiruv so‘rovi"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Qidiruv"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"So‘rov yaratish"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Ovozli qidiruv"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Ulashish"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> orqali ulashish"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Yig‘ish"</string>
+    <string name="bottomsheet_action_expand_halfway">Yarmiga kengaytirish</string>
+    <string name="character_collapse_template"> %1$d ta %2$s﻿</string>
+    <string name="character_counter_content_description">%1$d/%2$d ta belgi kiritildi</string>
+    <string name="character_counter_overflowed_content_description">Harflar soni (%1$d) cheklovdan (%2$d) oshib ketdi</string>
+    <string name="clear_text_end_icon_content_description">Matnni tozalash</string>
+    <string name="column_heading_template">Ustun sarlavhasi</string>
+    <string name="column_index_template">%1$d-ustun</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Yoqish</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play xizmatlari yoqilmaguncha, %1$s ishlamaydi.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play xizmatlarini yoqish</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">O‘rnatish</string>
+    <string name="common_google_play_services_install_text">%1$s ishlashi uchun qurilmangizda Google Play xizmatlarini o‘rnatish lozim.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play xizmatlarini o‘rnatish</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play xizmatlarining mavjudligi</string>
+    <string name="common_google_play_services_notification_ticker">Google Play xizmatlari xatosi</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ilovasini Google Play xizmatlariga ulab bo‘lmadi. Qaytadan urinib ko‘ring.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ilovasi Google Play xizmatlarisiz ishlamaydi, biroq qurilmangiz ularni qo‘llab-quvvatlamaydi.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Yangilash</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play xizmatlari yangilanmaguncha, %1$s ishga tushmaydi.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play xizmatlarini yangilash</string>
+    <string name="common_google_play_services_updating_text">%1$s ilovasining ishlashi uchun zarur Google Play xizmatlari hozirda yangilanmoqda.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play xizmatlarining yangi versiyasi zarur. U o‘zini qisqa vaqt ichida yangilaydi.</string>
+    <string name="common_open_on_phone">Telefonda ochish</string>
+    <string name="common_signin_button_text">Kirish</string>
+    <string name="common_signin_button_text_long">Google orqali kirish</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Xatolik"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Telefoningizda ochildi"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Tayyor"</string>
+    <string msgid="3209159573327985035" name="copy">"Nusxa olish"</string>
+    <string name="detected_icon_description">Aniqlangan belgi: %1$s</string>
+    <string name="error_icon_content_description">Xato</string>
+    <string name="exit_scrim">Chiqish</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Kengaytirilgan"</string>
+    <string name="exposed_dropdown_menu_content_description">Pastga ochiluvchi menyuni ochish</string>
+    <string name="function_off">Ekrandagi matnni oʻqib berish faolsizlantirilgan</string>
+    <string name="function_on">Ovozli fikr-mulohaza yoniq</string>
+    <string name="granularity_character">Belgilar</string>
+    <string name="granularity_default">Standart</string>
+    <string name="granularity_line">Qatorlar</string>
+    <string name="granularity_native_control">Boshqaruv</string>
+    <string name="granularity_native_heading">Sarlavhalar</string>
+    <string name="granularity_native_link">Havolalar</string>
+    <string name="granularity_paragraph">Xatboshilar</string>
+    <string name="granularity_pseudo_web_special_content">Maxsus kontent</string>
+    <string name="granularity_web_control">Boshqaruv elementlari</string>
+    <string name="granularity_web_heading">Sarlavhalar</string>
+    <string name="granularity_web_landmark">Belgilar</string>
+    <string name="granularity_web_link">Havolalar</string>
+    <string name="granularity_web_list">Ro‘yxatlar</string>
+    <string name="granularity_window">Oynalar</string>
+    <string name="granularity_word">So‘zlar</string>
+    <string name="heading_template">Sarlavha</string>
+    <string name="hide_keyboard_window">klaviatura berkitildi</string>
+    <string name="hint_suggestion">Imloviy xatolarni tuzatishga oid takliflar bor.</string>
+    <string name="icon_content_description">Muloqot ikonkasi</string>
+    <string name="in_collection_role_description">%1$s rolida</string>
+    <string name="in_collection_role_description_with_name">%2$s termasida %1$s rolida</string>
+    <string name="in_grid">Toʻr ichida</string>
+    <string name="in_grid_pager">Katakcha shaklidagi sahifada</string>
+    <string name="in_grid_pager_with_name">%1$s katakcha shaklidagi sahifasida</string>
+    <string name="in_grid_with_name">%1$s toʻrida</string>
+    <string name="in_horizontal_pager">Gorizontal sahifada</string>
+    <string name="in_horizontal_pager_with_name">%1$s gorizontal sahifasida</string>
+    <string name="in_list">Roʻyxatda</string>
+    <string name="in_list_with_name">%1$s roʻyxatida</string>
+    <string name="in_pager">Sahifada</string>
+    <string name="in_pager_with_name">%1$s sahifasida</string>
+    <string name="in_vertical_pager">Vertikal sahifada</string>
+    <string name="in_vertical_pager_with_name">%1$s vertikal sahifasida</string>
+    <string name="in_window_with_name">%1$s oynasi</string>
+    <string name="item_view_role_description">Tab : Varaq</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Yangi tezkor tugmalar birikmasini o‘rnatish uchun uni %1$s modifikator tugmasi bilan bosing.</string>
+    <string name="keycombo_assign_dialog_instruction">Biror amalga tugmalar birikmasini tayinlash uchun ularni bosing. Unda Ctrl yoki ALT tugmasi bo‘lishi shart.</string>
+    <string name="keycombo_key_arrow_down">Pastga qaragan ko‘rsatkichli chiziq</string>
+    <string name="keycombo_key_arrow_left">Chapga qaragan ko‘rsatkichli chiziq</string>
+    <string name="keycombo_key_arrow_right">O‘ngga qaragan ko‘rsatkichli chiziq</string>
+    <string name="keycombo_key_arrow_up">Tepaga qaragan ko‘rsatkichli chiziq</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Qidiruv</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Tayinlanmagan</string>
+    <string name="list_index_template">%1$d/%2$d</string>
+    <string name="material_clock_toggle_content_description">Tushdan oldin yoki keyinligini tanlang</string>
+    <string name="material_hour_selection">Soatni tanlang</string>
+    <string name="material_hour_suffix">%1$s soat</string>
+    <string name="material_minute_selection">Daqiqalarni tanlash</string>
+    <string name="material_minute_suffix">%1$s daqiqa</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Vaqtni kiritish uchun soat rejimiga o‘ting.</string>
+    <string name="material_timepicker_hour">Soat</string>
+    <string name="material_timepicker_minute">Daqiqa</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Vaqtni tanlang</string>
+    <string name="material_timepicker_text_input_mode_description">Vaqtni kiritish uchun matn kiritish rejimiga o‘ting.</string>
+    <string name="mtrl_badge_numberless_content_description">Yangi bildirishnoma</string>
+    <string name="mtrl_chip_close_icon_content_description">Olib tashlash: %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Yana %1$d dan ortiq bildirishnoma</string>
+    <string name="mtrl_picker_a11y_next_month">Keyingi oyga oʻzgartirish</string>
+    <string name="mtrl_picker_a11y_prev_month">Avvalgi oyga oʻzgartirish</string>
+    <string name="mtrl_picker_announce_current_selection">Joriy tanlov: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Sanani tanlang</string>
+    <string name="mtrl_picker_date_header_unselected">Tanlangan sana</string>
+    <string name="mtrl_picker_day_of_week_column_header">Kunlar ustuni: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Yaroqsiz format.</string>
+    <string name="mtrl_picker_invalid_format_example">Masalan: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Ishlatish: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Yaroqsiz oraliq.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Yilga nazar solish: %1$s</string>
+    <string name="mtrl_picker_out_of_range">Chegaradan tashqari: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Boshlanish sanasi – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Tugash sanasi</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Oraliqni tanlang</string>
+    <string name="mtrl_picker_range_header_unselected">Boshlanishi – Tugashi</string>
+    <string name="mtrl_picker_save">Saqlash</string>
+    <string name="mtrl_picker_text_input_date_hint">Sana</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Tugash sanasi</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Boshlanish sanasi</string>
+    <string name="mtrl_picker_text_input_day_abbr">k</string>
+    <string name="mtrl_picker_text_input_month_abbr">o</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Taqvim kiritish rejimiga oʻtish</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Kunni tanlash uchun bosing</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Matn kiritish rejimiga oʻtish</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Yilni tanlash uchun bosing</string>
+    <string msgid="478774118347071097" name="not_set">"Tayinlanmagan"</string>
+    <string name="notification_category_alarm">Signal</string>
+    <string name="notification_category_call">Chaqiruv</string>
+    <string name="notification_category_email">Email</string>
+    <string name="notification_category_err">Xato</string>
+    <string name="notification_category_event">Tadbir</string>
+    <string name="notification_category_msg">Xabar</string>
+    <string name="notification_category_progress">Jarayon</string>
+    <string name="notification_category_promo">Reklama</string>
+    <string name="notification_category_service">Xizmat</string>
+    <string name="notification_category_social">Ijtimoiy tarmoqlar</string>
+    <string name="notification_category_sys">Tizim holati</string>
+    <string name="notification_category_transport">Multimedia boshqaruvi</string>
+    <string name="notification_type_beginning_of_field">Maydonning boshi</string>
+    <string name="notification_type_end_of_field">Maydonning oxiri</string>
+    <string name="notification_type_selection_cleared">Matn tanlash tozalandi</string>
+    <string name="notification_type_selection_mode_off">Tanlash rejimi o‘chiq</string>
+    <string name="notification_type_selection_mode_on">Tanlash rejimi yoniq</string>
+    <string name="ocr_text_description">Matn: %1$s</string>
+    <string name="orientation_landscape">Yotiq</string>
+    <string name="orientation_portrait">Tik holat</string>
+    <string name="out_of_grid">Toʻrdan tashqarida</string>
+    <string name="out_of_grid_pager">Katakcha shaklidagi sahifadan tashqarida</string>
+    <string name="out_of_grid_pager_with_name">%1$s katakcha shaklidagi sahifadan tashqarida</string>
+    <string name="out_of_grid_with_name">%1$s toʻridan tashqarida</string>
+    <string name="out_of_horizontal_pager">Gorizontal sahifadan tashqarida</string>
+    <string name="out_of_list">Roʻyxatdan tashqarida</string>
+    <string name="out_of_list_with_name">%1$s roʻyxatidan tashqari</string>
+    <string name="out_of_pager">Sahifadan tashqarida</string>
+    <string name="out_of_pager_with_name">%1$s sahifasidan tashqarida</string>
+    <string name="out_of_role_description">%1$s rolidan tashqari</string>
+    <string name="out_of_role_description_with_name">%2$s termasida %1$s rolidan tashqari</string>
+    <string name="out_of_vertical_pager">Vertikal sahifadan tashqarida</string>
+    <string name="out_of_vertical_pager_with_name">%1$s vertikal sahifasidan tashqarida</string>
+    <string name="password_toggle_content_description">Parol ochiq tursin</string>
+    <string msgid="7961817945132860002" name="preference_copied">"“<ns1:g id="SUMMARY">%1$s</ns1:g>” vaqtinchalik xotiraga nusxalandi."</string>
+    <string name="row_heading_template">Qator sarlavhasi</string>
+    <string name="row_index_template">%1$d-qator</string>
+    <string name="screen_magnification_off">Kattalashtirish o‘chiq</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Qidiruv"</string>
+    <string name="show_keyboard_window">%1$s klaviaturasi ochiq</string>
+    <string name="spokenfeedback_disabled">O‘qib eshittirish o‘chiq</string>
+    <string name="spokenfeedback_on">O‘qib eshittirish yoniq</string>
+    <string name="spokenfeedback_resumed">O‘qib eshittirish davom ettirildi</string>
+    <string name="spokenfeedback_suspended">O‘qib eshittirish to‘xtatildi</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">Quloqliklardan foydalanilgandagina parollar talaffuz qilinadi</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Deyarli teng</string>
+    <string name="symbol_ampersand">“Va” belgisi</string>
+    <string name="symbol_angle_bracket_left">Kichik belgisi</string>
+    <string name="symbol_angle_bracket_right">Katta belgisi</string>
+    <string name="symbol_apostrophe">Tutuq belgisi</string>
+    <string name="symbol_approximately_equals">Taqriban teng</string>
+    <string name="symbol_asterisk">Yulduzcha</string>
+    <string name="symbol_at_sign">Elektron pochta belgisi</string>
+    <string name="symbol_backslash">Teskari qiya chiziq</string>
+    <string name="symbol_beamed_sixteenth_note">Qo‘shma o‘n oltitalik nota</string>
+    <string name="symbol_black_circle">Qora doira</string>
+    <string name="symbol_black_heart">Qora cha</string>
+    <string name="symbol_black_smallsquare">Kichik qora kvadrat</string>
+    <string name="symbol_black_square">Qora kvadrat</string>
+    <string name="symbol_black_star">Qora yulduzcha</string>
+    <string name="symbol_black_suit_of_diamonds">Qora romb</string>
+    <string name="symbol_black_triangle_pointing_down">Pastga qaragan qora uchburchak</string>
+    <string name="symbol_black_triangle_pointing_up">Tepaga qaragan qora uchburchak</string>
+    <string name="symbol_broken_bar">Tik uzuq chiziq</string>
+    <string name="symbol_bullet">Marker</string>
+    <string name="symbol_bullseye">Katta ko‘z</string>
+    <string name="symbol_caret">Qo‘yish belgisi</string>
+    <string name="symbol_celsius_degree">Selsiy darajasi</string>
+    <string name="symbol_cent">Sent belgisi</string>
+    <string name="symbol_circle_left_half_black">Chap yarmi qora doira</string>
+    <string name="symbol_circle_right_half_black">O‘ng yarmi qora doira</string>
+    <string name="symbol_colon">Ikki nuqta</string>
+    <string name="symbol_comma">Vergul</string>
+    <string name="symbol_copyright">Mualliflik huquqi belgisi</string>
+    <string name="symbol_curly_bracket_left">Chap figurali qavs</string>
+    <string name="symbol_curly_bracket_right">O‘ng figurali qavs</string>
+    <string name="symbol_currency_sign">Valyuta belgisi</string>
+    <string name="symbol_degree">Daraja belgisi</string>
+    <string name="symbol_division">Bo‘lish belgisi</string>
+    <string name="symbol_dollar_sign">Dollar belgisi</string>
+    <string name="symbol_downwards_arrow">Pastga qaragan ko‘rsatkichli chiziq</string>
+    <string name="symbol_eighth_note">Sakkiztalik nota</string>
+    <string name="symbol_ellipsis">Uch nuqta</string>
+    <string name="symbol_em_dash">Uzun chiziqcha</string>
+    <string name="symbol_en_dash">O‘rta chiziqcha</string>
+    <string name="symbol_equal">Teng belgisi</string>
+    <string name="symbol_euro">Yevro belgisi</string>
+    <string name="symbol_exclamation_mark">Undov belgisi</string>
+    <string name="symbol_fahrenheit_degree">Farengeyt darajasi</string>
+    <string name="symbol_female">Ayol belgisi</string>
+    <string name="symbol_full_width_ampersand">Qalin ampersand</string>
+    <string name="symbol_full_width_asterisk">Qalin yulduzcha</string>
+    <string name="symbol_full_width_circumflex">Qalin sirkumfleks</string>
+    <string name="symbol_full_width_colon">Qalin ikki nuqta</string>
+    <string name="symbol_full_width_comma">Qalin vergul</string>
+    <string name="symbol_full_width_exclamation_mark">Qalin undov belgisi</string>
+    <string name="symbol_full_width_greater_than_sign">Qalin katta belgisi</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideografik qalin nuqta</string>
+    <string name="symbol_full_width_left_curly_bracket">Qalin chap figurali qavs</string>
+    <string name="symbol_full_width_left_parenthesis">Qalin chap qavs</string>
+    <string name="symbol_full_width_less_than_sign">Qalin kichik belgisi</string>
+    <string name="symbol_full_width_question_mark">Qalin soʻroq belgisi</string>
+    <string name="symbol_full_width_right_curly_bracket">Qalin oʻng figurali qavs</string>
+    <string name="symbol_full_width_right_parenthesis">Qalin oʻng qavs</string>
+    <string name="symbol_full_width_semicolon">Qalin nuqtali vergul</string>
+    <string name="symbol_full_width_tilde">Qalin tilda</string>
+    <string name="symbol_full_width_underscore">Qalin pastki chiziqcha</string>
+    <string name="symbol_grave_accent">Gravis</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Yarim enli Katakana nuqtasi</string>
+    <string name="symbol_hyphen_minus">Chiziqcha</string>
+    <string name="symbol_ideographic_comma">Ideografik vergul</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Teskari undov belgisi</string>
+    <string name="symbol_inverted_question_mark">Teskari soʻroq belgisi</string>
+    <string name="symbol_left_angle_bracket">Chap juft burchakli qavs</string>
+    <string name="symbol_left_black_lenticular_bracket">Qora chap ikkiyoqlama qavariq qavs</string>
+    <string name="symbol_left_corner_bracket">Chap burchak qavs</string>
+    <string name="symbol_left_double_quotation_mark">Chap qoʻshtirnoq belgisi</string>
+    <string name="symbol_left_single_quotation_mark">Chap bir tirnoq belgisi</string>
+    <string name="symbol_leftwards_arrow">Chap ko‘rsatkichli chiziq</string>
+    <string name="symbol_liter">Litr</string>
+    <string name="symbol_low_double_quote">Pastki qo‘shtirnoq</string>
+    <string name="symbol_male">Erkak belgisi</string>
+    <string name="symbol_mathematical_left_angle_bracket">Chap kvadrat qavs</string>
+    <string name="symbol_mathematical_right_angle_bracket">Oʻng kvadrat qavs</string>
+    <string name="symbol_micro_sign">Mikro belgisi</string>
+    <string name="symbol_middle_dot">Markazlashgan nuqta</string>
+    <string name="symbol_multiplication">Ko‘paytirish belgisi</string>
+    <string name="symbol_new_line">Yangi chiziq</string>
+    <string name="symbol_not_equals">Teng emas</string>
+    <string name="symbol_not_sign">Mumkin emas belgisi</string>
+    <string name="symbol_paragraph_mark">Xatboshi belgisi</string>
+    <string name="symbol_parenthesis_left">Chap qavs</string>
+    <string name="symbol_parenthesis_right">O‘ng qavs</string>
+    <string name="symbol_percent">Foiz belgisi</string>
+    <string name="symbol_period">Nuqta</string>
+    <string name="symbol_pi">Pi harfi</string>
+    <string name="symbol_plus_minus_sign">Plus-minus belgisi</string>
+    <string name="symbol_postal_mark">Pochta belgisi</string>
+    <string name="symbol_pound">Panjara</string>
+    <string name="symbol_pound_sterling">Funt sterling belgisi</string>
+    <string name="symbol_quarter_note">Chorak nota</string>
+    <string name="symbol_question_mark">So‘roq belgisi</string>
+    <string name="symbol_quotation_mark">Iqtibos belgisi</string>
+    <string name="symbol_reference">Havola belgisi</string>
+    <string name="symbol_registered_trademark">Ro‘yxatga olingan savdo belgisi</string>
+    <string name="symbol_right_angle_bracket">Oʻng juft burchakli qavs</string>
+    <string name="symbol_right_black_lenticular_bracket">Qora o‘ng ikkiyoqlama qavariq qavs</string>
+    <string name="symbol_right_corner_bracket">O‘ng burchak qavs</string>
+    <string name="symbol_right_double_quotation_mark">Oʻng qoʻshtirnoq belgisi</string>
+    <string name="symbol_right_single_quotation_mark">Oʻng bir tirnoq belgisi</string>
+    <string name="symbol_rightwards_arrow">O‘ngga qaragan ko‘rsatkichli chiziq</string>
+    <string name="symbol_rupee">Rupiya belgisi</string>
+    <string name="symbol_section_sign">Bo‘lim belgisi</string>
+    <string name="symbol_semicolon">Nuqtali vergul</string>
+    <string name="symbol_slash">Qiya chiziq</string>
+    <string name="symbol_solar">Quyosh belgisi</string>
+    <string name="symbol_space">Probel</string>
+    <string name="symbol_square_bracket_left">Chap kvadrat qavs</string>
+    <string name="symbol_square_bracket_right">O‘ng kvadrat qavs</string>
+    <string name="symbol_square_root">Kvadrat ildiz</string>
+    <string name="symbol_tilde">Tilda</string>
+    <string name="symbol_trademark">Savdo belgisi</string>
+    <string name="symbol_underscore">Ostiga chizish</string>
+    <string name="symbol_upwards_arrow">Yuqori ko‘rsatkichli chiziq</string>
+    <string name="symbol_vertical_bar">Vertikal chiziq</string>
+    <string name="symbol_white_circle">Oq doira</string>
+    <string name="symbol_white_club_suit">Oq chillik</string>
+    <string name="symbol_white_diamond">Oq g‘ishtin</string>
+    <string name="symbol_white_down_pointing_triangle">Pastga qaragan oq uchburchak</string>
+    <string name="symbol_white_heart">Oq yurakcha</string>
+    <string name="symbol_white_left_pointing_index">Chapga qaragan oq ko‘rsatkich belgisi</string>
+    <string name="symbol_white_left_pointing_triangle">Chapga qaragan oq uchburchak</string>
+    <string name="symbol_white_right_pointing_index">O‘ngga qaragan oq ko‘rsatkich belgisi</string>
+    <string name="symbol_white_right_pointing_triangle">O‘ngga qaragan oq uchburchak</string>
+    <string name="symbol_white_spade_suit">Oq qarg‘a</string>
+    <string name="symbol_white_square">Oq kvadrat</string>
+    <string name="symbol_white_star">Oq yulduzcha</string>
+    <string name="symbol_white_up_pointing_triangle">Tepaga qaragan oq uchburchak</string>
+    <string name="symbol_won">Von pul birligi belgisi</string>
+    <string name="symbol_won_sign">Von pul birligi belgisi</string>
+    <string name="symbol_yen">Iyena belgisi</string>
+    <string name="talkback_disabled">TalkBack o‘chiq</string>
+    <string name="talkback_on">TalkBack yoniq</string>
+    <string name="talkback_resumed">TalkBack yana ishga tushdi</string>
+    <string name="talkback_suspended">TalkBack to‘xtatildi</string>
+    <string name="template_announce_selected_text">Belgilangan matn: %1$s</string>
+    <string name="template_capital_letter">bosh harf: %1$s</string>
+    <string name="template_collection_level">%1$d-daraja</string>
+    <string name="template_current_tts_engine">Foydalanilmoqda: %1$s</string>
+    <string name="template_custom_hint_for_actions">%2$s uchun %1$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">%2$s uchun %1$s tugmalar birikmasini bosing.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%2$s uchun %1$s va ushlab turing.</string>
+    <string name="template_drawer_opened">%1$s menyusi</string>
+    <string name="template_hint_checkable">Yoqish yoki o‘chirish uchun: %1$s</string>
+    <string name="template_hint_checkable_keyboard">Yoqish yoki o‘chirish uchun %1$s tugmalar birikmasini bosing.</string>
+    <string name="template_hint_clickable">Faollashtirish uchun %1$s.</string>
+    <string name="template_hint_clickable_keyboard">Faollashtirish uchun %1$s tugmalar birikmasini bosing.</string>
+    <string name="template_hint_custom_actions">Amallar:</string>
+    <string name="template_hint_edit_text">Matnni tahrirlash uchun %1$s.</string>
+    <string name="template_hint_edit_text_keyboard">Matnni tahrirlash uchun %1$s ustiga bosing.</string>
+    <string name="template_hint_long_clickable">%1$s va ushlab turing.</string>
+    <string name="template_hint_long_clickable_keyboard">Ushlab turish uchun %1$s tugmalar birikmasini bosing.</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s mavjud, ochish uchun %2$s qiling.</string>
+    <string name="template_hint_pager">Sahifalarni almashtirish uchun ikki barmoq bilan suring.</string>
+    <string name="template_hint_pager_single_page">Boshqa sahifa yo‘q</string>
+    <string name="template_hint_seek_control">Sozlash uchun tovush balandligi tugmalaridan foydalaning</string>
+    <string name="template_hint_seek_control_tv">O‘zgartirish uchun: %1$s</string>
+    <string name="template_hint_spinner">O‘zgartirish uchun: %1$s</string>
+    <string name="template_hint_spinner_keyboard">O‘zgartirish uchun %1$s tugmalar birikmasini bosing.</string>
+    <string name="template_labeled_item">%1$s uchun %2$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s: tasvir ustida tasvir rejimi</string>
+    <string name="template_password_selected">Belgilar: %1$d – %2$d</string>
+    <string name="template_password_traversed">%1$d-belgi</string>
+    <string name="template_percent">%1$s foiz.</string>
+    <string name="template_replaced_characters">%1$s ta belgi %2$s ta belgi bilan almashtirildi</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">Mavjud amallar uchun %1$s.</string>
+    <string name="template_sa_custom_hint_scrollable">Aylantirish uchun %1$s.</string>
+    <string name="template_sa_hint_seek_control">Sozlash uchun belgilash kalit tugmasini bosing</string>
+    <string name="template_screen_magnification_on">Kattalashtirish yoniq. Masshtab: %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">Masshtab: %1$d%%</string>
+    <string name="template_scroll_from_count">Jami %1$d ta elementdan %2$d tasi ko‘rsatilmoqda.</string>
+    <string name="template_scroll_from_to_count">Jami %1$d ta elementdan %2$d dan %3$d gacha elementlar ko‘rsatilmoqda.</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">Nutq tezligi %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">Chapda %1$s, o‘ngda %2$s</string>
+    <string name="template_split_screen_mode_landscape_rtl">O‘ngda %1$s, chapda %2$s</string>
+    <string name="template_split_screen_mode_portrait">Tepada %1$s, pastda %2$s</string>
+    <string name="template_text_copied">nusxa ko‘chirildi: %1$s</string>
+    <string name="template_text_cut">qirqib olindi: %1$s</string>
+    <string name="template_text_error">Noto‘g‘ri kiritildi: %1$s</string>
+    <string name="template_text_pasted">joylandi, %1$s</string>
+    <string name="template_text_removed">%1$s o‘chirib tashlandi</string>
+    <string name="template_text_replaced">“%1$s” matni “%2$s” bilan almashtirildi</string>
+    <string name="template_text_selected">belgilandi: %1$s</string>
+    <string name="template_text_unselected">belgilash bekor qilindi: %1$s</string>
+    <string name="template_viewpager_index_count">Jami %2$d tadan %1$d ta sahifa</string>
+    <string name="template_viewpager_index_count_short">Jami %2$d tadan %1$d ta</string>
+    <string name="template_volume_change_decrease">Pasaytirish</string>
+    <string name="template_volume_change_increase">Balandlatish</string>
+    <string name="template_volume_change_maximum">Maksimum</string>
+    <string name="template_volume_change_minimum">Minimal</string>
+    <string name="title_action_collapse">Yig‘ish</string>
+    <string name="title_action_dismiss">Yopish</string>
+    <string name="title_action_expand">Yoyish</string>
+    <string name="untitled_window">sarlavhasiz</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"YOQILMAGAN"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"YONIQ"</string>
+    <string name="value_button">Tugma</string>
+    <string name="value_caps_lock_off">Caps Lock o‘chiq.</string>
+    <string name="value_caps_lock_on">Caps Lock yoniq.</string>
+    <string name="value_checkbox">Belgilash katakchasi</string>
+    <string name="value_checked">belgilandi</string>
+    <string name="value_collapsed">yig‘ildi</string>
+    <string name="value_disabled">o‘chirib qo‘yildi</string>
+    <string name="value_double_tap">Ikki marta bosish</string>
+    <string name="value_edit_box">Tahrirlash maydoni</string>
+    <string name="value_edit_box_editing">Tahrirlanmoqda</string>
+    <string name="value_expanded">yoyildi</string>
+    <string name="value_gridview">Jadval</string>
+    <string name="value_image">Rasm</string>
+    <string name="value_listview">Ro‘yxat</string>
+    <string name="value_not_checked">belgilanmadi</string>
+    <string name="value_num_lock_off">Num Lock o‘chiq.</string>
+    <string name="value_num_lock_on">Num Lock yoniq.</string>
+    <string name="value_off">yoqilmagan</string>
+    <string name="value_on">yoniq</string>
+    <string name="value_options_menu_open">Tanlanmalar.</string>
+    <string name="value_pager">Bir nechta sahifali ko‘rinish</string>
+    <string name="value_pager_page">Sahifa</string>
+    <string name="value_password">parol</string>
+    <string name="value_press_select">“Tugmani tanlash”ni bosing</string>
+    <string name="value_progress_bar">Jarayon indikatori</string>
+    <string name="value_radio_button">Tanlash tugmasi</string>
+    <string name="value_scroll_lock_off">Scroll Lock o‘chiq.</string>
+    <string name="value_scroll_lock_on">Scroll Lock yoniq.</string>
+    <string name="value_seek_bar">Slayder</string>
+    <string name="value_selected">tanlandi</string>
+    <string name="value_single_tap">Bosish</string>
+    <string name="value_sliding_drawer_opened">Tortma panel ochildi</string>
+    <string name="value_spinner">Pastga ochiladigan ro‘yxat</string>
+    <string name="value_switch">Almashtirish</string>
+    <string name="value_switch_press">Belgilash kalit tugmasini bosing</string>
+    <string name="value_tabwidget">Darchalar paneli</string>
+    <string name="value_text_cleared">Matn o‘chirib tashlandi</string>
+    <string name="value_text_max_length">Belgilar soni maksimal miqdorga yetdi</string>
+    <string name="value_unlabelled">Yorliqsiz</string>
+    <string name="value_webview">Vebdagi ko‘rinishi</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Buyruqlar paneli"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Navigatsiya paneli"</string>
+</resources>

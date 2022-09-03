@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d bagong notification</item>
+    <item quantity="other">%d na bagong notification</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">Nagpapakita ang %1$s ng %2$d item.</item>
+    <item quantity="other">Nagpapakita ang %1$s ng %2$d na item.</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d column</item>
+    <item quantity="other">%1$d na column</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d row</item>
+    <item quantity="other">%1$d na row</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d item</item>
+    <item quantity="other">%1$d na item</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d character</item>
+    <item quantity="other">%1$d na character</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Mag-navigate sa home"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Mag-navigate pataas"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Higit pang opsyon"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Tapos na"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Tingnan lahat"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Pumili ng app"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"I-OFF"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"I-ON"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Maghanap…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"I-clear ang query"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Query sa paghahanap"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Maghanap"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Isumite ang query"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Paghahanap gamit ang boses"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Ibahagi sa/kay"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Ibahagi gamit ang <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"I-collapse"</string>
+    <string name="bottomsheet_action_expand_halfway">I-expand hanggang gitna</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Mga character na nailagay %1$d sa %2$d</string>
+    <string name="character_counter_overflowed_content_description">Lumampas sa limitasyon sa bilang ng character %1$d sa %2$d</string>
+    <string name="clear_text_end_icon_content_description">I-clear ang text</string>
+    <string name="column_heading_template">Heading ng column</string>
+    <string name="column_index_template">Column na %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">I-enable</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Hindi gagana ang %1$s maliban kung ie-enable mo ang mga serbisyo ng Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">I-enable ang mga serbisyo ng Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">I-install</string>
+    <string name="common_google_play_services_install_text">Hindi gagana ang %1$s nang wala ang mga serbisyo ng Google Play na wala sa iyong device.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Kunin ang mga serbisyo ng Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Availability ng serbisyo ng Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Error sa Mga Serbisyo ng Google Play</string>
+    <string name="common_google_play_services_unknown_issue">Nagkakaproblema ang %1$s sa mga serbisyo ng Google Play. Pakisubukan ulit.</string>
+    <string name="common_google_play_services_unsupported_text">Hindi gagana ang %1$s nang wala ang mga serbisyo ng Google Play, na hindi nasusuportahan ng iyong device.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">I-update</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Hindi gagana ang %1$s maliban kung i-a-update mo ang mga serbisyo ng Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">I-update ang mga serbisyo ng Google Play</string>
+    <string name="common_google_play_services_updating_text">Hindi gagana ang %1$s nang wala ang mga serbisyo ng Google Play na kasalukuyang ina-update.</string>
+    <string name="common_google_play_services_wear_update_text">Kailangan ang bagong bersyon ng mga serbisyo ng Google Play. Mag-a-update itong mag-isa sa ilang sandali.</string>
+    <string name="common_open_on_phone">Buksan sa telepono</string>
+    <string name="common_signin_button_text">Mag-sign in</string>
+    <string name="common_signin_button_text_long">Mag-sign in sa Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Hindi Nagtagumpay"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Binuksan sa iyong telepono"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Matagumpay"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopyahin"</string>
+    <string name="detected_icon_description">%1$s, na-detect na icon</string>
+    <string name="error_icon_content_description">Error</string>
+    <string name="exit_scrim">Lumabas</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Advanced"</string>
+    <string name="exposed_dropdown_menu_content_description">Ipakita ang dropdown na menu</string>
+    <string name="function_off">Naka-off ang pasalitang feedback</string>
+    <string name="function_on">Naka-on ang pasalitang feedback</string>
+    <string name="granularity_character">Mga Character</string>
+    <string name="granularity_default">Default</string>
+    <string name="granularity_line">Mga Linya</string>
+    <string name="granularity_native_control">Mga Kontrol</string>
+    <string name="granularity_native_heading">Mga Heading</string>
+    <string name="granularity_native_link">Mga Link</string>
+    <string name="granularity_paragraph">Mga Talata</string>
+    <string name="granularity_pseudo_web_special_content">Espesyal na content</string>
+    <string name="granularity_web_control">Mga Kontrol</string>
+    <string name="granularity_web_heading">Mga Heading</string>
+    <string name="granularity_web_landmark">Mga Landmark</string>
+    <string name="granularity_web_link">Mga Link</string>
+    <string name="granularity_web_list">Mga Listahan</string>
+    <string name="granularity_window">Mga Window</string>
+    <string name="granularity_word">Mga Salita</string>
+    <string name="heading_template">Heading</string>
+    <string name="hide_keyboard_window">nakatago ang keyboard</string>
+    <string name="hint_suggestion">Available ang mga suhestyon sa pagbabaybay.</string>
+    <string name="icon_content_description">Icon ng Dialog</string>
+    <string name="in_collection_role_description">Nasa %1$s</string>
+    <string name="in_collection_role_description_with_name">Nasa %1$s %2$s</string>
+    <string name="in_grid">Nasa grid</string>
+    <string name="in_grid_pager">Sa grid na pager</string>
+    <string name="in_grid_pager_with_name">Sa grid na pager na %1$s</string>
+    <string name="in_grid_with_name">Nasa grid na %1$s</string>
+    <string name="in_horizontal_pager">Sa horizontal na pager</string>
+    <string name="in_horizontal_pager_with_name">Sa horizontal na pager na %1$s</string>
+    <string name="in_list">Nasa listahan</string>
+    <string name="in_list_with_name">Nasa listahang %1$s</string>
+    <string name="in_pager">Sa pager</string>
+    <string name="in_pager_with_name">Sa pager na %1$s</string>
+    <string name="in_vertical_pager">Sa vertical na pager</string>
+    <string name="in_vertical_pager_with_name">Sa vertical na pager na %1$s</string>
+    <string name="in_window_with_name">Window na %1$s</string>
+    <string name="item_view_role_description">Tab</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Pindutin ang kumbinasyon ng key kasama ang %1$s na modifier key upang magtakda ng bagong shortcut.</string>
+    <string name="keycombo_assign_dialog_instruction">Pindutin ang kumbinasyon ng key upang magtakda ng bagong shortcut. Dapat itong maglaman ng kahit ALT o Control key lang.</string>
+    <string name="keycombo_key_arrow_down">Pababang Arrow</string>
+    <string name="keycombo_key_arrow_left">Pakaliwang Arrow</string>
+    <string name="keycombo_key_arrow_right">Pakanang Arrow</string>
+    <string name="keycombo_key_arrow_up">Pataas na Arrow</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Maghanap</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Hindi nakatalaga</string>
+    <string name="list_index_template">%1$d ng %2$d</string>
+    <string name="material_clock_toggle_content_description">Piliin ang AM o PM</string>
+    <string name="material_hour_selection">Pumili ng oras</string>
+    <string name="material_hour_suffix">%1$s o\'clock</string>
+    <string name="material_minute_selection">Pumili ng mga minuto</string>
+    <string name="material_minute_suffix">%1$s (na) minuto</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Lumipat sa mode ng orasan para sa input na oras.</string>
+    <string name="material_timepicker_hour">Oras</string>
+    <string name="material_timepicker_minute">Minuto</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Pumili ng oras</string>
+    <string name="material_timepicker_text_input_mode_description">Lumipat sa pamamaraan ng pag-input ng text para sa input na oras.</string>
+    <string name="mtrl_badge_numberless_content_description">Bagong notification</string>
+    <string name="mtrl_chip_close_icon_content_description">Alisin ang %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Mahigit %1$d (na) bagong notification</string>
+    <string name="mtrl_picker_a11y_next_month">Lumipat sa susunod na buwan</string>
+    <string name="mtrl_picker_a11y_prev_month">Lumipat sa nakaraang buwan</string>
+    <string name="mtrl_picker_announce_current_selection">Kasalukuyang seleksyon: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Pumili ng Petsa</string>
+    <string name="mtrl_picker_date_header_unselected">Piniling petsa</string>
+    <string name="mtrl_picker_day_of_week_column_header">Column ng mga araw: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Invalid na format.</string>
+    <string name="mtrl_picker_invalid_format_example">Halimbawa: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Gamitin: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Invalid na hanay.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Mag-navigate patungo sa taong %1$s</string>
+    <string name="mtrl_picker_out_of_range">Wala sa sakop: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Petsa ng pagsisimula – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Petsa ng pagtatapos</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Pumili ng Range</string>
+    <string name="mtrl_picker_range_header_unselected">Petsa ng pagsisimula – Petsa ng pagtatapos</string>
+    <string name="mtrl_picker_save">I-save</string>
+    <string name="mtrl_picker_text_input_date_hint">Petsa</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Petsa ng pagtatapos</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Petsa ng pagsisimula</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Lumipat sa pamamaraan ng pag-input ng kalendaryo</string>
+    <string name="mtrl_picker_toggle_to_day_selection">I-tap para lumipat sa pagpili ng araw</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Lumipat sa pamamaraan ng pag-input ng text</string>
+    <string name="mtrl_picker_toggle_to_year_selection">I-tap para lumipat sa pagpili ng taon</string>
+    <string msgid="478774118347071097" name="not_set">"Hindi nakatakda"</string>
+    <string name="notification_category_alarm">Alarm</string>
+    <string name="notification_category_call">Tawag</string>
+    <string name="notification_category_email">Email</string>
+    <string name="notification_category_err">Error</string>
+    <string name="notification_category_event">Event</string>
+    <string name="notification_category_msg">Mensahe</string>
+    <string name="notification_category_progress">Pag-usad</string>
+    <string name="notification_category_promo">Promo</string>
+    <string name="notification_category_service">Serbisyo</string>
+    <string name="notification_category_social">Social</string>
+    <string name="notification_category_sys">Status ng system</string>
+    <string name="notification_category_transport">Kontrol sa media</string>
+    <string name="notification_type_beginning_of_field">Simula ng field</string>
+    <string name="notification_type_end_of_field">Dulo ng field</string>
+    <string name="notification_type_selection_cleared">Na-clear ang pinili</string>
+    <string name="notification_type_selection_mode_off">Naka-off ang selection mode</string>
+    <string name="notification_type_selection_mode_on">Naka-on ang selection mode</string>
+    <string name="ocr_text_description">%1$s, text</string>
+    <string name="orientation_landscape">Landscape</string>
+    <string name="orientation_portrait">Larawan</string>
+    <string name="out_of_grid">Wala sa grid</string>
+    <string name="out_of_grid_pager">Wala sa grid na pager</string>
+    <string name="out_of_grid_pager_with_name">Wala sa grid na pager na %1$s</string>
+    <string name="out_of_grid_with_name">Wala sa grid na %1$s</string>
+    <string name="out_of_horizontal_pager">Wala sa horizontal na pager</string>
+    <string name="out_of_list">Wala sa listahan</string>
+    <string name="out_of_list_with_name">Wala sa listahang %1$s</string>
+    <string name="out_of_pager">Wala sa pager</string>
+    <string name="out_of_pager_with_name">Wala sa pager na %1$s</string>
+    <string name="out_of_role_description">Wala sa %1$s</string>
+    <string name="out_of_role_description_with_name">Wala sa %1$s %2$s</string>
+    <string name="out_of_vertical_pager">Wala sa vertical na pager</string>
+    <string name="out_of_vertical_pager_with_name">Wala sa vertical na pager na %1$s</string>
+    <string name="password_toggle_content_description">Ipakita ang password</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Nakopya sa clipboard ang \"<ns1:g id="SUMMARY">%1$s</ns1:g>.\""</string>
+    <string name="row_heading_template">Heading ng row</string>
+    <string name="row_index_template">Row na %1$d</string>
+    <string name="screen_magnification_off">Naka-off ang magnification</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Maghanap"</string>
+    <string name="show_keyboard_window">Ipinapakita ang %1$s</string>
+    <string name="spokenfeedback_disabled">Naka-off ang Pasalitang Feedback</string>
+    <string name="spokenfeedback_on">Naka-on ang Pasalitang Feedback</string>
+    <string name="spokenfeedback_resumed">Ipinagpatuloy ang Pasalitang Feedback</string>
+    <string name="spokenfeedback_suspended">Sinuspinde ang Pasalitang Feedback</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">Binibigkas lang ang mga password kapag gumagamit ng headphones</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Halos katumbas ng</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Simbolo ng less than</string>
+    <string name="symbol_angle_bracket_right">Simbolo ng greater than</string>
+    <string name="symbol_apostrophe">Kudlit</string>
+    <string name="symbol_approximately_equals">Tinatayang katumbas ng</string>
+    <string name="symbol_asterisk">Asterisk</string>
+    <string name="symbol_at_sign">At</string>
+    <string name="symbol_backslash">Backslash</string>
+    <string name="symbol_beamed_sixteenth_note">Mga naka-beam na sixteenth note</string>
+    <string name="symbol_black_circle">Itim na bilog</string>
+    <string name="symbol_black_heart">Itim na puso</string>
+    <string name="symbol_black_smallsquare">Maliit na itim na parisukat</string>
+    <string name="symbol_black_square">Itim na parisukat</string>
+    <string name="symbol_black_star">Itim na bituin</string>
+    <string name="symbol_black_suit_of_diamonds">Itim na diamond</string>
+    <string name="symbol_black_triangle_pointing_down">Itim na tatsulok na nakaturo sa ibaba</string>
+    <string name="symbol_black_triangle_pointing_up">Itim na tatsulok na nakaturo sa itaas</string>
+    <string name="symbol_broken_bar">Broken bar</string>
+    <string name="symbol_bullet">Bullet</string>
+    <string name="symbol_bullseye">Bullseye</string>
+    <string name="symbol_caret">Caret</string>
+    <string name="symbol_celsius_degree">Celsius degree</string>
+    <string name="symbol_cent">Simbolo ng sentimo</string>
+    <string name="symbol_circle_left_half_black">Bilog na may kalahating kaliwang itim</string>
+    <string name="symbol_circle_right_half_black">Bilog na may kalahating kanang itim</string>
+    <string name="symbol_colon">Tutuldok</string>
+    <string name="symbol_comma">Kuwit</string>
+    <string name="symbol_copyright">Copyright</string>
+    <string name="symbol_curly_bracket_left">Kaliwang curly bracket</string>
+    <string name="symbol_curly_bracket_right">Kanang curly bracket</string>
+    <string name="symbol_currency_sign">Simbolo ng currency</string>
+    <string name="symbol_degree">Simbolo ng degree</string>
+    <string name="symbol_division">Simbolo ng paghahati</string>
+    <string name="symbol_dollar_sign">Simbolo ng dolyar</string>
+    <string name="symbol_downwards_arrow">Pababang Arrow</string>
+    <string name="symbol_eighth_note">Eighth Note</string>
+    <string name="symbol_ellipsis">Ellipsis</string>
+    <string name="symbol_em_dash">Em dash</string>
+    <string name="symbol_en_dash">En dash</string>
+    <string name="symbol_equal">Sign ng equal</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Tandang padamdam</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheit degree</string>
+    <string name="symbol_female">Simbolo ng babae</string>
+    <string name="symbol_full_width_ampersand">Buong lapad na ampersand</string>
+    <string name="symbol_full_width_asterisk">Buong lapad na asterisk</string>
+    <string name="symbol_full_width_circumflex">Buong lapad na circumflex</string>
+    <string name="symbol_full_width_colon">Buong lapad na tutuldok</string>
+    <string name="symbol_full_width_comma">Buong lapad na kuwit</string>
+    <string name="symbol_full_width_exclamation_mark">Buong lapad na tandang padamdam</string>
+    <string name="symbol_full_width_greater_than_sign">Buong lapad na simbolo ng greater than</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideographic na tuldok</string>
+    <string name="symbol_full_width_left_curly_bracket">Buong lapad na kaliwang curly bracket</string>
+    <string name="symbol_full_width_left_parenthesis">Buong lapad na kaliwang parenthesis</string>
+    <string name="symbol_full_width_less_than_sign">Buong lapad na simbolo ng less than</string>
+    <string name="symbol_full_width_question_mark">Buong lapad na tandang pananong</string>
+    <string name="symbol_full_width_right_curly_bracket">Buong lapad na kanang curly bracket</string>
+    <string name="symbol_full_width_right_parenthesis">Buong lapad na kanang parenthesis</string>
+    <string name="symbol_full_width_semicolon">Buong lapad na tuldukuwit</string>
+    <string name="symbol_full_width_tilde">Buong lapad na tilde</string>
+    <string name="symbol_full_width_underscore">Buong lapad na underscore</string>
+    <string name="symbol_grave_accent">Tuldik</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Kalahating lapad na Katakana na gitnang tuldok</string>
+    <string name="symbol_hyphen_minus">Gitling</string>
+    <string name="symbol_ideographic_comma">Ideographic na kuwit</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Nakabaliktad na tandang padamdam</string>
+    <string name="symbol_inverted_question_mark">Nakabaliktad na tandang pananong</string>
+    <string name="symbol_left_angle_bracket">Dobleng kaliwang angle bracket</string>
+    <string name="symbol_left_black_lenticular_bracket">Itim na Kaliwang Lenticular Bracket</string>
+    <string name="symbol_left_corner_bracket">Kaliwang Sulok na Bracket</string>
+    <string name="symbol_left_double_quotation_mark">Dobleng kaliwang panipi</string>
+    <string name="symbol_left_single_quotation_mark">Iisang kaliwang panipi</string>
+    <string name="symbol_leftwards_arrow">Pakaliwang arrow</string>
+    <string name="symbol_liter">Liter</string>
+    <string name="symbol_low_double_quote">Mababang panipi</string>
+    <string name="symbol_male">Simbolo ng lalaki</string>
+    <string name="symbol_mathematical_left_angle_bracket">Kaliwang angle bracket na pang-math</string>
+    <string name="symbol_mathematical_right_angle_bracket">Kanang angle bracket na pang-math</string>
+    <string name="symbol_micro_sign">Simbolo ng micro</string>
+    <string name="symbol_middle_dot">Gitnang tuldok</string>
+    <string name="symbol_multiplication">Simbolo ng multiplication</string>
+    <string name="symbol_new_line">Bagong linya</string>
+    <string name="symbol_not_equals">Hindi katumbas ng</string>
+    <string name="symbol_not_sign">Simbolo ng not</string>
+    <string name="symbol_paragraph_mark">Marka ng talata</string>
+    <string name="symbol_parenthesis_left">Kaliwang panaklong</string>
+    <string name="symbol_parenthesis_right">Kanang panaklong</string>
+    <string name="symbol_percent">Porsyento</string>
+    <string name="symbol_period">Tuldok</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Sign ng plus minus</string>
+    <string name="symbol_postal_mark">Postal mark</string>
+    <string name="symbol_pound">Pound</string>
+    <string name="symbol_pound_sterling">Simbolo ng currency na pound</string>
+    <string name="symbol_quarter_note">Quarter Note</string>
+    <string name="symbol_question_mark">Tandang pananong</string>
+    <string name="symbol_quotation_mark">Panipi</string>
+    <string name="symbol_reference">Marka ng Sanggunian</string>
+    <string name="symbol_registered_trademark">Nakarehistrong trademark</string>
+    <string name="symbol_right_angle_bracket">Dobleng kanang angle bracket</string>
+    <string name="symbol_right_black_lenticular_bracket">Itim na Kaliwang Lenticular Bracket</string>
+    <string name="symbol_right_corner_bracket">Kanang Sulok na Bracket</string>
+    <string name="symbol_right_double_quotation_mark">Dobleng kanang panipi</string>
+    <string name="symbol_right_single_quotation_mark">Iisang kanang panipi</string>
+    <string name="symbol_rightwards_arrow">Kanang Arrow</string>
+    <string name="symbol_rupee">Rupee</string>
+    <string name="symbol_section_sign">Simbolo ng seksyon</string>
+    <string name="symbol_semicolon">Tuldukuwit</string>
+    <string name="symbol_slash">Slash</string>
+    <string name="symbol_solar">Simbolo ng solar</string>
+    <string name="symbol_space">Espasyo</string>
+    <string name="symbol_square_bracket_left">Kaliwang square bracket</string>
+    <string name="symbol_square_bracket_right">Kanang square bracket</string>
+    <string name="symbol_square_root">Square root</string>
+    <string name="symbol_tilde">Tilde</string>
+    <string name="symbol_trademark">Trademark</string>
+    <string name="symbol_underscore">Underscore</string>
+    <string name="symbol_upwards_arrow">Pataas na arrow</string>
+    <string name="symbol_vertical_bar">Patayong linya</string>
+    <string name="symbol_white_circle">Puting bilog</string>
+    <string name="symbol_white_club_suit">Puting club suit</string>
+    <string name="symbol_white_diamond">Puting diyamante</string>
+    <string name="symbol_white_down_pointing_triangle">Puting tatsulok na nakaturo sa ibaba</string>
+    <string name="symbol_white_heart">Puting Puso</string>
+    <string name="symbol_white_left_pointing_index">Puting index na nakaturo sa kaliwa</string>
+    <string name="symbol_white_left_pointing_triangle">Puting tatsulok na nakaturo sa kaliwa</string>
+    <string name="symbol_white_right_pointing_index">Puting index na nakaturo sa kanan</string>
+    <string name="symbol_white_right_pointing_triangle">Puting tatsulok na nakaturo sa kanan</string>
+    <string name="symbol_white_spade_suit">Puting spade suit</string>
+    <string name="symbol_white_square">Puting parisukat</string>
+    <string name="symbol_white_star">Puting bituin</string>
+    <string name="symbol_white_up_pointing_triangle">Puting tatsulok na nakaturo sa itaas</string>
+    <string name="symbol_won">Simbolo ng currency na won</string>
+    <string name="symbol_won_sign">Simbolo ng currency na won</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="talkback_disabled">Naka-off ang TalkBack</string>
+    <string name="talkback_on">Naka-on ang TalkBack</string>
+    <string name="talkback_resumed">Ipinagpatuloy ang TalkBack</string>
+    <string name="talkback_suspended">Sinuspinde ang TalkBack</string>
+    <string name="template_announce_selected_text">Piniling text: %1$s</string>
+    <string name="template_capital_letter">malaking %1$s</string>
+    <string name="template_collection_level">Antas %1$d</string>
+    <string name="template_current_tts_engine">Ginagamit ang %1$s</string>
+    <string name="template_custom_hint_for_actions">%1$s upang %2$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">Pindutin ang %1$s upang %2$s.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s nang matagal upang %2$s.</string>
+    <string name="template_drawer_opened">Menu ng %1$s</string>
+    <string name="template_hint_checkable">%1$s upang i-toggle.</string>
+    <string name="template_hint_checkable_keyboard">Pindutin ang %1$s upang i-toggle.</string>
+    <string name="template_hint_clickable">%1$s upang i-activate.</string>
+    <string name="template_hint_clickable_keyboard">Pindutin ang %1$s upang i-activate.</string>
+    <string name="template_hint_custom_actions">Mga Pagkilos:</string>
+    <string name="template_hint_edit_text">%1$s para ma-edit ang text.</string>
+    <string name="template_hint_edit_text_keyboard">Pindutin ang %1$s para ma-edit ang text.</string>
+    <string name="template_hint_long_clickable">%1$s at pindutin nang matagal.</string>
+    <string name="template_hint_long_clickable_keyboard">Pindutin ang %1$s upang pindutin nang matagal.</string>
+    <string name="template_hint_menu_type_high_verbosity">Available ang %1$s, gamitin ang %2$s para tingnan.</string>
+    <string name="template_hint_pager">Mag-swipe gamit ang dalawang daliri upang lumipat ng mga page.</string>
+    <string name="template_hint_pager_single_page">Wala nang page.</string>
+    <string name="template_hint_seek_control">Gamitin ang mga key ng volume upang isaayos</string>
+    <string name="template_hint_seek_control_tv">%1$s upang palitan.</string>
+    <string name="template_hint_spinner">%1$s upang baguhin.</string>
+    <string name="template_hint_spinner_keyboard">Pindutin ang %1$s upang baguhin.</string>
+    <string name="template_labeled_item">%1$s para sa %2$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s na picture in picture</string>
+    <string name="template_password_selected">Character %1$d hanggang %2$d</string>
+    <string name="template_password_traversed">Character %1$d</string>
+    <string name="template_percent">%1$s (na) porsyento.</string>
+    <string name="template_replaced_characters">Pinalitan ang %1$s (na) character ng %2$s (na) character</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">%1$s para sa mga available na pagkilos.</string>
+    <string name="template_sa_custom_hint_scrollable">%1$s para mag-scroll.</string>
+    <string name="template_sa_hint_seek_control">Pindutin ang Switch na Piliin para i-adjust</string>
+    <string name="template_screen_magnification_on">Magnification sa %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">Magnification %1$d%%</string>
+    <string name="template_scroll_from_count">Ipinapakita ang item mula %1$d ng %2$d.</string>
+    <string name="template_scroll_from_to_count">Ipinapakita ang mga item mula %1$d hanggang %2$d ng %3$d.</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">Bilis ng pagsasalita %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s sa kaliwa, %2$s sa kanan</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s sa kanan, %2$s sa kaliwa</string>
+    <string name="template_split_screen_mode_portrait">%1$s sa itaas, %2$s sa ibaba</string>
+    <string name="template_text_copied">nakopya, %1$s</string>
+    <string name="template_text_cut">na-cut, %1$s</string>
+    <string name="template_text_error">Hindi wastong input %1$s</string>
+    <string name="template_text_pasted">na-paste, %1$s</string>
+    <string name="template_text_removed">Na-delete ang %1$s</string>
+    <string name="template_text_replaced">Pinalitan ng %1$s ang %2$s</string>
+    <string name="template_text_selected">%1$s, napili</string>
+    <string name="template_text_unselected">%1$s, naalis sa pagkakapili</string>
+    <string name="template_viewpager_index_count">Page %1$d ng %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d ng %2$d</string>
+    <string name="template_volume_change_decrease">Bawasan</string>
+    <string name="template_volume_change_increase">Dagdagan</string>
+    <string name="template_volume_change_maximum">Maximum</string>
+    <string name="template_volume_change_minimum">Minimum</string>
+    <string name="title_action_collapse">I-collapse</string>
+    <string name="title_action_dismiss">I-dismiss</string>
+    <string name="title_action_expand">Palawakin</string>
+    <string name="untitled_window">walang pamagat</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"NAKA-OFF"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"NAKA-ON"</string>
+    <string name="value_button">Button</string>
+    <string name="value_caps_lock_off">Naka-off ang Caps Lock.</string>
+    <string name="value_caps_lock_on">Naka-on ang Caps Lock.</string>
+    <string name="value_checkbox">Check box</string>
+    <string name="value_checked">nasuri</string>
+    <string name="value_collapsed">na-collapse</string>
+    <string name="value_disabled">naka-disable</string>
+    <string name="value_double_tap">I-double tap</string>
+    <string name="value_edit_box">Kahon sa pag-edit</string>
+    <string name="value_edit_box_editing">Ine-edit</string>
+    <string name="value_expanded">pinalawak</string>
+    <string name="value_gridview">Grid</string>
+    <string name="value_image">Larawan</string>
+    <string name="value_listview">Listahan</string>
+    <string name="value_not_checked">hindi nilagyan ng check</string>
+    <string name="value_num_lock_off">Naka-off ang Num Lock.</string>
+    <string name="value_num_lock_on">Naka-on ang Num Lock.</string>
+    <string name="value_off">Naka-off</string>
+    <string name="value_on">Naka-on</string>
+    <string name="value_options_menu_open">Mga Opsyon.</string>
+    <string name="value_pager">Multi-page na view</string>
+    <string name="value_pager_page">Page</string>
+    <string name="value_password">password</string>
+    <string name="value_press_select">Pindutin ang piliin</string>
+    <string name="value_progress_bar">Progress bar</string>
+    <string name="value_radio_button">Radio button</string>
+    <string name="value_scroll_lock_off">Naka-off ang Scroll Lock.</string>
+    <string name="value_scroll_lock_on">Naka-on ang Scroll Lock.</string>
+    <string name="value_seek_bar">Slider</string>
+    <string name="value_selected">napili</string>
+    <string name="value_single_tap">I-tap</string>
+    <string name="value_sliding_drawer_opened">Nakabukas ang sliding drawer</string>
+    <string name="value_spinner">Drop down na listahan</string>
+    <string name="value_switch">Switch</string>
+    <string name="value_switch_press">Pindutin ang Switch na Piliin</string>
+    <string name="value_tabwidget">Tab bar</string>
+    <string name="value_text_cleared">Na-clear na text</string>
+    <string name="value_text_max_length">Naabot na ang maximum na haba</string>
+    <string name="value_unlabelled">Walang Label</string>
+    <string name="value_webview">Webview</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Action drawer"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Navigation drawer"</string>
+</resources>

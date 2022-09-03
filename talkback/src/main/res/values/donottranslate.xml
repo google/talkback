@@ -807,7 +807,7 @@
     <bool name="pref_show_navigation_menu_landmarks_default">true</bool>
     <bool name="pref_show_navigation_menu_special_content_default">true</bool>
     <bool name="pref_show_navigation_menu_other_web_navigation_default">true</bool>
-    <bool name="pref_show_navigation_menu_granularity_default">false</bool>
+    <bool name="pref_show_navigation_menu_granularity_default">true</bool>
     <bool name="pref_show_navigation_menu_window_default">true</bool>
 
     <string name="pref_shortcut_up_default">@string/shortcut_value_selected_setting_previous_action</string>

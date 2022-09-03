@@ -1,0 +1,48 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/utils/build/intermediates/res/merged/phone/release/values-night-v29/values-night-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-night-v29/colors.xml",
+                    "from": {
+                        "startLines": "22,23,27,26,19,20",
+                        "startColumns": "2,2,2,2,2,2",
+                        "startOffsets": "825,901,1091,1024,691,754",
+                        "endColumns": "75,88,74,66,62,69",
+                        "endOffsets": "898,987,1163,1088,751,821"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,133,224,301,370,435",
+                        "endColumns": "77,90,76,68,64,71",
+                        "endOffsets": "128,219,296,365,430,502"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/utils/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-night-v29/values-night-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-night-v29/colors.xml",
+                    "from": {
+                        "startLines": "22,23,27,26,19,20",
+                        "startColumns": "2,2,2,2,2,2",
+                        "startOffsets": "825,901,1091,1024,691,754",
+                        "endColumns": "75,88,74,66,62,69",
+                        "endOffsets": "898,987,1163,1088,751,821"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,133,224,301,370,435",
+                        "endColumns": "77,90,76,68,64,71",
+                        "endOffsets": "128,219,296,365,430,502"
+                    }
+                }
+            ]
+        }
+    ]
+}

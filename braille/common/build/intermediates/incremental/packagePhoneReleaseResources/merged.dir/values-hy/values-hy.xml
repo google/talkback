@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">կետեր %s</item>
+    <item quantity="other">կետեր %s</item>
+  </plurals>
+    <string name="auto_detect">Շրջել ձեռքումս սարքի դիրքին համապատասխան</string>
+    <string name="capitalize_announcement">Մեծատառեր</string>
+    <string name="code_user_facing_name_ar">արաբերեն</string>
+    <string name="code_user_facing_name_es">իսպաներեն</string>
+    <string name="code_user_facing_name_fr">ֆրանսերեն</string>
+    <string name="code_user_facing_name_pl">լեհերեն</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string name="number_announcement">Համարը</string>
+    <string name="read_out_deleted">Տեքստը (%s) ջնջվեց</string>
+    <string name="screen_away">Շրջած էկրանի ռեժիմ</string>
+    <string name="screen_away_detail">Սարքը բռնեք էկրանը ձեզնից շրջած կողմով (շրջած էկրանի ռեժիմ)</string>
+    <string name="tabletop">Սեղանի ռեժիմ</string>
+    <string name="tabletop_detail">Սարքը դրեք սեղանին (սեղանի ռեժիմ)</string>
+</resources>

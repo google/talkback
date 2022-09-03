@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d కొత్త నోటిఫికేషన్</item>
+    <item quantity="other">%d కొత్త నోటిఫికేషన్‌లు</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"హోమ్‌కు నావిగేట్ చేస్తుంది"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"పైకి నావిగేట్ చేస్తుంది"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"మరిన్ని ఆప్షన్‌లు"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"పూర్తయింది"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"అన్నీ చూడండి"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"యాప్‌ను ఎంచుకోండి"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ఆఫ్"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ఆన్"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"స్పేస్"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"సెర్చ్ చేయండి…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"ప్రశ్నను తీసివేస్తుంది"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"సెర్చ్ క్వెరీ"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"సెర్చ్"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"ప్రశ్నని సమర్పిస్తుంది"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"వాయిస్ సెర్చ్"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"వీరితో షేర్ చేస్తుంది"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>తో షేర్ చేస్తుంది"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"కుదిస్తుంది"</string>
+    <string name="bottomsheet_action_expand_halfway">సగాన్ని విస్తరింపజేయండి</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%2$dలో %1$d అక్షరాలు నమోదు చేయబడ్డాయి</string>
+    <string name="character_counter_overflowed_content_description">అక్షర పరిధి %2$dలో %1$dను అధిగమించింది</string>
+    <string name="clear_text_end_icon_content_description">రాసినదాన్ని తీసివేయి</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">ప్రారంభించు</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">మీరు Google Play సేవలను ప్రారంభిస్తే మినహా %1$s పని చేయదు.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play సేవలను ప్రారంభించండి</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ఇన్‌స్టాల్ చేయి</string>
+    <string name="common_google_play_services_install_text">%1$s Google Play సేవలు లేకుండా అమలు కాదు, ఆ సేవలు మీ పరికరంలో లేవు.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play సేవలను పొందండి</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play సేవల లభ్యత</string>
+    <string name="common_google_play_services_notification_ticker">Google Play సేవల ఎర్రర్</string>
+    <string name="common_google_play_services_unknown_issue">%1$s Google Play సేవలతో సమస్య కలిగి ఉంది. దయచేసి మళ్లీ ప్రయత్నించండి.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s Google Play సేవలు లేకుండా అమలు కాదు, ఈ సేవలకు మీ పరికరంలో మద్దతు లేదు.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">అప్‌డేట్ చేయి</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">మీరు Google Play సేవలను నవీకరిస్తే మినహా %1$s అమలు కాదు.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play సేవలను అప్‌డేట్ చేయండి</string>
+    <string name="common_google_play_services_updating_text">%1$s Google Play సేవలు లేకుండా అమలు కాదు, ఆ సేవలు ప్రస్తుతం నవీకరించబడుతున్నాయి.</string>
+    <string name="common_google_play_services_wear_update_text">కొత్త Google Play సేవల వెర్షన్ అవసరం. అది కొద్ది సేపట్లో దానంతట అదే అప్‌డేట్ చేయబడుతుంది.</string>
+    <string name="common_open_on_phone">ఫోన్‌లో తెరువు</string>
+    <string name="common_signin_button_text">సైన్ ఇన్ చేయండి</string>
+    <string name="common_signin_button_text_long">Googleతో సైన్ ఇన్ చేయండి</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"వైఫల్యం"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"మీ ఫోన్‌లో తెరవబడింది"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"విజయవంతమైంది"</string>
+    <string msgid="3209159573327985035" name="copy">"కాపీ చేయి"</string>
+    <string name="error_icon_content_description">ఎర్రర్</string>
+    <string name="exit_scrim">నిష్క్రమించు</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"అధునాతనం"</string>
+    <string name="exposed_dropdown_menu_content_description">డ్రాప్‌డౌన్ మెనూను చూపు</string>
+    <string name="function_off">మాటల ప్రతిస్పందన ఆఫ్ చేయబడింది</string>
+    <string name="function_on">మాటల ప్రతిస్పందన ఆన్ చేయబడింది</string>
+    <string name="granularity_character">అక్షరాలు</string>
+    <string name="granularity_default">ఆటోమేటిక్</string>
+    <string name="granularity_line">లైన్‌లు</string>
+    <string name="granularity_native_control">కంట్రోల్‌లు</string>
+    <string name="granularity_native_heading">ముఖ్య శీర్షికలు</string>
+    <string name="granularity_native_link">లింక్‌లు</string>
+    <string name="granularity_paragraph">పేరాలు</string>
+    <string name="granularity_pseudo_web_special_content">ప్రత్యేక కంటెంట్</string>
+    <string name="granularity_web_control">కంట్రోల్‌లు</string>
+    <string name="granularity_web_heading">హెడ్డింగులు</string>
+    <string name="granularity_web_landmark">ల్యాండ్‌మార్క్‌లు</string>
+    <string name="granularity_web_link">లింక్‌లు</string>
+    <string name="granularity_web_list">లిస్ట్‌లు</string>
+    <string name="granularity_window">విండోలు</string>
+    <string name="granularity_word">పదాలు</string>
+    <string name="hide_keyboard_window">కీబోర్డ్ దాచబడింది</string>
+    <string name="icon_content_description">డైలాగ్ చిహ్నం</string>
+    <string name="item_view_role_description">ట్యాబ్</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">కొత్త షార్ట్‌కట్‌ను సెట్ చేయడానికి %1$s మాడిఫైయర్ కీతో కీ కాంబినేషన్‌ను నొక్కండి.</string>
+    <string name="keycombo_assign_dialog_instruction">కొత్త షార్ట్‌కట్‌ను సెట్ చేయడానికి కీ కాంబినేషన్‌ను నొక్కండి. అది తప్పనిసరిగా ALT లేదా Control కీని కలిగి ఉండాలి.</string>
+    <string name="keycombo_key_arrow_down">క్రిందికి సూచించే బాణం</string>
+    <string name="keycombo_key_arrow_left">ఎడమవైపు సూచించే బాణం</string>
+    <string name="keycombo_key_arrow_right">కుడివైపు సూచించే బాణం</string>
+    <string name="keycombo_key_arrow_up">పైకి సూచించే బాణం</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">సెర్చ్</string>
+    <string name="keycombo_key_modifier_shift">షిఫ్ట్</string>
+    <string name="keycombo_unassigned">కేటాయించలేదు</string>
+    <string name="material_clock_toggle_content_description">AM లేదా PMను ఎంచుకోండి</string>
+    <string name="material_hour_selection">గంటను ఎంచుకోండి</string>
+    <string name="material_hour_suffix">%1$s అవుతుంది</string>
+    <string name="material_minute_selection">నిమిషాలను ఎంచుకోండి</string>
+    <string name="material_minute_suffix">%1$s నిమిషాలు</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">సమయాన్ని నమోదు చేయడం కోసం గడియారం మోడ్‌కు మారండి.</string>
+    <string name="material_timepicker_hour">గంట</string>
+    <string name="material_timepicker_minute">నిమిషం</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">సమయాన్ని ఎంచుకోండి</string>
+    <string name="material_timepicker_text_input_mode_description">సమయాన్ని నమోదు చేయడం కోసం వచన నమోదు మోడ్‌కి మారండి.</string>
+    <string name="mtrl_badge_numberless_content_description">కొత్త నోటిఫికేషన్</string>
+    <string name="mtrl_chip_close_icon_content_description">(%1$s)ని తీసివేస్తుంది</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d కంటే ఎక్కువ కొత్త నోటిఫికేషన్‌లు</string>
+    <string name="mtrl_picker_a11y_next_month">వచ్చే నెలకు మార్చుతుంది</string>
+    <string name="mtrl_picker_a11y_prev_month">మునుపటి నెలకు మార్చుతుంది</string>
+    <string name="mtrl_picker_announce_current_selection">ప్రస్తుత ఎంపిక: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">తేదీని ఎంచుకోండి</string>
+    <string name="mtrl_picker_date_header_unselected">ఎంచుకున్న తేది</string>
+    <string name="mtrl_picker_day_of_week_column_header">రోజుల నిలువు వరుస: %1$s</string>
+    <string name="mtrl_picker_invalid_format">ఫార్మాట్ చెల్లదు.</string>
+    <string name="mtrl_picker_invalid_format_example">ఉదాహరణ: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">ఇలా ఉపయోగించండి: %1$s</string>
+    <string name="mtrl_picker_invalid_range">చెల్లని పరిధి.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$sసంవత్సరానికి నావిగేట్ చేస్తుంది</string>
+    <string name="mtrl_picker_out_of_range">పరిధి వెలుపల ఉంది: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">ప్రారంభ తేదీ – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – ముగింపు తేది</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">పరిధిని ఎంచుకోండి</string>
+    <string name="mtrl_picker_range_header_unselected">ప్రారంభ తేది - ముగింపు తేది</string>
+    <string name="mtrl_picker_save">సేవ్ చేయి</string>
+    <string name="mtrl_picker_text_input_date_hint">తేదీ</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">ముగింపు తేదీ</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">ప్రారంభ తేదీ</string>
+    <string name="mtrl_picker_text_input_day_abbr">రో</string>
+    <string name="mtrl_picker_text_input_month_abbr">నె</string>
+    <string name="mtrl_picker_text_input_year_abbr">సం</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">క్యాలెండర్ ఇన్‌పుట్ మోడ్‌కు మారుస్తుంది</string>
+    <string name="mtrl_picker_toggle_to_day_selection">\'రోజును ఎంపిక చేసుకోవడం\'కు మారడానికి నొక్కండి</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">వచన ఇన్‌పుట్ మోడ్‌కు మారుస్తుంది</string>
+    <string name="mtrl_picker_toggle_to_year_selection">\'సంవత్సరాన్ని ఎంపిక చేసుకోవడం\'కు మారడానికి నొక్కండి</string>
+    <string msgid="478774118347071097" name="not_set">"సెట్ చేయలేదు"</string>
+    <string name="password_toggle_content_description">పాస్‌వర్డ్‌ను చూపు</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" క్లిప్‌బోర్డ్‌కి కాపీ చేయబడింది."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"సెర్చ్"</string>
+    <string name="show_keyboard_window">%1$sను చూపుతోంది</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">దాదాపుగా దీనికి సమానం</string>
+    <string name="symbol_ampersand">యాంపర్‌సెండ్</string>
+    <string name="symbol_angle_bracket_left">తక్కువ సూచిక గుర్తు</string>
+    <string name="symbol_angle_bracket_right">ఎక్కువ సూచిక గుర్తు</string>
+    <string name="symbol_apostrophe">అపోస్ట్రఫీ</string>
+    <string name="symbol_approximately_equals">సుమారుగా సమానం</string>
+    <string name="symbol_asterisk">నక్షత్రం గుర్తు</string>
+    <string name="symbol_at_sign">అట్</string>
+    <string name="symbol_backslash">బ్యాక్‌స్లాష్</string>
+    <string name="symbol_beamed_sixteenth_note">అడ్డగీత గల పదహారవ స్వరం</string>
+    <string name="symbol_black_circle">నలుపు రంగు వృత్తం</string>
+    <string name="symbol_black_heart">నలుపు రంగు హృదయం</string>
+    <string name="symbol_black_smallsquare">చిన్న నలుపు రంగు చతురస్రం</string>
+    <string name="symbol_black_square">నలుపు రంగు చతురస్రం</string>
+    <string name="symbol_black_star">నలుపు రంగు నక్షత్రం</string>
+    <string name="symbol_black_suit_of_diamonds">డైమండ్‌లతో ఉన్న నలుపు రంగు సూట్</string>
+    <string name="symbol_black_triangle_pointing_down">కిందకు చూపిస్తున్న నలుపు రంగు త్రిభుజం</string>
+    <string name="symbol_black_triangle_pointing_up">పైకి చూపిస్తున్న నలుపు రంగు త్రిభుజం</string>
+    <string name="symbol_broken_bar">విభజించబడిన పట్టీ</string>
+    <string name="symbol_bullet">బులెట్</string>
+    <string name="symbol_bullseye">బుల్స్ఐ</string>
+    <string name="symbol_caret">క్యారెట్</string>
+    <string name="symbol_celsius_degree">సెల్సియస్ డిగ్రీ</string>
+    <string name="symbol_cent">శాతం గుర్తు</string>
+    <string name="symbol_circle_left_half_black">ఎడమ సగం నలుపు రంగు గల వృత్తం</string>
+    <string name="symbol_circle_right_half_black">కుడి సగం నలుపు రంగు గల వృత్తం</string>
+    <string name="symbol_colon">కోలన్</string>
+    <string name="symbol_comma">కామా</string>
+    <string name="symbol_copyright">కాపీరైట్</string>
+    <string name="symbol_curly_bracket_left">ఎడమ ధనుర్బంధ కుండలీకరణం</string>
+    <string name="symbol_curly_bracket_right">కుడి ధనుర్బంధ కుండలీకరణం</string>
+    <string name="symbol_currency_sign">కరెన్సీ గుర్తు</string>
+    <string name="symbol_degree">డిగ్రీ గుర్తు</string>
+    <string name="symbol_division">భాగాహార గుర్తు</string>
+    <string name="symbol_dollar_sign">డాలర్ గుర్తు</string>
+    <string name="symbol_downwards_arrow">క్రిందికి బాణం</string>
+    <string name="symbol_eighth_note">ఎనిమిదవ స్వరం</string>
+    <string name="symbol_ellipsis">ఎలిప్సిస్</string>
+    <string name="symbol_em_dash">ఎమ్ డాష్</string>
+    <string name="symbol_en_dash">ఎన్ డాష్</string>
+    <string name="symbol_equal">సమాన గుర్తు</string>
+    <string name="symbol_euro">యూరో</string>
+    <string name="symbol_exclamation_mark">ఆశ్చర్యార్థకం గుర్తు</string>
+    <string name="symbol_fahrenheit_degree">ఫారెన్‌హీట్ డిగ్రీ</string>
+    <string name="symbol_female">స్త్రీ చిహ్నం</string>
+    <string name="symbol_full_width_ampersand">పూర్తి-వెడల్పు ఉన్న ఆంపర్‌శాండ్</string>
+    <string name="symbol_full_width_asterisk">పూర్తి-వెడల్పు ఉన్న నక్షత్రం గుర్తు</string>
+    <string name="symbol_full_width_circumflex">పూర్తి-వెడల్పు ఉన్న సర్కమ్‌ఫ్లెక్స్</string>
+    <string name="symbol_full_width_colon">పూర్తి-వెడల్పు ఉన్న కోలన్</string>
+    <string name="symbol_full_width_comma">పూర్తి-వెడల్పు కామా</string>
+    <string name="symbol_full_width_exclamation_mark">పూర్తి-వెడల్పు ఆశ్చర్యార్థకం గుర్తు</string>
+    <string name="symbol_full_width_greater_than_sign">పూర్తి-వెడల్పు ఉన్న గ్రేటర్ దెన్ సంకేతం</string>
+    <string name="symbol_full_width_ideographic_full_stop">ఇడియోగ్రాఫిక్ ఫుల్ స్టాప్</string>
+    <string name="symbol_full_width_left_curly_bracket">పూర్తి-వెడల్పు ఉన్న ఎడమవైపు మెలికల బ్రాకెట్</string>
+    <string name="symbol_full_width_left_parenthesis">పూర్తి-వెడల్పు ఉన్న ఎడమవైపు బ్రాకెట్</string>
+    <string name="symbol_full_width_less_than_sign">పూర్తి-వెడల్పు ఉన్న లెస్ దెన్ సంకేతం</string>
+    <string name="symbol_full_width_question_mark">పూర్తి-వెడల్పు ప్రశ్న గుర్తు</string>
+    <string name="symbol_full_width_right_curly_bracket">పూర్తి-వెడల్పు ఉన్న కుడివైపు మెలికల బ్రాకెట్</string>
+    <string name="symbol_full_width_right_parenthesis">పూర్తి-వెడల్పు ఉన్న కుడివైపు బ్రాకెట్</string>
+    <string name="symbol_full_width_semicolon">పూర్తి-వెడల్పు ఉన్న సెమీకోలన్</string>
+    <string name="symbol_full_width_tilde">పూర్తి-వెడల్పు ఉన్న టిల్డ్</string>
+    <string name="symbol_full_width_underscore">పూర్తి-వెడల్పు ఉన్న అండర్‌స్కోర్</string>
+    <string name="symbol_grave_accent">అనుదాత్త స్వరం</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">సగం వెడల్పు ఉన్న కాటెకానా మధ్య డాట్</string>
+    <string name="symbol_hyphen_minus">డాష్</string>
+    <string name="symbol_ideographic_comma">ఇడియోగ్రాఫిక్ కామా</string>
+    <string name="symbol_integral">పూర్ణాంక ప్రమేయ గుర్తు</string>
+    <string name="symbol_inverted_exclamation_mark">తలకిందులుగా ఉన్న ఆశ్చర్యార్థక గుర్తు</string>
+    <string name="symbol_inverted_question_mark">తలకిందులుగా ఉన్న ప్రశార్థక గుర్తు</string>
+    <string name="symbol_left_angle_bracket">ఎడమవైపు డబుల్ యాంగిల్ బ్రాకెట్</string>
+    <string name="symbol_left_black_lenticular_bracket">ఎడమవైపు నలుపు రంగు కుంభద్వయాకార కుండలీకరణం</string>
+    <string name="symbol_left_corner_bracket">ఎడమ మూల కుండలీకరణం</string>
+    <string name="symbol_left_double_quotation_mark">ఎడమ వైపు డబుల్ కొటేషన్ గుర్తు</string>
+    <string name="symbol_left_single_quotation_mark">ఎడమవైపు సింగిల్ కొటేషన్ గుర్తు</string>
+    <string name="symbol_leftwards_arrow">ఎడమవైపు బాణం</string>
+    <string name="symbol_liter">లీటర్</string>
+    <string name="symbol_low_double_quote">దిగువ డబుల్ కోట్</string>
+    <string name="symbol_male">పురుషుడి చిహ్నం</string>
+    <string name="symbol_mathematical_left_angle_bracket">గణితానికి సంబంధించిన ఎడమ కోణం బ్రాకెట్</string>
+    <string name="symbol_mathematical_right_angle_bracket">గణితానికి సంబంధించిన కుడి కోణం బ్రాకెట్</string>
+    <string name="symbol_micro_sign">సూక్ష్మ గుర్తు</string>
+    <string name="symbol_middle_dot">మధ్య డాట్</string>
+    <string name="symbol_multiplication">గుణకారం గుర్తు</string>
+    <string name="symbol_new_line">కొత్త పంక్తి</string>
+    <string name="symbol_not_equals">దీనికి సమానం కానిది</string>
+    <string name="symbol_not_sign">కాదు గుర్తు</string>
+    <string name="symbol_paragraph_mark">పేరా గుర్తు</string>
+    <string name="symbol_parenthesis_left">ఎడమ కుండలీకరణం</string>
+    <string name="symbol_parenthesis_right">కుడి కుండలీకరణం</string>
+    <string name="symbol_percent">శాతం</string>
+    <string name="symbol_period">వ్యవధి</string>
+    <string name="symbol_pi">పై</string>
+    <string name="symbol_plus_minus_sign">కూడిక తీసివేత గుర్తు</string>
+    <string name="symbol_postal_mark">పోస్టల్ గుర్తు</string>
+    <string name="symbol_pound">పౌండ్</string>
+    <string name="symbol_pound_sterling">పౌండ్ కరెన్సీ గుర్తు</string>
+    <string name="symbol_quarter_note">మూడవ వంతు స్వరం</string>
+    <string name="symbol_question_mark">ప్రశ్న గుర్తు</string>
+    <string name="symbol_quotation_mark">కోట్</string>
+    <string name="symbol_reference">సూచన గుర్తు</string>
+    <string name="symbol_registered_trademark">నమోదిత బిజినెస్ చిహ్నం</string>
+    <string name="symbol_right_angle_bracket">కుడివైపు డబుల్ యాంగిల్ బ్రాకెట్</string>
+    <string name="symbol_right_black_lenticular_bracket">కుడివైపు నలుపు రంగు కుంభద్వయాకార కుండలీకరణం</string>
+    <string name="symbol_right_corner_bracket">కుడి మూల కుండలీకరణం</string>
+    <string name="symbol_right_double_quotation_mark">కుడి వైపు డబుల్ కొటేషన్ గుర్తు</string>
+    <string name="symbol_right_single_quotation_mark">కుడివైపు సింగిల్ కొటేషన్ గుర్తు</string>
+    <string name="symbol_rightwards_arrow">కుడివైపు బాణం</string>
+    <string name="symbol_rupee">రూపాయి</string>
+    <string name="symbol_section_sign">విభాగం గుర్తు</string>
+    <string name="symbol_semicolon">సెమీకోలన్</string>
+    <string name="symbol_slash">స్లాష్</string>
+    <string name="symbol_solar">సౌర గుర్తు</string>
+    <string name="symbol_space">అంతరం</string>
+    <string name="symbol_square_bracket_left">ఎడమ చతురస్ర కుండలీకరణం</string>
+    <string name="symbol_square_bracket_right">కుడి చతురస్ర కుండలీకరణం</string>
+    <string name="symbol_square_root">వర్గమూలం</string>
+    <string name="symbol_tilde">భేదద్యోతక గుర్తు</string>
+    <string name="symbol_trademark">బిజినెస్ చిహ్నం</string>
+    <string name="symbol_underscore">అండర్‌స్కోర్</string>
+    <string name="symbol_upwards_arrow">పైకి బాణం</string>
+    <string name="symbol_vertical_bar">నిలువు గీత</string>
+    <string name="symbol_white_circle">తెలుపు రంగు వృత్తం</string>
+    <string name="symbol_white_club_suit">తెలుపు రంగు కళావరు గుర్తు</string>
+    <string name="symbol_white_diamond">తెలుపు రంగు డైమండ్ గుర్తు</string>
+    <string name="symbol_white_down_pointing_triangle">క్రిందికి సూచించబడే తెలుపు రంగు త్రిభుజం</string>
+    <string name="symbol_white_heart">తెలుపు రంగు హృదయం</string>
+    <string name="symbol_white_left_pointing_index">ఎడమవైపుకి సూచించబడే తెలుపు రంగు సూచిక</string>
+    <string name="symbol_white_left_pointing_triangle">ఎడమవైపుకి సూచించబడే తెలుపు రంగు త్రిభుజం</string>
+    <string name="symbol_white_right_pointing_index">కుడివైపుకి సూచించబడే తెలుపు రంగు సూచిక</string>
+    <string name="symbol_white_right_pointing_triangle">కుడివైపుకి సూచించబడే తెలుపు రంగు త్రిభుజం</string>
+    <string name="symbol_white_spade_suit">తెలుపు రంగు ఇస్పేటు గుర్తు</string>
+    <string name="symbol_white_square">తెలుపు రంగు చతురస్రం</string>
+    <string name="symbol_white_star">తెలుపు రంగు నక్షత్రం</string>
+    <string name="symbol_white_up_pointing_triangle">పైకి సూచించబడే తెలుపు రంగు త్రిభుజం</string>
+    <string name="symbol_won">వోన్ కరెన్సీ గుర్తు</string>
+    <string name="symbol_won_sign">వోన్ కరెన్సీ గుర్తు</string>
+    <string name="symbol_yen">యెన్</string>
+    <string name="template_capital_letter">క్యాపిటల్ %1$s</string>
+    <string name="template_current_tts_engine">%1$sని ఉపయోగిస్తోంది</string>
+    <string name="template_overlay_window">%1$s చిత్రంలో చిత్రం</string>
+    <string name="template_password_selected">అక్షరాలు %1$d నుండి %2$d వరకు</string>
+    <string name="template_password_traversed">అక్షరం %1$d</string>
+    <string name="template_scroll_from_count">%2$dలో %1$dవ అంశాన్ని చూపుతోంది..</string>
+    <string name="template_scroll_from_to_count">%3$dలో %1$d నుండి %2$d అంశాలను చూపుతోంది.</string>
+    <string name="template_split_screen_mode_landscape_ltr">ఎడమవైపు %1$s, కుడివైపు %2$s</string>
+    <string name="template_split_screen_mode_landscape_rtl">కుడివైపు %1$s, ఎడమవైపు %2$s</string>
+    <string name="template_split_screen_mode_portrait">పైన %1$s, దిగువ %2$s</string>
+    <string name="template_text_copied">%1$s, కాపీ చేయబడింది</string>
+    <string name="template_viewpager_index_count">%2$dలో %1$dవ పేజీ</string>
+    <string name="template_viewpager_index_count_short">%2$dలో %1$d</string>
+    <string name="untitled_window">శీర్షిక లేనిది</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ఆఫ్ చేయండి"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ఆన్ చేయండి"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"చర్య డ్రాయర్"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"నావిగేషన్ డ్రాయర్"</string>
+</resources>

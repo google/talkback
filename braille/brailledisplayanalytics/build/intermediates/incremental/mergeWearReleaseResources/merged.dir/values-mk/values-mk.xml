@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d ново известување</item>
+    <item quantity="other">%d нови известувања</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Движи се кон дома"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Движи се нагоре"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Повеќе опции"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Готово"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Прикажи ги сите"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Избери апликација"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ИСКЛУЧЕНО"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ВКЛУЧЕНО"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"избриши"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"вселена"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Пребарување…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Исчисти барање"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Пребарај барање"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Пребарај"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Испрати барање"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Гласовно пребарување"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Сподели со"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Сподели со <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Собери"</string>
+    <string name="bottomsheet_action_expand_halfway">Прошири до половина</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Внесени се %1$d од %2$d знаци</string>
+    <string name="character_counter_overflowed_content_description">Ограничувањето на знаците надмина %1$d од %2$d</string>
+    <string name="clear_text_end_icon_content_description">Избриши го текстот</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Овозможи</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s нема да се извршува ако не овозможите услуги на Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Овозможи ги услугите на Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Инсталирај</string>
+    <string name="common_google_play_services_install_text">%1$s нема да се извршува без услугите на Google Play што ги нема на уредот.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Преземи ги услугите на Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Достапност на услугите на Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Грешка на услугите на Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s има проблеми со услугите на Google Play. Обидете се повторно.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s нема да се извршува без услугите на Google Play, што не се подржани од уредов.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Ажурирај</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s нема да се извршува ако не ги ажурирате услугите на Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Ажурирај ги услугите на Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s нема да се извршува без услугите на Google Play што се ажурираат во моментов.</string>
+    <string name="common_google_play_services_wear_update_text">Потребна е нова верзија на услугите на Google Play. Таа наскоро самата ќе се ажурира.</string>
+    <string name="common_open_on_phone">Отвори на телефонот</string>
+    <string name="common_signin_button_text">Најави се</string>
+    <string name="common_signin_button_text_long">Најави се со Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Неуспешно"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Отворено на телефонот"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Успешно"</string>
+    <string msgid="3209159573327985035" name="copy">"Копирај"</string>
+    <string name="error_icon_content_description">Грешка</string>
+    <string name="exit_scrim">Излези</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Напредни"</string>
+    <string name="exposed_dropdown_menu_content_description">Прикажи паѓачко мени</string>
+    <string name="function_off">Говорните повратни инфромации се исклучени</string>
+    <string name="function_on">Говорните повратни информации се вклучени</string>
+    <string name="granularity_character">Знаци</string>
+    <string name="granularity_default">Стандардно</string>
+    <string name="granularity_line">Редови</string>
+    <string name="granularity_native_control">Контроли</string>
+    <string name="granularity_native_heading">Наслови</string>
+    <string name="granularity_native_link">Линкови</string>
+    <string name="granularity_paragraph">Пасуси</string>
+    <string name="granularity_pseudo_web_special_content">Специјална содржина</string>
+    <string name="granularity_web_control">Контроли</string>
+    <string name="granularity_web_heading">Наслови</string>
+    <string name="granularity_web_landmark">Обележја</string>
+    <string name="granularity_web_link">Линкови</string>
+    <string name="granularity_web_list">Списоци</string>
+    <string name="granularity_window">Прозорци</string>
+    <string name="granularity_word">Зборови</string>
+    <string name="hide_keyboard_window">тастатурата е сокриена</string>
+    <string name="icon_content_description">Икона за дијалог</string>
+    <string name="item_view_role_description">Картичка</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Притиснете ја комбинацијата од копчиња со копчето модификатор %1$s за да поставите нова кратенка.</string>
+    <string name="keycombo_assign_dialog_instruction">Притиснете комбинација на копчиња да поставите нова кратенка. Таа мора да го содржи барем копчето ALT или Control.</string>
+    <string name="keycombo_key_arrow_down">Стрелка надолу</string>
+    <string name="keycombo_key_arrow_left">Стрелка налево</string>
+    <string name="keycombo_key_arrow_right">Стрелка надесно</string>
+    <string name="keycombo_key_arrow_up">Стрелка нагоре</string>
+    <string name="keycombo_key_modifier_alt">Копче Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Копче Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Пребарај</string>
+    <string name="keycombo_key_modifier_shift">Копче Shift</string>
+    <string name="keycombo_unassigned">Неназначено</string>
+    <string name="material_clock_toggle_content_description">Изберете претпладне или попладне</string>
+    <string name="material_hour_selection">Изберете час</string>
+    <string name="material_hour_suffix">%1$s часот</string>
+    <string name="material_minute_selection">Избери минути</string>
+    <string name="material_minute_suffix">%1$s минути</string>
+    <string name="material_timepicker_am">пр.</string>
+    <string name="material_timepicker_clock_mode_description">Префрлете се на режимот за часовник за да внесете време.</string>
+    <string name="material_timepicker_hour">Час</string>
+    <string name="material_timepicker_minute">Минута</string>
+    <string name="material_timepicker_pm">по.</string>
+    <string name="material_timepicker_select_time">Изберете време</string>
+    <string name="material_timepicker_text_input_mode_description">Префрлете се на режимот за внесување текст за да внесете време.</string>
+    <string name="mtrl_badge_numberless_content_description">Ново известување</string>
+    <string name="mtrl_chip_close_icon_content_description">Отстрани %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Над %1$d нови известувања</string>
+    <string name="mtrl_picker_a11y_next_month">Промени на следниот месец</string>
+    <string name="mtrl_picker_a11y_prev_month">Промени на претходниот месец</string>
+    <string name="mtrl_picker_announce_current_selection">Тековен избор: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Изберете датум</string>
+    <string name="mtrl_picker_date_header_unselected">Избран датум</string>
+    <string name="mtrl_picker_day_of_week_column_header">Колона со денови: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Неважечки формат.</string>
+    <string name="mtrl_picker_invalid_format_example">Пример: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Користете: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Погрешен опсег.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Оди на %1$s година</string>
+    <string name="mtrl_picker_out_of_range">Надвор од опсег: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Почетен датум - %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s - краен датум</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_title">Изберете опсег</string>
+    <string name="mtrl_picker_range_header_unselected">Почетен датум - краен датум</string>
+    <string name="mtrl_picker_save">Зачувај</string>
+    <string name="mtrl_picker_text_input_date_hint">Датум</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Краен датум</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Почетен датум</string>
+    <string name="mtrl_picker_text_input_day_abbr">д</string>
+    <string name="mtrl_picker_text_input_month_abbr">м</string>
+    <string name="mtrl_picker_text_input_year_abbr">г</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Префрли на режим за внесување во календарот</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Допрете за да се префрлите на избирање ден</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Префрли на режим за внесување текст</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Допрете за да се префрлите на избирање година</string>
+    <string msgid="478774118347071097" name="not_set">"Не е поставено"</string>
+    <string name="password_toggle_content_description">Прикажи ја лозинката</string>
+    <string msgid="7961817945132860002" name="preference_copied">"„<ns1:g id="SUMMARY">%1$s</ns1:g>“ копирано во привремена меморија."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Пребарај"</string>
+    <string name="show_keyboard_window">Се прикажува %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Речиси еднакво на</string>
+    <string name="symbol_ampersand">и</string>
+    <string name="symbol_angle_bracket_left">Знак за „Помало од“</string>
+    <string name="symbol_angle_bracket_right">Знак за „Поголемо од“</string>
+    <string name="symbol_apostrophe">Апостроф</string>
+    <string name="symbol_approximately_equals">Приближно еднакви</string>
+    <string name="symbol_asterisk">Ѕвездичка</string>
+    <string name="symbol_at_sign">на</string>
+    <string name="symbol_backslash">Обратна коса црта</string>
+    <string name="symbol_beamed_sixteenth_note">Шестнаесет ноти се споделени преку зрак</string>
+    <string name="symbol_black_circle">Црн круг</string>
+    <string name="symbol_black_heart">Црно срце</string>
+    <string name="symbol_black_smallsquare">Мал црн квадрат</string>
+    <string name="symbol_black_square">Црн квадрат</string>
+    <string name="symbol_black_star">Црна ѕвезда</string>
+    <string name="symbol_black_suit_of_diamonds">Црна баклава</string>
+    <string name="symbol_black_triangle_pointing_down">Црн триаголник што покажува надолу</string>
+    <string name="symbol_black_triangle_pointing_up">Црн триаголник што покажува нагоре</string>
+    <string name="symbol_broken_bar">Прекината вертикална црта</string>
+    <string name="symbol_bullet">Знак за подредување</string>
+    <string name="symbol_bullseye">Центар на мета</string>
+    <string name="symbol_caret">Карета</string>
+    <string name="symbol_celsius_degree">Целзиусов степен</string>
+    <string name="symbol_cent">Знак за цент</string>
+    <string name="symbol_circle_left_half_black">Круг со црна лева половина</string>
+    <string name="symbol_circle_right_half_black">Круг со црна десна половина</string>
+    <string name="symbol_colon">Две точки</string>
+    <string name="symbol_comma">Запирка</string>
+    <string name="symbol_copyright">Авторски права</string>
+    <string name="symbol_curly_bracket_left">Лева голема заграда</string>
+    <string name="symbol_curly_bracket_right">Десна голема заграда</string>
+    <string name="symbol_currency_sign">Знак за валута</string>
+    <string name="symbol_degree">Знак за степен</string>
+    <string name="symbol_division">Знак за делење</string>
+    <string name="symbol_dollar_sign">Знак за долар</string>
+    <string name="symbol_downwards_arrow">Стрелка надолу</string>
+    <string name="symbol_eighth_note">Осма нота</string>
+    <string name="symbol_ellipsis">Три точки</string>
+    <string name="symbol_em_dash">Долга црта</string>
+    <string name="symbol_en_dash">Кратка црта</string>
+    <string name="symbol_equal">Знак за еднакво</string>
+    <string name="symbol_euro">Евро</string>
+    <string name="symbol_exclamation_mark">Извичник</string>
+    <string name="symbol_fahrenheit_degree">Фаренхајтови степени</string>
+    <string name="symbol_female">Женски симбол</string>
+    <string name="symbol_full_width_ampersand">Знак за сврзникот „и“ со цела ширина</string>
+    <string name="symbol_full_width_asterisk">Ѕвездичка со цела ширина</string>
+    <string name="symbol_full_width_circumflex">Циркумфлекс со цела ширина</string>
+    <string name="symbol_full_width_colon">Две точки со цела ширина</string>
+    <string name="symbol_full_width_comma">Запирка со цела ширина</string>
+    <string name="symbol_full_width_exclamation_mark">Извичник со цела ширина</string>
+    <string name="symbol_full_width_greater_than_sign">Знак за „поголемо од“ со цела ширина</string>
+    <string name="symbol_full_width_ideographic_full_stop">Идеографска точка</string>
+    <string name="symbol_full_width_left_curly_bracket">Лева голема заграда со цела ширина</string>
+    <string name="symbol_full_width_left_parenthesis">Лева заграда со цела ширина</string>
+    <string name="symbol_full_width_less_than_sign">Знак за „помало од“ со цела ширина</string>
+    <string name="symbol_full_width_question_mark">Прашалник со цела ширина</string>
+    <string name="symbol_full_width_right_curly_bracket">Десна голема заграда со цела ширина</string>
+    <string name="symbol_full_width_right_parenthesis">Десна заграда со цела ширина</string>
+    <string name="symbol_full_width_semicolon">Точка и запирка со цела ширина</string>
+    <string name="symbol_full_width_tilde">Тилда со цела ширина</string>
+    <string name="symbol_full_width_underscore">Долна црта со цела ширина</string>
+    <string name="symbol_grave_accent">Акцент гравис</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Катакана средна точка со половина должина</string>
+    <string name="symbol_hyphen_minus">Црта</string>
+    <string name="symbol_ideographic_comma">Идеографска запирка</string>
+    <string name="symbol_integral">Интеграл</string>
+    <string name="symbol_inverted_exclamation_mark">Превртен извичник</string>
+    <string name="symbol_inverted_question_mark">Превртен прашалник</string>
+    <string name="symbol_left_angle_bracket">Лева двојна средна заграда</string>
+    <string name="symbol_left_black_lenticular_bracket">Лева црна лентикуларна заграда</string>
+    <string name="symbol_left_corner_bracket">Заграда со лев агол</string>
+    <string name="symbol_left_double_quotation_mark">Лев наводник</string>
+    <string name="symbol_left_single_quotation_mark">Лев полунаводник</string>
+    <string name="symbol_leftwards_arrow">Стрелка налево</string>
+    <string name="symbol_liter">Литар</string>
+    <string name="symbol_low_double_quote">Долни двојни наводници</string>
+    <string name="symbol_male">Машки симбол</string>
+    <string name="symbol_mathematical_left_angle_bracket">Математичка лева средна заграда</string>
+    <string name="symbol_mathematical_right_angle_bracket">Математичка десна средна заграда</string>
+    <string name="symbol_micro_sign">Знак за микро</string>
+    <string name="symbol_middle_dot">Средна точка</string>
+    <string name="symbol_multiplication">Знак за множење</string>
+    <string name="symbol_new_line">Нов ред</string>
+    <string name="symbol_not_equals">Не е еднакво на</string>
+    <string name="symbol_not_sign">Знак „забрането“</string>
+    <string name="symbol_paragraph_mark">Знак за параграф</string>
+    <string name="symbol_parenthesis_left">Лева заграда</string>
+    <string name="symbol_parenthesis_right">Десна заграда</string>
+    <string name="symbol_percent">Процент</string>
+    <string name="symbol_period">Точка</string>
+    <string name="symbol_pi">Пи</string>
+    <string name="symbol_plus_minus_sign">Знак плус и минус</string>
+    <string name="symbol_postal_mark">Поштенска ознака</string>
+    <string name="symbol_pound">Фунта</string>
+    <string name="symbol_pound_sterling">Знак за валутата фунта</string>
+    <string name="symbol_quarter_note">Четвртина нота</string>
+    <string name="symbol_question_mark">Прашалник</string>
+    <string name="symbol_quotation_mark">Цитат</string>
+    <string name="symbol_reference">Знак за референца</string>
+    <string name="symbol_registered_trademark">Регистриран заштитен знак</string>
+    <string name="symbol_right_angle_bracket">Десна двојна средна заграда</string>
+    <string name="symbol_right_black_lenticular_bracket">Десна црна лентикуларна заграда</string>
+    <string name="symbol_right_corner_bracket">Заграда со десен агол</string>
+    <string name="symbol_right_double_quotation_mark">Десен наводник</string>
+    <string name="symbol_right_single_quotation_mark">Десен полунаводник</string>
+    <string name="symbol_rightwards_arrow">Стрелка надесно</string>
+    <string name="symbol_rupee">Рупија</string>
+    <string name="symbol_section_sign">Параграф</string>
+    <string name="symbol_semicolon">Точка и запирка</string>
+    <string name="symbol_slash">Kоса црта</string>
+    <string name="symbol_solar">Соларен симбол</string>
+    <string name="symbol_space">Празно место</string>
+    <string name="symbol_square_bracket_left">Лева средна заграда</string>
+    <string name="symbol_square_bracket_right">Десна средна заграда</string>
+    <string name="symbol_square_root">Квадратен корен</string>
+    <string name="symbol_tilde">Тилда</string>
+    <string name="symbol_trademark">Заштитен знак</string>
+    <string name="symbol_underscore">Долна црта</string>
+    <string name="symbol_upwards_arrow">Стрелка нагоре</string>
+    <string name="symbol_vertical_bar">Вертикална линија</string>
+    <string name="symbol_white_circle">Бел круг</string>
+    <string name="symbol_white_club_suit">Бела детелинка</string>
+    <string name="symbol_white_diamond">Бел дијамант</string>
+    <string name="symbol_white_down_pointing_triangle">Бел триаголник свртен надолу</string>
+    <string name="symbol_white_heart">Бело срце</string>
+    <string name="symbol_white_left_pointing_index">Бел показалец свртен налево</string>
+    <string name="symbol_white_left_pointing_triangle">Бел триаголник свртен налево</string>
+    <string name="symbol_white_right_pointing_index">Бел показалец свртен надесно</string>
+    <string name="symbol_white_right_pointing_triangle">Бел триаголник свртен надесно</string>
+    <string name="symbol_white_spade_suit">Бел лист</string>
+    <string name="symbol_white_square">Бел квадрат</string>
+    <string name="symbol_white_star">Бела ѕвезда</string>
+    <string name="symbol_white_up_pointing_triangle">Бел триаголник свртен нагоре</string>
+    <string name="symbol_won">Знак за валутата вон</string>
+    <string name="symbol_won_sign">Знак за валутата вон</string>
+    <string name="symbol_yen">Јен</string>
+    <string name="template_capital_letter">голема буква %1$s</string>
+    <string name="template_current_tts_engine">Се користи %1$s</string>
+    <string name="template_overlay_window">Слика во слика на %1$s</string>
+    <string name="template_password_selected">Знаци %1$d до %2$d</string>
+    <string name="template_password_traversed">Знакот %1$d</string>
+    <string name="template_scroll_from_count">Се прикажува ставката %1$d од %2$d.</string>
+    <string name="template_scroll_from_to_count">Се прикажуваат ставките од %1$d до %2$d од %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s на левата страна, %2$s на десната страна</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s на десната страна, %2$s на левата страна</string>
+    <string name="template_split_screen_mode_portrait">%1$s горе, %2$s долу</string>
+    <string name="template_text_copied">копирано, %1$s</string>
+    <string name="template_viewpager_index_count">Страница %1$d од %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d од %2$d</string>
+    <string name="untitled_window">без наслов</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ИСКЛУЧЕНО"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ВКЛУЧЕНО"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Фиока за дејство"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Фиока за навигација"</string>
+</resources>

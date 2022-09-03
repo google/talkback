@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">կետեր %s</item>
+    <item quantity="other">կետեր %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d նոր ծանուցում</item>
+    <item quantity="other">%d նոր ծանուցում</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Անցնել գլխավոր էջ"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Անցնել վերև"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Այլ ընտրանքներ"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Պատրաստ է"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Տեսնել բոլորը"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Ընտրել հավելված"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ԱՆՋԱՏԵԼ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ՄԻԱՑՆԵԼ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"բացատ"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Որոնում…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Ջնջել հարցումը"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Որոնման հարցում"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Որոնել"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Ուղարկել հարցումը"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Ձայնային որոնում"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Կիսվել…"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Կիսվել <ns1:g id="APPLICATION_NAME">%s</ns1:g> հավելվածի միջոցով"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Ծալել"</string>
+    <string name="auto_detect">Շրջել ձեռքումս սարքի դիրքին համապատասխան</string>
+    <string name="bottomsheet_action_expand_halfway">Ծավալել կիսով չափ</string>
+    <string name="capitalize_announcement">Մեծատառեր</string>
+    <string name="character_collapse_template"> %1$d %2$s</string>
+    <string name="character_counter_content_description">Մուտքագրված նիշեր՝ %1$d/%2$d</string>
+    <string name="character_counter_overflowed_content_description">Նիշերի առավելագույն քանակը գերազանցվել է (%1$d/%2$d)</string>
+    <string name="clear_text_end_icon_content_description">Ջնջել տեքստը</string>
+    <string name="code_user_facing_name_ar">արաբերեն</string>
+    <string name="code_user_facing_name_es">իսպաներեն</string>
+    <string name="code_user_facing_name_fr">ֆրանսերեն</string>
+    <string name="code_user_facing_name_pl">լեհերեն</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Միացնել</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s հավելվածը չի աշխատի մինչև չմիացնեք Google Play ծառայությունները:</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Միացնել Google Play ծառայությունները</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Տեղադրել</string>
+    <string name="common_google_play_services_install_text">%1$s հավելվածը չի աշխատի առանց Google Play ծառայությունների, որոնք չկան ձեր սարքում:</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Տեղադրել Google Play ծառայությունները</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play ծառայությունների հասանելիություն</string>
+    <string name="common_google_play_services_notification_ticker">Google Play ծառայությունների սխալ կա</string>
+    <string name="common_google_play_services_unknown_issue">%1$s հավելվածը Google Play ծառայությունների հետ կապված խնդիր ունի: Փորձեք նորից:</string>
+    <string name="common_google_play_services_unsupported_text">%1$s հավելվածը չի աշխատի առանց Google Play ծառայությունների, որոնք ձեր սարքում չեն աջակցվում:</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Թարմացնել</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s հավելվածը չի աշխատի մինչև չթարմացնեք Google Play ծառայությունները:</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Թարմացնել Google Play ծառայությունները</string>
+    <string name="common_google_play_services_updating_text">%1$s հավելվածը չի աշխատի առանց Google Play ծառայությունների, որոնք այս պահին թարմացվում են:</string>
+    <string name="common_google_play_services_wear_update_text">Անհրաժեշտ է Google Play ծառայությունների նոր տարբերակը: Այն շուտով կթարմացվի ավտոմատ կերպով:</string>
+    <string name="common_open_on_phone">Բացել հեռախոսով</string>
+    <string name="common_signin_button_text">Մուտք գործել</string>
+    <string name="common_signin_button_text_long">Մուտք գործել Google-ով</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Ձախողում"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Բացվել է ձեր հեռախոսում"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Պատրաստ է"</string>
+    <string msgid="3209159573327985035" name="copy">"Պատճենել"</string>
+    <string name="error_icon_content_description">Սխալ</string>
+    <string name="exit_scrim">Ելք</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Լրացուցիչ"</string>
+    <string name="exposed_dropdown_menu_content_description">Ցույց տալ իջնող ընտրացանկը</string>
+    <string name="function_off">Տեքստի հնչեցումն անջատված է</string>
+    <string name="function_on">Ձայնային արձագանքը միացված է</string>
+    <string name="granularity_character">Նիշեր</string>
+    <string name="granularity_default">Կանխադրված</string>
+    <string name="granularity_line">Տողեր</string>
+    <string name="granularity_native_control">Կառավարման տարրեր</string>
+    <string name="granularity_native_heading">Վերնագրեր</string>
+    <string name="granularity_native_link">Հղումներ</string>
+    <string name="granularity_paragraph">Պարբերություններ</string>
+    <string name="granularity_pseudo_web_special_content">Հատուկ բովանդակություն</string>
+    <string name="granularity_web_control">Կառավարման տարրեր</string>
+    <string name="granularity_web_heading">Վերնագրեր</string>
+    <string name="granularity_web_landmark">Ուղենիշներ</string>
+    <string name="granularity_web_link">Հղումներ</string>
+    <string name="granularity_web_list">Ցանկեր</string>
+    <string name="granularity_window">Պատուհաններ</string>
+    <string name="granularity_word">Բառեր</string>
+    <string name="hide_keyboard_window">ստեղնաշարը թաքցված է</string>
+    <string name="icon_content_description">Երկխոսության պատուհանի պատկերակ</string>
+    <string name="item_view_role_description">Ներդիր</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Նոր դյուրանցում կարգավորելու համար սեղմեք %1$s կերպափոխիչ ստեղնի և այլ ստեղների համադրություն:</string>
+    <string name="keycombo_assign_dialog_instruction">Նոր դյուրանցում սահմանելու համար սեղմեք ստեղների համակցությունը: Այն պետք է պարունակի կամ ALT, կամ Control ստեղնը:</string>
+    <string name="keycombo_key_arrow_down">Սլաքը ներքև</string>
+    <string name="keycombo_key_arrow_left">Սլաքը ձախ</string>
+    <string name="keycombo_key_arrow_right">Սլաքը աջ</string>
+    <string name="keycombo_key_arrow_up">Սլաքը վերև</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Որոնում</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Չնշանակված</string>
+    <string name="material_clock_toggle_content_description">Ընտրել AM կամ PM</string>
+    <string name="material_hour_selection">Ընտրել ժամը</string>
+    <string name="material_hour_suffix">Ժամը %1$s է</string>
+    <string name="material_minute_selection">Ընտրեք րոպեն</string>
+    <string name="material_minute_suffix">%1$s րոպե</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Ժամը մուտքագրելու համար միացրեք ժամացույցի ռեժիմը:</string>
+    <string name="material_timepicker_hour">Ժամ</string>
+    <string name="material_timepicker_minute">Րոպե</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Ժամանակի ընտրություն</string>
+    <string name="material_timepicker_text_input_mode_description">Ժամը մուտքագրելու համար միացրեք տեքստի մուտքագրման ռեժիմը:</string>
+    <string name="mtrl_badge_numberless_content_description">Նոր ծանուցում</string>
+    <string name="mtrl_chip_close_icon_content_description">Հեռացնել (%1$s)</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Ավելի քան %1$d նոր ծանուցում</string>
+    <string name="mtrl_picker_a11y_next_month">Անցնել հաջորդ ամիս</string>
+    <string name="mtrl_picker_a11y_prev_month">Անցնել նախորդ ամիս</string>
+    <string name="mtrl_picker_announce_current_selection">Ներկայիս ընտրությունը՝ %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Ընտրեք ամսաթիվը</string>
+    <string name="mtrl_picker_date_header_unselected">Ընտրված ամսաթիվը</string>
+    <string name="mtrl_picker_day_of_week_column_header">Օրերի սյունակ՝ %1$s</string>
+    <string name="mtrl_picker_invalid_format">Ձևաչափը սխալ է։</string>
+    <string name="mtrl_picker_invalid_format_example">Օրինակ՝ %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Օգտագործեք՝ %1$s</string>
+    <string name="mtrl_picker_invalid_range">Ընդգրկույթն անվավեր է:</string>
+    <string name="mtrl_picker_navigate_to_year_description">Անցնել %1$s թվական</string>
+    <string name="mtrl_picker_out_of_range">Ընդգրկույթից դուրս է՝ %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Մեկնարկի ամսաթիվը – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Ավարտի ամսաթիվը</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Ընտրեք ընդգրկույթը</string>
+    <string name="mtrl_picker_range_header_unselected">Մեկնարկի ամսաթիվը – Ավարտի ամսաթիվը</string>
+    <string name="mtrl_picker_save">Պահել</string>
+    <string name="mtrl_picker_text_input_date_hint">Ամսաթիվ</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Ավարտի ամսաթիվը</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Մեկնարկի ամսաթիվը</string>
+    <string name="mtrl_picker_text_input_day_abbr">օ</string>
+    <string name="mtrl_picker_text_input_month_abbr">ա</string>
+    <string name="mtrl_picker_text_input_year_abbr">տ</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Անցնել օրացույցի մուտքագրման ռեժիմ</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Հպեք՝ օրվա ընտությանն անցնելու համար</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Անցնել տեքստի մուտքագրման ռեժիմին</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Հպեք՝ տարեթվի ընտությանն անցնելու համար</string>
+    <string msgid="478774118347071097" name="not_set">"Կարգավորված չէ"</string>
+    <string name="number_announcement">Համարը</string>
+    <string name="password_toggle_content_description">Ցուցադրել գաղտնաբառը</string>
+    <string msgid="7961817945132860002" name="preference_copied">"«<ns1:g id="SUMMARY">%1$s</ns1:g>». պատճենվեց սեղմատախտակին:"</string>
+    <string name="read_out_deleted">Տեքստը (%s) ջնջվեց</string>
+    <string name="screen_away">Շրջած էկրանի ռեժիմ</string>
+    <string name="screen_away_detail">Սարքը բռնեք էկրանը ձեզնից շրջած կողմով (շրջած էկրանի ռեժիմ)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Որոնել"</string>
+    <string name="show_keyboard_window">Ցուցադրվում է «%1$s» ստեղնաշարը</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Մոտավոր հավասարության նշան</string>
+    <string name="symbol_ampersand">Ամպերսանդ</string>
+    <string name="symbol_angle_bracket_left">Փոքրի նշան</string>
+    <string name="symbol_angle_bracket_right">Մեծի նշան</string>
+    <string name="symbol_apostrophe">Ապաթարց</string>
+    <string name="symbol_approximately_equals">Մոտավորապես հավասար է</string>
+    <string name="symbol_asterisk">Աստղանիշ</string>
+    <string name="symbol_at_sign">Ըթ</string>
+    <string name="symbol_backslash">Հետադարձ սլեշ</string>
+    <string name="symbol_beamed_sixteenth_note">Խմբավորված տասնվեցերորդ նոտաներ</string>
+    <string name="symbol_black_circle">Սև շրջանակ</string>
+    <string name="symbol_black_heart">Սև սիրտ</string>
+    <string name="symbol_black_smallsquare">Փոքր սև քառակուսի</string>
+    <string name="symbol_black_square">Սև քառակուսի</string>
+    <string name="symbol_black_star">Սև աստղ</string>
+    <string name="symbol_black_suit_of_diamonds">Սև շեղանկյուն</string>
+    <string name="symbol_black_triangle_pointing_down">Դեպի ներքև սև եռանկյուն</string>
+    <string name="symbol_black_triangle_pointing_up">Դեպի վերև սև եռանկյուն</string>
+    <string name="symbol_broken_bar">Ընդհատվող գիծ</string>
+    <string name="symbol_bullet">Պարբերակ</string>
+    <string name="symbol_bullseye">Թիրախ</string>
+    <string name="symbol_caret">Տանիք</string>
+    <string name="symbol_celsius_degree">Ցելսիուսի սանդղակ</string>
+    <string name="symbol_cent">Ցենտի նշան</string>
+    <string name="symbol_circle_left_half_black">Շրջանակ, որի ձախ կեսը սև է</string>
+    <string name="symbol_circle_right_half_black">Շրջանակ, որի աջ կեսը սև է</string>
+    <string name="symbol_colon">Միջակետ</string>
+    <string name="symbol_comma">Ստորակետ</string>
+    <string name="symbol_copyright">Հեղինակային իրավունք</string>
+    <string name="symbol_curly_bracket_left">Ձախ ձևավոր փակագիծ</string>
+    <string name="symbol_curly_bracket_right">Աջ ձևավոր փակագիծ</string>
+    <string name="symbol_currency_sign">Փոխարժեքի նշան</string>
+    <string name="symbol_degree">Աստիճանի նշան</string>
+    <string name="symbol_division">Բաժանարարի նշան</string>
+    <string name="symbol_dollar_sign">Դոլարի նշան</string>
+    <string name="symbol_downwards_arrow">Ներքևի սլաք</string>
+    <string name="symbol_eighth_note">Ութերորդ նոտա</string>
+    <string name="symbol_ellipsis">Զեղչում</string>
+    <string name="symbol_em_dash">M-աչափ գիծ</string>
+    <string name="symbol_en_dash">N-աչափ գիծ</string>
+    <string name="symbol_equal">Հավասարության նշան</string>
+    <string name="symbol_euro">Եվրո</string>
+    <string name="symbol_exclamation_mark">Բացականչության նշան</string>
+    <string name="symbol_fahrenheit_degree">Ֆարենհայտի սանդղակ</string>
+    <string name="symbol_female">Իգական սեռի նշան</string>
+    <string name="symbol_full_width_ampersand">Լիալայնք ամպերսանդ</string>
+    <string name="symbol_full_width_asterisk">Լիալայնք աստղանիշ</string>
+    <string name="symbol_full_width_circumflex">Լիալայնք կոչանիշ</string>
+    <string name="symbol_full_width_colon">Լիալայնք երկկետ</string>
+    <string name="symbol_full_width_comma">Լիալայնք ստորակետ</string>
+    <string name="symbol_full_width_exclamation_mark">Լիալայնք բացականչական նշան</string>
+    <string name="symbol_full_width_greater_than_sign">Լիալայնք մեծի նշան</string>
+    <string name="symbol_full_width_ideographic_full_stop">Իդեոգրաֆիկ միջակետ</string>
+    <string name="symbol_full_width_left_curly_bracket">Լիալայնք ձախ ձևավոր փակագիծ</string>
+    <string name="symbol_full_width_left_parenthesis">Լիալայնք ձախ փակագիծ</string>
+    <string name="symbol_full_width_less_than_sign">Լիալայնք փոքրի նշան</string>
+    <string name="symbol_full_width_question_mark">Լիալայնք հարցական նշան</string>
+    <string name="symbol_full_width_right_curly_bracket">Լիալայնք աջ ձևավոր փակագիծ</string>
+    <string name="symbol_full_width_right_parenthesis">Լիալայնք աջ փակագիծ</string>
+    <string name="symbol_full_width_semicolon">Լիալայնք կետ-ստորակետ</string>
+    <string name="symbol_full_width_tilde">Լիալայնք ալիքանշան</string>
+    <string name="symbol_full_width_underscore">Լիալայնք ընդգծման նշան</string>
+    <string name="symbol_grave_accent">Բութ</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Կիսալայնք կատականա միջին կետ</string>
+    <string name="symbol_hyphen_minus">Գիծ</string>
+    <string name="symbol_ideographic_comma">Իդեոգրաֆիկ ստորակետ</string>
+    <string name="symbol_integral">Ինտեգրալ</string>
+    <string name="symbol_inverted_exclamation_mark">Շրջած բացականչական նշան</string>
+    <string name="symbol_inverted_question_mark">Շրջած հարցական նշան</string>
+    <string name="symbol_left_angle_bracket">Ձախ կրկնակի անկյունավոր փակագիծ</string>
+    <string name="symbol_left_black_lenticular_bracket">Ձախ սև ոսպնյակաձև փակագիծ</string>
+    <string name="symbol_left_corner_bracket">Ձախ անկյունաձև փակագիծ</string>
+    <string name="symbol_left_double_quotation_mark">Ձախ վերին կրկնակի չակերտ</string>
+    <string name="symbol_left_single_quotation_mark">Ձախ վերին եզակի չակերտ</string>
+    <string name="symbol_leftwards_arrow">Ձախ սլաք</string>
+    <string name="symbol_liter">Տառ</string>
+    <string name="symbol_low_double_quote">Ներքևի կրկնակի չակերտ</string>
+    <string name="symbol_male">Արական սեռի նշան</string>
+    <string name="symbol_mathematical_left_angle_bracket">Անկյունավոր ձախ փակագիծ</string>
+    <string name="symbol_mathematical_right_angle_bracket">Անկյունավոր աջ փակագիծ</string>
+    <string name="symbol_micro_sign">Մյու</string>
+    <string name="symbol_middle_dot">Միջնակետ</string>
+    <string name="symbol_multiplication">Բազմապատկման նշան</string>
+    <string name="symbol_new_line">Նոր տող</string>
+    <string name="symbol_not_equals">Անհավասարության նշան</string>
+    <string name="symbol_not_sign">Անհամար</string>
+    <string name="symbol_paragraph_mark">Պարբերության նշան</string>
+    <string name="symbol_parenthesis_left">Ձախ փակագիծ</string>
+    <string name="symbol_parenthesis_right">Աջ փակագիծ</string>
+    <string name="symbol_percent">Տոկոս</string>
+    <string name="symbol_period">Կետ</string>
+    <string name="symbol_pi">Պի</string>
+    <string name="symbol_plus_minus_sign">«Գումարած-հանած» նշան</string>
+    <string name="symbol_postal_mark">Փոստային նշան</string>
+    <string name="symbol_pound">Ֆունտ</string>
+    <string name="symbol_pound_sterling">Ֆունտ արտարժույթի նշան</string>
+    <string name="symbol_quarter_note">Քառորդ նոտա</string>
+    <string name="symbol_question_mark">Հարցական նշան</string>
+    <string name="symbol_quotation_mark">Չակերտ</string>
+    <string name="symbol_reference">Հղման նշան</string>
+    <string name="symbol_registered_trademark">Գրանցված ապրանքային նշան</string>
+    <string name="symbol_right_angle_bracket">Աջ կրկնակի անկյունավոր փակագիծ</string>
+    <string name="symbol_right_black_lenticular_bracket">Աջ սև ոսպնյակաձև փակագիծ</string>
+    <string name="symbol_right_corner_bracket">Աջ անկյունաձև փակագիծ</string>
+    <string name="symbol_right_double_quotation_mark">Վերին կրկնակի աջ չակերտ</string>
+    <string name="symbol_right_single_quotation_mark">Աջ վերին եզակի չակերտ</string>
+    <string name="symbol_rightwards_arrow">Աջ սլաք</string>
+    <string name="symbol_rupee">Ռուփի</string>
+    <string name="symbol_section_sign">Բաժնի նշան</string>
+    <string name="symbol_semicolon">Կետ-ստորակետ</string>
+    <string name="symbol_slash">Շեղ գիծ</string>
+    <string name="symbol_solar">Արևի նշան</string>
+    <string name="symbol_space">Բացատ</string>
+    <string name="symbol_square_bracket_left">Ձախ քառակուսի փակագիծ</string>
+    <string name="symbol_square_bracket_right">Աջ քառակուսի փակագիծ</string>
+    <string name="symbol_square_root">Քառակուսի արմատ</string>
+    <string name="symbol_tilde">Ալիքանշան</string>
+    <string name="symbol_trademark">Ապրանքանիշ</string>
+    <string name="symbol_underscore">Ընդգծում</string>
+    <string name="symbol_upwards_arrow">Դեպի վեր սլաք</string>
+    <string name="symbol_vertical_bar">Ուղղաձիգ գիծ</string>
+    <string name="symbol_white_circle">Սպիտակ շրջանակ</string>
+    <string name="symbol_white_club_suit">Սպիտակ խաչի նշան</string>
+    <string name="symbol_white_diamond">Սպիտակ քյարփինջի նշան</string>
+    <string name="symbol_white_down_pointing_triangle">Սպիտակ, դեպի ներքև ուղղված եռանկյունի</string>
+    <string name="symbol_white_heart">Սպիտակ սրտի նշան</string>
+    <string name="symbol_white_left_pointing_index">Սպիտակ, դեպի ձախ ուղղված ցուցամատ</string>
+    <string name="symbol_white_left_pointing_triangle">Սպիտակ, դեպի ձախ ուղղված եռանկյունի</string>
+    <string name="symbol_white_right_pointing_index">Սպիտակ, դեպի աջ ուղղված ցուցամատ</string>
+    <string name="symbol_white_right_pointing_triangle">Սպիտակ, դեպի աջ ուղղված եռանկյունի</string>
+    <string name="symbol_white_spade_suit">Սպիտակ ղառի նշան</string>
+    <string name="symbol_white_square">Սպիտակ քառակուսի</string>
+    <string name="symbol_white_star">Սպիտակ աստղ</string>
+    <string name="symbol_white_up_pointing_triangle">Սպիտակ, դեպի վերև ուղղված եռանկյունի</string>
+    <string name="symbol_won">Վոն արտարժույթի նշան</string>
+    <string name="symbol_won_sign">Վոն արտարժույթի նշան</string>
+    <string name="symbol_yen">Յեն</string>
+    <string name="tabletop">Սեղանի ռեժիմ</string>
+    <string name="tabletop_detail">Սարքը դրեք սեղանին (սեղանի ռեժիմ)</string>
+    <string name="template_capital_letter">մեծատառ %1$s</string>
+    <string name="template_current_tts_engine">Օգտագործվում է %1$s</string>
+    <string name="template_overlay_window">%1$s՝ նկար նկարի մեջ</string>
+    <string name="template_password_selected">%1$d-ից մինչև %2$d նիշեր</string>
+    <string name="template_password_traversed">%1$d նիշ</string>
+    <string name="template_scroll_from_count">Ցուցադրվում է %1$d տարրը՝ %2$d-ից:</string>
+    <string name="template_scroll_from_to_count">%1$d-ից մինչև %2$d նյութերը՝ %3$d-ից:</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s-ը ձախ կողմում, %2$s-ը աջ կողմում</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s-ը աջ կողմում, %2$s-ը ձախ կողմում</string>
+    <string name="template_split_screen_mode_portrait">%1$s-ը վերևում, %2$s-ը ներքևում</string>
+    <string name="template_text_copied">պատճենվել է, %1$s</string>
+    <string name="template_viewpager_index_count">Էջ %1$d՝ %2$d-ից</string>
+    <string name="template_viewpager_index_count_short">%1$d՝ %2$d-ից</string>
+    <string name="untitled_window">անվերնագիր</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ԱՆՋԱՏԱԾ"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ՄԻԱՑՎԱԾ"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Գործողությունների դարակ"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Նավիգացիայի դարակ"</string>
+</resources>

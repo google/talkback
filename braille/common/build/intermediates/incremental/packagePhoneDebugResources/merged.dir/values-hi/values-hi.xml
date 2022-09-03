@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">बिंदु %s</item>
+    <item quantity="other">बिंदु %s</item>
+  </plurals>
+    <string name="auto_detect">डिवाइस को पकड़ने का अपना तरीका तय करें</string>
+    <string name="capitalize_announcement">बड़े अक्षर</string>
+    <string name="code_user_facing_name_ar">ऐरबिक</string>
+    <string name="code_user_facing_name_es">स्पैनिश</string>
+    <string name="code_user_facing_name_fr">फ़्रेंच</string>
+    <string name="code_user_facing_name_pl">पोलिश</string>
+    <string name="code_user_facing_name_ueb1">यूनिफ़ाइड इंग्लिश ब्रेल अनकॉन्ट्रैक्टेड</string>
+    <string name="code_user_facing_name_ueb2">यूनिफ़ाइड इंग्लिश ब्रेल कॉन्ट्रैक्टेड</string>
+    <string name="number_announcement">नंबर</string>
+    <string name="read_out_deleted">%s को मिटाया गया</string>
+    <string name="screen_away">स्क्रीन अवे मोड</string>
+    <string name="screen_away_detail">डिवाइस को स्क्रीन अवे मोड पर इस्तेमाल करने लिए ऐसे पकड़ें कि उसकी स्क्रीन आपके चेहरे के सामने न रहे</string>
+    <string name="tabletop">टेबलटॉप मोड</string>
+    <string name="tabletop_detail">डिवाइस को टेबलटॉप मोड पर इस्तेमाल करने के लिए उसे सीधे लेटाकर रखें</string>
+</resources>

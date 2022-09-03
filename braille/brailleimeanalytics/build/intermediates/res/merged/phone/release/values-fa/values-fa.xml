@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">نقاط %s</item>
+    <item quantity="other">نقاط %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d اعلان جدید</item>
+    <item quantity="other">%d اعلان جدید</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"پیمایش به صفحه اصلی"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"رفتن به بالا"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"گزینه‌های بیشتر"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"تمام"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"دیدن همه"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"انتخاب برنامه"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"خاموش"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"روشن"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"‎Alt+‎"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"‎Ctrl+‎"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"حذف"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"‎Function+‎"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"‎Meta+‎"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"‎Shift+‎"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"فاصله"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"‎Sym+‎"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"منو+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"جستجو…‏"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"پاک کردن پُرسمان"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"درخواست جستجو"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"جستجو"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"ارسال پُرسمان"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"جستجوی گفتاری"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"هم‌رسانی با"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"هم‌رسانی با <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"کوچک کردن"</string>
+    <string name="auto_detect">تطبیق با نحوه نگه داشته شدن دستگاه</string>
+    <string name="bottomsheet_action_expand_halfway">گسترده کردن تا نیمه</string>
+    <string name="capitalize_announcement">بزرگ‌نویسی</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">نویسه‌های واردشده %1$d از %2$d</string>
+    <string name="character_counter_overflowed_content_description">محدودیت نویسه از حد مجاز %1$d از %2$d بیشتر شده است</string>
+    <string name="clear_text_end_icon_content_description">پاک کردن نوشتار</string>
+    <string name="code_user_facing_name_ar">عربی</string>
+    <string name="code_user_facing_name_es">اسپانیایی</string>
+    <string name="code_user_facing_name_fr">فرانسوی</string>
+    <string name="code_user_facing_name_pl">لهستانی</string>
+    <string name="code_user_facing_name_ueb1">بریل انگلیسی یکپارچه خلاصه‌نشده</string>
+    <string name="code_user_facing_name_ueb2">بریل انگلیسی یکپارچه خلاصه‌شده</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">فعال کردن</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">‏تا وقتی «خدمات Google Play» را فعال نکنید، %1$s کار نمی‌کند.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">‏‫فعال کردن «خدمات Google Play»</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">نصب</string>
+    <string name="common_google_play_services_install_text">‏%1$s بدون خدمات Google Play که در دستگاه شما وجود ندارد اجرا نمی‌شود.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">‏دریافت «خدمات Google Play»</string>
+    <string name="common_google_play_services_notification_channel_name">‏دردسترس بودن خدمات Google Play</string>
+    <string name="common_google_play_services_notification_ticker">‏خطا در خدمات Google Play</string>
+    <string name="common_google_play_services_unknown_issue">‏%1$s برای استفاده از خدمات Google Play با مشکل روبرو است. لطفاً دوباره امتحان کنید.</string>
+    <string name="common_google_play_services_unsupported_text">‏%1$s بدون خدمات Google Play که در دستگاه شما پشتیبانی نمی‌شود، اجرا نخواهد شد.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">به‌روزرسانی</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">‏تاز مانی که «خدمات Google Play» را به‌روزرسانی نکنید، %1$s اجرا نمی‌شود.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">‏‫به‌روزرسانی «خدمات Google Play»</string>
+    <string name="common_google_play_services_updating_text">‏%1$s بدون «خدمات Google Play» که درحال حاضر درحال به‌روزرسانی هستند، کار نمی‌کند.</string>
+    <string name="common_google_play_services_wear_update_text">‏نسخه جدید «خدمات Google Play» نیاز است. به‌زودی به‌طور خودکار به‌روزرسانی می‌شود.</string>
+    <string name="common_open_on_phone">باز کردن در تلفن</string>
+    <string name="common_signin_button_text">ورود به سیستم</string>
+    <string name="common_signin_button_text_long">‏ورود به سیستم با Google‎</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"ناموفق"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"در تلفنتان باز شد"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"موفق"</string>
+    <string msgid="3209159573327985035" name="copy">"کپی"</string>
+    <string name="error_icon_content_description">خطا</string>
+    <string name="exit_scrim">خروج</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"پیشرفته"</string>
+    <string name="exposed_dropdown_menu_content_description">نمایش منوی کرکره‌ای</string>
+    <string name="function_off">«بازخورد گفتاری» خاموش است</string>
+    <string name="function_on">«بازخورد گفتاری» روشن است</string>
+    <string name="granularity_character">نویسه</string>
+    <string name="granularity_default">پیش‌فرض</string>
+    <string name="granularity_line">خط</string>
+    <string name="granularity_native_control">کنترل‌ها</string>
+    <string name="granularity_native_heading">سرصفحه‌ها</string>
+    <string name="granularity_native_link">پیوندها</string>
+    <string name="granularity_paragraph">پاراگراف</string>
+    <string name="granularity_pseudo_web_special_content">محتوای ویژه</string>
+    <string name="granularity_web_control">کنترل‌ها</string>
+    <string name="granularity_web_heading">سرصفحه‌ها</string>
+    <string name="granularity_web_landmark">نشانگر مکانی</string>
+    <string name="granularity_web_link">پیوندها</string>
+    <string name="granularity_web_list">فهرست‌ها</string>
+    <string name="granularity_window">پنجره</string>
+    <string name="granularity_word">کلمه</string>
+    <string name="hide_keyboard_window">صفحه‌کلید پنهان شد</string>
+    <string name="icon_content_description">نماد کادر گفتگو</string>
+    <string name="item_view_role_description">برگه</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">برای تنظیم میان‌بر جدید، ترکیب کلید را با کلید تغییردهنده %1$s فشار دهید.</string>
+    <string name="keycombo_assign_dialog_instruction">‏برای تنظیم میان‌بر جدید، ترکیب کلید را فشار دهید. میان‌بر باید حداقل شامل ALT یا کلید کنترل باشد.</string>
+    <string name="keycombo_key_arrow_down">پیکان رو به پایین</string>
+    <string name="keycombo_key_arrow_left">پیکان چپ</string>
+    <string name="keycombo_key_arrow_right">پیکان راست</string>
+    <string name="keycombo_key_arrow_up">پیکان رو به بالا</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">جستجو</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">واگذارنشده</string>
+    <string name="material_clock_toggle_content_description">انتخاب .ق.ظ. یا ب.ظ.</string>
+    <string name="material_hour_selection">انتخاب ساعت</string>
+    <string name="material_hour_suffix">ساعت %1$s</string>
+    <string name="material_minute_selection">انتخاب دقیقه</string>
+    <string name="material_minute_suffix">%1$s دقیقه</string>
+    <string name="material_timepicker_am">ق.ظ</string>
+    <string name="material_timepicker_clock_mode_description">برای وارد کردن زمان، به حالت ساعت تغییر وضعیت دهید.</string>
+    <string name="material_timepicker_hour">ساعت</string>
+    <string name="material_timepicker_minute">دقیقه</string>
+    <string name="material_timepicker_pm">ب.ظ</string>
+    <string name="material_timepicker_select_time">انتخاب زمان</string>
+    <string name="material_timepicker_text_input_mode_description">برای وارد کردن زمان، به حالت ورودی نوشتاری تغییر وضعیت دهید.</string>
+    <string name="mtrl_badge_numberless_content_description">اعلان جدید</string>
+    <string name="mtrl_chip_close_icon_content_description">برداشتن %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">بیش از %1$d اعلان جدید</string>
+    <string name="mtrl_picker_a11y_next_month">تغییر به ماه بعدی</string>
+    <string name="mtrl_picker_a11y_prev_month">تغییر به ماه قبلی</string>
+    <string name="mtrl_picker_announce_current_selection">انتخاب کنونی: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">انتخاب تاریخ</string>
+    <string name="mtrl_picker_date_header_unselected">تاریخ انتخابی</string>
+    <string name="mtrl_picker_day_of_week_column_header">ستون روز: %1$s</string>
+    <string name="mtrl_picker_invalid_format">قالب نامعتبر است.</string>
+    <string name="mtrl_picker_invalid_format_example">مثال: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">قالب: %1$s</string>
+    <string name="mtrl_picker_invalid_range">محدوده نامعتبر است.</string>
+    <string name="mtrl_picker_navigate_to_year_description">رفتن به سال %1$s</string>
+    <string name="mtrl_picker_out_of_range">خارج از محدوده: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">تاریخ شروع – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – تاریخ پایان</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">انتخاب محدوده</string>
+    <string name="mtrl_picker_range_header_unselected">تاریخ شروع – تاریخ پایان</string>
+    <string name="mtrl_picker_save">ذخیره</string>
+    <string name="mtrl_picker_text_input_date_hint">تاریخ</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">تاریخ پایان</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">تاریخ شروع</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">رفتن به روش ورودی تقویم</string>
+    <string name="mtrl_picker_toggle_to_day_selection">رفتن به رفتن به حالت انتخاب روز ضربه بزنید</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">رفتن به حالت ورودی نوشتاری</string>
+    <string name="mtrl_picker_toggle_to_year_selection">برای رفتن به حالت انتخاب سال ضربه بزنید</string>
+    <string msgid="478774118347071097" name="not_set">"تنظیم نشده است"</string>
+    <string name="number_announcement">عدد</string>
+    <string name="password_toggle_content_description">نمایش گذرواژه</string>
+    <string msgid="7961817945132860002" name="preference_copied">"«<ns1:g id="SUMMARY">%1$s</ns1:g>» در بریده‌دان کپی شد."</string>
+    <string name="read_out_deleted">%s حذف شد</string>
+    <string name="screen_away">حالت پشت به‌صورت</string>
+    <string name="screen_away_detail">پشت دستگاه را رو به‌خود نگه دارید (حالت پشت به‌صورت)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"جستجو"</string>
+    <string name="show_keyboard_window">درحال نمایش %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>، <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">تقریباً مساوی با</string>
+    <string name="symbol_ampersand">امپرساند</string>
+    <string name="symbol_angle_bracket_left">علامت کوچک‌تر</string>
+    <string name="symbol_angle_bracket_right">علامت بزرگ‌تر</string>
+    <string name="symbol_apostrophe">اپاستروف</string>
+    <string name="symbol_approximately_equals">تقریباً مساوی</string>
+    <string name="symbol_asterisk">ستاره</string>
+    <string name="symbol_at_sign">"@"</string>
+    <string name="symbol_backslash">خط اریب وارو</string>
+    <string name="symbol_beamed_sixteenth_note">نت‌های یک شانزدهم متصل</string>
+    <string name="symbol_black_circle">دایره مشکی</string>
+    <string name="symbol_black_heart">قلب مشکی</string>
+    <string name="symbol_black_smallsquare">مربع سیاه کوچک</string>
+    <string name="symbol_black_square">مربع مشکی</string>
+    <string name="symbol_black_star">ستاره مشکی</string>
+    <string name="symbol_black_suit_of_diamonds">خال مشکی خشت</string>
+    <string name="symbol_black_triangle_pointing_down">سه‌گوش مشکلی به‌سمت پایین</string>
+    <string name="symbol_black_triangle_pointing_up">سه‌گوش مشکلی به‌سمت بالا</string>
+    <string name="symbol_broken_bar">خط چین</string>
+    <string name="symbol_bullet">بولت</string>
+    <string name="symbol_bullseye">نقطه هدف مرکزی</string>
+    <string name="symbol_caret">هشتک</string>
+    <string name="symbol_celsius_degree">درجه سانتی‌گراد</string>
+    <string name="symbol_cent">علامت سنت</string>
+    <string name="symbol_circle_left_half_black">دایره‌ای با نیمه چپ مشکی</string>
+    <string name="symbol_circle_right_half_black">دایره‌ای با نیمه راست مشکی</string>
+    <string name="symbol_colon">دو نقطه</string>
+    <string name="symbol_comma">کاما</string>
+    <string name="symbol_copyright">حق نشر</string>
+    <string name="symbol_curly_bracket_left">آکولاد چپ</string>
+    <string name="symbol_curly_bracket_right">آکولاد راست</string>
+    <string name="symbol_currency_sign">علامت ارز</string>
+    <string name="symbol_degree">علامت درجه</string>
+    <string name="symbol_division">علامت تقسیم</string>
+    <string name="symbol_dollar_sign">علامت دلار</string>
+    <string name="symbol_downwards_arrow">پیکان رو به پایین</string>
+    <string name="symbol_eighth_note">نت یک هشتم</string>
+    <string name="symbol_ellipsis">سه نقطه</string>
+    <string name="symbol_em_dash">خط تیره کشیده</string>
+    <string name="symbol_en_dash">خط تیره</string>
+    <string name="symbol_equal">علامت مساوی</string>
+    <string name="symbol_euro">یورو</string>
+    <string name="symbol_exclamation_mark">علامت تعجب</string>
+    <string name="symbol_fahrenheit_degree">درجه فارنهایت</string>
+    <string name="symbol_female">نماد زن</string>
+    <string name="symbol_full_width_ampersand">اَمپرساند با پنهای کامل</string>
+    <string name="symbol_full_width_asterisk">ستاره با پهنای کامل</string>
+    <string name="symbol_full_width_circumflex">هشتک با پهنای کامل</string>
+    <string name="symbol_full_width_colon">دونقطه با پهنای کامل</string>
+    <string name="symbol_full_width_comma">کاما با پهنای کامل</string>
+    <string name="symbol_full_width_exclamation_mark">علامت تعجب با پهنای کامل</string>
+    <string name="symbol_full_width_greater_than_sign">علامت بزرگ‌تر از با پهنای کامل</string>
+    <string name="symbol_full_width_ideographic_full_stop">نقطه اندیشه‌نگاری</string>
+    <string name="symbol_full_width_left_curly_bracket">کروشه چپ با پهنای کامل</string>
+    <string name="symbol_full_width_left_parenthesis">پرانتز سمت چپ با پهنای کامل</string>
+    <string name="symbol_full_width_less_than_sign">علامت کوچک‌تر از با پهنای کامل</string>
+    <string name="symbol_full_width_question_mark">علامت سؤال با پهنای کامل</string>
+    <string name="symbol_full_width_right_curly_bracket">کروشه راست با پهنای کامل</string>
+    <string name="symbol_full_width_right_parenthesis">پرانتز سمت راست با پهنای کامل</string>
+    <string name="symbol_full_width_semicolon">کاما نقطه با پهنای کامل</string>
+    <string name="symbol_full_width_tilde">مَد با پهنای کامل</string>
+    <string name="symbol_full_width_underscore">زیرخط با پهنای کامل</string>
+    <string name="symbol_grave_accent">آکسان گراو</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">نقطه میانی کاتاکانا با عرض نیمه</string>
+    <string name="symbol_hyphen_minus">خط‌ فاصله</string>
+    <string name="symbol_ideographic_comma">کامای اندیشه‌نگاری</string>
+    <string name="symbol_integral">انتگرال</string>
+    <string name="symbol_inverted_exclamation_mark">علامت تعجب وارونه</string>
+    <string name="symbol_inverted_question_mark">علامت سؤال وارونه</string>
+    <string name="symbol_left_angle_bracket">پرانتز شکسته دوتایی چپ</string>
+    <string name="symbol_left_black_lenticular_bracket">قلاب هلال مشکی چپ</string>
+    <string name="symbol_left_corner_bracket">قلاب گوشه چپ</string>
+    <string name="symbol_left_double_quotation_mark">علامت نقل‌قول دوتایی چپ</string>
+    <string name="symbol_left_single_quotation_mark">علامت نقل‌قول تکی سمت چپ</string>
+    <string name="symbol_leftwards_arrow">پیکان رو به چپ</string>
+    <string name="symbol_liter">لیتر</string>
+    <string name="symbol_low_double_quote">علامت نقل قول پایین</string>
+    <string name="symbol_male">نماد مرد</string>
+    <string name="symbol_mathematical_left_angle_bracket">کمانک چپ ریاضی</string>
+    <string name="symbol_mathematical_right_angle_bracket">کمانک راست ریاضی</string>
+    <string name="symbol_micro_sign">علامت میکرو</string>
+    <string name="symbol_middle_dot">نقطه وسط</string>
+    <string name="symbol_multiplication">علامت ضرب</string>
+    <string name="symbol_new_line">خط جدید</string>
+    <string name="symbol_not_equals">نابرابر با</string>
+    <string name="symbol_not_sign">علامت نفی</string>
+    <string name="symbol_paragraph_mark">علامت پاراگراف</string>
+    <string name="symbol_parenthesis_left">پرانتز چپ</string>
+    <string name="symbol_parenthesis_right">پرانتز راست</string>
+    <string name="symbol_percent">درصد</string>
+    <string name="symbol_period">نقطه</string>
+    <string name="symbol_pi">عدد پی</string>
+    <string name="symbol_plus_minus_sign">علامت بعلاوه منها</string>
+    <string name="symbol_postal_mark">علامت پستی</string>
+    <string name="symbol_pound">پوند</string>
+    <string name="symbol_pound_sterling">علامت واحد پول پوند</string>
+    <string name="symbol_quarter_note">نت یک چهارم</string>
+    <string name="symbol_question_mark">علامت سؤال</string>
+    <string name="symbol_quotation_mark">نقل قول</string>
+    <string name="symbol_reference">علامت اشاره</string>
+    <string name="symbol_registered_trademark">علامت تجاری ثبت شده</string>
+    <string name="symbol_right_angle_bracket">پرانتز شکسته دوتایی راست</string>
+    <string name="symbol_right_black_lenticular_bracket">قلاب هلال مشکی راست</string>
+    <string name="symbol_right_corner_bracket">قلاب گوشه راست</string>
+    <string name="symbol_right_double_quotation_mark">علامت نقل‌قول دوتایی سمت راست</string>
+    <string name="symbol_right_single_quotation_mark">علامت نقل‌قول تکی راست</string>
+    <string name="symbol_rightwards_arrow">پیکان رو به راست</string>
+    <string name="symbol_rupee">روپیه</string>
+    <string name="symbol_section_sign">علامت بخش</string>
+    <string name="symbol_semicolon">نقطه ویرگول</string>
+    <string name="symbol_slash">خط اریب</string>
+    <string name="symbol_solar">نماد خورشید</string>
+    <string name="symbol_space">فاصله</string>
+    <string name="symbol_square_bracket_left">قلاب سمت چپ</string>
+    <string name="symbol_square_bracket_right">قلاب سمت راست</string>
+    <string name="symbol_square_root">جذر</string>
+    <string name="symbol_tilde">مَد</string>
+    <string name="symbol_trademark">علامت تجاری</string>
+    <string name="symbol_underscore">زیرخط</string>
+    <string name="symbol_upwards_arrow">پیکان رو به بالا</string>
+    <string name="symbol_vertical_bar">خط عمودی</string>
+    <string name="symbol_white_circle">دایره سفید</string>
+    <string name="symbol_white_club_suit">گشنیز سفید</string>
+    <string name="symbol_white_diamond">خشت سفید</string>
+    <string name="symbol_white_down_pointing_triangle">مثلث سفید نشانگر پایین</string>
+    <string name="symbol_white_heart">قلب سفید</string>
+    <string name="symbol_white_left_pointing_index">اشاره سفید به سمت چپ</string>
+    <string name="symbol_white_left_pointing_triangle">مثلث سفید نشانگر چپ</string>
+    <string name="symbol_white_right_pointing_index">اشاره سفید به سمت راست</string>
+    <string name="symbol_white_right_pointing_triangle">مثلث سفید نشانگر راست</string>
+    <string name="symbol_white_spade_suit">پیک سفید</string>
+    <string name="symbol_white_square">مربع سفید</string>
+    <string name="symbol_white_star">ستاره سفید</string>
+    <string name="symbol_white_up_pointing_triangle">مثلث سفید نشانگر بالا</string>
+    <string name="symbol_won">علامت واحد پول وون</string>
+    <string name="symbol_won_sign">علامت واحد پول وون</string>
+    <string name="symbol_yen">ین</string>
+    <string name="tabletop">حالت افقی روبه‌صورت</string>
+    <string name="tabletop_detail">دستگاه را صاف روی میز قرار دهید (حالت افقی روبه‌صورت)</string>
+    <string name="template_capital_letter">%1$s بزرگ</string>
+    <string name="template_current_tts_engine">در حال استفاده از %1$s</string>
+    <string name="template_overlay_window">%1$s تصویر در تصویر</string>
+    <string name="template_password_selected">نویسه‌های %1$d تا %2$d</string>
+    <string name="template_password_traversed">نویسه %1$d</string>
+    <string name="template_scroll_from_count">در حال نمایش مورد %1$d از %2$d</string>
+    <string name="template_scroll_from_to_count">نمایش موارد %1$d تا %2$d از %3$d</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s در راست، %2$s در چپ</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s در چپ، %2$s در راست</string>
+    <string name="template_split_screen_mode_portrait">%1$s در بالا، %2$s در پایین</string>
+    <string name="template_text_copied">کپی شد، %1$s</string>
+    <string name="template_viewpager_index_count">صفحه %1$d از %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d از %2$d</string>
+    <string name="untitled_window">بدون عنوان</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"خاموش"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"روشن"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"کشوی فعالیت"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"کشوی پیمایش"</string>
+</resources>

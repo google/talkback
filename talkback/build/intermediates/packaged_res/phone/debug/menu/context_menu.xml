@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+      android:id="@+id/read_from_top"
+      android:orderInCategory="8"
+      android:title="@string/shortcut_read_from_top" />
+  <item
+      android:id="@+id/read_from_current"
+      android:orderInCategory="9"
+      android:title="@string/shortcut_read_from_current" />
+  <item
+      android:id="@+id/copy_last_utterance_to_clipboard"
+      android:orderInCategory="10"
+      android:title="@string/title_copy_last_spoken_phrase" />
+  <item
+      android:id="@+id/spell_last_utterance"
+      android:orderInCategory="11"
+      android:title="@string/title_spell_last_spoken_phrase" />
+  <item
+      android:id="@+id/repeat_last_utterance"
+      android:orderInCategory="12"
+      android:title="@string/title_repeat_last_spoken_phrase" />
+  <item
+      android:id="@+id/verbosity"
+      android:orderInCategory="13"
+      android:title="@string/title_pref_selector_verbosity" />
+  <item
+      android:id="@+id/audio_ducking"
+      android:orderInCategory="16"
+      android:title="@string/title_pref_use_audio_focus" />
+  <item
+      android:id="@+id/sound_feedback"
+      android:orderInCategory="17"
+      android:title="@string/title_pref_soundback" />
+  <item
+      android:id="@+id/vibration_feedback"
+      android:orderInCategory="18"
+      android:title="@string/title_pref_vibration" />
+  <item
+      android:id="@+id/screen_search"
+      android:orderInCategory="19"
+      android:title="@string/title_show_screen_search" />
+  <item
+      android:id="@+id/voice_commands"
+      android:orderInCategory="21"
+      android:title="@string/title_show_voice_commands" />
+  <item
+      android:id="@+id/talkback_settings"
+      android:orderInCategory="22"
+      android:title="@string/talkback_show_talkback_settings" />
+  <item
+      android:id="@+id/tts_settings"
+      android:orderInCategory="23"
+      android:title="@string/tts_preferences_title" />
+  <item
+      android:id="@+id/pause_feedback"
+      android:orderInCategory="24"
+      android:title="@string/shortcut_pause_feedback" />
+</menu>

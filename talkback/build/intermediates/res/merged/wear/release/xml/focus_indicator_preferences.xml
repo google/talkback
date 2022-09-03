@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_category_manage_focus_indicator_key">
+
+  <SwitchPreference
+      android:key="@string/pref_thick_border_key"
+      android:title="@string/title_pref_thick_border"
+      android:persistent="true" />
+
+  <PreferenceCategory
+      android:key="@string/pref_border_color_category_key"
+      android:title="@string/title_pref_category_border_color">
+    <!-- For open-source, replace "CheckBoxPreference" with "com.android.settingslib.widget.RadioButtonPreference". -->
+    <CheckBoxPreference
+      android:title="@string/title_pref_default_color" />
+    <CheckBoxPreference
+        android:title="@string/title_pref_red" />
+    <CheckBoxPreference
+        android:title="@string/title_pref_orange" />
+    <CheckBoxPreference
+        android:title="@string/title_pref_yellow" />
+    <CheckBoxPreference
+        android:title="@string/title_pref_green" />
+    <CheckBoxPreference
+        android:title="@string/title_pref_blue" />
+    <CheckBoxPreference
+        android:title="@string/title_pref_grey" />
+  </PreferenceCategory>
+
+
+</PreferenceScreen>

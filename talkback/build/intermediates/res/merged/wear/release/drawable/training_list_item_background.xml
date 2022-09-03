@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="16dp"
+    android:shape="rectangle">
+  <corners android:radius="@dimen/training_list_item_corner_radius" />
+  <stroke
+      android:width="@dimen/training_list_item_stroke_width"
+      android:color="@color/training_list_item_border_color" />
+</shape>

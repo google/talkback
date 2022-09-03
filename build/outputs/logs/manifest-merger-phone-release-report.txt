@@ -1,0 +1,903 @@
+-- Merging decision tree log ---
+permission#com.android.talkback.permission.TALKBACK
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:12:3-17:45
+	android:label
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:16:7-56
+	android:protectionLevel
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:17:7-42
+	android:icon
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:15:7-43
+	android:description
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:14:7-61
+	android:name
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:13:7-47
+uses-permission#com.android.talkback.permission.TALKBACK
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:20:3-63
+	android:name
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:20:20-60
+manifest
+ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:2:3-22:12
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:2:3-22:12
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:2:3-22:12
+MERGED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-284:12
+MERGED from [:compositor] /Users/quintinb/repo/talkback/compositor/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-7:12
+MERGED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-56:12
+MERGED from [:brailledisplay] /Users/quintinb/repo/talkback/braille/brailledisplay/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-8:12
+MERGED from [:brailleimeanalytics] /Users/quintinb/repo/talkback/braille/brailleimeanalytics/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-7:12
+MERGED from [:braillecommon] /Users/quintinb/repo/talkback/braille/common/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-11:12
+MERGED from [:brailletranslate] /Users/quintinb/repo/talkback/braille/translate/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-11:12
+MERGED from [:brailleinterfaces] /Users/quintinb/repo/talkback/braille/interfaces/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-8:12
+MERGED from [:utils] /Users/quintinb/repo/talkback/utils/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-7:12
+MERGED from [:uiunderstanding] /Users/quintinb/repo/talkback/uiunderstanding/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-mlkit-text-recognition:18.0.1] /Users/quintinb/.gradle/caches/transforms-3/132e685084581bdfd65afd5edb240ae7/transformed/jetified-play-services-mlkit-text-recognition-18.0.1/AndroidManifest.xml:2:1-8:12
+MERGED from [com.google.android.material:material:1.6.1] /Users/quintinb/.gradle/caches/transforms-3/1f984c915f794057b1c0d60d4c300ad2/transformed/material-1.6.1/AndroidManifest.xml:17:1-26:12
+MERGED from [com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:2:1-15:12
+MERGED from [androidx.preference:preference:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/a7b4422590fd2b602e3bd20ccfb16553/transformed/preference-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/quintinb/.gradle/caches/transforms-3/6e3b0f0d7f7a0cd0eba61afeef8e4b9a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat-resources:1.5.0] /Users/quintinb/.gradle/caches/transforms-3/dc1cf55f1615412e343b1aae6779bb2c/transformed/jetified-appcompat-resources-1.5.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.5.0] /Users/quintinb/.gradle/caches/transforms-3/60605009dc95ef8d03ceba17b5260c72/transformed/appcompat-1.5.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/2a3f1d64b630bfbbe015a36a2afcf900/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.wear:wear:1.3.0-alpha03] /Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] /Users/quintinb/.gradle/caches/transforms-3/754aae1bdc05948cf7d603c2980cc13b/transformed/recyclerview-1.2.1/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.mlkit:vision-interfaces:16.1.0] /Users/quintinb/.gradle/caches/transforms-3/cdf0e1c0edeb4e936aba08f9182a62f7/transformed/jetified-vision-interfaces-16.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/quintinb/.gradle/caches/transforms-3/c3223d5fba7e89d82cf9ae9dce7647b4/transformed/jetified-play-services-tasks-18.0.2/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.6.0-alpha02] /Users/quintinb/.gradle/caches/transforms-3/e6120de86aae2fafc04f438ca1441a32/transformed/fragment-1.6.0-alpha02/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.5.1] /Users/quintinb/.gradle/caches/transforms-3/c7df81857102028599b436b84aecd641/transformed/jetified-activity-1.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/da0538962608c6e5a8abf275a6ce9e5f/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/30b33c2f882adf2d283f3928f80a5439/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/4cd7f4c6b396f7ef400ac19f7ca8aa09/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/5f12f0deee18815ba93613b6cce39faa/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/ac632e0cb338f7ff591b61589a5c5e2a/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/aff1f9d836f16569afe7e1e4370b6439/transformed/jetified-core-ktx-1.9.0-rc01/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/f8288de73f3f18b2899d6783e6f5ee79/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/af09ba35e55bdd5257f7d3b20f9c346f/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/db5322e5d1ce20202a33a750bd9ebd0f/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/c1a36ea85599599cc924d98c7f22e64a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/c283719b0c12a259b534d3c43fca3ea3/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/c34663a694905fbd03fd87831118b1be/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/fefee41efbe861413979d9186586e1d9/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/d8c8833e6c42cab0a375166dbdef4879/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.percentlayout:percentlayout:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/5a82243d71cfeddc1e73551d87767111/transformed/percentlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/7044ff44945ec502b6aa195256771c78/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/2451aed8fa06654959fa5c6707c1d926/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/5865b5f22e03b81c8f6b8d0ca2b503d3/transformed/localbroadcastmanager-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/f79630c35828e626fbb082ef1264d9ca/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/ad9108c092e31d2c5fd1687fd73fbaf7/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/cf3bd0f3396ea88a9e533d72a34b8575/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] /Users/quintinb/.gradle/caches/transforms-3/2147c7c9795b6daaf360c8a4ec268652/transformed/jetified-transport-api-2.2.1/AndroidManifest.xml:15:1-22:12
+MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/quintinb/.gradle/caches/transforms-3/aebde6a2d059997619702cdae99707bd/transformed/jetified-firebase-components-16.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/a2736ebc926fc456b06e88f1d8a1e2e6/transformed/jetified-firebase-encoders-json-17.1.0/AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/quintinb/.gradle/caches/transforms-3/bb9c7aa79a2aff32cd68750c034686c2/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/b7d3803157b0fd64ca8629a9e1a71ffb/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/8d8cf2fd7be4192fb5cebdf67a1b52b1/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/quintinb/.gradle/caches/transforms-3/9a1ddb35db7fe721777fc1efbd23f256/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/443caff49a62adc8d0e7a11b1dc959ac/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/13d3dee4361992735f82e1e1ad3c06e4/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/ce86fd6499a3eeef38f51ca0d1f103e0/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/1fd8fd000bc1384bbfc0e319184874ae/transformed/exifinterface-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/746af5e162d230736c1f30f670474741/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/ebf8ccdc7bbb78575c47a2f6abbbae9a/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/7aeb7776585a3a7f0b2435e7b74777e7/transformed/jetified-annotation-experimental-1.3.0-rc01/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /Users/quintinb/.gradle/caches/transforms-3/4eac4904890a7fa6ae8cbe1831f30b3f/transformed/jetified-image-1.0.0-beta1/AndroidManifest.xml:2:1-9:12
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:2:3-22:12
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:2:3-22:12
+	package
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:3:5-35
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:2:3-22:12
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml:2:13-71
+uses-sdk
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+MERGED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:6:5-44
+MERGED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:6:5-44
+MERGED from [:compositor] /Users/quintinb/repo/talkback/compositor/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:5:5-44
+MERGED from [:compositor] /Users/quintinb/repo/talkback/compositor/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:5:5-44
+MERGED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:6:5-8:41
+MERGED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:6:5-8:41
+MERGED from [:brailledisplay] /Users/quintinb/repo/talkback/braille/brailledisplay/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:6:5-44
+MERGED from [:brailledisplay] /Users/quintinb/repo/talkback/braille/brailledisplay/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:6:5-44
+MERGED from [:brailleimeanalytics] /Users/quintinb/repo/talkback/braille/brailleimeanalytics/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:5:5-44
+MERGED from [:brailleimeanalytics] /Users/quintinb/repo/talkback/braille/brailleimeanalytics/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:5:5-44
+MERGED from [:braillecommon] /Users/quintinb/repo/talkback/braille/common/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:7:5-9:41
+MERGED from [:braillecommon] /Users/quintinb/repo/talkback/braille/common/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:7:5-9:41
+MERGED from [:brailletranslate] /Users/quintinb/repo/talkback/braille/translate/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:7:5-9:41
+MERGED from [:brailletranslate] /Users/quintinb/repo/talkback/braille/translate/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:7:5-9:41
+MERGED from [:brailleinterfaces] /Users/quintinb/repo/talkback/braille/interfaces/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:6:5-44
+MERGED from [:brailleinterfaces] /Users/quintinb/repo/talkback/braille/interfaces/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:6:5-44
+MERGED from [:utils] /Users/quintinb/repo/talkback/utils/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:5:5-44
+MERGED from [:utils] /Users/quintinb/repo/talkback/utils/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:5:5-44
+MERGED from [:uiunderstanding] /Users/quintinb/repo/talkback/uiunderstanding/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:5:5-44
+MERGED from [:uiunderstanding] /Users/quintinb/repo/talkback/uiunderstanding/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-mlkit-text-recognition:18.0.1] /Users/quintinb/.gradle/caches/transforms-3/132e685084581bdfd65afd5edb240ae7/transformed/jetified-play-services-mlkit-text-recognition-18.0.1/AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-mlkit-text-recognition:18.0.1] /Users/quintinb/.gradle/caches/transforms-3/132e685084581bdfd65afd5edb240ae7/transformed/jetified-play-services-mlkit-text-recognition-18.0.1/AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.material:material:1.6.1] /Users/quintinb/.gradle/caches/transforms-3/1f984c915f794057b1c0d60d4c300ad2/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.6.1] /Users/quintinb/.gradle/caches/transforms-3/1f984c915f794057b1c0d60d4c300ad2/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.preference:preference:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/a7b4422590fd2b602e3bd20ccfb16553/transformed/preference-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/a7b4422590fd2b602e3bd20ccfb16553/transformed/preference-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/quintinb/.gradle/caches/transforms-3/6e3b0f0d7f7a0cd0eba61afeef8e4b9a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/quintinb/.gradle/caches/transforms-3/6e3b0f0d7f7a0cd0eba61afeef8e4b9a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.5.0] /Users/quintinb/.gradle/caches/transforms-3/dc1cf55f1615412e343b1aae6779bb2c/transformed/jetified-appcompat-resources-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.5.0] /Users/quintinb/.gradle/caches/transforms-3/dc1cf55f1615412e343b1aae6779bb2c/transformed/jetified-appcompat-resources-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.5.0] /Users/quintinb/.gradle/caches/transforms-3/60605009dc95ef8d03ceba17b5260c72/transformed/appcompat-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.5.0] /Users/quintinb/.gradle/caches/transforms-3/60605009dc95ef8d03ceba17b5260c72/transformed/appcompat-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/2a3f1d64b630bfbbe015a36a2afcf900/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/2a3f1d64b630bfbbe015a36a2afcf900/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.wear:wear:1.3.0-alpha03] /Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/AndroidManifest.xml:20:5-44
+MERGED from [androidx.wear:wear:1.3.0-alpha03] /Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] /Users/quintinb/.gradle/caches/transforms-3/754aae1bdc05948cf7d603c2980cc13b/transformed/recyclerview-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] /Users/quintinb/.gradle/caches/transforms-3/754aae1bdc05948cf7d603c2980cc13b/transformed/recyclerview-1.2.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.mlkit:vision-interfaces:16.1.0] /Users/quintinb/.gradle/caches/transforms-3/cdf0e1c0edeb4e936aba08f9182a62f7/transformed/jetified-vision-interfaces-16.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.mlkit:vision-interfaces:16.1.0] /Users/quintinb/.gradle/caches/transforms-3/cdf0e1c0edeb4e936aba08f9182a62f7/transformed/jetified-vision-interfaces-16.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/quintinb/.gradle/caches/transforms-3/c3223d5fba7e89d82cf9ae9dce7647b4/transformed/jetified-play-services-tasks-18.0.2/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/quintinb/.gradle/caches/transforms-3/c3223d5fba7e89d82cf9ae9dce7647b4/transformed/jetified-play-services-tasks-18.0.2/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.6.0-alpha02] /Users/quintinb/.gradle/caches/transforms-3/e6120de86aae2fafc04f438ca1441a32/transformed/fragment-1.6.0-alpha02/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.6.0-alpha02] /Users/quintinb/.gradle/caches/transforms-3/e6120de86aae2fafc04f438ca1441a32/transformed/fragment-1.6.0-alpha02/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.5.1] /Users/quintinb/.gradle/caches/transforms-3/c7df81857102028599b436b84aecd641/transformed/jetified-activity-1.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.5.1] /Users/quintinb/.gradle/caches/transforms-3/c7df81857102028599b436b84aecd641/transformed/jetified-activity-1.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/da0538962608c6e5a8abf275a6ce9e5f/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/da0538962608c6e5a8abf275a6ce9e5f/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/30b33c2f882adf2d283f3928f80a5439/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/30b33c2f882adf2d283f3928f80a5439/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/4cd7f4c6b396f7ef400ac19f7ca8aa09/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/4cd7f4c6b396f7ef400ac19f7ca8aa09/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/5f12f0deee18815ba93613b6cce39faa/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/5f12f0deee18815ba93613b6cce39faa/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/ac632e0cb338f7ff591b61589a5c5e2a/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/ac632e0cb338f7ff591b61589a5c5e2a/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/aff1f9d836f16569afe7e1e4370b6439/transformed/jetified-core-ktx-1.9.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/aff1f9d836f16569afe7e1e4370b6439/transformed/jetified-core-ktx-1.9.0-rc01/AndroidManifest.xml:5:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/f8288de73f3f18b2899d6783e6f5ee79/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/f8288de73f3f18b2899d6783e6f5ee79/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/af09ba35e55bdd5257f7d3b20f9c346f/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/af09ba35e55bdd5257f7d3b20f9c346f/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/db5322e5d1ce20202a33a750bd9ebd0f/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/db5322e5d1ce20202a33a750bd9ebd0f/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/c1a36ea85599599cc924d98c7f22e64a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/c1a36ea85599599cc924d98c7f22e64a/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/c283719b0c12a259b534d3c43fca3ea3/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/c283719b0c12a259b534d3c43fca3ea3/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/c34663a694905fbd03fd87831118b1be/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/c34663a694905fbd03fd87831118b1be/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/fefee41efbe861413979d9186586e1d9/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/fefee41efbe861413979d9186586e1d9/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/d8c8833e6c42cab0a375166dbdef4879/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/d8c8833e6c42cab0a375166dbdef4879/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.percentlayout:percentlayout:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/5a82243d71cfeddc1e73551d87767111/transformed/percentlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.percentlayout:percentlayout:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/5a82243d71cfeddc1e73551d87767111/transformed/percentlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/7044ff44945ec502b6aa195256771c78/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/7044ff44945ec502b6aa195256771c78/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/2451aed8fa06654959fa5c6707c1d926/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/2451aed8fa06654959fa5c6707c1d926/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/5865b5f22e03b81c8f6b8d0ca2b503d3/transformed/localbroadcastmanager-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] /Users/quintinb/.gradle/caches/transforms-3/5865b5f22e03b81c8f6b8d0ca2b503d3/transformed/localbroadcastmanager-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/f79630c35828e626fbb082ef1264d9ca/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/f79630c35828e626fbb082ef1264d9ca/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/ad9108c092e31d2c5fd1687fd73fbaf7/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/ad9108c092e31d2c5fd1687fd73fbaf7/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/cf3bd0f3396ea88a9e533d72a34b8575/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/cf3bd0f3396ea88a9e533d72a34b8575/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] /Users/quintinb/.gradle/caches/transforms-3/2147c7c9795b6daaf360c8a4ec268652/transformed/jetified-transport-api-2.2.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] /Users/quintinb/.gradle/caches/transforms-3/2147c7c9795b6daaf360c8a4ec268652/transformed/jetified-transport-api-2.2.1/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/quintinb/.gradle/caches/transforms-3/aebde6a2d059997619702cdae99707bd/transformed/jetified-firebase-components-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.1.0] /Users/quintinb/.gradle/caches/transforms-3/aebde6a2d059997619702cdae99707bd/transformed/jetified-firebase-components-16.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/a2736ebc926fc456b06e88f1d8a1e2e6/transformed/jetified-firebase-encoders-json-17.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/a2736ebc926fc456b06e88f1d8a1e2e6/transformed/jetified-firebase-encoders-json-17.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/quintinb/.gradle/caches/transforms-3/bb9c7aa79a2aff32cd68750c034686c2/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/quintinb/.gradle/caches/transforms-3/bb9c7aa79a2aff32cd68750c034686c2/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/b7d3803157b0fd64ca8629a9e1a71ffb/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/b7d3803157b0fd64ca8629a9e1a71ffb/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/8d8cf2fd7be4192fb5cebdf67a1b52b1/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /Users/quintinb/.gradle/caches/transforms-3/8d8cf2fd7be4192fb5cebdf67a1b52b1/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/quintinb/.gradle/caches/transforms-3/9a1ddb35db7fe721777fc1efbd23f256/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/quintinb/.gradle/caches/transforms-3/9a1ddb35db7fe721777fc1efbd23f256/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/443caff49a62adc8d0e7a11b1dc959ac/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/443caff49a62adc8d0e7a11b1dc959ac/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/13d3dee4361992735f82e1e1ad3c06e4/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/13d3dee4361992735f82e1e1ad3c06e4/transformed/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/ce86fd6499a3eeef38f51ca0d1f103e0/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/ce86fd6499a3eeef38f51ca0d1f103e0/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/1fd8fd000bc1384bbfc0e319184874ae/transformed/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/1fd8fd000bc1384bbfc0e319184874ae/transformed/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/746af5e162d230736c1f30f670474741/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/746af5e162d230736c1f30f670474741/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/ebf8ccdc7bbb78575c47a2f6abbbae9a/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/quintinb/.gradle/caches/transforms-3/ebf8ccdc7bbb78575c47a2f6abbbae9a/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/7aeb7776585a3a7f0b2435e7b74777e7/transformed/jetified-annotation-experimental-1.3.0-rc01/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/7aeb7776585a3a7f0b2435e7b74777e7/transformed/jetified-annotation-experimental-1.3.0-rc01/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /Users/quintinb/.gradle/caches/transforms-3/4eac4904890a7fa6ae8cbe1831f30b3f/transformed/jetified-image-1.0.0-beta1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /Users/quintinb/.gradle/caches/transforms-3/4eac4904890a7fa6ae8cbe1831f30b3f/transformed/jetified-image-1.0.0-beta1/AndroidManifest.xml:5:5-44
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+		ADDED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+		INJECTED from /Users/quintinb/repo/talkback/src/main/AndroidManifest.xml
+queries
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:20:5-27:15
+intent#action:name:android.intent.action.TTS_SERVICE
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:21:9-23:18
+action#android.intent.action.TTS_SERVICE
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:22:13-72
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:22:21-69
+intent#action:name:android.speech.RecognitionService
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:24:9-26:18
+action#android.speech.RecognitionService
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:25:13-72
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:25:21-69
+uses-feature#android.hardware.microphone
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:30:5-32:36
+	android:required
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:32:9-33
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:31:9-51
+uses-feature#android.hardware.location
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:33:5-35:36
+	android:required
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:35:9-33
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:34:9-49
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:38:5-74
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:38:22-71
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:41:5-75
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:41:22-72
+uses-permission#android.permission.VIBRATE
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:44:5-66
+MERGED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:11:5-66
+MERGED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:11:5-66
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:44:22-63
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:47:5-68
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:47:22-65
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:50:5-80
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:50:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:53:5-71
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:53:22-68
+uses-permission#android.permission.QUERY_ALL_PACKAGES
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:56:5-77
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:56:22-74
+uses-permission#android.permission.INTERNET
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:59:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:59:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:60:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:60:22-76
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:61:5-81
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:61:22-78
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:64:5-77
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:64:22-74
+uses-permission#android.permission.GET_PACKAGE_SIZE
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:67:5-75
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:67:22-72
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:70:5-98
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:70:22-95
+uses-feature#android.hardware.touchscreen
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:73:5-75:36
+	android:required
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:75:9-33
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:74:9-52
+uses-feature#android.hardware.sensor.accelerometer
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:76:5-78:36
+	android:required
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:78:9-33
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:77:9-61
+application
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:80:5-282:19
+MERGED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:13:5-54:19
+MERGED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:13:5-54:19
+MERGED from [com.google.android.material:material:1.6.1] /Users/quintinb/.gradle/caches/transforms-3/1f984c915f794057b1c0d60d4c300ad2/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.material:material:1.6.1] /Users/quintinb/.gradle/caches/transforms-3/1f984c915f794057b1c0d60d4c300ad2/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:9:5-13:19
+MERGED from [com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:9:5-13:19
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/quintinb/.gradle/caches/transforms-3/6e3b0f0d7f7a0cd0eba61afeef8e4b9a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /Users/quintinb/.gradle/caches/transforms-3/6e3b0f0d7f7a0cd0eba61afeef8e4b9a/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
+MERGED from [androidx.wear:wear:1.3.0-alpha03] /Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.wear:wear:1.3.0-alpha03] /Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:8:5-16:19
+MERGED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:8:5-24:19
+MERGED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:8:5-24:19
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/quintinb/.gradle/caches/transforms-3/c3223d5fba7e89d82cf9ae9dce7647b4/transformed/jetified-play-services-tasks-18.0.2/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.0.2] /Users/quintinb/.gradle/caches/transforms-3/c3223d5fba7e89d82cf9ae9dce7647b4/transformed/jetified-play-services-tasks-18.0.2/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:28:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/2451aed8fa06654959fa5c6707c1d926/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/2451aed8fa06654959fa5c6707c1d926/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:25:5-39:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/443caff49a62adc8d0e7a11b1dc959ac/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/443caff49a62adc8d0e7a11b1dc959ac/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /Users/quintinb/.gradle/caches/transforms-3/4eac4904890a7fa6ae8cbe1831f30b3f/transformed/jetified-image-1.0.0-beta1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.odml:image:1.0.0-beta1] /Users/quintinb/.gradle/caches/transforms-3/4eac4904890a7fa6ae8cbe1831f30b3f/transformed/jetified-image-1.0.0-beta1/AndroidManifest.xml:7:5-20
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:84:9-35
+	android:label
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:82:9-41
+	android:roundIcon
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:83:9-56
+	android:icon
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:81:9-45
+	android:theme
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:13:18-60
+receiver#com.google.android.accessibility.talkback.BootReceiver
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:85:9-95:20
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:88:13-36
+	android:directBootAware
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:87:13-43
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:86:13-82
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.LOCKED_BOOT_COMPLETED+category:name:android.intent.category.DEFAULT
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:89:13-94:29
+action#android.intent.action.LOCKED_BOOT_COMPLETED
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:90:17-86
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:90:25-83
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:91:17-79
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:91:25-76
+category#android.intent.category.DEFAULT
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:93:17-76
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:93:27-73
+service#com.developer.talkback.TalkBackDevService
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:98:9-117:19
+	android:label
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:103:13-51
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:101:13-36
+	android:permission
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:104:13-79
+	android:settingsActivity
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:105:13-88
+	android:icon
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:102:13-49
+	android:directBootAware
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:100:13-43
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:99:13-69
+intent-filter#action:name:android.accessibilityservice.AccessibilityService+category:name:android.accessibilityservice.category.FEEDBACK_AUDIBLE+category:name:android.accessibilityservice.category.FEEDBACK_HAPTIC+category:name:android.accessibilityservice.category.FEEDBACK_SPOKEN
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:106:13-112:29
+action#android.accessibilityservice.AccessibilityService
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:107:17-92
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:107:25-89
+category#android.accessibilityservice.category.FEEDBACK_AUDIBLE
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:109:17-99
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:109:27-96
+category#android.accessibilityservice.category.FEEDBACK_HAPTIC
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:110:17-98
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:110:27-95
+category#android.accessibilityservice.category.FEEDBACK_SPOKEN
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:111:17-98
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:111:27-95
+meta-data#android.accessibilityservice
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:114:13-116:64
+	android:resource
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:116:17-61
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:115:17-60
+service#com.google.android.accessibility.talkback.ipc.IpcService
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:118:9-123:50
+	android:enabled
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:120:13-35
+	android:label
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:123:13-47
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:121:13-37
+	android:icon
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:122:13-42
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:119:13-84
+activity#com.android.talkback.TalkBackPreferencesActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:126:9-140:20
+	android:label
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:130:13-63
+	android:launchMode
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:131:13-43
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:129:13-36
+	tools:ignore
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:134:13-44
+	android:configChanges
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:128:13-59
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:133:13-52
+	android:taskAffinity
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:132:13-94
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:127:13-76
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.accessibilityservice.SERVICE_SETTINGS
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:135:13-139:29
+action#android.intent.action.MAIN
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:136:17-69
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:136:25-66
+category#android.accessibilityservice.SERVICE_SETTINGS
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:138:17-90
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:138:27-87
+activity#com.google.android.accessibility.talkback.preference.TalkBackShortcutPreferencesActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:143:9-159:20
+	android:label
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:147:13-72
+	android:launchMode
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:148:13-43
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:146:13-36
+	tools:ignore
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:151:13-44
+	android:configChanges
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:145:13-59
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:150:13-52
+	android:taskAffinity
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:149:13-94
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:144:13-116
+intent-filter#action:name:.TalkBackShortcutPreferencesActivity+category:name:android.intent.category.DEFAULT
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:154:13-158:29
+action#com.google.android.accessibility.talkback.TalkBackShortcutPreferencesActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:155:17-79
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:155:25-76
+activity#com.google.android.accessibility.talkback.permission.PermissionRequestActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:162:9-169:20
+	android:excludeFromRecents
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:165:13-46
+	android:noHistory
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:167:13-38
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:166:13-37
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:168:13-54
+	android:directBootAware
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:164:13-43
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:163:13-106
+activity#com.google.android.accessibility.talkback.preference.TalkBackHelpPreferencesActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:172:9-187:20
+	android:label
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:176:13-74
+	android:launchMode
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:177:13-43
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:175:13-37
+	android:configChanges
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:174:13-59
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:179:13-52
+	android:taskAffinity
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:178:13-94
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:173:13-112
+intent-filter#action:name:.preference.TalkBackHelpPreferencesActivity+category:name:android.intent.category.DEFAULT
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:182:13-186:29
+action#com.google.android.accessibility.talkback.preference.TalkBackHelpPreferencesActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:183:17-86
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:183:25-83
+activity#com.google.android.accessibility.talkback.training.TrainingActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:191:9-201:20
+	android:process
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:197:13-40
+	android:launchMode
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:196:13-43
+	android:windowSoftInputMode
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:199:13-55
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:195:13-36
+	tools:ignore
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:200:13-44
+	android:configChanges
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:193:13-74
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:198:13-57
+	android:directBootAware
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:194:13-43
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:192:13-95
+activity#com.google.android.accessibility.talkback.labeling.LabelImportActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:202:9-208:20
+	android:excludeFromRecents
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:204:13-46
+	android:launchMode
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:206:13-48
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:205:13-36
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:207:13-47
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:203:13-98
+activity#com.google.android.accessibility.talkback.labeling.LabelManagerSummaryActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:211:9-225:20
+	android:label
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:214:13-64
+	android:launchMode
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:215:13-43
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:213:13-37
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:217:13-52
+	android:taskAffinity
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:216:13-94
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:212:13-106
+intent-filter#action:name:.labeling.TalkBackSelectorPreferencesActivity+category:name:android.intent.category.DEFAULT
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:220:13-224:29
+action#com.google.android.accessibility.talkback.labeling.TalkBackSelectorPreferencesActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:221:17-88
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:221:25-85
+activity#com.google.android.accessibility.talkback.labeling.LabelManagerPackageActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:228:9-234:55
+	android:label
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:231:13-49
+	android:launchMode
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:232:13-43
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:230:13-37
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:234:13-52
+	android:taskAffinity
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:233:13-94
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:229:13-106
+activity#com.google.android.accessibility.talkback.preference.GestureChangeNotificationActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:237:9-246:20
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:240:13-36
+	tools:ignore
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:242:13-44
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:241:13-47
+	android:directBootAware
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:239:13-43
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:238:13-114
+intent-filter#action:name:android.intent.action.MAIN
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:243:13-245:29
+activity#com.google.android.accessibility.talkback.NotificationActivity
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:249:9-258:20
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:252:13-36
+	tools:ignore
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:254:13-44
+	android:theme
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:253:13-47
+	android:directBootAware
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:251:13-43
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:250:13-90
+provider#com.google.android.accessibility.talkback.labeling.LabelProvider
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:261:9-265:39
+	android:authorities
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:263:13-75
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:265:13-36
+	android:directBootAware
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:264:13-43
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:262:13-92
+provider#androidx.core.content.FileProvider
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:266:9-274:20
+	android:grantUriPermissions
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:270:13-47
+	android:authorities
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:268:13-74
+	android:exported
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:269:13-37
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:267:13-62
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:271:13-273:54
+	android:resource
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:273:17-51
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:272:17-67
+meta-data#support_lift_to_type
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:276:9-278:58
+	android:value
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:278:13-55
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:277:13-48
+meta-data#com.google.mlkit.vision.DEPENDENCIES
+ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:279:9-281:35
+	android:value
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:281:13-32
+	android:name
+		ADDED from [:talkback] /Users/quintinb/repo/talkback/talkback/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:280:13-64
+service#com.google.android.accessibility.brailleime.BrailleIme
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:14:9-28:19
+	android:enabled
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:17:13-36
+	android:label
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:19:13-61
+	android:exported
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:18:13-36
+	android:permission
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:20:13-70
+	android:directBootAware
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:16:13-43
+	android:name
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:15:13-82
+intent-filter#action:name:android.view.InputMethod
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:21:13-23:29
+action#android.view.InputMethod
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:22:17-67
+	android:name
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:22:25-64
+meta-data#android.view.im
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:25:13-27:55
+	android:resource
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:27:17-52
+	android:name
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:26:17-47
+activity#com.google.android.accessibility.brailleime.settings.BrailleImePreferencesActivity
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:30:9-44:20
+	android:label
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:34:13-53
+	android:launchMode
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:35:13-43
+	android:exported
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:33:13-36
+	tools:ignore
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:38:13-44
+	android:configChanges
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:32:13-59
+	android:theme
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:37:13-49
+	android:taskAffinity
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:36:13-94
+	android:name
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:31:13-110
+intent-filter#action:name:.BrailleImePreferencesActivity+category:name:android.intent.category.DEFAULT
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:39:13-43:29
+action#com.google.android.accessibility.brailleime.BrailleImePreferencesActivity
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:40:17-73
+	android:name
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:40:25-70
+receiver#com.google.android.accessibility.brailleime.MyPackageReplacedReceiver
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:46:9-53:20
+	android:enabled
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:48:13-35
+	android:exported
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:49:13-36
+	android:name
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:47:13-97
+intent-filter#action:name:android.intent.action.MY_PACKAGE_REPLACED
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:50:13-52:29
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:51:17-84
+	android:name
+		ADDED from [:brailleime] /Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/library_manifest/phoneRelease/AndroidManifest.xml:51:25-81
+uses-library#com.google.android.wearable
+ADDED from [com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:10:9-12:40
+MERGED from [androidx.wear:wear:1.3.0-alpha03] /Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/AndroidManifest.xml:23:9-25:40
+MERGED from [androidx.wear:wear:1.3.0-alpha03] /Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:12:13-37
+	android:name
+		ADDED from [com.google.android.support:wearable:2.8.1] /Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/AndroidManifest.xml:11:13-55
+service#com.google.mlkit.common.internal.MlKitComponentDiscoveryService
+ADDED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:15:9-23:19
+MERGED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:15:9-23:19
+	android:exported
+		ADDED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:11:13-37
+	tools:targetApi
+		ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:19:13-32
+	android:directBootAware
+		ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:17:13-43
+	android:name
+		ADDED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:10:13-91
+meta-data#com.google.firebase.components:com.google.mlkit.vision.text.internal.TextRegistrar
+ADDED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-mlkit-text-recognition-common:17.1.0] /Users/quintinb/.gradle/caches/transforms-3/b93eee86fa6670aab31ca5ba24752f2a/transformed/jetified-play-services-mlkit-text-recognition-common-17.1.0/AndroidManifest.xml:13:17-114
+meta-data#com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar
+ADDED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:12:13-14:85
+	android:value
+		ADDED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:14:17-82
+	android:name
+		ADDED from [com.google.mlkit:vision-common:17.2.0] /Users/quintinb/.gradle/caches/transforms-3/ce4bc5dcf7f0e16be91d7ebd45c9dc3e/transformed/jetified-vision-common-17.2.0/AndroidManifest.xml:13:17-124
+provider#com.google.mlkit.common.internal.MlKitInitProvider
+ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:9:9-13:38
+	android:authorities
+		ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:11:13-69
+	android:exported
+		ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:12:13-37
+	android:initOrder
+		ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:13:13-35
+	android:name
+		ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:10:13-78
+meta-data#com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar
+ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:20:13-22:85
+	android:value
+		ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [com.google.mlkit:common:18.5.0] /Users/quintinb/.gradle/caches/transforms-3/ee6670fe813c4639fa44208a5821ece2/transformed/jetified-common-18.5.0/AndroidManifest.xml:21:17-120
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/4a5ffb3a995578e22eb9950f06ea0967/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.1.0] /Users/quintinb/.gradle/caches/transforms-3/b431ec46a15eb0cced7c3a8a653efd39/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/443caff49a62adc8d0e7a11b1dc959ac/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/quintinb/.gradle/caches/transforms-3/443caff49a62adc8d0e7a11b1dc959ac/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /Users/quintinb/.gradle/caches/transforms-3/a1202b2fde6dcc99b7addda452ddbecc/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:23:9-81
+permission#com.android.talkback4d.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:26:22-94
+uses-permission#com.android.talkback4d.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.9.0-rc01] /Users/quintinb/.gradle/caches/transforms-3/3703179b54e0bcd1489d41fdcd4d2055/transformed/core-1.9.0-rc01/AndroidManifest.xml:26:22-94
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/quintinb/.gradle/caches/transforms-3/4b8817b47b2b587a52a8fee8c9ca759f/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.6] /Users/quintinb/.gradle/caches/transforms-3/03c6b20de0194683c5018c19a5fcaa8b/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /Users/quintinb/.gradle/caches/transforms-3/d07ed543761eeffcc6c981f2b6714c78/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78

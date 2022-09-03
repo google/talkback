@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">amachashazi %s</item>
+    <item quantity="other">amachashazi %s</item>
+  </plurals>
+    <string name="auto_detect">Jwayelana nendlela obamba ngayo idivayisi</string>
+    <string name="capitalize_announcement">Umkhawulo</string>
+    <string name="code_user_facing_name_ar">Isi-Arabic</string>
+    <string name="code_user_facing_name_es">Isi-Spanish</string>
+    <string name="code_user_facing_name_fr">Isi-French</string>
+    <string name="code_user_facing_name_pl">Isi-Polish</string>
+    <string name="code_user_facing_name_ueb1">I-Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">I-Unified English Braille Contracted</string>
+    <string name="number_announcement">Inombolo</string>
+    <string name="read_out_deleted">%s kususiwe</string>
+    <string name="screen_away">Imodi yokuba kude nesikrini</string>
+    <string name="screen_away_detail">Bamba idivayisi ukude nesikrini (imodi yokuba kude nesikrini)</string>
+    <string name="tabletop">Imodi ye-tabletop</string>
+    <string name="tabletop_detail">Beka phansi idivayisi (imodi ye-tabletop)</string>
+</resources>

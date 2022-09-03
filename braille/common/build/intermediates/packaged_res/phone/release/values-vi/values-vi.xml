@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">dấu chấm %s</item>
+    <item quantity="other">dấu chấm %s</item>
+  </plurals>
+    <string name="auto_detect">Thích ứng với cách bạn cầm thiết bị</string>
+    <string name="capitalize_announcement">Viết hoa</string>
+    <string name="code_user_facing_name_ar">Tiếng Ả Rập</string>
+    <string name="code_user_facing_name_es">Tiếng Tây Ban Nha</string>
+    <string name="code_user_facing_name_fr">Tiếng Pháp</string>
+    <string name="code_user_facing_name_pl">Tiếng Ba Lan</string>
+    <string name="code_user_facing_name_ueb1">Chữ nổi tiếng Anh hợp nhất không rút gọn</string>
+    <string name="code_user_facing_name_ueb2">Chữ nổi tiếng Anh hợp nhất rút gọn</string>
+    <string name="number_announcement">Số</string>
+    <string name="read_out_deleted">Đã xóa %s</string>
+    <string name="screen_away">Chế độ màn hình hướng ra ngoài</string>
+    <string name="screen_away_detail">Cầm thiết bị sao cho màn hình hướng ra phía ngoài (chế độ màn hình hướng ra ngoài)</string>
+    <string name="tabletop">Chế độ trên mặt bàn</string>
+    <string name="tabletop_detail">Đặt thiết bị nằm trên bàn (chế độ trên mặt bàn)</string>
+</resources>

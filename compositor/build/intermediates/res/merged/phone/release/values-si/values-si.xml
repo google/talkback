@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">නව දැනුම්දීම් %dක්</item>
+    <item quantity="other">නව දැනුම්දීම් %dක්</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s අයිතම %2$dක් පෙන්වමින්</item>
+    <item quantity="other">%1$s අයිතම %2$dක් පෙන්වමින්</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">තීරු %1$d</item>
+    <item quantity="other">තීරු %1$d</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">පේළි %1$d</item>
+    <item quantity="other">පේළි %1$d</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">අයිතම %1$d</item>
+    <item quantity="other">අයිතම %1$d</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">අනුලකුණු %1$d</item>
+    <item quantity="other">අනුලකුණු %1$d</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"මුල් පිටුවට සංචාලනය කරන්න"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ඉහළට සංචාලනය කරන්න"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"තවත් විකල්ප"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"කළා"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"සියල්ල බලන්න"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"යෙදුමක් තෝරන්න"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ක්‍රියාවිරහිතයි"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ක්‍රියාත්මකයි"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"මකන්න"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"සොයන්න..."</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"විමසුම හිස් කරන්න"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"සෙවුම් විමසුම"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"සෙවීම"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"විමසුම යොමු කරන්න"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"හඬ සෙවීම"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"සමග බෙදා ගන්න"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> සමඟ බෙදා ගන්න"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"හකුළන්න"</string>
+    <string name="bottomsheet_action_expand_halfway">අඩක් දිග හරින්න</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">අනුලකුණු %2$dන් %1$dක් ඇතුළු කෙරිණි</string>
+    <string name="character_counter_overflowed_content_description">අනුලකුණු සීමාව %2$dකින් %1$d ඉක්ම විය</string>
+    <string name="clear_text_end_icon_content_description">පෙළ හිස් කරන්න</string>
+    <string name="column_heading_template">තීරු ශීර්ෂය</string>
+    <string name="column_index_template">තීරුව %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">සබල කරන්න</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">ඔබ Google Play සේවා සබල කරන්නේ නම් මිස %1$s වැඩ නොකරනු ඇත.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play සේවා සබල කරන්න</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ස්ථාපනය කරන්න</string>
+    <string name="common_google_play_services_install_text">ඔබගේ ටැබ්ලට් පරිගණකයේ නැති Google Play සේවා නොමැතිව %1$s ධාවනය නොවනු ඇත.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play සේවා ලබා ගන්න</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play සේවාවල ලබා ගත හැකි බව</string>
+    <string name="common_google_play_services_notification_ticker">Google Play සේවා දෝෂය</string>
+    <string name="common_google_play_services_unknown_issue">%1$s හට Google Play සේවා සමගින් ගැටලු ඇත. කරුණාකර නැවත උත්සාහ කරන්න.</string>
+    <string name="common_google_play_services_unsupported_text">ඔබගේ උපාංගය මගින් සහාය නොදක්වන, Google Play සේවා නොමැතිව %1$s ධාවනය නොවනු ඇත.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">යාවත්කාලීන කරන්න</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play සේවා යාවත්කාලීන කරන්නේ නොමැතිව %1$s ධාවනය නොවේ.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play සේවා යාවත්කාලීන කරන්න</string>
+    <string name="common_google_play_services_updating_text">දැනට යාවත්කාලීන කරමින් ඇති, Google Play සේවා නොමැතිව %1$s ධාවනය නොවනු ඇත.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play සේවාවල නව අනුවාදයක් අවශ්‍යයි. එය මද වේලාවකින් එය විසින්ම යාවත්කාලීන වනු ඇත.</string>
+    <string name="common_open_on_phone">දුරකථනය තුළ විවෘත කරන්න</string>
+    <string name="common_signin_button_text">පුරන්න</string>
+    <string name="common_signin_button_text_long">Google සමගින් පුරන්න</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"අසාර්ථකයි"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"ඔබගේ දුරකථනයෙහි විවෘත කරන ලදි"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"සාර්ථකයි"</string>
+    <string msgid="3209159573327985035" name="copy">"පිටපත් කරන්න"</string>
+    <string name="detected_icon_description">%1$s, අනාවරණය කර ගත් නිරූපකය</string>
+    <string name="error_icon_content_description">දෝෂය</string>
+    <string name="exit_scrim">පිටවන්න</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"උසස්"</string>
+    <string name="exposed_dropdown_menu_content_description">පතන මෙනුව පෙන්වන්න</string>
+    <string name="function_off">කථා කරන ප්‍රතිපෝෂණය ක්‍රියාවිරහිතයි</string>
+    <string name="function_on">කථා කරන ප්‍රතිපෝෂණය ක්‍රියාත්මකයි</string>
+    <string name="granularity_character">අනුලකුණු</string>
+    <string name="granularity_default">පෙරනිමි</string>
+    <string name="granularity_line">රේඛා</string>
+    <string name="granularity_native_control">පාලක</string>
+    <string name="granularity_native_heading">සිරස්තල</string>
+    <string name="granularity_native_link">සබැඳි</string>
+    <string name="granularity_paragraph">ඡේද</string>
+    <string name="granularity_pseudo_web_special_content">විශේෂ අන්තර්ගතය</string>
+    <string name="granularity_web_control">පාලක</string>
+    <string name="granularity_web_heading">සිරස්තල</string>
+    <string name="granularity_web_landmark">බිම් සලකුණු</string>
+    <string name="granularity_web_link">සබැඳි</string>
+    <string name="granularity_web_list">ලැයිස්තු</string>
+    <string name="granularity_window">කවුළු</string>
+    <string name="granularity_word">වචන</string>
+    <string name="heading_template">හෙඩිම</string>
+    <string name="hide_keyboard_window">යතුරු පුවරුව සඟවා ඇත</string>
+    <string name="hint_suggestion">අක්ෂර වින්‍යාස යෝජනා ලබා ගත හැකිය.</string>
+    <string name="icon_content_description">සංවාද නිරූපකය</string>
+    <string name="in_collection_role_description">%1$s තුළයි</string>
+    <string name="in_collection_role_description_with_name">%1$s %2$s තුළයි</string>
+    <string name="in_grid">ජාලකය තුළය</string>
+    <string name="in_grid_pager">ජාලක පේජරය තුළ</string>
+    <string name="in_grid_pager_with_name">ජාලක පේජරය තුළ %1$s</string>
+    <string name="in_grid_with_name">%1$s ජාලකය තුළය</string>
+    <string name="in_horizontal_pager">තිරස් පේජරය තුළ</string>
+    <string name="in_horizontal_pager_with_name">තිරස් පේජරය තුළ %1$s</string>
+    <string name="in_list">ලැයිස්තුව තුළයි</string>
+    <string name="in_list_with_name">%1$s ලැයිස්තුව තුළයි</string>
+    <string name="in_pager">පේජරය තුළ</string>
+    <string name="in_pager_with_name">පේජරය තුළ %1$s</string>
+    <string name="in_vertical_pager">සිරස් පේජරය තුළ</string>
+    <string name="in_vertical_pager_with_name">සිරස් පේජරය තුළ %1$s</string>
+    <string name="in_window_with_name">%1$s කවුළුව</string>
+    <string name="item_view_role_description">ටැබය</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">නව කෙටි මග සැකසීමට යතුරු සංයෝජනය %1$s විකරණකාරක යතුර සමගින් ඔබන්න.</string>
+    <string name="keycombo_assign_dialog_instruction">නව කෙටිමග සැකසීමට යතුරු එකතුව ඔබන්න. එහි අවම වශයෙන් ALT යතුර හෝ Control යතුර අඩංගු විය යුතුය.</string>
+    <string name="keycombo_key_arrow_down">ඊතලය පහළට</string>
+    <string name="keycombo_key_arrow_left">ඊතලය වමට</string>
+    <string name="keycombo_key_arrow_right">ඊතලය දකුණට</string>
+    <string name="keycombo_key_arrow_up">ඊතලය ඉහළට</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">සෙවීම</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">නොපවරන ලද</string>
+    <string name="list_index_template">%2$d න් %1$d</string>
+    <string name="material_clock_toggle_content_description">පෙරවරු හෝ පස්වරු තෝරන්න</string>
+    <string name="material_hour_selection">පැය තෝරන්න</string>
+    <string name="material_hour_suffix">%1$sයි</string>
+    <string name="material_minute_selection">මිනිත්තු තෝරන්න</string>
+    <string name="material_minute_suffix">මිනිත්තු %1$sයි</string>
+    <string name="material_timepicker_am">පෙව</string>
+    <string name="material_timepicker_clock_mode_description">වේලා ආදානය සඳහා ඔරලෝසු ප්‍රකාරය වෙත මාරු වෙන්න.</string>
+    <string name="material_timepicker_hour">පැය</string>
+    <string name="material_timepicker_minute">මිනිත්තු</string>
+    <string name="material_timepicker_pm">පව</string>
+    <string name="material_timepicker_select_time">වේලාව තෝරන්න</string>
+    <string name="material_timepicker_text_input_mode_description">වේලා ආදානය සඳහා ආදාන ප්‍රකාරය වෙත මාරු වෙන්න.</string>
+    <string name="mtrl_badge_numberless_content_description">නව දැනුම්දීම</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s ඉවත් කරන්න</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">නව දැනුම්දීම් %1$dකට වඩා</string>
+    <string name="mtrl_picker_a11y_next_month">ලබන මාසයට වෙනස් කරන්න</string>
+    <string name="mtrl_picker_a11y_prev_month">කලින් මාසයට වෙනස් කරන්න</string>
+    <string name="mtrl_picker_announce_current_selection">වත්මන් තේරීම: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">දිනය තෝරන්න</string>
+    <string name="mtrl_picker_date_header_unselected">තේරූ දිනය</string>
+    <string name="mtrl_picker_day_of_week_column_header">දින තීරුව: %1$s</string>
+    <string name="mtrl_picker_invalid_format">අවලංගු ආකෘතියකි.</string>
+    <string name="mtrl_picker_invalid_format_example">උදාහරණය: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">භාවිතය: %1$s</string>
+    <string name="mtrl_picker_invalid_range">අවලංගු පරාසයකි.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s වසරට සංචාලනය කරන්න</string>
+    <string name="mtrl_picker_out_of_range">පරාසයෙන් පිටත: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">ආරම්භක දිනය – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – නිමා වන දිනය</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">පරාසය තෝරන්න</string>
+    <string name="mtrl_picker_range_header_unselected">ආරම්භක දිනය – නිමා වන දිනය</string>
+    <string name="mtrl_picker_save">සුරකින්න</string>
+    <string name="mtrl_picker_text_input_date_hint">දිනය</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">නිමා වන දිනය</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">ආරම්භක දිනය</string>
+    <string name="mtrl_picker_text_input_day_abbr">ද</string>
+    <string name="mtrl_picker_text_input_month_abbr">ම</string>
+    <string name="mtrl_picker_text_input_year_abbr">ව</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">දින දර්ශන ආදාන ප්‍රකාරයට මාරු වන්න</string>
+    <string name="mtrl_picker_toggle_to_day_selection">දිනයක් තේරීමට මාරු වීමට තට්ටු කරන්න</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">පෙළ ආදාන ප්‍රකාරයට මාරු වන්න</string>
+    <string name="mtrl_picker_toggle_to_year_selection">වසරක් තේරීමට මාරු වීමට තට්ටු කරන්න</string>
+    <string msgid="478774118347071097" name="not_set">"සකසා නැත"</string>
+    <string name="notification_category_alarm">එලාමය</string>
+    <string name="notification_category_call">අමතන්න</string>
+    <string name="notification_category_email">ඊ-තැපෑල</string>
+    <string name="notification_category_err">දෝෂය</string>
+    <string name="notification_category_event">සිදුවීම</string>
+    <string name="notification_category_msg">පණිවිඩය</string>
+    <string name="notification_category_progress">ප්‍රගතිය</string>
+    <string name="notification_category_promo">ප්‍රවර්ධන</string>
+    <string name="notification_category_service">සේවාව</string>
+    <string name="notification_category_social">සමාජ</string>
+    <string name="notification_category_sys">පද්ධති තත්ත්වය</string>
+    <string name="notification_category_transport">මාධ්‍ය පාලනය</string>
+    <string name="notification_type_beginning_of_field">ක්ෂේත්‍රයේ ආරම්භය</string>
+    <string name="notification_type_end_of_field">ක්ෂේත්‍රයේ අවසානය</string>
+    <string name="notification_type_selection_cleared">තේරීම හිස් කරන ලදී</string>
+    <string name="notification_type_selection_mode_off">තේරීම් ප්‍රකාරය ක්‍රියාවිරහිතයි</string>
+    <string name="notification_type_selection_mode_on">තේරීම් ප්‍රකාරය ක්‍රියාත්මකයි</string>
+    <string name="ocr_text_description">%1$s, පෙළ</string>
+    <string name="orientation_landscape">තිරස් දර්ශනය</string>
+    <string name="orientation_portrait">ප්‍රතිමුර්ති</string>
+    <string name="out_of_grid">ජාලකයෙන් පිටතය</string>
+    <string name="out_of_grid_pager">ජාලක පේජරයෙන් බැහැර</string>
+    <string name="out_of_grid_pager_with_name">ජාලක පේජරයෙන් බැහැර %1$s</string>
+    <string name="out_of_grid_with_name">%1$s ජාලකයෙන් පිටතය</string>
+    <string name="out_of_horizontal_pager">තිරස් පේජරයෙන් බැහැර</string>
+    <string name="out_of_list">ලැයිස්තුවෙන් පිටතය</string>
+    <string name="out_of_list_with_name">%1$s ලැයිස්තුවෙන් පිටතය</string>
+    <string name="out_of_pager">පේජරයෙන් බැහැර</string>
+    <string name="out_of_pager_with_name">පේජරයෙන් බැහැර %1$s</string>
+    <string name="out_of_role_description">%1$s වෙතින් පිටතය</string>
+    <string name="out_of_role_description_with_name">%1$s %2$s වෙතින් පිටතය</string>
+    <string name="out_of_vertical_pager">සිරස් පේජරයෙන් බැහැර</string>
+    <string name="out_of_vertical_pager_with_name">සිරස් පේජරයෙන් බැහැර %1$s</string>
+    <string name="password_toggle_content_description">මුරපදය පෙන්වන්න</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" පසුරු පුවරුවට පිටපත් කරන ලදී."</string>
+    <string name="row_heading_template">පේළි ශීර්ෂය</string>
+    <string name="row_index_template">පේළිය %1$d</string>
+    <string name="screen_magnification_off">විශාලනය ක්‍රියාවිරහිතයි</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"සෙවීම"</string>
+    <string name="show_keyboard_window">%1$s පෙන්වමින්</string>
+    <string name="spokenfeedback_disabled">කථන ප්‍රතිපෝෂණ ක්‍රියාවිරහිතයි</string>
+    <string name="spokenfeedback_on">කථන ප්‍රතිපෝෂණ ක්‍රියාත්මකයි</string>
+    <string name="spokenfeedback_resumed">කථන ප්‍රතිපෝෂණ නැවත අරඹා ඇත</string>
+    <string name="spokenfeedback_suspended">කථන ප්‍රතිපෝෂණ අත්හිටුවා ඇත</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">හෙඩ්ෆෝන භාවිත කරන විට පමණක් මුරපද කථනය කෙරේ</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">බොහෝ දුරට සමාන</string>
+    <string name="symbol_ampersand">ඇම්පර්සෑන්ඩ්</string>
+    <string name="symbol_angle_bracket_left">වඩා කුඩා ලකුණ</string>
+    <string name="symbol_angle_bracket_right">වඩා විශාල ලකුණ</string>
+    <string name="symbol_apostrophe">අපෝස්ට්‍රොෆි</string>
+    <string name="symbol_approximately_equals">ආසන්නව සමාන</string>
+    <string name="symbol_asterisk">තරු ලකුණ</string>
+    <string name="symbol_at_sign">ඇට්</string>
+    <string name="symbol_backslash">පසු ඇල ඉර</string>
+    <string name="symbol_beamed_sixteenth_note">බීම්ඩ් සික්ස්ටීන්ත් නෝට්ස්</string>
+    <string name="symbol_black_circle">කලු කවය</string>
+    <string name="symbol_black_heart">කලු හදවත</string>
+    <string name="symbol_black_smallsquare">කුඩා කළු කොටුව</string>
+    <string name="symbol_black_square">කලු චතුරස්‍රය</string>
+    <string name="symbol_black_star">කලු තරුව</string>
+    <string name="symbol_black_suit_of_diamonds">ඩයමන්ඩ්වල කළු කට්ටලය</string>
+    <string name="symbol_black_triangle_pointing_down">පහළට යොමු වූ කළු ත්‍රිකෝණය</string>
+    <string name="symbol_black_triangle_pointing_up">ඉහළට යොමු වූ කළු ත්‍රිකෝණය</string>
+    <string name="symbol_broken_bar">කඩ ඉර</string>
+    <string name="symbol_bullet">බුලටය</string>
+    <string name="symbol_bullseye">බුල්ස්අයි</string>
+    <string name="symbol_caret">කාකපාදය</string>
+    <string name="symbol_celsius_degree">සෙල්සියස් අංශක</string>
+    <string name="symbol_cent">ශත ලකුණ</string>
+    <string name="symbol_circle_left_half_black">වම් අර්ධය කලු කවය</string>
+    <string name="symbol_circle_right_half_black">දකුණු අර්ධය කලු කවය</string>
+    <string name="symbol_colon">දෙතිත</string>
+    <string name="symbol_comma">කොමාව</string>
+    <string name="symbol_copyright">ප්‍රකාශන හිමිකම:</string>
+    <string name="symbol_curly_bracket_left">වම් සඟල වරහන</string>
+    <string name="symbol_curly_bracket_right">දකුණු සඟල වරහන</string>
+    <string name="symbol_currency_sign">වලංගු මුදල් ලකුණ</string>
+    <string name="symbol_degree">අංශක ලකුණ</string>
+    <string name="symbol_division">බෙදීමේ ලකුණ</string>
+    <string name="symbol_dollar_sign">ඩොලර් ලකුණ</string>
+    <string name="symbol_downwards_arrow">පහළ ඊතලය</string>
+    <string name="symbol_eighth_note">එයිත් නෝට්</string>
+    <string name="symbol_ellipsis">ඉලිප්සිස්</string>
+    <string name="symbol_em_dash">දිගු ඉර</string>
+    <string name="symbol_en_dash">කෙටි ඉර</string>
+    <string name="symbol_equal">සමාන ලකුණ</string>
+    <string name="symbol_euro">යුරෝ</string>
+    <string name="symbol_exclamation_mark">විස්මයාර්ථ ලකුණ</string>
+    <string name="symbol_fahrenheit_degree">ෆැරන්හයිට් අංශක</string>
+    <string name="symbol_female">කාන්තා ලකුණ</string>
+    <string name="symbol_full_width_ampersand">සම්පූර්ණ පළල ඇම්පර්සෑන්ඩ්</string>
+    <string name="symbol_full_width_asterisk">සම්පූර්ණ පළල තරු ලකුණ</string>
+    <string name="symbol_full_width_circumflex">සම්පූර්ණ පළල කාකපාදය</string>
+    <string name="symbol_full_width_colon">සම්පූර්ණ පළල දෙතිත</string>
+    <string name="symbol_full_width_comma">සම්පූර්ණ පළල කොමාව</string>
+    <string name="symbol_full_width_exclamation_mark">සම්පූර්ණ පළල විස්මයාර්ථ ලකුණ</string>
+    <string name="symbol_full_width_greater_than_sign">පූර්ණ පළල වඩා විශාල ලකුණ</string>
+    <string name="symbol_full_width_ideographic_full_stop">ඉඩියොග්‍රැෆික විරාම ලකුණ</string>
+    <string name="symbol_full_width_left_curly_bracket">පූර්ණ පළල වම් සඟල වරහන</string>
+    <string name="symbol_full_width_left_parenthesis">සම්පූර්ණ පළල වම් වරහන</string>
+    <string name="symbol_full_width_less_than_sign">පූර්ණ පළල වඩා කුඩා ලකුණ</string>
+    <string name="symbol_full_width_question_mark">සම්පූර්ණ පළල ප්‍රශ්නාර්ථ ලකුණ</string>
+    <string name="symbol_full_width_right_curly_bracket">පූර්ණ පළල් දකුණු සඟල වරහන</string>
+    <string name="symbol_full_width_right_parenthesis">සම්පූර්ණ පළල දකුණු වරහන</string>
+    <string name="symbol_full_width_semicolon">සම්පූර්ණ පළල තිත් කොමාව</string>
+    <string name="symbol_full_width_tilde">සම්පූර්ණ පළල නාසික්‍ය ලකුණ</string>
+    <string name="symbol_full_width_underscore">සම්පූර්ණ පළල පහත් ඉර</string>
+    <string name="symbol_grave_accent">අවච ස්වරය</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">අර්ධ පළල කටකනා මැද තිත</string>
+    <string name="symbol_hyphen_minus">ඉර</string>
+    <string name="symbol_ideographic_comma">ඉඩියොග්‍රැෆික කොමාව</string>
+    <string name="symbol_integral">පූර්ණ සංඛ්‍යාව</string>
+    <string name="symbol_inverted_exclamation_mark">යටිකුරු කළ විස්මයාර්ථ ලකුණ</string>
+    <string name="symbol_inverted_question_mark">යටිකුරු කළ ප්‍රශ්නාර්ථ ලකුණ</string>
+    <string name="symbol_left_angle_bracket">වම් ද්විත්ව කෝණ වරහන</string>
+    <string name="symbol_left_black_lenticular_bracket">වම් කලු කවාකාර වරහන</string>
+    <string name="symbol_left_corner_bracket">වම් කොණ් වරහන</string>
+    <string name="symbol_left_double_quotation_mark">වම් ද්විත්ව උද්ධෘත ලකුණ</string>
+    <string name="symbol_left_single_quotation_mark">වම් තනි උද්ධෘත ලකුණ</string>
+    <string name="symbol_leftwards_arrow">වම් ඊතලය</string>
+    <string name="symbol_liter">ලීටර්</string>
+    <string name="symbol_low_double_quote">පහළ යුගල උද්ධෘතය</string>
+    <string name="symbol_male">පිරිමි ලකුණ</string>
+    <string name="symbol_mathematical_left_angle_bracket">ගණිතමය වම් කෝණ වරහන</string>
+    <string name="symbol_mathematical_right_angle_bracket">ගණිතමය දකුණු කෝණ වරහන</string>
+    <string name="symbol_micro_sign">මයික්‍රො ලකුණ</string>
+    <string name="symbol_middle_dot">මැද තිත</string>
+    <string name="symbol_multiplication">ගුණිත ලකුණ</string>
+    <string name="symbol_new_line">නව පේළිය</string>
+    <string name="symbol_not_equals">සමාන නොවන</string>
+    <string name="symbol_not_sign">අසමාන ලකුණ</string>
+    <string name="symbol_paragraph_mark">නව ඡේදාරම්භ ලකුණ</string>
+    <string name="symbol_parenthesis_left">වම් සුළු වරහන</string>
+    <string name="symbol_parenthesis_right">දකුණු සුළු වරහන</string>
+    <string name="symbol_percent">ප්‍රතිශතය</string>
+    <string name="symbol_period">නැවතීමේ ලකුණ</string>
+    <string name="symbol_pi">පයි</string>
+    <string name="symbol_plus_minus_sign">ධන සෘණ ලකුණ</string>
+    <string name="symbol_postal_mark">තැපැල් ලකුණ</string>
+    <string name="symbol_pound">පවුම</string>
+    <string name="symbol_pound_sterling">පවුම් ව්‍යවහාර මුදල් ලකුණ</string>
+    <string name="symbol_quarter_note">ක්වාටර් නෝට්</string>
+    <string name="symbol_question_mark">ප්‍රශ්නයාර්ථ ලකුණ</string>
+    <string name="symbol_quotation_mark">උද්ධරණය</string>
+    <string name="symbol_reference">යොමු ලකුණ</string>
+    <string name="symbol_registered_trademark">ලියාපදිංචි කළ වෙළඳ ලකුණ</string>
+    <string name="symbol_right_angle_bracket">දකුණු ද්විත්ව කෝණ වරහන</string>
+    <string name="symbol_right_black_lenticular_bracket">දකුණු කලු කවාකාර වරහන</string>
+    <string name="symbol_right_corner_bracket">දකුණු කොණ් වරහන</string>
+    <string name="symbol_right_double_quotation_mark">දකුණු ද්විත්ව උද්ධෘත ලකුණ</string>
+    <string name="symbol_right_single_quotation_mark">දකුණු තනි උද්ධෘත ලකුණ</string>
+    <string name="symbol_rightwards_arrow">දකුණු දෙසට වන ඊතලය</string>
+    <string name="symbol_rupee">රුපියල</string>
+    <string name="symbol_section_sign">ඡේදන ලකුණ</string>
+    <string name="symbol_semicolon">තිත් කොමාව</string>
+    <string name="symbol_slash">ඇල ඉර</string>
+    <string name="symbol_solar">සූර්ය සංකේතය</string>
+    <string name="symbol_space">Space</string>
+    <string name="symbol_square_bracket_left">වම් කොටු වරහන</string>
+    <string name="symbol_square_bracket_right">දකුණු කොටු වරහන</string>
+    <string name="symbol_square_root">වර්ග මූලය</string>
+    <string name="symbol_tilde">නාසික්‍ය ලකුණ</string>
+    <string name="symbol_trademark">වෙළඳ ලකුණ</string>
+    <string name="symbol_underscore">යටි ඉර</string>
+    <string name="symbol_upwards_arrow">උඩුකුරු ඊතලය</string>
+    <string name="symbol_vertical_bar">සිරස් රේඛාව</string>
+    <string name="symbol_white_circle">සුදු කවය</string>
+    <string name="symbol_white_club_suit">වයිට් ක්ලබ් සූට්</string>
+    <string name="symbol_white_diamond">සුදු දියමන්තිය</string>
+    <string name="symbol_white_down_pointing_triangle">සුදු පහළට යොමු වූ ත්‍රිකෝණය</string>
+    <string name="symbol_white_heart">සුදු හදවත</string>
+    <string name="symbol_white_left_pointing_index">සුදු වමට යොමු වූ දර්ශකය</string>
+    <string name="symbol_white_left_pointing_triangle">සුදු වමට යොමු වූ ත්‍රිකෝණය</string>
+    <string name="symbol_white_right_pointing_index">සුදු දකුණට යොමු වූ ත්‍රිකෝණය</string>
+    <string name="symbol_white_right_pointing_triangle">සුදු දකුණට යොමු වූ ත්‍රිකෝණය</string>
+    <string name="symbol_white_spade_suit">වයිට් ස්පේඩ් සූට්</string>
+    <string name="symbol_white_square">සුදු චතුරස්‍රය</string>
+    <string name="symbol_white_star">සුදු තරුව</string>
+    <string name="symbol_white_up_pointing_triangle">සුදු ඉහළට යොමු වූ ත්‍රිකෝණය</string>
+    <string name="symbol_won">වොන් ව්‍යවහාර මුදල් ලකුණ</string>
+    <string name="symbol_won_sign">වොන් ව්‍යවහාර මුදල් ලකුණ</string>
+    <string name="symbol_yen">යෙන්</string>
+    <string name="talkback_disabled">TalkBack ක්‍රියාවිරහිතයි</string>
+    <string name="talkback_on">TalkBack ක්‍රියාත්මකයි</string>
+    <string name="talkback_resumed">TalkBack නැවත ආරම්භ කරන ලදී</string>
+    <string name="talkback_suspended">TalkBack අත්හිටුවන ලදී</string>
+    <string name="template_announce_selected_text">තෝරා ගත් පෙළ: %1$s</string>
+    <string name="template_capital_letter">මහකුර %1$s</string>
+    <string name="template_collection_level">මට්ටම %1$d</string>
+    <string name="template_current_tts_engine">%1$s භාවිතයේය</string>
+    <string name="template_custom_hint_for_actions">%1$sට %2$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">%1$s සිට %2$s ඔබන්න.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s සහ රඳවා ගැනීමට %2$s.</string>
+    <string name="template_drawer_opened">%1$s මෙනුව</string>
+    <string name="template_hint_checkable">ටොගල කිරීමට %1$s.</string>
+    <string name="template_hint_checkable_keyboard">ටොගල කිරීමට %1$s ඔබන්න.</string>
+    <string name="template_hint_clickable">ක්‍රියාත්මක කිරීමට %1$s</string>
+    <string name="template_hint_clickable_keyboard">සක්‍රිය කිරීමට %1$s ඔබන්න.</string>
+    <string name="template_hint_custom_actions">ක්‍රියා:</string>
+    <string name="template_hint_edit_text">පෙළ සංස්කරණය කිරීමට %1$s.</string>
+    <string name="template_hint_edit_text_keyboard">පෙළ සංස්කරණය කිරීමට %1$s ඔබන්න.</string>
+    <string name="template_hint_long_clickable">දිගු එබීමට %1$s කර අල්ලාගෙන සිටින්න.</string>
+    <string name="template_hint_long_clickable_keyboard">දිගු එබීමට %1$s ඔබන්න.</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s ලබා ගත හැකිය, බැලීමට %2$s භාවිත කරන්න.</string>
+    <string name="template_hint_pager">පිටු මාරු කිරීමට ඇඟිලි දෙකකින් ස්වයිප් කරන්න.</string>
+    <string name="template_hint_pager_single_page">තවත් පිටු නැත.</string>
+    <string name="template_hint_seek_control">සීරුමාරු කිරීමට හඬ පරිමා යතුරු භාවිත කරන්න</string>
+    <string name="template_hint_seek_control_tv">වෙනස් කිරීමට %1$s.</string>
+    <string name="template_hint_spinner">වෙනස් කිරීමට %1$s.</string>
+    <string name="template_hint_spinner_keyboard">වෙනස් කිරීමට %1$s ඔබන්න.</string>
+    <string name="template_labeled_item">%2$s සඳහා %1$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s පින්තූරය තුළ පින්තූරය</string>
+    <string name="template_password_selected">%1$d සිට %2$d දක්වා අනුලකුණු</string>
+    <string name="template_password_traversed">අනුලකුණ %1$d</string>
+    <string name="template_percent">%1$s ප්‍රතිශතය.</string>
+    <string name="template_replaced_characters">%1$s අකුරු සමග ප්‍රතිස්ථාපනය කළ %2$s අකුරු</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">ලබාගත හැකි ක්‍රියා සඳහා %1$s.</string>
+    <string name="template_sa_custom_hint_scrollable">අනුචලනය කිරීමට %1$s.</string>
+    <string name="template_sa_hint_seek_control">සීරුමාරු කිරීමට ස්විචය තෝරන්න ඔබන්න</string>
+    <string name="template_screen_magnification_on">විශාලනය ක්‍රියාත්මකයි %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">විශාලනය %1$d%%</string>
+    <string name="template_scroll_from_count">%1$d හි %2$d අයිතමය දක්වයි.</string>
+    <string name="template_scroll_from_to_count">%3$d හි %1$d සිට %2$d දක්වා අයිතම දැක්වේ.</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">කථන ශීඝ්‍රතාව %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">වමේ %1$s, දකුණේ %2$s</string>
+    <string name="template_split_screen_mode_landscape_rtl">දකුණේ %1$s, වමේ %2$s</string>
+    <string name="template_split_screen_mode_portrait">ඉහළ %1$s, පහළ %2$s</string>
+    <string name="template_text_copied">පිටපත් කරන ලදී, %1$s</string>
+    <string name="template_text_cut">කපන ලදී, %1$s</string>
+    <string name="template_text_error">වලංගු නොවන ආදානය %1$s</string>
+    <string name="template_text_pasted">අලවන ලදී, %1$s</string>
+    <string name="template_text_removed">%1$s මකන ලදී</string>
+    <string name="template_text_replaced">%1$s %2$s ප්‍රතිස්ථාපනය කරන ලදී</string>
+    <string name="template_text_selected">%1$s, තෝරන ලදී</string>
+    <string name="template_text_unselected">%1$s, නොතෝරන ලදී</string>
+    <string name="template_viewpager_index_count">%2$dකින් %1$dවන පිටුව</string>
+    <string name="template_viewpager_index_count_short">%2$dකින් %1$d</string>
+    <string name="template_volume_change_decrease">අඩු කර ඇත</string>
+    <string name="template_volume_change_increase">වැඩි කර ඇත</string>
+    <string name="template_volume_change_maximum">උපරිම</string>
+    <string name="template_volume_change_minimum">අවම</string>
+    <string name="title_action_collapse">හකුළන්න</string>
+    <string name="title_action_dismiss">ඉවත ලන්න</string>
+    <string name="title_action_expand">දිග හරින්න</string>
+    <string name="untitled_window">නම් කර නැත</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ක්‍රියාවිරහිතයි"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ක්‍රියාත්මකයි"</string>
+    <string name="value_button">බොත්තම</string>
+    <string name="value_caps_lock_off">Caps Lock ක්‍රියාවිරහිතයි.</string>
+    <string name="value_caps_lock_on">Caps Lock ක්‍රියාත්මකයි.</string>
+    <string name="value_checkbox">සලකුණු කොටුව</string>
+    <string name="value_checked">සලකුණු කර ඇත</string>
+    <string name="value_collapsed">හකුළුවන ලදී</string>
+    <string name="value_disabled">අබල කරන ලදී</string>
+    <string name="value_double_tap">ද්විත්ව-තට්ටු කිරීම</string>
+    <string name="value_edit_box">සංස්කරණ කොටුව</string>
+    <string name="value_edit_box_editing">සංස්කරණය කරමින්</string>
+    <string name="value_expanded">දිග හරින ලදී</string>
+    <string name="value_gridview">ජාලකය</string>
+    <string name="value_image">රූපය</string>
+    <string name="value_listview">ලැයිස්තුව</string>
+    <string name="value_not_checked">සළකුණු කර නැත</string>
+    <string name="value_num_lock_off">Num Lock ක්‍රියාවිරහිතයි.</string>
+    <string name="value_num_lock_on">Num Lock ක්‍රියාත්මකයි.</string>
+    <string name="value_off">ක්‍රියාවිරහිතයි</string>
+    <string name="value_on">ක්‍රියාත්මකයි</string>
+    <string name="value_options_menu_open">විකල්ප.</string>
+    <string name="value_pager">බහු-පිටු දසුන</string>
+    <string name="value_pager_page">පිටුව</string>
+    <string name="value_password">මුරපදය</string>
+    <string name="value_press_select">තෝරන්න ඔබන්න</string>
+    <string name="value_progress_bar">ප්‍රගති තීරුව</string>
+    <string name="value_radio_button">රේඩියෝ බොත්තම</string>
+    <string name="value_scroll_lock_off">Scroll Lock ක්‍රියාවිරහිතයි.</string>
+    <string name="value_scroll_lock_on">Scroll Lock ක්‍රියාත්මකයි.</string>
+    <string name="value_seek_bar">ස්ලයිඩරය</string>
+    <string name="value_selected">තෝරන ලද</string>
+    <string name="value_single_tap">තට්ටු කරන්න</string>
+    <string name="value_sliding_drawer_opened">ලිස්සන ලාච්චුව විවෘත විය</string>
+    <string name="value_spinner">පතන ලැයිස්තුව</string>
+    <string name="value_switch">මාරු වෙන්න</string>
+    <string name="value_switch_press">තෝරාගැනීමේ ස්විචය ඔබන්න</string>
+    <string name="value_tabwidget">ටැබ් තීර</string>
+    <string name="value_text_cleared">හිස්කළ පෙළ</string>
+    <string name="value_text_max_length">උපරිම දිග වෙත ළඟා වුණි</string>
+    <string name="value_unlabelled">ලේබල් නොකළ</string>
+    <string name="value_webview">වෙබ් දසුන</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"ක්‍රියාමාර්ග ලාච්චුව"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"සංචාලන ලාච්චුව"</string>
+</resources>

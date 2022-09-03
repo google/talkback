@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">%s புள்ளி</item>
+    <item quantity="other">%s புள்ளிகள்</item>
+  </plurals>
+    <string name="auto_detect">சாதனத்தை வைத்திருப்பதற்கேற்ப மாற்று</string>
+    <string name="capitalize_announcement">பேரெழுத்தாக்கம்</string>
+    <string name="code_user_facing_name_ar">அரபிக்</string>
+    <string name="code_user_facing_name_es">ஸ்பானிஷ்</string>
+    <string name="code_user_facing_name_fr">ஃபிரெஞ்சு</string>
+    <string name="code_user_facing_name_pl">போலிஷ்</string>
+    <string name="code_user_facing_name_ueb1">ஒருங்கிணைந்த ஆங்கில பிரெய்லின் விரிவான வடிவம்</string>
+    <string name="code_user_facing_name_ueb2">ஒருங்கிணைந்த ஆங்கில பிரெய்லின் சுருக்க வடிவம்</string>
+    <string name="number_announcement">எண்</string>
+    <string name="read_out_deleted">%s நீக்கப்பட்டது</string>
+    <string name="screen_away">திரை எதிர்ப்பக்கம் பார்த்திருத்தல் பயன்முறை</string>
+    <string name="screen_away_detail">திரை எதிர்ப்பக்கம் பார்த்திருக்குமாறு பிடிக்கவும் (திரை எதிர்ப்பக்கம் பார்த்திருத்தல் பயன்முறை)</string>
+    <string name="tabletop">டேபிள்டாப் பயன்முறை</string>
+    <string name="tabletop_detail">சாதனத்தை டேபிளின் மீது கிடைமட்டமாக வைக்கவும் (டேபிள்டாப் பயன்முறை)</string>
+</resources>

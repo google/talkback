@@ -18,6 +18,8 @@ package com.android.talkback;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.preference.PreferenceFragmentCompat;
 import com.google.android.accessibility.talkback.HatsSurveyRequester;
 import com.google.android.accessibility.talkback.preference.base.TalkBackKeyboardShortcutPreferenceFragment;
@@ -96,5 +98,11 @@ public class TalkBackPreferencesActivity extends PreferencesActivity {
     // HaTS requests Theme.AppCompat to display the survey, so disable it if the setting activity is
     // using the material next theme.
     return !FeatureSupport.supportSettingsTheme();
+  }
+
+  @Override
+  public void onBackPressed() {
+    Toast.makeText(this, "Pressed back", Toast.LENGTH_SHORT).show();
+    super.onBackPressed();
   }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="a11y_alert_dialog_bg_color">@color/google_black</color>
+    <color name="a11y_colorAccent">@color/google_blue300</color>
+    <style name="A11yAlertDialogTheme" parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
+    <item name="colorAccent">@color/a11y_colorAccent</item>
+    <item name="android:background">@color/a11y_alert_dialog_bg_color</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="buttonBarPositiveButtonStyle">@style/A11yDialogButtonStyle</item>
+    <item name="buttonBarNegativeButtonStyle">@style/A11yDialogButtonStyle</item>
+    <item name="buttonBarNeutralButtonStyle">@style/A11yDialogButtonStyle</item>
+  </style>
+    <style name="A11yDialogButtonStyle" parent="TextAppearance.AppCompat.Widget.Button.Borderless.Colored">
+    <item name="android:minHeight">64dip</item>
+    <item name="android:background">@color/a11y_alert_dialog_bg_color</item>
+    <item name="android:textAppearance">?android:attr/textAppearance</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+    <style name="Base.Theme.AppCompat.Dialog" parent="Base.V7.Theme.AppCompat.Dialog">
+        <item name="android:windowIsFloating">false</item>
+    </style>
+    <style name="Base.Theme.AppCompat.Light.Dialog" parent="Base.V7.Theme.AppCompat.Light.Dialog">
+        <item name="android:windowIsFloating">false</item>
+    </style>
+    <style name="Base.ThemeOverlay.AppCompat.Dialog" parent="Base.V7.ThemeOverlay.AppCompat.Dialog">
+        <item name="android:windowIsFloating">false</item>
+    </style>
+</resources>

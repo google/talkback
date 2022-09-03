@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-notround-v23/values-notround-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/res/values-notround-v23/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8",
+                        "startColumns": "0,0,0,0,0",
+                        "startOffsets": "216,269,327,371,418",
+                        "endColumns": "52,57,43,46,48",
+                        "endOffsets": "268,326,370,417,466"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,112,174,222,273",
+                        "endColumns": "56,61,47,50,52",
+                        "endOffsets": "107,169,217,268,321"
+                    }
+                }
+            ]
+        }
+    ]
+}

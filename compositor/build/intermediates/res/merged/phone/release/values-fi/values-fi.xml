@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d uusi ilmoitus</item>
+    <item quantity="other">%d uutta ilmoitusta</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s näyttää %2$d kohteen.</item>
+    <item quantity="other">%1$s näyttää %2$d kohdetta.</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d sarake</item>
+    <item quantity="other">%1$d saraketta</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d rivi</item>
+    <item quantity="other">%1$d riviä</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d kohde</item>
+    <item quantity="other">%1$d kohdetta</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d merkki</item>
+    <item quantity="other">%1$d merkkiä</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%dp</item>
+<item quantity="other">%dp</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%dt</item>
+<item quantity="other">%dt</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%dm</item>
+<item quantity="other">%dm</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d pv</item>
+<item quantity="other">%d pv</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d t</item>
+<item quantity="other">%d t</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d min</item>
+<item quantity="other">%d min</item>
+</plurals>
+    <string name="a11y_no_data">Ei tietoja</string>
+    <string name="a11y_no_permission">Ei lupaa käyttää tietoja</string>
+    <string name="a11y_template_range">%1$f/%2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Siirry etusivulle"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Siirry ylös"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Lisäasetukset"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Valmis"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Näytä kaikki"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Valitse sovellus"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"POIS PÄÄLTÄ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"PÄÄLLÄ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Vaihto+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"välilyönti"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Valikko+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Haku…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Tyhjennä kysely"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Hakukysely"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Haku"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Lähetä kysely"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Puhehaku"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Jaa…"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Jaa: <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Tiivistä"</string>
+    <string name="bottomsheet_action_expand_halfway">Laajenna puoliväliin</string>
+    <string name="buttons_rect_bottom_center">Alareunassa</string>
+    <string name="buttons_rect_bottom_left">Alavasemmalla</string>
+    <string name="buttons_rect_bottom_right">Alaoikealla</string>
+    <string name="buttons_rect_left_bottom">Vasemmalla alhaalla</string>
+    <string name="buttons_rect_left_center">Keskellä vasemmalla</string>
+    <string name="buttons_rect_left_top">Vasemmalla ylhäällä</string>
+    <string name="buttons_rect_right_bottom">Oikealla alhaalla</string>
+    <string name="buttons_rect_right_center">Keskellä oikealla</string>
+    <string name="buttons_rect_right_top">Oikealla ylhäällä</string>
+    <string name="buttons_rect_top_center">Yläreunassa</string>
+    <string name="buttons_rect_top_left">Ylävasemmalla</string>
+    <string name="buttons_rect_top_right">Yläoikealla</string>
+    <string name="buttons_round_bottom_center">Alhaalla</string>
+    <string name="buttons_round_bottom_left">Alavasemmalla</string>
+    <string name="buttons_round_bottom_left_lower">Alavasemmalla alempana</string>
+    <string name="buttons_round_bottom_left_upper">Alavasemmalla ylempänä</string>
+    <string name="buttons_round_bottom_right">Alaoikealla</string>
+    <string name="buttons_round_bottom_right_lower">Alaoikealla alempana</string>
+    <string name="buttons_round_bottom_right_upper">Alaoikealla ylempänä</string>
+    <string name="buttons_round_center_left">Keskellä vasemmalla</string>
+    <string name="buttons_round_center_right">Keskellä oikealla</string>
+    <string name="buttons_round_top_center">Ylhäällä</string>
+    <string name="buttons_round_top_left">Ylävasemmalla</string>
+    <string name="buttons_round_top_left_lower">Ylävasemmalla alempana</string>
+    <string name="buttons_round_top_left_upper">Ylävasemmalla oikealla</string>
+    <string name="buttons_round_top_right">Yläoikealla</string>
+    <string name="buttons_round_top_right_lower">Yläoikealla alempana</string>
+    <string name="buttons_round_top_right_upper">Yläoikealla ylempänä</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%1$d/%2$d merkkiä kirjoitettu</string>
+    <string name="character_counter_overflowed_content_description">Merkkiraja ylitetty: %1$d/%2$d</string>
+    <string name="clear_text_end_icon_content_description">Tyhjennä teksti</string>
+    <string name="column_heading_template">Sarakkeen otsikko</string>
+    <string name="column_index_template">Sarake %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Ota käyttöön</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s ei toimi, ellet ota Google Play Palveluita käyttöön.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Ota Google Play Palvelut käyttöön</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Asenna</string>
+    <string name="common_google_play_services_install_text">%1$s ei toimi ilman Google Play Palveluita, jotka puuttuvat laitteeltasi.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Asenna Google Play Palvelut</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play Palveluiden saatavuus</string>
+    <string name="common_google_play_services_notification_ticker">Virhe Google Play -palveluissa</string>
+    <string name="common_google_play_services_unknown_issue">Sovelluksella %1$s on ongelmia Google Play Palveluiden kanssa. Yritä uudelleen.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ei toimi ilman Google Play Palveluita, joita laitteesi ei tue.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Päivitä</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s ei toimi, ellet päivitä Google Play Palveluita.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Päivitä Google Play Palvelut</string>
+    <string name="common_google_play_services_updating_text">%1$s ei toimi ilman Google Play Palveluita, joita päivitetään tällä hetkellä.</string>
+    <string name="common_google_play_services_wear_update_text">Uusi Google Play Palveluiden versio tarvitaan. Se päivittyy pian.</string>
+    <string name="common_open_on_phone">Avaa puhelimessa</string>
+    <string name="common_signin_button_text">Kirjaudu sisään</string>
+    <string name="common_signin_button_text_long">Kirjaudu Google-tilille</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Epäonnistui"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Avattiin puhelimellasi"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Onnistui"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopioi"</string>
+    <string name="detected_icon_description">%1$s, havaittu kuvake</string>
+    <string name="dismiss_overlay_button_label">Lopeta</string>
+    <string name="error_icon_content_description">Virhe</string>
+    <string name="exit_scrim">Poistu</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Lisäasetukset"</string>
+    <string name="exposed_dropdown_menu_content_description">Näytä avattava valikko</string>
+    <string name="function_off">Äänipalaute ei ole käytössä</string>
+    <string name="function_on">Äänipalaute on käytössä</string>
+    <string name="generic_cancel">Peruuta</string>
+    <string name="generic_yes">Kyllä</string>
+    <string name="granularity_character">Merkit</string>
+    <string name="granularity_default">Oletus</string>
+    <string name="granularity_line">Rivit</string>
+    <string name="granularity_native_control">Ohjaimet</string>
+    <string name="granularity_native_heading">Otsikot</string>
+    <string name="granularity_native_link">Linkit</string>
+    <string name="granularity_paragraph">Kappaleet</string>
+    <string name="granularity_pseudo_web_special_content">Erityissisältöä</string>
+    <string name="granularity_web_control">Ohjaimet</string>
+    <string name="granularity_web_heading">Otsikot</string>
+    <string name="granularity_web_landmark">Tärkeimmät</string>
+    <string name="granularity_web_link">Linkit</string>
+    <string name="granularity_web_list">Listat</string>
+    <string name="granularity_window">Windows</string>
+    <string name="granularity_word">Sanat</string>
+    <string name="heading_template">Otsikko</string>
+    <string name="hide_keyboard_window">näppäimistö piilotettu</string>
+    <string name="hint_suggestion">Oikeinkirjoitusehdotuksia saatavilla.</string>
+    <string name="icon_content_description">Valintaikkunan kuvake</string>
+    <string name="in_collection_role_description">Täällä: %1$s</string>
+    <string name="in_collection_role_description_with_name">Täällä: %1$s %2$s</string>
+    <string name="in_grid">Ruudukossa</string>
+    <string name="in_grid_pager">Ruudukkomuotoisella sivulla</string>
+    <string name="in_grid_pager_with_name">Ruudukkomuotoisella sivulla %1$s</string>
+    <string name="in_grid_with_name">Ruudukossa %1$s</string>
+    <string name="in_horizontal_pager">Vaakasuuntaisella sivulla</string>
+    <string name="in_horizontal_pager_with_name">Vaakasuuntaisella sivulla %1$s</string>
+    <string name="in_list">Listassa</string>
+    <string name="in_list_with_name">Listassa %1$s</string>
+    <string name="in_pager">Sivulla</string>
+    <string name="in_pager_with_name">Sivulla %1$s</string>
+    <string name="in_vertical_pager">Pystysuuntaisella sivulla</string>
+    <string name="in_vertical_pager_with_name">Pystysuuntaisella sivulla %1$s</string>
+    <string name="in_window_with_name">Ikkuna: %1$s</string>
+    <string name="item_view_role_description">Välilehti</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Määritä uusi pikanäppäin painamalla näppäinyhdistelmää, johon sisältyy muokkausnäppäin %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Aseta uusi pikanäppäin painamalla näppäinyhdistelmää. Vähintään alt- tai ctrl-painike vaaditaan.</string>
+    <string name="keycombo_key_arrow_down">Alanuolinäppäin</string>
+    <string name="keycombo_key_arrow_left">Vasen nuolinäppäin</string>
+    <string name="keycombo_key_arrow_right">Oikea nuolinäppäin</string>
+    <string name="keycombo_key_arrow_up">Ylänuolinäppäin</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Haku</string>
+    <string name="keycombo_key_modifier_shift">Vaihto</string>
+    <string name="keycombo_unassigned">Määrittämätön</string>
+    <string name="list_index_template">%1$d/%2$d</string>
+    <string name="material_clock_toggle_content_description">Valitse AP tai IP</string>
+    <string name="material_hour_selection">Valitse tunti</string>
+    <string name="material_hour_suffix">klo %1$s</string>
+    <string name="material_minute_selection">Valitse minuutit</string>
+    <string name="material_minute_suffix">%1$s minuuttia</string>
+    <string name="material_timepicker_am">ap</string>
+    <string name="material_timepicker_clock_mode_description">Vaihda ajan syöttämiseen kellotilassa.</string>
+    <string name="material_timepicker_hour">Tunnit</string>
+    <string name="material_timepicker_minute">Minuutti</string>
+    <string name="material_timepicker_pm">ip</string>
+    <string name="material_timepicker_select_time">Valitse aika</string>
+    <string name="material_timepicker_text_input_mode_description">Vaihda ajan syöttämiseen tekstitilassa.</string>
+    <string name="mtrl_badge_numberless_content_description">Uusi ilmoitus</string>
+    <string name="mtrl_chip_close_icon_content_description">Poista %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Yli %1$d uutta ilmoitusta</string>
+    <string name="mtrl_picker_a11y_next_month">Vaihda seuraavaan kuukauteen</string>
+    <string name="mtrl_picker_a11y_prev_month">Vaihda edelliseen kuukauteen</string>
+    <string name="mtrl_picker_announce_current_selection">Nykyinen valinta: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Valitse päivämäärä</string>
+    <string name="mtrl_picker_date_header_unselected">Valittu päivämäärä</string>
+    <string name="mtrl_picker_day_of_week_column_header">Päiväsarake: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Virheellinen muoto</string>
+    <string name="mtrl_picker_invalid_format_example">Esimerkki: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Käytä muotoa %1$s</string>
+    <string name="mtrl_picker_invalid_range">Virheellinen alue</string>
+    <string name="mtrl_picker_navigate_to_year_description">Siirry vuoteen %1$s</string>
+    <string name="mtrl_picker_out_of_range">Aikavälin ulkop.: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Alkamispäivä – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – päättymispäivä</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Valitse jakso</string>
+    <string name="mtrl_picker_range_header_unselected">Alkamispäivä – päättymispäivä</string>
+    <string name="mtrl_picker_save">Tallenna</string>
+    <string name="mtrl_picker_text_input_date_hint">Päivämäärä</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Päättymispäivä</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Alkamispäivä</string>
+    <string name="mtrl_picker_text_input_day_abbr">p</string>
+    <string name="mtrl_picker_text_input_month_abbr">k</string>
+    <string name="mtrl_picker_text_input_year_abbr">v</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Vaihda syöttötavaksi kalenteri</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Siirry päivän valintaan napauttamalla</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Valitse syöttötavaksi teksti</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Siirry vuoden valintaan napauttamalla</string>
+    <string name="navigation_drawer_content_description">Navigoinnin vetopaneeli</string>
+    <string msgid="478774118347071097" name="not_set">"Ei asetettu"</string>
+    <string name="notification_category_alarm">Herätys</string>
+    <string name="notification_category_call">Puhelu</string>
+    <string name="notification_category_email">Sähköposti</string>
+    <string name="notification_category_err">Virhe</string>
+    <string name="notification_category_event">Tapahtuma</string>
+    <string name="notification_category_msg">Viesti</string>
+    <string name="notification_category_progress">Edistyminen</string>
+    <string name="notification_category_promo">Tarjous</string>
+    <string name="notification_category_service">Palvelu</string>
+    <string name="notification_category_social">Sosiaalinen</string>
+    <string name="notification_category_sys">Järjestelmän tila</string>
+    <string name="notification_category_transport">Mediasäätimet</string>
+    <string name="notification_type_beginning_of_field">Kentän alku</string>
+    <string name="notification_type_end_of_field">Kentän loppu</string>
+    <string name="notification_type_selection_cleared">Valinta poistettu.</string>
+    <string name="notification_type_selection_mode_off">Valintatila pois käytöstä.</string>
+    <string name="notification_type_selection_mode_on">Valintatila käytössä.</string>
+    <string name="ocr_text_description">%1$s, teksti</string>
+    <string name="orientation_landscape">Vaaka</string>
+    <string name="orientation_portrait">Pysty</string>
+    <string name="out_of_grid">Ruudukon ulkopuolella</string>
+    <string name="out_of_grid_pager">Ruudukkomuotoisen sivun ulkopuolella</string>
+    <string name="out_of_grid_pager_with_name">Ruudukkomuotoisen sivun %1$s ulkopuolella</string>
+    <string name="out_of_grid_with_name">Ruudukon %1$s ulkopuolella</string>
+    <string name="out_of_horizontal_pager">Vaakasuuntaisen sivun ulkopuolella</string>
+    <string name="out_of_list">Listan ulkopuolella</string>
+    <string name="out_of_list_with_name">Listan %1$s ulkopuolella</string>
+    <string name="out_of_pager">Sivun ulkopuolella</string>
+    <string name="out_of_pager_with_name">Sivun %1$s ulkopuolella</string>
+    <string name="out_of_role_description">Tämän ulkopuolella: %1$s</string>
+    <string name="out_of_role_description_with_name">Tämän ulkopuolella: %1$s %2$s</string>
+    <string name="out_of_vertical_pager">Pystysuuntaisen sivun ulkopuolella</string>
+    <string name="out_of_vertical_pager_with_name">Pystysuuntaisen sivun %1$s ulkopuolella</string>
+    <string name="password_toggle_content_description">Näytä salasana</string>
+    <string msgid="7961817945132860002" name="preference_copied">"<ns1:g id="SUMMARY">%1$s</ns1:g> kopioitiin leikepöydälle."</string>
+    <string name="row_heading_template">Rivin otsikko</string>
+    <string name="row_index_template">Rivi %1$d</string>
+    <string name="screen_magnification_off">Suurennus pois käytöstä</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Haku"</string>
+    <string name="show_keyboard_window">%1$s näkyvillä</string>
+    <string name="spokenfeedback_disabled">Äänipalaute poistettu käytöstä</string>
+    <string name="spokenfeedback_on">Äänipalaute käytössä</string>
+    <string name="spokenfeedback_resumed">Äänipalaute palautettu käyttöön</string>
+    <string name="spokenfeedback_suspended">Äänipalaute jäädytetty</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">Salasanat sanotaan ääneen vain kuulokkeita käytettäessä.</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Melkein yhtä suuri kuin</string>
+    <string name="symbol_ampersand">Et-merkki</string>
+    <string name="symbol_angle_bracket_left">Pienempi kuin -merkki</string>
+    <string name="symbol_angle_bracket_right">Suurempi kuin -merkki</string>
+    <string name="symbol_apostrophe">Heittomerkki</string>
+    <string name="symbol_approximately_equals">Likimäärin yhtäsuuri</string>
+    <string name="symbol_asterisk">Tähti</string>
+    <string name="symbol_at_sign">At</string>
+    <string name="symbol_backslash">Kenoviiva</string>
+    <string name="symbol_beamed_sixteenth_note">Palkilliset kuudestoistaosanuotit</string>
+    <string name="symbol_black_circle">Musta ympyrä</string>
+    <string name="symbol_black_heart">Musta sydän</string>
+    <string name="symbol_black_smallsquare">Pieni musta neliö</string>
+    <string name="symbol_black_square">Musta neliö</string>
+    <string name="symbol_black_star">Musta tähti</string>
+    <string name="symbol_black_suit_of_diamonds">Korttipelin ruutu</string>
+    <string name="symbol_black_triangle_pointing_down">Alaspäin osoittava musta kolmio</string>
+    <string name="symbol_black_triangle_pointing_up">Ylöspäin osoittava musta kolmio</string>
+    <string name="symbol_broken_bar">Katkaistu palkki</string>
+    <string name="symbol_bullet">Luettelomerkki</string>
+    <string name="symbol_bullseye">Napakymppi</string>
+    <string name="symbol_caret">Poisjääntimerkki</string>
+    <string name="symbol_celsius_degree">Celsiusaste</string>
+    <string name="symbol_cent">Senttimerkki</string>
+    <string name="symbol_circle_left_half_black">Ympyrä, jonka vasen puoli on musta</string>
+    <string name="symbol_circle_right_half_black">Ympyrä, jonka oikea puoli on musta</string>
+    <string name="symbol_colon">Kaksoispiste</string>
+    <string name="symbol_comma">Pilkku</string>
+    <string name="symbol_copyright">Tekijänoikeudet</string>
+    <string name="symbol_curly_bracket_left">Vasen kaarisulje</string>
+    <string name="symbol_curly_bracket_right">Oikea kaarisulje</string>
+    <string name="symbol_currency_sign">Valuuttamerkki</string>
+    <string name="symbol_degree">Astemerkki</string>
+    <string name="symbol_division">Jakomerkki</string>
+    <string name="symbol_dollar_sign">Dollarimerkki</string>
+    <string name="symbol_downwards_arrow">Alas-nuoli</string>
+    <string name="symbol_eighth_note">Kahdeksasosanuotti</string>
+    <string name="symbol_ellipsis">Ellipsi</string>
+    <string name="symbol_em_dash">Em-viiva</string>
+    <string name="symbol_en_dash">En-viiva</string>
+    <string name="symbol_equal">Yhtäsuuruusmerkki</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Huutomerkki</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheitaste</string>
+    <string name="symbol_female">Naaraan symboli</string>
+    <string name="symbol_full_width_ampersand">Täysleveä et-merkki</string>
+    <string name="symbol_full_width_asterisk">Täysleveä tähtimerkki</string>
+    <string name="symbol_full_width_circumflex">Täysleveä sirkumfleksi</string>
+    <string name="symbol_full_width_colon">Täysleveä kaksoispiste</string>
+    <string name="symbol_full_width_comma">Täysleveä pilkku</string>
+    <string name="symbol_full_width_exclamation_mark">Täysleveä huutomerkki</string>
+    <string name="symbol_full_width_greater_than_sign">Täysleveä suurempi kuin ‑merkki</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideografinen piste</string>
+    <string name="symbol_full_width_left_curly_bracket">Täysleveä vasen aaltosulje</string>
+    <string name="symbol_full_width_left_parenthesis">Täysleveä vasen sulkumerkki</string>
+    <string name="symbol_full_width_less_than_sign">Täysleveä pienempi kuin ‑merkki</string>
+    <string name="symbol_full_width_question_mark">Täysleveä kysymysmerkki</string>
+    <string name="symbol_full_width_right_curly_bracket">Täysleveä oikea aaltosulje</string>
+    <string name="symbol_full_width_right_parenthesis">Täysleveä oikea sulkumerkki</string>
+    <string name="symbol_full_width_semicolon">Täysleveä puolipiste</string>
+    <string name="symbol_full_width_tilde">Täysleveä aaltomerkki</string>
+    <string name="symbol_full_width_underscore">Täysleveä alaviiva</string>
+    <string name="symbol_grave_accent">Gravisaksentti</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Puolileveä rivinkeskinen katakana-piste</string>
+    <string name="symbol_hyphen_minus">Yhdysviiva</string>
+    <string name="symbol_ideographic_comma">Ideografinen pilkku</string>
+    <string name="symbol_integral">Integraali</string>
+    <string name="symbol_inverted_exclamation_mark">Ylösalainen huutomerkki</string>
+    <string name="symbol_inverted_question_mark">Ylösalainen kysymysmerkki</string>
+    <string name="symbol_left_angle_bracket">Vasen kaksoiskulmasulje</string>
+    <string name="symbol_left_black_lenticular_bracket">Vasen musta linssimäinen sulje</string>
+    <string name="symbol_left_corner_bracket">Vasen kulmasulje</string>
+    <string name="symbol_left_double_quotation_mark">Vasen lainausmerkki</string>
+    <string name="symbol_left_single_quotation_mark">Vasen puolilainausmerkki</string>
+    <string name="symbol_leftwards_arrow">Vasen nuoli</string>
+    <string name="symbol_liter">Litra</string>
+    <string name="symbol_low_double_quote">Rivinalinen lainausmerkki</string>
+    <string name="symbol_male">Koiraan symboli</string>
+    <string name="symbol_mathematical_left_angle_bracket">Matemaattinen vasen kulmasulje</string>
+    <string name="symbol_mathematical_right_angle_bracket">Matemaattinen oikea kulmasulje</string>
+    <string name="symbol_micro_sign">Mikro-merkki</string>
+    <string name="symbol_middle_dot">Rivinkeskinen piste</string>
+    <string name="symbol_multiplication">Kertomerkki</string>
+    <string name="symbol_new_line">Rivinvaihto</string>
+    <string name="symbol_not_equals">Erisuuri kuin</string>
+    <string name="symbol_not_sign">Ei-merkki</string>
+    <string name="symbol_paragraph_mark">Kappalemerkki</string>
+    <string name="symbol_parenthesis_left">Vasen sulje</string>
+    <string name="symbol_parenthesis_right">Oikea sulje</string>
+    <string name="symbol_percent">Prosentti</string>
+    <string name="symbol_period">Piste</string>
+    <string name="symbol_pi">Pii</string>
+    <string name="symbol_plus_minus_sign">Plusmiinusmerkki</string>
+    <string name="symbol_postal_mark">Postin merkki</string>
+    <string name="symbol_pound">Punta</string>
+    <string name="symbol_pound_sterling">Punnan valuuttamerkki</string>
+    <string name="symbol_quarter_note">Neljäsosanuotti</string>
+    <string name="symbol_question_mark">Kysymysmerkki</string>
+    <string name="symbol_quotation_mark">Lainausmerkki</string>
+    <string name="symbol_reference">Viitemerkki</string>
+    <string name="symbol_registered_trademark">Rekisteröity tavaramerkki</string>
+    <string name="symbol_right_angle_bracket">Oikea kaksoiskulmasulje</string>
+    <string name="symbol_right_black_lenticular_bracket">Oikea musta linssimäinen sulje</string>
+    <string name="symbol_right_corner_bracket">Oikea kulmasulje</string>
+    <string name="symbol_right_double_quotation_mark">Oikea lainausmerkki</string>
+    <string name="symbol_right_single_quotation_mark">Oikea puolilainausmerkki</string>
+    <string name="symbol_rightwards_arrow">Oikealle-nuoli</string>
+    <string name="symbol_rupee">Rupia</string>
+    <string name="symbol_section_sign">Osio-merkki</string>
+    <string name="symbol_semicolon">Puolipiste</string>
+    <string name="symbol_slash">Vinoviiva</string>
+    <string name="symbol_solar">Auringon symboli</string>
+    <string name="symbol_space">Välilyönti</string>
+    <string name="symbol_square_bracket_left">Vasen hakasulje</string>
+    <string name="symbol_square_bracket_right">Oikea hakasulje</string>
+    <string name="symbol_square_root">Neliöjuuri</string>
+    <string name="symbol_tilde">Aaltoviiva</string>
+    <string name="symbol_trademark">Tavaramerkki</string>
+    <string name="symbol_underscore">Alaviiva</string>
+    <string name="symbol_upwards_arrow">Ylänuoli</string>
+    <string name="symbol_vertical_bar">Pystyviiva</string>
+    <string name="symbol_white_circle">Valkoinen ympyrä</string>
+    <string name="symbol_white_club_suit">Valkoinen pelikortin risti</string>
+    <string name="symbol_white_diamond">Valkoinen pelikortin ruutu</string>
+    <string name="symbol_white_down_pointing_triangle">Valkoinen alas osoittava kolmio</string>
+    <string name="symbol_white_heart">Valkoinen sydän</string>
+    <string name="symbol_white_left_pointing_index">Valkoinen vasemmalle osoittava sormi</string>
+    <string name="symbol_white_left_pointing_triangle">Valkoinen vasemmalle osoittava kolmio</string>
+    <string name="symbol_white_right_pointing_index">Valkoinen oikealle osoittava sormi</string>
+    <string name="symbol_white_right_pointing_triangle">Valkoinen oikealle osoittava kolmio</string>
+    <string name="symbol_white_spade_suit">Valkoinen pelikortin pata</string>
+    <string name="symbol_white_square">Valkoinen neliö</string>
+    <string name="symbol_white_star">Valkoinen tähti</string>
+    <string name="symbol_white_up_pointing_triangle">Valkoinen ylös osoittava kolmio</string>
+    <string name="symbol_won">Wonin valuuttamerkki</string>
+    <string name="symbol_won_sign">Wonin valuuttamerkki</string>
+    <string name="symbol_yen">Jeni</string>
+    <string name="talkback_disabled">TalkBack poistettu käytöstä</string>
+    <string name="talkback_on">TalkBack päällä</string>
+    <string name="talkback_resumed">TalkBack jälleen käytössä</string>
+    <string name="talkback_suspended">TalkBackin käyttö keskeytetty</string>
+    <string name="template_announce_selected_text">Valittu teksti: %1$s</string>
+    <string name="template_capital_letter">iso kirjain %1$s</string>
+    <string name="template_collection_level">Taso %1$d</string>
+    <string name="template_current_tts_engine">Käytössä %1$s</string>
+    <string name="template_custom_hint_for_actions">%1$s, niin toiminto on %2$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">%2$s painamalla %1$s.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s ja kosketa pitkään, niin toiminto on %2$s.</string>
+    <string name="template_drawer_opened">Valikko %1$s</string>
+    <string name="template_hint_checkable">Vaihda tekemällä toiminto %1$s.</string>
+    <string name="template_hint_checkable_keyboard">Vaihda päälle/pois painamalla %1$s.</string>
+    <string name="template_hint_clickable">%1$s aktivoidaksesi.</string>
+    <string name="template_hint_clickable_keyboard">Aktivoi painamalla %1$s.</string>
+    <string name="template_hint_custom_actions">Toiminnot:</string>
+    <string name="template_hint_edit_text">%1$s muokataksesi tekstiä.</string>
+    <string name="template_hint_edit_text_keyboard">Muokkaa tekstiä painamalla ensin %1$s.</string>
+    <string name="template_hint_long_clickable">%1$s pitkään tehdäksesi pitkän klikkauksen.</string>
+    <string name="template_hint_long_clickable_keyboard">Paina pitkään painamalla %1$s.</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s käytettävissä, %2$s avaa</string>
+    <string name="template_hint_pager">Vaihda sivua pyyhkäisemällä kahdella sormella.</string>
+    <string name="template_hint_pager_single_page">Ei enempää sivuja</string>
+    <string name="template_hint_seek_control">Säädä äänenvoimakkuusnäppäimillä</string>
+    <string name="template_hint_seek_control_tv">%1$s, jos haluat vaihtaa.</string>
+    <string name="template_hint_spinner">Vaihda tekemällä toiminto %1$s.</string>
+    <string name="template_hint_spinner_keyboard">Muuta painamalla %1$s.</string>
+    <string name="template_labeled_item">kohteen %2$s %1$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s kuva kuvassa</string>
+    <string name="template_password_selected">Merkistä %1$d merkkiin %2$d</string>
+    <string name="template_password_traversed">Merkki %1$d</string>
+    <string name="template_percent">%1$s prosenttia</string>
+    <string name="template_replaced_characters">Merkit %1$s korvattiin merkeillä %2$s</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">%1$s, niin näet käytettävissä olevat toiminnot.</string>
+    <string name="template_sa_custom_hint_scrollable">%1$s vierittääksesi.</string>
+    <string name="template_sa_hint_seek_control">Säädä painamalla Valitse-kytkintä.</string>
+    <string name="template_screen_magnification_on">Suurennus käytössä: %1$d %%</string>
+    <string name="template_screen_magnification_scale_changed">Suurennus: %1$d %%</string>
+    <string name="template_scroll_from_count">Näytetään kohde %1$d/%2$d.</string>
+    <string name="template_scroll_from_to_count">Näytetään kohteet %1$d–%2$d/%3$d.</string>
+    <string name="template_seekbar_range">%1$d %%</string>
+    <string name="template_speech_rate_change">Puheen nopeus: %1$d %%</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s vasemmalla, %2$s oikealla</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s oikealla, %2$s vasemmalla</string>
+    <string name="template_split_screen_mode_portrait">%1$s ylhäällä, %2$s alhaalla</string>
+    <string name="template_text_copied">kopioitu, %1$s</string>
+    <string name="template_text_cut">leikattu, %1$s</string>
+    <string name="template_text_error">Virheellinen sisältö %1$s</string>
+    <string name="template_text_pasted">liitetty, %1$s</string>
+    <string name="template_text_removed">%1$s poistettiin</string>
+    <string name="template_text_replaced">%2$s korvattiin tekstillä %1$s</string>
+    <string name="template_text_selected">valittu, %1$s</string>
+    <string name="template_text_unselected">valinta poistettu, %1$s</string>
+    <string name="template_viewpager_index_count">Sivu %1$d kautta %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d kautta %2$d</string>
+    <string name="template_volume_change_decrease">Vähennä</string>
+    <string name="template_volume_change_increase">Lisää</string>
+    <string name="template_volume_change_maximum">Enintään</string>
+    <string name="template_volume_change_minimum">Vähintään</string>
+    <string name="time_difference_now">Nyt</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="title_action_collapse">Tiivistä</string>
+    <string name="title_action_dismiss">Ohita</string>
+    <string name="title_action_expand">Laajenna</string>
+    <string name="untitled_window">nimetön</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"POIS KÄYTÖSTÄ"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"KÄYTÖSSÄ"</string>
+    <string name="value_button">Painike</string>
+    <string name="value_caps_lock_off">Caps Lock on poistettu käytöstä.</string>
+    <string name="value_caps_lock_on">Caps Lock on käytössä.</string>
+    <string name="value_checkbox">Valintaruutu</string>
+    <string name="value_checked">valittu</string>
+    <string name="value_collapsed">tiivistetty</string>
+    <string name="value_disabled">ei käytössä</string>
+    <string name="value_double_tap">Kaksoisnapauta</string>
+    <string name="value_edit_box">Muokkauskenttä</string>
+    <string name="value_edit_box_editing">Muokkaus</string>
+    <string name="value_expanded">laajennettu</string>
+    <string name="value_gridview">Ruudukko</string>
+    <string name="value_image">Kuva</string>
+    <string name="value_listview">Lista</string>
+    <string name="value_not_checked">ei valittu</string>
+    <string name="value_num_lock_off">Num Lock on poistettu käytöstä.</string>
+    <string name="value_num_lock_on">Num Lock on käytössä.</string>
+    <string name="value_off">Ei päällä</string>
+    <string name="value_on">Päällä</string>
+    <string name="value_options_menu_open">Asetukset.</string>
+    <string name="value_pager">Monisivuinen näkymä</string>
+    <string name="value_pager_page">Sivu</string>
+    <string name="value_password">salasana</string>
+    <string name="value_press_select">Paina Valitse</string>
+    <string name="value_progress_bar">Etenemispalkki</string>
+    <string name="value_radio_button">Valintanappi</string>
+    <string name="value_scroll_lock_off">Scroll Lock on poistettu käytöstä.</string>
+    <string name="value_scroll_lock_on">Scroll Lock on käytössä.</string>
+    <string name="value_seek_bar">Liukusäädin</string>
+    <string name="value_selected">valittu</string>
+    <string name="value_single_tap">Napauta</string>
+    <string name="value_sliding_drawer_opened">Liu\'utettava laatikko avattu</string>
+    <string name="value_spinner">Avattava luettelo</string>
+    <string name="value_switch">Valitsin</string>
+    <string name="value_switch_press">Paina Valitse-kytkintä</string>
+    <string name="value_tabwidget">Välilehtirivi</string>
+    <string name="value_text_cleared">Teksti tyhjennetty</string>
+    <string name="value_text_max_length">Enimmäispituus saavutettu</string>
+    <string name="value_unlabelled">Nimetön</string>
+    <string name="value_webview">Verkkonäkymä</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Toimintojen vetopaneeli"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Navigointipaneeli"</string>
+</resources>

@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">punto %s</item>
+    <item quantity="other">punti %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d nuova notifica</item>
+    <item quantity="other">%d nuove notifiche</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d g</item>
+<item quantity="other">%d g</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d h</item>
+<item quantity="other">%d h</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d m</item>
+<item quantity="other">%d m</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d giorno</item>
+<item quantity="other">%d giorni</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d ora</item>
+<item quantity="other">%d ore</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d min</item>
+<item quantity="other">%d min</item>
+</plurals>
+    <string name="a11y_no_data">Nessun dato</string>
+    <string name="a11y_no_permission">Nessuna autorizzazione accesso dati</string>
+    <string name="a11y_template_range">%1$f di %2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Portami a casa"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Torna indietro"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Altre opzioni"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Fine"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Mostra tutto"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Scelta di un\'app"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"OFF"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ON"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"ALT +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"CTRL +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"CANC"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"INVIO"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"FUNZIONE +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"META +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"MAIUSC +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"SPAZIO"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"SYM +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"MENU +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Cerca…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Cancella query"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Query di ricerca"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Cerca"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Invia query"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Ricerca vocale"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Condividi con"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Condividi tramite <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Comprimi"</string>
+    <string name="auto_detect">Adatta in base a come tieni il dispositivo</string>
+    <string name="bottomsheet_action_expand_halfway">Espandi a metà</string>
+    <string name="braille_ime_displayed_name">Tastiera braille</string>
+    <string name="braille_ime_service_name">Tastiera braille di TalkBack</string>
+    <string name="braille_keyboard">Tastiera braille</string>
+    <string name="braille_keyboard_gestures">Gesti tastiera braille</string>
+    <string name="braille_keyboard_strip_button">Passa alla tastiera touchscreen</string>
+    <string name="braille_keyboard_strip_summary">È collegato un display braille esterno, che puoi usare per digitare testo su questo dispositivo.\nIn alternativa, puoi passare alla tastiera braille touchscreen o al metodo di immissione successivo.</string>
+    <string name="braille_tutorial_title">Tutorial tastiera braille</string>
+    <string name="bring_ime_settings_page">Non sono attivate altre tastiere: vai alle impostazioni di tastiera</string>
+    <string name="buttons_rect_bottom_center">In basso</string>
+    <string name="buttons_rect_bottom_left">In basso a sinistra</string>
+    <string name="buttons_rect_bottom_right">In basso a destra</string>
+    <string name="buttons_rect_left_bottom">In basso verso sinistra</string>
+    <string name="buttons_rect_left_center">Al centro a sinistra</string>
+    <string name="buttons_rect_left_top">In alto verso sinistra</string>
+    <string name="buttons_rect_right_bottom">In basso verso destra</string>
+    <string name="buttons_rect_right_center">Al centro a destra</string>
+    <string name="buttons_rect_right_top">In alto verso destra</string>
+    <string name="buttons_rect_top_center">In alto</string>
+    <string name="buttons_rect_top_left">In alto a sinistra</string>
+    <string name="buttons_rect_top_right">In alto a destra</string>
+    <string name="buttons_round_bottom_center">In basso</string>
+    <string name="buttons_round_bottom_left">In basso a sinistra</string>
+    <string name="buttons_round_bottom_left_lower">In basso a sinistra (più in basso)</string>
+    <string name="buttons_round_bottom_left_upper">In basso a sinistra (più in alto)</string>
+    <string name="buttons_round_bottom_right">In basso a destra</string>
+    <string name="buttons_round_bottom_right_lower">In basso a destra (più in basso)</string>
+    <string name="buttons_round_bottom_right_upper">In basso a destra (più in alto)</string>
+    <string name="buttons_round_center_left">Al centro a sinistra</string>
+    <string name="buttons_round_center_right">Al centro a destra</string>
+    <string name="buttons_round_top_center">In alto</string>
+    <string name="buttons_round_top_left">In alto a sinistra</string>
+    <string name="buttons_round_top_left_lower">In alto a sinistra (più in basso)</string>
+    <string name="buttons_round_top_left_upper">In alto a sinistra (più in alto)</string>
+    <string name="buttons_round_top_right">In alto a destra</string>
+    <string name="buttons_round_top_right_lower">In alto a destra (più in basso)</string>
+    <string name="buttons_round_top_right_upper">In alto a destra (più in alto)</string>
+    <string name="calibration_fail_announcement">Impossibile aggiornare la posizione dei punti. Tocca e tieni premuto lo schermo con 6 dita, quindi riprova.</string>
+    <string name="calibration_finish_announcement">Posizione dei punti aggiornata</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Aggiornamento della posizione dei punti. Innanzitutto registra i punti della mano sinistra. Tocca e tieni premuto lo schermo con le 3 dita centrali della mano sinistra.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Aggiornamento della posizione dei punti. Innanzitutto registra i punti della mano destra. Tocca e tieni premuto lo schermo con le 3 dita centrali della mano destra.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">Sono state aggiornate le posizioni dei punti 1, 2 e 3. Ora registra i punti della mano sinistra. Tocca e tieni premuto lo schermo con le 3 dita centrali della mano sinistra.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">Sono state aggiornate le posizioni dei punti 1, 2 e 3. Ora registra i punti della mano destra. Tocca e tieni premuto lo schermo con le 3 dita centrali della mano destra.</string>
+    <string name="capitalize_announcement">Lettere maiuscole</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%1$d caratteri inserirti su %2$d</string>
+    <string name="character_counter_overflowed_content_description">Sono presenti %2$d caratteri in più rispetto al limite di %1$d</string>
+    <string name="clear_text_end_icon_content_description">Cancella testo</string>
+    <string name="code_user_facing_name_ar">Arabo</string>
+    <string name="code_user_facing_name_es">Spagnolo</string>
+    <string name="code_user_facing_name_fr">Francese</string>
+    <string name="code_user_facing_name_pl">Polacco</string>
+    <string name="code_user_facing_name_ueb1">Braille inglese unificato non contratto</string>
+    <string name="code_user_facing_name_ueb2">Braille inglese unificato contratto</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Attiva</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s non funzionerà se non attivi Google Play Services.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Attiva Google Play Services</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installa</string>
+    <string name="common_google_play_services_install_text">L\'app %1$s non funzionerà senza Google Play Services, non presente sul tuo dispositivo.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Installa Google Play Services</string>
+    <string name="common_google_play_services_notification_channel_name">Disponibilità di Google Play Services</string>
+    <string name="common_google_play_services_notification_ticker">Errore Google Play Services</string>
+    <string name="common_google_play_services_unknown_issue">%1$s sta riscontrando problemi con Google Play Services. Riprova.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s non funzionerà senza Google Play Services, non supportati dal tuo dispositivo.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Aggiorna</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s non funzionerà se non aggiorni Google Play Services.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Aggiorna Google Play Services</string>
+    <string name="common_google_play_services_updating_text">%1$s non funzionerà senza Google Play Services, attualmente in fase di aggiornamento.</string>
+    <string name="common_google_play_services_wear_update_text">È richiesta una nuova versione di Google Play Services. L\'aggiornamento automatico verrà eseguito a breve.</string>
+    <string name="common_open_on_phone">Apri sul telefono</string>
+    <string name="common_signin_button_text">Accedi</string>
+    <string name="common_signin_button_text_long">Accedi con Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Errore"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Elemento aperto sul telefono"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Operazione riuscita"</string>
+    <string name="context_menu_input_language_selection">Passa alla prossima lingua: %s</string>
+    <string name="context_menu_input_language_selection_summary">Attualmente in uso: %s</string>
+    <string name="context_menu_layout_selection">Layout</string>
+    <string name="context_menu_see_all_gestures_selection">Controlla tutti i gesti</string>
+    <string name="context_menu_settings_selection">Impostazioni</string>
+    <string name="context_menu_title">Opzioni tastiera braille</string>
+    <string name="context_menu_tutorial_finish">Termina tutorial</string>
+    <string name="context_menu_tutorial_selection">Apri tutorial</string>
+    <string name="continue_tutorial_announcement">Continua il tutorial. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Copia"</string>
+    <string name="dismiss_overlay_button_label">Esci</string>
+    <string name="done">Fine</string>
+    <string name="dont_show_again">Non mostrare più</string>
+    <string name="error_icon_content_description">Errore</string>
+    <string name="exit_scrim">Esci</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Avanzate"</string>
+    <string name="exposed_dropdown_menu_content_description">Mostra il menu a discesa</string>
+    <string name="finish_tutorial_announcement">È visualizzata la tastiera braille. Gira il telefono in modo tale che lo schermo sia rivolto verso l\'esterno. Gira il telefono in orizzontale e inizia a digitare.</string>
+    <string name="function_off">La funzione di lettura vocale non è attiva</string>
+    <string name="function_on">La funzione di lettura vocale è attiva</string>
+    <string name="generic_cancel">Annulla</string>
+    <string name="generic_yes">Sì</string>
+    <string name="gesture_add_space">Per aggiungere uno <b>spazio</b>, scorri verso destra</string>
+    <string name="gesture_delete">Per <b>eliminare</b>, scorri verso sinistra</string>
+    <string name="gesture_delete_word">Per <b>eliminare una parola</b>, scorri verso sinistra con due dita</string>
+    <string name="gesture_hide_keyboard">Per <b>nascondere la tastiera</b>, scorri verso il basso con due dita</string>
+    <string name="gesture_move_cursor_backward">Per <b>spostare il cursore a ritroso</b>, scorri verso l\'alto</string>
+    <string name="gesture_move_cursor_forward">Per <b>spostare il cursore in avanti</b>, scorri verso il basso</string>
+    <string name="gesture_new_line">Per una <b>nuova riga</b>, scorri verso destra con due dita</string>
+    <string name="gesture_next_keyboard">Per passare alla <b>tastiera successiva</b>, scorri verso il basso con tre dita</string>
+    <string name="gesture_open_context_menu">Per <b>assistenza e altre opzioni</b>, scorri verso l\'alto con tre dita</string>
+    <string name="gesture_submit_text">Per <b>inviare il testo</b>, scorri verso l\'alto con due dita</string>
+    <string name="granularity_character">Caratteri</string>
+    <string name="granularity_default">Predefinita</string>
+    <string name="granularity_line">Righe</string>
+    <string name="granularity_native_control">Controlli</string>
+    <string name="granularity_native_heading">Intestazioni</string>
+    <string name="granularity_native_link">Link</string>
+    <string name="granularity_paragraph">Paragrafi</string>
+    <string name="granularity_pseudo_web_special_content">Contenuti speciali</string>
+    <string name="granularity_web_control">Controlli</string>
+    <string name="granularity_web_heading">Intestazioni</string>
+    <string name="granularity_web_landmark">Punti di riferimento</string>
+    <string name="granularity_web_link">Link</string>
+    <string name="granularity_web_list">Elenchi</string>
+    <string name="granularity_window">Finestre</string>
+    <string name="granularity_word">Parole</string>
+    <string name="hide_keyboard_window">Tastiera nascosta</string>
+    <string name="hold_six_fingers_announcement">%s\nAppoggia il dispositivo in orizzontale su un piano. Dopodiché, tocca e tieni premuto lo schermo con le 3 dita centrali di ogni mano tenendole in una posizione comoda per la digitazione.</string>
+    <string name="hold_six_fingers_description">Non potrai usare i gesti standard di TalkBack con la tastiera braille.\n\nPer iniziare, configura la posizione dei 6 punti braille per la digitazione.</string>
+    <string name="hold_six_fingers_inactive_announcement">Appoggia il dispositivo in orizzontale su un piano. Dopodiché, tocca e tieni premuto lo schermo con le 3 dita centrali di ogni mano tenendole in una posizione comoda per la digitazione.</string>
+    <string name="how_to_use_braille_keyboard">Come usare la tastiera braille</string>
+    <string name="icon_content_description">Icona della finestra di dialogo</string>
+    <string name="input_view_caption">Tastiera braille di TalkBack: per assistenza, visita il sito g.co/help/braille</string>
+    <string name="instruction_swipe_down">Per spostare il cursore in avanti, scorri verso il basso</string>
+    <string name="instruction_swipe_down_2_fingers">Per nascondere la tastiera, scorri verso il basso con due dita</string>
+    <string name="instruction_swipe_down_3_fingers">Per passare all\'altra tastiera, scorri verso il basso con tre dita</string>
+    <string name="instruction_swipe_left">Per eliminare una lettera, scorri verso sinistra</string>
+    <string name="instruction_swipe_right">Per aggiungere uno spazio, scorri verso destra</string>
+    <string name="instruction_swipe_up">Per spostare il cursore a ritroso, scorri verso l\'alto</string>
+    <string name="instruction_swipe_up_3_fingers">Per terminare il tutorial, scorri verso l\'alto con tre dita</string>
+    <string name="instruction_type_letter_a">Tocca il punto 1 con il dito indice sinistro per digitare la lettera \"A\"</string>
+    <string name="instruction_type_letter_bcd">Poi prova a digitare le lettere B, C e D</string>
+    <string name="item_view_role_description">Scheda</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Per impostare la nuova scorciatoia, premi la combinazione di tasti insieme al tasto di modifica %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Premi una combinazione di tasti per impostare la nuova scorciatoia. Includi nella combinazione almeno un tasto tra ALT o Ctrl.</string>
+    <string name="keycombo_key_arrow_down">Freccia giù</string>
+    <string name="keycombo_key_arrow_left">Freccia sinistra</string>
+    <string name="keycombo_key_arrow_right">Freccia destra</string>
+    <string name="keycombo_key_arrow_up">Freccia su</string>
+    <string name="keycombo_key_modifier_alt">ALT</string>
+    <string name="keycombo_key_modifier_ctrl">CTRL</string>
+    <string name="keycombo_key_modifier_meta">Ricerca</string>
+    <string name="keycombo_key_modifier_shift">MAIUSC</string>
+    <string name="keycombo_unassigned">Non assegnata</string>
+    <string name="leave_keyboard">Esci dalla tastiera braille</string>
+    <string name="material_clock_toggle_content_description">Seleziona AM o PM</string>
+    <string name="material_hour_selection">Seleziona l\'ora</string>
+    <string name="material_hour_suffix">%1$s in punto</string>
+    <string name="material_minute_selection">Seleziona i minuti</string>
+    <string name="material_minute_suffix">%1$s minuti</string>
+    <string name="material_timepicker_am">am</string>
+    <string name="material_timepicker_clock_mode_description">Passa alla modalità orologio per inserire l\'ora.</string>
+    <string name="material_timepicker_hour">Ora</string>
+    <string name="material_timepicker_minute">Minuto</string>
+    <string name="material_timepicker_pm">pm</string>
+    <string name="material_timepicker_select_time">Seleziona l\'ora</string>
+    <string name="material_timepicker_text_input_mode_description">Passa alla modalità di immissione testo per inserire l\'ora.</string>
+    <string name="mtrl_badge_numberless_content_description">Nuova notifica</string>
+    <string name="mtrl_chip_close_icon_content_description">Rimuovi %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Più di %1$d nuove notifiche</string>
+    <string name="mtrl_picker_a11y_next_month">Passa al mese successivo</string>
+    <string name="mtrl_picker_a11y_prev_month">Passa al mese precedente</string>
+    <string name="mtrl_picker_announce_current_selection">Selezione attuale: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Seleziona data</string>
+    <string name="mtrl_picker_date_header_unselected">Data selezionata</string>
+    <string name="mtrl_picker_day_of_week_column_header">Colonna dei giorni: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Formato non valido.</string>
+    <string name="mtrl_picker_invalid_format_example">Esempio: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Usa: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Intervallo non valido.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Vai all\'anno %1$s</string>
+    <string name="mtrl_picker_out_of_range">Non compresa nell\'intervallo: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Data di inizio - %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s - Data di fine</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_title">Seleziona intervallo</string>
+    <string name="mtrl_picker_range_header_unselected">Data di inizio - Data di fine</string>
+    <string name="mtrl_picker_save">Salva</string>
+    <string name="mtrl_picker_text_input_date_hint">Data</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Data di fine</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Data di inizio</string>
+    <string name="mtrl_picker_text_input_day_abbr">g</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">a</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Passa alla modalità di immissione Calendario</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Tocca per passare alla selezione di un giorno</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Passa alla modalità di immissione Testo</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Tocca per passare alla selezione di un anno</string>
+    <string name="multiple_languages_braille_ime_displayed_name">Tastiera braille, %s</string>
+    <string name="navigation_drawer_content_description">Riquadro di navigazione a scomparsa</string>
+    <string name="next_keyboard">Tastiera successiva</string>
+    <string name="next_step">Avanti</string>
+    <string name="not_enough_touch_points_dialog_message">Il tuo dispositivo non supporta abbastanza punti touch. Per ulteriori informazioni, contatta il produttore del dispositivo.</string>
+    <string name="not_enough_touch_points_dialog_title">Il tuo dispositivo non supporta la tastiera braille</string>
+    <string msgid="478774118347071097" name="not_set">"Non impostato"</string>
+    <string name="number_announcement">Numero</string>
+    <string name="open_context_menu_announcement">Il menu opzioni è aperto. Capovolgi di nuovo il telefono in modo che lo schermo sia rivolto verso di te e tienilo normalmente. Ora puoi utilizzare i gesti TalkBack standard per navigare. Scorri verso destra per visualizzare altre opzioni.</string>
+    <string name="password_toggle_content_description">Mostra password</string>
+    <string name="perform_action_next">Avanti</string>
+    <string name="perform_action_submitting">Invio del testo</string>
+    <string name="perform_add_new_line_announcement">Nuova riga aggiunta</string>
+    <string name="perform_add_space_announcement">Spazio</string>
+    <string name="perform_delete_letter_announcement">Lettera eliminata</string>
+    <string name="perform_delete_word_announcement">Parola eliminata</string>
+    <string name="perform_hide_keyboard_announcement">Nascondi la tastiera</string>
+    <string name="perform_submit_text_announcement">Invia testo</string>
+    <string name="perform_switch_keyboard_announcement">Cambia tastiera</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\"copiato negli appunti."</string>
+    <string name="preferred_language_title">Lingua preferita</string>
+    <string name="read_out_deleted">%s eliminato</string>
+    <string name="remaining_calibration_finish_announcement">Tutte le posizioni dei punti sono state aggiornate</string>
+    <string name="reminder_announcement">Scorri verso l\'alto con tre dita per altre opzioni</string>
+    <string name="result_swipe_down">CURSORE SPOSTATO IN AVANTI</string>
+    <string name="result_swipe_down_2_fingers">NASCONDI TASTIERA</string>
+    <string name="result_swipe_down_3_fingers">TASTIERA SUCCESSIVA</string>
+    <string name="result_swipe_left">ELIMINA</string>
+    <string name="result_swipe_right">SPAZIO</string>
+    <string name="result_swipe_up">CURSORE SPOSTATO A RITROSO</string>
+    <string name="rotate_orientation_announcement">Se inizi ora, non potrai utilizzare i gesti standard di TalkBack. TalkBack non è disponibile durante l\'utilizzo della tastiera braille.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">Il tuo telefono è in posizione verticale. Per continuare, ruota in orizzontale il telefono in modo tale che il lato lungo sia in basso. Quindi gira lo schermo in modo tale che sia rivolto verso l\'esterno. Quando il telefono è posizionato correttamente, tocca due volte lo schermo per continuare.</string>
+    <string name="rotate_orientation_description_1">Se inizi ora, non potrai utilizzare i gesti standard di TalkBack. TalkBack non è disponibile mentre utilizzi la tastiera braille.</string>
+    <string name="rotate_orientation_description_2">Per iniziare, tieni il telefono in questo modo, con lo schermo rivolto verso l\'esterno.</string>
+    <string name="rotate_orientation_inactive_announcement">Per prima cosa, gira il telefono in modo tale che lo schermo sia rivolto verso l\'esterno.\n\nQuindi ruota il telefono in posizione orizzontale. Afferra il telefono dai lati più corti. La mano destra dovrebbe tenere il lato con la porta USB. Appoggia le tre dita centrali sullo schermo e utilizza il mignolo e il pollice per reggere il telefono.\n\nQuando hai posizionato le dita in questo modo, tocca due volte lo schermo per continuare.\n\nPer uscire dalla tastiera braille, scorri verso il basso con tre dita. In questo modo tornerai alla tastiera originale.</string>
+    <string name="screen_away">Modalità schermo verso l\'esterno</string>
+    <string name="screen_away_detail">Tieni il dispositivo con lo schermo rivolto verso l\'esterno (modalità schermo verso l\'esterno)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Cerca"</string>
+    <string name="set_up_braille_keyboard">Configura la tastiera braille</string>
+    <string name="show_keyboard_window">È visualizzata la finestra %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Ogni punto premuto fa parte dell\'input, anche se viene rilasciato prima degli altri punti</string>
+    <string name="summary_pref_reverse_dots">Inverti la posizione dei punti, in modo tale che i punti 1 e 4, ad esempio, si scambino di posto</string>
+    <string name="swipe_down_2_fingers_announcement">Per nascondere la tastiera, scorri verso il basso con due dita. Prova ora.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Nascondi tastiera. Generalmente, in questo modo la tastiera verrà nascosta. La tastiera braille rimarrà aperta perché il tutorial è ancora attivo.</string>
+    <string name="swipe_down_3_fingers_announcement">Per passare all\'altra tastiera, scorri verso il basso con tre dita. Prova ora.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Tastiera successiva. Generalmente, in questo modo passerai alla tastiera successiva. Questa volta stai ancora utilizzando la tastiera braille perché il tutorial è ancora attivo.</string>
+    <string name="swipe_down_announcement">Per spostare il cursore in avanti, scorri verso il basso. Prova ora.</string>
+    <string name="swipe_left_action_result_announcement">Lettera d eliminata.</string>
+    <string name="swipe_left_announcement">Per eliminare una lettera, scorri verso sinistra. Prova ora.</string>
+    <string name="swipe_right_announcement">Per aggiungere uno spazio, scorri verso destra. Prova ora.</string>
+    <string name="swipe_up_3_fingers_announcement">Puoi anche digitare in modalità Da tavolo posizionando il telefono in orizzontale su un piano. Per terminare il tutorial, scorri verso l\'alto con 3 dita e cerca l\'opzione Termina tutorial</string>
+    <string name="swipe_up_announcement">Per spostare il cursore a ritroso, scorri verso l\'alto. Prova ora.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Per cambiare la lingua mentre digiti con la tastiera braille, scorri verso l\'alto con 3 dita e seleziona \"Passa alla prossima lingua\".</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Cambia velocemente la lingua durante la digitazione</string>
+    <string name="switch_to_language_announcement">Passaggio a %s effettuato</string>
+    <string name="switch_to_screen_away_announcement">Modalità schermo verso l\'esterno</string>
+    <string name="switch_to_tabletop_announcement">Modalità da tavolo. Appoggia il dispositivo con la porta di ricarica a sinistra. Tieni premuto con 6 dita per aggiornare la posizione dei punti.</string>
+    <string name="symbol_almost_equals">Quasi uguale a</string>
+    <string name="symbol_ampersand">E commerciale</string>
+    <string name="symbol_angle_bracket_left">Segno di minore</string>
+    <string name="symbol_angle_bracket_right">Segno di maggiore</string>
+    <string name="symbol_apostrophe">Apostrofo</string>
+    <string name="symbol_approximately_equals">Quasi uguale a</string>
+    <string name="symbol_asterisk">Asterisco</string>
+    <string name="symbol_at_sign">Chiocciola</string>
+    <string name="symbol_backslash">Barra rovesciata</string>
+    <string name="symbol_beamed_sixteenth_note">Semicroma</string>
+    <string name="symbol_black_circle">Cerchio nero</string>
+    <string name="symbol_black_heart">Cuore nero</string>
+    <string name="symbol_black_smallsquare">Quadratino nero</string>
+    <string name="symbol_black_square">Quadrato nero</string>
+    <string name="symbol_black_star">Stella nera</string>
+    <string name="symbol_black_suit_of_diamonds">Diamanti neri (seme)</string>
+    <string name="symbol_black_triangle_pointing_down">Triangolo nero rivolto verso il basso</string>
+    <string name="symbol_black_triangle_pointing_up">Triangolo nero rivolto verso l\'alto</string>
+    <string name="symbol_broken_bar">Barra verticale interrotta</string>
+    <string name="symbol_bullet">Punto elenco</string>
+    <string name="symbol_bullseye">Bersaglio</string>
+    <string name="symbol_caret">Accento circonflesso</string>
+    <string name="symbol_celsius_degree">Grado Celsius</string>
+    <string name="symbol_cent">Simbolo dei centesimi</string>
+    <string name="symbol_circle_left_half_black">Cerchio con metà sinistra nera</string>
+    <string name="symbol_circle_right_half_black">Cerchio con metà destra nera</string>
+    <string name="symbol_colon">Due punti</string>
+    <string name="symbol_comma">Virgola</string>
+    <string name="symbol_copyright">Copyright</string>
+    <string name="symbol_curly_bracket_left">Parentesi graffa aperta</string>
+    <string name="symbol_curly_bracket_right">Parentesi graffa chiusa</string>
+    <string name="symbol_currency_sign">Segno di valuta</string>
+    <string name="symbol_degree">Simbolo dei gradi</string>
+    <string name="symbol_division">Segno di divisione</string>
+    <string name="symbol_dollar_sign">Simbolo del dollaro</string>
+    <string name="symbol_downwards_arrow">Freccia giù</string>
+    <string name="symbol_eighth_note">Ottava nota</string>
+    <string name="symbol_ellipsis">Puntini di sospensione</string>
+    <string name="symbol_em_dash">Lineetta</string>
+    <string name="symbol_en_dash">Trattino</string>
+    <string name="symbol_equal">Segno di uguale</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Punto esclamativo</string>
+    <string name="symbol_fahrenheit_degree">Grado Fahrenheit</string>
+    <string name="symbol_female">Simbolo della donna</string>
+    <string name="symbol_full_width_ampersand">E commerciale spessore pieno</string>
+    <string name="symbol_full_width_asterisk">Asterisco spessore pieno</string>
+    <string name="symbol_full_width_circumflex">Accento circonflesso spessore pieno</string>
+    <string name="symbol_full_width_colon">Due punti spessore pieno</string>
+    <string name="symbol_full_width_comma">Virgola spessore pieno</string>
+    <string name="symbol_full_width_exclamation_mark">Punto esclamativo spessore pieno</string>
+    <string name="symbol_full_width_greater_than_sign">Simbolo maggiore di spessore pieno</string>
+    <string name="symbol_full_width_ideographic_full_stop">Punto ideografico</string>
+    <string name="symbol_full_width_left_curly_bracket">Parentesi graffa aperta spessore pieno</string>
+    <string name="symbol_full_width_left_parenthesis">Parentesi aperta spessore pieno</string>
+    <string name="symbol_full_width_less_than_sign">Simbolo minore di spessore pieno</string>
+    <string name="symbol_full_width_question_mark">Punto interrogativo spessore pieno</string>
+    <string name="symbol_full_width_right_curly_bracket">Parentesi graffa chiusa spessore pieno</string>
+    <string name="symbol_full_width_right_parenthesis">Parentesi chiusa spessore pieno</string>
+    <string name="symbol_full_width_semicolon">Punto e virgola spessore pieno</string>
+    <string name="symbol_full_width_tilde">Tilde spessore pieno</string>
+    <string name="symbol_full_width_underscore">Trattino basso spessore pieno</string>
+    <string name="symbol_grave_accent">Accento grave</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Punto centrale katakana spessore ridotto</string>
+    <string name="symbol_hyphen_minus">Trattino breve</string>
+    <string name="symbol_ideographic_comma">Virgola ideografica</string>
+    <string name="symbol_integral">Integrale</string>
+    <string name="symbol_inverted_exclamation_mark">Punto esclamativo invertito</string>
+    <string name="symbol_inverted_question_mark">Punto interrogativo invertito</string>
+    <string name="symbol_left_angle_bracket">Doppia parentesi angolare aperta</string>
+    <string name="symbol_left_black_lenticular_bracket">Parentesi lenticolare aperta nera</string>
+    <string name="symbol_left_corner_bracket">Parentesi ad angolo aperta</string>
+    <string name="symbol_left_double_quotation_mark">Virgolette doppie aperte</string>
+    <string name="symbol_left_single_quotation_mark">Virgoletta singola aperta</string>
+    <string name="symbol_leftwards_arrow">Freccia sinistra</string>
+    <string name="symbol_liter">Litro</string>
+    <string name="symbol_low_double_quote">Virgolette doppie basse</string>
+    <string name="symbol_male">Simbolo dell\'uomo</string>
+    <string name="symbol_mathematical_left_angle_bracket">Parentesi angolare aperta</string>
+    <string name="symbol_mathematical_right_angle_bracket">Parentesi angolare chiusa</string>
+    <string name="symbol_micro_sign">Simbolo micro</string>
+    <string name="symbol_middle_dot">Punto centrale</string>
+    <string name="symbol_multiplication">Segno di moltiplicazione</string>
+    <string name="symbol_new_line">Nuova riga</string>
+    <string name="symbol_not_equals">Non uguale a</string>
+    <string name="symbol_not_sign">Segno di negazione</string>
+    <string name="symbol_paragraph_mark">Segno di paragrafo</string>
+    <string name="symbol_parenthesis_left">Parentesi aperta</string>
+    <string name="symbol_parenthesis_right">Parentesi chiusa</string>
+    <string name="symbol_percent">Percentuale</string>
+    <string name="symbol_period">Punto</string>
+    <string name="symbol_pi">Pi greco</string>
+    <string name="symbol_plus_minus_sign">Segno più-o-meno</string>
+    <string name="symbol_postal_mark">Simbolo postale</string>
+    <string name="symbol_pound">Cancelletto</string>
+    <string name="symbol_pound_sterling">Simbolo della sterlina</string>
+    <string name="symbol_quarter_note">Semiminima</string>
+    <string name="symbol_question_mark">Punto interrogativo</string>
+    <string name="symbol_quotation_mark">Virgolette</string>
+    <string name="symbol_reference">Segno di riferimento</string>
+    <string name="symbol_registered_trademark">Marchio registrato</string>
+    <string name="symbol_right_angle_bracket">Doppia parentesi angolare chiusa</string>
+    <string name="symbol_right_black_lenticular_bracket">Parentesi lenticolare chiusa nera</string>
+    <string name="symbol_right_corner_bracket">Parentesi ad angolo chiusa</string>
+    <string name="symbol_right_double_quotation_mark">Virgolette doppie chiuse</string>
+    <string name="symbol_right_single_quotation_mark">Virgoletta singola chiusa</string>
+    <string name="symbol_rightwards_arrow">Freccia destra</string>
+    <string name="symbol_rupee">Rupia</string>
+    <string name="symbol_section_sign">Simbolo di paragrafo</string>
+    <string name="symbol_semicolon">Punto e virgola</string>
+    <string name="symbol_slash">Barra</string>
+    <string name="symbol_solar">Simbolo solare</string>
+    <string name="symbol_space">Spazio</string>
+    <string name="symbol_square_bracket_left">Parentesi quadra aperta</string>
+    <string name="symbol_square_bracket_right">Parentesi quadra chiusa</string>
+    <string name="symbol_square_root">Radice quadrata</string>
+    <string name="symbol_tilde">Tilde</string>
+    <string name="symbol_trademark">Marchio</string>
+    <string name="symbol_underscore">Carattere di sottolineatura</string>
+    <string name="symbol_upwards_arrow">Freccia su</string>
+    <string name="symbol_vertical_bar">Linea verticale</string>
+    <string name="symbol_white_circle">Cerchio bianco</string>
+    <string name="symbol_white_club_suit">Fiori (seme, bianco)</string>
+    <string name="symbol_white_diamond">Rombo bianco</string>
+    <string name="symbol_white_down_pointing_triangle">Triangolo verso il basso bianco</string>
+    <string name="symbol_white_heart">Cuore bianco</string>
+    <string name="symbol_white_left_pointing_index">Indice bianco che punta a sinistra</string>
+    <string name="symbol_white_left_pointing_triangle">Triangolo verso sinistra bianco</string>
+    <string name="symbol_white_right_pointing_index">Indice bianco che punta a destra</string>
+    <string name="symbol_white_right_pointing_triangle">Triangolo verso destra bianco</string>
+    <string name="symbol_white_spade_suit">Picche (seme, bianco)</string>
+    <string name="symbol_white_square">Quadrato bianco</string>
+    <string name="symbol_white_star">Stella bianca</string>
+    <string name="symbol_white_up_pointing_triangle">Triangolo verso l\'alto bianco</string>
+    <string name="symbol_won">Simbolo del won</string>
+    <string name="symbol_won_sign">Simbolo del won</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="tabletop">Modalità da tavolo</string>
+    <string name="tabletop_detail">Appoggia il dispositivo in orizzontale su un piano (modalità da tavolo)</string>
+    <string name="talkback_off_dialog_positive_button">Attiva nelle impostazioni di accessibilità</string>
+    <string name="talkback_off_dialog_title">Per utilizzare la tastiera braille, attiva TalkBack</string>
+    <string name="talkback_off_or_suspend_dialog_message">Quando la funzionalità TalkBack è attiva, puoi toccare lo schermo per inserire simboli braille.</string>
+    <string name="talkback_suspend_dialog_title">Riattiva TalkBack per usare la tastiera braille</string>
+    <string name="tap_to_continue">Tocca due volte un punto qualsiasi per continuare</string>
+    <string name="template_capital_letter">%1$s maiuscola</string>
+    <string name="template_current_tts_engine">In uso: %1$s</string>
+    <string name="template_overlay_window">%1$s Picture in picture</string>
+    <string name="template_password_selected">Caratteri da %1$d a %2$d</string>
+    <string name="template_password_traversed">Carattere %1$d</string>
+    <string name="template_scroll_from_count">%1$d elemento su %2$d visualizzato.</string>
+    <string name="template_scroll_from_to_count">Elementi da %1$d a %2$d su %3$d visualizzati.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s a sinistra, %2$s a destra</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s a destra, %2$s a sinistra</string>
+    <string name="template_split_screen_mode_portrait">%1$s in alto, %2$s in basso</string>
+    <string name="template_text_copied">copiato, %1$s</string>
+    <string name="template_viewpager_index_count">Pagina %1$d di %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d di %2$d</string>
+    <string name="time_difference_now">Ora</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="title_pref_accumulate_presses">Includi tutti i punti premuti</string>
+    <string name="title_pref_reverse_dots">Punti inversi</string>
+    <string name="tutorial_intro_description">Con la tastiera braille, puoi toccare lo schermo per inserire caratteri braille a 6 punti.\n\nStai usando il Braille Inglese Unificato. Per cambiare lingua di digitazione, vai alle impostazioni di TalkBack.\n\nPer digitare in braille, devi tenere e utilizzare il telefono in modo diverso.</string>
+    <string name="type_letter_a_announcement">Tieni lo schermo in modo tale che sia rivolto verso l\'esterno. Tieni il telefono con entrambe le mani afferrandolo per i lati più corti, in modo tale che le tre dita centrali di entrambe le mani possano toccare lo schermo.\n\nIl tuo dito indice sinistro deve essere posizionato sul punto 1. Ora tocca il punto 1 per digitare la lettera \"A\".</string>
+    <string name="type_letter_a_inactive_announcement">Tocca il punto 1 con il dito indice sinistro per digitare la lettera \"A\"</string>
+    <string name="type_letter_inactive_announcement">Tocca %1$s per digitare la lettera %2$s</string>
+    <string name="typing_languages_title">Lingue di digitazione</string>
+    <string name="untitled_window">senza titolo</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Impostazioni</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Attivare la tastiera braille&lt;/b>: tocca Impostazioni in basso. Nella schermata successiva, attiva \"%1$s\".
+    &lt;br>&lt;br>2. &lt;b>Utilizzare la tastiera braille&lt;/b>: apri la tastiera classica, quindi tocca l\'icona della tastiera scelta %2$s (di solito nell\'angolo in basso a destra). Seleziona \"%1$s\".
+    &lt;br>&lt;br>Se non trovi l\'opzione per passare da una tastiera all\'altra, prova a installare %3$s, la tastiera Google.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Per utilizzare la tastiera braille, apri la tastiera classica, quindi tocca l\'icona della tastiera scelta %1$s (di solito nell\'angolo in basso a destra). Seleziona \"%2$s\".
+  &lt;br>&lt;br>Se non trovi l\'opzione per passare da una tastiera all\'altra, prova a installare %3$s, la tastiera Google.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"OFF"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ON"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Riquadro a scomparsa delle azioni"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Riquadro di navigazione a scomparsa"</string>
+</resources>

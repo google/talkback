@@ -1,0 +1,48 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/wear/release/values-b+sr+Latn-watch-v20/values-b+sr+Latn-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-b+sr+Latn-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,258",
+                        "endColumns": "204,141",
+                        "endOffsets": "255,397"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,262",
+                        "endColumns": "206,143",
+                        "endOffsets": "257,401"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-b+sr+Latn-watch-v20/values-b+sr+Latn-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-b+sr+Latn-watch/strings.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "2,2",
+                        "startOffsets": "53,258",
+                        "endColumns": "204,141",
+                        "endOffsets": "255,397"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,262",
+                        "endColumns": "206,143",
+                        "endOffsets": "257,401"
+                    }
+                }
+            ]
+        }
+    ]
+}

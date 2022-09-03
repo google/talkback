@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">%s нүкте</item>
+    <item quantity="other">%s нүкте</item>
+  </plurals>
+    <string name="auto_detect">Құрылғыны ұстау мәнеріңізге бейімдеу</string>
+    <string name="capitalize_announcement">Бас әріп</string>
+    <string name="code_user_facing_name_ar">Араб</string>
+    <string name="code_user_facing_name_es">Испан</string>
+    <string name="code_user_facing_name_fr">Француз</string>
+    <string name="code_user_facing_name_pl">Поляк</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string name="number_announcement">Сан</string>
+    <string name="read_out_deleted">%s жойылды.</string>
+    <string name="screen_away">Экранды ары қарату режимі</string>
+    <string name="screen_away_detail">Құрылғының экранын ары қаратыңыз (экранды ары қарату режимі)</string>
+    <string name="tabletop">Экранды жоғары қаратып қою режимі</string>
+    <string name="tabletop_detail">Құрылғыңызды үстелге жатқызып қойыңыз (экранды жоғары қаратып үстелге қою режимі)</string>
+</resources>

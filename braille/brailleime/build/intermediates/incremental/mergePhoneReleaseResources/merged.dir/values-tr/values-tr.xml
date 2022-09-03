@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">%s nokta</item>
+    <item quantity="other">%s nokta</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d yeni bildirim</item>
+    <item quantity="other">%d yeni bildirim</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d g.</item>
+<item quantity="other">%d g.</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d sa.</item>
+<item quantity="other">%d sa.</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d dk.</item>
+<item quantity="other">%d dk.</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d gün</item>
+<item quantity="other">%d gün</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d saat</item>
+<item quantity="other">%d saat</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d dk.</item>
+<item quantity="other">%d dk.</item>
+</plurals>
+    <string name="a11y_no_data">Veri yok</string>
+    <string name="a11y_no_permission">Verilere erişim izni yok</string>
+    <string name="a11y_template_range">%1$f / %2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Eve gidiş yolunu göster"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Yukarı git"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Diğer seçenekler"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Bitti"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Tümünü göster"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Bir uygulama seçin"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"KAPAT"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"AÇ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"sil"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Üst Karakter+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"boşluk"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menü+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Ara…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Sorguyu temizle"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Arama sorgusu"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Ara"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Sorguyu gönder"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Sesli arama"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Şununla paylaş:"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> ile paylaş"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Daralt"</string>
+    <string name="auto_detect">Cihazı tutuş şeklime göre belirle</string>
+    <string name="bottomsheet_action_expand_halfway">Yarım genişlet</string>
+    <string name="braille_ime_displayed_name">braille klavye</string>
+    <string name="braille_ime_service_name">TalkBack braille klavye</string>
+    <string name="braille_keyboard">Braille klavye</string>
+    <string name="braille_keyboard_gestures">Braille klavyesi hareketleri</string>
+    <string name="braille_keyboard_strip_button">Dokunmatik ekranlı klavyeye geç</string>
+    <string name="braille_keyboard_strip_summary">Harici bir braille ekran bağlı. Bu ekranı kullanarak bu cihaza metin yazabilirsiniz.\nBunun yerine dokunmatik ekranlı braille klavyeye veya sonraki giriş yöntemine de geçebilirsiniz.</string>
+    <string name="braille_tutorial_title">Braille klavye eğitimi</string>
+    <string name="bring_ime_settings_page">Başka etkin klavye yok, klavye ayarlarına gidin</string>
+    <string name="buttons_rect_bottom_center">Alt</string>
+    <string name="buttons_rect_bottom_left">Sol alt</string>
+    <string name="buttons_rect_bottom_right">Sağ alt</string>
+    <string name="buttons_rect_left_bottom">Alt, sol yan</string>
+    <string name="buttons_rect_left_center">Sol orta</string>
+    <string name="buttons_rect_left_top">Üst, sol yan</string>
+    <string name="buttons_rect_right_bottom">Alt, sağ yan</string>
+    <string name="buttons_rect_right_center">Sağ orta</string>
+    <string name="buttons_rect_right_top">Üst, sağ yan</string>
+    <string name="buttons_rect_top_center">Üst</string>
+    <string name="buttons_rect_top_left">Sol üst</string>
+    <string name="buttons_rect_top_right">Sağ üst</string>
+    <string name="buttons_round_bottom_center">Alt</string>
+    <string name="buttons_round_bottom_left">Sol alt</string>
+    <string name="buttons_round_bottom_left_lower">Sol alt, aşağı</string>
+    <string name="buttons_round_bottom_left_upper">Sol alt, yukarı</string>
+    <string name="buttons_round_bottom_right">Sağ alt</string>
+    <string name="buttons_round_bottom_right_lower">Sağ alt, aşağı</string>
+    <string name="buttons_round_bottom_right_upper">Sağ alt, yukarı</string>
+    <string name="buttons_round_center_left">Sol orta</string>
+    <string name="buttons_round_center_right">Sağ orta</string>
+    <string name="buttons_round_top_center">Üst</string>
+    <string name="buttons_round_top_left">Sol üst</string>
+    <string name="buttons_round_top_left_lower">Sol üst, aşağı</string>
+    <string name="buttons_round_top_left_upper">Sol üst, yukarı</string>
+    <string name="buttons_round_top_right">Sağ üst</string>
+    <string name="buttons_round_top_right_lower">Sağ üst, aşağı</string>
+    <string name="buttons_round_top_right_upper">Sağ üst, yukarı</string>
+    <string name="calibration_fail_announcement">Nokta konumu güncellenemedi. 6 parmağınızla ekrana dokunup basılı tutun. Daha sonra tekrar deneyin.</string>
+    <string name="calibration_finish_announcement">Nokta konumu güncellendi</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Nokta konumu güncelleniyor. İlk olarak sol elinizle dokunacağınız noktaları kaydedelim. Sol elinizin ortadaki 3 parmağıyla ekrana dokunup basılı tutun.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Nokta konumu güncelleniyor. İkl olarak sağ elinizle dokunacağınız noktaları kaydedelim. Sağ elinizin ortadaki 3 parmağıyla ekrana dokunup basılı tutun.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">Nokta 1, 2 ve 3 için güncellenen konumlar. Şimdi, sol elinizle dokunacağınız noktaları kaydedelim. Sol elinizin ortadaki 3 parmağıyla ekrana dokunup basılı tutun.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">Nokta 1, 2 ve 3 için güncellenen konumlar. Şimdi, sağ elinizle dokunacağınız noktaları kaydedelim. Sağ elinizin ortadaki 3 parmağıyla ekrana dokunup basılı tutun.</string>
+    <string name="capitalize_announcement">Büyük harf</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Girilen karakter: %1$d / %2$d</string>
+    <string name="character_counter_overflowed_content_description">Karakter sınırı aşıldı %1$d / %2$d</string>
+    <string name="clear_text_end_icon_content_description">Metni temizle</string>
+    <string name="code_user_facing_name_ar">Arapça</string>
+    <string name="code_user_facing_name_es">İspanyolca</string>
+    <string name="code_user_facing_name_fr">Fransızca</string>
+    <string name="code_user_facing_name_pl">Lehçe</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille (Kısaltılmamış)</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille (Kısaltılmış)</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Etkinleştir</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play hizmetlerini etkinleştirmezseniz %1$s çalışmaz.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play hizmetlerini etkinleştirin</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Yükle</string>
+    <string name="common_google_play_services_install_text">%1$s, şu anda cihazınızda bulunmayan Google Play hizmetleri olmadan çalışmaz.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play hizmetlerini edinin</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play hizmetlerinin kullanılabilirliği</string>
+    <string name="common_google_play_services_notification_ticker">Google Play Hizmetleri hatası</string>
+    <string name="common_google_play_services_unknown_issue">%1$s, Google Play hizmetleriyle ilgili sorun yaşıyor. Lütfen tekrar deneyin.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s, Google Play hizmetleri olmadan çalışmaz ve bu hizmetler cihazınız tarafından desteklenmiyor.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Güncelle</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play hizmetlerini güncellemezseniz %1$s çalışmayacak.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play hizmetlerini güncelleyin</string>
+    <string name="common_google_play_services_updating_text">%1$s, şu anda güncellenmekte olan Google Play hizmetleri olmadan çalışmaz.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play hizmetlerinin yeni sürümü gerekiyor. Kendisini kısa süre içinde güncelleyecektir.</string>
+    <string name="common_open_on_phone">Telefonda aç</string>
+    <string name="common_signin_button_text">Oturum aç</string>
+    <string name="common_signin_button_text_long">Google\'da oturum aç</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Başarısız"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Telefonunuzda açıldı"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Başarılı"</string>
+    <string name="context_menu_input_language_selection">Bir sonraki dile geç: %s</string>
+    <string name="context_menu_input_language_selection_summary">Şu anda kullanılan: %s</string>
+    <string name="context_menu_layout_selection">Düzen</string>
+    <string name="context_menu_see_all_gestures_selection">Tüm hareketleri incele</string>
+    <string name="context_menu_settings_selection">Ayarlar</string>
+    <string name="context_menu_title">Braille klavye seçenekleri</string>
+    <string name="context_menu_tutorial_finish">Eğitimi bitir</string>
+    <string name="context_menu_tutorial_selection">Eğitimi aç</string>
+    <string name="continue_tutorial_announcement">Eğitime devam edelim. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Kopyala"</string>
+    <string name="dismiss_overlay_button_label">Çık</string>
+    <string name="done">Bitti</string>
+    <string name="dont_show_again">Bunu bir daha gösterme</string>
+    <string name="error_icon_content_description">Hata</string>
+    <string name="exit_scrim">Çıkış</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Gelişmiş"</string>
+    <string name="exposed_dropdown_menu_content_description">Açılır menüyü göster</string>
+    <string name="finish_tutorial_announcement">Braille klavye gösteriliyor. Telefonunuzu ekranı size dönük olmayacak şekilde çevirin. Telefonu döndürerek yatay konuma getirin. Ardından yazmaya başlayın.</string>
+    <string name="function_off">Sözlü geri bildirim kapalı</string>
+    <string name="function_on">Sözlü geri bildirim etkin</string>
+    <string name="generic_cancel">İptal</string>
+    <string name="generic_yes">Evet</string>
+    <string name="gesture_add_space"><b>Boşluk</b> eklemek için ekranı sağa kaydırın</string>
+    <string name="gesture_delete"><b>Silmek</b> için ekranı sola kaydırın</string>
+    <string name="gesture_delete_word"><b>Kelime silmek</b> için 2 parmağınızla ekranı sola kaydırın</string>
+    <string name="gesture_hide_keyboard"><b>Klavyeyi gizlemek</b> için 2 parmağınızla ekranı aşağı kaydırın.</string>
+    <string name="gesture_move_cursor_backward"><b>İmleci geri taşımak</b> için yukarı kaydırın</string>
+    <string name="gesture_move_cursor_forward"><b>Metinde imleci ileri taşımak</b> için aşağı kaydırın</string>
+    <string name="gesture_new_line"><b>Yeni satır</b> eklemek için 2 parmağınızla ekranı sağa kaydırın</string>
+    <string name="gesture_next_keyboard"><b>Sonraki klavyeye</b> geçmek için 3 parmağınızla ekranı aşağı kaydırın</string>
+    <string name="gesture_open_context_menu"><b>Yardım ve diğer seçenekler</b> için 3 parmağınızla ekranı yukarı kaydırın</string>
+    <string name="gesture_submit_text"><b>Metni göndermek</b> için 2 parmağınızla ekranı yukarı kaydırın</string>
+    <string name="granularity_character">Karakter</string>
+    <string name="granularity_default">Varsayılan</string>
+    <string name="granularity_line">Satır</string>
+    <string name="granularity_native_control">Kontroller</string>
+    <string name="granularity_native_heading">Başlıklar</string>
+    <string name="granularity_native_link">Bağlantılar</string>
+    <string name="granularity_paragraph">Paragraf</string>
+    <string name="granularity_pseudo_web_special_content">Özel içerik</string>
+    <string name="granularity_web_control">Denetimler</string>
+    <string name="granularity_web_heading">Başlıklar</string>
+    <string name="granularity_web_landmark">Önemli yerler</string>
+    <string name="granularity_web_link">Bağlantılar</string>
+    <string name="granularity_web_list">Listeler</string>
+    <string name="granularity_window">Windows</string>
+    <string name="granularity_word">Kelime</string>
+    <string name="hide_keyboard_window">klavye gizli</string>
+    <string name="hold_six_fingers_announcement">%s\nCihazınızı düz bir şekilde masanın üzerine koyun. Ardından yazmak için rahat bir pozisyonda her iki elinizin ortadaki 3 parmağıyla ekrana dokunup basılı tutun.</string>
+    <string name="hold_six_fingers_description">Braille klavyesinde normal TalkBack hareketlerini kullanamazsınız.\n\nBaşlamak için yazarken kullanacağınız 6 Braille noktasının konumunu ayarlayalım.</string>
+    <string name="hold_six_fingers_inactive_announcement">Cihazınızı düz bir şekilde masanın üzerine koyun. Ardından yazmak için rahat bir pozisyonda her iki elinizin ortadaki 3 parmağıyla ekrana dokunup basılı tutun.</string>
+    <string name="how_to_use_braille_keyboard">Braille klavyesinin kullanımı</string>
+    <string name="icon_content_description">İletişim kutusu simgesi</string>
+    <string name="input_view_caption">TalkBack braille klavye; yardım için g.co/help/braille adresini ziyaret edin</string>
+    <string name="instruction_swipe_down">Metinde imleci ileri taşımak için aşağı kaydırın</string>
+    <string name="instruction_swipe_down_2_fingers">Klavyeyi gizlemek için 2 parmağınızla ekranı aşağı kaydırın</string>
+    <string name="instruction_swipe_down_3_fingers">Diğer klavyenize geçmek için 3 parmağınızla ekranı aşağı kaydırın</string>
+    <string name="instruction_swipe_left">Bir harfi silmek için ekranı sola kaydırın</string>
+    <string name="instruction_swipe_right">Boşluk eklemek için ekranı sağa kaydırın</string>
+    <string name="instruction_swipe_up">İmleci geri taşımak için yukarı kaydırın</string>
+    <string name="instruction_swipe_up_3_fingers">Eğitimi bitirmek için 3 parmağınızla ekranı yukarı kaydırın</string>
+    <string name="instruction_type_letter_a">\"A\" harfini yazmak için sol işaret parmağınızla 1. noktaya dokunun</string>
+    <string name="instruction_type_letter_bcd">Sonra B, C ve D harflerini yazmayı deneyin</string>
+    <string name="item_view_role_description">Sekme</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Yeni bir kısayol ayarlamak için %1$s değiştirici tuşu ile birlikte tuş bileşimine basın.</string>
+    <string name="keycombo_assign_dialog_instruction">Yeni kısayolu ayarlamak için tuş bileşimine basın. En azından ALT veya Control tuşunu içermelidir.</string>
+    <string name="keycombo_key_arrow_down">Aşağı Ok</string>
+    <string name="keycombo_key_arrow_left">Sol Ok</string>
+    <string name="keycombo_key_arrow_right">Sağ Ok</string>
+    <string name="keycombo_key_arrow_up">Yukarı Ok</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Arama</string>
+    <string name="keycombo_key_modifier_shift">Üst Karakter</string>
+    <string name="keycombo_unassigned">Atanmamış</string>
+    <string name="leave_keyboard">Braille klavyeden çık</string>
+    <string name="material_clock_toggle_content_description">ÖÖ veya ÖS\'yi seçin</string>
+    <string name="material_hour_selection">Saat seçin</string>
+    <string name="material_hour_suffix">Saat %1$s</string>
+    <string name="material_minute_selection">Dakikayı seçin</string>
+    <string name="material_minute_suffix">%1$s dakika</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Zaman girişi için saat moduna geçin.</string>
+    <string name="material_timepicker_hour">Saat</string>
+    <string name="material_timepicker_minute">Dakika</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Zamanı seçin</string>
+    <string name="material_timepicker_text_input_mode_description">Zaman girişi için metin girişi moduna geçin.</string>
+    <string name="mtrl_badge_numberless_content_description">Yeni bildirim</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s içeriğini kaldır</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d adetten fazla yeni bildirim</string>
+    <string name="mtrl_picker_a11y_next_month">Sonraki aya değiştir</string>
+    <string name="mtrl_picker_a11y_prev_month">Önceki aya değiştir</string>
+    <string name="mtrl_picker_announce_current_selection">Geçerli seçim: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Tarih Seçin</string>
+    <string name="mtrl_picker_date_header_unselected">Seçilen tarih</string>
+    <string name="mtrl_picker_day_of_week_column_header">Gün sütunu: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Geçersiz biçim.</string>
+    <string name="mtrl_picker_invalid_format_example">Örnek: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Tarih biçimi: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Geçersiz aralık.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s yılına git</string>
+    <string name="mtrl_picker_out_of_range">İzin verilen aralığın dışında: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Başlangıç tarihi – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Bitiş tarihi</string>
+    <string name="mtrl_picker_range_header_selected">%1$s-%2$s</string>
+    <string name="mtrl_picker_range_header_title">Aralık Seçin</string>
+    <string name="mtrl_picker_range_header_unselected">Başlangıç tarihi - Bitiş tarihi</string>
+    <string name="mtrl_picker_save">Kaydet</string>
+    <string name="mtrl_picker_text_input_date_hint">Tarih</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Bitiş tarihi</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Başlangıç tarihi</string>
+    <string name="mtrl_picker_text_input_day_abbr">g</string>
+    <string name="mtrl_picker_text_input_month_abbr">a</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Takvim giriş moduna geç</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Gün seçmeye geçmek için dokunun</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Metin giriş moduna geç</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Yıl seçmeye geçmek için dokunun</string>
+    <string name="multiple_languages_braille_ime_displayed_name">braille klavye, %s</string>
+    <string name="navigation_drawer_content_description">Gezinme çekmecesi</string>
+    <string name="next_keyboard">Sonraki klavye</string>
+    <string name="next_step">Sonraki</string>
+    <string name="not_enough_touch_points_dialog_message">Cihazınız yeterince temas noktası desteklemiyor. Daha fazla bilgi için cihazınızın üreticisiyle iletişime geçin.</string>
+    <string name="not_enough_touch_points_dialog_title">Cihazınız braille klavyeyi desteklemiyor</string>
+    <string msgid="478774118347071097" name="not_set">"Ayarlanmadı"</string>
+    <string name="number_announcement">Sayı</string>
+    <string name="open_context_menu_announcement">Seçenekler menüsü açıldı. Telefonunuzu kendinize doğru çevirip normal bir şekilde tutun. Artık gezinmek için normal TalkBack hareketlerini kullanabilirsiniz. Diğer seçenekleri görmek için sağa kaydırın.</string>
+    <string name="password_toggle_content_description">Şifreyi göster</string>
+    <string name="perform_action_next">Sonraki</string>
+    <string name="perform_action_submitting">Metin gönderiliyor</string>
+    <string name="perform_add_new_line_announcement">Yeni satır eklendi</string>
+    <string name="perform_add_space_announcement">Boşluk</string>
+    <string name="perform_delete_letter_announcement">Harf silindi</string>
+    <string name="perform_delete_word_announcement">Kelime silindi</string>
+    <string name="perform_hide_keyboard_announcement">Klavyeyi gizle</string>
+    <string name="perform_submit_text_announcement">Metin gönder</string>
+    <string name="perform_switch_keyboard_announcement">Klavye değiştir</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" panoya kopyalandı."</string>
+    <string name="preferred_language_title">Tercih edilen dil</string>
+    <string name="read_out_deleted">%s silindi</string>
+    <string name="remaining_calibration_finish_announcement">Tüm nokta konumları güncellendi</string>
+    <string name="reminder_announcement">Diğer seçenekler için 3 parmağınızla ekranı yukarı doğru kaydırın</string>
+    <string name="result_swipe_down">İMLEÇ İLERİ TAŞINDI</string>
+    <string name="result_swipe_down_2_fingers">KLAVYEYİ GİZLE</string>
+    <string name="result_swipe_down_3_fingers">SONRAKİ KLAVYE</string>
+    <string name="result_swipe_left">SİL</string>
+    <string name="result_swipe_right">BOŞLUK</string>
+    <string name="result_swipe_up">İMLEÇ GERİ TAŞINDI</string>
+    <string name="rotate_orientation_announcement">Şu andan itibaren normal TalkBack hareketlerini kullanamayacaksınız. Braille klavye kullanılırken TalkBack kullanılamaz.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">Telefonunuz dikey konumda. Devam etmek için telefonunuzu uzun kenarı aşağı gelecek şekilde yatay yönde döndürün. Ardından ekranı size dönük olmayacak şekilde çevirin. Hazır olduğunuzda devam etmek için ekrana iki kez dokunun.</string>
+    <string name="rotate_orientation_description_1">Şu andan itibaren normal TalkBack hareketlerini kullanamayacaksınız. Braille klavye kullanılırken TalkBack kullanılamaz.</string>
+    <string name="rotate_orientation_description_2">Başlamak için telefonunuzu ekranı size dönük olmayacak şekilde, gösterildiği gibi tutun.</string>
+    <string name="rotate_orientation_inactive_announcement">Önce telefonunuzu ekranı size dönük olmayacak şekilde çevirin.\n\nSonra telefonu döndürerek yatay konuma getirin. Ellerinizle telefonu kısa kenarlarından tutuyor olmanız gerekir. Sağ eliniz USB bağlan noktasının olduğu ucu tutuyor olmalıdır. Küçük parmağınız ve başparmağınızla telefonu tutarken ortadaki üç parmağınızı ekrana koyun.\n\nHazır olduğunuzda devam etmek için ekrana iki kez dokunun.\n\nBraille klavyeden çıkmak için 3 parmağınızla ekranı yere doğru, aşağı yönde kaydırın. Bu hareket sizi orijinal klavyenize döndürür.</string>
+    <string name="screen_away">Ekran karşıda modu</string>
+    <string name="screen_away_detail">Cihazı, ekranı size dönük olmayacak şekilde tutun (ekran karşıda modu)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Ara"</string>
+    <string name="set_up_braille_keyboard">Braille klavyesini kurun</string>
+    <string name="show_keyboard_window">%1$s gösteriliyor</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Bir nokta diğer noktalardan önce yayınlansa bile sıkıştırılmış her nokta, girişin bir parçasıdır</string>
+    <string name="summary_pref_reverse_dots">Nokta konumlarını, örneğin 1 ve 4. noktayı birbirlerinin yerine geçecek şekilde değiştirebilirsiniz</string>
+    <string name="swipe_down_2_fingers_announcement">Klavyeyi gizlemek için 2 parmağınızla ekranı aşağı kaydırın. Şimdi deneyin.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Klavyeyi gizle. Genellikle bu işlem, klavyenin gizlenmesini sağlar. Hâlâ eğitimde olduğunuz için braille klavye açık kalmaya devam ediyor.</string>
+    <string name="swipe_down_3_fingers_announcement">Diğer klavyenize geçmek için 3 parmağınızla ekranı aşağı kaydırın. Şimdi deneyin.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Sonraki klavye. Genellikle bu işlem, sonraki klavyeye geçilmesini sağlar. Hâlâ eğitimde olduğunuz için şu anda braille klavyede kalmaya devam ediyorsunuz.</string>
+    <string name="swipe_down_announcement">Metinde imleci ileri taşımak için aşağı kaydırın. Şimdi deneyin.</string>
+    <string name="swipe_left_action_result_announcement">d silindi.</string>
+    <string name="swipe_left_announcement">Bir harfi silmek için ekranı sola kaydırın. Şimdi deneyin.</string>
+    <string name="swipe_right_announcement">Boşluk eklemek için ekranı sağa kaydırın. Şimdi deneyin.</string>
+    <string name="swipe_up_3_fingers_announcement">Telefonunuzu masanın üzerine düz bir şekilde koyarak masa üstünde modunda da yazabilirsiniz. Eğitimi bitirmek için 3 parmağınızla ekranı sağa kaydırıp eğitimi bitir seçeneğini bulun</string>
+    <string name="swipe_up_announcement">İmleci geri taşımak için yukarı kaydırın. Şimdi deneyin.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Braille klavye ile yazarken dilinizi değiştirmek için 3 parmağınızla yukarı kaydırın. Ardından \"bir sonraki dile geç\"i seçin.</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Yazarken dili hızlıca değiştirme</string>
+    <string name="switch_to_language_announcement">%s diline geçildi</string>
+    <string name="switch_to_screen_away_announcement">Ekran karşıda modu</string>
+    <string name="switch_to_tabletop_announcement">Masa üstünde modu. Cihazınızı, şarj noktası sol tarafa gelecek şekilde koyun. Nokta konumunu güncellemek için 6 parmağınızla ekranı basılı tutun.</string>
+    <string name="symbol_almost_equals">Yaklaşık</string>
+    <string name="symbol_ampersand">Ve işareti</string>
+    <string name="symbol_angle_bracket_left">Küçüktür işareti</string>
+    <string name="symbol_angle_bracket_right">Büyüktür işareti</string>
+    <string name="symbol_apostrophe">Kesme işareti</string>
+    <string name="symbol_approximately_equals">Yaklaşık olarak eşit</string>
+    <string name="symbol_asterisk">Yıldız işareti</string>
+    <string name="symbol_at_sign">Kuyruklu a</string>
+    <string name="symbol_backslash">Ters eğik çizgi</string>
+    <string name="symbol_beamed_sixteenth_note">Çizgili onaltılık notalar</string>
+    <string name="symbol_black_circle">Siyah daire</string>
+    <string name="symbol_black_heart">Siyah Kalp</string>
+    <string name="symbol_black_smallsquare">Küçük siyah kare</string>
+    <string name="symbol_black_square">Siyah kare</string>
+    <string name="symbol_black_star">Siyah yıldız</string>
+    <string name="symbol_black_suit_of_diamonds">Siyah karo</string>
+    <string name="symbol_black_triangle_pointing_down">Aşağıyı gösteren siyah üçgen</string>
+    <string name="symbol_black_triangle_pointing_up">Yukarıyı gösteren siyah üçgen</string>
+    <string name="symbol_broken_bar">Kesik çubuk</string>
+    <string name="symbol_bullet">Madde işareti</string>
+    <string name="symbol_bullseye">Hedefin ortası</string>
+    <string name="symbol_caret">Düzeltme işareti</string>
+    <string name="symbol_celsius_degree">Santigrat derece</string>
+    <string name="symbol_cent">Sent simgesi</string>
+    <string name="symbol_circle_left_half_black">Sol yarısı siyah daire</string>
+    <string name="symbol_circle_right_half_black">Sağ yarısı siyah daire</string>
+    <string name="symbol_colon">İki Nokta</string>
+    <string name="symbol_comma">Virgül</string>
+    <string name="symbol_copyright">Telif hakkı</string>
+    <string name="symbol_curly_bracket_left">Sol kıvrık ayraç</string>
+    <string name="symbol_curly_bracket_right">Sağ kıvrık ayraç</string>
+    <string name="symbol_currency_sign">Para birimi işareti</string>
+    <string name="symbol_degree">Derece işareti</string>
+    <string name="symbol_division">Bölme işareti</string>
+    <string name="symbol_dollar_sign">Dolar işareti</string>
+    <string name="symbol_downwards_arrow">Aşağı Ok</string>
+    <string name="symbol_eighth_note">Sekizlik Nota</string>
+    <string name="symbol_ellipsis">Üç nokta</string>
+    <string name="symbol_em_dash">Uzun çizgi</string>
+    <string name="symbol_en_dash">Orta çizgi</string>
+    <string name="symbol_equal">Eşit işareti</string>
+    <string name="symbol_euro">Avro işareti</string>
+    <string name="symbol_exclamation_mark">Ünlem işareti</string>
+    <string name="symbol_fahrenheit_degree">Fahrenhayt derece</string>
+    <string name="symbol_female">Kadın sembolü</string>
+    <string name="symbol_full_width_ampersand">Tam genişlikte \"ve\" işareti</string>
+    <string name="symbol_full_width_asterisk">Tam genişlikte yıldız işareti</string>
+    <string name="symbol_full_width_circumflex">Tam genişlikte inceltme işareti</string>
+    <string name="symbol_full_width_colon">Tam genişlikte iki nokta üst üste</string>
+    <string name="symbol_full_width_comma">Tam genişlikte virgül</string>
+    <string name="symbol_full_width_exclamation_mark">Tam genişlikte ünlem işareti</string>
+    <string name="symbol_full_width_greater_than_sign">Tam genişlikte büyüktür işareti</string>
+    <string name="symbol_full_width_ideographic_full_stop">İdeogram tam nokta</string>
+    <string name="symbol_full_width_left_curly_bracket">Tam genişlikte sol kıvrık ayraç</string>
+    <string name="symbol_full_width_left_parenthesis">Tam genişlikte sol parantez</string>
+    <string name="symbol_full_width_less_than_sign">Tam genişlikte küçüktür işareti</string>
+    <string name="symbol_full_width_question_mark">Tam genişlikte soru işareti</string>
+    <string name="symbol_full_width_right_curly_bracket">Tam genişlikte sağ kıvrık ayraç</string>
+    <string name="symbol_full_width_right_parenthesis">Tam genişlikte sağ parantez</string>
+    <string name="symbol_full_width_semicolon">Tam genişlikte noktalı virgül</string>
+    <string name="symbol_full_width_tilde">Tam genişlikte tilde işareti</string>
+    <string name="symbol_full_width_underscore">Tam genişlikte alt çizgi</string>
+    <string name="symbol_grave_accent">Aksan işareti</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Yarım Genişlikte Katakana orta nokta</string>
+    <string name="symbol_hyphen_minus">Kısa çizgi</string>
+    <string name="symbol_ideographic_comma">İdeogram virgül</string>
+    <string name="symbol_integral">İntegral</string>
+    <string name="symbol_inverted_exclamation_mark">Ters ünlem işareti</string>
+    <string name="symbol_inverted_question_mark">Ters soru işareti</string>
+    <string name="symbol_left_angle_bracket">Sol çift açılı ayraç</string>
+    <string name="symbol_left_black_lenticular_bracket">Siyah Mercek Biçiminde Sol Ayraç</string>
+    <string name="symbol_left_corner_bracket">Sol Köşe Ayraç</string>
+    <string name="symbol_left_double_quotation_mark">Sol çift tırnak işareti</string>
+    <string name="symbol_left_single_quotation_mark">Sol tek tırnak işareti</string>
+    <string name="symbol_leftwards_arrow">Sol ok</string>
+    <string name="symbol_liter">Litre</string>
+    <string name="symbol_low_double_quote">Alt çift tırnak</string>
+    <string name="symbol_male">Erkek sembolü</string>
+    <string name="symbol_mathematical_left_angle_bracket">Matematiksel sol açılı ayraç</string>
+    <string name="symbol_mathematical_right_angle_bracket">Matematiksel sağ açılı ayraç</string>
+    <string name="symbol_micro_sign">Mikro işareti</string>
+    <string name="symbol_middle_dot">Orta nokta</string>
+    <string name="symbol_multiplication">Çarpma işareti</string>
+    <string name="symbol_new_line">Yeni satır</string>
+    <string name="symbol_not_equals">Eşit değildir</string>
+    <string name="symbol_not_sign">Değil işareti</string>
+    <string name="symbol_paragraph_mark">Paragraf işareti</string>
+    <string name="symbol_parenthesis_left">Sol parantez</string>
+    <string name="symbol_parenthesis_right">Sağ parantez</string>
+    <string name="symbol_percent">Yüzde</string>
+    <string name="symbol_period">Nokta</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Artı eksi işareti</string>
+    <string name="symbol_postal_mark">Posta işareti</string>
+    <string name="symbol_pound">Kare</string>
+    <string name="symbol_pound_sterling">Sterlin para birimi simgesi</string>
+    <string name="symbol_quarter_note">Çeyrek Nota</string>
+    <string name="symbol_question_mark">Soru işareti</string>
+    <string name="symbol_quotation_mark">Tırnak</string>
+    <string name="symbol_reference">Referans İşareti</string>
+    <string name="symbol_registered_trademark">Tescilli ticari marka</string>
+    <string name="symbol_right_angle_bracket">Sağ çift açılı ayraç</string>
+    <string name="symbol_right_black_lenticular_bracket">Siyah Mercek Biçiminde Sağ Ayraç</string>
+    <string name="symbol_right_corner_bracket">Sağ Köşe Ayraç</string>
+    <string name="symbol_right_double_quotation_mark">Sağ çift tırnak işareti</string>
+    <string name="symbol_right_single_quotation_mark">Sağ tek tırnak işareti</string>
+    <string name="symbol_rightwards_arrow">Sağ Ok</string>
+    <string name="symbol_rupee">Rupi</string>
+    <string name="symbol_section_sign">Bölüm işareti</string>
+    <string name="symbol_semicolon">Noktalı virgül</string>
+    <string name="symbol_slash">Eğik çizgi</string>
+    <string name="symbol_solar">Güneş sembolü</string>
+    <string name="symbol_space">Boşluk</string>
+    <string name="symbol_square_bracket_left">Sol köşeli ayraç</string>
+    <string name="symbol_square_bracket_right">Sağ köşeli ayraç</string>
+    <string name="symbol_square_root">Karekök</string>
+    <string name="symbol_tilde">Yaklaşık işareti</string>
+    <string name="symbol_trademark">Ticari marka</string>
+    <string name="symbol_underscore">Alt çizgi</string>
+    <string name="symbol_upwards_arrow">Yukarı ok</string>
+    <string name="symbol_vertical_bar">Dikey çizgi</string>
+    <string name="symbol_white_circle">Beyaz daire</string>
+    <string name="symbol_white_club_suit">Beyaz ispati grubu</string>
+    <string name="symbol_white_diamond">Beyaz karo</string>
+    <string name="symbol_white_down_pointing_triangle">Aşağı gösteren beyaz üçgen</string>
+    <string name="symbol_white_heart">Beyaz Kalp</string>
+    <string name="symbol_white_left_pointing_index">Solu gösteren beyaz işaret parmağı</string>
+    <string name="symbol_white_left_pointing_triangle">Solu gösteren beyaz üçgen</string>
+    <string name="symbol_white_right_pointing_index">Sağı gösteren beyaz işaret parmağı</string>
+    <string name="symbol_white_right_pointing_triangle">Sağı gösteren beyaz üçgen</string>
+    <string name="symbol_white_spade_suit">Beyaz maça grubu</string>
+    <string name="symbol_white_square">Beyaz kare</string>
+    <string name="symbol_white_star">Beyaz yıldız</string>
+    <string name="symbol_white_up_pointing_triangle">Yukarıyı gösteren beyaz üçgen</string>
+    <string name="symbol_won">Won para birimi simgesi</string>
+    <string name="symbol_won_sign">Won para birimi simgesi</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="tabletop">Masa üstünde modu</string>
+    <string name="tabletop_detail">Cihazı, düz bir şekilde masanın üzerine koyun (masa üstünde modu)</string>
+    <string name="talkback_off_dialog_positive_button">Erişilebilirlik ayarlarında aç</string>
+    <string name="talkback_off_dialog_title">Braille klavye kullanmak için TalkBack\'i açma</string>
+    <string name="talkback_off_or_suspend_dialog_message">TalkBack açıkken ekranınıza dokunarak braille sembolleri girebilirsiniz.</string>
+    <string name="talkback_suspend_dialog_title">Braille klavyesini kullanmak için TalkBack\'i devam ettirin</string>
+    <string name="tap_to_continue">Devam etmek için herhangi bir yere iki kez dokunun</string>
+    <string name="template_capital_letter">büyük harf %1$s</string>
+    <string name="template_current_tts_engine">%1$s kullanılıyor</string>
+    <string name="template_overlay_window">%1$s pencere içinde penceresi</string>
+    <string name="template_password_selected">%1$d. ile %2$d. arasındaki karakterler</string>
+    <string name="template_password_traversed">%1$d. karakter</string>
+    <string name="template_scroll_from_count">%2$d öğeden %1$d tanesi gösteriliyor.</string>
+    <string name="template_scroll_from_to_count">%3$d öğeden %1$d-%2$d arasındakiler gösteriliyor.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s solda, %2$s sağda</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s sağda, %2$s solda</string>
+    <string name="template_split_screen_mode_portrait">%1$s üstte, %2$s altta</string>
+    <string name="template_text_copied">kopyalandı, %1$s</string>
+    <string name="template_viewpager_index_count">Toplam %2$d sayfadan %1$d.</string>
+    <string name="template_viewpager_index_count_short">Toplam %2$d sayfadan %1$d.</string>
+    <string name="time_difference_now">Şimdi</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="title_pref_accumulate_presses">Tüm sıkıştırılmış noktaları dahil etme</string>
+    <string name="title_pref_reverse_dots">Noktaların yerini ters çevirme</string>
+    <string name="tutorial_intro_description">Braille klavye ile ekranınıza dokunarak 6 noktalı braille sembolleri girebilirsiniz\n\nUnified English Braille\'i kullanıyorsunuz. Kendi dilinize geçmek için TalkBack ayarlarına dönün.\n\nBraille dilinde yazmak için telefonu farklı bir şekilde tutup kullanmanız gerekiyor.</string>
+    <string name="type_letter_a_announcement">Ekranı size dönük olmayacak şekilde tutun. İki elinizle telefonunuzun kısa kenarlarından tutun. Her iki elinizin ortadaki üç parmağı da ekrana dokunabilecek konumda olsun.\n\nSol işaret parmağınız 1 noktanın üzerinde olmalıdır. Şimdi \"A\" harfini yazmak için 1 noktaya dokunun.</string>
+    <string name="type_letter_a_inactive_announcement">\"A\" yazmak için sol işaret parmağınızla 1 noktaya dokunun</string>
+    <string name="type_letter_inactive_announcement">%2$s harfini yazmak için %1$s noktaya dokunun</string>
+    <string name="typing_languages_title">Yazma dilleri</string>
+    <string name="untitled_window">başlıksız</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Ayarlar</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Braille klavyeyi açma&lt;/b>: Aşağıda Ayarlar\'a dokunun. Bir sonraki ekranda \"%1$s\" öğesini açın.
+    &lt;br>&lt;br>2. &lt;b>Braille klavyeyi kullanma&lt;/b>: Normal klavyenizi açın, ardından klavye seçme simgesine %2$s (genellikle sağ alt köşededir) dokunun. \"%1$s\" öğesini seçin.
+    &lt;br>&lt;br>Klavye değiştirme seçeneği görmüyorsanız %3$s, yani Google klavyeyi yüklemeyi deneyin.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Braille klavyeyi kullanmak için normal klavyenizi açın, ardından klavye seçme simgesine %1$s (genellikle sağ alt köşededir) dokunun. \"%2$s\" öğesini seçin.
+  &lt;br>&lt;br>Klavye değiştirme seçeneği görmüyorsanız %3$s, yani Google klavyeyi yüklemeyi deneyin.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"KAPALI"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"AÇIK"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"İşlem çekmecesi"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Gezinme çekmecesi"</string>
+</resources>

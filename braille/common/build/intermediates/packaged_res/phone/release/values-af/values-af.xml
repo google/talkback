@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">punt %s</item>
+    <item quantity="other">punte %s</item>
+  </plurals>
+    <string name="auto_detect">Pas aan by hoe jy die toestel vashou</string>
+    <string name="capitalize_announcement">Plafon</string>
+    <string name="code_user_facing_name_ar">Arabies</string>
+    <string name="code_user_facing_name_es">Spaans</string>
+    <string name="code_user_facing_name_fr">Frans</string>
+    <string name="code_user_facing_name_pl">Pools</string>
+    <string name="code_user_facing_name_ueb1">Verenigde Engelse Braille – nie verkort nie</string>
+    <string name="code_user_facing_name_ueb2">Verenigde Engelse Braille – verkort</string>
+    <string name="number_announcement">Getal</string>
+    <string name="read_out_deleted">%s is uitgevee</string>
+    <string name="screen_away">Skermwegmodus</string>
+    <string name="screen_away_detail">Hoe toestel met skerm weg van jou af (skermwegmodus)</string>
+    <string name="tabletop">Tafelbladmodus</string>
+    <string name="tabletop_detail">Sit toestel plat op \'n tafel neer (tafelbladmodus)</string>
+</resources>

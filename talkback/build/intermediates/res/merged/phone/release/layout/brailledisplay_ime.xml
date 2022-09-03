@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/braille_keyboard_background"
+    android:contentDescription="@string/braille_keyboard_strip_summary">
+  <TextView
+      android:id="@+id/title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:importantForAccessibility="no"
+      android:text="@string/braille_ime_service_name"
+      android:textAppearance="?android:attr/textAppearanceMediumInverse" />
+  <ImageView
+      android:id="@+id/dots_background"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
+      android:layout_below="@+id/title"
+      android:importantForAccessibility="no"
+      android:src="@drawable/dots_untapped" />
+  <TextView
+      android:id="@+id/summary"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/dots_background"
+      android:padding="20dp"
+      android:importantForAccessibility="no"
+      android:text="@string/braille_keyboard_strip_summary"
+      android:textColor="?android:attr/textColorSecondaryInverse" />
+  <TextView
+      android:id="@+id/switch_to_touch_screen_keyboard"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/summary"
+      android:focusable="true" android:padding="10dp"
+      android:layout_alignParentEnd="true"
+      android:clickable="true"
+      android:text="@string/braille_keyboard_strip_button"
+      android:textColor="?android:attr/textColorSecondaryInverse" />
+</RelativeLayout>

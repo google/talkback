@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d новае апавяшчэнне</item>
+    <item quantity="few">%d новыя апавяшчэнні</item>
+    <item quantity="many">%d новых апавяшчэнняў</item>
+    <item quantity="other">%d новага апавяшчэння</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">У %1$s паказваецца %2$d элемент.</item>
+    <item quantity="few">У %1$s паказваюцца %2$d элементы.</item>
+    <item quantity="many">У %1$s паказваецца %2$d элементаў.</item>
+    <item quantity="other">У %1$s паказваецца %2$d элемента.</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d слупок</item>
+    <item quantity="few">%1$d слупкі</item>
+    <item quantity="many">%1$d слупкоў</item>
+    <item quantity="other">%1$d слупка</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d радок</item>
+    <item quantity="few">%1$d радкі</item>
+    <item quantity="many">%1$d радкоў</item>
+    <item quantity="other">%1$d радка</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d элемент</item>
+    <item quantity="few">%1$d элементы</item>
+    <item quantity="many">%1$d элементаў</item>
+    <item quantity="other">%1$d элемента</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d сімвал</item>
+    <item quantity="few">%1$d сімвалы</item>
+    <item quantity="many">%1$d сімвалаў</item>
+    <item quantity="other">%1$d сімвала</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Перайсці на галоўную старонку"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Перайсці ўверх"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Дадатковыя параметры"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Гатова"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Паказаць усе"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Выберыце праграму"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ВЫКЛ."</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"УКЛ."</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Прабел"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Меню +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Пошук…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Выдаліць запыт"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Пошукавы запыт"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Пошук"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Адправіць запыт"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Галасавы пошук"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Абагуліць праз"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Абагуліць праз праграму \"<ns1:g id="APPLICATION_NAME">%s</ns1:g>\""</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Згарнуць"</string>
+    <string name="bottomsheet_action_expand_halfway">Разгарнуць напалову</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Уведзена сімвалаў: %1$d з %2$d</string>
+    <string name="character_counter_overflowed_content_description">Ліміт сімвалаў перавышаны: %1$d з %2$d</string>
+    <string name="clear_text_end_icon_content_description">Ачысціць тэкст</string>
+    <string name="column_heading_template">Загаловак слупка</string>
+    <string name="column_index_template">Слупок %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Уключыць</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s не будзе працаваць, пакуль вы не ўключыце службы Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Уключыць службы Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Усталяваць</string>
+    <string name="common_google_play_services_install_text">%1$s не будзе працаваць без службаў Google Play, якія адсутнічаюць на вашай прыладзе.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Атрымаць службы Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Даступнасць сэрвісаў Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Памылка службаў Google Play</string>
+    <string name="common_google_play_services_unknown_issue">У праграмы %1$s узніклі праблемы са службамі Google Play. Паўтарыце спробу.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s не будзе працаваць без службаў Google Play, якія не падтрымліваюцца вашай прыладай.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Абнавіць</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s не будзе працаваць, пакуль вы не абновіце службы Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Абнаўленне службаў Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s не будзе працаваць без службаў Google Play, якія ў цяперашні час абнаўляюцца.</string>
+    <string name="common_google_play_services_wear_update_text">Патрабуецца новая версія служб Google Play. Яна абновіцца аўтаматычна ў бліжэйшы час.</string>
+    <string name="common_open_on_phone">Адкрыць на тэлефоне</string>
+    <string name="common_signin_button_text">Увайсцi</string>
+    <string name="common_signin_button_text_long">Увайсці праз Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Памылка"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Адкрыта на тэлефоне"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Выканана"</string>
+    <string msgid="3209159573327985035" name="copy">"Капіраваць"</string>
+    <string name="detected_icon_description">Выяўлены значок: %1$s</string>
+    <string name="error_icon_content_description">Памылка</string>
+    <string name="exit_scrim">Выйсці</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Пашыраныя налады"</string>
+    <string name="exposed_dropdown_menu_content_description">Паказаць выпадное меню</string>
+    <string name="function_off">Галасавая зваротная сувязь выключана</string>
+    <string name="function_on">Галасавая зваротная сувязь уключана</string>
+    <string name="granularity_character">Сімвалы</string>
+    <string name="granularity_default">Стандартная</string>
+    <string name="granularity_line">Радкі</string>
+    <string name="granularity_native_control">Кіраванне</string>
+    <string name="granularity_native_heading">Загалоўкі</string>
+    <string name="granularity_native_link">Спасылкі</string>
+    <string name="granularity_paragraph">Абзацы</string>
+    <string name="granularity_pseudo_web_special_content">Спецыяльнае змесцiва</string>
+    <string name="granularity_web_control">Элементы кіравання</string>
+    <string name="granularity_web_heading">Загалоўкі</string>
+    <string name="granularity_web_landmark">Арыенціры</string>
+    <string name="granularity_web_link">Спасылкі</string>
+    <string name="granularity_web_list">Спісы</string>
+    <string name="granularity_window">Вокны</string>
+    <string name="granularity_word">Словы</string>
+    <string name="heading_template">Загаловак</string>
+    <string name="hide_keyboard_window">клавіятура схавана</string>
+    <string name="hint_suggestion">Прапануюцца варыянты арфаграфічных выпраўленняў.</string>
+    <string name="icon_content_description">Значок дыялогавага акна</string>
+    <string name="in_collection_role_description">Як \"%1$s\"</string>
+    <string name="in_collection_role_description_with_name">Як \"%1$s\" з калекцыі \"%2$s\"</string>
+    <string name="in_grid">У сетцы</string>
+    <string name="in_grid_pager">У межах сеткі старонкі</string>
+    <string name="in_grid_pager_with_name">У межах сеткі старонкі %1$s</string>
+    <string name="in_grid_with_name">У сетцы \"%1$s\"</string>
+    <string name="in_horizontal_pager">У межах гарызанталі старонкі</string>
+    <string name="in_horizontal_pager_with_name">У межах гарызанталі старонкі %1$s</string>
+    <string name="in_list">У спісе</string>
+    <string name="in_list_with_name">У спісе \"%1$s\"</string>
+    <string name="in_pager">У межах старонкі</string>
+    <string name="in_pager_with_name">У межах старонкі %1$s</string>
+    <string name="in_vertical_pager">У межах вертыкалі старонкі</string>
+    <string name="in_vertical_pager_with_name">У межах вертыкалі старонкі %1$s</string>
+    <string name="in_window_with_name">Акно \"%1$s\"</string>
+    <string name="item_view_role_description">Укладка</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Каб задаць новае спалучэнне клавіш, націсніце службовую клавішу %1$s у камбінацыі з патрэбнай клавішай.</string>
+    <string name="keycombo_assign_dialog_instruction">Націсніце спалучэнне клавіш, каб задаць новы шлях хуткага доступу. Адна з клавіш у спалучэнні павінна быць ALT або Ctrl.</string>
+    <string name="keycombo_key_arrow_down">Стрэлка ўніз</string>
+    <string name="keycombo_key_arrow_left">Стрэлка ўлева</string>
+    <string name="keycombo_key_arrow_right">Стрэлка ўправа</string>
+    <string name="keycombo_key_arrow_up">Стрэлка ўверх</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Пошук</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Не прызначана</string>
+    <string name="list_index_template">%1$d з %2$d</string>
+    <string name="material_clock_toggle_content_description">Выберыце AM (да паўдня) або PM (пасля паўдня)</string>
+    <string name="material_hour_selection">Выберыце гадзіну</string>
+    <string name="material_hour_suffix">%1$s гадз</string>
+    <string name="material_minute_selection">Выберыце хвіліны</string>
+    <string name="material_minute_suffix">%1$s хв</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Пераключыцца на рэжым гадзінніка пры ўводзе часу.</string>
+    <string name="material_timepicker_hour">Гадзіна</string>
+    <string name="material_timepicker_minute">Хвіліна</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Выберыце час</string>
+    <string name="material_timepicker_text_input_mode_description">Пераключыцца на рэжым тэксту пры ўводзе часу.</string>
+    <string name="mtrl_badge_numberless_content_description">Новае апавяшчэнне</string>
+    <string name="mtrl_chip_close_icon_content_description">Выдаліць %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Колькасць новых апавяшчэнняў перавысіла %1$d</string>
+    <string name="mtrl_picker_a11y_next_month">Перайсці да наступнага месяца</string>
+    <string name="mtrl_picker_a11y_prev_month">Перайсці да папярэдняга месяца</string>
+    <string name="mtrl_picker_announce_current_selection">Бягучае вылучэнне: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Выберыце дату</string>
+    <string name="mtrl_picker_date_header_unselected">Выбраная дата</string>
+    <string name="mtrl_picker_day_of_week_column_header">Слупок дзён: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Няправільны фармат.</string>
+    <string name="mtrl_picker_invalid_format_example">Прыклад: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Неабходны фармат: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Няправільны дыяпазон.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Перайсці ў %1$s год</string>
+    <string name="mtrl_picker_out_of_range">Па-за межамі дыяпазону: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Дата пачатку – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – дата заканчэння</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Выберыце дыяпазон дат</string>
+    <string name="mtrl_picker_range_header_unselected">Дата пачатку – дата заканчэння</string>
+    <string name="mtrl_picker_save">Захаваць</string>
+    <string name="mtrl_picker_text_input_date_hint">Дата</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Дата заканчэння</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Дата пачатку</string>
+    <string name="mtrl_picker_text_input_day_abbr">д</string>
+    <string name="mtrl_picker_text_input_month_abbr">м</string>
+    <string name="mtrl_picker_text_input_year_abbr">г</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Пераключыцца ў рэжым уводу \"Каляндар\"</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Дакраніцеся, каб пераключыцца на выбар дня</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Пераключыцца ў рэжым уводу \"Тэкст\"</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Дакраніцеся, каб пераключыцца на выбар года</string>
+    <string msgid="478774118347071097" name="not_set">"Не зададзена"</string>
+    <string name="notification_category_alarm">Будзільнік</string>
+    <string name="notification_category_call">Вас выклікаюць</string>
+    <string name="notification_category_email">Электронная пошта</string>
+    <string name="notification_category_err">Памылка</string>
+    <string name="notification_category_event">Падзея</string>
+    <string name="notification_category_msg">Паведамленне</string>
+    <string name="notification_category_progress">Ход працэсу</string>
+    <string name="notification_category_promo">Рэклама</string>
+    <string name="notification_category_service">Сэрвіс</string>
+    <string name="notification_category_social">Сацыяльныя</string>
+    <string name="notification_category_sys">Сістемны статус</string>
+    <string name="notification_category_transport">Кіраванне мультымедыя</string>
+    <string name="notification_type_beginning_of_field">Пачатак поля</string>
+    <string name="notification_type_end_of_field">Канец поля</string>
+    <string name="notification_type_selection_cleared">Вылучэнне ачышчана</string>
+    <string name="notification_type_selection_mode_off">Рэжым вылучэння адключаны</string>
+    <string name="notification_type_selection_mode_on">Рэжым вылучэння ўключаны</string>
+    <string name="ocr_text_description">Тэкст: %1$s</string>
+    <string name="orientation_landscape">Альбомная арыентацыя</string>
+    <string name="orientation_portrait">Кніжная арыентацыя</string>
+    <string name="out_of_grid">Не ў сетцы</string>
+    <string name="out_of_grid_pager">Па-за межамі сеткі старонкі</string>
+    <string name="out_of_grid_pager_with_name">Па-за межамі сеткі старонкі %1$s</string>
+    <string name="out_of_grid_with_name">Не ў сетцы \"%1$s\"</string>
+    <string name="out_of_horizontal_pager">Па-за межамі гарызанталі старонкі</string>
+    <string name="out_of_list">Не ў спісе</string>
+    <string name="out_of_list_with_name">Не ў спісе \"%1$s\"</string>
+    <string name="out_of_pager">Па-за межамі старонкі</string>
+    <string name="out_of_pager_with_name">Па-за межамі старонкі %1$s</string>
+    <string name="out_of_role_description">Не як \"%1$s\"</string>
+    <string name="out_of_role_description_with_name">Не як \"%1$s\" з калекцыі \"%2$s\"</string>
+    <string name="out_of_vertical_pager">Па-за межамі вертыкалі старонкі</string>
+    <string name="out_of_vertical_pager_with_name">Па-за межамі вертыкалі старонкі %1$s</string>
+    <string name="password_toggle_content_description">Паказаць пароль</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\": скапіравана ў буфер абмену."</string>
+    <string name="row_heading_template">Загаловак радка</string>
+    <string name="row_index_template">Радок %1$d</string>
+    <string name="screen_magnification_off">Павелічэнне выключана</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Пошук"</string>
+    <string name="show_keyboard_window">Паказ акна \"%1$s\"</string>
+    <string name="spokenfeedback_disabled">Галасавая зваротная сувязь адключана</string>
+    <string name="spokenfeedback_on">Галасавая зваротная сувязь уключана</string>
+    <string name="spokenfeedback_resumed">Галасавая зваротная сувязь адноўлена</string>
+    <string name="spokenfeedback_suspended">Галасавая зваротная сувязь прыпынена</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">Паролі прагаворваюцца толькі пры падключаных навушніках</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Амаль супадае з наступным:</string>
+    <string name="symbol_ampersand">Амперсанд</string>
+    <string name="symbol_angle_bracket_left">Знак \"менш за\"</string>
+    <string name="symbol_angle_bracket_right">Знак \"больш за\"</string>
+    <string name="symbol_apostrophe">Апостраф</string>
+    <string name="symbol_approximately_equals">Прыкладна роўна</string>
+    <string name="symbol_asterisk">Зорачка</string>
+    <string name="symbol_at_sign">Сабачка</string>
+    <string name="symbol_backslash">Зваротная касая рыса</string>
+    <string name="symbol_beamed_sixteenth_note">Згрупаваныя шаснаццатыя ноты</string>
+    <string name="symbol_black_circle">Чорны круг</string>
+    <string name="symbol_black_heart">Чорнае сэрца</string>
+    <string name="symbol_black_smallsquare">Маленькі чорны квадрат</string>
+    <string name="symbol_black_square">Чорны квадрат</string>
+    <string name="symbol_black_star">Чорная зорка</string>
+    <string name="symbol_black_suit_of_diamonds">Чорны алмаз</string>
+    <string name="symbol_black_triangle_pointing_down">Чорны трохвугольнік з вяршыняй уніз</string>
+    <string name="symbol_black_triangle_pointing_up">Чорны трохвугольнік з вяршыняй уверх</string>
+    <string name="symbol_broken_bar">Перарывістая рыса</string>
+    <string name="symbol_bullet">Пункт маркіраванага спіса</string>
+    <string name="symbol_bullseye">Аператар круг у крузе</string>
+    <string name="symbol_caret">Цыркумфлекс</string>
+    <string name="symbol_celsius_degree">Градус Цэльсія</string>
+    <string name="symbol_cent">Знак цэнта</string>
+    <string name="symbol_circle_left_half_black">Круг з чорнай левай паловай</string>
+    <string name="symbol_circle_right_half_black">Круг з чорнай правай паловай</string>
+    <string name="symbol_colon">Двукроп\'е</string>
+    <string name="symbol_comma">Коска</string>
+    <string name="symbol_copyright">Аўтарскія правы</string>
+    <string name="symbol_curly_bracket_left">Левая фігурная дужка</string>
+    <string name="symbol_curly_bracket_right">Правая фігурная дужка</string>
+    <string name="symbol_currency_sign">Знак валюты</string>
+    <string name="symbol_degree">Знак градуса</string>
+    <string name="symbol_division">Знак дзялення</string>
+    <string name="symbol_dollar_sign">Знак долара</string>
+    <string name="symbol_downwards_arrow">Стрэлка ўніз</string>
+    <string name="symbol_eighth_note">Восьмая нота</string>
+    <string name="symbol_ellipsis">Шматкроп\'е</string>
+    <string name="symbol_em_dash">Доўгі працяжнік</string>
+    <string name="symbol_en_dash">Працяжнік</string>
+    <string name="symbol_equal">Знак роўнасці</string>
+    <string name="symbol_euro">Еўра</string>
+    <string name="symbol_exclamation_mark">Клічнік</string>
+    <string name="symbol_fahrenheit_degree">Градус Фарэнгейта</string>
+    <string name="symbol_female">Жаночы знак</string>
+    <string name="symbol_full_width_ampersand">Амперсанд у поўную шырыню</string>
+    <string name="symbol_full_width_asterisk">Зорачка ў поўную шырыню</string>
+    <string name="symbol_full_width_circumflex">Цыркумфлекс у поўную шырыню</string>
+    <string name="symbol_full_width_colon">Двукоссе ў поўную шырыню</string>
+    <string name="symbol_full_width_comma">Коска ў поўную шырыню</string>
+    <string name="symbol_full_width_exclamation_mark">Клічнік у поўную шырыню</string>
+    <string name="symbol_full_width_greater_than_sign">Знак \"Больш чым\" у поўную шырыню</string>
+    <string name="symbol_full_width_ideographic_full_stop">Кропка для іерогліфаў</string>
+    <string name="symbol_full_width_left_curly_bracket">Левая фігурная дужка ў поўную шырыню</string>
+    <string name="symbol_full_width_left_parenthesis">Левая круглая дужка ў поўную шырыню</string>
+    <string name="symbol_full_width_less_than_sign">Знак \"Менш чым\" у поўную шырыню</string>
+    <string name="symbol_full_width_question_mark">Пытальнік у поўную шырыню</string>
+    <string name="symbol_full_width_right_curly_bracket">Правая фігурная дужка ў поўную шырыню</string>
+    <string name="symbol_full_width_right_parenthesis">Правая круглая дужка ў поўную шырыню</string>
+    <string name="symbol_full_width_semicolon">Кропка з коскай у поўную шырыню</string>
+    <string name="symbol_full_width_tilde">Тыльда ў поўную шырыню</string>
+    <string name="symbol_full_width_underscore">Падкрэсліванне ў поўную шырыню</string>
+    <string name="symbol_grave_accent">Гравіс</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Сярэдняя кропка катаканы ў палавінную шырыню</string>
+    <string name="symbol_hyphen_minus">Злучок</string>
+    <string name="symbol_ideographic_comma">Коска для іерогліфаў</string>
+    <string name="symbol_integral">Інтэграл</string>
+    <string name="symbol_inverted_exclamation_mark">Перавернуты клічнік</string>
+    <string name="symbol_inverted_question_mark">Перавернуты пытальнік</string>
+    <string name="symbol_left_angle_bracket">Левае двукоссе \"ялінкі\"</string>
+    <string name="symbol_left_black_lenticular_bracket">Левая чорная лінзападобная дужка</string>
+    <string name="symbol_left_corner_bracket">Дужка ў выглядзе левага кута</string>
+    <string name="symbol_left_double_quotation_mark">Левае двукоссе</string>
+    <string name="symbol_left_single_quotation_mark">Левае адзінарнае двукоссе \"лапка\"</string>
+    <string name="symbol_leftwards_arrow">Стрэлка ўлева</string>
+    <string name="symbol_liter">Літр</string>
+    <string name="symbol_low_double_quote">Нізкае двукоссе</string>
+    <string name="symbol_male">Мужчынскі знак</string>
+    <string name="symbol_mathematical_left_angle_bracket">Матэматычная левая вуглавая дужка</string>
+    <string name="symbol_mathematical_right_angle_bracket">Матэматычная правая вуглавая дужка</string>
+    <string name="symbol_micro_sign">Сімвал мікра</string>
+    <string name="symbol_middle_dot">Кропка ў цэнтры</string>
+    <string name="symbol_multiplication">Знак множання</string>
+    <string name="symbol_new_line">Новы радок</string>
+    <string name="symbol_not_equals">Не супадае з наступным:</string>
+    <string name="symbol_not_sign">Знак лагічнага адмаўлення</string>
+    <string name="symbol_paragraph_mark">Знак абзаца</string>
+    <string name="symbol_parenthesis_left">Левая дужка</string>
+    <string name="symbol_parenthesis_right">Правая дужка</string>
+    <string name="symbol_percent">Працэнт</string>
+    <string name="symbol_period">Кропка</string>
+    <string name="symbol_pi">Пі</string>
+    <string name="symbol_plus_minus_sign">Знак «плюс-мінус»</string>
+    <string name="symbol_postal_mark">Паштовы знак</string>
+    <string name="symbol_pound">Фунт</string>
+    <string name="symbol_pound_sterling">Знак фунта</string>
+    <string name="symbol_quarter_note">Чацвяртная нота</string>
+    <string name="symbol_question_mark">Пытальнік</string>
+    <string name="symbol_quotation_mark">Двукоссе</string>
+    <string name="symbol_reference">Знак зноскі</string>
+    <string name="symbol_registered_trademark">Зарэгістраваны таварны знак</string>
+    <string name="symbol_right_angle_bracket">Правае двукоссе \"ялінкі\"</string>
+    <string name="symbol_right_black_lenticular_bracket">Правая чорная лінзападобная дужка</string>
+    <string name="symbol_right_corner_bracket">Дужка ў выглядзе правага кута</string>
+    <string name="symbol_right_double_quotation_mark">Правае двукоссе</string>
+    <string name="symbol_right_single_quotation_mark">Правае адзінарнае двукоссе \"лапка\"</string>
+    <string name="symbol_rightwards_arrow">Стрэлка ўправа</string>
+    <string name="symbol_rupee">Рупія</string>
+    <string name="symbol_section_sign">Значок параграфа</string>
+    <string name="symbol_semicolon">Кропка з коскай</string>
+    <string name="symbol_slash">Касая рыса</string>
+    <string name="symbol_solar">Сонца</string>
+    <string name="symbol_space">Прабел</string>
+    <string name="symbol_square_bracket_left">Левая квадратная дужка</string>
+    <string name="symbol_square_bracket_right">Правая квадратная дужка</string>
+    <string name="symbol_square_root">Квадратны корань</string>
+    <string name="symbol_tilde">Тыльда</string>
+    <string name="symbol_trademark">Таварны знак</string>
+    <string name="symbol_underscore">Знак падкрэслення</string>
+    <string name="symbol_upwards_arrow">Стрэлка ўверх</string>
+    <string name="symbol_vertical_bar">Вертыкальная лінія</string>
+    <string name="symbol_white_circle">Незафарбаваны круг</string>
+    <string name="symbol_white_club_suit">Незафарбаваны сімвал трэфаў</string>
+    <string name="symbol_white_diamond">Незафарбаваны сімвал бубнаў</string>
+    <string name="symbol_white_down_pointing_triangle">Незафарбаваны трохвугольнік, які паказвае ўніз</string>
+    <string name="symbol_white_heart">Незафарбаваны сімвал чырваў</string>
+    <string name="symbol_white_left_pointing_index">Незафарбаваная рука, якая паказвае ўлева</string>
+    <string name="symbol_white_left_pointing_triangle">Незафарбаваны трохвугольнік, які паказвае ўлева</string>
+    <string name="symbol_white_right_pointing_index">Незафарбаваная рука, якая паказвае ўправа</string>
+    <string name="symbol_white_right_pointing_triangle">Незафарбаваны трохвугольнік, які паказвае ўправа</string>
+    <string name="symbol_white_spade_suit">Незафарбаваны сімвал пік</string>
+    <string name="symbol_white_square">Незафарбаваны квадрат</string>
+    <string name="symbol_white_star">Незафарбаваная зорка</string>
+    <string name="symbol_white_up_pointing_triangle">Незафарбаваны трохвугольнік, які паказвае ўверх</string>
+    <string name="symbol_won">Знак воны</string>
+    <string name="symbol_won_sign">Знак воны</string>
+    <string name="symbol_yen">Іена</string>
+    <string name="talkback_disabled">TalkBack адключаны</string>
+    <string name="talkback_on">TalkBack уключаны</string>
+    <string name="talkback_resumed">Праца TalkBack узноўлена</string>
+    <string name="talkback_suspended">Праца TalkBack прыпынена</string>
+    <string name="template_announce_selected_text">Вылучаны тэкст: %1$s</string>
+    <string name="template_capital_letter">вялікая літара %1$s</string>
+    <string name="template_collection_level">Узровень %1$d</string>
+    <string name="template_current_tts_engine">Выкарыстоўваецца %1$s</string>
+    <string name="template_custom_hint_for_actions">%1$s, каб %2$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">Націсніце %1$s, каб %2$s.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s і ўтрымлівайце, каб %2$s.</string>
+    <string name="template_drawer_opened">Меню «%1$s»</string>
+    <string name="template_hint_checkable">%1$s, каб пераключыць.</string>
+    <string name="template_hint_checkable_keyboard">Націсніце %1$s, каб пераключыць.</string>
+    <string name="template_hint_clickable">Каб актываваць, трэба %1$s.</string>
+    <string name="template_hint_clickable_keyboard">Націсніце %1$s, каб актываваць.</string>
+    <string name="template_hint_custom_actions">Дзеянні:</string>
+    <string name="template_hint_edit_text">%1$s, каб змяніць тэкст.</string>
+    <string name="template_hint_edit_text_keyboard">Каб змяніць тэкст, націсніце %1$s\".</string>
+    <string name="template_hint_long_clickable">%1$s і ўтрымлівайце, каб выканаць доўгае націсканне.</string>
+    <string name="template_hint_long_clickable_keyboard">Націсніце %1$s, каб выканаць доўгае націсканне.</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s – даступна. Для прагляду скарыстайце жэст %2$s.</string>
+    <string name="template_hint_pager">Каб пераключыцца паміж старонкамі, правядзіце па экране двума пальцамі.</string>
+    <string name="template_hint_pager_single_page">Больш старонак няма.</string>
+    <string name="template_hint_seek_control">Для рэгуліроўкі выкарыстоўвайце клавішы гучнасці</string>
+    <string name="template_hint_seek_control_tv">%1$s, каб змяніць.</string>
+    <string name="template_hint_spinner">%1$s, каб змяніць.</string>
+    <string name="template_hint_spinner_keyboard">Націсніце %1$s, каб змяніць.</string>
+    <string name="template_labeled_item">%1$s для %2$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s відарыс у відарысе</string>
+    <string name="template_password_selected">Сімвалы з %1$d да %2$d</string>
+    <string name="template_password_traversed">Сімвал %1$d</string>
+    <string name="template_percent">Працэнтаў: %1$s.</string>
+    <string name="template_replaced_characters">Наступная колькасць сімвалаў: %1$s заменена на наступную колькасць сімвалаў: %2$s</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">Каб убачыць даступныя дзеянні, трэба %1$s.</string>
+    <string name="template_sa_custom_hint_scrollable">Каб прагарнуць, трэба %1$s.</string>
+    <string name="template_sa_hint_seek_control">Для рэгуліроўкі націсніце на пераключальнік выбару</string>
+    <string name="template_screen_magnification_on">Павелічэнне ўключана: %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">Павелічэнне: %1$d%%</string>
+    <string name="template_scroll_from_count">Паказаны элементы: %1$d з %2$d.</string>
+    <string name="template_scroll_from_to_count">Паказаны элементы з %1$d па %2$d з %3$d.</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">Хуткасць маўлення %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s знаходзіцца злева, %2$s – справа</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s знаходзіцца справа, %2$s – злева</string>
+    <string name="template_split_screen_mode_portrait">%1$s знаходзіцца зверху, %2$s – знізу</string>
+    <string name="template_text_copied">скапіравана: %1$s</string>
+    <string name="template_text_cut">выразана: %1$s</string>
+    <string name="template_text_error">Недапушчальнае значэнне %1$s</string>
+    <string name="template_text_pasted">устаўлена: %1$s</string>
+    <string name="template_text_removed">Тэкст «%1$s» выдалены</string>
+    <string name="template_text_replaced">%2$s заменены на %1$s</string>
+    <string name="template_text_selected">вылучана: %1$s</string>
+    <string name="template_text_unselected">вылучэнне знята: %1$s</string>
+    <string name="template_viewpager_index_count">Старонка %1$d з %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d з %2$d</string>
+    <string name="template_volume_change_decrease">Паменшыць</string>
+    <string name="template_volume_change_increase">Павялічыць</string>
+    <string name="template_volume_change_maximum">Максімум</string>
+    <string name="template_volume_change_minimum">Мінімум</string>
+    <string name="title_action_collapse">Згарнуць</string>
+    <string name="title_action_dismiss">Адхіліць</string>
+    <string name="title_action_expand">Разгарнуць</string>
+    <string name="untitled_window">без назвы</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ВЫКЛ."</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"УКЛ."</string>
+    <string name="value_button">Кнопка</string>
+    <string name="value_caps_lock_off">Caps Lock выключаны.</string>
+    <string name="value_caps_lock_on">Caps Lock уключаны.</string>
+    <string name="value_checkbox">Поле для птушкі</string>
+    <string name="value_checked">пазначана</string>
+    <string name="value_collapsed">згорнута</string>
+    <string name="value_disabled">адключана</string>
+    <string name="value_double_tap">Падвойнае крананне</string>
+    <string name="value_edit_box">Поле рэдагавання</string>
+    <string name="value_edit_box_editing">Рэдагуецца</string>
+    <string name="value_expanded">разгорнута</string>
+    <string name="value_gridview">Сетка</string>
+    <string name="value_image">Відарыс</string>
+    <string name="value_listview">Спіс</string>
+    <string name="value_not_checked">не пазначана</string>
+    <string name="value_num_lock_off">Num Lock выключаны.</string>
+    <string name="value_num_lock_on">Num Lock уключаны.</string>
+    <string name="value_off">адключаны</string>
+    <string name="value_on">уключаны</string>
+    <string name="value_options_menu_open">Параметры.</string>
+    <string name="value_pager">Шматстаронкавы выгляд</string>
+    <string name="value_pager_page">Старонка</string>
+    <string name="value_password">пароль</string>
+    <string name="value_press_select">Націсніце \"Выбраць\"</string>
+    <string name="value_progress_bar">Індыкатар стану</string>
+    <string name="value_radio_button">Кнопка-пераключальнік</string>
+    <string name="value_scroll_lock_off">Scroll Lock выключаны.</string>
+    <string name="value_scroll_lock_on">Scroll Lock уключаны.</string>
+    <string name="value_seek_bar">Паўзунок</string>
+    <string name="value_selected">выбрана</string>
+    <string name="value_single_tap">Дакрананне</string>
+    <string name="value_sliding_drawer_opened">Высоўная панэль</string>
+    <string name="value_spinner">Выпадны спіс</string>
+    <string name="value_switch">Пераключальнік</string>
+    <string name="value_switch_press">Націсніце на пераключальнік выбару</string>
+    <string name="value_tabwidget">Панэль укладак</string>
+    <string name="value_text_cleared">Увесь тэкст выдалены</string>
+    <string name="value_text_max_length">Дасягнута максімальная даўжыня</string>
+    <string name="value_unlabelled">Без меткі</string>
+    <string name="value_webview">Вэб-прадстаўленне</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Высоўнае меню дзеянняў"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Высоўнае меню навігацыі"</string>
+</resources>

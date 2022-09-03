@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+  <TextView
+      android:id="@+id/training_list_item_text"
+      android:layout_width="match_parent"
+      android:layout_height="@dimen/training_list_item_height"
+      android:layout_marginTop="@dimen/training_list_item_margin_top"
+      android:layout_marginBottom="@dimen/training_list_item_margin_bottom"
+      android:padding="@dimen/training_list_item_padding"
+      android:background="@drawable/training_list_item_background"
+      android:gravity="center_vertical"
+      android:lineHeight="@dimen/training_list_item_text_height"
+      android:textColor="@color/training_list_item_text_color"
+      android:textSize="@dimen/training_list_item_text_size"
+      android:focusable="true"/>
+
+</LinearLayout>

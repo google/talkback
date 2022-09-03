@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/braille/interfaces/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-v29/values-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/build/intermediates/packaged_res/wear/release/values-v29/values-v29.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,153",
+                        "endLines": "2,7",
+                        "endColumns": "97,10",
+                        "endOffsets": "148,433"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/braille/interfaces/build/intermediates/res/merged/wear/release/values-v29/values-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/build/intermediates/packaged_res/wear/release/values-v29/values-v29.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,153",
+                        "endLines": "2,7",
+                        "endColumns": "97,10",
+                        "endOffsets": "148,433"
+                    }
+                }
+            ]
+        }
+    ]
+}

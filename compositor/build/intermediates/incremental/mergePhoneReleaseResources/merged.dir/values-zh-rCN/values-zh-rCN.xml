@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d 条新通知</item>
+    <item quantity="other">%d 条新通知</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s，包含 %2$d 项内容。</item>
+    <item quantity="other">%1$s，包含 %2$d 项内容。</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d 列</item>
+    <item quantity="other">%1$d 列</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d 行</item>
+    <item quantity="other">%1$d 行</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d 项</item>
+    <item quantity="other">%1$d 项</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d 个字符</item>
+    <item quantity="other">%1$d 个字符</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d天</item>
+<item quantity="other">%d天</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d小时</item>
+<item quantity="other">%d小时</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d分钟</item>
+<item quantity="other">%d分钟</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d 天</item>
+<item quantity="other">%d 天</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d 小时</item>
+<item quantity="other">%d 小时</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d 分钟</item>
+<item quantity="other">%d 分钟</item>
+</plurals>
+    <string name="a11y_no_data">无数据</string>
+    <string name="a11y_no_permission">无权访问数据</string>
+    <string name="a11y_template_range">%1$f（共 %2$f）</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"转到首页"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"转到上一层级"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"更多选项"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"完成"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"查看全部"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"选择应用"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"关闭"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"开启"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete 键"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter 键"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"空格键"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"搜索…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"清除查询"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"搜索查询"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"搜索"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"提交查询"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"语音搜索"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"分享对象"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"与<ns1:g id="APPLICATION_NAME">%s</ns1:g>分享"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"收起"</string>
+    <string name="bottomsheet_action_expand_halfway">展开到一半高度</string>
+    <string name="buttons_rect_bottom_center">正下方</string>
+    <string name="buttons_rect_bottom_left">左下方</string>
+    <string name="buttons_rect_bottom_right">右下方</string>
+    <string name="buttons_rect_left_bottom">下方靠左</string>
+    <string name="buttons_rect_left_center">正左方</string>
+    <string name="buttons_rect_left_top">上方靠左</string>
+    <string name="buttons_rect_right_bottom">下方靠右</string>
+    <string name="buttons_rect_right_center">正右方</string>
+    <string name="buttons_rect_right_top">上方靠右</string>
+    <string name="buttons_rect_top_center">正上方</string>
+    <string name="buttons_rect_top_left">左上方</string>
+    <string name="buttons_rect_top_right">右上方</string>
+    <string name="buttons_round_bottom_center">正下方</string>
+    <string name="buttons_round_bottom_left">左下方</string>
+    <string name="buttons_round_bottom_left_lower">左下方靠下的位置</string>
+    <string name="buttons_round_bottom_left_upper">左下方靠上的位置</string>
+    <string name="buttons_round_bottom_right">右下方</string>
+    <string name="buttons_round_bottom_right_lower">右下方靠下的位置</string>
+    <string name="buttons_round_bottom_right_upper">右下方靠上的位置</string>
+    <string name="buttons_round_center_left">正左方</string>
+    <string name="buttons_round_center_right">正右方</string>
+    <string name="buttons_round_top_center">正上方</string>
+    <string name="buttons_round_top_left">左上方</string>
+    <string name="buttons_round_top_left_lower">左上方靠下的位置</string>
+    <string name="buttons_round_top_left_upper">左上方靠上的位置</string>
+    <string name="buttons_round_top_right">右上方</string>
+    <string name="buttons_round_top_right_lower">右上方靠下的位置</string>
+    <string name="buttons_round_top_right_upper">右上方靠上的位置</string>
+    <string name="character_collapse_template"> %1$d 个%2$s﻿</string>
+    <string name="character_counter_content_description">输入了 %1$d 个字符（上限为 %2$d 个）</string>
+    <string name="character_counter_overflowed_content_description">超出字符数限制（共 %1$d 个，上限为 %2$d 个）</string>
+    <string name="clear_text_end_icon_content_description">清除文字</string>
+    <string name="column_heading_template">列标题</string>
+    <string name="column_index_template">第 %1$d 列</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">启用</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">您必须先启用 Google Play 服务，然后才能运行%1$s。</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">启用 Google Play 服务</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">安装</string>
+    <string name="common_google_play_services_install_text">您的设备没有安装 Google Play 服务，因此无法运行%1$s。</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">获取 Google Play 服务</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play 服务的适用范围</string>
+    <string name="common_google_play_services_notification_ticker">Google Play服务出错</string>
+    <string name="common_google_play_services_unknown_issue">%1$s无法访问 Google Play 服务，请重试。</string>
+    <string name="common_google_play_services_unsupported_text">您的设备不支持 Google Play 服务，因此无法运行%1$s。</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">更新</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">您必须先更新 Google Play 服务，然后才能运行%1$s。</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">更新 Google Play 服务</string>
+    <string name="common_google_play_services_updating_text">Google Play 服务当前正在更新，因此您无法运行%1$s。</string>
+    <string name="common_google_play_services_wear_update_text">必须使用新版 Google Play 服务。该服务很快就会自行更新。</string>
+    <string name="common_open_on_phone">在手机上打开</string>
+    <string name="common_signin_button_text">登录</string>
+    <string name="common_signin_button_text_long">使用 Google 帐号登录</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"失败"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"已在您的手机上打开"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"成功"</string>
+    <string msgid="3209159573327985035" name="copy">"复制"</string>
+    <string name="detected_icon_description">%1$s - 检测到的图标</string>
+    <string name="dismiss_overlay_button_label">退出</string>
+    <string name="error_icon_content_description">错误</string>
+    <string name="exit_scrim">退出</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"高级"</string>
+    <string name="exposed_dropdown_menu_content_description">显示下拉菜单</string>
+    <string name="function_off">已关闭语音反馈</string>
+    <string name="function_on">已开启语音反馈</string>
+    <string name="generic_cancel">取消</string>
+    <string name="generic_yes">是</string>
+    <string name="granularity_character">字符</string>
+    <string name="granularity_default">默认</string>
+    <string name="granularity_line">行</string>
+    <string name="granularity_native_control">控件</string>
+    <string name="granularity_native_heading">标题</string>
+    <string name="granularity_native_link">链接</string>
+    <string name="granularity_paragraph">段落</string>
+    <string name="granularity_pseudo_web_special_content">特殊内容</string>
+    <string name="granularity_web_control">控件</string>
+    <string name="granularity_web_heading">标题</string>
+    <string name="granularity_web_landmark">地标</string>
+    <string name="granularity_web_link">链接</string>
+    <string name="granularity_web_list">列表</string>
+    <string name="granularity_window">窗口</string>
+    <string name="granularity_word">字词</string>
+    <string name="heading_template">标题</string>
+    <string name="hide_keyboard_window">键盘已隐藏</string>
+    <string name="hint_suggestion">有拼写建议。</string>
+    <string name="icon_content_description">对话框图标</string>
+    <string name="in_collection_role_description">您当前位于%1$s中</string>
+    <string name="in_collection_role_description_with_name">您当前位于%1$s“%2$s”中</string>
+    <string name="in_grid">在网格中</string>
+    <string name="in_grid_pager">在网格页面控制项中</string>
+    <string name="in_grid_pager_with_name">在网格页面控制项“%1$s”中</string>
+    <string name="in_grid_with_name">在“%1$s”网格中</string>
+    <string name="in_horizontal_pager">在横向页面控制项中</string>
+    <string name="in_horizontal_pager_with_name">在横向页面控制项“%1$s”中</string>
+    <string name="in_list">在列表中</string>
+    <string name="in_list_with_name">在“%1$s”列表中</string>
+    <string name="in_pager">在页面控制项中</string>
+    <string name="in_pager_with_name">在页面控制项“%1$s”中</string>
+    <string name="in_vertical_pager">在纵向页面控制项中</string>
+    <string name="in_vertical_pager_with_name">在纵向页面控制项“%1$s”中</string>
+    <string name="in_window_with_name">“%1$s”窗口</string>
+    <string name="item_view_role_description">标签页</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">按下包含 %1$s 辅助键的组合键即可设置新的快捷键。</string>
+    <string name="keycombo_assign_dialog_instruction">按组合键可设置新的快捷方式。快捷方式必须包含 ALT 或 Ctrl 键。</string>
+    <string name="keycombo_key_arrow_down">向下箭头</string>
+    <string name="keycombo_key_arrow_left">向左箭头</string>
+    <string name="keycombo_key_arrow_right">向右箭头</string>
+    <string name="keycombo_key_arrow_up">向上箭头</string>
+    <string name="keycombo_key_modifier_alt">Alt 键</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl 键</string>
+    <string name="keycombo_key_modifier_meta">搜索键</string>
+    <string name="keycombo_key_modifier_shift">Shift 键</string>
+    <string name="keycombo_unassigned">未指定</string>
+    <string name="list_index_template">第 %1$d 个，共 %2$d 个</string>
+    <string name="material_clock_toggle_content_description">选择上午或下午</string>
+    <string name="material_hour_selection">选择小时</string>
+    <string name="material_hour_suffix">%1$s 点</string>
+    <string name="material_minute_selection">选择分钟</string>
+    <string name="material_minute_suffix">%1$s 分</string>
+    <string name="material_timepicker_am">上午</string>
+    <string name="material_timepicker_clock_mode_description">切换到时钟模式来输入时间。</string>
+    <string name="material_timepicker_hour">小时</string>
+    <string name="material_timepicker_minute">分钟</string>
+    <string name="material_timepicker_pm">下午</string>
+    <string name="material_timepicker_select_time">选择时间</string>
+    <string name="material_timepicker_text_input_mode_description">切换到文字输入模式来输入时间。</string>
+    <string name="mtrl_badge_numberless_content_description">新通知</string>
+    <string name="mtrl_chip_close_icon_content_description">移除%1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">有 %1$d 条以上的新通知</string>
+    <string name="mtrl_picker_a11y_next_month">转到下个月</string>
+    <string name="mtrl_picker_a11y_prev_month">转到上个月</string>
+    <string name="mtrl_picker_announce_current_selection">当前的选择是：%1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">请选择日期</string>
+    <string name="mtrl_picker_date_header_unselected">选定的日期</string>
+    <string name="mtrl_picker_day_of_week_column_header">表示周几的列：%1$s</string>
+    <string name="mtrl_picker_invalid_format">格式无效。</string>
+    <string name="mtrl_picker_invalid_format_example">示例：%1$s</string>
+    <string name="mtrl_picker_invalid_format_use">使用：%1$s</string>
+    <string name="mtrl_picker_invalid_range">范围无效。</string>
+    <string name="mtrl_picker_navigate_to_year_description">转到 %1$s 年</string>
+    <string name="mtrl_picker_out_of_range">不在允许的范围内：%1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">开始日期 – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – 结束日期</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_title">请选择范围</string>
+    <string name="mtrl_picker_range_header_unselected">开始日期 - 结束日期</string>
+    <string name="mtrl_picker_save">保存</string>
+    <string name="mtrl_picker_text_input_date_hint">日期</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">结束日期</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">开始日期</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">切换到日历输入模式</string>
+    <string name="mtrl_picker_toggle_to_day_selection">点按即可切换到选择某天</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">切换到文本字段输入模式</string>
+    <string name="mtrl_picker_toggle_to_year_selection">点按即可切换到选择某年</string>
+    <string name="navigation_drawer_content_description">抽屉式导航栏</string>
+    <string msgid="478774118347071097" name="not_set">"未设置"</string>
+    <string name="notification_category_alarm">闹钟</string>
+    <string name="notification_category_call">来电</string>
+    <string name="notification_category_email">电子邮件</string>
+    <string name="notification_category_err">错误</string>
+    <string name="notification_category_event">活动</string>
+    <string name="notification_category_msg">消息</string>
+    <string name="notification_category_progress">进度</string>
+    <string name="notification_category_promo">促销</string>
+    <string name="notification_category_service">服务</string>
+    <string name="notification_category_social">社交</string>
+    <string name="notification_category_sys">系统状态</string>
+    <string name="notification_category_transport">媒体控件</string>
+    <string name="notification_type_beginning_of_field">字段开头</string>
+    <string name="notification_type_end_of_field">字段结尾</string>
+    <string name="notification_type_selection_cleared">已清除选择</string>
+    <string name="notification_type_selection_mode_off">已关闭选择模式</string>
+    <string name="notification_type_selection_mode_on">已开启选择模式</string>
+    <string name="ocr_text_description">%1$s - 文字</string>
+    <string name="orientation_landscape">横向</string>
+    <string name="orientation_portrait">纵向</string>
+    <string name="out_of_grid">在网格外</string>
+    <string name="out_of_grid_pager">在网格页面控制项外</string>
+    <string name="out_of_grid_pager_with_name">在网格页面控制项“%1$s”外</string>
+    <string name="out_of_grid_with_name">在“%1$s”网格外</string>
+    <string name="out_of_horizontal_pager">在横向页面控制项外</string>
+    <string name="out_of_list">在列表外</string>
+    <string name="out_of_list_with_name">在“%1$s”列表外</string>
+    <string name="out_of_pager">在页面控制项外</string>
+    <string name="out_of_pager_with_name">在页面控制项“%1$s”外</string>
+    <string name="out_of_role_description">您已离开%1$s</string>
+    <string name="out_of_role_description_with_name">您已离开%1$s“%2$s”</string>
+    <string name="out_of_vertical_pager">在纵向页面控制项外</string>
+    <string name="out_of_vertical_pager_with_name">在纵向页面控制项“%1$s”外</string>
+    <string name="password_toggle_content_description">显示密码</string>
+    <string msgid="7961817945132860002" name="preference_copied">"已将“<ns1:g id="SUMMARY">%1$s</ns1:g>”复制到剪贴板。"</string>
+    <string name="row_heading_template">行标题</string>
+    <string name="row_index_template">第 %1$d 行</string>
+    <string name="screen_magnification_off">已关闭放大功能</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"搜索"</string>
+    <string name="show_keyboard_window">当前显示的是“%1$s”窗口</string>
+    <string name="spokenfeedback_disabled">语音反馈已关闭</string>
+    <string name="spokenfeedback_on">语音反馈已开启</string>
+    <string name="spokenfeedback_resumed">语音反馈已恢复启用</string>
+    <string name="spokenfeedback_suspended">语音反馈已暂停</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">仅在使用耳机时读出密码</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>、<ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">约等于</string>
+    <string name="symbol_ampersand">和符号</string>
+    <string name="symbol_angle_bracket_left">小于号</string>
+    <string name="symbol_angle_bracket_right">大于号</string>
+    <string name="symbol_apostrophe">单引号</string>
+    <string name="symbol_approximately_equals">约等号</string>
+    <string name="symbol_asterisk">星号</string>
+    <string name="symbol_at_sign">At 符号</string>
+    <string name="symbol_backslash">反斜杠</string>
+    <string name="symbol_beamed_sixteenth_note">带连线符的两个十六分音符</string>
+    <string name="symbol_black_circle">实心圆圈</string>
+    <string name="symbol_black_heart">实心红桃</string>
+    <string name="symbol_black_smallsquare">黑色小正方形</string>
+    <string name="symbol_black_square">实心方形</string>
+    <string name="symbol_black_star">实心星形</string>
+    <string name="symbol_black_suit_of_diamonds">黑色菱形</string>
+    <string name="symbol_black_triangle_pointing_down">指向下方的黑色三角形</string>
+    <string name="symbol_black_triangle_pointing_up">指向上方的黑色三角形</string>
+    <string name="symbol_broken_bar">断竖线</string>
+    <string name="symbol_bullet">项目符号</string>
+    <string name="symbol_bullseye">靶心符号</string>
+    <string name="symbol_caret">脱字符号</string>
+    <string name="symbol_celsius_degree">摄氏度符号</string>
+    <string name="symbol_cent">分币符号</string>
+    <string name="symbol_circle_left_half_black">左半边实心的圆圈</string>
+    <string name="symbol_circle_right_half_black">右半边实心的圆圈</string>
+    <string name="symbol_colon">冒号</string>
+    <string name="symbol_comma">逗号</string>
+    <string name="symbol_copyright">版权符号</string>
+    <string name="symbol_curly_bracket_left">左花括号</string>
+    <string name="symbol_curly_bracket_right">右花括号</string>
+    <string name="symbol_currency_sign">货币符号</string>
+    <string name="symbol_degree">度符号</string>
+    <string name="symbol_division">除号</string>
+    <string name="symbol_dollar_sign">美元符号</string>
+    <string name="symbol_downwards_arrow">向下箭头</string>
+    <string name="symbol_eighth_note">八分音符</string>
+    <string name="symbol_ellipsis">省略号</string>
+    <string name="symbol_em_dash">长破折号</string>
+    <string name="symbol_en_dash">短破折号</string>
+    <string name="symbol_equal">等号</string>
+    <string name="symbol_euro">欧元符号</string>
+    <string name="symbol_exclamation_mark">感叹号</string>
+    <string name="symbol_fahrenheit_degree">华氏度符号</string>
+    <string name="symbol_female">雌性符号</string>
+    <string name="symbol_full_width_ampersand">全角和符号</string>
+    <string name="symbol_full_width_asterisk">全角星号</string>
+    <string name="symbol_full_width_circumflex">全角扬抑符</string>
+    <string name="symbol_full_width_colon">全角冒号</string>
+    <string name="symbol_full_width_comma">全角逗号</string>
+    <string name="symbol_full_width_exclamation_mark">全角感叹号</string>
+    <string name="symbol_full_width_greater_than_sign">全角大于号</string>
+    <string name="symbol_full_width_ideographic_full_stop">表意文字句号</string>
+    <string name="symbol_full_width_left_curly_bracket">全角左花括号</string>
+    <string name="symbol_full_width_left_parenthesis">全角左括号</string>
+    <string name="symbol_full_width_less_than_sign">全角小于号</string>
+    <string name="symbol_full_width_question_mark">全角问号</string>
+    <string name="symbol_full_width_right_curly_bracket">全角右花括号</string>
+    <string name="symbol_full_width_right_parenthesis">全角右括号</string>
+    <string name="symbol_full_width_semicolon">全角分号</string>
+    <string name="symbol_full_width_tilde">全角波浪号</string>
+    <string name="symbol_full_width_underscore">全角下划线</string>
+    <string name="symbol_grave_accent">重音符号</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">半角片假名中间点</string>
+    <string name="symbol_hyphen_minus">破折号</string>
+    <string name="symbol_ideographic_comma">表意文字逗号</string>
+    <string name="symbol_integral">积分符号</string>
+    <string name="symbol_inverted_exclamation_mark">倒置的感叹号</string>
+    <string name="symbol_inverted_question_mark">倒置的问号</string>
+    <string name="symbol_left_angle_bracket">左双尖括号</string>
+    <string name="symbol_left_black_lenticular_bracket">左实心凹形括号</string>
+    <string name="symbol_left_corner_bracket">左角括号</string>
+    <string name="symbol_left_double_quotation_mark">左双引号</string>
+    <string name="symbol_left_single_quotation_mark">左单引号</string>
+    <string name="symbol_leftwards_arrow">向左箭头</string>
+    <string name="symbol_liter">公升符号</string>
+    <string name="symbol_low_double_quote">低双引号</string>
+    <string name="symbol_male">雄性符号</string>
+    <string name="symbol_mathematical_left_angle_bracket">数学左尖括号</string>
+    <string name="symbol_mathematical_right_angle_bracket">数学右尖括号</string>
+    <string name="symbol_micro_sign">微单位标记</string>
+    <string name="symbol_middle_dot">间隔号</string>
+    <string name="symbol_multiplication">乘号</string>
+    <string name="symbol_new_line">换行符号</string>
+    <string name="symbol_not_equals">不等于</string>
+    <string name="symbol_not_sign">非符号</string>
+    <string name="symbol_paragraph_mark">段落符号</string>
+    <string name="symbol_parenthesis_left">左括号</string>
+    <string name="symbol_parenthesis_right">右括号</string>
+    <string name="symbol_percent">百分比符号</string>
+    <string name="symbol_period">句点</string>
+    <string name="symbol_pi">圆周率符号</string>
+    <string name="symbol_plus_minus_sign">正负号</string>
+    <string name="symbol_postal_mark">邮政符号</string>
+    <string name="symbol_pound">井号</string>
+    <string name="symbol_pound_sterling">英镑货币符号</string>
+    <string name="symbol_quarter_note">四分音符</string>
+    <string name="symbol_question_mark">问号</string>
+    <string name="symbol_quotation_mark">引号</string>
+    <string name="symbol_reference">参考符号</string>
+    <string name="symbol_registered_trademark">注册商标</string>
+    <string name="symbol_right_angle_bracket">右双尖括号</string>
+    <string name="symbol_right_black_lenticular_bracket">右实心凹形括号</string>
+    <string name="symbol_right_corner_bracket">右角括号</string>
+    <string name="symbol_right_double_quotation_mark">右双引号</string>
+    <string name="symbol_right_single_quotation_mark">右单引号</string>
+    <string name="symbol_rightwards_arrow">向右箭头</string>
+    <string name="symbol_rupee">卢比符号</string>
+    <string name="symbol_section_sign">章节符号</string>
+    <string name="symbol_semicolon">分号</string>
+    <string name="symbol_slash">斜线</string>
+    <string name="symbol_solar">太阳符号</string>
+    <string name="symbol_space">空格</string>
+    <string name="symbol_square_bracket_left">左方括号</string>
+    <string name="symbol_square_bracket_right">右方括号</string>
+    <string name="symbol_square_root">平方根符号</string>
+    <string name="symbol_tilde">波浪号</string>
+    <string name="symbol_trademark">商标符号</string>
+    <string name="symbol_underscore">下划线</string>
+    <string name="symbol_upwards_arrow">向上箭头</string>
+    <string name="symbol_vertical_bar">竖线</string>
+    <string name="symbol_white_circle">空心圆圈</string>
+    <string name="symbol_white_club_suit">空心梅花</string>
+    <string name="symbol_white_diamond">空心方块</string>
+    <string name="symbol_white_down_pointing_triangle">空心倒三角</string>
+    <string name="symbol_white_heart">空心红桃</string>
+    <string name="symbol_white_left_pointing_index">空心向左指的食指</string>
+    <string name="symbol_white_left_pointing_triangle">空心左指三角形</string>
+    <string name="symbol_white_right_pointing_index">空心向右指的食指</string>
+    <string name="symbol_white_right_pointing_triangle">空心右指三角形</string>
+    <string name="symbol_white_spade_suit">空心黑桃</string>
+    <string name="symbol_white_square">空心方形</string>
+    <string name="symbol_white_star">空心星形</string>
+    <string name="symbol_white_up_pointing_triangle">空心正三角</string>
+    <string name="symbol_won">韩元货币符号</string>
+    <string name="symbol_won_sign">韩元货币符号</string>
+    <string name="symbol_yen">日元符号</string>
+    <string name="talkback_disabled">TalkBack 已关闭</string>
+    <string name="talkback_on">TalkBack 已开启</string>
+    <string name="talkback_resumed">TalkBack 已恢复</string>
+    <string name="talkback_suspended">TalkBack 已暂停</string>
+    <string name="template_announce_selected_text">所选文字：%1$s</string>
+    <string name="template_capital_letter">大写的 %1$s</string>
+    <string name="template_collection_level">第 %1$d 级</string>
+    <string name="template_current_tts_engine">使用的是%1$s</string>
+    <string name="template_custom_hint_for_actions">%1$s即可%2$s。</string>
+    <string name="template_custom_hint_for_actions_keyboard">按 %1$s 即可%2$s。</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s并按住即可%2$s。</string>
+    <string name="template_drawer_opened">%1$s菜单</string>
+    <string name="template_hint_checkable">%1$s可切换。</string>
+    <string name="template_hint_checkable_keyboard">按 %1$s 即可切换。</string>
+    <string name="template_hint_clickable">%1$s即可激活。</string>
+    <string name="template_hint_clickable_keyboard">按 %1$s 即可激活。</string>
+    <string name="template_hint_custom_actions">操作：</string>
+    <string name="template_hint_edit_text">%1$s即可编辑文字。</string>
+    <string name="template_hint_edit_text_keyboard">按 %1$s 即可修改文字。</string>
+    <string name="template_hint_long_clickable">%1$s并按住可长按。</string>
+    <string name="template_hint_long_clickable_keyboard">按 %1$s 即可长按。</string>
+    <string name="template_hint_menu_type_high_verbosity">可执行操作“%1$s”，请使用手势“%2$s”进行查看。</string>
+    <string name="template_hint_pager">用双指滑动即可切换页面。</string>
+    <string name="template_hint_pager_single_page">没有其他页面。</string>
+    <string name="template_hint_seek_control">使用音量键即可调节</string>
+    <string name="template_hint_seek_control_tv">%1$s即可进行更改。</string>
+    <string name="template_hint_spinner">%1$s可进行更改。</string>
+    <string name="template_hint_spinner_keyboard">按 %1$s 即可更改。</string>
+    <string name="template_labeled_item">%2$s对应的%1$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s画中画</string>
+    <string name="template_password_selected">第 %1$d 到 %2$d 个字符</string>
+    <string name="template_password_traversed">字符 %1$d</string>
+    <string name="template_percent">百分之 %1$s。</string>
+    <string name="template_replaced_characters">已将 %1$s 个字符替换为 %2$s 个字符</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">%1$s即可查看可执行的操作。</string>
+    <string name="template_sa_custom_hint_scrollable">%1$s即可滚动。</string>
+    <string name="template_sa_hint_seek_control">按“选择开关”即可进行调整</string>
+    <string name="template_screen_magnification_on">已开启放大功能，当前放大比例为百分之 %1$d</string>
+    <string name="template_screen_magnification_scale_changed">当前放大比例为百分之 %1$d</string>
+    <string name="template_scroll_from_count">当前显示的是第 %1$d 项，共 %2$d 项。</string>
+    <string name="template_scroll_from_to_count">当前显示的是第 %1$d 项到第 %2$d 项，共 %3$d 项。</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">语速为 %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s在左侧，%2$s在右侧</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s在右侧，%2$s在左侧</string>
+    <string name="template_split_screen_mode_portrait">%1$s在顶部，%2$s在底部</string>
+    <string name="template_text_copied">已复制，%1$s</string>
+    <string name="template_text_cut">已剪切，%1$s</string>
+    <string name="template_text_error">输入内容无效：%1$s</string>
+    <string name="template_text_pasted">已粘贴，%1$s</string>
+    <string name="template_text_removed">%1$s已删除</string>
+    <string name="template_text_replaced">%1$s替换了%2$s</string>
+    <string name="template_text_selected">%1$s，已选中</string>
+    <string name="template_text_unselected">%1$s，未选中</string>
+    <string name="template_viewpager_index_count">第 %1$d 页，共 %2$d 页</string>
+    <string name="template_viewpager_index_count_short">第 %1$d 页，共 %2$d 页</string>
+    <string name="template_volume_change_decrease">调低</string>
+    <string name="template_volume_change_increase">调高</string>
+    <string name="template_volume_change_maximum">最大</string>
+    <string name="template_volume_change_minimum">最小</string>
+    <string name="time_difference_now">现在</string>
+    <string name="time_difference_short_days_and_hours">%1$s%2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s%2$s﻿</string>
+    <string name="title_action_collapse">收起</string>
+    <string name="title_action_dismiss">关闭</string>
+    <string name="title_action_expand">展开</string>
+    <string name="untitled_window">无标题</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"关闭"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"开启"</string>
+    <string name="value_button">按钮</string>
+    <string name="value_caps_lock_off">大写锁定模式已关闭。</string>
+    <string name="value_caps_lock_on">大写锁定模式已开启。</string>
+    <string name="value_checkbox">复选框</string>
+    <string name="value_checked">已选中</string>
+    <string name="value_collapsed">已收起</string>
+    <string name="value_disabled">已停用</string>
+    <string name="value_double_tap">点按两次</string>
+    <string name="value_edit_box">编辑框</string>
+    <string name="value_edit_box_editing">正在编辑</string>
+    <string name="value_expanded">已展开</string>
+    <string name="value_gridview">网格</string>
+    <string name="value_image">图片</string>
+    <string name="value_listview">列表</string>
+    <string name="value_not_checked">未选中</string>
+    <string name="value_num_lock_off">数字锁定模式已关闭。</string>
+    <string name="value_num_lock_on">数字锁定模式已开启。</string>
+    <string name="value_off">已关闭</string>
+    <string name="value_on">已开启</string>
+    <string name="value_options_menu_open">选项。</string>
+    <string name="value_pager">多页面视图</string>
+    <string name="value_pager_page">页面</string>
+    <string name="value_password">密码</string>
+    <string name="value_press_select">按选择按钮</string>
+    <string name="value_progress_bar">进度条</string>
+    <string name="value_radio_button">单选按钮</string>
+    <string name="value_scroll_lock_off">滚动锁定模式已关闭。</string>
+    <string name="value_scroll_lock_on">滚动锁定模式已开启。</string>
+    <string name="value_seek_bar">滑块</string>
+    <string name="value_selected">已选中</string>
+    <string name="value_single_tap">点按</string>
+    <string name="value_sliding_drawer_opened">滑动抽屉式导航栏已打开</string>
+    <string name="value_spinner">下拉列表</string>
+    <string name="value_switch">开关</string>
+    <string name="value_switch_press">按选择开关</string>
+    <string name="value_tabwidget">标签栏</string>
+    <string name="value_text_cleared">文字已清除</string>
+    <string name="value_text_max_length">已达到长度上限</string>
+    <string name="value_unlabelled">未加标签</string>
+    <string name="value_webview">网页视图</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"操作抽屉式导航栏"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"抽屉式导航栏"</string>
+</resources>

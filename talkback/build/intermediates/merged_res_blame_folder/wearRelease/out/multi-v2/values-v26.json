@@ -1,0 +1,86 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/wear/release/values-v26/values-v26.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/60605009dc95ef8d03ceba17b5260c72/transformed/appcompat-1.5.0/res/values-v26/values-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,381,557,796",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,376,552,791,884"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,9,13,17",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "113,188,275,439,615,854",
+                        "endLines": "3,4,8,12,16,17",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "183,270,434,610,849,942"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-v26/donottranslate.xml",
+                    "from": {
+                        "startLines": "5",
+                        "startColumns": "2",
+                        "startOffsets": "196",
+                        "endColumns": "55",
+                        "endOffsets": "249"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "57",
+                        "endOffsets": "108"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-v26/values-v26.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/60605009dc95ef8d03ceba17b5260c72/transformed/appcompat-1.5.0/res/values-v26/values-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,381,557,796",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,376,552,791,884"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,9,13,17",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "113,188,275,439,615,854",
+                        "endLines": "3,4,8,12,16,17",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "183,270,434,610,849,942"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-v26/donottranslate.xml",
+                    "from": {
+                        "startLines": "5",
+                        "startColumns": "2",
+                        "startOffsets": "196",
+                        "endColumns": "55",
+                        "endOffsets": "249"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "57",
+                        "endOffsets": "108"
+                    }
+                }
+            ]
+        }
+    ]
+}

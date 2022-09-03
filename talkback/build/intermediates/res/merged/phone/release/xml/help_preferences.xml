@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <Preference
+      android:key="@string/pref_tutorial_entry_point_key"
+      android:title="@string/tutorial_entry_point_title" />
+  <Preference
+      android:key="@string/pref_practice_gestures_entry_point_key"
+      android:title="@string/practice_gestures_title" />
+  <Preference
+      android:key="@string/pref_help_and_feedback_key"
+      app:allowDividerAbove="true">
+  </Preference>
+</PreferenceScreen>

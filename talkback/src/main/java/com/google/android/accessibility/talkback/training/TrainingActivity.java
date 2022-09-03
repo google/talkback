@@ -27,15 +27,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 import android.util.Pair;
 import android.widget.LinearLayout;
 import android.widget.Toolbar;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.ViewCompat;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.ipc.IpcService;
@@ -44,8 +46,8 @@ import com.google.android.accessibility.talkback.training.PageConfig.PageId;
 import com.google.android.accessibility.talkback.training.PageController.OnPageChangeCallback;
 import com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.AlertDialogUtils;
+import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**

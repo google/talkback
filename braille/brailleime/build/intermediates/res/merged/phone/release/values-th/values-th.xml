@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">จุด %s</item>
+    <item quantity="other">จุด %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">การแจ้งเตือนใหม่ %d รายการ</item>
+    <item quantity="other">การแจ้งเตือนใหม่ %d รายการ</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d ว</item>
+<item quantity="other">%d ว</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d ชม.</item>
+<item quantity="other">%d ชม.</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d น</item>
+<item quantity="other">%d น</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d ว</item>
+<item quantity="other">%d ว</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d ชั่วโมง</item>
+<item quantity="other">%d ชั่วโมง</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d นาที</item>
+<item quantity="other">%d นาที</item>
+</plurals>
+    <string name="a11y_no_data">ไม่มีข้อมูล</string>
+    <string name="a11y_no_permission">ไม่มีสิทธิ์เข้าถึงข้อมูล</string>
+    <string name="a11y_template_range">%1$f จาก %2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"นำทางไปหน้าแรก"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"กลับ"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"ตัวเลือกอื่น"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"เสร็จ"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"ดูทั้งหมด"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"เลือกแอป"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ปิด"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"เปิด"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"ลบ"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"เมนู+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"ค้นหา…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"ล้างคำค้นหา"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"คำค้นหา"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"ค้นหา"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"ส่งคำค้นหา"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"ค้นหาด้วยเสียง"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"แชร์กับ"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"แชร์ทาง <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"ยุบ"</string>
+    <string name="auto_detect">ปรับให้เข้ากับวิธีที่คุณถืออุปกรณ์</string>
+    <string name="bottomsheet_action_expand_halfway">ขยายรายการครึ่งหนึ่ง</string>
+    <string name="braille_ime_displayed_name">แป้นพิมพ์อักษรเบรลล์</string>
+    <string name="braille_ime_service_name">แป้นพิมพ์อักษรเบรลล์ของ TalkBack</string>
+    <string name="braille_keyboard">แป้นพิมพ์อักษรเบรลล์</string>
+    <string name="braille_keyboard_gestures">ท่าทางสัมผัสของแป้นพิมพ์อักษรเบรลล์</string>
+    <string name="braille_keyboard_strip_button">เปลี่ยนไปใช้แป้นพิมพ์บนหน้าจอสัมผัส</string>
+    <string name="braille_keyboard_strip_summary">เชื่อมต่อจอแสดงผลอักษรเบรลล์ภายนอกอยู่ ซึ่งคุณสามารถใช้เพื่อพิมพ์ข้อความลงในอุปกรณ์เครื่องนี้\nหรือจะเปลี่ยนไปใช้แป้นพิมพ์อักษรเบรลล์บนหน้าจอสัมผัสหรือวิธีการป้อนข้อมูลถัดไปก็ได้</string>
+    <string name="braille_tutorial_title">บทแนะนำแป้นพิมพ์อักษรเบรลล์</string>
+    <string name="bring_ime_settings_page">ไม่ได้เปิดใช้แป้นพิมพ์อื่นไว้ ไปที่การตั้งค่าแป้นพิมพ์</string>
+    <string name="buttons_rect_bottom_center">ล่าง</string>
+    <string name="buttons_rect_bottom_left">ล่างซ้าย</string>
+    <string name="buttons_rect_bottom_right">ล่างขวา</string>
+    <string name="buttons_rect_left_bottom">ล่าง ฝั่งซ้าย</string>
+    <string name="buttons_rect_left_center">กลางซ้าย</string>
+    <string name="buttons_rect_left_top">บน ฝั่งซ้าย</string>
+    <string name="buttons_rect_right_bottom">ล่าง ฝั่งขวา</string>
+    <string name="buttons_rect_right_center">กลางขวา</string>
+    <string name="buttons_rect_right_top">บน ฝั่งขวา</string>
+    <string name="buttons_rect_top_center">บน</string>
+    <string name="buttons_rect_top_left">บนซ้าย</string>
+    <string name="buttons_rect_top_right">บนขวา</string>
+    <string name="buttons_round_bottom_center">ล่าง</string>
+    <string name="buttons_round_bottom_left">ล่างซ้าย</string>
+    <string name="buttons_round_bottom_left_lower">ล่างซ้าย ส่วนล่าง</string>
+    <string name="buttons_round_bottom_left_upper">ล่างซ้าย ส่วนบน</string>
+    <string name="buttons_round_bottom_right">ล่างขวา</string>
+    <string name="buttons_round_bottom_right_lower">ล่างขวา ส่วนล่าง</string>
+    <string name="buttons_round_bottom_right_upper">ล่างขวา ส่วนบน</string>
+    <string name="buttons_round_center_left">กลางซ้าย</string>
+    <string name="buttons_round_center_right">กลางขวา</string>
+    <string name="buttons_round_top_center">บน</string>
+    <string name="buttons_round_top_left">บนซ้าย</string>
+    <string name="buttons_round_top_left_lower">บนซ้าย ส่วนล่าง</string>
+    <string name="buttons_round_top_left_upper">บนซ้าย ส่วนบน</string>
+    <string name="buttons_round_top_right">บนขวา</string>
+    <string name="buttons_round_top_right_lower">บนขวา ส่วนล่าง</string>
+    <string name="buttons_round_top_right_upper">บนขวา ส่วนบน</string>
+    <string name="calibration_fail_announcement">อัปเดตตำแหน่งของจุดไม่ได้ ใช้ 6 นิ้วแตะหน้าจอค้างไว้ จากนั้นลองอีกครั้ง</string>
+    <string name="calibration_finish_announcement">อัปเดตตำแหน่งของจุดแล้ว</string>
+    <string name="calibration_step1_hold_left_finger_announcement">การอัปเดตตำแหน่งของจุด ก่อนอื่นให้เริ่มด้วยการบันทึกจุดของมือซ้าย ใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือซ้ายแตะหน้าจอค้างไว้</string>
+    <string name="calibration_step1_hold_right_finger_announcement">การอัปเดตตำแหน่งของจุด ก่อนอื่นให้เริ่มด้วยการบันทึกจุดของมือขวา ใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือขวาแตะหน้าจอค้างไว้</string>
+    <string name="calibration_step2_hold_left_finger_announcement">อัปเดตตำแหน่งของจุด 1, 2 และ 3 แล้ว จากนั้นให้บันทึกจุดของมือซ้าย ใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือซ้ายแตะหน้าจอค้างไว้</string>
+    <string name="calibration_step2_hold_right_finger_announcement">อัปเดตตำแหน่งของจุด 1, 2 และ 3 แล้ว จากนั้นให้บันทึกจุดของมือขวา ใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือขวาแตะหน้าจอค้างไว้</string>
+    <string name="capitalize_announcement">จำนวนเงินสูงสุด</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">ป้อนอักขระแล้ว %1$d จาก %2$d ตัว</string>
+    <string name="character_counter_overflowed_content_description">เกินจำนวนอักขระสูงสุด %1$d จาก %2$d</string>
+    <string name="clear_text_end_icon_content_description">ล้างข้อความ</string>
+    <string name="code_user_facing_name_ar">อาหรับ</string>
+    <string name="code_user_facing_name_es">ภาษาสเปน</string>
+    <string name="code_user_facing_name_fr">ฝรั่งเศส</string>
+    <string name="code_user_facing_name_pl">ภาษาโปแลนด์</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille แบบไม่ย่อ</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille แบบย่อ</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">เปิดใช้</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s จะไม่ทำงานจนกว่าคุณจะเปิดใช้บริการ Google Play</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">เปิดใช้บริการ Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ติดตั้ง</string>
+    <string name="common_google_play_services_install_text">%1$s จะไม่ทำงานหากไม่มีบริการ Google Play ซี่งไม่มีในอุปกรณ์ของคุณ</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">ติดตั้งบริการ Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">ความพร้อมใช้งานของบริการ Google Play</string>
+    <string name="common_google_play_services_notification_ticker">ข้อผิดพลาดของบริการ Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s มีปัญหาเกี่ยวกับบริการของ Google Play โปรดลองอีกครั้ง</string>
+    <string name="common_google_play_services_unsupported_text">%1$s จะไม่ทำงานหากไม่มีบริการ Google Play ซึ่งอุปกรณ์ของคุณไม่สนับสนุน</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">อัปเดต</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s จะไม่ทำงานจนกว่าคุณจะอัปเดตบริการ Google Play</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">อัปเดตบริการ Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s จะไม่ทำงานหากไม่มีบริการ Google Play ซึ่งกำลังอัปเดตอยู่ในขณะนี้</string>
+    <string name="common_google_play_services_wear_update_text">จำเป็นต้องใช้บริการ Google Play เวอร์ชันใหม่ ซึ่งจะอัปเดตอัตโนมัติในอีกไม่ช้า</string>
+    <string name="common_open_on_phone">เปิดบนโทรศัพท์</string>
+    <string name="common_signin_button_text">ลงชื่อเข้าใช้</string>
+    <string name="common_signin_button_text_long">ลงชื่อเข้าใช้ด้วย Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"ไม่สำเร็จ"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"เปิดในโทรศัพท์ของคุณแล้ว"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"สำเร็จ"</string>
+    <string name="context_menu_input_language_selection">เปลี่ยนเป็นภาษาถัดไป: %s</string>
+    <string name="context_menu_input_language_selection_summary">ปัจจุบันใช้ภาษา %s</string>
+    <string name="context_menu_layout_selection">เลย์เอาต์</string>
+    <string name="context_menu_see_all_gestures_selection">ดูท่าทางสัมผัสทั้งหมด</string>
+    <string name="context_menu_settings_selection">การตั้งค่า</string>
+    <string name="context_menu_title">ตัวเลือกแป้นพิมพ์อักษรเบรลล์</string>
+    <string name="context_menu_tutorial_finish">จบบทแนะนำ</string>
+    <string name="context_menu_tutorial_selection">เปิดบทแนะนำ</string>
+    <string name="continue_tutorial_announcement">มาดูบทแนะนำต่อเลย %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"คัดลอก"</string>
+    <string name="dismiss_overlay_button_label">ปิด</string>
+    <string name="done">เสร็จสิ้น</string>
+    <string name="dont_show_again">ไม่ต้องแสดงข้อความนี้อีก</string>
+    <string name="error_icon_content_description">ข้อผิดพลาด</string>
+    <string name="exit_scrim">ออก</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"ขั้นสูง"</string>
+    <string name="exposed_dropdown_menu_content_description">แสดงเมนูแบบเลื่อนลง</string>
+    <string name="finish_tutorial_announcement">การแสดงแป้นพิมพ์อักษรเบรลล์ ถือโทรศัพท์โดยหันหน้าจอออกจากตัว เอียงโทรศัพท์ให้อยู่ในแนวนอน แล้วเริ่มพิมพ์</string>
+    <string name="function_off">การอธิบายและอ่านออกเสียงปิดอยู่</string>
+    <string name="function_on">การอธิบายและอ่านออกเสียงเปิดอยู่</string>
+    <string name="generic_cancel">ยกเลิก</string>
+    <string name="generic_yes">ใช่</string>
+    <string name="gesture_add_space">หากต้องการ<b>เว้นวรรค</b> ให้เลื่อนไปทางขวา</string>
+    <string name="gesture_delete">หากต้องการ<b>ลบ</b> ให้เลื่อนไปทางซ้าย</string>
+    <string name="gesture_delete_word">หากต้องการ<b>ลบคำ</b> ให้ใช้ 2 นิ้วเลื่อนไปทางซ้าย</string>
+    <string name="gesture_hide_keyboard">หากต้องการ<b>ซ่อนแป้นพิมพ์</b> ให้ใช้ 2 นิ้วเลื่อนลง</string>
+    <string name="gesture_move_cursor_backward">หากต้องการ<b>ย้ายเคอร์เซอร์ไปข้างหลัง</b> ให้ปัดขึ้น</string>
+    <string name="gesture_move_cursor_forward">หากต้องการ<b>ย้ายเคอร์เซอร์ไปข้างหน้า</b> ให้ปัดลง</string>
+    <string name="gesture_new_line">หากต้องการขึ้น<b>บรรทัดใหม่</b> ให้ใช้ 2 นิ้วเลื่อนไปทางขวา</string>
+    <string name="gesture_next_keyboard">หากต้องการเปลี่ยนไปใช้<b>แป้นพิมพ์ถัดไป</b> ให้ใช้ 3 นิ้วเลื่อนลง</string>
+    <string name="gesture_open_context_menu">หากต้องการดู<b>ความช่วยเหลือและตัวเลือกอื่นๆ</b> ให้ใช้ 3 นิ้วเลื่อนขึ้น</string>
+    <string name="gesture_submit_text">หากต้องการ<b>ส่งข้อความ</b> ให้ใช้ 2 นิ้วเลื่อนขึ้น</string>
+    <string name="granularity_character">อักขระ</string>
+    <string name="granularity_default">ค่าเริ่มต้น</string>
+    <string name="granularity_line">บรรทัด</string>
+    <string name="granularity_native_control">ตัวควบคุม</string>
+    <string name="granularity_native_heading">ส่วนหัว</string>
+    <string name="granularity_native_link">ลิงก์</string>
+    <string name="granularity_paragraph">ย่อหน้า</string>
+    <string name="granularity_pseudo_web_special_content">เนื้อหาพิเศษ</string>
+    <string name="granularity_web_control">ตัวควบคุม</string>
+    <string name="granularity_web_heading">ส่วนหัว</string>
+    <string name="granularity_web_landmark">จุดสังเกต</string>
+    <string name="granularity_web_link">ลิงก์</string>
+    <string name="granularity_web_list">รายการ</string>
+    <string name="granularity_window">หน้าต่าง</string>
+    <string name="granularity_word">คำ</string>
+    <string name="hide_keyboard_window">ซ่อนแป้นพิมพ์แล้ว</string>
+    <string name="hold_six_fingers_announcement">%s\nวางอุปกรณ์ราบลงบนโต๊ะ จากนั้นใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือแต่ละข้างแตะหน้าจอค้างไว้ในตำแหน่งที่คุณพิมพ์ได้ถนัด</string>
+    <string name="hold_six_fingers_description">คุณจะใช้ท่าทางสัมผัส TalkBack ตามปกติกับแป้นพิมพ์อักษรเบรลล์ไม่ได้\n\nเริ่มต้นใช้งานด้วยการตั้งค่าตำแหน่งของจุดอักษรเบรลล์ 6 จุดเมื่อคุณพิมพ์</string>
+    <string name="hold_six_fingers_inactive_announcement">วางอุปกรณ์ราบลงบนโต๊ะ จากนั้นใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือแต่ละข้างแตะหน้าจอค้างไว้ในตำแหน่งที่คุณพิมพ์ได้ถนัด</string>
+    <string name="how_to_use_braille_keyboard">วิธีใช้แป้นพิมพ์อักษรเบรลล์</string>
+    <string name="icon_content_description">ไอคอนกล่องโต้ตอบ</string>
+    <string name="input_view_caption">แป้นพิมพ์อักษรเบรลล์ของ TalkBack ดูความช่วยเหลือได้ที่ g.co/help/braille</string>
+    <string name="instruction_swipe_down">หากต้องการย้ายเคอร์เซอร์ไปข้างหน้า ให้ปัดลง</string>
+    <string name="instruction_swipe_down_2_fingers">หากต้องการซ่อนแป้นพิมพ์ ให้ใช้ 2 นิ้วเลื่อนลง</string>
+    <string name="instruction_swipe_down_3_fingers">หากต้องการเปลี่ยนไปใช้แป้นพิมพ์อื่น ให้ใช้ 3 นิ้วเลื่อนลง</string>
+    <string name="instruction_swipe_left">หากต้องการลบตัวอักษร ให้เลื่อนไปทางซ้าย</string>
+    <string name="instruction_swipe_right">หากต้องการเว้นวรรค ให้เลื่อนไปทางขวา</string>
+    <string name="instruction_swipe_up">หากต้องการย้ายเคอร์เซอร์ไปข้างหลัง ให้ปัดขึ้น</string>
+    <string name="instruction_swipe_up_3_fingers">หากต้องการจบบทแนะนำ ให้ใช้ 3 นิ้วเลื่อนขึ้น</string>
+    <string name="instruction_type_letter_a">ใช้นิ้วชี้ซ้ายแตะจุด 1 เพื่อพิมพ์ตัวอักษร \"A\"</string>
+    <string name="instruction_type_letter_bcd">ต่อไป ลองพิมพ์ตัวอักษร B, C และ D</string>
+    <string name="item_view_role_description">แท็บ</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">กดแป้นที่กดร่วมกันพร้อมกับ %1$s ซึ่งเป็นคีย์ตัวปรับแต่ง เพื่อตั้งค่าแป้นพิมพ์ลัดใหม่</string>
+    <string name="keycombo_assign_dialog_instruction">กดปุ่มที่ใช้ร่วมกันเพื่อตั้งค่าทางลัดใหม่ จะต้องประกอบด้วยปุ่ม ALT หรือ Control เป็นอย่างน้อย</string>
+    <string name="keycombo_key_arrow_down">ลูกศรลง</string>
+    <string name="keycombo_key_arrow_left">ลูกศรซ้าย</string>
+    <string name="keycombo_key_arrow_right">ลูกศรขวา</string>
+    <string name="keycombo_key_arrow_up">ลูกศรขึ้น</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">ค้นหา</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">ไม่ได้กำหนด</string>
+    <string name="leave_keyboard">ออกจากแป้นพิมพ์อักษรเบรลล์</string>
+    <string name="material_clock_toggle_content_description">เลือก AM หรือ PM</string>
+    <string name="material_hour_selection">เลือกชั่วโมง</string>
+    <string name="material_hour_suffix">%1$s นาฬิกา</string>
+    <string name="material_minute_selection">เลือกนาที</string>
+    <string name="material_minute_suffix">%1$s นาที</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">สลับไปโหมดนาฬิกาเพื่อป้อนเวลา</string>
+    <string name="material_timepicker_hour">ชั่วโมง</string>
+    <string name="material_timepicker_minute">นาที</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">เลือกเวลา</string>
+    <string name="material_timepicker_text_input_mode_description">สลับไปโหมดป้อนข้อความเพื่อป้อนเวลา</string>
+    <string name="mtrl_badge_numberless_content_description">การแจ้งเตือนใหม่</string>
+    <string name="mtrl_chip_close_icon_content_description">นำ %1$s ออก</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">การแจ้งเตือนใหม่มากกว่า %1$d รายการ</string>
+    <string name="mtrl_picker_a11y_next_month">เปลี่ยนไปที่เดือนถัดไป</string>
+    <string name="mtrl_picker_a11y_prev_month">เปลี่ยนไปที่เดือนก่อนหน้า</string>
+    <string name="mtrl_picker_announce_current_selection">การเลือกในปัจจุบัน: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">เลือกวันที่</string>
+    <string name="mtrl_picker_date_header_unselected">วันที่ที่เลือก</string>
+    <string name="mtrl_picker_day_of_week_column_header">คอลัมน์ของวัน: %1$s</string>
+    <string name="mtrl_picker_invalid_format">รูปแบบไม่ถูกต้อง</string>
+    <string name="mtrl_picker_invalid_format_example">ตัวอย่าง: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">ใช้: %1$s</string>
+    <string name="mtrl_picker_invalid_range">ช่วงไม่ถูกต้อง</string>
+    <string name="mtrl_picker_navigate_to_year_description">ไปที่ปี %1$s</string>
+    <string name="mtrl_picker_out_of_range">วันที่ไม่อยู่ในช่วงที่อนุญาต: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">วันที่เริ่มต้น – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – วันที่สิ้นสุด</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">เลือกช่วง</string>
+    <string name="mtrl_picker_range_header_unselected">วันที่เริ่มต้น – วันที่สิ้นสุด</string>
+    <string name="mtrl_picker_save">บันทึก</string>
+    <string name="mtrl_picker_text_input_date_hint">วันที่</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">วันที่สิ้นสุด</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">วันที่เริ่มต้น</string>
+    <string name="mtrl_picker_text_input_day_abbr">ว</string>
+    <string name="mtrl_picker_text_input_month_abbr">ด</string>
+    <string name="mtrl_picker_text_input_year_abbr">ป</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">สลับไปใช้โหมดป้อนข้อมูลปฏิทิน</string>
+    <string name="mtrl_picker_toggle_to_day_selection">แตะเพื่อสลับไปใช้การเลือกวัน</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">สลับไปใช้โหมดป้อนข้อมูลข้อความ</string>
+    <string name="mtrl_picker_toggle_to_year_selection">แตะเพื่อสลับไปใช้การเลือกปี</string>
+    <string name="multiple_languages_braille_ime_displayed_name">แป้นพิมพ์อักษรเบรลล์ %s</string>
+    <string name="navigation_drawer_content_description">ลิ้นชักการนำทาง</string>
+    <string name="next_keyboard">แป้นพิมพ์ถัดไป</string>
+    <string name="next_step">ถัดไป</string>
+    <string name="not_enough_touch_points_dialog_message">อุปกรณ์ของคุณไม่รองรับจุดที่สัมผัสจำนวนมากพอ โปรดติดต่อผู้ผลิตอุปกรณ์เพื่อสอบถามข้อมูลเพิ่มเติม</string>
+    <string name="not_enough_touch_points_dialog_title">อุปกรณ์ของคุณไม่รองรับแป้นพิมพ์อักษรเบรลล์</string>
+    <string msgid="478774118347071097" name="not_set">"ไม่ได้ตั้งค่า"</string>
+    <string name="number_announcement">ลำดับ</string>
+    <string name="open_context_menu_announcement">เมนูตัวเลือกเปิดอยู่ พลิกโทรศัพท์กลับมาโดยให้หันเข้าหาตัวและถือไว้ตามปกติ ตอนนี้คุณจะใช้ท่าทางสัมผัสของ TalkBack เพื่อไปยังส่วนต่างๆ ได้ตามปกติ เลื่อนไปทางขวาเพื่อดูตัวเลือกเพิ่มเติม</string>
+    <string name="password_toggle_content_description">แสดงรหัสผ่าน</string>
+    <string name="perform_action_next">ถัดไป</string>
+    <string name="perform_action_submitting">กำลังส่งข้อความ</string>
+    <string name="perform_add_new_line_announcement">เพิ่มบรรทัดใหม่แล้ว</string>
+    <string name="perform_add_space_announcement">เว้นวรรค</string>
+    <string name="perform_delete_letter_announcement">ลบตัวอักษรแล้ว</string>
+    <string name="perform_delete_word_announcement">ลบคำแล้ว</string>
+    <string name="perform_hide_keyboard_announcement">ซ่อนแป้นพิมพ์</string>
+    <string name="perform_submit_text_announcement">ส่งข้อความ</string>
+    <string name="perform_switch_keyboard_announcement">เปลี่ยนแป้นพิมพ์</string>
+    <string msgid="7961817945132860002" name="preference_copied">"คัดลอก \"<ns1:g id="SUMMARY">%1$s</ns1:g>\" ไปยังคลิปบอร์ดแล้ว"</string>
+    <string name="preferred_language_title">ภาษาที่ต้องการ</string>
+    <string name="read_out_deleted">ลบ %s แล้ว</string>
+    <string name="remaining_calibration_finish_announcement">อัปเดตตำแหน่งจุดทั้งหมดแล้ว</string>
+    <string name="reminder_announcement">ใช้ 3 นิ้วเลื่อนขึ้นเพื่อดูตัวเลือกเพิ่มเติม</string>
+    <string name="result_swipe_down">ย้ายเคอร์เซอร์ไปข้างหน้าแล้ว</string>
+    <string name="result_swipe_down_2_fingers">ซ่อนแป้นพิมพ์</string>
+    <string name="result_swipe_down_3_fingers">แป้นพิมพ์ถัดไป</string>
+    <string name="result_swipe_left">ลบ</string>
+    <string name="result_swipe_right">เว้นวรรค</string>
+    <string name="result_swipe_up">ย้ายเคอร์เซอร์ไปข้างหลังแล้ว</string>
+    <string name="rotate_orientation_announcement">เริ่มแล้ว คุณจะใช้ท่าทางสัมผัส TalkBack ตามปกติไม่ได้ TalkBack จะใช้ไม่ได้ขณะใช้แป้นพิมพ์อักษรเบรลล์\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">โทรศัพท์อยู่ในแนวตั้ง ดำเนินการต่อด้วยการเอียงโทรศัพท์ให้อยู่ในแนวนอนโดยที่ด้านยาวอยู่ด้านล่าง แล้วหันหน้าจอออกจากตัวคุณ เมื่อพร้อมแล้ว ให้แตะหน้าจอสองครั้งเพื่อดำเนินการต่อ</string>
+    <string name="rotate_orientation_description_1">เริ่มแล้ว คุณจะใช้ท่าทางสัมผัส TalkBack ตามปกติไม่ได้ TalkBack จะใช้ไม่ได้ขณะใช้แป้นพิมพ์อักษรเบรลล์</string>
+    <string name="rotate_orientation_description_2">ในการเริ่มต้น ให้ถือโทรศัพท์แบบนี้โดยหันหน้าจอออกจากตัวคุณ</string>
+    <string name="rotate_orientation_inactive_announcement">ก่อนอื่น ให้ถือโทรศัพท์โดยหันหน้าจอออกจากตัว\n\nแล้วเอียงโทรศัพท์ให้อยู่ในแนวนอน ควรใช้ทั้งสองมือจับปลายด้านซ้ายและขวาของโทรศัพท์ให้มั่นคง ควรใช้มือขวาจับปลายด้านที่มีพอร์ต USB วางนิ้วชี้ นิ้วกลาง และนิ้วนางทั้ง 3 นิ้วบนหน้าจอและใช้นิ้วก้อยและนิ้วโป้งประคองโทรศัพท์ไว้\n\nเมื่อพร้อมแล้ว ให้แตะหน้าจอสองครั้งเพื่อดำเนินการต่อ\n\nหากต้องการออกจากแป้นพิมพ์อักษรเบรลล์ ให้ใช้ 3 นิ้วเลื่อนลงไปทางพื้นด้านล่าง วิธีนี้เป็นการเปลี่ยนกลับไปใช้แป้นพิมพ์เดิมของคุณ</string>
+    <string name="screen_away">โหมดหันหน้าจอออก</string>
+    <string name="screen_away_detail">ถืออุปกรณ์โดยให้หันหน้าจอออกจากตัว (โหมดหันหน้าจอออก)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"ค้นหา"</string>
+    <string name="set_up_braille_keyboard">ตั้งค่าแป้นพิมพ์อักษรเบรลล์</string>
+    <string name="show_keyboard_window">กำลังแสดง %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g> <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">แต่ละจุดที่กดเป็นส่วนหนึ่งของอินพุต แม้ว่าจะปล่อยจุดนั้นก่อนจุดอื่นๆ</string>
+    <string name="summary_pref_reverse_dots">สลับตำแหน่งจุด เช่น เพื่อให้จุด 1 และจุด 4 สลับที่กัน</string>
+    <string name="swipe_down_2_fingers_announcement">หากต้องการซ่อนแป้นพิมพ์ ให้ใช้ 2 นิ้วเลื่อนลง ลองเลย</string>
+    <string name="swipe_down_2_fingers_completed_announcement">ซ่อนแป้นพิมพ์ โดยปกติวิธีนี้จะเป็นการซ่อนแป้นพิมพ์ แป้นพิมพ์อักษรเบรลล์จะเปิดอยู่ตามเดิมเพราะคุณยังอยู่ในบทแนะนำ</string>
+    <string name="swipe_down_3_fingers_announcement">หากต้องการเปลี่ยนไปใช้แป้นพิมพ์อื่น ให้ใช้ 3 นิ้วเลื่อนลง ลองเลย</string>
+    <string name="swipe_down_3_fingers_completed_announcement">แป้นพิมพ์ถัดไป โดยปกติวิธีนี้จะเป็นการเปลี่ยนไปใช้แป้นพิมพ์ถัดไป คราวนี้คุณอยู่ในแป้นพิมพ์อักษรเบรลล์เพราะคุณยังอยู่ในบทแนะนำ</string>
+    <string name="swipe_down_announcement">หากต้องการย้ายเคอร์เซอร์ไปข้างหน้า ให้ปัดลง ลองเลย</string>
+    <string name="swipe_left_action_result_announcement">ลบ D แล้ว</string>
+    <string name="swipe_left_announcement">หากต้องการลบตัวอักษร ให้เลื่อนไปทางซ้าย ลองเลย</string>
+    <string name="swipe_right_announcement">หากต้องการเว้นวรรค ให้เลื่อนไปทางขวา ลองเลย</string>
+    <string name="swipe_up_3_fingers_announcement">คุณพิมพ์ในโหมดบนโต๊ะโดยวางโทรศัพท์ราบลงบนโต๊ะได้ด้วย หากต้องการจบบทแนะนำ ให้ใช้ 3 นิ้วเลื่อนขึ้นแล้วหาตัวเลือกจบบทแนะนำ</string>
+    <string name="swipe_up_announcement">หากต้องการย้ายเคอร์เซอร์ไปข้างหลัง ให้ปัดขึ้น ลองเลย</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">หากต้องการเปลี่ยนภาษาขณะพิมพ์ด้วยแป้นพิมพ์อักษรเบรลล์ ให้ใช้ 3 นิ้วปัดขึ้น แล้วเลือก \"เปลี่ยนเป็นภาษาถัดไป\"</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">เปลี่ยนภาษาอย่างรวดเร็วขณะพิมพ์</string>
+    <string name="switch_to_language_announcement">เปลี่ยนไปใช้ %s แล้ว</string>
+    <string name="switch_to_screen_away_announcement">โหมดหันหน้าจอออก</string>
+    <string name="switch_to_tabletop_announcement">โหมดบนโต๊ะ วางอุปกรณ์โดยหันพอร์ตชาร์จไปทางซ้าย ใช้ 6 นิ้วกดหน้าจอไว้เพื่ออัปเดตตำแหน่งของจุด</string>
+    <string name="symbol_almost_equals">ประมาณ</string>
+    <string name="symbol_ampersand">แอมเพอร์แซนด์</string>
+    <string name="symbol_angle_bracket_left">เครื่องหมายน้อยกว่า</string>
+    <string name="symbol_angle_bracket_right">เครื่องหมายมากกว่า</string>
+    <string name="symbol_apostrophe">เครื่องหมายอะพอสทรอฟี</string>
+    <string name="symbol_approximately_equals">ประมาณ</string>
+    <string name="symbol_asterisk">ดอกจัน</string>
+    <string name="symbol_at_sign">แอท</string>
+    <string name="symbol_backslash">ทับย้อนกลับ</string>
+    <string name="symbol_beamed_sixteenth_note">โน้ตเขบ็ต 2 ชั้น</string>
+    <string name="symbol_black_circle">วงกลมสีดำ</string>
+    <string name="symbol_black_heart">หัวใจสีดำ</string>
+    <string name="symbol_black_smallsquare">สี่เหลี่ยมจัตุรัสสีดำขนาดเล็ก</string>
+    <string name="symbol_black_square">สี่เหลี่ยมสีดำ</string>
+    <string name="symbol_black_star">ดาวสีดำ</string>
+    <string name="symbol_black_suit_of_diamonds">ข้าวหลามตัดสีดำ</string>
+    <string name="symbol_black_triangle_pointing_down">สามเหลี่ยมสีดำชี้ลง</string>
+    <string name="symbol_black_triangle_pointing_up">สามเหลี่ยมสีดำชี้ขึ้น</string>
+    <string name="symbol_broken_bar">เส้นตั้งที่มีช่องตรงกลาง</string>
+    <string name="symbol_bullet">สัญลักษณ์หัวข้อย่อย</string>
+    <string name="symbol_bullseye">จุดกลางเป้า</string>
+    <string name="symbol_caret">แคเร็ต</string>
+    <string name="symbol_celsius_degree">องศาเซลเซียส</string>
+    <string name="symbol_cent">สัญลักษณ์เซ็นต์</string>
+    <string name="symbol_circle_left_half_black">วงกลมสีดำครึ่งซ้าย</string>
+    <string name="symbol_circle_right_half_black">วงกลมสีดำครึ่งขวา</string>
+    <string name="symbol_colon">ทวิภาค</string>
+    <string name="symbol_comma">จุลภาค</string>
+    <string name="symbol_copyright">ลิขสิทธิ์</string>
+    <string name="symbol_curly_bracket_left">วงเล็บปีกกาเปิด</string>
+    <string name="symbol_curly_bracket_right">วงเล็บปีกกาปิด</string>
+    <string name="symbol_currency_sign">สัญลักษณ์สกุลเงิน</string>
+    <string name="symbol_degree">เครื่องหมายองศา</string>
+    <string name="symbol_division">เครื่องหมายหาร</string>
+    <string name="symbol_dollar_sign">สัญลักษณ์ดอลลาร์</string>
+    <string name="symbol_downwards_arrow">ลูกศรชี้ลง</string>
+    <string name="symbol_eighth_note">โน้ตเขบ็ด 1 ชั้น</string>
+    <string name="symbol_ellipsis">จุดไข่ปลา</string>
+    <string name="symbol_em_dash">ยัติภาคขนาด M</string>
+    <string name="symbol_en_dash">ยัติภาคขนาด N</string>
+    <string name="symbol_equal">เครื่องหมายเท่ากับ</string>
+    <string name="symbol_euro">ยูโร</string>
+    <string name="symbol_exclamation_mark">อัศเจรีย์</string>
+    <string name="symbol_fahrenheit_degree">องศาฟาเรนไฮต์</string>
+    <string name="symbol_female">สัญลักษณ์เพศหญิง</string>
+    <string name="symbol_full_width_ampersand">แอมเพอร์แซนด์ความกว้างเต็ม</string>
+    <string name="symbol_full_width_asterisk">ดอกจันความกว้างเต็ม</string>
+    <string name="symbol_full_width_circumflex">เซอร์คัมเฟลกซ์ความกว้างเต็ม</string>
+    <string name="symbol_full_width_colon">โคลอนความกว้างเต็ม</string>
+    <string name="symbol_full_width_comma">คอมมาความกว้างเต็ม</string>
+    <string name="symbol_full_width_exclamation_mark">เครื่องหมายตกใจความกว้างเต็ม</string>
+    <string name="symbol_full_width_greater_than_sign">เครื่องหมายมากกว่าความกว้างเต็ม</string>
+    <string name="symbol_full_width_ideographic_full_stop">จุดแบบภาพแสดงความหมาย</string>
+    <string name="symbol_full_width_left_curly_bracket">วงเล็บปีกกาเปิดความกว้างเต็ม</string>
+    <string name="symbol_full_width_left_parenthesis">วงเล็บเปิดความกว้างเต็ม</string>
+    <string name="symbol_full_width_less_than_sign">เครื่องหมายน้อยกว่าความกว้างเต็ม</string>
+    <string name="symbol_full_width_question_mark">เครื่องหมายคำถามความกว้างเต็ม</string>
+    <string name="symbol_full_width_right_curly_bracket">วงเล็บปีกกาปิดความกว้างเต็ม</string>
+    <string name="symbol_full_width_right_parenthesis">วงเล็บปิดความกว้างเต็ม</string>
+    <string name="symbol_full_width_semicolon">เซมิโคลอนความกว้างเต็ม</string>
+    <string name="symbol_full_width_tilde">ทิลเดอความกว้างเต็ม</string>
+    <string name="symbol_full_width_underscore">ขีดล่างความกว้างเต็ม</string>
+    <string name="symbol_grave_accent">เครื่องหมายเน้นเสียง</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">จุดกลางของคาตาคานะความกว้างกึ่งหนึ่ง</string>
+    <string name="symbol_hyphen_minus">ยัติภาค</string>
+    <string name="symbol_ideographic_comma">คอมมาแบบภาพแสดงความหมาย</string>
+    <string name="symbol_integral">อินทิกรัล</string>
+    <string name="symbol_inverted_exclamation_mark">เครื่องหมายตกใจคว่ำ</string>
+    <string name="symbol_inverted_question_mark">เครื่องหมายคำถามคว่ำ</string>
+    <string name="symbol_left_angle_bracket">วงเล็บมุมซ้อนเปิด</string>
+    <string name="symbol_left_black_lenticular_bracket">วงเล็บเปิดรูปเลนส์สีดำ</string>
+    <string name="symbol_left_corner_bracket">วงเล็บมุมด้านซ้าย</string>
+    <string name="symbol_left_double_quotation_mark">เครื่องหมายคำพูดเปิดคู่</string>
+    <string name="symbol_left_single_quotation_mark">เครื่องหมายคำพูดเปิดเดี่ยว</string>
+    <string name="symbol_leftwards_arrow">ลูกศรชี้ซ้าย</string>
+    <string name="symbol_liter">ลิตร</string>
+    <string name="symbol_low_double_quote">อัญประกาศล่าง</string>
+    <string name="symbol_male">สัญลักษณ์เพศชาย</string>
+    <string name="symbol_mathematical_left_angle_bracket">วงเล็บมุมเปิดทางคณิตศาสตร์</string>
+    <string name="symbol_mathematical_right_angle_bracket">วงเล็บมุมปิดทางคณิตศาสตร์</string>
+    <string name="symbol_micro_sign">สัญลักษณ์ไมโคร</string>
+    <string name="symbol_middle_dot">จุดกลาง</string>
+    <string name="symbol_multiplication">เครื่องหมายคูณ</string>
+    <string name="symbol_new_line">บรรทัดใหม่</string>
+    <string name="symbol_not_equals">ไม่เท่ากับ</string>
+    <string name="symbol_not_sign">สัญลักษณ์ห้าม</string>
+    <string name="symbol_paragraph_mark">เครื่องหมายขึ้นต้นย่อหน้า</string>
+    <string name="symbol_parenthesis_left">วงเล็บเปิด</string>
+    <string name="symbol_parenthesis_right">วงเล็บปิด</string>
+    <string name="symbol_percent">เปอร์เซ็นต์</string>
+    <string name="symbol_period">มหัพภาค</string>
+    <string name="symbol_pi">พาย</string>
+    <string name="symbol_plus_minus_sign">เครื่องหมายบวกลบ</string>
+    <string name="symbol_postal_mark">สัญลักษณ์ทางไปรษณีย์</string>
+    <string name="symbol_pound">ปอนด์</string>
+    <string name="symbol_pound_sterling">สัญลักษณ์สกุลเงินปอนด์</string>
+    <string name="symbol_quarter_note">โน้ตตัวดำ</string>
+    <string name="symbol_question_mark">เครื่องหมายคำถาม</string>
+    <string name="symbol_quotation_mark">อัญประกาศ</string>
+    <string name="symbol_reference">เครื่องหมายอ้างอิง</string>
+    <string name="symbol_registered_trademark">เครื่องหมายการค้าจดทะเบียน</string>
+    <string name="symbol_right_angle_bracket">วงเล็บมุมซ้อนปิด</string>
+    <string name="symbol_right_black_lenticular_bracket">วงเล็บปิดรูปเลนส์สีดำ</string>
+    <string name="symbol_right_corner_bracket">วงเล็บมุมด้านขวา</string>
+    <string name="symbol_right_double_quotation_mark">เครื่องหมายคำพูดปิดคู่</string>
+    <string name="symbol_right_single_quotation_mark">เครื่องหมายคำพูดปิดเดี่ยว</string>
+    <string name="symbol_rightwards_arrow">ลูกศรชี้ขวา</string>
+    <string name="symbol_rupee">รูปี</string>
+    <string name="symbol_section_sign">สัญลักษณ์ส่วน</string>
+    <string name="symbol_semicolon">อัฒภาค</string>
+    <string name="symbol_slash">ทับ</string>
+    <string name="symbol_solar">สัญลักษณ์ดวงอาทิตย์</string>
+    <string name="symbol_space">วรรค</string>
+    <string name="symbol_square_bracket_left">วงเล็บเหลี่ยมเปิด</string>
+    <string name="symbol_square_bracket_right">วงเล็บเหลี่ยมปิด</string>
+    <string name="symbol_square_root">รากที่ 2</string>
+    <string name="symbol_tilde">ทิลด์</string>
+    <string name="symbol_trademark">เครื่องหมายการค้า</string>
+    <string name="symbol_underscore">ขีดล่าง</string>
+    <string name="symbol_upwards_arrow">ลูกศรชี้ขึ้น</string>
+    <string name="symbol_vertical_bar">ไปป์</string>
+    <string name="symbol_white_circle">วงกลมสีขาว</string>
+    <string name="symbol_white_club_suit">ชุดดอกจิกสีขาว</string>
+    <string name="symbol_white_diamond">ข้าวหลามตัดสีขาว</string>
+    <string name="symbol_white_down_pointing_triangle">สามเหลี่ยมชี้ลงสีขาว</string>
+    <string name="symbol_white_heart">หัวใจสีขาว</string>
+    <string name="symbol_white_left_pointing_index">นิ้วชี้ไปทางซ้ายสีขาว</string>
+    <string name="symbol_white_left_pointing_triangle">สามเหลี่ยมชี้ไปทางซ้ายสีขาว</string>
+    <string name="symbol_white_right_pointing_index">นิ้วชี้ไปทางขวาสีขาว</string>
+    <string name="symbol_white_right_pointing_triangle">สามเหลี่ยมชี้ไปทางขวาสีขาว</string>
+    <string name="symbol_white_spade_suit">ชุดโพดำสีขาว</string>
+    <string name="symbol_white_square">สี่เหลี่ยมสีขาว</string>
+    <string name="symbol_white_star">ดาวสีขาว</string>
+    <string name="symbol_white_up_pointing_triangle">สามเหลี่ยมชี้ขึ้นสีขาว</string>
+    <string name="symbol_won">สัญลักษณ์สกุลเงินวอน</string>
+    <string name="symbol_won_sign">สัญลักษณ์สกุลเงินวอน</string>
+    <string name="symbol_yen">เยน</string>
+    <string name="tabletop">โหมดบนโต๊ะ</string>
+    <string name="tabletop_detail">วางอุปกรณ์ราบลงบนโต๊ะ (โหมดบนโต๊ะ)</string>
+    <string name="talkback_off_dialog_positive_button">เปิดในการตั้งค่าการช่วยเหลือพิเศษ</string>
+    <string name="talkback_off_dialog_title">เปิด TalkBack เพื่อใช้แป้นพิมพ์อักษรเบรลล์</string>
+    <string name="talkback_off_or_suspend_dialog_message">เมื่อ TalkBack เปิดอยู่ คุณจะแตะหน้าจอเพื่อป้อนสัญลักษณ์อักษรเบรลล์ได้</string>
+    <string name="talkback_suspend_dialog_title">ใช้ TalkBack ต่อเพื่อใช้งานแป้นพิมพ์อักษรเบรลล์</string>
+    <string name="tap_to_continue">แตะสองครั้งที่ใดก็ได้เพื่อดำเนินการต่อ</string>
+    <string name="template_capital_letter">ตัวพิมพ์ใหญ่ %1$s</string>
+    <string name="template_current_tts_engine">กำลังใช้ %1$s</string>
+    <string name="template_overlay_window">%1$s ใช้การแสดงภาพซ้อนภาพ</string>
+    <string name="template_password_selected">ตัว %1$d จนถึงตัว %2$d</string>
+    <string name="template_password_traversed">อักขระตัวที่ %1$d</string>
+    <string name="template_scroll_from_count">แสดงรายการที่ %1$d จาก %2$d</string>
+    <string name="template_scroll_from_to_count">แสดงรายการที่ %1$d ถึง %2$d จาก %3$d</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s อยู่ด้านซ้าย %2$s อยู่ด้านขวา</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s อยู่ด้านขวา %2$s อยู่ด้านซ้าย</string>
+    <string name="template_split_screen_mode_portrait">%1$s อยู่ด้านบน %2$s อยู่ด้านล่าง</string>
+    <string name="template_text_copied">คัดลอก %1$s แล้ว</string>
+    <string name="template_viewpager_index_count">หน้า %1$d จาก %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d จาก %2$d</string>
+    <string name="time_difference_now">ตอนนี้เลย</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="title_pref_accumulate_presses">รวมจุดที่กดไว้ทั้งหมด</string>
+    <string name="title_pref_reverse_dots">จุดแบบย้อนกลับ</string>
+    <string name="tutorial_intro_description">แป้นพิมพ์อักษรเบรลล์ให้คุณแตะหน้าจอเพื่อป้อนอักษรเบรลล์แบบ 6 จุดได้\n\nคุณกำลังใช้ Unified English Braille หากต้องการเปลี่ยนภาษาที่พิมพ์ ให้ไปที่การตั้งค่า TalkBack\n\nคุณต้องถือและใช้โทรศัพท์ด้วยวิธีที่ต่างออกไปเพื่อพิมพ์อักษรเบรลล์</string>
+    <string name="type_letter_a_announcement">ให้หน้าจอหันออกจากตัว ใช้มือทั้งสองจับปลายด้านซ้ายและขวาของโทรศัพท์โดยให้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือแต่ละข้างแตะหน้าจอได้\n\nนิ้วชี้ซ้ายควรอยู่ที่จุด 1 ตอนนี้ให้แตะจุด 1 เพื่อพิมพ์ตัวอักษร “A”</string>
+    <string name="type_letter_a_inactive_announcement">ใช้นิ้วชี้ซ้ายแตะจุด 1 เพื่อพิมพ์ตัวอักษร “A”</string>
+    <string name="type_letter_inactive_announcement">แตะ %1$s เพื่อพิมพ์ตัวอักษร %2$s</string>
+    <string name="typing_languages_title">ภาษาที่พิมพ์</string>
+    <string name="untitled_window">ไม่มีชื่อ</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">การตั้งค่า</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>เปิดแป้นพิมพ์อักษรเบรลล์&lt;/b>: แตะ \"การตั้งค่า\" ด้านล่าง ในหน้าจอถัดไป ให้เปิด \"%1$s\"
+    &lt;br>&lt;br>2. &lt;b>ใช้แป้นพิมพ์อักษรเบรลล์&lt;/b>: เปิดแป้นพิมพ์ปกติ แล้วแตะไอคอน \"เลือกแป้นพิมพ์\" %2$s (โดยปกติจะอยู่ที่มุมขวาล่าง) เลือก \"%1$s\"
+    &lt;br>&lt;br>หากไม่เห็นตัวเลือกเพื่อเปลี่ยนแป้นพิมพ์ ให้ลองติดตั้ง %3$s แป้นพิมพ์ของ Google</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">หากต้องการใช้แป้นพิมพ์อักษรเบรลล์ ให้เปิดแป้นพิมพ์ปกติ แล้วแตะไอคอน \"เลือกแป้นพิมพ์\" %1$s (โดยปกติจะอยู่ที่มุมขวาล่าง) เลือก \"%2$s\"
+  &lt;br>&lt;br>หากไม่เห็นตัวเลือกเพื่อเปลี่ยนแป้นพิมพ์ ให้ลองติดตั้ง %3$s แป้นพิมพ์ของ Google</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ปิด"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"เปิด"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"ลิ้นชักการดำเนินการ"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"ลิ้นชักการนำทาง"</string>
+</resources>

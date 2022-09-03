@@ -1,0 +1,44 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/build/intermediates/incremental/mergeWearDebugResources/merged.dir/values-v29/values-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/build/intermediates/packaged_res/wear/debug/values-v29/values-v29.xml",
+                    "from": {
+                        "startLines": "-1,-1,9,-1",
+                        "startColumns": "-1,-1,4,-1",
+                        "startOffsets": "-1,-1,436,-1",
+                        "endLines": "-1,-1,13,-1",
+                        "endColumns": "-1,-1,10,-1",
+                        "endOffsets": "-1,-1,715,-1"
+                    },
+                    "to": {
+                        "startLines": "8,11,15,20",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "438,572,819,1103",
+                        "endLines": "10,14,19,25",
+                        "endColumns": "10,10,10,10",
+                        "endOffsets": "567,814,1098,1571"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/build/intermediates/packaged_res/wear/debug/values-v29/values-v29.xml",
+                    "from": {
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,153",
+                        "endLines": "2,7",
+                        "endColumns": "97,10",
+                        "endOffsets": "148,433"
+                    }
+                }
+            ]
+        }
+    ]
+}

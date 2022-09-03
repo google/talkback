@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "MERGED_MANIFESTS",
+    "kind": "Directory"
+  },
+  "applicationId": "com.android.talkback4d",
+  "variantName": "wearRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "versionName": "TfGH_release_12_2-2022_09_03_1544-wear",
+      "outputFile": "AndroidManifest.xml"
+    }
+  ]
+}

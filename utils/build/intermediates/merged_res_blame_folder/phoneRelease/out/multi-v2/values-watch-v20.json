@@ -1,0 +1,124 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/utils/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-watch/styles.xml",
+                    "from": {
+                        "startLines": "18,27",
+                        "startColumns": "2,2",
+                        "startOffsets": "690,1229",
+                        "endLines": "25,32",
+                        "endColumns": "10,10",
+                        "endOffsets": "1225,1594"
+                    },
+                    "to": {
+                        "startLines": "4,12",
+                        "startColumns": "4,4",
+                        "startOffsets": "193,733",
+                        "endLines": "11,17",
+                        "endColumns": "10,10",
+                        "endOffsets": "728,1098"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-watch/colors.xml",
+                    "from": {
+                        "startLines": "19,18",
+                        "startColumns": "2,2",
+                        "startOffsets": "753,690",
+                        "endColumns": "70,62",
+                        "endOffsets": "821,750"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,128",
+                        "endColumns": "72,64",
+                        "endOffsets": "123,188"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/60605009dc95ef8d03ceba17b5260c72/transformed/appcompat-1.5.0/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    },
+                    "to": {
+                        "startLines": "18,21,24",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "1103,1262,1433",
+                        "endLines": "20,23,26",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "1257,1428,1601"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/utils/build/intermediates/res/merged/phone/release/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-watch/styles.xml",
+                    "from": {
+                        "startLines": "18,27",
+                        "startColumns": "2,2",
+                        "startOffsets": "690,1229",
+                        "endLines": "25,32",
+                        "endColumns": "10,10",
+                        "endOffsets": "1225,1594"
+                    },
+                    "to": {
+                        "startLines": "4,12",
+                        "startColumns": "4,4",
+                        "startOffsets": "193,733",
+                        "endLines": "11,17",
+                        "endColumns": "10,10",
+                        "endOffsets": "728,1098"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/src/main/res/values-watch/colors.xml",
+                    "from": {
+                        "startLines": "19,18",
+                        "startColumns": "2,2",
+                        "startOffsets": "753,690",
+                        "endColumns": "70,62",
+                        "endOffsets": "821,750"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,128",
+                        "endColumns": "72,64",
+                        "endOffsets": "123,188"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/60605009dc95ef8d03ceba17b5260c72/transformed/appcompat-1.5.0/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    },
+                    "to": {
+                        "startLines": "18,21,24",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "1103,1262,1433",
+                        "endLines": "20,23,26",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "1257,1428,1601"
+                    }
+                }
+            ]
+        }
+    ]
+}

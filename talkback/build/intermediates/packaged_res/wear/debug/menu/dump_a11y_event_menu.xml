@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/enable_all"
+        android:title="@string/button_enable_all_events" />
+    <item
+        android:id="@+id/disable_all"
+        android:title="@string/button_disable_all_events" />
+</menu>

@@ -1,0 +1,28 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml:2:1-71
+INJECTED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml:2:1-71
+MERGED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml:2:1-71
+INJECTED from /Users/quintinb/repo/talkback/braille/common/src/phone/AndroidManifest.xml:2:1-9:12
+	package
+		ADDED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml:2:11-68
+		INJECTED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml
+		INJECTED from /Users/quintinb/repo/talkback/braille/common/src/phone/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/quintinb/repo/talkback/braille/common/src/phone/AndroidManifest.xml:5:7-32
+	xmlns:android
+		ADDED from /Users/quintinb/repo/talkback/braille/common/src/phone/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /Users/quintinb/repo/talkback/braille/common/src/phone/AndroidManifest.xml:4:7-30
+uses-sdk
+INJECTED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml
+MERGED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml
+MERGED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml
+INJECTED from /Users/quintinb/repo/talkback/braille/common/src/phone/AndroidManifest.xml:6:3-8:39
+	android:targetSdkVersion
+		ADDED from /Users/quintinb/repo/talkback/braille/common/src/phone/AndroidManifest.xml:8:7-36
+	android:minSdkVersion
+		INJECTED from /Users/quintinb/repo/talkback/braille/common/src/main/AndroidManifest.xml
+		ADDED from /Users/quintinb/repo/talkback/braille/common/src/phone/AndroidManifest.xml:7:7-33
+		INJECTED from /Users/quintinb/repo/talkback/braille/common/src/phone/AndroidManifest.xml

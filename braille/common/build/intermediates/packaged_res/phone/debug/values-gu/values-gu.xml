@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">ડોટ %s</item>
+    <item quantity="other">ડોટ %s</item>
+  </plurals>
+    <string name="auto_detect">તમે ડિવાઇસ કેવી રીતે પકડો છો તે મુજબ ફેરફાર કરે છે</string>
+    <string name="capitalize_announcement">કૅપિટલ અક્ષર</string>
+    <string name="code_user_facing_name_ar">અરબી</string>
+    <string name="code_user_facing_name_es">સ્પેનિશ</string>
+    <string name="code_user_facing_name_fr">ફ્રેન્ચ</string>
+    <string name="code_user_facing_name_pl">પૉલીશ</string>
+    <string name="code_user_facing_name_ueb1">યુનિફાઇડ ઇંગ્લિશ બ્રેઇલ અનકૉન્ટ્રેક્ટેડ</string>
+    <string name="code_user_facing_name_ueb2">યુનિફાઇડ ઇંગ્લિશ બ્રેઇલ કૉન્ટ્રેક્ટેડ</string>
+    <string name="number_announcement">નંબર</string>
+    <string name="read_out_deleted">%s ડિલીટ કર્યું</string>
+    <string name="screen_away">સ્ક્રીન અવે મોડ</string>
+    <string name="screen_away_detail">તમારી સામે સ્ક્રીનની પાછળનો ભાગ રહે તે રીતે ડિવાઇસને પકડો (સ્ક્રીન અવે મોડ)</string>
+    <string name="tabletop">ટેબલટોપ મોડ</string>
+    <string name="tabletop_detail">ડિવાઇસને ટેબલ પર સપાટ રાખો (ટેબલટોપ મોડ)</string>
+</resources>

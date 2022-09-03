@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d አዲስ ማሳወቂያዎች</item>
+    <item quantity="other">%d አዲስ ማሳወቂያዎች</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"መነሻ ዳስስ"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ወደ ላይ ያስሱ"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"ተጨማሪ አማራጮች"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"ተከናውኗል"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"ሁሉንም ይመልከቱ"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"አንድ መተግበሪያ ይምረጡ"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"አጥፋ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"አብራ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"ሰርዝ"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"ክፍተት"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"ይፈልጉ…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"መጠይቅ አጽዳ"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"የፍለጋ መጠይቅ"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"ፍለጋ"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"መጠይቅ አስገባ"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"የድምጽ ፍለጋ"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"አጋራ በ"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"ለ<ns1:g id="APPLICATION_NAME">%s</ns1:g> አጋራ"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"ሰብስብ"</string>
+    <string name="bottomsheet_action_expand_halfway">ግማሽ መንገድ ዘርጋ</string>
+    <string name="character_collapse_template"> %1$d%2$s</string>
+    <string name="character_counter_content_description">ቁምፊዎች %1$d ከ%2$d ገብተዋል</string>
+    <string name="character_counter_overflowed_content_description">የቁምፊ ገደብ %1$d ከ%2$d አልፏል</string>
+    <string name="clear_text_end_icon_content_description">ጽሑፍን አጽዳ</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">አንቃ</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play አገልግሎቶችን ካላነቁ በስተቀር %1$s አይሰራም።</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play አገልግሎቶችን ያንቁ</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ጫን</string>
+    <string name="common_google_play_services_install_text">%1$s ያለ Google Play አገልግሎቶች አይሰራም፣ እነሱ ደግሞ በመሣሪያዎ ላይ የሉም።</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play አገልግሎቶችን ያግኙ</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play አገልግሎቶች ተገኝነት</string>
+    <string name="common_google_play_services_notification_ticker">የGoogle Play አገልግሎቶች ስህተት</string>
+    <string name="common_google_play_services_unknown_issue">%1$s በGoogle Play አገልግሎቶች ላይ ችግሮች እያጋጠሙት ነው። እባክዎ እንደገና ይሞክሩ።</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ያለGoogle Play አገልግሎቶች አይሄድም፣ እነዚህም በመሣሪያዎ አይደገፉም።</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">ያዘምኑ</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play አገልግሎቶችን ካላዘመኑ በስተቀር ድረስ %1$s አይሰራም።</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play አገልግሎቶችን ያዘምኑ</string>
+    <string name="common_google_play_services_updating_text">%1$s ያለ Google Play አገልግሎቶች አይሰራም፣ እነሱ ደግሞ በአሁኑ ጊዜ በመዘመን ላይ ናቸው።</string>
+    <string name="common_google_play_services_wear_update_text">አዲስ የGoogle Play አገልግሎቶች ስሪት ያስፈልጋል። በቅርቡ እራሱን ያዘምናል።</string>
+    <string name="common_open_on_phone">ስልክ ላይ ክፈት</string>
+    <string name="common_signin_button_text">ግባ</string>
+    <string name="common_signin_button_text_long">በGoogle ይግቡ</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"አልተሳካም"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"በስልክዎ ላይ ተከፍቷል"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"ስኬት"</string>
+    <string msgid="3209159573327985035" name="copy">"ቅዳ"</string>
+    <string name="error_icon_content_description">ስህተት</string>
+    <string name="exit_scrim">ውጣ</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"የላቀ"</string>
+    <string name="exposed_dropdown_menu_content_description">ተቆልቋይ ምናሌን አሳይ</string>
+    <string name="function_off">የቃል ግብረመልስ ጠፍቷል</string>
+    <string name="function_on">የቃል ግብረመልስ በርቷል</string>
+    <string name="granularity_character">ገጸባህሪያት</string>
+    <string name="granularity_default">ነባሪ</string>
+    <string name="granularity_line">መስመሮች</string>
+    <string name="granularity_native_control">መቆጣጠሪያዎች</string>
+    <string name="granularity_native_heading">አርዕስቶች</string>
+    <string name="granularity_native_link">አገናኞች</string>
+    <string name="granularity_paragraph">አንቀጾች</string>
+    <string name="granularity_pseudo_web_special_content">ልዩ ይዘት</string>
+    <string name="granularity_web_control">መቆጣጠሪያዎች</string>
+    <string name="granularity_web_heading">አርዕስቶች</string>
+    <string name="granularity_web_landmark">ታሪካዊ ምልክቶች</string>
+    <string name="granularity_web_link">አገናኞች</string>
+    <string name="granularity_web_list">ዝርዝሮች</string>
+    <string name="granularity_window">መስኮቶች</string>
+    <string name="granularity_word">ቃላት</string>
+    <string name="hide_keyboard_window">የቁልፍ ሰሌዳ ተደብቋል</string>
+    <string name="icon_content_description">የንግግር አዶ</string>
+    <string name="item_view_role_description">ትር</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">አዲስ አቋራጭ ለማዘጋጀት የቁልፍ ጥምር ከ%1$s ቀያሪ ቁልፍ ጋር ይጫኑ።</string>
+    <string name="keycombo_assign_dialog_instruction">አዲስ አቋራጭ ለማዘጋጀት የቁልፍ ጥምረትን ይጫኑ። ቢያንስ ALT ወይም Control keyን የያዘ መሆን ይኖርበታል።</string>
+    <string name="keycombo_key_arrow_down">ታች ቀስት</string>
+    <string name="keycombo_key_arrow_left">ግራ ቀስት</string>
+    <string name="keycombo_key_arrow_right">ቀኝ ቀስት</string>
+    <string name="keycombo_key_arrow_up">ላይ ቀስት</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">ፈልግ</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">አልተመደበም</string>
+    <string name="material_clock_toggle_content_description">AM ወይም PM ይምረጡ</string>
+    <string name="material_hour_selection">ሰዓትን ይምረጡ</string>
+    <string name="material_hour_suffix">%1$s ሰዓት</string>
+    <string name="material_minute_selection">ደቂቃዎችን ይምረጡ</string>
+    <string name="material_minute_suffix">%1$s ደቂቃዎች</string>
+    <string name="material_timepicker_am">ጥዋት</string>
+    <string name="material_timepicker_clock_mode_description">ለጊዜ ግቤቱ ወደ የሰዓት ሁነታ ቀይር።</string>
+    <string name="material_timepicker_hour">ሰዓት</string>
+    <string name="material_timepicker_minute">ደቂቃ</string>
+    <string name="material_timepicker_pm">ከሰዓት</string>
+    <string name="material_timepicker_select_time">ጊዜ ምረጥ</string>
+    <string name="material_timepicker_text_input_mode_description">ለጊዜ ግቤቱ ወደ የጽሑፍ ግቤት ሁነታ ቀይር።</string>
+    <string name="mtrl_badge_numberless_content_description">አዲስ ማሳወቂያ</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$sን አስወግድ</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">ከ%1$d በላይ አዲስ ማሳወቂያዎች</string>
+    <string name="mtrl_picker_a11y_next_month">ወደ የሚቀጥለው ወር ቀይር</string>
+    <string name="mtrl_picker_a11y_prev_month">ወደ ቀዳሚው ወር ቀይር</string>
+    <string name="mtrl_picker_announce_current_selection">የአሁኑ ምርጫ፦ %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">ቀን ይምረጡ</string>
+    <string name="mtrl_picker_date_header_unselected">የተመረጠው ቀን</string>
+    <string name="mtrl_picker_day_of_week_column_header">የቀኖች ዓምድ፦ %1$s</string>
+    <string name="mtrl_picker_invalid_format">ልክ ያልሆነ ቅርጸት</string>
+    <string name="mtrl_picker_invalid_format_example">ምሳሌ፦ %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">%1$s ን ይጠቀሙ</string>
+    <string name="mtrl_picker_invalid_range">ልክ ያልኾነ ክልል።</string>
+    <string name="mtrl_picker_navigate_to_year_description">ወደ ዓመት %1$s አሰስ</string>
+    <string name="mtrl_picker_out_of_range">ከክልል ውጪ፦ %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">መጀመሪያ ቀን – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – መጨረሻ ቀን</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">ክልል ይምረጡ</string>
+    <string name="mtrl_picker_range_header_unselected">የመጀመሪያ ቀን – የመጨረሻ ቀን</string>
+    <string name="mtrl_picker_save">አስቀምጥ</string>
+    <string name="mtrl_picker_text_input_date_hint">ቀን</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">የማብቂያ ቀን</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">መጀመሪያ ቀን</string>
+    <string name="mtrl_picker_text_input_day_abbr">ቀ</string>
+    <string name="mtrl_picker_text_input_month_abbr">ደ</string>
+    <string name="mtrl_picker_text_input_year_abbr">ዓ</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">ወደ የቀን መቁጠሪያ ግቤት ሁነታ ቀይር</string>
+    <string name="mtrl_picker_toggle_to_day_selection">ወደ ቀን መምረጥ ለመቀየር መታ ያድርጉ</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">ወደ ጽሑፍ ግቤት ሁነታ ቀይር</string>
+    <string name="mtrl_picker_toggle_to_year_selection">ወደ ዓመት መምረጥ ለመቀየር መታ ያድርጉ</string>
+    <string msgid="478774118347071097" name="not_set">"አልተዘጋጀም"</string>
+    <string name="password_toggle_content_description">የይለፍ ቃል አሳይ</string>
+    <string msgid="7961817945132860002" name="preference_copied">"«<ns1:g id="SUMMARY">%1$s</ns1:g>» ወደ የቅንጥብ ሰሌዳ ተቀድቷል።"</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"ፍለጋ"</string>
+    <string name="show_keyboard_window">%1$sን በማሳየት ላይ</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>፣ <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">እኩል ለመሆን ይጠጋል ከ</string>
+    <string name="symbol_ampersand">እና</string>
+    <string name="symbol_angle_bracket_left">የያንሳል ምልክት</string>
+    <string name="symbol_angle_bracket_right">የይበልጣል ምልክት</string>
+    <string name="symbol_apostrophe">ትእምርተ ጭረት</string>
+    <string name="symbol_approximately_equals">ይጠጋል ለ</string>
+    <string name="symbol_asterisk">ኮከቢት</string>
+    <string name="symbol_at_sign">በ</string>
+    <string name="symbol_backslash">ሕዝባር</string>
+    <string name="symbol_beamed_sixteenth_note">የተያያዙ አስራስድስተኛ ኖታዎች</string>
+    <string name="symbol_black_circle">ጥቁር ክብ</string>
+    <string name="symbol_black_heart">ጥቁር ልብ</string>
+    <string name="symbol_black_smallsquare">ትንሽ ጥቁር ካሬ</string>
+    <string name="symbol_black_square">ጥቁር ካሬ</string>
+    <string name="symbol_black_star">ጥቁር ኮከብ</string>
+    <string name="symbol_black_suit_of_diamonds">የአልማዝ ጥቁር ሱፍ</string>
+    <string name="symbol_black_triangle_pointing_down">ጥቁር ሶስት ማዕዘን ወደላይ ሲያመለክት</string>
+    <string name="symbol_black_triangle_pointing_up">ጥቁር ሶስት ማዕዘን ወደላይ ሲያመለክት</string>
+    <string name="symbol_broken_bar">የተሰበረ አሞሌ</string>
+    <string name="symbol_bullet">ነጥበ ምልክት</string>
+    <string name="symbol_bullseye">ዒላማ</string>
+    <string name="symbol_caret">ድፋት</string>
+    <string name="symbol_celsius_degree">ሴልሺየስ ዲግሪ</string>
+    <string name="symbol_cent">የሳንቲም ምልክት</string>
+    <string name="symbol_circle_left_half_black">የግራ ግማሹ ጥቁር የሆነ ክብ</string>
+    <string name="symbol_circle_right_half_black">የቀኝ ግማሹ ጥቁር የሆነ ክብ</string>
+    <string name="symbol_colon">ሁለት ነጥብ</string>
+    <string name="symbol_comma">ኮማ</string>
+    <string name="symbol_copyright">የቅጂ መብት</string>
+    <string name="symbol_curly_bracket_left">የግራ ጥምዝ ቅንፍ</string>
+    <string name="symbol_curly_bracket_right">የቀኝ ጥምዝ ቅንፍ</string>
+    <string name="symbol_currency_sign">የምንዛሬ ምልክት</string>
+    <string name="symbol_degree">የዲግሪ ምልክት</string>
+    <string name="symbol_division">የማካፈል ምልክት</string>
+    <string name="symbol_dollar_sign">የዶላር ምልክት</string>
+    <string name="symbol_downwards_arrow">የታች ቀስት</string>
+    <string name="symbol_eighth_note">የስምንተኛ ኖታ</string>
+    <string name="symbol_ellipsis">አስጨምሬ</string>
+    <string name="symbol_em_dash">አብይ ሰረዝ</string>
+    <string name="symbol_en_dash">ንዑስ ሰረዝ</string>
+    <string name="symbol_equal">የእኩል ነው ምልክት</string>
+    <string name="symbol_euro">ዩሮ</string>
+    <string name="symbol_exclamation_mark">ቃለ አጋኖ</string>
+    <string name="symbol_fahrenheit_degree">ፋራንሃይት ዲግሪ</string>
+    <string name="symbol_female">የእንስት ምልክት</string>
+    <string name="symbol_full_width_ampersand">ባለሙሉ ወርድ አምፕርሳንድ</string>
+    <string name="symbol_full_width_asterisk">ባለሙሉ ወርድ ኮከብ ምልክት</string>
+    <string name="symbol_full_width_circumflex">ባለሙሉ ወርድ ስርኬምፍሌክስ</string>
+    <string name="symbol_full_width_colon">ባለሙሉ ወርድ ኮሎን</string>
+    <string name="symbol_full_width_comma">ባለሙሉ ወርድ ኮማ</string>
+    <string name="symbol_full_width_exclamation_mark">ባለሙሉ ወርድ ቃለ አጋኖ</string>
+    <string name="symbol_full_width_greater_than_sign">ከምልክት የበለጠ ባለሙሉ ወርድ</string>
+    <string name="symbol_full_width_ideographic_full_stop">ፅንሰ-ሐሳባ አራት ነጥብ</string>
+    <string name="symbol_full_width_left_curly_bracket">ባለሙሉ ወርድ ጥምዝ ቅንፍ</string>
+    <string name="symbol_full_width_left_parenthesis">ባለሙሉ ወርድ የግራ ቅንፍ</string>
+    <string name="symbol_full_width_less_than_sign">ከምልክት ያነሰ ባለሙሉ ወርድ</string>
+    <string name="symbol_full_width_question_mark">ባለሙሉ ወርድ የጥያቄ ምልክት</string>
+    <string name="symbol_full_width_right_curly_bracket">ባለሙሉ ወርድ የቀኝ ጥምዝ ቅንፍ</string>
+    <string name="symbol_full_width_right_parenthesis">ባለሙሉ ወርድ የቀኝ ቅንፍ</string>
+    <string name="symbol_full_width_semicolon">ባለሙሉ ወርድ ሰሚኮሎን</string>
+    <string name="symbol_full_width_tilde">ባለሙሉ ወርድ ድፋትቅናት</string>
+    <string name="symbol_full_width_underscore">ባለሙሉ ወርድ የሥር መስመር</string>
+    <string name="symbol_grave_accent">የጭረት ምልክት</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">ግማሽ ወርድ ካታካና መካከለኛ ነጥብ</string>
+    <string name="symbol_hyphen_minus">ሰረዝ</string>
+    <string name="symbol_ideographic_comma">ፅንሰ-ሐሳባ ኮማ</string>
+    <string name="symbol_integral">እጉር</string>
+    <string name="symbol_inverted_exclamation_mark">የተገለበጠ ቃለ አጋኖ</string>
+    <string name="symbol_inverted_question_mark">የተገለበጠ የጥያቄ ምልክት</string>
+    <string name="symbol_left_angle_bracket">የግራ ድርብ አንግል ቅንፍ</string>
+    <string name="symbol_left_black_lenticular_bracket">የግራ ጥቁር ምስሬ ቅንፍ</string>
+    <string name="symbol_left_corner_bracket">የግራ ማዕዘን ቅንፍ</string>
+    <string name="symbol_left_double_quotation_mark">የግራ ድርብ ትዕምርተ ጥቅስ</string>
+    <string name="symbol_left_single_quotation_mark">የግራ ነጠላ ትዕምርተ ጥቅስ</string>
+    <string name="symbol_leftwards_arrow">የግራ ቀስት</string>
+    <string name="symbol_liter">ላይተር</string>
+    <string name="symbol_low_double_quote">ዝቅ ያለ ድርብ ትምህርተ ጥቅስ</string>
+    <string name="symbol_male">የተባዕት ምልክት</string>
+    <string name="symbol_mathematical_left_angle_bracket">የሒሳብ የግራ አንግል ቅንፍ</string>
+    <string name="symbol_mathematical_right_angle_bracket">የሒሳብ የቀኝ አንግል ቅንፍ</string>
+    <string name="symbol_micro_sign">የማይክሮ ምልክት</string>
+    <string name="symbol_middle_dot">የመሃል ነጥብ</string>
+    <string name="symbol_multiplication">የማባዛት ምልክት</string>
+    <string name="symbol_new_line">አዲስ መስመር</string>
+    <string name="symbol_not_equals">እኩል አይደለም ከ</string>
+    <string name="symbol_not_sign">የአይደለም ምልክት</string>
+    <string name="symbol_paragraph_mark">የአንቀጽ ምልክት</string>
+    <string name="symbol_parenthesis_left">ግራ ቅንፍ</string>
+    <string name="symbol_parenthesis_right">የቀኝ ቅንፍ</string>
+    <string name="symbol_percent">በመቶ</string>
+    <string name="symbol_period">ክፍለ ጊዜ</string>
+    <string name="symbol_pi">ፓይ</string>
+    <string name="symbol_plus_minus_sign">የመደመር መቀነስ ምልክት</string>
+    <string name="symbol_postal_mark">የፖስታ ምልክት</string>
+    <string name="symbol_pound">ፓውንድ</string>
+    <string name="symbol_pound_sterling">የፓውንድ ምንዛሬ ምልክት</string>
+    <string name="symbol_quarter_note">ሩብ ኖታ</string>
+    <string name="symbol_question_mark">የጥያቄ ምልክት</string>
+    <string name="symbol_quotation_mark">ጥቅስ</string>
+    <string name="symbol_reference">የዋቢ ምልክት</string>
+    <string name="symbol_registered_trademark">የተመዘገበ የንግድ ምልክት</string>
+    <string name="symbol_right_angle_bracket">የቀኝ ድርብ አንግል ቅንፍ</string>
+    <string name="symbol_right_black_lenticular_bracket">የቀኝ ጥቁር ምስሬ ቅንፍ</string>
+    <string name="symbol_right_corner_bracket">የቀኝ ማዕዘን ቅንፍ</string>
+    <string name="symbol_right_double_quotation_mark">የቀኝ ድርብ ትዕምርተ ጥቅስ</string>
+    <string name="symbol_right_single_quotation_mark">የቀኝ ነጠላ ትዕምርተ ጥቅስ</string>
+    <string name="symbol_rightwards_arrow">የቀኝ ቀስት</string>
+    <string name="symbol_rupee">ሩፒ</string>
+    <string name="symbol_section_sign">የክፍል ምልክት</string>
+    <string name="symbol_semicolon">ሴሚ ኮሎን</string>
+    <string name="symbol_slash">ህዝባር</string>
+    <string name="symbol_solar">የጸሐይ ምልክት</string>
+    <string name="symbol_space">ክፍተት</string>
+    <string name="symbol_square_bracket_left">የግራ መረባ ቅንፍ</string>
+    <string name="symbol_square_bracket_right">የቀኝ መረባ ቅንፍ</string>
+    <string name="symbol_square_root">ዳግም ዘር</string>
+    <string name="symbol_tilde">ድፋትቅናት</string>
+    <string name="symbol_trademark">የንግድ ምልክት</string>
+    <string name="symbol_underscore">ሰረዘዘብጥ</string>
+    <string name="symbol_upwards_arrow">የላይ ቀስት</string>
+    <string name="symbol_vertical_bar">አቀባዊ መስመር</string>
+    <string name="symbol_white_circle">ነጭ ክብ</string>
+    <string name="symbol_white_club_suit">የነጭ አበባ ስብስብ</string>
+    <string name="symbol_white_diamond">ነጭ አልማዝ</string>
+    <string name="symbol_white_down_pointing_triangle">ወደ ታች የሚያመለክት ነጭ ሶስት ማዕዘን</string>
+    <string name="symbol_white_heart">ነጭ ልብ</string>
+    <string name="symbol_white_left_pointing_index">ወደ ግራ የሚያመለክት ነጭ አመልካች ጣት</string>
+    <string name="symbol_white_left_pointing_triangle">ወደ ግራ የሚያመለክት ነጭ ሶስት ማዕዘን</string>
+    <string name="symbol_white_right_pointing_index">ወደ ቀኝ የሚያመለክት ነጭ አመልካች ጣት</string>
+    <string name="symbol_white_right_pointing_triangle">ወደ ቀኝ የሚያመለክት ነጭ ሶስት ማዕዘን</string>
+    <string name="symbol_white_spade_suit">ነጭ የጦር ስብስብ</string>
+    <string name="symbol_white_square">ነጭ ካሬ</string>
+    <string name="symbol_white_star">ነጭ ኮከብ</string>
+    <string name="symbol_white_up_pointing_triangle">ወደ ላይ የሚያመለክት ሶስት ማዕዘን</string>
+    <string name="symbol_won">የዎን የምንዛሬ ምልክት</string>
+    <string name="symbol_won_sign">የዎን የምንዛሬ ምልክት</string>
+    <string name="symbol_yen">የን</string>
+    <string name="template_capital_letter">አቢይ ሆሄ %1$s</string>
+    <string name="template_current_tts_engine">%1$sን መጠቀም</string>
+    <string name="template_overlay_window">%1$s ሥዕል በሥዕል ውስጥ</string>
+    <string name="template_password_selected">ከ%1$d እስከ %2$d ያሉ ቁምፊዎች</string>
+    <string name="template_password_traversed">ቁምፊ %1$d</string>
+    <string name="template_scroll_from_count">%1$d ከ%2$d ንጥል በማሳየት ላይ።</string>
+    <string name="template_scroll_from_to_count">ከ%3$d ንጥሎች ውስጥ ከ%1$d እስከ %2$d ያሉትን በማሳየት ላይ።</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s በስተግራ ላይ፣ %2$s በስተቀኝ ላይ፣</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s በስተቀኝ ላይ፣ %2$s በስተግራ ላይ፣</string>
+    <string name="template_split_screen_mode_portrait">%1$s ከላይ፣ %2$s ከታች</string>
+    <string name="template_text_copied">ተቀድቷል፣ %1$s</string>
+    <string name="template_viewpager_index_count">ገጽ %1$d ከ%2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d ከ%2$d</string>
+    <string name="untitled_window">ርዕስ አልባ</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ጠፍቷል"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"በርቷል"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"የእርምጃ መሳቢያ"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"የአሰሳ መሳቢያ"</string>
+</resources>

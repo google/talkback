@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="corretto-11" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/braille/brailledisplay" />
+            <option value="$PROJECT_DIR$/braille/brailledisplayanalytics" />
+            <option value="$PROJECT_DIR$/braille/brailleime" />
+            <option value="$PROJECT_DIR$/braille/brailleimeanalytics" />
+            <option value="$PROJECT_DIR$/braille/common" />
+            <option value="$PROJECT_DIR$/braille/interfaces" />
+            <option value="$PROJECT_DIR$/braille/translate" />
+            <option value="$PROJECT_DIR$/compositor" />
+            <option value="$PROJECT_DIR$/proguard" />
+            <option value="$PROJECT_DIR$/talkback" />
+            <option value="$PROJECT_DIR$/uiunderstanding" />
+            <option value="$PROJECT_DIR$/utils" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

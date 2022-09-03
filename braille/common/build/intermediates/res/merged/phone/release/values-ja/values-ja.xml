@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">ドット%s</item>
+    <item quantity="other">ドット%s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d 件の新しい通知</item>
+    <item quantity="other">%d 件の新しい通知</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d日</item>
+<item quantity="other">%d日</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d時間</item>
+<item quantity="other">%d時間</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d分</item>
+<item quantity="other">%d分</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d日</item>
+<item quantity="other">%d日</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d時間</item>
+<item quantity="other">%d時間</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d分</item>
+<item quantity="other">%d分</item>
+</plurals>
+    <string name="a11y_no_data">データがありません</string>
+    <string name="a11y_no_permission">データへのアクセス権限がありません</string>
+    <string name="a11y_template_range">%1$f/%2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"ホームに戻る"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"前に戻る"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"その他のオプション"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"完了"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"すべて表示"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"アプリの選択"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"OFF"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ON"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"検索…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"検索キーワードを削除"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"検索キーワード"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"検索"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"検索キーワードを送信"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"音声検索"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"共有"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>と共有"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"折りたたむ"</string>
+    <string name="auto_detect">デバイスの持ち方に合わせる</string>
+    <string name="bottomsheet_action_expand_halfway">下半分を展開</string>
+    <string name="buttons_rect_bottom_center">下</string>
+    <string name="buttons_rect_bottom_left">左下</string>
+    <string name="buttons_rect_bottom_right">右下</string>
+    <string name="buttons_rect_left_bottom">下、左側</string>
+    <string name="buttons_rect_left_center">中央左</string>
+    <string name="buttons_rect_left_top">上、左側</string>
+    <string name="buttons_rect_right_bottom">下、右側</string>
+    <string name="buttons_rect_right_center">中央右</string>
+    <string name="buttons_rect_right_top">上、右側</string>
+    <string name="buttons_rect_top_center">上</string>
+    <string name="buttons_rect_top_left">左上</string>
+    <string name="buttons_rect_top_right">右上</string>
+    <string name="buttons_round_bottom_center">下</string>
+    <string name="buttons_round_bottom_left">左下</string>
+    <string name="buttons_round_bottom_left_lower">左斜め下より下</string>
+    <string name="buttons_round_bottom_left_upper">左斜め下より上</string>
+    <string name="buttons_round_bottom_right">右下</string>
+    <string name="buttons_round_bottom_right_lower">右斜め下より下</string>
+    <string name="buttons_round_bottom_right_upper">右斜め下より上</string>
+    <string name="buttons_round_center_left">中央左</string>
+    <string name="buttons_round_center_right">中央右</string>
+    <string name="buttons_round_top_center">上</string>
+    <string name="buttons_round_top_left">左上</string>
+    <string name="buttons_round_top_left_lower">左斜め上より下</string>
+    <string name="buttons_round_top_left_upper">左斜め上より上</string>
+    <string name="buttons_round_top_right">右上</string>
+    <string name="buttons_round_top_right_lower">右斜め上より下</string>
+    <string name="buttons_round_top_right_upper">右斜め上より上</string>
+    <string name="capitalize_announcement">大文字</string>
+    <string name="character_collapse_template"> %1$d個の%2$s</string>
+    <string name="character_counter_content_description">入力済み文字数: %1$d/%2$d</string>
+    <string name="character_counter_overflowed_content_description">文字数制限を超えています（%1$d/%2$d 文字）</string>
+    <string name="clear_text_end_icon_content_description">テキストを消去</string>
+    <string name="code_user_facing_name_ar">アラビア語</string>
+    <string name="code_user_facing_name_es">スペイン語</string>
+    <string name="code_user_facing_name_fr">フランス語</string>
+    <string name="code_user_facing_name_pl">ポーランド語</string>
+    <string name="code_user_facing_name_ueb1">統一英語点字（非縮約形）</string>
+    <string name="code_user_facing_name_ueb2">統一英語点字（縮約形）</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">有効にする</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$sの実行には、Google Play開発者サービスの有効化が必要です。</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play開発者サービスの有効化</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">インストール</string>
+    <string name="common_google_play_services_install_text">「%1$s」の実行には Google Play 開発者サービスが必要ですが、お使いのデバイスにはインストールされていません。</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play開発者サービスの入手</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play 開発者サービスの利用</string>
+    <string name="common_google_play_services_notification_ticker">Google Play開発者サービスのエラー</string>
+    <string name="common_google_play_services_unknown_issue">「%1$s」で Google Play 開発者サービスに問題が発生しています。もう一度お試しください。</string>
+    <string name="common_google_play_services_unsupported_text">「%1$s」の実行には Google Play 開発者サービスが必要ですが、お使いのデバイスではサポートされていません。</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">更新</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$sの実行にはGoogle Play開発者サービスの更新が必要です。</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play開発者サービスの更新</string>
+    <string name="common_google_play_services_updating_text">%1$sの実行にはGoogle Play開発者サービスが必要ですが、このサービスは現在更新中です。</string>
+    <string name="common_google_play_services_wear_update_text">Google Play開発者サービスの新しいバージョンが必要です。まもなく自動更新されます。</string>
+    <string name="common_open_on_phone">スマートフォンで開く</string>
+    <string name="common_signin_button_text">ログイン</string>
+    <string name="common_signin_button_text_long">Googleにログイン</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"エラー"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"スマートフォンで開きました"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"完了"</string>
+    <string msgid="3209159573327985035" name="copy">"コピー"</string>
+    <string name="dismiss_overlay_button_label">終了</string>
+    <string name="error_icon_content_description">エラー</string>
+    <string name="exit_scrim">終了</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"詳細設定"</string>
+    <string name="exposed_dropdown_menu_content_description">プルダウン メニューを表示</string>
+    <string name="function_off">音声フィードバックが OFF です</string>
+    <string name="function_on">音声フィードバックが ON です</string>
+    <string name="generic_cancel">キャンセル</string>
+    <string name="generic_yes">はい</string>
+    <string name="granularity_character">文字</string>
+    <string name="granularity_default">デフォルト</string>
+    <string name="granularity_line">行</string>
+    <string name="granularity_native_control">コントロール</string>
+    <string name="granularity_native_heading">見出し</string>
+    <string name="granularity_native_link">リンク</string>
+    <string name="granularity_paragraph">段落</string>
+    <string name="granularity_pseudo_web_special_content">特殊コンテンツ</string>
+    <string name="granularity_web_control">コントロール</string>
+    <string name="granularity_web_heading">見出し</string>
+    <string name="granularity_web_landmark">ランドマーク</string>
+    <string name="granularity_web_link">リンク</string>
+    <string name="granularity_web_list">リスト</string>
+    <string name="granularity_window">ウィンドウ</string>
+    <string name="granularity_word">単語</string>
+    <string name="hide_keyboard_window">キーボードは非表示です</string>
+    <string name="icon_content_description">ダイアログ アイコン</string>
+    <string name="item_view_role_description">タブ</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">新しいショートカットを設定するには、修飾キーとして %1$s キーを使ったキーの組み合わせを押してください。</string>
+    <string name="keycombo_assign_dialog_instruction">キーの組み合わせを押して新しいショートカットを設定します。AltキーまたはCtrlキーのどちらかを必ず使用してください。</string>
+    <string name="keycombo_key_arrow_down">下矢印</string>
+    <string name="keycombo_key_arrow_left">左矢印</string>
+    <string name="keycombo_key_arrow_right">右矢印</string>
+    <string name="keycombo_key_arrow_up">上矢印</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">検索</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">未割り当て</string>
+    <string name="material_clock_toggle_content_description">午前または午後を選択</string>
+    <string name="material_hour_selection">時刻を選択してください</string>
+    <string name="material_hour_suffix">%1$s時</string>
+    <string name="material_minute_selection">分を選択</string>
+    <string name="material_minute_suffix">%1$s分</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">時刻を時計で入力するモードに切り替えます。</string>
+    <string name="material_timepicker_hour">時間</string>
+    <string name="material_timepicker_minute">分</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">時間を選択</string>
+    <string name="material_timepicker_text_input_mode_description">時刻をテキストで入力するモードに切り替えます。</string>
+    <string name="mtrl_badge_numberless_content_description">新しい通知</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s を削除します</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d 件以上の新しい通知</string>
+    <string name="mtrl_picker_a11y_next_month">翌月に変更</string>
+    <string name="mtrl_picker_a11y_prev_month">前月に変更</string>
+    <string name="mtrl_picker_announce_current_selection">現在の選択: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">日付を選択してください</string>
+    <string name="mtrl_picker_date_header_unselected">選択した日付</string>
+    <string name="mtrl_picker_day_of_week_column_header">曜日の列: %1$s</string>
+    <string name="mtrl_picker_invalid_format">形式が無効です。</string>
+    <string name="mtrl_picker_invalid_format_example">例: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">使用: %1$s</string>
+    <string name="mtrl_picker_invalid_range">範囲が無効です。</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s 年に移動</string>
+    <string name="mtrl_picker_out_of_range">範囲外: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">開始日～%1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s～終了日</string>
+    <string name="mtrl_picker_range_header_selected">%1$s～%2$s</string>
+    <string name="mtrl_picker_range_header_title">期間を選択してください</string>
+    <string name="mtrl_picker_range_header_unselected">開始日～終了日</string>
+    <string name="mtrl_picker_save">保存</string>
+    <string name="mtrl_picker_text_input_date_hint">日付</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">終了日</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">開始日</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">カレンダー入力モードに切り替え</string>
+    <string name="mtrl_picker_toggle_to_day_selection">タップすると、日の選択に切り替わります</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">テキスト入力モードに切り替え</string>
+    <string name="mtrl_picker_toggle_to_year_selection">タップすると、年の選択に切り替わります</string>
+    <string name="navigation_drawer_content_description">ナビゲーション ドロワー</string>
+    <string msgid="478774118347071097" name="not_set">"未設定"</string>
+    <string name="number_announcement">番号</string>
+    <string name="password_toggle_content_description">パスワードを表示</string>
+    <string msgid="7961817945132860002" name="preference_copied">"「<ns1:g id="SUMMARY">%1$s</ns1:g>」をクリップボードにコピーしました。"</string>
+    <string name="read_out_deleted">%sを削除しました</string>
+    <string name="screen_away">画面裏返しモード</string>
+    <string name="screen_away_detail">デバイスの画面を自分とは反対側に向けた状態にします（画面裏返しモード）</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"検索"</string>
+    <string name="show_keyboard_window">%1$sを表示しています</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>、<ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">ニアリーイコール記号</string>
+    <string name="symbol_ampersand">アンパサンド</string>
+    <string name="symbol_angle_bracket_left">小なり記号</string>
+    <string name="symbol_angle_bracket_right">大なり記号</string>
+    <string name="symbol_apostrophe">アポストロフィ</string>
+    <string name="symbol_approximately_equals">ほぼ等しい</string>
+    <string name="symbol_asterisk">アスタリスク</string>
+    <string name="symbol_at_sign">アットマーク</string>
+    <string name="symbol_backslash">バックスラッシュ</string>
+    <string name="symbol_beamed_sixteenth_note">連桁付き16分音符</string>
+    <string name="symbol_black_circle">黒丸</string>
+    <string name="symbol_black_heart">黒ハート</string>
+    <string name="symbol_black_smallsquare">小さい黒四角</string>
+    <string name="symbol_black_square">黒四角</string>
+    <string name="symbol_black_star">黒星</string>
+    <string name="symbol_black_suit_of_diamonds">黒いダイヤモンド形</string>
+    <string name="symbol_black_triangle_pointing_down">下を指差す黒三角形</string>
+    <string name="symbol_black_triangle_pointing_up">上を指差す黒三角形</string>
+    <string name="symbol_broken_bar">ブロークンバー</string>
+    <string name="symbol_bullet">箇条書き記号</string>
+    <string name="symbol_bullseye">二重丸</string>
+    <string name="symbol_caret">キャレット</string>
+    <string name="symbol_celsius_degree">摂氏温度</string>
+    <string name="symbol_cent">セント記号</string>
+    <string name="symbol_circle_left_half_black">左半分が黒い円</string>
+    <string name="symbol_circle_right_half_black">右半分が黒い円</string>
+    <string name="symbol_colon">コロン</string>
+    <string name="symbol_comma">カンマ</string>
+    <string name="symbol_copyright">著作権</string>
+    <string name="symbol_curly_bracket_left">左中かっこ</string>
+    <string name="symbol_curly_bracket_right">右中かっこ</string>
+    <string name="symbol_currency_sign">通貨記号</string>
+    <string name="symbol_degree">度記号</string>
+    <string name="symbol_division">除算記号</string>
+    <string name="symbol_dollar_sign">ドル記号</string>
+    <string name="symbol_downwards_arrow">下矢印</string>
+    <string name="symbol_eighth_note">8分音符</string>
+    <string name="symbol_ellipsis">省略記号</string>
+    <string name="symbol_em_dash">全角ダッシュ</string>
+    <string name="symbol_en_dash">半角ダッシュ</string>
+    <string name="symbol_equal">等記号</string>
+    <string name="symbol_euro">ユーロ</string>
+    <string name="symbol_exclamation_mark">感嘆符</string>
+    <string name="symbol_fahrenheit_degree">華氏温度</string>
+    <string name="symbol_female">女性記号</string>
+    <string name="symbol_full_width_ampersand">全角アンパサンド</string>
+    <string name="symbol_full_width_asterisk">全角アスタリスク</string>
+    <string name="symbol_full_width_circumflex">全角サーカムフレックス</string>
+    <string name="symbol_full_width_colon">全角コロン</string>
+    <string name="symbol_full_width_comma">全角カンマ</string>
+    <string name="symbol_full_width_exclamation_mark">全角感嘆符</string>
+    <string name="symbol_full_width_greater_than_sign">全角大なり記号</string>
+    <string name="symbol_full_width_ideographic_full_stop">全角句点</string>
+    <string name="symbol_full_width_left_curly_bracket">全角左中かっこ</string>
+    <string name="symbol_full_width_left_parenthesis">全角左かっこ</string>
+    <string name="symbol_full_width_less_than_sign">全角小なり記号</string>
+    <string name="symbol_full_width_question_mark">全角疑問符</string>
+    <string name="symbol_full_width_right_curly_bracket">全角右中かっこ</string>
+    <string name="symbol_full_width_right_parenthesis">全角右かっこ</string>
+    <string name="symbol_full_width_semicolon">全角セミコロン</string>
+    <string name="symbol_full_width_tilde">全角チルダ</string>
+    <string name="symbol_full_width_underscore">全角アンダースコア</string>
+    <string name="symbol_grave_accent">グレーブ</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">半角のカタカナ中黒</string>
+    <string name="symbol_hyphen_minus">ダッシュ</string>
+    <string name="symbol_ideographic_comma">全角読点</string>
+    <string name="symbol_integral">積分記号</string>
+    <string name="symbol_inverted_exclamation_mark">倒立感嘆符</string>
+    <string name="symbol_inverted_question_mark">倒立疑問符</string>
+    <string name="symbol_left_angle_bracket">左二重山かっこ</string>
+    <string name="symbol_left_black_lenticular_bracket">左隅付き括弧</string>
+    <string name="symbol_left_corner_bracket">左かぎ括弧</string>
+    <string name="symbol_left_double_quotation_mark">左二重引用符</string>
+    <string name="symbol_left_single_quotation_mark">左引用符</string>
+    <string name="symbol_leftwards_arrow">左矢印</string>
+    <string name="symbol_liter">リットル</string>
+    <string name="symbol_low_double_quote">下付き二重引用符</string>
+    <string name="symbol_male">男性記号</string>
+    <string name="symbol_mathematical_left_angle_bracket">左山かっこです</string>
+    <string name="symbol_mathematical_right_angle_bracket">右山かっこです</string>
+    <string name="symbol_micro_sign">マイクロ記号</string>
+    <string name="symbol_middle_dot">中黒</string>
+    <string name="symbol_multiplication">乗算記号</string>
+    <string name="symbol_new_line">改行</string>
+    <string name="symbol_not_equals">ノットイコール記号</string>
+    <string name="symbol_not_sign">否定記号</string>
+    <string name="symbol_paragraph_mark">段落記号</string>
+    <string name="symbol_parenthesis_left">左かっこ</string>
+    <string name="symbol_parenthesis_right">右かっこ</string>
+    <string name="symbol_percent">パーセント</string>
+    <string name="symbol_period">ピリオド</string>
+    <string name="symbol_pi">円周率記号</string>
+    <string name="symbol_plus_minus_sign">プラスマイナス記号</string>
+    <string name="symbol_postal_mark">郵便記号</string>
+    <string name="symbol_pound">井げた</string>
+    <string name="symbol_pound_sterling">ポンド記号</string>
+    <string name="symbol_quarter_note">4分音符</string>
+    <string name="symbol_question_mark">疑問符</string>
+    <string name="symbol_quotation_mark">引用符</string>
+    <string name="symbol_reference">コメ印</string>
+    <string name="symbol_registered_trademark">登録商標</string>
+    <string name="symbol_right_angle_bracket">右二重山かっこ</string>
+    <string name="symbol_right_black_lenticular_bracket">右隅付き括弧</string>
+    <string name="symbol_right_corner_bracket">右かぎ括弧</string>
+    <string name="symbol_right_double_quotation_mark">右二重引用符</string>
+    <string name="symbol_right_single_quotation_mark">右引用符</string>
+    <string name="symbol_rightwards_arrow">右矢印</string>
+    <string name="symbol_rupee">ルピー</string>
+    <string name="symbol_section_sign">節記号</string>
+    <string name="symbol_semicolon">セミコロン</string>
+    <string name="symbol_slash">スラッシュ</string>
+    <string name="symbol_solar">太陽記号</string>
+    <string name="symbol_space">スペース</string>
+    <string name="symbol_square_bracket_left">左角かっこ</string>
+    <string name="symbol_square_bracket_right">右角かっこ</string>
+    <string name="symbol_square_root">平方根</string>
+    <string name="symbol_tilde">波形符号</string>
+    <string name="symbol_trademark">商標</string>
+    <string name="symbol_underscore">アンダースコア</string>
+    <string name="symbol_upwards_arrow">上矢印</string>
+    <string name="symbol_vertical_bar">縦棒</string>
+    <string name="symbol_white_circle">白丸</string>
+    <string name="symbol_white_club_suit">白クローバー</string>
+    <string name="symbol_white_diamond">白ダイヤ</string>
+    <string name="symbol_white_down_pointing_triangle">下向き白三角</string>
+    <string name="symbol_white_heart">白ハート</string>
+    <string name="symbol_white_left_pointing_index">白左人差し指</string>
+    <string name="symbol_white_left_pointing_triangle">左向き白三角</string>
+    <string name="symbol_white_right_pointing_index">白右人差し指</string>
+    <string name="symbol_white_right_pointing_triangle">右向き白三角</string>
+    <string name="symbol_white_spade_suit">白スペード</string>
+    <string name="symbol_white_square">白四角</string>
+    <string name="symbol_white_star">白星</string>
+    <string name="symbol_white_up_pointing_triangle">上向き白三角</string>
+    <string name="symbol_won">ウォン記号</string>
+    <string name="symbol_won_sign">ウォン記号</string>
+    <string name="symbol_yen">円</string>
+    <string name="tabletop">テーブルトップ モード</string>
+    <string name="tabletop_detail">テーブルの上にデバイスを平らに置きます（テーブルトップ モード）</string>
+    <string name="template_capital_letter">大文字の%1$s</string>
+    <string name="template_current_tts_engine">%1$sを使用しています</string>
+    <string name="template_overlay_window">%1$s はピクチャー イン ピクチャーです</string>
+    <string name="template_password_selected">文字 %1$d～%2$d</string>
+    <string name="template_password_traversed">%1$d文字目</string>
+    <string name="template_scroll_from_count">%2$d件中%1$d件目を表示しています。</string>
+    <string name="template_scroll_from_to_count">%3$d件中%1$d件目から%2$d件目までを表示しています。</string>
+    <string name="template_split_screen_mode_landscape_ltr">左側が %1$s、右側が %2$s です</string>
+    <string name="template_split_screen_mode_landscape_rtl">右側が %1$s で、左側が %2$s です</string>
+    <string name="template_split_screen_mode_portrait">上側が %1$s で、下側が %2$s です</string>
+    <string name="template_text_copied">コピーしました、%1$s</string>
+    <string name="template_viewpager_index_count">%2$d ページ中 %1$d ページ目です</string>
+    <string name="template_viewpager_index_count_short">%2$d ページ中 %1$d ページ目です</string>
+    <string name="time_difference_now">今</string>
+    <string name="time_difference_short_days_and_hours">%1$sと%2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s%2$s﻿</string>
+    <string name="untitled_window">無題</string>
+    <string name="url_dialog_table">%1$s（%2$s）</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"OFF"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ON"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"アクション ドロワー"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"ナビゲーション ドロワー"</string>
+</resources>

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">%s нүкте</item>
+    <item quantity="other">%s нүкте</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d жаңа хабарландыру</item>
+    <item quantity="other">%d жаңа хабарландыру</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Негізгі бетке өту"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Жоғары қарай өту"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Басқа опциялар"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Дайын"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Барлығын көру"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Қолданбаны таңдау"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ӨШІРУ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ҚОСУ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"бос орын"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Іздеу…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Сұрауды өшіру"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Іздеу сұрауы"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Іздеу"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Сұрауды жіберу"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Дауыспен іздеу"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Бөлісу"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> қолданбасымен бөлісу"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Жию"</string>
+    <string name="auto_detect">Құрылғыны ұстау мәнеріңізге бейімдеу</string>
+    <string name="bottomsheet_action_expand_halfway">Жартылай кеңейту</string>
+    <string name="braille_ime_displayed_name">Брайль пернетақтасы</string>
+    <string name="braille_ime_service_name">TalkBack Брайль пернетақтасы</string>
+    <string name="braille_keyboard">Брайль пернетақтасы</string>
+    <string name="braille_keyboard_gestures">Брайль пернетақтасы қимылдары</string>
+    <string name="braille_keyboard_strip_button">Сенсорлық экранды пернетақтаға ауысу</string>
+    <string name="braille_keyboard_strip_summary">Сыртқы Брайль дисплейі жалғанды, оны осы құрылғыға мәтін енгізу үшін пайдалануға болады.\nСенсорлық экранды Брайль пернетақтасына немесе келесі енгізу әдісіне ауыса аласыз.</string>
+    <string name="braille_tutorial_title">Брайль пернетақтасы оқулығы</string>
+    <string name="bring_ime_settings_page">Басқа пернетақта іске қосылмады, пернатақта параметрлеріне өтіңіз.</string>
+    <string name="calibration_fail_announcement">Нүкте орны өзгермеді. 6 саусағыңызбен экранды басып тұрыңыз. Одан кейін әрекетті қайталап көріңіз.</string>
+    <string name="calibration_finish_announcement">Нүкте позициясы жаңартылды</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Нүктенің орнын жаңарту. Алдымен нүктелерді сол қолмен жазып көрейік. Сол қолыңыздың ортаңғы 3 саусағымен экранды басып тұрыңыз.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Нүктенің орнын жаңарту. Алдымен нүктелерді оң қолмен жазып көрейік. Оң қолыңыздың ортаңғы 3 саусағымен экранды басып тұрыңыз.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">1-ші, 2-ші және 3-ші нүктелердің орындары өзгертілді. Енді оларды сол қолмен жазып көрейік. Сол қолыңыздың ортаңғы 3 саусағымен экранды басып тұрыңыз.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">1-ші, 2-ші және 3-ші нүктелердің орындары өзгертілді. Енді оларды оң қолмен жазып көрейік. Оң қолыңыздың ортаңғы 3 саусағымен экранды басып тұрыңыз.</string>
+    <string name="capitalize_announcement">Бас әріп</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%1$d/%2$d таңба енгізілді</string>
+    <string name="character_counter_overflowed_content_description">Таңба саны шегінен асты: %1$d/%2$d</string>
+    <string name="clear_text_end_icon_content_description">Мәтінді өшіру</string>
+    <string name="code_user_facing_name_ar">Араб</string>
+    <string name="code_user_facing_name_es">Испан</string>
+    <string name="code_user_facing_name_fr">Француз</string>
+    <string name="code_user_facing_name_pl">Поляк</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Қосу</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play қызметтерін қоспасаңыз, %1$s жұмыс істемейді.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play қызметтерін қосу</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Орнату</string>
+    <string name="common_google_play_services_install_text">Google Play қызметтері құрылғыда болмағандықтан, %1$s іске қосылмайды.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play қызметтерін алу</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play қызметтерінің қолжетімділігі</string>
+    <string name="common_google_play_services_notification_ticker">Google Play қызметтерінің қатесі</string>
+    <string name="common_google_play_services_unknown_issue">%1$s қолданбасында Google Play қызметіне байланысты белгісіз қате шықты. Әрекетті қайталаңыз.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s қолданбасы құрылғыңызда қолдау көрсетілмейтін Google Play қызметінсіз жұмыс істемейді.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Жаңарту</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play қызметтерін жаңартпасаңыз, %1$s іске қосылмайды.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play қызметтерін жаңарту</string>
+    <string name="common_google_play_services_updating_text">Қазіргі уақытта жаңартылып жатқан Google Play қызметтерінсіз %1$s іске қосылмайды.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play қызметтерінің жаңа нұсқасы қажет. Ол қысқа уақыттан кейін өзі жаңарады.</string>
+    <string name="common_open_on_phone">Телефонда ашу</string>
+    <string name="common_signin_button_text">Кіру</string>
+    <string name="common_signin_button_text_long">Google арқылы кіру</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Орындалмады."</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Телефонда ашылды."</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Орындалды."</string>
+    <string name="context_menu_input_language_selection">Келесі тілге ауысу: %s</string>
+    <string name="context_menu_input_language_selection_summary">Қолданыстағы тіл: %s</string>
+    <string name="context_menu_layout_selection">Орналасуы</string>
+    <string name="context_menu_see_all_gestures_selection">Барлық қимылдарды қарау</string>
+    <string name="context_menu_settings_selection">Параметрлер</string>
+    <string name="context_menu_title">Брайль пернетақтасының опциялары</string>
+    <string name="context_menu_tutorial_finish">Оқулықты жабу</string>
+    <string name="context_menu_tutorial_selection">Оқулықты ашу</string>
+    <string name="continue_tutorial_announcement">Оқуды жалғастыру. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Көшіру"</string>
+    <string name="done">Дайын</string>
+    <string name="dont_show_again">Қайта көрсетілмесін</string>
+    <string name="error_icon_content_description">Қате</string>
+    <string name="exit_scrim">Шығу</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Қосымша"</string>
+    <string name="exposed_dropdown_menu_content_description">Ашылмалы мәзірді көрсету</string>
+    <string name="finish_tutorial_announcement">Брайль пернетақтасын көрсету. Телефонды аударып, экранын ары қаратыңыз. Телефонды көлденеңінен ұстаңыз. Содан кейін мәтін тере беруіңізге болады.</string>
+    <string name="function_off">Ауызша пікір функциясы өшірулі</string>
+    <string name="function_on">Ауызша пікір функциясы қосулы</string>
+    <string name="gesture_add_space"><b>Бос орын</b> енгізу үшін оңға қарай сырғытыңыз.</string>
+    <string name="gesture_delete"><b>Жою</b> үшін солға қарай сырғытыңыз.</string>
+    <string name="gesture_delete_word"><b>Сөзді жою</b> үшін 2 саусақпен солға қарай сырғытыңыз.</string>
+    <string name="gesture_hide_keyboard"><b>Пернетақтаны жасыру</b> үшін 2 саусақпен төмен қарай сырғытыңыз.</string>
+    <string name="gesture_move_cursor_backward"><b>Курсорды артқа жылжыту үшін</b> жоғары сырғытыңыз.</string>
+    <string name="gesture_move_cursor_forward"><b>Курсорды алға жылжыту үшін</b> төмен сырғытыңыз.</string>
+    <string name="gesture_new_line"><b>Жаңа жол</b> енгізу үшін 2 саусақпен оңға қарай сырғытыңыз.</string>
+    <string name="gesture_next_keyboard"><b>Келесі пернатақтаға</b> ауысу үшін 3 саусақпен төмен қарай сырғытыңыз.</string>
+    <string name="gesture_open_context_menu"><b>Анықтама және қосымша опциялар</b> үшін 3 саусақпен жоғары қарай сырғытыңыз.</string>
+    <string name="gesture_submit_text"><b>Мәтін жіберу</b> үшін 2 саусақпен жоғары қарай сырғытыңыз.</string>
+    <string name="granularity_character">Таңбалар</string>
+    <string name="granularity_default">Әдепкі</string>
+    <string name="granularity_line">Жолдар</string>
+    <string name="granularity_native_control">Басқару элементтері</string>
+    <string name="granularity_native_heading">Тақырыптар</string>
+    <string name="granularity_native_link">Сілтемелер</string>
+    <string name="granularity_paragraph">Абзацтар</string>
+    <string name="granularity_pseudo_web_special_content">Арнайы мазмұн</string>
+    <string name="granularity_web_control">Басқару элементтері</string>
+    <string name="granularity_web_heading">Тақырыптар</string>
+    <string name="granularity_web_landmark">Көрнекті белгілер</string>
+    <string name="granularity_web_link">Сілтемелер</string>
+    <string name="granularity_web_list">Тізімдер</string>
+    <string name="granularity_window">Терезелер</string>
+    <string name="granularity_word">Сөздер</string>
+    <string name="hide_keyboard_window">Пернетақтасы жасырылды.</string>
+    <string name="hold_six_fingers_announcement">%s\nҚұрылғыңызды үстелге жатқызып қойыңыз. Содан кейін теруге ыңғайлы болатындай әр қолыңыздың ортаңғы 3 саусағын экранға қойыңыз.</string>
+    <string name="hold_six_fingers_description">Брайль пернетақтасында әдетте қолданатын TalkBack қимылдарын пайдалана алмайсыз.\n\nБастау үшін теру кезінде пайдаланатын 6 Брайль нүктелерінің орнын белгілеп алайық.</string>
+    <string name="hold_six_fingers_inactive_announcement">Құрылғыңызды үстелге жатқызып қойыңыз. Содан кейін теруге ыңғайлы болатындай әр қолыңыздың ортаңғы 3 саусағын экранға қойыңыз.</string>
+    <string name="how_to_use_braille_keyboard">Брайль пернетақтасын пайдалану әдісі</string>
+    <string name="icon_content_description">Диалог белгішесі</string>
+    <string name="input_view_caption">TalkBack Брайль пернетақтасы – анықтама алу үшін g.co/help/braille бетіне өтіңіз.</string>
+    <string name="instruction_swipe_down">Курсорды алға жылжыту үшін төмен сырғытыңыз.</string>
+    <string name="instruction_swipe_down_2_fingers">Пернетақтаны жасыру үшін 2 саусақпен төмен қарай сырғытыңыз.</string>
+    <string name="instruction_swipe_down_3_fingers">Басқа пернетақтаға ауысу үшін 3 саусақпен төмен қарай сырғытыңыз.</string>
+    <string name="instruction_swipe_left">Әріпті жою үшін солға қарай сырғытыңыз.</string>
+    <string name="instruction_swipe_right">Бос орын енгізу үшін оңға қарай сырғытыңыз.</string>
+    <string name="instruction_swipe_up">Курсорды артқа жылжыту үшін жоғары сырғытыңыз.</string>
+    <string name="instruction_swipe_up_3_fingers">Оқулықты жабу үшін 3 саусақпен жоғары қарай сырғытыңыз.</string>
+    <string name="instruction_type_letter_a">\"A\" әрпін теру үшін сол сұқ саусағыңызбен 1 нүктесін түртіңіз.</string>
+    <string name="instruction_type_letter_bcd">Одан кейін B, C және D әріптерін теріп көріңіз.</string>
+    <string name="item_view_role_description">Қойынды</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Жаңа перне тіркесімін орнату үшін оны %1$s өзгерткіш пернесімен бірге басыңыз.</string>
+    <string name="keycombo_assign_dialog_instruction">Жаңа таңбаша орнату үшін пернелер тіркесімін басыңыз. Ол кемінде ALT немесе Control пернесін қамтуы керек.</string>
+    <string name="keycombo_key_arrow_down">Төмен жақ көрсеткісі</string>
+    <string name="keycombo_key_arrow_left">Сол жақ көрсеткісі</string>
+    <string name="keycombo_key_arrow_right">Оң жақ көрсеткісі</string>
+    <string name="keycombo_key_arrow_up">Жоғары жақ көрсеткісі</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Іздеу</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Тағайындалмаған</string>
+    <string name="leave_keyboard">Брайль пернетақтасын жабу</string>
+    <string name="material_clock_toggle_content_description">\"AM\" немесе \"PM\" форматын таңдау</string>
+    <string name="material_hour_selection">Сағатты таңдау</string>
+    <string name="material_hour_suffix">Сағат: %1$s</string>
+    <string name="material_minute_selection">Минут таңдау</string>
+    <string name="material_minute_suffix">%1$s минут</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Уақытты енгізу үшін сағат режиміне өтіңіз.</string>
+    <string name="material_timepicker_hour">Сағат</string>
+    <string name="material_timepicker_minute">Mинут</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Уақытты таңдау</string>
+    <string name="material_timepicker_text_input_mode_description">Уақытты енгізу үшін мәтін енгізу режиміне өтіңіз.</string>
+    <string name="mtrl_badge_numberless_content_description">Жаңа хабарландыру</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s мазмұнын өшіру</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d санынан көп жаңа хабарландыру</string>
+    <string name="mtrl_picker_a11y_next_month">Келесі айға өту</string>
+    <string name="mtrl_picker_a11y_prev_month">Алдыңғы айға өту</string>
+    <string name="mtrl_picker_announce_current_selection">Ағымдағы таңдау: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Күнді таңдау</string>
+    <string name="mtrl_picker_date_header_unselected">Таңдалған күн</string>
+    <string name="mtrl_picker_day_of_week_column_header">Күндер бағаны: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Формат жарамсыз.</string>
+    <string name="mtrl_picker_invalid_format_example">Мысал: %1$s.</string>
+    <string name="mtrl_picker_invalid_format_use">Жарамды формат: %1$s.</string>
+    <string name="mtrl_picker_invalid_range">Ауқым жарамсыз.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s жылына жылжу</string>
+    <string name="mtrl_picker_out_of_range">Ауқымнан тыc: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Басталу күні – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – аяқталу күні</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Аралықты таңдау</string>
+    <string name="mtrl_picker_range_header_unselected">Басталу күні – аяқталу күні</string>
+    <string name="mtrl_picker_save">Сақтау</string>
+    <string name="mtrl_picker_text_input_date_hint">Күні</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Аяқталу күні</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Басталу күні</string>
+    <string name="mtrl_picker_text_input_day_abbr">к</string>
+    <string name="mtrl_picker_text_input_month_abbr">а</string>
+    <string name="mtrl_picker_text_input_year_abbr">ж</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Күнтізбенің енгізу режиміне ауысу</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Күнді таңдауға ауысу үшін түртіңіз.</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Мәтін енгізу режиміне ауысу</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Жылды таңдауға ауысу үшін түртіңіз.</string>
+    <string name="multiple_languages_braille_ime_displayed_name">Брайль пернетақтасы, %s</string>
+    <string name="next_keyboard">Келесі пернетақта</string>
+    <string name="next_step">Келесі</string>
+    <string name="not_enough_touch_points_dialog_message">Құрылғыңыз жеткілікті түрту орындарын қолдамайды. Қосымша ақпарат алу үшін құрылғы өндірушісіне хабарласыңыз.</string>
+    <string name="not_enough_touch_points_dialog_title">Құрылғыңыз Брайль пернетақтасын қолдамайды.</string>
+    <string msgid="478774118347071097" name="not_set">"Орнатылмаған"</string>
+    <string name="number_announcement">Сан</string>
+    <string name="open_context_menu_announcement">Опциялар мәзірі ашық. Телефонды аударып, өзіңізге қаратыңыз да, әдеттегідей ұстаңыз. Телефонды қолдану үшін әдеттегі TalkBack қимылдарын пайдалана беруіңізге болады. Басқа опцияларды көру үшін оңға сырғытыңыз.</string>
+    <string name="password_toggle_content_description">Құпия сөзді көрсету</string>
+    <string name="perform_action_next">Келесі</string>
+    <string name="perform_action_submitting">Мәтін жіберу</string>
+    <string name="perform_add_new_line_announcement">Жаңа жол енгізілді</string>
+    <string name="perform_add_space_announcement">Бос орын</string>
+    <string name="perform_delete_letter_announcement">Әріп жойылды</string>
+    <string name="perform_delete_word_announcement">Сөз жойылды</string>
+    <string name="perform_hide_keyboard_announcement">Пернетақтаны жасыру</string>
+    <string name="perform_submit_text_announcement">Мәтін жіберу</string>
+    <string name="perform_switch_keyboard_announcement">Пернетақтаны ауыстыру</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" қорытындысы буферге көшірілді"</string>
+    <string name="preferred_language_title">Қолданатын тіл</string>
+    <string name="read_out_deleted">%s жойылды.</string>
+    <string name="remaining_calibration_finish_announcement">Барлық нүктенің орындары жаңартылды</string>
+    <string name="reminder_announcement">Қосымша параметрлер үшін 3 саусақпен жоғары сырғытыңыз.</string>
+    <string name="result_swipe_down">КУРСОР АЛҒА ЖЫЛЖЫТЫЛДЫ.</string>
+    <string name="result_swipe_down_2_fingers">ПЕРНЕТАҚТАНЫ ЖАСЫРУ</string>
+    <string name="result_swipe_down_3_fingers">КЕЛЕСІ ПЕРНЕТАҚТА</string>
+    <string name="result_swipe_left">ЖОЮ</string>
+    <string name="result_swipe_right">БОС ОРЫН</string>
+    <string name="result_swipe_up">КУРСОР АРТҚА ЖЫЛЖЫТЫЛДЫ.</string>
+    <string name="rotate_orientation_announcement">Бұдан былай кәдімгі TalkBack қимылдарын пайдалана алмайсыз. TalkBack функциясы Брайль пернетақтасын пайдалану кезінде қолжетімді болмайды.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">Телефон тік қалыпта. Жалғастыру үшін оны көлденең қалыпта ұстаңыз. Одан кейін экранды әрі қаратып ұстаңыз. Дайын болған кезде, экранды екі рет түртіңіз.</string>
+    <string name="rotate_orientation_description_1">Бұдан былай кәдімгі TalkBack қимылдарын пайдалана алмайсыз. TalkBack функциясы Брайль пернетақтасын пайдалану кезінде қолжетімді болмайды.</string>
+    <string name="rotate_orientation_description_2">Бастау үшін телефоныңыздың экранын әрі қаратып ұстаңыз.</string>
+    <string name="rotate_orientation_inactive_announcement">Алдымен телефонды қосыңыз. Оның экраны әрі қарап тұруы керек.\n\nОдан кейін телефонды көлденеңінен бұрып, альбом қалпына келтіріңіз. Саусақтарыңыз телефонның шетінде болуы керек. Оң қолыңызбен USB портының шетінен ұстаңыз. 3 саусақ экранда, ал шынашақ пен бас бармақ телефонның шетінде.\n\nДайын болған кезде, экранды екі рет түртіңіз.\n\nБрайль пернетақтасын жабу үшін 3 саусақпен төмен қарай сырғытыңыз. Бастапқы пернетақтаға ораласыз.</string>
+    <string name="screen_away">Экранды ары қарату режимі</string>
+    <string name="screen_away_detail">Құрылғының экранын ары қаратыңыз (экранды ары қарату режимі)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Іздеу"</string>
+    <string name="set_up_braille_keyboard">Брайль пернетақтасын реттеу</string>
+    <string name="show_keyboard_window">%1$s ашылды.</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Нүкте басқа нүктелерден бұрын жіберілсе де, әр басылған нүкте енгiзудің бөлігі болып саналады.</string>
+    <string name="summary_pref_reverse_dots">Нүктенің орнын ауыстыру, мысалы, 1 мен 4.</string>
+    <string name="swipe_down_2_fingers_announcement">Пернетақтаны жасыру үшін 2 саусақпен төмен қарай сырғытыңыз. Қазір байқап көріңіз.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Пернетақтаны жасыру. Әдетте бұл пәрмен пернетақтаны жасырады. Сіз әлі оқулықты ашып отырғандықтан, Брайль пернетақтасы да ашық болады.</string>
+    <string name="swipe_down_3_fingers_announcement">Басқа пернетақтаға ауысу үшін 3 саусақпен төмен қарай сырғытыңыз. Қазір байқап көріңіз.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Келесі пернетақта. Әдетте бұл пәрмен келесі пернетақтаға ауыстырады. Ал қазір сіз оқулықты ашып отырғандықтан, Брайль пернетақтасы да ашық болады.</string>
+    <string name="swipe_down_announcement">Курсорды алға жылжыту үшін төмен сырғытыңыз. Қазір істеп көріңіз.</string>
+    <string name="swipe_left_action_result_announcement">d жойылды.</string>
+    <string name="swipe_left_announcement">Әріпті жою үшін солға қарай сырғытыңыз. Қазір байқап көріңіз.</string>
+    <string name="swipe_right_announcement">Бос орын қосу үшін оңға қарай сырғытыңыз. Қазір байқап көріңіз.</string>
+    <string name="swipe_up_3_fingers_announcement">Телефоныңызды үстелге жатқызып қою арқылы үстел үсті режимінде тере аласыз. Оқулықты жабу үшін 3 саусақпен жоғары сырғытыңыз және оқулықты жабу опциясын таңдаңыз.</string>
+    <string name="swipe_up_announcement">Курсорды артқа жылжыту үшін жоғары сырғытыңыз. Қазір істеп көріңіз.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Брайль пернетақтасымен теру кезінде тілді ауыстыру үшін 3 саусағыңызбен жоғары сырғытыңыз. Содан кейін \"келесі тілге ауысу\" тармағын таңдаңыз.</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Теру кезінде тілді жылдам ауыстыру</string>
+    <string name="switch_to_language_announcement">%s тіліне ауысты.</string>
+    <string name="switch_to_screen_away_announcement">Экранды ары қарату режимі</string>
+    <string name="switch_to_tabletop_announcement">Үстел үсті режимі. Құрылғыны зарядтау порты сол жақта тұратындай қойыңыз. Нүктенің орнын өзгерту үшін 6 саусақпен басып тұрыңыз.</string>
+    <string name="symbol_almost_equals">Жуықтық белгісі</string>
+    <string name="symbol_ampersand">Амперсанд</string>
+    <string name="symbol_angle_bracket_left">Кішілік белгісі</string>
+    <string name="symbol_angle_bracket_right">Үлкендік белгісі</string>
+    <string name="symbol_apostrophe">Апостроф</string>
+    <string name="symbol_approximately_equals">Шамамен келесіге тең</string>
+    <string name="symbol_asterisk">Жұлдызша</string>
+    <string name="symbol_at_sign">At белгісі</string>
+    <string name="symbol_backslash">Кері қиғаш сызық</string>
+    <string name="symbol_beamed_sixteenth_note">Таратылатын он алтыншы ескертпелері</string>
+    <string name="symbol_black_circle">Қара шеңбер</string>
+    <string name="symbol_black_heart">Қара жүрек</string>
+    <string name="symbol_black_smallsquare">Кішкентай қара шаршы</string>
+    <string name="symbol_black_square">Қара шаршы</string>
+    <string name="symbol_black_star">Қара жұлдыз</string>
+    <string name="symbol_black_suit_of_diamonds">Қара ромб</string>
+    <string name="symbol_black_triangle_pointing_down">Төмен қаратылған қара үшбұрыш</string>
+    <string name="symbol_black_triangle_pointing_up">Жоғары қаратылған қара үшбұрыш</string>
+    <string name="symbol_broken_bar">Тік сызық</string>
+    <string name="symbol_bullet">Таңбалауыш</string>
+    <string name="symbol_bullseye">Өгіздің көзі</string>
+    <string name="symbol_caret">Кірістіру белгісі</string>
+    <string name="symbol_celsius_degree">Цельсий градус</string>
+    <string name="symbol_cent">Цент белгісі</string>
+    <string name="symbol_circle_left_half_black">Сол жақ жартысы қара шеңбер</string>
+    <string name="symbol_circle_right_half_black">Оң жақ жартысы қара шеңбер</string>
+    <string name="symbol_colon">Қос нүкте</string>
+    <string name="symbol_comma">Үтір</string>
+    <string name="symbol_copyright">Авторлық құқық</string>
+    <string name="symbol_curly_bracket_left">Сол жақ ирек жақша</string>
+    <string name="symbol_curly_bracket_right">Оң жақ ирек жақша</string>
+    <string name="symbol_currency_sign">Валюта белгісі</string>
+    <string name="symbol_degree">Градус белгісі</string>
+    <string name="symbol_division">Бөлу белгісі</string>
+    <string name="symbol_dollar_sign">Доллар белгісі</string>
+    <string name="symbol_downwards_arrow">Төмен көрсеткі</string>
+    <string name="symbol_eighth_note">Сегізінші ескертпе</string>
+    <string name="symbol_ellipsis">Көп нүкте</string>
+    <string name="symbol_em_dash">Ұзын сызықша</string>
+    <string name="symbol_en_dash">Қысқа сызықша</string>
+    <string name="symbol_equal">Тең белгісі</string>
+    <string name="symbol_euro">Еуро</string>
+    <string name="symbol_exclamation_mark">Леп белгісі</string>
+    <string name="symbol_fahrenheit_degree">Фаренгейт градусы</string>
+    <string name="symbol_female">Әйел таңбасы</string>
+    <string name="symbol_full_width_ampersand">Толық енді амперсанд</string>
+    <string name="symbol_full_width_asterisk">Толық енді жұлдызша</string>
+    <string name="symbol_full_width_circumflex">Толық енді циркумфлекс</string>
+    <string name="symbol_full_width_colon">Толық енді қос нүкте</string>
+    <string name="symbol_full_width_comma">Толық енді үтір</string>
+    <string name="symbol_full_width_exclamation_mark">Толық енді леп белгісі</string>
+    <string name="symbol_full_width_greater_than_sign">Толық енді артық белгісі</string>
+    <string name="symbol_full_width_ideographic_full_stop">Идеографиялық нүкте</string>
+    <string name="symbol_full_width_left_curly_bracket">Толық енді ашатын ирек жақша</string>
+    <string name="symbol_full_width_left_parenthesis">Толық енді ашатын жақша</string>
+    <string name="symbol_full_width_less_than_sign">Толық енді кем белгісі</string>
+    <string name="symbol_full_width_question_mark">Толық енді сұрақ белгісі</string>
+    <string name="symbol_full_width_right_curly_bracket">Толық енді жабатын ирек жақша</string>
+    <string name="symbol_full_width_right_parenthesis">Толық енді жабатын жақша</string>
+    <string name="symbol_full_width_semicolon">Толық енді нүктелі үтір</string>
+    <string name="symbol_full_width_tilde">Толық енді тильда</string>
+    <string name="symbol_full_width_underscore">Толық енді астыңғы сызық</string>
+    <string name="symbol_grave_accent">Гравис</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Жарты енді катакана ортаңғы нүктесі</string>
+    <string name="symbol_hyphen_minus">Сызық</string>
+    <string name="symbol_ideographic_comma">Идеографиялық үтір</string>
+    <string name="symbol_integral">Интеграл</string>
+    <string name="symbol_inverted_exclamation_mark">Аударылған леп белгісі</string>
+    <string name="symbol_inverted_question_mark">Аударылған сұрақ белгісі</string>
+    <string name="symbol_left_angle_bracket">Ашатын қос бұрыштық жақша</string>
+    <string name="symbol_left_black_lenticular_bracket">Сол жақ қара линза тәрізді жақша</string>
+    <string name="symbol_left_corner_bracket">Сол жақ бұрыштық жақша</string>
+    <string name="symbol_left_double_quotation_mark">Ашатын қос тырнақша</string>
+    <string name="symbol_left_single_quotation_mark">Ашатын жалғыз тырнақша</string>
+    <string name="symbol_leftwards_arrow">Солға көрсеткісі</string>
+    <string name="symbol_liter">Литр</string>
+    <string name="symbol_low_double_quote">Төмен қос тырнақша</string>
+    <string name="symbol_male">Еркек таңбасы</string>
+    <string name="symbol_mathematical_left_angle_bracket">Сол жақ математикалық тік жақша</string>
+    <string name="symbol_mathematical_right_angle_bracket">Оң жақ математикалық тік жақша</string>
+    <string name="symbol_micro_sign">Микро белгісі</string>
+    <string name="symbol_middle_dot">Ортаңғы нүкте</string>
+    <string name="symbol_multiplication">Көбейту белгісі</string>
+    <string name="symbol_new_line">Жаңа жол</string>
+    <string name="symbol_not_equals">Тең емес</string>
+    <string name="symbol_not_sign">Емес белгісі</string>
+    <string name="symbol_paragraph_mark">Еже белгі</string>
+    <string name="symbol_parenthesis_left">Сол жақша</string>
+    <string name="symbol_parenthesis_right">Оң жақша</string>
+    <string name="symbol_percent">Пайыз</string>
+    <string name="symbol_period">Кезең</string>
+    <string name="symbol_pi">Пи</string>
+    <string name="symbol_plus_minus_sign">Плюс минус белгісі</string>
+    <string name="symbol_postal_mark">Пошта белгісі</string>
+    <string name="symbol_pound">Фунт</string>
+    <string name="symbol_pound_sterling">Фунт стерлинг белгісі</string>
+    <string name="symbol_quarter_note">Ширек ескертпе</string>
+    <string name="symbol_question_mark">Сұрақ белгісі</string>
+    <string name="symbol_quotation_mark">Дәйексөз</string>
+    <string name="symbol_reference">Анықтама белгісі</string>
+    <string name="symbol_registered_trademark">Тіркелген сауда белгісі</string>
+    <string name="symbol_right_angle_bracket">Жабатын қос бұрыштық жақша</string>
+    <string name="symbol_right_black_lenticular_bracket">Оң жақ қара линза тәрізді жақша</string>
+    <string name="symbol_right_corner_bracket">Оң жақ бұрыштық жақша</string>
+    <string name="symbol_right_double_quotation_mark">Оң жақ қос тырнақша</string>
+    <string name="symbol_right_single_quotation_mark">Жабатын жалғыз тырнақша</string>
+    <string name="symbol_rightwards_arrow">Оң жақ көрсеткі</string>
+    <string name="symbol_rupee">Рупий</string>
+    <string name="symbol_section_sign">Бөлім белгісі</string>
+    <string name="symbol_semicolon">Нүктелі үтір</string>
+    <string name="symbol_slash">Қиғаш сызық</string>
+    <string name="symbol_solar">Күн таңбасы</string>
+    <string name="symbol_space">Бос орын</string>
+    <string name="symbol_square_bracket_left">Сол жақ тік жақша</string>
+    <string name="symbol_square_bracket_right">Оң жақ тік жақша</string>
+    <string name="symbol_square_root">Шаршы түбір</string>
+    <string name="symbol_tilde">Тильда</string>
+    <string name="symbol_trademark">Сауда белгісі</string>
+    <string name="symbol_underscore">Астыңғы сызық</string>
+    <string name="symbol_upwards_arrow">Жоғары көрсеткі</string>
+    <string name="symbol_vertical_bar">Тік сызық</string>
+    <string name="symbol_white_circle">Ақ шеңбер</string>
+    <string name="symbol_white_club_suit">Ақ клуб костюмі</string>
+    <string name="symbol_white_diamond">Ақ бриллиант</string>
+    <string name="symbol_white_down_pointing_triangle">Ақ төмен көрсететін үшбұрыш</string>
+    <string name="symbol_white_heart">Ақ жүрек</string>
+    <string name="symbol_white_left_pointing_index">Ақ сол жаққа көрсететін көрсеткіш</string>
+    <string name="symbol_white_left_pointing_triangle">Ақ сол жаққа көрсететін үшбұрыш</string>
+    <string name="symbol_white_right_pointing_index">Ақ оң жаққа көрсететін көрсеткіш</string>
+    <string name="symbol_white_right_pointing_triangle">Ақ оң жаққа көрсететін үшбұрыш</string>
+    <string name="symbol_white_spade_suit">Ақ күректер жинағы</string>
+    <string name="symbol_white_square">Ақ шаршы</string>
+    <string name="symbol_white_star">Ақ жұлдыз</string>
+    <string name="symbol_white_up_pointing_triangle">Ақ жоғары көрсететін үшбұрыш</string>
+    <string name="symbol_won">Вон валютасының белгісі</string>
+    <string name="symbol_won_sign">Вон валютасының белгісі</string>
+    <string name="symbol_yen">Йена</string>
+    <string name="tabletop">Экранды жоғары қаратып қою режимі</string>
+    <string name="tabletop_detail">Құрылғыңызды үстелге жатқызып қойыңыз (экранды жоғары қаратып үстелге қою режимі)</string>
+    <string name="talkback_off_dialog_positive_button">\"Арнайы мүмкіндіктер\" параметрлерін іске қосу</string>
+    <string name="talkback_off_dialog_title">Брайль пернетақтасын пайдалану үшін TalkBack функциясын іске қосыңыз.</string>
+    <string name="talkback_off_or_suspend_dialog_message">TalkBack қосылған кезде, Брайль таңбаларын енгізу үшін экранды түртіңіз.</string>
+    <string name="talkback_suspend_dialog_title">Брайль пернетақтасын пайдалану үшін TalkBack функциясын қолдана беріңіз.</string>
+    <string name="tap_to_continue">Жалғастыру үшін кез келген жерді екі рет түртіңіз.</string>
+    <string name="template_capital_letter">бас %1$s</string>
+    <string name="template_current_tts_engine">%1$s пайдаланылуда</string>
+    <string name="template_overlay_window">%1$s суреттегі суреті</string>
+    <string name="template_password_selected">%1$d-%2$d таңбалары</string>
+    <string name="template_password_traversed">\"%1$d\" таңбасы</string>
+    <string name="template_scroll_from_count">%2$d ішінен %1$d элемент көрсетілген.</string>
+    <string name="template_scroll_from_to_count">%3$d ішінен %1$d – %2$d элемент көрсетілген.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s сол жақта, %2$s оң жақта</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s оң жақта, %2$s сол жақта</string>
+    <string name="template_split_screen_mode_portrait">%1$s үстінде, %2$s астында</string>
+    <string name="template_text_copied">көшірілді, %1$s</string>
+    <string name="template_viewpager_index_count">Бет: %1$d/%2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d/%2$d</string>
+    <string name="title_pref_accumulate_presses">Барлық басылған нүктені қамту</string>
+    <string name="title_pref_reverse_dots">Кері бағыттағы нүктелер</string>
+    <string name="tutorial_intro_description">Брайль пернетақтасының көмегімен 6 нүктелі Брайль қарпін экранды түрту арқылы енгізе аласыз.\n\nUnified English Braille пайдаланудасыз. Теру тілін ауыстыру үшін TalkBack параметрлеріне өтіңіз.\n\nБрайль қарпін теру үшін телефоныңызды басқаша ұстап, пайдалануыңыз қажет.</string>
+    <string name="type_letter_a_announcement">Экранды әрі қаратып ұстаңыз. Ортаңғы 3 саусағыңыз экранды түрте алатындай етіп, телефонның шетінен екі қолыңызбен ұстаңыз.\n\nСол жақ сұқ саусағыңыз 1-нүктеде болуы керек. \"A\" әрпін теру үшін 1-нүктені түртіңіз.</string>
+    <string name="type_letter_a_inactive_announcement">\"A\" әрпін теру үшін сол жақ сұқ саусағыңызбен 1-нүктені түртіңіз.</string>
+    <string name="type_letter_inactive_announcement">%2$s әрпін теру үшін %1$s түртіңіз.</string>
+    <string name="typing_languages_title">Теру тілдері</string>
+    <string name="untitled_window">атаусыз</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Параметрлер</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Брайль пернетақтасын іске қосу&lt;/b>: төмендегі \"Параметрлер\" бөлімін түртіңіз. Келесі экранда \"%1$s\" іске қосыңыз
+    &lt;br>&lt;br>2. &lt;b>Брайль пернетақтасын пайдалану&lt;/b>: кәдімгі пернетақтаны ашып, пернетақта таңдау таңбашасын %2$s (әдетте төменгі оң жақта) түртіңіз. \"%1$s\" таңдаңыз.
+    &lt;br>&lt;br>Пернетақталарды ауыстыру опциясын көрмесеңіз, %3$s, Google пернетақтасын орнатып көріңіз.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Брайль пернетақтасын пайдалану үшін кәдімгі пернетақтаны ашып, пернетақта таңбашасын %1$s (әдетте төменгі оң жақта) түртіңіз. \"%2$s\" таңдаңыз.
+  &lt;br>&lt;br>Пернетақталарды ауыстыру опциясын көрмесеңіз, %3$s, Google пернетақтасын орнатып көріңіз.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ӨШІРУЛІ"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ҚОСУЛЫ"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Әрекеттер тартпасы"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Навигация тартпасы"</string>
+</resources>

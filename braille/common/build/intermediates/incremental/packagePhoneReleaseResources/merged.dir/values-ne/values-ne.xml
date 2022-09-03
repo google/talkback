@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">डट %s</item>
+    <item quantity="other">डटहरू %s</item>
+  </plurals>
+    <string name="auto_detect">तपाईंले यन्त्र समात्ने तरिकाअनुसार समायोजन गर्नु…</string>
+    <string name="capitalize_announcement">क्याप</string>
+    <string name="code_user_facing_name_ar">अरबी</string>
+    <string name="code_user_facing_name_es">स्प्यानिस</string>
+    <string name="code_user_facing_name_fr">फ्रान्सेली</string>
+    <string name="code_user_facing_name_pl">पोलिस</string>
+    <string name="code_user_facing_name_ueb1">एकीकृत अङ्ग्रेजी ब्रेल अनकन्ट्र्याक्टेड</string>
+    <string name="code_user_facing_name_ueb2">एकीकृत अङ्ग्रेजी ब्रेल कन्ट्र्याक्टेड</string>
+    <string name="number_announcement">नम्बर</string>
+    <string name="read_out_deleted">%s मेटाइयो</string>
+    <string name="screen_away">\'स्क्रिन अवे\' मोड</string>
+    <string name="screen_away_detail">आफ्नो विपरीत दिशातिर स्क्रिन पर्ने गरी डिभाइस समात्नुहोस् (\'स्क्रिन अवे\' मोड)</string>
+    <string name="tabletop">टेबलटप मोड</string>
+    <string name="tabletop_detail">यन्त्रलाई टेबुलमा सुताएर राख्नुहोस् (टेबलटप मोड)</string>
+</resources>

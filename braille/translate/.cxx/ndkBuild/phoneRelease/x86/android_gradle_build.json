@@ -1,0 +1,118 @@
+{
+  "buildFiles": [
+    "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk",
+    "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk"
+  ],
+  "cleanCommands": [
+    "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-23 NDK_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/obj NDK_LIBS_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/lib clean"
+  ],
+  "buildTargetsCommand": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-23 NDK_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/obj NDK_LIBS_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/lib {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "louiswrap-phoneRelease-x86": {
+      "buildCommand": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-23 NDK_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/obj NDK_LIBS_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/lib /Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/obj/local/x86/liblouiswrap.so",
+      "toolchain": "toolchain-x86",
+      "abi": "x86",
+      "artifactName": "louiswrap",
+      "files": [
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/liblouiswrapper/louis_translation.cc",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fno-exceptions -fno-rtti -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/.. -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/sources/cxx-stl/llvm-libc++/include -I/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/sources/cxx-stl/llvm-libc++/../llvm-libc++abi/include -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni -DANDROID -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign -fno-strict-aliasing"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/commonTranslationFunctions.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/compileTranslationTable.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/logging.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/lou_backTranslateString.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/lou_translateString.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/maketable.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/metadata.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/pattern.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/utils.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        }
+      ],
+      "output": "/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/obj/local/x86/liblouiswrap.so"
+    },
+    "louis-phoneRelease-x86": {
+      "buildCommand": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk NDK_APPLICATION_MK\u003d/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-23 NDK_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/obj NDK_LIBS_OUT\u003d/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/lib /Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/obj/local/x86/liblouis.so",
+      "toolchain": "toolchain-x86",
+      "abi": "x86",
+      "artifactName": "louis",
+      "files": [
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/commonTranslationFunctions.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/compileTranslationTable.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/logging.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/lou_backTranslateString.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/lou_translateString.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/maketable.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/metadata.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/pattern.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        },
+        {
+          "src": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis/liblouis/utils.c",
+          "flags": "-target i686-none-linux-android23 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fPIC -O2 -DNDEBUG -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -I/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/third_party/liblouis -DANDROID -DTABLESDIR\u003d\u0027\"__non_existent_path__\"\u0027 -nostdinc++ -Wformat -Werror\u003dformat-security -mstackrealign"
+        }
+      ],
+      "output": "/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/phoneRelease/obj/local/x86/liblouis.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-x86": {
+      "cCompilerExecutable": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+      "cppCompilerExecutable": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cc"
+  ]
+}

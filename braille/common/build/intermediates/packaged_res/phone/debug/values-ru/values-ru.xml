@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">точки %s</item>
+    <item quantity="few">точки %s</item>
+    <item quantity="many">точки %s</item>
+    <item quantity="other">точки %s</item>
+  </plurals>
+    <string name="auto_detect">Адаптировать к положению устройства</string>
+    <string name="capitalize_announcement">Заглавные буквы</string>
+    <string name="code_user_facing_name_ar">арабский</string>
+    <string name="code_user_facing_name_es">Испанский</string>
+    <string name="code_user_facing_name_fr">Французский</string>
+    <string name="code_user_facing_name_pl">Польский</string>
+    <string name="code_user_facing_name_ueb1">Объединенный англ. шрифт Брайля без сокращений</string>
+    <string name="code_user_facing_name_ueb2">Объединенный англ. шрифт Брайля с сокращениями</string>
+    <string name="number_announcement">Цифра</string>
+    <string name="read_out_deleted">Текст \"%s\" удален</string>
+    <string name="screen_away">Режим \"Экран от себя\"</string>
+    <string name="screen_away_detail">Держите устройство экраном от себя (режим \"Экран от себя\").</string>
+    <string name="tabletop">Режим \"Настольный\"</string>
+    <string name="tabletop_detail">Положите устройство на стол (режим \"Настольный\").</string>
+</resources>

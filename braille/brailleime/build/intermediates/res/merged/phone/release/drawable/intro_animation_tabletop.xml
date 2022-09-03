@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The xml drawable size is 130dp x 220dp. -->
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:drawable="@drawable/braille_keyboard_letter_a_tabletop" android:duration="1000"/>
+  <item android:drawable="@drawable/braille_keyboard_tabletop" android:duration="750"/>
+  <item android:drawable="@drawable/braille_keyboard_letter_b_tabletop" android:duration="1000"/>
+  <item android:drawable="@drawable/braille_keyboard_tabletop" android:duration="750"/>
+  <item android:drawable="@drawable/braille_keyboard_letter_c_tabletop" android:duration="1000"/>
+  <item android:drawable="@drawable/braille_keyboard_tabletop" android:duration="2000"/>
+</animation-list>

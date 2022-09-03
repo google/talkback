@@ -1,0 +1,37 @@
+{
+  "ndkFolder": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888",
+  "messages": [
+    {
+      "level": "INFO",
+      "message": "android.ndkVersion from module build.gradle is not set"
+    },
+    {
+      "level": "INFO",
+      "message": "ndk.dir in local.properties is /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/"
+    },
+    {
+      "level": "INFO",
+      "message": "ANDROID_NDK_HOME environment variable is not set"
+    },
+    {
+      "level": "INFO",
+      "message": "sdkFolder is /Users/quintinb/Library/Android/sdk"
+    },
+    {
+      "level": "INFO",
+      "message": "Considering /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888 by ndk.dir"
+    },
+    {
+      "level": "INFO",
+      "message": "Considering /Users/quintinb/Library/Android/sdk/ndk-bundle in SDK ndk-bundle folder"
+    },
+    {
+      "level": "INFO",
+      "message": "Considering /Users/quintinb/Library/Android/sdk/ndk/24.0.8215888 in SDK ndk folder"
+    },
+    {
+      "level": "INFO",
+      "message": "Found requested ndk.dir (/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888) which has version 24.0.8215888"
+    }
+  ]
+}

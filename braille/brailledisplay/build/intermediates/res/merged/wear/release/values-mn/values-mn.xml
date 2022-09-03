@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d шинэ мэдэгдэл</item>
+    <item quantity="other">%d шинэ мэдэгдэл</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Нүүр хуудас уруу шилжих"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Дээш шилжих"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Бусад сонголт"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Болсон"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Бүгдийг харах"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Аппыг сонгох"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ИДЭВХГҮЙ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ИДЭВХТЭЙ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"устгах"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"оруулах"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Функц+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Мета+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Шифт+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"зай"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Цэс+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Хайх…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Асуулга арилгах"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Хайх асуулга"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Хайх"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Асуулга илгээх"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Дуут хайлт"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Дараахтай хуваалцах"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>-тай хуваалцах"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Буулгах"</string>
+    <string name="bottomsheet_action_expand_halfway">Хагас дэлгэнэ үү</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%2$d-н %1$d тэмдэгтийг оруулсан</string>
+    <string name="character_counter_overflowed_content_description">Тэмдэгтийн хязгаар %2$d-н %1$d-с хэтэрсэн</string>
+    <string name="clear_text_end_icon_content_description">Текстийг арилгах</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Идэвхжүүлэх</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s нь Google Play үйлчилгээг идэвхжүүлэх хүртэл ажиллахгүй.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play үйлчилгээг идэвхжүүлэх</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Суулгах</string>
+    <string name="common_google_play_services_install_text">Таны төхөөрөмжид Google Play үйлчилгээ байхгүй тул %1$s ажиллахгүй.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play үйлчилгээг авах</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play-н үйлчилгээнүүдийн боломжит байдал</string>
+    <string name="common_google_play_services_notification_ticker">Google Наадаан үйлчилгээний алдаа</string>
+    <string name="common_google_play_services_unknown_issue">%1$s-г Google Play-н үйлчилгээгээр ашиглахад асуудал гарлаа. Дахин оролдоно уу.</string>
+    <string name="common_google_play_services_unsupported_text">Таны төхөөрөмж Google Play үйлчилгээг дэмждэггүй учир %1$s ажиллахгүй.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Шинэчлэх</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s нь таныг Google Play үйлчилгээнүүдийг шинэчлэхээс нааш ажиллахгүй.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play үйлчилгээг шинэчлэх</string>
+    <string name="common_google_play_services_updating_text">%1$s нь одоогоор шинэчилж буй Google Play үйлчилгээгүйгээр ажиллахгүй.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play үйлчилгээний шинэ хувилбар хэрэгтэй. Энэ нь удахгүй өөрөө өөрийгөө шинэчлэх болно.</string>
+    <string name="common_open_on_phone">Утсаар нээх</string>
+    <string name="common_signin_button_text">Нэвтрэх</string>
+    <string name="common_signin_button_text_long">Google-р нэвтрэх:</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Амжилтгүй"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Таны утсан дээр нээсэн"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Амжилттай"</string>
+    <string msgid="3209159573327985035" name="copy">"Хуулах"</string>
+    <string name="error_icon_content_description">Алдаа</string>
+    <string name="exit_scrim">Гарах</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Дэлгэрэнгүй"</string>
+    <string name="exposed_dropdown_menu_content_description">Доош унадаг цэсийг харуулах</string>
+    <string name="function_off">Яриагаар өгөх саналыг унтраасан</string>
+    <string name="function_on">Яриагаар өгөх саналыг асаасан</string>
+    <string name="granularity_character">Тэмдэгт</string>
+    <string name="granularity_default">Үндсэн</string>
+    <string name="granularity_line">Мөр</string>
+    <string name="granularity_native_control">Хяналтууд</string>
+    <string name="granularity_native_heading">Гарчиг</string>
+    <string name="granularity_native_link">Холбооснууд</string>
+    <string name="granularity_paragraph">Параграф</string>
+    <string name="granularity_pseudo_web_special_content">Тусгай агуулга</string>
+    <string name="granularity_web_control">Удирдлага</string>
+    <string name="granularity_web_heading">Гарчгууд</string>
+    <string name="granularity_web_landmark">Газрын тэмдэглэгээ</string>
+    <string name="granularity_web_link">Холбооснууд</string>
+    <string name="granularity_web_list">Жагсаалтууд</string>
+    <string name="granularity_window">Цонх</string>
+    <string name="granularity_word">Үг</string>
+    <string name="hide_keyboard_window">гарыг нуусан</string>
+    <string name="icon_content_description">Харилцах цонхны дүрс тэмдэг</string>
+    <string name="item_view_role_description">Таб</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Шинэ товчлол тохируулахын тулд түлхүүрийн хослолыг %1$s засварын түлхүүртэй хамт дарна уу.</string>
+    <string name="keycombo_assign_dialog_instruction">Шинэ гарны холболт үүсгэхийн тулд товчлууруудын хослол дээр дарна уу. Энэ нь  ALT эсвэл Control товчнуудын аль нэгийг заавал агуулсан байх ёстой.</string>
+    <string name="keycombo_key_arrow_down">Доошоо заасан сум</string>
+    <string name="keycombo_key_arrow_left">Зүүн тийш заасан сум</string>
+    <string name="keycombo_key_arrow_right">Баруун тийш заасан сум</string>
+    <string name="keycombo_key_arrow_up">Дээш заасан сум</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Хайлт</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Тодорхой бус</string>
+    <string name="material_clock_toggle_content_description">ҮӨ эсвэл ҮХ сонгоно уу</string>
+    <string name="material_hour_selection">Цаг сонгох</string>
+    <string name="material_hour_suffix">%1$s цаг</string>
+    <string name="material_minute_selection">Минут сонгоно уу</string>
+    <string name="material_minute_suffix">%1$s минут</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Цагийг оруулахын тулд цагийн горимд шилжүүлнэ үү.</string>
+    <string name="material_timepicker_hour">Цаг</string>
+    <string name="material_timepicker_minute">Минут</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Цаг сонгох</string>
+    <string name="material_timepicker_text_input_mode_description">Цагийг оруулахын тулд текст оруулах горимд шилжүүлнэ үү.</string>
+    <string name="mtrl_badge_numberless_content_description">Шинэ мэдэгдэл</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s-г устгах</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d-с олон шинэ мэдэгдэл</string>
+    <string name="mtrl_picker_a11y_next_month">Дараагийн сар луу өөрчлөх</string>
+    <string name="mtrl_picker_a11y_prev_month">Өмнөх сар луу өөрчлөх</string>
+    <string name="mtrl_picker_announce_current_selection">Одоогийн сонголт: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Огноо сонгох</string>
+    <string name="mtrl_picker_date_header_unselected">Сонгосон огноо</string>
+    <string name="mtrl_picker_day_of_week_column_header">Өдрийн багана: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Буруу формат байна.</string>
+    <string name="mtrl_picker_invalid_format_example">Жишээ нь: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Ашиглах формат: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Огнооны хязгаар буруу байна.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s он руу шилжих</string>
+    <string name="mtrl_picker_out_of_range">Хязгаараас хэтэрсэн: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Эхлэх огноо – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Дуусах огноо</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Муж сонгох</string>
+    <string name="mtrl_picker_range_header_unselected">Эхлэх огноо – Дуусах огноо</string>
+    <string name="mtrl_picker_save">Хадгалах</string>
+    <string name="mtrl_picker_text_input_date_hint">Огноо</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Дуусах огноо</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Эхлэх огноо</string>
+    <string name="mtrl_picker_text_input_day_abbr">ө</string>
+    <string name="mtrl_picker_text_input_month_abbr">с</string>
+    <string name="mtrl_picker_text_input_year_abbr">ж</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Календарийн орох горим руу сэлгэх</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Өдөр сонгох руу сэлгэхийн тулд товшино уу</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Текстийн орох горим руу сэлгэх</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Он сонгох руу сэлгэхийн тулд товшино уу</string>
+    <string msgid="478774118347071097" name="not_set">"Тохируулаагүй"</string>
+    <string name="password_toggle_content_description">Нууц үгийг харуулах</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\"-г түр санах ойд хуулсан."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Хайх"</string>
+    <string name="show_keyboard_window">%1$s-г харуулж байна</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Ойролцоо тооны тэмдэг</string>
+    <string name="symbol_ampersand">Амперсант</string>
+    <string name="symbol_angle_bracket_left">Багын тэмдэг</string>
+    <string name="symbol_angle_bracket_right">Ихийн тэмдэг</string>
+    <string name="symbol_apostrophe">Апостроф</string>
+    <string name="symbol_approximately_equals">Ойролцоолон тэнцүүлэх тэнцүү тэмдэгт</string>
+    <string name="symbol_asterisk">Од</string>
+    <string name="symbol_at_sign">Эт</string>
+    <string name="symbol_backslash">Хойшоо халуу зураас</string>
+    <string name="symbol_beamed_sixteenth_note">Холбосон арван зургаат нотууд</string>
+    <string name="symbol_black_circle">Хар өнгөтэй дугуй дүрс</string>
+    <string name="symbol_black_heart">Хар өнгөтэй зүрхэн хэлбэртэй дүрс</string>
+    <string name="symbol_black_smallsquare">Жижиг хар дөрвөлжин</string>
+    <string name="symbol_black_square">Хар өнгөтэй дөрвөлжин дүрс</string>
+    <string name="symbol_black_star">Хар өнгөтэй од хэлбэртэй дүрс</string>
+    <string name="symbol_black_suit_of_diamonds">Хар дөрвөлжин</string>
+    <string name="symbol_black_triangle_pointing_down">Доош зааж буй хар гурвалжин</string>
+    <string name="symbol_black_triangle_pointing_up">Дээш зааж буй хар гурвалжин</string>
+    <string name="symbol_broken_bar">Тасарсан босоо зураас</string>
+    <string name="symbol_bullet">Сум</string>
+    <string name="symbol_bullseye">Бухын нүд хэлбэртэй дүрс</string>
+    <string name="symbol_caret">Оруулгын тэмдэг</string>
+    <string name="symbol_celsius_degree">Цельсийн хэм</string>
+    <string name="symbol_cent">Центийн тэмдэг</string>
+    <string name="symbol_circle_left_half_black">Зүүн хагас нь хар өнгөтэй дугуй дүрс</string>
+    <string name="symbol_circle_right_half_black">Баруун хагас нь хар өнгөтэй дугуй дүрс</string>
+    <string name="symbol_colon">Хоёр цэг</string>
+    <string name="symbol_comma">Таслал</string>
+    <string name="symbol_copyright">Зохиогчийн эрх</string>
+    <string name="symbol_curly_bracket_left">Зүүн угалзан хаалт</string>
+    <string name="symbol_curly_bracket_right">Баруун угалзан хаалт</string>
+    <string name="symbol_currency_sign">Валютын тэмдэг</string>
+    <string name="symbol_degree">Хэмийн тэмдэг</string>
+    <string name="symbol_division">Хуваах тэмдэг</string>
+    <string name="symbol_dollar_sign">Долларын тэмдэг</string>
+    <string name="symbol_downwards_arrow">Доошоо чиглэсэн сум</string>
+    <string name="symbol_eighth_note">Наймт нот</string>
+    <string name="symbol_ellipsis">Олон цэг</string>
+    <string name="symbol_em_dash">Дундуур зураас</string>
+    <string name="symbol_en_dash">Дундуур зураас</string>
+    <string name="symbol_equal">Тэнцүү тэмдэг</string>
+    <string name="symbol_euro">Евро</string>
+    <string name="symbol_exclamation_mark">Анхаарлын тэмдэг</string>
+    <string name="symbol_fahrenheit_degree">Фаренгейтийн хэм</string>
+    <string name="symbol_female">Эмэгтэй хүнийг илэрхийлдэг бэлгэ тэмдэг</string>
+    <string name="symbol_full_width_ampersand">Бүтэн өргөнтэй \"Ба\" тэмдэг</string>
+    <string name="symbol_full_width_asterisk">Бүтэн өргөнтэй од</string>
+    <string name="symbol_full_width_circumflex">Бүтэн өргөнтэй өргөлтийн тэмдэг</string>
+    <string name="symbol_full_width_colon">Бүтэн өргөнтэй давхар цэг</string>
+    <string name="symbol_full_width_comma">Бүтэн өргөнтэй таслал</string>
+    <string name="symbol_full_width_exclamation_mark">Бүтэн өргөнтэй анхаарлын тэмдэг</string>
+    <string name="symbol_full_width_greater_than_sign">Бүтэн өргөнтэй ихийн тэмдэг</string>
+    <string name="symbol_full_width_ideographic_full_stop">Дүрс үсгийн цэг</string>
+    <string name="symbol_full_width_left_curly_bracket">Бүтэн өргөнтэй зүүн талын угалзан хаалт</string>
+    <string name="symbol_full_width_left_parenthesis">Бүтэн өргөнтэй зүүн талын хаалт</string>
+    <string name="symbol_full_width_less_than_sign">Бүтэн өргөнтэй багын тэмдэг</string>
+    <string name="symbol_full_width_question_mark">Бүтэн өргөнтэй асуултын тэмдэг</string>
+    <string name="symbol_full_width_right_curly_bracket">Бүтэн өргөнтэй баруун талын угалзан хаалт</string>
+    <string name="symbol_full_width_right_parenthesis">Бүтэн өргөнтэй баруун талын хаалт</string>
+    <string name="symbol_full_width_semicolon">Бүтэн өргөнтэй цэгтэй таслал</string>
+    <string name="symbol_full_width_tilde">Бүтэн өргөнтэй долгионт тэмдэг</string>
+    <string name="symbol_full_width_underscore">Бүтэн өргөнтэй доогуур зураас</string>
+    <string name="symbol_grave_accent">Өргөлтийн тэмдэг</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Хагас өргөнтэй катаканагийн дунд цэг</string>
+    <string name="symbol_hyphen_minus">Дундуур зураас</string>
+    <string name="symbol_ideographic_comma">Дүрс үсгийн таслал</string>
+    <string name="symbol_integral">Бүхэл тоо</string>
+    <string name="symbol_inverted_exclamation_mark">Урвуу анхаарлын тэмдэг</string>
+    <string name="symbol_inverted_question_mark">Урвуу асуултын тэмдэг</string>
+    <string name="symbol_left_angle_bracket">Зүүн талын давхар өнцөгтэй хаалт</string>
+    <string name="symbol_left_black_lenticular_bracket">Хар өнгөтэй хагас гүдгэр зүүн талын хаалт</string>
+    <string name="symbol_left_corner_bracket">Зүүн булангийн хаалт</string>
+    <string name="symbol_left_double_quotation_mark">Зүүн талын давхар хашилт</string>
+    <string name="symbol_left_single_quotation_mark">Зүүн талын дан хашилт</string>
+    <string name="symbol_leftwards_arrow">Зүүн сум</string>
+    <string name="symbol_liter">Литр</string>
+    <string name="symbol_low_double_quote">Доод хоёр хашилт</string>
+    <string name="symbol_male">Эрэгтэй хүнийг илэрхийлдэг бэлгэ тэмдэг</string>
+    <string name="symbol_mathematical_left_angle_bracket">Математикийн зүүн өнцгийн хаалт</string>
+    <string name="symbol_mathematical_right_angle_bracket">Математикийн баруун өнцгийн хаалт</string>
+    <string name="symbol_micro_sign">Микро тэмдэг</string>
+    <string name="symbol_middle_dot">Дунд цэг</string>
+    <string name="symbol_multiplication">Үржвэрийн тэмдэг</string>
+    <string name="symbol_new_line">Шинэ мөр</string>
+    <string name="symbol_not_equals">Тэнцүү биш</string>
+    <string name="symbol_not_sign">Байхгүй тэмдэг</string>
+    <string name="symbol_paragraph_mark">Парагарафын тэмдэг</string>
+    <string name="symbol_parenthesis_left">Зүүн хаалт</string>
+    <string name="symbol_parenthesis_right">Баруун хаалт</string>
+    <string name="symbol_percent">Хувь</string>
+    <string name="symbol_period">Цэг</string>
+    <string name="symbol_pi">пи</string>
+    <string name="symbol_plus_minus_sign">Нэмэх хасах тэмдэг</string>
+    <string name="symbol_postal_mark">Шуудангийн марк</string>
+    <string name="symbol_pound">Фунт</string>
+    <string name="symbol_pound_sterling">Фунтын тэмдэглэгээ</string>
+    <string name="symbol_quarter_note">Дөрөвт нот</string>
+    <string name="symbol_question_mark">Асуултын тэмдэг</string>
+    <string name="symbol_quotation_mark">Ишлэх</string>
+    <string name="symbol_reference">Ишлэлийн тэмдэг</string>
+    <string name="symbol_registered_trademark">Бүртгэгдсэн ялгарах тэмдэг</string>
+    <string name="symbol_right_angle_bracket">Баруун талын давхар өнцөгтэй хаалт</string>
+    <string name="symbol_right_black_lenticular_bracket">Хар өнгөтэй хагас гүдгэр баруун талын хаалт</string>
+    <string name="symbol_right_corner_bracket">Баруун булангийн хаалт</string>
+    <string name="symbol_right_double_quotation_mark">Баруун талын давхар хашилтын тэмдэг</string>
+    <string name="symbol_right_single_quotation_mark">Баруун талын дан хашилт</string>
+    <string name="symbol_rightwards_arrow">Баруун тийш чиглэсэн сум</string>
+    <string name="symbol_rupee">Рупи</string>
+    <string name="symbol_section_sign">Гарын үсгийн хэсэг</string>
+    <string name="symbol_semicolon">Цэгтэй таслал</string>
+    <string name="symbol_slash">Ташуу зураас</string>
+    <string name="symbol_solar">Нар хэлбэртэй дүрс</string>
+    <string name="symbol_space">Хоосон зай</string>
+    <string name="symbol_square_bracket_left">Зүүн дөрвөлжин хаалт</string>
+    <string name="symbol_square_bracket_right">Баруун дөрвөлжин хаалт</string>
+    <string name="symbol_square_root">Квадрат язгуур</string>
+    <string name="symbol_tilde">Долгионтой зураас</string>
+    <string name="symbol_trademark">Ялгарах тэмдэг</string>
+    <string name="symbol_underscore">Доогуур зураас</string>
+    <string name="symbol_upwards_arrow">Дээшээ сум</string>
+    <string name="symbol_vertical_bar">Босоо зураас</string>
+    <string name="symbol_white_circle">Цагаан өнгөтэй дугуй дүрс</string>
+    <string name="symbol_white_club_suit">Цагаан өнгөтэй цэцгэн хэлбэртэй дүрс</string>
+    <string name="symbol_white_diamond">Цагаан өнгөтэй ромбо хэлбэртэй дүрс</string>
+    <string name="symbol_white_down_pointing_triangle">Цагаан өнгөтэй доошоо харсан гурвалжин дүрс</string>
+    <string name="symbol_white_heart">Цагаан өнгөтэй зүрхэн хэлбэртэй дүрс</string>
+    <string name="symbol_white_left_pointing_index">Цагаан өнгөтэй зүүн тийш заасан гарны дүрс</string>
+    <string name="symbol_white_left_pointing_triangle">Цагаан өнгөтэй зүүн тийш заасан гурвалжин дүрс</string>
+    <string name="symbol_white_right_pointing_index">Цагаан өнгөтэй баруун тийш заасан гарны дүрс</string>
+    <string name="symbol_white_right_pointing_triangle">Цагаан өнгөтэй баруун тийш заасан гурвалжин дүрс</string>
+    <string name="symbol_white_spade_suit">Цагаан өнгөтэй гил дүрс</string>
+    <string name="symbol_white_square">Цагаан өнгөтэй дөврөлжин дүрс</string>
+    <string name="symbol_white_star">Цагаан өнгөтэй од дүрс</string>
+    <string name="symbol_white_up_pointing_triangle">Цагаан өнгөтэй дээшээ заасан гурвалжин дүрс</string>
+    <string name="symbol_won">Воны мөнгөн тэмдэгтийн тэмдэг</string>
+    <string name="symbol_won_sign">Воны мөнгөн тэмдэгтийн тэмдэг</string>
+    <string name="symbol_yen">Иен</string>
+    <string name="template_capital_letter">том %1$s</string>
+    <string name="template_current_tts_engine">%1$s-г ашиглаж байна</string>
+    <string name="template_overlay_window">%1$s дэлгэцэн доторх дэлгэц</string>
+    <string name="template_password_selected">%1$d-с %2$d тэмдэгт</string>
+    <string name="template_password_traversed">Тэмдэгт %1$d</string>
+    <string name="template_scroll_from_count">Нийт %2$d-н %1$d-с үзүүлж байна.</string>
+    <string name="template_scroll_from_to_count">Нийт %3$d-н %1$d-с %2$d хүртэлхийг үзүүлж байна.</string>
+    <string name="template_split_screen_mode_landscape_ltr">зүүн талд %1$s, баруун талд %2$s</string>
+    <string name="template_split_screen_mode_landscape_rtl">баруун талд %1$s, зүүн талд %2$s</string>
+    <string name="template_split_screen_mode_portrait">дээр нь %1$s, доор нь %2$s</string>
+    <string name="template_text_copied">хуулсан, %1$s</string>
+    <string name="template_viewpager_index_count">Хуудас %2$d-н %1$d</string>
+    <string name="template_viewpager_index_count_short">%2$d-н %1$d</string>
+    <string name="untitled_window">гарчиггүй</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ИДЭВХГҮЙ"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ИДЭВХТЭЙ"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Үйлдлийн татуурга"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Навигацын шургуулга"</string>
+</resources>

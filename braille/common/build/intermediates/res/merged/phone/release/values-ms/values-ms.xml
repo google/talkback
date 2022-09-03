@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">titik %s</item>
+    <item quantity="other">titik %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d pemberitahuan baharu</item>
+    <item quantity="other">%d pemberitahuan baharu</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navigasi laman utama"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navigasi ke atas"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Lagi pilihan"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Selesai"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Lihat semua"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Pilih apl"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"MATI"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"HIDUP"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fungsi+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"ruang"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Cari…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Kosongkan pertanyaan"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Pertanyaan carian"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Cari"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Serah pertanyaan"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Carian suara"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Kongsi dengan"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Kongsi dengan <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Runtuhkan"</string>
+    <string name="auto_detect">Sesuaikan dengan cara anda memegang peranti</string>
+    <string name="bottomsheet_action_expand_halfway">Kembangkan helaian bawah</string>
+    <string name="capitalize_announcement">Huruf besar</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Aksara dimasukkan %1$d daripada %2$d</string>
+    <string name="character_counter_overflowed_content_description">Melebihi had aksara %1$d daripada %2$d</string>
+    <string name="clear_text_end_icon_content_description">Kosongkan teks</string>
+    <string name="code_user_facing_name_ar">Arab</string>
+    <string name="code_user_facing_name_es">Bahasa Sepanyol</string>
+    <string name="code_user_facing_name_fr">Perancis</string>
+    <string name="code_user_facing_name_pl">Bahasa Poland</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Dayakan</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s tidak akan berfungsi melainkan anda mendayakan perkhidmatan Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Dayakan perkhidmatan Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Pasang</string>
+    <string name="common_google_play_services_install_text">%1$s tidak akan berfungsi tanpa perkhidmatan Google Play dan perkhidmatan ini tiada pada peranti anda.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Dapatkan perkhidmatan Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Ketersediaan perkhidmatan Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Ralat perkhidmatan Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s menghadapi masalah berhubung perkhidmatan Google Play. Sila cuba lagi.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s tidak akan berfungsi tanpa perkhidmatan Google Play dan perkhidmatan ini tidak disokong oleh peranti anda.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Kemas kini</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s tidak akan berfungsi kecuali anda mengemas kini perkhidmatan Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Kemaskinikan perkhidmatan Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s tidak akan berfungsi tanpa perkhidmatan Google Play dan perkhidmatan ini sedang dikemaskinikan.</string>
+    <string name="common_google_play_services_wear_update_text">Versi baharu perkhidmatan Google Play diperlukan. Kemas kini automatik akan dijalankan sebentar lagi.</string>
+    <string name="common_open_on_phone">Buka pada telefon</string>
+    <string name="common_signin_button_text">Log masuk</string>
+    <string name="common_signin_button_text_long">Log masuk dengan Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Gagal"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Dibuka pada telefon anda"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Berjaya"</string>
+    <string msgid="3209159573327985035" name="copy">"Salin"</string>
+    <string name="error_icon_content_description">Ralat</string>
+    <string name="exit_scrim">Keluar</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Terperinci"</string>
+    <string name="exposed_dropdown_menu_content_description">Tunjukkan menu lungsur</string>
+    <string name="function_off">Maklum balas tuturan dimatikan</string>
+    <string name="function_on">Maklum balas tuturan dihidupkan</string>
+    <string name="granularity_character">Aksara</string>
+    <string name="granularity_default">Lalai</string>
+    <string name="granularity_line">Baris</string>
+    <string name="granularity_native_control">Kawalan</string>
+    <string name="granularity_native_heading">Tajuk</string>
+    <string name="granularity_native_link">Pautan</string>
+    <string name="granularity_paragraph">Perenggan</string>
+    <string name="granularity_pseudo_web_special_content">Kandungan khas</string>
+    <string name="granularity_web_control">Kawalan</string>
+    <string name="granularity_web_heading">Tajuk</string>
+    <string name="granularity_web_landmark">Tanda tempat</string>
+    <string name="granularity_web_link">Pautan</string>
+    <string name="granularity_web_list">Senarai</string>
+    <string name="granularity_window">Windows</string>
+    <string name="granularity_word">Perkataan</string>
+    <string name="hide_keyboard_window">papan kekunci disembunyikan</string>
+    <string name="icon_content_description">Ikon Dialog</string>
+    <string name="item_view_role_description">Tab</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Tekan gabungan kekunci dengan kunci pengubah suai %1$s untuk menetapkan pintasan baharu.</string>
+    <string name="keycombo_assign_dialog_instruction">Tekan gabungan kekunci untuk menetapkan pintasan baharu yang mesti mengandungi sekurang-kurangnya kekunci ALT atau Control.</string>
+    <string name="keycombo_key_arrow_down">Anak Panah ke Bawah</string>
+    <string name="keycombo_key_arrow_left">Anak Panah ke Kiri</string>
+    <string name="keycombo_key_arrow_right">Anak Panah ke Kanan</string>
+    <string name="keycombo_key_arrow_up">Anak Panah ke Atas</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Cari</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Tidak ditentukan</string>
+    <string name="material_clock_toggle_content_description">Pilih AM atau PM</string>
+    <string name="material_hour_selection">Pilih jam</string>
+    <string name="material_hour_suffix">Pukul %1$s</string>
+    <string name="material_minute_selection">Pilih minit</string>
+    <string name="material_minute_suffix">%1$s minit</string>
+    <string name="material_timepicker_am">PG</string>
+    <string name="material_timepicker_clock_mode_description">Beralih ke mod jam untuk input masa.</string>
+    <string name="material_timepicker_hour">Jam</string>
+    <string name="material_timepicker_minute">Minit</string>
+    <string name="material_timepicker_pm">P/M</string>
+    <string name="material_timepicker_select_time">Pilih masa</string>
+    <string name="material_timepicker_text_input_mode_description">Beralih ke mod input teks untuk input masa.</string>
+    <string name="mtrl_badge_numberless_content_description">Pemberitahuan baharu</string>
+    <string name="mtrl_chip_close_icon_content_description">Alih keluar %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Lebih daripada %1$d pemberitahuan baharu</string>
+    <string name="mtrl_picker_a11y_next_month">Tukar kepada bulan seterusnya</string>
+    <string name="mtrl_picker_a11y_prev_month">Tukar kepada bulan sebelumnya</string>
+    <string name="mtrl_picker_announce_current_selection">Pilihan semasa: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Pilih Tarikh</string>
+    <string name="mtrl_picker_date_header_unselected">Tarikh dipilih</string>
+    <string name="mtrl_picker_day_of_week_column_header">Lajur hari: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Format tidak sah.</string>
+    <string name="mtrl_picker_invalid_format_example">Contoh: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Gunakan: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Julat tidak sah.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Navigasi ke tahun %1$s</string>
+    <string name="mtrl_picker_out_of_range">Di luar julat: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Tarikh mula – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Tarikh tamat</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Pilih Julat</string>
+    <string name="mtrl_picker_range_header_unselected">Tarikh mula – Tarikh tamat</string>
+    <string name="mtrl_picker_save">Simpan</string>
+    <string name="mtrl_picker_text_input_date_hint">Tarikh</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Tarikh tamat</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Tarikh mula</string>
+    <string name="mtrl_picker_text_input_day_abbr">h</string>
+    <string name="mtrl_picker_text_input_month_abbr">b</string>
+    <string name="mtrl_picker_text_input_year_abbr">t</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Beralih kepada mod input kalendar</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Ketik untuk beralih kepada pemilihan hari</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Beralih kepada mod input teks</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Ketik untuk beralih kepada pemilihan tahun</string>
+    <string msgid="478774118347071097" name="not_set">"Tidak ditetapkan"</string>
+    <string name="number_announcement">Nombor</string>
+    <string name="password_toggle_content_description">Tunjukkan kata laluan</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" disalin ke papan keratan."</string>
+    <string name="read_out_deleted">%s dipadamkan</string>
+    <string name="screen_away">Mod skrin jauh</string>
+    <string name="screen_away_detail">Tahan peranti dengan skrin jauh daripada anda (mod skrin jauh)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Cari"</string>
+    <string name="show_keyboard_window">Menunjukkan %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Hampir sama dengan</string>
+    <string name="symbol_ampersand">Ampersan</string>
+    <string name="symbol_angle_bracket_left">Tanda kurang daripada</string>
+    <string name="symbol_angle_bracket_right">Tanda lebih besar daripada</string>
+    <string name="symbol_apostrophe">Koma terbalik</string>
+    <string name="symbol_approximately_equals">Lebih kurang sama</string>
+    <string name="symbol_asterisk">Asterisk</string>
+    <string name="symbol_at_sign">Di</string>
+    <string name="symbol_backslash">Garis condong ke belakang</string>
+    <string name="symbol_beamed_sixteenth_note">Not keenam belas dipancarkan</string>
+    <string name="symbol_black_circle">Bulatan hitam</string>
+    <string name="symbol_black_heart">Lekuk Hitam</string>
+    <string name="symbol_black_smallsquare">Empat segi hitam kecil</string>
+    <string name="symbol_black_square">Empat segi hitam</string>
+    <string name="symbol_black_star">Bintang hitam</string>
+    <string name="symbol_black_suit_of_diamonds">Sut berlian hitam</string>
+    <string name="symbol_black_triangle_pointing_down">Segi tiga hitam menuding ke bawah</string>
+    <string name="symbol_black_triangle_pointing_up">Segi tiga hitam menuding ke atas</string>
+    <string name="symbol_broken_bar">Bar patah</string>
+    <string name="symbol_bullet">Titik tumpu khas</string>
+    <string name="symbol_bullseye">Pusat sasaran</string>
+    <string name="symbol_caret">Tanda tinggi</string>
+    <string name="symbol_celsius_degree">Darjah celsius</string>
+    <string name="symbol_cent">Tanda sen</string>
+    <string name="symbol_circle_left_half_black">Bulatan dengan separuh kirinya hitam</string>
+    <string name="symbol_circle_right_half_black">Bulatan dengan separuh kanannya hitam</string>
+    <string name="symbol_colon">Titik bertindih</string>
+    <string name="symbol_comma">Koma</string>
+    <string name="symbol_copyright">Hak cipta</string>
+    <string name="symbol_curly_bracket_left">Tanda kurung siku kiri</string>
+    <string name="symbol_curly_bracket_right">Tanda kurung siku kanan</string>
+    <string name="symbol_currency_sign">Tanda mata wang</string>
+    <string name="symbol_degree">Tanda darjah</string>
+    <string name="symbol_division">Tanda bahagi</string>
+    <string name="symbol_dollar_sign">Tanda dolar</string>
+    <string name="symbol_downwards_arrow">Anak Panah ke Bawah</string>
+    <string name="symbol_eighth_note">Not Kelapan</string>
+    <string name="symbol_ellipsis">Elipsis</string>
+    <string name="symbol_em_dash">Sengkang em</string>
+    <string name="symbol_en_dash">Sengkang en</string>
+    <string name="symbol_equal">Tanda sama</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Tanda seru</string>
+    <string name="symbol_fahrenheit_degree">Darjah fahrenheit</string>
+    <string name="symbol_female">Simbol perempuan</string>
+    <string name="symbol_full_width_ampersand">Ampersan lebar penuh</string>
+    <string name="symbol_full_width_asterisk">Asterisk lebar penuh</string>
+    <string name="symbol_full_width_circumflex">Sirkumfleks lebar penuh</string>
+    <string name="symbol_full_width_colon">Tanda titik bertindih lebar penuh</string>
+    <string name="symbol_full_width_comma">Koma lebar penuh</string>
+    <string name="symbol_full_width_exclamation_mark">Tanda seru lebar penuh</string>
+    <string name="symbol_full_width_greater_than_sign">Tanda lebih besar daripada lebar penuh</string>
+    <string name="symbol_full_width_ideographic_full_stop">Noktah ideografi</string>
+    <string name="symbol_full_width_left_curly_bracket">Tanda kurung kurawal kiri lebar penuh</string>
+    <string name="symbol_full_width_left_parenthesis">Tanda kurung kiri lebar penuh</string>
+    <string name="symbol_full_width_less_than_sign">Tanda kurang daripada lebar penuh</string>
+    <string name="symbol_full_width_question_mark">Tanda soal lebar penuh</string>
+    <string name="symbol_full_width_right_curly_bracket">Tanda kurung kurawal kanan lebar penuh</string>
+    <string name="symbol_full_width_right_parenthesis">Tanda kurung kanan lebar penuh</string>
+    <string name="symbol_full_width_semicolon">Koma bertitik lebar penuh</string>
+    <string name="symbol_full_width_tilde">Tilde lebar penuh</string>
+    <string name="symbol_full_width_underscore">Garis bawah lebar penuh</string>
+    <string name="symbol_grave_accent">Aksen grava</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Titik tengah Katakana separuh lebar</string>
+    <string name="symbol_hyphen_minus">Sengkang</string>
+    <string name="symbol_ideographic_comma">Koma ideografi</string>
+    <string name="symbol_integral">Kamiran</string>
+    <string name="symbol_inverted_exclamation_mark">Tanda seru terbalik</string>
+    <string name="symbol_inverted_question_mark">Tanda soal terbalik</string>
+    <string name="symbol_left_angle_bracket">Tanda kurung siku berkembar kiri</string>
+    <string name="symbol_left_black_lenticular_bracket">Tanda Kurung Kekanta Hitam Kiri</string>
+    <string name="symbol_left_corner_bracket">Tanda Kurung Bucu Kiri</string>
+    <string name="symbol_left_double_quotation_mark">Tanda petikan berganda kiri</string>
+    <string name="symbol_left_single_quotation_mark">Tanda petikan tunggal kiri</string>
+    <string name="symbol_leftwards_arrow">Anak panah ke kiri</string>
+    <string name="symbol_liter">Liter</string>
+    <string name="symbol_low_double_quote">Tanda petikan berganda rendah</string>
+    <string name="symbol_male">Simbol lelaki</string>
+    <string name="symbol_mathematical_left_angle_bracket">Tanda kurung sudut kiri matematik</string>
+    <string name="symbol_mathematical_right_angle_bracket">Tanda kurung sudut kanan matematik</string>
+    <string name="symbol_micro_sign">Tanda mikro</string>
+    <string name="symbol_middle_dot">Titik tengah</string>
+    <string name="symbol_multiplication">Tanda darab</string>
+    <string name="symbol_new_line">Baris baharu</string>
+    <string name="symbol_not_equals">Tidak sama dengan</string>
+    <string name="symbol_not_sign">Tanda bukan</string>
+    <string name="symbol_paragraph_mark">Tanda perenggan</string>
+    <string name="symbol_parenthesis_left">Tanda kurung kiri</string>
+    <string name="symbol_parenthesis_right">Tanda kurung kanan</string>
+    <string name="symbol_percent">Peratus</string>
+    <string name="symbol_period">Tempoh</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Tanda campur tolak</string>
+    <string name="symbol_postal_mark">Tanda pos</string>
+    <string name="symbol_pound">Paun</string>
+    <string name="symbol_pound_sterling">Tanda mata wang paun</string>
+    <string name="symbol_quarter_note">Not Suku</string>
+    <string name="symbol_question_mark">Tanda soal</string>
+    <string name="symbol_quotation_mark">Petikan</string>
+    <string name="symbol_reference">Tanda Rujukan</string>
+    <string name="symbol_registered_trademark">Tanda dagangan berdaftar</string>
+    <string name="symbol_right_angle_bracket">Tanda kurung siku berkembar kanan</string>
+    <string name="symbol_right_black_lenticular_bracket">Tanda Kurung Kekanta Hitam Kanan</string>
+    <string name="symbol_right_corner_bracket">Tanda Kurung Bucu Kanan</string>
+    <string name="symbol_right_double_quotation_mark">Tanda petikan berganda kanan</string>
+    <string name="symbol_right_single_quotation_mark">Tanda petikan tunggal kanan</string>
+    <string name="symbol_rightwards_arrow">Anak Panah Arah Kanan</string>
+    <string name="symbol_rupee">Rupee</string>
+    <string name="symbol_section_sign">Tanda bahagian</string>
+    <string name="symbol_semicolon">Koma bernoktah</string>
+    <string name="symbol_slash">Garis condong</string>
+    <string name="symbol_solar">Simbol suria</string>
+    <string name="symbol_space">Ruang</string>
+    <string name="symbol_square_bracket_left">Tanda kurung sudut kiri</string>
+    <string name="symbol_square_bracket_right">Tanda kurung sudut kanan</string>
+    <string name="symbol_square_root">Punca kuasa dua</string>
+    <string name="symbol_tilde">Tilde</string>
+    <string name="symbol_trademark">Tanda dagangan</string>
+    <string name="symbol_underscore">Garis bawah</string>
+    <string name="symbol_upwards_arrow">Anak panah ke atas</string>
+    <string name="symbol_vertical_bar">Garis menegak</string>
+    <string name="symbol_white_circle">Bulatan putih</string>
+    <string name="symbol_white_club_suit">Set kelawar putih</string>
+    <string name="symbol_white_diamond">Daiman putih</string>
+    <string name="symbol_white_down_pointing_triangle">Segi tiga putih ke bawah putih</string>
+    <string name="symbol_white_heart">Lekuk Putih</string>
+    <string name="symbol_white_left_pointing_index">Indeks menuding ke kiri putih</string>
+    <string name="symbol_white_left_pointing_triangle">Segi tiga menuding ke kiri putih</string>
+    <string name="symbol_white_right_pointing_index">Indeks menuding ke kanan putih</string>
+    <string name="symbol_white_right_pointing_triangle">Segi tiga menuding ke kanan putih</string>
+    <string name="symbol_white_spade_suit">Set sped putih</string>
+    <string name="symbol_white_square">Segi empat putih</string>
+    <string name="symbol_white_star">Bintang putih</string>
+    <string name="symbol_white_up_pointing_triangle">Segi tiga menuding ke atas putih</string>
+    <string name="symbol_won">Tanda mata wang Won</string>
+    <string name="symbol_won_sign">Tanda mata wang Won</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="tabletop">Mod atas meja</string>
+    <string name="tabletop_detail">Letakkan peranti anda mendatar di atas meja (mod atas meja)</string>
+    <string name="template_capital_letter">huruf besar %1$s</string>
+    <string name="template_current_tts_engine">Menggunakan %1$s</string>
+    <string name="template_overlay_window">Gambar dalam gambar %1$s</string>
+    <string name="template_password_selected">Aksara %1$d hingga %2$d</string>
+    <string name="template_password_traversed">Aksara %1$d</string>
+    <string name="template_scroll_from_count">Memaparkan item %1$d daripada %2$d.</string>
+    <string name="template_scroll_from_to_count">Memaparkan item %1$d hingga %2$d daripada %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s di sebelah kiri, %2$s di sebelah kanan</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s di sebelah kanan, %2$s di sebelah kiri</string>
+    <string name="template_split_screen_mode_portrait">%1$s di sebelah atas, %2$s di sebelah bawah</string>
+    <string name="template_text_copied">disalin, %1$s</string>
+    <string name="template_viewpager_index_count">Halaman %1$d daripada %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d daripada %2$d</string>
+    <string name="untitled_window">tidak bertajuk</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"MATI"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"HIDUP"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Laci tindakan"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Laci navigasi"</string>
+</resources>

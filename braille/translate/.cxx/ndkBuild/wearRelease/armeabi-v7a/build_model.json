@@ -1,0 +1,132 @@
+{
+  "abi": "ARMEABI_V7A",
+  "abiPlatformVersion": 23,
+  "buildSettings": {
+    "environmentVariables": []
+  },
+  "cxxBuildFolder": "/Users/quintinb/repo/talkback/braille/translate/.cxx/ndkBuild/wearRelease/armeabi-v7a",
+  "info": {
+    "abi": "ARMEABI_V7A",
+    "bitness": 32,
+    "deprecated": false,
+    "default": true
+  },
+  "originalCxxBuildFolder": "/Users/quintinb/repo/talkback/braille/translate/.cxx/ndkBuild/wearRelease/armeabi-v7a",
+  "variant": {
+    "buildSystemArgumentList": [],
+    "buildTargetSet": [],
+    "implicitBuildTargetSet": [],
+    "cFlagsList": [],
+    "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
+    "cppFlagsList": [],
+    "isDebuggableEnabled": false,
+    "module": {
+      "buildSystem": "NDK_BUILD",
+      "cmakeToolchainFile": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/build/cmake/android.toolchain.cmake",
+      "cxxFolder": "/Users/quintinb/repo/talkback/braille/translate/.cxx",
+      "gradleModulePathName": ":brailletranslate",
+      "intermediatesFolder": "/Users/quintinb/repo/talkback/braille/translate/build/intermediates",
+      "makeFile": "/Users/quintinb/repo/talkback/braille/translate/src/phone/jni/Android.mk",
+      "moduleBuildFile": "/Users/quintinb/repo/talkback/braille/translate/build.gradle",
+      "moduleRootFolder": "/Users/quintinb/repo/talkback/braille/translate",
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkFolder": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888",
+      "ndkMetaAbiList": [
+        {
+          "abi": "ARMEABI_V7A",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "ARM64_V8A",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86_64",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        }
+      ],
+      "ndkMetaPlatforms": {
+        "min": 19,
+        "max": 32,
+        "aliases": {
+          "20": 19,
+          "25": 24,
+          "J": 16,
+          "J-MR1": 17,
+          "J-MR2": 18,
+          "K": 19,
+          "L": 21,
+          "L-MR1": 22,
+          "M": 23,
+          "N": 24,
+          "N-MR1": 24,
+          "O": 26,
+          "O-MR1": 27,
+          "P": 28,
+          "Q": 29,
+          "R": 30,
+          "S": 31,
+          "Sv2": 32
+        }
+      },
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultStl": "SYSTEM",
+      "ndkVersion": "24.0.8215888",
+      "project": {
+        "compilerSettingsCacheFolder": "/Users/quintinb/repo/talkback/.cxx",
+        "cxxFolder": "/Users/quintinb/repo/talkback/.cxx",
+        "isBuildOnlyTargetAbiEnabled": true,
+        "isCmakeBuildCohabitationEnabled": false,
+        "isNativeCompilerSettingsCacheEnabled": false,
+        "rootBuildGradleFolder": "/Users/quintinb/repo/talkback",
+        "sdkFolder": "/Users/quintinb/Library/Android/sdk",
+        "isPrefabEnabled": false
+      },
+      "splitsAbiFilterSet": [],
+      "stlSharedObjectMap": {
+        "LIBCXX_SHARED": {
+          "ARMEABI_V7A": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so",
+          "ARM64_V8A": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so",
+          "X86": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/i686-linux-android/libc++_shared.so",
+          "X86_64": "/Users/quintinb/Library/Android/sdk/ndk/24.0.8215888/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so"
+        },
+        "LIBCXX_STATIC": {},
+        "NONE": {},
+        "SYSTEM": {}
+      }
+    },
+    "objFolder": "/Users/quintinb/repo/talkback/braille/translate/build/intermediates/ndkBuild/wearRelease/obj/local",
+    "variantName": "wearRelease",
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "prefabDirectory": "/Users/quintinb/repo/talkback/braille/translate/.cxx/ndkBuild/wearRelease/prefab",
+    "prefabPackageDirectoryList": []
+  },
+  "prefabFolder": "/Users/quintinb/repo/talkback/braille/translate/.cxx/ndkBuild/wearRelease/prefab/armeabi-v7a"
+}

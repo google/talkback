@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">ነጥቦች %s</item>
+    <item quantity="other">ነጥቦች %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d አዲስ ማሳወቂያዎች</item>
+    <item quantity="other">%d አዲስ ማሳወቂያዎች</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"መነሻ ዳስስ"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ወደ ላይ ያስሱ"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"ተጨማሪ አማራጮች"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"ተከናውኗል"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"ሁሉንም ይመልከቱ"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"አንድ መተግበሪያ ይምረጡ"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"አጥፋ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"አብራ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"ሰርዝ"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"ክፍተት"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"ይፈልጉ…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"መጠይቅ አጽዳ"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"የፍለጋ መጠይቅ"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"ፍለጋ"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"መጠይቅ አስገባ"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"የድምጽ ፍለጋ"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"አጋራ በ"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"ለ<ns1:g id="APPLICATION_NAME">%s</ns1:g> አጋራ"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"ሰብስብ"</string>
+    <string name="auto_detect">እርስዎ መሣሪያውን ከሚይዙበት መንገድ ጋር ያስማሙ</string>
+    <string name="bottomsheet_action_expand_halfway">ግማሽ መንገድ ዘርጋ</string>
+    <string name="braille_ime_displayed_name">የብሬይል ቁልፍ ሰሌዳ</string>
+    <string name="braille_ime_service_name">የTalkBack ብሬይል ቁልፍ ሰሌዳ</string>
+    <string name="braille_keyboard">የብሬይል ቁልፍ ሰሌዳ</string>
+    <string name="braille_keyboard_gestures">የብሬይል ቁልፍ ሰሌዳ ጣት ምልክቶች</string>
+    <string name="braille_keyboard_strip_button">ወደ የተነኪ ማያ ቁልፍ ሰሌዳ ቀይር</string>
+    <string name="braille_keyboard_strip_summary">ወደዚህ መሳሪያ ጽሑፍን ለመተየብ ሊጠቀሙበት የሚችሉት የውጭ ብሬይል ማሳያ ተገናኝቷል።\nወይም፣ ወደ የተነኪ ማያ የብሬይል ቁልፍ ሰሌዳ ወይም ወደሚቀጥለው የግቤት ስልት መቀየር ይችላሉ።</string>
+    <string name="braille_tutorial_title">የብሬይ ቁልፍ ሰሌዳ አጋዥ ስልጠና</string>
+    <string name="bring_ime_settings_page">ሌላ የነቃ ቁልፍ ሰሌዳ የለም፣ ወደ የቁልፍ ሰሌዳ ቅንብሮች ይሂዱ</string>
+    <string name="calibration_fail_announcement">የነጥብ አቀማመጥን ማዘመን አልተቻለም። ማያውን በ 6 ጣቶች ይንኩ እና ይያዙት። ከዚያም እንደገና ይሞክሩ።</string>
+    <string name="calibration_finish_announcement">የነጥብ አቀማመጥ ተዘምኗል</string>
+    <string name="calibration_step1_hold_left_finger_announcement">የነጥብ አቀማመጥን በማዘመን ላይ። መጀመሪያ በግራ እጅዎ በኩል ያሉትን ነጥቦች እንመዝግብ። በግራ እጅዎ ላይ ያሉት የመሃል 3 ጣቶችን በመጠቀም ማያ ገጹን ይንኩ እና ይያዙ።</string>
+    <string name="calibration_step1_hold_right_finger_announcement">የነጥብ አቀማመጥን በማዘመን ላይ። መጀመሪያ በቀኝ እጅዎ ላይ ያሉትን ነጥቦች እንመዝግብ። በቀኝ እጅዎ ላይ ያሉት የመሃል 3 ጣቶችን በመጠቀም ማያ ገጹን ይንኩ እና ይያዙ።</string>
+    <string name="calibration_step2_hold_left_finger_announcement">ለነጥቦች 1፣ 2 እና 3 የተዘመኑ አቀማመጦች። በመቀጠል በግራ እጅዎ ላይ ያሉትን ነጥቦች እንመዝግብ። በግራ እጅዎ ላይ ያሉት የመሃል 3 ጣቶችን በመጠቀም ማያ ገጹን ይንኩ እና ይያዙ።</string>
+    <string name="calibration_step2_hold_right_finger_announcement">ለነጥቦች 1፣ 2 እና 3 የተዘመኑ አቀማመጦች። በመቀጠል በቀኝ እጅዎ ላይ ያሉትን ነጥቦች እንመዝግብ። በቀኝ እጅዎ ላይ ያሉት የመሃል 3 ጣቶችን በመጠቀም ማያ ገጹን ይንኩ እና ይያዙ።</string>
+    <string name="capitalize_announcement">ከፍተኛ</string>
+    <string name="character_collapse_template"> %1$d%2$s</string>
+    <string name="character_counter_content_description">ቁምፊዎች %1$d ከ%2$d ገብተዋል</string>
+    <string name="character_counter_overflowed_content_description">የቁምፊ ገደብ %1$d ከ%2$d አልፏል</string>
+    <string name="clear_text_end_icon_content_description">ጽሑፍን አጽዳ</string>
+    <string name="code_user_facing_name_ar">አረብኛ</string>
+    <string name="code_user_facing_name_es">ስፓኒሽ</string>
+    <string name="code_user_facing_name_fr">ፈረንሳይኛ</string>
+    <string name="code_user_facing_name_pl">ፖላንድኛ</string>
+    <string name="code_user_facing_name_ueb1">ያልታመቀ የተዋሃደ የእንግሊዝኛ ብሬይል</string>
+    <string name="code_user_facing_name_ueb2">የታመቀ የተዋሃደ የእንግሊዝኛ ብሬይል</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">አንቃ</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play አገልግሎቶችን ካላነቁ በስተቀር %1$s አይሰራም።</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play አገልግሎቶችን ያንቁ</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ጫን</string>
+    <string name="common_google_play_services_install_text">%1$s ያለ Google Play አገልግሎቶች አይሰራም፣ እነሱ ደግሞ በመሣሪያዎ ላይ የሉም።</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play አገልግሎቶችን ያግኙ</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play አገልግሎቶች ተገኝነት</string>
+    <string name="common_google_play_services_notification_ticker">የGoogle Play አገልግሎቶች ስህተት</string>
+    <string name="common_google_play_services_unknown_issue">%1$s በGoogle Play አገልግሎቶች ላይ ችግሮች እያጋጠሙት ነው። እባክዎ እንደገና ይሞክሩ።</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ያለGoogle Play አገልግሎቶች አይሄድም፣ እነዚህም በመሣሪያዎ አይደገፉም።</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">ያዘምኑ</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play አገልግሎቶችን ካላዘመኑ በስተቀር ድረስ %1$s አይሰራም።</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play አገልግሎቶችን ያዘምኑ</string>
+    <string name="common_google_play_services_updating_text">%1$s ያለ Google Play አገልግሎቶች አይሰራም፣ እነሱ ደግሞ በአሁኑ ጊዜ በመዘመን ላይ ናቸው።</string>
+    <string name="common_google_play_services_wear_update_text">አዲስ የGoogle Play አገልግሎቶች ስሪት ያስፈልጋል። በቅርቡ እራሱን ያዘምናል።</string>
+    <string name="common_open_on_phone">ስልክ ላይ ክፈት</string>
+    <string name="common_signin_button_text">ግባ</string>
+    <string name="common_signin_button_text_long">በGoogle ይግቡ</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"አልተሳካም"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"በስልክዎ ላይ ተከፍቷል"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"ስኬት"</string>
+    <string name="context_menu_input_language_selection">ወደ ቀጣዩ ቋንቋ ቀይር፦ %s</string>
+    <string name="context_menu_input_language_selection_summary">በአሁኑ ጊዜ እየተጠቀሙ ያሉት፦ %s</string>
+    <string name="context_menu_layout_selection">አቀማመጥ</string>
+    <string name="context_menu_see_all_gestures_selection">ሁሉንም የእጅ ምልክቶች ይገምግሙ</string>
+    <string name="context_menu_settings_selection">ቅንብሮች</string>
+    <string name="context_menu_title">የብሬይል ቁልፍ ሰሌዳ አማራጮች</string>
+    <string name="context_menu_tutorial_finish">አጋዥ ሥልጠናን ጨርስ</string>
+    <string name="context_menu_tutorial_selection">አጋዥ ስልጠናን ክፈት</string>
+    <string name="continue_tutorial_announcement">አጋዥ ስልጠናውን እንቀጥል። %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"ቅዳ"</string>
+    <string name="done">ተከናውኗል</string>
+    <string name="dont_show_again">ይህን ዳግም አታሳይ</string>
+    <string name="error_icon_content_description">ስህተት</string>
+    <string name="exit_scrim">ውጣ</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"የላቀ"</string>
+    <string name="exposed_dropdown_menu_content_description">ተቆልቋይ ምናሌን አሳይ</string>
+    <string name="finish_tutorial_announcement">የብሬይል ቁልፍ ሰሌዳን በማሳየት ላይ ማያ ገጽዎ ከእርስዎ ዞሮ እንዲዞር ስልክዎን ያዙሩት። ስልኩን በአግድመት ወደ የወርድ አቀማመጥ ያሽከርክሩት። ከዚያ መተየብ ይጀምሩ።</string>
+    <string name="function_off">የቃል ግብረመልስ ጠፍቷል</string>
+    <string name="function_on">የቃል ግብረመልስ በርቷል</string>
+    <string name="gesture_add_space"><b>ክፍተት</b> ለማከል በጣት ወደ ቀኝ ይጥረጉ</string>
+    <string name="gesture_delete"><b>ለመሰረዝ</b> በጣት ወደ ግራ ይጥረጉ</string>
+    <string name="gesture_delete_word"><b>አንድ ቃል ለመሰረዝ</b> በ2 ጣቶች ወደ ግራ ይጥረጉ</string>
+    <string name="gesture_hide_keyboard"><b>ቁልፍ ሰሌዳውን ለመደበቅ</b> በ2 ጣቶች ወደ ታች ይጥረጉ</string>
+    <string name="gesture_move_cursor_backward"><b>ጠቋሚን ወደኋላ ለመውሰድ</b> ወደ ላይ ያንሸራትቱ</string>
+    <string name="gesture_move_cursor_forward"><b>ጠቋሚን ወደኋላ ለመውሰድ</b> ወደ ታች ያንሸራትቱ</string>
+    <string name="gesture_new_line"><b>አዲስ መስመር</b> ለማስገባት በ2 ጣቶች ወደ ቀኝ በጣት ይጥረጉ</string>
+    <string name="gesture_next_keyboard">ወደ <b>ቀጣዩ ቁልፍ ሰሌዳ</b> ለመቀየር በ3 ጣቶች ወደ ታች ይጥረጉ</string>
+    <string name="gesture_open_context_menu"><b>እገዛ እና ሌሎች አማራጮችን</b> ለማግኘት በ3 ጣቶች ወደ ላይ ይጥረጉ</string>
+    <string name="gesture_submit_text"><b>ጽሑፍ ለማስገባት</b> በ2 ጣቶች ወደ ላይ ይጥረጉ</string>
+    <string name="granularity_character">ገጸባህሪያት</string>
+    <string name="granularity_default">ነባሪ</string>
+    <string name="granularity_line">መስመሮች</string>
+    <string name="granularity_native_control">መቆጣጠሪያዎች</string>
+    <string name="granularity_native_heading">አርዕስቶች</string>
+    <string name="granularity_native_link">አገናኞች</string>
+    <string name="granularity_paragraph">አንቀጾች</string>
+    <string name="granularity_pseudo_web_special_content">ልዩ ይዘት</string>
+    <string name="granularity_web_control">መቆጣጠሪያዎች</string>
+    <string name="granularity_web_heading">አርዕስቶች</string>
+    <string name="granularity_web_landmark">ታሪካዊ ምልክቶች</string>
+    <string name="granularity_web_link">አገናኞች</string>
+    <string name="granularity_web_list">ዝርዝሮች</string>
+    <string name="granularity_window">መስኮቶች</string>
+    <string name="granularity_word">ቃላት</string>
+    <string name="hide_keyboard_window">የቁልፍ ሰሌዳ ተደብቋል</string>
+    <string name="hold_six_fingers_announcement">%s\nየእርስዎን መሣሪያ በጠረጴዛው ላይ ለጥ አድርገው ያስቀምጡት። ከዚያ ለእርስዎ መተየብ በሚመችዎት የአያያዝ ሁኔታ ላይ የእያንዳንዱ እጅ 3 የመሃል ጣቶች ማያ ገጹን ይንኩ እና ይያዙ።</string>
+    <string name="hold_six_fingers_description">መደበኛ የTalkBack ጣት ምልክቶችን በብሬይል ቁልፍ ሰሌዳ ላይ መጠቀም አይችሉም።\n\nለመጀመር እርስዎ በሚተይቡበት ጊዜ ያለውን የ6 ብሬይል ነጥቦችን አቀማመጥ እናዋቅር።</string>
+    <string name="hold_six_fingers_inactive_announcement">የእርስዎን መሣሪያ በጠረጴዛው ላይ ለጥ አድርገው ያስቀምጡት። ከዚያ ለእርስዎ መተየብ በሚመችዎት የአያያዝ ሁኔታ ላይ የእያንዳንዱ እጅ 3 የመሃል ጣቶች ማያ ገጹን ይንኩ እና ይያዙ።</string>
+    <string name="how_to_use_braille_keyboard">የብሬይል ቁልፍ ሰሌዳን እንዴት መጠቀም እንደሚቻል</string>
+    <string name="icon_content_description">የንግግር አዶ</string>
+    <string name="input_view_caption">የTalkBack ብሬይል ቁልፍ ሰሌዳ - ለእገዛ g.co/help/brailleን ይጎብኙ</string>
+    <string name="instruction_swipe_down">ጠቋሚን ወደፊት ለመውሰድ ወደ ታች ያንሸራትቱ</string>
+    <string name="instruction_swipe_down_2_fingers">ቁልፍ ሰሌዳን ለመደበቅ በ2 ጣቶች ወደ ታች ይጥረጉ</string>
+    <string name="instruction_swipe_down_3_fingers">ወደ ሌላኛው ቁልፍ ሰሌዳዎ ለመቀየር በ3 ጣቶች ወደ ታች ይጥረጉ</string>
+    <string name="instruction_swipe_left">አንድ ፊደል ለመሰረዝ በጣት ወደ ግራ ይጥረጉ</string>
+    <string name="instruction_swipe_right">ክፍተት ለማከል በጣት ወደ ቀኝ ይጥረጉ</string>
+    <string name="instruction_swipe_up">ጠቋሚን ወደኋላ ለመውሰድ ወደ ላይ ያንሸራትቱ</string>
+    <string name="instruction_swipe_up_3_fingers">አጋዥ ስልጠናን ለመጨረስ በ3 ጣቶች ወደ ላይ ይጥረጉ</string>
+    <string name="instruction_type_letter_a">የ«A» ፊደል ለመተየብ በአመልካች ጣትዎ ነጥብ 1ን መታ ያድርጉ</string>
+    <string name="instruction_type_letter_bcd">ከዚያ ፊደሎች B፣ C እና D ለመተየብ ይሞክሩ</string>
+    <string name="item_view_role_description">ትር</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">አዲስ አቋራጭ ለማዘጋጀት የቁልፍ ጥምር ከ%1$s ቀያሪ ቁልፍ ጋር ይጫኑ።</string>
+    <string name="keycombo_assign_dialog_instruction">አዲስ አቋራጭ ለማዘጋጀት የቁልፍ ጥምረትን ይጫኑ። ቢያንስ ALT ወይም Control keyን የያዘ መሆን ይኖርበታል።</string>
+    <string name="keycombo_key_arrow_down">ታች ቀስት</string>
+    <string name="keycombo_key_arrow_left">ግራ ቀስት</string>
+    <string name="keycombo_key_arrow_right">ቀኝ ቀስት</string>
+    <string name="keycombo_key_arrow_up">ላይ ቀስት</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">ፈልግ</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">አልተመደበም</string>
+    <string name="leave_keyboard">ከብሬይል ቁልፍ ሰሌዳ ውጣ</string>
+    <string name="material_clock_toggle_content_description">AM ወይም PM ይምረጡ</string>
+    <string name="material_hour_selection">ሰዓትን ይምረጡ</string>
+    <string name="material_hour_suffix">%1$s ሰዓት</string>
+    <string name="material_minute_selection">ደቂቃዎችን ይምረጡ</string>
+    <string name="material_minute_suffix">%1$s ደቂቃዎች</string>
+    <string name="material_timepicker_am">ጥዋት</string>
+    <string name="material_timepicker_clock_mode_description">ለጊዜ ግቤቱ ወደ የሰዓት ሁነታ ቀይር።</string>
+    <string name="material_timepicker_hour">ሰዓት</string>
+    <string name="material_timepicker_minute">ደቂቃ</string>
+    <string name="material_timepicker_pm">ከሰዓት</string>
+    <string name="material_timepicker_select_time">ጊዜ ምረጥ</string>
+    <string name="material_timepicker_text_input_mode_description">ለጊዜ ግቤቱ ወደ የጽሑፍ ግቤት ሁነታ ቀይር።</string>
+    <string name="mtrl_badge_numberless_content_description">አዲስ ማሳወቂያ</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$sን አስወግድ</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">ከ%1$d በላይ አዲስ ማሳወቂያዎች</string>
+    <string name="mtrl_picker_a11y_next_month">ወደ የሚቀጥለው ወር ቀይር</string>
+    <string name="mtrl_picker_a11y_prev_month">ወደ ቀዳሚው ወር ቀይር</string>
+    <string name="mtrl_picker_announce_current_selection">የአሁኑ ምርጫ፦ %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">ቀን ይምረጡ</string>
+    <string name="mtrl_picker_date_header_unselected">የተመረጠው ቀን</string>
+    <string name="mtrl_picker_day_of_week_column_header">የቀኖች ዓምድ፦ %1$s</string>
+    <string name="mtrl_picker_invalid_format">ልክ ያልሆነ ቅርጸት</string>
+    <string name="mtrl_picker_invalid_format_example">ምሳሌ፦ %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">%1$s ን ይጠቀሙ</string>
+    <string name="mtrl_picker_invalid_range">ልክ ያልኾነ ክልል።</string>
+    <string name="mtrl_picker_navigate_to_year_description">ወደ ዓመት %1$s አሰስ</string>
+    <string name="mtrl_picker_out_of_range">ከክልል ውጪ፦ %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">መጀመሪያ ቀን – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – መጨረሻ ቀን</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">ክልል ይምረጡ</string>
+    <string name="mtrl_picker_range_header_unselected">የመጀመሪያ ቀን – የመጨረሻ ቀን</string>
+    <string name="mtrl_picker_save">አስቀምጥ</string>
+    <string name="mtrl_picker_text_input_date_hint">ቀን</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">የማብቂያ ቀን</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">መጀመሪያ ቀን</string>
+    <string name="mtrl_picker_text_input_day_abbr">ቀ</string>
+    <string name="mtrl_picker_text_input_month_abbr">ደ</string>
+    <string name="mtrl_picker_text_input_year_abbr">ዓ</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">ወደ የቀን መቁጠሪያ ግቤት ሁነታ ቀይር</string>
+    <string name="mtrl_picker_toggle_to_day_selection">ወደ ቀን መምረጥ ለመቀየር መታ ያድርጉ</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">ወደ ጽሑፍ ግቤት ሁነታ ቀይር</string>
+    <string name="mtrl_picker_toggle_to_year_selection">ወደ ዓመት መምረጥ ለመቀየር መታ ያድርጉ</string>
+    <string name="multiple_languages_braille_ime_displayed_name">የብሬይል ቁልፍ ሰሌዳ፣ %s</string>
+    <string name="next_keyboard">ቀጣይ ቁልፍ ሰሌዳ</string>
+    <string name="next_step">ቀጣይ</string>
+    <string name="not_enough_touch_points_dialog_message">የእርስዎ መሣሪያ በቂ የንክኪ ነጥቦችን አይደግፍም። ተጨማሪ መረጃ ለማግኜት የመሣሪያዎን አምራች ያነጋግሩ።</string>
+    <string name="not_enough_touch_points_dialog_title">የእርስዎ መሣሪያ የብሬይል ቁልፍ ሰሌዳን አይደግፍም</string>
+    <string msgid="478774118347071097" name="not_set">"አልተዘጋጀም"</string>
+    <string name="number_announcement">ቁጥር</string>
+    <string name="open_context_menu_announcement">የአማራጮች ምናሌው ክፍት ነው። ስልክዎን ወደ እርስዎ እንዲዞር ይገልብጡት እና እንደ መደበኛ ይያዙት። ለመዳሰስ መደበኛ የTalkBack እጅ ምልክቶችን መጠቀም ይችላሉ። ተጨማሪ አማራጮችን ለማየት ወደ ቀኝ ያንሸራትቱ።</string>
+    <string name="password_toggle_content_description">የይለፍ ቃል አሳይ</string>
+    <string name="perform_action_next">ቀጣይ</string>
+    <string name="perform_action_submitting">ጽሑፍን በማስገባት ላይ</string>
+    <string name="perform_add_new_line_announcement">አዲስ መስመር ታክሏል</string>
+    <string name="perform_add_space_announcement">ክፍተት</string>
+    <string name="perform_delete_letter_announcement">ፊደል ተሰርዟል</string>
+    <string name="perform_delete_word_announcement">ቃል ተሰርዟል</string>
+    <string name="perform_hide_keyboard_announcement">የቁልፍ ሰሌዳን ይደብቁ</string>
+    <string name="perform_submit_text_announcement">ጽሑፍ አስገባ</string>
+    <string name="perform_switch_keyboard_announcement">ቁልፍ ሰሌዳን ቀይር</string>
+    <string msgid="7961817945132860002" name="preference_copied">"«<ns1:g id="SUMMARY">%1$s</ns1:g>» ወደ የቅንጥብ ሰሌዳ ተቀድቷል።"</string>
+    <string name="preferred_language_title">የተመረጠ ቋንቋ</string>
+    <string name="read_out_deleted">%s ተሰርዟል</string>
+    <string name="remaining_calibration_finish_announcement">ሁሉም የነጥብ ቦታዎች ዘምነዋል</string>
+    <string name="reminder_announcement">ተጨማሪ አማራጮችን ለማግኘት በ3 ጣቶች ወደ ላይ ይጥረጉ</string>
+    <string name="result_swipe_down">ጠቋሚ ወደፊት ተወስዷል</string>
+    <string name="result_swipe_down_2_fingers">የቁልፍ ሰሌዳን ይደብቁ</string>
+    <string name="result_swipe_down_3_fingers">ቀጣይ ቁልፍ ሰሌዳ</string>
+    <string name="result_swipe_left">ሰርዝ</string>
+    <string name="result_swipe_right">ክፍተት</string>
+    <string name="result_swipe_up">ጠቋሚ ወደኋላ ተወስዷል</string>
+    <string name="rotate_orientation_announcement">ከአሁን ጀምሮ መደበኛ የTalkBack ጣት ምልክቶችን መጠቀም አይችሉም። የብሬይል ቁልፍ ሰሌዳ እየተጠቀሙ ሳለ TalkBack የማይገሕ አይገኝም።\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">የእርስዎ ስልክ በአቀባዊ አቀማመጥ ላይ ነው ያለው። ለመቀጠል የስልኩ ረጅም ክፍል ከታች እንዲሆን ስልክዎን በአግድመት ያሽከርክሩት። ማያ ገጹ ከእርስዎ ዘወር እንዲል ያዙሩት። ዝግጁ ሲሆኑ ለመቀጠል ማያ ገጹን ሁለቴ መታ ያድርጉት።</string>
+    <string name="rotate_orientation_description_1">ከአሁን ጀምሮ መደበኛ የTalkBack ጣት ምልክቶችን መጠቀም አይችሉም። የብሬይል ቁልፍ ሰሌዳ እየተጠቀሙ ሳለ TalkBack አይገኝም።</string>
+    <string name="rotate_orientation_description_2">ለመጀመር ስልክዎን ማያ ገጹ ከእርስዎ ዘወር እንዲል አድርገው እንደዚህ አድርገው ይያዙት።</string>
+    <string name="rotate_orientation_inactive_announcement">መጀመሪያ ማያ ገጽዎ ከእርስዎ ዞሮ እንደዚህ አድርገው ይያዙት።\n\nቀጥሎም ስልኩን በአግድመት ወደ የወርድ አቀማመጥ ያሽከርክሩት። የእርስዎ እጆች አጭሮቹን የስልኩን ክፍሎች መያዝ አለባቸው። ቀኝ እጅዎ የዩኤስቢ ወደቡ ያለበት ክፍል መያዝ አለበት። 3 የመሃል ጣቶችዎን በማያ ገጹ ላይ ያሳርፉ፣ እና ስልኩን ደግፈው ትንሿ እና አውራ ጣትዎን ይጠቀሙ።\n\nዝግጁ ሲሆኑ ለመቀጠል ማያ ገጹን ሁለቴ መታ ያድርጉት።\n\nከብሬይል ቁልፍ ሰሌዳ ለመውጣት በ3 ጣቶች ታች ወደ መሬት ይጥረጉ። ይህ ወደ የመጀመሪያው ቁልፍ ሰሌዳዎ መልሶ ይቀይራል።</string>
+    <string name="screen_away">ማያ ገጽን ወደ ሌላ ማዞር ሁነታ</string>
+    <string name="screen_away_detail">መሣሪያን ማያ ገጽን ወደ ሌላ በማዞር ይያዙ (ማያ ገጽን ወደ ሌላ ማዞር ሁነታ)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"ፍለጋ"</string>
+    <string name="set_up_braille_keyboard">የብሬይል ቁልፍ ሰሌዳን ያቀናብሩ</string>
+    <string name="show_keyboard_window">%1$sን በማሳየት ላይ</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>፣ <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">እያንዳንዱ የተጫነ ነጥብ የግቤቱ አካል ነው፣ ነጥቡ ከሌሎች ነጥቦች በፊት የተለቀቀ ቢሆንም እንኳ</string>
+    <string name="summary_pref_reverse_dots">የነጥቦቹን ቦታ ያቀያይሩ፣ በዚህም ለምሳሌ ነጥቦች 1 እና 4 ቦታ ይቀያየራሉ ማለት ነው</string>
+    <string name="swipe_down_2_fingers_announcement">ቁልፍ ሰሌዳውን ለመደበቅ በ2 ጣቶች ወደ ታች ይጥረጉ አሁኑኑ ይሞክሩት።</string>
+    <string name="swipe_down_2_fingers_completed_announcement">የቁልፍ ሰሌዳን ይደብቁ። ይህ አብዛኛው ጊዜ ቁልፍ ሰሌዳውን ይደብቀዋል። እርስዎ አሁንም በአጋዥ ስልጠናው ላይ ስላሉ የብሬይል ቁልፍ ሰሌዳው ክፍት እንደሆነ ይቆያል።</string>
+    <string name="swipe_down_3_fingers_announcement">ወደ ሌላኛው ቁልፍ ሰሌዳዎ ለመቀየር በ3 ጣቶች ወደ ታች ይጥረጉ። አሁኑኑ ይሞክሩት።</string>
+    <string name="swipe_down_3_fingers_completed_announcement">ቀጣይ ቁልፍ ሰሌዳ። ይህ አብዛኛው ጊዜ ወደ ቀጣዩ ቁልፍ ሰሌዳ ይቀይራል። በዚህ ጊዜ እርስዎ አሁንም በአጋዥ ስልጠናው ላይ ስላሉ በብሬይል ቁልፍ ሰሌዳው ላይ ይቆያሉ።</string>
+    <string name="swipe_down_announcement">ጠቋሚን ወደፊት ለመውሰድ ወደ ታች ያንሸራትቱ። አሁኑኑ ይሞክሩት።</string>
+    <string name="swipe_left_action_result_announcement">d ተሰርዟል።</string>
+    <string name="swipe_left_announcement">አንድ ፊደልት ለመሰረዝ በጣት ወደ ግራ ይጥረጉ። አሁኑኑ ይሞክሩት።</string>
+    <string name="swipe_right_announcement">ክፍተት ለማከል በጣት ወደ ቀኝ ይጥረጉ። አሁኑኑ ይሞክሩት።</string>
+    <string name="swipe_up_3_fingers_announcement">እንዲሁም የእርስዎን ስልክ በጠረጴዛው ላይ ለጥ አድርጎ በማስቀመጥ በቴብልቶፕ ሁነታ መተየብ ይችላሉ። አጋዥ ሥልጠናውን ለመጨረስ በ3 ጣቶች ወደ ላይ ይጥረጉ፣ እና የአጋዥ ሥልጠና አማራጩን አጠናቅቅ የሚለውን ያግኙ</string>
+    <string name="swipe_up_announcement">ጠቋሚን ወደኋላ ለመውሰድ ወደ ላይ ያንሸራትቱ አሁኑኑ ይሞክሩት።</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">በብሬይል ቁልፍ ሰሌዳ እየተየቡ ቋንቋዎን ለመቀየር በ3 ጣቶች ወደ ላይ ያንሸራትቱ። ከዚያ «ወደ ቀጣዩ ቋንቋ ቀይር»ን ይምረጡ።</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">በሚተይቡበት ጊዜ በፍጥነት ቋንቋ ይቀይሩ</string>
+    <string name="switch_to_language_announcement">ወደ %s ተቀይሯል</string>
+    <string name="switch_to_screen_away_announcement">ማያ ገጽን ወደ ሌላ ማዞር ሁነታ</string>
+    <string name="switch_to_tabletop_announcement">የቴብልቶፕ ሁነታ። መሣሪያዎን ከኃይል መሙያው ጋር በስተግራ ያስቀምጡ። የነጥብ አቀማመጥን ለማዘመን 6 ጣቶችን ወደ ተጭነው ይያዙ።</string>
+    <string name="symbol_almost_equals">እኩል ለመሆን ይጠጋል ከ</string>
+    <string name="symbol_ampersand">እና</string>
+    <string name="symbol_angle_bracket_left">የያንሳል ምልክት</string>
+    <string name="symbol_angle_bracket_right">የይበልጣል ምልክት</string>
+    <string name="symbol_apostrophe">ትእምርተ ጭረት</string>
+    <string name="symbol_approximately_equals">ይጠጋል ለ</string>
+    <string name="symbol_asterisk">ኮከቢት</string>
+    <string name="symbol_at_sign">በ</string>
+    <string name="symbol_backslash">ሕዝባር</string>
+    <string name="symbol_beamed_sixteenth_note">የተያያዙ አስራስድስተኛ ኖታዎች</string>
+    <string name="symbol_black_circle">ጥቁር ክብ</string>
+    <string name="symbol_black_heart">ጥቁር ልብ</string>
+    <string name="symbol_black_smallsquare">ትንሽ ጥቁር ካሬ</string>
+    <string name="symbol_black_square">ጥቁር ካሬ</string>
+    <string name="symbol_black_star">ጥቁር ኮከብ</string>
+    <string name="symbol_black_suit_of_diamonds">የአልማዝ ጥቁር ሱፍ</string>
+    <string name="symbol_black_triangle_pointing_down">ጥቁር ሶስት ማዕዘን ወደላይ ሲያመለክት</string>
+    <string name="symbol_black_triangle_pointing_up">ጥቁር ሶስት ማዕዘን ወደላይ ሲያመለክት</string>
+    <string name="symbol_broken_bar">የተሰበረ አሞሌ</string>
+    <string name="symbol_bullet">ነጥበ ምልክት</string>
+    <string name="symbol_bullseye">ዒላማ</string>
+    <string name="symbol_caret">ድፋት</string>
+    <string name="symbol_celsius_degree">ሴልሺየስ ዲግሪ</string>
+    <string name="symbol_cent">የሳንቲም ምልክት</string>
+    <string name="symbol_circle_left_half_black">የግራ ግማሹ ጥቁር የሆነ ክብ</string>
+    <string name="symbol_circle_right_half_black">የቀኝ ግማሹ ጥቁር የሆነ ክብ</string>
+    <string name="symbol_colon">ሁለት ነጥብ</string>
+    <string name="symbol_comma">ኮማ</string>
+    <string name="symbol_copyright">የቅጂ መብት</string>
+    <string name="symbol_curly_bracket_left">የግራ ጥምዝ ቅንፍ</string>
+    <string name="symbol_curly_bracket_right">የቀኝ ጥምዝ ቅንፍ</string>
+    <string name="symbol_currency_sign">የምንዛሬ ምልክት</string>
+    <string name="symbol_degree">የዲግሪ ምልክት</string>
+    <string name="symbol_division">የማካፈል ምልክት</string>
+    <string name="symbol_dollar_sign">የዶላር ምልክት</string>
+    <string name="symbol_downwards_arrow">የታች ቀስት</string>
+    <string name="symbol_eighth_note">የስምንተኛ ኖታ</string>
+    <string name="symbol_ellipsis">አስጨምሬ</string>
+    <string name="symbol_em_dash">አብይ ሰረዝ</string>
+    <string name="symbol_en_dash">ንዑስ ሰረዝ</string>
+    <string name="symbol_equal">የእኩል ነው ምልክት</string>
+    <string name="symbol_euro">ዩሮ</string>
+    <string name="symbol_exclamation_mark">ቃለ አጋኖ</string>
+    <string name="symbol_fahrenheit_degree">ፋራንሃይት ዲግሪ</string>
+    <string name="symbol_female">የእንስት ምልክት</string>
+    <string name="symbol_full_width_ampersand">ባለሙሉ ወርድ አምፕርሳንድ</string>
+    <string name="symbol_full_width_asterisk">ባለሙሉ ወርድ ኮከብ ምልክት</string>
+    <string name="symbol_full_width_circumflex">ባለሙሉ ወርድ ስርኬምፍሌክስ</string>
+    <string name="symbol_full_width_colon">ባለሙሉ ወርድ ኮሎን</string>
+    <string name="symbol_full_width_comma">ባለሙሉ ወርድ ኮማ</string>
+    <string name="symbol_full_width_exclamation_mark">ባለሙሉ ወርድ ቃለ አጋኖ</string>
+    <string name="symbol_full_width_greater_than_sign">ከምልክት የበለጠ ባለሙሉ ወርድ</string>
+    <string name="symbol_full_width_ideographic_full_stop">ፅንሰ-ሐሳባ አራት ነጥብ</string>
+    <string name="symbol_full_width_left_curly_bracket">ባለሙሉ ወርድ ጥምዝ ቅንፍ</string>
+    <string name="symbol_full_width_left_parenthesis">ባለሙሉ ወርድ የግራ ቅንፍ</string>
+    <string name="symbol_full_width_less_than_sign">ከምልክት ያነሰ ባለሙሉ ወርድ</string>
+    <string name="symbol_full_width_question_mark">ባለሙሉ ወርድ የጥያቄ ምልክት</string>
+    <string name="symbol_full_width_right_curly_bracket">ባለሙሉ ወርድ የቀኝ ጥምዝ ቅንፍ</string>
+    <string name="symbol_full_width_right_parenthesis">ባለሙሉ ወርድ የቀኝ ቅንፍ</string>
+    <string name="symbol_full_width_semicolon">ባለሙሉ ወርድ ሰሚኮሎን</string>
+    <string name="symbol_full_width_tilde">ባለሙሉ ወርድ ድፋትቅናት</string>
+    <string name="symbol_full_width_underscore">ባለሙሉ ወርድ የሥር መስመር</string>
+    <string name="symbol_grave_accent">የጭረት ምልክት</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">ግማሽ ወርድ ካታካና መካከለኛ ነጥብ</string>
+    <string name="symbol_hyphen_minus">ሰረዝ</string>
+    <string name="symbol_ideographic_comma">ፅንሰ-ሐሳባ ኮማ</string>
+    <string name="symbol_integral">እጉር</string>
+    <string name="symbol_inverted_exclamation_mark">የተገለበጠ ቃለ አጋኖ</string>
+    <string name="symbol_inverted_question_mark">የተገለበጠ የጥያቄ ምልክት</string>
+    <string name="symbol_left_angle_bracket">የግራ ድርብ አንግል ቅንፍ</string>
+    <string name="symbol_left_black_lenticular_bracket">የግራ ጥቁር ምስሬ ቅንፍ</string>
+    <string name="symbol_left_corner_bracket">የግራ ማዕዘን ቅንፍ</string>
+    <string name="symbol_left_double_quotation_mark">የግራ ድርብ ትዕምርተ ጥቅስ</string>
+    <string name="symbol_left_single_quotation_mark">የግራ ነጠላ ትዕምርተ ጥቅስ</string>
+    <string name="symbol_leftwards_arrow">የግራ ቀስት</string>
+    <string name="symbol_liter">ላይተር</string>
+    <string name="symbol_low_double_quote">ዝቅ ያለ ድርብ ትምህርተ ጥቅስ</string>
+    <string name="symbol_male">የተባዕት ምልክት</string>
+    <string name="symbol_mathematical_left_angle_bracket">የሒሳብ የግራ አንግል ቅንፍ</string>
+    <string name="symbol_mathematical_right_angle_bracket">የሒሳብ የቀኝ አንግል ቅንፍ</string>
+    <string name="symbol_micro_sign">የማይክሮ ምልክት</string>
+    <string name="symbol_middle_dot">የመሃል ነጥብ</string>
+    <string name="symbol_multiplication">የማባዛት ምልክት</string>
+    <string name="symbol_new_line">አዲስ መስመር</string>
+    <string name="symbol_not_equals">እኩል አይደለም ከ</string>
+    <string name="symbol_not_sign">የአይደለም ምልክት</string>
+    <string name="symbol_paragraph_mark">የአንቀጽ ምልክት</string>
+    <string name="symbol_parenthesis_left">ግራ ቅንፍ</string>
+    <string name="symbol_parenthesis_right">የቀኝ ቅንፍ</string>
+    <string name="symbol_percent">በመቶ</string>
+    <string name="symbol_period">ክፍለ ጊዜ</string>
+    <string name="symbol_pi">ፓይ</string>
+    <string name="symbol_plus_minus_sign">የመደመር መቀነስ ምልክት</string>
+    <string name="symbol_postal_mark">የፖስታ ምልክት</string>
+    <string name="symbol_pound">ፓውንድ</string>
+    <string name="symbol_pound_sterling">የፓውንድ ምንዛሬ ምልክት</string>
+    <string name="symbol_quarter_note">ሩብ ኖታ</string>
+    <string name="symbol_question_mark">የጥያቄ ምልክት</string>
+    <string name="symbol_quotation_mark">ጥቅስ</string>
+    <string name="symbol_reference">የዋቢ ምልክት</string>
+    <string name="symbol_registered_trademark">የተመዘገበ የንግድ ምልክት</string>
+    <string name="symbol_right_angle_bracket">የቀኝ ድርብ አንግል ቅንፍ</string>
+    <string name="symbol_right_black_lenticular_bracket">የቀኝ ጥቁር ምስሬ ቅንፍ</string>
+    <string name="symbol_right_corner_bracket">የቀኝ ማዕዘን ቅንፍ</string>
+    <string name="symbol_right_double_quotation_mark">የቀኝ ድርብ ትዕምርተ ጥቅስ</string>
+    <string name="symbol_right_single_quotation_mark">የቀኝ ነጠላ ትዕምርተ ጥቅስ</string>
+    <string name="symbol_rightwards_arrow">የቀኝ ቀስት</string>
+    <string name="symbol_rupee">ሩፒ</string>
+    <string name="symbol_section_sign">የክፍል ምልክት</string>
+    <string name="symbol_semicolon">ሴሚ ኮሎን</string>
+    <string name="symbol_slash">ህዝባር</string>
+    <string name="symbol_solar">የጸሐይ ምልክት</string>
+    <string name="symbol_space">ክፍተት</string>
+    <string name="symbol_square_bracket_left">የግራ መረባ ቅንፍ</string>
+    <string name="symbol_square_bracket_right">የቀኝ መረባ ቅንፍ</string>
+    <string name="symbol_square_root">ዳግም ዘር</string>
+    <string name="symbol_tilde">ድፋትቅናት</string>
+    <string name="symbol_trademark">የንግድ ምልክት</string>
+    <string name="symbol_underscore">ሰረዘዘብጥ</string>
+    <string name="symbol_upwards_arrow">የላይ ቀስት</string>
+    <string name="symbol_vertical_bar">አቀባዊ መስመር</string>
+    <string name="symbol_white_circle">ነጭ ክብ</string>
+    <string name="symbol_white_club_suit">የነጭ አበባ ስብስብ</string>
+    <string name="symbol_white_diamond">ነጭ አልማዝ</string>
+    <string name="symbol_white_down_pointing_triangle">ወደ ታች የሚያመለክት ነጭ ሶስት ማዕዘን</string>
+    <string name="symbol_white_heart">ነጭ ልብ</string>
+    <string name="symbol_white_left_pointing_index">ወደ ግራ የሚያመለክት ነጭ አመልካች ጣት</string>
+    <string name="symbol_white_left_pointing_triangle">ወደ ግራ የሚያመለክት ነጭ ሶስት ማዕዘን</string>
+    <string name="symbol_white_right_pointing_index">ወደ ቀኝ የሚያመለክት ነጭ አመልካች ጣት</string>
+    <string name="symbol_white_right_pointing_triangle">ወደ ቀኝ የሚያመለክት ነጭ ሶስት ማዕዘን</string>
+    <string name="symbol_white_spade_suit">ነጭ የጦር ስብስብ</string>
+    <string name="symbol_white_square">ነጭ ካሬ</string>
+    <string name="symbol_white_star">ነጭ ኮከብ</string>
+    <string name="symbol_white_up_pointing_triangle">ወደ ላይ የሚያመለክት ሶስት ማዕዘን</string>
+    <string name="symbol_won">የዎን የምንዛሬ ምልክት</string>
+    <string name="symbol_won_sign">የዎን የምንዛሬ ምልክት</string>
+    <string name="symbol_yen">የን</string>
+    <string name="tabletop">የጠረጴዛ ላይ ሁነታ</string>
+    <string name="tabletop_detail">መሣሪያውን በጠረጴዛው ላይ ለጥ አድርገው ያስቀምጡት (የጠረጴዛ ላይ ሁነታ)</string>
+    <string name="talkback_off_dialog_positive_button">በተደራሽነት ቅንብሮች ውስጥ ያብሩ</string>
+    <string name="talkback_off_dialog_title">የብሬይል ቁልፍ ሰሌዳን ለመጠቀም TalkBackን ያብሩ</string>
+    <string name="talkback_off_or_suspend_dialog_message">TalkBack ሲበራ የብሬይል ምልክቶችን ለማስገባት ማያ ገጽዎን መታ ማድረግ ይችላሉ።</string>
+    <string name="talkback_suspend_dialog_title">የብሬይል ቁልፍ ሰሌዳን ለመጠቀም TalkBack ካቆመበት ይቀጥሉ</string>
+    <string name="tap_to_continue">ለመቀጠል በማንኛውም ቦታ ላይ ሁለቴ መታ ያድርጉ</string>
+    <string name="template_capital_letter">አቢይ ሆሄ %1$s</string>
+    <string name="template_current_tts_engine">%1$sን መጠቀም</string>
+    <string name="template_overlay_window">%1$s ሥዕል በሥዕል ውስጥ</string>
+    <string name="template_password_selected">ከ%1$d እስከ %2$d ያሉ ቁምፊዎች</string>
+    <string name="template_password_traversed">ቁምፊ %1$d</string>
+    <string name="template_scroll_from_count">%1$d ከ%2$d ንጥል በማሳየት ላይ።</string>
+    <string name="template_scroll_from_to_count">ከ%3$d ንጥሎች ውስጥ ከ%1$d እስከ %2$d ያሉትን በማሳየት ላይ።</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s በስተግራ ላይ፣ %2$s በስተቀኝ ላይ፣</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s በስተቀኝ ላይ፣ %2$s በስተግራ ላይ፣</string>
+    <string name="template_split_screen_mode_portrait">%1$s ከላይ፣ %2$s ከታች</string>
+    <string name="template_text_copied">ተቀድቷል፣ %1$s</string>
+    <string name="template_viewpager_index_count">ገጽ %1$d ከ%2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d ከ%2$d</string>
+    <string name="title_pref_accumulate_presses">ሁሉንም የተጫኑ ነጥቦችን ያካትቱ</string>
+    <string name="title_pref_reverse_dots">የተገለበጡ ነጥቦች</string>
+    <string name="tutorial_intro_description">በብሬይል ቁልፍ ሰሌዳ አማካኝነት ባለ6 ነጥብ ብሬይል ለማስገባት ማያ ገጽዎን መታ ማድረግ ይችላሉ።\n\nየተዋሃደ የእንግሊዝኛ ብሬይል እየተጠቀሙ ነው። የመተየቢያ ቋንቋዎን ለመለወጥ ወደ የTalkBack ቅንብሮች ይሂዱ።\n\nብሬይል ለመተየብ ስልክዎን በተለየ መንገድ መያዝና መጠቀም አለብዎት።</string>
+    <string name="type_letter_a_announcement">ማያ ገጹ ከእርስዎ ዘወር ብሎ እንደዞረ እንዳለ ያቆዩት። በሁለቱም እጆችዎ በስልኩ አጭር ክፍሎች ስልክዎን ይያዙት፣ በዚህም የእያንዳንዱ እጅ 3 የመሃል ጣቶች ማያ ገጹን መንካት ይችላሉ።\n\nየግራ አመልካች ጣትዎ በነጥብ 1 ላይ መሆን አለበት። አሁን የ«A» ፊደሉን ለመተየብ ነጥብ 1 መታ ያድርጉት።</string>
+    <string name="type_letter_a_inactive_announcement">የ«A» ፊደሉን ለመተየብ በአመልካች ጣትዎ ነጥብ 1 መታ ያድርጉት።</string>
+    <string name="type_letter_inactive_announcement">ፊደል %2$s ለመተየብ %1$sን መታ ያድርጉ</string>
+    <string name="typing_languages_title">የትየባ ቋንቋዎች</string>
+    <string name="untitled_window">ርዕስ አልባ</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">ቅንብሮች</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>የብሬይል ቁልፍ ሰሌዳን ለማብራት&lt;/b>፦ ከታች ቅንብሮችን መታ ያድርጉ። በሚቀጥለው ማያ ገጽ ላይ «%1$s»ን ያብሩ።
+    &lt;br>&lt;br>2. &lt;b>የብሬይል ቁልፍ ሰሌዳውን ይጠቀሙ&lt;/b>፦ መደበኛውን ቁልፍ ሰሌዳዎ ይክፈቱት፣ ከዚያ የቁልፍ ሰሌዳ አዶውን %2$s መታ ያድርጉት (አብዛኛው ጊዜ ከታች ቀኝ ጥግ ላይ የሚገኝ)። «%1$s» ይምረጡ።
+  &lt;br>&lt;br>ቁልፍ ሰሌዳዎችን የሚቀይሩበት አማራጭ ካልታየዎት %3$s፣ የGoogle ቁልፍ ሰሌዳውን፣ ለመጫን ይሞክሩ።</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">የብሬይል ቁልፍ ሰሌዳውን ለመጠቀም መደበኛውን ቁልፍ ሰሌዳዎ ይክፈቱት፣ ከዚያ የቁልፍ ሰሌዳ አዶውን %1$s መታ ያድርጉት (አብዛኛው ጊዜ ከታች ቀኝ ጥግ ላይ የሚገኝ)። «%2$s» ይምረጡ።
+  &lt;br>&lt;br>ቁልፍ ሰሌዳዎችን የሚቀይሩበት አማራጭ ካልታየዎት %3$s፣ የGoogle ቁልፍ ሰሌዳውን፣ ለመጫን ይሞክሩ።</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ጠፍቷል"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"በርቷል"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"የእርምጃ መሳቢያ"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"የአሰሳ መሳቢያ"</string>
+</resources>

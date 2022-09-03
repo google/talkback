@@ -18,8 +18,9 @@
 <resources>
 
   <!--The theme is for preference settings-->
-  <style name="TalkBackSettings" parent="Theme.MaterialComponents.Light.Bridge">
+  <style name="TalkBackSettings" parent="Theme.MaterialComponents.DayNight.Bridge">
     <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:background">@color/settings_bg_color</item>
   </style>
 
 </resources>

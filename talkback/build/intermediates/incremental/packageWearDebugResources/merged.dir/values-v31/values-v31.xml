@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gesture_dialog_category_color">@color/colorAccent</color>
+    <dimen name="quick_menu_overlay_corner_radius">@dimen/google_material_corner_radius</dimen>
+    <dimen name="training_button_width">50dp</dimen>
+    <dimen name="training_list_item_corner_radius">@dimen/google_material_corner_radius</dimen>
+    <string name="talkback_font" translatable="false">sans-serif</string>
+    <string name="talkback_font_medium" translatable="false">sans-serif-medium</string>
+    <style name="TalkBackSettings" parent="Theme.MaterialComponents.DayNight.Bridge">
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:background">@color/settings_bg_color</item>
+  </style>
+</resources>

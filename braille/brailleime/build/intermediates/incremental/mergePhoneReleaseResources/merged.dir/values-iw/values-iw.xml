@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">נקודה אחת (%s)</item>
+    <item quantity="two">%s נקודות</item>
+    <item quantity="many">%s נקודות</item>
+    <item quantity="other">%s נקודות</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">התראה חדשה אחת (%d)</item>
+    <item quantity="two">%d התראות חדשות</item>
+    <item quantity="many">%d התראות חדשות</item>
+    <item quantity="other">%d התראות חדשות</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"ניווט לדף הבית"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ניווט למעלה"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"עוד אפשרויות"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"סיום"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"הצגת הכול"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"בחירת אפליקציה"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"כבוי"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"מופעל"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+‎"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"מחיקה"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"רווח"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"תפריט+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"חיפוש…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"מחיקת השאילתה"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"שאילתת חיפוש"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"חיפוש"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"שליחת שאילתה"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"חיפוש קולי"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"שיתוף עם"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"שיתוף עם <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"כיווץ"</string>
+    <string name="auto_detect">התאמה לאופן שבו אוחזים את המכשיר</string>
+    <string name="bottomsheet_action_expand_halfway">הרחבה עד האמצע</string>
+    <string name="braille_ime_displayed_name">מקלדת ברייל</string>
+    <string name="braille_ime_service_name">‏מקלדת ברייל ל-TalkBack</string>
+    <string name="braille_keyboard">מקלדת ברייל</string>
+    <string name="braille_keyboard_gestures">תנועות מקלדת לברייל</string>
+    <string name="braille_keyboard_strip_button">למעבר למקלדת של מסך המגע</string>
+    <string name="braille_keyboard_strip_summary">‏צג ברייל חיצוני מחובר, ויש לך אפשרות להשתמש בו כדי להקליד טקסט במכשיר הזה.\nלחלופין, אפשר לעבור למקלדת הברייל של מסך המגע או לשיטת הקלט הבאה.</string>
+    <string name="braille_tutorial_title">מדריך למקלדת ברייל</string>
+    <string name="bring_ime_settings_page">אין מקלדת נוספת שמופעלת. יש לעבור להגדרות המקלדת</string>
+    <string name="calibration_fail_announcement">עדכון מיקום הנקודות נכשל. יש ללחוץ לחיצה ארוכה על המסך עם 6 אצבעות. לאחר מכן יש לנסות שוב.</string>
+    <string name="calibration_finish_announcement">מיקום הנקודות עודכן</string>
+    <string name="calibration_step1_hold_left_finger_announcement">מתבצע עדכון של מיקום הנקודות. תחילה עליך לתעד את הנקודות של יד שמאל. יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של יד שמאל.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">מתבצע עדכון של מיקום הנקודות. תחילה עליך לתעד את הנקודות של יד ימין. יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של יד ימין.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">המיקום של נקודות 1, 2 ו-3 עודכן. עכשיו עליך לתעד את הנקודות של יד שמאל. יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של יד שמאל.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">המיקום של נקודות 1, 2 ו-3 עודכן. עכשיו עליך לתעד את הנקודות של יד ימין. יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של יד ימין.</string>
+    <string name="capitalize_announcement">CapsLock</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">הוזנו %1$d תווים מתוך %2$d</string>
+    <string name="character_counter_overflowed_content_description">מגבלת התווים חורגת ב-%1$d מתוך %2$d</string>
+    <string name="clear_text_end_icon_content_description">מחיקת הטקסט</string>
+    <string name="code_user_facing_name_ar">ערבית</string>
+    <string name="code_user_facing_name_es">ספרדית</string>
+    <string name="code_user_facing_name_fr">צרפתית</string>
+    <string name="code_user_facing_name_pl">פולנית</string>
+    <string name="code_user_facing_name_ueb1">אנגלית אחידה לברייל לא מקוצר</string>
+    <string name="code_user_facing_name_ueb2">אנגלית אחידה לברייל מקוצר</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">הפעל</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">‏האפליקציה %1$s לא תפעל אם לא תפעיל את שירותי Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">‏הפעל את שירותי Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">התקן</string>
+    <string name="common_google_play_services_install_text">‏האפליקציה %1$s לא תפעל ללא שירותי Google Play, שאינם מותקנים במכשיר.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">‏קבל את שירותי Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">‏זמינות של שירותי Google Play</string>
+    <string name="common_google_play_services_notification_ticker">‏שגיאה בשירותי Google Play</string>
+    <string name="common_google_play_services_unknown_issue">‏%1$s נתקלה בבעיה בשירותי Google Play. נסה שוב.</string>
+    <string name="common_google_play_services_unsupported_text">‏%1$s לא תפעל ללא שירותי Google Play, שאינם נתמכים במכשיר שלך.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">עדכון</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">‏%1$s לא יפעל אם לא תעדכן את שירותי Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">‏עדכון שירותי Google Play</string>
+    <string name="common_google_play_services_updating_text">‏האפליקציה %1$s לא תפעל ללא שירותי Google Play, שמתעדכנים כרגע.</string>
+    <string name="common_google_play_services_wear_update_text">‏דרושה גרסה חדשה של שירותי Google Play. הגרסה תתעדכן בעצמה תוך זמן קצר.</string>
+    <string name="common_open_on_phone">פתח בטלפון</string>
+    <string name="common_signin_button_text">כניסה</string>
+    <string name="common_signin_button_text_long">‏היכנס באמצעות Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"נכשלה"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"נפתחה בטלפון שלך"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"ההפעלה הצליחה"</string>
+    <string name="context_menu_input_language_selection">מעבר לשפה הבאה: %s</string>
+    <string name="context_menu_input_language_selection_summary">בשימוש כרגע: %s</string>
+    <string name="context_menu_layout_selection">פריסה</string>
+    <string name="context_menu_see_all_gestures_selection">לעיון בכל התנועות</string>
+    <string name="context_menu_settings_selection">הגדרות</string>
+    <string name="context_menu_title">אפשרויות למקלדת ברייל</string>
+    <string name="context_menu_tutorial_finish">סיום המדריך</string>
+    <string name="context_menu_tutorial_selection">פתיחת המדריך</string>
+    <string name="continue_tutorial_announcement">שנמשיך עם המדריך? %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"העתקה"</string>
+    <string name="done">סיום</string>
+    <string name="dont_show_again">לא להציג שוב</string>
+    <string name="error_icon_content_description">שגיאה</string>
+    <string name="exit_scrim">יציאה</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"מתקדם"</string>
+    <string name="exposed_dropdown_menu_content_description">הצגת התפריט הנפתח</string>
+    <string name="finish_tutorial_announcement">מקלדת הברייל מוצגת. מסובבים את הטלפון כך שהמסך יפנה כלפי חוץ. מסובבים את הטלפון למצב רוחבי. לאחר מכן מתחילים להקליד.</string>
+    <string name="function_off">קורא מסך קולי מושבת</string>
+    <string name="function_on">קורא מסך קולי מופעל</string>
+    <string name="gesture_add_space">כדי להוסיף <b>רווח</b>, מחליקים שמאלה</string>
+    <string name="gesture_delete">כדי <b>למחוק</b>, מחליקים ימינה</string>
+    <string name="gesture_delete_word">כדי <b>למחוק מילה</b>, מחליקים ימינה באמצעות 2 אצבעות</string>
+    <string name="gesture_hide_keyboard">כדי <b>להסתיר את המקלדת</b>, מחליקים למטה באמצעות 2 אצבעות</string>
+    <string name="gesture_move_cursor_backward">כדי <b>להזיז את הסמן אחורה</b>, מחליקים למעלה</string>
+    <string name="gesture_move_cursor_forward">כדי <b>להזיז את הסמן קדימה</b>, מחליקים למטה</string>
+    <string name="gesture_new_line">להוספת <b>שורה חדשה</b>, מחליקים ימינה באמצעות 2 אצבעות</string>
+    <string name="gesture_next_keyboard">כדי להחליף ל<b>מקלדת הבאה</b>, מחליקים למטה באמצעות 3 אצבעות</string>
+    <string name="gesture_open_context_menu"><b>לקבלת עזרה ולאפשרויות נוספות</b>, מחליקים למעלה באמצעות 3 אצבעות</string>
+    <string name="gesture_submit_text">כדי <b>לשלוח טקסט</b>, מחליקים למעלה באמצעות 2 אצבעות</string>
+    <string name="granularity_character">תווים</string>
+    <string name="granularity_default">ברירת מחדל</string>
+    <string name="granularity_line">קווים</string>
+    <string name="granularity_native_control">פקדים</string>
+    <string name="granularity_native_heading">כותרות</string>
+    <string name="granularity_native_link">קישורים</string>
+    <string name="granularity_paragraph">פסקאות</string>
+    <string name="granularity_pseudo_web_special_content">תוכן מיוחד</string>
+    <string name="granularity_web_control">פקדים</string>
+    <string name="granularity_web_heading">כותרות</string>
+    <string name="granularity_web_landmark">ציוני דרך</string>
+    <string name="granularity_web_link">קישורים</string>
+    <string name="granularity_web_list">רשימות</string>
+    <string name="granularity_window">חלונות</string>
+    <string name="granularity_word">מילים</string>
+    <string name="hide_keyboard_window">המקלדת מוסתרת</string>
+    <string name="hold_six_fingers_announcement">‏%s\nעליך להניח את המכשיר במצב שטוח על שולחן. לאחר מכן, יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של כל יד במיקום שיהיה לך נוח להקליד בו.</string>
+    <string name="hold_six_fingers_description">‏אם משתמשים במקלדת ברייל, אין אפשרות להשתמש בתנועות רגילות של TalkBack‏.\n\nכדי להתחיל, עליך להגדיר את המיקום של 6 נקודות הברייל להקלדה.</string>
+    <string name="hold_six_fingers_inactive_announcement">עליך להניח את המכשיר במצב שטוח על שולחן. לאחר מכן, יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של כל יד במיקום שיהיה לך נוח להקליד בו.</string>
+    <string name="how_to_use_braille_keyboard">איך להשתמש במקלדת הברייל</string>
+    <string name="icon_content_description">סמל לתיבת דו-שיח</string>
+    <string name="input_view_caption">‏מקלדת ברייל ל-TalkBack - לעזרה, יש להיכנס אל g.co/help/braille</string>
+    <string name="instruction_swipe_down">כדי להזיז את הסמן קדימה, מחליקים למטה</string>
+    <string name="instruction_swipe_down_2_fingers">כדי להסתיר את המקלדת, מחליקים למטה באמצעות 2 אצבעות</string>
+    <string name="instruction_swipe_down_3_fingers">כדי להחליף למקלדת השנייה, מחליקים למטה באמצעות 3 אצבעות</string>
+    <string name="instruction_swipe_left">כדי למחוק אות, מחליקים ימינה</string>
+    <string name="instruction_swipe_right">כדי להוסיף רווח, מחליקים שמאלה</string>
+    <string name="instruction_swipe_up">כדי להזיז את הסמן אחורה, מחליקים למעלה</string>
+    <string name="instruction_swipe_up_3_fingers">כדי לסיים את המדריך, מחליקים למעלה באמצעות 3 אצבעות</string>
+    <string name="instruction_type_letter_a">‏מקישים על נקודה 1 עם האצבע המורה השמאלית כדי להקליד את האות \"A\"</string>
+    <string name="instruction_type_letter_bcd">‏בשלב הבא, מנסים להקליד את האותיות B,‏ C‏ ו-D</string>
+    <string name="item_view_role_description">מקש Tab</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">הקש על צירוף מקשים הכולל את מקש הצירוף %1$s כדי להגדיר מקש קיצור חדש.</string>
+    <string name="keycombo_assign_dialog_instruction">‏הקש על שילוב מקשים כדי להגדיר קיצור חדש. הוא צריך להכיל לפחות את המקש ALT או Control.</string>
+    <string name="keycombo_key_arrow_down">חץ למטה</string>
+    <string name="keycombo_key_arrow_left">חץ שמאלה</string>
+    <string name="keycombo_key_arrow_right">חץ ימינה</string>
+    <string name="keycombo_key_arrow_up">חץ למעלה</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">חיפוש</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">ללא הקצאה</string>
+    <string name="leave_keyboard">יציאה ממקלדת הברייל</string>
+    <string name="material_clock_toggle_content_description">יש לבחור ב-AM או ב-PM</string>
+    <string name="material_hour_selection">בחר שעה</string>
+    <string name="material_hour_suffix">השעה %1$s</string>
+    <string name="material_minute_selection">בחר דקות</string>
+    <string name="material_minute_suffix">%1$s דקות</string>
+    <string name="material_timepicker_am">לפנה\"צ</string>
+    <string name="material_timepicker_clock_mode_description">העבר למצב שעון לצורך הזנת השעה</string>
+    <string name="material_timepicker_hour">שעה</string>
+    <string name="material_timepicker_minute">דקה</string>
+    <string name="material_timepicker_pm">אחה\"צ</string>
+    <string name="material_timepicker_select_time">בחר שעה</string>
+    <string name="material_timepicker_text_input_mode_description">העבר למצב קלט טקסט לצורך הזנת השעה</string>
+    <string name="mtrl_badge_numberless_content_description">התראה חדשה</string>
+    <string name="mtrl_chip_close_icon_content_description">הסרה של %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">יותר מ-%1$d התראות חדשות</string>
+    <string name="mtrl_picker_a11y_next_month">מעבר לחודש הבא</string>
+    <string name="mtrl_picker_a11y_prev_month">מעבר לחודש הקודם</string>
+    <string name="mtrl_picker_announce_current_selection">הבחירה הנוכחית: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">יש לבחור תאריך</string>
+    <string name="mtrl_picker_date_header_unselected">התאריך הנבחר</string>
+    <string name="mtrl_picker_day_of_week_column_header">עמודה של ימים: %1$s</string>
+    <string name="mtrl_picker_invalid_format">פורמט לא חוקי.</string>
+    <string name="mtrl_picker_invalid_format_example">דוגמה: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">יש להשתמש בפורמט: %1$s</string>
+    <string name="mtrl_picker_invalid_range">טווח לא חוקי.</string>
+    <string name="mtrl_picker_navigate_to_year_description">ניווט לשנת %1$s</string>
+    <string name="mtrl_picker_out_of_range">מחוץ לטווח: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">תאריך התחלה – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – תאריך סיום</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">יש לבחור טווח</string>
+    <string name="mtrl_picker_range_header_unselected">תאריך התחלה - תאריך סיום</string>
+    <string name="mtrl_picker_save">שמירה</string>
+    <string name="mtrl_picker_text_input_date_hint">תאריך</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">תאריך סיום</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">תאריך התחלה</string>
+    <string name="mtrl_picker_text_input_day_abbr">י</string>
+    <string name="mtrl_picker_text_input_month_abbr">ח</string>
+    <string name="mtrl_picker_text_input_year_abbr">ש</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">החלפה לשיטת קלט של יומן</string>
+    <string name="mtrl_picker_toggle_to_day_selection">יש להקיש כדי להחליף לבחירת יום</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">החלפה לשיטת קלט של טקסט</string>
+    <string name="mtrl_picker_toggle_to_year_selection">יש להקיש כדי להחליף לבחירת שנה</string>
+    <string name="multiple_languages_braille_ime_displayed_name">מקלדת ברייל, %s</string>
+    <string name="next_keyboard">המקלדת הבאה</string>
+    <string name="next_step">הבא</string>
+    <string name="not_enough_touch_points_dialog_message">המכשיר שברשותך לא תומך במספיק נקודות נגיעה. לקבלת מידע נוסף, יש לפנות ליצרן המכשיר.</string>
+    <string name="not_enough_touch_points_dialog_title">המכשיר שברשותך לא תומך במקלדת ברייל</string>
+    <string msgid="478774118347071097" name="not_set">"לא מוגדרת"</string>
+    <string name="number_announcement">מספר</string>
+    <string name="open_context_menu_announcement">‏תפריט האפשרויות פתוח. יש להפוך את הטלפון כך שהמסך יפנה אליך ולהחזיק אותו באופן רגיל. עכשיו ניתן להשתמש בתנועות TalkBack רגילות כדי לנווט. יש להחליק ימינה כדי לראות אפשרויות נוספות.</string>
+    <string name="password_toggle_content_description">הצגת סיסמה</string>
+    <string name="perform_action_next">הבא</string>
+    <string name="perform_action_submitting">שליחת הטקסט מתבצעת</string>
+    <string name="perform_add_new_line_announcement">נוספה שורה חדשה</string>
+    <string name="perform_add_space_announcement">רווח</string>
+    <string name="perform_delete_letter_announcement">נמחקה אות</string>
+    <string name="perform_delete_word_announcement">נמחקה מילה</string>
+    <string name="perform_hide_keyboard_announcement">הסתרת מקלדת</string>
+    <string name="perform_submit_text_announcement">שליחת טקסט</string>
+    <string name="perform_switch_keyboard_announcement">החלפת מקלדת</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" הועתק ללוח."</string>
+    <string name="preferred_language_title">שפה מועדפת</string>
+    <string name="read_out_deleted">בוצעה מחיקה של %s</string>
+    <string name="remaining_calibration_finish_announcement">כל מיקומי הנקודות עודכנו</string>
+    <string name="reminder_announcement">צריך להחליק למעלה עם 3 אצבעות לאפשרויות נוספות</string>
+    <string name="result_swipe_down">הסמן הוזז קדימה</string>
+    <string name="result_swipe_down_2_fingers">הסתרת מקלדת</string>
+    <string name="result_swipe_down_3_fingers">המקלדת הבאה</string>
+    <string name="result_swipe_left">מחיקה</string>
+    <string name="result_swipe_right">רווח</string>
+    <string name="result_swipe_up">הסמן הוזז אחורה</string>
+    <string name="rotate_orientation_announcement">‏החל מעכשיו, לא ניתן יהיה להשתמש בתנועות הרגילות של TalkBack. תכונת TalkBack לא זמינה כשמשתמשים במקלדת הברייל.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">הטלפון ממוקם אנכית. כדי להמשיך, יש לסובב את הטלפון למצב רוחבי (הקצוות הארוכים מקבילים לרצפה). לאחר מכן, מסובבים את הטלפון כך שהמסך יפנה כלפי חוץ. כשמוכנים, לוחצים פעמיים על המסך כדי להמשיך.</string>
+    <string name="rotate_orientation_description_1">‏החל מעכשיו, לא ניתן יהיה להשתמש בתנועות הרגילות של TalkBack. תכונת TalkBack לא זמינה כשמשתמשים במקלדת הברייל.</string>
+    <string name="rotate_orientation_description_2">כדי להתחיל, יש להחזיק את הטלפון כך, כשהמסך יפנה כלפי חוץ.</string>
+    <string name="rotate_orientation_inactive_announcement">‏ראשית, מסובבים את הטלפון כך שהמסך יפנה כלפי חוץ.\n\nלאחר מכן, מסובבים את הטלפון למצב רוחבי (הקצוות הארוכים מקבילים לרצפה). יש להחזיק את הטלפון בידיים בקצוות הקצרים. על יד ימין להחזיק בקצה עם יציאת ה-USB. מניחים את 3 האצבעות האמצעיות על המסך, ומשתמשים בזרת ובאגודל כדי להחזיק את הטלפון.\n\nכשמוכנים, לוחצים פעמיים על המסך כדי להמשיך.\n\nליציאה ממקלדת הברייל, מחליקים למטה לכיוון הקרקע באמצעות 3 אצבעות. תנועה זו מחליפה בחזרה למקלדת המקורית.</string>
+    <string name="screen_away">מצב \'המסך פונה כלפי חוץ\'</string>
+    <string name="screen_away_detail">יש להחזיק את המכשיר כך שהמסך פונה כלפי חוץ (מצב \'המסך פונה כלפי חוץ\')</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"חיפוש"</string>
+    <string name="set_up_braille_keyboard">הגדרת מקלדת הברייל</string>
+    <string name="show_keyboard_window">המערכת מציגה %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">כל נקודה שנלחצה היא חלק מהקלט, גם אם מרפים מנקודה מסוימת לפני שמרפים משאר הנקודות</string>
+    <string name="summary_pref_reverse_dots">יש להחליף בין מיקומי הנקודות (למשל: החלפה בין נקודות 1 ו-4)</string>
+    <string name="swipe_down_2_fingers_announcement">כדי להסתיר את המקלדת, מחליקים למטה באמצעות 2 אצבעות. כדאי לנסות עכשיו.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">הסתרת המקלדת. בדרך כלל, תנועה זו תסתיר את המקלדת. מקלדת הברייל תישאר פתוחה מפני שהמדריך עדיין לא הסתיים.</string>
+    <string name="swipe_down_3_fingers_announcement">כדי להחליף למקלדת השנייה, מחליקים למטה באמצעות 3 אצבעות. כדאי לנסות עכשיו.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">המקלדת הבאה. בדרך כלל, תנועה זו תחליף למקלדת הבאה. הפעם, העבודה במקלדת הברייל תימשך מפני שהמדריך עדיין לא הסתיים.</string>
+    <string name="swipe_down_announcement">כדי להזיז את הסמן קדימה, מחליקים למטה. אפשר לנסות עכשיו.</string>
+    <string name="swipe_left_action_result_announcement">‏d נמחקה.</string>
+    <string name="swipe_left_announcement">כדי למחוק אות, מחליקים ימינה. כדאי לנסות עכשיו.</string>
+    <string name="swipe_right_announcement">כדי להוסיף רווח, מחליקים שמאלה. כדאי לנסות עכשיו.</string>
+    <string name="swipe_up_3_fingers_announcement">אפשר גם להקליד במצב \'על פני שולחן\' על ידי הנחת הטלפון במצב שטוח על שולחן. כדי לסיים את המדריך, עליך להחליק כלפי מעלה באמצעות 3 אצבעות כדי למצוא את האפשרות \'סיום המדריך\'</string>
+    <string name="swipe_up_announcement">כדי להזיז את הסמן אחורה, מחליקים למעלה. אפשר לנסות עכשיו.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">כדי לשנות את השפה בזמן ההקלדה במקלדת הברייל, מחליקים למעלה בעזרת שלוש אצבעות. אחר כך בוחרים \'מעבר לשפה הבאה\'.</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">שינוי שפה במהירות בזמן ההקלדה</string>
+    <string name="switch_to_language_announcement">עברת אל %s</string>
+    <string name="switch_to_screen_away_announcement">מצב \'המסך פונה כלפי חוץ\'</string>
+    <string name="switch_to_tabletop_announcement">מצב \'על משטח\'. יש להציב את המכשיר כך ששקע הטעינה משמאל. לעדכון מיקום הנקודות, עליך ללחוץ לחיצה ארוכה באמצעות 6 אצבעות.</string>
+    <string name="symbol_almost_equals">כמעט שווה ל-</string>
+    <string name="symbol_ampersand">אמפרסנד</string>
+    <string name="symbol_angle_bracket_left">הסימן פחות מ-</string>
+    <string name="symbol_angle_bracket_right">הסימן גדול מ-</string>
+    <string name="symbol_apostrophe">גרש</string>
+    <string name="symbol_approximately_equals">שווה בערך</string>
+    <string name="symbol_asterisk">כוכבית</string>
+    <string name="symbol_at_sign">שטרודל</string>
+    <string name="symbol_backslash">קו נטוי הפוך</string>
+    <string name="symbol_beamed_sixteenth_note">תווים במקצב חלקי שש עשרה</string>
+    <string name="symbol_black_circle">עיגול שחור</string>
+    <string name="symbol_black_heart">לב שחור</string>
+    <string name="symbol_black_smallsquare">ריבוע שחור קטן</string>
+    <string name="symbol_black_square">ריבוע שחור</string>
+    <string name="symbol_black_star">כוכב שחור</string>
+    <string name="symbol_black_suit_of_diamonds">סדרת יהלום בצבע שחור</string>
+    <string name="symbol_black_triangle_pointing_down">משולש שחור שמצביע למטה</string>
+    <string name="symbol_black_triangle_pointing_up">משולש שחור שמצביע למעלה</string>
+    <string name="symbol_broken_bar">פס חצוי</string>
+    <string name="symbol_bullet">תבליט</string>
+    <string name="symbol_bullseye">מרכז המטרה</string>
+    <string name="symbol_caret">קארה</string>
+    <string name="symbol_celsius_degree">מעלות צלזיוס</string>
+    <string name="symbol_cent">סימן של סנט</string>
+    <string name="symbol_circle_left_half_black">מעגל שחציו השמאלי שחור</string>
+    <string name="symbol_circle_right_half_black">מעגל שחציו הימני שחור</string>
+    <string name="symbol_colon">נקודתיים</string>
+    <string name="symbol_comma">פסיק</string>
+    <string name="symbol_copyright">זכויות יוצרים</string>
+    <string name="symbol_curly_bracket_left">סוגר מסולסל שמאלי</string>
+    <string name="symbol_curly_bracket_right">סוגר מסולסל ימני</string>
+    <string name="symbol_currency_sign">סימן מטבע</string>
+    <string name="symbol_degree">סימן המעלה</string>
+    <string name="symbol_division">סימן חילוק</string>
+    <string name="symbol_dollar_sign">סימן דולר</string>
+    <string name="symbol_downwards_arrow">חץ למטה</string>
+    <string name="symbol_eighth_note">תו שמינית</string>
+    <string name="symbol_ellipsis">שלוש נקודות</string>
+    <string name="symbol_em_dash">מקף ארוך</string>
+    <string name="symbol_en_dash">מקף בינוני</string>
+    <string name="symbol_equal">סימן שוויון</string>
+    <string name="symbol_euro">יורו</string>
+    <string name="symbol_exclamation_mark">סימן קריאה</string>
+    <string name="symbol_fahrenheit_degree">מעלות פרנהייט</string>
+    <string name="symbol_female">סמל נקבה</string>
+    <string name="symbol_full_width_ampersand">אמפרסנד ברוחב מלא</string>
+    <string name="symbol_full_width_asterisk">כוכבית ברוחב מלא</string>
+    <string name="symbol_full_width_circumflex">גג ברוחב מלא</string>
+    <string name="symbol_full_width_colon">נקודתיים ברוחב מלא</string>
+    <string name="symbol_full_width_comma">פסיק ברוחב מלא</string>
+    <string name="symbol_full_width_exclamation_mark">סימן קריאה ברוחב מלא</string>
+    <string name="symbol_full_width_greater_than_sign">סימן \'גדול מ-\' ברוחב מלא</string>
+    <string name="symbol_full_width_ideographic_full_stop">נקודה אידאוגרפית</string>
+    <string name="symbol_full_width_left_curly_bracket">סוגר מסולסל שמאלי ברוחב מלא</string>
+    <string name="symbol_full_width_left_parenthesis">סוגר שמאלי ברוחב מלא</string>
+    <string name="symbol_full_width_less_than_sign">סימן \'קטן מ-\' ברוחב מלא</string>
+    <string name="symbol_full_width_question_mark">סימן שאלה ברוחב מלא</string>
+    <string name="symbol_full_width_right_curly_bracket">סוגר מסולסל ימני ברוחב מלא</string>
+    <string name="symbol_full_width_right_parenthesis">סוגר ימני ברוחב מלא</string>
+    <string name="symbol_full_width_semicolon">נקודה-פסיק ברוחב מלא</string>
+    <string name="symbol_full_width_tilde">טילדה ברוחב מלא</string>
+    <string name="symbol_full_width_underscore">קו תחתון ברוחב מלא</string>
+    <string name="symbol_grave_accent">‏סימון הטעמה מסוג Grave</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">נקודה אמצעית קטאקאנה בחצי רוחב</string>
+    <string name="symbol_hyphen_minus">מקף</string>
+    <string name="symbol_ideographic_comma">פסיק אידאוגרפי</string>
+    <string name="symbol_integral">אינטגרל</string>
+    <string name="symbol_inverted_exclamation_mark">סימן קריאה הפוך</string>
+    <string name="symbol_inverted_question_mark">סימן שאלה הפוך</string>
+    <string name="symbol_left_angle_bracket">סוגר שמאלי בעל זווית כפולה</string>
+    <string name="symbol_left_black_lenticular_bracket">סוגר שמאלי שחור בצורת עדשה</string>
+    <string name="symbol_left_corner_bracket">סוגר פינתי שמאלי</string>
+    <string name="symbol_left_double_quotation_mark">מירכאות כפולות שמאליות</string>
+    <string name="symbol_left_single_quotation_mark">סימן גרש שמאלי יחיד</string>
+    <string name="symbol_leftwards_arrow">חץ שמאלה</string>
+    <string name="symbol_liter">ליטר</string>
+    <string name="symbol_low_double_quote">מירכאות כפולות תחתונות</string>
+    <string name="symbol_male">סמל זכר</string>
+    <string name="symbol_mathematical_left_angle_bracket">סוגר זוויתי שמאלי מתמטי</string>
+    <string name="symbol_mathematical_right_angle_bracket">סוגר זוויתי ימני מתמטי</string>
+    <string name="symbol_micro_sign">סימן מיקרו</string>
+    <string name="symbol_middle_dot">נקודה אמצעית</string>
+    <string name="symbol_multiplication">סימן כפל</string>
+    <string name="symbol_new_line">שורה חדשה</string>
+    <string name="symbol_not_equals">לא שווה</string>
+    <string name="symbol_not_sign">סימן \'אינו\'</string>
+    <string name="symbol_paragraph_mark">סימן פיסקה</string>
+    <string name="symbol_parenthesis_left">סוגר שמאלי</string>
+    <string name="symbol_parenthesis_right">סוגר ימני</string>
+    <string name="symbol_percent">אחוז</string>
+    <string name="symbol_period">נקודה</string>
+    <string name="symbol_pi">פאי</string>
+    <string name="symbol_plus_minus_sign">סימן פלוס מינוס</string>
+    <string name="symbol_postal_mark">סימן דואר</string>
+    <string name="symbol_pound">סולמית</string>
+    <string name="symbol_pound_sterling">סימן המטבע פאונד</string>
+    <string name="symbol_quarter_note">תו רבע</string>
+    <string name="symbol_question_mark">סימן שאלה</string>
+    <string name="symbol_quotation_mark">גרש</string>
+    <string name="symbol_reference">סימן ייחוס</string>
+    <string name="symbol_registered_trademark">סימן מסחרי רשום</string>
+    <string name="symbol_right_angle_bracket">סוגר ימני בעל זווית כפולה</string>
+    <string name="symbol_right_black_lenticular_bracket">סוגר ימני שחור בצורת עדשה</string>
+    <string name="symbol_right_corner_bracket">סוגר פינתי ימני</string>
+    <string name="symbol_right_double_quotation_mark">מירכאות כפולות ימניות</string>
+    <string name="symbol_right_single_quotation_mark">סימן גרש ימני יחיד</string>
+    <string name="symbol_rightwards_arrow">חץ ימינה</string>
+    <string name="symbol_rupee">רופיות</string>
+    <string name="symbol_section_sign">סימן קטע</string>
+    <string name="symbol_semicolon">נקודה ופסיק</string>
+    <string name="symbol_slash">קו נטוי</string>
+    <string name="symbol_solar">סימן שמש</string>
+    <string name="symbol_space">רווח</string>
+    <string name="symbol_square_bracket_left">סוגר מרובע שמאלי</string>
+    <string name="symbol_square_bracket_right">סוגר מרובע ימני</string>
+    <string name="symbol_square_root">שורש ריבועי</string>
+    <string name="symbol_tilde">טילדה</string>
+    <string name="symbol_trademark">סימן מסחרי</string>
+    <string name="symbol_underscore">מקף תחתון</string>
+    <string name="symbol_upwards_arrow">חץ למעלה</string>
+    <string name="symbol_vertical_bar">קו אנכי</string>
+    <string name="symbol_white_circle">מעגל לבן</string>
+    <string name="symbol_white_club_suit">סימן תלתן לבן</string>
+    <string name="symbol_white_diamond">יהלום לבן</string>
+    <string name="symbol_white_down_pointing_triangle">משולש לבן מצביע למטה</string>
+    <string name="symbol_white_heart">לב לבן</string>
+    <string name="symbol_white_left_pointing_index">אצבע לבנה מצביעה שמאלה</string>
+    <string name="symbol_white_left_pointing_triangle">משולש לבן מצביע שמאלה</string>
+    <string name="symbol_white_right_pointing_index">אצבע לבנה מצביעה ימינה</string>
+    <string name="symbol_white_right_pointing_triangle">משולש לבן מצביע ימינה</string>
+    <string name="symbol_white_spade_suit">סימן עלה לבן</string>
+    <string name="symbol_white_square">ריבוע לבן</string>
+    <string name="symbol_white_star">כוכב לבן</string>
+    <string name="symbol_white_up_pointing_triangle">משולש לבן מצביע למעלה</string>
+    <string name="symbol_won">סימן המטבע של וון דרום קוריאני</string>
+    <string name="symbol_won_sign">סימן המטבע של וון דרום קוריאני</string>
+    <string name="symbol_yen">ין</string>
+    <string name="tabletop">מצב \'על משטח\'</string>
+    <string name="tabletop_detail">עליך להניח את המכשיר במצב שטוח על שולחן (מצב \'על משטח\')</string>
+    <string name="talkback_off_dialog_positive_button">הפעלה בהגדרות הנגישות</string>
+    <string name="talkback_off_dialog_title">‏יש להפעיל את TalkBack כדי להשתמש במקלדת ברייל</string>
+    <string name="talkback_off_or_suspend_dialog_message">‏כשהתכונה TalkBack מופעלת, ניתן להזין סמלי ברייל בהקשה על המסך.</string>
+    <string name="talkback_suspend_dialog_title">‏חזרה ל-TalkBack כדי להשתמש במקלדת ברייל</string>
+    <string name="tap_to_continue">יש ללחוץ פעמיים במקום כלשהו כדי להמשיך</string>
+    <string name="template_capital_letter">%1$s גדולה</string>
+    <string name="template_current_tts_engine">משתמש ב-%1$s</string>
+    <string name="template_overlay_window">%1$s תמונה בתוך תמונה</string>
+    <string name="template_password_selected">תווים %1$d עד %2$d</string>
+    <string name="template_password_traversed">תו %1$d</string>
+    <string name="template_scroll_from_count">מציג פריט %1$d מתוך %2$d.</string>
+    <string name="template_scroll_from_to_count">מציג פריטים %1$d עד %2$d מתוך %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s מצד שמאל, %2$s מצד ימין</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s מצד ימין, %2$s מצד שמאל</string>
+    <string name="template_split_screen_mode_portrait">%1$s למעלה, %2$s למטה</string>
+    <string name="template_text_copied">מועתק, %1$s</string>
+    <string name="template_viewpager_index_count">עמוד %1$d מתוך %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d מתוך %2$d</string>
+    <string name="title_pref_accumulate_presses">הכללת כל הנקודות שנלחצו</string>
+    <string name="title_pref_reverse_dots">נקודות הפוכות</string>
+    <string name="tutorial_intro_description">‏באמצעות מקלדת הברייל אפשר להקיש על המסך כדי להזין ברייל של 6 נקודות.\n\nבמכשיר שלך נעשה שימוש במקלדת אנגלית אחידה לברייל. כדי להחליף שפת הקלדה, יש לעבור להגדרות TalkBack.‏\n\nכדי להקליד בברייל, יש להחזיק את הטלפון ולהשתמש בו בצורה שונה.</string>
+    <string name="type_letter_a_announcement">‏שומרים שהמסך יפנה כלפי חוץ. מחזיקים את הטלפון בשתי הידיים, בקצוות הקצרים של הטלפון, כך ששלוש האצבעות האמצעיות של כל יד יוכלו לגעת במסך.\n\nהאצבע המורה השמאלית צריכה להיות על נקודה 1. עכשיו, מקישים על נקודה 1 כדי להקליד את האות “A”.</string>
+    <string name="type_letter_a_inactive_announcement">‏מקישים על נקודה 1 באמצעות האצבע המורה השמאלית כדי להקליד את האות “A”</string>
+    <string name="type_letter_inactive_announcement">מקישים על %1$s כדי להקליד את האות %2$s</string>
+    <string name="typing_languages_title">שפות ההקלדה</string>
+    <string name="untitled_window">ללא שם</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">הגדרות</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">‏1. &lt;b>מפעילים את מקלדת הברייל&lt;/b>: מקישים על ההגדרות שלמטה. במסך הבא, מפעילים את \"%1$s\".
+    &lt;br>&lt;br>2. &lt;b>לשימוש במקלדת ברייל&lt;/b>: פותחים את המקלדת הרגילה ואז מקישים על הסמל לבחירת מקלדת %2$s (הוא נמצא בדרך כלל בפינה השמאלית התחתונה). בוחרים באפשרות \"%1$s\".
+    &lt;br>&lt;br>אם לא מוצגת האפשרות להחלפת מקלדת, מתקינים את %3$s, המקלדת של Google.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">‏כדי להשתמש במקלדת הברייל, יש לפתוח את המקלדת הרגילה ולהקיש על סמל בחירת המקלדת %1$s (הוא נמצא בדרך כלל בפינה השמאלית התחתונה). יש לבחור באפשרות \"%2$s\".
+  &lt;br>&lt;br>אם לא מוצגת האפשרות להחלפת מקלדת, יש להתקין את %3$s, המקלדת של Google.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"כבוי"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"מופעל"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"חלונית הזזה לפעולות"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"חלונית הזזה לניווט"</string>
+</resources>

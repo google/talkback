@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d nuwe kennisgewing</item>
+    <item quantity="other">%d nuwe kennisgewings</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Gaan na tuisskerm"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Gaan op"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Nog opsies"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Klaar"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Sien alles"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Kies \'n program"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"AF"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"AAN"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Funksie+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"spasiebalk"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Simbool+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Kieslys+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Soek …"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Vee navraag uit"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Soektognavraag"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Soek"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Dien navraag in"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Stemsoektog"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Deel met"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Deel met <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Vou in"</string>
+    <string name="bottomsheet_action_expand_halfway">Vou halfpad uit</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Karakters ingevoer: %1$d van %2$d</string>
+    <string name="character_counter_overflowed_content_description">Karakterlimiet oorskry %1$d van %2$d</string>
+    <string name="clear_text_end_icon_content_description">Vee teks uit</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktiveer</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s sal nie werk nie tensy jy Google Play Dienste aktiveer.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktiveer Google Play Dienste</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installeer</string>
+    <string name="common_google_play_services_install_text">%1$s sal nie sonder Google Play Dienste werk nie, wat nie op jou toestel is nie.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Kry Google Play Dienste</string>
+    <string name="common_google_play_services_notification_channel_name">Beskikbaarheid van Google Play Dienste</string>
+    <string name="common_google_play_services_notification_ticker">Google Play Services-fout</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ondervind probleme met Google Play Dienste. Probeer asseblief weer.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s sal nie werk sonder Google Play Dienste nie, wat nie deur jou toestel gesteun word nie.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Dateer op</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s sal nie werk nie tensy jy Google Play Dienste opdateer.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Dateer Google Play Dienste op</string>
+    <string name="common_google_play_services_updating_text">%1$s sal nie sonder Google Play Dienste werk nie, wat tans opdateer.</string>
+    <string name="common_google_play_services_wear_update_text">Nuwe weergawe van Google Play Dienste is nodig. Dit sal binnekort self opdateer.</string>
+    <string name="common_open_on_phone">Maak oop op foon</string>
+    <string name="common_signin_button_text">Meld aan</string>
+    <string name="common_signin_button_text_long">Meld aan met Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Mislukking"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Op jou foon oopgemaak"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Sukses"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopieer"</string>
+    <string name="error_icon_content_description">Fout</string>
+    <string name="exit_scrim">Verlaat</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Gevorderd"</string>
+    <string name="exposed_dropdown_menu_content_description">Wys aftrekkieslys</string>
+    <string name="function_off">Gesproke terugvoer is af</string>
+    <string name="function_on">Gesproke terugvoer is aan</string>
+    <string name="granularity_character">Karakters</string>
+    <string name="granularity_default">Verstek</string>
+    <string name="granularity_line">Reëls</string>
+    <string name="granularity_native_control">Kontroles</string>
+    <string name="granularity_native_heading">Opskrifte</string>
+    <string name="granularity_native_link">Skakels</string>
+    <string name="granularity_paragraph">Paragrawe</string>
+    <string name="granularity_pseudo_web_special_content">Spesiale inhoud</string>
+    <string name="granularity_web_control">Kontroles</string>
+    <string name="granularity_web_heading">Opskrifte</string>
+    <string name="granularity_web_landmark">Landmerke</string>
+    <string name="granularity_web_link">Skakels</string>
+    <string name="granularity_web_list">Lyste</string>
+    <string name="granularity_window">Vensters</string>
+    <string name="granularity_word">Woorde</string>
+    <string name="hide_keyboard_window">sleutelbord is versteek</string>
+    <string name="icon_content_description">Dialoogikoon</string>
+    <string name="item_view_role_description">Oortjie</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Druk sleutelkombinasie saam met die %1$s-wysigersleutel om \'n nuwe kortpad te stel.</string>
+    <string name="keycombo_assign_dialog_instruction">Druk sleutelkombinasie om \'n nuwe kortpad te stel. Dit moet minstens ALT- of Control-sleutel bevat.</string>
+    <string name="keycombo_key_arrow_down">Pyltjie af</string>
+    <string name="keycombo_key_arrow_left">Pyltjie links</string>
+    <string name="keycombo_key_arrow_right">Pyltjie regs</string>
+    <string name="keycombo_key_arrow_up">Pyltjie op</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Soek</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Nie toegewys nie</string>
+    <string name="material_clock_toggle_content_description">Kies vm. of nm.</string>
+    <string name="material_hour_selection">Kies uur</string>
+    <string name="material_hour_suffix">%1$s-uur</string>
+    <string name="material_minute_selection">Kies minute</string>
+    <string name="material_minute_suffix">%1$s minute</string>
+    <string name="material_timepicker_am">VM.</string>
+    <string name="material_timepicker_clock_mode_description">Skakel oor na horlosiemodus vir die tydinvoer.</string>
+    <string name="material_timepicker_hour">Uur</string>
+    <string name="material_timepicker_minute">Minuut</string>
+    <string name="material_timepicker_pm">NM.</string>
+    <string name="material_timepicker_select_time">Kies tyd</string>
+    <string name="material_timepicker_text_input_mode_description">Skakel oor na teksmodus vir die tydinvoer.</string>
+    <string name="mtrl_badge_numberless_content_description">Nuwe kennisgewing</string>
+    <string name="mtrl_chip_close_icon_content_description">Verwyder %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Meer as %1$d nuwe kennisgewings</string>
+    <string name="mtrl_picker_a11y_next_month">Verander na volgende maand</string>
+    <string name="mtrl_picker_a11y_prev_month">Verander na vorige maand</string>
+    <string name="mtrl_picker_announce_current_selection">Huidige keuse: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Kies datum</string>
+    <string name="mtrl_picker_date_header_unselected">Gekose datum</string>
+    <string name="mtrl_picker_day_of_week_column_header">Kolom van dae: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Ongeldige formaat.</string>
+    <string name="mtrl_picker_invalid_format_example">Voorbeeld: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Gebruik: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Ongeldige reeks.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Gaan na jaar %1$s</string>
+    <string name="mtrl_picker_out_of_range">Buite reeks: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Begindatum – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Einddatum</string>
+    <string name="mtrl_picker_range_header_selected">%1$s-%2$s</string>
+    <string name="mtrl_picker_range_header_title">Kies datumreeks</string>
+    <string name="mtrl_picker_range_header_unselected">Begindatum – Einddatum</string>
+    <string name="mtrl_picker_save">Stoor</string>
+    <string name="mtrl_picker_text_input_date_hint">Datum</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Einddatum</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Begindatum</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">j</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Skakel oor na kalenderinvoermodus</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Tik om oor te skakel na die kies van \'n dag</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Skakel oor na teksinvoermodus</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Tik om oor te skakel na die kies van \'n jaar</string>
+    <string msgid="478774118347071097" name="not_set">"Nie gestel nie"</string>
+    <string name="password_toggle_content_description">Wys wagwoord</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" is na knipbord gekopieer."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Soek"</string>
+    <string name="show_keyboard_window">Wys tans %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Amper gelyk aan</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Kleiner-as-teken</string>
+    <string name="symbol_angle_bracket_right">Groter-as-teken</string>
+    <string name="symbol_apostrophe">Afkappingsteken</string>
+    <string name="symbol_approximately_equals">Naastenby gelyk aan</string>
+    <string name="symbol_asterisk">Asterisk</string>
+    <string name="symbol_at_sign">By</string>
+    <string name="symbol_backslash">Agtertoe-skuinsstreep</string>
+    <string name="symbol_beamed_sixteenth_note">Verbinde sestiende note</string>
+    <string name="symbol_black_circle">Swart kring</string>
+    <string name="symbol_black_heart">Swart hart</string>
+    <string name="symbol_black_smallsquare">Klein swart vierkant</string>
+    <string name="symbol_black_square">Swart blokkie</string>
+    <string name="symbol_black_star">Swart ster</string>
+    <string name="symbol_black_suit_of_diamonds">Swart diamant</string>
+    <string name="symbol_black_triangle_pointing_down">Swart driehoek wat af wys</string>
+    <string name="symbol_black_triangle_pointing_up">Swart driehoek wat op wys</string>
+    <string name="symbol_broken_bar">Gebroke balk</string>
+    <string name="symbol_bullet">Kolpunt</string>
+    <string name="symbol_bullseye">Kol</string>
+    <string name="symbol_caret">Kappie</string>
+    <string name="symbol_celsius_degree">Celsiusgraad</string>
+    <string name="symbol_cent">Sentteken</string>
+    <string name="symbol_circle_left_half_black">Kring met linkerhelfte swart</string>
+    <string name="symbol_circle_right_half_black">Kring met regterhelfte swart</string>
+    <string name="symbol_colon">Dubbelpunt</string>
+    <string name="symbol_comma">Komma</string>
+    <string name="symbol_copyright">Kopiereg</string>
+    <string name="symbol_curly_bracket_left">Begin-krulhakie</string>
+    <string name="symbol_curly_bracket_right">Eind-krulhakie</string>
+    <string name="symbol_currency_sign">Teken van geldeenheid</string>
+    <string name="symbol_degree">Grade-teken</string>
+    <string name="symbol_division">Delingsteken</string>
+    <string name="symbol_dollar_sign">Dollar-teken</string>
+    <string name="symbol_downwards_arrow">Afwaartse pyl</string>
+    <string name="symbol_eighth_note">Agstenoot</string>
+    <string name="symbol_ellipsis">Ellips</string>
+    <string name="symbol_em_dash">Em-strepie</string>
+    <string name="symbol_en_dash">En-strepie</string>
+    <string name="symbol_equal">Gelyk-aan-teken</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Uitroepteken</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheitgraad</string>
+    <string name="symbol_female">Vroulike simbool</string>
+    <string name="symbol_full_width_ampersand">Volbreedteampersand</string>
+    <string name="symbol_full_width_asterisk">Volbreedteasterisk</string>
+    <string name="symbol_full_width_circumflex">Volbreedtekappie</string>
+    <string name="symbol_full_width_colon">Volbreedtedubbelpunt</string>
+    <string name="symbol_full_width_comma">Volbreedtekomma</string>
+    <string name="symbol_full_width_exclamation_mark">Volbreedte-uitroepteken</string>
+    <string name="symbol_full_width_greater_than_sign">Volbreedte-groter-as-teken</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideografiese punt</string>
+    <string name="symbol_full_width_left_curly_bracket">Volbreedtebeginkrulhakie</string>
+    <string name="symbol_full_width_left_parenthesis">Volbreedtebeginhakie</string>
+    <string name="symbol_full_width_less_than_sign">Volbreedte-kleiner-as-teken</string>
+    <string name="symbol_full_width_question_mark">Volbreedtevraagteken</string>
+    <string name="symbol_full_width_right_curly_bracket">Volbreedte-eindkrulhakie</string>
+    <string name="symbol_full_width_right_parenthesis">Volbreedte-eindhakie</string>
+    <string name="symbol_full_width_semicolon">Volbreedtekommapunt</string>
+    <string name="symbol_full_width_tilde">Volbreedtetilde</string>
+    <string name="symbol_full_width_underscore">Volbreedteonderstreep</string>
+    <string name="symbol_grave_accent">Gravis</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Katakana-halfbreedtemiddelkol</string>
+    <string name="symbol_hyphen_minus">Strepie</string>
+    <string name="symbol_ideographic_comma">Ideografiese komma</string>
+    <string name="symbol_integral">Integraal</string>
+    <string name="symbol_inverted_exclamation_mark">Onderstebo uitroepteken</string>
+    <string name="symbol_inverted_question_mark">Onderstebo vraagteken</string>
+    <string name="symbol_left_angle_bracket">Dubbele beginhoekhakie</string>
+    <string name="symbol_left_black_lenticular_bracket">Swart linkerlenshakie</string>
+    <string name="symbol_left_corner_bracket">Linkerhoekhakie</string>
+    <string name="symbol_left_double_quotation_mark">Dubbele beginaanhalingsteken</string>
+    <string name="symbol_left_single_quotation_mark">Beginenkelaanhalingsteken</string>
+    <string name="symbol_leftwards_arrow">Pyltjie na links</string>
+    <string name="symbol_liter">Liter</string>
+    <string name="symbol_low_double_quote">Onderste dubbel-aanhalingsteken</string>
+    <string name="symbol_male">Manlike simbool</string>
+    <string name="symbol_mathematical_left_angle_bracket">Wiskundige linkerhoekhakie</string>
+    <string name="symbol_mathematical_right_angle_bracket">Wiskundige regterhoekhakie</string>
+    <string name="symbol_micro_sign">Mikroteken</string>
+    <string name="symbol_middle_dot">Middelkol</string>
+    <string name="symbol_multiplication">Vermenigvuldigingsteken</string>
+    <string name="symbol_new_line">Nuwe reël</string>
+    <string name="symbol_not_equals">Nie gelyk aan</string>
+    <string name="symbol_not_sign">Nie-teken</string>
+    <string name="symbol_paragraph_mark">Paragraafteken</string>
+    <string name="symbol_parenthesis_left">Beginhakie</string>
+    <string name="symbol_parenthesis_right">Eindhakie</string>
+    <string name="symbol_percent">Persent</string>
+    <string name="symbol_period">Punt</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Plus-minus-teken</string>
+    <string name="symbol_postal_mark">Posmerk</string>
+    <string name="symbol_pound">Pond</string>
+    <string name="symbol_pound_sterling">Pond-geldeenheidteken</string>
+    <string name="symbol_quarter_note">Kwartnoot</string>
+    <string name="symbol_question_mark">Vraagteken</string>
+    <string name="symbol_quotation_mark">Aanhalingsteken</string>
+    <string name="symbol_reference">Verwysingmerk</string>
+    <string name="symbol_registered_trademark">Geregistreerde handelsmerk</string>
+    <string name="symbol_right_angle_bracket">Dubbele eindhoekhakie</string>
+    <string name="symbol_right_black_lenticular_bracket">Swart regterlenshakie</string>
+    <string name="symbol_right_corner_bracket">Regterhoekhakie</string>
+    <string name="symbol_right_double_quotation_mark">Dubbele eindaanhalingsteken</string>
+    <string name="symbol_right_single_quotation_mark">Eindenkelaanhalingsteken</string>
+    <string name="symbol_rightwards_arrow">Pyl na regs</string>
+    <string name="symbol_rupee">Roepee</string>
+    <string name="symbol_section_sign">Seksie-teken</string>
+    <string name="symbol_semicolon">Kommapunt</string>
+    <string name="symbol_slash">Vorentoe-skuinsstreep</string>
+    <string name="symbol_solar">Sonsimbool</string>
+    <string name="symbol_space">Spasie</string>
+    <string name="symbol_square_bracket_left">Begin-blokhakie</string>
+    <string name="symbol_square_bracket_right">Eind-blokhakie</string>
+    <string name="symbol_square_root">Vierkantswortel</string>
+    <string name="symbol_tilde">Tilde</string>
+    <string name="symbol_trademark">Handelsmerk</string>
+    <string name="symbol_underscore">Onderstreep</string>
+    <string name="symbol_upwards_arrow">Opwaartse pyltjie</string>
+    <string name="symbol_vertical_bar">Vertikale streep</string>
+    <string name="symbol_white_circle">Wit kring</string>
+    <string name="symbol_white_club_suit">Wit klawer</string>
+    <string name="symbol_white_diamond">Wit diamant</string>
+    <string name="symbol_white_down_pointing_triangle">Wit driehoek wat ondertoe wys</string>
+    <string name="symbol_white_heart">Wit hart</string>
+    <string name="symbol_white_left_pointing_index">Wit wysvinger wat links wys</string>
+    <string name="symbol_white_left_pointing_triangle">Wit driehoek wat links wys</string>
+    <string name="symbol_white_right_pointing_index">Wit wysvinger wat regs wys</string>
+    <string name="symbol_white_right_pointing_triangle">Wit driehoek wat regs wys</string>
+    <string name="symbol_white_spade_suit">Wit skoppens</string>
+    <string name="symbol_white_square">Wit blokkie</string>
+    <string name="symbol_white_star">Wit ster</string>
+    <string name="symbol_white_up_pointing_triangle">Wit driehoek wat boontoe wys</string>
+    <string name="symbol_won">Won-geldeenheidteken</string>
+    <string name="symbol_won_sign">Won-geldeenheidteken</string>
+    <string name="symbol_yen">Jen</string>
+    <string name="template_capital_letter">hoofletter %1$s</string>
+    <string name="template_current_tts_engine">Deur gebruik van %1$s</string>
+    <string name="template_overlay_window">%1$s-beeld-in-beeld</string>
+    <string name="template_password_selected">Karakters %1$d tot %2$d</string>
+    <string name="template_password_traversed">Karakter %1$d</string>
+    <string name="template_scroll_from_count">Wys tans item %1$d van %2$d.</string>
+    <string name="template_scroll_from_to_count">Wys tans items %1$d tot %2$d van %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s aan linkerkant, %2$s aan regterkant</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s aan regterkant, %2$s aan linkerkant</string>
+    <string name="template_split_screen_mode_portrait">%1$s aan bokant, %2$s aan onderkant</string>
+    <string name="template_text_copied">het gekopieer, %1$s</string>
+    <string name="template_viewpager_index_count">Bladsy %1$d van %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d van %2$d</string>
+    <string name="untitled_window">titelloos</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"AF"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"AAN"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Handelinglaai"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Navigasielaai"</string>
+</resources>

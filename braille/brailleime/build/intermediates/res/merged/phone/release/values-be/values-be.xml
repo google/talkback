@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">кропкі %s</item>
+    <item quantity="few">кропкі %s</item>
+    <item quantity="many">кропкі %s</item>
+    <item quantity="other">кропкі %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d новае апавяшчэнне</item>
+    <item quantity="few">%d новыя апавяшчэнні</item>
+    <item quantity="many">%d новых апавяшчэнняў</item>
+    <item quantity="other">%d новага апавяшчэння</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Перайсці на галоўную старонку"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Перайсці ўверх"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Дадатковыя параметры"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Гатова"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Паказаць усе"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Выберыце праграму"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ВЫКЛ."</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"УКЛ."</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"Delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"Прабел"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Меню +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Пошук…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Выдаліць запыт"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Пошукавы запыт"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Пошук"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Адправіць запыт"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Галасавы пошук"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Абагуліць праз"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Абагуліць праз праграму \"<ns1:g id="APPLICATION_NAME">%s</ns1:g>\""</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Згарнуць"</string>
+    <string name="auto_detect">Падладжвацца пад спосаб трымання прылады</string>
+    <string name="bottomsheet_action_expand_halfway">Разгарнуць напалову</string>
+    <string name="braille_ime_displayed_name">клавіятура Брайля</string>
+    <string name="braille_ime_service_name">Клавіятура Брайля TalkBack</string>
+    <string name="braille_keyboard">Клавіятура Брайля</string>
+    <string name="braille_keyboard_gestures">Жэсты клавіятуры Брайля</string>
+    <string name="braille_keyboard_strip_button">Пераключыцца на сэнсарную клавіятуру</string>
+    <string name="braille_keyboard_strip_summary">Падключаны знешні брайлеўскі дысплэй, які вы можаце выкарыстоўваць на гэтай прыладзе для ўводу тэксту.\nТаксама вы можаце пераключыцца на сэнсарную клавіятуру Брайля ці выбраць наступны спосаб уводу.</string>
+    <string name="braille_tutorial_title">Дапаможнік па клавіятуры Брайля</string>
+    <string name="bring_ime_settings_page">Іншыя клавіятуры не ўключаны. Будуць адкрыты налады клавіятуры</string>
+    <string name="calibration_fail_announcement">Не ўдалося абнавіць пазіцыю кропкі. Дакраніцеся да экрана 6 пальцамі і затрымайце іх. Потым паўтарыце спробу.</string>
+    <string name="calibration_finish_announcement">Пазіцыя кропкі абноўлена</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Пазіцыя кропкі абнаўляецца. Спачатку запішам кропкі для левай рукі. Націсніце і ўтрымлівайце на экране тры сярэднія пальцы левай рукі.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Пазіцыя кропкі абнаўляецца. Спачатку запішам кропкі для правай рукі. Націсніце і ўтрымлівайце на экране тры сярэднія пальцы правай рукі.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">Пазіцыі кропак 1, 2 і 3 абноўлены. Цяпер запішам кропкі для левай рукі. Націсніце і ўтрымлівайце на экране тры сярэднія пальцы левай рукі.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">Пазіцыі кропак 1, 2 і 3 абноўлены. Цяпер запішам кропкі для правай рукі. Націсніце і ўтрымлівайце на экране тры сярэднія пальцы правай рукі.</string>
+    <string name="capitalize_announcement">Вялікая літара</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Уведзена сімвалаў: %1$d з %2$d</string>
+    <string name="character_counter_overflowed_content_description">Ліміт сімвалаў перавышаны: %1$d з %2$d</string>
+    <string name="clear_text_end_icon_content_description">Ачысціць тэкст</string>
+    <string name="code_user_facing_name_ar">Арабская мова</string>
+    <string name="code_user_facing_name_es">Іспанская</string>
+    <string name="code_user_facing_name_fr">Французская мова</string>
+    <string name="code_user_facing_name_pl">Польская</string>
+    <string name="code_user_facing_name_ueb1">Поўная версія адзінай англійскай клавіятуры Брайля</string>
+    <string name="code_user_facing_name_ueb2">Скарочаная версія англійскай клавіятуры Брайля</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Уключыць</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s не будзе працаваць, пакуль вы не ўключыце службы Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Уключыць службы Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Усталяваць</string>
+    <string name="common_google_play_services_install_text">%1$s не будзе працаваць без службаў Google Play, якія адсутнічаюць на вашай прыладзе.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Атрымаць службы Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Даступнасць сэрвісаў Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Памылка службаў Google Play</string>
+    <string name="common_google_play_services_unknown_issue">У праграмы %1$s узніклі праблемы са службамі Google Play. Паўтарыце спробу.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s не будзе працаваць без службаў Google Play, якія не падтрымліваюцца вашай прыладай.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Абнавіць</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s не будзе працаваць, пакуль вы не абновіце службы Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Абнаўленне службаў Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s не будзе працаваць без службаў Google Play, якія ў цяперашні час абнаўляюцца.</string>
+    <string name="common_google_play_services_wear_update_text">Патрабуецца новая версія служб Google Play. Яна абновіцца аўтаматычна ў бліжэйшы час.</string>
+    <string name="common_open_on_phone">Адкрыць на тэлефоне</string>
+    <string name="common_signin_button_text">Увайсцi</string>
+    <string name="common_signin_button_text_long">Увайсці праз Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Памылка"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Адкрыта на тэлефоне"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Выканана"</string>
+    <string name="context_menu_input_language_selection">Пераключыцца на наступную мову: %s</string>
+    <string name="context_menu_input_language_selection_summary">Цяпер выкарыстоўваецца: %s</string>
+    <string name="context_menu_layout_selection">Раскладка</string>
+    <string name="context_menu_see_all_gestures_selection">Праглядзець усе жэсты</string>
+    <string name="context_menu_settings_selection">Налады</string>
+    <string name="context_menu_title">Параметры клавіятуры Брайля</string>
+    <string name="context_menu_tutorial_finish">Завяршыць навучанне</string>
+    <string name="context_menu_tutorial_selection">Адкрыць дапаможнік</string>
+    <string name="continue_tutorial_announcement">Працягнем навучанне. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Капіраваць"</string>
+    <string name="done">Гатова</string>
+    <string name="dont_show_again">Больш не паказваць</string>
+    <string name="error_icon_content_description">Памылка</string>
+    <string name="exit_scrim">Выйсці</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Пашыраныя налады"</string>
+    <string name="exposed_dropdown_menu_content_description">Паказаць выпадное меню</string>
+    <string name="finish_tutorial_announcement">Паказваецца клавіятура Брайля. Адвярніце экран тэлефона ад сябе. Павярніце тэлефон у гарызантальнае становішча, трымаючы яго ў альбомнай арыентацыі. Пасля пачніце набіраць тэкст.</string>
+    <string name="function_off">Галасавая зваротная сувязь выключана</string>
+    <string name="function_on">Галасавая зваротная сувязь уключана</string>
+    <string name="gesture_add_space">Каб дадаць <b>прабел</b>, правядзіце пальцам управа</string>
+    <string name="gesture_delete">Каб <b>выдаліць</b>, правядзіце пальцам улева</string>
+    <string name="gesture_delete_word">Каб <b>выдаліць слова</b>, правядзіце двума пальцамі ўлева</string>
+    <string name="gesture_hide_keyboard">Каб <b>схаваць клавіятуру</b>, правядзіце па экране двума пальцамі ўніз</string>
+    <string name="gesture_move_cursor_backward">Каб <b>перамясціць курсор назад</b>, правядзіце па экране ўверх</string>
+    <string name="gesture_move_cursor_forward">Каб <b>перамясціць курсор уперад</b>, правядзіце па экране ўніз</string>
+    <string name="gesture_new_line">Каб дадаць <b>новы радок</b>, правядзіце двума пальцамі ўправа</string>
+    <string name="gesture_next_keyboard">Каб перайсці да <b>наступнай клавіятуры</b>, правядзіце трыма пальцамі ўніз</string>
+    <string name="gesture_open_context_menu">Каб адкрыць <b>даведку і іншыя параметры</b>, правядзіце трыма пальцамі ўверх</string>
+    <string name="gesture_submit_text">Каб <b>адправіць тэкст</b>, правядзіце двума пальцамі ўверх</string>
+    <string name="granularity_character">Сімвалы</string>
+    <string name="granularity_default">Стандартная</string>
+    <string name="granularity_line">Радкі</string>
+    <string name="granularity_native_control">Кіраванне</string>
+    <string name="granularity_native_heading">Загалоўкі</string>
+    <string name="granularity_native_link">Спасылкі</string>
+    <string name="granularity_paragraph">Абзацы</string>
+    <string name="granularity_pseudo_web_special_content">Спецыяльнае змесцiва</string>
+    <string name="granularity_web_control">Элементы кіравання</string>
+    <string name="granularity_web_heading">Загалоўкі</string>
+    <string name="granularity_web_landmark">Арыенціры</string>
+    <string name="granularity_web_link">Спасылкі</string>
+    <string name="granularity_web_list">Спісы</string>
+    <string name="granularity_window">Вокны</string>
+    <string name="granularity_word">Словы</string>
+    <string name="hide_keyboard_window">клавіятура схавана</string>
+    <string name="hold_six_fingers_announcement">%s\nПакладзіце прыладу на стол. Потым дакраніцеся да экрана трыма сярэднімі пальцамі абедзвюх рук і ўтрымлівайце іх у пазіцыі, найбольш камфортнай для ўводу тэксту.</string>
+    <string name="hold_six_fingers_description">На клавіятуры Брайля вы не зможаце выкарыстоўваць звычайныя жэсты TalkBack.\n\nКаб пачаць, наладзьце для ўводу сімвалаў пазіцыю шасці кропак шрыфту Брайля.</string>
+    <string name="hold_six_fingers_inactive_announcement">Пакладзіце прыладу на стол. Потым дакраніцеся да экрана трыма сярэднімі пальцамі абедзвюх рук і ўтрымлівайце іх у пазіцыі, найбольш камфортнай для ўводу тэксту.</string>
+    <string name="how_to_use_braille_keyboard">Як выкарыстоўваць клавіятуру Брайля</string>
+    <string name="icon_content_description">Значок дыялогавага акна</string>
+    <string name="input_view_caption">Клавіятура Брайля TalkBack. Даведку можна атрымаць па спасылцы g.co/help/braille</string>
+    <string name="instruction_swipe_down">Каб перамясціць курсор уперад, правядзіце па экране ўніз</string>
+    <string name="instruction_swipe_down_2_fingers">Каб схаваць клавіятуру, правядзіце па экране двума пальцамі ўніз</string>
+    <string name="instruction_swipe_down_3_fingers">Каб пераключыцца на іншую клавіятуру, правядзіце па экране трыма пальцамі ўніз</string>
+    <string name="instruction_swipe_left">Каб выдаліць літару, правядзіце пальцам улева</string>
+    <string name="instruction_swipe_right">Каб дадаць прабел, правядзіце пальцам управа</string>
+    <string name="instruction_swipe_up">Каб перамясціць курсор назад, правядзіце па экране ўверх</string>
+    <string name="instruction_swipe_up_3_fingers">Каб завяршыць навучанне, правядзіце па экране трыма пальцамі ўверх</string>
+    <string name="instruction_type_letter_a">Націсніце левым указальным пальцам кропку 1, каб увесці літару \"А\"</string>
+    <string name="instruction_type_letter_bcd">Далей паспрабуйце ўвесці літары Б, В і Г</string>
+    <string name="item_view_role_description">Укладка</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Каб задаць новае спалучэнне клавіш, націсніце службовую клавішу %1$s у камбінацыі з патрэбнай клавішай.</string>
+    <string name="keycombo_assign_dialog_instruction">Націсніце спалучэнне клавіш, каб задаць новы шлях хуткага доступу. Адна з клавіш у спалучэнні павінна быць ALT або Ctrl.</string>
+    <string name="keycombo_key_arrow_down">Стрэлка ўніз</string>
+    <string name="keycombo_key_arrow_left">Стрэлка ўлева</string>
+    <string name="keycombo_key_arrow_right">Стрэлка ўправа</string>
+    <string name="keycombo_key_arrow_up">Стрэлка ўверх</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Пошук</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Не прызначана</string>
+    <string name="leave_keyboard">Закрыць клавіятуру Брайля</string>
+    <string name="material_clock_toggle_content_description">Выберыце AM (да паўдня) або PM (пасля паўдня)</string>
+    <string name="material_hour_selection">Выберыце гадзіну</string>
+    <string name="material_hour_suffix">%1$s гадз</string>
+    <string name="material_minute_selection">Выберыце хвіліны</string>
+    <string name="material_minute_suffix">%1$s хв</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Пераключыцца на рэжым гадзінніка пры ўводзе часу.</string>
+    <string name="material_timepicker_hour">Гадзіна</string>
+    <string name="material_timepicker_minute">Хвіліна</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Выберыце час</string>
+    <string name="material_timepicker_text_input_mode_description">Пераключыцца на рэжым тэксту пры ўводзе часу.</string>
+    <string name="mtrl_badge_numberless_content_description">Новае апавяшчэнне</string>
+    <string name="mtrl_chip_close_icon_content_description">Выдаліць %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Колькасць новых апавяшчэнняў перавысіла %1$d</string>
+    <string name="mtrl_picker_a11y_next_month">Перайсці да наступнага месяца</string>
+    <string name="mtrl_picker_a11y_prev_month">Перайсці да папярэдняга месяца</string>
+    <string name="mtrl_picker_announce_current_selection">Бягучае вылучэнне: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Выберыце дату</string>
+    <string name="mtrl_picker_date_header_unselected">Выбраная дата</string>
+    <string name="mtrl_picker_day_of_week_column_header">Слупок дзён: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Няправільны фармат.</string>
+    <string name="mtrl_picker_invalid_format_example">Прыклад: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Неабходны фармат: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Няправільны дыяпазон.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Перайсці ў %1$s год</string>
+    <string name="mtrl_picker_out_of_range">Па-за межамі дыяпазону: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Дата пачатку – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – дата заканчэння</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Выберыце дыяпазон дат</string>
+    <string name="mtrl_picker_range_header_unselected">Дата пачатку – дата заканчэння</string>
+    <string name="mtrl_picker_save">Захаваць</string>
+    <string name="mtrl_picker_text_input_date_hint">Дата</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Дата заканчэння</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Дата пачатку</string>
+    <string name="mtrl_picker_text_input_day_abbr">д</string>
+    <string name="mtrl_picker_text_input_month_abbr">м</string>
+    <string name="mtrl_picker_text_input_year_abbr">г</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Пераключыцца ў рэжым уводу \"Каляндар\"</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Дакраніцеся, каб пераключыцца на выбар дня</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Пераключыцца ў рэжым уводу \"Тэкст\"</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Дакраніцеся, каб пераключыцца на выбар года</string>
+    <string name="multiple_languages_braille_ime_displayed_name">клавіятура Брайля, %s</string>
+    <string name="next_keyboard">Наступная клавіятура</string>
+    <string name="next_step">Далей</string>
+    <string name="not_enough_touch_points_dialog_message">На вашай прыладзе падтрымліваецца недастатковая колькасць месцаў дотыку. Па дадатковую інфармацыю звярніцеся да вытворцы прылады.</string>
+    <string name="not_enough_touch_points_dialog_title">Ваша прылада не падтрымлівае клавіятуру Брайля</string>
+    <string msgid="478774118347071097" name="not_set">"Не зададзена"</string>
+    <string name="number_announcement">Нумар</string>
+    <string name="open_context_menu_announcement">Меню параметраў адкрыта. Зноў павярніце тэлефон экранам да сябе і трымайце яго як звычайна. Цяпер вы можаце выкарыстоўваць для навігацыі звычайныя жэсты TalkBack. Прагартайце ўправа, каб убачыць больш параметраў</string>
+    <string name="password_toggle_content_description">Паказаць пароль</string>
+    <string name="perform_action_next">Далей</string>
+    <string name="perform_action_submitting">Тэкст адпраўляецца</string>
+    <string name="perform_add_new_line_announcement">Дададзены новы радок</string>
+    <string name="perform_add_space_announcement">Прабел</string>
+    <string name="perform_delete_letter_announcement">Літара выдалена</string>
+    <string name="perform_delete_word_announcement">Слова выдалена</string>
+    <string name="perform_hide_keyboard_announcement">Схаваць клавіятуру</string>
+    <string name="perform_submit_text_announcement">Адправіць тэкст</string>
+    <string name="perform_switch_keyboard_announcement">Змяніць клавіятуру</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\": скапіравана ў буфер абмену."</string>
+    <string name="preferred_language_title">Прыярытэтная мова</string>
+    <string name="read_out_deleted">Выдалена: %s</string>
+    <string name="remaining_calibration_finish_announcement">Палажэнні ўсіх кропак абноўлены</string>
+    <string name="reminder_announcement">Правядзіце трыма пальцамі ўверх, каб разгарнуць іншыя параметры</string>
+    <string name="result_swipe_down">КУРСОР ПЕРАМЕШЧАНЫ ЎПЕРАД</string>
+    <string name="result_swipe_down_2_fingers">СХАВАЦЬ КЛАВІЯТУРУ</string>
+    <string name="result_swipe_down_3_fingers">НАСТУПНАЯ КЛАВІЯТУРА</string>
+    <string name="result_swipe_left">ВЫДАЛІЦЬ</string>
+    <string name="result_swipe_right">ПРАБЕЛ</string>
+    <string name="result_swipe_up">КУРСОР ПЕРАМЕШЧАНЫ НАЗАД</string>
+    <string name="rotate_orientation_announcement">Вы больш не зможаце выкарыстоўваць звычайныя жэсты TalkBack. Функцыя TalkBack недаступная падчас карыстання клавіятурай Брайля.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">Ваш тэлефон знаходзіцца ў вертыкальным становішчы. Каб працягнуць, павярніце яго гарызантальна, трохі нахіліўшы ўніз доўгую грань. Потым павярніце экран ад сябе. Калі вы будзеце гатовыя, двойчы націсніце на экран для працягу.</string>
+    <string name="rotate_orientation_description_1">Вы больш не зможаце выкарыстоўваць звычайныя жэсты TalkBack. Функцыя TalkBack недаступная падчас карыстання клавіятурай Брайля.</string>
+    <string name="rotate_orientation_description_2">Каб пачаць, трымайце тэлефон экранам ад сябе.</string>
+    <string name="rotate_orientation_inactive_announcement">Спачатку павярніце тэлефон экранам ад сябе.\n\nПотым павярніце тэлефон у гарызантальнае становішча, трымаючы яго ў альбомнай арыентацыі. Абхапіце тэлефон рукамі за кароткія грані. У вашай правай руцэ павінна аказацца грань з портам USB. Утрымліваючы тэлефон мезенцам і вялікім пальцам, перавядзіце тры сярэднія пальцы на экран.\n\nКалі вы будзеце гатовыя, двойчы націсніце на экран для працягу.\n\nКаб закрыць клавіятуру Брайля, правядзіце па экране трыма пальцамі ўніз. Гэты жэст верне вас да першапачатковай клавіятуры.</string>
+    <string name="screen_away">Рэжым \"Экран ад сябе\"</string>
+    <string name="screen_away_detail">Трымайце прыладу з адвернутым ад сябе экранам (рэжым \"Экран ад сябе\")</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Пошук"</string>
+    <string name="set_up_braille_keyboard">Наладзіць клавіятуру Брайля</string>
+    <string name="show_keyboard_window">Паказ акна \"%1$s\"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Кожная націснутая кропка, нават калі яе адпусціць перад націскам іншых кропак, – гэта частка ўводу</string>
+    <string name="summary_pref_reverse_dots">Замяніць палажэнне кропак, напрыклад памяняць месцамі кропкі 1 і 4</string>
+    <string name="swipe_down_2_fingers_announcement">Каб схаваць клавіятуру, правядзіце па экране двума пальцамі ўніз. Паспрабуйце.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Схаваць клавіятуру. Звычайна гэта каманда хавае клавіятуру, але зараз клавіятура Брайля застанецца адкрытай, таму што вы праходзіце навучанне.</string>
+    <string name="swipe_down_3_fingers_announcement">Каб пераключыцца на іншую клавіятуру, правядзіце па экране трыма пальцамі ўніз. Паспрабуйце.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Наступная клавіятура. Звычайна гэта каманда ўключае наступную клавіятуру, але зараз застанецца адкрытай клавіятура Брайля, таму што вы праходзіце навучанне.</string>
+    <string name="swipe_down_announcement">Каб перамясціць курсор уперад, правядзіце па экране ўніз. Паспрабуйце.</string>
+    <string name="swipe_left_action_result_announcement">літара \"д\" выдалена.</string>
+    <string name="swipe_left_announcement">Каб выдаліць літару, правядзіце пальцам улева. Паспрабуйце.</string>
+    <string name="swipe_right_announcement">Каб дадаць прабел, правядзіце пальцам управа. Паспрабуйце.</string>
+    <string name="swipe_up_3_fingers_announcement">Вы можаце таксама ўводзіць тэкст у настольным рэжыме, паклаўшы тэлефон на стол. Каб завяршыць навучанне, правядзіце па экране трыма пальцамі ўверх і знайдзіце параметр \"Завяршыць навучанне\"</string>
+    <string name="swipe_up_announcement">Каб перамясціць курсор назад, правядзіце па экране ўверх. Паспрабуйце.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Каб змяніць мову падчас набору тэксту на клавіятуры Брайля, правядзіце трыма пальцамі ўверх. Потым выберыце \"Пераключыцца на наступную мову\".</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Хутка змяняйце мову падчас уводу тэксту</string>
+    <string name="switch_to_language_announcement">Пераключана на: %s</string>
+    <string name="switch_to_screen_away_announcement">Рэжым \"Экран ад сябе\"</string>
+    <string name="switch_to_tabletop_announcement">Настольны рэжым. Пакладзіце прыладу так, каб порт зарадкі аказаўся злева. Каб абнавіць пазіцыю кропкі, утрымлівайце 6 пальцаў націснутымі.</string>
+    <string name="symbol_almost_equals">Амаль супадае з наступным:</string>
+    <string name="symbol_ampersand">Амперсанд</string>
+    <string name="symbol_angle_bracket_left">Знак \"менш за\"</string>
+    <string name="symbol_angle_bracket_right">Знак \"больш за\"</string>
+    <string name="symbol_apostrophe">Апостраф</string>
+    <string name="symbol_approximately_equals">Прыкладна роўна</string>
+    <string name="symbol_asterisk">Зорачка</string>
+    <string name="symbol_at_sign">Сабачка</string>
+    <string name="symbol_backslash">Зваротная касая рыса</string>
+    <string name="symbol_beamed_sixteenth_note">Згрупаваныя шаснаццатыя ноты</string>
+    <string name="symbol_black_circle">Чорны круг</string>
+    <string name="symbol_black_heart">Чорнае сэрца</string>
+    <string name="symbol_black_smallsquare">Маленькі чорны квадрат</string>
+    <string name="symbol_black_square">Чорны квадрат</string>
+    <string name="symbol_black_star">Чорная зорка</string>
+    <string name="symbol_black_suit_of_diamonds">Чорны алмаз</string>
+    <string name="symbol_black_triangle_pointing_down">Чорны трохвугольнік з вяршыняй уніз</string>
+    <string name="symbol_black_triangle_pointing_up">Чорны трохвугольнік з вяршыняй уверх</string>
+    <string name="symbol_broken_bar">Перарывістая рыса</string>
+    <string name="symbol_bullet">Пункт маркіраванага спіса</string>
+    <string name="symbol_bullseye">Аператар круг у крузе</string>
+    <string name="symbol_caret">Цыркумфлекс</string>
+    <string name="symbol_celsius_degree">Градус Цэльсія</string>
+    <string name="symbol_cent">Знак цэнта</string>
+    <string name="symbol_circle_left_half_black">Круг з чорнай левай паловай</string>
+    <string name="symbol_circle_right_half_black">Круг з чорнай правай паловай</string>
+    <string name="symbol_colon">Двукроп\'е</string>
+    <string name="symbol_comma">Коска</string>
+    <string name="symbol_copyright">Аўтарскія правы</string>
+    <string name="symbol_curly_bracket_left">Левая фігурная дужка</string>
+    <string name="symbol_curly_bracket_right">Правая фігурная дужка</string>
+    <string name="symbol_currency_sign">Знак валюты</string>
+    <string name="symbol_degree">Знак градуса</string>
+    <string name="symbol_division">Знак дзялення</string>
+    <string name="symbol_dollar_sign">Знак долара</string>
+    <string name="symbol_downwards_arrow">Стрэлка ўніз</string>
+    <string name="symbol_eighth_note">Восьмая нота</string>
+    <string name="symbol_ellipsis">Шматкроп\'е</string>
+    <string name="symbol_em_dash">Доўгі працяжнік</string>
+    <string name="symbol_en_dash">Працяжнік</string>
+    <string name="symbol_equal">Знак роўнасці</string>
+    <string name="symbol_euro">Еўра</string>
+    <string name="symbol_exclamation_mark">Клічнік</string>
+    <string name="symbol_fahrenheit_degree">Градус Фарэнгейта</string>
+    <string name="symbol_female">Жаночы знак</string>
+    <string name="symbol_full_width_ampersand">Амперсанд у поўную шырыню</string>
+    <string name="symbol_full_width_asterisk">Зорачка ў поўную шырыню</string>
+    <string name="symbol_full_width_circumflex">Цыркумфлекс у поўную шырыню</string>
+    <string name="symbol_full_width_colon">Двукоссе ў поўную шырыню</string>
+    <string name="symbol_full_width_comma">Коска ў поўную шырыню</string>
+    <string name="symbol_full_width_exclamation_mark">Клічнік у поўную шырыню</string>
+    <string name="symbol_full_width_greater_than_sign">Знак \"Больш чым\" у поўную шырыню</string>
+    <string name="symbol_full_width_ideographic_full_stop">Кропка для іерогліфаў</string>
+    <string name="symbol_full_width_left_curly_bracket">Левая фігурная дужка ў поўную шырыню</string>
+    <string name="symbol_full_width_left_parenthesis">Левая круглая дужка ў поўную шырыню</string>
+    <string name="symbol_full_width_less_than_sign">Знак \"Менш чым\" у поўную шырыню</string>
+    <string name="symbol_full_width_question_mark">Пытальнік у поўную шырыню</string>
+    <string name="symbol_full_width_right_curly_bracket">Правая фігурная дужка ў поўную шырыню</string>
+    <string name="symbol_full_width_right_parenthesis">Правая круглая дужка ў поўную шырыню</string>
+    <string name="symbol_full_width_semicolon">Кропка з коскай у поўную шырыню</string>
+    <string name="symbol_full_width_tilde">Тыльда ў поўную шырыню</string>
+    <string name="symbol_full_width_underscore">Падкрэсліванне ў поўную шырыню</string>
+    <string name="symbol_grave_accent">Гравіс</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Сярэдняя кропка катаканы ў палавінную шырыню</string>
+    <string name="symbol_hyphen_minus">Злучок</string>
+    <string name="symbol_ideographic_comma">Коска для іерогліфаў</string>
+    <string name="symbol_integral">Інтэграл</string>
+    <string name="symbol_inverted_exclamation_mark">Перавернуты клічнік</string>
+    <string name="symbol_inverted_question_mark">Перавернуты пытальнік</string>
+    <string name="symbol_left_angle_bracket">Левае двукоссе \"ялінкі\"</string>
+    <string name="symbol_left_black_lenticular_bracket">Левая чорная лінзападобная дужка</string>
+    <string name="symbol_left_corner_bracket">Дужка ў выглядзе левага кута</string>
+    <string name="symbol_left_double_quotation_mark">Левае двукоссе</string>
+    <string name="symbol_left_single_quotation_mark">Левае адзінарнае двукоссе \"лапка\"</string>
+    <string name="symbol_leftwards_arrow">Стрэлка ўлева</string>
+    <string name="symbol_liter">Літр</string>
+    <string name="symbol_low_double_quote">Нізкае двукоссе</string>
+    <string name="symbol_male">Мужчынскі знак</string>
+    <string name="symbol_mathematical_left_angle_bracket">Матэматычная левая вуглавая дужка</string>
+    <string name="symbol_mathematical_right_angle_bracket">Матэматычная правая вуглавая дужка</string>
+    <string name="symbol_micro_sign">Сімвал мікра</string>
+    <string name="symbol_middle_dot">Кропка ў цэнтры</string>
+    <string name="symbol_multiplication">Знак множання</string>
+    <string name="symbol_new_line">Новы радок</string>
+    <string name="symbol_not_equals">Не супадае з наступным:</string>
+    <string name="symbol_not_sign">Знак лагічнага адмаўлення</string>
+    <string name="symbol_paragraph_mark">Знак абзаца</string>
+    <string name="symbol_parenthesis_left">Левая дужка</string>
+    <string name="symbol_parenthesis_right">Правая дужка</string>
+    <string name="symbol_percent">Працэнт</string>
+    <string name="symbol_period">Кропка</string>
+    <string name="symbol_pi">Пі</string>
+    <string name="symbol_plus_minus_sign">Знак «плюс-мінус»</string>
+    <string name="symbol_postal_mark">Паштовы знак</string>
+    <string name="symbol_pound">Фунт</string>
+    <string name="symbol_pound_sterling">Знак фунта</string>
+    <string name="symbol_quarter_note">Чацвяртная нота</string>
+    <string name="symbol_question_mark">Пытальнік</string>
+    <string name="symbol_quotation_mark">Двукоссе</string>
+    <string name="symbol_reference">Знак зноскі</string>
+    <string name="symbol_registered_trademark">Зарэгістраваны таварны знак</string>
+    <string name="symbol_right_angle_bracket">Правае двукоссе \"ялінкі\"</string>
+    <string name="symbol_right_black_lenticular_bracket">Правая чорная лінзападобная дужка</string>
+    <string name="symbol_right_corner_bracket">Дужка ў выглядзе правага кута</string>
+    <string name="symbol_right_double_quotation_mark">Правае двукоссе</string>
+    <string name="symbol_right_single_quotation_mark">Правае адзінарнае двукоссе \"лапка\"</string>
+    <string name="symbol_rightwards_arrow">Стрэлка ўправа</string>
+    <string name="symbol_rupee">Рупія</string>
+    <string name="symbol_section_sign">Значок параграфа</string>
+    <string name="symbol_semicolon">Кропка з коскай</string>
+    <string name="symbol_slash">Касая рыса</string>
+    <string name="symbol_solar">Сонца</string>
+    <string name="symbol_space">Прабел</string>
+    <string name="symbol_square_bracket_left">Левая квадратная дужка</string>
+    <string name="symbol_square_bracket_right">Правая квадратная дужка</string>
+    <string name="symbol_square_root">Квадратны корань</string>
+    <string name="symbol_tilde">Тыльда</string>
+    <string name="symbol_trademark">Таварны знак</string>
+    <string name="symbol_underscore">Знак падкрэслення</string>
+    <string name="symbol_upwards_arrow">Стрэлка ўверх</string>
+    <string name="symbol_vertical_bar">Вертыкальная лінія</string>
+    <string name="symbol_white_circle">Незафарбаваны круг</string>
+    <string name="symbol_white_club_suit">Незафарбаваны сімвал трэфаў</string>
+    <string name="symbol_white_diamond">Незафарбаваны сімвал бубнаў</string>
+    <string name="symbol_white_down_pointing_triangle">Незафарбаваны трохвугольнік, які паказвае ўніз</string>
+    <string name="symbol_white_heart">Незафарбаваны сімвал чырваў</string>
+    <string name="symbol_white_left_pointing_index">Незафарбаваная рука, якая паказвае ўлева</string>
+    <string name="symbol_white_left_pointing_triangle">Незафарбаваны трохвугольнік, які паказвае ўлева</string>
+    <string name="symbol_white_right_pointing_index">Незафарбаваная рука, якая паказвае ўправа</string>
+    <string name="symbol_white_right_pointing_triangle">Незафарбаваны трохвугольнік, які паказвае ўправа</string>
+    <string name="symbol_white_spade_suit">Незафарбаваны сімвал пік</string>
+    <string name="symbol_white_square">Незафарбаваны квадрат</string>
+    <string name="symbol_white_star">Незафарбаваная зорка</string>
+    <string name="symbol_white_up_pointing_triangle">Незафарбаваны трохвугольнік, які паказвае ўверх</string>
+    <string name="symbol_won">Знак воны</string>
+    <string name="symbol_won_sign">Знак воны</string>
+    <string name="symbol_yen">Іена</string>
+    <string name="tabletop">Настольны рэжым</string>
+    <string name="tabletop_detail">Пакладзіце прыладу на стол (настольны рэжым)</string>
+    <string name="talkback_off_dialog_positive_button">Уключыць у наладах спецыяльных магчымасцей</string>
+    <string name="talkback_off_dialog_title">Уключыць TalkBack для карыстання клавіятурай Брайля</string>
+    <string name="talkback_off_or_suspend_dialog_message">Калі функцыя TalkBack уключана, вы можаце націскаць на экран для ўводу сімвалаў Брайля.</string>
+    <string name="talkback_suspend_dialog_title">Узнавіць TalkBack для карыстання клавіятурай Брайля</string>
+    <string name="tap_to_continue">Каб працягнуць, двойчы націсніце ў любым месцы экрана</string>
+    <string name="template_capital_letter">вялікая літара %1$s</string>
+    <string name="template_current_tts_engine">Выкарыстоўваецца %1$s</string>
+    <string name="template_overlay_window">%1$s відарыс у відарысе</string>
+    <string name="template_password_selected">Сімвалы з %1$d да %2$d</string>
+    <string name="template_password_traversed">Сімвал %1$d</string>
+    <string name="template_scroll_from_count">Паказаны элементы: %1$d з %2$d.</string>
+    <string name="template_scroll_from_to_count">Паказаны элементы з %1$d па %2$d з %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s знаходзіцца злева, %2$s – справа</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s знаходзіцца справа, %2$s – злева</string>
+    <string name="template_split_screen_mode_portrait">%1$s знаходзіцца зверху, %2$s – знізу</string>
+    <string name="template_text_copied">скапіравана: %1$s</string>
+    <string name="template_viewpager_index_count">Старонка %1$d з %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d з %2$d</string>
+    <string name="title_pref_accumulate_presses">Уключаць усе націснутыя кропкі</string>
+    <string name="title_pref_reverse_dots">Зваротны парадак кропак</string>
+    <string name="tutorial_intro_description">З уключанай клавіятурай Брайля вы можаце ўводзіць тэкст шасцікропкавым шрыфтам, націскаючы на экран.\n\nВы выкарыстоўваеце адзіную англійскую клавіятуру Брайля. Каб змяніць мову ўводу, перайдзіце ў налады TalkBack.\n\nКаб уводзіць тэкст шрыфтам Брайля, вам давядзецца інакш трымаць і выкарыстоўваць тэлефон.</string>
+    <string name="type_letter_a_announcement">Павярніце экран ад сябе. Трымайце тэлефон абедзвюма рукамі за кароткія грані такім чынам, каб тры сярэднія пальцы кожнай рукі маглі дакранацца да экрана.\n\nВаш левы ўказальны палец павінен знаходзіцца на кропцы 1. Цяпер націсніце кропку 1, каб увесці літару \"А\".</string>
+    <string name="type_letter_a_inactive_announcement">Націсніце кропку 1 левым указальным пальцам, каб увесці літару \"А\"</string>
+    <string name="type_letter_inactive_announcement">Націсніце кропку %1$s, каб увесці літару \"%2$s\"</string>
+    <string name="typing_languages_title">Мовы набору тэксту</string>
+    <string name="untitled_window">без назвы</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Налады</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Каб уключыць клавіятуру Брайля&lt;/b>, націсніце \"Налады\" ўнізе. На наступным экране ўключыце \"%1$s\".
+    &lt;br>&lt;br>2. &lt;b>Каб карыстацца клавіятурай Брайля&lt;/b>, адкрыйце звычайную клавіятуру, потым націсніце значок \"%2$s\" (звычайна ён знаходзіцца ў правым ніжнім вугле экрана). Выберыце \"%1$s\".
+    &lt;br>&lt;br>Калі ў вас няма варыянта выбару клавіятуры, усталюйце %3$s – клавіятуру Google.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Каб карыстацца клавіятурай Брайля, адкрыйце звычайную клавіятуру, потым націсніце значок \"%1$s\" (звычайна ён знаходзіцца ў правым ніжнім вугле экрана). Выберыце \"%2$s\".
+  &lt;br>&lt;br>Калі ў вас няма варыянта выбару клавіятуры, усталюйце %3$s – клавіятуру Google.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ВЫКЛ."</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"УКЛ."</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Высоўнае меню дзеянняў"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Высоўнае меню навігацыі"</string>
+</resources>

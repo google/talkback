@@ -1,0 +1,74 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/res/merged/phone/release/values-v29/values-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/braille/brailleime/src/phone/res/values-v29/styles.xml",
+                    "from": {
+                        "startLines": "14,8,3",
+                        "startColumns": "2,2,2",
+                        "startOffsets": "586,301,99",
+                        "endLines": "17,11,6",
+                        "endColumns": "10,10,10",
+                        "endOffsets": "775,546,297"
+                    },
+                    "to": {
+                        "startLines": "8,12,16",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "438,632,882",
+                        "endLines": "11,15,19",
+                        "endColumns": "10,10,10",
+                        "endOffsets": "627,877,1079"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/build/intermediates/packaged_res/phone/release/values-v29/values-v29.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,153",
+                        "endLines": "2,7",
+                        "endColumns": "97,10",
+                        "endOffsets": "148,433"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-v29/values-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/braille/brailleime/src/phone/res/values-v29/styles.xml",
+                    "from": {
+                        "startLines": "14,8,3",
+                        "startColumns": "2,2,2",
+                        "startOffsets": "586,301,99",
+                        "endLines": "17,11,6",
+                        "endColumns": "10,10,10",
+                        "endOffsets": "775,546,297"
+                    },
+                    "to": {
+                        "startLines": "8,12,16",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "438,632,882",
+                        "endLines": "11,15,19",
+                        "endColumns": "10,10,10",
+                        "endOffsets": "627,877,1079"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/build/intermediates/packaged_res/phone/release/values-v29/values-v29.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,153",
+                        "endLines": "2,7",
+                        "endColumns": "97,10",
+                        "endOffsets": "148,433"
+                    }
+                }
+            ]
+        }
+    ]
+}

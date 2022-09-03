@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">κουκκίδα %s</item>
+    <item quantity="other">κουκκίδες %s</item>
+  </plurals>
+    <string name="auto_detect">Προσαρμογή στο κράτημα της συσκευής</string>
+    <string name="capitalize_announcement">Κεφαλαία</string>
+    <string name="code_user_facing_name_ar">Αραβικά</string>
+    <string name="code_user_facing_name_es">Ισπανικά</string>
+    <string name="code_user_facing_name_fr">Γαλλικά</string>
+    <string name="code_user_facing_name_pl">Πολωνικά</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string name="number_announcement">Αριθμός</string>
+    <string name="read_out_deleted">Διαγράφηκε το %s</string>
+    <string name="screen_away">Λειτουργία οθόνης στραμμένης προς τα έξω</string>
+    <string name="screen_away_detail">Κρατήστε τη συσκευή με την οθόνη στραμμένη προς τα έξω (λειτουργία οθόνης στραμμένης προς τα έξω).</string>
+    <string name="tabletop">Επιτραπέζια λειτουργία</string>
+    <string name="tabletop_detail">Τοποθετήστε επίπεδα τη συσκευή σας σε ένα τραπέζι (επιτραπέζια λειτουργία).</string>
+</resources>

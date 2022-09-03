@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">punkt %s</item>
+    <item quantity="other">punkter %s</item>
+  </plurals>
+    <string name="auto_detect">Tilpass til måten du holder enheten på</string>
+    <string name="capitalize_announcement">Store bokstaver</string>
+    <string name="code_user_facing_name_ar">Arabisk</string>
+    <string name="code_user_facing_name_es">Spansk</string>
+    <string name="code_user_facing_name_fr">Fransk</string>
+    <string name="code_user_facing_name_pl">Polsk</string>
+    <string name="code_user_facing_name_ueb1">Uforkortet Unified English Braille</string>
+    <string name="code_user_facing_name_ueb2">Forkortet Unified English Braille</string>
+    <string name="number_announcement">Tall</string>
+    <string name="read_out_deleted">%s er slettet</string>
+    <string name="screen_away">Skjerm vendt bort-modus</string>
+    <string name="screen_away_detail">Hold enheten med skjermen vendt bort fra deg (skjerm vendt bort-modus)</string>
+    <string name="tabletop">Skjerm vendt opp-modus</string>
+    <string name="tabletop_detail">Legg enheten flatt på et bord (skjerm vendt opp-modus)</string>
+</resources>

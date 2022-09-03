@@ -6,6 +6,10 @@
 ###   JAVA_HOME             # path to local copy of Java SDK. Should be Java 8.
 # On gLinux, use 'export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64'
 
+#QUINTIN
+#jenv local 1.8
+#./gradlew assembleDebug
+#exit 0
 
 GRADLE_DOWNLOAD_VERSION=5.4.1
 GRADLE_TRACE=false   # change to true to enable verbose logging of gradlew
@@ -47,6 +51,11 @@ echo "ndk.dir=${ANDROID_NDK}" >> local.properties
 log "cat local.properties"; cat local.properties
 log
 
+#JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
+#JAVA_HOME=/Users/quintinb/Library/Java/JavaVirtualMachines/azul-16.0.2/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+unset JAVA_HOME;
+export JAVA_HOME=$(/usr/libexec/java_home -v"1.8");
 
 if [[ -z "${JAVA_HOME}" ]]; then
   fail_with_message "JAVA_HOME environment variable is unset. It should be set to a Java 8 SDK (in order for the license acceptance to work)"
@@ -124,5 +133,7 @@ if [[ $BUILD_EXIT_CODE -eq 0 ]]; then
   log
 fi
 
+
+adb install ./build/outputs/apk/phone/debug/talkback-phone-debug.apk
 
 exit $BUILD_EXIT_CODE   ### This should be the last line in this file

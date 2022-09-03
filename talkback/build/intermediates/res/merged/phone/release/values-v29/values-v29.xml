@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="A11yAlertDialogCustomViewTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert"/>
+    <style name="A11yAlertDialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+    <item name="colorAccent">@color/a11y_colorAccent</item>
+    <item name="android:background">@color/a11y_alert_dialog_bg_color</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+    <style name="DialogStyle" parent="Theme.AppCompat.DayNight.Dialog">
+    <item name="android:windowNoTitle">true</item>
+  </style>
+    <style name="DialogTheme" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+    <style name="SettingsActionBar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <item name="android:textColorPrimary">@color/actionBarTextColorPrimary</item>
+    <item name="android:background">@color/settings_bg_color</item>
+  </style>
+    <style name="SettingsActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <item name="android:textColorPrimary">@color/settings_primary_text</item>
+    <item name="android:background">@color/settings_background</item>
+  </style>
+    <style name="SettingsTheme" parent="Theme.AppCompat.DayNight">
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="actionBarTheme">@style/SettingsActionBarTheme</item>
+  </style>
+    <style name="TalkBackSettings" parent="Theme.MaterialComponents.DayNight.Bridge">
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="actionBarTheme">@style/SettingsActionBar</item>
+    <item name="android:background">@color/settings_bg_color</item>
+  </style>
+    <style name="TalkbackBaseTheme" parent="Theme.AppCompat.DayNight">
+    <item name="selector_background_color">@color/quick_menu_overlay_background_color</item>
+    <item name="selector_background_stroke_color">@color/quick_menu_overlay_stroke_color</item>
+    <item name="selector_icon_color">@color/quick_menu_overlay_finger_swipe_icon_color</item>
+    <item name="selector_icon_stroke_color">@color/quick_menu_overlay_finger_swipe_icon_stroke_color</item>
+  </style>
+</resources>

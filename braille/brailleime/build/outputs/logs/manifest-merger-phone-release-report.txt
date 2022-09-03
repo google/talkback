@@ -1,0 +1,102 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml:2:1-4:61
+INJECTED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml:2:1-4:61
+MERGED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml:2:1-4:61
+INJECTED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:2:1-55:12
+	package
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml:4:5-58
+		INJECTED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml
+		INJECTED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml:3:5-51
+	xmlns:android
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml:2:11-69
+uses-sdk
+INJECTED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml
+MERGED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml
+MERGED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml
+INJECTED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:6:3-8:39
+	android:targetSdkVersion
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:8:7-36
+	android:minSdkVersion
+		INJECTED from /Users/quintinb/repo/talkback/braille/brailleime/src/main/AndroidManifest.xml
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:7:7-33
+		INJECTED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml
+uses-permission#android.permission.VIBRATE
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:11:3-64
+	android:name
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:11:20-61
+application
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:13:3-53:17
+	android:theme
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:14:7-49
+service#com.google.android.accessibility.brailleime.BrailleIme
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:15:5-28:15
+	android:enabled
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:18:9-32
+	android:label
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:17:9-57
+	android:exported
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:19:9-32
+	android:permission
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:21:9-66
+	android:directBootAware
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:20:9-39
+	android:name
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:16:9-78
+intent-filter#action:name:android.view.InputMethod
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:22:7-24:23
+action#android.view.InputMethod
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:23:9-59
+	android:name
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:23:17-56
+meta-data#android.view.im
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:25:7-27:49
+	android:resource
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:27:11-46
+	android:name
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:26:11-41
+activity#com.google.android.accessibility.brailleime.settings.BrailleImePreferencesActivity
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:29:5-43:16
+	android:label
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:33:9-49
+	android:launchMode
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:34:9-39
+	android:exported
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:32:9-32
+	tools:ignore
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:37:9-40
+	android:configChanges
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:31:9-55
+	android:theme
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:36:9-45
+	android:taskAffinity
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:35:9-90
+	android:name
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:30:9-106
+intent-filter#action:name:.BrailleImePreferencesActivity+category:name:android.intent.category.DEFAULT
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:39:7-42:23
+action#com.google.android.accessibility.brailleime.BrailleImePreferencesActivity
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:40:9-65
+	android:name
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:40:17-62
+category#android.intent.category.DEFAULT
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:41:9-68
+	android:name
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:41:19-65
+receiver#com.google.android.accessibility.brailleime.MyPackageReplacedReceiver
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:45:5-51:16
+	android:enabled
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:46:9-31
+	android:exported
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:47:9-32
+	android:name
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:45:15-99
+intent-filter#action:name:android.intent.action.MY_PACKAGE_REPLACED
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:48:7-50:23
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:49:9-76
+	android:name
+		ADDED from /Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:49:17-73

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="shortcut_basic_navigation">
+        <item>@string/shortcut_perform_click_action</item>
+        <item>@string/shortcut_perform_long_click_action</item>
+        <item>@string/shortcut_previous</item>
+        <item>@string/shortcut_next</item>
+        <item>@string/shortcut_first_in_screen</item>
+        <item>@string/shortcut_last_in_screen</item>
+        <item>@string/shortcut_scroll_back</item>
+        <item>@string/shortcut_scroll_forward</item>
+    </string-array>
+    <string-array name="shortcut_menu_control">
+        <item>@string/shortcut_talkback_breakout</item>
+        <item>@string/shortcut_select_previous_setting</item>
+        <item>@string/shortcut_select_next_setting</item>
+        <item>@string/shortcut_selected_setting_previous_action</item>
+        <item>@string/shortcut_selected_setting_next_action</item>
+    </string-array>
+    <string-array name="shortcut_reading_control">
+        <item>@string/shortcut_read_from_top</item>
+        <item>@string/shortcut_read_from_current</item>
+        <item>@string/shortcut_pause_or_resume_feedback</item>
+        <item>@string/shortcut_toggle_voice_feedback</item>
+        <item>@string/shortcut_show_language_options</item>
+    </string-array>
+    <string-array name="shortcut_system_actions">
+        <item>@string/shortcut_home</item>
+        <item>@string/shortcut_back</item>
+    </string-array>
+    <string-array name="shortcut_text_editing">
+        <item>@string/title_edittext_breakout_start_selection_mode</item>
+        <item>@string/title_edittext_breakout_move_to_beginning</item>
+        <item>@string/title_edittext_breakout_move_to_end</item>
+        <item>@android:string/selectAll</item>
+        <item>@android:string/copy</item>
+        <item>@android:string/cut</item>
+        <item>@android:string/paste</item>
+        <item>@string/title_copy_last_spoken_phrase</item>
+    </string-array>
+    <string-array name="shortcut_value_basic_navigation">
+        <item>@string/shortcut_value_perform_click_action</item>
+        <item>@string/shortcut_value_perform_long_click_action</item>
+        <item>@string/shortcut_value_previous</item>
+        <item>@string/shortcut_value_next</item>
+        <item>@string/shortcut_value_first_in_screen</item>
+        <item>@string/shortcut_value_last_in_screen</item>
+        <item>@string/shortcut_value_scroll_back</item>
+        <item>@string/shortcut_value_scroll_forward</item>
+    </string-array>
+    <string-array name="shortcut_value_menu_control">
+        <item>@string/shortcut_value_talkback_breakout</item>
+        <item>@string/shortcut_value_select_previous_setting</item>
+        <item>@string/shortcut_value_select_next_setting</item>
+        <item>@string/shortcut_value_selected_setting_previous_action</item>
+        <item>@string/shortcut_value_selected_setting_next_action</item>
+    </string-array>
+    <string-array name="shortcut_value_reading_control">
+        <item>@string/shortcut_value_read_from_top</item>
+        <item>@string/shortcut_value_read_from_current</item>
+        <item>@string/shortcut_value_pause_or_resume_feedback</item>
+        <item>@string/shortcut_value_toggle_voice_feedback</item>
+        <item>@string/shortcut_value_show_language_options</item>
+    </string-array>
+    <string-array name="shortcut_value_system_actions">
+        <item>@string/shortcut_value_home</item>
+        <item>@string/shortcut_value_back</item>
+    </string-array>
+    <string-array name="shortcut_value_text_editing">
+        <item>@string/shortcut_value_start_selection_mode</item>
+        <item>@string/shortcut_value_move_cursor_to_beginning</item>
+        <item>@string/shortcut_value_move_cursor_to_end</item>
+        <item>@string/shortcut_value_select_all</item>
+        <item>@string/shortcut_value_copy</item>
+        <item>@string/shortcut_value_cut</item>
+        <item>@string/shortcut_value_paste</item>
+        <item>@string/shortcut_value_copy_last_spoken_phrase</item>
+    </string-array>
+    <bool name="pref_selector_actions_default">false</bool>
+    <bool name="pref_selector_granularity_controls_default">false</bool>
+    <bool name="pref_selector_granularity_lines_default">false</bool>
+    <bool name="pref_selector_granularity_links_default">false</bool>
+    <bool name="pref_selector_granularity_paragraphs_default">false</bool>
+    <bool name="pref_selector_granularity_windows_default">false</bool>
+    <bool name="pref_selector_verbosity_default">false</bool>
+    <bool name="pref_show_context_menu_copy_last_spoken_phrase_default">false</bool>
+    <bool name="pref_show_context_menu_find_on_screen_default">false</bool>
+    <bool name="pref_show_context_menu_image_caption_default">false</bool>
+    <bool name="pref_show_context_menu_labeling_default">false</bool>
+    <bool name="pref_show_context_menu_language_default">false</bool>
+    <bool name="pref_show_context_menu_pause_feedback_default">false</bool>
+    <bool name="pref_show_context_menu_read_from_current_default">false</bool>
+    <bool name="pref_show_context_menu_read_from_top_default">true</bool>
+    <bool name="pref_show_context_menu_tts_settings_default">false</bool>
+    <bool name="pref_show_context_menu_voice_commands_default">false</bool>
+    <bool name="pref_show_navigation_menu_controls_default">false</bool>
+    <bool name="pref_show_navigation_menu_landmarks_default">false</bool>
+    <bool name="pref_show_navigation_menu_links_default">false</bool>
+    <bool name="pref_show_navigation_menu_other_web_navigation_default">false</bool>
+    <bool name="pref_show_navigation_menu_special_content_default">false</bool>
+    <bool name="pref_show_navigation_menu_window_default">false</bool>
+    <color name="a11y_alert_dialog_bg_color">@color/google_black</color>
+    <color name="a11y_colorAccent">@color/google_blue300</color>
+    <color name="actionBarTextColorPrimary">@color/google_white</color>
+    <color name="colorAccent">@color/google_blue300</color>
+    <color name="text_color">@color/google_grey200</color>
+    <dimen name="label_dialog_padding">8dp</dimen>
+    <dimen name="quick_menu_overlay_margin">8dp</dimen>
+    <dimen name="quick_menu_overlay_padding">8dp</dimen>
+    <dimen name="quick_menu_overlay_padding_bottom">6dp</dimen>
+    <dimen name="quick_menu_overlay_padding_end">8dp</dimen>
+    <dimen name="quick_menu_overlay_padding_start">8dp</dimen>
+    <dimen name="quick_menu_overlay_padding_top">6dp</dimen>
+    <dimen name="quick_menu_overlay_text_size">18sp</dimen>
+    <dimen name="training_button_height">32dp</dimen>
+    <dimen name="training_button_text_padding_bottom">10dp</dimen>
+    <dimen name="training_button_text_size">13sp</dimen>
+    <dimen name="training_heading_height">20sp</dimen>
+    <dimen name="training_heading_size">12sp</dimen>
+    <dimen name="training_padding_bottom">18dp</dimen>
+    <dimen name="training_padding_end">24dp</dimen>
+    <dimen name="training_padding_start">24dp</dimen>
+    <dimen name="training_padding_top">20dp</dimen>
+    <dimen name="training_subtext_height">20sp</dimen>
+    <dimen name="training_subtext_size">14sp</dimen>
+    <dimen name="training_text_height">16sp</dimen>
+    <dimen name="training_text_size">14sp</dimen>
+    <dimen name="training_title_height">16sp</dimen>
+    <dimen name="training_title_text_size">13sp</dimen>
+    <string name="pref_shortcut_3finger_1tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_2tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_2tap_hold_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_3tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_swipe_down_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_swipe_left_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_swipe_right_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_swipe_up_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_1tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_2tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_2tap_hold_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_3tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_down_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_left_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_right_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_up_default">@string/shortcut_value_unassigned</string>
+    <style name="A11yAlertDialogTheme" parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
+    <item name="colorAccent">@color/a11y_colorAccent</item>
+    <item name="android:background">@color/a11y_alert_dialog_bg_color</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="buttonBarPositiveButtonStyle">@style/A11yDialogButtonStyle</item>
+    <item name="buttonBarNegativeButtonStyle">@style/A11yDialogButtonStyle</item>
+    <item name="buttonBarNeutralButtonStyle">@style/A11yDialogButtonStyle</item>
+  </style>
+    <style name="A11yDialogButtonStyle" parent="TextAppearance.AppCompat.Widget.Button.Borderless.Colored">
+    <item name="android:minHeight">64dip</item>
+    <item name="android:background">@color/a11y_alert_dialog_bg_color</item>
+    <item name="android:textAppearance">?android:attr/textAppearance</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+    <style name="Base.Theme.AppCompat.Dialog" parent="Base.V7.Theme.AppCompat.Dialog">
+        <item name="android:windowIsFloating">false</item>
+    </style>
+    <style name="Base.Theme.AppCompat.Light.Dialog" parent="Base.V7.Theme.AppCompat.Light.Dialog">
+        <item name="android:windowIsFloating">false</item>
+    </style>
+    <style name="Base.ThemeOverlay.AppCompat.Dialog" parent="Base.V7.ThemeOverlay.AppCompat.Dialog">
+        <item name="android:windowIsFloating">false</item>
+    </style>
+</resources>

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">punto %s</item>
+    <item quantity="other">puntos %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d notificación nova</item>
+    <item quantity="other">%d notificacións novas</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Vai ao inicio"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Vai cara arriba"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Máis opcións"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Feito"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Ver todo"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Selecciona unha aplicación"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"DESACTIVADO"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ACTIVADO"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"eliminar"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"intro"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Función +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Maiús +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"espazo"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menú +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Busca…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Borra a consulta"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Busca a consulta"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Realiza buscas"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Envía a consulta"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Busca por voz"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Comparte contido con"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Comparte contido coa aplicación <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Contrae"</string>
+    <string name="auto_detect">Adáptase á forma en que colles o dispositivo</string>
+    <string name="bottomsheet_action_expand_halfway">Despregar ata a metade</string>
+    <string name="braille_ime_displayed_name">teclado braille</string>
+    <string name="braille_ime_service_name">Teclado braille de TalkBack</string>
+    <string name="braille_keyboard">Teclado braille</string>
+    <string name="braille_keyboard_gestures">Xestos do teclado braille</string>
+    <string name="braille_keyboard_strip_button">Cambiar ao teclado da pantalla táctil</string>
+    <string name="braille_keyboard_strip_summary">Hai conectada unha liña braille externa que podes usar para escribir texto neste dispositivo.\nTamén podes cambiar ao teclado braille da pantalla táctil ou ao seguinte método de introdución de texto.</string>
+    <string name="braille_tutorial_title">Titorial sobre o teclado braille</string>
+    <string name="bring_ime_settings_page">Non hai ningún outro teclado activado, vai á configuración do teclado</string>
+    <string name="calibration_fail_announcement">Non se puido actualizar a posición dos puntos. Mantén premida a pantalla con 6 dedos. Despois, téntao de novo.</string>
+    <string name="calibration_finish_announcement">Actualizouse a posición dos puntos</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Actualizando posición dos puntos. En primeiro lugar, vamos rexistrar os puntos da man esquerda. Mantén premida a pantalla cos dedos índice, maior e anular da man esquerda.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Actualizando posición dos puntos. Agora vamos rexistrar os puntos da man dereita. Mantén premida a pantalla cos dedos índice, maior e anular da man dereita.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">Actualizáronse as posicións dos puntos 1, 2 e 3. Agora vamos rexistrar os puntos da man esquerda. Mantén premida a pantalla cos dedos índice, maior e anular da man esquerda.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">Actualizáronse as posicións dos puntos 1, 2 e 3. Agora vamos rexistrar os puntos da man dereita. Mantén premida a pantalla cos dedos índice, maior e anular da man dereita.</string>
+    <string name="capitalize_announcement">Maiúsculas</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Introducíronse %1$d caracteres de %2$d</string>
+    <string name="character_counter_overflowed_content_description">Introducíronse %1$d caracteres, pero o límite é de %2$d</string>
+    <string name="clear_text_end_icon_content_description">Borra texto</string>
+    <string name="code_user_facing_name_ar">Árabe</string>
+    <string name="code_user_facing_name_es">Español</string>
+    <string name="code_user_facing_name_fr">Francés</string>
+    <string name="code_user_facing_name_pl">Polaco</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Activar</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s non funcionará a menos que actives os servizos de Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Activar servizos de Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instalar</string>
+    <string name="common_google_play_services_install_text">%1$s non se executará se o teu dispositivo non ten instalados os servizos de Google Play.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Descargar servizos de Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Dispoñibilidade dos servizos de Play</string>
+    <string name="common_google_play_services_notification_ticker">Erro nos servizos de Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ten problemas cos servizos de Google Play. Téntao de novo.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s non se executará sen os servizos de Google Play, que non son compatibles co teu dispositivo.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Actualizar</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s non se executará a menos que actualices os servizos de Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Actualizar os servizos de Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s non se executará sen os servizos de Google Play, que se están actualizando neste momento.</string>
+    <string name="common_google_play_services_wear_update_text">Necesítase a nova versión dos servizos de Google Play. Actualizarase en breve.</string>
+    <string name="common_open_on_phone">Abrir no teléfono</string>
+    <string name="common_signin_button_text">Iniciar sesión</string>
+    <string name="common_signin_button_text_long">Iniciar sesión con Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Produciuse un erro"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Abriuse no teléfono"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Abriuse"</string>
+    <string name="context_menu_input_language_selection">Cambiar ao seguinte idioma: %s</string>
+    <string name="context_menu_input_language_selection_summary">Estase utilizando: %s</string>
+    <string name="context_menu_layout_selection">Deseño</string>
+    <string name="context_menu_see_all_gestures_selection">Revisar todos os xestos</string>
+    <string name="context_menu_settings_selection">Configuración</string>
+    <string name="context_menu_title">Opcións do teclado braille</string>
+    <string name="context_menu_tutorial_finish">Finalizar titorial</string>
+    <string name="context_menu_tutorial_selection">Abrir titorial</string>
+    <string name="continue_tutorial_announcement">Continuemos co titorial. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Copiar"</string>
+    <string name="done">Feito</string>
+    <string name="dont_show_again">Non mostrar de novo</string>
+    <string name="error_icon_content_description">Produciuse un erro</string>
+    <string name="exit_scrim">Saír</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Configuración avanzada"</string>
+    <string name="exposed_dropdown_menu_content_description">Mostra o menú despregable</string>
+    <string name="finish_tutorial_announcement">Mostrando teclado braille. Voltea o teléfono de maneira que a pantalla quede de costas a ti. Xira o teléfono para poñelo en posición horizontal. Logo, comeza a escribir.</string>
+    <string name="function_off">Os comentarios de voz están desactivados</string>
+    <string name="function_on">Os comentarios de voz están activados</string>
+    <string name="gesture_add_space">Para engadir un <b>espazo</b>, pasa o dedo á dereita</string>
+    <string name="gesture_delete">Para <b>eliminar</b>, pasa o dedo á esquerda</string>
+    <string name="gesture_delete_word">Para <b>eliminar unha palabra</b>, pasa 2 dedos á esquerda</string>
+    <string name="gesture_hide_keyboard">Para <b>ocultar o teclado</b>, pasa 2 dedos cara abaixo</string>
+    <string name="gesture_move_cursor_backward">Para <b>mover o cursor de texto cara atrás</b>, pasa o dedo cara arriba</string>
+    <string name="gesture_move_cursor_forward">Para <b>mover o cursor de texto cara adiante</b>, pasa o dedo cara abaixo</string>
+    <string name="gesture_new_line">Para engadir unha <b>liña nova</b>, pasa 2 dedos cara á dereita</string>
+    <string name="gesture_next_keyboard">Para cambiar ao <b>seguinte teclado</b>, pasa 3 dedos cara abaixo</string>
+    <string name="gesture_open_context_menu">Para <b>obter axuda e acceder a outras opcións</b>, pasa 3 dedos cara arriba</string>
+    <string name="gesture_submit_text">Para <b>enviar texto</b>, pasa 2 dedos cara arriba</string>
+    <string name="granularity_character">Caracteres</string>
+    <string name="granularity_default">Predeterminada</string>
+    <string name="granularity_line">Liñas</string>
+    <string name="granularity_native_control">Controis</string>
+    <string name="granularity_native_heading">Títulos</string>
+    <string name="granularity_native_link">Ligazóns</string>
+    <string name="granularity_paragraph">Parágrafos</string>
+    <string name="granularity_pseudo_web_special_content">Contido especial</string>
+    <string name="granularity_web_control">Controis</string>
+    <string name="granularity_web_heading">Títulos</string>
+    <string name="granularity_web_landmark">Puntos de referencia</string>
+    <string name="granularity_web_link">Ligazóns</string>
+    <string name="granularity_web_list">Listas</string>
+    <string name="granularity_window">Ventás</string>
+    <string name="granularity_word">Palabras</string>
+    <string name="hide_keyboard_window">teclado oculto</string>
+    <string name="hold_six_fingers_announcement">%s\nPousa o dispositivo enriba dunha mesa. Logo, mantén premida a pantalla cos dedos índice, maior e anular de cada man nunha posición que che resulte cómoda para escribir.</string>
+    <string name="hold_six_fingers_description">No teclado braille non poderás utilizar os xestos habituais de TalkBack.\n\nEn primeiro lugar, teremos que configurar a posición dos 6 puntos de braille que utilizarás para escribir.</string>
+    <string name="hold_six_fingers_inactive_announcement">Pousa o dispositivo enriba dunha mesa. Logo, mantén premida a pantalla cos dedos índice, maior e anular de cada man nunha posición que che resulte cómoda para escribir.</string>
+    <string name="how_to_use_braille_keyboard">Como utilizar o teclado braille?</string>
+    <string name="icon_content_description">Icona de cadro de diálogo</string>
+    <string name="input_view_caption">Teclado braille de TalkBack (para obter axuda, visita a páxina g.co/help/braille)</string>
+    <string name="instruction_swipe_down">Para mover o cursor de texto cara adiante, pasa o dedo cara abaixo</string>
+    <string name="instruction_swipe_down_2_fingers">Para ocultar o teclado, pasa 2 dedos cara abaixo</string>
+    <string name="instruction_swipe_down_3_fingers">Para cambiar ao teu outro teclado, pasa 3 dedos cara abaixo</string>
+    <string name="instruction_swipe_left">Para eliminar unha letra, pasa o dedo á esquerda</string>
+    <string name="instruction_swipe_right">Para engadir un espazo, pasa o dedo á dereita</string>
+    <string name="instruction_swipe_up">Para mover o cursor de texto cara atrás, pasa o dedo cara arriba</string>
+    <string name="instruction_swipe_up_3_fingers">Para finalizar o titorial, pasa 3 dedos cara arriba</string>
+    <string name="instruction_type_letter_a">Toca o punto 1 co teu dedo índice esquerdo para escribir a letra A</string>
+    <string name="instruction_type_letter_bcd">A continuación, tenta escribir as letras B, C e D</string>
+    <string name="item_view_role_description">Pestana</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Para definir un atallo novo, preme a combinación de teclas coa tecla modificadora %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Preme a combinación de teclas para definir un atallo novo. Debe conter, polo menos, a tecla ALT ou Control.</string>
+    <string name="keycombo_key_arrow_down">Frecha cara a abaixo</string>
+    <string name="keycombo_key_arrow_left">Frecha cara á esquerda</string>
+    <string name="keycombo_key_arrow_right">Frecha cara á dereita</string>
+    <string name="keycombo_key_arrow_up">Frecha cara a arriba</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Buscar</string>
+    <string name="keycombo_key_modifier_shift">Maiús</string>
+    <string name="keycombo_unassigned">Sen asignar</string>
+    <string name="leave_keyboard">Saír do teclado braille</string>
+    <string name="material_clock_toggle_content_description">Seleccionar a.m. ou p.m.</string>
+    <string name="material_hour_selection">Seleccionar hora</string>
+    <string name="material_hour_suffix">%1$s en punto</string>
+    <string name="material_minute_selection">Seleccionar minutos</string>
+    <string name="material_minute_suffix">%1$s minutos</string>
+    <string name="material_timepicker_am">a.m.</string>
+    <string name="material_timepicker_clock_mode_description">Cambiar ao modo de reloxo para introducir a hora.</string>
+    <string name="material_timepicker_hour">Hora</string>
+    <string name="material_timepicker_minute">Minuto</string>
+    <string name="material_timepicker_pm">p.m.</string>
+    <string name="material_timepicker_select_time">Seleccionar hora</string>
+    <string name="material_timepicker_text_input_mode_description">Cambia ao modo de introdución de texto para introducir a hora.</string>
+    <string name="mtrl_badge_numberless_content_description">Notificación nova</string>
+    <string name="mtrl_chip_close_icon_content_description">Quita %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Máis de %1$d notificacións novas</string>
+    <string name="mtrl_picker_a11y_next_month">Cambiar ao mes seguinte</string>
+    <string name="mtrl_picker_a11y_prev_month">Cambiar ao mes anterior</string>
+    <string name="mtrl_picker_announce_current_selection">Selección actual: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Selecciona unha data</string>
+    <string name="mtrl_picker_date_header_unselected">Data seleccionada</string>
+    <string name="mtrl_picker_day_of_week_column_header">Columna de días: %1$s</string>
+    <string name="mtrl_picker_invalid_format">O formato non é válido.</string>
+    <string name="mtrl_picker_invalid_format_example">Exemplo: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Usa este formato: %1$s</string>
+    <string name="mtrl_picker_invalid_range">O intervalo de datas non é válido.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Ir ao ano %1$s</string>
+    <string name="mtrl_picker_out_of_range">Só se admiten datas do intervalo: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Data de inicio - %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s - data de finalización</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_title">Selecciona un intervalo de datas</string>
+    <string name="mtrl_picker_range_header_unselected">Data de inicio - data de finalización</string>
+    <string name="mtrl_picker_save">Gardar</string>
+    <string name="mtrl_picker_text_input_date_hint">Data</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Data de finalización</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Data de inicio</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">a</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Cambiar ao modo de entrada de calendario</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Tocar para cambiar a selección de día</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Cambiar ao modo de introdución de texto</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Tocar para cambiar a selección de ano</string>
+    <string name="multiple_languages_braille_ime_displayed_name">teclado braille, %s</string>
+    <string name="next_keyboard">Seguinte teclado</string>
+    <string name="next_step">Seguinte</string>
+    <string name="not_enough_touch_points_dialog_message">O teu dispositivo non admite suficientes puntos de contacto. Para obter máis información, ponte en contacto co fabricante do dispositivo.</string>
+    <string name="not_enough_touch_points_dialog_title">O teu dispositivo non admite o teclado braille</string>
+    <string msgid="478774118347071097" name="not_set">"Sen configurar"</string>
+    <string name="number_announcement">Números</string>
+    <string name="open_context_menu_announcement">O menú de opcións está aberto. Voltea de novo o teléfono de maneira que a pantalla quede mirando cara a ti e suxéitao da maneira habitual. Agora poderás utilizar os xestos de TalkBack habituais para desprazarte. Pasa o dedo cara á dereita para ver máis opcións.</string>
+    <string name="password_toggle_content_description">Mostra o contrasinal</string>
+    <string name="perform_action_next">Seguinte</string>
+    <string name="perform_action_submitting">Enviando texto</string>
+    <string name="perform_add_new_line_announcement">Engadiuse unha liña nova</string>
+    <string name="perform_add_space_announcement">Espazo</string>
+    <string name="perform_delete_letter_announcement">Eliminouse unha letra</string>
+    <string name="perform_delete_word_announcement">Eliminouse unha palabra</string>
+    <string name="perform_hide_keyboard_announcement">Ocultar teclado</string>
+    <string name="perform_submit_text_announcement">Enviar o texto</string>
+    <string name="perform_switch_keyboard_announcement">Cambiar o teclado</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Copiouse \"<ns1:g id="SUMMARY">%1$s</ns1:g>\" no portapapeis."</string>
+    <string name="preferred_language_title">Idioma preferido</string>
+    <string name="read_out_deleted">Eliminouse: %s</string>
+    <string name="remaining_calibration_finish_announcement">Actualizáronse as posicións de todos os puntos</string>
+    <string name="reminder_announcement">Pasa 3 dedos cara arriba para obter máis opcións</string>
+    <string name="result_swipe_down">MOVEUSE O CURSOR DE TEXTO CARA ADIANTE</string>
+    <string name="result_swipe_down_2_fingers">OCULTAR TECLADO</string>
+    <string name="result_swipe_down_3_fingers">SEGUINTE TECLADO</string>
+    <string name="result_swipe_left">ELIMINAR</string>
+    <string name="result_swipe_right">ESPAZO</string>
+    <string name="result_swipe_up">MOVEUSE O CURSOR DE TEXTO CARA ATRÁS</string>
+    <string name="rotate_orientation_announcement">A partir de agora, non poderás utilizar xestos de TalkBack normais. TalkBack non está dispoñible mentres se utiliza o teclado braille.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">O teléfono está en posición vertical. Para continuar, xira o teléfono horizontalmente de xeito que o lado máis longo quede na parte inferior. A continuación, xira a pantalla de xeito que quede mirando en dirección contraria a ti. Cando teñas todo listo, toca dúas veces a pantalla para continuar.</string>
+    <string name="rotate_orientation_description_1">A partir de agora, non poderás utilizar xestos de TalkBack normais. TalkBack non está dispoñible mentres se utiliza o teclado braille.</string>
+    <string name="rotate_orientation_description_2">Para comezar, suxeita o teléfono desta maneira, coa pantalla mirando en dirección contraria a ti.</string>
+    <string name="rotate_orientation_inactive_announcement">Primeiro, xira o teléfono de xeito que a pantalla quede mirando en dirección contraria a ti.\n\nA continuación, xira o teléfono á posición horizontal. As mans deberán agarrar os extremos curtos do teléfono. Deberías estar agarrando o extremo do porto USB coa man dereita. Apoia os 3 dedos centrais na pantalla e utiliza o maimiño e o polgar para apoiar o teléfono.\n\nCando teñas todo listo, toca dúas veces a pantalla para continuar.\n\nPara saír do teclado braille, pasa 3 dedos cara abaixo. Deste xeito volverás acceder ao teclado orixinal.</string>
+    <string name="screen_away">Modo coa pantalla de costas a ti</string>
+    <string name="screen_away_detail">Colle o dispositivo de xeito que a pantalla quede de costas a ti (modo coa pantalla de costas a ti)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Buscar"</string>
+    <string name="set_up_braille_keyboard">Configurar o teclado braille</string>
+    <string name="show_keyboard_window">Mostrando %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">">999"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Cada punto premido forma parte da entrada, aínda que se solte antes doutros puntos</string>
+    <string name="summary_pref_reverse_dots">Cambia a posición dos puntos de modo que os puntos 1 e 4 cambien de posición, por exemplo</string>
+    <string name="swipe_down_2_fingers_announcement">Para ocultar o teclado, pasa 2 dedos cara abaixo. Próbao agora.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Ocultar o teclado. Normalmente, desta maneira ocultarase o teclado. O teclado braille permanecerá aberto debido a que aínda estás no titorial.</string>
+    <string name="swipe_down_3_fingers_announcement">Para cambiar ao teu outro teclado, pasa 3 dedos cara abaixo. Próbao agora.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Seguinte teclado. Normalmente, deste xeito cambiarase ao seguinte teclado. Desta vez, permanecerás no teclado braille porque aínda estás no titorial.</string>
+    <string name="swipe_down_announcement">Para mover o cursor de texto cara adiante, pasa o dedo cara abaixo. Próbao agora.</string>
+    <string name="swipe_left_action_result_announcement">eliminouse o \"d\".</string>
+    <string name="swipe_left_announcement">Pasa o dedo á esquerda para eliminar unha letra. Próbao agora.</string>
+    <string name="swipe_right_announcement">Para engadir un espazo, pasa o dedo á dereita. Próbao agora.</string>
+    <string name="swipe_up_3_fingers_announcement">Tamén podes pousar o teléfono enriba dunha mesa se queres escribir no modo encol da mesa. Para rematar o titorial, pasa tres dedos cara arriba e busca a opción Finalizar titorial</string>
+    <string name="swipe_up_announcement">Para mover o cursor de texto cara atrás, pasa o dedo cara arriba. Próbao agora.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Para cambiar de idioma mentres escribes co teclado braille, pasa 3 dedos cara arriba. Despois selecciona Cambiar ao seguinte idioma.</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Cambiar de idioma rapidamente mentres escribes</string>
+    <string name="switch_to_language_announcement">Cambiouse ao %s</string>
+    <string name="switch_to_screen_away_announcement">Modo coa pantalla de costas a ti</string>
+    <string name="switch_to_tabletop_announcement">Modo encol da mesa. Coloca o dispositivo co porto de carga cara á esquerda. Para actualizar a posición dos puntos, mantén 6 dedos sobre a pantalla.</string>
+    <string name="symbol_almost_equals">Case igual a</string>
+    <string name="symbol_ampersand">Signo &amp;</string>
+    <string name="symbol_angle_bracket_left">Signo menor que</string>
+    <string name="symbol_angle_bracket_right">Signo maior que</string>
+    <string name="symbol_apostrophe">Apóstrofo</string>
+    <string name="symbol_approximately_equals">Aproximadamente iguais</string>
+    <string name="symbol_asterisk">Asterisco</string>
+    <string name="symbol_at_sign">Arroba</string>
+    <string name="symbol_backslash">Barra invertida</string>
+    <string name="symbol_beamed_sixteenth_note">Semicorcheas ligadas</string>
+    <string name="symbol_black_circle">Círculo negro</string>
+    <string name="symbol_black_heart">Corazón negro</string>
+    <string name="symbol_black_smallsquare">Cadrado negro pequeno</string>
+    <string name="symbol_black_square">Cadrado negro</string>
+    <string name="symbol_black_star">Estrela negra</string>
+    <string name="symbol_black_suit_of_diamonds">Diamante negro</string>
+    <string name="symbol_black_triangle_pointing_down">Triángulo negro apuntando cara abaixo</string>
+    <string name="symbol_black_triangle_pointing_up">Triángulo negro apuntando cara arriba</string>
+    <string name="symbol_broken_bar">Barra rota</string>
+    <string name="symbol_bullet">Viñeta</string>
+    <string name="symbol_bullseye">Diana</string>
+    <string name="symbol_caret">Acento circunflexo</string>
+    <string name="symbol_celsius_degree">Grao Celsius</string>
+    <string name="symbol_cent">Signo de céntimo</string>
+    <string name="symbol_circle_left_half_black">Círculo coa metade esquerda negra</string>
+    <string name="symbol_circle_right_half_black">Círculo coa metade dereita negra</string>
+    <string name="symbol_colon">Dous puntos</string>
+    <string name="symbol_comma">Coma</string>
+    <string name="symbol_copyright">Copyright</string>
+    <string name="symbol_curly_bracket_left">Chave de apertura</string>
+    <string name="symbol_curly_bracket_right">Chave de peche</string>
+    <string name="symbol_currency_sign">Signo de moeda</string>
+    <string name="symbol_degree">Signo de grao</string>
+    <string name="symbol_division">Signo de división</string>
+    <string name="symbol_dollar_sign">Signo de dólar</string>
+    <string name="symbol_downwards_arrow">Frecha cara abaixo</string>
+    <string name="symbol_eighth_note">Corchea</string>
+    <string name="symbol_ellipsis">Puntos suspensivos</string>
+    <string name="symbol_em_dash">Trazo longo</string>
+    <string name="symbol_en_dash">Trazo curto</string>
+    <string name="symbol_equal">Signo igual</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Signo de exclamación</string>
+    <string name="symbol_fahrenheit_degree">Grao Fahrenheit</string>
+    <string name="symbol_female">Símbolo feminino</string>
+    <string name="symbol_full_width_ampersand">Et de ancho completo</string>
+    <string name="symbol_full_width_asterisk">Asterisco de ancho completo</string>
+    <string name="symbol_full_width_circumflex">Acento circunflexo de ancho completo</string>
+    <string name="symbol_full_width_colon">Dous puntos de ancho completo</string>
+    <string name="symbol_full_width_comma">Coma de ancho completo</string>
+    <string name="symbol_full_width_exclamation_mark">Signo de exclamación de ancho completo</string>
+    <string name="symbol_full_width_greater_than_sign">Signo maior que de ancho completo</string>
+    <string name="symbol_full_width_ideographic_full_stop">Punto ideográfico</string>
+    <string name="symbol_full_width_left_curly_bracket">Chave de apertura de ancho completo</string>
+    <string name="symbol_full_width_left_parenthesis">Paréntese de apertura de ancho completo</string>
+    <string name="symbol_full_width_less_than_sign">Signo menor que de ancho completo</string>
+    <string name="symbol_full_width_question_mark">Signo de interrogación de ancho completo</string>
+    <string name="symbol_full_width_right_curly_bracket">Chave de peche de ancho completo</string>
+    <string name="symbol_full_width_right_parenthesis">Paréntese de peche de ancho completo</string>
+    <string name="symbol_full_width_semicolon">Punto e coma de ancho completo</string>
+    <string name="symbol_full_width_tilde">Til de ancho completo</string>
+    <string name="symbol_full_width_underscore">Guión baixo de ancho completo</string>
+    <string name="symbol_grave_accent">Acento grave</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Punto medio katakana de ancho medio</string>
+    <string name="symbol_hyphen_minus">Trazo</string>
+    <string name="symbol_ideographic_comma">Coma ideográfica</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Signo de exclamación de apertura</string>
+    <string name="symbol_inverted_question_mark">Signo de interrogación de apertura</string>
+    <string name="symbol_left_angle_bracket">Corchete angular dobre de apertura</string>
+    <string name="symbol_left_black_lenticular_bracket">Corchete lenticular negro de apertura</string>
+    <string name="symbol_left_corner_bracket">Corchete de esquina de apertura</string>
+    <string name="symbol_left_double_quotation_mark">Comiñas dobres de apertura</string>
+    <string name="symbol_left_single_quotation_mark">Comiña simple de apertura</string>
+    <string name="symbol_leftwards_arrow">Frecha esquerda</string>
+    <string name="symbol_liter">Litro</string>
+    <string name="symbol_low_double_quote">Comiñas dobres baixas</string>
+    <string name="symbol_male">Símbolo masculino</string>
+    <string name="symbol_mathematical_left_angle_bracket">Símbolo matemático \"menor que\"</string>
+    <string name="symbol_mathematical_right_angle_bracket">Símbolo matemático \"maior que\"</string>
+    <string name="symbol_micro_sign">Signo de micro</string>
+    <string name="symbol_middle_dot">Punto medio</string>
+    <string name="symbol_multiplication">Signo de multiplicación</string>
+    <string name="symbol_new_line">Nova liña</string>
+    <string name="symbol_not_equals">Non é igual a</string>
+    <string name="symbol_not_sign">Signo de negación</string>
+    <string name="symbol_paragraph_mark">Marca de parágrafo</string>
+    <string name="symbol_parenthesis_left">Paréntese de apertura</string>
+    <string name="symbol_parenthesis_right">Paréntese de peche</string>
+    <string name="symbol_percent">Porcentaxe</string>
+    <string name="symbol_period">Punto</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Signo máis/menos</string>
+    <string name="symbol_postal_mark">Marca postal</string>
+    <string name="symbol_pound">Libra</string>
+    <string name="symbol_pound_sterling">Signo de libra esterlina</string>
+    <string name="symbol_quarter_note">Negra</string>
+    <string name="symbol_question_mark">Signo de interrogación</string>
+    <string name="symbol_quotation_mark">Comiñas</string>
+    <string name="symbol_reference">Marca de referencia</string>
+    <string name="symbol_registered_trademark">Marca comercial rexistrada</string>
+    <string name="symbol_right_angle_bracket">Corchete angular dobre de peche</string>
+    <string name="symbol_right_black_lenticular_bracket">Corchete lenticular negro de peche</string>
+    <string name="symbol_right_corner_bracket">Corchete de esquina de peche</string>
+    <string name="symbol_right_double_quotation_mark">Comiñas dobres de peche</string>
+    <string name="symbol_right_single_quotation_mark">Comiña simple de peche</string>
+    <string name="symbol_rightwards_arrow">Frecha cara á dereita</string>
+    <string name="symbol_rupee">Rupia</string>
+    <string name="symbol_section_sign">Signo de sección</string>
+    <string name="symbol_semicolon">Punto e coma</string>
+    <string name="symbol_slash">Barra</string>
+    <string name="symbol_solar">Símbolo solar</string>
+    <string name="symbol_space">Espazo</string>
+    <string name="symbol_square_bracket_left">Corchete de apertura</string>
+    <string name="symbol_square_bracket_right">Corchete de peche</string>
+    <string name="symbol_square_root">Raíz cadrada</string>
+    <string name="symbol_tilde">Til</string>
+    <string name="symbol_trademark">Marca rexistrada</string>
+    <string name="symbol_underscore">Guión baixo</string>
+    <string name="symbol_upwards_arrow">Frecha arriba</string>
+    <string name="symbol_vertical_bar">Liña vertical</string>
+    <string name="symbol_white_circle">Círculo branco</string>
+    <string name="symbol_white_club_suit">Trevo branco</string>
+    <string name="symbol_white_diamond">Diamante branco</string>
+    <string name="symbol_white_down_pointing_triangle">Triángulo branco coa punta cara abaixo</string>
+    <string name="symbol_white_heart">Corazón branco</string>
+    <string name="symbol_white_left_pointing_index">Índice branco apuntando cara á esquerda</string>
+    <string name="symbol_white_left_pointing_triangle">Triángulo branco coa punta cara á esquerda</string>
+    <string name="symbol_white_right_pointing_index">Índice branco apuntando cara á dereita</string>
+    <string name="symbol_white_right_pointing_triangle">Triángulo branco coa punta cara á dereita</string>
+    <string name="symbol_white_spade_suit">Pica branca</string>
+    <string name="symbol_white_square">Cadrado branco</string>
+    <string name="symbol_white_star">Estrela branca</string>
+    <string name="symbol_white_up_pointing_triangle">Triángulo branco coa punta cara arriba</string>
+    <string name="symbol_won">Signo de won</string>
+    <string name="symbol_won_sign">Signo de won</string>
+    <string name="symbol_yen">Ien</string>
+    <string name="tabletop">Modo encol da mesa</string>
+    <string name="tabletop_detail">Pousa o dispositivo enriba dunha mesa (modo encol da mesa)</string>
+    <string name="talkback_off_dialog_positive_button">Activar na configuración de accesibilidade</string>
+    <string name="talkback_off_dialog_title">Activa TalkBack para usar o teclado braille</string>
+    <string name="talkback_off_or_suspend_dialog_message">Coa función TalkBack activada, podes tocar a pantalla para introducir símbolos de braille.</string>
+    <string name="talkback_suspend_dialog_title">Retoma TalkBack para usar o teclado braille</string>
+    <string name="tap_to_continue">Toca dúas veces en calquera parte para continuar</string>
+    <string name="template_capital_letter">%1$s maiúsculo</string>
+    <string name="template_current_tts_engine">Utilizando %1$s</string>
+    <string name="template_overlay_window">Pantalla superposta de: %1$s</string>
+    <string name="template_password_selected">Caracteres do %1$d ao %2$d</string>
+    <string name="template_password_traversed">Carácter %1$d</string>
+    <string name="template_scroll_from_count">Mostrando elemento %1$d de %2$d.</string>
+    <string name="template_scroll_from_to_count">Mostrando elementos de %1$d a %2$d de %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s á esquerda, %2$s á dereita</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s á dereita, %2$s á esquerda</string>
+    <string name="template_split_screen_mode_portrait">%1$s na parte superior, %2$s na parte inferior</string>
+    <string name="template_text_copied">copiouse %1$s</string>
+    <string name="template_viewpager_index_count">Páxina %1$d de %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d de %2$d</string>
+    <string name="title_pref_accumulate_presses">Incluír todos os puntos premidos</string>
+    <string name="title_pref_reverse_dots">Inverter puntos</string>
+    <string name="tutorial_intro_description">Co teclado braille, podes tocar a pantalla para acceder ao modo de braille de 6 puntos.\n\nEstás usando o estándar Unified English Braille. Se queres cambiar o idioma no que escribes, accede a Configuración de TalkBack.\n\nPara escribir en braille, tes que suxeitar o teléfono e utilizalo dun xeito diferente.</string>
+    <string name="type_letter_a_announcement">Mantén a pantalla mirando en dirección contraria a ti. Suxeita o teléfono coas dúas mans, nos bordos máis curtos do teléfono, de xeito que os tres dedos centrais de cada man poidan tocar a pantalla.\n\nO dedo índice esquerdo debe estar situado no punto 1. Agora, toca o punto 1 para escribir a letra A.</string>
+    <string name="type_letter_a_inactive_announcement">Toca o punto 1 co dedo índice esquerdo para escribir A</string>
+    <string name="type_letter_inactive_announcement">Toca %1$s para escribir a letra %2$s</string>
+    <string name="typing_languages_title">Idiomas de escritura</string>
+    <string name="untitled_window">sen título</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Configuración</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Activar o teclado braille&lt;/b>: a continuación, toca Configuración. Na pantalla seguinte, activa \"%1$s.\"
+    &lt;br>&lt;br>2. &lt;b>Utilizar o teclado braille&lt;/b>: abre o teclado normal e, a continuación, toca a icona de escoller teclado %2$s (normalmente atópase na esquina inferior dereita). Selecciona \"%1$s.\"
+    &lt;br>&lt;br>Se non ves ningunha opción para cambiar de teclado, tenta instalar %3$s, o teclado de Google.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Para utilizar o teclado braille, abre o teclado normal e, a continuación, toca a icona de escoller teclado %1$s (normalmente atópase na esquina inferior dereita). Selecciona \"%2$s.\"
+  &lt;br>&lt;br>Se non ves ningunha opción para cambiar de teclado, tenta instalar %3$s, o teclado de Google.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"DESACTIVADO"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ACTIVADO"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Panel de accións"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Panel de navegación"</string>
+</resources>

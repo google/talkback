@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">punto %s</item>
+    <item quantity="other">punti %s</item>
+  </plurals>
+    <string name="auto_detect">Adatta in base a come tieni il dispositivo</string>
+    <string name="capitalize_announcement">Lettere maiuscole</string>
+    <string name="code_user_facing_name_ar">Arabo</string>
+    <string name="code_user_facing_name_es">Spagnolo</string>
+    <string name="code_user_facing_name_fr">Francese</string>
+    <string name="code_user_facing_name_pl">Polacco</string>
+    <string name="code_user_facing_name_ueb1">Braille inglese unificato non contratto</string>
+    <string name="code_user_facing_name_ueb2">Braille inglese unificato contratto</string>
+    <string name="number_announcement">Numero</string>
+    <string name="read_out_deleted">%s eliminato</string>
+    <string name="screen_away">Modalità schermo verso l\'esterno</string>
+    <string name="screen_away_detail">Tieni il dispositivo con lo schermo rivolto verso l\'esterno (modalità schermo verso l\'esterno)</string>
+    <string name="tabletop">Modalità da tavolo</string>
+    <string name="tabletop_detail">Appoggia il dispositivo in orizzontale su un piano (modalità da tavolo)</string>
+</resources>

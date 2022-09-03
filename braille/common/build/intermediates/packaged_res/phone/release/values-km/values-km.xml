@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">ចំណុចលេខ %s</item>
+    <item quantity="other">ចំណុចលេខ %s</item>
+  </plurals>
+    <string name="auto_detect">សម្រប​តាមរបៀប​ដែលអ្នក​កាន់ឧបករណ៍</string>
+    <string name="capitalize_announcement">អក្សរធំ</string>
+    <string name="code_user_facing_name_ar">អារ៉ាប់</string>
+    <string name="code_user_facing_name_es">អេស្ប៉ាញ</string>
+    <string name="code_user_facing_name_fr">បារាំង</string>
+    <string name="code_user_facing_name_pl">ប៉ូឡូញ</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string name="number_announcement">លេខ</string>
+    <string name="read_out_deleted">បានលុប %s</string>
+    <string name="screen_away">មុខងារ​បែរអេក្រង់​ចេញ</string>
+    <string name="screen_away_detail">កាន់​ឧបករណ៍​ដោយ​បែរអេក្រង់​ចេញពី​អ្នក (មុខងារ​បែរអេក្រង់ចេញ)</string>
+    <string name="tabletop">មុខងារដាក់លើតុ</string>
+    <string name="tabletop_detail">ដាក់​ឧបករណ៍​ឱ្យរាបស្មើ​នៅលើតុ (មុខងារ​ដាក់លើតុ)</string>
+</resources>

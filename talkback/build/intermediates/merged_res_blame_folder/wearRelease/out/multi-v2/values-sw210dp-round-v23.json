@@ -1,0 +1,82 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-sw210dp-round-v23/values-sw210dp-round-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/res/values-sw210dp-round-v23/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "221,282,340,404,460,516,574,633,677,759",
+                        "endColumns": "60,57,63,55,55,57,58,43,81,76",
+                        "endOffsets": "281,339,403,459,515,573,632,676,758,835"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,120,182,250,310,370,432,495,938,1024",
+                        "endColumns": "64,61,67,59,59,61,62,47,85,80",
+                        "endOffsets": "115,177,245,305,365,427,490,538,1019,1100"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/res/values-sw210dp-round-v23/values-sw210dp-round-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,123,188,259,322,385",
+                        "endColumns": "67,64,70,62,62,64",
+                        "endOffsets": "118,183,254,317,380,445"
+                    },
+                    "to": {
+                        "startLines": "10,11,12,13,14,15",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "543,611,676,747,810,873",
+                        "endColumns": "67,64,70,62,62,64",
+                        "endOffsets": "606,671,742,805,868,933"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/wear/release/values-sw210dp-round-v23/values-sw210dp-round-v23.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/res/values-sw210dp-round-v23/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "221,282,340,404,460,516,574,633,677,759",
+                        "endColumns": "60,57,63,55,55,57,58,43,81,76",
+                        "endOffsets": "281,339,403,459,515,573,632,676,758,835"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,120,182,250,310,370,432,495,938,1024",
+                        "endColumns": "64,61,67,59,59,61,62,47,85,80",
+                        "endOffsets": "115,177,245,305,365,427,490,538,1019,1100"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/5dfe9842a1a9e7a5acb34af6d8da1374/transformed/wear-1.3.0-alpha03/res/values-sw210dp-round-v23/values-sw210dp-round-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,123,188,259,322,385",
+                        "endColumns": "67,64,70,62,62,64",
+                        "endOffsets": "118,183,254,317,380,445"
+                    },
+                    "to": {
+                        "startLines": "10,11,12,13,14,15",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "543,611,676,747,810,873",
+                        "endColumns": "67,64,70,62,62,64",
+                        "endOffsets": "606,671,742,805,868,933"
+                    }
+                }
+            ]
+        }
+    ]
+}

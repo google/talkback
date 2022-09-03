@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">ડોટ %s</item>
+    <item quantity="other">ડોટ %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d નવું નોટિફિકેશન</item>
+    <item quantity="other">%d નવા નોટિફિકેશન</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"ઘરનો રસ્તો બતાવો"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ઉપર નૅવિગેટ કરો"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"વધુ વિકલ્પો"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"થઈ ગયું"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"બધી જુઓ"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"ઍપ્લિકેશન પસંદ કરો"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"બંધ"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ચાલુ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"શોધો…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"ક્વેરી સાફ કરો"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"શોધ ક્વેરી"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"શોધો"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"ક્વેરી સબમિટ કરો"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"વૉઇસ શોધ"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"આની સાથે શેર કરો"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>ની સાથે શેર કરો"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"સંકુચિત કરો"</string>
+    <string name="auto_detect">તમે ડિવાઇસ કેવી રીતે પકડો છો તે મુજબ ફેરફાર કરે છે</string>
+    <string name="bottomsheet_action_expand_halfway">અડધે સુધી મોટું કરો</string>
+    <string name="braille_ime_displayed_name">બ્રેઇલ કીબોર્ડ</string>
+    <string name="braille_ime_service_name">ટૉકબૅક બ્રેઇલ કીબોર્ડ</string>
+    <string name="braille_keyboard">બ્રેઇલ કીબોર્ડ</string>
+    <string name="braille_keyboard_gestures">બ્રેઇલ કીબોર્ડ માટેના સંકેતો</string>
+    <string name="braille_keyboard_strip_button">ટચ સ્ક્રીનવાળા કીબોર્ડ પર સ્વિચ કરો</string>
+    <string name="braille_keyboard_strip_summary">કોઈ બાહ્ય બ્રેઇલ ડિસ્પ્લે કનેક્ટ કરેલું છે, જેનો ઉપયોગ તમે આ ડિવાઇસમાં ટેક્સ્ટ ટાઇપ કરવા માટે કરી શકો છો.\nઅથવા તમે ટચ સ્ક્રીનના બ્રેઇલ કીબોર્ડ પર કે ઇનપુટની આગલી કોઈ પદ્ધતિ પર સ્વિચ કરી શકો છો.</string>
+    <string name="braille_tutorial_title">બ્રેઇલ કીબોર્ડનું ટ્યૂટૉરિઅલ</string>
+    <string name="bring_ime_settings_page">બીજું કોઈ કીબોર્ડ ચાલુ નથી, કીબોર્ડ સેટિંગ પર જાઓ</string>
+    <string name="calibration_fail_announcement">ડોટની સ્થિતિ અપડેટ કરી શકાઈ નહીં. સ્ક્રીનને 6 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો. પછી ફરીથી પ્રયાસ કરો.</string>
+    <string name="calibration_finish_announcement">ડોટની સ્થિતિ અપડેટ કરી</string>
+    <string name="calibration_step1_hold_left_finger_announcement">ડોટની સ્થિતિ અપડેટ કરી રહ્યાં છીએ. પહેલા, તમારા ડાબા હાથના ડોટને રેકોર્ડ કરીએ. સ્ક્રીનને તમારા ડાબા હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">ડોટની સ્થિતિ અપડેટ કરી રહ્યાં છીએ. પહેલા, તમારા જમણા હાથના ડોટને રેકોર્ડ કરીએ. સ્ક્રીનને તમારા જમણા હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">ડોટ 1, 2 અને 3 માટે સ્થિતિ અપડેટ કરી. હવે, તમારા ડાબા હાથના ડોટને રેકોર્ડ કરીએ. સ્ક્રીનને તમારા ડાબા હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">ડોટ 1, 2 અને 3 માટે સ્થિતિ અપડેટ કરી. હવે, તમારા જમણા હાથના ડોટને રેકોર્ડ કરીએ. સ્ક્રીનને તમારા જમણા હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
+    <string name="capitalize_announcement">કૅપિટલ અક્ષર</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%2$dમાંથી %1$d અક્ષરો દાખલ કર્યા</string>
+    <string name="character_counter_overflowed_content_description">%2$dમાંથી %1$dની વર્ણ મર્યાદા ઓળંગાઈ ગઈ છે</string>
+    <string name="clear_text_end_icon_content_description">ટેક્સ્ટ સાફ કરો</string>
+    <string name="code_user_facing_name_ar">અરબી</string>
+    <string name="code_user_facing_name_es">સ્પેનિશ</string>
+    <string name="code_user_facing_name_fr">ફ્રેન્ચ</string>
+    <string name="code_user_facing_name_pl">પૉલીશ</string>
+    <string name="code_user_facing_name_ueb1">યુનિફાઇડ ઇંગ્લિશ બ્રેઇલ અનકૉન્ટ્રેક્ટેડ</string>
+    <string name="code_user_facing_name_ueb2">યુનિફાઇડ ઇંગ્લિશ બ્રેઇલ કૉન્ટ્રેક્ટેડ</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">સક્ષમ કરો</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">તમે Google Play સેવાઓ સક્ષમ કરશો નહીં ત્યાં સુધી %1$s કાર્ય કરશે નહીં.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play સેવાઓ સક્ષમ કરો</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ઇન્સ્ટૉલ કરો</string>
+    <string name="common_google_play_services_install_text">%1$s, Google Play સેવાઓ વગર ચાલશે નહીં, જે તમારા ઉપકરણમાંથી ખૂટે છે.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play સેવાઓ મેળવો</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play સેવાઓની ઉપલબ્ધતા</string>
+    <string name="common_google_play_services_notification_ticker">Google Play સેવાઓની ભૂલ</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ને Google Play સેવાઓમાં મુશ્કેલી આવી રહી છે. કૃપા કરીને ફરી પ્રયાસ કરો.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s, Google Play સેવાઓ વગર ચાલશે નહીં, જે તમારા ઉપકરણ દ્વારા સમર્થિત નથી.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">અપડેટ કરો</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">તમે Google Play સેવાઓ અપડેટ કરશો નહીં ત્યાં સુધી %1$s શરૂ થશે નહીં.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play સેવાઓ અપડેટ કરો</string>
+    <string name="common_google_play_services_updating_text">%1$s, Google Play સેવાઓ વગર શરૂ થશે નહીં, જે વર્તમાનમાં અપડેટ થઈ રહી છે.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play સેવાઓના નવા સંસ્કરણની જરૂર છે. તે ટૂંક સમયમાં પોતાને અપડેટ કરશે.</string>
+    <string name="common_open_on_phone">ફોનમાં ખોલો</string>
+    <string name="common_signin_button_text">સાઇન ઇન કરો</string>
+    <string name="common_signin_button_text_long">Google માં સાઇન ઇન કરો</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"નિષ્ફળ રહ્યાં"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"તમારા ફોન પર ખોલી"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"સફળ રહ્યાં"</string>
+    <string name="context_menu_input_language_selection">આગલી ભાષા પર સ્વિચ થાઓ: %s</string>
+    <string name="context_menu_input_language_selection_summary">હાલમાં આનો ઉપયોગ રહ્યાં છીએ: %s</string>
+    <string name="context_menu_layout_selection">લેઆઉટ</string>
+    <string name="context_menu_see_all_gestures_selection">બધા સંકેતોનો રિવ્યૂ કરો</string>
+    <string name="context_menu_settings_selection">સેટિંગ</string>
+    <string name="context_menu_title">બ્રેઇલ કીબોર્ડના વિકલ્પો</string>
+    <string name="context_menu_tutorial_finish">ટ્યૂટૉરિઅલ સમાપ્ત કરો</string>
+    <string name="context_menu_tutorial_selection">ટ્યૂટૉરિઅલ ખોલો</string>
+    <string name="continue_tutorial_announcement">ચાલો ત્યારે ટ્યૂટૉરિઅલ ચાલુ કરીએ. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"કૉપિ કરો"</string>
+    <string name="done">થઈ ગયું</string>
+    <string name="dont_show_again">આ ફરી બતાવશો નહીં</string>
+    <string name="error_icon_content_description">ભૂલ</string>
+    <string name="exit_scrim">બહાર નીકળો</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"વિગતવાર"</string>
+    <string name="exposed_dropdown_menu_content_description">ડ્રૉપડાઉન મેનૂ બતાવો</string>
+    <string name="finish_tutorial_announcement">બ્રેઇલ કીબોર્ડ બતાવી રહ્યાં છીએ. તમારા ફોનને પલટાવો જેથી કરીને સ્ક્રીન તમારાથી દૂર અને સામે રહે. ફોનને આડો ફેરવીને લૅન્ડસ્કેપ સ્થિતિમાં લાવો. પછી ટાઇપ કરવાનું શરૂ કરો.</string>
+    <string name="function_off">\'બોલાયેલા પ્રતિસાદ\'નો વિકલ્પ બંધ છે</string>
+    <string name="function_on">\'બોલાયેલા પ્રતિસાદ\'નો વિકલ્પ ચાલુ છે</string>
+    <string name="gesture_add_space"><b>સ્પેસ</b> ઉમેરવા માટે, જમણી બાજુએ સ્વાઇપ કરો</string>
+    <string name="gesture_delete"><b>ડિલીટ</b> કરવા માટે, ડાબી બાજુએ સ્વાઇપ કરો</string>
+    <string name="gesture_delete_word"><b>શબ્દને ડિલીટ કરવા</b> માટે, 2 આંગળી વડે ડાબે સ્વાઇપ કરો</string>
+    <string name="gesture_hide_keyboard"><b>કીબોર્ડને છુપાવવા</b> માટે, 2 આંગળી વડે નીચેની તરફ સ્વાઇપ કરો</string>
+    <string name="gesture_move_cursor_backward"><b>કર્સરને પાછળ ખસેડવા</b> માટે, ઉપરની તરફ સ્વાઇપ કરો</string>
+    <string name="gesture_move_cursor_forward"><b>કર્સરને આગળ ખસેડવા</b> માટે, નીચેની તરફ સ્વાઇપ કરો</string>
+    <string name="gesture_new_line">કોઈ <b>નવી લાઇન</b> માટે, 2 આંગળી વડે જમણે સ્વાઇપ કરો</string>
+    <string name="gesture_next_keyboard"><b>આગલા કીબોર્ડ</b> પર સ્વિચ કરવા માટે, 3 આંગળી વડે નીચેની તરફ સ્વાઇપ કરો</string>
+    <string name="gesture_open_context_menu"><b>સહાય અને અન્ય વિકલ્પો</b> માટે, 3 આંગળી વડે ઉપરની તરફ સ્વાઇપ કરો</string>
+    <string name="gesture_submit_text"><b>ટેક્સ્ટ સબમિટ કરવા</b> માટે, 2 આંગળી વડે ઉપરની તરફ સ્વાઇપ કરો</string>
+    <string name="granularity_character">અક્ષરો</string>
+    <string name="granularity_default">ડિફોલ્ટ</string>
+    <string name="granularity_line">લાઇન્સ</string>
+    <string name="granularity_native_control">નિયંત્રણો</string>
+    <string name="granularity_native_heading">મથાળા</string>
+    <string name="granularity_native_link">લિંક</string>
+    <string name="granularity_paragraph">ફકરા</string>
+    <string name="granularity_pseudo_web_special_content">વિશિષ્ટ કન્ટેન્ટ</string>
+    <string name="granularity_web_control">નિયંત્રણો</string>
+    <string name="granularity_web_heading">મથાળાં</string>
+    <string name="granularity_web_landmark">લૅન્ડમાર્ક</string>
+    <string name="granularity_web_link">લિંક</string>
+    <string name="granularity_web_list">સૂચિઓ</string>
+    <string name="granularity_window">વિન્ડો</string>
+    <string name="granularity_word">શબ્દો</string>
+    <string name="hide_keyboard_window">કીબોર્ડ છુપાવેલું છે</string>
+    <string name="hold_six_fingers_announcement">%s\nતમારા ડિવાઇસને ટેબલ પર સપાટ રાખો. પછી, ટાઇપ કરવા માટે તમને અનુકૂળ લાગે તે સ્થિતિમાં સ્ક્રીનને દરેક હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
+    <string name="hold_six_fingers_description">તમે બ્રેઇલ કીબોર્ડમાં નિયમિત TalkBack સંકેતનો ઉપયોગ કરી શકશો નહીં.\n\nશરૂ કરવા માટે તમે ટાઇપ કરો ત્યારે 6 બ્રેઇલ ડોટની સ્થિતિને સેટઅપ કરો.</string>
+    <string name="hold_six_fingers_inactive_announcement">તમારા ડિવાઇસને ટેબલ પર સપાટ રાખો. પછી, ટાઇપ કરવા માટે તમને અનુકૂળ લાગે તે સ્થિતિમાં સ્ક્રીનને દરેક હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
+    <string name="how_to_use_braille_keyboard">બ્રેઇલ કીબોર્ડનો ઉપયોગ કેવી રીતે કરવો</string>
+    <string name="icon_content_description">સંવાદનું આઇકન</string>
+    <string name="input_view_caption">ટૉકબૅક બ્રેઇલ કીબોર્ડ - સહાય માટે, g.co/help/brailleની મુલાકાત લો</string>
+    <string name="instruction_swipe_down">કર્સરને આગળ ખસેડવા માટે, નીચેની તરફ સ્વાઇપ કરો</string>
+    <string name="instruction_swipe_down_2_fingers">કીબોર્ડને છુપાવવા માટે, 2 આંગળી વડે નીચેની તરફ સ્વાઇપ કરો</string>
+    <string name="instruction_swipe_down_3_fingers">તમારા અન્ય કીબોર્ડ પર સ્વિચ કરવા માટે, 3 આંગળી વડે નીચેની તરફ સ્વાઇપ કરો</string>
+    <string name="instruction_swipe_left">અક્ષરને ડિલીટ કરવા માટે, ડાબી બાજુએ સ્વાઇપ કરો</string>
+    <string name="instruction_swipe_right">સ્પેસ ઉમેરવા માટે, જમણી બાજુએ સ્વાઇપ કરો</string>
+    <string name="instruction_swipe_up">કર્સરને પાછળ ખસેડવા માટે, ઉપરની તરફ સ્વાઇપ કરો</string>
+    <string name="instruction_swipe_up_3_fingers">ટ્યૂટૉરિઅલને સમાપ્ત કરવા માટે, 3 આંગળી વડે ઉપરની તરફ સ્વાઇપ કરો</string>
+    <string name="instruction_type_letter_a">અક્ષર \"A\" ટાઇપ કરવા માટે તમારા ડાબા હાથની પહેલી આંગળી વડે ડોટ 1 પર ટૅપ કરો</string>
+    <string name="instruction_type_letter_bcd">આગળ, અક્ષર B, C અને D ટાઇપ કરી જુઓ</string>
+    <string name="item_view_role_description">ટૅબ</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">નવા શૉર્ટકટને સેટ કરવા માટે %1$s સંશોધક કી સાથે કી સંયોજન દબાવો.</string>
+    <string name="keycombo_assign_dialog_instruction">નવું શોર્ટકટ સેટ કરવા માટે કી સંયોજન દબાવો. તેમાં ઓછામાં ઓછી ALT અથવા Control કી શામેલ હોવી આવશ્યક છે.</string>
+    <string name="keycombo_key_arrow_down">નીચે તીર</string>
+    <string name="keycombo_key_arrow_left">તીર ડાબું</string>
+    <string name="keycombo_key_arrow_right">તીર જમણું</string>
+    <string name="keycombo_key_arrow_up">ઉપર તીર</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">શોધો</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">સોંપેલ નહીં</string>
+    <string name="leave_keyboard">બ્રેઇલ કીબોર્ડ છોડી દો</string>
+    <string name="material_clock_toggle_content_description">AM અથવા PM પસંદ કરો</string>
+    <string name="material_hour_selection">સમય પસંદ કરો</string>
+    <string name="material_hour_suffix">%1$s વાગ્યા છે</string>
+    <string name="material_minute_selection">મિનિટ પસંદ કરો</string>
+    <string name="material_minute_suffix">%1$s મિનિટ</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">સમય દાખલ કરવા માટે ઘડિયાળ મોડમાં સ્વિચ કરો.</string>
+    <string name="material_timepicker_hour">કલાક</string>
+    <string name="material_timepicker_minute">મિનિટ</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">સમય પસંદ કરો</string>
+    <string name="material_timepicker_text_input_mode_description">સમય દાખલ કરવા માટે ટેક્સ્ટ ઇનપુટ મોડમાં સ્વિચ કરો.</string>
+    <string name="mtrl_badge_numberless_content_description">નવું નોટિફિકેશન</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s કાઢી નાખો</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$dથી વધુ નવા નોટિફિકેશન</string>
+    <string name="mtrl_picker_a11y_next_month">આગલા મહિના પર બદલો</string>
+    <string name="mtrl_picker_a11y_prev_month">પાછલા મહિના પર બદલો</string>
+    <string name="mtrl_picker_announce_current_selection">હાલની પસંદગી: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">તારીખ પસંદ કરો</string>
+    <string name="mtrl_picker_date_header_unselected">પસંદ કરેલી તારીખ</string>
+    <string name="mtrl_picker_day_of_week_column_header">દિવસોની કૉલમ: %1$s</string>
+    <string name="mtrl_picker_invalid_format">અમાન્ય ફોર્મેટ.</string>
+    <string name="mtrl_picker_invalid_format_example">ઉદાહરણ: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">આનો ઉપયોગ કરો: %1$s</string>
+    <string name="mtrl_picker_invalid_range">અમાન્ય શ્રેણી.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$sના વર્ષ પર નૅવિગેટ કરો</string>
+    <string name="mtrl_picker_out_of_range">આ શ્રેણીની બહાર છે: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">શરૂ કરવાની તારીખ – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – સમાપ્તિની તારીખ</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">શ્રેણી પસંદ કરો</string>
+    <string name="mtrl_picker_range_header_unselected">શરૂ કરવાની તારીખ – સમાપ્તિની તારીખ</string>
+    <string name="mtrl_picker_save">સાચવો</string>
+    <string name="mtrl_picker_text_input_date_hint">તારીખ</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">સમાપ્તિની તારીખ</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">શરૂ કરવાની તારીખ</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">કૅલેન્ડર ઇનપુટ મોડ પર સ્વિચ કરો</string>
+    <string name="mtrl_picker_toggle_to_day_selection">દિવસની પસંદગી પર સ્વિચ કરવા માટે ટૅપ કરો</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">ટેક્સ્ટ ઇનપુટ મોડ પર સ્વિચ કરો</string>
+    <string name="mtrl_picker_toggle_to_year_selection">વર્ષની પસંદગી પર સ્વિચ કરવા માટે ટૅપ કરો</string>
+    <string name="multiple_languages_braille_ime_displayed_name">બ્રેઇલ કીબોર્ડ, %s</string>
+    <string name="next_keyboard">આગલું કીબોર્ડ</string>
+    <string name="next_step">આગળ</string>
+    <string name="not_enough_touch_points_dialog_message">તમારા ડિવાઇસમાં પૂરતાં પ્રમાણમાં ટચ પૉઇન્ટ ઉપલબ્ધ નથી. વધુ માહિતી માટે, તમારા ડિવાઇસના નિર્માતાનો સંપર્ક કરો.</string>
+    <string name="not_enough_touch_points_dialog_title">તમારા ડિવાઇસમાં બ્રેઇલ કીબોર્ડની સુવિધા ઉપલબ્ધ નથી</string>
+    <string msgid="478774118347071097" name="not_set">"સેટ કર્યું નથી"</string>
+    <string name="number_announcement">નંબર</string>
+    <string name="open_context_menu_announcement">\'વિકલ્પો\' મેનૂ ખુલ્લું છે. તમારા ફોનને ફ્લિપ કરીને પલટાવો જેથી તેની સ્ક્રીન તમારી સામે રહે અને તેને સામાન્ય રીતે પકડો. તમે હવે નૅવિગેટ કરવા માટે નિયમિત TalkBack સંકેતોનો ઉપયોગ કરી શકો છો. વધુ વિકલ્પો જોવા માટે, જમણી બાજુએ સ્વાઇપ કરો.</string>
+    <string name="password_toggle_content_description">પાસવર્ડ બતાવો</string>
+    <string name="perform_action_next">આગળ</string>
+    <string name="perform_action_submitting">ટેક્સ્ટ સબમિટ કરવી</string>
+    <string name="perform_add_new_line_announcement">નવી લાઇન ઉમેરી</string>
+    <string name="perform_add_space_announcement">સ્પેસ</string>
+    <string name="perform_delete_letter_announcement">અક્ષર ડિલીટ કર્યો</string>
+    <string name="perform_delete_word_announcement">શબ્દ ડિલીટ કર્યો</string>
+    <string name="perform_hide_keyboard_announcement">કીબોર્ડ છુપાવો</string>
+    <string name="perform_submit_text_announcement">ટેક્સ્ટ સબમિટ કરો</string>
+    <string name="perform_switch_keyboard_announcement">કીબોર્ડ સ્વિચ કરો</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\"ને ક્લિપ બોર્ડ પર કૉપિ કર્યો."</string>
+    <string name="preferred_language_title">પસંદગીની ભાષા</string>
+    <string name="read_out_deleted">%s ડિલીટ કર્યું</string>
+    <string name="remaining_calibration_finish_announcement">બધા ડોટની સ્થિતિ અપડેટ કરી</string>
+    <string name="reminder_announcement">વધુ વિકલ્પો માટે 3 આંગળી વડે ઉપરની તરફ સ્વાઇપ કરો</string>
+    <string name="result_swipe_down">કર્સર આગળ ખસેડ્યું</string>
+    <string name="result_swipe_down_2_fingers">કીબોર્ડ છુપાવો</string>
+    <string name="result_swipe_down_3_fingers">આગલું કીબોર્ડ</string>
+    <string name="result_swipe_left">ડિલીટ કરો</string>
+    <string name="result_swipe_right">સ્પેસ</string>
+    <string name="result_swipe_up">કર્સર પાછળ ખસેડ્યું</string>
+    <string name="rotate_orientation_announcement">હવેથી તમે, નિયમિત ટૉકબૅક સંકેતનો ઉપયોગ કરી શકશો નહીં. બ્રેઇલ કીબોર્ડનો ઉપયોગ કરતી વખતે ટૉકબૅક ઉપલબ્ધ નથી.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">તમારો ફોન ઊભી સ્થિતિમાં છે. ચાલુ રાખવા માટે, તમારા ફોનને આડો ફેરવો જેથી કરીને લાંબી બાજુ તળિયા પર રહે. પછી સ્ક્રીનને તમારાથી દૂર રાખવા માટે પલટાવો. જ્યારે તમે તૈયાર હો, ત્યારે ચાલુ રાખવા માટે સ્ક્રીનને બે વાર ટૅપ કરો.</string>
+    <string name="rotate_orientation_description_1">હવેથી તમે, નિયમિત ટૉકબૅક સંકેતનો ઉપયોગ કરી શકશો નહીં. બ્રેઇલ કીબોર્ડનો ઉપયોગ કરતી વખતે ટૉકબૅક ઉપલબ્ધ નથી.</string>
+    <string name="rotate_orientation_description_2">શરૂ કરવા માટે, તમારા ફોનને એ રીતે પકડો કે તેની સ્ક્રીન તમારાથી દૂર રહે.</string>
+    <string name="rotate_orientation_inactive_announcement">સૌ પહેલાં, તમારા ફોનને પલટાવો જેથી કરીને સ્ક્રીન તમારાથી દૂર રહે.\n\nત્યાર બાદ, ફોનને આડો ફેરવીને લૅન્ડસ્કેપ સ્થિતિમાં લાવો. તમારા હાથમાં ફોનની ટૂંકી કિનારીઓ પકડમાં આવી જવી જોઈએ. તમારા ડાબા હાથમાં USB પોર્ટ ધરાવતો છેડો હોવો જોઈએ. તમારી 3 વચલી આંગળીને સ્ક્રીન પર મૂકો અને ફોનને પકડવા માટે તમારી ટચલી આંગળી અને અંગુઠાનો ઉપયોગ કરો.\n\nજ્યારે તમે તૈયાર હો, ત્યારે ચાલુ રાખવા માટે સ્ક્રીનને બે વાર ટૅપ કરો.\n\nબ્રેઇલ કીબોર્ડમાંથી બહાર નીકળવા માટે, 3 આંગળી વડે જમીનની તરફ નીચે સ્વાઇપ કરો. આમ કરવાથી તમારા ઑરિજિનલ કીબોર્ડ પર પાછું સ્વિચ થઈ જાય છે.</string>
+    <string name="screen_away">સ્ક્રીન અવે મોડ</string>
+    <string name="screen_away_detail">તમારી સામે સ્ક્રીનની પાછળનો ભાગ રહે તે રીતે ડિવાઇસને પકડો (સ્ક્રીન અવે મોડ)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"શોધો"</string>
+    <string name="set_up_braille_keyboard">બ્રેઇલ કીબોર્ડનું સેટઅપ કરો</string>
+    <string name="show_keyboard_window">%1$s બતાવી રહ્યાં છીએ</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">દરેક દબાવેલો ડોટ એ ઇનપુટનો ભાગ છે, પછીથી ભલેને ડોટ, અન્ય ડોટની પહેલાં છોડી દેવામાં આવ્યો હોય</string>
+    <string name="summary_pref_reverse_dots">ડોટની જગ્યાની અદલાબદલી કરે છે, જેથી કરીને ડોટ 1 અને 4 સ્થાનની અદલાબદલી કરે, ઉદાહરણ તરીકે</string>
+    <string name="swipe_down_2_fingers_announcement">કીબોર્ડને છુપાવવા માટે, 2 આંગળી વડે નીચેની તરફ સ્વાઇપ કરો. હમણાં જ અજમાવી જુઓ.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">કીબોર્ડ છુપાવો. સામાન્ય રીતે, આ કીબોર્ડને છુપાવશે. બ્રેઇલ કીબોર્ડ ખુલ્લું રહેશે કારણ કે તમે હજીપણ ટ્યૂટૉરિઅલમાં છો.</string>
+    <string name="swipe_down_3_fingers_announcement">તમારા અન્ય કીબોર્ડ પર સ્વિચ કરવા માટે, 3 આંગળી વડે નીચેની તરફ સ્વાઇપ કરો. હમણાં જ અજમાવી જુઓ.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">આગલું કીબોર્ડ. સામાન્ય રીતે, આ આગલા કીબોર્ડ પર સ્વિચ કરશે. આ વખતે, તમે બ્રેઇલ કીબોર્ડમાં રહો છો કારણ કે તમે હજીપણ ટ્યૂટૉરિઅલમાં છો.</string>
+    <string name="swipe_down_announcement">કર્સરને આગળ ખસેડવા માટે, નીચેની તરફ સ્વાઇપ કરો. હમણાં જ અજમાવી જુઓ.</string>
+    <string name="swipe_left_action_result_announcement">d અક્ષર ડિલીટ કર્યો.</string>
+    <string name="swipe_left_announcement">અક્ષરને ડિલીટ કરવા માટે, ડાબી બાજુએ સ્વાઇપ કરો. હમણાં જ અજમાવી જુઓ.</string>
+    <string name="swipe_right_announcement">સ્પેસ ઉમેરવા માટે, જમણી બાજુએ સ્વાઇપ કરો. હમણાં જ અજમાવી જુઓ.</string>
+    <string name="swipe_up_3_fingers_announcement">તમે તમારા ફોનને ટેબલ પર સપાટ રાખીને પણ ટેબલટોપ મોડમાં ટાઇપ કરી શકો છો. ટ્યૂટૉરિઅલને સમાપ્ત કરવા માટે, 3 આંગળી વડે ઉપર સ્વાઇપ કરો અને \"ટ્યૂટૉરિઅલને સમાપ્ત કરો\" વિકલ્પ શોધો</string>
+    <string name="swipe_up_announcement">કર્સરને પાછળ ખસેડવા માટે, ઉપરની તરફ સ્વાઇપ કરો. હમણાં જ અજમાવી જુઓ.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">બ્રેઇલ કીબોર્ડ વડે ટાઇપ કરતી વખતે તમારી ભાષા બદલવા માટે, 3 આંગળીઓથી ઉપરની તરફ સ્વાઇપ કરો. પછી \"આગલી ભાષા પર સ્વિચ થાઓ\"ને પસંદ કરો.</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">ટાઇપિંગ કરતી વખતે ઝડપથી ભાષા બદલો</string>
+    <string name="switch_to_language_announcement">%s પર સ્વિચ કર્યું</string>
+    <string name="switch_to_screen_away_announcement">સ્ક્રીન અવે મોડ</string>
+    <string name="switch_to_tabletop_announcement">ટેબલટોપ મોડ. તમારા ડિવાઇસને એવી રીતે રાખો કે ચાર્જિંગ પોર્ટ ડાબી બાજુએ રહે. ડોટની સ્થિતિ અપડેટ કરવા માટે, 6 આંગળીથી દબાવી રાખો.</string>
+    <string name="symbol_almost_equals">લગભગ આના જેટલું જ</string>
+    <string name="symbol_ampersand">એમ્પરસેન્ડ</string>
+    <string name="symbol_angle_bracket_left">આનાથી ઓછાનું ચિહ્ન</string>
+    <string name="symbol_angle_bracket_right">આનાથી વધારેનું ચિહ્ન</string>
+    <string name="symbol_apostrophe">એપોસ્ટ્રોફી</string>
+    <string name="symbol_approximately_equals">આશરે બરાબર</string>
+    <string name="symbol_asterisk">ફૂદડી</string>
+    <string name="symbol_at_sign">એટ</string>
+    <string name="symbol_backslash">બૅકસ્લૅશ</string>
+    <string name="symbol_beamed_sixteenth_note">બીમ કરેલ સોળમી નોંધ</string>
+    <string name="symbol_black_circle">કાળું વર્તુળ</string>
+    <string name="symbol_black_heart">કાળું હૃદય</string>
+    <string name="symbol_black_smallsquare">નાનું કાળું ચોરસ</string>
+    <string name="symbol_black_square">કાળું ચોરસ</string>
+    <string name="symbol_black_star">કાળો તારો</string>
+    <string name="symbol_black_suit_of_diamonds">ડાયમંડ આકારનું કાળું સ્યૂટ ચિહ્ન</string>
+    <string name="symbol_black_triangle_pointing_down">નીચેની તરફ ચીંધી રહેલું કાળું ત્રિકોણ</string>
+    <string name="symbol_black_triangle_pointing_up">ઉપરની તરફ ચીંધી રહેલું કાળું ત્રિકોણ</string>
+    <string name="symbol_broken_bar">તૂટેલ બાર</string>
+    <string name="symbol_bullet">બુલેટ</string>
+    <string name="symbol_bullseye">બુલ્સઆઇ</string>
+    <string name="symbol_caret">કૅરેટ</string>
+    <string name="symbol_celsius_degree">સેલ્સિયસ ડિગ્રી</string>
+    <string name="symbol_cent">સેન્ટનું ચિહ્ન</string>
+    <string name="symbol_circle_left_half_black">ડાબા અડધા કાળા સાથેનું વર્તુળ</string>
+    <string name="symbol_circle_right_half_black">જમણા અડધા કાળા સાથેનું વર્તુળ</string>
+    <string name="symbol_colon">ગુરુવિરામ</string>
+    <string name="symbol_comma">અલ્પવિરામ</string>
+    <string name="symbol_copyright">કોપિરાઇટ</string>
+    <string name="symbol_curly_bracket_left">ડાબો છગડિયો કૌંસ</string>
+    <string name="symbol_curly_bracket_right">જમણો છગડિયો કૌંસ</string>
+    <string name="symbol_currency_sign">ચલણ ચિહ્ન</string>
+    <string name="symbol_degree">ડિગ્રીનું ચિહ્ન</string>
+    <string name="symbol_division">ભાગાકારનું ચિહ્ન</string>
+    <string name="symbol_dollar_sign">ડૉલરનું ચિહ્ન</string>
+    <string name="symbol_downwards_arrow">નીચેની તરફનો એરો</string>
+    <string name="symbol_eighth_note">આઠમી નોંધ</string>
+    <string name="symbol_ellipsis">અધ્યાહાર</string>
+    <string name="symbol_em_dash">Em ડેશ</string>
+    <string name="symbol_en_dash">En ડેશ</string>
+    <string name="symbol_equal">બરાબરનું ચિહ્ન</string>
+    <string name="symbol_euro">યુરો</string>
+    <string name="symbol_exclamation_mark">ઉદ્ગારવાચક ચિહ્ન</string>
+    <string name="symbol_fahrenheit_degree">ફેરનહીટ ડિગ્રી</string>
+    <string name="symbol_female">સ્ત્રી પ્રતીક</string>
+    <string name="symbol_full_width_ampersand">પૂર્ણ પહોળાઈનો એમ્પરસેન્ડ</string>
+    <string name="symbol_full_width_asterisk">પૂર્ણ પહોળાઈની ફૂદડી</string>
+    <string name="symbol_full_width_circumflex">પૂર્ણ પહોળાઈનું સર્કમફ્લૅક્સ</string>
+    <string name="symbol_full_width_colon">પૂર્ણ પહોળાઈનું ગુરુવિરામ</string>
+    <string name="symbol_full_width_comma">પૂર્ણ પહોળાઈનું અલ્પવિરામ</string>
+    <string name="symbol_full_width_exclamation_mark">પૂર્ણ પહોળાઈનું ઉદ્ગારવાચક ચિહ્ન</string>
+    <string name="symbol_full_width_greater_than_sign">પૂર્ણ પહોળાઈનું આનાથી વધુનું ચિહ્ન</string>
+    <string name="symbol_full_width_ideographic_full_stop">આઇડિયોગ્રાફિક પૂર્ણવિરામ</string>
+    <string name="symbol_full_width_left_curly_bracket">પૂર્ણ પહોળાઈનો ડાબો છગડિયો કૌંસ</string>
+    <string name="symbol_full_width_left_parenthesis">પૂર્ણ પહોળાઈનો ડાબો કૌંસ</string>
+    <string name="symbol_full_width_less_than_sign">પૂર્ણ પહોળાઈનું આનાથી ઓછાનું ચિહ્ન</string>
+    <string name="symbol_full_width_question_mark">પૂર્ણ પહોળાઈનું પ્રશ્નાર્થ ચિહ્ન</string>
+    <string name="symbol_full_width_right_curly_bracket">પૂર્ણ પહોળાઈનો જમણો છગડિયો કૌંસ</string>
+    <string name="symbol_full_width_right_parenthesis">પૂર્ણ પહોળાઈનો જમણો કૌંસ</string>
+    <string name="symbol_full_width_semicolon">પૂર્ણ પહોળાઈનું અર્ધવિરામ</string>
+    <string name="symbol_full_width_tilde">પૂર્ણ પહોળાઈનો ટિલ્ડ</string>
+    <string name="symbol_full_width_underscore">પૂર્ણ પહોળાઈનો અન્ડરસ્કોર</string>
+    <string name="symbol_grave_accent">ગ્રેવ એક્સેન્ટ</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">કટાકાના લિપિનું મધ્યમાં ડોટ</string>
+    <string name="symbol_hyphen_minus">ડૅશ</string>
+    <string name="symbol_ideographic_comma">આઇડિયોગ્રાફિક અલ્પવિરામ</string>
+    <string name="symbol_integral">અભિન્ન</string>
+    <string name="symbol_inverted_exclamation_mark">ઊંધું ઉદ્ગારવાચક ચિહ્ન</string>
+    <string name="symbol_inverted_question_mark">ઊંધું પ્રશ્નાર્થ ચિહ્ન</string>
+    <string name="symbol_left_angle_bracket">ડાબા બેવડાં ખૂણાવાળા કૌંસ</string>
+    <string name="symbol_left_black_lenticular_bracket">ડાબો કાળો દ્વિબહિર્ગોળ કૌંસ</string>
+    <string name="symbol_left_corner_bracket">ડાબો ખૂણાનો કૌંસ</string>
+    <string name="symbol_left_double_quotation_mark">ડાબું બેવડું અવતરણ ચિહ્ન</string>
+    <string name="symbol_left_single_quotation_mark">ડાબું એકલ અવતરણ ચિહ્ન</string>
+    <string name="symbol_leftwards_arrow">ડાબી તરફનો એરો</string>
+    <string name="symbol_liter">લીટર</string>
+    <string name="symbol_low_double_quote">નીચા બેવડા અવતરણ</string>
+    <string name="symbol_male">પુરુષ પ્રતીક</string>
+    <string name="symbol_mathematical_left_angle_bracket">ગણિતનો ડાબા ખૂણાવાળો કૌંસ</string>
+    <string name="symbol_mathematical_right_angle_bracket">ગણિતનો જમણા ખૂણાવાળો કૌંસ</string>
+    <string name="symbol_micro_sign">માઇક્રો ચિહ્ન</string>
+    <string name="symbol_middle_dot">મધ્યમાં ડોટ</string>
+    <string name="symbol_multiplication">ગુણાકારનું ચિહ્ન</string>
+    <string name="symbol_new_line">નવી રેખા</string>
+    <string name="symbol_not_equals">આના જેટલું નહીં</string>
+    <string name="symbol_not_sign">નથી ચિહ્ન</string>
+    <string name="symbol_paragraph_mark">ફકરાનું ચિહ્ન</string>
+    <string name="symbol_parenthesis_left">ડાબો કૌંસ</string>
+    <string name="symbol_parenthesis_right">જમણો કૌંસ</string>
+    <string name="symbol_percent">ટકા</string>
+    <string name="symbol_period">પૂર્ણવિરામ</string>
+    <string name="symbol_pi">પાઇ</string>
+    <string name="symbol_plus_minus_sign">સરવાળા બાદબાકીનું ચિહ્ન</string>
+    <string name="symbol_postal_mark">પોસ્ટલ માર્ક</string>
+    <string name="symbol_pound">પાઉન્ડ</string>
+    <string name="symbol_pound_sterling">પાઉન્ડ ચલણનું ચિહ્ન</string>
+    <string name="symbol_quarter_note">ક્વાર્ટર નોંધ</string>
+    <string name="symbol_question_mark">પ્રશ્ન ચિહ્ન</string>
+    <string name="symbol_quotation_mark">અવતરણ</string>
+    <string name="symbol_reference">સંદર્ભ ચિહ્ન</string>
+    <string name="symbol_registered_trademark">નોંધાયેલ ટ્રેડમાર્ક</string>
+    <string name="symbol_right_angle_bracket">જમણા બેવડાં ખૂણાવાળા કૌંસ</string>
+    <string name="symbol_right_black_lenticular_bracket">જમણો કાળો દ્વિબહિર્ગોળ કૌંસ</string>
+    <string name="symbol_right_corner_bracket">જમણો ખૂણાનો કૌંસ</string>
+    <string name="symbol_right_double_quotation_mark">જમણું બેવડું અવતરણ ચિહ્ન</string>
+    <string name="symbol_right_single_quotation_mark">જમણું એકલ અવતરણ ચિહ્ન</string>
+    <string name="symbol_rightwards_arrow">જમણી તરફનો એરો</string>
+    <string name="symbol_rupee">રૂપિયો</string>
+    <string name="symbol_section_sign">વિભાગ ચિહ્ન</string>
+    <string name="symbol_semicolon">અર્ધવિરામ</string>
+    <string name="symbol_slash">સ્લૅશ</string>
+    <string name="symbol_solar">સૌર પ્રતીક</string>
+    <string name="symbol_space">જગ્યા</string>
+    <string name="symbol_square_bracket_left">ડાબો ચોરસ કૌંસ</string>
+    <string name="symbol_square_bracket_right">જમણો ચોરસ કૌંસ</string>
+    <string name="symbol_square_root">વર્ગમૂળ</string>
+    <string name="symbol_tilde">ટિલ્ડ</string>
+    <string name="symbol_trademark">ટ્રેડમાર્ક</string>
+    <string name="symbol_underscore">અન્ડરસ્કૉર</string>
+    <string name="symbol_upwards_arrow">ઉપરની તરફનો એરો</string>
+    <string name="symbol_vertical_bar">ઊભી લાઇન</string>
+    <string name="symbol_white_circle">સફેદ વર્તુળ</string>
+    <string name="symbol_white_club_suit">સફેદ ક્લબ સ્યૂટ</string>
+    <string name="symbol_white_diamond">સફેદ હીરો</string>
+    <string name="symbol_white_down_pointing_triangle">સફેદ નીચેની તરફનો ત્રિકોણ</string>
+    <string name="symbol_white_heart">સફેદ હૃદય</string>
+    <string name="symbol_white_left_pointing_index">સફેદ ડાબી તરફનો અનુક્રમ</string>
+    <string name="symbol_white_left_pointing_triangle">સફેદ ડાબી તરફનો ત્રિકોણ</string>
+    <string name="symbol_white_right_pointing_index">સફેદ જમણી તરફનો અનુક્રમ</string>
+    <string name="symbol_white_right_pointing_triangle">સફેદ જમણી તરફનો ત્રિકોણ</string>
+    <string name="symbol_white_spade_suit">સફેદ સ્પેડ સ્યુટ</string>
+    <string name="symbol_white_square">સફેદ ચોરસ</string>
+    <string name="symbol_white_star">સફેદ તારો</string>
+    <string name="symbol_white_up_pointing_triangle">સફેદ ઉપરની તરફનો ત્રિકોણ</string>
+    <string name="symbol_won">વૉન ચલણનું ચિહ્ન</string>
+    <string name="symbol_won_sign">વૉન ચલણનું ચિહ્ન</string>
+    <string name="symbol_yen">યેન</string>
+    <string name="tabletop">ટેબલટોપ મોડ</string>
+    <string name="tabletop_detail">ડિવાઇસને ટેબલ પર સપાટ રાખો (ટેબલટોપ મોડ)</string>
+    <string name="talkback_off_dialog_positive_button">ઍક્સેસિબિલિટી સેટિંગમાં ચાલુ કરો</string>
+    <string name="talkback_off_dialog_title">બ્રેઇલ કીબોર્ડનો ઉપયોગ કરવા માટે ટૉકબૅક ચાલુ કરો</string>
+    <string name="talkback_off_or_suspend_dialog_message">જ્યારે ટૉકબૅક ચાલુ હોય, ત્યારે તમે બ્રેઇલ પ્રતીકોને દાખલ કરવા માટે તમારી સ્ક્રીન પર ટૅપ કરી શકો છો.</string>
+    <string name="talkback_suspend_dialog_title">બ્રેઇલ કીબોર્ડનો ઉપયોગ કરવા માટે ટૉકબૅક ફરી શરૂ કરો</string>
+    <string name="tap_to_continue">ચાલુ રાખવા માટે ગમે-ત્યાં બે વાર ટૅપ કરો</string>
+    <string name="template_capital_letter">કેપિટલ %1$s</string>
+    <string name="template_current_tts_engine">%1$s નો ઉપયોગ કરી રહ્યું છે</string>
+    <string name="template_overlay_window">%1$s ચિત્રમાં ચિત્ર</string>
+    <string name="template_password_selected">%1$d થી %2$d સુધીના અક્ષર</string>
+    <string name="template_password_traversed">અક્ષર %1$d</string>
+    <string name="template_scroll_from_count">%1$d થી %2$d સુધીની આઇટમ દર્શાવી રહ્યું છે.</string>
+    <string name="template_scroll_from_to_count">%3$d ના %1$d થી %2$d આઇટમ્સ દર્શાવી રહ્યું છે.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s ડાબી બાજુએ, %2$s જમણી બાજુએ</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s જમણી બાજુએ, %2$s ડાબી બાજુએ</string>
+    <string name="template_split_screen_mode_portrait">%1$s ટોચ પર, %2$s તળિયે</string>
+    <string name="template_text_copied">%1$s, કૉપિ કર્યું</string>
+    <string name="template_viewpager_index_count">%2$d માંથી %1$d પૃષ્ઠ</string>
+    <string name="template_viewpager_index_count_short">%2$d માંથી %1$d</string>
+    <string name="title_pref_accumulate_presses">બધા દબાવેલા ડોટને શામેલ કરો</string>
+    <string name="title_pref_reverse_dots">ડોટ ઉલટાવો</string>
+    <string name="tutorial_intro_description">બ્રેઇલ કીબોર્ડ વડે, તમે 6-ડોટ બ્રેઇલમાં દાખલ થવા માટે તમારી સ્ક્રીન પર ટૅપ કરી શકો છો.\n\nતમે યુનિફાઇડ ઇંગ્લિશ બ્રેઇલનો ઉપયોગ કરી રહ્યાં છો. તમારી ટાઇપિંગની ભાષાને સ્વિચ કરવા માટે, TalkBack સેટિંગ પર જાઓ.\n\nબ્રેઇલમાં ટાઇપ કરવા માટે, તમારે તમારા ફોનને અલગ રીતે પકડીને તેનો ઉપયોગ કરવો પડશે.</string>
+    <string name="type_letter_a_announcement">સ્ક્રીનવાળો ભાગ તમારાથી વિપરિત દિશામાં રાખો. દરેક હાથની વચલી 3 આંગળીઓ સ્ક્રીનને ટચ કરી શકે તે રીતે તમારા ફોનને બન્ને હાથમાં, ફોનની ટૂંકી કિનારીઓ પર પકડો.\n\nતમારી ડાબી તર્જની આંગળી ડોટ 1 પર હોવી જોઈએ. હવે, અક્ષર “A” ટાઇપ કરવા માટે ડોટ 1 પર ટૅપ કરો.</string>
+    <string name="type_letter_a_inactive_announcement">“A” ટાઇપ કરવા માટે તમારી ડાબી તર્જની આંગળી વડે ડોટ 1 પર ટૅપ કરો</string>
+    <string name="type_letter_inactive_announcement">અક્ષર %2$s ટાઇપ કરવા માટે %1$s પર ટૅપ કરો</string>
+    <string name="typing_languages_title">ટાઇપ કરવાની ભાષાઓ</string>
+    <string name="untitled_window">અનામાંકિત</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">સેટિંગ</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>બ્રેઇલ કીબોર્ડ ચાલુ કરો&lt;/b>: નીચે સેટિંગ પર ટૅપ કરો. આગલી સ્ક્રીન પર, \"%1$s\"ને ચાલુ કરો.
+    &lt;br>&lt;br>2. &lt;b>બ્રેઇલ કીબોર્ડનો ઉપયોગ કરો&lt;/b>: તમારું નિયમિત કીબોર્ડ ખોલો, પછી કીબોર્ડ પસંદ કરો આઇકન %2$s (જે સામાન્ય રીતે નીચલા જમણા ખૂણા પર હોય છે) પર ટૅપ કરો. \"%1$s\"ને પસંદ કરો.
+  &lt;br>&lt;br>જો તમને કીબોર્ડને સ્વિચ કરવાનો વિકલ્પ ન દેખાય, તો %3$s, Google કીબોર્ડને ઇન્સ્ટૉલ કરી જુઓ.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">બ્રેઇલ કીબોર્ડનો ઉપયોગ કરવા માટે, તમારું નિયમિત કીબોર્ડ ખોલો, પછી કીબોર્ડ પસંદ કરો આઇકન %1$s (જે સામાન્ય રીતે નીચલા જમણા ખૂણા પર હોય છે) પર ટૅપ કરો. \"%2$s\"ને પસંદ કરો.
+  &lt;br>&lt;br>જો તમને કીબોર્ડને સ્વિચ કરવાનો વિકલ્પ ન દેખાય, તો %3$s, Google કીબોર્ડને ઇન્સ્ટૉલ કરી જુઓ.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"બંધ કરો"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ચાલુ કરો"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"ઍક્શન ડ્રોઅર"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"નૅવિગેશન ડ્રોઅર"</string>
+</resources>

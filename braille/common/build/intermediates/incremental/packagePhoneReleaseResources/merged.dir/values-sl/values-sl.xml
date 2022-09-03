@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">pike %s</item>
+    <item quantity="two">pike %s</item>
+    <item quantity="few">pike %s</item>
+    <item quantity="other">pike %s</item>
+  </plurals>
+    <string name="auto_detect">Prilagoditev vašemu načinu držanja naprave</string>
+    <string name="capitalize_announcement">Velika črka</string>
+    <string name="code_user_facing_name_ar">arabščina</string>
+    <string name="code_user_facing_name_es">španščina</string>
+    <string name="code_user_facing_name_fr">francoščina</string>
+    <string name="code_user_facing_name_pl">poljščina</string>
+    <string name="code_user_facing_name_ueb1">Neskrčena poenotena angleška braillova pisava</string>
+    <string name="code_user_facing_name_ueb2">Skrčena poenotena angleška braillova pisava</string>
+    <string name="number_announcement">Številka</string>
+    <string name="read_out_deleted">Besedilo »%s« je izbrisano</string>
+    <string name="screen_away">Način s proč obrnjenim zaslonom</string>
+    <string name="screen_away_detail">Zaslon naprave naj bo obrnjen stran od vas (način s proč obrnjenim zaslonom)</string>
+    <string name="tabletop">Namizni način</string>
+    <string name="tabletop_detail">Napravo položite plosko na mizo (namizni način z zaslonom navzgor)</string>
+</resources>

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply from: "../../shared.gradle"
 
 android {
@@ -13,6 +14,8 @@ dependencies {
     implementation project(':brailleinterfaces')
     implementation project(':proguard')
     implementation project(':utils')
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 task createTranslationTablesZip(type: Zip){
@@ -23,3 +26,6 @@ task createTranslationTablesZip(type: Zip){
 }
 
 preBuild.dependsOn createTranslationTablesZip
+repositories {
+    mavenCentral()
+}

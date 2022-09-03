@@ -65,8 +65,10 @@ import android.view.KeyEvent;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+
 import com.android.talkback.TalkBackPreferencesActivity;
 import com.google.android.accessibility.braille.brailledisplay.BrailleDisplay;
 import com.google.android.accessibility.braille.interfaces.BrailleDisplayForTalkBack;
@@ -103,6 +105,7 @@ import com.google.android.accessibility.talkback.actor.search.SearchScreenOverla
 import com.google.android.accessibility.talkback.actor.search.UniversalSearchManager;
 import com.google.android.accessibility.talkback.actor.voicecommands.SpeechRecognizerActor;
 import com.google.android.accessibility.talkback.actor.voicecommands.VoiceCommandProcessor;
+import com.google.android.accessibility.talkback.adb.AdbReceiver;
 import com.google.android.accessibility.talkback.brailledisplay.BrailleDisplayHelper;
 import com.google.android.accessibility.talkback.contextmenu.ListMenuManager;
 import com.google.android.accessibility.talkback.controller.TelevisionNavigationController;
@@ -192,12 +195,14 @@ import com.google.android.accessibility.utils.output.SpeechControllerImpl;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl.CapitalLetterHandlingMethod;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.common.collect.ImmutableMap;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** An {@link AccessibilityService} that provides spoken, haptic, and audible feedback. */
 public class TalkBackService extends AccessibilityService
@@ -523,6 +528,7 @@ public class TalkBackService extends AccessibilityService
 
   @Override
   public void onDestroy() {
+    AdbReceiver.Companion.unregisterAdbReceiver(this);
     if (passThroughModeActor != null) {
       passThroughModeActor.onDestroy();
     }
@@ -987,6 +993,8 @@ public class TalkBackService extends AccessibilityService
   protected void onServiceConnected() {
     LogUtils.v(TAG, "System bound to service.");
 
+    AdbReceiver.Companion.registerAdbReceiver(this);
+
     primesController = new PrimesController();
     primesController.initialize(getApplication());
     primesController.startTimer(Timer.START_UP);
@@ -1058,6 +1066,8 @@ public class TalkBackService extends AccessibilityService
 
     primesController.stopTimer(Timer.START_UP);
   }
+
+
 
   /**
    * @return The current state of the TalkBack service, or {@code INACTIVE} if the service is not
@@ -1536,6 +1546,19 @@ public class TalkBackService extends AccessibilityService
     BrailleIme.initialize(
         this, talkBackForBrailleIme, brailleDisplay.getBrailleDisplayForBrailleIme());
     analytics.onTalkBackServiceStarted();
+  }
+
+  // MARK: Quintin
+  public void performGesture(String gestureString) {
+    Performance perf = Performance.getInstance();
+    EventId eventId = perf.onEventReceived(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_UNKNOWN));
+    gestureController.performAction(gestureString, eventId);
+  }
+
+  public void moveAtGranularity(SelectorController.Granularity granularity, boolean isNext) {
+      Performance perf = Performance.getInstance();
+      EventId eventId = perf.onEventReceived(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_UNKNOWN));
+      selectorController.moveAtGranularity(eventId, granularity, isNext);
   }
 
   private final TalkBackForBrailleDisplay talkBackForBrailleDisplay =

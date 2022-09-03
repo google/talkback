@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">ponto %s</item>
+    <item quantity="other">pontos %s</item>
+  </plurals>
+    <string name="auto_detect">Adaptar à forma como segura no dispositivo</string>
+    <string name="capitalize_announcement">Letras maiúsculas</string>
+    <string name="code_user_facing_name_ar">Árabe</string>
+    <string name="code_user_facing_name_es">Espanhol</string>
+    <string name="code_user_facing_name_fr">Francês</string>
+    <string name="code_user_facing_name_pl">Polaco</string>
+    <string name="code_user_facing_name_ueb1">Braille unificado em inglês não contraído</string>
+    <string name="code_user_facing_name_ueb2">Braille unificado em inglês contraído</string>
+    <string name="number_announcement">Número</string>
+    <string name="read_out_deleted">%s eliminado.</string>
+    <string name="screen_away">Modo de ecrã afastado</string>
+    <string name="screen_away_detail">Segure no dispositivo com o ecrã afastado de si (modo de ecrã afastado).</string>
+    <string name="tabletop">Modo de mesa</string>
+    <string name="tabletop_detail">Coloque o dispositivo na horizontal numa mesa (modo de mesa).</string>
+</resources>

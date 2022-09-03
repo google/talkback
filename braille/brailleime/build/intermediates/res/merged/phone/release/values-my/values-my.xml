@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">အစက်%s</item>
+    <item quantity="other">အစက်များ%s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">အကြောင်းကြားချက်အသစ် %d ခု</item>
+    <item quantity="other">အကြောင်းကြားချက်အသစ် %d ခု</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"မူလနေရာကို ပြန်သွားရန်"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"အပေါ်သို့ ရွှေ့ရန်"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"နောက်ထပ် ရွေးစရာများ"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"ပြီးပြီ"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"အားလုံး ကြည့်ရန်"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"အက်ပ်တစ်ခုကို ရွေးရန်"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ပိတ်"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ဖွင့်"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"ရှာဖွေရန်…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"ရှာဖွေမှုကို ဖယ်ရှားရန်"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"ရှာဖွေရန် မေးခွန်း"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"ရှာရန်"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"ရှာဖွေစရာ အချက်အလက်ကို ပေးပို့ရန်"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"အသံဖြင့် ရှာရန်"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"နှင့် မျှဝေရန်"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> ဖြင့် မျှဝေရန်"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"လျှော့ပြရန်"</string>
+    <string name="auto_detect">စက်ပစ္စည်းကိုင်ပုံကိုလိုက်၍ မုဒ်ရွေးပါ</string>
+    <string name="bottomsheet_action_expand_halfway">တစ်ဝက်ချဲ့ရန်</string>
+    <string name="braille_ime_displayed_name">မျက်မမြင်စာရေးစနစ် လက်ကွက်</string>
+    <string name="braille_ime_service_name">TalkBack မျက်မမြင်စာရေးစနစ် လက်ကွက်</string>
+    <string name="braille_keyboard">မျက်မမြင်စာရေးစနစ် လက်ကွက်</string>
+    <string name="braille_keyboard_gestures">မျက်မမြင်စာရေးစနစ် လက်ကွက် လက်ဟန်များ</string>
+    <string name="braille_keyboard_strip_button">တို့ထိ မျက်နှာပြင် ကီးဘုတ်သို့ ပြောင်းရန်</string>
+    <string name="braille_keyboard_strip_summary">ဤစက်တွင် စာရိုက်ရန်အတွက် သုံးနိုင်သည့် ပြင်ပ မျက်မမြင်စာဖတ်ကိရိယာနှင့် ချိတ်ဆက်ထားပါသည်။\nထိုနည်းမဟုတ် တို့ထိ မျက်နှာပြင် ‘မျက်မမြင်စာရေးစနစ် ကီးဘုတ်’ (သို့) နောက်ထပ် လက်ကွက်သို့ ပြောင်းနိုင်ပါသည်။</string>
+    <string name="braille_tutorial_title">မျက်မမြင်စာရေးစနစ် လက်ကွက် သရုပ်ပြရန်</string>
+    <string name="bring_ime_settings_page">အခြားလက်ကွက် ဖွင့်မထားပါ၊ လက်ကွက်ဆက်တင်များသို့ သွားပါ</string>
+    <string name="calibration_fail_announcement">ဒေါ့(တ်)တည်နေရာကို အပ်ဒိတ်လုပ်၍မရပါ။ ဖန်သားပြင်ကို လက်ချောင်း ၆ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။ ထို့နောက် ထပ်စမ်းကြည့်ပါ။</string>
+    <string name="calibration_finish_announcement">ဒေါ့(တ်)တည်နေရာကို ပြောင်းပြီးပါပြီ</string>
+    <string name="calibration_step1_hold_left_finger_announcement">ဒေါ့(တ်)တည်နေရာကို အပ်ဒိတ်လုပ်နေသည်။ ပထမဦးစွာ သင့်ဘယ်ဘက်လက်ရှိ ဒေါ့(တ်)များကို မှတ်တမ်းတင်ပါမည်။ ဖန်သားပြင်ကို ဘယ်ဘက်လက်၏ အလယ်လက်ချောင်း ၃ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။</string>
+    <string name="calibration_step1_hold_right_finger_announcement">ဒေါ့(တ်)တည်နေရာကို အပ်ဒိတ်လုပ်နေသည်။ ပထမဦးစွာ သင့်ညာဘက်လက်ရှိ ဒေါ့(တ်)များကို မှတ်တမ်းတင်ပါမည်။ ဖန်သားပြင်ကို ညာဘက်လက်၏ အလယ်လက်ချောင်း ၃ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။</string>
+    <string name="calibration_step2_hold_left_finger_announcement">ဒေါ့(တ်) ၁၊ ၂ နှင့် ၃ အတွက် အပ်ဒိတ်လုပ်ထားသော တည်နေရာများ။ နောက်တစ်ဆင့်တွင် သင့်ဘယ်ဘက်လက်ရှိ ဒေါ့(တ်)များကို မှတ်တမ်းတင်ပါမည်။ ဖန်သားပြင်ကို ဘယ်ဘက်လက်၏ အလယ်လက်ချောင်း ၃ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။</string>
+    <string name="calibration_step2_hold_right_finger_announcement">ဒေါ့(တ်) ၁၊ ၂ နှင့် ၃ အတွက် အပ်ဒိတ်လုပ်ထားသော တည်နေရာများ။ နောက်တစ်ဆင့်တွင် သင့်ညာဘက်လက်ရှိ ဒေါ့(တ်)များကို မှတ်တမ်းတင်ပါမည်။ ဖန်သားပြင်ကို ညာဘက်လက်၏ အလယ်လက်ချောင်း ၃ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။</string>
+    <string name="capitalize_announcement">အက္ခရာအကြီး</string>
+    <string name="character_collapse_template"> %1$d%2$s</string>
+    <string name="character_counter_content_description">စာလုံးရေ %2$d တွင် %1$d ထည့်သွင်းထားသည်</string>
+    <string name="character_counter_overflowed_content_description">စာလုံးရေအကန့်အသတ် %2$d လုံးတွင် %1$d လုံးကျော်နေသည်</string>
+    <string name="clear_text_end_icon_content_description">စာသား ဖယ်ရှားရန်</string>
+    <string name="code_user_facing_name_ar">အာရဗီ</string>
+    <string name="code_user_facing_name_es">စပိန်</string>
+    <string name="code_user_facing_name_fr">ပြင်သစ်</string>
+    <string name="code_user_facing_name_pl">ပိုလန်</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">ဖွင့်ရန်</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Google Play ဝန်ဆောင်မှုများကို မဖွင့်သ၍ %1$s သည်အလုပ်လုပ်မည်မဟုတ်ပါ။</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play ဝန်ဆောင်မှုများ ဖွင့်ရန်</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ထည့်သွင်းပါ</string>
+    <string name="common_google_play_services_install_text">သင့်တက်ဘလက်တွင် Google Play ဝန်ဆောင်မှုများမရှိသောကြောင့် %1$s ကိုဖွင့်၍မရပါ။</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play ဝန်ဆောင်မှုများရယူရန်</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play ဝန်ဆောင်မှုများ ရရှိနိုင်သည်</string>
+    <string name="common_google_play_services_notification_ticker">Google Play ဝန်ဆောင်မှုများ အမှား</string>
+    <string name="common_google_play_services_unknown_issue">%1$s သည် Google Play ဝန်ဆောင်မှုများနှင့် ပြဿနာအနည်းငယ် ရှိနေပါသည်။ ထပ်လုပ်ကြည့်ပါ။</string>
+    <string name="common_google_play_services_unsupported_text">Google Play ဝန်ဆောင်မှုများကို သင့်စက်ပစ္စည်းတွင် ပံ့ပိုးမထားသည့်အတွက် ၎င်းမရှိဘဲ %1$s ကို ဖွင့်၍မရပါ။</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">အပ်ဒိတ်</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Google Play ဝန်ဆောင်မှုများအား အပ်ဒိတ်မလုပ်ပါက %1$s အလုပ်လုပ်မည် မဟုတ်ပါ။</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play ဝန်ဆောင်မှုများကို အပ်ဒိတ်လုပ်ရန်</string>
+    <string name="common_google_play_services_updating_text">Google Play ဝန်ဆောင်မှုများကို လက်ရှိအပ်ဒိတ်လုပ်နေသောကြောင့် %1$s ကိုဖွင့်၍ရမည်မဟုတ်ပါ။</string>
+    <string name="common_google_play_services_wear_update_text">Google Play ဝန်ဆောင်မှုဗားရှင်းအသစ်များ လိုအပ်နေသည်။ အချိန်အနည်းငယ်အကြာတွင် ၎င်းကိုယ်တိုင်အပ်ဒိတ်လုပ်ပါ လိမ့်မည်။</string>
+    <string name="common_open_on_phone">ဖုန်းပေါ်မှာ ဖွင့်ပါ</string>
+    <string name="common_signin_button_text">လက်မှတ်ထိုး ဝင်ရန်</string>
+    <string name="common_signin_button_text_long">Google ဖြင့် လက်မှတ်ထိုးဝင်ရေ</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"မအောင်မြင်ပါ"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"သင့်ဖုန်းတွင် ဖွင့်ထားသည်"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"အောင်မြင်ပါသည်"</string>
+    <string name="context_menu_input_language_selection">ဘာသာစကားနောက်တစ်ခုပြောင်းရန်- %s</string>
+    <string name="context_menu_input_language_selection_summary">သုံးနေသည့် ဘာသာစကား- %s</string>
+    <string name="context_menu_layout_selection">အပြင်အဆင်</string>
+    <string name="context_menu_see_all_gestures_selection">လက်ဟန်အားလုံးကို ပြန်ကြည့်ရန်</string>
+    <string name="context_menu_settings_selection">ဆက်တင်များ</string>
+    <string name="context_menu_title">မျက်မမြင်စာရေးစနစ် လက်ကွက် ရွေးချယ်မှုများ</string>
+    <string name="context_menu_tutorial_finish">သင်ခန်းစာကို အပြီးသတ်ရန်</string>
+    <string name="context_menu_tutorial_selection">သရုပ်ပြမှု ဖွင့်ရန်</string>
+    <string name="continue_tutorial_announcement">သရုပ်ပြမှုကို ရှေ့ဆက်ကြရအောင်။ %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"မိတ္တူကူးရန်"</string>
+    <string name="done">ပြီးပြီ</string>
+    <string name="dont_show_again">ဤအရာကို ထပ်မပြပါနှင့်</string>
+    <string name="error_icon_content_description">အမှား</string>
+    <string name="exit_scrim">ထွက်ရန်</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"အဆင့်မြင့်"</string>
+    <string name="exposed_dropdown_menu_content_description">ဆွဲချမီနူးကို ပြရန်</string>
+    <string name="finish_tutorial_announcement">မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို ပြနေသည်။ သင်၏ အခြားတစ်ဘက်သို့ ဖုန်းကိုလှည့်ပါ။ အလျားလိုက်ဖြစ်ရန် သင့်ဖုန်းကို လှည့်ပါ။ ထို့နောက် စာစရိုက်ပါ။</string>
+    <string name="function_off">အသံထွက် အကြံပြုချက်ကို ပိတ်ထားသည်</string>
+    <string name="function_on">အသံထွက် အကြံပြုချက်ကို ဖွင့်ထားသည်</string>
+    <string name="gesture_add_space"><b>နေရာလွတ်</b>ထည့်ရန် ညာဘက်သို့ပွတ်ဆွဲပါ</string>
+    <string name="gesture_delete"><b>ဖျက်ရန်</b> ဘယ်ဘက်သို့ပွတ်ဆွဲပါ</string>
+    <string name="gesture_delete_word"><b>စာလုံး ဖျက်ရန်</b> လက် ၂ ချောင်းဖြင့် ဘယ်ဘက်သို့ပွတ်ဆွဲပါ</string>
+    <string name="gesture_hide_keyboard"><b>လက်ကွက်ကို ဖျောက်ရန်</b> လက် ၂ ချောင်းဖြင့် အောက်သို့ ပွတ်ဆွဲပါ</string>
+    <string name="gesture_move_cursor_backward"><b>ကာဆာကို နောက်သို့ရွှေ့ရန်</b> အပေါ်သို့ပွတ်ဆွဲပါ</string>
+    <string name="gesture_move_cursor_forward"><b>ကာဆာကို ရှေ့သို့ရွှေ့ရန်</b> အောက်သို့ပွတ်ဆွဲပါ</string>
+    <string name="gesture_new_line"><b>စာကြောင်းသစ်</b>ထည့်ရန် လက် ၂ ချောင်းဖြင့် ညာဘက်သို့ပွတ်ဆွဲပါ</string>
+    <string name="gesture_next_keyboard"><b>နောက်လက်ကွက်</b>သို့ ပြောင်းရန် လက် ၃ ချောင်းဖြင့် အောက်သို့ပွတ်ဆွဲပါ</string>
+    <string name="gesture_open_context_menu"><b>အကူအညီနှင့် အခြား ရွေးချယ်စရာများ</b>အတွက် လက် ၃ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပါ</string>
+    <string name="gesture_submit_text"><b>စာသားပို့ရန်</b> လက် ၂ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပါ</string>
+    <string name="granularity_character">အက္ခရာများ</string>
+    <string name="granularity_default">မူရင်း</string>
+    <string name="granularity_line">စာကြောင်းများ</string>
+    <string name="granularity_native_control">ထိန်းချုပ်မှုများ</string>
+    <string name="granularity_native_heading">ခေါင်းစီးများ</string>
+    <string name="granularity_native_link">လင့်ခ်များ</string>
+    <string name="granularity_paragraph">စာပိုဒ်များ</string>
+    <string name="granularity_pseudo_web_special_content">အထူးအကြောင်းအရာများ</string>
+    <string name="granularity_web_control">ထိန်းချုပ်မှုများ</string>
+    <string name="granularity_web_heading">ခေါင်းစီးများ</string>
+    <string name="granularity_web_landmark">အထင်ကရနေရာများ</string>
+    <string name="granularity_web_link">လင့်ခ်များ</string>
+    <string name="granularity_web_list">စာရင်းများ</string>
+    <string name="granularity_window">ဝင်းဒိုးများ</string>
+    <string name="granularity_word">စကားလုံးများ</string>
+    <string name="hide_keyboard_window">ကီးဘုတ်ကို ဝှက်ထားသည်</string>
+    <string name="hold_six_fingers_announcement">%s\nသင့်စက်ကို စားပွဲပေါ်တွင် အပြားလိုက်တင်ပါ။ ထို့နောက် သင်စာရိုက်၍အဆင်ပြေမည့် အနေအထားတစ်ခုဖြင့် လက်တစ်ဖက်စီ၏ အလယ်လက်ချောင်း ၃ ချောင်းကို ဖန်သားပြင်ပေါ်တွင် တို့ထိ၍ဖိထားပါ။</string>
+    <string name="hold_six_fingers_description">မျက်မမြင်စာကီးဘုတ်တွင် ပုံမှန် TalkBack လက်ဟန်များကို သုံး၍မရနိုင်ပါ။\n\nစတင်ရန်အတွက် သင်စာရိုက်သောအခါ မျက်မမြင်ဒေါ့(တ်) ၆ ခု၏တည်နေရာကို စနစ်ထည့်သွင်းပါ။</string>
+    <string name="hold_six_fingers_inactive_announcement">သင့်စက်ကို စားပွဲပေါ်တွင် အပြားလိုက်တင်ပါ။ ထို့နောက် သင်စာရိုက်၍အဆင်ပြေမည့် အနေအထားတစ်ခုဖြင့် လက်တစ်ဖက်စီ၏ အလယ်လက်ချောင်း ၃ ချောင်းကို ဖန်သားပြင်ပေါ်တွင် တို့ထိ၍ဖိထားပါ။</string>
+    <string name="how_to_use_braille_keyboard">မျက်မမြင်စာရေးစနစ်လက်ကွက် အသုံးပြုနည်း</string>
+    <string name="icon_content_description">ဒိုင်ယာလော့ခ် သင်္ကေတ</string>
+    <string name="input_view_caption">TalkBack မျက်မမြင်စာရေးစနစ် လက်ကွက် - အကူအညီရယူရန် g.co/help/braille သို့သွားပါ</string>
+    <string name="instruction_swipe_down">ကာဆာကို ရှေ့သို့ရွှေ့ရန် အောက်သို့ပွတ်ဆွဲပါ</string>
+    <string name="instruction_swipe_down_2_fingers">လက်ကွက်ဖျောက်ရန် လက် ၂ ချောင်းဖြင့် အောက်သို့ ပွတ်ဆွဲပါ</string>
+    <string name="instruction_swipe_down_3_fingers">သင်၏ အခြားလက်ကွက်သို့ ပြောင်းရန် လက် ၃ ချောင်းဖြင့် အောက်သို့ ပွတ်ဆွဲပါ</string>
+    <string name="instruction_swipe_left">စာလုံးတစ်လုံး ဖျက်ရန် ဘယ်ဘက်သို့ ပွတ်ဆွဲပါ</string>
+    <string name="instruction_swipe_right">နေရာလွတ်ထည့်ရန် ညာဘက်သို့ ပွတ်ဆွဲပါ</string>
+    <string name="instruction_swipe_up">ကာဆာကို နောက်သို့ရွှေ့ရန် အပေါ်သို့ပွတ်ဆွဲပါ</string>
+    <string name="instruction_swipe_up_3_fingers">သရုပ်ပြမှု အဆုံးသတ်ရန် လက် ၃ ချောင်းဖြင့် အပေါ်သို့ ပွတ်ဆွဲပါ</string>
+    <string name="instruction_type_letter_a">\"A\" စာလုံးရိုက်ရန် သင်၏ ဘယ်လက်ညှိုးဖြင့် အစက် ၁ ကို တို့ပါ</string>
+    <string name="instruction_type_letter_bcd">ပြီးလျှင် စာလုံး B၊ C နှင့် D ကို စမ်းရိုက်ကြည့်ပါ</string>
+    <string name="item_view_role_description">တဘ်</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">ဖြတ်လမ်းအသစ်သတ်မှတ်ရန် %1$s ခလုတ်နှင့် တွဲနှိပ်ပါ။</string>
+    <string name="keycombo_assign_dialog_instruction">အတိုကောက်အသစ် တစ်ခုပြုလုပ်ရန် ခလုတ်ပေါင်းစပ်ခြင်းကို နှိပ်ပါ။ ၎င်းတွင် ALT သို့မဟုတ် Control ခလုတ်ပါရပါမည်။</string>
+    <string name="keycombo_key_arrow_down">အောက်ညွှန်မြှား</string>
+    <string name="keycombo_key_arrow_left">ဘယ်ညွှန်မြှား</string>
+    <string name="keycombo_key_arrow_right">ညာညွှန်မြှား</string>
+    <string name="keycombo_key_arrow_up">အပေါ်ညွှန်မြှား</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">ရှာဖွေပါ</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">တာဝန် ပေးမထား</string>
+    <string name="leave_keyboard">မျက်မမြင်စာရေးစနစ် လက်ကွက်မှ ထွက်ပါ</string>
+    <string name="material_clock_toggle_content_description">AM (သို့) PM ရွေးရန်</string>
+    <string name="material_hour_selection">နာရီ ရွေးရန်</string>
+    <string name="material_hour_suffix">%1$s နာရီ</string>
+    <string name="material_minute_selection">မိနစ်များ ရွေးပါ</string>
+    <string name="material_minute_suffix">%1$s မိနစ်</string>
+    <string name="material_timepicker_am">နံနက်</string>
+    <string name="material_timepicker_clock_mode_description">အချိန်ထည့်သွင်းမှုအတွက် နာရီမုဒ်သို့ ပြောင်းပါ။</string>
+    <string name="material_timepicker_hour">နာရီ</string>
+    <string name="material_timepicker_minute">မိနစ်</string>
+    <string name="material_timepicker_pm">ညနေ</string>
+    <string name="material_timepicker_select_time">အချိန်ရွေးပါ</string>
+    <string name="material_timepicker_text_input_mode_description">အချိန်ထည့်သွင်းရန် စာသားထည့်သွင်းမှုမုဒ်သို့ ပြောင်းပါ။</string>
+    <string name="mtrl_badge_numberless_content_description">အကြောင်းကြားချက်အသစ်</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s ကို ဖယ်ရှားရန်</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">အကြောင်းကြားချက်အသစ် %1$d ခု အထက်</string>
+    <string name="mtrl_picker_a11y_next_month">နောက်လသို့ ပြောင်းရန်</string>
+    <string name="mtrl_picker_a11y_prev_month">ယခင်လသို့ ပြောင်းရန်</string>
+    <string name="mtrl_picker_announce_current_selection">လက်ရှိ ရွေးချယ်မှု- %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">ရက်စွဲ ရွေးပါ</string>
+    <string name="mtrl_picker_date_header_unselected">ရွေးထားသည့် ရက်စွဲ</string>
+    <string name="mtrl_picker_day_of_week_column_header">ရက်ကော်လံ- %1$s</string>
+    <string name="mtrl_picker_invalid_format">ဖော်မက် မမှန်ကန်ပါ။</string>
+    <string name="mtrl_picker_invalid_format_example">ဥပမာ− %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">%1$s သုံးရန်</string>
+    <string name="mtrl_picker_invalid_range">ရက်အပိုင်းအခြား မမှန်ပါ။</string>
+    <string name="mtrl_picker_navigate_to_year_description">နှစ် %1$s သို့ လမ်းညွှန်ရန်</string>
+    <string name="mtrl_picker_out_of_range">ရက်အပိုင်းအခြား ပြင်ပ− %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">စတင်ရက် – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – ပြီးဆုံးရက်</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">အပိုင်းအခြား ရွေးပါ</string>
+    <string name="mtrl_picker_range_header_unselected">စတင်ရက် – ပြီးဆုံးရက်</string>
+    <string name="mtrl_picker_save">သိမ်းရန်</string>
+    <string name="mtrl_picker_text_input_date_hint">ရက်စွဲ</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">ပြီးဆုံးရက်</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">စတင်ရက်</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">ပြက္ခဒိန် ထည့်သွင်းမှုမုဒ်သို့ ပြောင်းရန်</string>
+    <string name="mtrl_picker_toggle_to_day_selection">ရက်ရွေးချယ်ခြင်းသို့ ပြောင်းရန် တို့ပါ</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">စာသား ထည့်သွင်းမှုမုဒ်သို့ ပြောင်းရန်</string>
+    <string name="mtrl_picker_toggle_to_year_selection">နှစ်ရွေးချယ်ခြင်းသို့ ပြောင်းရန် တို့ပါ</string>
+    <string name="multiple_languages_braille_ime_displayed_name">မျက်မမြင်စာရေးစနစ် လက်ကွက်၊ %s</string>
+    <string name="next_keyboard">နောက်လက်ကွက်</string>
+    <string name="next_step">ရှေ့သို့</string>
+    <string name="not_enough_touch_points_dialog_message">သင့်စက်က လုံလောက်သော တို့ထိမှုအမှတ်ကို မပံ့ပိုးပါ။ နောက်ထပ် အချက်အလက်များအတွက် သင်၏ စက်ပစ္စည်း ထုတ်လုပ်သူထံ ဆက်သွယ်ပါ။</string>
+    <string name="not_enough_touch_points_dialog_title">သင့်စက်က မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို မပံ့ပိုးပါ</string>
+    <string msgid="478774118347071097" name="not_set">"သတ်မှတ်မထားပါ"</string>
+    <string name="number_announcement">နံပါတ်</string>
+    <string name="open_context_menu_announcement">ရွေးစရာများမီနူးကို ဖွင့်ထားသည်။ ဖုန်းကို သင့်ဆီသို့ မျက်နှာမူစေရန် လှန်လိုက်ပြီး ပုံမှန်အတိုင်း ကိုင်ထားပါ။ လမ်းညွှန်ရန် ပုံမှန် TalkBack လက်ဟန်များကို ယခု အသုံးပြုနိုင်ပါပြီ။ နောက်ထပ်ရွေးစရာများကိုကြည့်ရန် ညာဘက်သို့ ပွတ်ဆွဲပါ။</string>
+    <string name="password_toggle_content_description">စကားဝှက်ကို ပြရန်</string>
+    <string name="perform_action_next">ရှေ့သို့</string>
+    <string name="perform_action_submitting">စာသား ပို့နေသည်</string>
+    <string name="perform_add_new_line_announcement">လိုင်းအသစ် ထည့်ပြီးပြီ</string>
+    <string name="perform_add_space_announcement">နေရာလွတ်</string>
+    <string name="perform_delete_letter_announcement">စာဖျက်ပြီးပြီ</string>
+    <string name="perform_delete_word_announcement">စာလုံး ဖျက်ပြီးပြီ</string>
+    <string name="perform_hide_keyboard_announcement">လက်ကွက် ဝှက်ခြင်း</string>
+    <string name="perform_submit_text_announcement">စာပို့ရန်</string>
+    <string name="perform_switch_keyboard_announcement">ကီးဘုတ်ပြောင်းရန်</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" ကို ကလစ်ဘုတ်သို့ မိတ္တူကူးယူပြီးပါပြီ။"</string>
+    <string name="preferred_language_title">ဦးစားပေး ဘာသာစကား</string>
+    <string name="read_out_deleted">%s ကို ဖျက်ပြီးပြီ</string>
+    <string name="remaining_calibration_finish_announcement">ဒေါ့(တ်)တည်နေရာအားလုံးကို အပ်ဒိတ်လုပ်ထားသည်</string>
+    <string name="reminder_announcement">အခြား ရွေးချယ်စရာများကို ဖွင့်ရန် လက် ၃ ချောင်းဖြင့် အပေါ်သို့ ပွတ်ဆွဲပါ</string>
+    <string name="result_swipe_down">ကာဆာ ရှေ့သို့ရွှေ့လိုက်သည်</string>
+    <string name="result_swipe_down_2_fingers">လက်ကွက် ဝှက်ခြင်း</string>
+    <string name="result_swipe_down_3_fingers">နောက်လက်ကွက်</string>
+    <string name="result_swipe_left">ဖျက်ရန်</string>
+    <string name="result_swipe_right">နေရာလွတ်</string>
+    <string name="result_swipe_up">ကာဆာ နောက်သို့ရွှေ့လိုက်သည်</string>
+    <string name="rotate_orientation_announcement">ယခုအချိန်မှစ၍ သင်၏ ပုံမှန် TalkBack လက်ဟန်များကို အသုံးပြုနိုင်မည် မဟုတ်ပါ။ မျက်မမြင်စာရေးစနစ် လက်ကွက် အသုံးပြုနေစဉ်တွင် TalkBack ကို မရနိုင်ပါ။\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">သင့်ဖုန်းက ဒေါင်လိုက်ပုံစံ ဖြစ်နေသည်။ ရှေ့ဆက်ရန် ဖုန်းကို အလျားလိုက် လှည့်၍ ပိုရှည်သည့်ဘက်ကို အောက်ခြေတွင်ထားပါ။ ပြီးလျှင် စခရင်ကို သင်၏ အခြားတစ်ဘက်သို့ လှည့်ပါ။ သင် အဆင်သင့်ဖြစ်သည့်အခါ ရှေ့ဆက်ရန် စခရင်ကို နှစ်ချက်တို့ပါ။</string>
+    <string name="rotate_orientation_description_1">ယခုအချိန်မှစ၍ သင်၏ ပုံမှန် TalkBack လက်ဟန်များကို သင်အသုံးပြုနိုင်မည် မဟုတ်ပါ။ မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို အသုံးပြုနေစဉ် TalkBack ကို အသုံးပြု၍ မရပါ။</string>
+    <string name="rotate_orientation_description_2">စတင်ရန် သင့်ဖုန်းကို ယခုကဲ့သို့ စခရင်ကို အခြားတစ်ဘက်သို့ လှည့်၍ ကိုင်ပါ။</string>
+    <string name="rotate_orientation_inactive_announcement">ပထမဦးစွာ ဖုန်း၏ဖန်သားပြင်ကို အခြားတစ်ဘက်သို့ မျက်နှာမူလိုက်ပါ။\n\nထို့နောက် အလျားလိုက်ဖြစ်ရန် သင့်ဖုန်းကို ရေပြင်ညီအတိုင်း လှည့်ပါ။ သင့်လက်များက ဖုန်းအနားစွန်းများကို ဆုပ်ကိုင်ထားရပါမည်။ သင့်ညာဘက်လက်က USB ပို့တ်ဘက် အစွန်းကို ကိုင်ထားရမည်။ သင်၏အလယ်လက်ချောင်း ၃ ချောင်းကို ဖန်သားပြင်ပေါ်တွင်တင်၍ လက်သန်း၊ လက်မတို့ဖြင့် ဖုန်းကိုထိန်းထားပါ။\n\nအသင့်ဖြစ်သည့်အခါ ရှေ့ဆက်ရန် ဖန်သားပြင်ကို နှစ်ချက်တို့ပါ။\n\nမျက်မမြင်စာရေးစနစ်လက်ကွက်မှ ထွက်ရန် လက် ၃ ချောင်းဖြင့် အောက်ဘက်သို့ ပွတ်ဆွဲပါ။ ၎င်းက သင်၏ မူလလက်ကွက်သို့ ပြန်ပြောင်းပေးပါသည်။</string>
+    <string name="screen_away">ဖန်သားပြင်နှင့်ဝေးနေချိန်မုဒ်</string>
+    <string name="screen_away_detail">စက်ကို အခြားတစ်ဖက်သို့ မျက်နှာမူပြီး ကိုင်ထားပါ (ဖန်သားပြင်နှင့်ဝေးနေချိန်မုဒ်)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"ရှာဖွေမှု"</string>
+    <string name="set_up_braille_keyboard">မျက်မမြင်စာရေးစနစ်လက်ကွက် ထည့်သွင်းခြင်း</string>
+    <string name="show_keyboard_window">%1$s ကို ပြနေသည်</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"၉၉၉+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>၊ <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">နှိပ်ထားသော အစက်တစ်ခုချင်းစီက အခြားအစက် မတိုင်မီ ပြန်လွှတ်လိုက်သည့်တိုင် ထည့်သွင်းမှုတွင် ပါဝင်သည်</string>
+    <string name="summary_pref_reverse_dots">အစက်များ၏ နေရာကို ပြောင်းခြင်းဖြင့် အစက် ၁ နှင့် ၄ ကို နေရာလဲလှယ်နိုင်သည်၊ ဥပမာ</string>
+    <string name="swipe_down_2_fingers_announcement">လက်ကွက်ဖျောက်ရန် လက် ၂ ချောင်းဖြင့် အောက်သို့ ပွတ်ဆွဲပါ။ ယခုပဲ စမ်းကြည့်လိုက်ပါ။</string>
+    <string name="swipe_down_2_fingers_completed_announcement">လက်ကွက် ဝှက်ပါ။ ပုံမှန်အားဖြင့် ယင်းက လက်ကွက်ကို ဖျောက်ပေးသည်။ သင်က သရုပ်ပြမှုတွင် ရှိနေသေးသဖြင့် မျက်မမြင်စာရေးစနစ် လက်ကွက် ဆက်ပွင့်နေပါမည်။</string>
+    <string name="swipe_down_3_fingers_announcement">သင်၏ အခြားလက်ကွက်သို့ ပြောင်းရန် လက် ၃ ချောင်းဖြင့် အောက်သို့ ပွတ်ဆွဲပါ။ ယခုပဲ စမ်းကြည့်လိုက်ပါ။</string>
+    <string name="swipe_down_3_fingers_completed_announcement">နောက်လက်ကွက်။ ပုံမှန်အားဖြင့် ယင်းက နောက်လက်ကွက်သို့ ပြောင်းပေးပါသည်။ ယခုအကြိမ်တွင် သင်က သရုပ်ပြမှုတွင် ရှိနေသေးသဖြင့် မျက်မမြင်စာရေးစနစ် လက်ကွက်တွင်သာ ဆက်ရှိနေပါသည်။</string>
+    <string name="swipe_down_announcement">ကာဆာကို ရှေ့သို့ရွှေ့ရန် အောက်သို့ပွတ်ဆွဲပါ။ ယခုစမ်းကြည့်ပါ။</string>
+    <string name="swipe_left_action_result_announcement">d ကို ဖျက်လိုက်သည်။</string>
+    <string name="swipe_left_announcement">စာလုံးတစ်လုံး ဖျက်ရန် ဘယ်ဘက်သို့ ပွတ်ဆွဲပါ။ ယခုပဲ စမ်းကြည့်လိုက်ပါ။</string>
+    <string name="swipe_right_announcement">နေရာလွတ်ထည့်ရန် ညာဘက်သို့ ပွတ်ဆွဲပါ။ ယခုပဲ စမ်းကြည့်လိုက်ပါ။</string>
+    <string name="swipe_up_3_fingers_announcement">သင့်ဖုန်းကို စားပွဲပေါ်တွင် အပြားလိုက်တင်ခြင်းဖြင့် စားပွဲတင်မုဒ်တွင်လည်း စာရိုက်နိုင်သည်။ ရှင်းလင်းပို့ချချက်ကို အပြီးသတ်ရန် လက်ချောင်း ၃ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပြီး ရှင်းလင်းပို့ချချက် အပြီးသတ်ရန် ရွေးစရာကိုရှာပါ</string>
+    <string name="swipe_up_announcement">ကာဆာကို နောက်သို့ရွှေ့ရန် အပေါ်သို့ပွတ်ဆွဲပါ။ ယခုစမ်းကြည့်ပါ။</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">မျက်မမြင်စာရေးစနစ်သုံးကီးဘုတ်ဖြင့် စာရိုက်နေစဉ် ဘာသာစကားပြောင်းရန် လက် ၃ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပါ။ ထို့နောက် “ဘာသာစကားနောက်တစ်ခုပြောင်းရန်” ရွေးပါ။</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">စာရိုက်နေစဉ် ဘာသာစကားအမြန်ပြောင်းခြင်း</string>
+    <string name="switch_to_language_announcement">%s သို့ ပြောင်းလိုက်သည်</string>
+    <string name="switch_to_screen_away_announcement">ဖန်သားပြင်နှင့်ဝေးနေချိန်မုဒ်</string>
+    <string name="switch_to_tabletop_announcement">စားပွဲတင်မုဒ်။ အားသွင်းပေါက်ကိုဘယ်ဘက်တွင်ထား၍ သင့်စက်ကိုတင်ပါ။ ဒေါ့(တ်)တည်နေရာကို အပ်ဒိတ်လုပ်ရန် လက်ချောင်း ၆ ချောင်းနှင့် ဖိထားပါ။</string>
+    <string name="symbol_almost_equals">ညီမျှလုနီး သင်္ကေတ</string>
+    <string name="symbol_ampersand">အန်ပါဆန် သင်္ကေတ</string>
+    <string name="symbol_angle_bracket_left">ပိုငယ်သည့် သင်္ကေတ</string>
+    <string name="symbol_angle_bracket_right">ပိုကြီးသည့် သင်္ကေတ</string>
+    <string name="symbol_apostrophe">အပေါ်စတော်ဖီ</string>
+    <string name="symbol_approximately_equals">အကြမ်းအားဖြင့် ညီမျှ</string>
+    <string name="symbol_asterisk">ခရေပွင့် သင်္ကေတ</string>
+    <string name="symbol_at_sign">အက်(တ်) သင်္ကတ</string>
+    <string name="symbol_backslash">ဘယ်ဘက် မျဉ်းစောင်း</string>
+    <string name="symbol_beamed_sixteenth_note">အလင်းထိုးထားသည့် ဆယ်ခြောက်ခုမြောက် မှတ်စုများ</string>
+    <string name="symbol_black_circle">စက်ဝိုင်း အမည်း</string>
+    <string name="symbol_black_heart">နှလုံး အမည်း</string>
+    <string name="symbol_black_smallsquare">အနက်ရောင်စတုရန်းအသေး</string>
+    <string name="symbol_black_square">စတုရန်း အမည်</string>
+    <string name="symbol_black_star">ကြယ် အမည်း</string>
+    <string name="symbol_black_suit_of_diamonds">အနက်ရောင်စိန်ပွင့်များ</string>
+    <string name="symbol_black_triangle_pointing_down">အနက်ရောင်အောက်ညွှန်မြား</string>
+    <string name="symbol_black_triangle_pointing_up">အနက်ရောင်အပေါ်ညွှန်မြား</string>
+    <string name="symbol_broken_bar">ဘရုတ်ကန်း ဘား</string>
+    <string name="symbol_bullet">ကျည်ဖူးသင်္ကေတ</string>
+    <string name="symbol_bullseye">Bullseye</string>
+    <string name="symbol_caret">ကာရက်</string>
+    <string name="symbol_celsius_degree">စင်တီဂရိတ် ဒီဂရီ</string>
+    <string name="symbol_cent">ဆင့် သင်္ကေတ</string>
+    <string name="symbol_circle_left_half_black">ဘယ်တစ်ဝက် မည်းနေသည့် စက်ဝိုင်း</string>
+    <string name="symbol_circle_right_half_black">ညာတစ်ဝက် မည်းနေသည့် စက်ဝိုင်း</string>
+    <string name="symbol_colon">ကိုလန်</string>
+    <string name="symbol_comma">ကော်မာ</string>
+    <string name="symbol_copyright">မူပိုင်ခွင့်</string>
+    <string name="symbol_curly_bracket_left">ဘယ်ဘက် တွန့်ကွင်း</string>
+    <string name="symbol_curly_bracket_right">ညာဘက် တွန့်ကွင်း</string>
+    <string name="symbol_currency_sign">ငွေကြေး သင်္ကေတ</string>
+    <string name="symbol_degree">ဒီဂရီ သင်္ကေတ</string>
+    <string name="symbol_division">အစား လက္ခဏာ</string>
+    <string name="symbol_dollar_sign">ဒေါ်လာ သင်္ကေတ</string>
+    <string name="symbol_downwards_arrow">အောက်သို့ မြား</string>
+    <string name="symbol_eighth_note">အဌမ မှတ်စု</string>
+    <string name="symbol_ellipsis">အစက်သုံးစက်</string>
+    <string name="symbol_em_dash">အမ်(မ်) ဒက်ရှ်</string>
+    <string name="symbol_en_dash">အန်(န်) ဒက်ရှ်</string>
+    <string name="symbol_equal">ညီမျှခြင်း သင်္ကေတ</string>
+    <string name="symbol_euro">ယူရို</string>
+    <string name="symbol_exclamation_mark">အာမေဍိတ် သင်္ကေတ</string>
+    <string name="symbol_fahrenheit_degree">ဖာရင်ဟိုက် ဒီဂရီ</string>
+    <string name="symbol_female">မ သင်္ကေတ</string>
+    <string name="symbol_full_width_ampersand">ဗြက်အပြည့် \'နှင့်\' သင်္ကေတ</string>
+    <string name="symbol_full_width_asterisk">ဗြက်အပြည့် ခရေပွင့်</string>
+    <string name="symbol_full_width_circumflex">ဗြက်အပြည့် သရသံသင်္ကေတ</string>
+    <string name="symbol_full_width_colon">ဗြက်အပြည့် ကိုလန်</string>
+    <string name="symbol_full_width_comma">ဗြက်အပြည့် ကော်မာ</string>
+    <string name="symbol_full_width_exclamation_mark">ဗြက်အပြည့် အာမေဍိတ်အမှတ်အသား</string>
+    <string name="symbol_full_width_greater_than_sign">ဗြက်အပြည့် ပိုများသည့်သင်္ကေတ</string>
+    <string name="symbol_full_width_ideographic_full_stop">အရုပ်စာ ပုဒ်ရပ်</string>
+    <string name="symbol_full_width_left_curly_bracket">ဗြက်အပြည့် တွန့်ကွင်းအဖွင့်</string>
+    <string name="symbol_full_width_left_parenthesis">ဗြက်အပြည့် ကွင်းစ</string>
+    <string name="symbol_full_width_less_than_sign">ဗြက်အပြည့် ပိုနည်းသည့်သင်္ကေတ</string>
+    <string name="symbol_full_width_question_mark">ဗြက်အပြည့် မေးခွန်းအမှတ်အသား</string>
+    <string name="symbol_full_width_right_curly_bracket">ဗြက်အပြည့် တွန့်ကွင်းအပိတ်</string>
+    <string name="symbol_full_width_right_parenthesis">ဗြက်အပြည့် ကွင်းပိတ်</string>
+    <string name="symbol_full_width_semicolon">ဗြက်အပြည့် စီမီးကိုလန်</string>
+    <string name="symbol_full_width_tilde">ဗြက်အပြည့် နှာသံပြအမှတ်အသား</string>
+    <string name="symbol_full_width_underscore">ဗြက်အပြည့် အောက်မျဉ်း</string>
+    <string name="symbol_grave_accent">ဂရေ့ဗ် အက်ဆန့်</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">ဗြက်တစ်ဝက် ခါတာ့ခါ့နာ့ အလယ်အစက်</string>
+    <string name="symbol_hyphen_minus">ဒက်ရှ်</string>
+    <string name="symbol_ideographic_comma">အရုပ်စာ ကော်မာ</string>
+    <string name="symbol_integral">ပေါင်းစည်းထား</string>
+    <string name="symbol_inverted_exclamation_mark">ပြောင်းပြန် အာမေဍိတ်အမှတ်အသား</string>
+    <string name="symbol_inverted_question_mark">ပြောင်းပြန် မေးခွန်းအမှတ်အသား</string>
+    <string name="symbol_left_angle_bracket">ထောင့်ကွင်းအဖွင့်နှစ်ခု</string>
+    <string name="symbol_left_black_lenticular_bracket">ပဲစေ့ပုံစံ အဖွင့်ကွင်းစ အမည်း</string>
+    <string name="symbol_left_corner_bracket">လေးထောင့် ကွင်းစ</string>
+    <string name="symbol_left_double_quotation_mark">နှစ်ထပ် မျက်တောင်အဖွင့် အမှတ်အသား</string>
+    <string name="symbol_left_single_quotation_mark">တစ်ခုတည်း မျက်တောင်အဖွင့် အမှတ်အသား</string>
+    <string name="symbol_leftwards_arrow">ဘယ်ပြ မြား</string>
+    <string name="symbol_liter">လီတာ</string>
+    <string name="symbol_low_double_quote">အောက်ဘက်ရှိ ဒါဘယ်လ်ကုဒ်</string>
+    <string name="symbol_male">ကျား သင်္ကေတ</string>
+    <string name="symbol_mathematical_left_angle_bracket">သင်္ချာသုံး ထောင့်ကွင်းအဖွင့်</string>
+    <string name="symbol_mathematical_right_angle_bracket">သင်္ချာသုံး ထောင့်ကွင်းအပိတ်</string>
+    <string name="symbol_micro_sign">မိုက်ခရို သင်္ကေတ</string>
+    <string name="symbol_middle_dot">အလယ် အစက်</string>
+    <string name="symbol_multiplication">အမြှောက် လက္ခဏာ</string>
+    <string name="symbol_new_line">လိုင်း အသစ်</string>
+    <string name="symbol_not_equals">မညီမျှခြင်း သင်္ကေတ</string>
+    <string name="symbol_not_sign">သင်္ကေတ မဟုတ်</string>
+    <string name="symbol_paragraph_mark">စာပိုဒ် သင်္ကေတ</string>
+    <string name="symbol_parenthesis_left">ကွင်းစ</string>
+    <string name="symbol_parenthesis_right">ကွင်းပိတ်</string>
+    <string name="symbol_percent">ရာခိုင်နှုန်း</string>
+    <string name="symbol_period">အစက်</string>
+    <string name="symbol_pi">ပိုင်</string>
+    <string name="symbol_plus_minus_sign">အပေါင်း အနှုတ် သင်္ကေတ</string>
+    <string name="symbol_postal_mark">စာပို့အမှတ်အသား</string>
+    <string name="symbol_pound">ပေါင်</string>
+    <string name="symbol_pound_sterling">စတာလင်ပေါင် ငွေကြေး သင်္ကေတ</string>
+    <string name="symbol_quarter_note">ကွာတာ မှတ်ချက်</string>
+    <string name="symbol_question_mark">မေးခွန်း သင်္ကေတ</string>
+    <string name="symbol_quotation_mark">ကုဒ် ခလုတ်</string>
+    <string name="symbol_reference">ရည်ညွှန်း အမှတ်</string>
+    <string name="symbol_registered_trademark">မှတ်ပုံတင်ပြီး တံဆိပ်</string>
+    <string name="symbol_right_angle_bracket">ထောင့်ကွင်းအပိတ်နှစ်ခု</string>
+    <string name="symbol_right_black_lenticular_bracket">ပဲစေ့ပုံစံ ကွင်းပိတ် အမည်း</string>
+    <string name="symbol_right_corner_bracket">လေးထောင့် ကွင်းပိတ်</string>
+    <string name="symbol_right_double_quotation_mark">နှစ်ထပ် မျက်တောင်အပိတ် အမှတ်အသား</string>
+    <string name="symbol_right_single_quotation_mark">တစ်ခုတည်း မျက်တောင်အပိတ် အမှတ်အသား</string>
+    <string name="symbol_rightwards_arrow">ညာသို့ မြား</string>
+    <string name="symbol_rupee">ရူပီ</string>
+    <string name="symbol_section_sign">ဆက်ရှင် သင်္ကေတ</string>
+    <string name="symbol_semicolon">စီမီးကိုလန်</string>
+    <string name="symbol_slash">ညာဘက်မျဉ်းစောင်း</string>
+    <string name="symbol_solar">နေ သင်္ကေတ</string>
+    <string name="symbol_space">စပေ့စ်ကီး</string>
+    <string name="symbol_square_bracket_left">ဘယ်ဘက်ရှိ လေးထောင့်ကွင်း</string>
+    <string name="symbol_square_bracket_right">ညာဘက်ရှိ လေးထောင့်ကွင်း</string>
+    <string name="symbol_square_root">နှစ်ထပ်ကိန်းရင်း</string>
+    <string name="symbol_tilde">ခလုတ် (~)</string>
+    <string name="symbol_trademark">ကုန်တံဆိပ်</string>
+    <string name="symbol_underscore">အန်ဒါးစကိုး</string>
+    <string name="symbol_upwards_arrow">အပေါ်ပြ မြား</string>
+    <string name="symbol_vertical_bar">ဒေါင်လိုက်မျဉ်း</string>
+    <string name="symbol_white_circle">စက်ဝိုင်း အဖြူ</string>
+    <string name="symbol_white_club_suit">club suit အဖြူ</string>
+    <string name="symbol_white_diamond">စိန်အဖြူ</string>
+    <string name="symbol_white_down_pointing_triangle">အောက်သို့ ညွှန်ပြနေသည့် တြိဂံဖြူ</string>
+    <string name="symbol_white_heart">နှလုံးဖြူ</string>
+    <string name="symbol_white_left_pointing_index">ဘယ်သို့ ညွှန်ပြနေသည့် ညွှန်းကိန်းဖြူ</string>
+    <string name="symbol_white_left_pointing_triangle">ဘယ်သို့ ညွှန်ပြနေသည့် တြိဂံဖြူ</string>
+    <string name="symbol_white_right_pointing_index">ညာသို့ ညွှန်ပြနေသည့် ညွှန်းကိန်းဖြူ</string>
+    <string name="symbol_white_right_pointing_triangle">ညာသို့ ညွှန်ပြနေသည့် တြိဂံဖြူ</string>
+    <string name="symbol_white_spade_suit">spade suit အဖြူ</string>
+    <string name="symbol_white_square">စတုရန်း အဖြူ</string>
+    <string name="symbol_white_star">ကြယ်ဖြူ</string>
+    <string name="symbol_white_up_pointing_triangle">အပေါ်သို့ ညွှန်ပြနေသည့ဘ် တြိဂံဖြူ</string>
+    <string name="symbol_won">ကိုရီးယားဝမ် ငွေကြေး သင်္ကေတ</string>
+    <string name="symbol_won_sign">ကိုရီးယားဝမ် ငွေကြေး သင်္ကေတ</string>
+    <string name="symbol_yen">ယန်း</string>
+    <string name="tabletop">စားပွဲတင်မုဒ်</string>
+    <string name="tabletop_detail">စက်ကို စားပွဲပေါ်တွင် အပြားလိုက်တင်ပါ (စားပွဲတင်မုဒ်)</string>
+    <string name="talkback_off_dialog_positive_button">အသုံးလွယ်မှု ဆက်တင်များ တွင် ဖွင့်ရန်</string>
+    <string name="talkback_off_dialog_title">မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို အသုံးပြုရန် TalkBack ကို ဖွင့်ပါ</string>
+    <string name="talkback_off_or_suspend_dialog_message">TalkBack ကို ဖွင့်ထားသည့်အခါ မျက်မမြင်စာရေးစနစ် သင်္ကေတများထည့်ရန် သင့်ဖန်သားပြင်ကို တို့နိုင်သည်။</string>
+    <string name="talkback_suspend_dialog_title">မျက်မမြင်စာရေးစနစ် လက်ကွက် အသုံးပြုရန် TalkBack ကို ဆက်သုံးခြင်း</string>
+    <string name="tap_to_continue">ရှေ့ဆက်ရန် မည်သည့်နေရာကိုမဆို နှစ်ချက်တို့ပါ</string>
+    <string name="template_capital_letter">စာလုံးကြီး %1$s</string>
+    <string name="template_current_tts_engine">%1$s ကို သုံးနေ</string>
+    <string name="template_overlay_window">%1$s နှစ်ခုထပ်၍ကြည့်ခြင်း</string>
+    <string name="template_password_selected">စကားလုံး %1$d ကနေ %2$d</string>
+    <string name="template_password_traversed">စာလုံး %1$d</string>
+    <string name="template_scroll_from_count">ပြထားသည့် %1$d မှာ %2$d ထဲမှ ဖြစ်၏။</string>
+    <string name="template_scroll_from_to_count">ပြထားသည့် %1$d နှင့် %2$d မှာ %3$d ထဲမှဖြစ်၏။</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s က ဘယ်ဘက်၊ %2$s က ညာဘက်</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s က ညာဘက်၊ %2$s က ဘယ်ဘက်</string>
+    <string name="template_split_screen_mode_portrait">%1$s က အပေါ်၊ %2$s က အောက်</string>
+    <string name="template_text_copied">%1$s ကို ကူးပြီးပါပြီ။</string>
+    <string name="template_viewpager_index_count">စာမျက်နှာ %2$d ထဲက %1$d</string>
+    <string name="template_viewpager_index_count_short">%2$d ထဲက %1$d</string>
+    <string name="title_pref_accumulate_presses">နှိပ်ထားသော အစက်များ အားလုံးပါဝင်သည်</string>
+    <string name="title_pref_reverse_dots">ပြောင်းပြန် အစက်များ</string>
+    <string name="tutorial_intro_description">မျက်မမြင်စာရေးစနစ် လက်ကွက်တွင် အစက် ၆ စက်သုံး မျက်မမြင်စာရေးစနစ်ထည့်ရန် သင့်ဖန်သားပြင်ကို တို့နိုင်သည်။\n\nUnified English Braille ကို အသုံးပြုနေသည်။ စာရိုက်သည့်ဘာသာစကားပြောင်းရန် TalkBack ဆက်တင်များသို့ သွားပါ။\n\nမျက်မမြင်စာရေးစနစ်ဖြင့် စာရိုက်ရာတွင် သင့်ဖုန်းကို အခြားပုံစံဖြင့် ကိုင်တွယ်အသုံးပြုရန် လိုအပ်သည်။</string>
+    <string name="type_letter_a_announcement">စခရင်ကို သင်၏ အခြားတစ်ဘက်သို့ လှည့်ထားပါ။ သင့်ဖုန်းကို လက်နှစ်ဘက်ဖြင့် အစွန်းများကို ကိုင်ထား၍ လက်တစ်ဘက်စီ၏ အလယ်လက် ၃ ချောင်းဖြင့် စခရင်ကို ထိထားပါ။\n\nသင်၏ ဘယ်ဘက် လက်ညှိုးက အစက် ၁ ပေါ်တွင် ရှိနေရပါမည်။ ပြီးလျှင် “A” စာလုံးရိုက်ရန် အစက် ၁ ကို တို့ပါ။</string>
+    <string name="type_letter_a_inactive_announcement">\"A\" ရိုက်ရန် သင်၏ ဘယ်လက်ညှိုးဖြင့် အစက် ၁ ကို တို့ပါ</string>
+    <string name="type_letter_inactive_announcement">%2$s ရိုက်ရန် %1$sကို တို့ပါ</string>
+    <string name="typing_languages_title">အသုံးပြုသည့် ဘာသာစကားများ</string>
+    <string name="untitled_window">ခေါင်းစဉ်မသိ</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">ဆက်တင်များ</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">၁။ &lt;b>မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို ဖွင့်ရန်&lt;/b> - အောက်တွင်ရှိသော ဆက်တင်များကို တို့ပါ။ နောက်စာမျက်နှာတွင် \"%1$s\" ကို ဖွင့်ပါ။
+    &lt;br>&lt;br>၂။ &lt;b>မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို ဖွင့်ရန်&lt;/b> - သင်၏ ပုံမှန်လက်ကွက်ကို ဖွင့်ပါ၊ ပြီးနောက် လက်ကွက်သင်္ကေတ ရွေးမည်ကို တို့နှိပ်ပါ %2$s (ပုံမှန်အားဖြင့် အောက်ညာဘက်ထောင့်တွင် ရှိသည်)။ \"%1$s\" ကို ရွေးပါ။
+    &lt;br>&lt;br>လက်ကွက်ပြောင်းရန် ရွေးချယ်မှုကို မတွေ့ရှိပါက Google လက်ကွက် %3$s ကို ထည့်သွင်း၍ ကြိုးစားကြည့်ပါ။</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို အသုံးပြုရန် သင်၏ ပုံမှန်လက်ကွက်ကို ဖွင့်ပါ၊ ပြီးနောက် လက်ကွက်သင်္ကေတ ရွေးမည်ကို တို့နှိပ်ပါ %1$s (ပုံမှန်အားဖြင့် အောက်ညာဘက်ထောင့်တွင် ရှိသည်)။ \"%2$s\" ကို ရွေးပါ။
+  &lt;br>&lt;br>လက်ကွက်ပြောင်းရန် ရွေးချယ်မှုကို မတွေ့ရှိပါက Google လက်ကွက် %3$s ကို ထည့်သွင်း၍ ကြိုးစားကြည့်ပါ။</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ပိတ်ရန်"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ဖွင့်ရန်"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"လုပ်ဆောင်ချက် အံဆွဲ"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"လမ်းကြောင်းပြ အံဆွဲ"</string>
+</resources>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navigate home"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navigate up"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"More options"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Done"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"See all"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Choose an app"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"OFF"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ON"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Search…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Clear query"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Search query"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Search"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Submit query"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Voice search"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Share with"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Share with <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Collapse"</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Failure"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Opened on your phone"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Success"</string>
+    <string msgid="3209159573327985035" name="copy">"Copy"</string>
+    <string name="exit_scrim">Exit</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Advanced"</string>
+    <string name="function_off">Spoken feedback is off</string>
+    <string name="function_on">Spoken feedback is on</string>
+    <string name="granularity_character">Characters</string>
+    <string name="granularity_default">Default</string>
+    <string name="granularity_line">Lines</string>
+    <string name="granularity_native_control">Controls</string>
+    <string name="granularity_native_heading">Headings</string>
+    <string name="granularity_native_link">Links</string>
+    <string name="granularity_paragraph">Paragraphs</string>
+    <string name="granularity_pseudo_web_special_content">Special content</string>
+    <string name="granularity_web_control">Controls</string>
+    <string name="granularity_web_heading">Headings</string>
+    <string name="granularity_web_landmark">Landmarks</string>
+    <string name="granularity_web_link">Links</string>
+    <string name="granularity_web_list">Lists</string>
+    <string name="granularity_window">Windows</string>
+    <string name="granularity_word">Words</string>
+    <string name="hide_keyboard_window">keyboard hidden</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Press key combination with %1$s modifier key to set new shortcut.</string>
+    <string name="keycombo_assign_dialog_instruction">Press key combination to set new shortcut. It must contain at least ALT or Control key.</string>
+    <string name="keycombo_key_arrow_down">Arrow Down</string>
+    <string name="keycombo_key_arrow_left">Arrow Left</string>
+    <string name="keycombo_key_arrow_right">Arrow Right</string>
+    <string name="keycombo_key_arrow_up">Arrow Up</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Search</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Unassigned</string>
+    <string msgid="478774118347071097" name="not_set">"Not set"</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\'<ns1:g id="SUMMARY">%1$s</ns1:g>\' copied to clipboard."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Search"</string>
+    <string name="show_keyboard_window">Showing %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Almost equal to</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Less than sign</string>
+    <string name="symbol_angle_bracket_right">Greater than sign</string>
+    <string name="symbol_apostrophe">Apostrophe</string>
+    <string name="symbol_approximately_equals">Approximately equals</string>
+    <string name="symbol_asterisk">Asterisk</string>
+    <string name="symbol_at_sign">At</string>
+    <string name="symbol_backslash">Back slash</string>
+    <string name="symbol_beamed_sixteenth_note">Beamed sixteenth notes</string>
+    <string name="symbol_black_circle">Black circle</string>
+    <string name="symbol_black_heart">Black Heart</string>
+    <string name="symbol_black_smallsquare">Small black square</string>
+    <string name="symbol_black_square">Black square</string>
+    <string name="symbol_black_star">Black star</string>
+    <string name="symbol_black_suit_of_diamonds">Black suit of diamonds</string>
+    <string name="symbol_black_triangle_pointing_down">Black triangle pointing down</string>
+    <string name="symbol_black_triangle_pointing_up">Black triangle pointing up</string>
+    <string name="symbol_broken_bar">Broken bar</string>
+    <string name="symbol_bullet">Bullet</string>
+    <string name="symbol_bullseye">Bullseye</string>
+    <string name="symbol_caret">Caret/chevron</string>
+    <string name="symbol_celsius_degree">Celsius degree</string>
+    <string name="symbol_cent">Cent sign</string>
+    <string name="symbol_circle_left_half_black">Circle with left half black</string>
+    <string name="symbol_circle_right_half_black">Circle with right half black</string>
+    <string name="symbol_colon">Colon</string>
+    <string name="symbol_comma">Comma</string>
+    <string name="symbol_copyright">Copyright</string>
+    <string name="symbol_curly_bracket_left">Left curly bracket</string>
+    <string name="symbol_curly_bracket_right">Right curly bracket</string>
+    <string name="symbol_currency_sign">Currency sign</string>
+    <string name="symbol_degree">Degree sign</string>
+    <string name="symbol_division">Division sign</string>
+    <string name="symbol_dollar_sign">Dollar sign</string>
+    <string name="symbol_downwards_arrow">Downwards Arrow</string>
+    <string name="symbol_eighth_note">Eighth Note</string>
+    <string name="symbol_ellipsis">Ellipsis</string>
+    <string name="symbol_em_dash">Em dash</string>
+    <string name="symbol_en_dash">En dash</string>
+    <string name="symbol_equal">Equal sign</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Exclamation mark</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheit degree</string>
+    <string name="symbol_female">Female symbol</string>
+    <string name="symbol_full_width_ampersand">Full-width ampersand</string>
+    <string name="symbol_full_width_asterisk">Full-width asterisk</string>
+    <string name="symbol_full_width_circumflex">Full-width circumflex</string>
+    <string name="symbol_full_width_colon">Full-width colon</string>
+    <string name="symbol_full_width_comma">Full-width comma</string>
+    <string name="symbol_full_width_exclamation_mark">Full-width exclamation mark</string>
+    <string name="symbol_full_width_greater_than_sign">Full-width greater than sign</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideographic full stop</string>
+    <string name="symbol_full_width_left_curly_bracket">Full-width left curly bracket</string>
+    <string name="symbol_full_width_left_parenthesis">Full-width left parenthesis</string>
+    <string name="symbol_full_width_less_than_sign">Full-width less than sign</string>
+    <string name="symbol_full_width_question_mark">Full-width question mark</string>
+    <string name="symbol_full_width_right_curly_bracket">Full-width right curly bracket</string>
+    <string name="symbol_full_width_right_parenthesis">Full-width right parenthesis</string>
+    <string name="symbol_full_width_semicolon">Full-width semicolon</string>
+    <string name="symbol_full_width_tilde">Full-width tilde</string>
+    <string name="symbol_full_width_underscore">Full-width underscore</string>
+    <string name="symbol_grave_accent">Grave accent</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Halfwidth Katakana middle dot</string>
+    <string name="symbol_hyphen_minus">Dash</string>
+    <string name="symbol_ideographic_comma">Ideographic comma</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Inverted exclamation mark</string>
+    <string name="symbol_inverted_question_mark">Inverted question mark</string>
+    <string name="symbol_left_angle_bracket">Left double angle bracket</string>
+    <string name="symbol_left_black_lenticular_bracket">Left Black Lenticular Bracket</string>
+    <string name="symbol_left_corner_bracket">Left Corner Bracket</string>
+    <string name="symbol_left_double_quotation_mark">Left double quotation mark</string>
+    <string name="symbol_left_single_quotation_mark">Left single quotation mark</string>
+    <string name="symbol_leftwards_arrow">Leftwards arrow</string>
+    <string name="symbol_liter">Liter</string>
+    <string name="symbol_low_double_quote">Low double quote</string>
+    <string name="symbol_male">Male symbol</string>
+    <string name="symbol_mathematical_left_angle_bracket">Mathematical left-angle bracket</string>
+    <string name="symbol_mathematical_right_angle_bracket">Mathematical right-angle bracket</string>
+    <string name="symbol_micro_sign">Micro sign</string>
+    <string name="symbol_middle_dot">Middle dot</string>
+    <string name="symbol_multiplication">Multiplication sign</string>
+    <string name="symbol_new_line">New line</string>
+    <string name="symbol_not_equals">Not equal to</string>
+    <string name="symbol_not_sign">Not sign</string>
+    <string name="symbol_paragraph_mark">Paragraph mark</string>
+    <string name="symbol_parenthesis_left">Left parenthesis</string>
+    <string name="symbol_parenthesis_right">Right parenthesis</string>
+    <string name="symbol_percent">Percent</string>
+    <string name="symbol_period">Full stop</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Plus minus sign</string>
+    <string name="symbol_postal_mark">Postmark</string>
+    <string name="symbol_pound">Hash
+</string>
+    <string name="symbol_pound_sterling">Pound currency sign</string>
+    <string name="symbol_quarter_note">Quarter Note</string>
+    <string name="symbol_question_mark">Question mark</string>
+    <string name="symbol_quotation_mark">Quote</string>
+    <string name="symbol_reference">Reference Mark</string>
+    <string name="symbol_registered_trademark">Registered trademark</string>
+    <string name="symbol_right_angle_bracket">Right double angle bracket</string>
+    <string name="symbol_right_black_lenticular_bracket">Right Black Lenticular Bracket</string>
+    <string name="symbol_right_corner_bracket">Right Corner Bracket</string>
+    <string name="symbol_right_double_quotation_mark">Right double quotation mark</string>
+    <string name="symbol_right_single_quotation_mark">Right single quotation mark</string>
+    <string name="symbol_rightwards_arrow">Rightwards Arrow</string>
+    <string name="symbol_rupee">Rupee</string>
+    <string name="symbol_section_sign">Section sign</string>
+    <string name="symbol_semicolon">Semi-colon</string>
+    <string name="symbol_slash">Slash</string>
+    <string name="symbol_solar">Solar symbol</string>
+    <string name="symbol_space">Space</string>
+    <string name="symbol_square_bracket_left">Left square bracket</string>
+    <string name="symbol_square_bracket_right">Right square bracket</string>
+    <string name="symbol_square_root">Square root</string>
+    <string name="symbol_tilde">tilde</string>
+    <string name="symbol_trademark">Trademark</string>
+    <string name="symbol_underscore">Underscore</string>
+    <string name="symbol_upwards_arrow">Upwards arrow</string>
+    <string name="symbol_vertical_bar">Vertical line</string>
+    <string name="symbol_white_circle">White circle</string>
+    <string name="symbol_white_club_suit">White club suit</string>
+    <string name="symbol_white_diamond">White diamond</string>
+    <string name="symbol_white_down_pointing_triangle">White down pointing triangle</string>
+    <string name="symbol_white_heart">White Heart</string>
+    <string name="symbol_white_left_pointing_index">White left pointing index</string>
+    <string name="symbol_white_left_pointing_triangle">White left pointing triangle</string>
+    <string name="symbol_white_right_pointing_index">White right pointing index</string>
+    <string name="symbol_white_right_pointing_triangle">White right pointing triangle</string>
+    <string name="symbol_white_spade_suit">White spade suit</string>
+    <string name="symbol_white_square">White square</string>
+    <string name="symbol_white_star">White star</string>
+    <string name="symbol_white_up_pointing_triangle">White up pointing triangle</string>
+    <string name="symbol_won">Won currency sign</string>
+    <string name="symbol_won_sign">Won currency sign</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="template_capital_letter">capital %1$s</string>
+    <string name="template_current_tts_engine">Using %1$s</string>
+    <string name="template_overlay_window">%1$s picture in picture</string>
+    <string name="template_password_selected">Characters %1$d to %2$d</string>
+    <string name="template_password_traversed">Character %1$d</string>
+    <string name="template_scroll_from_count">Showing item %1$d of %2$d.</string>
+    <string name="template_scroll_from_to_count">Showing items %1$d to %2$d of %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s on left, %2$s on right</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s on right, %2$s on left</string>
+    <string name="template_split_screen_mode_portrait">%1$s on top, %2$s on bottom</string>
+    <string name="template_text_copied">copied, %1$s</string>
+    <string name="template_viewpager_index_count">Page %1$d of %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d of %2$d</string>
+    <string name="untitled_window">untitled</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"OFF"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ON"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Action drawer"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Navigation drawer"</string>
+</resources>

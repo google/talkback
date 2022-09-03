@@ -1,0 +1,48 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-b+es+419-v26/values-b+es+419-v26.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-b+es+419-v26/strings.xml",
+                    "from": {
+                        "startLines": "2,5,4,3",
+                        "startColumns": "2,2,2,2",
+                        "startOffsets": "121,404,313,222",
+                        "endColumns": "100,90,90,90",
+                        "endOffsets": "219,492,401,310"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,158,251,344",
+                        "endColumns": "102,92,92,92",
+                        "endOffsets": "153,246,339,432"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/phone/release/values-b+es+419-v26/values-b+es+419-v26.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-b+es+419-v26/strings.xml",
+                    "from": {
+                        "startLines": "2,5,4,3",
+                        "startColumns": "2,2,2,2",
+                        "startOffsets": "121,404,313,222",
+                        "endColumns": "100,90,90,90",
+                        "endOffsets": "219,492,401,310"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,158,251,344",
+                        "endColumns": "102,92,92,92",
+                        "endOffsets": "153,246,339,432"
+                    }
+                }
+            ]
+        }
+    ]
+}

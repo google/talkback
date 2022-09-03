@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">%s ഡോട്ട്</item>
+    <item quantity="other">%s ഡോട്ടുകൾ</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d പുതിയ അറിയിപ്പ്</item>
+    <item quantity="other">%d പുതിയ അറിയിപ്പുകൾ</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"ഹോമിലേക്ക് പോവുക"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"മുകളിലേക്ക് പോവുക"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"കൂടുതൽ ഓപ്ഷനുകൾ"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"പൂർത്തിയായി"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"എല്ലാം കാണുക"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"ആപ്പ് തിരഞ്ഞെടുക്കുക"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"ഓഫ്"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ഓൺ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"ഇല്ലാതാക്കുക"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"ഫംഗ്ഷന്‍+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"മെറ്റ+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"സ്‌പെയ്‌സ്"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"മെനു+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"തിരയുക…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"ചോദ്യം മായ്‌ക്കുക"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"ചോദ്യം തിരയുക"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"തിരയുക"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"ചോദ്യം സമർപ്പിക്കുക"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"സംസാരത്തിലൂടെ തിരയുക"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"ഇനിപ്പറയുന്നതുമായി പങ്കിടുക"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> എന്നതുമായി പങ്കിടുക"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"ചുരുക്കുക"</string>
+    <string name="auto_detect">നിങ്ങൾ ഉപകരണം പിടിക്കുന്ന രീതിക്ക് അനുസൃതമാക്കൂ</string>
+    <string name="bottomsheet_action_expand_halfway">മുഴുവനായി വികസിപ്പിക്കുക</string>
+    <string name="braille_ime_displayed_name">ബ്രെയ്‌ലി കീബോർഡ്</string>
+    <string name="braille_ime_service_name">TalkBack ബ്രെയ്‌ലി കീബോർഡ്</string>
+    <string name="braille_keyboard">ബ്രെയ്‌ലി കീബോർഡ്</string>
+    <string name="braille_keyboard_gestures">ബ്രെയ്‌ലി കീബോർഡിലെ വിരൽചലനങ്ങൾ</string>
+    <string name="braille_keyboard_strip_button">ടച്ച്‌സ്‌ക്രീൻ കീബോർഡിലേക്ക് മാറുക</string>
+    <string name="braille_keyboard_strip_summary">ഈ ഉപകരണത്തിൽ ടെക്‌സ്‌റ്റ് ടെെപ്പ് ചെയ്യാൻ ഉപയോഗിക്കാവുന്ന ബാഹ്യമായ ബ്രെയ്‌ലി ഡിസ്‌പ്ലേ കണക്‌റ്റ് ചെയ്‌തു.\nഅല്ലെങ്കിൽ ടച്ച്‌സ്‌ക്രീൻ ബ്രെയ്‌ലി കീബോർഡിലേക്കോ അടുത്ത ഇൻപുട്ട് രീതിയിലോക്കോ മാറാം.</string>
+    <string name="braille_tutorial_title">ബ്രെയ്‍ലി കീബോർഡ് ട്യൂട്ടോറിയൽ</string>
+    <string name="bring_ime_settings_page">മറ്റൊരു കീബോർഡും പ്രവർത്തനക്ഷമമാക്കിയിട്ടില്ല, കീബോർഡ് ക്രമീകരണത്തിലേക്ക് പോകുക</string>
+    <string name="calibration_fail_announcement">ഡോട്ട് സ്ഥാനം അപ്ഡേറ്റ് ചെയ്യാനായില്ല. 6 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക. തുടർന്ന് വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="calibration_finish_announcement">ഡോട്ട് സ്ഥാനം അപ്‌ഡേറ്റ് ചെയ്തു</string>
+    <string name="calibration_step1_hold_left_finger_announcement">ഡോട്ട് സ്ഥാനം അപ്‌ഡേറ്റ് ചെയ്യുന്നു. ആദ്യം, നിങ്ങളുടെ ഇടത് കൈ സ്പർശിക്കുന്ന ഡോട്ടുകൾ നമുക്ക് റെക്കോർഡ് ചെയ്യാം. ഇടത് കൈയ്യിലെ നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">ഡോട്ട് സ്ഥാനം അപ്‌ഡേറ്റ് ചെയ്യുന്നു. ആദ്യം, നിങ്ങളുടെ വലത് കൈ സ്‌പർശിക്കുന്ന ഡോട്ടുകൾ നമുക്ക് റെക്കോർഡ് ചെയ്യാം. വലത് കൈയ്യിലെ നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">1, 2, 3 എന്നീ ഡോട്ടുകൾക്കുള്ള അപ്ഡേറ്റ് ചെയ്ത സ്ഥാനങ്ങൾ. അടുത്തത്, നിങ്ങളുടെ ഇടത് കൈ സ്‌പർശിക്കുന്ന ഡോട്ടുകൾ നമുക്ക് റെക്കോർഡ് ചെയ്യാം. ഇടത് കൈയ്യിലെ നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">1, 2, 3 എന്നീ ഡോട്ടുകൾക്കുള്ള അപ്ഡേറ്റ് ചെയ്ത സ്ഥാനങ്ങൾ. അടുത്തത്, വലത് കൈ സ്പർശിക്കുന്ന ഡോട്ടുകൾ നമുക്ക് റെക്കോർഡ് ചെയ്യാം. വലത് കൈയ്യിലെ നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
+    <string name="capitalize_announcement">വലിയക്ഷരമാക്കി</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%2$d-ൽ %1$d പ്രതീകങ്ങൾ നൽകി</string>
+    <string name="character_counter_overflowed_content_description">അക്ഷര പരിധി, %2$d-ൽ %1$d കവിഞ്ഞു</string>
+    <string name="clear_text_end_icon_content_description">ടെക്‌സ്‌റ്റ് മായ്‌ക്കുക</string>
+    <string name="code_user_facing_name_ar">അറബിക്</string>
+    <string name="code_user_facing_name_es">സ്‌പാനിഷ്</string>
+    <string name="code_user_facing_name_fr">ഫ്രഞ്ച്</string>
+    <string name="code_user_facing_name_pl">പോളിഷ്</string>
+    <string name="code_user_facing_name_ueb1">യൂണിഫൈഡ് ഇംഗ്ലീഷ് ബ്രെയ്‌ലി ചുരുക്കിയത് മാറ്റി</string>
+    <string name="code_user_facing_name_ueb2">യൂണിഫൈഡ് ഇംഗ്ലീഷ് ബ്രെയ്‌ലി ചുരുക്കി</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">നിങ്ങൾ Google Play സേവനങ്ങൾ പ്രവർത്തനക്ഷമമാക്കുന്നില്ലെങ്കിൽ %1$s പ്രവർത്തിക്കില്ല.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play സേവനങ്ങൾ പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ഇന്‍സ്റ്റാള്‍ ചെയ്യുക</string>
+    <string name="common_google_play_services_install_text">Google Play സേവനങ്ങളില്ലാതെ %1$s പ്രവർത്തിക്കില്ല, ഈ സേവനങ്ങളാകട്ടെ നിങ്ങളുടെ ഉപകരണത്തിൽ ഇല്ല.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play സേവനങ്ങൾ നേടുക</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play സേവന ലഭ്യത</string>
+    <string name="common_google_play_services_notification_ticker">Google Play സേവനങ്ങളിലെ പിശക്</string>
+    <string name="common_google_play_services_unknown_issue">Google Play സേവനങ്ങളുമായി ബന്ധപ്പെട്ട് %1$s ആപ്പിനെന്തോ പ്രശ്നമുണ്ട്. വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="common_google_play_services_unsupported_text">Google Play സേവനങ്ങളില്ലാതെ %1$s പ്രവർത്തിക്കില്ല, സേവനങ്ങളെയാകട്ടെ നിങ്ങളുടെ ഉപകരണം പിന്തുണയ്ക്കുന്നുമില്ല.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">അപ്‌ഡേറ്റുചെയ്യുക</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">നിങ്ങൾ Google Play സേവനങ്ങൾ അപ്‌ഡേറ്റുചെയ്‌തില്ലെങ്കിൽ %1$s പ്രവർത്തിക്കില്ല.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play സേവനങ്ങൾ അപ്‌ഡേറ്റുചെയ്യുക</string>
+    <string name="common_google_play_services_updating_text">നിലവിൽ അപ്‌ഡേറ്റുചെയ്യുന്ന Google Play സേവനങ്ങൾ ഇല്ലാതെ %1$s പ്രവർത്തിക്കില്ല.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play സേവനങ്ങളുടെ പുതിയ പതിപ്പ് ആവശ്യമാണ്. താമസിയാതെ ഇത് സ്വയം അപ്‌ഡേറ്റുചെയ്യും.</string>
+    <string name="common_open_on_phone">ഫോണിൽ തുറക്കുക</string>
+    <string name="common_signin_button_text">സൈൻ ഇൻ ചെയ്യുക</string>
+    <string name="common_signin_button_text_long">Google ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്യുക</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"പരാജയം"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"നിങ്ങളുടെ ഫോണിൽ തുറന്നത്"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"വിജയകരം"</string>
+    <string name="context_menu_input_language_selection">അടുത്ത ഭാഷയിലേക്ക് മാറുക: %s</string>
+    <string name="context_menu_input_language_selection_summary">നിലവിൽ ഉപയോഗിക്കുന്നത്: %s</string>
+    <string name="context_menu_layout_selection">ലേഔട്ട്</string>
+    <string name="context_menu_see_all_gestures_selection">എല്ലാ ജെസ്ച്ചറുകളും അവലോകനം ചെയ്യുക</string>
+    <string name="context_menu_settings_selection">ക്രമീകരണം</string>
+    <string name="context_menu_title">ബ്രെയ്‌ലി കീബോർഡ് ഓപ്ഷനുകൾ</string>
+    <string name="context_menu_tutorial_finish">ട്യൂട്ടോറിയൽ പൂർത്തിയാക്കുക</string>
+    <string name="context_menu_tutorial_selection">ട്യൂട്ടോറിയൽ തുറക്കുക</string>
+    <string name="continue_tutorial_announcement">നമുക്ക് ട്യൂട്ടോറിയൽ തുടരാം. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"പകർത്തുക"</string>
+    <string name="done">പൂർത്തിയായി</string>
+    <string name="dont_show_again">ഇത് വീണ്ടും കാണിക്കരുത്</string>
+    <string name="error_icon_content_description">പിശക്</string>
+    <string name="exit_scrim">പുറത്തുകടക്കുക</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"വിപുലമായത്"</string>
+    <string name="exposed_dropdown_menu_content_description">ഡ്രോപ്പ്‌ ഡൗൺ മെനു കാണിക്കുക</string>
+    <string name="finish_tutorial_announcement">ബ്രെയ്‌ലി കീബോർഡ് കാണിക്കുന്നു. സ്ക്രീൻ നിങ്ങൾക്ക് അഭിമുഖമല്ലാത്ത രീതിയിൽ ഫോൺ തിരിക്കുക. ലാൻഡ്സ്കേപ്പ് പൊസിഷനിൽ കൊണ്ടുവരാൻ ഫോൺ തിരശ്ചീനമായി തിരിക്കുക. തുടർന്ന് ടൈപ്പ് ചെയ്യാൻ ആരംഭിക്കുക.</string>
+    <string name="function_off">സംഭാഷണ ഫീഡ്ബാക്ക് ഓഫാണ്</string>
+    <string name="function_on">സംഭാഷണ ഫീഡ്ബാക്ക് ഓണാണ്</string>
+    <string name="gesture_add_space"><b>സ്‌പെയ്‌സ്</b> ചേർക്കാൻ വലത്തോട്ട് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="gesture_delete"><b>ഇല്ലാതാക്കാൻ</b> ഇടത്തോട്ട് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="gesture_delete_word"><b>ഒരു വാക്ക് ഇല്ലാതാക്കാൻ</b> 2 വിരലുകൾ ഉപയോഗിച്ച് ഇടത്തോട്ട് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="gesture_hide_keyboard"><b>കീബോർഡ് മറയ്ക്കാൻ</b> 2 വിരലുകൾ ഉപയോഗിച്ച് താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="gesture_move_cursor_backward"><b>കഴ്‌സർ പുറകോട്ട് നീക്കാൻ</b>, മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="gesture_move_cursor_forward"><b>കഴ്‌സർ മുന്നോട്ട് നീക്കാൻ</b>, താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="gesture_new_line"><b>പുതിയ വരി</b> ചേർക്കാൻ രണ്ട് വിരലുകൾ ഉപയോഗിച്ച് വലത്തോട്ട് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="gesture_next_keyboard"><b>അടുത്ത കീബോർഡിലേക്ക്</b> മാറാൻ 3 വിരലുകൾ ഉപയോഗിച്ച് താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="gesture_open_context_menu"><b>സഹായത്തിനും മറ്റ് ഓപ്ഷനുകൾക്കും</b> 3 വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="gesture_submit_text"><b>ടെക്‌സ്റ്റ് സമർപ്പിക്കാൻ</b> 2 വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="granularity_character">പ്രതീകങ്ങള്‍‌</string>
+    <string name="granularity_default">സ്ഥിരസ്ഥിതി</string>
+    <string name="granularity_line">ലൈനുകൾ</string>
+    <string name="granularity_native_control">നിയന്ത്രണങ്ങൾ</string>
+    <string name="granularity_native_heading">തലക്കെട്ടുകൾ</string>
+    <string name="granularity_native_link">ലിങ്കുകൾ</string>
+    <string name="granularity_paragraph">ഖണ്ഡികകൾ</string>
+    <string name="granularity_pseudo_web_special_content">പ്രത്യേക ഉള്ളടക്കം</string>
+    <string name="granularity_web_control">നിയന്ത്രണങ്ങൾ</string>
+    <string name="granularity_web_heading">തലക്കെട്ടുകൾ</string>
+    <string name="granularity_web_landmark">ലാൻഡ്‌മാർക്കുകൾ</string>
+    <string name="granularity_web_link">ലിങ്കുകൾ</string>
+    <string name="granularity_web_list">ലിസ്റ്റുകൾ</string>
+    <string name="granularity_window">വിൻഡോകൾ</string>
+    <string name="granularity_word">വാക്കുകൾ</string>
+    <string name="hide_keyboard_window">കീബോർഡ് മറച്ചു</string>
+    <string name="hold_six_fingers_announcement">%s\nനിങ്ങളുടെ ഉപകരണം മേശപ്പുറത്ത് വയ്ക്കുക. തുടർന്ന്, ടൈപ്പ് ചെയ്യാൻ നിങ്ങൾക്ക് സൗകര്യപ്രദമായ സ്ഥാനത്ത് ഓരോ കൈയ്യിലെയും നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്‌ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
+    <string name="hold_six_fingers_description">ബ്രെയ്‌ലി കീബോർഡിൽ സാധാരണയുള്ള TalkBack വിരൽചലനങ്ങൾ നിങ്ങൾക്ക് ഉപയോഗിക്കാൻ കഴിയില്ല.\n\nആരംഭിക്കാൻ, നിങ്ങൾ ടൈപ്പ് ചെയ്യുമ്പോൾ 6 ബ്രെയ്‌ലി ഡോട്ടുകളുടെ സ്ഥാനം നമുക്ക് സജ്ജീകരിക്കാം.</string>
+    <string name="hold_six_fingers_inactive_announcement">നിങ്ങളുടെ ഉപകരണം മേശപ്പുറത്ത് വയ്ക്കുക. തുടർന്ന്, ടൈപ്പ് ചെയ്യാൻ നിങ്ങൾക്ക് സൗകര്യപ്രദമായ സ്ഥാനത്ത് ഓരോ കൈയ്യിലെയും നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്‌ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
+    <string name="how_to_use_braille_keyboard">ബ്രെയ്‌ലി കീബോർഡ് എങ്ങനെ ഉപയോഗിക്കാം</string>
+    <string name="icon_content_description">ഡയലോഗ് ഐക്കൺ</string>
+    <string name="input_view_caption">TalkBack ബ്രെയ്‌ലി കീബോർഡ് - സഹായത്തിന് g.co/help/braille സന്ദർശിക്കുക</string>
+    <string name="instruction_swipe_down">കഴ്‌സർ മുന്നോട്ട് നീക്കാൻ, താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="instruction_swipe_down_2_fingers">കീബോർഡ് മറയ്ക്കാൻ 2 വിരലുകൾ ഉപയോഗിച്ച് താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="instruction_swipe_down_3_fingers">മറ്റൊരു കീബോർഡിലേക്ക് മാറാൻ 3 വിരലുകൾ ഉപയോഗിച്ച് താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="instruction_swipe_left">ഒരു അക്ഷരം ഇല്ലാതാക്കാൻ ഇടത്തോട്ട് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="instruction_swipe_right">സ്‌പെയ്‌സ് ചേർക്കാൻ വലത്തോട്ട് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="instruction_swipe_up">കഴ്‌സർ പുറകോട്ട് നീക്കാൻ, മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="instruction_swipe_up_3_fingers">ട്യൂട്ടോറിയൽ പൂർത്തിയാക്കാൻ 3 വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="instruction_type_letter_a">അക്ഷരം \"A\" ടൈപ്പ് ചെയ്യാൻ നിങ്ങളുടെ ഇടത്തേ ചൂണ്ടുവിരൽ കൊണ്ട് ഡോട്ട് 1 ടാപ്പ് ചെയ്യുക</string>
+    <string name="instruction_type_letter_bcd">അടുത്തതായി B, C, D അക്ഷരങ്ങൾ ടൈപ്പ് ചെയ്‍ത് നോക്കൂ</string>
+    <string name="item_view_role_description">ടാബ്</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">പുതിയ കുറുക്കുവഴി സജ്ജമാക്കുന്നതിന് %1$s മോഡിഫയർ കീയ്ക്കൊപ്പം കീ കോമ്പിനേഷൻ അമർത്തുക.</string>
+    <string name="keycombo_assign_dialog_instruction">പുതിയ കുറുക്കുവഴി സജ്ജമാക്കാൻ കീ കോമ്പിനേഷൻ അമർത്തുക. ഇതിൽ ALT അല്ലെങ്കിൽ Control കീയെങ്കിലും ഉണ്ടായിരിക്കണം.</string>
+    <string name="keycombo_key_arrow_down">താഴേയ്‌ക്കുള്ള അമ്പടയാളം</string>
+    <string name="keycombo_key_arrow_left">ഇടത്തേക്കുള്ള അമ്പടയാളം</string>
+    <string name="keycombo_key_arrow_right">വലത്തേക്കുള്ള അമ്പടയാളം</string>
+    <string name="keycombo_key_arrow_up">മുകളിലേക്കുള്ള അമ്പടയാളം</string>
+    <string name="keycombo_key_modifier_alt">ആൾട്ട്</string>
+    <string name="keycombo_key_modifier_ctrl">കൺട്രോൾ</string>
+    <string name="keycombo_key_modifier_meta">തിരയൽ</string>
+    <string name="keycombo_key_modifier_shift">ഷിഫ്റ്റ്</string>
+    <string name="keycombo_unassigned">നൽകിയിട്ടില്ല</string>
+    <string name="leave_keyboard">ബ്രെയ്‌ലി കീബോർഡിൽ നിന്ന് പുറത്തുകടക്കുക</string>
+    <string name="material_clock_toggle_content_description">AM അല്ലെങ്കിൽ PM തിരഞ്ഞെടുക്കുക</string>
+    <string name="material_hour_selection">മണിക്കൂർ തിരഞ്ഞെടുക്കുക</string>
+    <string name="material_hour_suffix">%1$s മണി</string>
+    <string name="material_minute_selection">മിനിറ്റ് തിരഞ്ഞെടുക്കുക</string>
+    <string name="material_minute_suffix">%1$s മിനിറ്റ്</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">‌സമയം നൽകുന്നതിന് ക്ലോക്ക് മോഡിലേക്ക് ‌മാറുക.</string>
+    <string name="material_timepicker_hour">മണിക്കൂര്‍</string>
+    <string name="material_timepicker_minute">മിനിറ്റ്</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">സമയം തിരഞ്ഞെടുക്കുക</string>
+    <string name="material_timepicker_text_input_mode_description">സമയം നൽകുന്നതിന് ടെക്സ്റ്റ് ഇൻപുട്ട് ‌മോ‌ഡിലേക്ക് ‌മാറുക.</string>
+    <string name="mtrl_badge_numberless_content_description">പുതിയ അറിയിപ്പ്</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s നീക്കം ചെയ്യുക</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d-ലധികം പുതിയ അറിയിപ്പുകൾ</string>
+    <string name="mtrl_picker_a11y_next_month">അടുത്ത മാസത്തിലേക്ക് മാറ്റുക</string>
+    <string name="mtrl_picker_a11y_prev_month">മുമ്പത്തെ മാസത്തിലേക്ക് മാറ്റുക</string>
+    <string name="mtrl_picker_announce_current_selection">നിലവിൽ തിരഞ്ഞെടുത്തത്: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">തീയതി തിരഞ്ഞെടുക്കുക</string>
+    <string name="mtrl_picker_date_header_unselected">തിരഞ്ഞെടുത്ത തീയതി</string>
+    <string name="mtrl_picker_day_of_week_column_header">ദിവസത്തിന്റെ കോളം: %1$s</string>
+    <string name="mtrl_picker_invalid_format">അസാധുവായ ഫോർമാറ്റ്.</string>
+    <string name="mtrl_picker_invalid_format_example">ഉദാഹരണം: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">%1$s ഉപയോഗിക്കുക</string>
+    <string name="mtrl_picker_invalid_range">അസാധുവായ ശ്രേണി.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s വർഷത്തിലേക്ക് നാവിഗേറ്റ് ചെയ്യുക</string>
+    <string name="mtrl_picker_out_of_range">ശ്രേണിക്ക് പുറത്താണ്: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">ആരംഭിക്കുന്ന തീയതി – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – അവസാനിക്കുന്ന തീയതി</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">ശ്രേണി തിരഞ്ഞെടുക്കുക</string>
+    <string name="mtrl_picker_range_header_unselected">ആരംഭിക്കുന്ന തീയതി – അവസാനിക്കുന്ന തീയതി</string>
+    <string name="mtrl_picker_save">സംരക്ഷിക്കുക</string>
+    <string name="mtrl_picker_text_input_date_hint">തീയതി</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">അവസാനിക്കുന്ന തീയതി</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">ആരംഭിക്കുന്ന തീയതി</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">കലണ്ടർ ഇൻപുട്ട് മോഡിലേക്ക് മാറുക</string>
+    <string name="mtrl_picker_toggle_to_day_selection">ദിവസം തിരഞ്ഞെടുക്കുന്നതിലേക്ക് മാറാൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">ടെക്‌സ്‌റ്റ് ഇൻപുട്ട് മോഡിലേക്ക് മാറുക</string>
+    <string name="mtrl_picker_toggle_to_year_selection">വർഷം തിരഞ്ഞെടുക്കുന്നതിലേക്ക് മാറാൻ ടാപ്പ് ചെയ്യുക</string>
+    <string name="multiple_languages_braille_ime_displayed_name">ബ്രെയ്‌ലി കീബോർഡ്, %s</string>
+    <string name="next_keyboard">അടുത്ത കീബോർഡ്</string>
+    <string name="next_step">അടുത്തത്</string>
+    <string name="not_enough_touch_points_dialog_message">നിങ്ങളുടെ ഉപകരണം ആവശ്യത്തിന് ടച്ച് പോയിന്റുകളെ പിന്തുണയ്ക്കുന്നില്ല. കൂടുതൽ വിവരങ്ങൾക്ക് നിങ്ങളുടെ ഉപകരണ നിർമ്മാതാവിനെ സമീപിക്കുക.</string>
+    <string name="not_enough_touch_points_dialog_title">നിങ്ങളുടെ ഉപകരണം ബ്രെയ്‍ലി കീബോർഡിനെ പിന്തുണയ്ക്കുന്നില്ല</string>
+    <string msgid="478774118347071097" name="not_set">"സജ്ജീകരിച്ചിട്ടില്ല"</string>
+    <string name="number_announcement">നമ്പർ</string>
+    <string name="open_context_menu_announcement">ഓപ്ഷനുകൾ മെനു തുറന്നിരിക്കുന്നു. ഫോണിന്റെ പിൻഭാഗം നിങ്ങൾക്ക് അഭിമുഖമായ തരത്തിൽ സാധാരണ രീതിയിൽ പിടിക്കുക. ഇപ്പോൾ നാവിഗേറ്റ് ചെയ്യാൻ നിങ്ങൾക്ക് സാധാരണ TalkBack വിരൽചലനങ്ങൾ ഉപയോഗിക്കാം. കൂടുതൽ ഓപ്ഷനുകൾ കാണാൻ വലത്തേക്ക് സ്വൈപ്പ് ചെയ്യുക.</string>
+    <string name="password_toggle_content_description">പാസ്‌വേഡ് കാണിക്കുക</string>
+    <string name="perform_action_next">അടുത്തത്</string>
+    <string name="perform_action_submitting">ടെക്സ്റ്റ് സമർപ്പിക്കുന്നു</string>
+    <string name="perform_add_new_line_announcement">പുതിയ വരി ചേർത്തു</string>
+    <string name="perform_add_space_announcement">സ്‌പെയ്‌സ്</string>
+    <string name="perform_delete_letter_announcement">അക്ഷരം ഇല്ലാതാക്കി</string>
+    <string name="perform_delete_word_announcement">വാക്ക് ഇല്ലാതാക്കി</string>
+    <string name="perform_hide_keyboard_announcement">കീബോർഡ് മറയ്‌ക്കുക</string>
+    <string name="perform_submit_text_announcement">ടെക്സ്റ്റ് സമർപ്പിക്കുക</string>
+    <string name="perform_switch_keyboard_announcement">കീബോർഡ് മാറുക</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" ക്ലിപ്‌ബോർഡിലേക്ക് പകർത്തി."</string>
+    <string name="preferred_language_title">മുൻഗണന നൽകുന്ന ഭാഷ</string>
+    <string name="read_out_deleted">%s ഇല്ലാതാക്കി</string>
+    <string name="remaining_calibration_finish_announcement">എല്ലാ ഡോട്ട് സ്ഥാനങ്ങളും അപ്ഡേറ്റ് ചെയ്‌തു</string>
+    <string name="reminder_announcement">കൂടുതൽ ഓപ്ഷനുകൾക്കായി 3 വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
+    <string name="result_swipe_down">കഴ്‌സർ മുന്നോട്ട് നീക്കി</string>
+    <string name="result_swipe_down_2_fingers">കീബോർഡ് മറയ്‌ക്കുക</string>
+    <string name="result_swipe_down_3_fingers">അടുത്ത കീബോർഡ്</string>
+    <string name="result_swipe_left">ഇല്ലാതാക്കുക</string>
+    <string name="result_swipe_right">സ്‌പെയ്‌സ്</string>
+    <string name="result_swipe_up">കഴ്‌സർ പുറകോട്ട് നീക്കി</string>
+    <string name="rotate_orientation_announcement">ഇനി മുതൽ നിങ്ങൾക്ക് സാധാരണ TalkBack വിരൽചലനങ്ങൾ ഉപയോഗിക്കാനാവില്ല. ബ്രെയ്‍ലി കീബോർഡ് ഉപയോഗിക്കുമ്പോൾ TalkBack ലഭ്യമാവില്ല.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">നിങ്ങളുടെ ഫോൺ ലംബമായ പൊസിഷനിലാണ്. തുടരാൻ, നീളമുള്ള ഭാഗം താഴെയാക്കി നിങ്ങളുടെ ഫോൺ തിരശ്ചീനമായി പിടിക്കുക. തുടർന്ന് സ്ക്രീൻ നിങ്ങൾക്ക് അഭിമുഖമല്ലാത്ത തരത്തിൽ തിരിച്ച് പിടിക്കുക. നിങ്ങൾ തയ്യാറായി കഴിയുമ്പോൾ തുടരാൻ സ്ക്രീനിൽ ഡബിൾ ടാപ്പ് ചെയ്യുക.</string>
+    <string name="rotate_orientation_description_1">ഇപ്പോൾ മുതൽ നിങ്ങൾക്ക് സാധാരണ TalkBack വിരൽചലനങ്ങൾ ഉപയോഗിക്കാനാവില്ല. ബ്രെയ്‍ലി കീബോർഡ് ഉപയോഗിക്കുമ്പോൾ TalkBack ലഭ്യമല്ല.</string>
+    <string name="rotate_orientation_description_2">തുടങ്ങാൻ, സ്ക്രീൻ നിങ്ങൾക്ക് അഭിമുഖമല്ലാത്ത തരത്തിൽ ഫോൺ തിരിച്ച്, ഇതുപോലെ പിടിക്കുക.</string>
+    <string name="rotate_orientation_inactive_announcement">ആദ്യം, നിങ്ങൾക്ക് അഭിമുഖമല്ലാത്ത രീതിയിൽ ഫോൺ പിടിക്കുക.\n\nതുടർന്ന്, ലാൻഡ്സ്കേപ്പ് പൊസിഷനിൽ കൊണ്ടുവരാൻ ഫോൺ തിരശ്ചീനമായി തിരിക്കുക. ഫോണിന്റെ നീളം കുറഞ്ഞ വശങ്ങളിലാണ് പിടിക്കേണ്ടത്. USB പോർട്ടോട് കൂടിയ വശം വലത് കയ്യിലായിരിക്കണം. നടുവിലെ 3 വിരലുകൾ സ്ക്രീനിൽ വയ്ക്കുക, ഫോൺ വീഴാതെ പിടിക്കാൻ ചെറുവിരലും തള്ളവിരലും ഉപയോഗിക്കുക.\n\nനിങ്ങൾ തയ്യാറാവുമ്പോൾ തുടരാൻ സ്ക്രീനിൽ ഡബിൾ ടാപ്പ് ചെയ്യുക.\n\nബ്രെയ്‍ലി കീബോർഡിൽ നിന്ന് പുറത്തുകടക്കാൻ, 3 വിരലുകൾ ഉപയോഗിച്ച് താഴ്ഭാഗത്തേക്ക് സ്വൈപ്പ് ചെയ്യുക. ഇത് നിങ്ങളുടെ ഒറിജിനൽ കീബോർഡിലേക്ക് വീണ്ടും മാറ്റുന്നു.</string>
+    <string name="screen_away">സ്ക്രീൻ എവേ മോഡ്</string>
+    <string name="screen_away_detail">സ്ക്രീൻ നിങ്ങൾക്ക് അഭിമുഖമല്ലാത്ത രീതിയിൽ തിരിച്ച് പിടിക്കുക (സ്ക്രീൻ എവേ മോഡ്)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"തിരയുക"</string>
+    <string name="set_up_braille_keyboard">ബ്രെയ്‌ലി കീബോർഡ് സജ്ജീകരിക്കുക</string>
+    <string name="show_keyboard_window">%1$s കാണിക്കുന്നു</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">മറ്റ് ഡോട്ടുകൾക്ക് മുമ്പ് ഡോട്ട് റിലീസ് ചെയ്‍താൽ പോലും പ്രസ് ചെയ്‍ത ഓരോ ഡോട്ടും ഇൻപുട്ടിന്റെ ഭാഗമാണ്</string>
+    <string name="summary_pref_reverse_dots">ഡോട്ട് സ്ഥാനങ്ങൾ സ്വാപ്പ് ചെയ്യുക, ഉദാഹരണത്തിന് 1, 4 ഡോട്ടുകൾ തമ്മിൽ സ്ഥാനങ്ങൾ കൈമാറുന്നു</string>
+    <string name="swipe_down_2_fingers_announcement">കീബോർഡ് മറയ്ക്കാൻ 2 വിരലുകൾ ഉപയോഗിച്ച് താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക. ഇപ്പോൾ ശ്രമിക്കൂ.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">കീബോർഡ് മറയ്‌ക്കുക. സാധാരണയായി ഇത് കീബോർഡ് മറയ്ക്കും. നിങ്ങൾ ഇപ്പോഴും ട്യൂട്ടോറിയലിൽ ആയതിനാൽ ബ്രെയ്‌ലി കീബോർഡ് തുറന്ന് തന്നെ ഇരിക്കും.</string>
+    <string name="swipe_down_3_fingers_announcement">മറ്റൊരു കീബോർഡിലേക്ക് മാറാൻ 3 വിരലുകൾ ഉപയോഗിച്ച് താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക. ഇപ്പോൾ ശ്രമിക്കൂ.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">അടുത്ത കീബോർഡ്. സാധാരണയായി ഇത് അടുത്ത കീബോർഡിലേക്ക് മാറും. നിങ്ങൾ ഇപ്പോഴും ട്യൂട്ടോറിയലിൽ ആയതിനാലാണ് ഇത്തവണ ബ്രെയ്‌ലി കീബോർഡ് തുറന്ന് തന്നെ ഇരിക്കുന്നത്.</string>
+    <string name="swipe_down_announcement">കഴ്‌സർ മുന്നോട്ട് നീക്കാൻ, താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക. ഇപ്പോൾ ശ്രമിക്കൂ.</string>
+    <string name="swipe_left_action_result_announcement">d ഇല്ലാതാക്കി.</string>
+    <string name="swipe_left_announcement">ഒരു അക്ഷരം ഇല്ലാതാക്കാൻ ഇടത്തോട്ട് സ്വൈപ്പ് ചെയ്യുക. ഇപ്പോൾ ശ്രമിക്കൂ.</string>
+    <string name="swipe_right_announcement">സ്‌പെയ്‌സ് ചേർക്കാൻ വലത്തോട്ട് സ്വൈപ്പ് ചെയ്യുക. ഇപ്പോൾ ശ്രമിക്കൂ.</string>
+    <string name="swipe_up_3_fingers_announcement">ഫോൺ മേശപ്പുറത്ത് വച്ച് നിങ്ങൾക്ക് ടേബിൾടോപ്പ് മോഡിൽ ടൈപ്പ് ചെയ്യാനും കഴിയും. ട്യൂട്ടോറിയൽ പൂർത്തിയാക്കാൻ, 3 വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക, ട്യൂട്ടോറിയൽ പൂർത്തിയാക്കുക” ഓപ്ഷൻ കണ്ടെത്തുക</string>
+    <string name="swipe_up_announcement">കഴ്‌സർ പുറകോട്ട് നീക്കാൻ, മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക. ഇപ്പോൾ ശ്രമിക്കൂ.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">ബ്രെയ്‌ലി കീബോർഡ് ഉപയോഗിച്ച് ടൈപ്പ് ചെയ്യുമ്പോൾ നിങ്ങളുടെ ഭാഷ മാറ്റാൻ, 3 വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക. തുടർന്ന് \"അടുത്ത ഭാഷയിലേക്ക് മാറുക\" തിരഞ്ഞെടുക്കുക.</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">ടൈപ്പ് ചെയ്യുമ്പോൾ വേഗത്തിൽ ഭാഷ മാറ്റുക</string>
+    <string name="switch_to_language_announcement">%s എന്നതിലേക്ക് മാറി</string>
+    <string name="switch_to_screen_away_announcement">സ്ക്രീൻ എവേ മോഡ്</string>
+    <string name="switch_to_tabletop_announcement">ടേബിൾടോപ്പ് മോഡ്. ചാർജിംഗ് പോർട്ട് നിങ്ങളുടെ ഇടത് വശത്ത് വരുന്ന വിധത്തിൽ ഉപകരണം സ്ഥാപിക്കുക. ഡോട്ട് സ്ഥാനം അപ്‌ഡേറ്റ് ചെയ്യാൻ 6 വിരലുകൾ ഉപയോഗിച്ച് പിടിക്കുക.</string>
+    <string name="symbol_almost_equals">ഇതിനോട് ഏതാണ്ട് സമമാണ്</string>
+    <string name="symbol_ampersand">സമുച്ചയം</string>
+    <string name="symbol_angle_bracket_left">ലെസ്‌ദാൻ ചിഹ്നം</string>
+    <string name="symbol_angle_bracket_right">ഗ്രേറ്റർദാൻ ചിഹ്നം</string>
+    <string name="symbol_apostrophe">വിശ്ലേഷം</string>
+    <string name="symbol_approximately_equals">ഏകദേശം തുല്യമാണ്</string>
+    <string name="symbol_asterisk">നക്ഷത്രചിഹ്നം</string>
+    <string name="symbol_at_sign">അറ്റ്</string>
+    <string name="symbol_backslash">ബാക്ക്സ്ലാഷ്</string>
+    <string name="symbol_beamed_sixteenth_note">ബീം ചെയ്‌ത പതിനാറാമത്തെ നോട്ടുകൾ</string>
+    <string name="symbol_black_circle">കറുത്ത വൃത്തം</string>
+    <string name="symbol_black_heart">കറുത്ത ഹൃദയം</string>
+    <string name="symbol_black_smallsquare">ചെറിയ കറുത്ത സമചതുരം</string>
+    <string name="symbol_black_square">കറുത്ത ചതുരം</string>
+    <string name="symbol_black_star">കറുത്ത നക്ഷത്രം</string>
+    <string name="symbol_black_suit_of_diamonds">കറുത്ത ഡയമണ്ട് സ്യൂട്ട്</string>
+    <string name="symbol_black_triangle_pointing_down">താഴേക്ക് പോയിന്റ് ചെയ്യുന്ന കറുത്ത ത്രികോണം</string>
+    <string name="symbol_black_triangle_pointing_up">മുകളിലേക്ക് പോയിന്റ് ചെയ്യുന്ന കറുത്ത ത്രികോണം</string>
+    <string name="symbol_broken_bar">ബ്രോക്കൺ ബാർ</string>
+    <string name="symbol_bullet">ബുള്ളറ്റ്</string>
+    <string name="symbol_bullseye">ബുൾസ്ഐ</string>
+    <string name="symbol_caret">കാരറ്റ്</string>
+    <string name="symbol_celsius_degree">സെൽഷ്യസ് ഡിഗ്രി</string>
+    <string name="symbol_cent">സെന്റ് ചിഹ്നം</string>
+    <string name="symbol_circle_left_half_black">ഇടതുവശത്തെ പകുതി ഭാഗം കറുത്ത നിറത്തിലുള്ള വൃത്തം</string>
+    <string name="symbol_circle_right_half_black">വലതുവശത്തെ പകുതി ഭാഗം കറുത്ത നിറത്തിലുള്ള വൃത്തം</string>
+    <string name="symbol_colon">കോളൻ</string>
+    <string name="symbol_comma">കോമ</string>
+    <string name="symbol_copyright">പകർപ്പവകാശം</string>
+    <string name="symbol_curly_bracket_left">ഇടത് ചുരുൾ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_curly_bracket_right">വലത് ചുരുൾ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_currency_sign">കറൻസി ചിഹ്നം</string>
+    <string name="symbol_degree">ഡിഗ്രി ചിഹ്നം</string>
+    <string name="symbol_division">ഹരണ ചിഹ്നം</string>
+    <string name="symbol_dollar_sign">ഡോളർ ചിഹ്നം</string>
+    <string name="symbol_downwards_arrow">താഴേക്കുള്ള അമ്പടയാളം</string>
+    <string name="symbol_eighth_note">എട്ടാമത്തെ നോട്ട്</string>
+    <string name="symbol_ellipsis">എല്ലിപ്‌സിസ്</string>
+    <string name="symbol_em_dash">എം ഡാഷ്</string>
+    <string name="symbol_en_dash">എൻ ഡാഷ്</string>
+    <string name="symbol_equal">സമ ചിഹ്‌നം</string>
+    <string name="symbol_euro">യൂറോ</string>
+    <string name="symbol_exclamation_mark">ആശ്ചര്യചിഹ്നം</string>
+    <string name="symbol_fahrenheit_degree">ഫാരൻഹീറ്റ് ഡിഗ്രി</string>
+    <string name="symbol_female">\'സ്‌ത്രീ\' ചിഹ്‌നം</string>
+    <string name="symbol_full_width_ampersand">പൂർണ്ണ വിഡ്ത്ത് ആംപർസാൻഡ്</string>
+    <string name="symbol_full_width_asterisk">പൂർണ്ണ വിഡ്ത്ത് നക്ഷത്രചിഹ്നം</string>
+    <string name="symbol_full_width_circumflex">പൂർണ്ണ വിഡ്ത്ത് സർക്കംഫ്ലെക്‌സ്</string>
+    <string name="symbol_full_width_colon">പൂർണ്ണ വിഡ്ത്ത് കോളൻ</string>
+    <string name="symbol_full_width_comma">പൂർണ്ണ വിഡ്ത്ത് കോമ</string>
+    <string name="symbol_full_width_exclamation_mark">പൂർണ്ണ വിഡ്ത്ത് ആശ്ചര്യചിഹ്നം</string>
+    <string name="symbol_full_width_greater_than_sign">പൂർണ്ണ വിഡ്ത്ത് അവരോഹണ ചിഹ്നം</string>
+    <string name="symbol_full_width_ideographic_full_stop">ഐഡിയോഗ്രാഫിക് പൂർണ്ണവിരാമം</string>
+    <string name="symbol_full_width_left_curly_bracket">പൂർണ്ണ വിഡ്ത്ത് ഇടത് ചുരുൾ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_full_width_left_parenthesis">പൂർണ്ണ വിഡ്ത്ത് ഇടത് പരാന്തിസിസ്</string>
+    <string name="symbol_full_width_less_than_sign">പൂർണ്ണ വിഡ്ത്ത് ആരോഹണ ചിഹ്നം</string>
+    <string name="symbol_full_width_question_mark">പൂർണ്ണ വിഡ്ത്ത് ചോദ്യചിഹ്നം</string>
+    <string name="symbol_full_width_right_curly_bracket">പൂർണ്ണ വിഡ്ത്ത് വലത് ചുരുൾ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_full_width_right_parenthesis">പൂർണ്ണ വിഡ്ത്ത് വലത് പരാന്തിസിസ്</string>
+    <string name="symbol_full_width_semicolon">പൂർണ്ണ വിഡ്ത്ത് അർദ്ധവിരാമം</string>
+    <string name="symbol_full_width_tilde">പൂർണ്ണ വിഡ്ത്ത് ടിൽഡ്</string>
+    <string name="symbol_full_width_underscore">പൂർണ്ണ വിഡ്ത്ത് അണ്ടർസ്കോർ</string>
+    <string name="symbol_grave_accent">ഗ്രേവ് ആക്‌സന്റ്</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">പകുതി വിഡ്ത്ത് മധ്യത്തിലെ കറ്റക്കാന ഡോട്ട്</string>
+    <string name="symbol_hyphen_minus">ഡാഷ്</string>
+    <string name="symbol_ideographic_comma">ഐഡിയോഗ്രാഫിക് കോമ</string>
+    <string name="symbol_integral">ഇന്റഗ്രൽ</string>
+    <string name="symbol_inverted_exclamation_mark">തിരിച്ചിട്ട ആശ്‌ചര്യ ചിഹ്നം</string>
+    <string name="symbol_inverted_question_mark">തിരിച്ചിട്ട ചോദ്യ ചിഹ്നം</string>
+    <string name="symbol_left_angle_bracket">ഇടത് ഇരട്ട ആംഗിൾ ബ്രായ്ക്കറ്റ്</string>
+    <string name="symbol_left_black_lenticular_bracket">കറുത്ത ഇടത് ലെന്റികുലാർ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_left_corner_bracket">ഇടത് കോൺ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_left_double_quotation_mark">ഇടത് ഇരട്ട ഉദ്ധരണി ചിഹ്നം</string>
+    <string name="symbol_left_single_quotation_mark">ഇടത് ഒറ്റ ഉദ്ധരണി ചിഹ്നം</string>
+    <string name="symbol_leftwards_arrow">ഇടത്തേയ്ക്കുള്ള അമ്പടയാളം</string>
+    <string name="symbol_liter">ലിറ്റർ</string>
+    <string name="symbol_low_double_quote">ചുവടെ വരുന്ന ഇരട്ട ഉദ്ധരണി</string>
+    <string name="symbol_male">\'പുരുഷൻ\' ചിഹ്‌നം</string>
+    <string name="symbol_mathematical_left_angle_bracket">ഗണിത ഇടത് ആംഗിൾ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_mathematical_right_angle_bracket">ഗണിത വലത് ആംഗിൾ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_micro_sign">മൈക്രോ ചിഹ്നം</string>
+    <string name="symbol_middle_dot">മധ്യത്തിലെ ഡോട്ട്</string>
+    <string name="symbol_multiplication">ഗുണന ചിഹ്നം</string>
+    <string name="symbol_new_line">പുതിയ വരി</string>
+    <string name="symbol_not_equals">സമമല്ല</string>
+    <string name="symbol_not_sign">ചെയ്യരുത് ചിഹ്നം</string>
+    <string name="symbol_paragraph_mark">ഖണ്ഡിക അടയാളം</string>
+    <string name="symbol_parenthesis_left">ഇടത് പരാന്തിസിസ്</string>
+    <string name="symbol_parenthesis_right">വലത് പരാന്തിസിസ്</string>
+    <string name="symbol_percent">ശതമാനം</string>
+    <string name="symbol_period">വിരാമം</string>
+    <string name="symbol_pi">പൈ</string>
+    <string name="symbol_plus_minus_sign">അധിക ന്യൂന ചിഹ്‌നം</string>
+    <string name="symbol_postal_mark">തപാൽ ചിഹ്നം</string>
+    <string name="symbol_pound">പൗണ്ട്</string>
+    <string name="symbol_pound_sterling">പൗണ്ട് കറൻസി ചിഹ്നം</string>
+    <string name="symbol_quarter_note">ക്വാർട്ടർ നോട്ട്</string>
+    <string name="symbol_question_mark">ചോദ്യചിഹ്നം</string>
+    <string name="symbol_quotation_mark">ഉദ്ധരണി</string>
+    <string name="symbol_reference">റെഫറൻസ് മാർക്ക്</string>
+    <string name="symbol_registered_trademark">രജിസ്‌റ്റർചെയ്‌ത വ്യാപാരമുദ്ര</string>
+    <string name="symbol_right_angle_bracket">വലത് ഇരട്ട ആംഗിൾ ബ്രായ്ക്കറ്റ്</string>
+    <string name="symbol_right_black_lenticular_bracket">കറുത്ത വലത് ലെന്റികുലാർ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_right_corner_bracket">വലതു കോൺ ബ്രാക്കറ്റ്</string>
+    <string name="symbol_right_double_quotation_mark">വലത് വശത്തെ ഇരട്ട ഉദ്ധരണി അടയാളം</string>
+    <string name="symbol_right_single_quotation_mark">വലത് ഒറ്റ ഉദ്ധരണി ചിഹ്നം</string>
+    <string name="symbol_rightwards_arrow">വലത്തോട്ടുള്ള അമ്പടയാളം</string>
+    <string name="symbol_rupee">രൂപ</string>
+    <string name="symbol_section_sign">അനു‌ച്‌ഛേദകം</string>
+    <string name="symbol_semicolon">അർദ്ധവിരാമം</string>
+    <string name="symbol_slash">സ്ലാഷ്</string>
+    <string name="symbol_solar">സൂര്യ ചിഹ്‌നം</string>
+    <string name="symbol_space">സ്പെയ്സ്</string>
+    <string name="symbol_square_bracket_left">ഇടത് ചതുര ബ്രാക്കറ്റ്</string>
+    <string name="symbol_square_bracket_right">വലത് ചതുര ബ്രാക്കറ്റ്</string>
+    <string name="symbol_square_root">വർഗ്ഗമൂലം</string>
+    <string name="symbol_tilde">ടിൽഡ്</string>
+    <string name="symbol_trademark">വ്യാപാരമുദ്ര</string>
+    <string name="symbol_underscore">അടിവര</string>
+    <string name="symbol_upwards_arrow">മുകളിലേയ്ക്കുള്ള അമ്പടയാളം</string>
+    <string name="symbol_vertical_bar">ലംബ രേഖ</string>
+    <string name="symbol_white_circle">വെള്ളനിറത്തിലുള്ള വൃത്തം</string>
+    <string name="symbol_white_club_suit">വെള്ളനിറത്തിലുള്ള ക്ലബ് സ്യൂട്ട്</string>
+    <string name="symbol_white_diamond">വെള്ളനിറത്തിലുള്ള ഡയമണ്ട്</string>
+    <string name="symbol_white_down_pointing_triangle">താഴേക്ക് പോയിന്റുചെയ്യുന്ന വെള്ളനിറത്തിലുള്ള ത്രികോണം</string>
+    <string name="symbol_white_heart">വെള്ളനിറത്തിലുള്ള ഹൃദയം</string>
+    <string name="symbol_white_left_pointing_index">ഇടത്തേക്ക് ചൂണ്ടുന്ന വെള്ളനിറത്തിലുള്ള വിരൽ</string>
+    <string name="symbol_white_left_pointing_triangle">ഇടത്തേക്ക് പോയിന്റുചെയ്യുന്ന വെള്ളനിറത്തിലുള്ള ത്രികോണം</string>
+    <string name="symbol_white_right_pointing_index">വലത്തേക്ക് ചൂണ്ടുന്ന വെള്ളനിറത്തിലുള്ള വിരൽ</string>
+    <string name="symbol_white_right_pointing_triangle">വലത്തേക്ക് പോയിന്റുചെയ്യുന്ന വെള്ളനിറത്തിലുള്ള ത്രികോണം</string>
+    <string name="symbol_white_spade_suit">വെള്ള നിറത്തിലുള്ള സ്‌പേഡ് സ്യൂട്ട്</string>
+    <string name="symbol_white_square">വെള്ളനിറത്തിലുള്ള ചതുരം</string>
+    <string name="symbol_white_star">വെള്ളനിറത്തിലുള്ള നക്ഷത്രം</string>
+    <string name="symbol_white_up_pointing_triangle">മുകളിലേക്ക് പോയിന്റുചെയ്യുന്ന വെള്ളനിറത്തിലുള്ള ത്രികോണം</string>
+    <string name="symbol_won">വോൺ കറൻസി ചിഹ്നം</string>
+    <string name="symbol_won_sign">വോൺ കറൻസി ചിഹ്നം</string>
+    <string name="symbol_yen">യെൻ</string>
+    <string name="tabletop">ടേബിൾടോപ്പ് മോഡ്</string>
+    <string name="tabletop_detail">ഉപകരണം മേശപ്പുറത്ത് വയ്ക്കുക (ടേബിൾടോപ്പ് മോഡ്)</string>
+    <string name="talkback_off_dialog_positive_button">ഉപയോഗസഹായി ക്രമീകരണത്തിൽ ഓണാക്കുക</string>
+    <string name="talkback_off_dialog_title">ബ്രെയ്‍ലി കീബോർഡ് ഉപയോഗിക്കാൻ TalkBack ഓണാക്കുക</string>
+    <string name="talkback_off_or_suspend_dialog_message">TalkBack ഓണായിരിക്കുമ്പോൾ ബ്രെയ്‍ലി ചിഹ്നങ്ങൾ നൽകാൻ നിങ്ങൾക്ക് സ്ക്രീനിൽ ടാപ്പ് ചെയ്യാം.</string>
+    <string name="talkback_suspend_dialog_title">ബ്രെയ്‌ലി കീബോർഡ് ഉപയോഗിക്കാൻ TalkBack പുനരാരംഭിക്കുക</string>
+    <string name="tap_to_continue">തുടരാൻ എവിടെയെങ്കിലും ഡബിൾ ടാപ്പ് ചെയ്യുക</string>
+    <string name="template_capital_letter">വലിയക്ഷരം %1$s</string>
+    <string name="template_current_tts_engine">%1$s ഉപയോഗിച്ച്</string>
+    <string name="template_overlay_window">%1$s എന്നതിലെ ചിത്രത്തിനുള്ളിലെ ചിത്രം</string>
+    <string name="template_password_selected">%1$d മുതൽ %2$d വരെയുള്ള പ്രതീകങ്ങൾ</string>
+    <string name="template_password_traversed">പ്രതീകം %1$d</string>
+    <string name="template_scroll_from_count">%1$d / %2$d ഇനം കാണിക്കുന്നു.</string>
+    <string name="template_scroll_from_to_count">%3$d / %1$d - %2$d ഇനങ്ങൾ കാണിക്കുന്നു.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s ഇടതുഭാഗത്ത്, %2$s വലതുഭാഗത്ത്</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s വലതുഭാഗത്ത്, %2$s ഇടതുഭാഗത്ത്</string>
+    <string name="template_split_screen_mode_portrait">%1$s മുകൾഭാഗത്ത്, %2$s താഴ്‌ഭാഗത്ത്</string>
+    <string name="template_text_copied">പകർത്തി, %1$s</string>
+    <string name="template_viewpager_index_count">പേജ് %1$d / %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d / %2$d</string>
+    <string name="title_pref_accumulate_presses">പ്രസ് ചെയ്‍ത എല്ലാ ഡോട്ടുകളും ഉൾപ്പെടുത്തുക</string>
+    <string name="title_pref_reverse_dots">വിപരീത ഡോട്ടുകൾ</string>
+    <string name="tutorial_intro_description">ബ്രെയ്‌ലി കീബോർഡ് ഉപയോഗിച്ച്, 6-ഡോട്ട് ബ്രെയ്‌ലി നൽകാൻ നിങ്ങൾക്ക് സ്ക്രീനിൽ ടാപ്പ് ചെയ്യാം.\n\nനിങ്ങൾ ഏകീകൃത ഇംഗ്ലീഷ് ബ്രെയ്‌ലിയാണ് ഉപയോഗിക്കുന്നത്. ടൈപ്പിംഗ് ഭാഷ മാറാൻ, TalkBack ക്രമീകരണത്തിലേക്ക് പോകുക.\n\nബ്രെയ്‌ലിയിൽ ടൈപ്പ് ചെയ്യാൻ, നിങ്ങളുടെ ഫോൺ മറ്റൊരു രീതിയിൽ പിടിച്ച് ഉപയോഗിക്കേണ്ടതുണ്ട്.</string>
+    <string name="type_letter_a_announcement">സ്ക്രീൻ നിങ്ങൾക്ക് അഭിമുഖമല്ലാത്ത തരത്തിൽ തിരിച്ച് പിടിക്കുക. രണ്ട് കൈയുടെയും നടുവിലെ 3 വിരലുകൾ സ്ക്രീനിൽ വയ്ക്കാൻ കഴിയുന്ന തരത്തിൽ ഫോണിന്റെ നീളം കുറഞ്ഞ വശങ്ങളിൽ രണ്ട് കൈകളും ഉപയോഗിച്ച് വേണം ഫോൺ പിടിയ്ക്കാൻ.\n\nനിങ്ങളുടെ ഇടത് ചൂണ്ടുവിരൽ ഡോട്ട് 1-ൽ ആയിരിക്കണം. ഇപ്പോൾ, അക്ഷരം \"A\" ടൈപ്പ് ചെയ്യാൻ ഡോട്ട് 1 ടാപ്പ് ചെയ്യുക.</string>
+    <string name="type_letter_a_inactive_announcement">\"A\" ടൈപ്പ് ചെയ്യാൻ നിങ്ങളുടെ ഇടത്തേ ചൂണ്ടുവിരൽ കൊണ്ട് ഡോട്ട് 1 ടാപ്പ് ചെയ്യുക</string>
+    <string name="type_letter_inactive_announcement">അക്ഷരം %2$s ടൈപ്പ് ചെയ്യാൻ %1$s ടാപ്പ് ചെയ്യുക</string>
+    <string name="typing_languages_title">ടൈപ്പ് ചെയ്യുന്ന ഭാഷകൾ</string>
+    <string name="untitled_window">പേരില്ലാത്തത്</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">ക്രമീകരണം</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>ബ്രെയ്‍ലി കീബോർഡ് ഓണാക്കുക&lt;/b>: താഴെയുള്ള ക്രമീകരണം ടാപ്പ് ചെയ്യുക. അടുത്ത സ്ക്രീനിൽ \"%1$s\" ഓണാക്കുക.
+    &lt;br>&lt;br>2. &lt;b>ബ്രെയ്‍ലി കീബോർഡ് ഉപയോഗിക്കുക&lt;/b>: നിങ്ങളുടെ സാധാരണ കീബോർഡ് തുറക്കുക, ശേഷം കീബോർഡ് തിരഞ്ഞെടുക്കുക ഐക്കൺ %2$s ടാപ്പ് ചെയ്യുക (സാധാരണ താഴെ വലത്തേ കോണിൽ). \"%1$s\" തിരഞ്ഞെടുക്കുക.
+    &lt;br>&lt;br>കീബോർഡുകൾ മാറാനൊരു ഓപ്ഷൻ കാണുന്നില്ലെങ്കിൽ Google കീബോർഡായ %3$s ഇൻസ്റ്റാൾ ചെയ്യാൻ ശ്രമിക്കുക.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">ബ്രെയ്‍ലി കീബോർഡ് ഉപയോഗിക്കാൻ, നിങ്ങളുടെ സാധാരണ കീബോർഡ് തുറക്കുക, ശേഷം കീബോർഡ് തിരഞ്ഞെടുക്കുക ഐക്കൺ %1$s ടാപ്പ് ചെയ്യുക (സാധാരണ താഴെ വലത്തേ കോണിൽ). \"%2$s\" തിരഞ്ഞെടുക്കുക.
+  &lt;br>&lt;br>കീബോർഡുകൾ മാറാനൊരു ഓപ്ഷൻ കാണുന്നില്ലെങ്കിൽ Google കീബോർഡായ %3$s ഇൻസ്റ്റാൾ ചെയ്യാൻ ശ്രമിക്കുക.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"ഓഫാണ്"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ഓൺ"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"ആക്ഷൻ ഡ്രോയർ"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"നാവിഗേഷൻ ഡ്രോയർ"</string>
+</resources>

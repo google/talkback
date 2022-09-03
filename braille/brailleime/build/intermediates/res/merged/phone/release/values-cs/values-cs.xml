@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">bod %s</item>
+    <item quantity="few">body %s</item>
+    <item quantity="many">body %s</item>
+    <item quantity="other">body %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d nové oznámení</item>
+    <item quantity="few">%d nová oznámení</item>
+    <item quantity="many">%d nového oznámení</item>
+    <item quantity="other">%d nových oznámení</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d d</item>
+<item quantity="few">%d d</item>
+<item quantity="many">%d d</item>
+<item quantity="other">%d d</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d h</item>
+<item quantity="few">%d h</item>
+<item quantity="many">%d h</item>
+<item quantity="other">%d h</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d min</item>
+<item quantity="few">%d min</item>
+<item quantity="many">%d min</item>
+<item quantity="other">%d min</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d den</item>
+<item quantity="few">%d dny</item>
+<item quantity="many">%d dne</item>
+<item quantity="other">%d dnů</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d hodina</item>
+<item quantity="few">%d hodiny</item>
+<item quantity="many">%d hodiny</item>
+<item quantity="other">%d hodin</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d minuta</item>
+<item quantity="few">%d minuty</item>
+<item quantity="many">%d minuty</item>
+<item quantity="other">%d minut</item>
+</plurals>
+    <string name="a11y_no_data">Žádná data</string>
+    <string name="a11y_no_permission">Nemá oprávnění k přístupu k datům</string>
+    <string name="a11y_template_range">%1$f z %2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Přejít na plochu"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Přejít nahoru"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Další možnosti"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Hotovo"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Zobrazit vše"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Vybrat aplikaci"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"VYP"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ZAP"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Fn+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"mezerník"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Vyhledat…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Smazat dotaz"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Dotaz pro vyhledávání"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Hledat"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Odeslat dotaz"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Hlasové vyhledávání"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Sdílet s"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Sdílet s aplikací <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Sbalit"</string>
+    <string name="auto_detect">Přizpůsobit držení zařízení</string>
+    <string name="bottomsheet_action_expand_halfway">Rozbalit napůl</string>
+    <string name="braille_ime_displayed_name">braillská klávesnice</string>
+    <string name="braille_ime_service_name">Braillská klávesnice TalkBack</string>
+    <string name="braille_keyboard">Braillská klávesnice</string>
+    <string name="braille_keyboard_gestures">Gesta braillské klávesnice</string>
+    <string name="braille_keyboard_strip_button">Přepnout na klávesnici na dotykové obrazovce</string>
+    <string name="braille_keyboard_strip_summary">Je připojen externí hmatový displej, který můžete použít k zadávání textu do tohoto zařízení.\nPřípadně můžete přepnout na braillskou klávesnici na dotykové obrazovce nebo na další metodu zadávání.</string>
+    <string name="braille_tutorial_title">Výukový program braillské klávesnice</string>
+    <string name="bring_ime_settings_page">Není povolena žádná jiná klávesnice, přejděte do nastavení klávesnice</string>
+    <string name="buttons_rect_bottom_center">Dole</string>
+    <string name="buttons_rect_bottom_left">Vlevo dole</string>
+    <string name="buttons_rect_bottom_right">Vpravo dole</string>
+    <string name="buttons_rect_left_bottom">Dole, vlevo</string>
+    <string name="buttons_rect_left_center">Vlevo uprostřed</string>
+    <string name="buttons_rect_left_top">Nahoře, vlevo</string>
+    <string name="buttons_rect_right_bottom">Dole, vpravo</string>
+    <string name="buttons_rect_right_center">Vpravo uprostřed</string>
+    <string name="buttons_rect_right_top">Nahoře, vpravo</string>
+    <string name="buttons_rect_top_center">Nahoře</string>
+    <string name="buttons_rect_top_left">Vlevo nahoře</string>
+    <string name="buttons_rect_top_right">Vpravo nahoře</string>
+    <string name="buttons_round_bottom_center">Dole</string>
+    <string name="buttons_round_bottom_left">Vlevo dole</string>
+    <string name="buttons_round_bottom_left_lower">Vlevo dole, níže</string>
+    <string name="buttons_round_bottom_left_upper">Vlevo dole, výše</string>
+    <string name="buttons_round_bottom_right">Vpravo dole</string>
+    <string name="buttons_round_bottom_right_lower">Vpravo dole, níže</string>
+    <string name="buttons_round_bottom_right_upper">Vpravo dole, výše</string>
+    <string name="buttons_round_center_left">Vlevo uprostřed</string>
+    <string name="buttons_round_center_right">Vpravo uprostřed</string>
+    <string name="buttons_round_top_center">Nahoře</string>
+    <string name="buttons_round_top_left">Vlevo nahoře</string>
+    <string name="buttons_round_top_left_lower">Vlevo nahoře, níže</string>
+    <string name="buttons_round_top_left_upper">Vlevo nahoře, výše</string>
+    <string name="buttons_round_top_right">Vpravo nahoře</string>
+    <string name="buttons_round_top_right_lower">Vpravo nahoře, níže</string>
+    <string name="buttons_round_top_right_upper">Vpravo nahoře, výše</string>
+    <string name="calibration_fail_announcement">Pozici bodů se nepodařilo změnit. Podržte obrazovku šesti prsty. Poté to zkuste znovu.</string>
+    <string name="calibration_finish_announcement">Pozice bodů byla změněna</string>
+    <string name="calibration_step1_hold_left_finger_announcement">Změna pozice bodů. Nejdřív zaznamenáme body levé ruky. Podržte obrazovku třemi prostředními prsty levé ruky.</string>
+    <string name="calibration_step1_hold_right_finger_announcement">Změna pozice bodů. Nejdřív zaznamenáme body pravé ruky. Podržte obrazovku třemi prostředními prsty pravé ruky.</string>
+    <string name="calibration_step2_hold_left_finger_announcement">Byly změněny pozice bodů 1, 2 a 3. Teď zaznamenáme body levé ruky. Podržte obrazovku třemi prostředními prsty levé ruky.</string>
+    <string name="calibration_step2_hold_right_finger_announcement">Byly změněny pozice bodů 1, 2 a 3. Teď zaznamenáme body pravé ruky. Podržte obrazovku třemi prostředními prsty pravé ruky.</string>
+    <string name="capitalize_announcement">Omezení</string>
+    <string name="character_collapse_template"> %1$dkrát %2$s﻿</string>
+    <string name="character_counter_content_description">Zadané znaky: %1$d z %2$d</string>
+    <string name="character_counter_overflowed_content_description">Byl překročen povolený počet znaků (%1$d z %2$d)</string>
+    <string name="clear_text_end_icon_content_description">Vymazat text</string>
+    <string name="code_user_facing_name_ar">Arabština</string>
+    <string name="code_user_facing_name_es">španělština</string>
+    <string name="code_user_facing_name_fr">francouzština</string>
+    <string name="code_user_facing_name_pl">polština</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Povolit</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Ke spuštění aplikace %1$s je třeba aktivovat služby Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktivace služeb Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instalovat</string>
+    <string name="common_google_play_services_install_text">Ke spuštění aplikace %1$s jsou potřeba služby Google Play, které v zařízení nemáte.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Instalace služeb Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Dostupnost služeb Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Chyba služeb Google Play</string>
+    <string name="common_google_play_services_unknown_issue">Aplikace %1$s má potíže se službami Google Play. Zkuste to prosím znovu.</string>
+    <string name="common_google_play_services_unsupported_text">Ke spuštění aplikace %1$s jsou potřeba služby Google Play, které v tomto zařízení nejsou podporovány.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Aktualizovat</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Ke spuštění aplikace %1$s je třeba aktualizovat služby Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Aktualizace služeb Google Play</string>
+    <string name="common_google_play_services_updating_text">Ke spuštění aplikace %1$s jsou potřeba služby Google Play, které jsou právě aktualizovány.</string>
+    <string name="common_google_play_services_wear_update_text">Je vyžadována nová verze služeb Google Play. Nová verze se brzy sama nainstaluje.</string>
+    <string name="common_open_on_phone">Otevřít v telefonu</string>
+    <string name="common_signin_button_text">Přihlásit se</string>
+    <string name="common_signin_button_text_long">Přihlásit se k účtu Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Selhání"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Otevřeno v telefonu"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Úspěch"</string>
+    <string name="context_menu_input_language_selection">Přepnout na další jazyk: %s</string>
+    <string name="context_menu_input_language_selection_summary">Aktuálně používáte: %s</string>
+    <string name="context_menu_layout_selection">Rozložení</string>
+    <string name="context_menu_see_all_gestures_selection">Zobrazit všechna gesta</string>
+    <string name="context_menu_settings_selection">Nastavení</string>
+    <string name="context_menu_title">Možnost braillské klávesnice</string>
+    <string name="context_menu_tutorial_finish">Dokončit výukový program</string>
+    <string name="context_menu_tutorial_selection">Otevřít výukový program</string>
+    <string name="continue_tutorial_announcement">Výukový program bude pokračovat. %1$s</string>
+    <string msgid="3209159573327985035" name="copy">"Kopírovat"</string>
+    <string name="dismiss_overlay_button_label">Ukončit</string>
+    <string name="done">Hotovo</string>
+    <string name="dont_show_again">Příště již nezobrazovat</string>
+    <string name="error_icon_content_description">Chyba</string>
+    <string name="exit_scrim">Ukončit</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Rozšířená nastavení"</string>
+    <string name="exposed_dropdown_menu_content_description">Zobrazit rozbalovací nabídku</string>
+    <string name="finish_tutorial_announcement">Je zobrazena braillská klávesnice. Otočte telefon tak, aby obrazovka směřovala od vás. Poté telefon otočte na šířku. Začněte psát.</string>
+    <string name="function_off">Hlasová odezva je vypnutá</string>
+    <string name="function_on">Je zapnutá hlasová zpětná vazba</string>
+    <string name="generic_cancel">Zrušit</string>
+    <string name="generic_yes">Ano</string>
+    <string name="gesture_add_space">Chcete-li přidat <b>mezeru</b>, přejeďte prstem doprava</string>
+    <string name="gesture_delete">Chcete-li <b>smazat znak</b>, přejeďte prstem doleva</string>
+    <string name="gesture_delete_word">Chcete-li <b>smazat slovo</b>, přejeďte dvěma prsty doleva</string>
+    <string name="gesture_hide_keyboard">Přejetím dvěma prsty dolů <b>skryjete klávesnici</b>.</string>
+    <string name="gesture_move_cursor_backward">Pokud chcete <b>posunout kurzor dozadu</b>, přejeďte prstem nahoru</string>
+    <string name="gesture_move_cursor_forward">Pokud chcete <b>posunout kurzor dopředu</b>, přejeďte prstem dolů</string>
+    <string name="gesture_new_line">Chcete-li přidat <b>nový řádek</b>, přejeďte dvěma prsty doprava</string>
+    <string name="gesture_next_keyboard">Chcete-li přepnout na <b>další klávesnici</b>, přejeďte třemi prsty dolů</string>
+    <string name="gesture_open_context_menu">Chcete-li <b>zobrazit nápovědu a další možnosti</b>, přejeďte třemi prsty nahoru</string>
+    <string name="gesture_submit_text">Chcete-li <b>odeslat text</b>, přejeďte dvěma prsty nahoru</string>
+    <string name="granularity_character">Znaky</string>
+    <string name="granularity_default">Výchozí</string>
+    <string name="granularity_line">Řádky</string>
+    <string name="granularity_native_control">Ovládací prvky</string>
+    <string name="granularity_native_heading">Nadpisy</string>
+    <string name="granularity_native_link">Odkazy</string>
+    <string name="granularity_paragraph">Odstavce</string>
+    <string name="granularity_pseudo_web_special_content">Speciální obsah</string>
+    <string name="granularity_web_control">Ovládací prvky</string>
+    <string name="granularity_web_heading">Nadpisy</string>
+    <string name="granularity_web_landmark">Orientační body</string>
+    <string name="granularity_web_link">Odkazy</string>
+    <string name="granularity_web_list">Seznamy</string>
+    <string name="granularity_window">Okna</string>
+    <string name="granularity_word">Slova</string>
+    <string name="hide_keyboard_window">klávesnice je skryta</string>
+    <string name="hold_six_fingers_announcement">%s\nPoložte zařízení na stůl. Potom podržte obrazovku třemi prostředními prsty každé ruky v pozici, ve které se vám pohodlně píše.</string>
+    <string name="hold_six_fingers_description">Na braillské klávesnici nelze používat běžná gesta TalkBack.\n\nPokud chcete začít, nastavíme pozici šesti braillských bodů pro psaní.</string>
+    <string name="hold_six_fingers_inactive_announcement">Položte zařízení na stůl. Potom podržte obrazovku třemi prostředními prsty každé ruky v pozici, ve které se vám pohodlně píše.</string>
+    <string name="how_to_use_braille_keyboard">Jak používat braillskou klávesnici</string>
+    <string name="icon_content_description">Ikona dialogového okna</string>
+    <string name="input_view_caption">Braillská klávesnice TalkBack – nápovědu najdete na stránce g.co/help/braille</string>
+    <string name="instruction_swipe_down">Pokud chcete posunout kurzor dopředu, přejeďte prstem dolů</string>
+    <string name="instruction_swipe_down_2_fingers">Chcete-li skrýt klávesnici, přejeďte dvěma prsty dolů</string>
+    <string name="instruction_swipe_down_3_fingers">Chcete-li přepnout na svou další klávesnici, přejeďte třemi prsty dolů</string>
+    <string name="instruction_swipe_left">Chcete-li smazat písmeno, přejeďte prstem doleva</string>
+    <string name="instruction_swipe_right">Chcete-li přidat mezeru, přejeďte prstem doprava</string>
+    <string name="instruction_swipe_up">Pokud chcete posunout kurzor dozadu, přejeďte prstem nahoru</string>
+    <string name="instruction_swipe_up_3_fingers">Chcete-li výukový program ukončit, přejeďte třemi prsty nahoru</string>
+    <string name="instruction_type_letter_a">Klepnutím na bod 1 levým ukazováčkem zadejte písmeno A</string>
+    <string name="instruction_type_letter_bcd">Dále zkuste zadat písmena B, C a D</string>
+    <string name="item_view_role_description">Karta</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Novou zkratku nastavíte stisknutím požadované kombinace kláves s modifikační klávesou %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Stisknutím kombinace kláves nastavte novou zkratku. Je nutné zahrnout tlačítko ALT nebo CTRL.</string>
+    <string name="keycombo_key_arrow_down">Šipka dolů</string>
+    <string name="keycombo_key_arrow_left">Šipka vlevo</string>
+    <string name="keycombo_key_arrow_right">Šipka vpravo</string>
+    <string name="keycombo_key_arrow_up">Šipka nahoru</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Vyhledávání</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Nepřiřazeno</string>
+    <string name="leave_keyboard">Opustit braillskou klávesnici</string>
+    <string name="material_clock_toggle_content_description">Vyberte AM nebo PM</string>
+    <string name="material_hour_selection">Vyberte hodinu</string>
+    <string name="material_hour_suffix">%1$s</string>
+    <string name="material_minute_selection">Zvolte minuty</string>
+    <string name="material_minute_suffix">%1$s min</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Chcete-li zadat čas, přepněte na režim hodin.</string>
+    <string name="material_timepicker_hour">Hodina</string>
+    <string name="material_timepicker_minute">Minuta</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Vyberte čas</string>
+    <string name="material_timepicker_text_input_mode_description">Chcete-li zadat čas, přepněte na režim textu.</string>
+    <string name="mtrl_badge_numberless_content_description">Nové oznámení</string>
+    <string name="mtrl_chip_close_icon_content_description">Odstranit položku %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Více než %1$d nových oznámení</string>
+    <string name="mtrl_picker_a11y_next_month">Přejít na další měsíc</string>
+    <string name="mtrl_picker_a11y_prev_month">Přejít na předchozí měsíc</string>
+    <string name="mtrl_picker_announce_current_selection">Aktuální výběr: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Vyberte datum</string>
+    <string name="mtrl_picker_date_header_unselected">Vybrané datum</string>
+    <string name="mtrl_picker_day_of_week_column_header">Sloupec dnů: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Neplatný formát.</string>
+    <string name="mtrl_picker_invalid_format_example">Příklad: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Použijte: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Neplatný rozsah.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Přejít na rok %1$s</string>
+    <string name="mtrl_picker_out_of_range">Mimo rozsah: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Datum zahájení – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – datum ukončení</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Vyberte rozsah</string>
+    <string name="mtrl_picker_range_header_unselected">Datum zahájení – datum ukončení</string>
+    <string name="mtrl_picker_save">Uložit</string>
+    <string name="mtrl_picker_text_input_date_hint">Datum</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Datum ukončení</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Datum zahájení</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">r</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Přepnout na režim zadávání do kalendáře</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Klepnutím přepnete na výběr dne</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Přepnout na režim zadávání textu</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Klepnutím přepnete na výběr roku</string>
+    <string name="multiple_languages_braille_ime_displayed_name">braillská klávesnice, %s</string>
+    <string name="navigation_drawer_content_description">Vysouvací panel navigace</string>
+    <string name="next_keyboard">Další klávesnice</string>
+    <string name="next_step">Další</string>
+    <string name="not_enough_touch_points_dialog_message">Zařízení nepodporuje dostatek dotykových bodů. Další informace vám poskytne výrobce zařízení.</string>
+    <string name="not_enough_touch_points_dialog_title">Zařízení braillskou klávesnici nepodporuje</string>
+    <string msgid="478774118347071097" name="not_set">"Nenastaveno"</string>
+    <string name="number_announcement">Číslo</string>
+    <string name="open_context_menu_announcement">Nabídka možností je otevřená. Otočte telefon zpět, aby obrazovka směřovala nahoru, a držte ho jako obvykle. Nyní můžete navigovat běžnými gesty TalkBack. Přejetím vpravo zobrazíte další možnosti.</string>
+    <string name="password_toggle_content_description">Zobrazit heslo</string>
+    <string name="perform_action_next">Další</string>
+    <string name="perform_action_submitting">Odesílání textu</string>
+    <string name="perform_add_new_line_announcement">Byl přidán nový řádek</string>
+    <string name="perform_add_space_announcement">Mezera</string>
+    <string name="perform_delete_letter_announcement">Bylo smazáno písmeno</string>
+    <string name="perform_delete_word_announcement">Bylo smazáno slovo</string>
+    <string name="perform_hide_keyboard_announcement">Skrýt klávesnici</string>
+    <string name="perform_submit_text_announcement">Odeslat text</string>
+    <string name="perform_switch_keyboard_announcement">Přepnout klávesnici</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Položka <ns1:g id="SUMMARY">%1$s</ns1:g> byla zkopírována do schránky."</string>
+    <string name="preferred_language_title">Preferovaný jazyk</string>
+    <string name="read_out_deleted">%s úkol byl smazán</string>
+    <string name="remaining_calibration_finish_announcement">Pozice všech bodů byly aktualizovány</string>
+    <string name="reminder_announcement">Další možnosti zobrazíte přejetím třemi prsty nahoru</string>
+    <string name="result_swipe_down">KURZOR BYL POSUNUT DOPŘEDU</string>
+    <string name="result_swipe_down_2_fingers">SKRÝT KLÁVESNICI</string>
+    <string name="result_swipe_down_3_fingers">DALŠÍ KLÁVESNICE</string>
+    <string name="result_swipe_left">SMAZAT</string>
+    <string name="result_swipe_right">MEZERA</string>
+    <string name="result_swipe_up">KURZOR BYL POSUNUT DOZADU</string>
+    <string name="rotate_orientation_announcement">Od teď už nebudete moci používat běžná gesta funkce TalkBack. Při používání braillské klávesnice není funkce TalkBack k dispozici.\n\n%1$s</string>
+    <string name="rotate_orientation_continue_announcement">Telefon je otočený na výšku. Chcete-li pokračovat, otočte jej na šířku (tak, aby jeho dlouhá strana byla dole). Poté ho otočte displejem od sebe. Až budete připraveni pokračovat, dvakrát klepněte na displej.</string>
+    <string name="rotate_orientation_description_1">Od teď již nebudete moci používat běžná gesta funkce TalkBack. Při používání braillské klávesnice není funkce TalkBack k dispozici.</string>
+    <string name="rotate_orientation_description_2">Chcete-li začít, podržte telefon takto, displejem od sebe.</string>
+    <string name="rotate_orientation_inactive_announcement">Nejdříve telefon otočte displejem od sebe.\n\nPoté telefon otočte na šířku. Rukama byste měli držet kratší strany telefonu. V pravé ruce byste měli držet konec s portem USB. Držte telefon palcem a malíčkem a tři prostřední prsty umístěte na displej.\n\nAž budete připraveni pokračovat, dvakrát klepněte na displej.\n\nBraillskou klávesnici zavřete přejetím třemi prsty dolů směrem k zemi. Vrátíte se tak ke své původní klávesnici.</string>
+    <string name="screen_away">Režim s obrazovkou od sebe</string>
+    <string name="screen_away_detail">Podržte zařízení tak, aby obrazovka směřovala dolů (režim s obrazovkou od sebe)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Hledat"</string>
+    <string name="set_up_braille_keyboard">Nastavení braillské klávesnice</string>
+    <string name="show_keyboard_window">Zobrazené okno: %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="summary_pref_accumulate_presses">Každý stisknutý bod je součástí vstupu i v případě, že byl před stisknutím dalších bodů uvolněn</string>
+    <string name="summary_pref_reverse_dots">Zaměnit pozice bodů (tj. např. body 1 a 4 si vymění místa)</string>
+    <string name="swipe_down_2_fingers_announcement">Přejetím dvěma prsty dolů skryjete klávesnici. Zkuste to.</string>
+    <string name="swipe_down_2_fingers_completed_announcement">Skrýt klávesnici. Tímto obvykle skryjete klávesnici. Protože jste však stále ve výukovém programu, zůstane braillská klávesnice otevřená.</string>
+    <string name="swipe_down_3_fingers_announcement">Přejetím třemi prsty dolů přepnete na svou další klávesnici. Zkuste to.</string>
+    <string name="swipe_down_3_fingers_completed_announcement">Další klávesnice. Tímto obvykle přepnete na další klávesnici. Protože jste však stále ve výukovém programu, tentokrát zůstane aktivní braillská klávesnice.</string>
+    <string name="swipe_down_announcement">Pokud chcete posunout kurzor dopředu, přejeďte prstem dolů. Zkuste to.</string>
+    <string name="swipe_left_action_result_announcement">d smazáno.</string>
+    <string name="swipe_left_announcement">Chcete-li smazat písmeno, přejeďte prstem doleva. Zkuste to.</string>
+    <string name="swipe_right_announcement">Přejetím prstem doprava přidáte mezeru. Zkuste to.</string>
+    <string name="swipe_up_3_fingers_announcement">Psát můžete také v režimu s obrazovkou k sobě, když telefon položíte na stůl. Pokud chcete výukový program ukončit, přejeďte třemi prsty nahoru a najděte možnost Dokončit výukový program</string>
+    <string name="swipe_up_announcement">Pokud chcete posunout kurzor dozadu, přejeďte prstem nahoru. Zkuste to.</string>
+    <string name="switch_input_code_gesture_tip_dialog_message">Pokud při psaní na braillské klávesnici chcete změnit jazyk, přejeďte třemi prsty nahoru. Poté vyberte Přepnout na další jazyk.</string>
+    <string name="switch_input_code_gesture_tip_dialog_title">Rychlé přepnutí jazyka při psaní</string>
+    <string name="switch_to_language_announcement">Přepnuto na jazyk %s</string>
+    <string name="switch_to_screen_away_announcement">Režim s obrazovkou od sebe</string>
+    <string name="switch_to_tabletop_announcement">Režim s obrazovkou nahoru. Položte zařízení tak, aby byl nabíjecí port nalevo. Pozici bodů změníte podržením šesti prstů na obrazovce.</string>
+    <string name="symbol_almost_equals">Téměř se rovná</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Znak menší než</string>
+    <string name="symbol_angle_bracket_right">Znak větší než</string>
+    <string name="symbol_apostrophe">Apostrof</string>
+    <string name="symbol_approximately_equals">Přibližně rovno</string>
+    <string name="symbol_asterisk">Hvězdička</string>
+    <string name="symbol_at_sign">Zavináč</string>
+    <string name="symbol_backslash">Zpětné lomítko</string>
+    <string name="symbol_beamed_sixteenth_note">Šestnáctinové noty spojené trámcem</string>
+    <string name="symbol_black_circle">Černá tečka</string>
+    <string name="symbol_black_heart">Černé srdce</string>
+    <string name="symbol_black_smallsquare">Malý černý čtverec</string>
+    <string name="symbol_black_square">Černý čtverec</string>
+    <string name="symbol_black_star">Černá hvězda</string>
+    <string name="symbol_black_suit_of_diamonds">Černý kosočtverec</string>
+    <string name="symbol_black_triangle_pointing_down">Černý trojúhelník ukazující dolů</string>
+    <string name="symbol_black_triangle_pointing_up">Černý trojúhelník ukazující nahoru</string>
+    <string name="symbol_broken_bar">Přerušená svislá čára</string>
+    <string name="symbol_bullet">Odrážka</string>
+    <string name="symbol_bullseye">Dva soustředné kruhy</string>
+    <string name="symbol_caret">Stříška</string>
+    <string name="symbol_celsius_degree">Stupeň Celsia</string>
+    <string name="symbol_cent">Znak centu</string>
+    <string name="symbol_circle_left_half_black">Kruh s levou polovinou černou</string>
+    <string name="symbol_circle_right_half_black">Kruh s pravou polovinou černou</string>
+    <string name="symbol_colon">Dvojtečka</string>
+    <string name="symbol_comma">Čárka</string>
+    <string name="symbol_copyright">Autorská práva</string>
+    <string name="symbol_curly_bracket_left">Levá složená závorka</string>
+    <string name="symbol_curly_bracket_right">Pravá složená závorka</string>
+    <string name="symbol_currency_sign">Znak měny</string>
+    <string name="symbol_degree">Znak stupně</string>
+    <string name="symbol_division">Symbol děleno</string>
+    <string name="symbol_dollar_sign">Dolar</string>
+    <string name="symbol_downwards_arrow">Šipka dolů</string>
+    <string name="symbol_eighth_note">Osminová nota</string>
+    <string name="symbol_ellipsis">Tři tečky</string>
+    <string name="symbol_em_dash">Dlouhá pomlčka</string>
+    <string name="symbol_en_dash">Krátká pomlčka</string>
+    <string name="symbol_equal">Znak rovná se</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Vykřičník</string>
+    <string name="symbol_fahrenheit_degree">Stupeň Fahrenheita</string>
+    <string name="symbol_female">Symbol ženy</string>
+    <string name="symbol_full_width_ampersand">Ampersand v plné šířce</string>
+    <string name="symbol_full_width_asterisk">Hvězdička v plné šířce</string>
+    <string name="symbol_full_width_circumflex">Stříška v plné šířce</string>
+    <string name="symbol_full_width_colon">Dvojtečka v plné šířce</string>
+    <string name="symbol_full_width_comma">Čárka v plné šířce</string>
+    <string name="symbol_full_width_exclamation_mark">Vykřičník v plné šířce</string>
+    <string name="symbol_full_width_greater_than_sign">Symbol větší než v plné šířce</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideografická tečka</string>
+    <string name="symbol_full_width_left_curly_bracket">Složená levá závorka v plné šířce</string>
+    <string name="symbol_full_width_left_parenthesis">Levá závorka v plné šířce</string>
+    <string name="symbol_full_width_less_than_sign">Symbol menší než v plné šířce</string>
+    <string name="symbol_full_width_question_mark">Otazník v plné šířce</string>
+    <string name="symbol_full_width_right_curly_bracket">Složená pravá závorka v plné šířce</string>
+    <string name="symbol_full_width_right_parenthesis">Pravá závorka v plné šířce</string>
+    <string name="symbol_full_width_semicolon">Středník v plné šířce</string>
+    <string name="symbol_full_width_tilde">Vlnovka v plné šířce</string>
+    <string name="symbol_full_width_underscore">Podtržítko v plné šířce</string>
+    <string name="symbol_grave_accent">Těžký akcent</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Středová tečka katakany s poloviční šířkou</string>
+    <string name="symbol_hyphen_minus">Spojovník</string>
+    <string name="symbol_ideographic_comma">Ideografická čárka</string>
+    <string name="symbol_integral">Integrál</string>
+    <string name="symbol_inverted_exclamation_mark">Obrácený vykřičník</string>
+    <string name="symbol_inverted_question_mark">Obrácený otazník</string>
+    <string name="symbol_left_angle_bracket">Levá francouzská uvozovka</string>
+    <string name="symbol_left_black_lenticular_bracket">Levá plná čočkovitá závorka</string>
+    <string name="symbol_left_corner_bracket">Levá rohová závorka</string>
+    <string name="symbol_left_double_quotation_mark">Levé dvojité uvozovky</string>
+    <string name="symbol_left_single_quotation_mark">Levé jednoduché uvozovky</string>
+    <string name="symbol_leftwards_arrow">Šipka vlevo</string>
+    <string name="symbol_liter">Litr</string>
+    <string name="symbol_low_double_quote">Uvozovky dole</string>
+    <string name="symbol_male">Symbol muže</string>
+    <string name="symbol_mathematical_left_angle_bracket">Matematická levá lomená závorka</string>
+    <string name="symbol_mathematical_right_angle_bracket">Matematická pravá lomená závorka</string>
+    <string name="symbol_micro_sign">Znak mikro</string>
+    <string name="symbol_middle_dot">Středová tečka</string>
+    <string name="symbol_multiplication">Symbol krát</string>
+    <string name="symbol_new_line">Nový řádek</string>
+    <string name="symbol_not_equals">Nerovná se</string>
+    <string name="symbol_not_sign">Znak logického záporu</string>
+    <string name="symbol_paragraph_mark">Znak odstavce</string>
+    <string name="symbol_parenthesis_left">Levá závorka</string>
+    <string name="symbol_parenthesis_right">Pravá závorka</string>
+    <string name="symbol_percent">Procento</string>
+    <string name="symbol_period">tečka</string>
+    <string name="symbol_pi">Pí</string>
+    <string name="symbol_plus_minus_sign">Znaménko plus minus</string>
+    <string name="symbol_postal_mark">Poštovní značka</string>
+    <string name="symbol_pound">Křížek</string>
+    <string name="symbol_pound_sterling">Znak měny (libra)</string>
+    <string name="symbol_quarter_note">Čtvrtinová nota</string>
+    <string name="symbol_question_mark">Otazník</string>
+    <string name="symbol_quotation_mark">Uvozovky</string>
+    <string name="symbol_reference">Znak odkazu</string>
+    <string name="symbol_registered_trademark">Registrovaná ochranná známka</string>
+    <string name="symbol_right_angle_bracket">Pravá francouzská uvozovka</string>
+    <string name="symbol_right_black_lenticular_bracket">Pravá plná čočkovitá závorka</string>
+    <string name="symbol_right_corner_bracket">Pravá rohová závorka</string>
+    <string name="symbol_right_double_quotation_mark">Pravé dvojité uvozovky</string>
+    <string name="symbol_right_single_quotation_mark">Pravé jednoduché uvozovky</string>
+    <string name="symbol_rightwards_arrow">Šipka doprava</string>
+    <string name="symbol_rupee">Rupie</string>
+    <string name="symbol_section_sign">Znak oddílu</string>
+    <string name="symbol_semicolon">Středník</string>
+    <string name="symbol_slash">Lomítko</string>
+    <string name="symbol_solar">Tečka v kruhu</string>
+    <string name="symbol_space">Mezerník</string>
+    <string name="symbol_square_bracket_left">Levá hranatá závorka</string>
+    <string name="symbol_square_bracket_right">Pravá hranatá závorka</string>
+    <string name="symbol_square_root">Odmocnina</string>
+    <string name="symbol_tilde">Tilda</string>
+    <string name="symbol_trademark">Ochranná známka</string>
+    <string name="symbol_underscore">Podtržítko</string>
+    <string name="symbol_upwards_arrow">Šipka nahoru</string>
+    <string name="symbol_vertical_bar">Svislá čára</string>
+    <string name="symbol_white_circle">Prázdný kruh</string>
+    <string name="symbol_white_club_suit">Prázdný symbol tref</string>
+    <string name="symbol_white_diamond">Prázdný symbol kár</string>
+    <string name="symbol_white_down_pointing_triangle">Prázdný trojúhelník špičkou dolů</string>
+    <string name="symbol_white_heart">Prázdný symbol srdce</string>
+    <string name="symbol_white_left_pointing_index">Prázdný symbol ukazováčku doleva</string>
+    <string name="symbol_white_left_pointing_triangle">Prázdný trojúhelník špičkou doleva</string>
+    <string name="symbol_white_right_pointing_index">Prázdný symbol ukazováčku doprava</string>
+    <string name="symbol_white_right_pointing_triangle">Prázdný trojúhelník špičkou doprava</string>
+    <string name="symbol_white_spade_suit">Prázdný symbol pik</string>
+    <string name="symbol_white_square">Prázdný čtverec</string>
+    <string name="symbol_white_star">Prázdná hvězda</string>
+    <string name="symbol_white_up_pointing_triangle">Prázdný trojúhelník šipkou nahoru</string>
+    <string name="symbol_won">Znak měny (won)</string>
+    <string name="symbol_won_sign">Znak měny (won)</string>
+    <string name="symbol_yen">Jen</string>
+    <string name="tabletop">Režim s obrazovkou k sobě</string>
+    <string name="tabletop_detail">Položte zařízení na stůl (režim s obrazovkou nahoru)</string>
+    <string name="talkback_off_dialog_positive_button">Zapnete v nastavení přístupnosti</string>
+    <string name="talkback_off_dialog_title">Chcete-li používat braillskou klávesnici, zapněte funkci TalkBack</string>
+    <string name="talkback_off_or_suspend_dialog_message">Když je zapnutá funkce TalkBack, můžete klepáním na displej zadávat symboly Braillova písma.</string>
+    <string name="talkback_suspend_dialog_title">Chcete-li používat braillskou klávesnici, znovu zapněte funkci TalkBack</string>
+    <string name="tap_to_continue">Chcete-li pokračovat, dvakrát kamkoliv klepněte</string>
+    <string name="template_capital_letter">velké %1$s</string>
+    <string name="template_current_tts_engine">Používá %1$s</string>
+    <string name="template_overlay_window">Obraz v obraze %1$s</string>
+    <string name="template_password_selected">Znaky %1$d až %2$d</string>
+    <string name="template_password_traversed">Znak %1$d</string>
+    <string name="template_scroll_from_count">Zobrazuje se položka %1$d z %2$d.</string>
+    <string name="template_scroll_from_to_count">Zobrazují se položky %1$d až %2$d z %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s nalevo, %2$s napravo</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s napravo, %2$s nalevo</string>
+    <string name="template_split_screen_mode_portrait">%1$s nahoře, %2$s dole</string>
+    <string name="template_text_copied">zkopírováno, %1$s</string>
+    <string name="template_viewpager_index_count">Stránka %1$d z %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d z %2$d</string>
+    <string name="time_difference_now">Teď</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="title_pref_accumulate_presses">Zahrnout všechny stisknuté body</string>
+    <string name="title_pref_reverse_dots">Otočit body</string>
+    <string name="tutorial_intro_description">Pomocí braillské klávesnice můžete klepáním na displej zadávat šestibodové Braillovo písmo.\n\nPoužíváte standard Unified English Braille. Na jazyk psaní můžete přepnout v nastavení aplikace TalkBack.\n\nPři psaní Braillovým písmem je potřeba telefon držet a používat jinak.</string>
+    <string name="type_letter_a_announcement">Mějte displej směrem od sebe. Držte telefon v obou rukách za kratší hrany tak, abyste se prostředními třemi prsty obou rukou mohli dotýkat displeje.\n\nLevý ukazováček byste měli mít na bodu 1. Nyní klepnutím na bod 1 zadejte písmeno A.</string>
+    <string name="type_letter_a_inactive_announcement">Klepnutím na bod 1 levým ukazováčkem zadejte písmeno A</string>
+    <string name="type_letter_inactive_announcement">Klepnutím na %1$s zadejte písmeno %2$s</string>
+    <string name="typing_languages_title">Jazyky zadávání</string>
+    <string name="untitled_window">bez názvu</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string name="use_brailleime_pref_button_case_ime_disabled">Nastavení</string>
+    <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b>Zapněte braillskou klávesnici&lt;/b>: Níže klepněte na Nastavení. Na další obrazovce zapněte možnost %1$s.
+    &lt;br>&lt;br>2. &lt;b>Použijte braillskou klávesnici&lt;/b>: Otevřete běžnou klávesnici a klepněte na ikonu výběru klávesnice %2$s (obvykle se nachází v pravém dolním rohu). Vyberte možnost %1$s.
+    &lt;br>&lt;br>Pokud možnost přepnutí klávesnice nevidíte, zkuste nainstalovat %3$s, klávesnici od Googlu.</string>
+    <string name="use_brailleime_pref_dialog_case_ime_enabled">Chcete-li používat braillskou klávesnici, otevřete běžnou klávesnici a klepněte na ikonu výběru klávesnice %1$s (obvykle se nachází v pravém dolním rohu). Vyberte možnost %2$s.
+  &lt;br>&lt;br>Pokud možnost přepnutí klávesnice nevidíte, zkuste nainstalovat %3$s, klávesnici od Googlu.</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"Vypnutí"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ZAP"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Vysouvací panel akcí"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Vysouvací panel navigace"</string>
+</resources>

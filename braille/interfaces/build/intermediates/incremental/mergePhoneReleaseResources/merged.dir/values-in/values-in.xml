@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d notifikasi baru</item>
+    <item quantity="other">%d notifikasi baru</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%dh</item>
+<item quantity="other">%dh</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%dj</item>
+<item quantity="other">%dj</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%dm</item>
+<item quantity="other">%dm</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d hari</item>
+<item quantity="other">%d hari</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d jam</item>
+<item quantity="other">%d jam</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d mnt</item>
+<item quantity="other">%d mnt</item>
+</plurals>
+    <string name="a11y_no_data">Tidak ada data</string>
+    <string name="a11y_no_permission">Tidak ada izin untuk mengakses data</string>
+    <string name="a11y_template_range">%1$f dari %2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Tunjukkan jalan ke rumah"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Kembali ke atas"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Opsi lain"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Selesai"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Lihat semua"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Pilih aplikasi"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"NONAKTIF"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"AKTIF"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"spasi"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Telusuri..."</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Hapus kueri"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Telusuri kueri"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Telusuri"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Kirim kueri"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Penelusuran suara"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Bagikan dengan"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Bagikan dengan <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Ciutkan"</string>
+    <string name="bottomsheet_action_expand_halfway">Luaskan setengah</string>
+    <string name="buttons_rect_bottom_center">Bawah</string>
+    <string name="buttons_rect_bottom_left">Kiri bawah</string>
+    <string name="buttons_rect_bottom_right">Kanan bawah</string>
+    <string name="buttons_rect_left_bottom">Bawah, sisi kiri</string>
+    <string name="buttons_rect_left_center">Kiri tengah</string>
+    <string name="buttons_rect_left_top">Atas, sisi kiri</string>
+    <string name="buttons_rect_right_bottom">Bawah, sisi kanan</string>
+    <string name="buttons_rect_right_center">Kanan tengah</string>
+    <string name="buttons_rect_right_top">Atas, sisi kanan</string>
+    <string name="buttons_rect_top_center">Atas</string>
+    <string name="buttons_rect_top_left">Kiri atas</string>
+    <string name="buttons_rect_top_right">Kanan atas</string>
+    <string name="buttons_round_bottom_center">Bawah</string>
+    <string name="buttons_round_bottom_left">Kiri bawah</string>
+    <string name="buttons_round_bottom_left_lower">Kiri bawah, rendah</string>
+    <string name="buttons_round_bottom_left_upper">Kiri bawah, tinggi</string>
+    <string name="buttons_round_bottom_right">Kanan bawah</string>
+    <string name="buttons_round_bottom_right_lower">Kanan bawah, rendah</string>
+    <string name="buttons_round_bottom_right_upper">Kanan bawah, tinggi</string>
+    <string name="buttons_round_center_left">Kiri tengah</string>
+    <string name="buttons_round_center_right">Kanan tengah</string>
+    <string name="buttons_round_top_center">Atas</string>
+    <string name="buttons_round_top_left">Kiri atas</string>
+    <string name="buttons_round_top_left_lower">Kiri atas, rendah</string>
+    <string name="buttons_round_top_left_upper">Kiri atas, tinggi</string>
+    <string name="buttons_round_top_right">Kanan atas</string>
+    <string name="buttons_round_top_right_lower">Kanan atas, rendah</string>
+    <string name="buttons_round_top_right_upper">Kanan atas, tinggi</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Karakter yang dimasukkan %1$d dari %2$d</string>
+    <string name="character_counter_overflowed_content_description">Melebihi batas karakter %1$d dari %2$d</string>
+    <string name="clear_text_end_icon_content_description">Menghapus teks</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktifkan</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s tidak akan berfungsi jika layanan Google Play tidak diaktifkan.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktifkan layanan Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instal</string>
+    <string name="common_google_play_services_install_text">%1$s tidak akan berjalan tanpa layanan Google Play, yang tidak ada di perangkat Anda.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Dapatkan layanan Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Ketersediaan layanan Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Kesalahan layanan Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s mengalami masalah dengan layanan Google Play. Coba lagi.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s tidak akan berjalan tanpa layanan Google Play, yang tidak didukung oleh perangkat Anda.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Update</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s tidak akan berjalan jika layanan Google Play tidak diperbarui.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Perbarui layanan Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s tidak akan berjalan tanpa layanan Google Play, yang saat ini sedang diperbarui.</string>
+    <string name="common_google_play_services_wear_update_text">Perlu versi baru layanan Google Play. Akan segera memperbarui sendiri.</string>
+    <string name="common_open_on_phone">Buka di ponsel</string>
+    <string name="common_signin_button_text">Login</string>
+    <string name="common_signin_button_text_long">Login dengan Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Gagal"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Dibuka di ponsel"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Berhasil"</string>
+    <string msgid="3209159573327985035" name="copy">"Salin"</string>
+    <string name="dismiss_overlay_button_label">Keluar</string>
+    <string name="error_icon_content_description">Error</string>
+    <string name="exit_scrim">Keluar</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Lanjutan"</string>
+    <string name="exposed_dropdown_menu_content_description">Tampilkan menu dropdown</string>
+    <string name="function_off">Respons lisan nonaktif</string>
+    <string name="function_on">Respons lisan aktif</string>
+    <string name="generic_cancel">Batal</string>
+    <string name="generic_yes">Ya</string>
+    <string name="granularity_character">Karakter</string>
+    <string name="granularity_default">Default</string>
+    <string name="granularity_line">Baris</string>
+    <string name="granularity_native_control">Kontrol</string>
+    <string name="granularity_native_heading">Judul</string>
+    <string name="granularity_native_link">Link</string>
+    <string name="granularity_paragraph">Paragraf</string>
+    <string name="granularity_pseudo_web_special_content">Konten khusus</string>
+    <string name="granularity_web_control">Kontrol</string>
+    <string name="granularity_web_heading">Judul</string>
+    <string name="granularity_web_landmark">Penanda</string>
+    <string name="granularity_web_link">Link</string>
+    <string name="granularity_web_list">Daftar</string>
+    <string name="granularity_window">Jendela</string>
+    <string name="granularity_word">Kata</string>
+    <string name="hide_keyboard_window">keyboard disembunyikan</string>
+    <string name="icon_content_description">Ikon Dialog</string>
+    <string name="item_view_role_description">Tab</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Tekan kombinasi tombol dengan kunci pengubah %1$s untuk menyetel pintasan baru.</string>
+    <string name="keycombo_assign_dialog_instruction">Tekan kombinasi tombol untuk menyetel pintasan baru. Setidaknya harus menggunakan tombol ALT atau Control.</string>
+    <string name="keycombo_key_arrow_down">Panah Bawah</string>
+    <string name="keycombo_key_arrow_left">Panah Kiri</string>
+    <string name="keycombo_key_arrow_right">Panah Kanan</string>
+    <string name="keycombo_key_arrow_up">Panah Atas</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Telusuri</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Tidak ditetapkan</string>
+    <string name="material_clock_toggle_content_description">Pilih AM atau PM</string>
+    <string name="material_hour_selection">Pilih jam</string>
+    <string name="material_hour_suffix">Pukul %1$s</string>
+    <string name="material_minute_selection">Pilih menit</string>
+    <string name="material_minute_suffix">%1$s menit</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Beralih ke mode jam untuk masukan waktu.</string>
+    <string name="material_timepicker_hour">Jam</string>
+    <string name="material_timepicker_minute">Menit</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Pilih waktu</string>
+    <string name="material_timepicker_text_input_mode_description">Beralih ke mode masukan teks untuk masukan waktu.</string>
+    <string name="mtrl_badge_numberless_content_description">Notifikasi baru</string>
+    <string name="mtrl_chip_close_icon_content_description">Menghapus %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Lebih dari %1$d notifikasi baru</string>
+    <string name="mtrl_picker_a11y_next_month">Ubah ke bulan berikutnya</string>
+    <string name="mtrl_picker_a11y_prev_month">Ubah ke bulan sebelumnya</string>
+    <string name="mtrl_picker_announce_current_selection">Pilihan saat ini: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Pilih Tanggal</string>
+    <string name="mtrl_picker_date_header_unselected">Tanggal yang dipilih</string>
+    <string name="mtrl_picker_day_of_week_column_header">Kolom hari: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Format tidak valid.</string>
+    <string name="mtrl_picker_invalid_format_example">Contoh: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Gunakan: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Rentang tidak valid.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Buka tahun %1$s</string>
+    <string name="mtrl_picker_out_of_range">Di luar rentang: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Tanggal mulai – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Tanggal akhir</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Pilih Rentang</string>
+    <string name="mtrl_picker_range_header_unselected">Tanggal mulai – Tanggal akhir</string>
+    <string name="mtrl_picker_save">Simpan</string>
+    <string name="mtrl_picker_text_input_date_hint">Tanggal</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Tanggal akhir</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Tanggal mulai</string>
+    <string name="mtrl_picker_text_input_day_abbr">h</string>
+    <string name="mtrl_picker_text_input_month_abbr">b</string>
+    <string name="mtrl_picker_text_input_year_abbr">t</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Beralih ke mode masukan kalender</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Ketuk untuk beralih ke memilih hari</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Beralih ke mode masukan teks</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Ketuk untuk beralih ke memilih tahun</string>
+    <string name="navigation_drawer_content_description">Panel samping navigasi</string>
+    <string msgid="478774118347071097" name="not_set">"Belum disetel"</string>
+    <string name="password_toggle_content_description">Tampilkan sandi</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" disalin ke papan klip."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Telusuri"</string>
+    <string name="show_keyboard_window">Menampilkan %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Hampir sama dengan</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Simbol kurang dari</string>
+    <string name="symbol_angle_bracket_right">Simbol lebih dari</string>
+    <string name="symbol_apostrophe">Apostrof</string>
+    <string name="symbol_approximately_equals">Kira-kira sama</string>
+    <string name="symbol_asterisk">Tanda bintang</string>
+    <string name="symbol_at_sign">Di</string>
+    <string name="symbol_backslash">Garis miring terbalik</string>
+    <string name="symbol_beamed_sixteenth_note">Not seperenambelas digabungkan</string>
+    <string name="symbol_black_circle">Lingkaran hitam</string>
+    <string name="symbol_black_heart">Hati Hitam</string>
+    <string name="symbol_black_smallsquare">Persegi hitam kecil</string>
+    <string name="symbol_black_square">Persegi hitam</string>
+    <string name="symbol_black_star">Bintang hitam</string>
+    <string name="symbol_black_suit_of_diamonds">Gambar wajik hitam</string>
+    <string name="symbol_black_triangle_pointing_down">Segitiga hitam menunjuk ke bawah</string>
+    <string name="symbol_black_triangle_pointing_up">Segitiga hitam menunjuk ke atas</string>
+    <string name="symbol_broken_bar">Garis putus</string>
+    <string name="symbol_bullet">Butir</string>
+    <string name="symbol_bullseye">Lingkaran target</string>
+    <string name="symbol_caret">Tanda sisipan</string>
+    <string name="symbol_celsius_degree">Derajat Celcius</string>
+    <string name="symbol_cent">Simbol sen</string>
+    <string name="symbol_circle_left_half_black">Lingkaran dengan separuh hitam sebelah kiri</string>
+    <string name="symbol_circle_right_half_black">Lingkaran dengan separuh hitam sebelah kanan</string>
+    <string name="symbol_colon">Titik Dua</string>
+    <string name="symbol_comma">Koma</string>
+    <string name="symbol_copyright">Hak cipta</string>
+    <string name="symbol_curly_bracket_left">Tanda kurung kurawal buka</string>
+    <string name="symbol_curly_bracket_right">Tanda kurung kurawal tutup</string>
+    <string name="symbol_currency_sign">Simbol mata uang</string>
+    <string name="symbol_degree">Simbol derajat</string>
+    <string name="symbol_division">Tanda bagi</string>
+    <string name="symbol_dollar_sign">Simbol Dolar</string>
+    <string name="symbol_downwards_arrow">Panah Bawah</string>
+    <string name="symbol_eighth_note">Not Kedelapan</string>
+    <string name="symbol_ellipsis">Elipsis</string>
+    <string name="symbol_em_dash">Tanda pisah Em</string>
+    <string name="symbol_en_dash">Tanda pisah En</string>
+    <string name="symbol_equal">Tanda sama dengan</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Tanda seru</string>
+    <string name="symbol_fahrenheit_degree">Derajat Fahrenheit</string>
+    <string name="symbol_female">Simbol perempuan</string>
+    <string name="symbol_full_width_ampersand">Ampersand lebar penuh</string>
+    <string name="symbol_full_width_asterisk">Tanda bintang lebar penuh</string>
+    <string name="symbol_full_width_circumflex">Sirkumfleks lebar penuh</string>
+    <string name="symbol_full_width_colon">Titik dua lebar penuh</string>
+    <string name="symbol_full_width_comma">Koma lebar penuh</string>
+    <string name="symbol_full_width_exclamation_mark">Tanya seru lebar penuh</string>
+    <string name="symbol_full_width_greater_than_sign">Tanda lebih besar dari lebar penuh</string>
+    <string name="symbol_full_width_ideographic_full_stop">Tanda titik ideografis</string>
+    <string name="symbol_full_width_left_curly_bracket">Tanda kurung kurawal buka lebar penuh</string>
+    <string name="symbol_full_width_left_parenthesis">Tanda kurung buka lebar penuh</string>
+    <string name="symbol_full_width_less_than_sign">Tanda lebih kecil dari lebar penuh</string>
+    <string name="symbol_full_width_question_mark">Tanda tanya lebar penuh</string>
+    <string name="symbol_full_width_right_curly_bracket">Tanda kurung kurawal tutup lebar penuh</string>
+    <string name="symbol_full_width_right_parenthesis">Tanda kurung tutup lebar penuh</string>
+    <string name="symbol_full_width_semicolon">Titik koma lebar penuh</string>
+    <string name="symbol_full_width_tilde">Tanda gelombang lebar penuh</string>
+    <string name="symbol_full_width_underscore">Garis bawah lebar penuh</string>
+    <string name="symbol_grave_accent">Aksen nontirus</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Huruf Katakana bertitik tengah setengah lebar</string>
+    <string name="symbol_hyphen_minus">Tanda pisah</string>
+    <string name="symbol_ideographic_comma">Koma ideografis</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Tanda seru terbalik</string>
+    <string name="symbol_inverted_question_mark">Tanda tanya terbalik</string>
+    <string name="symbol_left_angle_bracket">Tanda kurung sudut ganda buka</string>
+    <string name="symbol_left_black_lenticular_bracket">Kurung Lentikular Hitam Kiri</string>
+    <string name="symbol_left_corner_bracket">Kurung Sudut Kiri</string>
+    <string name="symbol_left_double_quotation_mark">Tanda petik ganda kiri</string>
+    <string name="symbol_left_single_quotation_mark">Tanda petik tunggal kiri</string>
+    <string name="symbol_leftwards_arrow">Panah kiri</string>
+    <string name="symbol_liter">Liter</string>
+    <string name="symbol_low_double_quote">Tanda petik dua bawah</string>
+    <string name="symbol_male">Simbol pria</string>
+    <string name="symbol_mathematical_left_angle_bracket">Kurung buka matematika</string>
+    <string name="symbol_mathematical_right_angle_bracket">Kurung tutup matematika</string>
+    <string name="symbol_micro_sign">Simbol mikro</string>
+    <string name="symbol_middle_dot">Titik tengah</string>
+    <string name="symbol_multiplication">Tanda kali</string>
+    <string name="symbol_new_line">Garis baru</string>
+    <string name="symbol_not_equals">Tidak sama dengan</string>
+    <string name="symbol_not_sign">Simbol larangan</string>
+    <string name="symbol_paragraph_mark">Tanda paragraf</string>
+    <string name="symbol_parenthesis_left">Kurung buka</string>
+    <string name="symbol_parenthesis_right">Kurung tutup</string>
+    <string name="symbol_percent">Persen</string>
+    <string name="symbol_period">Titik</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Tanda plus minus</string>
+    <string name="symbol_postal_mark">Cap pos</string>
+    <string name="symbol_pound">Pon</string>
+    <string name="symbol_pound_sterling">Simbol mata uang pound sterling</string>
+    <string name="symbol_quarter_note">Not Seperempat</string>
+    <string name="symbol_question_mark">Tanda tanya</string>
+    <string name="symbol_quotation_mark">Tanda petik</string>
+    <string name="symbol_reference">Tanda Referensi</string>
+    <string name="symbol_registered_trademark">Merek dagang terdaftar</string>
+    <string name="symbol_right_angle_bracket">Tanda kurung sudut ganda tutup</string>
+    <string name="symbol_right_black_lenticular_bracket">Kurung Lentikular Kanan Hitam</string>
+    <string name="symbol_right_corner_bracket">Kurung Sudut Kanan</string>
+    <string name="symbol_right_double_quotation_mark">Tanda petik ganda kanan</string>
+    <string name="symbol_right_single_quotation_mark">Tanda petik tunggal kanan</string>
+    <string name="symbol_rightwards_arrow">Panah Kanan</string>
+    <string name="symbol_rupee">Rupee</string>
+    <string name="symbol_section_sign">Simbol paragraf</string>
+    <string name="symbol_semicolon">Titik koma</string>
+    <string name="symbol_slash">Tanda garis miring</string>
+    <string name="symbol_solar">Simbol surya</string>
+    <string name="symbol_space">Spasi</string>
+    <string name="symbol_square_bracket_left">Tanda kurung siku buka</string>
+    <string name="symbol_square_bracket_right">Tanda kurung siku tutup</string>
+    <string name="symbol_square_root">Akar pangkat dua</string>
+    <string name="symbol_tilde">Tanda gelombang</string>
+    <string name="symbol_trademark">Merek dagang</string>
+    <string name="symbol_underscore">Garis bawah</string>
+    <string name="symbol_upwards_arrow">Panah atas</string>
+    <string name="symbol_vertical_bar">Garis vertikal</string>
+    <string name="symbol_white_circle">Lingkaran putih</string>
+    <string name="symbol_white_club_suit">Suit keriting putih</string>
+    <string name="symbol_white_diamond">Wajik putih</string>
+    <string name="symbol_white_down_pointing_triangle">Segitiga putih menunjuk ke bawah</string>
+    <string name="symbol_white_heart">Hati Putih</string>
+    <string name="symbol_white_left_pointing_index">Telunjuk putih menunjuk ke kiri</string>
+    <string name="symbol_white_left_pointing_triangle">Segitiga putih menunjuk ke kiri</string>
+    <string name="symbol_white_right_pointing_index">Telunjuk putih menunjuk ke kanan</string>
+    <string name="symbol_white_right_pointing_triangle">Segitiga putih menunjuk ke kanan</string>
+    <string name="symbol_white_spade_suit">Suit sekop putih</string>
+    <string name="symbol_white_square">Persegi putih</string>
+    <string name="symbol_white_star">Bintang putih</string>
+    <string name="symbol_white_up_pointing_triangle">Segitiga putih menunjuk ke atas</string>
+    <string name="symbol_won">Simbol mata uang won</string>
+    <string name="symbol_won_sign">Simbol mata uang won</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="template_capital_letter">huruf besar %1$s</string>
+    <string name="template_current_tts_engine">Menggunakan %1$s</string>
+    <string name="template_overlay_window">%1$s picture in picture</string>
+    <string name="template_password_selected">Dari karakter %1$d hingga %2$d</string>
+    <string name="template_password_traversed">Karakter %1$d</string>
+    <string name="template_scroll_from_count">Menampilkan item %1$d dari %2$d.</string>
+    <string name="template_scroll_from_to_count">Menampilkan item %1$d hingga %2$d dari %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s di kiri, %2$s di kanan</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s di kanan, %2$s di kiri</string>
+    <string name="template_split_screen_mode_portrait">%1$s di atas, %2$s di bawah</string>
+    <string name="template_text_copied">%1$s disalin</string>
+    <string name="template_viewpager_index_count">Halaman %1$d dari %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d dari %2$d</string>
+    <string name="time_difference_now">Sekarang</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="untitled_window">tanpa judul</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"NONAKTIF"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"AKTIF"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Panel samping tindakan"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Panel navigasi"</string>
+</resources>

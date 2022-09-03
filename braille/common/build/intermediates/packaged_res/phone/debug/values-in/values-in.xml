@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">titik %s</item>
+    <item quantity="other">titik %s</item>
+  </plurals>
+    <string name="auto_detect">Sesuaikan dengan cara Anda memegang perangkat</string>
+    <string name="capitalize_announcement">Kapital</string>
+    <string name="code_user_facing_name_ar">Arab</string>
+    <string name="code_user_facing_name_es">Spanyol</string>
+    <string name="code_user_facing_name_fr">Prancis</string>
+    <string name="code_user_facing_name_pl">Polandia</string>
+    <string name="code_user_facing_name_ueb1">Unified English Braille tanpa Kontraksi</string>
+    <string name="code_user_facing_name_ueb2">Unified English Braille dengan Kontraksi</string>
+    <string name="number_announcement">Angka</string>
+    <string name="read_out_deleted">%s dihapus</string>
+    <string name="screen_away">Mode layar jauh</string>
+    <string name="screen_away_detail">Genggam perangkat dengan posisi layar menjauhi Anda (mode layar jauh)</string>
+    <string name="tabletop">Mode di atas meja</string>
+    <string name="tabletop_detail">Letakkan perangkat di atas meja dalam posisi datar (mode di atas meja)</string>
+</resources>

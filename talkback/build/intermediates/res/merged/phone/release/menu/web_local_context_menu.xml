@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/web_breakout_prev_list"
+        android:title="@string/title_web_breakout_prev_list"/>
+    <item
+        android:id="@+id/web_breakout_prev_control"
+        android:title="@string/title_web_breakout_prev_control"/>
+    <item
+        android:id="@+id/web_breakout_next_control"
+        android:title="@string/title_web_breakout_next_control"/>
+    <item
+        android:id="@+id/web_breakout_next_list"
+        android:title="@string/title_web_breakout_next_list"/>
+    <item
+        android:id="@+id/web_breakout_next_section"
+        android:title="@string/title_web_breakout_next_section"/>
+    <item
+        android:id="@+id/web_breakout_prev_section"
+        android:title="@string/title_web_breakout_prev_section"/>
+
+</menu>

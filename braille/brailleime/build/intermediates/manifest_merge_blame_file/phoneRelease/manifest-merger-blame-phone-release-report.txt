@@ -1,0 +1,96 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="com.google.android.accessibility.brailleime" >
+5
+6    <uses-sdk
+7        android:minSdkVersion="23"
+7-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:7:7-33
+8        android:targetSdkVersion="31" />
+8-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:8:7-36
+9
+10    <!-- Required for haptic feedback. -->
+11    <uses-permission android:name="android.permission.VIBRATE" />
+11-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:11:3-64
+11-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:11:20-61
+12
+13    <application android:theme="@style/BrailleDisplayTheme" >
+13-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:13:3-53:17
+13-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:14:7-49
+14        <service
+14-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:15:5-28:15
+15            android:name="com.google.android.accessibility.brailleime.BrailleIme"
+15-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:16:9-78
+16            android:directBootAware="true"
+16-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:20:9-39
+17            android:enabled="false"
+17-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:18:9-32
+18            android:exported="true"
+18-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:19:9-32
+19            android:label="@string/braille_ime_service_name"
+19-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:17:9-57
+20            android:permission="android.permission.BIND_INPUT_METHOD" >
+20-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:21:9-66
+21            <intent-filter>
+21-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:22:7-24:23
+22                <action android:name="android.view.InputMethod" />
+22-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:23:9-59
+22-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:23:17-56
+23            </intent-filter>
+24
+25            <meta-data
+25-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:25:7-27:49
+26                android:name="android.view.im"
+26-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:26:11-41
+27                android:resource="@xml/braille_ime" />
+27-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:27:11-46
+28        </service>
+29
+30        <activity
+30-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:29:5-43:16
+31            android:name="com.google.android.accessibility.brailleime.settings.BrailleImePreferencesActivity"
+31-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:30:9-106
+32            android:configChanges="orientation|screenSize"
+32-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:31:9-55
+33            android:exported="true"
+33-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:32:9-32
+34            android:label="@string/braille_keyboard"
+34-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:33:9-49
+35            android:launchMode="singleTop"
+35-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:34:9-39
+36            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+36-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:35:9-90
+37            android:theme="@style/SettingsTheme"
+37-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:36:9-45
+38            tools:ignore="ExportedActivity" >
+38-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:37:9-40
+39            <intent-filter>
+39-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:39:7-42:23
+40                <action android:name=".BrailleImePreferencesActivity" />
+40-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:40:9-65
+40-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:40:17-62
+41
+42                <category android:name="android.intent.category.DEFAULT" />
+42-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:41:9-68
+42-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:41:19-65
+43            </intent-filter>
+44        </activity>
+45
+46        <receiver
+46-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:45:5-51:16
+47            android:name="com.google.android.accessibility.brailleime.MyPackageReplacedReceiver"
+47-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:45:15-99
+48            android:enabled="true"
+48-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:46:9-31
+49            android:exported="true" >
+49-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:47:9-32
+50            <intent-filter>
+50-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:48:7-50:23
+51                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+51-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:49:9-76
+51-->/Users/quintinb/repo/talkback/braille/brailleime/src/phone/AndroidManifest.xml:49:17-73
+52            </intent-filter>
+53        </receiver>
+54    </application>
+55
+56</manifest>

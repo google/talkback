@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">התראה חדשה אחת (%d)</item>
+    <item quantity="two">%d התראות חדשות</item>
+    <item quantity="many">%d התראות חדשות</item>
+    <item quantity="other">%d התראות חדשות</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s מציג פריט %2$d.</item>
+    <item quantity="two">%1$s מציג %2$d פריטים.</item>
+    <item quantity="many">%1$s מציג %2$d פריטים.</item>
+    <item quantity="other">%1$s מציג %2$d פריטים.</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d עמודה</item>
+    <item quantity="two">%1$d עמודות</item>
+    <item quantity="many">%1$d עמודות</item>
+    <item quantity="other">%1$d עמודות</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d שורה</item>
+    <item quantity="two">%1$d שורות</item>
+    <item quantity="many">%1$d שורות</item>
+    <item quantity="other">%1$d שורות</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d פריט</item>
+    <item quantity="two">%1$d פריטים</item>
+    <item quantity="many">%1$d פריטים</item>
+    <item quantity="other">%1$d פריטים</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d תו</item>
+    <item quantity="two">%1$d תווים</item>
+    <item quantity="many">%1$d תווים</item>
+    <item quantity="other">%1$d תווים</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"ניווט לדף הבית"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ניווט למעלה"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"עוד אפשרויות"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"סיום"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"הצגת הכול"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"בחירת אפליקציה"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"כבוי"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"מופעל"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+‎"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"מחיקה"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"Enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"רווח"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"תפריט+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"חיפוש…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"מחיקת השאילתה"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"שאילתת חיפוש"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"חיפוש"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"שליחת שאילתה"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"חיפוש קולי"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"שיתוף עם"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"שיתוף עם <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"כיווץ"</string>
+    <string name="bottomsheet_action_expand_halfway">הרחבה עד האמצע</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">הוזנו %1$d תווים מתוך %2$d</string>
+    <string name="character_counter_overflowed_content_description">מגבלת התווים חורגת ב-%1$d מתוך %2$d</string>
+    <string name="clear_text_end_icon_content_description">מחיקת הטקסט</string>
+    <string name="column_heading_template">כותרת עמודה</string>
+    <string name="column_index_template">עמודה %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">הפעל</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">‏האפליקציה %1$s לא תפעל אם לא תפעיל את שירותי Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">‏הפעל את שירותי Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">התקן</string>
+    <string name="common_google_play_services_install_text">‏האפליקציה %1$s לא תפעל ללא שירותי Google Play, שאינם מותקנים במכשיר.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">‏קבל את שירותי Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">‏זמינות של שירותי Google Play</string>
+    <string name="common_google_play_services_notification_ticker">‏שגיאה בשירותי Google Play</string>
+    <string name="common_google_play_services_unknown_issue">‏%1$s נתקלה בבעיה בשירותי Google Play. נסה שוב.</string>
+    <string name="common_google_play_services_unsupported_text">‏%1$s לא תפעל ללא שירותי Google Play, שאינם נתמכים במכשיר שלך.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">עדכון</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">‏%1$s לא יפעל אם לא תעדכן את שירותי Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">‏עדכון שירותי Google Play</string>
+    <string name="common_google_play_services_updating_text">‏האפליקציה %1$s לא תפעל ללא שירותי Google Play, שמתעדכנים כרגע.</string>
+    <string name="common_google_play_services_wear_update_text">‏דרושה גרסה חדשה של שירותי Google Play. הגרסה תתעדכן בעצמה תוך זמן קצר.</string>
+    <string name="common_open_on_phone">פתח בטלפון</string>
+    <string name="common_signin_button_text">כניסה</string>
+    <string name="common_signin_button_text_long">‏היכנס באמצעות Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"נכשלה"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"נפתחה בטלפון שלך"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"ההפעלה הצליחה"</string>
+    <string msgid="3209159573327985035" name="copy">"העתקה"</string>
+    <string name="detected_icon_description">הסמל שזוהה: %1$s</string>
+    <string name="error_icon_content_description">שגיאה</string>
+    <string name="exit_scrim">יציאה</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"מתקדם"</string>
+    <string name="exposed_dropdown_menu_content_description">הצגת התפריט הנפתח</string>
+    <string name="function_off">קורא מסך קולי מושבת</string>
+    <string name="function_on">קורא מסך קולי מופעל</string>
+    <string name="granularity_character">תווים</string>
+    <string name="granularity_default">ברירת מחדל</string>
+    <string name="granularity_line">קווים</string>
+    <string name="granularity_native_control">פקדים</string>
+    <string name="granularity_native_heading">כותרות</string>
+    <string name="granularity_native_link">קישורים</string>
+    <string name="granularity_paragraph">פסקאות</string>
+    <string name="granularity_pseudo_web_special_content">תוכן מיוחד</string>
+    <string name="granularity_web_control">פקדים</string>
+    <string name="granularity_web_heading">כותרות</string>
+    <string name="granularity_web_landmark">ציוני דרך</string>
+    <string name="granularity_web_link">קישורים</string>
+    <string name="granularity_web_list">רשימות</string>
+    <string name="granularity_window">חלונות</string>
+    <string name="granularity_word">מילים</string>
+    <string name="heading_template">כותרת</string>
+    <string name="hide_keyboard_window">המקלדת מוסתרת</string>
+    <string name="hint_suggestion">יש הצעות לאיות.</string>
+    <string name="icon_content_description">סמל לתיבת דו-שיח</string>
+    <string name="in_collection_role_description">ב%1$s</string>
+    <string name="in_collection_role_description_with_name">ב%1$s %2$s</string>
+    <string name="in_grid">ברשת</string>
+    <string name="in_grid_pager">בתצוגת דפים רשתית</string>
+    <string name="in_grid_pager_with_name">בתצוגת דפים רשתית %1$s</string>
+    <string name="in_grid_with_name">ברשת %1$s</string>
+    <string name="in_horizontal_pager">בתצוגת דפים אופקית</string>
+    <string name="in_horizontal_pager_with_name">בתצוגת הדפים האופקית %1$s</string>
+    <string name="in_list">ברשימה</string>
+    <string name="in_list_with_name">ב%1$s</string>
+    <string name="in_pager">בתצוגת דפים</string>
+    <string name="in_pager_with_name">בתצוגת הדפים %1$s</string>
+    <string name="in_vertical_pager">בתצוגת דפים אנכית</string>
+    <string name="in_vertical_pager_with_name">בתצוגת הדפים האנכית %1$s</string>
+    <string name="in_window_with_name">החלון %1$s</string>
+    <string name="item_view_role_description">מקש Tab</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">הקש על צירוף מקשים הכולל את מקש הצירוף %1$s כדי להגדיר מקש קיצור חדש.</string>
+    <string name="keycombo_assign_dialog_instruction">‏הקש על שילוב מקשים כדי להגדיר קיצור חדש. הוא צריך להכיל לפחות את המקש ALT או Control.</string>
+    <string name="keycombo_key_arrow_down">חץ למטה</string>
+    <string name="keycombo_key_arrow_left">חץ שמאלה</string>
+    <string name="keycombo_key_arrow_right">חץ ימינה</string>
+    <string name="keycombo_key_arrow_up">חץ למעלה</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">חיפוש</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">ללא הקצאה</string>
+    <string name="list_index_template">%1$d מתוך %2$d</string>
+    <string name="material_clock_toggle_content_description">יש לבחור ב-AM או ב-PM</string>
+    <string name="material_hour_selection">בחר שעה</string>
+    <string name="material_hour_suffix">השעה %1$s</string>
+    <string name="material_minute_selection">בחר דקות</string>
+    <string name="material_minute_suffix">%1$s דקות</string>
+    <string name="material_timepicker_am">לפנה\"צ</string>
+    <string name="material_timepicker_clock_mode_description">העבר למצב שעון לצורך הזנת השעה</string>
+    <string name="material_timepicker_hour">שעה</string>
+    <string name="material_timepicker_minute">דקה</string>
+    <string name="material_timepicker_pm">אחה\"צ</string>
+    <string name="material_timepicker_select_time">בחר שעה</string>
+    <string name="material_timepicker_text_input_mode_description">העבר למצב קלט טקסט לצורך הזנת השעה</string>
+    <string name="mtrl_badge_numberless_content_description">התראה חדשה</string>
+    <string name="mtrl_chip_close_icon_content_description">הסרה של %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">יותר מ-%1$d התראות חדשות</string>
+    <string name="mtrl_picker_a11y_next_month">מעבר לחודש הבא</string>
+    <string name="mtrl_picker_a11y_prev_month">מעבר לחודש הקודם</string>
+    <string name="mtrl_picker_announce_current_selection">הבחירה הנוכחית: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">יש לבחור תאריך</string>
+    <string name="mtrl_picker_date_header_unselected">התאריך הנבחר</string>
+    <string name="mtrl_picker_day_of_week_column_header">עמודה של ימים: %1$s</string>
+    <string name="mtrl_picker_invalid_format">פורמט לא חוקי.</string>
+    <string name="mtrl_picker_invalid_format_example">דוגמה: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">יש להשתמש בפורמט: %1$s</string>
+    <string name="mtrl_picker_invalid_range">טווח לא חוקי.</string>
+    <string name="mtrl_picker_navigate_to_year_description">ניווט לשנת %1$s</string>
+    <string name="mtrl_picker_out_of_range">מחוץ לטווח: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">תאריך התחלה – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – תאריך סיום</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">יש לבחור טווח</string>
+    <string name="mtrl_picker_range_header_unselected">תאריך התחלה - תאריך סיום</string>
+    <string name="mtrl_picker_save">שמירה</string>
+    <string name="mtrl_picker_text_input_date_hint">תאריך</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">תאריך סיום</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">תאריך התחלה</string>
+    <string name="mtrl_picker_text_input_day_abbr">י</string>
+    <string name="mtrl_picker_text_input_month_abbr">ח</string>
+    <string name="mtrl_picker_text_input_year_abbr">ש</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">החלפה לשיטת קלט של יומן</string>
+    <string name="mtrl_picker_toggle_to_day_selection">יש להקיש כדי להחליף לבחירת יום</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">החלפה לשיטת קלט של טקסט</string>
+    <string name="mtrl_picker_toggle_to_year_selection">יש להקיש כדי להחליף לבחירת שנה</string>
+    <string msgid="478774118347071097" name="not_set">"לא מוגדרת"</string>
+    <string name="notification_category_alarm">שעון מעורר</string>
+    <string name="notification_category_call">שיחה</string>
+    <string name="notification_category_email">אימייל</string>
+    <string name="notification_category_err">שגיאה</string>
+    <string name="notification_category_event">אירוע</string>
+    <string name="notification_category_msg">הודעה</string>
+    <string name="notification_category_progress">התקדמות</string>
+    <string name="notification_category_promo">מבצע</string>
+    <string name="notification_category_service">שירות</string>
+    <string name="notification_category_social">רשתות חברתיות</string>
+    <string name="notification_category_sys">סטטוס מערכת</string>
+    <string name="notification_category_transport">פקד מדיה</string>
+    <string name="notification_type_beginning_of_field">תחילת השדה</string>
+    <string name="notification_type_end_of_field">סוף השדה</string>
+    <string name="notification_type_selection_cleared">הבחירה נוקתה</string>
+    <string name="notification_type_selection_mode_off">מצב הבחירה מושבת</string>
+    <string name="notification_type_selection_mode_on">מצב הבחירה מופעל</string>
+    <string name="ocr_text_description">הודעת הטקסט שזוהתה: %1$s</string>
+    <string name="orientation_landscape">לרוחב</string>
+    <string name="orientation_portrait">לאורך</string>
+    <string name="out_of_grid">מחוץ לרשת</string>
+    <string name="out_of_grid_pager">מחוץ לתצוגת הדפים הרשתית</string>
+    <string name="out_of_grid_pager_with_name">מחוץ לתצוגת הדפים הרשתית %1$s</string>
+    <string name="out_of_grid_with_name">מחוץ לרשת %1$s</string>
+    <string name="out_of_horizontal_pager">מחוץ לתצוגת הדפים האופקית</string>
+    <string name="out_of_list">מחוץ לרשימה</string>
+    <string name="out_of_list_with_name">מחוץ לרשימה %1$s</string>
+    <string name="out_of_pager">מחוץ לתצוגת הדפים</string>
+    <string name="out_of_pager_with_name">מחוץ לתצוגת הדפים %1$s</string>
+    <string name="out_of_role_description">מחוץ ל%1$s</string>
+    <string name="out_of_role_description_with_name">מחוץ ל%1$s %2$s</string>
+    <string name="out_of_vertical_pager">מחוץ לתצוגת הדפים האנכית</string>
+    <string name="out_of_vertical_pager_with_name">מחוץ לתצוגת הדפים האנכית %1$s</string>
+    <string name="password_toggle_content_description">הצגת סיסמה</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" הועתק ללוח."</string>
+    <string name="row_heading_template">כותרת שורה</string>
+    <string name="row_index_template">שורה %1$d</string>
+    <string name="screen_magnification_off">כיבית את ההגדלה</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"חיפוש"</string>
+    <string name="show_keyboard_window">המערכת מציגה %1$s</string>
+    <string name="spokenfeedback_disabled">קורא מסך קולי מושבת</string>
+    <string name="spokenfeedback_on">קורא מסך קולי מופעל</string>
+    <string name="spokenfeedback_resumed">קורא מסך קולי מופעל מחדש</string>
+    <string name="spokenfeedback_suspended">קורא מסך קולי מושעה</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">הסיסמאות מוקראות רק בשימוש באוזניות</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">כמעט שווה ל-</string>
+    <string name="symbol_ampersand">אמפרסנד</string>
+    <string name="symbol_angle_bracket_left">הסימן פחות מ-</string>
+    <string name="symbol_angle_bracket_right">הסימן גדול מ-</string>
+    <string name="symbol_apostrophe">גרש</string>
+    <string name="symbol_approximately_equals">שווה בערך</string>
+    <string name="symbol_asterisk">כוכבית</string>
+    <string name="symbol_at_sign">שטרודל</string>
+    <string name="symbol_backslash">קו נטוי הפוך</string>
+    <string name="symbol_beamed_sixteenth_note">תווים במקצב חלקי שש עשרה</string>
+    <string name="symbol_black_circle">עיגול שחור</string>
+    <string name="symbol_black_heart">לב שחור</string>
+    <string name="symbol_black_smallsquare">ריבוע שחור קטן</string>
+    <string name="symbol_black_square">ריבוע שחור</string>
+    <string name="symbol_black_star">כוכב שחור</string>
+    <string name="symbol_black_suit_of_diamonds">סדרת יהלום בצבע שחור</string>
+    <string name="symbol_black_triangle_pointing_down">משולש שחור שמצביע למטה</string>
+    <string name="symbol_black_triangle_pointing_up">משולש שחור שמצביע למעלה</string>
+    <string name="symbol_broken_bar">פס חצוי</string>
+    <string name="symbol_bullet">תבליט</string>
+    <string name="symbol_bullseye">מרכז המטרה</string>
+    <string name="symbol_caret">קארה</string>
+    <string name="symbol_celsius_degree">מעלות צלזיוס</string>
+    <string name="symbol_cent">סימן של סנט</string>
+    <string name="symbol_circle_left_half_black">מעגל שחציו השמאלי שחור</string>
+    <string name="symbol_circle_right_half_black">מעגל שחציו הימני שחור</string>
+    <string name="symbol_colon">נקודתיים</string>
+    <string name="symbol_comma">פסיק</string>
+    <string name="symbol_copyright">זכויות יוצרים</string>
+    <string name="symbol_curly_bracket_left">סוגר מסולסל שמאלי</string>
+    <string name="symbol_curly_bracket_right">סוגר מסולסל ימני</string>
+    <string name="symbol_currency_sign">סימן מטבע</string>
+    <string name="symbol_degree">סימן המעלה</string>
+    <string name="symbol_division">סימן חילוק</string>
+    <string name="symbol_dollar_sign">סימן דולר</string>
+    <string name="symbol_downwards_arrow">חץ למטה</string>
+    <string name="symbol_eighth_note">תו שמינית</string>
+    <string name="symbol_ellipsis">שלוש נקודות</string>
+    <string name="symbol_em_dash">מקף ארוך</string>
+    <string name="symbol_en_dash">מקף בינוני</string>
+    <string name="symbol_equal">סימן שוויון</string>
+    <string name="symbol_euro">יורו</string>
+    <string name="symbol_exclamation_mark">סימן קריאה</string>
+    <string name="symbol_fahrenheit_degree">מעלות פרנהייט</string>
+    <string name="symbol_female">סמל נקבה</string>
+    <string name="symbol_full_width_ampersand">אמפרסנד ברוחב מלא</string>
+    <string name="symbol_full_width_asterisk">כוכבית ברוחב מלא</string>
+    <string name="symbol_full_width_circumflex">גג ברוחב מלא</string>
+    <string name="symbol_full_width_colon">נקודתיים ברוחב מלא</string>
+    <string name="symbol_full_width_comma">פסיק ברוחב מלא</string>
+    <string name="symbol_full_width_exclamation_mark">סימן קריאה ברוחב מלא</string>
+    <string name="symbol_full_width_greater_than_sign">סימן \'גדול מ-\' ברוחב מלא</string>
+    <string name="symbol_full_width_ideographic_full_stop">נקודה אידאוגרפית</string>
+    <string name="symbol_full_width_left_curly_bracket">סוגר מסולסל שמאלי ברוחב מלא</string>
+    <string name="symbol_full_width_left_parenthesis">סוגר שמאלי ברוחב מלא</string>
+    <string name="symbol_full_width_less_than_sign">סימן \'קטן מ-\' ברוחב מלא</string>
+    <string name="symbol_full_width_question_mark">סימן שאלה ברוחב מלא</string>
+    <string name="symbol_full_width_right_curly_bracket">סוגר מסולסל ימני ברוחב מלא</string>
+    <string name="symbol_full_width_right_parenthesis">סוגר ימני ברוחב מלא</string>
+    <string name="symbol_full_width_semicolon">נקודה-פסיק ברוחב מלא</string>
+    <string name="symbol_full_width_tilde">טילדה ברוחב מלא</string>
+    <string name="symbol_full_width_underscore">קו תחתון ברוחב מלא</string>
+    <string name="symbol_grave_accent">‏סימון הטעמה מסוג Grave</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">נקודה אמצעית קטאקאנה בחצי רוחב</string>
+    <string name="symbol_hyphen_minus">מקף</string>
+    <string name="symbol_ideographic_comma">פסיק אידאוגרפי</string>
+    <string name="symbol_integral">אינטגרל</string>
+    <string name="symbol_inverted_exclamation_mark">סימן קריאה הפוך</string>
+    <string name="symbol_inverted_question_mark">סימן שאלה הפוך</string>
+    <string name="symbol_left_angle_bracket">סוגר שמאלי בעל זווית כפולה</string>
+    <string name="symbol_left_black_lenticular_bracket">סוגר שמאלי שחור בצורת עדשה</string>
+    <string name="symbol_left_corner_bracket">סוגר פינתי שמאלי</string>
+    <string name="symbol_left_double_quotation_mark">מירכאות כפולות שמאליות</string>
+    <string name="symbol_left_single_quotation_mark">סימן גרש שמאלי יחיד</string>
+    <string name="symbol_leftwards_arrow">חץ שמאלה</string>
+    <string name="symbol_liter">ליטר</string>
+    <string name="symbol_low_double_quote">מירכאות כפולות תחתונות</string>
+    <string name="symbol_male">סמל זכר</string>
+    <string name="symbol_mathematical_left_angle_bracket">סוגר זוויתי שמאלי מתמטי</string>
+    <string name="symbol_mathematical_right_angle_bracket">סוגר זוויתי ימני מתמטי</string>
+    <string name="symbol_micro_sign">סימן מיקרו</string>
+    <string name="symbol_middle_dot">נקודה אמצעית</string>
+    <string name="symbol_multiplication">סימן כפל</string>
+    <string name="symbol_new_line">שורה חדשה</string>
+    <string name="symbol_not_equals">לא שווה</string>
+    <string name="symbol_not_sign">סימן \'אינו\'</string>
+    <string name="symbol_paragraph_mark">סימן פיסקה</string>
+    <string name="symbol_parenthesis_left">סוגר שמאלי</string>
+    <string name="symbol_parenthesis_right">סוגר ימני</string>
+    <string name="symbol_percent">אחוז</string>
+    <string name="symbol_period">נקודה</string>
+    <string name="symbol_pi">פאי</string>
+    <string name="symbol_plus_minus_sign">סימן פלוס מינוס</string>
+    <string name="symbol_postal_mark">סימן דואר</string>
+    <string name="symbol_pound">סולמית</string>
+    <string name="symbol_pound_sterling">סימן המטבע פאונד</string>
+    <string name="symbol_quarter_note">תו רבע</string>
+    <string name="symbol_question_mark">סימן שאלה</string>
+    <string name="symbol_quotation_mark">גרש</string>
+    <string name="symbol_reference">סימן ייחוס</string>
+    <string name="symbol_registered_trademark">סימן מסחרי רשום</string>
+    <string name="symbol_right_angle_bracket">סוגר ימני בעל זווית כפולה</string>
+    <string name="symbol_right_black_lenticular_bracket">סוגר ימני שחור בצורת עדשה</string>
+    <string name="symbol_right_corner_bracket">סוגר פינתי ימני</string>
+    <string name="symbol_right_double_quotation_mark">מירכאות כפולות ימניות</string>
+    <string name="symbol_right_single_quotation_mark">סימן גרש ימני יחיד</string>
+    <string name="symbol_rightwards_arrow">חץ ימינה</string>
+    <string name="symbol_rupee">רופיות</string>
+    <string name="symbol_section_sign">סימן קטע</string>
+    <string name="symbol_semicolon">נקודה ופסיק</string>
+    <string name="symbol_slash">קו נטוי</string>
+    <string name="symbol_solar">סימן שמש</string>
+    <string name="symbol_space">רווח</string>
+    <string name="symbol_square_bracket_left">סוגר מרובע שמאלי</string>
+    <string name="symbol_square_bracket_right">סוגר מרובע ימני</string>
+    <string name="symbol_square_root">שורש ריבועי</string>
+    <string name="symbol_tilde">טילדה</string>
+    <string name="symbol_trademark">סימן מסחרי</string>
+    <string name="symbol_underscore">מקף תחתון</string>
+    <string name="symbol_upwards_arrow">חץ למעלה</string>
+    <string name="symbol_vertical_bar">קו אנכי</string>
+    <string name="symbol_white_circle">מעגל לבן</string>
+    <string name="symbol_white_club_suit">סימן תלתן לבן</string>
+    <string name="symbol_white_diamond">יהלום לבן</string>
+    <string name="symbol_white_down_pointing_triangle">משולש לבן מצביע למטה</string>
+    <string name="symbol_white_heart">לב לבן</string>
+    <string name="symbol_white_left_pointing_index">אצבע לבנה מצביעה שמאלה</string>
+    <string name="symbol_white_left_pointing_triangle">משולש לבן מצביע שמאלה</string>
+    <string name="symbol_white_right_pointing_index">אצבע לבנה מצביעה ימינה</string>
+    <string name="symbol_white_right_pointing_triangle">משולש לבן מצביע ימינה</string>
+    <string name="symbol_white_spade_suit">סימן עלה לבן</string>
+    <string name="symbol_white_square">ריבוע לבן</string>
+    <string name="symbol_white_star">כוכב לבן</string>
+    <string name="symbol_white_up_pointing_triangle">משולש לבן מצביע למעלה</string>
+    <string name="symbol_won">סימן המטבע של וון דרום קוריאני</string>
+    <string name="symbol_won_sign">סימן המטבע של וון דרום קוריאני</string>
+    <string name="symbol_yen">ין</string>
+    <string name="talkback_disabled">‏TalkBack מושבת</string>
+    <string name="talkback_on">‏TalkBack מופעל</string>
+    <string name="talkback_resumed">‏הפעלת TalkBack חודשה</string>
+    <string name="talkback_suspended">‏TalkBack מושהה</string>
+    <string name="template_announce_selected_text">טקסט נבחר: %1$s</string>
+    <string name="template_capital_letter">%1$s גדולה</string>
+    <string name="template_collection_level">רמה %1$d</string>
+    <string name="template_current_tts_engine">משתמש ב-%1$s</string>
+    <string name="template_custom_hint_for_actions">%1$s כדי %2$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">הקש על %1$s כדי %2$s.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s והחזק כדי %2$s.</string>
+    <string name="template_drawer_opened">תפריט %1$s</string>
+    <string name="template_hint_checkable">%1$s כדי להחליף.</string>
+    <string name="template_hint_checkable_keyboard">הקש על %1$s כדי להחליף מצב.</string>
+    <string name="template_hint_clickable">%1$s כדי להפעיל.</string>
+    <string name="template_hint_clickable_keyboard">הקש על %1$s כדי להפעיל.</string>
+    <string name="template_hint_custom_actions">פעולות:</string>
+    <string name="template_hint_edit_text">%1$s כדי לערוך טקסט.</string>
+    <string name="template_hint_edit_text_keyboard">יש להקיש על %1$s כדי לערוך טקסט.</string>
+    <string name="template_hint_long_clickable">%1$s והחזק ללחיצה ארוכה.</string>
+    <string name="template_hint_long_clickable_keyboard">הקש על %1$s כדי לבצע לחיצה ארוכה.</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s זמין, יש להשתמש ב-%2$s כדי להציג.</string>
+    <string name="template_hint_pager">החלק בשתי אצבעות כדי לעבור בין דפים.</string>
+    <string name="template_hint_pager_single_page">אין דפים נוספים.</string>
+    <string name="template_hint_seek_control">Use volume keys to adjust</string>
+    <string name="template_hint_seek_control_tv">%1$s כדי לשנות.</string>
+    <string name="template_hint_spinner">%1$s כדי לשנות.</string>
+    <string name="template_hint_spinner_keyboard">הקש על %1$s כדי לשנות.</string>
+    <string name="template_labeled_item">%1$s עבור %2$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">%1$s תמונה בתוך תמונה</string>
+    <string name="template_password_selected">תווים %1$d עד %2$d</string>
+    <string name="template_password_traversed">תו %1$d</string>
+    <string name="template_percent">%1$s אחוזים.</string>
+    <string name="template_replaced_characters">%1$s תווים הוחלפו ב-%2$s תווים</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">%1$s כדי להציג את הפעולות הזמינות.</string>
+    <string name="template_sa_custom_hint_scrollable">%1$s כדי לגלול.</string>
+    <string name="template_sa_hint_seek_control">יש ללחוץ על \'בחירת מתג\' כדי לבצע התאמה</string>
+    <string name="template_screen_magnification_on">הפעלת הגדלה ל-%%%1$d</string>
+    <string name="template_screen_magnification_scale_changed">הגדלה ל-%%%1$d</string>
+    <string name="template_scroll_from_count">מציג פריט %1$d מתוך %2$d.</string>
+    <string name="template_scroll_from_to_count">מציג פריטים %1$d עד %2$d מתוך %3$d.</string>
+    <string name="template_seekbar_range">‎%1$d%%‎‎</string>
+    <string name="template_speech_rate_change">קצב דיבור %%%1$d</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s מצד שמאל, %2$s מצד ימין</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s מצד ימין, %2$s מצד שמאל</string>
+    <string name="template_split_screen_mode_portrait">%1$s למעלה, %2$s למטה</string>
+    <string name="template_text_copied">מועתק, %1$s</string>
+    <string name="template_text_cut">נגזר, %1$s</string>
+    <string name="template_text_error">קלט לא חוקי %1$s</string>
+    <string name="template_text_pasted">מודבק, %1$s</string>
+    <string name="template_text_removed">%1$s נמחק</string>
+    <string name="template_text_replaced">%1$s מחליף את %2$s</string>
+    <string name="template_text_selected">%1$s, נבחר</string>
+    <string name="template_text_unselected">%1$s, הבחירה בוטלה</string>
+    <string name="template_viewpager_index_count">עמוד %1$d מתוך %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d מתוך %2$d</string>
+    <string name="template_volume_change_decrease">הפחתת עוצמת הקול</string>
+    <string name="template_volume_change_increase">הגברת עוצמת הקול</string>
+    <string name="template_volume_change_maximum">מקסימום</string>
+    <string name="template_volume_change_minimum">מינימום</string>
+    <string name="title_action_collapse">כווץ</string>
+    <string name="title_action_dismiss">ביטול</string>
+    <string name="title_action_expand">הרחב</string>
+    <string name="untitled_window">ללא שם</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"כבוי"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"מופעל"</string>
+    <string name="value_button">לחצן</string>
+    <string name="value_caps_lock_off">‏מקש Caps Lock כבוי.</string>
+    <string name="value_caps_lock_on">‏מקש Caps Lock פועל.</string>
+    <string name="value_checkbox">תיבת סימון</string>
+    <string name="value_checked">מסומן</string>
+    <string name="value_collapsed">מכווץ</string>
+    <string name="value_disabled">מושבת</string>
+    <string name="value_double_tap">הקשה כפולה</string>
+    <string name="value_edit_box">תיבת עריכה</string>
+    <string name="value_edit_box_editing">עריכה</string>
+    <string name="value_expanded">מורחב</string>
+    <string name="value_gridview">רשת</string>
+    <string name="value_image">תמונה</string>
+    <string name="value_listview">רשימה</string>
+    <string name="value_not_checked">לא מסומן</string>
+    <string name="value_num_lock_off">‏מקש Num Lock כבוי.</string>
+    <string name="value_num_lock_on">‏מקש Num Lock פועל.</string>
+    <string name="value_off">כבוי</string>
+    <string name="value_on">פועל</string>
+    <string name="value_options_menu_open">אפשרויות.</string>
+    <string name="value_pager">תצוגה בעלת מספר דפים</string>
+    <string name="value_pager_page">דף</string>
+    <string name="value_password">סיסמה</string>
+    <string name="value_press_select">יש ללחוץ על \'בחירה\'</string>
+    <string name="value_progress_bar">סרגל התקדמות</string>
+    <string name="value_radio_button">לחצן בחירה</string>
+    <string name="value_scroll_lock_off">‏מקש Scroll Lock כבוי.</string>
+    <string name="value_scroll_lock_on">‏מקש Scroll Lock פועל.</string>
+    <string name="value_seek_bar">פס הזזה</string>
+    <string name="value_selected">נבחר</string>
+    <string name="value_single_tap">הקש</string>
+    <string name="value_sliding_drawer_opened">חלונית הזזה נפתחה</string>
+    <string name="value_spinner">רשימה נפתחת</string>
+    <string name="value_switch">מתג</string>
+    <string name="value_switch_press">יש להקיש על \'בחירת מתג\'</string>
+    <string name="value_tabwidget">שורת כרטיסיות</string>
+    <string name="value_text_cleared">הטקסט נוקה</string>
+    <string name="value_text_max_length">הגעת לאורך המרבי</string>
+    <string name="value_unlabelled">ללא תווית</string>
+    <string name="value_webview">תצוגת אינטרנט.</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"חלונית הזזה לפעולות"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"חלונית הזזה לניווט"</string>
+</resources>

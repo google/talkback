@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d ახალი შეტყობინება</item>
+    <item quantity="other">%d ახალი შეტყობინება</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"მთავარზე გადასვლა"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"ზემოთ გადასვლა"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"სხვა ვარიანტები"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"მზადაა"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"ყველას ნახვა"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"აირჩიეთ აპი"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"გამორთვა"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ჩართვა"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"შორისი"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"ძიება…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"მოთხოვნის გასუფთავება"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"მოთხოვნის ძიება"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"ძიება"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"მოთხოვნის გადაგზავნა"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"ხმოვანი ძიება"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"გაზიარება:"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>-ით გაზიარება"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"ჩაკეცვა"</string>
+    <string name="bottomsheet_action_expand_halfway">ნახევრამდე გაფართოება</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">შეყვანილია %2$d-დან %1$d სიმბოლო</string>
+    <string name="character_counter_overflowed_content_description">გადაჭარბებულია სიმბოლოთა ლიმიტი (%2$d-დან %1$d)</string>
+    <string name="clear_text_end_icon_content_description">ტექსტის გასუფთავება</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">ჩართვა</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s ვერ იმუშავებს Google Play Services-ის ჩართვამდე.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play Services-ის ჩართვა</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ინსტალაცია</string>
+    <string name="common_google_play_services_install_text">%1$s ვერ გაეშვება Google Play Services-ის გარეშე, რომელიც აკლია თქვენს მოწყობილობას.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play Services-ის ჩამოტვირთვა</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play services-ის ხელმისაწვდომობა</string>
+    <string name="common_google_play_services_notification_ticker">Google Play Services-ის შეცდომა</string>
+    <string name="common_google_play_services_unknown_issue">%1$s-ს Google Play Services-თან პრობლემა შეექმნა. გთხოვთ, ცადოთ ხელახლა.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ვერ გაეშვება Google Play Services-ის გარეშე, რომლებიც მხარდაუჭერელია თქვენი მოწყობილობის მიერ.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">განახლება</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s ვერ გაეშვება, თუ Google Play სერვისებს არ განაახლებთ.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">განაახლეთ Google Play Services</string>
+    <string name="common_google_play_services_updating_text">%1$s ვერ გაეშვება Google Play Services-ის გარეშე, რომელთა განახლებაც ამჟამად მიმდინარეობს.</string>
+    <string name="common_google_play_services_wear_update_text">საჭიროა Google Play Services-ის ახალი ვერსია. ის მალე განახლდება.</string>
+    <string name="common_open_on_phone">ტელეფონში გახსნა</string>
+    <string name="common_signin_button_text">შესვლა</string>
+    <string name="common_signin_button_text_long">Google-ით შესვლა</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"შეფერხება"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"გახსნილია თქვენს ტელეფონში"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"წარმატება"</string>
+    <string msgid="3209159573327985035" name="copy">"კოპირება"</string>
+    <string name="error_icon_content_description">შეცდომა</string>
+    <string name="exit_scrim">გასვლა</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"დამატებით"</string>
+    <string name="exposed_dropdown_menu_content_description">ჩამოსაშლელი მენიუს ჩვენება</string>
+    <string name="function_off">გახმოვანებული უკუკავშირი გამორთულია</string>
+    <string name="function_on">გახმოვანებული უკუკავშირი ჩართულია</string>
+    <string name="granularity_character">ასოები</string>
+    <string name="granularity_default">ნაგულისხმევი</string>
+    <string name="granularity_line">ხაზები</string>
+    <string name="granularity_native_control">მართვის საშუალებები</string>
+    <string name="granularity_native_heading">სათაურები</string>
+    <string name="granularity_native_link">ბმულები</string>
+    <string name="granularity_paragraph">აბზაცები</string>
+    <string name="granularity_pseudo_web_special_content">სპეციალური კონტენტი</string>
+    <string name="granularity_web_control">მართვის საშუალებები</string>
+    <string name="granularity_web_heading">სათაურები</string>
+    <string name="granularity_web_landmark">ორიენტირები</string>
+    <string name="granularity_web_link">ბმულები</string>
+    <string name="granularity_web_list">სიები</string>
+    <string name="granularity_window">ფანჯრები</string>
+    <string name="granularity_word">სიტყვები</string>
+    <string name="hide_keyboard_window">კლავიატურა დამალულია</string>
+    <string name="icon_content_description">დიალოგის ხატულა</string>
+    <string name="item_view_role_description">ჩანართი</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">ახალი მალსახმობის დასაყენებლად, დააჭირეთ კლავიშთა კომბინაციას %1$s მოდიფიკატორ კლავიშთან ერთად.</string>
+    <string name="keycombo_assign_dialog_instruction">ახალი მალსახმობის დასაყენებლად, დააჭირეთ კლავიშთა კომბინაციას. ის უნდა შედგებოდეს ALT ან Control კლავიშისგან მაინც.</string>
+    <string name="keycombo_key_arrow_down">ისარი ქვემოთ</string>
+    <string name="keycombo_key_arrow_left">ისარი მარცხნივ</string>
+    <string name="keycombo_key_arrow_right">ისარი მარჯვნივ</string>
+    <string name="keycombo_key_arrow_up">ისარი ზემოთ</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">ძიება</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">მიუმაგრებელი</string>
+    <string name="material_clock_toggle_content_description">აირჩიეთ AM ან PM</string>
+    <string name="material_hour_selection">აირჩიეთ საათი</string>
+    <string name="material_hour_suffix">%1$s საათი</string>
+    <string name="material_minute_selection">აირჩიეთ წუთები</string>
+    <string name="material_minute_suffix">%1$s წუთი</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">დროის შეყვანისთვის საათის რეჟიმზე გადართვა.</string>
+    <string name="material_timepicker_hour">საათი</string>
+    <string name="material_timepicker_minute">წუთი</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">აირჩიეთ დრო</string>
+    <string name="material_timepicker_text_input_mode_description">დროის შეყვანისთვის ტექსტის შეყვანის რეჟიმზე გადართვა.</string>
+    <string name="mtrl_badge_numberless_content_description">ახალი შეტყობინება</string>
+    <string name="mtrl_chip_close_icon_content_description">%1$s-ის ამოშლა</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d-ზე მეტი ახალი შეტყობინება</string>
+    <string name="mtrl_picker_a11y_next_month">შემდეგ თვეზე გადასვლა</string>
+    <string name="mtrl_picker_a11y_prev_month">წინა თვეზე გადასვლა</string>
+    <string name="mtrl_picker_announce_current_selection">ამჟამინდელი არჩევანი: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">აირჩიეთ თარიღი</string>
+    <string name="mtrl_picker_date_header_unselected">არჩეული თარიღი</string>
+    <string name="mtrl_picker_day_of_week_column_header">დღეების სვეტი: %1$s</string>
+    <string name="mtrl_picker_invalid_format">არასწორი ფორმატი.</string>
+    <string name="mtrl_picker_invalid_format_example">მაგალითი: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">%1$s-ის გამოყენება</string>
+    <string name="mtrl_picker_invalid_range">დიაპაზონი არასწორია.</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$s წელზე ნავიგაცია</string>
+    <string name="mtrl_picker_out_of_range">დიაპაზონს მიღმა: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">დაწყების თარიღი - %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s - დასრულების თარიღი</string>
+    <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
+    <string name="mtrl_picker_range_header_title">აირჩიეთ დიაპაზონი</string>
+    <string name="mtrl_picker_range_header_unselected">დაწყების თარიღი - დასრულების თარიღი</string>
+    <string name="mtrl_picker_save">შენახვა</string>
+    <string name="mtrl_picker_text_input_date_hint">თარიღი</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">დასრულების თარიღი</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">დაწყების თარიღი</string>
+    <string name="mtrl_picker_text_input_day_abbr">დ</string>
+    <string name="mtrl_picker_text_input_month_abbr">წთ</string>
+    <string name="mtrl_picker_text_input_year_abbr">წ</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">კალენდარში შეყვანის რეჟიმზე გადართვა</string>
+    <string name="mtrl_picker_toggle_to_day_selection">შეეხეთ დღის არჩევაზე გადასართავად</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">ტექსტის შეყვანის რეჟიმზე გადართვა</string>
+    <string name="mtrl_picker_toggle_to_year_selection">შეეხეთ წლის არჩევაზე გადასართავად</string>
+    <string msgid="478774118347071097" name="not_set">"არ არის დაყენებული"</string>
+    <string name="password_toggle_content_description">პაროლის ჩვენება</string>
+    <string msgid="7961817945132860002" name="preference_copied">"„<ns1:g id="SUMMARY">%1$s</ns1:g>“ კოპირებულია გაცვლის ბუფერში."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"ძიება"</string>
+    <string name="show_keyboard_window">ნაჩვენებია %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">თითქმის ტოლობა</string>
+    <string name="symbol_ampersand">ამპერსანდი</string>
+    <string name="symbol_angle_bracket_left">ნაკლებობის ნიშანი</string>
+    <string name="symbol_angle_bracket_right">მეტობის ნიშანი</string>
+    <string name="symbol_apostrophe">აპოსტროფი</string>
+    <string name="symbol_approximately_equals">დაახლოებით უდრის</string>
+    <string name="symbol_asterisk">ვარსკვლავი</string>
+    <string name="symbol_at_sign">ეტ ნიშანი</string>
+    <string name="symbol_backslash">უკუწილადი</string>
+    <string name="symbol_beamed_sixteenth_note">სხივით გადაცემული მეთექვსმეტედი ნოტები</string>
+    <string name="symbol_black_circle">შავი წრე</string>
+    <string name="symbol_black_heart">შავი გული</string>
+    <string name="symbol_black_smallsquare">პატარა შავი კვადრატი</string>
+    <string name="symbol_black_square">შავი კვადრატი</string>
+    <string name="symbol_black_star">შავი ვარსკვლავი</string>
+    <string name="symbol_black_suit_of_diamonds">შავი კოსტიუმი ბრილიანტებით</string>
+    <string name="symbol_black_triangle_pointing_down">შავი სამკუთხედი, რომელიც ქვემოთ მიუთითებს</string>
+    <string name="symbol_black_triangle_pointing_up">შავი სამკუთხედი, რომელიც ზემოთ მიუთითებს</string>
+    <string name="symbol_broken_bar">გაწყვეტილი ვერტიკალური ხაზი</string>
+    <string name="symbol_bullet">ბურთულა</string>
+    <string name="symbol_bullseye">სამიზნე</string>
+    <string name="symbol_caret">კარეტის ნიშანი</string>
+    <string name="symbol_celsius_degree">ცელსიუსის გრადუსი</string>
+    <string name="symbol_cent">ცენტის ნიშანი</string>
+    <string name="symbol_circle_left_half_black">წრე შავი მარცხენა ნახევრით</string>
+    <string name="symbol_circle_right_half_black">წრე შავი მარჯვენა ნახევრით</string>
+    <string name="symbol_colon">ორწერტილი</string>
+    <string name="symbol_comma">მძიმე</string>
+    <string name="symbol_copyright">საავტორო უფლებები</string>
+    <string name="symbol_curly_bracket_left">მარცხენა ფიგურული ფრჩხილი</string>
+    <string name="symbol_curly_bracket_right">მარჯვენა ფიგურული ფრჩხილი</string>
+    <string name="symbol_currency_sign">ვალუტის ნიშანი</string>
+    <string name="symbol_degree">გრადუსის ნიშანი</string>
+    <string name="symbol_division">გაყოფის ნიშანი</string>
+    <string name="symbol_dollar_sign">დოლარის ნიშანი</string>
+    <string name="symbol_downwards_arrow">ქვემოთ მიმართული ისარი</string>
+    <string name="symbol_eighth_note">მერვედი ნოტი</string>
+    <string name="symbol_ellipsis">სამწერტილი</string>
+    <string name="symbol_em_dash">გრძელი ტირე</string>
+    <string name="symbol_en_dash">საშუალო ტირე</string>
+    <string name="symbol_equal">ტოლობის ნიშანი</string>
+    <string name="symbol_euro">ევრო</string>
+    <string name="symbol_exclamation_mark">ძახილის ნიშანი</string>
+    <string name="symbol_fahrenheit_degree">ფარენჰეიტის გრადუსი</string>
+    <string name="symbol_female">ქალის სიმბოლო</string>
+    <string name="symbol_full_width_ampersand">სრული სიგანის ამპერსანდი</string>
+    <string name="symbol_full_width_asterisk">სრული სიგანის ვარსკვლავი</string>
+    <string name="symbol_full_width_circumflex">სრული სიგანის ცირკუმფლექსი</string>
+    <string name="symbol_full_width_colon">სრული სიგანის ორწერტილი</string>
+    <string name="symbol_full_width_comma">სრული სიგანის მძიმე</string>
+    <string name="symbol_full_width_exclamation_mark">სრული სიგანის ძახილის ნიშანი</string>
+    <string name="symbol_full_width_greater_than_sign">სრული სიგანის მეტობის ნიშანი</string>
+    <string name="symbol_full_width_ideographic_full_stop">იდეოგრაფიული წერტილი</string>
+    <string name="symbol_full_width_left_curly_bracket">სრული სიგანის მარცხენა ფიგურული ფრჩხილი</string>
+    <string name="symbol_full_width_left_parenthesis">სრული სიგანის მარცხენა ფრჩხილი</string>
+    <string name="symbol_full_width_less_than_sign">სრული სიგანის ნაკლებობის ნიშანი</string>
+    <string name="symbol_full_width_question_mark">სრული სიგანის კითხვის ნიშანი</string>
+    <string name="symbol_full_width_right_curly_bracket">სრული სიგანის მარჯვენა ფიგურული ფრჩხილი</string>
+    <string name="symbol_full_width_right_parenthesis">სრული სიგანის მარჯვენა ფრჩხილი</string>
+    <string name="symbol_full_width_semicolon">სრული სიგანის წერტილმძიმე</string>
+    <string name="symbol_full_width_tilde">სრული სიგანის ტილდა</string>
+    <string name="symbol_full_width_underscore">სრული სიგანის ქვედა ტირე</string>
+    <string name="symbol_grave_accent">გრავისი</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">ნახევარსიგანიანი კატაკანის შუაწერტილი</string>
+    <string name="symbol_hyphen_minus">ტირე</string>
+    <string name="symbol_ideographic_comma">იდეოგრაფიული მძიმე</string>
+    <string name="symbol_integral">ინტეგრალი</string>
+    <string name="symbol_inverted_exclamation_mark">ამობრუნებული ძახილის ნიშანი</string>
+    <string name="symbol_inverted_question_mark">ამობრუნებული კითხვის ნიშანი</string>
+    <string name="symbol_left_angle_bracket">ორმაგი ნაკლებობის ნიშანი</string>
+    <string name="symbol_left_black_lenticular_bracket">მარცხენა შავი ლენტიკულარული ფრჩხილი</string>
+    <string name="symbol_left_corner_bracket">მარცხენა კუთხოვანი ფრჩხილი</string>
+    <string name="symbol_left_double_quotation_mark">მარცხენა ორმაგი ბრჭყალი</string>
+    <string name="symbol_left_single_quotation_mark">მარცხენა ერთმაგი ბრჭყალი</string>
+    <string name="symbol_leftwards_arrow">ისარი მარცხნივ</string>
+    <string name="symbol_liter">ლიტრი</string>
+    <string name="symbol_low_double_quote">ორმაგი ქვედა ბრჭყალი</string>
+    <string name="symbol_male">მამაკაცის სიმბოლო</string>
+    <string name="symbol_mathematical_left_angle_bracket">მარცხენა მათემატიკური ფრჩხილი</string>
+    <string name="symbol_mathematical_right_angle_bracket">მარჯვენა მათემატიკური ფრჩხილი</string>
+    <string name="symbol_micro_sign">ნიშანი მიკრო</string>
+    <string name="symbol_middle_dot">შუაწერტილი</string>
+    <string name="symbol_multiplication">გამრავლების ნიშანი</string>
+    <string name="symbol_new_line">ახალი ხაზი</string>
+    <string name="symbol_not_equals">არ უდრის</string>
+    <string name="symbol_not_sign">უარყოფის ნიშანი</string>
+    <string name="symbol_paragraph_mark">პარაგრაფის ნიშანი</string>
+    <string name="symbol_parenthesis_left">მარცხენა ფრჩხილი</string>
+    <string name="symbol_parenthesis_right">მარჯვენა ფრჩხილი</string>
+    <string name="symbol_percent">პროცენტი</string>
+    <string name="symbol_period">წერტილი</string>
+    <string name="symbol_pi">პი</string>
+    <string name="symbol_plus_minus_sign">პლუს-მინუსის ნიშანი</string>
+    <string name="symbol_postal_mark">საფოსტო ნიშანი</string>
+    <string name="symbol_pound">დიეზი</string>
+    <string name="symbol_pound_sterling">გირვანქა სტერლინგის ნიშანი</string>
+    <string name="symbol_quarter_note">მეოთხედი ნოტი</string>
+    <string name="symbol_question_mark">კითხვის ნიშანი</string>
+    <string name="symbol_quotation_mark">ბრჭყალი</string>
+    <string name="symbol_reference">სქოლიოს ნიშანი</string>
+    <string name="symbol_registered_trademark">რეგისტრირებული სავაჭრო ნიშანი</string>
+    <string name="symbol_right_angle_bracket">ორმაგი მეტობის ნიშანი</string>
+    <string name="symbol_right_black_lenticular_bracket">მარჯვენა შავი ლენტიკულარული ფრჩხილი</string>
+    <string name="symbol_right_corner_bracket">მარჯვენა კუთხოვანი ფრჩხილი</string>
+    <string name="symbol_right_double_quotation_mark">მარჯვენა ორმაგი ბრჭყალი</string>
+    <string name="symbol_right_single_quotation_mark">მარჯვენა ერთმაგი ბრჭყალი</string>
+    <string name="symbol_rightwards_arrow">მარჯვნივ მიმართული ისარი</string>
+    <string name="symbol_rupee">რუპია</string>
+    <string name="symbol_section_sign">სექციის ნიშანი</string>
+    <string name="symbol_semicolon">წერტილმძიმე</string>
+    <string name="symbol_slash">წილადი</string>
+    <string name="symbol_solar">მზის სიმბოლო</string>
+    <string name="symbol_space">შორისი</string>
+    <string name="symbol_square_bracket_left">მარცხენა კვადრატული ფრჩხილი</string>
+    <string name="symbol_square_bracket_right">მარჯვენა კვადრატული ფრჩხილი</string>
+    <string name="symbol_square_root">კვადრატული ფესვი</string>
+    <string name="symbol_tilde">ტილდა</string>
+    <string name="symbol_trademark">სავაჭრო ნიშანი</string>
+    <string name="symbol_underscore">ქვედატირე</string>
+    <string name="symbol_upwards_arrow">ისარი ზევით</string>
+    <string name="symbol_vertical_bar">ვერტიკალური ხაზი</string>
+    <string name="symbol_white_circle">თეთრი წრე</string>
+    <string name="symbol_white_club_suit">თეთრი ჯვარი</string>
+    <string name="symbol_white_diamond">თეთრი აგური</string>
+    <string name="symbol_white_down_pointing_triangle">ქვემოთ მიმართული თეთრი სამკუთხედი</string>
+    <string name="symbol_white_heart">თეთრი გული</string>
+    <string name="symbol_white_left_pointing_index">მარცხნივ მიმართული თეთრი ინდექსი</string>
+    <string name="symbol_white_left_pointing_triangle">მარცხნივ მიმართული თეთრი სამკუთხედი</string>
+    <string name="symbol_white_right_pointing_index">მარჯვნივ მიმართული თეთრი ინდექსი</string>
+    <string name="symbol_white_right_pointing_triangle">მარჯვნივ მიმართული თეთრი სამკუთხედი</string>
+    <string name="symbol_white_spade_suit">თეთრი პიკი</string>
+    <string name="symbol_white_square">თეთრი კვადრატი</string>
+    <string name="symbol_white_star">თეთრი ვარსკვლავი</string>
+    <string name="symbol_white_up_pointing_triangle">ზემოთ მიმართული თეთრი სამკუთხედი</string>
+    <string name="symbol_won">ვონის სავალუტო ნიშანი</string>
+    <string name="symbol_won_sign">ვონის სავალუტო ნიშანი</string>
+    <string name="symbol_yen">იენი</string>
+    <string name="template_capital_letter">მაღალი რეგისტრის %1$s</string>
+    <string name="template_current_tts_engine">გამოიყენება %1$s</string>
+    <string name="template_overlay_window">%1$s „ეკრანი ეკრანში“</string>
+    <string name="template_password_selected">სიმბოლო %1$d-დან %2$d-მდე</string>
+    <string name="template_password_traversed">სიმბოლო %1$d</string>
+    <string name="template_scroll_from_count">ნაჩვენებია %1$d ერთული %2$d-დან.</string>
+    <string name="template_scroll_from_to_count">ნაჩვენებია %1$d-დან %2$d-მდე / სულ %3$d-დან.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s მარცხნივ, %2$s მარჯვნივ</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s მარჯვნივ, %2$s მარცხნივ</string>
+    <string name="template_split_screen_mode_portrait">%1$s ზემოთ, %2$s ქვემოთ</string>
+    <string name="template_text_copied">დაკოპირებულია, %1$s</string>
+    <string name="template_viewpager_index_count">გვერდი %1$d / %2$d-დან</string>
+    <string name="template_viewpager_index_count_short">%1$d / %2$d-დან</string>
+    <string name="untitled_window">უსათაურო</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"გამორთული"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ჩართული"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"ქმედების უჯრა"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"ნავიგაციის უჯრა"</string>
+</resources>

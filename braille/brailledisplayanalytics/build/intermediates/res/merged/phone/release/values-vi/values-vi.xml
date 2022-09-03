@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="braille_dots">
+    <item quantity="one">dấu chấm %s</item>
+    <item quantity="other">dấu chấm %s</item>
+  </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d thông báo mới</item>
+    <item quantity="other">%d thông báo mới</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d ngày</item>
+<item quantity="other">%d ngày</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d giờ</item>
+<item quantity="other">%d giờ</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d phút</item>
+<item quantity="other">%d phút</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d ngày</item>
+<item quantity="other">%d ngày</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d giờ</item>
+<item quantity="other">%d giờ</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d phút</item>
+<item quantity="other">%d phút</item>
+</plurals>
+    <string name="a11y_no_data">Không có dữ liệu</string>
+    <string name="a11y_no_permission">Không có quyền truy cập dữ liệu</string>
+    <string name="a11y_template_range">%1$f/%2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Chỉ đường về nhà"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Di chuyển lên"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Tùy chọn khác"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Xong"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Xem tất cả"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Chọn một ứng dụng"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"TẮT"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"BẬT"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Tìm kiếm…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Xóa truy vấn"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Truy vấn tìm kiếm"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Tìm kiếm"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Gửi truy vấn"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Tìm kiếm bằng giọng nói"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Chia sẻ với"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Chia sẻ với <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Thu gọn"</string>
+    <string name="auto_detect">Thích ứng với cách bạn cầm thiết bị</string>
+    <string name="bottomsheet_action_expand_halfway">Mở rộng một nửa</string>
+    <string name="buttons_rect_bottom_center">Dưới cùng</string>
+    <string name="buttons_rect_bottom_left">Dưới cùng bên trái</string>
+    <string name="buttons_rect_bottom_right">Dưới cùng bên phải</string>
+    <string name="buttons_rect_left_bottom">Dưới cùng, bên trái</string>
+    <string name="buttons_rect_left_center">Ở giữa bên trái</string>
+    <string name="buttons_rect_left_top">Trên cùng, bên trái</string>
+    <string name="buttons_rect_right_bottom">Dưới cùng, bên phải</string>
+    <string name="buttons_rect_right_center">Ở giữa bên phải</string>
+    <string name="buttons_rect_right_top">Trên cùng, bên phải</string>
+    <string name="buttons_rect_top_center">Trên cùng</string>
+    <string name="buttons_rect_top_left">Trên cùng bên trái</string>
+    <string name="buttons_rect_top_right">Trên cùng bên phải</string>
+    <string name="buttons_round_bottom_center">Dưới cùng</string>
+    <string name="buttons_round_bottom_left">Dưới cùng bên trái</string>
+    <string name="buttons_round_bottom_left_lower">Dưới cùng bên trái, phía dưới</string>
+    <string name="buttons_round_bottom_left_upper">Dưới cùng bên trái, phía trên</string>
+    <string name="buttons_round_bottom_right">Dưới cùng bên phải</string>
+    <string name="buttons_round_bottom_right_lower">Dưới cùng bên phải, phía dưới</string>
+    <string name="buttons_round_bottom_right_upper">Dưới cùng bên phải, phía trên</string>
+    <string name="buttons_round_center_left">Ở giữa bên trái</string>
+    <string name="buttons_round_center_right">Ở giữa bên phải</string>
+    <string name="buttons_round_top_center">Trên cùng</string>
+    <string name="buttons_round_top_left">Trên cùng bên trái</string>
+    <string name="buttons_round_top_left_lower">Trên cùng bên trái, phía dưới</string>
+    <string name="buttons_round_top_left_upper">Trên cùng bên trái, phía trên</string>
+    <string name="buttons_round_top_right">Trên cùng bên phải</string>
+    <string name="buttons_round_top_right_lower">Trên cùng bên phải, phía dưới</string>
+    <string name="buttons_round_top_right_upper">Trên cùng bên phải, phía trên</string>
+    <string name="capitalize_announcement">Viết hoa</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Đã nhập %1$d trong số %2$d ký tự</string>
+    <string name="character_counter_overflowed_content_description">Đã vượt quá giới hạn ký tự %1$d/%2$d</string>
+    <string name="clear_text_end_icon_content_description">Xóa văn bản</string>
+    <string name="code_user_facing_name_ar">Tiếng Ả Rập</string>
+    <string name="code_user_facing_name_es">Tiếng Tây Ban Nha</string>
+    <string name="code_user_facing_name_fr">Tiếng Pháp</string>
+    <string name="code_user_facing_name_pl">Tiếng Ba Lan</string>
+    <string name="code_user_facing_name_ueb1">Chữ nổi tiếng Anh hợp nhất không rút gọn</string>
+    <string name="code_user_facing_name_ueb2">Chữ nổi tiếng Anh hợp nhất rút gọn</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Bật</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s sẽ không hoạt động nếu bạn không bật dịch vụ của Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Bật dịch vụ của Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Cài đặt</string>
+    <string name="common_google_play_services_install_text">%1$s sẽ không chạy nếu không có dịch vụ của Google Play. Thiết bị của bạn bị thiếu dịch vụ này.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Cài đặt dịch vụ của Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Phạm vi cung cấp Dịch vụ Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Lỗi dịch vụ của Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s đang gặp sự cố với Dịch vụ Google Play. Hãy thử lại.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s sẽ không chạy nếu không có Dịch vụ Google Play. Thiết bị của bạn không hỗ trợ các dịch vụ này.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Cập nhật</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s sẽ không chạy trừ khi bạn cập nhật Dịch vụ Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Cập nhật dịch vụ của Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s sẽ không chạy nếu không có dịch vụ của Google Play. Dịch vụ này hiện đang cập nhật.</string>
+    <string name="common_google_play_services_wear_update_text">Cần phiên bản mới của dịch vụ Google Play. Dịch vụ sẽ sớm tự động cập nhật.</string>
+    <string name="common_open_on_phone">Mở trên điện thoại</string>
+    <string name="common_signin_button_text">Đăng nhập</string>
+    <string name="common_signin_button_text_long">Đăng nhập bằng Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Lỗi"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Đã mở trên điện thoại của bạn"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Thành công"</string>
+    <string msgid="3209159573327985035" name="copy">"Sao chép"</string>
+    <string name="dismiss_overlay_button_label">Thoát</string>
+    <string name="error_icon_content_description">Lỗi</string>
+    <string name="exit_scrim">Thoát</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Nâng cao"</string>
+    <string name="exposed_dropdown_menu_content_description">Hiển thị menu thả xuống</string>
+    <string name="function_off">Đã tắt tính năng phản hồi bằng giọng nói</string>
+    <string name="function_on">Đã bật tính năng phản hồi bằng giọng nói</string>
+    <string name="generic_cancel">Hủy</string>
+    <string name="generic_yes">Có</string>
+    <string name="granularity_character">Ký tự</string>
+    <string name="granularity_default">Mặc định</string>
+    <string name="granularity_line">Dòng</string>
+    <string name="granularity_native_control">Các thành phần điều khiển</string>
+    <string name="granularity_native_heading">Đầu đề</string>
+    <string name="granularity_native_link">Đường liên kết</string>
+    <string name="granularity_paragraph">Đoạn</string>
+    <string name="granularity_pseudo_web_special_content">Nội dung đặc biệt</string>
+    <string name="granularity_web_control">Các thành phần điều khiển</string>
+    <string name="granularity_web_heading">Đầu đề</string>
+    <string name="granularity_web_landmark">Địa danh</string>
+    <string name="granularity_web_link">Đường liên kết</string>
+    <string name="granularity_web_list">Danh sách</string>
+    <string name="granularity_window">Cửa sổ</string>
+    <string name="granularity_word">Từ</string>
+    <string name="hide_keyboard_window">đã ẩn bàn phím</string>
+    <string name="icon_content_description">Biểu tượng hộp thoại</string>
+    <string name="item_view_role_description">Thẻ</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Nhấn tổ hợp phím với phím bổ trợ %1$s để đặt phím tắt mới.</string>
+    <string name="keycombo_assign_dialog_instruction">Nhấn tổ hợp phím để đặt phím tắt mới. Tổ hợp phím đó phải chứa ít nhất là phím ALT hoặc Control.</string>
+    <string name="keycombo_key_arrow_down">Mũi tên xuống</string>
+    <string name="keycombo_key_arrow_left">Mũi tên trái</string>
+    <string name="keycombo_key_arrow_right">Mũi tên phải</string>
+    <string name="keycombo_key_arrow_up">Mũi tên lên</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Phím tìm kiếm</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Chưa gán</string>
+    <string name="material_clock_toggle_content_description">Chọn SA hoặc CH</string>
+    <string name="material_hour_selection">Chọn giờ</string>
+    <string name="material_hour_suffix">%1$s giờ</string>
+    <string name="material_minute_selection">Chọn phút</string>
+    <string name="material_minute_suffix">%1$s phút</string>
+    <string name="material_timepicker_am">SA</string>
+    <string name="material_timepicker_clock_mode_description">Chuyển sang chế độ đồng hồ để nhập thời gian.</string>
+    <string name="material_timepicker_hour">Giờ</string>
+    <string name="material_timepicker_minute">Phút</string>
+    <string name="material_timepicker_pm">CH</string>
+    <string name="material_timepicker_select_time">Chọn thời gian</string>
+    <string name="material_timepicker_text_input_mode_description">Chuyển sang chế độ nhập văn bản để nhập thời gian.</string>
+    <string name="mtrl_badge_numberless_content_description">Thông báo mới</string>
+    <string name="mtrl_chip_close_icon_content_description">Xóa %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Hơn %1$d thông báo mới</string>
+    <string name="mtrl_picker_a11y_next_month">Chuyển sang tháng tiếp theo</string>
+    <string name="mtrl_picker_a11y_prev_month">Chuyển về tháng trước</string>
+    <string name="mtrl_picker_announce_current_selection">Lựa chọn hiện tại: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Chọn ngày</string>
+    <string name="mtrl_picker_date_header_unselected">Ngày đã chọn</string>
+    <string name="mtrl_picker_day_of_week_column_header">Cột ngày: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Định dạng không hợp lệ.</string>
+    <string name="mtrl_picker_invalid_format_example">Ví dụ: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Sử dụng: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Phạm vi không hợp lệ.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Chuyển tới năm %1$s</string>
+    <string name="mtrl_picker_out_of_range">Nằm ngoài phạm vi: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Ngày bắt đầu – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Ngày kết thúc</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Chọn dải ô</string>
+    <string name="mtrl_picker_range_header_unselected">Ngày bắt đầu – Ngày kết thúc</string>
+    <string name="mtrl_picker_save">Lưu</string>
+    <string name="mtrl_picker_text_input_date_hint">Ngày</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Ngày kết thúc</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Ngày bắt đầu</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">y</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Chuyển sang chế độ nhập lịch</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Nhấn để chuyển sang chế độ chọn một ngày</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Chuyển sang chế độ nhập văn bản</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Nhấn để chuyển sang chế độ chọn một năm</string>
+    <string name="navigation_drawer_content_description">Ngăn điều hướng</string>
+    <string msgid="478774118347071097" name="not_set">"Chưa đặt"</string>
+    <string name="number_announcement">Số</string>
+    <string name="password_toggle_content_description">Hiện mật khẩu</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Đã sao chép \"<ns1:g id="SUMMARY">%1$s</ns1:g>\" vào khay nhớ tạm."</string>
+    <string name="read_out_deleted">Đã xóa %s</string>
+    <string name="screen_away">Chế độ màn hình hướng ra ngoài</string>
+    <string name="screen_away_detail">Cầm thiết bị sao cho màn hình hướng ra phía ngoài (chế độ màn hình hướng ra ngoài)</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Tìm kiếm"</string>
+    <string name="show_keyboard_window">Đang hiển thị %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Xấp xỉ</string>
+    <string name="symbol_ampersand">Ký hiệu &amp;</string>
+    <string name="symbol_angle_bracket_left">Dấu nhỏ hơn</string>
+    <string name="symbol_angle_bracket_right">Dấu lớn hơn</string>
+    <string name="symbol_apostrophe">Dấu móc lửng</string>
+    <string name="symbol_approximately_equals">Xấp xỉ bằng</string>
+    <string name="symbol_asterisk">Dấu hoa thị</string>
+    <string name="symbol_at_sign">Ký hiệu @</string>
+    <string name="symbol_backslash">Dấu gạch chéo ngược</string>
+    <string name="symbol_beamed_sixteenth_note">Nốt móc đôi được chiếu</string>
+    <string name="symbol_black_circle">Hình tròn màu đen</string>
+    <string name="symbol_black_heart">Hình trái tim màu đen</string>
+    <string name="symbol_black_smallsquare">Hình vuông nhỏ màu đen</string>
+    <string name="symbol_black_square">Hình vuông màu đen</string>
+    <string name="symbol_black_star">Hình ngôi sao màu đen</string>
+    <string name="symbol_black_suit_of_diamonds">Nhóm lá bài Rô màu đen</string>
+    <string name="symbol_black_triangle_pointing_down">Hình tam giác màu đen hướng xuống dưới</string>
+    <string name="symbol_black_triangle_pointing_up">Hình tam giác màu đen hướng lên trên</string>
+    <string name="symbol_broken_bar">Thanh đứt quãng</string>
+    <string name="symbol_bullet">Dấu đầu dòng</string>
+    <string name="symbol_bullseye">Hồng tâm</string>
+    <string name="symbol_caret">Dấu mũ</string>
+    <string name="symbol_celsius_degree">Độ C</string>
+    <string name="symbol_cent">Ký hiệu đồng cent</string>
+    <string name="symbol_circle_left_half_black">Vòng tròn có nửa trái màu đen</string>
+    <string name="symbol_circle_right_half_black">Vòng tròn có nửa phải màu đen</string>
+    <string name="symbol_colon">Dấu hai chấm</string>
+    <string name="symbol_comma">Dấu phẩy</string>
+    <string name="symbol_copyright">Bản quyền</string>
+    <string name="symbol_curly_bracket_left">Dấu ngoặc cong trái</string>
+    <string name="symbol_curly_bracket_right">Dấu ngoặc cong phải</string>
+    <string name="symbol_currency_sign">Ký hiệu tiền tệ</string>
+    <string name="symbol_degree">Ký hiệu độ</string>
+    <string name="symbol_division">Dấu chia</string>
+    <string name="symbol_dollar_sign">Ký hiệu $</string>
+    <string name="symbol_downwards_arrow">Mũi tên hướng xuống</string>
+    <string name="symbol_eighth_note">Nốt móc đơn</string>
+    <string name="symbol_ellipsis">Dấu ba chấm</string>
+    <string name="symbol_em_dash">Dấu gạch ngang dài</string>
+    <string name="symbol_en_dash">Dấu gạch ngang ngắn</string>
+    <string name="symbol_equal">Dấu bằng</string>
+    <string name="symbol_euro">Ký hiệu Euro</string>
+    <string name="symbol_exclamation_mark">Dấu chấm than</string>
+    <string name="symbol_fahrenheit_degree">Độ F</string>
+    <string name="symbol_female">Biểu tượng nữ</string>
+    <string name="symbol_full_width_ampersand">Dấu và có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_asterisk">Dấu hoa thị có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_circumflex">Dấu mũ có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_colon">Dấu hai chấm có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_comma">Dấu phẩy có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_exclamation_mark">Dấu chấm than có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_greater_than_sign">Dấu lớn hơn có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_ideographic_full_stop">Dấu chấm hết câu tượng hình</string>
+    <string name="symbol_full_width_left_curly_bracket">Dấu ngoặc nhọn trái có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_left_parenthesis">Dấu ngoặc trái có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_less_than_sign">Dấu nhỏ hơn có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_question_mark">Dấu hỏi có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_right_curly_bracket">Dấu ngoặc nhọn phải có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_right_parenthesis">Dấu ngoặc phải có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_semicolon">Dấu chấm phẩy có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_tilde">Dấu ngã có độ rộng đầy đủ</string>
+    <string name="symbol_full_width_underscore">Dấu gạch dưới có độ rộng đầy đủ</string>
+    <string name="symbol_grave_accent">Dấu huyền</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Dấu chấm giữa nửa độ rộng dùng trong chữ Katakana</string>
+    <string name="symbol_hyphen_minus">Gạch ngang</string>
+    <string name="symbol_ideographic_comma">Dấu phẩy tượng hình</string>
+    <string name="symbol_integral">Tích phân</string>
+    <string name="symbol_inverted_exclamation_mark">Dấu chấm than ngược</string>
+    <string name="symbol_inverted_question_mark">Dấu hỏi ngược</string>
+    <string name="symbol_left_angle_bracket">Dấu ngoặc góc trái đôi</string>
+    <string name="symbol_left_black_lenticular_bracket">Dấu ngoặc cong đậm trái</string>
+    <string name="symbol_left_corner_bracket">Dấu ngoặc nhọn trái</string>
+    <string name="symbol_left_double_quotation_mark">Dấu ngoặc kép trái</string>
+    <string name="symbol_left_single_quotation_mark">Dấu ngoặc đơn trái</string>
+    <string name="symbol_leftwards_arrow">Mũi tên sang trái</string>
+    <string name="symbol_liter">Lít</string>
+    <string name="symbol_low_double_quote">Dấu ngoặc kép dưới</string>
+    <string name="symbol_male">Biểu tượng nam</string>
+    <string name="symbol_mathematical_left_angle_bracket">Dấu ngoặc nhọn trái trong toán học</string>
+    <string name="symbol_mathematical_right_angle_bracket">Dấu ngoặc nhọn phải trong toán học</string>
+    <string name="symbol_micro_sign">Ký hiệu micrô</string>
+    <string name="symbol_middle_dot">Dấu chấm giữa</string>
+    <string name="symbol_multiplication">Dấu nhân</string>
+    <string name="symbol_new_line">Dòng mới</string>
+    <string name="symbol_not_equals">Không bằng</string>
+    <string name="symbol_not_sign">Ký hiệu không</string>
+    <string name="symbol_paragraph_mark">Dấu phân đoạn</string>
+    <string name="symbol_parenthesis_left">Dấu ngoặc đơn trái</string>
+    <string name="symbol_parenthesis_right">Dấu ngoặc đơn phải</string>
+    <string name="symbol_percent">Ký hiệu phần trăm</string>
+    <string name="symbol_period">Dấu chấm</string>
+    <string name="symbol_pi">Số Pi</string>
+    <string name="symbol_plus_minus_sign">Dấu cộng trừ</string>
+    <string name="symbol_postal_mark">Dấu bưu điện</string>
+    <string name="symbol_pound">Dấu thăng</string>
+    <string name="symbol_pound_sterling">Ký hiệu đồng bảng Anh</string>
+    <string name="symbol_quarter_note">Dấu móc</string>
+    <string name="symbol_question_mark">Dấu chấm hỏi</string>
+    <string name="symbol_quotation_mark">Dấu ngoặc kép</string>
+    <string name="symbol_reference">Dấu tham khảo</string>
+    <string name="symbol_registered_trademark">Nhãn hiệu đã đăng ký</string>
+    <string name="symbol_right_angle_bracket">Dấu ngoặc góc phải đôi</string>
+    <string name="symbol_right_black_lenticular_bracket">Dấu ngoặc cong đậm phải</string>
+    <string name="symbol_right_corner_bracket">Dấu ngoặc nhọn phải</string>
+    <string name="symbol_right_double_quotation_mark">Dấu ngoặc kép phải</string>
+    <string name="symbol_right_single_quotation_mark">Dấu ngoặc đơn phải</string>
+    <string name="symbol_rightwards_arrow">Mũi tên hướng sang phải</string>
+    <string name="symbol_rupee">Rupee</string>
+    <string name="symbol_section_sign">Ký hiệu phần</string>
+    <string name="symbol_semicolon">Dấu chấm phẩy</string>
+    <string name="symbol_slash">Dấu gạch chéo</string>
+    <string name="symbol_solar">Biểu tượng mặt trời</string>
+    <string name="symbol_space">Dấu cách</string>
+    <string name="symbol_square_bracket_left">Dấu ngoặc vuông trái</string>
+    <string name="symbol_square_bracket_right">Dấu ngoặc vuông phải</string>
+    <string name="symbol_square_root">Dấu khai căn</string>
+    <string name="symbol_tilde">Dấu sóng</string>
+    <string name="symbol_trademark">Ký hiệu nhãn hiệu</string>
+    <string name="symbol_underscore">Gạch dưới</string>
+    <string name="symbol_upwards_arrow">Mũi tên lên trên</string>
+    <string name="symbol_vertical_bar">Dấu gạch đứng</string>
+    <string name="symbol_white_circle">Hình tròn màu trắng</string>
+    <string name="symbol_white_club_suit">Quân tép màu trắng</string>
+    <string name="symbol_white_diamond">Kim cương màu trắng</string>
+    <string name="symbol_white_down_pointing_triangle">Hình tam giác trỏ xuống dưới màu trắng</string>
+    <string name="symbol_white_heart">Hình trái tim màu trắng</string>
+    <string name="symbol_white_left_pointing_index">Ngón trỏ chỉ sang trái màu trắng</string>
+    <string name="symbol_white_left_pointing_triangle">Hình tam giác trỏ sang trái màu trắng</string>
+    <string name="symbol_white_right_pointing_index">Ngón trỏ chỉ sang phải màu trắng</string>
+    <string name="symbol_white_right_pointing_triangle">Hình tam giác trỏ sang phải màu trắng</string>
+    <string name="symbol_white_spade_suit">Quân bích màu trắng</string>
+    <string name="symbol_white_square">Hình vuông màu trắng</string>
+    <string name="symbol_white_star">Hình ngôi sao màu trắng</string>
+    <string name="symbol_white_up_pointing_triangle">Hình tam giác trỏ lên màu trắng</string>
+    <string name="symbol_won">Ký hiệu đồng won</string>
+    <string name="symbol_won_sign">Ký hiệu đồng won</string>
+    <string name="symbol_yen">Yên</string>
+    <string name="tabletop">Chế độ trên mặt bàn</string>
+    <string name="tabletop_detail">Đặt thiết bị nằm trên bàn (chế độ trên mặt bàn)</string>
+    <string name="template_capital_letter">chữ hoa %1$s</string>
+    <string name="template_current_tts_engine">Đang sử dụng %1$s</string>
+    <string name="template_overlay_window">%1$s ảnh trong ảnh</string>
+    <string name="template_password_selected">Ký tự từ %1$d đến %2$d</string>
+    <string name="template_password_traversed">Ký tự %1$d</string>
+    <string name="template_scroll_from_count">Hiển thị mục %1$d/%2$d.</string>
+    <string name="template_scroll_from_to_count">Hiển thị mục từ %1$d tới %2$d/%3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s ở bên trái, %2$s ở bên phải</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s ở bên phải, %2$s ở bên trái</string>
+    <string name="template_split_screen_mode_portrait">%1$s ở trên cùng, %2$s ở dưới cùng</string>
+    <string name="template_text_copied">đã sao chép, %1$s</string>
+    <string name="template_viewpager_index_count">Trang %1$d / %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d / %2$d</string>
+    <string name="time_difference_now">Bây giờ</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="untitled_window">không có tiêu đề</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"TẮT"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"BẬT"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Ngăn tác vụ"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Ngăn điều hướng"</string>
+</resources>

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d nova notificação</item>
+    <item quantity="other">%d novas notificações</item>
+  </plurals>
+    <plurals name="template_containers">
+    <item quantity="one">%1$s a mostrar %2$d item…</item>
+    <item quantity="other">%1$s a mostrar %2$d itens…</item>
+  </plurals>
+    <plurals name="template_list_column_count">
+    <item quantity="one">%1$d coluna</item>
+    <item quantity="other">%1$d colunas</item>
+  </plurals>
+    <plurals name="template_list_row_count">
+    <item quantity="one">%1$d linha</item>
+    <item quantity="other">%1$d linhas</item>
+  </plurals>
+    <plurals name="template_list_total_count">
+    <item quantity="one">%1$d item</item>
+    <item quantity="other">%1$d itens</item>
+  </plurals>
+    <plurals name="template_password_character_count">
+    <item quantity="one">%1$d caráter</item>
+    <item quantity="other">%1$d carateres</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d d</item>
+<item quantity="other">%d d</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d h</item>
+<item quantity="other">%d h</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d m</item>
+<item quantity="other">%d m</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d dia</item>
+<item quantity="other">%d dias</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d hora</item>
+<item quantity="other">%d horas</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d min</item>
+<item quantity="other">%d min</item>
+</plurals>
+    <string name="a11y_no_data">Não existem dados</string>
+    <string name="a11y_no_permission">Sem autorização de acesso aos dados</string>
+    <string name="a11y_template_range">%1$f de %2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navegar para casa"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navegar para cima"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Mais opções"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Concluído"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Ver tudo"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Escolher uma app"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"DESATIVADO"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ATIVADO"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"eliminar"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Função +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"espaço"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menu +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Pesquisar…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Limpar consulta"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Consulta de pesquisa"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Pesquisar"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Enviar consulta"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Pesquisa por voz"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Partilhar com"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Partilhar com a app <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Reduzir"</string>
+    <string name="bottomsheet_action_expand_halfway">Expandir até metade</string>
+    <string name="buttons_rect_bottom_center">Parte inferior</string>
+    <string name="buttons_rect_bottom_left">Parte inferior esquerda</string>
+    <string name="buttons_rect_bottom_right">Parte inferior direita</string>
+    <string name="buttons_rect_left_bottom">Parte inferior, lado esquerdo</string>
+    <string name="buttons_rect_left_center">No centro, à esquerda</string>
+    <string name="buttons_rect_left_top">Parte superior, lado esquerdo</string>
+    <string name="buttons_rect_right_bottom">Parte inferior, lado direito</string>
+    <string name="buttons_rect_right_center">No centro, à direita</string>
+    <string name="buttons_rect_right_top">Parte superior, lado direito</string>
+    <string name="buttons_rect_top_center">Parte superior</string>
+    <string name="buttons_rect_top_left">Parte superior esquerda</string>
+    <string name="buttons_rect_top_right">Parte superior direita</string>
+    <string name="buttons_round_bottom_center">Parte inferior</string>
+    <string name="buttons_round_bottom_left">Parte inferior esquerda</string>
+    <string name="buttons_round_bottom_left_lower">Parte inferior esquerda, em baixo</string>
+    <string name="buttons_round_bottom_left_upper">Parte inferior esquerda, em cima</string>
+    <string name="buttons_round_bottom_right">Parte inferior direita</string>
+    <string name="buttons_round_bottom_right_lower">Parte inferior direita, em baixo</string>
+    <string name="buttons_round_bottom_right_upper">Parte inferior direita, em cima</string>
+    <string name="buttons_round_center_left">No centro, à esquerda</string>
+    <string name="buttons_round_center_right">No centro, à direita</string>
+    <string name="buttons_round_top_center">Parte superior</string>
+    <string name="buttons_round_top_left">Parte superior esquerda</string>
+    <string name="buttons_round_top_left_lower">Parte superior esquerda, em baixo</string>
+    <string name="buttons_round_top_left_upper">Parte superior esquerda, em cima</string>
+    <string name="buttons_round_top_right">Parte superior direita</string>
+    <string name="buttons_round_top_right_lower">Parte superior direita, em baixo</string>
+    <string name="buttons_round_top_right_upper">Parte superior direita, em cima</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Carateres introduzidos: %1$d de %2$d</string>
+    <string name="character_counter_overflowed_content_description">Limite de carateres excedido: %1$d de %2$d</string>
+    <string name="clear_text_end_icon_content_description">Limpar texto</string>
+    <string name="column_heading_template">Título da coluna</string>
+    <string name="column_index_template">Coluna %1$d</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Ativar</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">O %1$s não funciona enquanto não ativar os serviços do Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Ativar serviços do Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instalar</string>
+    <string name="common_google_play_services_install_text">O %1$s não é executado sem os Serviços do Google Play, os quais estão em falta no seu dispositivo.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Obter serviços do Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Disponibilidade Serviços do Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Erro dos Serviços do Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s está a ter problemas com os Serviços do Google Play. Tente novamente.</string>
+    <string name="common_google_play_services_unsupported_text">Não é possível executar o %1$s sem os Serviços do Google Play, os quais não são compatíveis com o seu dispositivo.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Atualizar</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">O %1$s não é executado enquanto não atualizar os serviços do Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Atualizar serviços do Google Play</string>
+    <string name="common_google_play_services_updating_text">O %1$s não é executado sem os serviços do Google Play, os quais estão a ser atualizados.</string>
+    <string name="common_google_play_services_wear_update_text">É necessária uma nova versão dos serviços do Google Play. Esta será atualizada automaticamente em breve.</string>
+    <string name="common_open_on_phone">Abrir no telemóvel</string>
+    <string name="common_signin_button_text">Iniciar sessão</string>
+    <string name="common_signin_button_text_long">Iniciar sessão com o Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Falha"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Aberto no seu telemóvel"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Êxito"</string>
+    <string msgid="3209159573327985035" name="copy">"Copiar"</string>
+    <string name="detected_icon_description">%1$s, ícone detetado</string>
+    <string name="dismiss_overlay_button_label">Sair</string>
+    <string name="error_icon_content_description">Erro</string>
+    <string name="exit_scrim">Sair</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Avançadas"</string>
+    <string name="exposed_dropdown_menu_content_description">Mostrar menu pendente</string>
+    <string name="function_off">O feedback de voz está desativado.</string>
+    <string name="function_on">O feedback de voz está ativado.</string>
+    <string name="generic_cancel">Cancelar</string>
+    <string name="generic_yes">Sim</string>
+    <string name="granularity_character">Carateres</string>
+    <string name="granularity_default">Predefinição</string>
+    <string name="granularity_line">Linhas</string>
+    <string name="granularity_native_control">Controlos</string>
+    <string name="granularity_native_heading">Títulos</string>
+    <string name="granularity_native_link">Links</string>
+    <string name="granularity_paragraph">Parágrafos</string>
+    <string name="granularity_pseudo_web_special_content">Conteúdo especial</string>
+    <string name="granularity_web_control">Controlos</string>
+    <string name="granularity_web_heading">Títulos</string>
+    <string name="granularity_web_landmark">Pontos de referência</string>
+    <string name="granularity_web_link">Links</string>
+    <string name="granularity_web_list">Listas</string>
+    <string name="granularity_window">Janelas</string>
+    <string name="granularity_word">Palavras</string>
+    <string name="heading_template">Cabeçalho</string>
+    <string name="hide_keyboard_window">teclado oculto</string>
+    <string name="hint_suggestion">Sugestões de ortografia disponíveis.</string>
+    <string name="icon_content_description">Ícone de caixa de diálogo</string>
+    <string name="in_collection_role_description">Em %1$s</string>
+    <string name="in_collection_role_description_with_name">Em %1$s %2$s</string>
+    <string name="in_grid">Na grelha</string>
+    <string name="in_grid_pager">Na paginação de grelha.</string>
+    <string name="in_grid_pager_with_name">Na paginação de grelha %1$s.</string>
+    <string name="in_grid_with_name">Na grelha %1$s</string>
+    <string name="in_horizontal_pager">Na paginação horizontal.</string>
+    <string name="in_horizontal_pager_with_name">Na paginação horizontal %1$s.</string>
+    <string name="in_list">Na lista</string>
+    <string name="in_list_with_name">Na lista %1$s</string>
+    <string name="in_pager">Na paginação.</string>
+    <string name="in_pager_with_name">Na paginação %1$s.</string>
+    <string name="in_vertical_pager">Na paginação vertical.</string>
+    <string name="in_vertical_pager_with_name">Na paginação vertical %1$s.</string>
+    <string name="in_window_with_name">Janela %1$s</string>
+    <string name="item_view_role_description">Separador</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Prima a combinação de teclas com a tecla de modificação %1$s para definir um novo atalho.</string>
+    <string name="keycombo_assign_dialog_instruction">Prima a combinação de teclas para definir o novo atalho. Tem de incluir, pelo menos, a tecla ALT ou Control.</string>
+    <string name="keycombo_key_arrow_down">Seta para baixo</string>
+    <string name="keycombo_key_arrow_left">Seta para a esquerda</string>
+    <string name="keycombo_key_arrow_right">Seta para a direita</string>
+    <string name="keycombo_key_arrow_up">Seta para cima</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Pesquisa</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Não atribuído</string>
+    <string name="list_index_template">%1$d de %2$d</string>
+    <string name="material_clock_toggle_content_description">Selecionar AM ou PM</string>
+    <string name="material_hour_selection">Selecionar hora</string>
+    <string name="material_hour_suffix">%1$s hora(s)</string>
+    <string name="material_minute_selection">Selecionar minutos</string>
+    <string name="material_minute_suffix">%1$s minutos</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Mude para o modo de relógio para a introdução da hora.</string>
+    <string name="material_timepicker_hour">Hora</string>
+    <string name="material_timepicker_minute">Minuto</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Selecionar hora</string>
+    <string name="material_timepicker_text_input_mode_description">Mude para o modo de introdução de texto para a introdução da hora.</string>
+    <string name="mtrl_badge_numberless_content_description">Nova notificação</string>
+    <string name="mtrl_chip_close_icon_content_description">Remover %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Mais de %1$d notificações novas</string>
+    <string name="mtrl_picker_a11y_next_month">Mudar para o mês seguinte</string>
+    <string name="mtrl_picker_a11y_prev_month">Mudar para o mês anterior</string>
+    <string name="mtrl_picker_announce_current_selection">Seleção atual: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Selecione a data</string>
+    <string name="mtrl_picker_date_header_unselected">Data selecionada</string>
+    <string name="mtrl_picker_day_of_week_column_header">Coluna de dias: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Formato inválido.</string>
+    <string name="mtrl_picker_invalid_format_example">Exemplo: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Utilize: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Intervalo inválido.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Navegue para o ano %1$s</string>
+    <string name="mtrl_picker_out_of_range">Fora do intervalo: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Data de início – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Data de conclusão</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Selecione o intervalo</string>
+    <string name="mtrl_picker_range_header_unselected">Data de início – Data de conclusão</string>
+    <string name="mtrl_picker_save">Guardar</string>
+    <string name="mtrl_picker_text_input_date_hint">Data</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Data de conclusão</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Data de início</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">a</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Mudar para o modo de introdução de calendário</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Toque para mudar para a seleção do dia</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Mudar para o modo de introdução de texto</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Toque para mudar para a seleção do ano</string>
+    <string name="navigation_drawer_content_description">Gaveta de navegação</string>
+    <string msgid="478774118347071097" name="not_set">"Não definido"</string>
+    <string name="notification_category_alarm">Alarme</string>
+    <string name="notification_category_call">Chamada</string>
+    <string name="notification_category_email">Email</string>
+    <string name="notification_category_err">Erro</string>
+    <string name="notification_category_event">Evento</string>
+    <string name="notification_category_msg">Mensagem</string>
+    <string name="notification_category_progress">Progresso</string>
+    <string name="notification_category_promo">Promoção</string>
+    <string name="notification_category_service">Serviço</string>
+    <string name="notification_category_social">Redes sociais</string>
+    <string name="notification_category_sys">Estado do sistema</string>
+    <string name="notification_category_transport">Controlo de multimédia</string>
+    <string name="notification_type_beginning_of_field">Início do campo</string>
+    <string name="notification_type_end_of_field">Fim do campo</string>
+    <string name="notification_type_selection_cleared">Seleção anulada</string>
+    <string name="notification_type_selection_mode_off">Modo de seleção desativado</string>
+    <string name="notification_type_selection_mode_on">Modo de seleção ativado</string>
+    <string name="ocr_text_description">%1$s, texto</string>
+    <string name="orientation_landscape">Paisagem</string>
+    <string name="orientation_portrait">Retrato</string>
+    <string name="out_of_grid">Fora da grelha</string>
+    <string name="out_of_grid_pager">Fora da paginação de grelha.</string>
+    <string name="out_of_grid_pager_with_name">Fora da paginação de grelha %1$s.</string>
+    <string name="out_of_grid_with_name">Fora da grelha %1$s</string>
+    <string name="out_of_horizontal_pager">Fora da paginação horizontal.</string>
+    <string name="out_of_list">Fora da lista</string>
+    <string name="out_of_list_with_name">Fora da lista %1$s</string>
+    <string name="out_of_pager">Fora da paginação.</string>
+    <string name="out_of_pager_with_name">Fora da paginação %1$s.</string>
+    <string name="out_of_role_description">Fora de %1$s</string>
+    <string name="out_of_role_description_with_name">Fora de %1$s %2$s</string>
+    <string name="out_of_vertical_pager">Fora da paginação vertical.</string>
+    <string name="out_of_vertical_pager_with_name">Fora da paginação vertical %1$s.</string>
+    <string name="password_toggle_content_description">Mostrar palavra-passe</string>
+    <string msgid="7961817945132860002" name="preference_copied">"\"<ns1:g id="SUMMARY">%1$s</ns1:g>\" copiado para a área de transferência."</string>
+    <string name="row_heading_template">Título da linha</string>
+    <string name="row_index_template">Linha %1$d</string>
+    <string name="screen_magnification_off">Ampliação desativada</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Pesquisar"</string>
+    <string name="show_keyboard_window">A mostrar %1$s</string>
+    <string name="spokenfeedback_disabled">Comentários de voz desativados</string>
+    <string name="spokenfeedback_on">Comentários de voz ativados</string>
+    <string name="spokenfeedback_resumed">Comentários de voz retomados</string>
+    <string name="spokenfeedback_suspended">Comentários de voz suspensos</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones">As palavras-passe apenas são lidas quando estiver a utilizar auscultadores.</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Quase igual a</string>
+    <string name="symbol_ampersand">\"E\" comercial</string>
+    <string name="symbol_angle_bracket_left">Sinal de menor do que</string>
+    <string name="symbol_angle_bracket_right">Sinal de maior do que</string>
+    <string name="symbol_apostrophe">Apóstrofo</string>
+    <string name="symbol_approximately_equals">É aproximadamente igual a</string>
+    <string name="symbol_asterisk">Asterisco</string>
+    <string name="symbol_at_sign">Arroba</string>
+    <string name="symbol_backslash">Barra invertida</string>
+    <string name="symbol_beamed_sixteenth_note">Semicolcheias agrupadas</string>
+    <string name="symbol_black_circle">Círculo preto</string>
+    <string name="symbol_black_heart">Coração preto</string>
+    <string name="symbol_black_smallsquare">Quadrado preto pequeno</string>
+    <string name="symbol_black_square">Quadrado preto</string>
+    <string name="symbol_black_star">Estrela preta</string>
+    <string name="symbol_black_suit_of_diamonds">Naipe de ouros preto</string>
+    <string name="symbol_black_triangle_pointing_down">Triângulo preto a apontar para baixo</string>
+    <string name="symbol_black_triangle_pointing_up">Triângulo preto a apontar para cima</string>
+    <string name="symbol_broken_bar">Barra interrompida</string>
+    <string name="symbol_bullet">Marca de lista</string>
+    <string name="symbol_bullseye">Alvo</string>
+    <string name="symbol_caret">Acento circunflexo</string>
+    <string name="symbol_celsius_degree">Grau Celsius</string>
+    <string name="symbol_cent">Sinal de cêntimo</string>
+    <string name="symbol_circle_left_half_black">Círculo com metade esquerda preta</string>
+    <string name="symbol_circle_right_half_black">Círculo com metade direita preta</string>
+    <string name="symbol_colon">Dois pontos</string>
+    <string name="symbol_comma">Vírgula</string>
+    <string name="symbol_copyright">Direitos de autor</string>
+    <string name="symbol_curly_bracket_left">Chaveta esquerda</string>
+    <string name="symbol_curly_bracket_right">Chaveta direita</string>
+    <string name="symbol_currency_sign">Sinal monetário</string>
+    <string name="symbol_degree">Sinal de grau</string>
+    <string name="symbol_division">Sinal de divisão</string>
+    <string name="symbol_dollar_sign">Cifrão</string>
+    <string name="symbol_downwards_arrow">Seta para baixo</string>
+    <string name="symbol_eighth_note">Colcheia</string>
+    <string name="symbol_ellipsis">Reticências</string>
+    <string name="symbol_em_dash">Travessão</string>
+    <string name="symbol_en_dash">Traço</string>
+    <string name="symbol_equal">Sinal de igual</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Ponto de exclamação</string>
+    <string name="symbol_fahrenheit_degree">Grau Fahrenheit</string>
+    <string name="symbol_female">Símbolo feminino</string>
+    <string name="symbol_full_width_ampersand">\"E\" comercial de largura total</string>
+    <string name="symbol_full_width_asterisk">Asterisco de largura total</string>
+    <string name="symbol_full_width_circumflex">Acento circunflexo de largura total</string>
+    <string name="symbol_full_width_colon">Dois pontos de largura total</string>
+    <string name="symbol_full_width_comma">Vírgula de largura total</string>
+    <string name="symbol_full_width_exclamation_mark">Ponto de exclamação de largura total</string>
+    <string name="symbol_full_width_greater_than_sign">Sinal de maior do que de largura total</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ponto final ideográfico</string>
+    <string name="symbol_full_width_left_curly_bracket">Chaveta esquerda de largura total</string>
+    <string name="symbol_full_width_left_parenthesis">Parêntese esquerdo de largura total</string>
+    <string name="symbol_full_width_less_than_sign">Sinal de menor do que de largura total</string>
+    <string name="symbol_full_width_question_mark">Ponto de interrogação de largura total</string>
+    <string name="symbol_full_width_right_curly_bracket">Chaveta direita de largura total</string>
+    <string name="symbol_full_width_right_parenthesis">Parêntese direito de largura total</string>
+    <string name="symbol_full_width_semicolon">Ponto e vírgula de largura total</string>
+    <string name="symbol_full_width_tilde">Til de largura total</string>
+    <string name="symbol_full_width_underscore">Sublinhado de largura total</string>
+    <string name="symbol_grave_accent">Acento grave</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Ponto central katakana de meia largura</string>
+    <string name="symbol_hyphen_minus">Traço</string>
+    <string name="symbol_ideographic_comma">Vírgula ideográfica</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Ponto de exclamação invertido</string>
+    <string name="symbol_inverted_question_mark">Ponto de interrogação invertido</string>
+    <string name="symbol_left_angle_bracket">Colchete angular duplo esquerdo</string>
+    <string name="symbol_left_black_lenticular_bracket">Parêntese lenticular esquerdo preto</string>
+    <string name="symbol_left_corner_bracket">Parêntese esquerdo de canto</string>
+    <string name="symbol_left_double_quotation_mark">Aspas esquerdas</string>
+    <string name="symbol_left_single_quotation_mark">Plica esquerda</string>
+    <string name="symbol_leftwards_arrow">Seta para a esquerda</string>
+    <string name="symbol_liter">Litro</string>
+    <string name="symbol_low_double_quote">Aspas duplas baixas</string>
+    <string name="symbol_male">Símbolo masculino</string>
+    <string name="symbol_mathematical_left_angle_bracket">Parêntesis matemático angular esquerdo</string>
+    <string name="symbol_mathematical_right_angle_bracket">Parêntesis matemático angular direito</string>
+    <string name="symbol_micro_sign">Sinal de micro</string>
+    <string name="symbol_middle_dot">Ponto central</string>
+    <string name="symbol_multiplication">Sinal de multiplicação</string>
+    <string name="symbol_new_line">Nova linha</string>
+    <string name="symbol_not_equals">Não igual a</string>
+    <string name="symbol_not_sign">Sinal de negação</string>
+    <string name="symbol_paragraph_mark">Marca de parágrafo</string>
+    <string name="symbol_parenthesis_left">Parêntese esquerdo</string>
+    <string name="symbol_parenthesis_right">Parêntese direito</string>
+    <string name="symbol_percent">Percentagem</string>
+    <string name="symbol_period">Ponto final</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Sinal de mais e menos</string>
+    <string name="symbol_postal_mark">Símbolo postal</string>
+    <string name="symbol_pound">Libra</string>
+    <string name="symbol_pound_sterling">Sinal monetário de libra</string>
+    <string name="symbol_quarter_note">Semínima</string>
+    <string name="symbol_question_mark">Ponto de interrogação</string>
+    <string name="symbol_quotation_mark">Aspa</string>
+    <string name="symbol_reference">Marca de referência</string>
+    <string name="symbol_registered_trademark">Marca comercial registada</string>
+    <string name="symbol_right_angle_bracket">Colchete angular duplo direito</string>
+    <string name="symbol_right_black_lenticular_bracket">Parêntese lenticular direito preto</string>
+    <string name="symbol_right_corner_bracket">Parêntese direito de canto</string>
+    <string name="symbol_right_double_quotation_mark">Aspas direitas</string>
+    <string name="symbol_right_single_quotation_mark">Plica direita</string>
+    <string name="symbol_rightwards_arrow">Seta para a direita</string>
+    <string name="symbol_rupee">Rupia</string>
+    <string name="symbol_section_sign">Sinal de secção</string>
+    <string name="symbol_semicolon">Ponto e vírgula</string>
+    <string name="symbol_slash">Barra</string>
+    <string name="symbol_solar">Símbolo solar</string>
+    <string name="symbol_space">Espaço</string>
+    <string name="symbol_square_bracket_left">Parêntese reto esquerdo</string>
+    <string name="symbol_square_bracket_right">Parêntese reto direito</string>
+    <string name="symbol_square_root">Raiz quadrada</string>
+    <string name="symbol_tilde">Til</string>
+    <string name="symbol_trademark">Marca comercial</string>
+    <string name="symbol_underscore">Sublinhado</string>
+    <string name="symbol_upwards_arrow">Seta para cima</string>
+    <string name="symbol_vertical_bar">Barra vertical</string>
+    <string name="symbol_white_circle">Círculo branco</string>
+    <string name="symbol_white_club_suit">Naipe branco de paus</string>
+    <string name="symbol_white_diamond">Naipe branco de ouros</string>
+    <string name="symbol_white_down_pointing_triangle">Triângulo branco a apontar para baixo</string>
+    <string name="symbol_white_heart">Naipe branco de copas</string>
+    <string name="symbol_white_left_pointing_index">Mão branca a apontar para a esquerda</string>
+    <string name="symbol_white_left_pointing_triangle">Triângulo branco a apontar para a esquerda</string>
+    <string name="symbol_white_right_pointing_index">Mão branca a apontar para a direita</string>
+    <string name="symbol_white_right_pointing_triangle">Triângulo branco a apontar para a direita</string>
+    <string name="symbol_white_spade_suit">Naipe branco de espadas</string>
+    <string name="symbol_white_square">Quadrado branco</string>
+    <string name="symbol_white_star">Estrela branca</string>
+    <string name="symbol_white_up_pointing_triangle">Triângulo branco a apontar para cima</string>
+    <string name="symbol_won">Sinal monetário de won</string>
+    <string name="symbol_won_sign">Sinal monetário de won</string>
+    <string name="symbol_yen">Iene</string>
+    <string name="talkback_disabled">TalkBack desativado</string>
+    <string name="talkback_on">TalkBack ativado</string>
+    <string name="talkback_resumed">TalkBack retomado</string>
+    <string name="talkback_suspended">TalkBack suspenso</string>
+    <string name="template_announce_selected_text">Texto selecionado: %1$s</string>
+    <string name="template_capital_letter">%1$s maiúsculo</string>
+    <string name="template_collection_level">Nível %1$d</string>
+    <string name="template_current_tts_engine">A utilizar %1$s</string>
+    <string name="template_custom_hint_for_actions">%1$s para %2$s.</string>
+    <string name="template_custom_hint_for_actions_keyboard">Prima %1$s para %2$s.</string>
+    <string name="template_custom_hint_for_long_clickable_actions">%1$s sem soltar para %2$s.</string>
+    <string name="template_drawer_opened">Menu %1$s</string>
+    <string name="template_hint_checkable">%1$s para alternar.</string>
+    <string name="template_hint_checkable_keyboard">Prima %1$s para ativar/desativar.</string>
+    <string name="template_hint_clickable">%1$s para ativar.</string>
+    <string name="template_hint_clickable_keyboard">Prima %1$s para ativar.</string>
+    <string name="template_hint_custom_actions">Ações:</string>
+    <string name="template_hint_edit_text">%1$s para editar texto.</string>
+    <string name="template_hint_edit_text_keyboard">Prima %1$s para editar texto.</string>
+    <string name="template_hint_long_clickable">%1$s sem soltar para premir longamente.</string>
+    <string name="template_hint_long_clickable_keyboard">Prima %1$s para manter premido.</string>
+    <string name="template_hint_menu_type_high_verbosity">%1$s disponível, utilize %2$s para ver.</string>
+    <string name="template_hint_pager">Deslize rapidamente com dois dedos para mudar de página.</string>
+    <string name="template_hint_pager_single_page">Não existem mais páginas.</string>
+    <string name="template_hint_seek_control">Utilizar as teclas de volume para ajustar</string>
+    <string name="template_hint_seek_control_tv">%1$s para alterar.</string>
+    <string name="template_hint_spinner">%1$s para alterar.</string>
+    <string name="template_hint_spinner_keyboard">Prima %1$s para alterar.</string>
+    <string name="template_labeled_item">%1$s para %2$s</string>
+    <string name="template_node_error_with_error_message">Error: %1$s</string>
+    <string name="template_overlay_window">A app %1$s está no modo de imagem na imagem</string>
+    <string name="template_password_selected">Carateres de %1$d a %2$d</string>
+    <string name="template_password_traversed">Caráter %1$d</string>
+    <string name="template_percent">%1$s por cento.</string>
+    <string name="template_replaced_characters">%1$s carateres substituídos por %2$s carateres</string>
+    <string name="template_sa_custom_hint_for_multiple_actions">%1$s para obter as ações disponíveis.</string>
+    <string name="template_sa_custom_hint_scrollable">%1$s para se deslocar.</string>
+    <string name="template_sa_hint_seek_control">Prima o comutador Selecionar para ajustar.</string>
+    <string name="template_screen_magnification_on">Ampliação ativada. %1$d%%</string>
+    <string name="template_screen_magnification_scale_changed">Ampliação: %1$d%%</string>
+    <string name="template_scroll_from_count">A mostrar o item %1$d de %2$d.</string>
+    <string name="template_scroll_from_to_count">A mostrar os itens %1$d a %2$d de %3$d.</string>
+    <string name="template_seekbar_range">%1$d%%</string>
+    <string name="template_speech_rate_change">Taxa de voz de %1$d%%</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s à esquerda e %2$s à direita</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s à direita e %2$s à esquerda</string>
+    <string name="template_split_screen_mode_portrait">%1$s em cima e %2$s em baixo</string>
+    <string name="template_text_copied">copiado, %1$s</string>
+    <string name="template_text_cut">cortado, %1$s</string>
+    <string name="template_text_error">Entrada inválida %1$s</string>
+    <string name="template_text_pasted">colado, %1$s</string>
+    <string name="template_text_removed">%1$s eliminado</string>
+    <string name="template_text_replaced">%1$s substitui %2$s</string>
+    <string name="template_text_selected">%1$s, selecionado</string>
+    <string name="template_text_unselected">%1$s, desselecionado</string>
+    <string name="template_viewpager_index_count">Página %1$d de %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d de %2$d</string>
+    <string name="template_volume_change_decrease">Diminuir</string>
+    <string name="template_volume_change_increase">Aumentar</string>
+    <string name="template_volume_change_maximum">Máximo</string>
+    <string name="template_volume_change_minimum">Mínimo</string>
+    <string name="time_difference_now">Agora</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s</string>
+    <string name="title_action_collapse">Reduzir</string>
+    <string name="title_action_dismiss">Ignorar</string>
+    <string name="title_action_expand">Expandir</string>
+    <string name="untitled_window">sem nome</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"DESATIVADO"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ATIVADO"</string>
+    <string name="value_button">Botão</string>
+    <string name="value_caps_lock_off">Caps Lock desativado.</string>
+    <string name="value_caps_lock_on">Caps Lock ativado.</string>
+    <string name="value_checkbox">Caixa de verificação</string>
+    <string name="value_checked">marcado</string>
+    <string name="value_collapsed">fechada</string>
+    <string name="value_disabled">desativado</string>
+    <string name="value_double_tap">Tocar duas vezes</string>
+    <string name="value_edit_box">Caixa de edição</string>
+    <string name="value_edit_box_editing">A editar</string>
+    <string name="value_expanded">expandida</string>
+    <string name="value_gridview">Grelha</string>
+    <string name="value_image">Imagem</string>
+    <string name="value_listview">Lista</string>
+    <string name="value_not_checked">desmarcado</string>
+    <string name="value_num_lock_off">Num Lock desativado.</string>
+    <string name="value_num_lock_on">Num Lock ativado.</string>
+    <string name="value_off">desativado</string>
+    <string name="value_on">ativado</string>
+    <string name="value_options_menu_open">Opções.</string>
+    <string name="value_pager">Vista de várias páginas</string>
+    <string name="value_pager_page">Página</string>
+    <string name="value_password">palavra-passe</string>
+    <string name="value_press_select">Prima o botão de seleção</string>
+    <string name="value_progress_bar">Barra de progresso</string>
+    <string name="value_radio_button">Botão de opção</string>
+    <string name="value_scroll_lock_off">Scroll Lock desativado.</string>
+    <string name="value_scroll_lock_on">Scroll Lock ativado.</string>
+    <string name="value_seek_bar">Controlo de deslize</string>
+    <string name="value_selected">selecionado</string>
+    <string name="value_single_tap">Tocar</string>
+    <string name="value_sliding_drawer_opened">Gaveta deslizante aberta</string>
+    <string name="value_spinner">Lista pendente</string>
+    <string name="value_switch">Interruptor</string>
+    <string name="value_switch_press">Prima o comutador Selecionar.</string>
+    <string name="value_tabwidget">Barra de separadores</string>
+    <string name="value_text_cleared">Texto apagado</string>
+    <string name="value_text_max_length">Tamanho máximo atingido</string>
+    <string name="value_unlabelled">Sem etiqueta</string>
+    <string name="value_webview">Vista Web</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Gaveta de ações"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Gaveta de navegação"</string>
+</resources>

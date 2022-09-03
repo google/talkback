@@ -1,0 +1,78 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/incremental/mergeWearReleaseResources/merged.dir/values-night-v29/values-night-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/build/intermediates/packaged_res/wear/release/values-night-v29/values-night-v29.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,133,224,301,370,435",
+                        "endColumns": "77,90,76,68,64,71",
+                        "endOffsets": "128,219,296,365,430,502"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-night-v29/colors.xml",
+                    "from": {
+                        "startLines": "-1,31,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,1407,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endColumns": "-1,57,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endOffsets": "-1,1462,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "507,581,641,708,776,849,912,976,1031,1092,1150,1227,1280,1344,1405,1465,1524",
+                        "endColumns": "73,59,66,67,72,62,63,54,60,57,76,52,63,60,59,58,53",
+                        "endOffsets": "576,636,703,771,844,907,971,1026,1087,1145,1222,1275,1339,1400,1460,1519,1573"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/talkback/build/intermediates/res/merged/wear/release/values-night-v29/values-night-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/build/intermediates/packaged_res/wear/release/values-night-v29/values-night-v29.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,133,224,301,370,435",
+                        "endColumns": "77,90,76,68,64,71",
+                        "endOffsets": "128,219,296,365,430,502"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/talkback/src/main/res/values-night-v29/colors.xml",
+                    "from": {
+                        "startLines": "-1,31,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,1407,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endColumns": "-1,57,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "endOffsets": "-1,1462,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "507,581,641,708,776,849,912,976,1031,1092,1150,1227,1280,1344,1405,1465,1524",
+                        "endColumns": "73,59,66,67,72,62,63,54,60,57,76,52,63,60,59,58,53",
+                        "endOffsets": "576,636,703,771,844,907,971,1026,1087,1145,1222,1275,1339,1400,1460,1519,1573"
+                    }
+                }
+            ]
+        }
+    ]
+}

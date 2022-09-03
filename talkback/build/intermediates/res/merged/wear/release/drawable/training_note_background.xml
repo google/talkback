@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="@dimen/training_note_padding"
+    android:shape="rectangle">
+  <corners android:radius="@dimen/training_note_corner_radius" />
+  <stroke
+      android:width="@dimen/training_note_stroke_width"
+      android:color="@color/training_note_border_color" />
+</shape>

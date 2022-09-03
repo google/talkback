@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d ny avisering</item>
+    <item quantity="other">%d nya aviseringar</item>
+  </plurals>
+    <plurals name="time_difference_short_days"><item quantity="one">%d d</item>
+<item quantity="other">%d d</item>
+</plurals>
+    <plurals name="time_difference_short_hours"><item quantity="one">%d tim.</item>
+<item quantity="other">%d tim.</item>
+</plurals>
+    <plurals name="time_difference_short_minutes"><item quantity="one">%d min</item>
+<item quantity="other">%d min</item>
+</plurals>
+    <plurals name="time_difference_words_days"><item quantity="one">%d dag</item>
+<item quantity="other">%d dagar</item>
+</plurals>
+    <plurals name="time_difference_words_hours"><item quantity="one">%d tim.</item>
+<item quantity="other">%d tim.</item>
+</plurals>
+    <plurals name="time_difference_words_minutes"><item quantity="one">%d min</item>
+<item quantity="other">%d min</item>
+</plurals>
+    <string name="a11y_no_data">Ingen data</string>
+    <string name="a11y_no_permission">Ingen åtkomst till data</string>
+    <string name="a11y_template_range">%1$f av %2$f</string>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navigera hem"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navigera uppåt"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Fler alternativ"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Klar"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Visa alla"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Välj en app"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"AV"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"PÅ"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt + "</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl + "</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"retur"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Funktion + "</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta + "</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Skift + "</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"blanksteg"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Symbol + "</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Meny + "</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Sök …"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Ta bort frågan"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Sökfråga"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Sök"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Skicka fråga"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Röstsökning"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Dela med"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Dela med <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Komprimera"</string>
+    <string name="bottomsheet_action_expand_halfway">Utöka till hälften</string>
+    <string name="buttons_rect_bottom_center">Längst ned</string>
+    <string name="buttons_rect_bottom_left">Längst ned till vänster</string>
+    <string name="buttons_rect_bottom_right">Längst ned till höger</string>
+    <string name="buttons_rect_left_bottom">Längst ned till vänster</string>
+    <string name="buttons_rect_left_center">I mitten till vänster</string>
+    <string name="buttons_rect_left_top">Högst upp till vänster</string>
+    <string name="buttons_rect_right_bottom">Längst ned till höger</string>
+    <string name="buttons_rect_right_center">I mitten till höger</string>
+    <string name="buttons_rect_right_top">Högst upp till höger</string>
+    <string name="buttons_rect_top_center">Högst upp</string>
+    <string name="buttons_rect_top_left">Högst upp till vänster</string>
+    <string name="buttons_rect_top_right">Högst upp till höger</string>
+    <string name="buttons_round_bottom_center">Längst ned</string>
+    <string name="buttons_round_bottom_left">Längst ned till vänster</string>
+    <string name="buttons_round_bottom_left_lower">Längst ned till vänster, lägre</string>
+    <string name="buttons_round_bottom_left_upper">Längst ned till vänster, övre</string>
+    <string name="buttons_round_bottom_right">Längst ned till höger</string>
+    <string name="buttons_round_bottom_right_lower">Längst ned till höger, lägre</string>
+    <string name="buttons_round_bottom_right_upper">Längst ned till höger, övre</string>
+    <string name="buttons_round_center_left">I mitten till vänster</string>
+    <string name="buttons_round_center_right">I mitten till höger</string>
+    <string name="buttons_round_top_center">Högst upp</string>
+    <string name="buttons_round_top_left">Högst upp till vänster</string>
+    <string name="buttons_round_top_left_lower">Högst upp till vänster, lägre</string>
+    <string name="buttons_round_top_left_upper">Högst upp till vänster, övre</string>
+    <string name="buttons_round_top_right">Högst upp till höger</string>
+    <string name="buttons_round_top_right_lower">Högst upp till höger, lägre</string>
+    <string name="buttons_round_top_right_upper">Högst upp till höger, övre</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%1$d av %2$d tecken har angetts</string>
+    <string name="character_counter_overflowed_content_description">Teckengränsen har överskridits: %1$d av %2$d</string>
+    <string name="clear_text_end_icon_content_description">Rensa text</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktivera</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s fungerar inte om du inte aktiverar Google Play-tjänster.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Aktivera Google Play-tjänster</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installera</string>
+    <string name="common_google_play_services_install_text">%1$s kan inte köras utan Google Play-tjänsterna, som saknas på enheten.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Hämta Google Play-tjänster</string>
+    <string name="common_google_play_services_notification_channel_name">Tillgänglighet för Google Plays tjänster</string>
+    <string name="common_google_play_services_notification_ticker">Fel på Google Play-tjänster</string>
+    <string name="common_google_play_services_unknown_issue">Det har uppstått ett fel mellan %1$s och Google Play-tjänsterna. Försök igen.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s fungerar inte utan Google Play-tjänsterna, som inte stöds på enheten.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Uppdatera</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s kan inte köras om du inte uppdaterar Google Play-tjänsterna.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Uppdatera Google Play-tjänster</string>
+    <string name="common_google_play_services_updating_text">%1$s kan inte köras utan Google Play-tjänster, och dessa uppdateras för närvarande.</string>
+    <string name="common_google_play_services_wear_update_text">En ny version av Google Play-tjänster krävs. Den uppdateras automatiskt inom kort.</string>
+    <string name="common_open_on_phone">Öppna på mobilen</string>
+    <string name="common_signin_button_text">Logga in</string>
+    <string name="common_signin_button_text_long">Logga in med Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Fel"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Öppnades på telefonen"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Klart"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopiera"</string>
+    <string name="dismiss_overlay_button_label">Avsluta</string>
+    <string name="error_icon_content_description">Fel</string>
+    <string name="exit_scrim">Stäng</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Avancerat"</string>
+    <string name="exposed_dropdown_menu_content_description">Visa rullgardinsmenyn</string>
+    <string name="function_off">Talad feedback har inaktiverats</string>
+    <string name="function_on">Talad feedback har aktiverats</string>
+    <string name="generic_cancel">Avbryt</string>
+    <string name="generic_yes">Ja</string>
+    <string name="granularity_character">Tecken</string>
+    <string name="granularity_default">Standard</string>
+    <string name="granularity_line">Rader</string>
+    <string name="granularity_native_control">Kontroller</string>
+    <string name="granularity_native_heading">Rubriker</string>
+    <string name="granularity_native_link">Länkar</string>
+    <string name="granularity_paragraph">Stycken</string>
+    <string name="granularity_pseudo_web_special_content">Specialinnehåll</string>
+    <string name="granularity_web_control">Kontroller</string>
+    <string name="granularity_web_heading">Rubriker</string>
+    <string name="granularity_web_landmark">Landmärken</string>
+    <string name="granularity_web_link">Länkar</string>
+    <string name="granularity_web_list">Listor</string>
+    <string name="granularity_window">Fönster</string>
+    <string name="granularity_word">Ord</string>
+    <string name="hide_keyboard_window">tangentbordet har dolts</string>
+    <string name="icon_content_description">Dialogikon</string>
+    <string name="item_view_role_description">Flik</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Ange ett nytt kortkommando genom att trycka på en tangentkombination med specialtangenten %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Ange ett nytt kortkommando genom att trycka på en tangentkombination. Alt eller Ctrl måste vara en av tangenterna.</string>
+    <string name="keycombo_key_arrow_down">Nedåtpil</string>
+    <string name="keycombo_key_arrow_left">Vänsterpil</string>
+    <string name="keycombo_key_arrow_right">Högerpil</string>
+    <string name="keycombo_key_arrow_up">Uppåtpil</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Sök</string>
+    <string name="keycombo_key_modifier_shift">Skift</string>
+    <string name="keycombo_unassigned">Ej tilldelade</string>
+    <string name="material_clock_toggle_content_description">Välj mellan FM och EM</string>
+    <string name="material_hour_selection">Ange timme</string>
+    <string name="material_hour_suffix">Klockan %1$s</string>
+    <string name="material_minute_selection">Välj minuter</string>
+    <string name="material_minute_suffix">%1$s minuter</string>
+    <string name="material_timepicker_am">FM</string>
+    <string name="material_timepicker_clock_mode_description">Byt till klockläget och ange tid.</string>
+    <string name="material_timepicker_hour">Timme</string>
+    <string name="material_timepicker_minute">Minut</string>
+    <string name="material_timepicker_pm">EM</string>
+    <string name="material_timepicker_select_time">Välj tid</string>
+    <string name="material_timepicker_text_input_mode_description">Byt till textinmatningsläget och ange tid.</string>
+    <string name="mtrl_badge_numberless_content_description">Ny avisering</string>
+    <string name="mtrl_chip_close_icon_content_description">Ta bort (%1$s)</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Fler än %1$d nya aviseringar</string>
+    <string name="mtrl_picker_a11y_next_month">Ändra till nästa månad</string>
+    <string name="mtrl_picker_a11y_prev_month">Ändra till föregående månad</string>
+    <string name="mtrl_picker_announce_current_selection">Aktuellt val: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Välj datum</string>
+    <string name="mtrl_picker_date_header_unselected">Valt datum</string>
+    <string name="mtrl_picker_day_of_week_column_header">Kolumn med dagar: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Ogiltigt format.</string>
+    <string name="mtrl_picker_invalid_format_example">Exempel: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Använd %1$s</string>
+    <string name="mtrl_picker_invalid_range">Ogiltigt intervall.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Navigera till år %1$s</string>
+    <string name="mtrl_picker_out_of_range">Utanför intervallet: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Startdatum–%1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s–slutdatum</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_title">Välj intervall</string>
+    <string name="mtrl_picker_range_header_unselected">Startdatum–slutdatum</string>
+    <string name="mtrl_picker_save">Spara</string>
+    <string name="mtrl_picker_text_input_date_hint">Datum</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Slutdatum</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Startdatum</string>
+    <string name="mtrl_picker_text_input_day_abbr">d</string>
+    <string name="mtrl_picker_text_input_month_abbr">m</string>
+    <string name="mtrl_picker_text_input_year_abbr">å</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Byt till kalender som inmatningsläge</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Byt till att välja en dag genom att trycka</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Byt till text som inmatningsläge</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Byt till att välja ett år genom att trycka</string>
+    <string name="navigation_drawer_content_description">Navigeringspanel</string>
+    <string msgid="478774118347071097" name="not_set">"Inte angett"</string>
+    <string name="password_toggle_content_description">Visa lösenord</string>
+    <string msgid="7961817945132860002" name="preference_copied">"<ns1:g id="SUMMARY">%1$s</ns1:g> har kopierats till Urklipp."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Sök"</string>
+    <string name="show_keyboard_window">%1$s visas</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Nästan lika med</string>
+    <string name="symbol_ampersand">Et-tecken</string>
+    <string name="symbol_angle_bracket_left">Mindre än-tecken</string>
+    <string name="symbol_angle_bracket_right">Större än-tecken</string>
+    <string name="symbol_apostrophe">Apostrof</string>
+    <string name="symbol_approximately_equals">Ungefär lika med</string>
+    <string name="symbol_asterisk">Asterisk</string>
+    <string name="symbol_at_sign">Snabel-a</string>
+    <string name="symbol_backslash">Omvänt snedstreck</string>
+    <string name="symbol_beamed_sixteenth_note">Hopbundna sextondelsnoter</string>
+    <string name="symbol_black_circle">Svart cirkel</string>
+    <string name="symbol_black_heart">Svart hjärta</string>
+    <string name="symbol_black_smallsquare">Liten svart kvadrat</string>
+    <string name="symbol_black_square">Svart kvadrat</string>
+    <string name="symbol_black_star">Svart stjärna</string>
+    <string name="symbol_black_suit_of_diamonds">Svarta ruter</string>
+    <string name="symbol_black_triangle_pointing_down">Svart triangel som pekar nedåt</string>
+    <string name="symbol_black_triangle_pointing_up">Svart triangel som pekar uppåt</string>
+    <string name="symbol_broken_bar">Broken bar</string>
+    <string name="symbol_bullet">Punktlista</string>
+    <string name="symbol_bullseye">Prick</string>
+    <string name="symbol_caret">Cirkumflex</string>
+    <string name="symbol_celsius_degree">Celsius-tecken</string>
+    <string name="symbol_cent">Cent-tecken</string>
+    <string name="symbol_circle_left_half_black">Cirkel med svart vänsterhalva</string>
+    <string name="symbol_circle_right_half_black">Cirkel med svart högerhalva</string>
+    <string name="symbol_colon">Kolon</string>
+    <string name="symbol_comma">Komma</string>
+    <string name="symbol_copyright">Copyright-symbol</string>
+    <string name="symbol_curly_bracket_left">Vänster klammerparentes</string>
+    <string name="symbol_curly_bracket_right">Höger klammerparentes</string>
+    <string name="symbol_currency_sign">Valutatecken</string>
+    <string name="symbol_degree">Gradtecken</string>
+    <string name="symbol_division">Divisionstecken</string>
+    <string name="symbol_dollar_sign">Dollartecken</string>
+    <string name="symbol_downwards_arrow">Nedåtpil</string>
+    <string name="symbol_eighth_note">Åttondelsnot</string>
+    <string name="symbol_ellipsis">Ellips</string>
+    <string name="symbol_em_dash">Långt tankstreck</string>
+    <string name="symbol_en_dash">Tankstreck</string>
+    <string name="symbol_equal">Lika med-tecken</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Utropstecken</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheit-tecken</string>
+    <string name="symbol_female">Kvinnosymbol</string>
+    <string name="symbol_full_width_ampersand">Et-tecken, full bredd</string>
+    <string name="symbol_full_width_asterisk">Asterisk, full bredd</string>
+    <string name="symbol_full_width_circumflex">Cirkumflex, full bredd</string>
+    <string name="symbol_full_width_colon">Kolon, full bredd</string>
+    <string name="symbol_full_width_comma">Kommatecken, full bredd</string>
+    <string name="symbol_full_width_exclamation_mark">Utropstecken, full bredd</string>
+    <string name="symbol_full_width_greater_than_sign">Större än-tecken, full bredd</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideografisk punkt</string>
+    <string name="symbol_full_width_left_curly_bracket">Vänster klammerparentes, full bredd</string>
+    <string name="symbol_full_width_left_parenthesis">Vänsterparentes, full bredd</string>
+    <string name="symbol_full_width_less_than_sign">Mindre än-tecken, full bredd</string>
+    <string name="symbol_full_width_question_mark">Frågetecken, full bredd</string>
+    <string name="symbol_full_width_right_curly_bracket">Höger klammerparentes, full bredd</string>
+    <string name="symbol_full_width_right_parenthesis">Högerparentes, full bredd</string>
+    <string name="symbol_full_width_semicolon">Semikolon, full bredd</string>
+    <string name="symbol_full_width_tilde">Tilde, full bredd</string>
+    <string name="symbol_full_width_underscore">Understreck, full bredd</string>
+    <string name="symbol_grave_accent">Grav accent</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Halvhög punkt för katakana, halv bredd</string>
+    <string name="symbol_hyphen_minus">Bindestreck</string>
+    <string name="symbol_ideographic_comma">Ideografiskt kommatecken</string>
+    <string name="symbol_integral">Integral</string>
+    <string name="symbol_inverted_exclamation_mark">Upp och nedvänt utropstecken</string>
+    <string name="symbol_inverted_question_mark">Upp och nedvänt frågetecken</string>
+    <string name="symbol_left_angle_bracket">Dubbel vinkelparentes, vänster</string>
+    <string name="symbol_left_black_lenticular_bracket">Linsformad svart vänsterparentes</string>
+    <string name="symbol_left_corner_bracket">Vänster hakparentes</string>
+    <string name="symbol_left_double_quotation_mark">Dubbla citattecken, vänster</string>
+    <string name="symbol_left_single_quotation_mark">Enkelt citattecken, vänster</string>
+    <string name="symbol_leftwards_arrow">Vänsterpil</string>
+    <string name="symbol_liter">Liter</string>
+    <string name="symbol_low_double_quote">Nedre dubbla citattecken</string>
+    <string name="symbol_male">Manssymbol</string>
+    <string name="symbol_mathematical_left_angle_bracket">Vänster vinkelparentes</string>
+    <string name="symbol_mathematical_right_angle_bracket">Höger vinkelparentes</string>
+    <string name="symbol_micro_sign">Mikrotecken</string>
+    <string name="symbol_middle_dot">Halvhög punkt</string>
+    <string name="symbol_multiplication">Multiplikationstecken</string>
+    <string name="symbol_new_line">Ny rad</string>
+    <string name="symbol_not_equals">Inte lika med</string>
+    <string name="symbol_not_sign">Inte-tecken</string>
+    <string name="symbol_paragraph_mark">Stycketecken</string>
+    <string name="symbol_parenthesis_left">Vänsterparentes</string>
+    <string name="symbol_parenthesis_right">Högerparentes</string>
+    <string name="symbol_percent">Procent</string>
+    <string name="symbol_period">Punkt</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Plus/minus-tecken</string>
+    <string name="symbol_postal_mark">Postmärke</string>
+    <string name="symbol_pound">Fyrkant</string>
+    <string name="symbol_pound_sterling">Valutatecken för pund</string>
+    <string name="symbol_quarter_note">Fjärdedelsnot</string>
+    <string name="symbol_question_mark">Frågetecken</string>
+    <string name="symbol_quotation_mark">Citattecken</string>
+    <string name="symbol_reference">Referensmarkering</string>
+    <string name="symbol_registered_trademark">Registrerat varumärke</string>
+    <string name="symbol_right_angle_bracket">Dubbel vinkelparentes, höger</string>
+    <string name="symbol_right_black_lenticular_bracket">Linsformad svart högerparentes</string>
+    <string name="symbol_right_corner_bracket">Höger hakparentes</string>
+    <string name="symbol_right_double_quotation_mark">Dubbla citattecken, höger</string>
+    <string name="symbol_right_single_quotation_mark">Enkelt citattecken, höger</string>
+    <string name="symbol_rightwards_arrow">Högerpil</string>
+    <string name="symbol_rupee">Rupie</string>
+    <string name="symbol_section_sign">Paragraftecken</string>
+    <string name="symbol_semicolon">Semikolon</string>
+    <string name="symbol_slash">Snedstreck</string>
+    <string name="symbol_solar">Solsymbol</string>
+    <string name="symbol_space">Blanksteg</string>
+    <string name="symbol_square_bracket_left">Vänster hakparentes</string>
+    <string name="symbol_square_bracket_right">Höger hakparentes</string>
+    <string name="symbol_square_root">Kvadratrot</string>
+    <string name="symbol_tilde">Tilde</string>
+    <string name="symbol_trademark">Varumärke</string>
+    <string name="symbol_underscore">Understreck</string>
+    <string name="symbol_upwards_arrow">Uppåtpil</string>
+    <string name="symbol_vertical_bar">Lodrät linje</string>
+    <string name="symbol_white_circle">Vit cirkel</string>
+    <string name="symbol_white_club_suit">Vitt klövertecken</string>
+    <string name="symbol_white_diamond">Vitt rutertecken</string>
+    <string name="symbol_white_down_pointing_triangle">Vit triangel som pekar nedåt</string>
+    <string name="symbol_white_heart">Vitt hjärtertecken</string>
+    <string name="symbol_white_left_pointing_index">Vitt pekfinger som pekar åt vänster</string>
+    <string name="symbol_white_left_pointing_triangle">Vit triangel som pekar åt vänster</string>
+    <string name="symbol_white_right_pointing_index">Vitt pekfinger som pekar åt höger</string>
+    <string name="symbol_white_right_pointing_triangle">Vit triangel som pekar åt höger</string>
+    <string name="symbol_white_spade_suit">Vitt spadertecken</string>
+    <string name="symbol_white_square">Vit kvadrat</string>
+    <string name="symbol_white_star">Vit stjärna</string>
+    <string name="symbol_white_up_pointing_triangle">Vit triangel som pekar uppåt</string>
+    <string name="symbol_won">Valutatecken för won</string>
+    <string name="symbol_won_sign">Valutatecken för won</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="template_capital_letter">versalt %1$s</string>
+    <string name="template_current_tts_engine">%1$s används</string>
+    <string name="template_overlay_window">Bild-i-bild för %1$s</string>
+    <string name="template_password_selected">Tecken från %1$d till %2$d</string>
+    <string name="template_password_traversed">Tecken %1$d</string>
+    <string name="template_scroll_from_count">Visar objekt %1$d av %2$d.</string>
+    <string name="template_scroll_from_to_count">Visar objekt %1$d till %2$d av %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s till vänster, %2$s till höger</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s till höger, %2$s till vänster</string>
+    <string name="template_split_screen_mode_portrait">%1$s upptill, %2$s nedtill</string>
+    <string name="template_text_copied">kopierade, %1$s</string>
+    <string name="template_viewpager_index_count">Sida %1$d av %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d av %2$d</string>
+    <string name="time_difference_now">Nu</string>
+    <string name="time_difference_short_days_and_hours">%1$s %2$s﻿</string>
+    <string name="time_difference_short_hours_and_minutes">%1$s %2$s﻿</string>
+    <string name="untitled_window">namnlös</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"AV"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"PÅ"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Åtgärdspanel"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Navigeringspanel"</string>
+</resources>

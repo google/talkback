@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:fillViewport="true">
+
+  <LinearLayout
+      android:id="@+id/training_page"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingStart="@dimen/training_padding_start"
+      android:paddingEnd="@dimen/training_padding_end"
+      android:paddingBottom="@dimen/training_padding_bottom"
+      android:background="@color/training_background_color"
+      android:orientation="vertical" />
+
+</ScrollView>
+

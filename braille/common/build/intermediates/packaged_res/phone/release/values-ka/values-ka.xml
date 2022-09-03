@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">წერტილი %s</item>
+    <item quantity="other">წერტილები %s</item>
+  </plurals>
+    <string name="auto_detect">მოწყობილობის დაჭერასთან მიჩვევა</string>
+    <string name="capitalize_announcement">ზედა ზღვარი</string>
+    <string name="code_user_facing_name_ar">არაბული</string>
+    <string name="code_user_facing_name_es">ესპანური</string>
+    <string name="code_user_facing_name_fr">ფრანგული</string>
+    <string name="code_user_facing_name_pl">პოლონური</string>
+    <string name="code_user_facing_name_ueb1">ერთიანი შეუკვეცავი ბრაილის შრიფტი ინგლისურისთვის</string>
+    <string name="code_user_facing_name_ueb2">ერთიანი შეკვეცილი ბრაილის შრიფტი ინგლისურისთვის</string>
+    <string name="number_announcement">ნომერი</string>
+    <string name="read_out_deleted">%s წაიშალა</string>
+    <string name="screen_away">მიბრუნებული ეკრანის რეჟიმი</string>
+    <string name="screen_away_detail">გეჭიროთ მოწყობილობა თქვენგან მიბრუნებული ეკრანით (მიბრუნებული ეკრანის რეჟიმი)</string>
+    <string name="tabletop">სამაგიდო რეჟიმი</string>
+    <string name="tabletop_detail">მოათავსეთ მოწყობილობა ბრტყლად მაგიდაზე (მაგიდის რეჟიმი)</string>
+</resources>

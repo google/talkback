@@ -1,0 +1,68 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/res/merged/phone/release/values-night-v29/values-night-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/braille/brailleime/src/phone/res/values-night-v29/colors.xml",
+                    "from": {
+                        "startLines": "5,8,3,4",
+                        "startColumns": "2,2,2,2",
+                        "startOffsets": "205,282,73,137",
+                        "endColumns": "57,55,63,67",
+                        "endOffsets": "260,335,134,202"
+                    },
+                    "to": {
+                        "startLines": "8,9,10,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "507,567,625,691",
+                        "endColumns": "59,57,65,69",
+                        "endOffsets": "562,620,686,756"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/build/intermediates/packaged_res/phone/release/values-night-v29/values-night-v29.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,133,224,301,370,435",
+                        "endColumns": "77,90,76,68,64,71",
+                        "endOffsets": "128,219,296,365,430,502"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/braille/brailleime/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-night-v29/values-night-v29.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/repo/talkback/braille/brailleime/src/phone/res/values-night-v29/colors.xml",
+                    "from": {
+                        "startLines": "5,8,3,4",
+                        "startColumns": "2,2,2,2",
+                        "startOffsets": "205,282,73,137",
+                        "endColumns": "57,55,63,67",
+                        "endOffsets": "260,335,134,202"
+                    },
+                    "to": {
+                        "startLines": "8,9,10,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "507,567,625,691",
+                        "endColumns": "59,57,65,69",
+                        "endOffsets": "562,620,686,756"
+                    }
+                },
+                {
+                    "source": "/Users/quintinb/repo/talkback/utils/build/intermediates/packaged_res/phone/release/values-night-v29/values-night-v29.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,133,224,301,370,435",
+                        "endColumns": "77,90,76,68,64,71",
+                        "endOffsets": "128,219,296,365,430,502"
+                    }
+                }
+            ]
+        }
+    ]
+}

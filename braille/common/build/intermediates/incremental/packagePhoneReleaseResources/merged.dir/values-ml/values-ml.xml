@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="braille_dots">
+    <item quantity="one">%s ഡോട്ട്</item>
+    <item quantity="other">%s ഡോട്ടുകൾ</item>
+  </plurals>
+    <string name="auto_detect">നിങ്ങൾ ഉപകരണം പിടിക്കുന്ന രീതിക്ക് അനുസൃതമാക്കൂ</string>
+    <string name="capitalize_announcement">വലിയക്ഷരമാക്കി</string>
+    <string name="code_user_facing_name_ar">അറബിക്</string>
+    <string name="code_user_facing_name_es">സ്‌പാനിഷ്</string>
+    <string name="code_user_facing_name_fr">ഫ്രഞ്ച്</string>
+    <string name="code_user_facing_name_pl">പോളിഷ്</string>
+    <string name="code_user_facing_name_ueb1">യൂണിഫൈഡ് ഇംഗ്ലീഷ് ബ്രെയ്‌ലി ചുരുക്കിയത് മാറ്റി</string>
+    <string name="code_user_facing_name_ueb2">യൂണിഫൈഡ് ഇംഗ്ലീഷ് ബ്രെയ്‌ലി ചുരുക്കി</string>
+    <string name="number_announcement">നമ്പർ</string>
+    <string name="read_out_deleted">%s ഇല്ലാതാക്കി</string>
+    <string name="screen_away">സ്ക്രീൻ എവേ മോഡ്</string>
+    <string name="screen_away_detail">സ്ക്രീൻ നിങ്ങൾക്ക് അഭിമുഖമല്ലാത്ത രീതിയിൽ തിരിച്ച് പിടിക്കുക (സ്ക്രീൻ എവേ മോഡ്)</string>
+    <string name="tabletop">ടേബിൾടോപ്പ് മോഡ്</string>
+    <string name="tabletop_detail">ഉപകരണം മേശപ്പുറത്ത് വയ്ക്കുക (ടേബിൾടോപ്പ് മോഡ്)</string>
+</resources>

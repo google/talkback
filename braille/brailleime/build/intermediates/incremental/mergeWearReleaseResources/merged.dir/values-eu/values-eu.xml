@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d jakinarazpen berri</item>
+    <item quantity="other">%d jakinarazpen berri</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Joan orri nagusira"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Joan gora"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Aukera gehiago"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Eginda"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Ikusi guztiak"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Aukeratu aplikazio bat"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"DESAKTIBATU"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"AKTIBATU"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ktrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"ezabatu"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"sartu"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Funtzioa +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Maius +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"zuriunea"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menua +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Bilatu…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Garbitu kontsulta"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Bilaketa-kontsulta"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Bilatu"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Bidali kontsulta"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Ahozko bilaketa"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Partekatu honekin"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Partekatu <ns1:g id="APPLICATION_NAME">%s</ns1:g> aplikazioarekin"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Tolestu"</string>
+    <string name="bottomsheet_action_expand_halfway">Zabaldu erdiraino</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">%1$d/%2$d karaktere idatzi dira</string>
+    <string name="character_counter_overflowed_content_description">Karaktere-muga gainditu da: %1$d/%2$d</string>
+    <string name="clear_text_end_icon_content_description">Garbitu testua</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Gaitu</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s aplikazioak ez du funtzionatuko Google Play Services gaitzen ez baduzu.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Gaitu Google Play Services</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instalatu</string>
+    <string name="common_google_play_services_install_text">%1$s ez da exekutatuko Google Play Services gabe, baina ez dago halakorik gailuan.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Lortu Google Play Services</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play Services-en erabilgarritasuna</string>
+    <string name="common_google_play_services_notification_ticker">Google Play Services-en errorea</string>
+    <string name="common_google_play_services_unknown_issue">%1$s aplikazioak arazoak ditu Google Play Services-ekin. Saiatu berriro.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s aplikazioa ezin da erabili Google Play Services gabe, baina zure gailua ez da harekin bateragarria.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Eguneratu</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s ez da exekutatuko Google Play Services eguneratzen ez baduzu.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Eguneratu Google Play Services</string>
+    <string name="common_google_play_services_updating_text">%1$s ez da exekutatuko Google Play Services gabe; zerbitzu hori eguneratzen ari da.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play Services-en bertsio berria behar da. Berehala eguneratuko da automatikoki.</string>
+    <string name="common_open_on_phone">Ireki telefonoan</string>
+    <string name="common_signin_button_text">Hasi saioa</string>
+    <string name="common_signin_button_text_long">Hasi saioa Google-ko kontuarekin</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Hutsegitea"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Telefonoan ireki da"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Gauzatu da ekintza"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopiatu"</string>
+    <string name="error_icon_content_description">Errorea</string>
+    <string name="exit_scrim">Irten</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Hobespen aurreratuak"</string>
+    <string name="exposed_dropdown_menu_content_description">Erakutsi goitibeherako menua</string>
+    <string name="function_off">Desaktibatu dira ahozko argibideak</string>
+    <string name="function_on">Aktibatu dira ahozko argibideak</string>
+    <string name="granularity_character">Karaktereak</string>
+    <string name="granularity_default">Lehenetsia</string>
+    <string name="granularity_line">Lerroak</string>
+    <string name="granularity_native_control">Kontrolatzeko aukerak</string>
+    <string name="granularity_native_heading">Goiburuak</string>
+    <string name="granularity_native_link">Estekak</string>
+    <string name="granularity_paragraph">Paragrafoak</string>
+    <string name="granularity_pseudo_web_special_content">Eduki berezia</string>
+    <string name="granularity_web_control">Kontrolatzeko aukerak</string>
+    <string name="granularity_web_heading">Goiburuak</string>
+    <string name="granularity_web_landmark">Mugarriak</string>
+    <string name="granularity_web_link">Estekak</string>
+    <string name="granularity_web_list">Zerrendak</string>
+    <string name="granularity_window">Leihoak</string>
+    <string name="granularity_word">Hitzak</string>
+    <string name="hide_keyboard_window">teklatua ezkutatuta</string>
+    <string name="icon_content_description">Leihoko ikonoa</string>
+    <string name="item_view_role_description">Fitxa</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Beste lasterbide bat ezartzeko, sakatu teklen konbinazioa %1$s tekla aldatzailearekin batera.</string>
+    <string name="keycombo_assign_dialog_instruction">Sakatu teklen konbinazioa beste lasterbide bat sortzeko. Gutxienez ALT edo Kontrol tekla izan behar du.</string>
+    <string name="keycombo_key_arrow_down">Behera gezia</string>
+    <string name="keycombo_key_arrow_left">Ezkerrera gezia</string>
+    <string name="keycombo_key_arrow_right">Eskuinera gezia</string>
+    <string name="keycombo_key_arrow_up">Gora gezia</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ktrl</string>
+    <string name="keycombo_key_modifier_meta">Bilatu</string>
+    <string name="keycombo_key_modifier_shift">Maius</string>
+    <string name="keycombo_unassigned">Esleitu gabe</string>
+    <string name="material_clock_toggle_content_description">Hautatu AM edo PM</string>
+    <string name="material_hour_selection">Hautatu ordua</string>
+    <string name="material_hour_suffix">%1$s(r)ak dira</string>
+    <string name="material_minute_selection">Hautatu minutuak</string>
+    <string name="material_minute_suffix">%1$s minutu</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Aldatu erloju modura ordua zehazteko.</string>
+    <string name="material_timepicker_hour">Ordua</string>
+    <string name="material_timepicker_minute">Minutua</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Hautatu ordua</string>
+    <string name="material_timepicker_text_input_mode_description">Ordua idazteko, aldatu testua idazteko metodora.</string>
+    <string name="mtrl_badge_numberless_content_description">Jakinarazpen berria</string>
+    <string name="mtrl_chip_close_icon_content_description">Kendu %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d jakinarazpen berri baino gehiago</string>
+    <string name="mtrl_picker_a11y_next_month">Aldatu hurrengo hilabetera</string>
+    <string name="mtrl_picker_a11y_prev_month">Aldatu aurreko hilabetera</string>
+    <string name="mtrl_picker_announce_current_selection">Oraingo hautapena: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Hautatu data</string>
+    <string name="mtrl_picker_date_header_unselected">Hautatutako data</string>
+    <string name="mtrl_picker_day_of_week_column_header">Egunen zutabea:%1$s</string>
+    <string name="mtrl_picker_invalid_format">Formatuak ez du balio.</string>
+    <string name="mtrl_picker_invalid_format_example">Adibidea: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Erabili: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Tarteak ez du balio.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Joan %1$s. urtera</string>
+    <string name="mtrl_picker_out_of_range">Onartutako barrutitik kanpo: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Hasiera-data – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Amaiera-data</string>
+    <string name="mtrl_picker_range_header_selected">%1$s-%2$s</string>
+    <string name="mtrl_picker_range_header_title">Hautatu barrutia</string>
+    <string name="mtrl_picker_range_header_unselected">Hasiera-data - Amaiera-data</string>
+    <string name="mtrl_picker_save">Gorde</string>
+    <string name="mtrl_picker_text_input_date_hint">Data</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Amaiera-data</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Hasiera-data</string>
+    <string name="mtrl_picker_text_input_day_abbr">e</string>
+    <string name="mtrl_picker_text_input_month_abbr">h</string>
+    <string name="mtrl_picker_text_input_year_abbr">u</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Aldatu egutegiaren idazketa-metodora</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Sakatu eguna hautatzeko modura aldatzeko</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Aldatu testua idazteko modura</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Sakatu urtea hautatzeko modura aldatzeko</string>
+    <string msgid="478774118347071097" name="not_set">"Ez da ezarri"</string>
+    <string name="password_toggle_content_description">Erakutsi pasahitza</string>
+    <string msgid="7961817945132860002" name="preference_copied">"Arbelean kopiatu da \"<ns1:g id="SUMMARY">%1$s</ns1:g>\"."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Bilatu"</string>
+    <string name="show_keyboard_window">%1$s ikusgai dago</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Ia berdina ikurra</string>
+    <string name="symbol_ampersand">Et ikurra</string>
+    <string name="symbol_angle_bracket_left">Baino gutxiago ikurra</string>
+    <string name="symbol_angle_bracket_right">\"Baino gehiago\" ikurra</string>
+    <string name="symbol_apostrophe">Apostrofoa</string>
+    <string name="symbol_approximately_equals">Gutxi gorabehera, berdin</string>
+    <string name="symbol_asterisk">Izartxoa</string>
+    <string name="symbol_at_sign">A bildua</string>
+    <string name="symbol_backslash">Alderantzizko barra</string>
+    <string name="symbol_beamed_sixteenth_note">Lotutako bi kortxeaerdi</string>
+    <string name="symbol_black_circle">Borobil beltza</string>
+    <string name="symbol_black_heart">Bihotz beltza</string>
+    <string name="symbol_black_smallsquare">Karratu beltz txikia</string>
+    <string name="symbol_black_square">Karratu beltza</string>
+    <string name="symbol_black_star">Izar beltza</string>
+    <string name="symbol_black_suit_of_diamonds">Diamante beltza</string>
+    <string name="symbol_black_triangle_pointing_down">Beherantz seinalatzen duen triangelu beltza</string>
+    <string name="symbol_black_triangle_pointing_up">Gorantz seinalatzen duen triangelu beltza</string>
+    <string name="symbol_broken_bar">Barra bertikal etena</string>
+    <string name="symbol_bullet">Buleta</string>
+    <string name="symbol_bullseye">Itua</string>
+    <string name="symbol_caret">Azentu zirkunflexua</string>
+    <string name="symbol_celsius_degree">Celsius gradua</string>
+    <string name="symbol_cent">Zentimoaren ikurra</string>
+    <string name="symbol_circle_left_half_black">Ezkerreko erdia beltza duen zirkulua</string>
+    <string name="symbol_circle_right_half_black">Eskuineko erdia beltza duen zirkulua</string>
+    <string name="symbol_colon">Bi puntu</string>
+    <string name="symbol_comma">Koma</string>
+    <string name="symbol_copyright">Copyrighta</string>
+    <string name="symbol_curly_bracket_left">Ezkerreko giltza</string>
+    <string name="symbol_curly_bracket_right">Eskuineko giltza</string>
+    <string name="symbol_currency_sign">Dibisa-ikurra</string>
+    <string name="symbol_degree">Graduen ikurra</string>
+    <string name="symbol_division">Zatiketa-ikurra</string>
+    <string name="symbol_dollar_sign">Dolarraren ikurra</string>
+    <string name="symbol_downwards_arrow">Beheranzko gezia</string>
+    <string name="symbol_eighth_note">Kortxea</string>
+    <string name="symbol_ellipsis">Etenpuntuak</string>
+    <string name="symbol_em_dash">Marra luzea</string>
+    <string name="symbol_en_dash">Marra laburra</string>
+    <string name="symbol_equal">Berdin</string>
+    <string name="symbol_euro">Euroa</string>
+    <string name="symbol_exclamation_mark">Harridura-ikurra</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheit gradua</string>
+    <string name="symbol_female">Emea</string>
+    <string name="symbol_full_width_ampersand">Zabalera osoko et ikurra</string>
+    <string name="symbol_full_width_asterisk">Zabalera osoko izartxoa</string>
+    <string name="symbol_full_width_circumflex">Zabalera osoko azentu zirkunflexua</string>
+    <string name="symbol_full_width_colon">Zabalera osoko bi puntu</string>
+    <string name="symbol_full_width_comma">Zabalera osoko koma</string>
+    <string name="symbol_full_width_exclamation_mark">Zabalera osoko harridura-ikurra</string>
+    <string name="symbol_full_width_greater_than_sign">Zabalera osoko baino handiago ikurra</string>
+    <string name="symbol_full_width_ideographic_full_stop">Puntu ideografikoa</string>
+    <string name="symbol_full_width_left_curly_bracket">Zabalera osoko ezkerreko giltza</string>
+    <string name="symbol_full_width_left_parenthesis">Zabalera osoko ezkerreko parentesia</string>
+    <string name="symbol_full_width_less_than_sign">Zabalera osoko baino gutxiago ikurra</string>
+    <string name="symbol_full_width_question_mark">Zabalera osoko galdera-ikurra</string>
+    <string name="symbol_full_width_right_curly_bracket">Zabalera osoko eskuineko giltza</string>
+    <string name="symbol_full_width_right_parenthesis">Zabalera osoko eskuineko parentesia</string>
+    <string name="symbol_full_width_semicolon">Zabalera osoko puntu eta koma</string>
+    <string name="symbol_full_width_tilde">Zabalera osoko azentu-marka</string>
+    <string name="symbol_full_width_underscore">Zabalera osoko azpimarra</string>
+    <string name="symbol_grave_accent">Azentu kamutsa</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Zabalera ertaineko erdiko puntua katakanaz</string>
+    <string name="symbol_hyphen_minus">Marra</string>
+    <string name="symbol_ideographic_comma">Koma ideografikoa</string>
+    <string name="symbol_integral">Integrala</string>
+    <string name="symbol_inverted_exclamation_mark">Harridura-ikur alderantzikatua</string>
+    <string name="symbol_inverted_question_mark">Galdera-ikur alderantzikatua</string>
+    <string name="symbol_left_angle_bracket">Ezkerreko angelu-parentesi bikoitza</string>
+    <string name="symbol_left_black_lenticular_bracket">Ezkerreko kako zuzen beltz lentikularra</string>
+    <string name="symbol_left_corner_bracket">Ezkerreko izkinako parentesia</string>
+    <string name="symbol_left_double_quotation_mark">Ezkerreko komatxo bikoitza</string>
+    <string name="symbol_left_single_quotation_mark">Ezkerreko komatxo bakarra</string>
+    <string name="symbol_leftwards_arrow">Ezkerrera gezia</string>
+    <string name="symbol_liter">Litroa</string>
+    <string name="symbol_low_double_quote">Komatxo baxuak</string>
+    <string name="symbol_male">Arra</string>
+    <string name="symbol_mathematical_left_angle_bracket">Matematikako ezkerreko angelu-parentesia</string>
+    <string name="symbol_mathematical_right_angle_bracket">Matematikako eskuineko angelu-parentesia</string>
+    <string name="symbol_micro_sign">Mikro ikurra</string>
+    <string name="symbol_middle_dot">Erdiko puntua</string>
+    <string name="symbol_multiplication">Biderketa-ikurra</string>
+    <string name="symbol_new_line">Lerro berria</string>
+    <string name="symbol_not_equals">Desberdin ikurra</string>
+    <string name="symbol_not_sign">Ezezko ikurra</string>
+    <string name="symbol_paragraph_mark">Paragrafo-marka</string>
+    <string name="symbol_parenthesis_left">Ezkerreko parentesia</string>
+    <string name="symbol_parenthesis_right">Eskuineko parentesia</string>
+    <string name="symbol_percent">Ehunekoa</string>
+    <string name="symbol_period">Puntua</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Plus, minus</string>
+    <string name="symbol_postal_mark">Marka postala</string>
+    <string name="symbol_pound">Traola</string>
+    <string name="symbol_pound_sterling">Libera dibisaren ikurra</string>
+    <string name="symbol_quarter_note">Beltza</string>
+    <string name="symbol_question_mark">Galdera-ikurra</string>
+    <string name="symbol_quotation_mark">Komatxoak</string>
+    <string name="symbol_reference">Erreferentzia-marka</string>
+    <string name="symbol_registered_trademark">Marka erregistratua</string>
+    <string name="symbol_right_angle_bracket">Eskuineko angelu-parentesi bikoitza</string>
+    <string name="symbol_right_black_lenticular_bracket">Eskuineko kako zuzen beltz lentikularra</string>
+    <string name="symbol_right_corner_bracket">Eskuineko izkinako parentesia</string>
+    <string name="symbol_right_double_quotation_mark">Eskuineko komatxo bikoitza</string>
+    <string name="symbol_right_single_quotation_mark">Eskuineko komatxo bakarra</string>
+    <string name="symbol_rightwards_arrow">Eskuineranzko gezia</string>
+    <string name="symbol_rupee">Errupia</string>
+    <string name="symbol_section_sign">Atal-ikurra</string>
+    <string name="symbol_semicolon">Puntu eta koma</string>
+    <string name="symbol_slash">Barra</string>
+    <string name="symbol_solar">Eguzkia</string>
+    <string name="symbol_space">Zuriunea</string>
+    <string name="symbol_square_bracket_left">Ezkerreko kako zuzena</string>
+    <string name="symbol_square_bracket_right">Eskuineko kako zuzena</string>
+    <string name="symbol_square_root">Erro karratua</string>
+    <string name="symbol_tilde">Azentu zorrotza edo tileta</string>
+    <string name="symbol_trademark">Marka komertziala</string>
+    <string name="symbol_underscore">Azpimarra</string>
+    <string name="symbol_upwards_arrow">Gora gezia</string>
+    <string name="symbol_vertical_bar">Marra bertikala</string>
+    <string name="symbol_white_circle">Zirkulu zuria</string>
+    <string name="symbol_white_club_suit">Hirusta zuria</string>
+    <string name="symbol_white_diamond">Diamante zuria</string>
+    <string name="symbol_white_down_pointing_triangle">Punta bat behera duen triangelu zuria</string>
+    <string name="symbol_white_heart">Bihotz zuria</string>
+    <string name="symbol_white_left_pointing_index">Ezkerrera zuzendutako hatz zuria</string>
+    <string name="symbol_white_left_pointing_triangle">Punta bat ezkerretarantz duen triangelu zuria</string>
+    <string name="symbol_white_right_pointing_index">Eskuinera zuzendutako hatz zuria</string>
+    <string name="symbol_white_right_pointing_triangle">Punta bat eskuinera duen triangelu zuria</string>
+    <string name="symbol_white_spade_suit">Pika zuria</string>
+    <string name="symbol_white_square">Karratu zuria</string>
+    <string name="symbol_white_star">Izar zuria</string>
+    <string name="symbol_white_up_pointing_triangle">Punta bat gora duen triangelu zuria</string>
+    <string name="symbol_won">Won dibisaren ikurra</string>
+    <string name="symbol_won_sign">Won dibisaren ikurra</string>
+    <string name="symbol_yen">Yena</string>
+    <string name="template_capital_letter">%1$s maiuskula</string>
+    <string name="template_current_tts_engine">%1$s erabilita</string>
+    <string name="template_overlay_window">Pantaila txiki gainjarrian dago %1$s</string>
+    <string name="template_password_selected">%1$d eta %2$d arteko karaktereak</string>
+    <string name="template_password_traversed">%1$d karakterea</string>
+    <string name="template_scroll_from_count">%1$d/%2$d elementua erakusten.</string>
+    <string name="template_scroll_from_to_count">%1$d-%2$d/%3$d elementuak erakusten.</string>
+    <string name="template_split_screen_mode_landscape_ltr">Ezkerrean %1$s dago eta eskuinean, berriz, %2$s</string>
+    <string name="template_split_screen_mode_landscape_rtl">Eskuinean %1$s dago eta ezkerrean, berriz, %2$s</string>
+    <string name="template_split_screen_mode_portrait">Goialdean %1$s dago eta behealdean, berriz, %2$s</string>
+    <string name="template_text_copied">kopiatu da %1$s</string>
+    <string name="template_viewpager_index_count">%2$d orritik %1$dgarrena</string>
+    <string name="template_viewpager_index_count_short">%2$d orritik %1$dgarrena</string>
+    <string name="untitled_window">izengabea</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"DESAKTIBATUTA"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"AKTIBATUTA"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Ekintza-panel lerrakorra"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Nabigazio-panel lerrakorra"</string>
+</resources>

@@ -1,0 +1,48 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/braille/brailledisplay/build/intermediates/res/merged/phone/release/values-w180dp-v13/values-w180dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/res/values-w180dp-v13/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7",
+                        "startColumns": "0,0,0,0",
+                        "startOffsets": "222,269,317,367",
+                        "endColumns": "46,47,49,47",
+                        "endOffsets": "268,316,366,414"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,106,158,212",
+                        "endColumns": "50,51,53,51",
+                        "endOffsets": "101,153,207,259"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/quintinb/repo/talkback/braille/brailledisplay/build/intermediates/incremental/mergePhoneReleaseResources/merged.dir/values-w180dp-v13/values-w180dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/quintinb/.gradle/caches/transforms-3/7af4d30ada103e157cae74fa56dbe328/transformed/jetified-wearable-2.8.1/res/values-w180dp-v13/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7",
+                        "startColumns": "0,0,0,0",
+                        "startOffsets": "222,269,317,367",
+                        "endColumns": "46,47,49,47",
+                        "endOffsets": "268,316,366,414"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,106,158,212",
+                        "endColumns": "50,51,53,51",
+                        "endOffsets": "101,153,207,259"
+                    }
+                }
+            ]
+        }
+    ]
+}

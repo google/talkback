@@ -1,12 +1,12 @@
 // For building the open-source release of TalkBack.
 
 ext {
-    talkbackApplicationId = "com.android.talkback"
+    talkbackApplicationId = "com.android.talkback4d"
     talkbackMainPermission = "com.android.talkback.permission.TALKBACK"
 }
 
 android {
-    compileSdkVersion 'android-31'
+    compileSdkVersion 'android-33'
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -31,28 +31,28 @@ dependencies {
 
     // Google common
     implementation 'com.google.guava:guava:31.0-jre'
-    implementation 'com.google.android.gms:play-services-mlkit-text-recognition:17.0.1'
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.gms:play-services-mlkit-text-recognition:18.0.1'
+    implementation 'com.google.android.material:material:1.6.1'
 
     // Support library
-    implementation 'androidx.annotation:annotation:1.2.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'androidx.collection:collection:1.1.0'
-    implementation 'androidx.core:core:1.6.0-alpha03'
-    implementation 'androidx.fragment:fragment:1.4.0-alpha08'
-    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    implementation 'androidx.annotation:annotation:1.4.0'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation 'androidx.collection:collection:1.2.0'
+    implementation 'androidx.core:core:1.9.0-rc01'
+    implementation 'androidx.fragment:fragment:1.6.0-alpha02'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
     // Nullable
-    implementation 'org.checkerframework:checker-qual:2.8.1'
+    implementation 'org.checkerframework:checker-qual:3.22.1'
 
     // Auto-value
-    implementation 'com.google.auto.value:auto-value-annotations:1.8.2'
+    implementation 'com.google.auto.value:auto-value-annotations:1.9'
     annotationProcessor 'com.google.auto.value:auto-value:1.8.2'
     implementation 'javax.annotation:javax.annotation-api:1.3.2'
 
-    implementation 'androidx.wear:wear:1.2.0-rc01'
+    implementation 'androidx.wear:wear:1.3.0-alpha03'
     implementation 'com.google.android.support:wearable:2.8.1'
 }

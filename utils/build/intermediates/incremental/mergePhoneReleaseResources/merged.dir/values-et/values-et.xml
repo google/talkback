@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d uus märguanne</item>
+    <item quantity="other">%d uut märguannet</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Liigu avalehele"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Liigu üles"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Rohkem valikuid"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Valmis"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Kuva kõik"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Valige rakendus"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"VÄLJAS"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"SEES"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt +"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl +"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"kustuta"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"sisestusklahv"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Funktsiooniklahv +"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta +"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Tõstuklahv +"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"tühik"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym +"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Menüü +"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Otsige …"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Päringu tühistamine"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Otsingupäring"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Otsing"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Päringu esitamine"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Häälotsing"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Jaga:"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Jagamine rakendusega <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Ahendamine"</string>
+    <string name="bottomsheet_action_expand_halfway">Laiendamine poolenisti</string>
+    <string name="character_collapse_template"> %1$d %2$s</string>
+    <string name="character_counter_content_description">Sisestatud tähemärgid: %1$d/%2$d</string>
+    <string name="character_counter_overflowed_content_description">Tähemärgipiirang on ületatud: %1$d/%2$d</string>
+    <string name="clear_text_end_icon_content_description">Kustuta tekst</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Luba</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">Rakendus %1$s töötab ainult siis, kui lubate Google Play teenused.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play teenuste lubamine</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installi</string>
+    <string name="common_google_play_services_install_text">Rakendus %1$s töötab ainult koos Google Play teenustega, mida teie seadmes pole.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play teenuste hankimine</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play teenuste saadavalolek</string>
+    <string name="common_google_play_services_notification_ticker">Viga Google Play teenustes</string>
+    <string name="common_google_play_services_unknown_issue">Rakendusel %1$s on probleeme Google Play teenustega. Proovige uuesti.</string>
+    <string name="common_google_play_services_unsupported_text">Rakendus %1$s töötab ainult koos Google Play teenustega, mida teie seadmes ei toetata.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Värskenda</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">Rakenduse %1$s töötamiseks peate värskendama Google Play teenuseid.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play teenuste värskendamine</string>
+    <string name="common_google_play_services_updating_text">Rakendus %1$s töötab ainult koos Google Play teenustega, mida praegu värskendatakse.</string>
+    <string name="common_google_play_services_wear_update_text">Vajalik on Google Play teenuste uus versioon. See värskendab end peagi.</string>
+    <string name="common_open_on_phone">Ava telefonis</string>
+    <string name="common_signin_button_text">Logi sisse</string>
+    <string name="common_signin_button_text_long">Logi sisse Google\'i kontoga</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Ebaõnnestus"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"Avatud teie telefonis"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Õnnestus"</string>
+    <string msgid="3209159573327985035" name="copy">"Kopeerimine"</string>
+    <string name="error_icon_content_description">Viga</string>
+    <string name="exit_scrim">Välju</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Täpsemad"</string>
+    <string name="exposed_dropdown_menu_content_description">Kuva rippmenüü</string>
+    <string name="function_off">Suuline tagasiside on välja lülitatud</string>
+    <string name="function_on">Suuline tagasiside on sisse lülitatud</string>
+    <string name="granularity_character">Tähemärgid</string>
+    <string name="granularity_default">Vaikeseade</string>
+    <string name="granularity_line">Read</string>
+    <string name="granularity_native_control">Juhtelemendid</string>
+    <string name="granularity_native_heading">Pealkirjad</string>
+    <string name="granularity_native_link">Lingid</string>
+    <string name="granularity_paragraph">Lõigud</string>
+    <string name="granularity_pseudo_web_special_content">Erisisu</string>
+    <string name="granularity_web_control">Juhtelemendid</string>
+    <string name="granularity_web_heading">Pealkirjad</string>
+    <string name="granularity_web_landmark">Orientiirid</string>
+    <string name="granularity_web_link">Lingid</string>
+    <string name="granularity_web_list">Loendid</string>
+    <string name="granularity_window">Aknad</string>
+    <string name="granularity_word">Sõnad</string>
+    <string name="hide_keyboard_window">klaviatuur on peidetud</string>
+    <string name="icon_content_description">Dialoogi ikoon</string>
+    <string name="item_view_role_description">Vaheleht</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Uue otsetee määramiseks vajutage klahvikombinatsiooni koos muuteklahviga %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Uue otsetee määramiseks vajutage klahvikombinatsiooni. See peab sisaldama klahvi ALT või juhtklahvi.</string>
+    <string name="keycombo_key_arrow_down">Allanool</string>
+    <string name="keycombo_key_arrow_left">Vasaknool</string>
+    <string name="keycombo_key_arrow_right">Paremnool</string>
+    <string name="keycombo_key_arrow_up">Ülesnool</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Otsing</string>
+    <string name="keycombo_key_modifier_shift">Tõstuklahv</string>
+    <string name="keycombo_unassigned">Määramata</string>
+    <string name="material_clock_toggle_content_description">Valige AM või PM</string>
+    <string name="material_hour_selection">Valige tund</string>
+    <string name="material_hour_suffix">Kell %1$s</string>
+    <string name="material_minute_selection">Minutite valimine</string>
+    <string name="material_minute_suffix">%1$s minutit</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">Aktiveerige kellaaja sisestamiseks kellarežiim.</string>
+    <string name="material_timepicker_hour">Tunnid</string>
+    <string name="material_timepicker_minute">Minut</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">Aja valimine</string>
+    <string name="material_timepicker_text_input_mode_description">Aktiveerige kellaaja sisestamiseks tekstisisestusrežiim.</string>
+    <string name="mtrl_badge_numberless_content_description">Uus märguanne</string>
+    <string name="mtrl_chip_close_icon_content_description">Üksuse %1$s eemaldamine</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Rohkem kui %1$d uut märguannet</string>
+    <string name="mtrl_picker_a11y_next_month">Vaheta järgmisele kuule</string>
+    <string name="mtrl_picker_a11y_prev_month">Vaheta eelmisele kuule</string>
+    <string name="mtrl_picker_announce_current_selection">Praegune valik: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Valige kuupäev</string>
+    <string name="mtrl_picker_date_header_unselected">Valitud kuupäev</string>
+    <string name="mtrl_picker_day_of_week_column_header">Päevade veerg: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Sobimatu vorming.</string>
+    <string name="mtrl_picker_invalid_format_example">Näide: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Kasutage: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Sobimatu vahemik.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Mine aastasse %1$s</string>
+    <string name="mtrl_picker_out_of_range">Vahemikust väljas: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Alguskuupäev – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – lõppkuupäev</string>
+    <string name="mtrl_picker_range_header_selected">%1$s–%2$s</string>
+    <string name="mtrl_picker_range_header_title">Valige vahemik</string>
+    <string name="mtrl_picker_range_header_unselected">Alguskuupäev – lõppkuupäev</string>
+    <string name="mtrl_picker_save">Salvesta</string>
+    <string name="mtrl_picker_text_input_date_hint">Kuupäev</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Lõppkuupäev</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Alguskuupäev</string>
+    <string name="mtrl_picker_text_input_day_abbr">p</string>
+    <string name="mtrl_picker_text_input_month_abbr">k</string>
+    <string name="mtrl_picker_text_input_year_abbr">a</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Lülitu kalendrisisestusrežiimile</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Puudutage, et lülituda päeva valimisele</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Lülitu tekstisisestusrežiimile</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Puudutage, et lülituda aasta valimisele</string>
+    <string msgid="478774118347071097" name="not_set">"Määramata"</string>
+    <string name="password_toggle_content_description">Parooli kuvamine</string>
+    <string msgid="7961817945132860002" name="preference_copied">"„<ns1:g id="SUMMARY">%1$s</ns1:g>” on lõikelauale kopeeritud."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Otsing"</string>
+    <string name="show_keyboard_window">Kuvatud on %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Ligikaudu võrdne</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Märk Väiksem kui</string>
+    <string name="symbol_angle_bracket_right">Märk Suurem kui</string>
+    <string name="symbol_apostrophe">Ülakoma</string>
+    <string name="symbol_approximately_equals">Võrdub umbes</string>
+    <string name="symbol_asterisk">Tärn</string>
+    <string name="symbol_at_sign">Ätt</string>
+    <string name="symbol_backslash">Kurakaldkriips</string>
+    <string name="symbol_beamed_sixteenth_note">Ühendatud kuueteistkümnendiknoodid</string>
+    <string name="symbol_black_circle">Must ring</string>
+    <string name="symbol_black_heart">Must ärtu</string>
+    <string name="symbol_black_smallsquare">Väike must ruut</string>
+    <string name="symbol_black_square">Must ruut</string>
+    <string name="symbol_black_star">Must täht</string>
+    <string name="symbol_black_suit_of_diamonds">Must romb</string>
+    <string name="symbol_black_triangle_pointing_down">Must allasuunatud kolmnurk</string>
+    <string name="symbol_black_triangle_pointing_up">Must ülessuunatud kolmnurk</string>
+    <string name="symbol_broken_bar">Katkega püstkriips</string>
+    <string name="symbol_bullet">Täpploend</string>
+    <string name="symbol_bullseye">Märklaua keskkoht</string>
+    <string name="symbol_caret">Sisestusmärk</string>
+    <string name="symbol_celsius_degree">Celsiuse kraadimärk</string>
+    <string name="symbol_cent">Sendi märk</string>
+    <string name="symbol_circle_left_half_black">Ring, mille vasak pool on must</string>
+    <string name="symbol_circle_right_half_black">Ring, mille parem pool on must</string>
+    <string name="symbol_colon">Koolon</string>
+    <string name="symbol_comma">Koma</string>
+    <string name="symbol_copyright">Autoriõigus</string>
+    <string name="symbol_curly_bracket_left">Vasak looksulg</string>
+    <string name="symbol_curly_bracket_right">Parem looksulg</string>
+    <string name="symbol_currency_sign">Valuutamärk</string>
+    <string name="symbol_degree">Kraadi märk</string>
+    <string name="symbol_division">Jagamismärk</string>
+    <string name="symbol_dollar_sign">Dollarimärk</string>
+    <string name="symbol_downwards_arrow">Allanool</string>
+    <string name="symbol_eighth_note">Kaheksandiknoot</string>
+    <string name="symbol_ellipsis">Kolmikpunkt</string>
+    <string name="symbol_em_dash">Emm-kriips</string>
+    <string name="symbol_en_dash">Enn-kriips</string>
+    <string name="symbol_equal">Võrdusmärk</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Hüüumärk</string>
+    <string name="symbol_fahrenheit_degree">Fahrenheiti kraadimärk</string>
+    <string name="symbol_female">Naise sümbol</string>
+    <string name="symbol_full_width_ampersand">Ampersand täislaiuses</string>
+    <string name="symbol_full_width_asterisk">Tärn täislaiuses</string>
+    <string name="symbol_full_width_circumflex">Tsirkumfleks täislaiuses</string>
+    <string name="symbol_full_width_colon">Koolon täislaiuses</string>
+    <string name="symbol_full_width_comma">Koma täislaiuses</string>
+    <string name="symbol_full_width_exclamation_mark">Hüüumärk täislaiuses</string>
+    <string name="symbol_full_width_greater_than_sign">Märk Suurem kui täislaiuses</string>
+    <string name="symbol_full_width_ideographic_full_stop">Ideograafiline punk</string>
+    <string name="symbol_full_width_left_curly_bracket">Vasak looksulg täislaiuses</string>
+    <string name="symbol_full_width_left_parenthesis">Vasaksulg täislaiuses</string>
+    <string name="symbol_full_width_less_than_sign">Märk Väiksem kui täislaiuses</string>
+    <string name="symbol_full_width_question_mark">Küsimärk täislaiuses</string>
+    <string name="symbol_full_width_right_curly_bracket">Parem looksulg täislaiuses</string>
+    <string name="symbol_full_width_right_parenthesis">Paremsulg täislaiuses</string>
+    <string name="symbol_full_width_semicolon">Semikoolon täislaiuses</string>
+    <string name="symbol_full_width_tilde">Tilde täislaiuses</string>
+    <string name="symbol_full_width_underscore">Alljoon täislaiuses</string>
+    <string name="symbol_grave_accent">Graavis</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Katakana poole laiusega keskmine punkt</string>
+    <string name="symbol_hyphen_minus">Sidekriips</string>
+    <string name="symbol_ideographic_comma">Ideograafiline koma</string>
+    <string name="symbol_integral">Integraal</string>
+    <string name="symbol_inverted_exclamation_mark">Pöördhüüumärk</string>
+    <string name="symbol_inverted_question_mark">Pöördküsimärk</string>
+    <string name="symbol_left_angle_bracket">Vasak topeltnurksulg</string>
+    <string name="symbol_left_black_lenticular_bracket">Vasak must läätsekujuline sulg</string>
+    <string name="symbol_left_corner_bracket">Vasak nurksulg</string>
+    <string name="symbol_left_double_quotation_mark">Vasak jutumärk</string>
+    <string name="symbol_left_single_quotation_mark">Vasak ülakoma</string>
+    <string name="symbol_leftwards_arrow">Vasaknool</string>
+    <string name="symbol_liter">Liiter</string>
+    <string name="symbol_low_double_quote">Alumised jutumärgid</string>
+    <string name="symbol_male">Mehe sümbol</string>
+    <string name="symbol_mathematical_left_angle_bracket">Matemaatiline vasak nurksulg</string>
+    <string name="symbol_mathematical_right_angle_bracket">Matemaatiline parem nurksulg</string>
+    <string name="symbol_micro_sign">Mikrotähis</string>
+    <string name="symbol_middle_dot">Keskmine punkt</string>
+    <string name="symbol_multiplication">Korrutusmärk</string>
+    <string name="symbol_new_line">Uus rida</string>
+    <string name="symbol_not_equals">Pole võrdne</string>
+    <string name="symbol_not_sign">Ei-märk</string>
+    <string name="symbol_paragraph_mark">Lõigumärk</string>
+    <string name="symbol_parenthesis_left">Vasak ümarsulg</string>
+    <string name="symbol_parenthesis_right">Parem ümarsulg</string>
+    <string name="symbol_percent">Protsent</string>
+    <string name="symbol_period">Punkt</string>
+    <string name="symbol_pi">Pii</string>
+    <string name="symbol_plus_minus_sign">Pluss-miinusmärk</string>
+    <string name="symbol_postal_mark">Postmark</string>
+    <string name="symbol_pound">Nael</string>
+    <string name="symbol_pound_sterling">Naelsterlingi märk</string>
+    <string name="symbol_quarter_note">Veerandnoot</string>
+    <string name="symbol_question_mark">Küsimärk</string>
+    <string name="symbol_quotation_mark">Tsitaat</string>
+    <string name="symbol_reference">Viitemärk</string>
+    <string name="symbol_registered_trademark">Registreeritud kaubamärk</string>
+    <string name="symbol_right_angle_bracket">Parem topeltnurksulg</string>
+    <string name="symbol_right_black_lenticular_bracket">Parem must läätsekujuline sulg</string>
+    <string name="symbol_right_corner_bracket">Parem nurksulg</string>
+    <string name="symbol_right_double_quotation_mark">Parem jutumärk</string>
+    <string name="symbol_right_single_quotation_mark">Parem ülakoma</string>
+    <string name="symbol_rightwards_arrow">Paremnool</string>
+    <string name="symbol_rupee">Ruupia</string>
+    <string name="symbol_section_sign">Paragrahvimärk</string>
+    <string name="symbol_semicolon">Semikoolon</string>
+    <string name="symbol_slash">Kaldkriips</string>
+    <string name="symbol_solar">Päikese sümbol</string>
+    <string name="symbol_space">Tühik</string>
+    <string name="symbol_square_bracket_left">Vasak nurksulg</string>
+    <string name="symbol_square_bracket_right">Parem nurksulg</string>
+    <string name="symbol_square_root">Ruutjuur</string>
+    <string name="symbol_tilde">Tilde</string>
+    <string name="symbol_trademark">Kaubamärk</string>
+    <string name="symbol_underscore">Alljoon</string>
+    <string name="symbol_upwards_arrow">Ülesnool</string>
+    <string name="symbol_vertical_bar">Vertikaaljoon</string>
+    <string name="symbol_white_circle">Valge ring</string>
+    <string name="symbol_white_club_suit">Valge risti</string>
+    <string name="symbol_white_diamond">Valge ruutu</string>
+    <string name="symbol_white_down_pointing_triangle">Valge alla osutav kolmnurk</string>
+    <string name="symbol_white_heart">Valge ärtu</string>
+    <string name="symbol_white_left_pointing_index">Valge vasakule osutav sõrm</string>
+    <string name="symbol_white_left_pointing_triangle">Valge vasakule osutav kolmnurk</string>
+    <string name="symbol_white_right_pointing_index">Valge paremale osutav sõrm</string>
+    <string name="symbol_white_right_pointing_triangle">Valge paremale osutav kolmnurk</string>
+    <string name="symbol_white_spade_suit">Valge poti</string>
+    <string name="symbol_white_square">Valge ruut</string>
+    <string name="symbol_white_star">Valge täht</string>
+    <string name="symbol_white_up_pointing_triangle">Valge üles osutav kolmnurk</string>
+    <string name="symbol_won">Vonni märk</string>
+    <string name="symbol_won_sign">Vonni märk</string>
+    <string name="symbol_yen">Jeen</string>
+    <string name="template_capital_letter">suurtäht %1$s</string>
+    <string name="template_current_tts_engine">Kasutatakse rakendust %1$s</string>
+    <string name="template_overlay_window">%1$s on režiimis Pilt pildis</string>
+    <string name="template_password_selected">Tähemärgid %1$d kuni %2$d</string>
+    <string name="template_password_traversed">Tähemärk %1$d</string>
+    <string name="template_scroll_from_count">Kuvatakse üksus %1$d %2$d-st.</string>
+    <string name="template_scroll_from_to_count">Kuvatakse üksused %1$d kuni %2$d %3$d-st.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s on vasakul, %2$s on paremal</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s on paremal, %2$s on vasakul</string>
+    <string name="template_split_screen_mode_portrait">%1$s on üleval, %2$s on all</string>
+    <string name="template_text_copied">kopeeritud, %1$s</string>
+    <string name="template_viewpager_index_count">Leht %1$d/%2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d/%2$d</string>
+    <string name="untitled_window">pealkirjata</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"VÄLJAS"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"SEES"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Toimingusahtel"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Navigeerimissahtel"</string>
+</resources>

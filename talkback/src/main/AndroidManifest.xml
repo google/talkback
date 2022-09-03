@@ -69,6 +69,9 @@
         android:required="false" />
 
     <application
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true">
 
         <receiver android:name="com.google.android.accessibility.talkback.BootReceiver"
@@ -83,8 +86,8 @@
 
         <!-- TalkBack -->
         <service
-            android:icon="@drawable/icon"
-            android:name="com.google.android.marvin.talkback.TalkBackService"
+            android:icon="@drawable/ic_launcher"
+            android:name="com.developer.talkback.TalkBackDevService"
             android:exported="true"
             android:label="@string/talkback_title"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
@@ -262,6 +265,5 @@
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="ocr" />
-
     </application>
 </manifest>

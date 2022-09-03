@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d notificare nouă</item>
+    <item quantity="few">%d notificări noi</item>
+    <item quantity="other">%d de notificări noi</item>
+  </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Navigați la ecranul de pornire"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Navigați în sus"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Mai multe opțiuni"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"Gata"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"Afișați tot"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"Alegeți o aplicație"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"DEZACTIVAT"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"ACTIVAT"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"Meniu+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"Căutați…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"Ștergeți interogarea"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"Termen de căutare"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"Căutați"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"Trimiteți interogarea"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"Căutare vocală"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Trimiteți la"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Trimiteți folosind <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Restrângeți"</string>
+    <string name="bottomsheet_action_expand_halfway">Extinde pe ecran complet</string>
+    <string name="character_collapse_template"> %1$d %2$s﻿</string>
+    <string name="character_counter_content_description">Caractere introduse: %1$d din %2$d</string>
+    <string name="character_counter_overflowed_content_description">Limita de caractere a depășit %1$d din %2$d</string>
+    <string name="clear_text_end_icon_content_description">Ștergeți textul</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Activați</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s nu va funcționa decât dacă activați serviciile Google Play.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Activați serviciile Google Play</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Instalați</string>
+    <string name="common_google_play_services_install_text">%1$s nu va rula fără serviciile Google Play, care lipsesc de pe dispozitivul dvs.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Descărcați serviciile Google Play</string>
+    <string name="common_google_play_services_notification_channel_name">Disponibilitatea serviciilor Google Play</string>
+    <string name="common_google_play_services_notification_ticker">Eroare a serviciilor Google Play</string>
+    <string name="common_google_play_services_unknown_issue">%1$s întâmpină probleme privind serviciile Google Play. Încercați din nou.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s nu va rula fără serviciile Google Play, care nu sunt acceptate de dispozitivul dvs.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Actualizați</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s nu va rula decât dacă actualizați serviciile Google Play.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Actualizați serviciile Google Play</string>
+    <string name="common_google_play_services_updating_text">%1$s nu va rula fără serviciile Google Play, care momentan se actualizează.</string>
+    <string name="common_google_play_services_wear_update_text">Este necesară o nouă versiune a serviciilor Google Play. Se vor actualiza automat în curând.</string>
+    <string name="common_open_on_phone">Deschideți pe telefon</string>
+    <string name="common_signin_button_text">Conectați-vă</string>
+    <string name="common_signin_button_text_long">Conectați-vă cu Google</string>
+    <string msgid="6412144553299494336" name="confirmation_overlay_a11y_description_fail">"Nereușită"</string>
+    <string msgid="8809042819843332546" name="confirmation_overlay_a11y_description_phone">"S-a deschis pe telefon"</string>
+    <string msgid="2936753235333429892" name="confirmation_overlay_a11y_description_success">"Succes"</string>
+    <string msgid="3209159573327985035" name="copy">"Copiați"</string>
+    <string name="error_icon_content_description">Eroare</string>
+    <string name="exit_scrim">Ieșiți</string>
+    <string msgid="1234962710353108940" name="expand_button_title">"Avansat"</string>
+    <string name="exposed_dropdown_menu_content_description">Afișați meniul drop-down</string>
+    <string name="function_off">Feedbackul rostit este dezactivat</string>
+    <string name="function_on">Feedbackul rostit este activat</string>
+    <string name="granularity_character">Caractere</string>
+    <string name="granularity_default">Prestabilit</string>
+    <string name="granularity_line">Rânduri</string>
+    <string name="granularity_native_control">Comenzi</string>
+    <string name="granularity_native_heading">Titluri</string>
+    <string name="granularity_native_link">Linkuri</string>
+    <string name="granularity_paragraph">Paragrafe</string>
+    <string name="granularity_pseudo_web_special_content">Conținut special</string>
+    <string name="granularity_web_control">Comenzi</string>
+    <string name="granularity_web_heading">Titluri</string>
+    <string name="granularity_web_landmark">Repere</string>
+    <string name="granularity_web_link">Linkuri</string>
+    <string name="granularity_web_list">Liste</string>
+    <string name="granularity_window">Ferestre</string>
+    <string name="granularity_word">Cuvinte</string>
+    <string name="hide_keyboard_window">tastatura este ascunsă</string>
+    <string name="icon_content_description">Pictogramă de dialog</string>
+    <string name="item_view_role_description">Filă</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Ca să setați o comandă rapidă nouă, apăsați combinația de taste folosind tasta de modificare %1$s.</string>
+    <string name="keycombo_assign_dialog_instruction">Apăsați combinația de taste pentru a seta o nouă comandă rapidă. Trebuie să conțină cel puțin tasta ALT sau CTRL.</string>
+    <string name="keycombo_key_arrow_down">Săgeată în jos</string>
+    <string name="keycombo_key_arrow_left">Săgeată la stânga</string>
+    <string name="keycombo_key_arrow_right">Săgeată la dreapta</string>
+    <string name="keycombo_key_arrow_up">Săgeată în sus</string>
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <string name="keycombo_key_modifier_meta">Căutați</string>
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <string name="keycombo_unassigned">Neatribuit</string>
+    <string name="material_clock_toggle_content_description">Selectați ora</string>
+    <string name="material_hour_selection">Selectați ora</string>
+    <string name="material_hour_suffix">Ora %1$s</string>
+    <string name="material_minute_selection">Selectați minutele</string>
+    <string name="material_minute_suffix">%1$s minute</string>
+    <string name="material_timepicker_am">a.m.</string>
+    <string name="material_timepicker_clock_mode_description">Pentru a introduce ora, comutați la modul ceas.</string>
+    <string name="material_timepicker_hour">Ora</string>
+    <string name="material_timepicker_minute">Minut</string>
+    <string name="material_timepicker_pm">p.m.</string>
+    <string name="material_timepicker_select_time">Selectați ora</string>
+    <string name="material_timepicker_text_input_mode_description">Pentru a introduce ora, comutați la modul de introducere a textului.</string>
+    <string name="mtrl_badge_numberless_content_description">Notificare nouă</string>
+    <string name="mtrl_chip_close_icon_content_description">Eliminați %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">Peste %1$d notificări noi</string>
+    <string name="mtrl_picker_a11y_next_month">Treceți la luna următoare</string>
+    <string name="mtrl_picker_a11y_prev_month">Treceți la luna anterioară</string>
+    <string name="mtrl_picker_announce_current_selection">Selecția actuală: %1$s</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">Selectați data</string>
+    <string name="mtrl_picker_date_header_unselected">Data selectată</string>
+    <string name="mtrl_picker_day_of_week_column_header">Coloana cu zile: %1$s</string>
+    <string name="mtrl_picker_invalid_format">Format nevalid.</string>
+    <string name="mtrl_picker_invalid_format_example">Exemplu: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">Folosiți: %1$s</string>
+    <string name="mtrl_picker_invalid_range">Interval nevalid.</string>
+    <string name="mtrl_picker_navigate_to_year_description">Navigați la anul %1$s</string>
+    <string name="mtrl_picker_out_of_range">Fără acoperire: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">Data de începere – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – data de încheiere</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">Selectați intervalul</string>
+    <string name="mtrl_picker_range_header_unselected">Data de începere – data de încheiere</string>
+    <string name="mtrl_picker_save">Salvați</string>
+    <string name="mtrl_picker_text_input_date_hint">Dată</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">Data de încheiere</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">Data de începere</string>
+    <string name="mtrl_picker_text_input_day_abbr">z</string>
+    <string name="mtrl_picker_text_input_month_abbr">l</string>
+    <string name="mtrl_picker_text_input_year_abbr">a</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">Comutați la modul introducere în calendar</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Atingeți pentru a comuta la selectarea unei zile</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">Comutați la modul de introducere a textului</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Atingeți pentru a comuta la selectarea unui an</string>
+    <string msgid="478774118347071097" name="not_set">"Nesetată"</string>
+    <string name="password_toggle_content_description">Afișați parola</string>
+    <string msgid="7961817945132860002" name="preference_copied">"„<ns1:g id="SUMMARY">%1$s</ns1:g>” a fost copiat în clipboard."</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"Căutați"</string>
+    <string name="show_keyboard_window">Se afișează %1$s</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="5190123168583152844" name="summary_collapsed_preference_list">"<ns1:g id="CURRENT_ITEMS">%1$s</ns1:g>, <ns1:g id="ADDED_ITEMS">%2$s</ns1:g>"</string>
+    <string name="symbol_almost_equals">Aproape egal cu</string>
+    <string name="symbol_ampersand">Ampersand</string>
+    <string name="symbol_angle_bracket_left">Semnul mai mic decât</string>
+    <string name="symbol_angle_bracket_right">Semnul mai mare decât</string>
+    <string name="symbol_apostrophe">Apostrof</string>
+    <string name="symbol_approximately_equals">Aproximativ egal cu</string>
+    <string name="symbol_asterisk">Asterisc</string>
+    <string name="symbol_at_sign">A rond</string>
+    <string name="symbol_backslash">Bară oblică inversă</string>
+    <string name="symbol_beamed_sixteenth_note">Note muzicale șaisprezecimi grupate</string>
+    <string name="symbol_black_circle">Cerc negru</string>
+    <string name="symbol_black_heart">Inimă neagră</string>
+    <string name="symbol_black_smallsquare">Pătrat negru mic</string>
+    <string name="symbol_black_square">Pătrat negru</string>
+    <string name="symbol_black_star">Stea neagră</string>
+    <string name="symbol_black_suit_of_diamonds">Carouri negre</string>
+    <string name="symbol_black_triangle_pointing_down">Triunghi negru care indică în jos</string>
+    <string name="symbol_black_triangle_pointing_up">Triunghi negru care indică în sus</string>
+    <string name="symbol_broken_bar">Bară verticală întreruptă</string>
+    <string name="symbol_bullet">Marcator</string>
+    <string name="symbol_bullseye">Țintă</string>
+    <string name="symbol_caret">Simbol de inserție</string>
+    <string name="symbol_celsius_degree">Grad Celsius</string>
+    <string name="symbol_cent">Simbolul pentru cent</string>
+    <string name="symbol_circle_left_half_black">Cerc cu jumătatea stângă neagră</string>
+    <string name="symbol_circle_right_half_black">Cerc cu jumătatea dreaptă neagră</string>
+    <string name="symbol_colon">Două puncte</string>
+    <string name="symbol_comma">Virgulă</string>
+    <string name="symbol_copyright">Copyright</string>
+    <string name="symbol_curly_bracket_left">Acoladă stânga</string>
+    <string name="symbol_curly_bracket_right">Acoladă dreapta</string>
+    <string name="symbol_currency_sign">Semn pentru monedă</string>
+    <string name="symbol_degree">Semnul pentru grad</string>
+    <string name="symbol_division">Semnul împărțirii</string>
+    <string name="symbol_dollar_sign">Dolar</string>
+    <string name="symbol_downwards_arrow">Săgeată în jos</string>
+    <string name="symbol_eighth_note">Notă muzicală optime</string>
+    <string name="symbol_ellipsis">Puncte de suspensie</string>
+    <string name="symbol_em_dash">Cratimă lungă</string>
+    <string name="symbol_en_dash">Cratimă scurtă</string>
+    <string name="symbol_equal">Semn egal</string>
+    <string name="symbol_euro">Euro</string>
+    <string name="symbol_exclamation_mark">Semn de exclamație</string>
+    <string name="symbol_fahrenheit_degree">Grad Fahrenheit</string>
+    <string name="symbol_female">Simbol feminin</string>
+    <string name="symbol_full_width_ampersand">Ampersand cu lățimea întreagă</string>
+    <string name="symbol_full_width_asterisk">Asterisc cu lățimea întreagă</string>
+    <string name="symbol_full_width_circumflex">Accent circumflex cu lățimea întreagă</string>
+    <string name="symbol_full_width_colon">Două puncte cu lățimea întreagă</string>
+    <string name="symbol_full_width_comma">Virgulă cu lățimea întreagă</string>
+    <string name="symbol_full_width_exclamation_mark">Semnul exclamării cu lățimea întreagă</string>
+    <string name="symbol_full_width_greater_than_sign">Semn mai mare decât lățimea întreagă</string>
+    <string name="symbol_full_width_ideographic_full_stop">Punct ideografic</string>
+    <string name="symbol_full_width_left_curly_bracket">Acoladă de deschidere, de lățime întreagă</string>
+    <string name="symbol_full_width_left_parenthesis">Paranteze de deschidere cu lățimea întreagă</string>
+    <string name="symbol_full_width_less_than_sign">Semn mai mic decât lățimea întreagă</string>
+    <string name="symbol_full_width_question_mark">Semnul întrebării cu lățimea întreagă</string>
+    <string name="symbol_full_width_right_curly_bracket">Acoladă de închidere, de lățime întreagă</string>
+    <string name="symbol_full_width_right_parenthesis">Paranteze de închidere cu lățimea întreagă</string>
+    <string name="symbol_full_width_semicolon">Punct și virgulă cu lățimea întreagă</string>
+    <string name="symbol_full_width_tilde">Tildă cu lățimea întreagă</string>
+    <string name="symbol_full_width_underscore">Caracter de subliniere cu lățimea întreagă</string>
+    <string name="symbol_grave_accent">Accent grav</string>
+    <string name="symbol_halfwidth_katakana_middle_dot">Punct median Katakana cu lățimea pe jumătate</string>
+    <string name="symbol_hyphen_minus">Cratimă</string>
+    <string name="symbol_ideographic_comma">Virgulă ideografică</string>
+    <string name="symbol_integral">Integrală</string>
+    <string name="symbol_inverted_exclamation_mark">Semnul exclamării inversat</string>
+    <string name="symbol_inverted_question_mark">Semnul întrebării inversat</string>
+    <string name="symbol_left_angle_bracket">Paranteză unghiulară dublă stânga</string>
+    <string name="symbol_left_black_lenticular_bracket">Paranteză neagră ovală de deschidere</string>
+    <string name="symbol_left_corner_bracket">Paranteză unghiulară de deschidere</string>
+    <string name="symbol_left_double_quotation_mark">Ghilimele duble la stânga</string>
+    <string name="symbol_left_single_quotation_mark">Ghilimele simple la stânga</string>
+    <string name="symbol_leftwards_arrow">Săgeată spre stânga</string>
+    <string name="symbol_liter">Litru</string>
+    <string name="symbol_low_double_quote">Ghilimele duble de deschidere</string>
+    <string name="symbol_male">Simbol masculin</string>
+    <string name="symbol_mathematical_left_angle_bracket">Paranteză matematică unghiulară stânga</string>
+    <string name="symbol_mathematical_right_angle_bracket">Paranteză matematică unghiulară dreapta</string>
+    <string name="symbol_micro_sign">Semnul miu</string>
+    <string name="symbol_middle_dot">Interpunct</string>
+    <string name="symbol_multiplication">Semnul înmulțirii</string>
+    <string name="symbol_new_line">Rând nou</string>
+    <string name="symbol_not_equals">Nu este egal cu</string>
+    <string name="symbol_not_sign">Semn pentru negație logică</string>
+    <string name="symbol_paragraph_mark">Semn pentru paragraf</string>
+    <string name="symbol_parenthesis_left">Paranteză stânga</string>
+    <string name="symbol_parenthesis_right">Paranteză dreapta</string>
+    <string name="symbol_percent">Procent</string>
+    <string name="symbol_period">Punct</string>
+    <string name="symbol_pi">Pi</string>
+    <string name="symbol_plus_minus_sign">Semn plus minus</string>
+    <string name="symbol_postal_mark">Marcă poștală</string>
+    <string name="symbol_pound">Diez</string>
+    <string name="symbol_pound_sterling">Semnul de monedă pentru liră</string>
+    <string name="symbol_quarter_note">Notă muzicală pătrime</string>
+    <string name="symbol_question_mark">Semnul întrebării</string>
+    <string name="symbol_quotation_mark">Semnul citării</string>
+    <string name="symbol_reference">Semn de referință</string>
+    <string name="symbol_registered_trademark">Marcă comercială înregistrată</string>
+    <string name="symbol_right_angle_bracket">Paranteză unghiulară dublă dreapta</string>
+    <string name="symbol_right_black_lenticular_bracket">Paranteză neagră ovală de închidere</string>
+    <string name="symbol_right_corner_bracket">Paranteză unghiulară de închidere</string>
+    <string name="symbol_right_double_quotation_mark">Ghilimele duble la dreapta</string>
+    <string name="symbol_right_single_quotation_mark">Ghilimele simple la dreapta</string>
+    <string name="symbol_rightwards_arrow">Săgeată spre dreapta</string>
+    <string name="symbol_rupee">Rupie</string>
+    <string name="symbol_section_sign">Semnul pentru secțiune</string>
+    <string name="symbol_semicolon">Punct și virgulă</string>
+    <string name="symbol_slash">Bară oblică</string>
+    <string name="symbol_solar">Simbol solar</string>
+    <string name="symbol_space">Spațiu</string>
+    <string name="symbol_square_bracket_left">Paranteză pătrată stânga</string>
+    <string name="symbol_square_bracket_right">Paranteză pătrată dreapta</string>
+    <string name="symbol_square_root">Rădăcină pătrată</string>
+    <string name="symbol_tilde">Tildă</string>
+    <string name="symbol_trademark">Marcă comercială</string>
+    <string name="symbol_underscore">Caracter de subliniere</string>
+    <string name="symbol_upwards_arrow">Săgeată în sus</string>
+    <string name="symbol_vertical_bar">Bară verticală</string>
+    <string name="symbol_white_circle">Cerc alb</string>
+    <string name="symbol_white_club_suit">Treflă albă</string>
+    <string name="symbol_white_diamond">Romb alb</string>
+    <string name="symbol_white_down_pointing_triangle">Triunghi alb orientat în jos</string>
+    <string name="symbol_white_heart">Inimă albă</string>
+    <string name="symbol_white_left_pointing_index">Arătător alb orientat spre stânga</string>
+    <string name="symbol_white_left_pointing_triangle">Triunghi alb orientat spre stânga</string>
+    <string name="symbol_white_right_pointing_index">Arătător alb orientat spre dreapta</string>
+    <string name="symbol_white_right_pointing_triangle">Triunghi alb orientat spre dreapta</string>
+    <string name="symbol_white_spade_suit">Pică albă</string>
+    <string name="symbol_white_square">Pătrat alb</string>
+    <string name="symbol_white_star">Stea albă</string>
+    <string name="symbol_white_up_pointing_triangle">Triunghi alb orientat în sus</string>
+    <string name="symbol_won">Semnul de monedă pentru Won</string>
+    <string name="symbol_won_sign">Semnul de monedă pentru Won</string>
+    <string name="symbol_yen">Yen</string>
+    <string name="template_capital_letter">%1$s mare</string>
+    <string name="template_current_tts_engine">Se utilizează %1$s</string>
+    <string name="template_overlay_window">%1$s în modul picture-in-picture</string>
+    <string name="template_password_selected">Caracterele de la %1$d la %2$d</string>
+    <string name="template_password_traversed">Caracterul %1$d</string>
+    <string name="template_scroll_from_count">Se afișează articolul %1$d din %2$d.</string>
+    <string name="template_scroll_from_to_count">Se afișează articolele %1$d – %2$d din %3$d.</string>
+    <string name="template_split_screen_mode_landscape_ltr">%1$s în stânga, %2$s în dreapta</string>
+    <string name="template_split_screen_mode_landscape_rtl">%1$s în dreapta, %2$s în stânga</string>
+    <string name="template_split_screen_mode_portrait">%1$s în partea de sus, %2$s în partea de jos</string>
+    <string name="template_text_copied">copiat, %1$s</string>
+    <string name="template_viewpager_index_count">Pagina %1$d din %2$d</string>
+    <string name="template_viewpager_index_count_short">%1$d din %2$d</string>
+    <string name="untitled_window">fără titlu</string>
+    <string name="url_dialog_table">%1$s (%2$s)</string>
+    <string msgid="5138405918326871307" name="v7_preference_off">"DEZACTIVAT"</string>
+    <string msgid="27351710992731591" name="v7_preference_on">"ACTIVAT"</string>
+    <string msgid="8863821639144537553" name="ws_action_drawer_content_description">"Panou de acțiune"</string>
+    <string msgid="777117228299084604" name="ws_navigation_drawer_content_description">"Panou de navigare"</string>
+</resources>
