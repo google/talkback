@@ -2,9 +2,9 @@
 <resources>
   <string name="braille_ime_service_name">Klawiatura brajlowska TalkBack</string>
   <string name="switch_to_screen_away_announcement">Tryb Ekran odsunięty</string>
-  <string name="switch_to_tabletop_announcement">Tryb na stole. Połóż urządzenie tak, by port ładowania był po lewej stronie. Aby zmienić pozycję kropki, przytrzymaj ekran 6 palcami.</string>
+  <string name="switch_to_tabletop_announcement">Tryb na stole. Połóż urządzenie tak, by port ładowania był po lewej stronie. Aby zmienić pozycję kropki, przytrzymaj ekran sześcioma palcami.</string>
   <string name="bring_ime_settings_page">Inne klawiatury nie są uruchomione, otwórz ustawienia klawiatury</string>
-  <string name="reminder_announcement">Przesuń 3 palcami w górę, by wyświetlić więcej opcji</string>
+  <string name="reminder_announcement">Przesuń trzema palcami w górę, by wyświetlić więcej opcji</string>
   <string name="braille_ime_displayed_name">klawiatura brajlowska</string>
   <string name="multiple_languages_braille_ime_displayed_name">klawiatura brajlowska, %s</string>
   <string name="input_view_caption">Klawiatura brajlowska TalkBack – aby uzyskać pomoc, kliknij g.co/help/braille</string>
@@ -16,7 +16,7 @@
   <string name="remaining_calibration_finish_announcement">Zaktualizowano pozycje wszystkich kropek</string>
   <string name="calibration_step2_hold_right_finger_announcement">Zmieniono pozycje kropek 1, 2 i 3. Teraz zarejestruj kropki w przypadku prawej ręki. Naciśnij i przytrzymaj ekran 3 środkowymi palcami prawej dłoni.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Zmieniono pozycje kropek 1, 2 i 3. Następnie zarejestruj kropki w przypadku lewej ręki. Naciśnij i przytrzymaj ekran 3 środkowymi palcami lewej dłoni.</string>
-  <string name="calibration_fail_announcement">Nie udało się zmienić pozycji kropki. Naciśnij i przytrzymaj ekran 6 palcami. Następnie spróbuj ponownie.</string>
+  <string name="calibration_fail_announcement">Nie udało się zmienić pozycji kropki. Naciśnij i przytrzymaj ekran sześcioma palcami. Następnie spróbuj ponownie.</string>
   <string name="switch_to_language_announcement">Przełączono na: %s</string>
   <string name="braille_keyboard">Klawiatura brajlowska</string>
   <string name="set_up_braille_keyboard">Skonfiguruj klawiaturę brajlowską</string>
@@ -31,7 +31,7 @@
   <string name="preferred_language_title">Preferowany język</string>
   <string name="dont_show_again">Nie pokazuj ponownie</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Szybko zmieniaj język podczas pisania</string>
-  <string name="switch_input_code_gesture_tip_dialog_message">Aby zmieniać język podczas pisania przy użyciu klawiatury brajlowskiej, otwórz menu opcji, przesuwając w górę 3 palcami. Następnie wybierz opcję „Przełącz na następny język”.</string>
+  <string name="switch_input_code_gesture_tip_dialog_message">Aby zmieniać język podczas pisania przy użyciu klawiatury brajlowskiej, otwórz menu opcji, przesuwając w górę trzema palcami. Następnie wybierz opcję „Przełącz na następny język”.</string>
   <string name="title_pref_accumulate_presses">Uwzględniaj wszystkie naciśnięte punkty</string>
   <string name="summary_pref_accumulate_presses">Każdy naciśnięty punkt jest uwzględniany, nawet jeśli przestajesz go naciskać przed pozostałymi</string>
   <string name="title_pref_reverse_dots">Odwróć punkty</string>
@@ -47,14 +47,14 @@
   <string name="braille_keyboard_gestures">Gesty obsługi klawiatury brajlowskiej</string>
   <string name="gesture_add_space">Aby dodać <b>spację</b>, przesuń palcem w prawo</string>
   <string name="gesture_delete">Aby <b>usunąć</b>, przesuń palcem w lewo</string>
-  <string name="gesture_new_line">Aby pisać od <b>nowego wiersza</b>, przesuń 2 palcami w prawo</string>
-  <string name="gesture_delete_word">Aby <b>usunąć słowo</b>, przesuń 2 palcami w lewo</string>
+  <string name="gesture_new_line">Aby pisać od <b>nowego wiersza</b>, przesuń dwoma palcami w prawo</string>
+  <string name="gesture_delete_word">Aby <b>usunąć słowo</b>, przesuń dwoma palcami w lewo</string>
   <string name="gesture_move_cursor_backward">Aby <b>przenieść kursor wstecz</b>, przesuń palcem w górę</string>
   <string name="gesture_move_cursor_forward">Aby <b>przenieść kursor dalej</b>, przesuń palcem w dół</string>
-  <string name="gesture_hide_keyboard">Aby <b>ukryć klawiaturę</b>, przesuń 2 palcami w dół.</string>
-  <string name="gesture_next_keyboard">Aby przełączyć się na <b>następną klawiaturę</b>, przesuń 3 palcami w dół</string>
-  <string name="gesture_submit_text">Aby <b>przesłać tekst</b>, przesuń 2 palcami w górę</string>
-  <string name="gesture_open_context_menu">Aby wyświetlić <b>pomoc i inne opcje</b>, przesuń 3 palcami w górę</string>
+  <string name="gesture_hide_keyboard">Aby <b>ukryć klawiaturę</b>, przesuń dwoma palcami w dół.</string>
+  <string name="gesture_next_keyboard">Aby przełączyć się na <b>następną klawiaturę</b>, przesuń trzema palcami w dół</string>
+  <string name="gesture_submit_text">Aby <b>przesłać tekst</b>, przesuń dwoma palcami w górę</string>
+  <string name="gesture_open_context_menu">Aby wyświetlić <b>pomoc i inne opcje</b>, przesuń trzema palcami w górę</string>
   <string name="done">OK</string>
   <string name="not_enough_touch_points_dialog_title">Urządzenie nie obsługuje klawiatury brajlowskiej</string>
   <string name="not_enough_touch_points_dialog_message">Urządzenie nie obsługuje dostatecznie wielu punktów kontaktu. Aby uzyskać więcej informacji, skontaktuj się z producentem urządzenia.</string>
@@ -77,9 +77,9 @@
   <string name="instruction_swipe_right">Aby dodać spację, przesuń palcem w prawo</string>
   <string name="instruction_swipe_up">Aby przenieść kursor wstecz, przesuń palcem w górę</string>
   <string name="instruction_swipe_down">Aby przenieść kursor dalej, przesuń palcem w dół</string>
-  <string name="instruction_swipe_down_2_fingers">Aby ukryć klawiaturę, przesuń 2 palcami w dół</string>
-  <string name="instruction_swipe_down_3_fingers">Aby przełączyć się na inną klawiaturę, przesuń 3 palcami w dół</string>
-  <string name="instruction_swipe_up_3_fingers">Aby zakończyć samouczek, przesuń 3 palcami w górę</string>
+  <string name="instruction_swipe_down_2_fingers">Aby ukryć klawiaturę, przesuń dwoma palcami w dół</string>
+  <string name="instruction_swipe_down_3_fingers">Aby przełączyć się na inną klawiaturę, przesuń trzema palcami w dół</string>
+  <string name="instruction_swipe_up_3_fingers">Aby zakończyć samouczek, przesuń trzema palcami w górę</string>
   <string name="result_swipe_left">USUŃ</string>
   <string name="result_swipe_right">SPACJA</string>
   <string name="result_swipe_up">PRZENIESIONO KURSOR WSTECZ</string>
@@ -87,7 +87,7 @@
   <string name="result_swipe_down_2_fingers">UKRYJ KLAWIATURĘ</string>
   <string name="result_swipe_down_3_fingers">NASTĘPNA KLAWIATURA</string>
   <string name="rotate_orientation_announcement">Od teraz nie możesz korzystać ze standardowych gestów TalkBack. Gdy używasz klawiatury brajlowskiej, usługa TalkBack jest niedostępna.\n\n%1$s</string>
-  <string name="rotate_orientation_inactive_announcement">Najpierw odwróć telefon ekranem od siebie.\n\nNastępnie obróć telefon i ustaw go poziomo. Trzymaj telefon za krótsze krawędzie. Prawą ręką trzymaj część, w której znajduje się port USB. Połóż 3 środkowe palce na ekranie, a kciukiem i małym placem podpieraj telefon.\n\nGdy wszystko będzie gotowe, kliknij ekran dwukrotnie, by przejść dalej.\n\nAby zamknąć klawiaturę brajlowską, przesuń 3 palcami w dół. Spowoduje to przełączenie na pierwotną klawiaturę.</string>
+  <string name="rotate_orientation_inactive_announcement">Najpierw odwróć telefon ekranem od siebie.\n\nNastępnie obróć telefon i ustaw go poziomo. Trzymaj telefon za krótsze krawędzie. Prawą ręką trzymaj część, w której znajduje się port USB. Połóż 3 środkowe palce na ekranie, a kciukiem i małym palcem podpieraj telefon.\n\nGdy wszystko będzie gotowe, kliknij ekran dwukrotnie, by przejść dalej.\n\nAby zamknąć klawiaturę brajlowską, przesuń trzema palcami w dół. Spowoduje to przełączenie na pierwotną klawiaturę.</string>
   <string name="rotate_orientation_continue_announcement">Telefon jest ustawiony pionowo. Aby przejść dalej, obróć go w poziomie, tak by długa krawędź znalazła się na dole. Następnie odwróć ekran od siebie. Gdy wszystko będzie gotowe, kliknij ekran dwukrotnie, by przejść dalej.</string>
   <string name="type_letter_a_announcement">Trzymaj telefon tak, by ekran był od Ciebie odwrócony. Przytrzymuj telefon obiema rękami za krótsze krawędzie, pilnując, by 3 środkowe palce każdej dłoni mogły dotknąć ekranu.\n\nLewy palec wskazujący powinien znajdować się na punkcie 1. Kliknij punkt 1, by napisać literę „A”.</string>
   <string name="type_letter_a_inactive_announcement">Kliknij punkt 1 lewym palcem wskazującym, by napisać „A”</string>
@@ -97,11 +97,11 @@
   <string name="swipe_right_announcement">Aby dodać spację, przesuń palcem w prawo. Spróbuj to zrobić teraz.</string>
   <string name="swipe_up_announcement">Aby przenieść kursor wstecz, przesuń palcem w górę. Spróbuj to zrobić teraz.</string>
   <string name="swipe_down_announcement">Aby przenieść kursor dalej, przesuń palcem w dół. Spróbuj to zrobić teraz.</string>
-  <string name="swipe_down_2_fingers_announcement">Aby ukryć klawiaturę, przesuń 2 palcami w dół. Spróbuj to zrobić teraz.</string>
+  <string name="swipe_down_2_fingers_announcement">Aby ukryć klawiaturę, przesuń dwoma palcami w dół. Spróbuj to zrobić teraz.</string>
   <string name="swipe_down_2_fingers_completed_announcement">Ukryj klawiaturę. Zwykle powoduje to ukrycie klawiatury. Klawiatura brajlowska pozostaje otwarta, ponieważ wciąż masz uruchomiony samouczek.</string>
-  <string name="swipe_down_3_fingers_announcement">Aby przełączyć się na inną klawiaturę, przesuń 3 palcami w dół. Spróbuj to zrobić teraz.</string>
+  <string name="swipe_down_3_fingers_announcement">Aby przełączyć się na inną klawiaturę, przesuń trzema palcami w dół. Spróbuj to zrobić teraz.</string>
   <string name="swipe_down_3_fingers_completed_announcement">Następna klawiatura. Zwykle powoduje to przełączenie na następną klawiaturę. Tym razem klawiatura brajlowska pozostaje otwarta, ponieważ wciąż masz uruchomiony samouczek.</string>
-  <string name="swipe_up_3_fingers_announcement">Możesz też pisać w trybie na płasko, gdy umieścisz telefon płasko na stole. Aby zakończyć samouczek, przesuń 3 palcami i znajdź odpowiednią opcję.</string>
+  <string name="swipe_up_3_fingers_announcement">Możesz też pisać w trybie na płasko, gdy umieścisz telefon płasko na stole. Aby zakończyć samouczek, przesuń trzema palcami i znajdź odpowiednią opcję.</string>
   <string name="open_context_menu_announcement">Menu opcji jest otwarte. Odwróć telefon do pozycji wyjściowej, by był skierowany w Twoją stronę. Trzymaj go normalnie. Możesz teraz korzystać przy nawigacji ze standardowych gestów TalkBack. Przesuń palcem w prawo, by wyświetlić więcej opcji.</string>
   <string name="hold_six_fingers_announcement">%s\nPołóż urządzenie płasko na stole. Następnie naciśnij i przytrzymaj ekran 3 środkowymi palcami każdej dłoni w pozycji, która będzie dla Ciebie wygodna do pisania.</string>
   <string name="hold_six_fingers_inactive_announcement">Umieść urządzenie płasko na stole. Następnie naciśnij i przytrzymaj ekran 3 środkowymi palcami każdej dłoni w pozycji, która będzie dla Ciebie wygodna do pisania.</string>
