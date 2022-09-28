@@ -104,7 +104,7 @@ public class GestureHistory {
     private static final String FILE_FOLDER_NAME = "Gesture";
     private static final String FILE_NAME = "gesture.log";
     private static final String FILE_AUTHORITY =
-        BuildConfig.APPLICATION_ID + ".providers.FileProvider";
+        BuildConfig.LIBRARY_PACKAGE_NAME + ".providers.FileProvider";
 
     /** Writes gesture data into a file and return the file uri. */
     public static Uri writeFile(Context context, Deque<GestureInfo> gestureInfos) {

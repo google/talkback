@@ -14,6 +14,8 @@ dependencies {
 def talkbackMainPermission = '"com.android.talkback.permission.TALKBACK"'
 
 android {
+
+    namespace 'com.google.android.accessibility.talkback'
     defaultConfig {
         buildConfigField("String", "TALKBACK_MAIN_PERMISSION", talkbackMainPermission)
     }

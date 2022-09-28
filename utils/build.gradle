@@ -8,6 +8,8 @@ dependencies {
 }
 
 android {
+
+    namespace 'com.google.android.accessibility.utils'
     defaultConfig {
         buildConfigField("String", "TALKBACK_APPLICATION_ID", '"' + talkbackApplicationId + '"')
     }

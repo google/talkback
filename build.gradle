@@ -19,7 +19,7 @@ buildscript {
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:7.3.0'
     }
 }
 
@@ -48,6 +48,7 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+    namespace 'com.android.talkback'
     productFlavors {
         phone {
             dimension "target"
