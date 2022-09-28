@@ -47,7 +47,7 @@ public class LabelProvider extends ContentProvider {
 
   private static final String TAG = "LabelProvider";
 
-  public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".providers.LabelProvider";
+  public static final String AUTHORITY = BuildConfig.LIBRARY_PACKAGE_NAME + ".providers.LabelProvider";
   static final String LABELS_PATH = "labels";
   static final Uri LABELS_CONTENT_URI =
       new Uri.Builder().scheme("content").authority(AUTHORITY).path(LABELS_PATH).build();

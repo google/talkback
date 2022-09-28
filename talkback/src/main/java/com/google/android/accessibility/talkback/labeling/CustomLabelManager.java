@@ -76,7 +76,7 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
   public static final String EXTRA_STRING_ARRAY_PACKAGES = "EXTRA_STRING_ARRAY_PACKAGES";
 
   @VisibleForTesting
-  static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".providers.LabelProvider";
+  static final String AUTHORITY = BuildConfig.LIBRARY_PACKAGE_NAME + ".providers.LabelProvider";
 
   /**
    * The substring separating a label's package and view ID name in a fully-qualified resource

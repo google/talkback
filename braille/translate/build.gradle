@@ -16,8 +16,8 @@ dependencies {
 }
 
 task createTranslationTablesZip(type: Zip){
-    archiveName="translationtables.zip"
-    destinationDir = file('src/phone/res/raw/')
+    archiveFileName = "translationtables.zip"
+    destinationDirectory = file('src/phone/res/raw/')
     from fileTree('./src/phone/tables/')
     into('liblouis/tables')
 }

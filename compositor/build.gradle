@@ -1,6 +1,10 @@
 apply plugin: 'com.android.library'
 apply from: "../shared.gradle"
 
+android {
+    namespace 'com.google.android.accessibility.compositor'
+}
+
 dependencies {
     implementation project(':proguard')
     implementation project(':uiunderstanding')

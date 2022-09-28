@@ -60,7 +60,7 @@ public class LabelManagerSummaryActivity extends BasePreferencesActivity
 
   /** File provider for custom label share intent. */
   private static final String FILE_AUTHORITY =
-      BuildConfig.APPLICATION_ID + ".providers.FileProvider";
+      BuildConfig.LIBRARY_PACKAGE_NAME + ".providers.FileProvider";
 
   private RecyclerView packageList;
   private PackageLabelInfoAdapter packageLabelInfoAdapter;
