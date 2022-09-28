@@ -14,30 +14,29 @@ dependencies {
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'com.android.tools.build:gradle:3.5.4'
+        classpath 'com.android.tools.build:gradle:4.2.2'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
 }
 
 android {
-    buildToolsVersion '29.0.0'
     defaultConfig {
         applicationId talkbackApplicationId
         versionName talkbackVersionName + "-" + BUILD_TIMESTAMP
         manifestPlaceholders = [talkbackMainPermission:talkbackMainPermission]
         minSdkVersion 26
-        targetSdkVersion 30
+        targetSdkVersion 33
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'
         multiDexEnabled true
     }
