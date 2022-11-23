@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">不要再显示</string>
+  <string name="done">完成</string>
   <string name="number_announcement">数字</string>
   <string name="capitalize_announcement">大写</string>
   <string name="read_out_deleted">已删除%s</string>
@@ -7,6 +9,7 @@
     <item quantity="one">%s 点</item>
     <item quantity="other">%s 点</item>
   </plurals>
+  <string name="language_split_comma">、</string>
   <string name="code_user_facing_name_ueb1">统一英语盲文（非简写模式）</string>
   <string name="code_user_facing_name_ueb2">统一英语盲文（简写模式）</string>
   <string name="code_user_facing_name_es">西班牙语</string>

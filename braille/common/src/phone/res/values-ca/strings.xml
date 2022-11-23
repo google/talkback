@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">No ho tornis a mostrar</string>
+  <string name="done">Fet</string>
   <string name="number_announcement">Número</string>
   <string name="capitalize_announcement">Majúscula</string>
   <string name="read_out_deleted">S\'ha suprimit %s</string>
@@ -7,6 +9,7 @@
     <item quantity="one">punt %s</item>
     <item quantity="other">punts %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Braille anglès unificat no contret</string>
   <string name="code_user_facing_name_ueb2">Braille anglès unificat contret</string>
   <string name="code_user_facing_name_es">Espanyol</string>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Больше не показывать</string>
+  <string name="done">Готово</string>
   <string name="number_announcement">Цифра</string>
   <string name="capitalize_announcement">Заглавные буквы</string>
   <string name="read_out_deleted">Текст \"%s\" удален</string>
@@ -9,10 +11,11 @@
     <item quantity="many">точки %s</item>
     <item quantity="other">точки %s</item>
   </plurals>
+  <string name="language_split_comma">,</string>
   <string name="code_user_facing_name_ueb1">Объединенный англ. шрифт Брайля без сокращений</string>
   <string name="code_user_facing_name_ueb2">Объединенный англ. шрифт Брайля с сокращениями</string>
   <string name="code_user_facing_name_es">Испанский</string>
-  <string name="code_user_facing_name_ar">арабский</string>
+  <string name="code_user_facing_name_ar">Арабский</string>
   <string name="code_user_facing_name_fr">Французский</string>
   <string name="code_user_facing_name_pl">Польский</string>
   <string name="screen_away">Режим \"Экран от себя\"</string>

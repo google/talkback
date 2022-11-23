@@ -113,13 +113,9 @@ public class WebInterfaceUtils {
           if (node == null) {
             return false;
           }
-          AccessibilityNodeInfoCompat parent = node.getParent();
-          try {
-            return Role.getRole(node) == Role.ROLE_WEB_VIEW
-                && Role.getRole(parent) != Role.ROLE_WEB_VIEW;
-          } finally {
-            AccessibilityNodeInfoUtils.recycleNodes(parent);
-          }
+
+          return Role.getRole(node) == Role.ROLE_WEB_VIEW
+              && Role.getRole(node.getParent()) != Role.ROLE_WEB_VIEW;
         }
       };
 
@@ -188,7 +184,7 @@ public class WebInterfaceUtils {
 
   /**
    * Gets supported html elements, such as HEADING, LANDMARK, LINK and LIST, by
-   * AccessibilityNodeInfoCompat. Caller retains ownership of node, caller must recycle this node.
+   * AccessibilityNodeInfoCompat.
    *
    * @param node The node containing supported html elements
    * @return supported html elements
@@ -374,17 +370,8 @@ public class WebInterfaceUtils {
 
     // ChromeVox does not have sub elements, so if the parent element also has web content
     // this cannot be ChromeVox.
-    AccessibilityNodeInfoCompat parent = node.getParent();
-    if (supportsWebActions(parent)) {
-      if (parent != null) {
-        parent.recycle();
-      }
-
+    if (supportsWebActions(node.getParent())) {
       return false;
-    }
-
-    if (parent != null) {
-      parent.recycle();
     }
 
     // ChromeVox never has child elements

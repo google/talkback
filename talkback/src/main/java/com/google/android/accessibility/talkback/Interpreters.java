@@ -27,12 +27,14 @@ import com.google.android.accessibility.talkback.interpreters.AutoScrollInterpre
 import com.google.android.accessibility.talkback.interpreters.DirectionNavigationInterpreter;
 import com.google.android.accessibility.talkback.interpreters.FullScreenReadInterpreter;
 import com.google.android.accessibility.talkback.interpreters.InputFocusInterpreter;
+import com.google.android.accessibility.talkback.interpreters.ManualScrollInterpreter;
 import com.google.android.accessibility.talkback.interpreters.PassThroughModeInterpreter;
 import com.google.android.accessibility.talkback.interpreters.ScrollPositionInterpreter;
 import com.google.android.accessibility.talkback.interpreters.StateChangeEventInterpreter;
 import com.google.android.accessibility.talkback.interpreters.SubtreeChangeEventInterpreter;
 import com.google.android.accessibility.talkback.interpreters.UiChangeEventInterpreter;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.input.ScrollEventInterpreter;
 
 /** Wrapper around all event-interpreters, for use in Pipeline. */
 public class Interpreters {
@@ -42,9 +44,11 @@ public class Interpreters {
   // TODO: Move all event-interpreters into pipeline-interpreters.
 
   private final InputFocusInterpreter inputFocusInterpreter;
+  private final ScrollEventInterpreter scrollEventInterpreter;
+  private final ManualScrollInterpreter manualScrollInterpreter;
   private final AutoScrollInterpreter autoScrollInterpreter; // Listens to ScrollEventInterpreter
   private final ScrollPositionInterpreter
-      scrollPositionInterpreter; // Listens ScrollEventInterpreter
+      scrollPositionInterpreter; // Listens to ScrollEventInterpreter
   private final AccessibilityFocusInterpreter accessibilityFocusInterpreter;
   private final FullScreenReadInterpreter continuousReadInterpreter;
   private final StateChangeEventInterpreter stateChangeEventInterpreter;
@@ -63,6 +67,8 @@ public class Interpreters {
 
   public Interpreters(
       InputFocusInterpreter inputFocusInterpreter,
+      ScrollEventInterpreter scrollEventInterpreter,
+      ManualScrollInterpreter manualScrollInterpreter,
       AutoScrollInterpreter autoScrollInterpreter,
       ScrollPositionInterpreter scrollPositionInterpreter,
       AccessibilityFocusInterpreter accessibilityFocusInterpreter,
@@ -77,6 +83,8 @@ public class Interpreters {
       UiChangeEventInterpreter uiChangeEventInterpreter) {
 
     this.inputFocusInterpreter = inputFocusInterpreter;
+    this.scrollEventInterpreter = scrollEventInterpreter;
+    this.manualScrollInterpreter = manualScrollInterpreter;
     this.autoScrollInterpreter = autoScrollInterpreter;
     this.scrollPositionInterpreter = scrollPositionInterpreter;
     this.accessibilityFocusInterpreter = accessibilityFocusInterpreter;
@@ -90,8 +98,16 @@ public class Interpreters {
     this.accessibilityEventIdleInterpreter = accessibilityEventIdleInterpreter;
     this.uiChangeEventInterpreter = uiChangeEventInterpreter;
 
+    // Event-interpreters are chained:
+    // scrollEventInterpreter -> manualScrollInterpreter -> accessibilityFocusInterpreter
+    manualScrollInterpreter.setListener(accessibilityFocusInterpreter);
+    scrollEventInterpreter.addListener(manualScrollInterpreter);
+    scrollEventInterpreter.addListener(scrollPositionInterpreter);
+    scrollEventInterpreter.addListener(autoScrollInterpreter);
+
     eventTypeMask =
         inputFocusInterpreter.getEventTypes()
+            | scrollEventInterpreter.getEventTypes()
             | continuousReadInterpreter.getEventTypes()
             | stateChangeEventInterpreter.getEventTypes()
             | subtreeChangeEventInterpreter.getEventTypes()
@@ -102,6 +118,8 @@ public class Interpreters {
 
   public void setActorState(ActorState actorState) {
     inputFocusInterpreter.setActorState(actorState);
+    scrollEventInterpreter.setScrollActorState(actorState.getScrollerState());
+    manualScrollInterpreter.setActorState(actorState);
     autoScrollInterpreter.setActorState(actorState);
     accessibilityFocusInterpreter.setActorState(actorState);
     continuousReadInterpreter.setActorState(actorState);
@@ -113,6 +131,11 @@ public class Interpreters {
   }
 
   public void setPipelineInterpretationReceiver(Pipeline.InterpretationReceiver pipeline) {
+    // Mappers also listen to scroll-event-interpreter.
+    scrollEventInterpreter.addListener(
+        (event, interpretation, eventId) ->
+            pipeline.input(eventId, event, new Interpretation.Scroll(interpretation)));
+
     autoScrollInterpreter.setPipelineInterpretationReceiver(pipeline);
     scrollPositionInterpreter.setPipeline(pipeline);
     accessibilityFocusInterpreter.setPipeline(pipeline);
@@ -139,7 +162,9 @@ public class Interpreters {
 
   /** Handles accessibility-event, asynchronously returning interpretations to pipeline. */
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
+    processorAccessibilityHints.onAccessibilityEvent(event, eventId);
     inputFocusInterpreter.onAccessibilityEvent(event, eventId);
+    scrollEventInterpreter.onAccessibilityEvent(event, eventId);
     continuousReadInterpreter.onAccessibilityEvent(event, eventId);
     stateChangeEventInterpreter.onAccessibilityEvent(event, eventId);
     subtreeChangeEventInterpreter.onAccessibilityEvent(event, eventId);

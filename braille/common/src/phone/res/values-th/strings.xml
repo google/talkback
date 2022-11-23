@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">ไม่ต้องแสดงข้อความนี้อีก</string>
+  <string name="done">เสร็จสิ้น</string>
   <string name="number_announcement">ลำดับ</string>
   <string name="capitalize_announcement">จำนวนเงินสูงสุด</string>
   <string name="read_out_deleted">ลบ %s แล้ว</string>
@@ -7,12 +9,13 @@
     <item quantity="one">จุด %s</item>
     <item quantity="other">จุด %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille แบบไม่ย่อ</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille แบบย่อ</string>
-  <string name="code_user_facing_name_es">ภาษาสเปน</string>
+  <string name="code_user_facing_name_es">สเปน</string>
   <string name="code_user_facing_name_ar">อาหรับ</string>
   <string name="code_user_facing_name_fr">ฝรั่งเศส</string>
-  <string name="code_user_facing_name_pl">ภาษาโปแลนด์</string>
+  <string name="code_user_facing_name_pl">โปแลนด์</string>
   <string name="screen_away">โหมดหันหน้าจอออก</string>
   <string name="screen_away_detail">ถืออุปกรณ์โดยให้หันหน้าจอออกจากตัว (โหมดหันหน้าจอออก)</string>
   <string name="tabletop">โหมดบนโต๊ะ</string>

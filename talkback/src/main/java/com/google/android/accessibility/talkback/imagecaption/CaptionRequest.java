@@ -43,18 +43,23 @@ public abstract class CaptionRequest implements Request {
     /**
      * Called when the image caption is finished.
      *
-     * @param node caption is finished for this node.
+     * @param requestId the unique ID
+     * @param node caption is finished for this node
      * @param result ocr result
      * @param isUserRequested return true if the user asks the request
      */
     void onCaptionFinish(
-        AccessibilityNode node, @Nullable CharSequence result, boolean isUserRequested);
+        int requestId,
+        AccessibilityNode node,
+        @Nullable CharSequence result,
+        boolean isUserRequested);
   }
 
   /** A listener to be invoked when the image caption is failed. */
   public interface OnErrorListener {
     /** Called when the image caption ends in failure. */
-    void onError(AccessibilityNode node, @ErrorCode int errorCode, boolean isUserRequested);
+    void onError(
+        int requestId, AccessibilityNode node, @ErrorCode int errorCode, boolean isUserRequested);
   }
 
   /** The reasons of image captions. */
@@ -70,6 +75,9 @@ public abstract class CaptionRequest implements Request {
 
   private static final String TAG = "CaptionRequest";
 
+  /** An unique ID for the request. */
+  private final int requestId;
+
   @NonNull protected final AccessibilityNodeInfoCompat node;
 
   @NonNull private final OnFinishListener onFinishListener;
@@ -80,10 +88,12 @@ public abstract class CaptionRequest implements Request {
   private final boolean isUserRequested;
 
   protected CaptionRequest(
+      int requestId,
       @NonNull AccessibilityNodeInfoCompat node,
       @NonNull OnFinishListener onFinishListener,
       @NonNull OnErrorListener onErrorListener,
       boolean isUserRequested) {
+    this.requestId = requestId;
     this.node = AccessibilityNodeInfoCompat.obtain(node);
     this.onFinishListener = onFinishListener;
     this.onErrorListener = onErrorListener;
@@ -93,8 +103,12 @@ public abstract class CaptionRequest implements Request {
         () -> {
           LogUtils.e(TAG, "CaptionRequest timeout is reached. " + this);
           onErrorListener.onError(
-              AccessibilityNode.obtainCopy(node), ERROR_TIMEOUT, isUserRequested);
+              requestId, AccessibilityNode.obtainCopy(node), ERROR_TIMEOUT, isUserRequested);
         };
+  }
+
+  public int getRequestId() {
+    return requestId;
   }
 
   /** Performs the image caption. */
@@ -140,12 +154,14 @@ public abstract class CaptionRequest implements Request {
             + StringBuilderUtils.joinFields(
                 StringBuilderUtils.optionalSubObj("node", node),
                 StringBuilderUtils.optionalText("ocrText", result)));
-    onFinishListener.onCaptionFinish(AccessibilityNode.obtainCopy(node), result, isUserRequested);
+    onFinishListener.onCaptionFinish(
+        requestId, AccessibilityNode.obtainCopy(node), result, isUserRequested);
   }
 
   protected void onError(@ErrorCode int errorCode) {
     stopTimeoutRunnable();
     LogUtils.e(TAG, "onError() error= %s", errorName(errorCode));
-    onErrorListener.onError(AccessibilityNode.obtainCopy(node), errorCode, isUserRequested);
+    onErrorListener.onError(
+        requestId, AccessibilityNode.obtainCopy(node), errorCode, isUserRequested);
   }
 }

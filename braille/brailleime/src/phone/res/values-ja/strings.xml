@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack 点字キーボード</string>
+  <string name="braille_ime_bd_mode_name">点字ディスプレイの入力</string>
   <string name="switch_to_screen_away_announcement">画面裏返しモード</string>
   <string name="switch_to_tabletop_announcement">テーブルトップ モードです。充電ポートを左にした状態でデバイスを置いてください。ドット位置を更新するには、6 本の指で長押しします。</string>
   <string name="bring_ime_settings_page">他に有効なキーボードがありません。キーボードの設定に移動します</string>
@@ -23,14 +24,20 @@
   <string name="how_to_use_braille_keyboard">点字キーボードの使い方</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">点字キーボードを使用するには、通常のキーボードを開き、キーボード アイコン %1$s（通常は右下隅）をタップして選択します。[%2$s] を選択します。
   &lt;br&gt;&lt;br&gt;キーボードの切り替えオプションが表示されない場合は、Google キーボード %3$s をインストールしてみてください。</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;点字キーボードをオンにする&lt;/b&gt;: 下の [設定] をタップします。次の画面で、[%1$s] をオンにします。
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;点字キーボードを使用する&lt;/b&gt;: 通常のキーボードを開き、キーボード アイコン %2$s（通常は右下隅）をタップして選択します。[%1$s] を選択します。
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. 下の [設定] をタップします。次の画面で、[%1$s] を ON にします。&lt;br&gt;&lt;br&gt;
+    2. 通常のキーボードを開き、[入力方法の切り替え] %2$s をタップします（通常は右下にあります）。&lt;br&gt;&lt;br&gt;
+    3. [%1$s] を選択します。
     &lt;br&gt;&lt;br&gt;キーボードの切り替えオプションが表示されない場合は、Google キーボード %3$s をインストールしてみてください。</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">設定</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. 下の点字キーボードを ON にします。&lt;br&gt;&lt;br&gt;
+    2. 通常のキーボードを開き、[入力方法の切り替え] %2$s をタップします（通常は右下にあります）。&lt;br&gt;&lt;br&gt;
+    3. [%1$s] を選択します。
+    &lt;br&gt;&lt;br&gt;キーボードを切り替えられない場合は、Google キーボード %3$s をインストールしてみてください。</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">設定</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ON にする</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">点字キーボードを ON にする</string>
   <string name="typing_languages_title">入力言語</string>
   <string name="preferred_language_title">使用する言語</string>
-  <string name="dont_show_again">次回から表示しない</string>
-  <string name="switch_input_code_gesture_tip_dialog_title">入力中に言語をすぐに変更</string>
+  <string name="switch_input_code_gesture_tip_dialog_title">入力中に言語をすばやく変更</string>
   <string name="switch_input_code_gesture_tip_dialog_message">点字キーボードでの入力中に言語を変更するには、3 本の指で上にスワイプしてから、[次の言語に切り替える] を選択します。</string>
   <string name="title_pref_accumulate_presses">押されたドットをすべて含める</string>
   <string name="summary_pref_accumulate_presses">押されたドットは、他のドットを押す前に離された場合でも、すべて入力に含まれます</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>次のキーボード</b>に切り替えるには、3 本指で下にスワイプします</string>
   <string name="gesture_submit_text"><b>テキストを送信</b>するには、2 本指で上にスワイプします</string>
   <string name="gesture_open_context_menu"><b>ヘルプや他のオプション</b>を表示するには、3 本指で上にスワイプします</string>
-  <string name="done">完了</string>
   <string name="not_enough_touch_points_dialog_title">お使いのデバイスは点字キーボードに対応していません</string>
   <string name="not_enough_touch_points_dialog_message">お使いのデバイスは十分なタッチポイントに対応していません。詳しくは、デバイスのメーカーにお問い合わせください。</string>
   <string name="talkback_off_dialog_title">点字キーボードを使用するには、TalkBack をオンにしてください</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">文字を削除しました</string>
   <string name="perform_delete_word_announcement">単語を削除しました</string>
   <string name="continue_tutorial_announcement">チュートリアルを続けましょう。%1$s</string>
-  <string name="braille_keyboard_strip_summary">外付けの点字ディスプレイを接続して、このデバイスにテキストを入力できます。\nまた、タッチ スクリーンの点字キーボードか次の入力方法に切り替えることもできます。</string>
-  <string name="braille_keyboard_strip_button">タッチ スクリーンのキーボードに切り替える</string>
+  <string name="switch_on_screen_keyboard_announcement">点字タッチスクリーンに切り替えています</string>
+  <string name="braille_keyboard_strip_summary">外付けの点字ディスプレイを接続して、スマートフォンにテキストを入力できます。\n\nまた、タッチスクリーンの点字キーボードや次の入力方法に切り替えることもできます。</string>
+  <string name="braille_keyboard_strip_touch_screen_button">点字タッチスクリーンに切り替え</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">次の入力方法に切り替え</string>
 </resources>

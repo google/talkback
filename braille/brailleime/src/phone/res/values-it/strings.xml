@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Tastiera braille di TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Immissione display braille</string>
   <string name="switch_to_screen_away_announcement">Modalità schermo verso l\'esterno</string>
   <string name="switch_to_tabletop_announcement">Modalità da tavolo. Appoggia il dispositivo con la porta di ricarica a sinistra. Tieni premuto con 6 dita per aggiornare la posizione dei punti.</string>
   <string name="bring_ime_settings_page">Non sono attivate altre tastiere: vai alle impostazioni di tastiera</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Come usare la tastiera braille</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Per utilizzare la tastiera braille, apri la tastiera classica, quindi tocca l\'icona della tastiera scelta %1$s (di solito nell\'angolo in basso a destra). Seleziona \"%2$s\".
   &lt;br&gt;&lt;br&gt;Se non trovi l\'opzione per passare da una tastiera all\'altra, prova a installare %3$s, la tastiera Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Attivare la tastiera braille&lt;/b&gt;: tocca Impostazioni in basso. Nella schermata successiva, attiva \"%1$s\".
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Utilizzare la tastiera braille&lt;/b&gt;: apri la tastiera classica, quindi tocca l\'icona della tastiera scelta %2$s (di solito nell\'angolo in basso a destra). Seleziona \"%1$s\".
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Tocca \"Impostazioni\" di seguito. Nella schermata successiva, attiva \"%1$s\".&lt;br&gt;&lt;br&gt;
+    2. Apri la tastiera classica, quindi tocca Cambia il metodo di immissione %2$s (generalmente nell\'angolo in basso a destra).&lt;br&gt;&lt;br&gt;
+    3. Seleziona \"%1$s\".
     &lt;br&gt;&lt;br&gt;Se non trovi l\'opzione per passare da una tastiera all\'altra, prova a installare %3$s, la tastiera Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Impostazioni</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Attiva la tastiera braille di seguito.&lt;br&gt;&lt;br&gt;
+    2. Apri la tastiera classica, quindi tocca Cambia il metodo di immissione %2$s (generalmente nell\'angolo in basso a destra).&lt;br&gt;&lt;br&gt;
+    3. Seleziona \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Se non riesci a passare da una tastiera all\'altra, prova a installare %3$s, la tastiera Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Impostazioni</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Attiva</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Attiva la tastiera braille</string>
   <string name="typing_languages_title">Lingue di digitazione</string>
   <string name="preferred_language_title">Lingua preferita</string>
-  <string name="dont_show_again">Non mostrare più</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Cambia velocemente la lingua durante la digitazione</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Per cambiare la lingua mentre digiti con la tastiera braille, scorri verso l\'alto con 3 dita e seleziona \"Passa alla prossima lingua\".</string>
   <string name="title_pref_accumulate_presses">Includi tutti i punti premuti</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Per passare alla <b>tastiera successiva</b>, scorri verso il basso con tre dita</string>
   <string name="gesture_submit_text">Per <b>inviare il testo</b>, scorri verso l\'alto con due dita</string>
   <string name="gesture_open_context_menu">Per <b>assistenza e altre opzioni</b>, scorri verso l\'alto con tre dita</string>
-  <string name="done">Fine</string>
   <string name="not_enough_touch_points_dialog_title">Il tuo dispositivo non supporta la tastiera braille</string>
   <string name="not_enough_touch_points_dialog_message">Il tuo dispositivo non supporta abbastanza punti touch. Per ulteriori informazioni, contatta il produttore del dispositivo.</string>
   <string name="talkback_off_dialog_title">Per utilizzare la tastiera braille, attiva TalkBack</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Lettera eliminata</string>
   <string name="perform_delete_word_announcement">Parola eliminata</string>
   <string name="continue_tutorial_announcement">Continua il tutorial. %1$s</string>
-  <string name="braille_keyboard_strip_summary">È collegato un display braille esterno, che puoi usare per digitare testo su questo dispositivo.\nIn alternativa, puoi passare alla tastiera braille touchscreen o al metodo di immissione successivo.</string>
-  <string name="braille_keyboard_strip_button">Passa alla tastiera touchscreen</string>
+  <string name="switch_on_screen_keyboard_announcement">Passaggio al touchscreen braille</string>
+  <string name="braille_keyboard_strip_summary">È collegato un display braille esterno, che puoi usare per digitare testo sul telefono.\n\nPuoi anche passare alla tastiera braille touchscreen o al metodo di immissione successivo.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Passa al touchscreen braille</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Passa al metodo di immissione successivo</string>
 </resources>

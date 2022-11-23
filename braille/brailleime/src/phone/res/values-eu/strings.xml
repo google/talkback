@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack-en braille-teklatua</string>
+  <string name="braille_ime_bd_mode_name">Braille-pantaila bidezko idazketa</string>
   <string name="switch_to_screen_away_announcement">Pantaila urrunduaren modua</string>
   <string name="switch_to_tabletop_announcement">Mahaigaineko modua. Jarri gailua kargatzeko ataka ezkerrean duela. Puntuen kokapena eguneratzeko, eduki sakatuta pantaila sei hatzekin.</string>
   <string name="bring_ime_settings_page">Ez dago beste teklaturik gaituta; joan teklatuaren ezarpenetara</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Braille-teklatua erabiltzeko argibideak</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Braille-teklatua erabiltzeko, ireki ohiko teklatua eta sakatu teklatua hautatzeko %1$s ikonoa (beheko eskuineko izkinan egon ohi da). Hautatu \"%2$s.\"
   &lt;br&gt;&lt;br&gt;Teklatua aldatzeko aukerarik ikusten ez baduzu, instalatu %3$s, Google-ren teklatua.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Aktibatu braille-teklatua&lt;/b&gt;: behean, sakatu Ezarpenak. Hurrengo pantailan, aktibatu \"%1$s\".
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Erabili braille-teklatua&lt;/b&gt;: ireki ohiko teklatua eta sakatu teklatua hautatzeko %2$s ikonoa (beheko eskuineko izkinan egon ohi da). Hautatu \"%1$s\".
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Sakatu Ezarpenak hemen behean. Hurrengo pantailan, aktibatu \"%1$s\".&lt;br&gt;&lt;br&gt;
+    2. Ireki ohiko teklatua eta sakatu idazketa-metodoa aldatzeko aukera %2$s (beheko eskuineko izkinan egon ohi da).&lt;br&gt;&lt;br&gt;
+    3. Hautatu \"%1$s\".
     &lt;br&gt;&lt;br&gt;Teklatua aldatzeko aukerarik ikusten ez baduzu, instalatu %3$s, Google-ren teklatua.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Ezarpenak</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Behean, aktibatu braille-teklatua.&lt;br&gt;&lt;br&gt;
+    2. Ireki ohiko teklatua eta sakatu idazketa-metodoa aldatzeko aukera %2$s (beheko eskuineko izkinan egon ohi da).&lt;br&gt;&lt;br&gt;
+    3. Hautatu \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Teklatua aldatu ezin baduzu, instalatu %3$s, Google-ren teklatua.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Ezarpenak</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Aktibatu</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Aktibatu braille-teklatua</string>
   <string name="typing_languages_title">Idazteko hizkuntzak</string>
   <string name="preferred_language_title">Hizkuntza hobetsia</string>
-  <string name="dont_show_again">Ez erakutsi berriro</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Aldatu bizkor hizkuntzaz idatzi ahala</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Braille-teklatuarekin idatzi ahala hizkuntzaz aldatzeko, pasatu hiru hatz gora. Ondoren, hautatu \"Aldatu hurrengo hizkuntzara\".</string>
   <string name="title_pref_accumulate_presses">Sartu sakatutako puntu guztiak</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>Hurrengo teklatura</b> aldatzeko, pasatu hiru hatz behera</string>
   <string name="gesture_submit_text"><b>Testua bidaltzeko</b>, pasatu bi hatz gora</string>
   <string name="gesture_open_context_menu"><b>Laguntza lortzeko eta beste aukera batzuk ikusteko</b>, pasatu hiru hatz gora</string>
-  <string name="done">Eginda</string>
   <string name="not_enough_touch_points_dialog_title">Gailuak ez du onartzen braille-teklatua</string>
   <string name="not_enough_touch_points_dialog_message">Gailuak ez ditu onartzen behar adina ukipen-puntu. Informazio gehiago lortzeko, jarri harremanetan gailuaren fabrikatzailearekin.</string>
   <string name="talkback_off_dialog_title">Braille-teklatua erabiltzeko, aktibatu TalkBack</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Ezabatu da hizkia</string>
   <string name="perform_delete_word_announcement">Ezabatu da hitza</string>
   <string name="continue_tutorial_announcement">Egin tutorialean aurrera. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Kanpoko braille-pantaila bat konektatuta dago, zeina gailuan testua idazteko erabil baitezakezu.\nBestela, aldatu ukipen-pantailako braille-teklatura edo hurrengo idazketa-metodora.</string>
-  <string name="braille_keyboard_strip_button">Aldatu ukipen-pantailako teklatura</string>
+  <string name="switch_on_screen_keyboard_announcement">Braillez idazteko ukipen-pantailara aldatzen</string>
+  <string name="braille_keyboard_strip_summary">Kanpoko braille-pantaila bat konektatuta dago, eta telefonoan testua idazteko erabil dezakezu.\n\nUkipen-pantailako braille-teklatura edo hurrengo idazketa-metodora ere alda zaitezke.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Aldatu braillez idazteko ukipen-pantailara</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Aldatu hurrengo idazketa-metodora</string>
 </resources>

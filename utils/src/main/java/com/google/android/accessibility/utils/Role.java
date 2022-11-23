@@ -20,11 +20,9 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import androidx.annotation.IntDef;
-import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
-import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -141,13 +139,7 @@ public class Role {
     }
 
     // Extract event's source node, and map source node class to role.
-    AccessibilityRecordCompat eventRecord = AccessibilityEventCompat.asRecord(event);
-    AccessibilityNodeInfoCompat source = eventRecord.getSource();
-    try {
-      return getRole(source);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(source);
-    }
+    return getRole(event.getSource());
   }
 
   /** Find role from source event's class name string. */
@@ -242,7 +234,7 @@ public class Role {
     }
 
     // We check Text entry key from property instead of class, so it needs to be in the beginning.
-    if (AccessibilityNodeInfoUtils.isTextEntryKey(node)) {
+    if (node.isTextEntryKey()) {
       return ROLE_TEXT_ENTRY_KEY;
     }
     CharSequence className = node.getClassName();

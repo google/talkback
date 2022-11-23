@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">የTalkBack ብሬይል ቁልፍ ሰሌዳ</string>
+  <string name="braille_ime_bd_mode_name">የብሬይል ማሳያ ግብዓት</string>
   <string name="switch_to_screen_away_announcement">ማያ ገጽን ወደ ሌላ ማዞር ሁነታ</string>
   <string name="switch_to_tabletop_announcement">የቴብልቶፕ ሁነታ። መሣሪያዎን ከኃይል መሙያው ጋር በስተግራ ያስቀምጡ። የነጥብ አቀማመጥን ለማዘመን 6 ጣቶችን ወደ ተጭነው ይያዙ።</string>
   <string name="bring_ime_settings_page">ሌላ የነቃ ቁልፍ ሰሌዳ የለም፣ ወደ የቁልፍ ሰሌዳ ቅንብሮች ይሂዱ</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">የብሬይል ቁልፍ ሰሌዳን እንዴት መጠቀም እንደሚቻል</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">የብሬይል ቁልፍ ሰሌዳውን ለመጠቀም መደበኛውን ቁልፍ ሰሌዳዎ ይክፈቱት፣ ከዚያ የቁልፍ ሰሌዳ አዶውን %1$s መታ ያድርጉት (አብዛኛው ጊዜ ከታች ቀኝ ጥግ ላይ የሚገኝ)። «%2$s» ይምረጡ።
   &lt;br&gt;&lt;br&gt;ቁልፍ ሰሌዳዎችን የሚቀይሩበት አማራጭ ካልታየዎት %3$s፣ የGoogle ቁልፍ ሰሌዳውን፣ ለመጫን ይሞክሩ።</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;የብሬይል ቁልፍ ሰሌዳን ለማብራት&lt;/b&gt;፦ ከታች ቅንብሮችን መታ ያድርጉ። በሚቀጥለው ማያ ገጽ ላይ «%1$s»ን ያብሩ።
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;የብሬይል ቁልፍ ሰሌዳውን ይጠቀሙ&lt;/b&gt;፦ መደበኛውን ቁልፍ ሰሌዳዎ ይክፈቱት፣ ከዚያ የቁልፍ ሰሌዳ አዶውን %2$s መታ ያድርጉት (አብዛኛው ጊዜ ከታች ቀኝ ጥግ ላይ የሚገኝ)። «%1$s» ይምረጡ።
-  &lt;br&gt;&lt;br&gt;ቁልፍ ሰሌዳዎችን የሚቀይሩበት አማራጭ ካልታየዎት %3$s፣ የGoogle ቁልፍ ሰሌዳውን፣ ለመጫን ይሞክሩ።</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">ቅንብሮች</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. ከታች ያለውን «ቅንብሮች» መታ ያድርጉ። በሚቀጥለው ማያ ገጽ ላይ «%1$s»ን ያብሩ።&lt;br&gt;&lt;br&gt;
+    2. የእርስዎን መደበኛ የቁልፍ ሰሌዳ ይክፈቱ፣ ከዚያ የግቤት ስልት መቀየሪያ %2$sን መታ ያድርጉ (ብዙውን ጊዜ ከታች በስተቀኝ ጥግ ላይ)።&lt;br&gt;&lt;br&gt;
+    3. «%1$s»ን ይምረጡ።
+  &lt;br&gt;&lt;br&gt;ቁልፍ ሰሌዳዎችን የሚቀይሩበት አማራጭ ካልታየዎት የGoogle ቁልፍ ሰሌዳውን %3$s ለመጫን ይሞክሩ።</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. የብሬይል ቁልፍ ሰሌዳን ከታች ያብሩ።&lt;br&gt;&lt;br&gt;
+    2. የእርስዎን መደበኛ የቁልፍ ሰሌዳ ይክፈቱ፣ ከዚያ የግቤት ስልት መቀየሪያ %2$sን መታ ያድርጉ (ብዙውን ጊዜ ከታች በስተቀኝ ጥግ ላይ)።&lt;br&gt;&lt;br&gt;
+    3. «%1$s»ን ይምረጡ።
+    &lt;br&gt;&lt;br&gt;የቁልፍ ሰሌዳዎችን መቀየር ካልቻሉ %3$s፣ Google ቁልፍ ሰሌዳውን ለመጫን ይሞክሩ።</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">ቅንብሮች</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">አብራ</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">የብሬይል ቁልፍ ሰሌዳውን ያብሩ</string>
   <string name="typing_languages_title">የትየባ ቋንቋዎች</string>
   <string name="preferred_language_title">የተመረጠ ቋንቋ</string>
-  <string name="dont_show_again">ይህን ዳግም አታሳይ</string>
   <string name="switch_input_code_gesture_tip_dialog_title">በሚተይቡበት ጊዜ በፍጥነት ቋንቋ ይቀይሩ</string>
   <string name="switch_input_code_gesture_tip_dialog_message">በብሬይል ቁልፍ ሰሌዳ እየተየቡ ቋንቋዎን ለመቀየር በ3 ጣቶች ወደ ላይ ያንሸራትቱ። ከዚያ «ወደ ቀጣዩ ቋንቋ ቀይር»ን ይምረጡ።</string>
   <string name="title_pref_accumulate_presses">ሁሉንም የተጫኑ ነጥቦችን ያካትቱ</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">ወደ <b>ቀጣዩ ቁልፍ ሰሌዳ</b> ለመቀየር በ3 ጣቶች ወደ ታች ይጥረጉ</string>
   <string name="gesture_submit_text"><b>ጽሑፍ ለማስገባት</b> በ2 ጣቶች ወደ ላይ ይጥረጉ</string>
   <string name="gesture_open_context_menu"><b>እገዛ እና ሌሎች አማራጮችን</b> ለማግኘት በ3 ጣቶች ወደ ላይ ይጥረጉ</string>
-  <string name="done">ተከናውኗል</string>
   <string name="not_enough_touch_points_dialog_title">የእርስዎ መሣሪያ የብሬይል ቁልፍ ሰሌዳን አይደግፍም</string>
   <string name="not_enough_touch_points_dialog_message">የእርስዎ መሣሪያ በቂ የንክኪ ነጥቦችን አይደግፍም። ተጨማሪ መረጃ ለማግኜት የመሣሪያዎን አምራች ያነጋግሩ።</string>
   <string name="talkback_off_dialog_title">የብሬይል ቁልፍ ሰሌዳን ለመጠቀም TalkBackን ያብሩ</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">ፊደል ተሰርዟል</string>
   <string name="perform_delete_word_announcement">ቃል ተሰርዟል</string>
   <string name="continue_tutorial_announcement">አጋዥ ስልጠናውን እንቀጥል። %1$s</string>
-  <string name="braille_keyboard_strip_summary">ወደዚህ መሳሪያ ጽሑፍን ለመተየብ ሊጠቀሙበት የሚችሉት የውጭ ብሬይል ማሳያ ተገናኝቷል።\nወይም፣ ወደ የተነኪ ማያ የብሬይል ቁልፍ ሰሌዳ ወይም ወደሚቀጥለው የግቤት ስልት መቀየር ይችላሉ።</string>
-  <string name="braille_keyboard_strip_button">ወደ የተነኪ ማያ ቁልፍ ሰሌዳ ቀይር</string>
+  <string name="switch_on_screen_keyboard_announcement">ወደ የብሬይል መነካት የሚችል ማያ በመቀየር ላይ</string>
+  <string name="braille_keyboard_strip_summary">ወደ ስልክዎ ጽሑፍን ለመተየብ ሊጠቀሙበት የሚችሉት የውጭ ብሬይል ማሳያ ተገናኝቷል።\n\nእንዲሁም ወደ መነካት የሚችል ማያ ብሬይል ቁልፍ ሰሌዳ ወይም ወደሚቀጥለው የግቤት ስልት መቀየር ይችላሉ።</string>
+  <string name="braille_keyboard_strip_touch_screen_button">ወደ የብሬይል መነካት የሚችል ማያ ቀይር</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">ወደ ቀጣዩ የግቤት ስልት ቀይር</string>
 </resources>

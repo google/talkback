@@ -275,6 +275,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
                 menuItem.onClickPerformed();
               }
             });
+
     builder.setView(customview);
     builder.setNegativeButton(
         android.R.string.cancel,

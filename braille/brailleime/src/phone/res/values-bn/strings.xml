@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">টকব্যাক ব্রেইল কীবোর্ড</string>
+  <string name="braille_ime_bd_mode_name">ব্রেইল প্রদর্শন ইনপুট</string>
   <string name="switch_to_screen_away_announcement">স্ক্রিন অ্যাওয়ে মোড</string>
   <string name="switch_to_tabletop_announcement">টেবিলটপ মোড। আপনার ডিভাইসটি এমনভাবে রাখুন চার্জিং পোর্ট বাঁদিকে থাকে। ডটের অবস্থান আপডেট করার জন্য, ৬টি আঙুল দিয়ে নিচের দিকে ধরে থাকুন।</string>
   <string name="bring_ime_settings_page">কোনও কীবোর্ড চালু করা নেই, কীবোর্ড সেটিংসে যান</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">ব্রেইল কীবোর্ড কীভাবে ব্যবহার করবেন</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">ব্রেইল কীবোর্ড ব্যবহার করার জন্য আপনার নিয়মিত কীবোর্ডটি খুলুন, তারপরে বেছে নেওয়া কীবোর্ড আইকনে %1$s ট্যাপ করুন (সাধারণত নিচের অংশে ডানদিকে কোণায় অবস্থিত)। \"%2$s বেছে নিন।\"
   &lt;br&gt;&lt;br&gt;কীবোর্ড পাল্টানোর কোনও বিকল্প দেখতে না পেলে, Google কীবোর্ড %3$s ইনস্টল করে দেখুন।</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">১. &lt;b&gt;ব্রেইল কীবোর্ড চালু করুন&lt;/b&gt;: নিচে সেটিংসে ট্যাপ করুন। পরের স্ক্রিনে, \"%1$s\" চালু করুন
-    &lt;br&gt;&lt;br&gt;2। &lt;b&gt;ব্রেইল কীবোর্ড ব্যবহার করুন&lt;/b&gt;: আপনার নিয়মিত কীবোর্ডটি খুলুন, তারপরে বেছে নেওয়া কীবোর্ড আইকনে %2$s ট্যাপ করুন (সাধারণত নিচের অংশে ডানদিকে কোণায় অবস্থিত)। \"%1$s বেছে নিন।\"
-    &lt;br&gt;&lt;br&gt;কীবোর্ড পাল্টানোর কোনও বিকল্প দেখতে না পেলে, Google কীবোর্ড %3$s ইনস্টল করে দেখুন।</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">সেটিংস</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">১. নিচের \"সেটিংস\" বিকল্পে ট্যাপ করুন। পরবর্তী স্ক্রিনে, \"%1$s\" চালু করুন&lt;br&gt;&lt;br&gt;
+    ২. আপনার সাধারণ কীবোর্ডটি খুলুন, তারপর ইনপুট পদ্ধতি পাল্টান বিকল্পে ট্যাপ করুন %2$s (সাধারণত নিচে ডানদিকে কোণে থাকে)।&lt;br&gt;&lt;br&gt;
+    ৩. \"%1$s\" বেছে নিন।
+    &lt;br&gt;&lt;br&gt;কীবোর্ড পাল্টানোর কোনও বিকল্প দেখতে না পেলে, %3$s, Google কীবোর্ড ইনস্টল করে দেখুন।</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">১. নিচে ব্রেইল কীবোর্ড চালু করুন।&lt;br&gt;&lt;br&gt;
+    ২. আপনার সাধারণ কীবোর্ডটি খুলুন, তারপর ইনপুট পদ্ধতি পাল্টান বিকল্পে ট্যাপ করুন %2$s (সাধারণত নিচে ডানদিকে কোণায় থাকে)।&lt;br&gt;&lt;br&gt;
+    ৩. \"%1$s বেছে নিন।\"
+    &lt;br&gt;&lt;br&gt;কীবোর্ড পাল্টাতে না পারলে, %3$s, Google কীবোর্ড ইনস্টল করে দেখুন।</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">সেটিংস</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">চালু করুন</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">ব্রেইল কীবোর্ড চালু করুন</string>
   <string name="typing_languages_title">পছন্দসই যেসব ভাষায় টাইপ করা হবে তার তালিকা</string>
   <string name="preferred_language_title">পছন্দসই ভাষা</string>
-  <string name="dont_show_again">এটি আর দেখতে চাই না</string>
   <string name="switch_input_code_gesture_tip_dialog_title">টাইপ করার সময় দ্রুত ভাষা পরিবর্তন করুন</string>
   <string name="switch_input_code_gesture_tip_dialog_message">ব্রেইল কীবোর্ডের সাহায্যে টাইপ করার সময় ভাষা পরিবর্তন করতে ৩ আঙুল দিয়ে উপরের দিকে সোয়াইপ করুন। তারপরে, \"পরবর্তী ভাষায় পাল্টান\" বিকল্প বেছে নিন।</string>
   <string name="title_pref_accumulate_presses">সমস্ত প্রেস করা ডট অন্তর্ভুক্ত করুন</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>পরের কীবোর্ডে</b> পাল্টাতে, ৩টি আঙুল ব্যবহার করে নিচের দিকে সোয়াইপ করুন</string>
   <string name="gesture_submit_text"><b>টেক্সট জমা দিতে</b>, ২টি আঙুল ব্যবহার করে উপরের দিকে সোয়াইপ করুন</string>
   <string name="gesture_open_context_menu"><b>সহায়তা ও অন্যান্য বিকল্পের</b> জন্য, ৩টি আঙুল ব্যবহার করে উপরের দিকে সোয়াইপ করুন</string>
-  <string name="done">হয়ে গেছে</string>
   <string name="not_enough_touch_points_dialog_title">আপনার ডিভাইসে ব্রেইল কীবোর্ড কাজ করে না</string>
   <string name="not_enough_touch_points_dialog_message">আপনার ডিভাইসে একসাথে অনেকগুলি টাচ পয়েন্ট কাজ করে না। আরও তথ্যের জন্য আপনার ডিভাইস প্রস্তুতকারকের সাথে যোগাযোগ করুন।</string>
   <string name="talkback_off_dialog_title">ব্রেইল কীবোর্ড ব্যবহার করার জন্য টকব্যাক চালু করুন</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">অক্ষর মোছা হয়েছে</string>
   <string name="perform_delete_word_announcement">শব্দ মোছা হয়েছে</string>
   <string name="continue_tutorial_announcement">টিউটোরিয়ালটি চলতে দিন। %1$s</string>
-  <string name="braille_keyboard_strip_summary">এক্সটার্নাল ব্রেইল ডিসপ্লে কানেক্ট করা আছে যা আপনি এই ডিভাইসে টেক্সট টাইপ করার সময় ব্যবহার করতে পারেন।\nবা আপনি টাচ-স্ক্রিন ব্রেইল কীবোর্ড বা পরবর্তী ইনপুট পদ্ধতিতে পাল্টাতে পারেন।</string>
-  <string name="braille_keyboard_strip_button">টাচস্ক্রিন কীবোর্ডে পাল্টান</string>
+  <string name="switch_on_screen_keyboard_announcement">ব্রেইল টাচস্ক্রিন কীবোর্ডে পাল্টানো হচ্ছে</string>
+  <string name="braille_keyboard_strip_summary">একটি এক্সটার্নাল ব্রেইল প্রদর্শন কানেক্ট করা হয়েছে, ফোনে টেক্সট টাইপ করার জন্য এটি ব্যবহার করতে পারবেন।\n\nতাছাড়া, টাচস্ক্রিন ব্রেইল কীবোর্ডে অথবা পরবর্তী ইনপুট পদ্ধতিতেও আপনি পাল্টে নিতে পারবেন।</string>
+  <string name="braille_keyboard_strip_touch_screen_button">ব্রেইল টাচস্ক্রিন কীবোর্ডে পাল্টে নিন</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">পরবর্তী ইনপুট পদ্ধতিতে পাল্টে নিন</string>
 </resources>

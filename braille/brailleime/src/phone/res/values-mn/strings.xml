@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack брайл гар</string>
+  <string name="braille_ime_bd_mode_name">Брайл дэлгэцийн оролт</string>
   <string name="switch_to_screen_away_announcement">Дэлгэцээс хол байх горим</string>
   <string name="switch_to_tabletop_announcement">Ширээн дээр тавих горим. Цэнэглэх порттой төхөөрөмжөө зүүн тийш байрлуулна уу. Цэгийн байрлалыг шинэчлэхийн тулд 6 хуруугаараа удаан дарна уу.</string>
   <string name="bring_ime_settings_page">Идэвхжүүлсэн өөр гар байхгүй байна, гарын тохиргоо руу очно уу</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Брайл гарыг хэрхэн ашиглах вэ</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Брайл гарыг ашиглахын тулд энгийн гараа нээгээд гар сонгох %1$s дүрс тэмдгийг (ихэвчлэн баруун доод буланд) товшино уу. \"%2$s\"-г сонгоно уу.
   &lt;br&gt;&lt;br&gt;Хэрэв та гар солих сонголтыг харахгүй байвал %3$s Google гарыг суулгаж үзнэ үү.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Брайл гарыг асаах&lt;/b&gt;: Доорх тохиргоог товшино уу. Дараагийн дэлгэц дээр \"%1$s\"-г асаана уу.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Брайл гарыг ашиглах&lt;/b&gt;: Энгийн гараа нээгээд гар сонгох %2$s дүрс тэмдгийг (ихэвчлэн баруун доод буланд) товшино уу. \"%1$s\"-г сонгоно уу.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Доорх \"Тохиргоо\" дээр товшино уу. Дараагийн дэлгэц дээр \"%1$s\"-г асаана уу&lt;br&gt;&lt;br&gt;
+    2. Энгийн гараа нээгээд, дараа нь %2$s оруулах аргыг солих дээр товшино уу (ихэвчлэн баруун доод буланд байна).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\"-г сонгоно уу.
     &lt;br&gt;&lt;br&gt;Хэрэв та гар солих сонголтыг харахгүй байвал %3$s Google гарыг суулгаж үзнэ үү.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Тохиргоо</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Доорх брайл гарыг асаана уу.&lt;br&gt;&lt;br&gt;
+    2. Энгийн гараа нээгээд, дараа нь %2$s оруулах аргыг сэлгэх дээр товшино уу (ихэвчлэн баруун доод буланд байна).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\"-г сонгоно уу.
+    &lt;br&gt;&lt;br&gt;Хэрэв та гар солих боломжгүй байвал %3$s Google гарыг суулгаж үзнэ үү.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Тохиргоо</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Асаах</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Брайл гарыг асаах</string>
   <string name="typing_languages_title">Бичиж буй хэлнүүд</string>
   <string name="preferred_language_title">Сонгосон хэл</string>
-  <string name="dont_show_again">Үүнийг дахиж бүү харуул</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Бичих явцад хэлийг хурдан өөрчлөх</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Брайлаар бичиж байхдаа хэлээ өөрчлөхийн тулд 3 хуруугаараа дээш шударна уу. Тэгээд \"дараагийн хэл рүү сэлгэх\" гэснийг сонгоно уу.</string>
   <string name="title_pref_accumulate_presses">Дарсан бүх цэгийг оролцуулах</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>Дараагийн гар</b> луу сэлгэхийн тулд 3 хуруугаар доош шударна уу</string>
   <string name="gesture_submit_text"><b>Текст илгээхийн</b> тулд 2 хуруугаар дээш шударна уу</string>
   <string name="gesture_open_context_menu"><b>Тусламж авах болон бусад сонголтыг</b> харахын тулд 3 хуруугаар дээш шударна уу</string>
-  <string name="done">Болсон</string>
   <string name="not_enough_touch_points_dialog_title">Таны төхөөрөмж брайл гарыг дэмждэггүй</string>
   <string name="not_enough_touch_points_dialog_message">Таны төхөөрөмж хангалттай хүрэх цэгийг дэмждэггүй. Нэмэлт мэдээлэл авахын тулд төхөөрөмжийнхөө үйлдвэрлэгчтэй холбогдоно уу.</string>
   <string name="talkback_off_dialog_title">Брайл гарыг ашиглахын тулд TalkBack-г асаах</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Үсгийг устгалаа</string>
   <string name="perform_delete_word_announcement">Үгийг устгалаа</string>
   <string name="continue_tutorial_announcement">Практик хичээлээ үргэлжлүүлцгээе. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Гадны брайл дэлгэц холбогдсон бөгөөд үүнийг та энэ төхөөрөмжид текст бичиж оруулахдаа ашиглаж болно.\nЭсвэл та мэдрэгчтэй дэлгэцийн брайл гар болон дараагийн оруулах арга руу сэлгэж болно.</string>
-  <string name="braille_keyboard_strip_button">Мэдрэгчтэй дэлгэцийн гар луу сэлгэх</string>
+  <string name="switch_on_screen_keyboard_announcement">Брайл мэдрэмтгий дэлгэц рүү сэлгэж байна</string>
+  <string name="braille_keyboard_strip_summary">Гадаад брайл дэлгэц холбогдсон бөгөөд үүнийг та утсандаа текст бичиж оруулахдаа ашиглаж болно.\n\nТа мөн мэдрэмтгий дэлгэцийн брайл гар эсвэл дараагийн оруулах арга руу сэлгэх боломжтой.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Брайл мэдрэмтгий дэлгэц рүү сэлгэх</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Дараагийн оруулах арга руу сэлгэх</string>
 </resources>

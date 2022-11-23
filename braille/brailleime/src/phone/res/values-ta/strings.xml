@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack பிரெய்ல் கீபோர்டு</string>
+  <string name="braille_ime_bd_mode_name">பிரெய்ல் காட்சி உள்ளீடு</string>
   <string name="switch_to_screen_away_announcement">திரை எதிர்ப்பக்கம் பார்த்திருத்தல் பயன்முறை</string>
   <string name="switch_to_tabletop_announcement">டேபிள்டாப் பயன்முறை. சார்ஜிங் போர்ட் இடதுபுறத்தில் இருக்குமாறு மொபைலை வைக்கவும். புள்ளிகளின் நிலையைப் புதுப்பிக்க 6 விரல்களால் அழுத்தவும்.</string>
   <string name="bring_ime_settings_page">வேறு எந்தக் கீபோர்டும் இயக்கப்படவில்லை, கீபோர்டு அமைப்புகளுக்குச் செல்லவும்</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">பிரெய்ல் கீபோர்டை எப்படிப் பயன்படுத்துவது?</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">பிரெய்ல் கீபோர்டைப் பயன்படுத்த, உங்கள் வழக்கமான கீபோர்டைத் திறந்து \'கீபோர்டைத் தேர்ந்தெடு\' ஐகானை %1$s தட்டவும் (வழக்கமாகக் கீழே வலது ஓரத்தில் இருக்கும்). \"%2$s\" என்பதைத் தேர்ந்தெடுக்கவும்.
   &lt;br&gt;&lt;br&gt;கீபோர்டை மாற்றுவதற்கான விருப்பம் தெரியவில்லை எனில் Google கீபோர்டை %3$s நிறுவ முயலவும்.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;பிரெய்ல் கீபோர்டை இயக்கு&lt;/b&gt;: கீழே உள்ள ‘அமைப்புகள்’ என்பதைத் தட்டவும். அடுத்த திரையில், \"%1$s\" ஐ இயக்கவும்.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;பிரெய்ல் கீபோர்டைப் பயன்படுத்துதல்&lt;/b&gt;: உங்கள் வழக்கமான கீபோர்டைத் திறந்து \'கீபோர்டைத் தேர்ந்தெடு\' ஐகானை %2$s தட்டவும் (வழக்கமாகக் கீழே வலது ஓரத்தில் இருக்கும்). \"%1$s\" என்பதைத் தேர்ந்தெடுக்கவும்.
-  &lt;br&gt;&lt;br&gt;கீபோர்டை மாற்றுவதற்கான விருப்பம் தெரியவில்லை எனில் Google கீபோர்டை %3$s நிறுவ முயலவும்.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">அமைப்புகள்</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. கிழே \"அமைப்புகள்\" என்பதைத் தட்டவும். அடுத்த திரையில், \"%1$s\" சேவையை இயக்கவும்&lt;br&gt;&lt;br&gt;
+    2. உங்கள் வழக்கமான கீபோர்டைத் திறந்து \'உள்ளீட்டு முறையை மாற்று %2$s\' என்பதைத் தட்டவும் (பொதுவாக இந்த விருப்பம் கீழ்வலது மூலையில் இருக்கும்).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" என்பதைத் தேர்ந்தெடுக்கவும்.
+    &lt;br&gt;&lt;br&gt;கீபோர்டுகளை மாற்றுவதற்கான விருப்பம் காட்டப்படவில்லை எனில் %3$s எனும் Google கீபோர்டை நிறுவிப் பார்க்கவும்.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. கீழே, பிரெய்ல் கீபோர்டை இயக்கவும்.&lt;br&gt;&lt;br&gt;
+    2. உங்கள் வழக்கமான கீபோர்டைத் திறந்து \'உள்ளீட்டு முறையை மாற்று %2$s\' என்பதைத் தட்டவும் (பொதுவாக இந்த விருப்பம் கீழ்வலது மூலையில் இருக்கும்).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" என்பதைத் தேர்ந்தெடுக்கவும்.
+    &lt;br&gt;&lt;br&gt;கீபோர்டுகளை மாற்ற முடியவில்லை எனில் %3$s எனும் Google கீபோர்டை நிறுவிப் பார்க்கவும்.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">அமைப்புகள்</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">இயக்கு</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">பிரெய்ல் கீபோர்டை இயக்குங்கள்</string>
   <string name="typing_languages_title">உள்ளிடும் மொழிகள்</string>
   <string name="preferred_language_title">விருப்பமான மொழி</string>
-  <string name="dont_show_again">இதை மீண்டும் காட்ட வேண்டாம்</string>
   <string name="switch_input_code_gesture_tip_dialog_title">உள்ளிடும்போது விரைவாக மொழியை மாற்றுங்கள்</string>
   <string name="switch_input_code_gesture_tip_dialog_message">பிரெய்ல் கீபோர்டு மூலம் டைப் செய்யும்போதே உங்களுக்கான மொழியை மாற்ற, 3 விரல்களால் மேல்நோக்கி ஸ்வைப் செய்யவும். அதன் பிறகு \"அடுத்த மொழிக்கு மாற்று\" என்பதைத் தேர்ந்தெடுக்கவும்.</string>
   <string name="title_pref_accumulate_presses">அழுத்தப்பட்ட எல்லாப் புள்ளிகளையும் சேர்த்தல்</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>அடுத்த கீபோர்டுக்கு</b> மாற்ற, 3 விரல்கள் மூலம் கீழே ஸ்வைப் செய்யவும்</string>
   <string name="gesture_submit_text"><b>உரையை சமர்ப்பிக்க</b>, 2 விரல்கள் மூலம் மேலே ஸ்வைப் செய்யவும்</string>
   <string name="gesture_open_context_menu"><b>உதவி மற்றும் பிற விருப்பங்களுக்கு</b>, 3 விரல்கள் மூலம் மேலே ஸ்வைப் செய்யவும்</string>
-  <string name="done">முடிந்தது</string>
   <string name="not_enough_touch_points_dialog_title">பிரெய்ல் கீபோர்டை உங்கள் சாதனம் ஆதரிக்கவில்லை</string>
   <string name="not_enough_touch_points_dialog_message">போதுமான தொடு புள்ளிகளை உங்கள் சாதனம் ஆதரிக்கவில்லை. மேலும் விவரங்களுக்கு உங்கள் சாதனத்தின் உற்பத்தியாளரைத் தொடர்புகொள்ளவும்.</string>
   <string name="talkback_off_dialog_title">பிரெய்ல் கீபோர்டைப் பயன்படுத்த TalkBackகை இயக்குங்கள்</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">எழுத்து நீக்கப்பட்டது</string>
   <string name="perform_delete_word_announcement">வார்த்தை நீக்கப்பட்டது</string>
   <string name="continue_tutorial_announcement">பயிற்சியைத் தொடரலாம். %1$s</string>
-  <string name="braille_keyboard_strip_summary">வெளிப்புற பிரெய்ல் காட்சி இணைக்கப்பட்டுள்ளது. இந்தச் சாதனத்தில் வார்த்தைகளை டைப் செய்ய இதைப் பயன்படுத்தலாம்.\nஅல்லது, தொடுதிரை பிரெய்ல் கீபோர்டுக்கோ அடுத்த உள்ளீட்டு முறைக்கோ மாறலாம்.</string>
-  <string name="braille_keyboard_strip_button">தொடுதிரைக் கீபோர்டுக்கு மாறு</string>
+  <string name="switch_on_screen_keyboard_announcement">பிரெய்ல் டச்ஸ்கிரீனுக்கு மாறுகிறது</string>
+  <string name="braille_keyboard_strip_summary">வெளிப்புற பிரெய்ல் காட்சி இணைக்கப்பட்டுள்ளது. உங்கள் மொபைலில் வார்த்தையை டைப் செய்ய இதைப் பயன்படுத்தலாம்.\n\nடச்ஸ்கிரீன் பிரெய்ல் கீபோர்டு அல்லது அடுத்த உள்ளீட்டு முறைக்கும் நீங்கள் மாறலாம்.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">பிரெய்ல் டச்ஸ்கிரீனுக்கு மாறு</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">அடுத்த உள்ளீட்டு முறைக்கு மாறு</string>
 </resources>

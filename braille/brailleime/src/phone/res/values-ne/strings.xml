@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack ब्रेल किबोर्ड</string>
+  <string name="braille_ime_bd_mode_name">ब्रेल डिस्प्ले इनपुट</string>
   <string name="switch_to_screen_away_announcement">\'स्क्रिन अवे\' मोड</string>
   <string name="switch_to_tabletop_announcement">टेबलटप मोड। डिभाइसको चार्जिङ पोर्टको भाग बायाँतिर राख्नुहोस्। डटको स्थिति क्यालिब्रेट गर्न ६ वटा औँलाले थिचिराख्नुहोस्।</string>
   <string name="bring_ime_settings_page">अर्को कुनै पनि किबोर्ड सक्षम पारिएको छैन, किबोर्डका सेटिङमा जानुहोस्</string>
@@ -23,19 +24,25 @@
   <string name="how_to_use_braille_keyboard">ब्रेल किबोर्ड प्रयोग गर्ने तरिका</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">ब्रेल किबोर्ड प्रयोग गर्न आफ्नो नियमित किबोर्ड खोल्नुहोस्, त्यसपछि किबोर्ड छनौट गर्नुहोस् नामक आइकन %1$s (सामान्यतया पुछारको दायाँ कुनामा रहने) छनौट गर्नुहोस्। \"%2$s चयन गर्नुहोस्।\"
   &lt;br&gt;&lt;br&gt;तपाईंले किबोर्ड बदल्ने विकल्प भेट्नुभएन भने %3$s अर्थात् Google किबोर्ड स्थापना गरी हेर्नुहोस्।</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">१. &lt;b&gt;ब्रेल किबोर्ड सक्रिय गर्नुहोस्&lt;/b&gt;: तल सेटिङहरूमा ट्याप गर्नुहोस्। अर्को स्क्रिनमा, \"%1$s\" सक्रिय गर्नुहोस्।
-    &lt;br&gt;&lt;br&gt;२. &lt;b&gt;ब्रेल किबोर्ड प्रयोग गर्नुहोस्&lt;/b&gt;: आफ्नो नियमित किबोर्ड खोल्नुहोस्, त्यसपछि किबोर्ड छनौट गर्नुहोस् नामक आइकन %2$s (सामान्यतया पुछारको दायाँ कुनामा रहने) छनौट गर्नुहोस्। \"%1$s\" चयन गर्नुहोस्।
-    &lt;br&gt;&lt;br&gt;तपाईंले किबोर्ड बदल्ने विकल्प भेट्नुभएन भने %3$s अर्थात् Google किबोर्ड स्थापना गरी हेर्नुहोस्।</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">सेटिङहरू</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">१. तल रहेको \"सेटिङ\" मा ट्याप गर्नुहोस्। अर्को स्क्रिनमा \"%1$s\" अन गर्नुहोस्&lt;br&gt;&lt;br&gt;
+    २. आफ्नो नियमित किबोर्ड खोल्नुहोस् अनि \"इनपुट विधि बदल्नुहोस्\" आइकन %2$s (सामान्यतया पुछारको दायाँ कुनामा रहने) मा ट्याप गर्नुहोस्।&lt;br&gt;&lt;br&gt;
+    ३. \"%1$s\" चयन गर्नुहोस्।
+    &lt;br&gt;&lt;br&gt;तपाईंले किबोर्ड बदल्ने विकल्प भेट्नुभएन भने %3$s अर्थात् Google किबोर्ड इन्स्टल गरी हेर्नुहोस्।</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">१. तल रहेको ब्रेल किबोर्ड अन गर्नुहोस्।&lt;br&gt;&lt;br&gt;
+    २. आफ्नो नियमित किबोर्ड खोल्नुहोस् अनि \"इनपुट विधि बदल्नुहोस्\" आइकन %2$s (सामान्यतया पुछारको दायाँ कुनामा रहने) मा ट्याप गर्नुहोस्।&lt;br&gt;&lt;br&gt;
+    ३. \"%1$s\" चयन गर्नुहोस्।
+    &lt;br&gt;&lt;br&gt;तपाईंले किबोर्ड बदल्न सक्नुभएन भने %3$s अर्थात् Google किबोर्ड इन्स्टल गरी हेर्नुहोस्।</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">सेटिङ</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">अन गर्नुहोस्</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">ब्रेल किबोर्ड अन गर्नुहोस्</string>
   <string name="typing_languages_title">टाइप गर्ने भाषाहरू</string>
   <string name="preferred_language_title">रोजिएको भाषा</string>
-  <string name="dont_show_again">यो फेरि नदेखाइयोस्</string>
   <string name="switch_input_code_gesture_tip_dialog_title">टाइप गर्ने क्रममा अझ छिटो भाषा बदल्नुहोस्</string>
   <string name="switch_input_code_gesture_tip_dialog_message">तपाईं ब्रेल किबोर्ड प्रयोग गरी टाइप गर्ने क्रममा भाषा बदल्न चाहनुहुन्छ भने ३ वटा औँलाले माथितिर स्वाइप गर्नुहोस्। त्यसपछि \"अर्को भाषा प्रयोग गर्नुहोस्\" चयन गर्नुहोस्।</string>
   <string name="title_pref_accumulate_presses">थिचिएका सबै डटहरू समावेश गर्नुहोस्</string>
   <string name="summary_pref_accumulate_presses">अन्य डटहरूभन्दा अघि नै छोडिए पनि थिचिएको हरेक डटले इनपुट सृजना गर्छ</string>
   <string name="title_pref_reverse_dots">डटहरू उल्ट्याउनुहोस्</string>
-  <string name="summary_pref_reverse_dots">उदाहरणका लागि १ र ४ डटले स्थान साटासाट गरून् भन्नाका खातिर डटको स्थिति परिवर्तन गर्नुहोस्</string>
+  <string name="summary_pref_reverse_dots">उदाहरणका लागि १ र ४ डटले स्थान साटासाट गरून् भन्नाका लागि डटको स्थिति परिवर्तन गर्नुहोस्</string>
   <string name="context_menu_title">ब्रेल किबोर्डका विकल्पहरू</string>
   <string name="context_menu_input_language_selection">अर्को भाषा प्रयोग गर्नुहोस्: %s</string>
   <string name="context_menu_input_language_selection_summary">हाल प्रयोग गरिएको भाषा: %s</string>
@@ -55,11 +62,10 @@
   <string name="gesture_next_keyboard">किबोर्ड बदलेर <b>अर्को किबोर्ड</b> मा जान ३ वटा औँलाले तलतिर स्वाइप गर्नुहोस्</string>
   <string name="gesture_submit_text"><b>पाठ पेस गर्न</b> २ वटा औँलाले माथितिर स्वाइप गर्नुहोस्</string>
   <string name="gesture_open_context_menu"><b>मद्दत र अन्य विकल्पहरू</b> नामक पृष्ठमा जान ३ वटा औँलाले माथितिर स्वाइप गर्नुहोस्</string>
-  <string name="done">भयो</string>
   <string name="not_enough_touch_points_dialog_title">यस यन्त्रमा ब्रेल किबोर्ड चल्दैन</string>
   <string name="not_enough_touch_points_dialog_message">तपाईंको डिभाइसमा पर्याप्त स्पर्श विन्दुहरू क्रियाशील छैनन्। थप जानकारीका लागि आफ्ना डिभाइसका उत्पादकसँग सम्पर्क गर्नुहोस्।</string>
-  <string name="talkback_off_dialog_title">ब्रेल किबोर्ड प्रयोग गर्न TalkBack सक्रिय गर्नुहोस्</string>
-  <string name="talkback_off_dialog_positive_button">पहुँचसम्बन्धी सेटिङहरूमा गई सक्रिय गर्नुहोस्</string>
+  <string name="talkback_off_dialog_title">ब्रेल किबोर्ड प्रयोग गर्न TalkBack अन गर्नुहोस्</string>
+  <string name="talkback_off_dialog_positive_button">पहुँचसम्बन्धी सेटिङहरूमा गई अन गर्नुहोस्</string>
   <string name="talkback_suspend_dialog_title">ब्रेल किबोर्ड प्रयोग गर्न TalkBack सुचारु गर्नुहोस्</string>
   <string name="talkback_off_or_suspend_dialog_message">TalkBack सक्रिय भएपछि, तपाईं ब्रेल लिपिका सङ्केतहरू प्रविष्टि गर्न ट्याप गर्न सक्नुहुन्छ।</string>
   <string name="next_keyboard">अर्को किबोर्ड</string>
@@ -87,9 +93,9 @@
   <string name="result_swipe_down_2_fingers">किबोर्ड लुकाउनुहोस्</string>
   <string name="result_swipe_down_3_fingers">अर्को किबोर्ड</string>
   <string name="rotate_orientation_announcement">अब उप्रान्त, तपाईं TalkBack का नियमित इसाराहरू प्रयोग गर्न सक्नु हुने छैन। ब्रेल किबोर्ड प्रयोग गर्दा TalkBack उपलब्ध हुँदैन।\n\n%1$s</string>
-  <string name="rotate_orientation_inactive_announcement">पहिले, स्क्रिन बाहिरतिर फर्कियोस् भन्नाका खातिर फोन उल्टाउनुहोस्।\n\nत्यसपछि, फोनलाई क्षितिजीय रूपमा घुमाएर ल्यान्डस्केप अवस्थामा राख्नुहोस्। तपाईंले फोनलाई ठाडो पारेर हातले दुवै छेउ भेट्ने गरी समात्नु पर्ने हुन्छ। तपाईंले आफ्नो दायाँ हातले फोनको USB पोर्ट रहेको छेउ समात्नु पर्ने हुन्छ। आफ्ना बिचका ३ वटा औँला स्क्रिनमा राख्नुहोस् र कान्छी औँलो र बुढी औँलो प्रयोग गरी फोन अड्याउनुहोस्।\n\nतपाईं तयार भएपछि प्रक्रिया अघि बढाउन स्क्रिनमा डबल ट्याप गर्नुहोस्।\n\nब्रेल किबोर्डबाट बाहिरिन ३ वटा औँलाले तल जमिनतिर स्वाइप गर्नुहोस्। यस कार्यले तपाईंलाई मूल किबोर्डमै फर्काउने छ।</string>
-  <string name="rotate_orientation_continue_announcement">तपाईंको फोन ठाडो पारेर राखिएको छ। जारी राख्न, लामोपट्टिको भाग फेदतिर परोस् भन्नाका खातिर आफ्नो फोन क्षितिजीय रूपमा घुमाउनुहोस्। त्यसपछि स्क्रिनलाई अर्कातिर फर्काउनुहोस्। तपाईं तयार भइसकेपछि, प्रक्रिया अघि बढाउन स्क्रिनमा डबल ट्याप गर्नुहोस्।</string>
-  <string name="type_letter_a_announcement">स्क्रिनलाई विपरीत दिशातिर फर्काएर राख्नुहोस्। दुवै हातका बिचका ३ वटा औँलाले स्क्रिनमा स्पर्श गरून् भन्नाका खातिर तपाईंले फोनलाई ठाडो पारेर दुवै छेउ भेट्ने गरी हातले समातेको हुनु पर्छ।\n\n तपाईंको बायाँ हातको चोर औँला डट १ मा हुनु पर्छ। अब, “A” अक्षर टाइप गर्न डट १ मा ट्याप गर्नुहोस्।</string>
+  <string name="rotate_orientation_inactive_announcement">पहिले, स्क्रिन बाहिरतिर फर्कियोस् भन्नाका लागि फोन उल्टाउनुहोस्।\n\nत्यसपछि, फोनलाई क्षितिजीय रूपमा घुमाएर ल्यान्डस्केप अवस्थामा राख्नुहोस्। तपाईंले फोनलाई ठाडो पारेर हातले दुवै छेउ भेट्ने गरी समात्नु पर्ने हुन्छ। तपाईंले आफ्नो दायाँ हातले फोनको USB पोर्ट रहेको छेउ समात्नु पर्ने हुन्छ। आफ्ना बिचका ३ वटा औँला स्क्रिनमा राख्नुहोस् र कान्छी औँलो र बुढी औँलो प्रयोग गरी फोन अड्याउनुहोस्।\n\nतपाईं तयार भएपछि प्रक्रिया अघि बढाउन स्क्रिनमा डबल ट्याप गर्नुहोस्।\n\nब्रेल किबोर्डबाट बाहिरिन ३ वटा औँलाले तल जमिनतिर स्वाइप गर्नुहोस्। यस कार्यले तपाईंलाई मूल किबोर्डमै फर्काउने छ।</string>
+  <string name="rotate_orientation_continue_announcement">तपाईंको फोन ठाडो पारेर राखिएको छ। जारी राख्न, लामोपट्टिको भाग फेदतिर परोस् भन्नाका लागि आफ्नो फोन क्षितिजीय रूपमा घुमाउनुहोस्। त्यसपछि स्क्रिनलाई अर्कातिर फर्काउनुहोस्। तपाईं तयार भइसकेपछि, प्रक्रिया अघि बढाउन स्क्रिनमा डबल ट्याप गर्नुहोस्।</string>
+  <string name="type_letter_a_announcement">स्क्रिनलाई विपरीत दिशातिर फर्काएर राख्नुहोस्। दुवै हातका बिचका ३ वटा औँलाले स्क्रिनमा स्पर्श गरून् भन्नाका लागि तपाईंले फोनलाई ठाडो पारेर दुवै छेउ भेट्ने गरी हातले समातेको हुनु पर्छ।\n\n तपाईंको बायाँ हातको चोर औँला डट १ मा हुनु पर्छ। अब, “A” अक्षर टाइप गर्न डट १ मा ट्याप गर्नुहोस्।</string>
   <string name="type_letter_a_inactive_announcement">“A” अक्षर टाइप गर्न आफ्नो देब्रे हातको चोर औँलाले डट १ मा ट्याप गर्नुहोस्</string>
   <string name="type_letter_inactive_announcement">%2$s टाइप गर्न %1$s मा ट्याप गर्नुहोस्</string>
   <string name="swipe_left_announcement">अक्षर मेट्न बायाँतिर स्वाइप गर्नुहोस्। अहिले नै यो काम गरी हेर्नुहोस्।</string>
@@ -105,7 +111,7 @@
   <string name="open_context_menu_announcement">विकल्पहरू नामक मेनु खुला छ। फोनको स्क्रिन आफूतिर फर्कने गरी फोन घुमाउनुहोस् र सो फोन सामान्य तरिकाले समात्नुहोस्। तपाईं अब TalkBack का नियमित जेस्चरहरू प्रयोग गरी नेभिगेट गर्न सक्नुहुन्छ। थप विकल्पहरू हेर्न दायाँतिर स्वाइप गर्नुहोस्।</string>
   <string name="hold_six_fingers_announcement">%s\nआफ्नो फोन टेबलमा सुताएर राख्नुहोस्। त्यसपछि, तपाईंलाई टाइप गर्न सजिलो हुने गरी दुवै हातका बिचका ३ वटा औँलाले स्क्रिनमा छोइराख्नुहोस्।</string>
   <string name="hold_six_fingers_inactive_announcement">आफ्नो यन्त्र टेबलमा सुताएर राख्नुहोस्। त्यसपछि, तपाईंलाई टाइप गर्न सजिलो हुने गरी दुवै हातका बिचका ३ वटा औँलाले स्क्रिनमा छोइराख्नुहोस्।</string>
-  <string name="finish_tutorial_announcement">ब्रेल किबोर्ड देखाइँदै छ। स्क्रिन आफूभन्दा विपरीत दिशातिर फर्कियोस् भन्नाका खातिर फोन उल्टाउनुहोस्। फोनलाई क्षितिजीय रूपमा घुमाएर ल्यान्डस्केप अवस्थामा राख्नुहोस्। त्यसपछि टाइप गर्न थाल्नुहोस्।</string>
+  <string name="finish_tutorial_announcement">ब्रेल किबोर्ड देखाइँदै छ। स्क्रिन आफूभन्दा विपरीत दिशातिर फर्कियोस् भन्नाका लागि फोन उल्टाउनुहोस्। फोनलाई क्षितिजीय रूपमा घुमाएर ल्यान्डस्केप अवस्थामा राख्नुहोस्। त्यसपछि टाइप गर्न थाल्नुहोस्।</string>
   <string name="perform_hide_keyboard_announcement">किबोर्ड लुकाउनुहोस्</string>
   <string name="perform_switch_keyboard_announcement">किबोर्ड बदल्नुहोस्</string>
   <string name="perform_submit_text_announcement">पाठ पेस गर्नुहोस्</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">अक्षर मेटाइयो</string>
   <string name="perform_delete_word_announcement">शब्द मेटाइयो</string>
   <string name="continue_tutorial_announcement">ट्युटोरियललाई निरन्तरता दिऔँ। %1$s</string>
-  <string name="braille_keyboard_strip_summary">यो डिभाइसमा बाह्य ब्रेल डिस्प्ले कनेक्ट गरिएको छ, तपाईं सो डिस्प्ले प्रयोग गरी यो डिभाइसमा टाइप गर्न सक्नुहुन्छ।\nअथवा, तपाईं टच स्क्रिन ब्रेल किबोर्ड वा अर्को इनपुट विधि प्रयोग गर्न सक्नुहुन्छ।</string>
-  <string name="braille_keyboard_strip_button">टच स्क्रिन किबोर्ड प्रयोग गर्नुहोस्</string>
+  <string name="switch_on_screen_keyboard_announcement">किबोर्ड बदलेर ब्रेल टचस्क्रिन पारिँदै छ</string>
+  <string name="braille_keyboard_strip_summary">यो डिभाइसमा बाह्य ब्रेल डिस्प्ले कनेक्ट गरिएको छ, तपाईं सो डिस्प्ले प्रयोग गरी आफ्नो फोनमा टाइप गर्न सक्नुहुन्छ।\n\nतपाईं टच स्क्रिन ब्रेल किबोर्ड वा अर्को इनपुट विधि प्रयोग गर्न पनि सक्नुहुन्छ।</string>
+  <string name="braille_keyboard_strip_touch_screen_button">ब्रेल टचस्क्रिन प्रयोग गर्नुहोस्</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">अर्को इनपुट विधि प्रयोग गर्नुहोस्</string>
 </resources>

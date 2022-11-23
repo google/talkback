@@ -36,5 +36,6 @@ public interface BrailleTranslator {
    * underneath the cursor will be expanded into computer braille (if using a literary braille
    * table).
    */
-  TranslationResult translate(String text, int cursorPosition, boolean computerBrailleAtCursor);
+  TranslationResult translate(
+      CharSequence text, int cursorPosition, boolean computerBrailleAtCursor);
 }

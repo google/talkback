@@ -27,9 +27,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.preference.PreferenceDialogFragmentCompat;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
+import com.google.android.accessibility.talkback.keyboard.KeyComboModel;
 import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
-import com.google.android.accessibility.utils.keyboard.KeyComboManager;
-import com.google.android.accessibility.utils.keyboard.KeyComboModel;
 
 /** A dialog fragment contains a customized list view for TalkBack supported actions. */
 public class KeyboardShortcutPreferenceFragmentCompat extends PreferenceDialogFragmentCompat {

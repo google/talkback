@@ -4,14 +4,13 @@
     package="com.google.android.accessibility.brailleime">
 
   <uses-sdk
-      android:minSdkVersion="23"
+      android:minSdkVersion="26"
       android:targetSdkVersion="31" />
 
   <!-- Required for haptic feedback. -->
   <uses-permission android:name="android.permission.VIBRATE" />
 
-  <application
-      android:theme="@style/BrailleDisplayTheme">
+  <application>
     <service
         android:name="com.google.android.accessibility.brailleime.BrailleIme"
         android:label="@string/braille_ime_service_name"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack se braille-sleutelbord</string>
+  <string name="braille_ime_bd_mode_name">Brailleskerm-invoer</string>
   <string name="switch_to_screen_away_announcement">Skermwegmodus</string>
   <string name="switch_to_tabletop_announcement">Tafelbladmodus. Plaas jou toestel met die laaipoort na links. Hou die puntposisie met 6 vingers in om dit op te dateer.</string>
   <string name="bring_ime_settings_page">Daar is nie \'n ander sleutelbord geaktiveer nie; gaan na sleutelbordinstellings toe</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Hoe om braillesleutelbord te gebruik</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Om die braille-sleutelbord te gebruik, moet jy jou gewone sleutelbord oopmaak en dan op die Kies Sleutelbord-ikoon tik %1$s (gewoonlik in die hoek regs onder). Kies \"%2$s.\"
   &lt;br&gt;&lt;br&gt;Probeer om %3$s, die Google-sleutelbord, te installeer as jy nie die opsie sien om sleutelborde te wissel nie.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Skakel braille-sleutelbord aan&lt;/b&gt;: Tik op Instellings hieronder. Skakel \"%1$s\" op die volgende skerm aan.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Gebruik braille-sleutelbord&lt;/b&gt;: Maak jou gewone sleutelbord oop en tik dan op die Kies Sleutelbord-ikoon %2$s (gewoonlik in die hoek regs onder). Kies \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;Probeer om %3$s, die Google-sleutelbord, te installeer as jy nie die opsie sien om sleutelborde te wissel nie.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Instellings</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Tik op \"Instellings\" hieronder. Skakel \"%1$s\" op die volgende skerm aan &lt;br&gt;&lt;br&gt;
+    2. Maak jou gewone sleutelbord oop en tik dan op \"wissel invoermetode\" %2$s (gewoonlik in die hoek regs onder).&lt;br&gt;&lt;br&gt;
+    3. Kies \"%1$s.\"
+    &lt;br&gt;&lt;br&gt;Probeer om %3$s, die Google-sleutelbord, te installeer as jy nie ’n opsie sien om sleutelborde te wissel nie.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Skakel braille-sleutelbord hieronder aan.&lt;br&gt;&lt;br&gt;
+    2. Maak jou gewone sleutelbord oop en tik dan op \"wissel invoermetode\" %2$s (gewoonlik in die hoek regs onder).&lt;br&gt;&lt;br&gt;
+    3. Kies \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Probeer om %3$s, die Google-sleutelbord, te installeer as jy nie sleutelborde kan wissel nie.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Instellings</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Skakel aan</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Skakel braille-sleutelbord aan</string>
   <string name="typing_languages_title">Tiktale</string>
   <string name="preferred_language_title">Voorkeurtaal</string>
-  <string name="dont_show_again">Moet dit nie weer wys nie</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Verander taal vinnig terwyl jy tik</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Om jou taal te verander terwyl jy met die braillesleutelbord tik, kan jy met 3 vingers opswiep. Kies dan \"skakel oor na volgende taal\".</string>
   <string name="title_pref_accumulate_presses">Sluit alle punte wat gedruk is, in</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Swiep af met 3 vingers om na die <b>volgende sleutelbord</b> toe oor te skakel</string>
   <string name="gesture_submit_text">Swiep op met 2 vingers om <b>teks in te dien</b></string>
   <string name="gesture_open_context_menu">Swiep op met 3 vingers vir <b>hulp en ander opsies</b></string>
-  <string name="done">Afgehandel</string>
   <string name="not_enough_touch_points_dialog_title">Jou toestel steun nie braille-sleutelbord nie</string>
   <string name="not_enough_touch_points_dialog_message">Jou toestel steun nie genoeg raakpunte nie. Kontak jou toestelvervaardiger vir meer inligting.</string>
   <string name="talkback_off_dialog_title">Skakel TalkBack aan om braille-sleutelbord te gebruik</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Letter is uitgevee</string>
   <string name="perform_delete_word_announcement">Woord is uitgevee</string>
   <string name="continue_tutorial_announcement">Kom ons gaan voort met die tutoriaal. %1$s</string>
-  <string name="braille_keyboard_strip_summary">\'n Eksterne brailleskerm is gekoppel wat jy kan gebruik om teks op hierdie toestel in te tik.\nOf jy kan na die raakskerm-braillesleutelbord of die volgende invoermetode toe oorskakel.</string>
-  <string name="braille_keyboard_strip_button">Skakel oor na raakskermsleutelbord</string>
+  <string name="switch_on_screen_keyboard_announcement">Skakel tans oor na brailleraakskerm</string>
+  <string name="braille_keyboard_strip_summary">’n Eksterne brailleskerm is gekoppel wat jy kan gebruik om teks op jou foon te tik.\n\nJy kan ook na die raakskerm-braillesleutelbord of die volgende invoermetode toe oorskakel.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Skakel oor na brailleraakskerm</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Skakel oor na volgende invoermetode</string>
 </resources>

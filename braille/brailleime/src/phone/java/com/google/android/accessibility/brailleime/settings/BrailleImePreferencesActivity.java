@@ -31,7 +31,6 @@ import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.text.HtmlCompat;
@@ -44,15 +43,18 @@ import com.google.android.accessibility.braille.common.BraillePreferenceUtils;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.braille.common.BrailleUtils;
 import com.google.android.accessibility.braille.common.TouchDots;
+import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleIme;
+import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleIme.ServiceStatus;
 import com.google.android.accessibility.brailleime.BrailleIme;
 import com.google.android.accessibility.brailleime.R;
 import com.google.android.accessibility.brailleime.Utils;
 import com.google.android.accessibility.brailleime.dialog.SeeAllActionsAlertDialog;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants;
+import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.KeyboardUtils;
 import com.google.android.accessibility.utils.MaterialComponentUtils;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.PreferencesActivity;
-import com.google.android.accessibility.utils.keyboard.KeyboardUtils;
 import java.util.Arrays;
 
 /** Activity used to set BrailleIme's user options. */
@@ -63,6 +65,13 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
   private static final int REQUEST_CODE_IME_SETTINGS = 100;
   private static final String KEYBOARD_ICON_TOKEN = "KEYBOARD_ICON";
   private PreferenceFragmentCompat preferenceFragmentCompat;
+
+  private static TalkBackForBrailleIme talkBackForBrailleIme;
+
+  /** TalkBack invokes this to provide us with the TalkBackForBrailleIme instance. */
+  public static void initialize(TalkBackForBrailleIme talkBackForBrailleIme) {
+    BrailleImePreferencesActivity.talkBackForBrailleIme = talkBackForBrailleIme;
+  }
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
@@ -160,7 +169,8 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
               BrailleUserPreferences::readCurrentActiveInputCodeAndCorrect,
               BrailleUserPreferences::writeCurrentActiveInputCode,
               (preference, newValue) -> {
-                if (BrailleUserPreferences.readShowSwitchInputCodeGestureTip(getContext())) {
+                if (BrailleUserPreferences.readShowSwitchBrailleKeyboardInputCodeGestureTip(
+                    getContext())) {
                   showSwitchInputCodeGestureTipDialog();
                 }
                 return false;
@@ -238,19 +248,12 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
     }
 
     private void showSwitchInputCodeGestureTipDialog() {
-      AlertDialog.Builder builder = MaterialComponentUtils.alertDialogBuilder(getContext());
-      View view = getLayoutInflater().inflate(R.layout.dialog_dont_show_again_checkbox, null);
-      CheckBox dontShowAgainCheckBox = view.findViewById(R.id.dont_show_again);
-      builder
-          .setTitle(R.string.switch_input_code_gesture_tip_dialog_title)
-          .setMessage(R.string.switch_input_code_gesture_tip_dialog_message)
-          .setView(view)
-          .setPositiveButton(
-              R.string.done,
-              (dialog, which) ->
-                  BrailleUserPreferences.writeShowSwitchInputCodeGestureTip(
-                      getContext(), !dontShowAgainCheckBox.isChecked()));
-      builder.create().show();
+      BraillePreferenceUtils.createTipAlertDialog(
+              getContext(),
+              getString(R.string.switch_input_code_gesture_tip_dialog_title),
+              getString(R.string.switch_input_code_gesture_tip_dialog_message),
+              BrailleUserPreferences::writeShowSwitchBrailleKeyboardInputCodeGestureTip)
+          .show();
     }
   }
 
@@ -268,14 +271,31 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
       builder
           .setMessage(getDialogMessageForImeDisabled())
           .setPositiveButton(
-              R.string.use_brailleime_pref_button_case_ime_disabled,
-              (dialogInterface, i) ->
-                  startActivityForResult(
-                      new Intent(ACTION_INPUT_METHOD_SETTINGS), REQUEST_CODE_IME_SETTINGS))
+              getString(
+                  supportEnableIme()
+                      ? R.string.use_brailleime_pref_button_case_ime_disabled_turn_on
+                      : R.string.use_brailleime_pref_button_case_ime_disabled_settings),
+              (dialogInterface, i) -> {
+                if (supportEnableIme() && talkBackForBrailleIme.setInputMethodEnabled()) {
+                  return;
+                }
+                startActivityForResult(
+                    new Intent(ACTION_INPUT_METHOD_SETTINGS), REQUEST_CODE_IME_SETTINGS);
+              })
           .setNegativeButton(
               android.R.string.cancel, (dialogInterface, i) -> dialogInterface.dismiss());
     }
     AlertDialog dialog = builder.create();
+    if (supportEnableIme()) {
+      dialog.setOnShowListener(
+          dialogInterface ->
+              dialog
+                  .getButton(AlertDialog.BUTTON_POSITIVE)
+                  .setContentDescription(
+                      getString(
+                          R.string
+                              .use_brailleime_pref_button_case_ime_disabled_turn_on_announcement)));
+    }
     dialog.show();
 
     // Set movement method to url link.
@@ -283,6 +303,12 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
     if (message instanceof TextView) {
       ((TextView) message).setMovementMethod(LinkMovementMethod.getInstance());
     }
+  }
+
+  private boolean supportEnableIme() {
+    return FeatureSupport.supportEnableDisableIme()
+        && talkBackForBrailleIme != null
+        && talkBackForBrailleIme.getServiceStatus() != ServiceStatus.OFF;
   }
 
   private boolean isImeEnabled() {
@@ -312,7 +338,9 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
     String gboardName = getString(R.string.gboard_name);
     String message =
         this.getString(
-            R.string.use_brailleime_pref_dialog_case_ime_disabled,
+            /* resId= */ supportEnableIme()
+                ? R.string.use_brailleime_pref_dialog_case_ime_disabled_turn_on
+                : R.string.use_brailleime_pref_dialog_case_ime_disabled_settings,
             getString(R.string.braille_ime_service_name),
             KEYBOARD_ICON_TOKEN,
             gboardName);

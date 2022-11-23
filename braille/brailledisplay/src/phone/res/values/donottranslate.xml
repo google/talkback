@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Preference keys -->
+  <string name="pref_key_bindings_key" translatable="false">key_bindings</string>
+
+  <string name="pref_key_bd_banner" translatable="false">pref_key_bd_banner</string>
+  <string name="pref_key_bd_enabler" translatable="false">pref_key_bd_enabler</string>
+  <string name="pref_key_bd_rescan" translatable="false">pref_key_bd_rescan</string>
+  <string name="pref_key_bd_connection_category" translatable="false">pref_key_bd_connection_category</string>
+  <string name="pref_key_bd_advanced" translatable="false">pref_key_bd_advanced</string>
+  <string name="pref_key_bd_auto_connect" translatable="false">pref_key_bd_auto_connect</string>
+</resources>

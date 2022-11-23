@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">এটি আর দেখতে চাই না</string>
+  <string name="done">হয়ে গেছে</string>
   <string name="number_announcement">নম্বর</string>
   <string name="capitalize_announcement">ক্যাপ</string>
   <string name="read_out_deleted">%s মুছে দেওয়া হয়েছে</string>
@@ -7,6 +9,7 @@
     <item quantity="one">ডটগুলি %s</item>
     <item quantity="other">ডটগুলি %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">ইউনিফায়েড ইংরেজি ব্রেইল অসঙ্কুচিত মোড</string>
   <string name="code_user_facing_name_ueb2">ইউনিফায়েড ইংরেজি ব্রেইল সঙ্কুচিত মোড</string>
   <string name="code_user_facing_name_es">স্প্যানিশ</string>

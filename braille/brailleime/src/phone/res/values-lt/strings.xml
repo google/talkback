@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">„TalkBack“ Brailio rašmenų klaviatūra</string>
+  <string name="braille_ime_bd_mode_name">Brailio rašmenų ekrano įvestis</string>
   <string name="switch_to_screen_away_announcement">Statusis režimas</string>
   <string name="switch_to_tabletop_announcement">Gulsčiasis režimas. Padėkite įrenginį, kad įkrovimo prievadas būtų kairėje. Kad atnaujintumėte taškų padėtį, palieskite šešiais pirštais.</string>
   <string name="bring_ime_settings_page">Nėra jokios kitos įgalintos klaviatūros, eikite į klaviatūros nustatymus</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Kaip naudoti Brailio rašto klaviatūrą</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Jei norite naudoti Brailio rašmenų klaviatūrą, atidarykite įprastą klaviatūrą, tada palieskite klaviatūros pasirinkimo piktogramą %1$s (įprastai pateikiama apatiniame dešiniajame kampe). Pasirinkite „%2$s“.
   &lt;br&gt;&lt;br&gt;Jei nematote klaviatūrų perjungimo parinkties, pabandykite įdiegti %3$s, „Google“ klaviatūrą.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Brailio rašmenų klaviatūros įjungimas&lt;/b&gt; Toliau palieskite „Nustatymai“. Kitame ekrane įjunkite „%1$s“.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Brailio rašmenų klaviatūros naudojimas&lt;/b&gt; Atidarykite įprastą klaviatūrą, tada palieskite klaviatūros pasirinkimo piktogramą %2$s (įprastai pateikiama apatiniame dešiniajame kampe). Pasirinkite „%1$s“.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Toliau palieskite „Nustatymai“. Kitame ekrane įjunkite „%1$s“.&lt;br&gt;&lt;br&gt;
+    2. Atidarykite įprastą klaviatūrą, tada palieskite įvesties metodo perjungimo piktogramą %2$s (įprastai pateikiama apatiniame dešiniajame kampe).&lt;br&gt;&lt;br&gt;
+    3. Pasirinkite „%1$s“.
     &lt;br&gt;&lt;br&gt;Jei nematote klaviatūrų perjungimo parinkties, pabandykite įdiegt %3$s, „Google“ klaviatūrą.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Nustatymai</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Toliau įjunkite Brailio rašmenų klaviatūrą.&lt;br&gt;&lt;br&gt;
+    2. Atidarykite įprastą klaviatūrą, tada palieskite įvesties metodo perjungimo piktogramą %2$s (įprastai pateikiama apatiniame dešiniajame kampe).&lt;br&gt;&lt;br&gt;
+    3. Pasirinkite „%1$s“.
+    &lt;br&gt;&lt;br&gt;Jei nepavyksta perjungti klaviatūrų, pabandykite įdiegti %3$s, „Google“ klaviatūrą.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Nustatymai</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Įjungti</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Įjungti Brailio rašmenų klaviatūrą</string>
   <string name="typing_languages_title">Įvesties kalbos</string>
   <string name="preferred_language_title">Pageidaujama kalba</string>
-  <string name="dont_show_again">Daugiau nerodyti</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Spartusis kalbos keitimas vedant tekstą</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Jei norite pakeisti kalbą, kai vedate tekstą Brailio rašto klaviatūra, perbraukite aukštyn trimis pirštais. Tada pasirinkite „perjungti į kitą kalbą“.</string>
   <string name="title_pref_accumulate_presses">Visų paspaustų taškų įtraukimas</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Kad perjungtumėte į <b>kitą klaviatūrą</b>, perbraukite žemyn trim pirštais</string>
   <string name="gesture_submit_text">Kad <b>pateiktumėte tekstą</b>, perbraukite aukštyn dviem pirštais</string>
   <string name="gesture_open_context_menu">Jei reikia <b>pagalbos ir kitų parinkčių</b>, perbraukite aukštyn trim pirštais</string>
-  <string name="done">Atlikta</string>
   <string name="not_enough_touch_points_dialog_title">Įrenginyje nepalaikoma Brailio rašmenų klaviatūra</string>
   <string name="not_enough_touch_points_dialog_message">Įrenginyje nepalaikoma pakankamai lietimo taškų. Jei reikia daugiau informacijos, susisiekite su įrenginio gamintoju.</string>
   <string name="talkback_off_dialog_title">„TalkBack“ įjungimas norint naudoti Brailio rašmenų klaviatūrą</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Raidė ištrinta</string>
   <string name="perform_delete_word_announcement">Žodis ištrintas</string>
   <string name="continue_tutorial_announcement">Tęskime mokymo programą. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Prijungtas išorinis Brailio rašmenų ekranas, kurį naudodami galite vesti tekstą šiame įrenginyje.\nArba galite perjungti į jutiklinio ekrano Brailio rašmenų klaviatūrą ar kitą įvesties metodą.</string>
-  <string name="braille_keyboard_strip_button">Perjungti į jutiklinio ekrano klaviatūrą</string>
+  <string name="switch_on_screen_keyboard_announcement">Perjungiama į Brailio rašmenų jutiklinį ekraną</string>
+  <string name="braille_keyboard_strip_summary">Prijungtas išorinis Brailio rašmenų ekranas, kurį naudodami galite vesti tekstą telefone.\n\nBe to, galite perjungti į jutiklinio ekrano Brailio rašmenų klaviatūrą ar kitą įvesties metodą.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Perjungti į Brailio rašmenų jutiklinį ekraną</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Perjungti į kitą įvesties metodą</string>
 </resources>

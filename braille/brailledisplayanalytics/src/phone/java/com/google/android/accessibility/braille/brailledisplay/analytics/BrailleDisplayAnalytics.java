@@ -16,13 +16,27 @@ public class BrailleDisplayAnalytics {
 
   private BrailleDisplayAnalytics(Context context) {}
 
-  public void logStartedEvent(String device, Code code, boolean wordWrappingEnabled) {}
+  public void logStartedEvent(String device, Code inputCode, Code outputCode) {}
 
   public void logTypingBrailleCharacter(int count) {}
 
   public void logReadingBrailleCharacter(int count) {}
 
-  public void logBrailleCodeSetting(Code code) {}
+  public void logBrailleInputCodeSetting(Code code) {}
+
+  public void logBrailleOutputCodeSetting(Code code) {}
 
   public void logWordWrappingSetting(boolean enabled) {}
+
+  public void logStartToEstablishBluetoothConnection() {}
+
+  public void logStartToConnectToBrailleDisplay() {}
+
+  public void logChangeTypingMode(boolean toPhysical) {}
+
+  public void logBrailleCommand(int command) {}
+
+  public void logAutoConnectSetting(boolean enabled) {}
+
+  public void logEnablerSetting(boolean enabled) {}
 }

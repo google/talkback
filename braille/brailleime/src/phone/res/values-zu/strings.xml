@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Ikhibhodi ye-TalkBack braille</string>
+  <string name="braille_ime_bd_mode_name">Okokufaka kwesibonisi se-braille</string>
   <string name="switch_to_screen_away_announcement">Imodi yokuba kude nesikrini</string>
   <string name="switch_to_tabletop_announcement">Imodi ye-tabletop. Beka idivayisi yakho nembobo yokushaja ngakwesokunxele. Ukuze ubuyekeze ukuma kwechashazi, cindezela iminwe eyi-6.</string>
   <string name="bring_ime_settings_page">Ayikho enye ikhibhodi enikwe amandla, iya kuzilungiselelo zekhibhodi</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Indlela yokusebenzisa ikhibhodi ye-braille</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Ukusebenzisa ikhibhodi ye-braille, vula ikhibhodi yakho evamile, bese uthepha isithonjana esithi khetha ikhibhodi%1$s (ngokuvamile siba kwikhona elingezansi ngakwesokudla). Khetha \"%2$s.\"
   &lt;br&gt;&lt;br&gt;Uma ungayiboni inketho yokushintsha amakhibhodi, zama ukufaka %3$s, ikhibhodi ye-Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Vula ikhibhodi ye-braille&lt;/b&gt;: Thepha okuthi Izilungiselelo ngezansi. Kusikrini esilandelayo, vula i-\"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Sebenzisa ikhibhodi ye-braille&lt;/b&gt;: Vula ikhibhodi yakho evamile, bese uthepha isithonjana esithi khetha ikhibhodi %2$s (ngokuvamile siba kwikhona elingezansi ngakwesokudla). Khetha i-\"%1$s.\"
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Thepha \"Amasethingi\" ngezansi. Esikrinini esilandelayo, vula i-\"%1$s.\"&lt;br&gt;&lt;br&gt;
+    2. Vula ikhibhodi yakho evamile, bese uthepha ushintsho lwendlela yokufaka %2$s (ngokuvamile isekhoneni elingezansi kwesokudla).&lt;br&gt;&lt;br&gt;
+    3. Khetha i-\"%1$s.\"
     &lt;br&gt;&lt;br&gt;Uma ungayiboni inketho yokushintsha amakhibhodi, zama ukufaka %3$s, ikhibhodi ye-Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Izilungiselelo</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Vula ikhibhodi ye-braille ngezansi.&lt;br&gt;&lt;br&gt;
+    2. Vula ikhibhodi yakho evamile, bese uthepha ushintsho lwendlela yokufaka %2$s (ngokuvamile isekhoneni elingezansi kwesokudla).&lt;br&gt;&lt;br&gt;
+    3. Khetha i-\"%1$s.\"
+    &lt;br&gt;&lt;br&gt;Uma ungakwazi ukushintsha amakhibhodi, zama ukufaka %3$s, ikhibhodi ye-Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Amasethingi</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Vula</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Vula ikhibhodi ye-braille</string>
   <string name="typing_languages_title">Izilimi zokuthayipha</string>
   <string name="preferred_language_title">Ulimi oluncanyelwayo</string>
-  <string name="dont_show_again">Ungaphinde ubonise lokhu</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Shintsha ulimi ngokushesha ngenkathi uthayipha</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Ukuze ushintshe ulimi lwakho ngenkathi uthayipha ngekhibhodi ye-braille, swayiphela phezulu ngeminwe emi-3. Bese ukhetha okuthi \"shintshela olimini olulandelayo\".</string>
   <string name="title_pref_accumulate_presses">Faka phakathi wonke amachashazi acindezelwe</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Ukushintshela <b>kwikhibhodi elandelayo</b>, swayiphela ngenzansi ngeminwe engu-3</string>
   <string name="gesture_submit_text">Ukuthumela <b>umbhalo</b>, swayiphela ngeminwe engu-2</string>
   <string name="gesture_open_context_menu">Ukuthola <b>usizo nezinye izinketho</b>, swayiphela phezulu ngeminwe engu-3</string>
-  <string name="done">Kwenziwe</string>
   <string name="not_enough_touch_points_dialog_title">Idivayisi yakho ayisekeli ikhibhodi ye-braille</string>
   <string name="not_enough_touch_points_dialog_message">Idivayisi yakho ayisekeli amaphoyinti wokuthinta anele. Ukuthola ulwazi olwengeziwe, xhumana nomkhiqizi wedivayisi yakho</string>
   <string name="talkback_off_dialog_title">Vula i-TalkBack ukusebenzisa ikhibhodi ye-braille</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Iletha isusiwe</string>
   <string name="perform_delete_word_announcement">Igama lisusiwe</string>
   <string name="continue_tutorial_announcement">Asiqhubeke nokokufundisa. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Isibonisi se-braille sangaphandle sixhunyiwe, ongasisebenzisa ukuthayipha umbhalo kule divayisi.\nNoma, ungashintshela kukhibhodi ye-Braille yesikrini sokuthinta noma indlela yokufaka elandelay.</string>
-  <string name="braille_keyboard_strip_button">Shintshela kukhibhodi yesikrini esithintwayo</string>
+  <string name="switch_on_screen_keyboard_announcement">Ishintshela kusikrini esithintwayo se-braille</string>
+  <string name="braille_keyboard_strip_summary">Isibonisi sangaphandle se-braille sixhunyiwe, ongasisebenzisa ukuze uthayiphe umbhalo kufoni yakho.\n\nUngaphinde ushintshele kukhibhodi ye-braille yesikrini esithintwayo noma indlela yokufaka elandelayo.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Shintshela kusikrini esithintwayo se-braille</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Shintshela endleleni yokufaka elandelayo</string>
 </resources>

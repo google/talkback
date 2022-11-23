@@ -34,6 +34,7 @@ import com.google.android.accessibility.talkback.training.content.Heading;
 import com.google.android.accessibility.talkback.training.content.Link;
 import com.google.android.accessibility.talkback.training.content.Note;
 import com.google.android.accessibility.talkback.training.content.PageButton;
+import com.google.android.accessibility.talkback.training.content.PageButton.PageButtonOnClickListener;
 import com.google.android.accessibility.talkback.training.content.PageContentConfig;
 import com.google.android.accessibility.talkback.training.content.Text;
 import com.google.android.accessibility.talkback.training.content.Text.Paragraph;
@@ -79,7 +80,7 @@ public abstract class PageConfig {
         (data) ->
             isAccessibilityShortcutOrButtonEnabled(data.getContext())
                 && !isAccessibilityFloatingButtonEnabled(data.getContext())),
-    SUPPORT_SYSTEM_ACTIONS((data) -> FeatureSupport.supportSystemActions(data.getContext()));
+    SUPPORT_SYSTEM_ACTIONS((data) -> FeatureSupport.supportGetSystemActions(data.getContext()));
 
     private final Predicate<ServiceData> predicate;
 
@@ -132,11 +133,12 @@ public abstract class PageConfig {
     PAGE_ID_VOICE_COMMAND_TEXT_EDITING,
     PAGE_ID_VOICE_COMMAND_DEVICE_NAVIGATION,
     PAGE_ID_VOICE_COMMAND_OTHER_COMMANDS,
-    PAGE_ID_UPDATE_WELCOME_12_2,
-    PAGE_ID_VOLUME_CONTROL_CHANGES,
-    PAGE_ID_TEXT_IN_IMAGES,
-    PAGE_ID_WINDOW_NAVIGATION,
-    PAGE_ID_WINDOW_NAVIGATION_PRE_R,
+    PAGE_ID_UPDATE_WELCOME_13_0,
+    PAGE_ID_UPDATE_WELCOME_13_0_PRE_R,
+    PAGE_ID_SUPPORT_FOR_BRAILLE_DISPLAYS,
+    PAGE_ID_ACTIONS_IN_READING_CONTROLS,
+    PAGE_ID_DESCRIBE_ICONS,
+    PAGE_ID_TRY_LOOKOUT_AND_TALKBACK,
   }
 
   /**
@@ -298,16 +300,18 @@ public abstract class PageConfig {
         return VoiceCommandHelpInitiator.voiceCommandDeviceNavigation.build();
       case PAGE_ID_VOICE_COMMAND_OTHER_COMMANDS:
         return VoiceCommandHelpInitiator.voiceCommandOtherCommands.build();
-      case PAGE_ID_UPDATE_WELCOME_12_2:
-        return OnboardingInitiator.UPDATE_WELCOME_12_2.build();
-      case PAGE_ID_VOLUME_CONTROL_CHANGES:
-        return OnboardingInitiator.VOLUME_CONTROL_CHANGES.build();
-      case PAGE_ID_TEXT_IN_IMAGES:
-        return OnboardingInitiator.TEXT_IN_IMAGES.build();
-      case PAGE_ID_WINDOW_NAVIGATION:
-        return OnboardingInitiator.WINDOW_NAVIGATION.build();
-      case PAGE_ID_WINDOW_NAVIGATION_PRE_R:
-        return OnboardingInitiator.WINDOW_NAVIGATION_PRE_R.build();
+      case PAGE_ID_UPDATE_WELCOME_13_0:
+        return OnboardingInitiator.UPDATE_WELCOME_13_0.build();
+      case PAGE_ID_UPDATE_WELCOME_13_0_PRE_R:
+        return OnboardingInitiator.UPDATE_WELCOME_13_0_PRE_R.build();
+      case PAGE_ID_SUPPORT_FOR_BRAILLE_DISPLAYS:
+        return OnboardingInitiator.SUPPORT_FOR_BRAILLE_DISPLAYS.build();
+      case PAGE_ID_ACTIONS_IN_READING_CONTROLS:
+        return OnboardingInitiator.ACTIONS_IN_READING_CONTROLS.build();
+      case PAGE_ID_DESCRIBE_ICONS:
+        return OnboardingInitiator.DESCRIBE_ICONS.build();
+      case PAGE_ID_TRY_LOOKOUT_AND_TALKBACK:
+        return OnboardingInitiator.TRY_LOOKOUT_AND_TALKBACK.build();
       case PAGE_ID_UNKNOWN:
       case PAGE_ID_FINISHED:
       default:
@@ -535,9 +539,22 @@ public abstract class PageConfig {
       return this;
     }
 
+    /** Adds a button to the page. */
+    public Builder addButton(@StringRes int textResId, PageButtonOnClickListener onClickListener) {
+      this.contents.add(new PageButton(textResId, onClickListener));
+      return this;
+    }
+
     /** Adds a text with an empty {@link URLSpan}. */
     public Builder addTextWithLink(@StringRes int textResId) {
       this.contents.add(new Text(Paragraph.builder(textResId).setLink(true).build()));
+      return this;
+    }
+
+    /** Adds a text with an {@link URLSpan}. */
+    public Builder addTextWithLink(@StringRes int textResId, String urlLink) {
+      this.contents.add(
+          new Text(Paragraph.builder(textResId).setLink(true).setUrlLink(urlLink).build()));
       return this;
     }
 

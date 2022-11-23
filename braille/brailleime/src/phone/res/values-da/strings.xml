@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack-brailletastatur</string>
+  <string name="braille_ime_bd_mode_name">Indtastning via brailleskærm</string>
   <string name="switch_to_screen_away_announcement">Tilstanden Skærm vendt væk</string>
   <string name="switch_to_tabletop_announcement">Tilstanden Skærm vendt op. Placer enheden, så opladerporten vender mod venstre. Hold seks fingre nede for at opdatere punkternes placering.</string>
   <string name="bring_ime_settings_page">Ingen andre tastaturer er aktiveret. Gå til indstillingerne for tastatur</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Sådan bruger du brailletastaturet</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Hvis du vil bruge braille-tastaturet, skal du åbne dit normale tastatur og trykke på ikonet til at vælge tastatur %1$s (findes som regel nederst til højre). Vælg \"%2$s\".
   &lt;br&gt;&lt;br&gt;Hvis du ikke kan se muligheden for at skifte tastatur, kan du prøve at installere Google-tastaturet %3$s.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Slå braille-tastaturet til&lt;/b&gt;: Tryk på Indstillinger nedenfor. På den næste skærm kan du slå \"%1$s\" til.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Brug braille-tastaturet&lt;/b&gt;: Åbn dit normale tastatur og tryk på ikonet til at vælge tastatur %2$s (findes som regel nederst til højre) Vælg \"%1$s\".
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Tryk på \"Indstillinger\" nedenfor. På den næste skærm skal du aktivere \"%1$s\".&lt;br&gt;&lt;br&gt;
+    2. Åbn dit normale tastatur, og tryk på tasten for skift af indtastningsmetode %2$s (findes som regel nederst til højre).&lt;br&gt;&lt;br&gt;
+    3. Vælg \"%1$s\".
   &lt;br&gt;&lt;br&gt;Hvis du ikke kan se muligheden for at skifte tastatur, kan du prøve at installere Google-tastaturet %3$s.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Indstillinger</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Aktivér brailletastatur nedenfor.&lt;br&gt;&lt;br&gt;
+    2. Åbn dit normale tastatur, og tryk på tasten for skift af indtastningsmetode %2$s (findes som regel nederst til højre).&lt;br&gt;&lt;br&gt;
+    3. Vælg \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Hvis du ikke kan skifte tastatur, kan du prøve at installere Google-tastaturet %3$s.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Indstillinger</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Aktivér</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Aktivér brailletastatur</string>
   <string name="typing_languages_title">Tastatursprog</string>
   <string name="preferred_language_title">Foretrukket sprog</string>
-  <string name="dont_show_again">Vis ikke igen</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Skift hurtigt sprog, mens du skriver</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Hvis du vil skifte sprog, mens du skriver via brailletastaturet, skal du stryge opad med 3 fingre. Vælg derefter \"skift til næste sprog\".</string>
   <string name="title_pref_accumulate_presses">Medtag alle punkter, der trykkes på</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Hvis du vil skifte til det <b>næste tastatur</b>, skal du stryge nedad med tre fingre</string>
   <string name="gesture_submit_text">Hvis du vil <b>sende tekst</b>, skal du stryge opad med to fingre</string>
   <string name="gesture_open_context_menu">Hvis du skal bruge <b>hjælp og andre indstillinger</b>, skal du stryge opad med tre fingre</string>
-  <string name="done">Luk</string>
   <string name="not_enough_touch_points_dialog_title">Din enhed understøtter ikke braille-tastatur</string>
   <string name="not_enough_touch_points_dialog_message">Din enhed understøtter ikke nok trykpunkter. Kontakt producenten af din enhed for at få flere oplysninger.</string>
   <string name="talkback_off_dialog_title">Aktivér TalkBack for at bruge braille-tastaturet</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Bogstav er slettet</string>
   <string name="perform_delete_word_announcement">Ord er slettet</string>
   <string name="continue_tutorial_announcement">Lad os fortsætte selvstudiet. %1$s</string>
-  <string name="braille_keyboard_strip_summary">En ekstern brailleskærm er forbundet, og du kan bruge den til at indtaste tekst på denne enhed.\nDu kan også skifte til brailletastaturet på touchskærmen eller næste indtastningsmetode.</string>
-  <string name="braille_keyboard_strip_button">Skift til tastatur på touchskærm</string>
+  <string name="switch_on_screen_keyboard_announcement">Skifter til braille-touchskærm</string>
+  <string name="braille_keyboard_strip_summary">En ekstern brailleskærm er forbundet, som du kan bruge til at indtaste tekst på din telefon.\n\nDu kan også skifte til brailletastaturet på touchskærmen eller næste indtastningsmetode.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Skift til braille-touchskærm</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Skift til næste indtastningsmetode</string>
 </resources>

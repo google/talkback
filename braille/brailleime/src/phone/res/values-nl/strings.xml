@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack-brailletoetsenbord</string>
+  <string name="braille_ime_bd_mode_name">Invoer via brailleleesregel</string>
   <string name="switch_to_screen_away_announcement">Modus Scherm weg</string>
   <string name="switch_to_tabletop_announcement">Tafelbladmodus. Leg je apparaat neer met de oplaadpoort naar links. Plaats 6 vingers om de positie van de stippen te updaten.</string>
   <string name="bring_ime_settings_page">Er staat geen ander toetsenbord aan. Ga naar de toetsenbordinstellingen.</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Een brailletoetsenbord gebruiken</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Als je het brailletoetsenbord wilt gebruiken, open je je gebruikelijke toetsenbord en tik je op \'Toetsenbord kiezen\' %1$s (meestal rechtsonder). Selecteer \'%2$s\'.
   &lt;br&gt;&lt;br&gt;Als je geen schakeloptie ziet, installeer je het Google-toetsenbord %3$s.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Brailletoetsenbord aanzetten&lt;/b&gt;: Tik onderaan op Instellingen. Zet op het volgende scherm %1$s aan.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Brailletoetsenbord gebruiken&lt;/b&gt;: Open je gebruikelijke toetsenbord en tik op Toetsenbord kiezen %2$s (meestal rechtsonder). Selecteer %1$s.
-    &lt;br&gt;&lt;br&gt;Als je geen schakeloptie ziet, installeer je het Google-toetsenbord %3$s.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Instellingen</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Tik hieronder op Instellingen. Zet op het volgende scherm de optie %1$s aan.&lt;br&gt;&lt;br&gt;
+2. Open je gewone toetsenbord en tik op de schakelaar voor de invoermethode %2$s (meestal rechtsonder).&lt;br&gt;&lt;br&gt;
+    3. Selecteer %1$s.
+&lt;br&gt;&lt;br&gt;Als je geen optie ziet om tussen toetsenborden te schakelen, installeer je het Google-toetsenbord %3$s.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Zet hieronder het brailletoetsenbord aan.&lt;br&gt;&lt;br&gt;
+    2. Open je gewone toetsenbord en tik op de schakelaar voor de invoermethode %2$s (meestal rechtsonder).&lt;br&gt;&lt;br&gt;
+    3. Selecteer %1$s.
+    &lt;br&gt;&lt;br&gt;Als je niet kunt schakelen tussen toetsenborden, installeer je het Google-toetsenbord %3$s.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Instellingen</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Aanzetten</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Brailletoetsenbord aanzetten</string>
   <string name="typing_languages_title">Talen voor typen</string>
   <string name="preferred_language_title">Taalvoorkeur</string>
-  <string name="dont_show_again">Dit bericht niet meer tonen</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Taal snel wijzigen tijdens typen</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Als je de taal wilt wijzigen terwijl je typt met het brailletoetsenbord, swipe je met 3 vingers omhoog. Selecteer dan Overschakelen naar volgende taal.</string>
   <string name="title_pref_accumulate_presses">Alle ingedrukte punten opnemen</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Swipe met 3 vingers omlaag om te schakelen naar het <b>volgende toetsenbord</b></string>
   <string name="gesture_submit_text">Swipe met 2 vingers omhoog om <b>tekst te sturen</b></string>
   <string name="gesture_open_context_menu">Swipe met 3 vingers omhoog voor <b>hulp en andere opties</b></string>
-  <string name="done">Klaar</string>
   <string name="not_enough_touch_points_dialog_title">Je apparaat ondersteunt geen brailletoetsenbord</string>
   <string name="not_enough_touch_points_dialog_message">Je apparaat ondersteunt niet voldoende aanraakpunten. Neem contact op met de fabrikant van het apparaat voor meer informatie.</string>
   <string name="talkback_off_dialog_title">Zet TalkBack aan om een brailletoetsenbord te gebruiken</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Letter verwijderd</string>
   <string name="perform_delete_word_announcement">Woord verwijderd</string>
   <string name="continue_tutorial_announcement">We gaan verder met de tutorial. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Er is een externe brailleleesregel verbonden, waarmee je tekst kunt typen op dit apparaat.\nJe kunt ook overschakelen naar het brailletoetsenbord met touchscreen of de volgende invoermethode.</string>
-  <string name="braille_keyboard_strip_button">Overschakelen naar toetsenbord met touchscreen</string>
+  <string name="switch_on_screen_keyboard_announcement">Overschakelen naar brailletouchscreen</string>
+  <string name="braille_keyboard_strip_summary">Er is een externe brailleleesregel verbonden, waarmee je tekst kunt typen op je telefoon.\n\nJe kunt ook overschakelen naar het brailletoetsenbord met touchscreen of de volgende invoermethode.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Overschakelen naar brailletouchscreen</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Overschakelen naar volgende invoermethode</string>
 </resources>

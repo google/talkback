@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack Braille-billentyűzet</string>
+  <string name="braille_ime_bd_mode_name">Braille-kijelzős beviteli mód</string>
   <string name="switch_to_screen_away_announcement">„Elfordított képernyő” mód</string>
   <string name="switch_to_tabletop_announcement">„Vízszintes“ mód. Fordítsa eszközét úgy, hogy a töltőport balra nézzen. A pontok helyzetének módosításához tartsa lenyomva hat ujját.</string>
   <string name="bring_ime_settings_page">Nincs másik engedélyezett billentyűzet. Nyissa meg a billentyűzetbeállításokat</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">A Braille-billentyűzet használata</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">A Braille-billentyűzet használatához nyissa meg a hagyományos billentyűzetet, majd koppintson a Billentyűzetválasztás %1$s ikonra (ez általában a jobb alsó sarokban látható). Válassza a következőt: „%2$s”.
   &lt;br&gt;&lt;br&gt;Ha nem látja a billentyűzetváltót, próbálkozzon a %3$s, a Google billentyűzet telepítésével.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Kapcsolja be a Braille-billentyűzetet&lt;/b&gt;: Koppintson alább a Beállításokra. A következő képernyőn kapcsolja be a(z) „%1$s” beállítást.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;A Braille-billentyűzet használata&lt;/b&gt;: Nyissa meg a hagyományos billentyűzetet, majd koppintson a Billentyűzetválasztás %2$s ikonra (ez általában a jobb alsó sarokban látható). Válassza a következőt: „%1$s”.
-    &lt;br&gt;&lt;br&gt;Ha nem látja a billentyűzetváltót, próbálkozzon a %3$s, a Google billentyűzet telepítésével.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Beállítások</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Lent koppintson a „Beállítások” elemre. A következő képernyőn kapcsolja be a(z) „%1$s” beállítást.&lt;br&gt;&lt;br&gt;
+    2. Nyissa meg a hagyományos billentyűzetet, majd koppintson a Beviteli módszer váltása %2$s ikonra (ez általában a jobb alsó sarokban látható).&lt;br&gt;&lt;br&gt;
+    3. Koppintson a következőre: „%1$s”.
+    &lt;br&gt;&lt;br&gt;Ha nem látja a billentyűzetváltót, próbálkozzon a %3$s, a Google-billentyűzet telepítésével.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Lent koppintson a Braille-billentyűzetre.&lt;br&gt;&lt;br&gt;
+    2. Nyissa meg a hagyományos billentyűzetet, majd koppintson a Beviteli módszer váltása %2$s ikonra (ez általában a jobb alsó sarokban látható).&lt;br&gt;&lt;br&gt;
+    3. Koppintson a következőre: „%1$s”.
+    &lt;br&gt;&lt;br&gt;Ha nem sikerül billentyűzetet váltani, próbálkozzon a %3$s, a Google-billentyűzet telepítésével.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Beállítások</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Bekapcsolás</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">A Braille-billentyűzet bekapcsolása</string>
   <string name="typing_languages_title">Gépelési nyelvek</string>
   <string name="preferred_language_title">Előnyben részesített nyelv</string>
-  <string name="dont_show_again">Ne jelenjen meg többé</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Nyelv gyors módosítása gépelés közben</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Ha módosítani szeretné a nyelvet a braille-billentyűzeten való gépelés során, gyorsan csúsztassa felfelé három ujját, majd koppintson a „Váltás a következő nyelvre“ lehetőségre.</string>
   <string name="title_pref_accumulate_presses">Az összes lenyomott pontot tartalmazza</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">A <b>következő billentyűzetre</b> váltáshoz csúsztasson lefelé három ujjal.</string>
   <string name="gesture_submit_text"><b>Szöveg küldéséhez</b> csúsztasson felfelé két ujjal.</string>
   <string name="gesture_open_context_menu">A <b>súgó és a további lehetőségek megnyitásához</b> csúsztasson felfelé három ujjal.</string>
-  <string name="done">Kész</string>
   <string name="not_enough_touch_points_dialog_title">Eszköze nem támogatja a Braille-billentyűzetet</string>
   <string name="not_enough_touch_points_dialog_message">Eszköze nem támogat elegendő érintési pontot. Ha további információt szeretne kapni, lépjen kapcsolatba eszköze gyártójával.</string>
   <string name="talkback_off_dialog_title">A TalkBack funkció bekapcsolása a Braille-billentyűzet használatához</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Betű törölve</string>
   <string name="perform_delete_word_announcement">Szó törölve</string>
   <string name="continue_tutorial_announcement">Folytassuk az útmutatót. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Külső Braille-kijelzőt csatlakoztatott, amelynek segítségével gépelhet ezen az eszközön.\nÚgy is dönthet, hogy az érintőképernyős Braille-billentyűzetre, vagy a következő beviteli módszerre vált.</string>
-  <string name="braille_keyboard_strip_button">Váltás az érintőképernyős billentyűzetre</string>
+  <string name="switch_on_screen_keyboard_announcement">Váltás Braille-érintőképernyőre</string>
+  <string name="braille_keyboard_strip_summary">Külső Braille-kijelzőt csatlakoztatott, amely segítségével gépelhet a telefonon.\n\nÁtválthat az érintőképernyős Braille-billentyűzetre, vagy a következő beviteli módszerre is.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Váltás Braille-érintőképernyőre</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Váltás a következő beviteli módszerre</string>
 </resources>

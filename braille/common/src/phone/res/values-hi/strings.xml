@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">इसे दोबारा न दिखाएं</string>
+  <string name="done">हो गया</string>
   <string name="number_announcement">नंबर</string>
-  <string name="capitalize_announcement">बड़े अक्षर</string>
+  <string name="capitalize_announcement">अंग्रेज़ी के बड़े अक्षर</string>
   <string name="read_out_deleted">%s को मिटाया गया</string>
   <plurals name="braille_dots">
     <item quantity="one">बिंदु %s</item>
     <item quantity="other">बिंदु %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">यूनिफ़ाइड इंग्लिश ब्रेल अनकॉन्ट्रैक्टेड</string>
   <string name="code_user_facing_name_ueb2">यूनिफ़ाइड इंग्लिश ब्रेल कॉन्ट्रैक्टेड</string>
   <string name="code_user_facing_name_es">स्पैनिश</string>
-  <string name="code_user_facing_name_ar">ऐरबिक</string>
+  <string name="code_user_facing_name_ar">एरेबिक</string>
   <string name="code_user_facing_name_fr">फ़्रेंच</string>
   <string name="code_user_facing_name_pl">पोलिश</string>
   <string name="screen_away">स्क्रीन अवे मोड</string>

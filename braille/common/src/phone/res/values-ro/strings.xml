@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Nu mai afișa acest mesaj</string>
+  <string name="done">Gata</string>
   <string name="number_announcement">Număr</string>
   <string name="capitalize_announcement">Scriere cu majuscule</string>
   <string name="read_out_deleted">S-a șters %s</string>
@@ -8,6 +10,7 @@
     <item quantity="few">puncte %s</item>
     <item quantity="other">puncte %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille necontractat</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille contractat</string>
   <string name="code_user_facing_name_es">Spaniolă</string>

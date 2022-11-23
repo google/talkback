@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+  <!-- Descriptions of icons detected by IconNet model(go/iconNet) -->
+
+  <string name="icon_back_arrow_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a leftwards arrow icon that typically represents an action to move back [CHAR_LIMIT=NONE]">
+    Leftwards arrow
+  </string>
+
+  <string name="icon_back_arrow_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to move back. [CHAR_LIMIT=NONE]">
+    Back
+  </string>
+
+  <string name="icon_forward_arrow_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a rightwards arrow icon that typically represents an action to move forward [CHAR_LIMIT=NONE]">
+    Rightward arrow
+  </string>
+
+  <string name="icon_forward_arrow_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to move forward. [CHAR_LIMIT=NONE]">
+    Forward
+  </string>
+
+  <string name="icon_more_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a three dots icon that typically represents an action to show more options [CHAR_LIMIT=NONE]">
+    Three dots
+  </string>
+
+  <string name="icon_more_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to show more options [CHAR_LIMIT=NONE]">
+    More
+  </string>
+
+  <string name="icon_star_general"
+      description="This text will be spoken to a user by a screen reader to describe a star icon [CHAR_LIMIT=NONE]">
+    Star
+  </string>
+
+  <string name="icon_close_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a cross mark icon that typically represents a close action [CHAR_LIMIT=NONE]">
+    Cross mark
+  </string>
+
+  <string name="icon_close_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the close button, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Close
+  </string>
+
+  <string name="icon_add_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a plus sign icon that typically represents an add action [CHAR_LIMIT=NONE]">
+    Plus sign
+  </string>
+
+  <string name="icon_add_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to add something, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Add
+  </string>
+
+  <string name="icon_play_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a right-pointing triangle icon that typically represents a play action [CHAR_LIMIT=NONE]">
+    Right-pointing triangle
+  </string>
+
+  <string name="icon_play_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to play videos, audios, etc, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Play
+  </string>
+
+  <string name="icon_share_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a three connected circles icon that typically represents a share action [CHAR_LIMIT=NONE]">
+    Three connected circles
+  </string>
+
+  <string name="icon_share_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to share data, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Share
+  </string>
+
+  <string name="icon_heart_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a heart icon that typically represents a like action [CHAR_LIMIT=NONE]">
+    Heart
+  </string>
+
+  <string name="icon_heart_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to mark something as liked, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Like
+  </string>
+
+  <string name="icon_settings_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a cogwheel icon that typically represents an action to display settings [CHAR_LIMIT=NONE]">
+    Cogwheel
+  </string>
+
+  <string name="icon_settings_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to display settings [CHAR_LIMIT=NONE]">
+    Settings
+  </string>
+
+  <string name="icon_chat_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a speech bubble icon that typically represents an action to start a conversation [CHAR_LIMIT=NONE]">
+    Speech bubble
+  </string>
+
+  <string name="icon_chat_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to start a conversation, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Chat
+  </string>
+
+  <string name="icon_check_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a check mark icon that typically represents an action to mark something as selected or acknowledged [CHAR_LIMIT=NONE]">
+    Check mark
+  </string>
+
+  <string name="icon_check_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to mark something as selected or acknowledged, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Check
+  </string>
+
+  <string name="icon_refresh_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a counterclockwise arrow icon that typically represents an action to reload data [CHAR_LIMIT=NONE]">
+    Counterclockwise arrow
+  </string>
+
+  <string name="icon_refresh_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to reload and show any new changes, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Refresh
+  </string>
+
+  <string name="icon_v_downward_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a downwards arrow icon that typically represents an action to expand more or move down [CHAR_LIMIT=NONE]">
+    Downwards arrow
+  </string>
+
+  <string name="icon_v_downward_actionable_expand"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to expand more, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Expand
+  </string>
+
+  <string name="icon_v_downward_actionable_down"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to move down. [CHAR_LIMIT=NONE]">
+    Down
+  </string>
+
+  <string name="icon_home_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a plus sign icon that typically represents an action to go back to 'home' [CHAR_LIMIT=NONE]">
+    House
+  </string>
+
+  <string name="icon_home_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to go back to 'home' [CHAR_LIMIT=NONE]">
+    Home
+  </string>
+
+  <string name="icon_edit_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a pencil icon that typically represents an action to edit [CHAR_LIMIT=NONE]">
+    Pencil
+  </string>
+
+  <string name="icon_edit_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to start editing, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Edit
+  </string>
+
+  <string name="icon_time_general"
+      description="This text will be spoken to a user by a screen reader to describe a clock icon [CHAR_LIMIT=NONE]">
+    Clock
+  </string>
+
+  <string name="icon_info_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a letter i inside circle sign icon that typically represents an action to show info [CHAR_LIMIT=NONE]">
+    Letter i inside circle
+  </string>
+
+  <string name="icon_info_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to show info [CHAR_LIMIT=NONE]">
+    Info
+  </string>
+
+  <string name="icon_send_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a paper airplane icon that typically represents a send action [CHAR_LIMIT=NONE]">
+    Paper airplane
+  </string>
+
+  <string name="icon_send_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to send data, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Send
+  </string>
+
+  <string name="icon_thumbs_up_general"
+      description="This text will be spoken to a user by a screen reader to describe a thumbs-up icon that typically express assent, approval, or encouragement [CHAR_LIMIT=NONE]">
+    Thumbs up
+  </string>
+
+  <string name="icon_apps_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a 9 dots in a 3 by 3 grid icon that typically represents an action to launch apps [CHAR_LIMIT=NONE]">
+    9 dots in a 3 by 3 grid
+  </string>
+
+  <string name="icon_apps_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to launch apps [CHAR_LIMIT=NONE]">
+    Apps
+  </string>
+
+  <string name="icon_call_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a phone icon that typically represents an action to call somebody [CHAR_LIMIT=NONE]">
+    Phone
+  </string>
+
+  <string name="icon_call_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to call somebody, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Call
+  </string>
+
+  <string name="icon_delete_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a trash can icon that typically represents an action to delete somthing [CHAR_LIMIT=NONE]">
+    Trash can
+  </string>
+
+  <string name="icon_delete_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to delete something, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Delete
+  </string>
+
+  <string name="icon_pause_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a two vertical lines side-by-side icon that typically represents a pause action [CHAR_LIMIT=NONE]">
+    Two vertical lines side-by-side
+  </string>
+
+  <string name="icon_pause_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to make a brief stop, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Pause
+  </string>
+
+  <string name="icon_end_call_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a phone handset pointing down icon that typically represents an action to end call [CHAR_LIMIT=NONE]">
+    Phone handset pointing down
+  </string>
+
+  <string name="icon_end_call_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to end call. [CHAR_LIMIT=NONE]">
+    End Call
+  </string>
+
+  <string name="icon_notifications_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a bell icon that typically represents an action to show notifications [CHAR_LIMIT=NONE]">
+    Bell
+  </string>
+
+  <string name="icon_notifications_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to show notifications [CHAR_LIMIT=NONE]">
+    Notifications
+  </string>
+
+  <string name="icon_take_photo_general"
+      description="This text will be spoken to a user by a screen reader to describe a camera icon [CHAR_LIMIT=NONE]">
+    Camera
+  </string>
+
+  <string name="icon_video_general"
+      description="This text will be spoken to a user by a screen reader to describe a video camera icon [CHAR_LIMIT=NONE]">
+    Video
+  </string>
+
+  <string name="icon_search_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a magnifying glass icon that typically represents a search action [CHAR_LIMIT=NONE]">
+    Magnifying glass
+  </string>
+
+  <string name="icon_search_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to search for information, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Search
+  </string>
+
+  <string name="icon_menu_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a three stacked horizontal lines icon that typically represents an action to show menu [CHAR_LIMIT=NONE]">
+    Three stacked horizontal lines
+  </string>
+
+  <string name="icon_menu_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to show menu [CHAR_LIMIT=NONE]">
+    Menu
+  </string>
+
+  <string name="icon_expand_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a arrows pointing outward icon that typically represents an expand action [CHAR_LIMIT=NONE]">
+    Arrows pointing outward
+  </string>
+
+  <string name="icon_expand_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to express something more fully or in greater detail, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Expand
+  </string>
+
+  <string name="icon_contract_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe an arrows pointing inward icon that typically represents a shrink action [CHAR_LIMIT=NONE]">
+     Arrows pointing inward
+  </string>
+
+  <string name="icon_contract_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to become smaller, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Shrink
+  </string>
+
+  <string name="icon_google_general" translatable="false"
+      description="This text will be spoken to a user by a screen reader to describe a Google icon [CHAR_LIMIT=NONE]">
+    Google
+  </string>
+
+  <string name="icon_twitter_general" translatable="false"
+      description="This text will be spoken to a user by a screen reader to describe a Twitter icon [CHAR_LIMIT=NONE]">
+    Twitter
+  </string>
+
+  <string name="icon_facebook_general" translatable="false"
+      description="This text will be spoken to a user by a screen reader to describe a Facebook icon [CHAR_LIMIT=NONE]">
+    Facebook
+  </string>
+
+  <string name="icon_assistant_general"
+      description="This text will be spoken to a user by a screen reader to describe a Google Assistant icon [CHAR_LIMIT=NONE]">
+    Assistant
+  </string>
+
+  <string name="icon_moon_general"
+      description="This text will be spoken to a user by a screen reader to describe a moon icon [CHAR_LIMIT=NONE]">
+    Moon
+  </string>
+
+  <string name="icon_sun_general"
+      description="This text will be spoken to a user by a screen reader to describe a sun icon [CHAR_LIMIT=NONE]">
+    Sun
+  </string>
+
+  <string name="icon_cloud_general"
+      description="This text will be spoken to a user by a screen reader to describe a cloud icon [CHAR_LIMIT=NONE]">
+    Cloud
+  </string>
+
+  <string name="icon_question_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a question mark icon that typically represents showing help topics [CHAR_LIMIT=NONE]">
+    Question mark
+  </string>
+
+  <string name="icon_question_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to show help topics [CHAR_LIMIT=NONE]">
+    Question
+  </string>
+
+  <string name="icon_mic_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a microphone icon that typically represents an action to start voice input [CHAR_LIMIT=NONE]">
+    Microphone
+  </string>
+
+  <string name="icon_mic_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to start voice input. [CHAR_LIMIT=NONE]">
+    Microphone
+  </string>
+
+  <string name="icon_mic_mute_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a crossed out microphone icon that typically represents an action to mute microphone [CHAR_LIMIT=NONE]">
+    Crossed out microphone
+  </string>
+
+  <string name="icon_mic_mute_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to mute microphone, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Mute
+  </string>
+
+  <string name="icon_gallery_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a stack of photos icon that typically represents an action to display in gallery mode [CHAR_LIMIT=NONE]">
+    Stack of photos
+  </string>
+
+  <string name="icon_gallery_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to display in gallery mode [CHAR_LIMIT=NONE]">
+    Gallery
+  </string>
+
+  <string name="icon_compass_general"
+      description="This text will be spoken to a user by a screen reader to describe a compass icon [CHAR_LIMIT=NONE]">
+    Compass
+  </string>
+
+  <string name="icon_people_general"
+      description="This text will be spoken to a user by a screen reader to describe an icon with two or more people figures [CHAR_LIMIT=NONE]">
+    People
+  </string>
+
+  <string name="icon_person_general"
+      description="This text will be spoken to a user by a screen reader to describe a icon with one person figure [CHAR_LIMIT=NONE]">
+    Person
+  </string>
+
+  <string name="icon_shopping_cart_general"
+      description="This text will be spoken to a user by a screen reader to describe a shopping cart icon [CHAR_LIMIT=NONE]">
+    Shopping Cart
+  </string>
+
+  <string name="icon_up_arrow_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe an upwards arrow icon that typically represents an action to move up [CHAR_LIMIT=NONE]">
+    Upwards arrow
+  </string>
+
+  <string name="icon_up_arrow_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to move up [CHAR_LIMIT=NONE]">
+    Up
+  </string>
+
+  <string name="icon_down_arrow_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a downwards arrow icon that typically represents an action to move down [CHAR_LIMIT=NONE]">
+    Downwards arrow
+  </string>
+
+  <string name="icon_down_arrow_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to move down [CHAR_LIMIT=NONE]">
+    Down
+  </string>
+
+  <string name="icon_envelope_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe an envelope icon that typically represents an action to send mail [CHAR_LIMIT=NONE]">
+    Envelope
+  </string>
+
+  <string name="icon_envelope_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to send mail [CHAR_LIMIT=NONE]">
+    Mail
+  </string>
+
+  <string name="icon_happy_face_general"
+      description="This text will be spoken to a user by a screen reader to describe a happy face icon [CHAR_LIMIT=NONE]">
+    Happy Face
+  </string>
+
+  <string name="icon_sad_face_general"
+      description="This text will be spoken to a user by a screen reader to describe a sad face icon [CHAR_LIMIT=NONE]">
+    Sad Face
+  </string>
+
+  <string name="icon_nav_bar_rect_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe an Android navigation bar rectangle icon that typically represents an action to navigate to 'overview' [CHAR_LIMIT=NONE]">
+    Rectangle
+  </string>
+
+  <string name="icon_nav_bar_rect_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to navigate to 'overview' [CHAR_LIMIT=NONE]">
+    Overview
+  </string>
+
+  <string name="icon_nav_bar_circle_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe an Android navigation bar circle icon that typically represents an action to navigate to 'home' [CHAR_LIMIT=NONE]">
+    Circle
+  </string>
+
+  <string name="icon_nav_bar_circle_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to navigate to 'home' [CHAR_LIMIT=NONE]">
+    Home
+  </string>
+
+  <string name="icon_cast_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a screen with circular lines icon that typically represents an action to cast videos or audios [CHAR_LIMIT=NONE]">
+    Screen with circular lines
+  </string>
+
+  <string name="icon_cast_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to cast videos or audios [CHAR_LIMIT=NONE]">
+    Cast
+  </string>
+
+  <string name="icon_volume_up_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a loudspeaker with two circular lines icon that typically represents an action to turn up the volume [CHAR_LIMIT=NONE]">
+    Loudspeaker with two circular lines
+  </string>
+
+  <string name="icon_volume_up_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to turn up the volume [CHAR_LIMIT=NONE]">
+    Volume Up
+  </string>
+
+  <string name="icon_volume_down_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a loudspeaker with one circular line icon that typically represents an action to turn down the volume  [CHAR_LIMIT=NONE]">
+    Loudspeaker with one circular line
+  </string>
+
+  <string name="icon_volume_down_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to turn down the volume [CHAR_LIMIT=NONE]">
+    Volume Down
+  </string>
+
+  <string name="icon_volume_state_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a loudspeaker icon that typically represents an action to show the volume state [CHAR_LIMIT=NONE]">
+    Loudspeaker
+  </string>
+
+  <string name="icon_volume_state_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to show the volume state [CHAR_LIMIT=NONE]">
+    Volume
+  </string>
+
+  <string name="icon_volume_mute_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a crossed out loudspeaker icon that typically represents an action to silence audio [CHAR_LIMIT=NONE]">
+    Crossed out loudspeaker
+  </string>
+
+  <string name="icon_volume_mute_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to silence audio, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Mute
+  </string>
+
+  <string name="icon_stop_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a plus sign icon that typically represents a stop action [CHAR_LIMIT=NONE]">
+    Filled square
+  </string>
+
+  <string name="icon_stop_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to stop recording, videos, audios etc, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Stop
+  </string>
+
+  <string name="icon_shopping_bag_general"
+      description="This text will be spoken to a user by a screen reader to describe a shopping bag icon [CHAR_LIMIT=NONE]">
+    Shopping Bag
+  </string>
+
+  <string name="icon_list_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a three stacked horizontal lines with bullets that typically represents an action to display info as a list [CHAR_LIMIT=NONE]">
+    Three stacked horizontal lines with bullets
+  </string>
+
+  <string name="icon_list_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to display info as a list [CHAR_LIMIT=NONE]">
+    List
+  </string>
+
+  <string name="icon_location_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a map pin sign icon that typically represents an action to display the location in a map [CHAR_LIMIT=NONE]">
+    Map pin
+  </string>
+
+  <string name="icon_location_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to display the location in a map [CHAR_LIMIT=NONE]">
+    Location
+  </string>
+
+  <string name="icon_calendar_general"
+      description="This text will be spoken to a user by a screen reader to describe a calendar icon [CHAR_LIMIT=NONE]">
+    Calendar
+  </string>
+
+  <string name="icon_thumbs_down_general"
+      description="This text will be spoken to a user by a screen reader to describe a thumbs down icon [CHAR_LIMIT=NONE]">
+    Thumbs Down
+  </string>
+
+  <string name="icon_headset_general"
+      description="This text will be spoken to a user by a screen reader to describe a headset icon [CHAR_LIMIT=NONE]">
+    Headphones
+  </string>
+
+  <string name="icon_redo_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a rightwards curved arrow icon that typically represents a redo action [CHAR_LIMIT=NONE]">
+    Rightwards curved arrow
+  </string>
+
+  <string name="icon_redo_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to do again, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Redo
+  </string>
+
+  <string name="icon_undo_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a leftwards curved arrow icon that typically represents an undo action [CHAR_LIMIT=NONE]">
+    Leftwards curved arrow
+  </string>
+
+  <string name="icon_undo_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to reverse an action, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Undo
+  </string>
+
+  <string name="icon_download_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a downwards arrow pointing to a tray icon that typically represents an action to download data [CHAR_LIMIT=NONE]">
+    Downwards arrow pointing to a tray
+  </string>
+
+  <string name="icon_download_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to download data, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Download
+  </string>
+
+  <string name="icon_upload_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe an upwards arrow pointing from a tray that typically represents an action to upload data [CHAR_LIMIT=NONE]">
+    Upwards arrow pointing from a tray
+  </string>
+
+  <string name="icon_upload_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to upload data, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Upload
+  </string>
+
+  <string name="icon_paperclip_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a paper clip sign icon that typically represents an action to attach an attachment [CHAR_LIMIT=NONE]">
+    Paperclip
+  </string>
+
+  <string name="icon_paperclip_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to attach an attachment [CHAR_LIMIT=NONE]">
+    Attachment
+  </string>
+
+  <string name="icon_history_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a clock with counterclockwise arrow icon that typically represents an action to show a record of previous user events [CHAR_LIMIT=NONE]">
+    Clock with counterclockwise arrow
+  </string>
+
+  <string name="icon_history_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to show a record of previous user events [CHAR_LIMIT=NONE]">
+    History
+  </string>
+
+  <string name="icon_v_upward_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe an upwards arrow icon that typically represents an action to move upwards or collapse [CHAR_LIMIT=NONE]">
+    Upwards arrow
+  </string>
+
+  <string name="icon_up_arrow_actionable_collapse"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to fold compactly, so it should be translated as a verb. [CHAR_LIMIT=NONE]">
+    Collapse
+  </string>
+
+  <string name="icon_v_upward_actionable_up"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to move upwards [CHAR_LIMIT=NONE]">
+    Up
+  </string>
+
+  <string name="icon_v_forward_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a rightwards arrow icon that typically represents an action to move right [CHAR_LIMIT=NONE]">
+    Rightwards arrow
+  </string>
+
+  <string name="icon_v_forward_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to move right [CHAR_LIMIT=NONE]">
+    Right
+  </string>
+
+  <string name="icon_v_backward_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a leftwards arrow icon that typically represents an action to move left [CHAR_LIMIT=NONE]">
+    Leftwards arrow
+  </string>
+
+  <string name="icon_v_backward_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to move left [CHAR_LIMIT=NONE]">
+    Left
+  </string>
+
+  <string name="icon_emoji_general"
+      description="This text will be spoken to a user by a screen reader to describe a emoji icon [CHAR_LIMIT=NONE]">
+    Emoji
+  </string>
+
+  <string name="icon_weather_non_actionable"
+      description="This text will be spoken to a user by a screen reader to describe a sun and clouds icon that typically represents an action to show weather [CHAR_LIMIT=NONE]">
+    Sun and clouds
+  </string>
+
+  <string name="icon_weather_actionable"
+      description="This text will be spoken to a user by a screen reader to describe the action associated with the button to show weather [CHAR_LIMIT=NONE]">
+    Weather
+  </string>
+
+</resources>

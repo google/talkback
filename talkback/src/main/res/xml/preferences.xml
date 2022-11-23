@@ -41,14 +41,27 @@
         </Preference>
         <Preference
             android:key="@string/pref_category_manage_gestures_key"
-            android:title="@string/title_pref_category_manage_gestures" >
-            <intent android:action=".TalkBackShortcutPreferencesActivity" />
+            android:title="@string/title_pref_category_manage_gestures"
+            android:fragment="com.google.android.accessibility.talkback.preference.base.TalkBackGestureShortcutPreferenceFragment" >
         </Preference>
         <Preference
             android:key="@string/pref_manage_customize_menus_key"
             android:title="@string/title_pref_manage_customize_menus"
             android:fragment="com.google.android.accessibility.talkback.preference.base.CustomizeMenusFragment" >
         </Preference>
+        <SwitchPreference
+            android:defaultValue="@bool/pref_proximity_default"
+            android:key="@string/pref_proximity_key"
+            android:title="@string/title_pref_cover_proximity_sensor" />
+        <SwitchPreference
+            android:defaultValue="@bool/pref_icon_detection_default"
+            android:key="@string/pref_icon_detection_key"
+            android:title="@string/title_pref_icon_detection"
+            android:summary="@string/summary_pref_icon_detection"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="@string/pref_category_braille_key"
+        android:title="@string/title_pref_category_braille">
         <Preference
             android:key="@string/pref_brailleime_key"
             android:title="@string/title_pref_brailleime" >
@@ -56,27 +69,26 @@
         </Preference>
         <Preference
             android:key="@string/pref_brailledisplay_key"
-            android:title="Braille display">
+            android:title="@string/title_pref_brailledisplay">
             <intent android:action=".BrailleDisplayPreferencesActivity"/>
         </Preference>
-        <SwitchPreference
-            android:defaultValue="@bool/pref_proximity_default"
-            android:key="@string/pref_proximity_key"
-            android:title="@string/title_pref_cover_proximity_sensor" />
     </PreferenceCategory>
-    <Preference
-        android:key="@string/pref_category_help_and_feedback_key"
-        android:title="@string/title_pref_category_tutorial_and_help"
-        app:allowDividerAbove="true">
-        <intent android:action=".preference.TalkBackHelpPreferencesActivity" />
-    </Preference>
-    <Preference
-        android:key="@string/pref_advanced_settings_key"
-        android:title="@string/title_pref_advanced_settings"
-        android:fragment="com.google.android.accessibility.talkback.preference.base.AdvancedSettingFragment" >
-    </Preference>
-    <Preference
-        android:key="@string/pref_play_store_key"
-        android:title="@string/title_pref_play_store">
-    </Preference>
+    <PreferenceCategory
+        android:key="@string/pref_category_general_key"
+        android:title="@string/title_pref_category_general">
+        <Preference
+            android:key="@string/pref_category_help_and_feedback_key"
+            android:title="@string/title_pref_category_tutorial_and_help"
+            android:fragment="com.google.android.accessibility.talkback.preference.base.TutorialAndHelpFragment" >
+        </Preference>
+        <Preference
+            android:key="@string/pref_advanced_settings_key"
+            android:title="@string/title_pref_advanced_settings"
+            android:fragment="com.google.android.accessibility.talkback.preference.base.AdvancedSettingFragment" >
+        </Preference>
+        <Preference
+            android:key="@string/pref_play_store_key"
+            android:title="@string/title_pref_play_store">
+        </Preference>
+    </PreferenceCategory>
 </PreferenceScreen>

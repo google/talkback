@@ -48,8 +48,8 @@ public abstract class TrainingConfig {
 
   /** Unique identifiers for training. */
   public enum TrainingId {
-    TRAINING_ID_ON_BOARDING_TALKBACK_12_2,
-    TRAINING_ID_ON_BOARDING_TALKBACK_12_2_PRE_R,
+    TRAINING_ID_ON_BOARDING_TALKBACK_13_0,
+    TRAINING_ID_ON_BOARDING_TALKBACK_13_0_PRE_R,
     TRAINING_ID_ON_BOARDING_FOR_MULTIFINGER_GESTURES,
     TRAINING_ID_TUTORIAL_FOR_WATCH,
     TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER,
@@ -68,10 +68,10 @@ public abstract class TrainingConfig {
 
   public static @Nullable TrainingConfig getTraining(TrainingId trainingId) {
     switch (trainingId) {
-      case TRAINING_ID_ON_BOARDING_TALKBACK_12_2:
-        return OnboardingInitiator.ON_BOARDING_TALKBACK_12_2;
-      case TRAINING_ID_ON_BOARDING_TALKBACK_12_2_PRE_R:
-        return OnboardingInitiator.ON_BOARDING_TALKBACK_12_2_PRE_R;
+      case TRAINING_ID_ON_BOARDING_TALKBACK_13_0:
+        return OnboardingInitiator.ON_BOARDING_TALKBACK_13_0;
+      case TRAINING_ID_ON_BOARDING_TALKBACK_13_0_PRE_R:
+        return OnboardingInitiator.ON_BOARDING_TALKBACK_13_0_PRE_R;
       case TRAINING_ID_ON_BOARDING_FOR_MULTIFINGER_GESTURES:
         return OnboardingInitiator.ON_BOARDING_FOR_MULTIFINGER_GESTURES;
       case TRAINING_ID_TUTORIAL_FOR_WATCH:

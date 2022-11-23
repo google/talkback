@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BrailleView">
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+
+        <!-- Dots are drawn with their centres along an inner rectangle,
+             which is of maximum size cellWidth x cellHeight. This inner
+             rectangle is surrounded by the given amount of cell padding.
+             The cell padding should always be greater than the dot radius. -->
+        <attr name="dotRadius" format="dimension" />
+        <attr name="cellWidth" format="dimension" />
+        <attr name="cellHeight" format="dimension" />
+        <attr name="cellPadding" format="dimension" />
+        <attr name="highlightDrawable" format="integer" />
+    </declare-styleable>
+</resources>

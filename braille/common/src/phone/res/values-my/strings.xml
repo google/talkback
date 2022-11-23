@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">ဤအရာကို ထပ်မပြပါနှင့်</string>
+  <string name="done">ပြီးပြီ</string>
   <string name="number_announcement">နံပါတ်</string>
   <string name="capitalize_announcement">အက္ခရာအကြီး</string>
   <string name="read_out_deleted">%s ကို ဖျက်ပြီးပြီ</string>
   <plurals name="braille_dots">
-    <item quantity="one">အစက်%s</item>
-    <item quantity="other">အစက်များ%s</item>
+    <item quantity="one">အစက် %s</item>
+    <item quantity="other">အစက် %s</item>
   </plurals>
+  <string name="language_split_comma">၊\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
   <string name="code_user_facing_name_es">စပိန်</string>

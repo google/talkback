@@ -50,9 +50,6 @@
             android:key="@string/keycombo_shortcut_global_notifications"
             android:title="@string/keycombo_menu_global_notifications"/>
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
-            android:key="@string/keycombo_shortcut_global_suspend"
-            android:title="@string/keycombo_menu_global_suspend"/>
-        <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_global_play_pause_media"
             android:title="@string/keycombo_menu_global_play_pause_media"/>
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference

@@ -31,14 +31,17 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Handler;
+import androidx.annotation.VisibleForTesting;
+import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
 import com.google.android.accessibility.talkback.preference.GestureChangeNotificationActivity;
 import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
 import com.google.android.accessibility.talkback.selector.SelectorController;
+import com.google.android.accessibility.talkback.training.OnboardingInitiator;
 import com.google.android.accessibility.talkback.utils.NotificationUtils;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
-import com.google.android.accessibility.utils.keyboard.KeyComboManager;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Class provides Talkback update information */
@@ -53,6 +56,7 @@ public class TalkBackUpdateHelper {
   private static final int BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID = 3;
 
   private static final int SIDE_TAP_REMOVED_CHANGE_NOTIFICATION_ID = 4;
+  @VisibleForTesting static final int TALKBACK_UPDATED_NOTIFICATION_ID = 5;
 
   private final Handler handler = new Handler();
 
@@ -146,10 +150,28 @@ public class TalkBackUpdateHelper {
     }
 
     // TalkBack 12.2, Reset Log Level to default
-    // TODO: update build id when 12.2 is final.
-    if (previousVersion < Integer.MAX_VALUE) {
+    // 12.2.0.442723463 (talkback_12.2_4_RC04)
+    if (previousVersion < 60123270) {
       editor.remove(service.getString(R.string.pref_log_level_key));
       PreferencesActivityUtils.removeEditingKey(service.getApplicationContext());
+    }
+
+    // TalkBack 13.0, activate the window transition delay reduction
+    // TODO: update build id when 13.0 is final.
+    if (previousVersion < Integer.MAX_VALUE) {
+      if (FeatureSupport.supportsServiceControlOfGlobalAnimations()
+          && sharedPreferences.contains(service.getString(R.string.pref_reduce_window_delay_key))) {
+        // The turn-off animation feature is enabled by default in 13.0. But it needs extra
+        // configuration to activate it by disabling animation for devices running on Pre-Android T.
+        // For migration the devices which update to Android T before updating to Android 13, we
+        // will turn on the feature, too.
+        editor.remove(service.getString(R.string.pref_reduce_window_delay_key));
+      }
+    }
+
+    if (!OnboardingInitiator.hasOnboardingBeenShown(
+        SharedPreferencesUtils.getSharedPreferences(service), service)) {
+      notifyTalkBackUpdated();
     }
 
     // Update key combo model.
@@ -159,6 +181,18 @@ public class TalkBackUpdateHelper {
     }
 
     editor.apply();
+  }
+
+  /**
+   * Shows the notification after a delay.
+   *
+   * @param notification The notification to show.
+   * @param notificationId The notification id.
+   */
+  private void showNotification(Notification notification, int notificationId) {
+    NotificationPosterRunnable runnable =
+        new NotificationPosterRunnable(notification, notificationId);
+    handler.postDelayed(runnable, NOTIFICATION_DELAY);
   }
 
   /**
@@ -296,10 +330,8 @@ public class TalkBackUpdateHelper {
       notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
       notificationIntent.setPackage(TALBACK_PACKAGE);
 
-      NotificationPosterRunnable runnable =
-          new NotificationPosterRunnable(
-              buildGestureChangeNotification(notificationIntent), GESTURE_CHANGE_NOTIFICATION_ID);
-      handler.postDelayed(runnable, NOTIFICATION_DELAY);
+      showNotification(
+          buildGestureChangeNotification(notificationIntent), GESTURE_CHANGE_NOTIFICATION_ID);
     }
   }
 
@@ -340,10 +372,8 @@ public class TalkBackUpdateHelper {
     notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
     notificationIntent.setPackage(TALBACK_PACKAGE);
 
-    NotificationPosterRunnable runnable =
-        new NotificationPosterRunnable(
-            buildGestureChangeNotification(notificationIntent), GESTURE_CHANGE_NOTIFICATION_ID);
-    handler.postDelayed(runnable, NOTIFICATION_DELAY);
+    showNotification(
+        buildGestureChangeNotification(notificationIntent), GESTURE_CHANGE_NOTIFICATION_ID);
   }
 
   private void notifyUserOfBuiltInGestureChanges() {
@@ -423,9 +453,7 @@ public class TalkBackUpdateHelper {
     notificationIntent.putExtra(NotificationActivity.EXTRA_INT_NOTIFICATION_ID, notificationId);
 
     // Build notification, and run it after a delay.
-    Notification notification = buildGestureChangeNotification(notificationIntent);
-    handler.postDelayed(
-        () -> notificationManager.notify(notificationId, notification), NOTIFICATION_DELAY);
+    showNotification(buildGestureChangeNotification(notificationIntent), notificationId);
   }
 
   /**
@@ -559,11 +587,34 @@ public class TalkBackUpdateHelper {
   }
 
   /**
+   * Posts a notification to notify TalkBack has been updated, and redirects to the onboarding page.
+   */
+  private void notifyTalkBackUpdated() {
+    if (FeatureSupport.isTv(service) || FeatureSupport.isWatch(service)) {
+      return;
+    }
+
+    showNotification(
+        NotificationUtils.createNotification(
+            service,
+            service.getString(R.string.talkback_updated_notification_title),
+            service.getString(R.string.talkback_updated_notification_title),
+            service.getString(R.string.talkback_updated_notification_content),
+            PendingIntent.getActivity(
+                service,
+                /* requestCode= */ 0,
+                OnboardingInitiator.createOnboardingIntent(service),
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE),
+            /* autoCancel= */ true),
+        TALKBACK_UPDATED_NOTIFICATION_ID);
+  }
+
+  /**
    * Runnable used for posting notifications to the {@link NotificationManager} after a short delay.
    */
   private class NotificationPosterRunnable implements Runnable {
-    private Notification notification;
-    private int id;
+    private final Notification notification;
+    private final int id;
 
     NotificationPosterRunnable(Notification n, int id) {
       notification = n;

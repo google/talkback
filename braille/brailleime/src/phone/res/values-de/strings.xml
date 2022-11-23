@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack-Brailletastatur</string>
+  <string name="braille_ime_bd_mode_name">Eingabe über Braillezeile</string>
   <string name="switch_to_screen_away_announcement">Modus „Display weggedreht“</string>
   <string name="switch_to_tabletop_announcement">Modus „Auf dem Tisch“. Leg das Gerät so auf den Tisch, dass der Ladeanschluss nach links zeigt. Halte zum Aktualisieren der Punktposition das Display mit sechs Fingern gedrückt.</string>
   <string name="bring_ime_settings_page">Es ist keine andere Tastatur aktiviert, geh zu den Tastatureinstellungen</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Brailletastatur verwenden</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Wenn du die Brailletastatur nutzen möchtest, öffne deine normale Tastatur und tippe auf das Symbol zur Tastaturauswahl %1$s, das sich normalerweise rechts unten befindet. Wähle \"%2$s\" aus.
   &lt;br&gt;&lt;br&gt;Wenn du dieses Symbol nicht siehst, musst du möglicherweise erst die Google-Tastatur %3$s installieren.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Brailletastatur aktivieren&lt;/b&gt;: Tippe unten auf \"Einstellungen\". Aktiviere auf dem nächsten Bildschirm \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Brailletastatur nutzen&lt;/b&gt;: Öffne deine normale Tastatur und tippe auf das Symbol zur Tastaturauswahl %2$s, das sich normalerweise rechts unten befindet. Wähle \"%1$s\" aus.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Tippe unten auf die Einstellungen. Aktiviere auf dem nächsten Bildschirm „%1$s“.&lt;br&gt;&lt;br&gt;
+    2. Öffne deine normale Tastatur und tippe auf „Eingabemethode wechseln“ %2$s (in der Regel rechts unten).&lt;br&gt;&lt;br&gt;
+    3. Wähle „%1$s“ aus.
     &lt;br&gt;&lt;br&gt;Wenn du dieses Symbol nicht siehst, musst du möglicherweise erst die Google-Tastatur %3$s installieren.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Einstellungen</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Aktiviere unten die Brailletastatur.&lt;br&gt;&lt;br&gt;
+    2. Öffne deine normale Tastatur und tippe auf „Eingabemethode wechseln“ %2$s (in der Regel rechts unten).&lt;br&gt;&lt;br&gt;
+    3. Wähle „%1$s“ aus.
+    &lt;br&gt;&lt;br&gt;Wenn du die Tastatur nicht wechseln kannst, musst du möglicherweise erst die Google-Tastatur %3$s installieren.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Einstellungen</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Aktivieren</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Brailletastatur aktivieren</string>
   <string name="typing_languages_title">Eingabesprachen</string>
   <string name="preferred_language_title">Bevorzugte Sprache</string>
-  <string name="dont_show_again">Nicht mehr anzeigen</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Sprache während der Texteingabe schnell ändern</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Wenn du deine Sprache ändern möchtest, während du etwas über eine Brailletastatur eingibst, wische mit drei Fingern nach oben. Wähle dann „Zur nächsten Sprache wechseln“ aus.</string>
   <string name="title_pref_accumulate_presses">Alle gedrückten Punkte einschließen</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Wenn du <b>zur nächsten Tastatur wechseln</b> möchtest, wische mit drei Fingern nach unten</string>
   <string name="gesture_submit_text">Wenn du einen <b>Text eingeben</b> möchtest, wische mit zwei Fingern nach oben</string>
   <string name="gesture_open_context_menu">Wenn du <b>Hilfe und weitere Optionen einblenden</b> möchtest, wische mit drei Fingern nach oben</string>
-  <string name="done">Fertig</string>
   <string name="not_enough_touch_points_dialog_title">Dein Gerät unterstützt keine Brailletastatur</string>
   <string name="not_enough_touch_points_dialog_message">Dein Gerät unterstützt nicht genügend Berührungspunkte. Weitere Informationen erhältst du von deinem Gerätehersteller.</string>
   <string name="talkback_off_dialog_title">TalkBack für die Verwendung der Brailletastatur aktivieren</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Buchstabe gelöscht</string>
   <string name="perform_delete_word_announcement">Wort gelöscht</string>
   <string name="continue_tutorial_announcement">Fahren wir mit der Anleitung fort. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Über die verbundene externe Braillezeile kannst du Text in dieses Gerät eingeben.\nOder du wechselst zur Touchscreen-Brailletastatur bzw. zur nächsten Eingabemethode.</string>
-  <string name="braille_keyboard_strip_button">Zur Touchscreen-Tastatur wechseln</string>
+  <string name="switch_on_screen_keyboard_announcement">Wechsel zur Touchscreen-Brailletastatur</string>
+  <string name="braille_keyboard_strip_summary">Über die verbundene externe Braillezeile kannst du Text auf deinem Smartphone eingeben.\n\nDu kannst auch zur Touchscreen-Brailletastatur oder zur nächsten Eingabemethode wechseln.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Zur Touchscreen-Brailletastatur wechseln</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Zur nächsten Eingabemethode wechseln</string>
 </resources>

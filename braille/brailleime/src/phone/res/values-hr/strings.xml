@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBackova brajična tipkovnica</string>
+  <string name="braille_ime_bd_mode_name">Unos pomoću brajevog retka</string>
   <string name="switch_to_screen_away_announcement">Zaslon prema dolje</string>
   <string name="switch_to_tabletop_announcement">Stolni način. Položite uređaj tako da je priključak za punjenje lijevo. Da biste ažurirali položaj točaka, položite šest prstiju na zaslon.</string>
   <string name="bring_ime_settings_page">Nije omogućena nijedna druga tipkovnica, idite na postavke tipkovnice</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Kako se koristi brajična tipkovnica</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Da biste koristili brajičnu tipkovnicu, otvorite svoju uobičajenu tipkovnicu, a zatim dodirnite ikonu za odabir tipkovnice %1$s (obično u donjem desnom kutu). Odaberite \"%2$s\".
   &lt;br&gt;&lt;br&gt;Ako ne vidite opciju za promjenu tipkovnice, pokušajte instalirati %3$s, Googleovu tipkovnicu.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Uključite brajičnu tipkovnicu&lt;/b&gt;: dodirnite Postavke u nastavku. Na sljedećem zaslonu uključite \"%1$s\".
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Koristite brajičnu tipkovnicu&lt;/b&gt;: otvorite svoju uobičajenu tipkovnicu, a zatim dodirnite ikonu za odabir tipkovnice %2$s (obično u donjem desnom kutu). Odaberite \"%1$s\".
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Dodirnite Postavke u nastavku. Na sljedećem zaslonu uključite \"%1$s\"&lt;br&gt;&lt;br&gt;.
+    2. Otvorite svoju običnu tipkovnicu,a zatim dodirnite prekidač način unosa %2$s (obično se nalazi u donjem desnom kutu).&lt;br&gt;&lt;br&gt;
+    3. Odaberite \"%1$s\".
     &lt;br&gt;&lt;br&gt;Ako ne vidite opciju za promjenu tipkovnice, pokušajte instalirati %3$s, Googleovu tipkovnicu.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Postavke</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Uključite brajičinu tipkovnicu u nastavku.&lt;br&gt;&lt;br&gt;
+    2. Otvorite svoju običnu tipkovnicu, dodirnite prekidač za način unosa %2$s (obično se nalazi u donjem desnom kutu).&lt;br&gt;&lt;br&gt;
+    3. Odaberite \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Ako ne možete promijeniti tipkovnicu, pokušajte instalirati %3$s, Googleovu tipkovnicu.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Postavke</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Uključi</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Uključi brajičinu tipkovnicu</string>
   <string name="typing_languages_title">Jezici pisanja</string>
   <string name="preferred_language_title">Željeni jezik</string>
-  <string name="dont_show_again">Ne prikazuj to ponovo</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Brza promjena jezika tijekom pisanja</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Da biste promijenili jezik tijekom upotrebe brajične tipkovnice, prijeđite trima prstima prema gore. Zatim odaberite \"Prijeđi na sljedeći jezik\".</string>
   <string name="title_pref_accumulate_presses">Uključi sve pritisnute točke</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Da biste prešli na <b>sljedeću tipkovnicu</b>, prijeđite prema dolje s tri prsta</string>
   <string name="gesture_submit_text">Da biste <b>poslali tekst</b>, prijeđite prema gore s dva prsta</string>
   <string name="gesture_open_context_menu">Da biste pristupili <b>pomoći i drugim opcijama</b>, prijeđite prema gore s tri prsta</string>
-  <string name="done">Gotovo</string>
   <string name="not_enough_touch_points_dialog_title">Vaš uređaj ne podržava brajičnu tipkovnicu</string>
   <string name="not_enough_touch_points_dialog_message">Vaš uređaj ne podržava dovoljno dodirnih točaka. Za više informacija obratite se proizvođaču uređaja.</string>
   <string name="talkback_off_dialog_title">Uključite TalkBack da biste koristili brajičnu tipkovnicu</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Slovo izbrisano</string>
   <string name="perform_delete_word_announcement">Riječ izbrisana</string>
   <string name="continue_tutorial_announcement">Nastavimo s vodičem. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Povezan je vanjski brajev redak koji možete upotrebljavati za unos teksta na uređaju.\nMožete se i prebaciti na brajevu tipkovnicu na dodirnom zaslonu ili sljedeći način unosa.</string>
-  <string name="braille_keyboard_strip_button">Prebacite se na tipkovnicu na dodirnom zaslonu</string>
+  <string name="switch_on_screen_keyboard_announcement">Prebacivanje na brajičnu tipkovnicu na dodirnom zaslonu</string>
+  <string name="braille_keyboard_strip_summary">Povezan je vanjski brajev redak koji možete upotrebljavati za unos teksta na svojem telefonu.\n\nMožete se i prebaciti na brajičnu tipkovnicu na dodirnom zaslonu ili na sljedeći način unosa.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Prijeđite na brajičnu tipkovnicu na dodirnom zaslonu</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Prijeđite na sljedeći način unosa</string>
 </resources>

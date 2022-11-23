@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Teclado em braille do TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Entrada da linha braille</string>
   <string name="switch_to_screen_away_announcement">Modo tela de costas</string>
   <string name="switch_to_tabletop_announcement">Modo de mesa Coloque o dispositivo com a porta de carregamento para a esquerda. Para atualizar a posição dos pontos, pressione com seis dedos.</string>
   <string name="bring_ime_settings_page">Não há outro teclado ativado. Acesse as configurações de teclado</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Como usar o teclado em braille</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Para usar o teclado em braille, abra o teclado normal e toque no ícone escolher teclado %1$s, geralmente no canto inferior direito. Selecione \"%2$s\".
   &lt;br&gt;&lt;br&gt;Caso não veja a opção para trocar de teclado, tente instalar %3$s, o teclado do Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Ativar o teclado em braille&lt;/b&gt;: toque em \"Configurações\" abaixo. Na tela seguinte, ative \"%1$s\".
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Usar o teclado em braille&lt;/b&gt;: abra o teclado normal e toque no ícone escolher teclado %2$s, geralmente no canto inferior direito. Selecione \"%1$s\".
-  &lt;br&gt;&lt;br&gt;Caso não veja a opção para trocar de teclado, tente instalar %3$s, o teclado do Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Configurações</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Toque em \"Configurações\" abaixo. Na tela seguinte, ative \"%1$s\".&lt;br&gt;&lt;br&gt;
+    2. Abra o teclado normal e toque em Alterar o método de entrada %2$s que fica geralmente no canto direito de baixo.&lt;br&gt;&lt;br&gt;
+    3. Selecione \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Caso não veja a opção para trocar de teclado, tente instalar o %3$s, o teclado do Google.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Ative o teclado em braille abaixo.&lt;br&gt;&lt;br&gt;
+    2. Abra o teclado normal e toque em Alterar o método de entrada %2$s que fica geralmente no canto direito de baixo.&lt;br&gt;&lt;br&gt;
+    3. Selecione \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Caso não consiga trocar de teclado, tente instalar o %3$s, o teclado do Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Configurações</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Ativar</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Ativar o teclado em braille</string>
   <string name="typing_languages_title">Idiomas de digitação</string>
   <string name="preferred_language_title">Idioma preferencial</string>
-  <string name="dont_show_again">Não mostrar novamente</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Mudar o idioma rapidamente durante a digitação</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Se quiser mudar o idioma durante a digitação com o teclado em braille, deslize para cima com três dedos. Em seguida, selecione \"Mudar para o próximo idioma\".</string>
   <string name="title_pref_accumulate_presses">Incluir todos os pontos pressionados</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Para alternar para o <b>próximo teclado</b>, deslize para baixo com três dedos</string>
   <string name="gesture_submit_text">Para <b>enviar uma mensagem</b>, deslize para cima com dois dedos</string>
   <string name="gesture_open_context_menu">Para <b>receber ajuda e ter outras opções</b>, deslize para cima com três dedos</string>
-  <string name="done">Concluído</string>
   <string name="not_enough_touch_points_dialog_title">Seu dispositivo não é compatível com o teclado em braille</string>
   <string name="not_enough_touch_points_dialog_message">Seu dispositivo não é compatível com um número suficiente de pontos de toque. Para mais informações, entre em contato com o fabricante do dispositivo.</string>
   <string name="talkback_off_dialog_title">Ative o TalkBack para usar o teclado em braille</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Letra excluída</string>
   <string name="perform_delete_word_announcement">Palavra excluída</string>
   <string name="continue_tutorial_announcement">Vamos continuar o tutorial. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Uma linha braille externa, que você pode usar para digitar texto no dispositivo, está conectada.\nVocê também pode alternar para o teclado em braille touchscreen ou o para o próximo método de entrada.</string>
-  <string name="braille_keyboard_strip_button">Alternar para o teclado touchscreen</string>
+  <string name="switch_on_screen_keyboard_announcement">Mudando para o teclado em braille touchscreen</string>
+  <string name="braille_keyboard_strip_summary">Uma linha braille externa, que você pode usar para digitar texto no smartphone, está conectada.\n\nVocê também pode mudar para o teclado em braille touchscreen ou o para o próximo método de entrada.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Mudar para o teclado em braille touchscreen</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Mudar para o próximo método de entrada</string>
 </resources>

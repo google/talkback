@@ -15,6 +15,8 @@
  */
 package com.google.android.accessibility.talkback.preference.base;
 
+import static com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration.DOUBLE_TAP;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -26,6 +28,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.TwoStatePreference;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration.TypingMethod;
 import com.google.android.accessibility.talkback.speech.SpeakPasswordsManager;
 import com.google.android.accessibility.talkback.utils.RemoteIntentUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -52,7 +55,6 @@ public class AdvancedSettingFragment extends TalkbackBaseFragment {
   @Override
   public void onResume() {
     super.onResume();
-    updateTalkBackShortcutStatus();
     updateTouchExplorationState();
   }
 
@@ -119,15 +121,6 @@ public class AdvancedSettingFragment extends TalkbackBaseFragment {
     }
   }
 
-  private void updateTalkBackShortcutStatus() {
-    final TwoStatePreference preference =
-        (TwoStatePreference) findPreference(getString(R.string.pref_two_volume_long_press_key));
-    if (preference == null) {
-      return;
-    }
-    preference.setEnabled(TalkBackService.getInstance() != null || preference.isChecked());
-  }
-
   @Override
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     super.onCreatePreferences(savedInstanceState, rootKey);
@@ -151,25 +144,24 @@ public class AdvancedSettingFragment extends TalkbackBaseFragment {
 
     updateSpeakPasswordsPreference();
 
-    Preference resumeTalkBack = findPreference(getString(R.string.pref_resume_talkback_key));
-    if (resumeTalkBack != null) {
-      resumeTalkBack.setOnPreferenceChangeListener(
+    Preference typingPreference = findPreference(getString(R.string.pref_typing_confirmation_key));
+    Preference longPressDuration =
+        findPreference(getString(R.string.pref_typing_long_press_duration_key));
+    // Disable the "pref_typing_long_press_duration_key" when "pref_typing_confirmation_key" is set
+    // as double-tap.
+    if (typingPreference != null && longPressDuration != null) {
+      @TypingMethod
+      int typingMethod =
+          SharedPreferencesUtils.getIntFromStringPref(
+              prefs,
+              getResources(),
+              R.string.pref_typing_confirmation_key,
+              R.string.pref_typing_confirmation_default);
+      longPressDuration.setEnabled(typingMethod != DOUBLE_TAP);
+      typingPreference.setOnPreferenceChangeListener(
           (preference, newValue) -> {
             final String key = preference.getKey();
-            if (getString(R.string.pref_resume_talkback_key).equals(key)) {
-              final String oldValue =
-                  SharedPreferencesUtils.getStringPref(
-                      prefs,
-                      getResources(),
-                      R.string.pref_resume_talkback_key,
-                      R.string.pref_resume_talkback_default);
-              if (!newValue.equals(oldValue)) {
-                // Reset the suspend warning dialog when the resume
-                // preference changes.
-                SharedPreferencesUtils.putBooleanPref(
-                    prefs, getResources(), R.string.pref_show_suspension_confirmation_dialog, true);
-              }
-            }
+            longPressDuration.setEnabled(Integer.parseInt((String) newValue) != DOUBLE_TAP);
             return true;
           });
     }

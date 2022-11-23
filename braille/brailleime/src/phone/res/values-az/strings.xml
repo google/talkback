@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack brayl klaviaturası</string>
+  <string name="braille_ime_bd_mode_name">Brayl displeyi daxiletməsi</string>
   <string name="switch_to_screen_away_announcement">\"Ekran tərsinə\" rejimi</string>
   <string name="switch_to_tabletop_announcement">Masaüstü rejimi. Cihazınızı şarj portu sola doğru olmaqla yerləşdirin. Nöqtə mövqeyini yeniləmək üçün 6 barmağı yerləşdirin.</string>
   <string name="bring_ime_settings_page">Aktivləşdirilmiş başqa klaviatura yoxdur, klaviatura ayarlarına keçin</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Brayl klaviaturasının istifadə qaydası</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Brayl klaviaturasından istifadə etmək üçün adi klaviaturanızı açın və klaviatura seçimi ikonuna %1$s toxunun (adətən, aşağı sağ küncdə). \"%2$s\" seçimini edin.
   &lt;br&gt;&lt;br&gt;Klaviaturaları dəyişmək seçimini görmürsünüzsə, %3$s Google Keyboard\'u quraşdırın.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Brayl klaviaturasını aktiv edin&lt;/b&gt;: Aşağıda Ayarlar seçiminə toxunun. Növbəti ekranda \"%1$s\" seçimini aktiv edin.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Bray klaviaturasından istifadə&lt;/b&gt;: Adi klaviaturanızı açın və klaviatura seçimi ikonuna %2$s toxunun (adətən, aşağı sağ küncdə). \"%1$s\" seçimini edin.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Aşağıda \"Ayarlar\" seçiminə toxunun. Növbəti ekranda \"%1$s\" seçimini aktiv edin
+    &lt;br&gt;&lt;br&gt;2. Adi klaviaturanızı açın, sonra %2$s daxiletmə üsulunu dəyişdirin (adətən sağ alt küncdə olur).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" seçimini edin.
     &lt;br&gt;&lt;br&gt;Klaviaturaları dəyişmək seçimini görmürsünüzsə, %3$s Google Keyboard\'u quraşdırın.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Ayarlar</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Brayl klaviaturasını aktiv edin.&lt;br&gt;&lt;br&gt;
+    2. Adi klaviaturanızı açın, sonra %2$s daxiletmə üsulunu dəyişdirin (adətən sağ alt küncdə olur).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" seçimini edin.
+    &lt;br&gt;&lt;br&gt;Klaviaturaları dəyişmək olmursa, %3$s Google Keyboard\'u quraşdırın.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Ayarlar</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Aktiv edin</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Brayl klaviaturasını aktiv edin</string>
   <string name="typing_languages_title">Yazı dilləri</string>
   <string name="preferred_language_title">Tərcih etdiyiniz dil</string>
-  <string name="dont_show_again">Bunu bir daha göstərməyin</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Yazarkən dili tez dəyişin</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Brayl klaviaturası ilə yazarkən dili dəyişmək üçün 3 barmaqla yuxarı sürüşdürün. Sonra \"növbəti dilə keçin\" seçimini edin.</string>
   <string name="title_pref_accumulate_presses">Bütün basılmış nöqtələri daxil edin</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>Növbəti klaviaturaya</b> keçmək üçün 3 barmaqla aşağı sürüşdürün</string>
   <string name="gesture_submit_text"><b>Mətni təqdim etmək</b> üçün 2 barmaqla yuxarı sürüşdürün</string>
   <string name="gesture_open_context_menu"><b>Kömək və digər seçimlər</b> üçün 3 barmaqla yuxarı sürüşdürün</string>
-  <string name="done">Hazırdır</string>
   <string name="not_enough_touch_points_dialog_title">Cihazınız brayl klaviaturasını dəstəkləmir</string>
   <string name="not_enough_touch_points_dialog_message">Cihazınız kifayət qədər toxunuş nöqtəsi dəstəkləmir Ətraflı məlumat üçün cihaz istehsalçısı ilə əlaqə saxlayın.</string>
   <string name="talkback_off_dialog_title">Brayl klaviaturasından istifadə etmək üçün TalkBack funksiyasını aktiv edin</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Hərf silindi</string>
   <string name="perform_delete_word_announcement">Söz silindi</string>
   <string name="continue_tutorial_announcement">Təlimə davam edək. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Bu cihazda mətn yazmaq üçün istifadə edə biləcəyiniz xarici brayl displeyi qoşulub.\nVə ya sensor ekranlı Brayl Klaviaturasına və ya növbəti daxiletmə metoduna keçə bilərsiniz.</string>
-  <string name="braille_keyboard_strip_button">Sensor ekranlı klaviaturaya keçin</string>
+  <string name="switch_on_screen_keyboard_announcement">Brayl sensor ekranına keçirilir</string>
+  <string name="braille_keyboard_strip_summary">Telefonunuzda mətn yazmaq üçün istifadə edə biləcəyiniz xarici brayl displeyi qoşulub.\n\nHəmçinin sensor ekranlı brayl klaviaturasına və ya növbəti daxiletmə metoduna keçə bilərsiniz.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Brayl sensor ekranına keçin</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Növbəti daxiletmə metoduna keçin</string>
 </resources>

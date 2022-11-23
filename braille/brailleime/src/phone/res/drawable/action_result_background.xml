@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <shape android:shape="rectangle">
+      <corners android:radius="@dimen/action_result_radius" />
+      <size
+          android:width="@dimen/action_result_width"
+          android:height="@dimen/action_result_width" />
+      <solid android:color="@color/hint_background" />
+    </shape>
+  </item>
+</layer-list>

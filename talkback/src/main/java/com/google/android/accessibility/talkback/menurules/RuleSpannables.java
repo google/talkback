@@ -146,7 +146,8 @@ public class RuleSpannables extends NodeMenuRule {
     SpannableUtils.stripTargetSpanFromText(label, TARGET_SPAN_CLASS);
     final ContextMenuItem item =
         ContextMenu.createMenuItem(context, R.id.group_links, itemId, Menu.NONE, label);
-    item.setOnMenuItemClickListener(new UrlSpanMenuItemClickListener(context, uri, analytics));
+    item.setOnMenuItemClickListener(
+        new UrlSpanMenuItemClickListener(context, span, uri, analytics));
     return item;
   }
 
@@ -179,11 +180,14 @@ public class RuleSpannables extends NodeMenuRule {
   private static class UrlSpanMenuItemClickListener implements OnContextMenuItemClickListener {
 
     final Context context;
+    final URLSpan span;
     final Uri uri;
     final TalkBackAnalytics analytics;
 
-    public UrlSpanMenuItemClickListener(Context context, Uri uri, TalkBackAnalytics analytics) {
+    public UrlSpanMenuItemClickListener(
+        Context context, URLSpan span, Uri uri, TalkBackAnalytics analytics) {
       this.context = context;
+      this.span = span;
       this.uri = uri;
       this.analytics = analytics;
     }
@@ -195,6 +199,16 @@ public class RuleSpannables extends NodeMenuRule {
       }
 
       analytics.onLocalContextMenuAction(MENU_TYPE_SPANNABLES, MENU_ITEM_UNKNOWN);
+      // TODO: We accept URLSpan from content descriptions, which is not expected by
+      // framework, but already "abused" by some apps. To avoid unexpected anonymous crashes, wrap
+      // the URLSpan.onClick() with try-catch structure.
+      try {
+        span.onClick(null);
+        return true;
+      } catch (Exception e) {
+        LogUtils.e(TAG, "Failed to invoke URLSpan: %s\n%s", item.getTitle(), e);
+      }
+      // Fall back to handle url with Intent of ACTION_VIEW
       final Intent intent = new Intent(Intent.ACTION_VIEW, uri);
       intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       try {

@@ -18,15 +18,15 @@ package com.google.android.accessibility.talkback;
 
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback.Scroll;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollTimeout;
-import com.google.android.accessibility.talkback.actor.AutoScrollActor;
 import com.google.android.accessibility.utils.AccessibilityNode;
+import com.google.android.accessibility.utils.input.ScrollActionRecord;
+import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollTimeout;
 import javax.annotation.Generated;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 // This file is normally auto-generated using the @AutoValue processor.  But
 // that operation has been failing on the gradle-based build, so this file is
-// committed into version control for now.
+// committed into version control for now.  Also read go/talkback-for-p section on AutoValue.
 @Generated("com.google.auto.value.processor.AutoValueProcessor")
 final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
 
@@ -42,7 +42,7 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
 
   private final int nodeAction;
 
-  private final AutoScrollActor.AutoScrollRecord.@Nullable Source source;
+  private final @Nullable String source;
 
   private final ScrollTimeout timeout;
 
@@ -53,7 +53,7 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
       @Nullable AccessibilityNodeInfoCompat nodeToMoveOnScreen,
       int userAction,
       int nodeAction,
-      AutoScrollActor.AutoScrollRecord.@Nullable Source source,
+      @Nullable String source,
       ScrollTimeout timeout) {
     this.action = action;
     this.node = node;
@@ -85,7 +85,7 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
     return nodeToMoveOnScreen;
   }
 
-  @ScrollEventInterpreter.UserAction
+  @ScrollActionRecord.UserAction
   @Override
   public int userAction() {
     return userAction;
@@ -97,7 +97,7 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
   }
 
   @Override
-  public AutoScrollActor.AutoScrollRecord.@Nullable Source source() {
+  public @Nullable String source() {
     return source;
   }
 
@@ -187,7 +187,7 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
     private @Nullable AccessibilityNodeInfoCompat nodeToMoveOnScreen;
     private Integer userAction;
     private Integer nodeAction;
-    private AutoScrollActor.AutoScrollRecord.@Nullable Source source;
+    private @Nullable String source;
     private ScrollTimeout timeout;
 
     Builder() {
@@ -237,8 +237,9 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
       this.nodeAction = nodeAction;
       return this;
     }
+
     @Override
-    public Feedback.Scroll.Builder setSource(AutoScrollActor.AutoScrollRecord.@Nullable Source source) {
+    public Feedback.Scroll.Builder setSource(@Nullable String source) {
       this.source = source;
       return this;
     }
@@ -250,7 +251,7 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
     }
 
     @Override
-    Feedback.Scroll autoBuild() {
+    public Feedback.Scroll build() {
       String missing = "";
       if (this.action == null) {
         missing += " action";

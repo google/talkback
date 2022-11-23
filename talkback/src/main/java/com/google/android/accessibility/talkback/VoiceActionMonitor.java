@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.telephony.TelephonyManager;
+import com.google.android.accessibility.utils.input.SpeechStateMonitor;
 import com.google.android.accessibility.utils.monitor.AudioPlaybackMonitor;
 import com.google.android.accessibility.utils.monitor.HeadphoneStateMonitor;
 import com.google.android.accessibility.utils.monitor.MediaRecorderMonitor;
@@ -34,6 +35,7 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
   private final MediaRecorderMonitor mediaRecorderMonitor;
   private final AudioPlaybackMonitor audioPlaybackMonitor;
   private final CallStateMonitor callStateMonitor;
+  private final SpeechStateMonitor speechStateMonitor;
 
   private final MediaRecorderMonitor.MicrophoneStateChangedListener microphoneStateChangedListener =
       new MediaRecorderMonitor.MicrophoneStateChangedListener() {
@@ -64,8 +66,13 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
         }
       };
 
-  public VoiceActionMonitor(TalkBackService service, CallStateMonitor callStateMonitor) {
+  public VoiceActionMonitor(
+      TalkBackService service,
+      CallStateMonitor callStateMonitor,
+      SpeechStateMonitor speechStateMonitor) {
     this.service = service;
+
+    this.speechStateMonitor = speechStateMonitor;
 
     mediaRecorderMonitor = new MediaRecorderMonitor(service);
     mediaRecorderMonitor.setMicrophoneStateChangedListener(microphoneStateChangedListener);
@@ -94,12 +101,12 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
 
   /** Returns {@code true} if audio play back is active. */
   public boolean isAudioPlaybackActive() {
-    return audioPlaybackMonitor.isAudioPlaybackActive();
+    return audioPlaybackMonitor.isAudioPlaybackActive() || speechStateMonitor.isSpeaking();
   }
 
   /** Returns {@code true} if microphone is active and the user is not using a headset. */
   public boolean isMicrophoneActiveAndHeadphoneOff() {
-    return mediaRecorderMonitor.isMicrophoneActive() && !isHeadphoneOn();
+    return isMicrophoneActive() && !isHeadphoneOn();
   }
 
   /**
@@ -107,7 +114,7 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
    * headset.
    */
   public boolean isSsbActiveAndHeadphoneOff() {
-    return false;
+    return mediaRecorderMonitor.isVoiceRecognitionActive() && !isHeadphoneOn();
   }
 
   /** Returns {@code true} if phone call is active. */
@@ -152,7 +159,7 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
 
   @Override
   public boolean isMicrophoneActive() {
-    return mediaRecorderMonitor.isMicrophoneActive();
+    return mediaRecorderMonitor.isMicrophoneActive() || speechStateMonitor.isListening();
   }
 
   private void interruptTalkBackAudio() {

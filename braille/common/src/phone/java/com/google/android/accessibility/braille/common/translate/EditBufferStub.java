@@ -96,6 +96,16 @@ public class EditBufferStub implements EditBuffer {
   }
 
   @Override
+  public boolean moveCursorForwardByWord(ImeConnection imeConnection) {
+    return true;
+  }
+
+  @Override
+  public boolean moveCursorBackwardByWord(ImeConnection imeConnection) {
+    return true;
+  }
+
+  @Override
   public boolean moveCursorForwardByLine(ImeConnection imeConnection) {
     return true;
   }
@@ -107,6 +117,16 @@ public class EditBufferStub implements EditBuffer {
 
   @Override
   public boolean moveTextFieldCursor(ImeConnection imeConnection, int index) {
+    return true;
+  }
+
+  @Override
+  public boolean moveCursorToBeginning(ImeConnection imeConnection) {
+    return true;
+  }
+
+  @Override
+  public boolean moveCursorToEnd(ImeConnection imeConnection) {
     return true;
   }
 

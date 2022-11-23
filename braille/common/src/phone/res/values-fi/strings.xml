@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Älä näytä tätä uudelleen</string>
+  <string name="done">Valmis</string>
   <string name="number_announcement">Numero</string>
   <string name="capitalize_announcement">Isot kirjaimet</string>
   <string name="read_out_deleted">%s poistettiin</string>
@@ -7,6 +9,7 @@
     <item quantity="one">piste %s</item>
     <item quantity="other">pisteet %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Yleinen pistekirjoitus (EN), lyhentämätön</string>
   <string name="code_user_facing_name_ueb2">Yleinen pistekirjoitus (EN), lyhennetty</string>
   <string name="code_user_facing_name_es">espanja</string>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">આ ફરી બતાવશો નહીં</string>
+  <string name="done">થઈ ગયું</string>
   <string name="number_announcement">નંબર</string>
   <string name="capitalize_announcement">કૅપિટલ અક્ષર</string>
   <string name="read_out_deleted">%s ડિલીટ કર્યું</string>
@@ -7,6 +9,7 @@
     <item quantity="one">ડોટ %s</item>
     <item quantity="other">ડોટ %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">યુનિફાઇડ ઇંગ્લિશ બ્રેઇલ અનકૉન્ટ્રેક્ટેડ</string>
   <string name="code_user_facing_name_ueb2">યુનિફાઇડ ઇંગ્લિશ બ્રેઇલ કૉન્ટ્રેક્ટેડ</string>
   <string name="code_user_facing_name_es">સ્પેનિશ</string>

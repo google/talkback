@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Kibodi ya nukta nundu ya TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Ingizo la onyesho la braille</string>
   <string name="switch_to_screen_away_announcement">Hali ya skrini kuangalia mbele</string>
   <string name="switch_to_tabletop_announcement">Hali ya juu ya meza. Weka kifaa chako na uelekeze mlango wa kuchaji upande wa kushoto. Ili usasishe nafasi za nukta nundu, shikilia kwa vidole sita.</string>
   <string name="bring_ime_settings_page">Hujawasha kibodi nyingine, nenda kwenye mipangilio ya kibodi</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Jinsi ya kutumia kibodi ya nukta nundu</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Ili utumie kibodi ya nukta nundu, fungua kibodi yako ya kawaida, kisha uguse aikoni ya kuchagua kibodi %1$s (kwa kawaida kwenye pembe ya chini upande wa kulia). Chagua \"%2$s.\"
   &lt;br&gt;&lt;br&gt;Ikiwa huoni chaguo la kubadili kibodi, jaribu kusakinisha %3$s, kibodi ya Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Washa kibodi ya nukta nundu&lt;/b&gt;: Gusa Mipangilio hapa chini. Kwenye skrini inayofuata, washa \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Tumia kibodi ya nukta nundu&lt;/b&gt;: Fungua kibodi yako ya kawaida, kisha uguse aikoni ya kuchagua kibodi %2$s (kwa kawaida kwenye pembe ya chini upande wa kulia). Chagua \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;Ikiwa huoni chaguo la kubadilisha kibodi, jaribu kusakinisha, %3$s, kibodi ya Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Mipangilio</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Gusa \"Mipangilio\" hapa chini. Kwenye skrini inayofuata, washa \"%1$s\"&lt;br&gt;&lt;br&gt;
+    2. Fungua kibodi yako ya kawaida kisha gusa badilisha mbinu ya kuingiza data %2$s (kwa kawaida, hupatikana kwenye kona ya upande wa chini kulia).&lt;br&gt;&lt;br&gt;
+    3. Chagua \"%1$s.\"
+    &lt;br&gt;&lt;br&gt;Ikiwa huoni chaguo la kubadilisha kibodi, jaribu kusakinisha %3$s, kibodi ya Google.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Washa kibodi ya nukta nundu hapa chini.&lt;br&gt;&lt;br&gt;
+    2. Fungua kibodi yako ya kawaida kisha gusa badilisha mbinu ya kuingiza data %2$s (kwa kawaida, hupatikana kwenye kona ya upande wa chini kulia).&lt;br&gt;&lt;br&gt;
+    3. Chagua \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Iwapo utashindwa kubadilisha kibodi, jaribu kusakinisha %3$s, kibodi ya Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Mipangilio</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Washa</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Washa kibodi ya nukta nundu</string>
   <string name="typing_languages_title">Lugha za kuandika</string>
   <string name="preferred_language_title">Lugha inayopendelewa</string>
-  <string name="dont_show_again">Usionyeshe hii tena</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Badilisha lugha kwa haraka huku ukiandika</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Ili ubadilishe lugha huku ukiandika kwa kutumia kibodi ya nukta nundu, telezesha juu ukitumia vidole vitatu. Kisha uchague \"badilisha utumie lugha inayofuata\".</string>
   <string name="title_pref_accumulate_presses">Jumuisha nukta nundu zote ulizobonyeza</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Kubadilisha ili utumie <b>kibodi inayofuata</b>, telezesha vidole vitatu chini</string>
   <string name="gesture_submit_text">Ili <b>utume maandishi</b>, telezesha vidole viwili juu</string>
   <string name="gesture_open_context_menu">Kwa <b>usaidizi na chaguo zingine</b>, telezesha vidole vitatu juu</string>
-  <string name="done">Nimemaliza</string>
   <string name="not_enough_touch_points_dialog_title">Kifaa chako hakitumii kibodi ya nukta nundu</string>
   <string name="not_enough_touch_points_dialog_message">Kifaa chako hakitumii njia za kutosha za kugusa. Kwa maelezo zaidi, wasiliana na mtengenezaji wa kifaa.</string>
   <string name="talkback_off_dialog_title">Washa TalkBack ili utumie kibodi ya nukta nundu</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Umefuta herufi</string>
   <string name="perform_delete_word_announcement">Umefuta neno</string>
   <string name="continue_tutorial_announcement">Tuendelee na mafunzo. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Onyesho la nje la braille limeunganishwa, unaloweza kutumia kuandika katika kifaa hiki.\nAu, unaweza kubadilisha utumie Kibodi ya Nukta nundu ya skrini ya kugusa au mbinu inayofuata ya kuingiza data.</string>
-  <string name="braille_keyboard_strip_button">Badilisha utumie kibodi ya skrini ya kugusa</string>
+  <string name="switch_on_screen_keyboard_announcement">Inabadilisha kwenda kwenye skrini ya kugusa ya nukta nundu</string>
+  <string name="braille_keyboard_strip_summary">Skrini ya nukta nundu ya nje imeunganishwa. Unaweza kuitumia kuandika katika simu yako.\n\nPia unaweza kubadilisha utumie kibodi ya nukta nundu kwenye skrini ya kugusa au mbinu ya kuingiza data inayofuata.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Badilisha utumie skrini ya kugusa ya nukta nundu</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Badilisha utumie mbinu ya kuingiza data inayofuata</string>
 </resources>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">हे पुन्हा दाखवू नका</string>
+  <string name="done">पूर्ण झाले</string>
   <string name="number_announcement">क्रमांक</string>
   <string name="capitalize_announcement">कॅप</string>
   <string name="read_out_deleted">%s हटवला</string>
@@ -7,6 +9,7 @@
     <item quantity="one">बिंदू %s</item>
     <item quantity="other">बिंदू %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">युनिफाइड इंग्रजी ब्रेल विस्तारित</string>
   <string name="code_user_facing_name_ueb2">युनिफाइड इंग्रजी ब्रेल संक्षिप्त</string>
   <string name="code_user_facing_name_es">स्पॅनिश</string>

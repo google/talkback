@@ -216,17 +216,22 @@ class FocusManagerInternal {
       return true;
     }
 
+    @Nullable FocusActionRecord record = history.getLastFocusActionRecord();
+    if (record != null && record.getExtraInfo().isSourceEnsureOnScreen()) {
+      // If the last focus record is also from the source ENSURE_ON_SCREEN, doesn't request to
+      // ensure the focus repeatedly.
+      return false;
+    }
+
     // TODO: Consider to use the information of subtree change event to find the
     // initial focus.
 
     // Try to generate the focus on the same window with the last focused node. It avoids the focus
     // jumping to another window after a node tree changed. (Especially on IME windows.)
-    @Nullable
-    AccessibilityNodeInfoCompat nodeToFocus =
-        findFocusableNodeFromFocusRecord(history.getLastFocusActionRecord());
+    @Nullable AccessibilityNodeInfoCompat nodeToFocus = findFocusableNodeFromFocusRecord(record);
     if (nodeToFocus != null) {
       FocusActionInfo focusActionInfo =
-          FocusActionInfo.builder().setSourceAction(FocusActionInfo.SCREEN_STATE_CHANGE).build();
+          FocusActionInfo.builder().setSourceAction(FocusActionInfo.ENSURE_ON_SCREEN).build();
       return pipeline.returnFeedback(
           eventId,
           Focus.builder()

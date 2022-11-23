@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Бул нерсе экинчи көрүнбөсүн</string>
+  <string name="done">Бүттү</string>
   <string name="number_announcement">Номер</string>
   <string name="capitalize_announcement">Баш тамга</string>
   <string name="read_out_deleted">%s өчүрүлдү</string>
@@ -7,6 +9,7 @@
     <item quantity="one">чекит %s</item>
     <item quantity="other">чекиттер %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Бириктирилген толук англисче брайль</string>
   <string name="code_user_facing_name_ueb2">Бириктирилген cтенограммалык англисче брайль</string>
   <string name="code_user_facing_name_es">Испанча</string>

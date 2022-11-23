@@ -1,0 +1,16 @@
+# chord is Space by default, but can be customized for devices without Space.
+#
+# chord7 and chord8 can be customized for devices that have only six input
+# dots; otherwise, they will be set by default to Dot7 and Dot8.
+
+assignDefault chord Space
+assign chord1 Dot1
+assign chord2 Dot2
+assign chord3 Dot3
+assign chord4 Dot4
+assign chord5 Dot5
+assign chord6 Dot6
+assignDefault chord7 Dot7
+assignDefault chord8 Dot8
+
+include android-chords-base.kti

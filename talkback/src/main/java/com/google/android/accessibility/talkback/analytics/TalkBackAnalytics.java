@@ -209,4 +209,41 @@ public class TalkBackAnalytics implements OnSharedPreferenceChangeListener {
 
   @Override
   public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {}
+
+  public static final int IMAGE_CAPTION_EVENT_CAPTION_REQUEST = 1;
+  public static final int IMAGE_CAPTION_EVENT_CAPTION_REQUEST_MANUAL = 2;
+  public static final int IMAGE_CAPTION_EVENT_SCREENSHOT_FAILED = 3;
+  public static final int IMAGE_CAPTION_EVENT_IMAGE_CAPTION_CACHE_HIT = 4;
+  public static final int IMAGE_CAPTION_EVENT_ICON_DETECT_PERFORM = 5;
+  public static final int IMAGE_CAPTION_EVENT_ICON_DETECT_SUCCEED = 6;
+  public static final int IMAGE_CAPTION_EVENT_ICON_DETECT_NO_RESULT = 7;
+  public static final int IMAGE_CAPTION_EVENT_ICON_DETECT_FAIL = 8;
+  public static final int IMAGE_CAPTION_EVENT_OCR_PERFORM = 9;
+  public static final int IMAGE_CAPTION_EVENT_OCR_PERFORM_SUCCEED = 10;
+  public static final int IMAGE_CAPTION_EVENT_OCR_PERFORM_SUCCEED_EMPTY = 11;
+  public static final int IMAGE_CAPTION_EVENT_OCR_PERFORM_FAIL = 12;
+  public static final int IMAGE_CAPTION_EVENT_ICON_DETECT_ABORT = 13;
+  public static final int IMAGE_CAPTION_EVENT_OCR_ABORT = 14;
+
+  /** Defines events of voice command. */
+  @IntDef({
+    IMAGE_CAPTION_EVENT_CAPTION_REQUEST,
+    IMAGE_CAPTION_EVENT_CAPTION_REQUEST_MANUAL,
+    IMAGE_CAPTION_EVENT_SCREENSHOT_FAILED,
+    IMAGE_CAPTION_EVENT_IMAGE_CAPTION_CACHE_HIT,
+    IMAGE_CAPTION_EVENT_ICON_DETECT_PERFORM,
+    IMAGE_CAPTION_EVENT_ICON_DETECT_SUCCEED,
+    IMAGE_CAPTION_EVENT_ICON_DETECT_NO_RESULT,
+    IMAGE_CAPTION_EVENT_ICON_DETECT_FAIL,
+    IMAGE_CAPTION_EVENT_OCR_PERFORM,
+    IMAGE_CAPTION_EVENT_OCR_PERFORM_SUCCEED,
+    IMAGE_CAPTION_EVENT_OCR_PERFORM_SUCCEED_EMPTY,
+    IMAGE_CAPTION_EVENT_OCR_PERFORM_FAIL,
+    IMAGE_CAPTION_EVENT_ICON_DETECT_ABORT,
+    IMAGE_CAPTION_EVENT_OCR_ABORT
+  })
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface ImageCaptionEventId {}
+
+  public void onImageCaptionEvent(@ImageCaptionEventId int event) {}
 }

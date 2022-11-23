@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Braille keyboard ng TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Input ng braille display</string>
   <string name="switch_to_screen_away_announcement">Screen-away mode</string>
   <string name="switch_to_tabletop_announcement">Tabletop mode. Ilagay ang iyong device nang nasa kaliwa ang charging port. Para i-update ang posisyon ng dot, i-hold gamit ang 6 na daliri.</string>
   <string name="bring_ime_settings_page">Kung walang iba pang naka-enable na keyboard, pumunta sa mga setting ng keyboard</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Paano gumamit ng braille keyboard</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Para magamit ang braille keyboard, buksan ang iyong regular na keyboard, pagkatapos ay i-tap ang icon ng pumili ng keyboard %1$s (karaniwang nasa kanang sulok sa ibaba). Piliin ang \"%2$s.\"
   &lt;br&gt;&lt;br&gt;Kung wala kang nakikitang opsyon para lumipat ng keyboard, subukang i-install ang %3$s, ang keyboard ng Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;I-on ang braille keyboard&lt;/b&gt;: I-tap ang Mga Setting sa ibaba. Sa susunod na screen, i-on ang \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Gamitin ang braille keyboard&lt;/b&gt;: Buksan ang iyong regular na keyboard, pagkatapos ay i-tap ang icon ng pumili ng keyboard %2$s (karaniwang nasa kanang sulok sa ibaba). Piliin ang \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;Kung wala kang nakikitang opsyon para lumipat ng keyboard, subukang i-install ang %3$s, ang keyboard ng Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Mga Setting</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. I-tap ang \"Mga Setting\" sa ibaba. Sa susunod na screen, i-on ang \"%1$s\"&lt;br&gt;&lt;br&gt;
+    2. Buksan ang iyong karaniwang keyboard, pagkatapos ay i-tap ang palitan ang pamamaraan ng pag-input %2$s (karaniwang nasa kanang sulok sa ibaba).&lt;br&gt;&lt;br&gt;
+    3. Piliin ang \"%1$s.\"
+    &lt;br&gt;&lt;br&gt;Kung wala kang nakikitang opsyong palitan ang keyboard, subukang i-install ang %3$s, ang keyboard ng Google.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. I-on ang braille keyboard sa ibaba.&lt;br&gt;&lt;br&gt;
+    2. Buksan ang iyong karaniwang keyboard, pagkatapos ay i-tap ang palitan ang pamamaraan ng pag-input %2$s (karaniwang nasa kanang sulok sa ibaba).&lt;br&gt;&lt;br&gt;
+    3. Piliin ang \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Kung hindi mo mapalitan ang keyboard, subukang i-install ang %3$s, ang keyboard ng Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Mga Setting</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">I-on</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">I-on ang braille keyboard</string>
   <string name="typing_languages_title">Mga wika sa pag-type</string>
   <string name="preferred_language_title">Gustong wika</string>
-  <string name="dont_show_again">Huwag na itong ipakita ulit</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Mabilis na palitan ang wika habang nagta-type</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Para palitan ang iyong wika habang nagta-type gamit ang braille keyboard, mag-swipe pataas gamit ang 3 daliri. Pagkatapos ay piliin ang \"lumipat sa susunod na wika.\"</string>
   <string name="title_pref_accumulate_presses">Isama ang lahat ng pressed dot</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Para lumipat sa <b>susunod na keyboard</b>, mag-swipe pakaliwa gamit ang 3 daliri</string>
   <string name="gesture_submit_text">Para <b>magsumite ng text</b>, mag-swipe pataas gamit ang 2 daliri</string>
   <string name="gesture_open_context_menu">Para sa <b>tulong at iba pang opsyon</b>, mag-swipe pataas gamit ang 3 daliri</string>
-  <string name="done">Tapos na</string>
   <string name="not_enough_touch_points_dialog_title">Hindi sinusuportahan ng iyong device ang braille keyboard</string>
   <string name="not_enough_touch_points_dialog_message">Kulang ang mga sinusuportahang touch point ng iyong device. Para sa higit pang impormasyon, makipag-ugnayan sa manufacturer ng iyong device.</string>
   <string name="talkback_off_dialog_title">I-on ang TalkBack para magamit ang braille keyboard</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Na-delete ang titik</string>
   <string name="perform_delete_word_announcement">Na-delete ang salita</string>
   <string name="continue_tutorial_announcement">Ipagpatuloy natin ang tutorial. %1$s</string>
-  <string name="braille_keyboard_strip_summary">May nakakonektang external na braille display, na magagamit mo sa pag-type ng text sa device na ito.\nO, lumipat sa touch-screen na Braille Keyboard o sa susunod na pamamaraan ng pag-input.</string>
-  <string name="braille_keyboard_strip_button">Lumipat sa touch-screen na keyboard</string>
+  <string name="switch_on_screen_keyboard_announcement">Lumilipat sa braille touchscreen</string>
+  <string name="braille_keyboard_strip_summary">May nakakonektang external na braille display, na magagamit mo sa pag-type ng text sa telepono mo.\n\nPuwede ka ring lumipat sa touchscreen na braille keyboard o sa susunod na pamamaraan ng pag-input.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Lumipat sa braille touchscreen</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Lumipat sa susunod na pamamaraan ng pag-input</string>
 </resources>

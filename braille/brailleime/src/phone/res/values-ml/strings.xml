@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack ബ്രെയ്‌ലി കീബോർഡ്</string>
+  <string name="braille_ime_bd_mode_name">ബ്രെയ്‌ലി ഡിസ്‌പ്ലേ ഇൻപുട്ട്</string>
   <string name="switch_to_screen_away_announcement">സ്ക്രീൻ എവേ മോഡ്</string>
   <string name="switch_to_tabletop_announcement">ടേബിൾടോപ്പ് മോഡ്. ചാർജിംഗ് പോർട്ട് നിങ്ങളുടെ ഇടത് വശത്ത് വരുന്ന വിധത്തിൽ ഉപകരണം സ്ഥാപിക്കുക. ഡോട്ട് സ്ഥാനം അപ്‌ഡേറ്റ് ചെയ്യാൻ 6 വിരലുകൾ ഉപയോഗിച്ച് പിടിക്കുക.</string>
   <string name="bring_ime_settings_page">മറ്റൊരു കീബോർഡും പ്രവർത്തനക്ഷമമാക്കിയിട്ടില്ല, കീബോർഡ് ക്രമീകരണത്തിലേക്ക് പോകുക</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">ബ്രെയ്‌ലി കീബോർഡ് എങ്ങനെ ഉപയോഗിക്കാം</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">ബ്രെയ്‍ലി കീബോർഡ് ഉപയോഗിക്കാൻ, നിങ്ങളുടെ സാധാരണ കീബോർഡ് തുറക്കുക, ശേഷം കീബോർഡ് തിരഞ്ഞെടുക്കുക ഐക്കൺ %1$s ടാപ്പ് ചെയ്യുക (സാധാരണ താഴെ വലത്തേ കോണിൽ). \"%2$s\" തിരഞ്ഞെടുക്കുക.
   &lt;br&gt;&lt;br&gt;കീബോർഡുകൾ മാറാനൊരു ഓപ്ഷൻ കാണുന്നില്ലെങ്കിൽ Google കീബോർഡായ %3$s ഇൻസ്റ്റാൾ ചെയ്യാൻ ശ്രമിക്കുക.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;ബ്രെയ്‍ലി കീബോർഡ് ഓണാക്കുക&lt;/b&gt;: താഴെയുള്ള ക്രമീകരണം ടാപ്പ് ചെയ്യുക. അടുത്ത സ്ക്രീനിൽ \"%1$s\" ഓണാക്കുക.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;ബ്രെയ്‍ലി കീബോർഡ് ഉപയോഗിക്കുക&lt;/b&gt;: നിങ്ങളുടെ സാധാരണ കീബോർഡ് തുറക്കുക, ശേഷം കീബോർഡ് തിരഞ്ഞെടുക്കുക ഐക്കൺ %2$s ടാപ്പ് ചെയ്യുക (സാധാരണ താഴെ വലത്തേ കോണിൽ). \"%1$s\" തിരഞ്ഞെടുക്കുക.
-    &lt;br&gt;&lt;br&gt;കീബോർഡുകൾ മാറാനൊരു ഓപ്ഷൻ കാണുന്നില്ലെങ്കിൽ Google കീബോർഡായ %3$s ഇൻസ്റ്റാൾ ചെയ്യാൻ ശ്രമിക്കുക.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">ക്രമീകരണം</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. ചുവടെ \"ക്രമീകരണം\" ടാപ്പ് ചെയ്യുക. അടുത്ത സ്‌ക്രീനിൽ, \"%1$s\" ഓണാക്കുക&lt;br&gt;&lt;br&gt;
+    2. നിങ്ങളുടെ സാധാരണ കീബോർഡ് തുറക്കുക, തുടർന്ന് ഇൻപുട്ട് രീതി മാറ്റുക %2$s (സാധാരണയായി ചുവടെ വലത് മൂലയിൽ) ടാപ്പ് ചെയ്യുക.&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" തിരഞ്ഞെടുക്കുക.
+    &lt;br&gt;&lt;br&gt;കീബോർഡുകൾ മാറ്റാനുള്ള ഓപ്‌ഷൻ കാണുന്നില്ലെങ്കിൽ Google കീബോർഡായ %3$s ഇൻസ്‌റ്റാൾ ചെയ്ത് നോക്കൂ.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. ചുവടെ ബ്രെയ്‌ലി കീബോർഡ് ഓണാക്കുക.&lt;br&gt;&lt;br&gt;
+    2. നിങ്ങളുടെ സാധാരണ കീബോർഡ് തുറക്കുക, തുടർന്ന് ഇൻപുട്ട് രീതി മാറ്റുക %2$s (സാധാരണയായി ചുവടെ വലത് മൂലയിൽ) ടാപ്പ് ചെയ്യുക.&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" തിരഞ്ഞെടുക്കുക.
+    &lt;br&gt;&lt;br&gt;നിങ്ങൾക്ക് കീബോർഡുകൾ മാറ്റാനാകുന്നില്ലെങ്കിൽ, Google കീബോർഡായ %3$s ഇൻസ്റ്റാൾ ചെയ്ത് നോക്കൂ.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">ക്രമീകരണം</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ഓണാക്കുക</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">ബ്രെയ്‌ലി കീബോർഡ് ഓണാക്കുക</string>
   <string name="typing_languages_title">ടൈപ്പ് ചെയ്യുന്ന ഭാഷകൾ</string>
   <string name="preferred_language_title">മുൻഗണന നൽകുന്ന ഭാഷ</string>
-  <string name="dont_show_again">ഇത് വീണ്ടും കാണിക്കരുത്</string>
   <string name="switch_input_code_gesture_tip_dialog_title">ടൈപ്പ് ചെയ്യുമ്പോൾ വേഗത്തിൽ ഭാഷ മാറ്റുക</string>
   <string name="switch_input_code_gesture_tip_dialog_message">ബ്രെയ്‌ലി കീബോർഡ് ഉപയോഗിച്ച് ടൈപ്പ് ചെയ്യുമ്പോൾ നിങ്ങളുടെ ഭാഷ മാറ്റാൻ, 3 വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക. തുടർന്ന് \"അടുത്ത ഭാഷയിലേക്ക് മാറുക\" തിരഞ്ഞെടുക്കുക.</string>
   <string name="title_pref_accumulate_presses">പ്രസ് ചെയ്‍ത എല്ലാ ഡോട്ടുകളും ഉൾപ്പെടുത്തുക</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>അടുത്ത കീബോർഡിലേക്ക്</b> മാറാൻ 3 വിരലുകൾ ഉപയോഗിച്ച് താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
   <string name="gesture_submit_text"><b>ടെക്‌സ്റ്റ് സമർപ്പിക്കാൻ</b> 2 വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
   <string name="gesture_open_context_menu"><b>സഹായത്തിനും മറ്റ് ഓപ്ഷനുകൾക്കും</b> 3 വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
-  <string name="done">പൂർത്തിയായി</string>
   <string name="not_enough_touch_points_dialog_title">നിങ്ങളുടെ ഉപകരണം ബ്രെയ്‍ലി കീബോർഡിനെ പിന്തുണയ്ക്കുന്നില്ല</string>
   <string name="not_enough_touch_points_dialog_message">നിങ്ങളുടെ ഉപകരണം ആവശ്യത്തിന് ടച്ച് പോയിന്റുകളെ പിന്തുണയ്ക്കുന്നില്ല. കൂടുതൽ വിവരങ്ങൾക്ക് നിങ്ങളുടെ ഉപകരണ നിർമ്മാതാവിനെ സമീപിക്കുക.</string>
   <string name="talkback_off_dialog_title">ബ്രെയ്‍ലി കീബോർഡ് ഉപയോഗിക്കാൻ TalkBack ഓണാക്കുക</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">അക്ഷരം ഇല്ലാതാക്കി</string>
   <string name="perform_delete_word_announcement">വാക്ക് ഇല്ലാതാക്കി</string>
   <string name="continue_tutorial_announcement">നമുക്ക് ട്യൂട്ടോറിയൽ തുടരാം. %1$s</string>
-  <string name="braille_keyboard_strip_summary">ഈ ഉപകരണത്തിൽ ടെക്‌സ്‌റ്റ് ടെെപ്പ് ചെയ്യാൻ ഉപയോഗിക്കാവുന്ന ബാഹ്യമായ ബ്രെയ്‌ലി ഡിസ്‌പ്ലേ കണക്‌റ്റ് ചെയ്‌തു.\nഅല്ലെങ്കിൽ ടച്ച്‌സ്‌ക്രീൻ ബ്രെയ്‌ലി കീബോർഡിലേക്കോ അടുത്ത ഇൻപുട്ട് രീതിയിലോക്കോ മാറാം.</string>
-  <string name="braille_keyboard_strip_button">ടച്ച്‌സ്‌ക്രീൻ കീബോർഡിലേക്ക് മാറുക</string>
+  <string name="switch_on_screen_keyboard_announcement">ബ്രെയ്‌ലി ടച്ച്‌സ്‌ക്രീനിലേക്ക് മാറുന്നു</string>
+  <string name="braille_keyboard_strip_summary">നിങ്ങളുടെ ഫോണിൽ ടെക്സ്റ്റ് ടൈപ്പ് ചെയ്യാൻ ഉപയോഗിക്കാവുന്ന ബാഹ്യ ബ്രെയ്‌ലി ഡിസ്പ്ലേ കണക്റ്റ് ചെയ്തിരിക്കുന്നു.\n\nനിങ്ങൾക്ക് ടച്ച് സ്ക്രീൻ ബ്രെയ്‌ലി കീബോർഡിലേക്കോ അടുത്ത ഇൻപുട്ട് രീതിയിലേക്കോ മാറാം.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">ബ്രെയ്‌ലി ടച്ച്‌സ്‌ക്രീനിലേക്ക് മാറുക</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">അടുത്ത ഇൻപുട്ട് രീതിയിലേക്ക് മാറുക</string>
 </resources>

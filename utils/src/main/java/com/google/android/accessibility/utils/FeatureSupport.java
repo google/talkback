@@ -20,10 +20,12 @@ import static android.content.Context.SENSOR_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
 
 import android.Manifest;
+import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.SuppressLint;
 import android.app.UiModeManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.hardware.Sensor;
@@ -34,10 +36,14 @@ import android.os.Vibrator;
 import android.util.Log;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.Nullable;
+import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Methods to check hardware and software support for operating system features. */
 public final class FeatureSupport {
+  @Nullable private static Boolean brailleDisplaySettingsActivityPresent = null;
+  @Nullable private static Boolean brailleKeyboardSettingsActivityPresent = null;
 
   public static boolean isWatch(Context context) {
     return context
@@ -62,11 +68,6 @@ public final class FeatureSupport {
 
   public static boolean isPhoneOrTablet(Context context) {
     return (!isWatch(context) && !isArc() && !isTv(context));
-  }
-
-  /** Returns {@code true} if the device supports accessibility shortcut. */
-  public static boolean hasAccessibilityShortcut(Context context) {
-    return isPhoneOrTablet(context) && BuildVersionUtils.isAtLeastO();
   }
 
   public static boolean useSpeakPasswordsServicePref() {
@@ -113,7 +114,12 @@ public final class FeatureSupport {
     return BuildVersionUtils.isAtLeastO();
   }
 
-  public static boolean disableAnimation() {
+  /** Return whether enable/disable IME is supported on this device. */
+  public static boolean supportEnableDisableIme() {
+    return BuildVersionUtils.isAtLeastT();
+  }
+
+  public static boolean supportsUserDisablingOfGlobalAnimations() {
     return BuildVersionUtils.isAtLeastP();
   }
 
@@ -153,8 +159,8 @@ public final class FeatureSupport {
     return BuildVersionUtils.isAtLeastR();
   }
 
-  /** Returns {@code true} if the device supports system actions. */
-  public static boolean supportSystemActions(Context context) {
+  /** Returns {@code true} if the device supports to get system actions. */
+  public static boolean supportGetSystemActions(Context context) {
     return BuildVersionUtils.isAtLeastR() && !isWatch(context);
   }
 
@@ -181,14 +187,32 @@ public final class FeatureSupport {
    * onMagnificationChanged listener doesn't support this yet. To prevent user confusing, this is
    * blocked after S.
    */
-  // TODO: framework support onMagnificationChanged() for Window magnification at next
-  // Android.
   public static boolean supportAnnounceMagnificationChanged() {
+    // TODO Add VERSION_CODES.S_V2 after SDK_INT for T is available.
     return BuildVersionUtils.isAtLeastN() && Build.VERSION.SDK_INT != VERSION_CODES.S;
+  }
+
+  /**
+   * Returns {@code true} if AccessibilityService and the device supports window magnification
+   * feature. AccessibilityService can control window magnification by new API since T.
+   */
+  public static boolean supportWindowMagnification(Context context) {
+    return BuildVersionUtils.isAtLeastT()
+        && context
+            .getPackageManager()
+            .hasSystemFeature(PackageManager.FEATURE_WINDOW_MAGNIFICATION);
   }
 
   public static boolean isBoundsScaledUpByMagnifier() {
     return BuildVersionUtils.isAtLeastOMR1();
+  }
+
+  /**
+   * Returns {@code true} if TalkBack handles the window state change event that requires pane
+   * title.
+   */
+  public static boolean windowStateChangeRequiresPane() {
+    return BuildVersionUtils.isAtLeastT();
   }
 
   public static boolean supportMultiDisplay() {
@@ -242,6 +266,10 @@ public final class FeatureSupport {
     return BuildVersionUtils.isAtLeastS();
   }
 
+  public static boolean supportSpeechState() {
+    return BuildVersionUtils.isAtLeastT();
+  }
+
   /**
    * Provides a Talkback menu item to manually enter or change a percentage value for seek controls.
    * This functionality is only available on Android N and later. REFERTO.
@@ -267,6 +295,11 @@ public final class FeatureSupport {
         && AccessibilityServiceInfo.flagToString(
                 AccessibilityServiceInfo.FLAG_REQUEST_2_FINGER_PASSTHROUGH)
             != null;
+  }
+
+  /** Returns true if the platform supports FLAG_SERVICE_HANDLES_DOUBLE_TAP. */
+  public static boolean doesServiceHandleDoubleTap() {
+    return BuildVersionUtils.isAtLeastR();
   }
 
   /**
@@ -297,6 +330,16 @@ public final class FeatureSupport {
     return BuildVersionUtils.isAtLeastP();
   }
 
+  /** Returns whether the android-version supports AccessibilityEvent.getScrollDeltaX/Y() */
+  public static boolean scrollDelta() {
+    return BuildVersionUtils.isAtLeastP();
+  }
+
+  /** Returns whether the android-version supports AccessibilityEvent.getWindowChanges() */
+  public static boolean windowChanges() {
+    return BuildVersionUtils.isAtLeastP();
+  }
+
   /**
    * Supports accessibility button from Android O. *
    *
@@ -321,6 +364,26 @@ public final class FeatureSupport {
         != null;
   }
 
+  /** Returns {@code true} if the device has braille keyboard supported. */
+  public static boolean supportBrailleKeyboard(Context context) {
+    if (brailleKeyboardSettingsActivityPresent == null) {
+      Intent activityIntent = new Intent().setComponent(Constants.BRAILLE_KEYBOARD_SETTINGS);
+      brailleKeyboardSettingsActivityPresent =
+          activityIntent.resolveActivityInfo(context.getPackageManager(), 0) != null;
+    }
+    return brailleKeyboardSettingsActivityPresent;
+  }
+
+  /** Returns {@code true} if the device has braille display supported. */
+  public static boolean supportBrailleDisplay(Context context) {
+    if (brailleDisplaySettingsActivityPresent == null) {
+      Intent activityIntent = new Intent().setComponent(Constants.BRAILLE_DISPLAY_SETTINGS);
+      brailleDisplaySettingsActivityPresent =
+          activityIntent.resolveActivityInfo(context.getPackageManager(), 0) != null;
+    }
+    return brailleDisplaySettingsActivityPresent;
+  }
+
   /**
    * Returns {@code true} if the order of receiving touch interaction event and hover event is NOT
    * guaranteed.
@@ -342,5 +405,25 @@ public final class FeatureSupport {
    */
   public static boolean logcatIncludePsi() {
     return BuildConfig.DEBUG || (LogUtils.getLogLevel() < Log.ERROR);
+  }
+
+  /** Returns {@code true} if the device is running at least API 32 */
+  public static boolean supportDragAndDrop() {
+    return BuildVersionUtils.isAtLeastS2();
+  }
+
+  /** Returns {@code true} if the device supports animation off by Accessibility service. */
+  public static boolean supportsServiceControlOfGlobalAnimations() {
+    return BuildVersionUtils.isAtLeastT();
+  }
+
+  /** Returns {@code true} if the device supports AccessibilityNodeInfo#isTextSelectable */
+  public static boolean supportsIsTextSelectable() {
+    return BuildVersionUtils.isAtLeastT();
+  }
+
+  /** Returns {@code true} if the device supports gesture detection in the service side. */
+  public static boolean supportGestureDetection() {
+    return BuildVersionUtils.isAtLeastT();
   }
 }

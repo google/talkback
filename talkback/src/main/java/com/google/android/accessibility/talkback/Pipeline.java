@@ -19,8 +19,8 @@ package com.google.android.accessibility.talkback;
 import static com.google.android.accessibility.talkback.Feedback.HINT;
 import static com.google.android.accessibility.talkback.Feedback.InterruptGroup;
 import static com.google.android.accessibility.talkback.Feedback.InterruptLevel;
+import static com.google.android.accessibility.talkback.eventprocessor.ProcessorAccessibilityHints.DELAY_HINT;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
-import static com.google.android.accessibility.utils.feedbackpolicy.AbstractAccessibilityHintsManager.DELAY_HINT;
 
 import android.content.Context;
 import android.os.Looper;
@@ -29,8 +29,8 @@ import android.os.SystemClock;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.talkback.TalkBackService.ProximitySensorListener;
+import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.talkback.eventprocessor.AccessibilityEventProcessor.AccessibilityEventIdleListener;
 import com.google.android.accessibility.talkback.utils.DiagnosticOverlayControllerImpl;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
@@ -276,11 +276,12 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
 
   @Override
   public int getEventTypes() {
-    return interpreters.getEventTypes();
+    return interpreters.getEventTypes() | monitors.getEventTypes();
   }
 
   @Override
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
+    monitors.onAccessibilityEvent(event);
     interpreters.onAccessibilityEvent(event, eventId);
   }
 
@@ -360,7 +361,7 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
       if (part.interruptGentle()) {
         actors.interruptGentle(feedback.eventId());
       }
-      this.diagnosticOverlayController.appendLog(feedback);
+      diagnosticOverlayController.displayFeedback(feedback);
 
       boolean success = true;
       if (part.delayMs() <= 0) {

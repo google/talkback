@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">აღარ მაჩვენოთ ეს</string>
+  <string name="done">მზადაა</string>
   <string name="number_announcement">ნომერი</string>
   <string name="capitalize_announcement">ზედა ზღვარი</string>
   <string name="read_out_deleted">%s წაიშალა</string>
@@ -7,6 +9,7 @@
     <item quantity="one">წერტილი %s</item>
     <item quantity="other">წერტილები %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">ერთიანი შეუკვეცავი ბრაილის შრიფტი ინგლისურისთვის</string>
   <string name="code_user_facing_name_ueb2">ერთიანი შეკვეცილი ბრაილის შრიფტი ინგლისურისთვის</string>
   <string name="code_user_facing_name_es">ესპანური</string>

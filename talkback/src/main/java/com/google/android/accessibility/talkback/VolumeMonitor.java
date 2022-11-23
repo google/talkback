@@ -28,7 +28,6 @@ import android.os.Message;
 import android.telephony.TelephonyManager;
 import android.util.SparseIntArray;
 import androidx.annotation.VisibleForTesting;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
@@ -51,9 +50,7 @@ public class VolumeMonitor extends BroadcastReceiver {
     STREAM_NAMES.put(AudioManager.STREAM_ALARM, R.string.value_stream_alarm);
     STREAM_NAMES.put(AudioManager.STREAM_NOTIFICATION, R.string.value_stream_notification);
     STREAM_NAMES.put(AudioManager.STREAM_DTMF, R.string.value_stream_dtmf);
-    if (BuildVersionUtils.isAtLeastO()) {
-      STREAM_NAMES.put(AudioManager.STREAM_ACCESSIBILITY, R.string.value_stream_accessibility);
-    }
+    STREAM_NAMES.put(AudioManager.STREAM_ACCESSIBILITY, R.string.value_stream_accessibility);
   }
 
   /** Keep track of adjustments made by this class. */
@@ -339,22 +336,33 @@ public class VolumeMonitor extends BroadcastReceiver {
   }
 
   /**
-   * Returns the stream volume as a percentage of maximum volume in increments of 5%, e.g. 73% is
-   * returned as 70. On TV, do not round the volume value, since some partners adjust volumes +/- by
-   * 1%, instead of 5%
+   * Returns the stream volume as a percentage of maximum volume.
    *
    * @param streamType A stream type constant.
    * @return The stream volume as a percentage.
    */
   private int getStreamVolume(int streamType) {
-    final int currentVolume = audioManager.getStreamVolume(streamType);
-    final int maxVolume = audioManager.getStreamMaxVolume(streamType);
-
-    if (FeatureSupport.isTv(context)) {
-      return (int) (currentVolume * 1.0 / maxVolume * 100);
+    int minVolume = 0;
+    // For some stream types other than defined in
+    // https://developer.android.com/reference/android/media/AudioManager#getStreamMinVolume(int),
+    // AudioManager will trap the getStreamMinVolume.
+    if (STREAM_NAMES.get(streamType) > 0) {
+      minVolume = audioManager.getStreamMinVolume(streamType);
     }
+    final int totalVolume = audioManager.getStreamMaxVolume(streamType) - minVolume;
+    final int currentVolume = audioManager.getStreamVolume(streamType) - minVolume;
 
-    return 5 * (int) (20 * currentVolume / maxVolume + 0.5);
+    if (totalVolume != 0) {
+      int result = 100 * currentVolume / totalVolume;
+      if (result < 0) {
+        result = 0;
+      } else if (result > 100) {
+        result = 100;
+      }
+      return result;
+    }
+    LogUtils.e(TAG, "Volume of stream-type:%d incorrect", streamType);
+    return 0;
   }
 
   private final VolumeHandler handler = new VolumeHandler(this);

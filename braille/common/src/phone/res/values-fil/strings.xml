@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Huwag na itong ipakita ulit</string>
+  <string name="done">Tapos na</string>
   <string name="number_announcement">Numero</string>
   <string name="capitalize_announcement">Cap</string>
   <string name="read_out_deleted">%s ang na-delete</string>
@@ -7,6 +9,7 @@
     <item quantity="one">dot %s</item>
     <item quantity="other">dot %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
   <string name="code_user_facing_name_es">Spanish</string>

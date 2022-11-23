@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Ne prikazuj ovo ponovo</string>
+  <string name="done">Gotovo</string>
   <string name="number_announcement">Broj</string>
   <string name="capitalize_announcement">Gornja granica</string>
   <string name="read_out_deleted">Izbrisano: %s</string>
   <plurals name="braille_dots">
-    <item quantity="one">%s tačka</item>
-    <item quantity="few">%s tačke</item>
-    <item quantity="other">%s tačaka</item>
+    <item quantity="one">tačke %s</item>
+    <item quantity="few">tačke %s</item>
+    <item quantity="other">tačke %s</item>
   </plurals>
-  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
-  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="language_split_comma">,\u0020</string>
+  <string name="code_user_facing_name_ueb1">Neskraćeno objedinjeno englesko Braillevo pismo</string>
+  <string name="code_user_facing_name_ueb2">Skraćeno objedinjeno englesko Braillevo pismo</string>
   <string name="code_user_facing_name_es">španski</string>
   <string name="code_user_facing_name_ar">arapski</string>
   <string name="code_user_facing_name_fr">francuski</string>

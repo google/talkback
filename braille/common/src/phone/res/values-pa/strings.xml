@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">ਇਸਨੂੰ ਦੁਬਾਰਾ ਨਾ ਦਿਖਾਓ</string>
+  <string name="done">ਹੋ ਗਿਆ</string>
   <string name="number_announcement">ਨੰਬਰ</string>
   <string name="capitalize_announcement">ਵੱਡੇ ਅੱਖਰ</string>
   <string name="read_out_deleted">%s ਮਿਟਾਇਆ ਗਿਆ</string>
@@ -7,6 +9,7 @@
     <item quantity="one">ਬਿੰਦੀ %s</item>
     <item quantity="other">ਬਿੰਦੀਆਂ %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">ਏਕੀਕ੍ਰਿਤ ਅੰਗਰੇਜ਼ੀ ਬਰੇਲ ਲਿਪੀ ਅਸੰਕੁਚਿਤ</string>
   <string name="code_user_facing_name_ueb2">ਏਕੀਕ੍ਰਿਤ ਅੰਗਰੇਜ਼ੀ ਬਰੇਲ ਲਿਪੀ ਸੰਕੁਚਿਤ</string>
   <string name="code_user_facing_name_es">ਸਪੈਨਿਸ਼</string>

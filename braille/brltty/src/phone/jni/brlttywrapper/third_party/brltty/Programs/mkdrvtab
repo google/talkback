@@ -1,0 +1,54 @@
+#!/bin/sh
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2019 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+programName="${0}"
+programMessage() {
+   echo >&2 "${programName}: ${1}"
+}
+syntaxError() {
+   [ -n "${1}" ] && programMessage "${1}"
+   exit 2
+}
+
+if [ "${#}" -eq 0 ]
+then
+   syntaxError "missing driver type."
+fi
+driverType="${1}"
+shift
+
+if [ "${#}" -eq 0 ]
+then
+   syntaxError "missing symbol prefix."
+fi
+symbolPrefix="${1}"
+shift
+
+for driverCode
+do
+   echo "extern const ${driverType} ${symbolPrefix}${driverCode};"
+done
+
+echo "static const DriverEntry driverTable[] = {"
+for driverCode
+do
+   echo "  {&${symbolPrefix}${driverCode}, &${symbolPrefix}${driverCode}.definition},"
+done
+echo "  {NULL, NULL}"
+echo "};"

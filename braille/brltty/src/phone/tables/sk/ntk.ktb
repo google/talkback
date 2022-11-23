@@ -1,0 +1,145 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title Seika Note Takers
+
+####################
+# Default Bindings #
+####################
+
+bind LeftButton+Rightbutton HOME
+bind LeftButton FWINLT
+bind RightButton FWINRT
+
+bind LeftJoystickUp top
+bind LeftJoystickDown BOT
+bind LeftJoystickLeft LNBEG
+bind LeftJoystickRight LNEND
+
+bind RightJoystickUp LNUP
+bind RightJoystickDown LNDN
+bind RightJoystickLeft CHRLT
+bind RightJoystickRight CHRRT
+
+bind LeftJoystickLeft+RightJoystickUp ATTRUP
+bind LeftJoystickLeft+RightJoystickDown ATTRDN
+bind LeftJoystickRight+RightJoystickUp PRDIFLN
+bind LeftJoystickRight+RightJoystickDown NXDIFLN
+bind LeftJoystickUp+RightJoystickUp PRPROMPT
+bind LeftJoystickUp+RightJoystickDown NXPROMPT
+bind LeftJoystickDown+RightJoystickUp PRPGRPH
+bind LeftJoystickDown+RightJoystickDown NXPGRPH
+
+bind LeftJoystickLeft+RightJoystickLeft HWINLT
+bind LeftJoystickLeft+RightJoystickRight HWINRT
+bind LeftJoystickRight+RightJoystickLeft FWINLTSKIP
+bind LeftJoystickRight+RightJoystickRight FWINRTSKIP
+bind LeftJoystickUp+RightJoystickLeft PRSEARCH
+bind LeftJoystickUp+RightJoystickRight NXSEARCH
+bind LeftJoystickDown+RightJoystickLeft BACK
+bind LeftJoystickDown+RightJoystickRight CSRJMP_VERT
+
+bind LeftJoystickPress+RightJoystickUp INFO
+bind LeftJoystickPress+RightJoystickDown PREFMENU
+bind LeftJoystickPress+RightJoystickLeft PREFLOAD
+bind LeftJoystickPress+RightJoystickRight PREFSAVE
+
+# Don't bind long press (ROUTE+128); this display doesn't support it, and the
+# table substitutes it with Space+RoutingKey.
+bind RoutingKey ROUTE
+bind LeftButton+RoutingKey SETLEFT
+bind RightButton+RoutingKey DESCCHAR
+
+bind RightJoystickUp+RoutingKey PRINDENT
+bind RightJoystickDown+RoutingKey NXINDENT
+bind RightJoystickLeft+RoutingKey PRDIFCHAR
+bind RightJoystickRight+RoutingKey NXDIFCHAR
+
+bind LeftJoystickPress+RoutingKey SETMARK
+bind RightJoystickPress+RoutingKey GOTOMARK
+
+bind LeftJoystickPress+RightJoystickPress PASTE
+bind RoutingKey+RoutingKey CLIP_COPY
+bind LeftJoystickUp+RoutingKey+RoutingKey CLIP_APPEND
+bind LeftJoystickLeft+RoutingKey CLIP_NEW
+bind LeftJoystickUp+RoutingKey CLIP_ADD
+bind LeftJoystickRight+RoutingKey COPY_LINE
+bind LeftJoystickDown+RoutingKey COPY_RECT
+
+map Dot1 DOT1
+map Dot2 DOT2
+map Dot3 DOT3
+map Dot4 DOT4
+map Dot5 DOT5
+map Dot6 DOT6
+map Dot7 DOT7
+map Dot8 DOT8
+map Space SPACE
+
+bind Space+LeftJoystickLeft KEY_HOME
+bind Space+LeftJoystickRight KEY_END
+
+bind Space+RightJoystickUp KEY_CURSOR_UP
+bind Space+RightJoystickDown KEY_CURSOR_DOWN
+bind Space+RightJoystickLeft KEY_CURSOR_LEFT
+bind Space+RightJoystickRight KEY_CURSOR_RIGHT
+
+bind Backspace+LeftJoystickUp SAY_LOUDER
+bind Backspace+LeftJoystickDown SAY_SOFTER
+bind Backspace+LeftJoystickLeft SAY_SLOWER
+bind Backspace+LeftJoystickRight SAY_FASTER
+
+bind Backspace+RightJoystickUp SAY_ABOVE
+bind Backspace+RightJoystickDown SAY_BELOW
+bind Backspace+RightJoystickLeft MUTE
+bind Backspace+RightJoystickRight SAY_LINE
+
+########################
+# BrailleBack Bindings #
+########################
+
+# Activate currently focused item
+bind LeftJoystickPress ROUTE+127
+bind RightJoystickPress ROUTE+127
+
+# Long press currently focused item
+bind Space+LeftJoystickPress ROUTE+255
+bind Space+RightJoystickPress ROUTE+255
+
+# Long press item at routing key.
+bind Space+RoutingKey ROUTE+128
+
+map Backspace SPACE
+
+bind Dot7 KEY_BACKSPACE
+bind Dot8 KEY_ENTER
+bind Backspace+Space SPACE
+
+bind Space+LeftJoystickUp WINUP
+bind Space+LeftJoystickDown WINDN
+
+assign chord Space
+include ../android-chords.kti
+
+assign chord Backspace
+include ../android-chords.kti
+
+assign chord Space+Backspace
+include ../android-chords.kti
+
+

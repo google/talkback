@@ -16,18 +16,34 @@
 
 #include "louis_translation.h"
 
+#include <alog.h>
 #include <algorithm>
 #include <vector>
 
-#include "../alog.h"
 #include "third_party/liblouis/liblouis/internal.h"  // for MAXSTRING
 #include "third_party/liblouis/liblouis/liblouis.h"
-#define TRANSLATE_PACKAGE \
-  "com/google/android/accessibility/braille/translate/"
+#define TRANSLATE_PACKAGE "com/google/android/accessibility/braille/translate/"
+#define INTERFACE_PACKAGE "com/google/android/accessibility/braille/interfaces/"
 #define LOG_TAG "LibLouisWrapper_Native"
 
+static jclass class_array_list;
+static jclass class_integer;
+static jclass class_charSequence;
 static jclass class_TranslationResult;
-static jmethodID method_TranslationResult_ctor;
+static jclass class_TranslationResult_builder;
+static jclass class_BrailleWord;
+static jmethodID method_array_list_ctor;
+static jmethodID method_array_list_add;
+static jmethodID method_integer_ctor;
+static jmethodID method_toString;
+static jmethodID method_BrailleWord_ctor;
+static jmethodID method_TranslationResult_builder;
+static jmethodID method_TranslationResult_builder_setText;
+static jmethodID method_TranslationResult_builder_setCells;
+static jmethodID method_TranslationResult_builder_setTextToBraillePositions;
+static jmethodID method_TranslationResult_builder_setBrailleToTextPositions;
+static jmethodID method_TranslationResult_builder_setCursorBytePosition;
+static jmethodID method_TranslationResult_builder_build;
 
 JNIEXPORT jboolean JNICALL JNI_METHOD(checkTableNative)(JNIEnv* env,
                                                         jclass clazz,
@@ -38,11 +54,26 @@ JNIEXPORT jboolean JNICALL JNI_METHOD(checkTableNative)(JNIEnv* env,
   return ret;
 }
 
+jobject create_array_list(JNIEnv* env, jintArray int_array) {
+  jobject list_object =
+      env->NewObject(class_array_list, method_array_list_ctor);
+  for (int i = 0; i < env->GetArrayLength(int_array); i++) {
+    jint* body = env->GetIntArrayElements(int_array, nullptr);
+    jobject int_obj =
+        env->NewObject(class_integer, method_integer_ctor, body[i]);
+    env->ReleaseIntArrayElements(int_array, body, 0);
+    env->CallBooleanMethod(list_object, method_array_list_add, int_obj);
+    env->DeleteLocalRef(int_obj);
+  }
+  return list_object;
+}
+
 // Translates print-characters to braille-cells. It returns a TranslationResult
 // object.
 JNIEXPORT jobject JNICALL JNI_METHOD(translateNative)(
-    JNIEnv* env, jclass clazz, jstring text, jstring tableName,
+    JNIEnv* env, jclass clazz, jobject charSequence, jstring tableName,
     jint cursorPosition, jboolean computerBrailleAtCursor) {
+  jstring text = (jstring)env->CallObjectMethod(charSequence, method_toString);
   const jchar* text_utf16 = env->GetStringChars(text, nullptr);
   const char* table_name_utf8 = env->GetStringUTFChars(tableName, nullptr);
   const int in_len = env->GetStringLength(text);
@@ -128,9 +159,24 @@ JNIEXPORT jobject JNICALL JNI_METHOD(translateNative)(
     // past-the-end of the output.
     cursor_out_pos = out_used;
   }
-  return env->NewObject(class_TranslationResult, method_TranslationResult_ctor,
-                        cells_array, output_pos_array, input_pos_array,
+  jobject object = env->CallStaticObjectMethod(
+      class_TranslationResult, method_TranslationResult_builder);
+  env->CallObjectMethod(object, method_TranslationResult_builder_setText,
+                        charSequence);
+  jobject braille_word =
+      env->NewObject(class_BrailleWord, method_BrailleWord_ctor, cells_array);
+  env->CallObjectMethod(object, method_TranslationResult_builder_setCells,
+                        braille_word);
+  env->CallObjectMethod(
+      object, method_TranslationResult_builder_setTextToBraillePositions,
+      create_array_list(env, output_pos_array));
+  env->CallObjectMethod(
+      object, method_TranslationResult_builder_setBrailleToTextPositions,
+      create_array_list(env, input_pos_array));
+  env->CallObjectMethod(object,
+                        method_TranslationResult_builder_setCursorBytePosition,
                         cursor_out_pos);
+  return env->CallObjectMethod(object, method_TranslationResult_builder_build);
 }
 
 // Translates braille-cells to print-characters.
@@ -226,10 +272,55 @@ static jclass getGlobalClassRef(JNIEnv* env, const char* name) {
 }
 
 JNIEXPORT void JNICALL JNI_METHOD(classInitNative)(JNIEnv* env, jclass clazz) {
-  if (!(class_TranslationResult =
-            getGlobalClassRef(env, TRANSLATE_PACKAGE "TranslationResult"))) {
-    return;
+  if ((class_TranslationResult =
+           getGlobalClassRef(env, TRANSLATE_PACKAGE "TranslationResult"))) {
+    method_TranslationResult_builder = env->GetStaticMethodID(
+        class_TranslationResult, "builder",
+        "()L" TRANSLATE_PACKAGE "TranslationResult$Builder;");
   }
-  method_TranslationResult_ctor =
-      env->GetMethodID(class_TranslationResult, "<init>", "([B[I[II)V");
+  if ((class_TranslationResult_builder = getGlobalClassRef(
+           env, TRANSLATE_PACKAGE "TranslationResult$Builder"))) {
+    method_TranslationResult_builder_setText =
+        env->GetMethodID(class_TranslationResult_builder, "setText",
+                         "(Ljava/lang/CharSequence;)L" TRANSLATE_PACKAGE
+                         "TranslationResult$Builder;");
+    method_TranslationResult_builder_setCells = env->GetMethodID(
+        class_TranslationResult_builder, "setCells",
+        "(L" INTERFACE_PACKAGE "BrailleWord;)L" TRANSLATE_PACKAGE
+        "TranslationResult$Builder;");
+    method_TranslationResult_builder_setTextToBraillePositions =
+        env->GetMethodID(class_TranslationResult_builder,
+                         "setTextToBraillePositions",
+                         "(Ljava/util/List;)L" TRANSLATE_PACKAGE
+                         "TranslationResult$Builder;");
+    method_TranslationResult_builder_setBrailleToTextPositions =
+        env->GetMethodID(class_TranslationResult_builder,
+                         "setBrailleToTextPositions",
+                         "(Ljava/util/List;)L" TRANSLATE_PACKAGE
+                         "TranslationResult$Builder;");
+    method_TranslationResult_builder_setCursorBytePosition = env->GetMethodID(
+        class_TranslationResult_builder, "setCursorBytePosition",
+        "(I)L" TRANSLATE_PACKAGE "TranslationResult$Builder;");
+    method_TranslationResult_builder_build =
+        env->GetMethodID(class_TranslationResult_builder, "build",
+                         "()L" TRANSLATE_PACKAGE "TranslationResult;");
+  }
+  if ((class_BrailleWord =
+           getGlobalClassRef(env, INTERFACE_PACKAGE "BrailleWord"))) {
+    method_BrailleWord_ctor =
+        env->GetMethodID(class_BrailleWord, "<init>", "([B)V");
+  }
+  if ((class_array_list = getGlobalClassRef(env, "java/util/ArrayList"))) {
+    method_array_list_ctor =
+        env->GetMethodID(class_array_list, "<init>", "()V");
+    method_array_list_add =
+        env->GetMethodID(class_array_list, "add", "(Ljava/lang/Object;)Z");
+  }
+  if ((class_integer = getGlobalClassRef(env, "java/lang/Integer"))) {
+    method_integer_ctor = env->GetMethodID(class_integer, "<init>", "(I)V");
+  }
+  if ((class_charSequence = getGlobalClassRef(env, "java/lang/CharSequence"))) {
+    method_toString = env->GetMethodID(class_charSequence, "toString",
+                                       "()Ljava/lang/String;");
+  }
 }

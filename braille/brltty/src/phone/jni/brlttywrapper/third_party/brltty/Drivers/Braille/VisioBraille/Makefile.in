@@ -1,0 +1,57 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2019 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+DRIVER_CODE = vs
+DRIVER_NAME = VisioBraille
+DRIVER_COMMENT = 20/40
+DRIVER_VERSION = 0.2 (2002)
+DRIVER_DEVELOPERS = Sébastien Hinderer <Sebastien.Hinderer@ens-lyon.org>
+include $(SRC_TOP)braille.mk
+
+braille.$O:
+	$(CC) $(BRL_CFLAGS) -c $(SRC_DIR)/braille.c
+
+###############################################################################
+
+VSTP_OBJECTS = vstp_main.$O vstp_transfer.$O
+
+vstp$X: $(VSTP_OBJECTS) brlapi
+	$(CC) $(LDFLAGS) -o $@ $(VSTP_OBJECTS) $(API_LIBS) $(LDLIBS)
+
+vstp_main.$O:
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/vstp_main.c
+
+vstp_transfer.$O:
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/vstp_transfer.c
+
+api: vstp$X
+braille-all:: $(BUILD_API)
+
+clean::
+	-rm -f vstp$X
+
+install-api:: install-vstp
+
+install-vstp: vstp$X install-program-directory install-man1-directory
+	$(INSTALL_PROGRAM) vstp$X $(INSTALL_PROGRAM_DIRECTORY)
+	$(INSTALL_DATA) $(SRC_DIR)/vstp.1 $(INSTALL_MAN1_DIRECTORY)
+
+uninstall::
+	-rm -f $(INSTALL_PROGRAM_DIRECTORY)/vstp$X
+	-rm -f $(INSTALL_MAN1_DIRECTORY)/vstp.1
+

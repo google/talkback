@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">‏صفحه‌کلید بریل Google</string>
+  <string name="braille_ime_bd_mode_name">ورودی نمایشگر بریل</string>
   <string name="switch_to_screen_away_announcement">حالت پشت به‌صورت</string>
   <string name="switch_to_tabletop_announcement">حالت افقی روبه‌صورت. دستگاه را طوری قرار دهید که درگاه شارژ در سمت چپ باشد. برای به‌روزرسانی موقعیت نقطه، ۶ انگشت را پایین نگه دارید.</string>
   <string name="bring_ime_settings_page">صفحه‌کلید دیگری فعال نیست، به تنظیمات صفحه‌کلید بروید</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">نحوه استفاده از صفحه‌کلید بریل</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">‏برای استفاده از صفحه‌کلید بریل، صفحه‌کلید عادی را باز کنید و روی نماد «انتخاب صفحه‌کلید» %1$s (که معمولاً در گوشه پایین سمت چپ قرار دارد) ضربه بزنید. «%2$s» را انتخاب کنید.
   &lt;br&gt;&lt;br&gt;اگر گزینه‌ای برای عوض کردن صفحه‌کلیدها نمی‌بینید، %3$s (صفحه‌کلید Google) را نصب کنید.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">‏۱. &lt;b&gt;صفحه‌کلید بریل را روشن کنید&lt;/b&gt;: روی «تنظیمات» در زیر ضربه بزنید. در صفحه بعد، «%1$s» را روشن کنید
-    &lt;br&gt;&lt;br&gt;‏۲. &lt;b&gt;از صفحه‌کلید بریل استفاده کنید&lt;/b&gt;: صفحه‌کلید عادی را باز کنید و روی نماد «انتخاب صفحه‌کلید» %2$s (که معمولاً در گوشه پایین سمت چپ قرار دارد) ضربه بزنید. «%1$s» را انتخاب کنید.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">‏۱. روی «تنظیمات» در پایین ضربه بزنید. در صفحه بعدی، «%1$s» را روشن کنید&lt;br&gt;&lt;br&gt;
+    ۲. صفحه‌کلید معمولی‌تان را باز کنید، سپس روی «عوض کردن روش ورودی» %2$s ضربه بزنید (معمولاً در گوشه پایین سمت چپ قرار دارد).&lt;br&gt;&lt;br&gt;
+    ۳. «%1$s» را انتخاب کنید.
     &lt;br&gt;&lt;br&gt;اگر گزینه‌ای برای عوض کردن صفحه‌کلیدها نمی‌بینید، %3$s (صفحه‌کلید Google) را نصب کنید.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">تنظیمات</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">‏۱. صفحه‌کلید بریل را در زیر روشن کنید.&lt;br&gt;&lt;br&gt;
+    ۲. صفحه‌کلید معمولی‌تان را باز کنید، سپس روی «عوض کردن روش ورودی» %2$s ضربه بزنید (معمولاً در گوشه پایین سمت چپ قرار دارد).&lt;br&gt;&lt;br&gt;
+    ۳. «%1$s» را انتخاب کنید.
+    &lt;br&gt;&lt;br&gt;اگر نمی‌توانید صفحه‌کلیدها را عوض کنید، %3$s (صفحه‌کلید Google) را نصب کنید.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">تنظیمات</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">روشن کردن</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">صفحه‌کلید بریل را روشن کنید</string>
   <string name="typing_languages_title">زبان‌های تایپ</string>
   <string name="preferred_language_title">زبان برگزیده</string>
-  <string name="dont_show_again">دیگر نشان داده نشود</string>
   <string name="switch_input_code_gesture_tip_dialog_title">تغییر سریع زبان درحین تایپ کردن</string>
   <string name="switch_input_code_gesture_tip_dialog_message">برای تغییر دادن زبان درحین تایپ کردن با صفحه‌کلید بریل، با ۳ انگشت تند به‌بالا بکشید. سپس «رفتن به زبان بعدی» را انتخاب کنید.</string>
   <string name="title_pref_accumulate_presses">همه نقاط فشرده‌شده در نظر گرفته شود</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">برای رفتن به <b>«صفحه‌کلید بعدی»</b>، با ۳ انگشت تند به‌پایین بکشید</string>
   <string name="gesture_submit_text">برای <b>«ارسال نوشتار»</b>، با ۲ انگشت تند به‌بالا بکشید</string>
   <string name="gesture_open_context_menu">برای <b>«راهنمایی و گزینه‌های دیگر»</b>، با ۳ انگشت به بالا بکشید</string>
-  <string name="done">تمام</string>
   <string name="not_enough_touch_points_dialog_title">دستگاهتان از صفحه‌کلید بریل پشتیبانی نمی‌کند</string>
   <string name="not_enough_touch_points_dialog_message">دستگاهتان از نقاط لمسی کافی پشتیبانی نمی‌کند. برای دریافت اطلاعات بیشتر، با سازنده دستگاه تماس بگیرید.</string>
   <string name="talkback_off_dialog_title">‏برای استفاده از صفحه‌کلید بریل، TalkBack را روشن کنید</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">حرف حذف شد</string>
   <string name="perform_delete_word_announcement">واژه حذف شد</string>
   <string name="continue_tutorial_announcement">بیایید آموزش گام‌به‌گام را ادامه دهیم. %1$s</string>
-  <string name="braille_keyboard_strip_summary">‏نمایشگر بریل خارجی متصل است. بااستفاده از این نمایشگر می‌توانید در این دستگاه نوشتار تایپ کنید.\nیا می‌توانید از «صفحه‌کلید بریل» صفحه لمسی یا روش ورودی بعدی استفاده کنید.</string>
-  <string name="braille_keyboard_strip_button">استفاده از صفحه‌کلید صفحه لمسی</string>
+  <string name="switch_on_screen_keyboard_announcement">درحال رفتن به صفحه لمسی بریل</string>
+  <string name="braille_keyboard_strip_summary">‏نمایشگر بریل خارجی متصل شده است و می‌توانید بااستفاده از آن نوشتار را در تلفنتان تایپ کنید.\n\nهمچنین می‌توانید به صفحه‌کلید بریل صفحه لمسی یا روش ورودی بعدی بروید.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">رفتن به صفحه لمسی بریل</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">رفتن به روش ورودی بعدی</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">ແປ້ນພິມອັກສອນນູນ TalkBack</string>
+  <string name="braille_ime_bd_mode_name">ອິນພຸດຈໍສະແດງຜົນຕົວໜັງສືນູນ</string>
   <string name="switch_to_screen_away_announcement">ໂໝດປິ່ນໜ້າຈໍອອກ</string>
   <string name="switch_to_tabletop_announcement">ໂໝດຕັ້ງໂຕະ. ວາງອຸປະກອນຂອງທ່ານໂດຍໃຫ້ຜອດສາກໄຟຢູ່ທາງຊ້າຍ. ໃຊ້ 6 ນິ້ວກົດໜ້າຈໍຄ້າງໄວ້ເພື່ອອັບເດດຕຳແໜ່ງຂອງຈຸດ.</string>
   <string name="bring_ime_settings_page">ບໍ່ໄດ້ເປີດໃຊ້ແປ້ນພິມອື່ນ, ກະລຸນາໄປທີ່ການຕັ້ງຄ່າແປ້ນພິມ</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">ວິທີໃຊ້ແປ້ນພິມອັກສອນນູນ</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">ເພື່ອໃຊ້ແປ້ນພິມອັກສອນນູນ, ກະລຸນາເປີດແປ້ນພິມທຳມະດາຂອງທ່ານຂຶ້ນມາ, ຈາກນັ້ນແຕະໃສ່ໄອຄອນແປ້ນພິມ %1$s (ປົກກະຕິຈະຢູ່ມຸມຂວາລຸ່ມ). ເລືອກ \"%2$s.\"
   &lt;br&gt;&lt;br&gt;ຫາກທ່ານບໍ່ເຫັນຕົວເລືອກໃຫ້ສະຫຼັບແປ້ນພິມ, ໃຫ້ລອງຕິດຕັ້ງ %3$s, ແປ້ນພິມ Google keyboard.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;ເປີດໃຊ້ແປ້ນພິມຕົວອັກສອນນູນ&lt;/b&gt;: ແຕະການຕັ້ງຄ່າທາງລຸ່ມ. ຢູ່ໜ້າຈໍຕໍ່ໄປ, ໃຫ້ເປີດໃຊ້ \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;ໃຊ້ແປ້ນພິມຕົວອັກສອນນູນ&lt;/b&gt;: ເປີດແປ້ນພິມປົກກະຕິຂອງທ່ານຂຶ້ນມາ, ຈາກນັ້ນແຕະໃສ່ໄອຄອນແປ້ນພິມ %2$s (ປົກກະຕິຈະຢູ່ມຸມຂວາລຸ່ມ). ເລືອກ \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;ຫາກທ່ານບໍ່ເຫັນຕົວເລືອກໃນການສະຫຼັບແປ້ນພິມ, ໃຫ້ຕິດຕັ້ງ %3$s, ແປ້ນພິມ Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">ການຕັ້ງຄ່າ</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. ແຕະ \"ການຕັ້ງຄ່າ\" ທາງລຸ່ມ. ຢູ່ໜ້າຈໍຕໍ່ໄປ, ໃຫ້ເປີດໃຊ້ \"%1$s\"&lt;br&gt;&lt;br&gt;
+    2. ເປີດແປ້ນພິມປົກກະຕິຂອງທ່ານ, ຈາກນັ້ນແຕະສະຫຼັບວິທີການປ້ອນຂໍ້ມູນ %2$s (ປົກກະຕິຢູ່ມຸມຂວາລຸ່ມ).&lt;br&gt;&lt;br&gt;
+    3. ເລືອກ \"%1$s.\"
+    &lt;br&gt;&lt;br&gt;ຫາກທ່ານບໍ່ເຫັນຕົວເລືອກໃນການສະຫຼັບແປ້ນພິມ, ໃຫ້ລອງຕິດຕັ້ງ %3$s, ເຊິ່ງເປັນແປ້ນພິມ Google.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. ເປີດໃຊ້ແປ້ນພິມອັກສອນນູນທາງລຸ່ມ.&lt;br&gt;&lt;br&gt;
+    2. ເປີດແປ້ນພິມປົກກະຕິຂອງທ່ານ, ຈາກນັ້ນແຕະສະຫຼັບວິທີການປ້ອນຂໍ້ມູນ %2$s (ປົກກະຕິຢູ່ມຸມຂວາລຸ່ມ).&lt;br&gt;&lt;br&gt;
+    3. ເລືອກ \"%1$s\".
+    &lt;br&gt;&lt;br&gt;ຫາກທ່ານບໍ່ສາມາດສະຫຼັບແປ້ນພິມ, ໃຫ້ລອງຕິດຕັ້ງ %3$s, ເຊິ່ງເປັນແປ້ນພິມ Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">ການຕັ້ງຄ່າ</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ເປີດໃຊ້</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">ເປີດໃຊ້ແປ້ນພິມອັກສອນນູນ</string>
   <string name="typing_languages_title">ພາສາການພິມ</string>
   <string name="preferred_language_title">ພາສາທີ່ຕ້ອງການ</string>
-  <string name="dont_show_again">ຢ່າສະແດງສິ່ງນີ້ອີກ</string>
   <string name="switch_input_code_gesture_tip_dialog_title">ປ່ຽນພາສາໃນລະຫວ່າງທີ່ກຳລັງພິມໄດ້ຢ່າງວ່ອງໄວ</string>
   <string name="switch_input_code_gesture_tip_dialog_message">ເພື່ອປ່ຽນພາສາຂອງທ່ານໃນລະຫວ່າງທີ່ກຳລັງພິມດ້ວຍແປ້ນພິມອັກສອນນູນ, ໃຫ້ປັດຂຶ້ນດ້ວຍ 3 ນິ້ວ. ຈາກນັ້ນເລືອກ \"ສະຫຼັບໄປຫາພາສາຕໍ່ໄປ\".</string>
   <string name="title_pref_accumulate_presses">ຮວມຈຸດທີ່ກົດໄວ້ທັງໝົດ</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">ເພື່ອສະຫຼັບໄປຫາ <b>ແປ້ນພິມຕໍ່ໄປ</b>, ໃຫ້ປັດລົງດ້ວຍ 3 ນິ້ວ</string>
   <string name="gesture_submit_text">ເພື່ອ <b>ສົ່ງຂໍ້ຄວາມ</b>, ໃຫ້ປັດຂຶ້ນດ້ວຍ 2 ນິ້ວ</string>
   <string name="gesture_open_context_menu">ສຳລັບ <b>ການຊ່ວຍເຫຼືອ ແລະ ຕົວເລືອກອື່ນ</b>, ໃຫ້ປັດຂຶ້ນດ້ວຍ 3 ນິ້ວ</string>
-  <string name="done">ແລ້ວໆ</string>
   <string name="not_enough_touch_points_dialog_title">ອຸປະກອນຂອງທ່ານບໍ່ຮອງຮັບແປ້ນພິມຕົວອັກສອນນູນ</string>
   <string name="not_enough_touch_points_dialog_message">ອຸປະກອນຂອງທ່ານບໍ່ຮອງຮັບຈຸດສຳຜັດພຽງພໍ. ສຳລັບຂໍ້ມູນເພີ່ມເຕີມ, ໃຫ້ຕິດຕໍ່ຜູ້ຜະລິດອຸປະກອນ.</string>
   <string name="talkback_off_dialog_title">ເປີດໃຊ້ TalkBack ເພື່ອໃຊ້ແປ້ນພິມຕົວອັກສອນນູນ</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">ລຶບຕົວອັກສອນແລ້ວ</string>
   <string name="perform_delete_word_announcement">ລຶບຄຳສັບແລ້ວ</string>
   <string name="continue_tutorial_announcement">ມາສືບຕໍ່ການສອນການນຳໃຊ້ກັນ. %1$s</string>
-  <string name="braille_keyboard_strip_summary">ເຊື່ອມຕໍ່ການ​ສະ​ແດງ​ຕົວ​ໜັງ​ສື​ນູນພາຍນອກແລ້ວ, ເຊິ່ງທ່ານສາມາດໃຊ້ເພື່ອພິມຂໍ້ຄວາມໃສ່ອຸປະກອນນີ້ໄດ້.\nຫຼື ທ່ານສາມາດສະຫຼັບໄປໃຊ້ແປ້ນພິມອັກສອນນູນໜ້າຈໍສຳຜັດ ຫຼື ວິທີການປ້ອນຂໍ້ມູນຕໍ່ໄປ.</string>
-  <string name="braille_keyboard_strip_button">ສະຫຼັບໄປໃຊ້ແປ້ນພິມໜ້າຈໍສຳຜັດ</string>
+  <string name="switch_on_screen_keyboard_announcement">ກຳລັງສະຫຼັບໄປຫາໜ້າຈໍສຳຜັດອັກສອນນູນ</string>
+  <string name="braille_keyboard_strip_summary">ເຊື່ອມຕໍ່ການ​ສະ​ແດງ​ຕົວ​ໜັງ​ສື​ນູນພາຍນອກແລ້ວ, ເຊິ່ງທ່ານສາມາດໃຊ້ເພື່ອພິມຂໍ້ຄວາມໄປໃສ່ໂທລະສັບຂອງທ່ານໄດ້.\n\nທ່ານສາມາດສະຫຼັບໄປຫາແປ້ນພິມອັກສອນນູນໜ້າຈໍສຳຜັດ ຫຼື ວິທີການປ້ອນຂໍ້ມູນຕໍ່ໄປໄດ້ນຳ.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">ສະຫຼັບໄປຫາໜ້າຈໍສຳຜັດອັກສອນນູນ</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">ສະຫຼັບໄປຫາວິທີການປ້ອນຂໍ້ມູນຕໍ່ໄປ</string>
 </resources>

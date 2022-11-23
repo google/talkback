@@ -36,6 +36,7 @@ import android.os.Build.VERSION_CODES;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import com.google.android.accessibility.talkback.ActorState;
@@ -49,6 +50,7 @@ import com.google.android.accessibility.talkback.contextmenu.ContextMenu;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem.DeferredType;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import java.util.ArrayList;
@@ -72,7 +74,7 @@ public class RuleCustomAction extends NodeMenuRule {
 
   @Override
   public boolean accept(AccessibilityService service, AccessibilityNodeInfoCompat node) {
-    return acceptCustomActionMenu(node) || acceptEditingMenu(node);
+    return acceptCustomActionMenu(node) || acceptEditingAndSelectingMenu(node);
   }
 
   private static boolean acceptCustomActionMenu(AccessibilityNodeInfoCompat node) {
@@ -80,8 +82,9 @@ public class RuleCustomAction extends NodeMenuRule {
     return (actions != null && !actions.isEmpty());
   }
 
-  private static boolean acceptEditingMenu(AccessibilityNodeInfoCompat node) {
-    return (Role.getRole(node) == Role.ROLE_EDIT_TEXT);
+  private static boolean acceptEditingAndSelectingMenu(AccessibilityNodeInfoCompat node) {
+    return ((node.isFocused() && Role.getRole(node) == Role.ROLE_EDIT_TEXT)
+        || AccessibilityNodeInfoUtils.isNonEditableSelectableText(node));
   }
 
   @Override
@@ -92,8 +95,8 @@ public class RuleCustomAction extends NodeMenuRule {
       populateCustomMenuItemsForNode(service, node, customItems, includeAncestors);
     }
     List<ContextMenuItem> editingItems = new ArrayList<>();
-    if (acceptEditingMenu(node)) {
-      populateEditingMenuItemsForNode(service, node, editingItems, includeAncestors);
+    if (acceptEditingAndSelectingMenu(node)) {
+      populateEditingAndSelectingMenuItemsForNode(service, node, editingItems, includeAncestors);
     }
     customItems.addAll(editingItems);
     return customItems;
@@ -107,7 +110,7 @@ public class RuleCustomAction extends NodeMenuRule {
    * @param node The node to process
    * @param includeAncestors sets to {@code false} not to search its ancestor
    */
-  private void populateEditingMenuItemsForNode(
+  private void populateEditingAndSelectingMenuItemsForNode(
       AccessibilityService service,
       AccessibilityNodeInfoCompat node,
       List<ContextMenuItem> items,
@@ -115,10 +118,11 @@ public class RuleCustomAction extends NodeMenuRule {
     // This action has inconsistencies with EditText nodes that have
     // contentDescription attributes.
     if (TextUtils.isEmpty(node.getContentDescription())) {
-      if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          node,
-          AccessibilityNodeInfoCompat.ACTION_SET_SELECTION,
-          AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY)) {
+      if (Role.getRole(node) == Role.ROLE_EDIT_TEXT
+          && AccessibilityNodeInfoUtils.supportsAnyAction(
+              node,
+              AccessibilityNodeInfoCompat.ACTION_SET_SELECTION,
+              AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY)) {
         ContextMenuItem moveToBeginning =
             ContextMenu.createMenuItem(
                 service,
@@ -129,10 +133,11 @@ public class RuleCustomAction extends NodeMenuRule {
         items.add(moveToBeginning);
       }
 
-      if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          node,
-          AccessibilityNodeInfoCompat.ACTION_SET_SELECTION,
-          AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY)) {
+      if (Role.getRole(node) == Role.ROLE_EDIT_TEXT
+          && AccessibilityNodeInfoUtils.supportsAnyAction(
+              node,
+              AccessibilityNodeInfoCompat.ACTION_SET_SELECTION,
+              AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY)) {
         ContextMenuItem moveToEnd =
             ContextMenu.createMenuItem(
                 service,
@@ -142,9 +147,9 @@ public class RuleCustomAction extends NodeMenuRule {
                 service.getString(R.string.title_edittext_breakout_move_to_end));
         items.add(moveToEnd);
       }
-
-      if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          node, AccessibilityNodeInfoCompat.ACTION_CUT)) {
+      if (Role.getRole(node) == Role.ROLE_EDIT_TEXT
+          && AccessibilityNodeInfoUtils.supportsAnyAction(
+              node, AccessibilityNodeInfoCompat.ACTION_CUT)) {
         ContextMenuItem cut =
             ContextMenu.createMenuItem(
                 service,
@@ -166,9 +171,9 @@ public class RuleCustomAction extends NodeMenuRule {
                 service.getString(android.R.string.copy));
         items.add(copy);
       }
-
-      if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          node, AccessibilityNodeInfoCompat.ACTION_PASTE)) {
+      if (Role.getRole(node) == Role.ROLE_EDIT_TEXT
+          && AccessibilityNodeInfoUtils.supportsAnyAction(
+              node, AccessibilityNodeInfoCompat.ACTION_PASTE)) {
         ContextMenuItem paste =
             ContextMenu.createMenuItem(
                 service,
@@ -259,6 +264,24 @@ public class RuleCustomAction extends NodeMenuRule {
       } else if (id == AccessibilityNodeInfoCompat.ACTION_COLLAPSE) {
         label = service.getString(R.string.title_action_collapse);
         deferToWindowsSrable = true;
+      } else if (FeatureSupport.supportDragAndDrop()) {
+        if (id == AccessibilityNodeInfo.AccessibilityAction.ACTION_DRAG_START.getId()) {
+          // TODO: Replace with AndroidX constants
+          label =
+              action.getLabel() == null
+                  ? service.getString(R.string.title_action_drag_start)
+                  : action.getLabel();
+        } else if (id == AccessibilityNodeInfo.AccessibilityAction.ACTION_DRAG_DROP.getId()) {
+          label =
+              action.getLabel() == null
+                  ? service.getString(R.string.title_action_drag_drop)
+                  : action.getLabel();
+        } else if (id == AccessibilityNodeInfo.AccessibilityAction.ACTION_DRAG_CANCEL.getId()) {
+          label =
+              action.getLabel() == null
+                  ? service.getString(R.string.title_action_drag_cancel)
+                  : action.getLabel();
+        }
       }
 
       if (TextUtils.isEmpty(label)) {

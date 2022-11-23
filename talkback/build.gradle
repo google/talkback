@@ -3,18 +3,9 @@ apply from: "../shared.gradle"
 
 dependencies {
     implementation project(':proguard')
-    implementation project(':uiunderstanding')
     implementation project(':utils')
-    implementation project(':compositor')
     implementation project(':brailleime')
     implementation project(':brailleinterfaces')
     implementation project(':brailledisplay')
-}
-
-def talkbackMainPermission = '"com.android.talkback.permission.TALKBACK"'
-
-android {
-    defaultConfig {
-        buildConfigField("String", "TALKBACK_MAIN_PERMISSION", talkbackMainPermission)
-    }
+    implementation fileTree(dir: "src/main/libs", include: ["*.aar"])
 }

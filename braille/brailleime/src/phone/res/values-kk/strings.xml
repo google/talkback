@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack Брайль пернетақтасы</string>
+  <string name="braille_ime_bd_mode_name">Брайль дисплейінде енгізу</string>
   <string name="switch_to_screen_away_announcement">Экранды ары қарату режимі</string>
   <string name="switch_to_tabletop_announcement">Үстел үсті режимі. Құрылғыны зарядтау порты сол жақта тұратындай қойыңыз. Нүктенің орнын өзгерту үшін 6 саусақпен басып тұрыңыз.</string>
   <string name="bring_ime_settings_page">Басқа пернетақта іске қосылмады, пернатақта параметрлеріне өтіңіз.</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Брайль пернетақтасын пайдалану әдісі</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Брайль пернетақтасын пайдалану үшін кәдімгі пернетақтаны ашып, пернетақта таңбашасын %1$s (әдетте төменгі оң жақта) түртіңіз. \"%2$s\" таңдаңыз.
   &lt;br&gt;&lt;br&gt;Пернетақталарды ауыстыру опциясын көрмесеңіз, %3$s, Google пернетақтасын орнатып көріңіз.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Брайль пернетақтасын іске қосу&lt;/b&gt;: төмендегі \"Параметрлер\" бөлімін түртіңіз. Келесі экранда \"%1$s\" іске қосыңыз
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Брайль пернетақтасын пайдалану&lt;/b&gt;: кәдімгі пернетақтаны ашып, пернетақта таңдау таңбашасын %2$s (әдетте төменгі оң жақта) түртіңіз. \"%1$s\" таңдаңыз.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Төмендегі \"Параметрлер\" тармағын түртіңіз. Келесі экранда \"%1$s\" қосыңыз.&lt;br&gt;&lt;br&gt;
+    2. Қарапайым пернетақтаны ашыңыз, содан кейін %2$s енгізу әдісін ауыстыру пернесін (әдетте төменгі оң жақ бұрышта) түртіңіз.&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" таңдаңыз.
     &lt;br&gt;&lt;br&gt;Пернетақталарды ауыстыру опциясын көрмесеңіз, %3$s, Google пернетақтасын орнатып көріңіз.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Параметрлер</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Төмендегі Брайль пернетақтасын қосыңыз.&lt;br&gt;&lt;br&gt;
+    2. Қарапайым пернетақтаны ашыңыз, содан кейін %2$s енгізу әдісін ауыстыру пернесін (әдетте төменгі оң жақ бұрышта) түртіңіз.&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" таңдаңыз.
+    &lt;br&gt;&lt;br&gt;Пернетақталарды ауыстыра алмасаңыз, %3$s Google пернетақтасын орнатып көріңіз.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Параметрлер</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Қосу</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Брайль пернетақтасын қосу</string>
   <string name="typing_languages_title">Теру тілдері</string>
   <string name="preferred_language_title">Қолданатын тіл</string>
-  <string name="dont_show_again">Қайта көрсетілмесін</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Теру кезінде тілді жылдам ауыстыру</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Брайль пернетақтасымен теру кезінде тілді ауыстыру үшін 3 саусағыңызбен жоғары сырғытыңыз. Содан кейін \"келесі тілге ауысу\" тармағын таңдаңыз.</string>
   <string name="title_pref_accumulate_presses">Барлық басылған нүктені қамту</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>Келесі пернатақтаға</b> ауысу үшін 3 саусақпен төмен қарай сырғытыңыз.</string>
   <string name="gesture_submit_text"><b>Мәтін жіберу</b> үшін 2 саусақпен жоғары қарай сырғытыңыз.</string>
   <string name="gesture_open_context_menu"><b>Анықтама және қосымша опциялар</b> үшін 3 саусақпен жоғары қарай сырғытыңыз.</string>
-  <string name="done">Дайын</string>
   <string name="not_enough_touch_points_dialog_title">Құрылғыңыз Брайль пернетақтасын қолдамайды.</string>
   <string name="not_enough_touch_points_dialog_message">Құрылғыңыз жеткілікті түрту орындарын қолдамайды. Қосымша ақпарат алу үшін құрылғы өндірушісіне хабарласыңыз.</string>
   <string name="talkback_off_dialog_title">Брайль пернетақтасын пайдалану үшін TalkBack функциясын іске қосыңыз.</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Әріп жойылды</string>
   <string name="perform_delete_word_announcement">Сөз жойылды</string>
   <string name="continue_tutorial_announcement">Оқуды жалғастыру. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Сыртқы Брайль дисплейі жалғанды, оны осы құрылғыға мәтін енгізу үшін пайдалануға болады.\nСенсорлық экранды Брайль пернетақтасына немесе келесі енгізу әдісіне ауыса аласыз.</string>
-  <string name="braille_keyboard_strip_button">Сенсорлық экранды пернетақтаға ауысу</string>
+  <string name="switch_on_screen_keyboard_announcement">Брайль сенсорлық экранына ауысып жатыр</string>
+  <string name="braille_keyboard_strip_summary">Сыртқы Брайль дисплейі жалғанды, оны телефоныңызға мәтін енгізу үшін пайдалануға болады.\n\nСондай-ақ Брайль сенсорлық экранына немесе келесі енгізу әдісіне ауыса аласыз.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Брайль сенсорлық экранына ауысу</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Келесі енгізу әдісіне ауысу</string>
 </resources>

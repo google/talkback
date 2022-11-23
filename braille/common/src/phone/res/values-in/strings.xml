@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Jangan tampilkan ini lagi</string>
+  <string name="done">Selesai</string>
   <string name="number_announcement">Angka</string>
   <string name="capitalize_announcement">Kapital</string>
   <string name="read_out_deleted">%s dihapus</string>
@@ -7,6 +9,7 @@
     <item quantity="one">titik %s</item>
     <item quantity="other">titik %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille tanpa Kontraksi</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille dengan Kontraksi</string>
   <string name="code_user_facing_name_es">Spanyol</string>

@@ -1,0 +1,108 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+####################
+# Default Bindings #
+####################
+
+bind ETouchLeftFront+ETouchRightRear INFO
+bind ETouchLeftFront+ETouchRightFront PREFMENU
+
+bind ThumbUp+!ThumbDown CSRTRK+on
+bind ThumbDown+!ThumbUp CSRTRK+off
+bind ThumbHome RETURN
+bind ThumbLeft+ThumbRight CSRJMP_VERT
+
+bind ThumbUp LNUP
+bind ThumbDown LNDN
+bind ThumbLeft FWINLT
+bind ThumbRight FWINRT
+
+bind ThumbHome+ThumbLeft FWINLTSKIP
+bind ThumbHome+ThumbRight FWINRTSKIP
+
+bind ThumbLeft+ThumbUp TOP_LEFT
+bind ThumbLeft+ThumbDown BOT_LEFT
+bind ThumbRight+ThumbUp ATTRUP
+bind ThumbRight+ThumbDown ATTRDN
+
+bind ETouchLeftRear+ThumbUp PRPROMPT
+bind ETouchLeftRear+ThumbDown NXPROMPT
+bind ETouchLeftFront+ThumbUp PRPGRPH
+bind ETouchLeftFront+ThumbDown NXPGRPH
+bind ETouchRightRear+ThumbUp PRSEARCH
+bind ETouchRightRear+ThumbDown NXSEARCH
+
+# ROUTE+128 is a long-press on the routing key.
+bind RoutingKey1 ROUTE:ROUTE+128
+
+bind ETouchLeftRear+ETouchLeftFront+RoutingKey1 DESCCHAR
+bind RoutingKey1+!RoutingKey1 CLIP_COPY
+bind ETouchLeftRear+RoutingKey1 CLIP_NEW
+bind ETouchLeftFront+RoutingKey1 CLIP_ADD
+bind ETouchRightRear+RoutingKey1 COPY_LINE
+bind ETouchRightFront+RoutingKey1 COPY_RECT
+bind ETouchRightRear+ETouchRightFront PASTE
+
+bind ThumbLeft+RoutingKey1 PRINDENT
+bind ThumbRight+RoutingKey1 NXINDENT
+bind ThumbUp+RoutingKey1 PRDIFCHAR
+bind ThumbDown+RoutingKey1 NXDIFCHAR
+bind ThumbHome+RoutingKey1 SETLEFT
+
+bind ETouchLeftRear+ETouchLeftFront+ETouchRightRear FREEZE
+bind ETouchLeftRear+ETouchRightRear+ETouchRightFront DISPMD
+
+bind ThumbLeft+ETouchLeftRear CSRVIS
+bind ThumbLeft+ETouchLeftFront ATTRVIS
+bind ThumbLeft+ETouchRightFront SIXDOTS
+
+map Dot1 DOT1
+map Dot2 DOT2
+map Dot3 DOT3
+map Dot4 DOT4
+map Dot5 DOT5
+map Dot6 DOT6
+map Dot7 DOT7
+map Dot8 DOT8
+map Space SPACE
+map Control CONTROL
+map Alt META
+bind Enter KEY_ENTER
+bind Windows KEY_ESCAPE
+
+########################
+# BrailleBack Bindings #
+########################
+
+# Scroll backwards
+bind ETouchLeftFront WINUP
+# Scroll forwards
+bind ETouchRightFront WINDN
+# Keyboard help
+bind ETouchLeftRear+ETouchRightRear LEARN
+# Pan left
+bind ETouchLeftRear FWINLT
+# Pan right
+bind ETouchRightRear FWINRT
+# Navigate to top
+bind ThumbHome+ThumbUp TOP
+# Navigate to bottom
+bind ThumbHome+ThumbDown BOT
+
+include ../android-chords.kti

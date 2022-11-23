@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack Braila tastatūra</string>
+  <string name="braille_ime_bd_mode_name">Ievade ar Braila displeju</string>
   <string name="switch_to_screen_away_announcement">Prom vērsta ekrāna režīms</string>
   <string name="switch_to_tabletop_announcement">Galda režīms. Novietojiet ierīci tā, lai uzlādes pieslēgvieta būtu vērsta pa kreisi. Lai mainītu punktu pozīciju, piespiediet sešus pirkstus un turiet.</string>
   <string name="bring_ime_settings_page">Nav iespējota cita tastatūra. Pārejiet uz tastatūras iestatījumiem.</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Braila tastatūras izmantošana</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Lai izmantotu Braila tastatūru, atveriet parasto tastatūru un pieskarieties tastatūras izvēles ikonai %1$s (parasti tiek rādīta apakšējā labajā stūrī). Atlasiet vienumu “%2$s”.
   &lt;br&gt;&lt;br&gt;Ja nav redzama tastatūras pārslēgšanas iespēja, mēģiniet instalēt Google tastatūru %3$s.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Braila tastatūras ieslēgšana&lt;/b&gt;: pieskarieties vienumam Iestatījumi. Nākamajā ekrānā ieslēdziet iestatījumu “%1$s”.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Braila tastatūras izmantošana&lt;/b&gt;: atveriet parasto tastatūru, pēc tam pieskarieties tastatūras izvēlnes ikonai %2$s (parasti atrodas apakšējā labajā stūrī). Atlasiet vienumu “%1$s”.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Tālāk pieskarieties pie vienuma Iestatījumi. Nākamajā ekrānā ieslēdziet iestatījumu “%1$s”.&lt;br&gt;&lt;br&gt;
+    2. Atveriet parasto tastatūru, pēc tam pieskarieties pie Pārslēgt ievades metodi %2$s (parasti atrodas apakšējā labajā stūrī).&lt;br&gt;&lt;br&gt;
+    3. Atlasiet vienumu “%1$s”.
   &lt;br&gt;&lt;br&gt;Ja nav redzama tastatūras pārslēgšanas iespēja, mēģiniet instalēt Google tastatūru %3$s.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Iestatījumi</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Tālāk ieslēdziet Braila tastatūru.&lt;br&gt;&lt;br&gt;
+    2. Atveriet parasto tastatūru, pēc tam pieskarieties pie Pārslēgt ievades metodi %2$s (parasti atrodas apakšējā labajā stūrī).&lt;br&gt;&lt;br&gt;
+    3. Atlasiet vienumu “%1$s”.
+    &lt;br&gt;&lt;br&gt;Ja nevarat pārslēgt tastatūras, mēģiniet instalēt Google tastatūru %3$s.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Iestatījumi</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Ieslēgt</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Ieslēgt Braila tastatūru</string>
   <string name="typing_languages_title">Rakstīšanas valodas</string>
   <string name="preferred_language_title">Vēlamā valoda</string>
-  <string name="dont_show_again">Turpmāk vairs nerādīt</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Ātra valodas nomaiņa rakstīšanas laikā</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Lai mainītu valodu, kad rakstīšanai izmantojat Braila tastatūru, velciet augšup ar 3 pirkstiem. Pēc tam atlasiet opciju “Pārslēgt uz nākamo valodu”.</string>
   <string name="title_pref_accumulate_presses">Visu nospiesto punktu iekļaušana</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Lai pārietu uz <b>nākamo tastatūru</b>, velciet lejup ar 3 pirkstiem.</string>
   <string name="gesture_submit_text">Lai <b>iesniegtu tekstu</b>, velciet augšup ar 2 pirkstiem.</string>
   <string name="gesture_open_context_menu">Lai <b>skatītu palīdzību un citas iespējas</b>, velciet augšup ar 3 pirkstiem.</string>
-  <string name="done">Gatavs</string>
   <string name="not_enough_touch_points_dialog_title">Jūsu ierīcē netiek atbalstīta Braila tastatūra.</string>
   <string name="not_enough_touch_points_dialog_message">Jūsu ierīcē netiek atbalstīts pietiekami daudz skāriena punktu. Lai iegūtu plašāku informāciju, sazinieties ar ierīces ražotāju.</string>
   <string name="talkback_off_dialog_title">TalkBack ieslēgšana, lai izmantotu Braila tastatūru</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Burts izdzēsts</string>
   <string name="perform_delete_word_announcement">Vārds izdzēsts</string>
   <string name="continue_tutorial_announcement">Turpināsim pamācību. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Ir pievienots ārējs Braila displejs, ko jūs varat izmantot, lai rakstītu tekstu šajā ierīcē.\nVarat arī pārslēgties uz skārienekrāna Braila tastatūru vai nākamo ievades metodi.</string>
-  <string name="braille_keyboard_strip_button">Pārslēgties uz skārienekrāna tastatūru</string>
+  <string name="switch_on_screen_keyboard_announcement">Notiek pārslēgšana uz skārienekrāna Braila tastatūru</string>
+  <string name="braille_keyboard_strip_summary">Ir pievienots ārējs Braila displejs, ko jūs varat izmantot, lai rakstītu tekstu tālrunī.\n\nVarat arī pārslēgties uz skārienekrāna Braila tastatūru vai nākamo ievades metodi.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Pārslēgties uz skārienekrāna Braila tastatūru</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Pārslēgties uz nākamo ievades metodi</string>
 </resources>

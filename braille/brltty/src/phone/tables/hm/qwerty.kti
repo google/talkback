@@ -1,0 +1,35 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+hide on
+
+bind Space+Dot1+Dot3+Dot6 UPPER
+bind Space+Dot1+Dot3+Dot4 META
+
+bind Space+Dot2+Dot4 KEY_INSERT
+bind Space+Dot1+Dot4+Dot5 KEY_DELETE
+
+map Space SPACE
+map Dot1 dot1
+map Dot2 dot2
+map Dot3 dot3
+map Dot4 dot4
+map Dot5 dot5
+map Dot6 dot6
+
+hide off

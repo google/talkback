@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">এইটো পুনৰ নেদেখুৱাব</string>
+  <string name="done">কৰা হ’ল</string>
   <string name="number_announcement">সংখ্যা</string>
   <string name="capitalize_announcement">সৰ্বাধিক সীমা</string>
   <string name="read_out_deleted">%s মচা হ\'ল</string>
@@ -7,6 +9,7 @@
     <item quantity="one">বিন্দু %s</item>
     <item quantity="other">বিন্দু %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
   <string name="code_user_facing_name_es">স্পেনিশ্ব</string>

@@ -45,6 +45,9 @@ public interface TalkBackForBrailleIme {
    */
   void onBrailleImeInactivated(boolean usePassThrough);
 
+  /** TalkBack provides the ability to enable BrailleIme. */
+  boolean setInputMethodEnabled();
+
   /** TalkBack provides its privileged WindowManager to BrailleIme. */
   WindowManager getWindowManager();
 

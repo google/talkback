@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack බ්රේල් යතුරු පුවරුව</string>
+  <string name="braille_ime_bd_mode_name">බ්‍රේල් සංදර්ශක ආදානය</string>
   <string name="switch_to_screen_away_announcement">තිරයෙන් බැහැර ප්‍රකාරය</string>
   <string name="switch_to_tabletop_announcement">ටේබල්ටොප් ප්‍රකාරය. ඔබගේ උපාංගය ආරෝපණ තොට වමට සිටින ලෙස තබන්න. තිත් පිහිටීම යාවත්කාලීන කිරීමට, ඇඟිලි 6කින් පහළට තද කරන්න.</string>
   <string name="bring_ime_settings_page">වෙනත් යතුරු පුවරු කිසිවක් සබල කර නැත, යතුරු පුවරු සැකසීම් වෙත යන්න</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">බ්රේල් යතුරු පුවරුව භාවිත කරන ආකාරය</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">බ්රේල් යතුරු පුවරුව භාවිත කිරීමට, ඔබේ සාමාන්‍ය යතුරු පුවරුව විවෘත කර, අනතුරුව යතුරු පුවරුව තෝරා ගන්න අයිකනය තට්ටු කරන්න %1$s (සාමාන්‍යයෙන් පහළ දකුණු කෙළවර). \"%2$s.\" තෝරන්න
   &lt;br&gt;&lt;br&gt;ඔබ යතුරු පුවරු මාරු කිරීමට විකල්පයක් දකින්නේ නැති නම්, %3$s, Google යතුරු පුවරුව ස්ථාපනය කිරීමට උත්සාහ කරන්න.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;බ්රේල් යතුරු පුවරුව ක්‍රියාත්මක කරන්න&lt;/b&gt;: පහත සැකසීම් තට්ටු කරන්න. ඊළඟ තිරයෙහි, \"%1$s.\" ක්‍රියාත්මක කරන්න
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;බ්රේල් යතුරු පුවරුව භාවිත කරන්න&lt;/b&gt;: ඔබේ සාමාන්‍ය යතුරු පුවරුව විවෘත කර, අනතුරුව යතුරු පුවරුව තෝරා ගන්න අයිකනය විවෘත කරන්න %2$s (සාමාන්‍යයෙන් පහළ දකුණු කෙළවර). \"%1$s.\" තෝරන්න
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. පහත \"සැකසීම්\" තට්ටු කරන්න. ඊළඟ තිරයෙහි, \"%1$s\" ක්‍රියාත්මක කරන්න&lt;br&gt;&lt;br&gt;
+    2. ඔබගේ සාමාන්‍ය යතුරු පුවරුව විවෘත කරන්න, ඉන්පසු ආදාන ක්‍රමය මාරු කරන්න තට්ටු කරන්න %2$s (සාමාන්‍යයෙන් පහළ දකුණු කෙළවරේ ඇත).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s.\" තෝරන්න
     &lt;br&gt;&lt;br&gt;ඔබ යතුරු පුවරු මාරු කිරීමට විකල්පයක් දකින්නේ නැති නම්, %3$s, Google යතුරු පුවරුව ස්ථාපනය කිරීමට උත්සාහ කරන්න.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">සැකසීම්</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. පහත බ්‍රේල් යතුරු පුවරුව ක්‍රියාත්මක කරන්න.&lt;br&gt;&lt;br&gt;
+    2. ඔබගේ සාමාන්‍ය යතුරු පුවරුව විවෘත කරන්න, ඉන්පසු ආදාන ක්‍රමය මාරු කරන්න තට්ටු කරන්න %2$s (සාමාන්‍යයෙන් පහළ දකුණු කෙළවරේ ඇත).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" තෝරන්න.
+    &lt;br&gt;&lt;br&gt;ඔබට යතුරු පුවරු මාරු කිරීමට නොහැකි නම්, %3$s, Google යතුරු පුවරුව ස්ථාපනය කිරීමට උත්සාහ කරන්න.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">සැකසීම්</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ක්‍රියාත්මක කරන්න</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">බ්‍රේල් යතුරු පුවරුව ක්‍රියාත්මක කරන්න</string>
   <string name="typing_languages_title">ටයිප් කිරීමේ භාෂා</string>
   <string name="preferred_language_title">වඩා කැමති භාෂාව</string>
-  <string name="dont_show_again">මෙය නැවත නොපෙන්වන්න</string>
   <string name="switch_input_code_gesture_tip_dialog_title">ටයිප් කරන අතරතුර භාෂාව ඉක්මනින් වෙනස් කරන්න</string>
   <string name="switch_input_code_gesture_tip_dialog_message">බ්‍රේල් යතුරුපුවරුව සමඟ ටයිප් කරන අතරතුර ඔබගේ භාෂාව වෙනස් කිරීමට, ඇඟිලි 3කින් ඉහළට ස්වයිප් කරන්න. ඉන්පසු \"ඊළඟ භාෂාවට මාරු වන්න\" තෝරන්න.</string>
   <string name="title_pref_accumulate_presses">සියලු එබූ තිත් ඇතුළත්ය</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>ඊළඟ යතුරු පුවරුව</b> වෙත මාරු කිරීමට, ඇඟිලි 3ක් පහළට ස්වයිප් කරන්න</string>
   <string name="gesture_submit_text"><b>පෙළ භාරදීමට</b>, ඇඟිලි 2කින් ඉහළට ස්වයිප් කරන්න</string>
   <string name="gesture_open_context_menu"><b>සහාය සහ වෙනත් විකල්ප</b> සඳහා, ඇඟිලි 3කින් ඉහළට ස්වයිප් කරන්න</string>
-  <string name="done">නිමයි</string>
   <string name="not_enough_touch_points_dialog_title">ඔබේ උපාංගය බ්රේල් යතුරු පුවරුවට සහාය නොදක්වයි</string>
   <string name="not_enough_touch_points_dialog_message">ඔබේ උපාංගය ප්‍රමාණවත් ස්පර්ශ ලක්ෂ්‍යවලට සහාය නොදක්වයි. තව තොරතුරු සඳහා, ඔබේ උපාංග නිෂ්පාදක අමතන්න.</string>
   <string name="talkback_off_dialog_title">බ්රේල් යතුරු පුවරුව භාවිත කිරීමට TalkBack ක්‍රියාත්මක කරන්න</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">අකුර මකන ලදී</string>
   <string name="perform_delete_word_announcement">වචනය මකන ලදී</string>
   <string name="continue_tutorial_announcement">අපි දිගටම නිබන්ධනය යමු. %1$s</string>
-  <string name="braille_keyboard_strip_summary">බාහිර බ්‍රේල් සංදර්ශකයක් සම්බන්ධ කර ඇති අතර, ඔබට මෙම උපාංගයට පෙළ ටයිප් කිරීමට එය භාවිත කළ හැක.\nනැතහොත්, ඔබට ස්පර්ශ තිර බ්‍රේල් යතුරුපුවරුව හෝ ඊළඟ ආදාන ක්‍රමය වෙත මාරු විය හැකිය.</string>
-  <string name="braille_keyboard_strip_button">ස්පර්ශ තිර යතුරු පුවරුව වෙත මාරු වන්න</string>
+  <string name="switch_on_screen_keyboard_announcement">බ්‍රේල් ස්පර්ශ තිරය වෙත මාරු වීම</string>
+  <string name="braille_keyboard_strip_summary">බාහිර බ්‍රේල් සංදර්ශකයක් සම්බන්ධ කර ඇති අතර, ඔබට ඔබගේ දුරකථනයට පෙළ ටයිප් කිරීමට එය භාවිත කළ හැකිය.\n\nඔබට ස්පර්ශ තිර බ්‍රේල් යතුරු පුවරුව හෝ මීළඟ ආදාන ක්‍රමය වෙත මාරු වීමටද හැකිය.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">බ්‍රේල් ස්පර්ශ තිරය වෙත මාරු වන්න</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">මීළඟ ආදාන ක්‍රමය වෙත මාරු වන්න</string>
 </resources>

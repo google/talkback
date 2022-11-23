@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack ბრაილის კლავიატურა</string>
+  <string name="braille_ime_bd_mode_name">ბრაილის ეკრანის შეყვანა</string>
   <string name="switch_to_screen_away_announcement">მიბრუნებული ეკრანის რეჟიმი</string>
   <string name="switch_to_tabletop_announcement">მაგიდის რეჟიმი. დადეთ თქვენი მოწყობილობა დასატენი პორტით მარცხნივ. წერტილის მდებარეობის გასაახლებლად, დააჭირეთ 6 თითით.</string>
   <string name="bring_ime_settings_page">სხვა კლავიატურა არ არის ჩართული, გადადით კლავიატურის პარამეტრებზე</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">ბრაილის კლავიატურის გამოყენების წესი</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">ბრაილის კლავიატურის გამოსაყენებლად გახსენით ჩვეულებრივი კლავიატურა, შემდეგ შეეხეთ კლავიატურის არჩევის ხატულას %1$s (ჩვეულებრივ, ქვედა მარჯვენა კუთხეშია). აირჩიეთ „%2$s“.
   &lt;br&gt;&lt;br&gt;თუ კლავიატურების გადართვის ვარიანტს ვერ ხედავთ, ცადეთ, დააინსტალიროთ %3$s, Google კლავიატურა.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;ბრაილის კლავიატურის ჩართვა&lt;/b&gt;: შეეხეთ ქვემოთ მოცემულ პარამეტრებს. შემდეგ ეკრანზე ჩართეთ „%1$s“.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;ბრაილის კლავიატურის გამოყენება&lt;/b&gt;: გახსენით ჩვეულებრივი კლავიატურა, შემდეგ შეეხეთ კლავიატურის არჩევის ხატულას %2$s (ჩვეულებრივ, ქვედა მარჯვენა კუთხეშია). აირჩიეთ „%1$s“.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. შეხებით აირჩიეთ „პარამეტრები“ ქვემოთ. შემდეგ ეკრანზე ჩართეთ „%1$s“&lt;br&gt;&lt;br&gt;
+    2. გახსენით თქვენი ჩვეულებრივი კლავიატურა, შემდეგ შეხებით აირჩიეთ შეყვანის მეთოდის გადართვა %2$s (როგორც წესი, მარჯვენა ქვედა კუთხეში).&lt;br&gt;&lt;br&gt;
+    3. აირჩიეთ „%1$s“.
     &lt;br&gt;&lt;br&gt;თუ კლავიატურების გადართვის ვარიანტს ვერ ხედავთ, ცადეთ, დააინსტალიროთ %3$s, Google კლავიატურა.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">პარამეტრები</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. ჩართეთ ბრაილის კლავიატურა ქვემოთ.&lt;br&gt;&lt;br&gt;
+    2. გახსენით თქვენი ჩვეულებრივი კლავიატურა, შემდეგ შეხებით აირჩიეთ შეყვანის მეთოდის გადართვა %2$s (როგორც წესი, მარჯვენა ქვედა კუთხეში).&lt;br&gt;&lt;br&gt;
+    3. აირჩიეთ „%1$s“.
+    &lt;br&gt;&lt;br&gt;თუ ვერ ახერხებთ კლავიატურების გადართვას, ცადეთ, დააინსტალიროთ %3$s, Google კლავიატურა.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">პარამეტრები</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ჩართვა</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">ბრაილის კლავიატურის ჩართვა</string>
   <string name="typing_languages_title">აკრეფის ენა</string>
   <string name="preferred_language_title">უპირატესი ენა</string>
-  <string name="dont_show_again">აღარ მაჩვენოთ ეს</string>
   <string name="switch_input_code_gesture_tip_dialog_title">ენის სწრაფად შეცვლა აკრეფისას</string>
   <string name="switch_input_code_gesture_tip_dialog_message">ბრაილის კლავიატურით აკრეფისას ენის შესაცვლელად გადაფურცლეთ 3-მდე თითით. შემდეგ კი აირჩიეთ „შემდეგ ენაზე გადართვა“.</string>
   <string name="title_pref_accumulate_presses">ყველა დაჭერილი წერტილის შეყვანა</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>შემდეგ კლავიატურაზე</b> გადასართავად გადაფურცლეთ ქვემოთ 3 თითით</string>
   <string name="gesture_submit_text"><b>ტექსტის გასაგზავნად</b> გადაფურცლეთ ზემოთ 2 თითით</string>
   <string name="gesture_open_context_menu"><b>დახმარების და სხვა ვარიანტების</b> სანახავად გადაფურცლეთ ზემოთ 3 თითით</string>
-  <string name="done">მზადაა</string>
   <string name="not_enough_touch_points_dialog_title">თქვენს მოწყობილობას არ აქვს ბრაილის კლავიატურის მხარდაჭერა</string>
   <string name="not_enough_touch_points_dialog_message">თქვენს მოწყობილობას არ აქვს საკმარისი შეხების წერტილების მხარდაჭერა. მეტი ინფორმაციისთვის დაუკავშირდით თქვენი მოწყობილობის მწარმოებელს.</string>
   <string name="talkback_off_dialog_title">TalkBack-ის ჩართვა ბრაილის კლავიატურის გამოსაყენებლად</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">ასო წაიშალა</string>
   <string name="perform_delete_word_announcement">სიტყვა წაიშალა</string>
   <string name="continue_tutorial_announcement">მოდით, განვაგრძოთ სახელმძღვანელო. %1$s</string>
-  <string name="braille_keyboard_strip_summary">დაკავშირებულია ბრაილის გარე ეკრანი, რომლის გამოყენებაც შეგიძლიათ ამ მოწყობილობაზე ტექსტის ასაკრეფად.\nშეგიძლიათ გადაერთოთ ბრაილის სენსორული ეკრანის კლავიატურაზე ან ტექსტის შეყვანის სხვა მეთოდზე.</string>
-  <string name="braille_keyboard_strip_button">სენსორული ეკრანის კლავიატურაზე გადართვა</string>
+  <string name="switch_on_screen_keyboard_announcement">ბრაილის სენსორულ ეკრანზე გადართვა</string>
+  <string name="braille_keyboard_strip_summary">დაკავშირებულია ბრაილის გარე ეკრანი, რომლის გამოყენებაც შეგიძლიათ ტელეფონზე ტექსტის ასაკრეფად.\n\nშეგიძლიათ, ასევე, გადაერთოთ ბრაილის სენსორული ეკრანის კლავიატურაზე ან ტექსტის შეყვანის სხვა მეთოდზე.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">ბრაილის სენსორულ ეკრანზე გადართვა</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">ტექსტის შეყვანის სხვა მეთოდზე გადართვა</string>
 </resources>

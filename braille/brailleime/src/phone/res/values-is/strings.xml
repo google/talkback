@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack-blindraleturslyklaborð</string>
+  <string name="braille_ime_bd_mode_name">Inntak blindraletursskjás</string>
   <string name="switch_to_screen_away_announcement">Skjá snúið frá</string>
   <string name="switch_to_tabletop_announcement">Borðstilling. Komdu tækinu fyrir með hleðslutengið vinstra megin. Haltu 6 fingrum niðri til að uppfæra staðsetningu punkta.</string>
   <string name="bring_ime_settings_page">Ekkert annað lyklaborð er virkt, opnaðu lyklaborðstillingar</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Hvernig á að nota blindraleturslyklaborð</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Til að nota blindraleturslyklaborðið skaltu opna venjulega lyklaborðið og ýta síðan á táknið til að velja lyklaborð %1$s (yfirleitt neðst í hægra horninu). Veldu „%2$s“.
   &lt;br&gt;&lt;br&gt;Ef þú sérð ekki valmöguleika til að skipta um lyklaborð skaltu prófa að setja Google lyklaborðið upp, %3$s.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Kveikja á blindraleturslyklaborði&lt;/b&gt;: Ýttu á „Stillingar“ hér fyrir neðan. Á næsta skjá skaltu kveikja á „%1$s“.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Nota blindraleturslyklaborð&lt;/b&gt;: Opnaðu venjulega lyklaborðið og ýttu síðan á táknið til að velja lyklaborð %2$s (yfirleitt neðst í hægra horninu). Veldu „%1$s“.
-    &lt;br&gt;&lt;br&gt;Ef þú sérð ekki valmöguleika til að skipta um lyklaborð skaltu prófa að setja Google lyklaborðið upp, %3$s.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Stillingar</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Ýttu á „Stillingar“ að neðan. Á næsta skjá skaltu kveikja á „%1$s“&lt;br&gt;&lt;br&gt;
+    2. Opnaðu venjulega lyklaborðið og ýttu svo á „breyta innfærsluaðferð“ %2$s (yfirleitt neðst í hægra horni).&lt;br&gt;&lt;br&gt;
+    3. Veldu „%1$s“.
+    &lt;br&gt;&lt;br&gt;Ef þú sérð ekki valmöguleika til að skipta um lyklaborð skaltu prófa að setja upp %3$s, Google lyklaborðið.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Kveiktu á blindraleturslyklaborði að neðan.&lt;br&gt;&lt;br&gt;
+    2. Opnaðu venjulega lyklaborðið og ýttu svo „breyta innfærsluaðferð“ %2$s (yfirleitt neðst í hægra horni).&lt;br&gt;&lt;br&gt;
+    3. Veldu „%1$s“.
+    &lt;br&gt;&lt;br&gt;Ef þú getur ekki skipt um lyklaborð skaltu prófa að setja upp %3$s, Google lyklaborðið.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Stillingar</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Kveikja</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Kveikja á blindraleturslyklaborði</string>
   <string name="typing_languages_title">Innsláttartungumál</string>
   <string name="preferred_language_title">Valið tungumál</string>
-  <string name="dont_show_again">Ekki sýna þetta aftur</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Skiptu um tungumál með hraði á meðan þú slærð inn</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Til að skipta um tungumál þegar þú skrifar með blindraleturslyklaborðinu skaltu strjúka upp með 3 fingrum. Veldu svo „skipta yfir í næsta tungumál“.</string>
   <string name="title_pref_accumulate_presses">Taka með alla punkta sem ýtt er á</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Strjúktu niður með þremur fingrum til að skipta yfir á <b>næsta lyklaborð</b></string>
   <string name="gesture_submit_text">Strjúktu upp með tveimur fingrum til að <b>skrifa texta</b></string>
   <string name="gesture_open_context_menu">Strjúktu upp með þremur fingrum til að fá <b>aðstoð og aðra valmöguleika</b></string>
-  <string name="done">Lokið</string>
   <string name="not_enough_touch_points_dialog_title">Tækið þitt styður ekki blindraleturslyklaborð</string>
   <string name="not_enough_touch_points_dialog_message">Tækið þitt styður ekki nógu marga snertipunkta. Hafðu samband við framleiðanda tækisins til að fá frekari upplýsingar.</string>
   <string name="talkback_off_dialog_title">Kveikja á TalkBack til að nota blindraleturslyklaborð</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Staf eytt</string>
   <string name="perform_delete_word_announcement">Orði eytt</string>
   <string name="continue_tutorial_announcement">Höldum leiðsögninni áfram. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Ytri blindraletursskjár er tengdur og þú getur notað hann til að slá texta inn í þetta tæki.\nÞú getur einnig skipt yfir í blindraleturslyklaborðið á snertiskjánum eða næstu innfærsluaðferð.</string>
-  <string name="braille_keyboard_strip_button">Skipta yfir í lyklaborð á snertiskjá</string>
+  <string name="switch_on_screen_keyboard_announcement">Skiptir yfir í snertiskjá með blindraletri</string>
+  <string name="braille_keyboard_strip_summary">Ytri blindraletursskjár er tengdur og þú getur notað hann til að slá texta inn í símann.\n\nÞú getur einnig skipt yfir í snertiskjá með blindraleturslyklaborði eða næstu innfærsluaðferð.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Skipta yfir í snertiskjá með blindraletri</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Skipta yfir í næstu innfærsluaðferð</string>
 </resources>

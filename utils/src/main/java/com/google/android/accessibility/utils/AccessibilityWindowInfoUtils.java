@@ -74,16 +74,12 @@ public class AccessibilityWindowInfoUtils {
     } else {
       // Get bounds from root view, because some window bounds may be inaccurate on older android.
       AccessibilityNodeInfo root = getRoot(window);
-      try {
-        if (root == null) {
-          return null;
-        }
-        Rect bounds = new Rect();
-        root.getBoundsInScreen(bounds);
-        return bounds;
-      } finally {
-        AccessibilityNodeInfoUtils.recycleNodes(root);
+      if (root == null) {
+        return null;
       }
+      Rect bounds = new Rect();
+      root.getBoundsInScreen(bounds);
+      return bounds;
     }
   }
 
@@ -124,14 +120,9 @@ public class AccessibilityWindowInfoUtils {
       return false;
     }
     AccessibilityNodeInfo root = getRoot(window);
-    boolean isVisible = (root != null) && root.isVisibleToUser();
-    if (root != null) {
-      root.recycle();
-    }
-    return isVisible;
+    return (root != null) && root.isVisibleToUser();
   }
 
-  /** Returns root node-info that caller must recycle. */
   public static @Nullable AccessibilityNodeInfoCompat getRootCompat(AccessibilityWindowInfo w) {
     return AccessibilityNodeInfoUtils.toCompat(getRoot(w));
   }
@@ -245,12 +236,8 @@ public class AccessibilityWindowInfoUtils {
     for (int i = 0; i < window.getChildCount(); i++) {
       AccessibilityWindowInfo windowInfo = window.getChild(i);
       node = AccessibilityWindowInfoUtils.getAnchor(windowInfo);
-      try {
-        if (node != null && anchor.equals(node.unwrap())) {
-          return windowInfo;
-        }
-      } finally {
-        AccessibilityNodeInfoUtils.recycleNodes(node);
+      if (node != null && anchor.equals(node.unwrap())) {
+        return windowInfo;
       }
     }
     return null;

@@ -21,8 +21,8 @@ import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_INPUT;
 
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.ActorState;
+import com.google.android.accessibility.talkback.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor.ScreenStateChangeListener;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
@@ -227,7 +227,7 @@ public class InputFocusInterpreter
     }
 
     if (AccessibilityNodeInfoUtils.shouldFocusNode(eventSourceNode)) {
-      return AccessibilityNodeInfoUtils.obtain(eventSourceNode);
+      return eventSourceNode;
     }
 
     // TODO: Doing a BFS looks like searching for a11y focusable node inside a collection.

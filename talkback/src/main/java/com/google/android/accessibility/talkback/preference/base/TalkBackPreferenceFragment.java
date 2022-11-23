@@ -23,19 +23,28 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
+import androidx.annotation.StringRes;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
+import androidx.preference.SwitchPreference;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.actor.ImageCaptioner;
+import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter;
+import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter.DownloadStateListener;
+import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter.UninstallStateListener;
 import com.google.android.accessibility.talkback.training.OnboardingInitiator;
 import com.google.android.accessibility.talkback.utils.RemoteIntentUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.SettingsUtils;
+import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,8 +54,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
 
   private boolean isWatch = false;
-
   private Context context;
+  private @Nullable IconDetectionModuleDownloadPrompter iconDetectionModuleDownloadPrompter;
 
   public TalkBackPreferenceFragment() {
     super(R.xml.preferences);
@@ -103,6 +112,27 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
         preference.setTitle(R.string.title_pref_sound);
       }
     }
+
+    // Remove braille category if none of braille feature supported.
+    if (!FeatureSupport.supportBrailleDisplay(context)
+        && !FeatureSupport.supportBrailleKeyboard(context)) {
+      removeCategory(R.string.pref_category_braille_key);
+    }
+
+    if (ImageCaptioner.supportsIconDetection(context)) {
+      setupIconDetectionPreference();
+    } else {
+      removePreference(R.string.pref_category_controls_key, R.string.pref_icon_detection_key);
+    }
+  }
+
+  @Override
+  public void onDestroy() {
+    if (iconDetectionModuleDownloadPrompter != null) {
+      iconDetectionModuleDownloadPrompter.shutdown();
+      iconDetectionModuleDownloadPrompter = null;
+    }
+    super.onDestroy();
   }
 
   private void removePreference(int categoryKeyId, int preferenceKeyId) {
@@ -292,4 +322,128 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
           return true;
         }
       };
+
+  private void setupIconDetectionPreference() {
+    Preference iconDetectionPreference = findPreferenceByResId(R.string.pref_icon_detection_key);
+    if (iconDetectionPreference == null) {
+      return;
+    }
+
+    SwitchPreference iconDetectionSwitchPreference = (SwitchPreference) iconDetectionPreference;
+    if (iconDetectionModuleDownloadPrompter == null) {
+      iconDetectionModuleDownloadPrompter =
+          new IconDetectionModuleDownloadPrompter(
+              context,
+              /* triggeredByTalkBackMenu= */ false,
+              new DownloadStateListener() {
+                @Override
+                public void onInstalled() {
+                  updateIconDetectionPreference(
+                      R.string.summary_pref_icon_detection, /* checked= */ true);
+                  // Message will send to TTS directly if TalkBack is active, no need to show the
+                  // toast.
+                  if (!TalkBackService.isServiceActive()) {
+                    showToast(context, R.string.download_icon_detection_successful_hint);
+                  }
+                }
+
+                @Override
+                public void onFailed() {
+                  updateIconDetectionPreference(
+                      R.string.summary_pref_icon_detection, /* checked= */ false);
+                  // Message will send to TTS directly if TalkBack is active, no need to show the
+                  // toast.
+                  if (!TalkBackService.isServiceActive()) {
+                    showToast(context, R.string.download_icon_detection_failed_hint);
+                  }
+                }
+
+                @Override
+                public void onAccepted() {
+                  setIconDetectionUninstalled(false);
+                  updateIconDetectionPreference(
+                      R.string.summary_pref_icon_detection_downloading, /* checked= */ true);
+                }
+
+                @Override
+                public void onRejected() {}
+
+                @Override
+                public void onDialogDismissed(@Nullable AccessibilityNodeInfoCompat queuedNode) {}
+              });
+    }
+
+    iconDetectionModuleDownloadPrompter.setUninstallStateListener(
+        new UninstallStateListener() {
+          @Override
+          public void onAccepted() {
+            updateIconDetectionPreference(
+                R.string.summary_pref_icon_detection, /* checked= */ false);
+            setIconDetectionUninstalled(true);
+          }
+
+          @Override
+          public void onRejected() {}
+        });
+
+    // The summary of preference will not be saved when exiting the Settings page, so they should be
+    // restored when the preference is created.
+    if (iconDetectionModuleDownloadPrompter.isIconDetectionModuleAvailable()) {
+      // The icon detection module is available.
+      iconDetectionSwitchPreference.setSummary(R.string.summary_pref_icon_detection);
+      iconDetectionSwitchPreference.setChecked(true);
+    } else if (iconDetectionModuleDownloadPrompter.isIconDetectionModuleDownloading()) {
+      // The icon detection module is downloading.
+      iconDetectionSwitchPreference.setSummary(R.string.summary_pref_icon_detection_downloading);
+      iconDetectionSwitchPreference.setChecked(true);
+    }
+
+    iconDetectionSwitchPreference.setOnPreferenceChangeListener(
+        (preference, newValue) -> {
+          if ((Boolean) newValue) {
+            // Shows the dialog to confirm the download the icon detection module.
+            if (iconDetectionModuleDownloadPrompter != null) {
+              iconDetectionModuleDownloadPrompter.showConfirmationDialog();
+            }
+          } else {
+            // Shows the dialog to confirm the deletion of the icon detection module.
+            if (iconDetectionModuleDownloadPrompter != null) {
+              iconDetectionModuleDownloadPrompter.showUninstallDialog();
+            }
+          }
+          return false;
+        });
+  }
+
+  private void updateIconDetectionPreference(@StringRes int summary, boolean checked) {
+    if (!isVisible()) {
+      // The fragment is stopped, the icon detection preference needn't be updated.
+      return;
+    }
+
+    Preference preference = findPreferenceByResId(R.string.pref_icon_detection_key);
+    if (preference == null) {
+      return;
+    }
+
+    preference.setSummary(summary);
+    ((SwitchPreference) preference).setChecked(checked);
+  }
+
+  private void showToast(Context context, @StringRes int text) {
+    Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+  }
+
+  /**
+   * Sets true if the user has executed uninstallation of the icon detection.
+   *
+   * @param uninstalled true, when the user turns off the icon detection on the TalkBack Setting;
+   *     false, when the user accepts the download again.
+   */
+  public void setIconDetectionUninstalled(boolean uninstalled) {
+    SharedPreferencesUtils.getSharedPreferences(context)
+        .edit()
+        .putBoolean(context.getString(R.string.pref_icon_detection_uninstalled), uninstalled)
+        .apply();
+  }
 }

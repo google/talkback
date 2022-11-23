@@ -1,8 +1,7 @@
 package com.google.android.accessibility.brailleime.keyboardview;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.graphics.Region;
+import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
 import android.inputmethodservice.InputMethodService;
 import android.os.Build;
@@ -112,7 +111,6 @@ public abstract class KeyboardView {
     init();
     viewContainer = createViewContainerInternal();
     updateViewContainerInternal();
-    viewContainer.setViewContainerCallback(viewContainerCallback);
     return viewContainer;
   }
 
@@ -153,8 +151,7 @@ public abstract class KeyboardView {
 
   /** Creates {@link BrailleInputView} and adds it into {@link ViewContainer}. */
   public void createAndAddInputView(BrailleInputView.Callback inputPlaneCallback) {
-    runWhenViewIsReady(
-        viewContainer,
+    runWhenViewContainerIsReady(
         () -> {
           brailleInputView =
               new BrailleInputView(
@@ -167,8 +164,7 @@ public abstract class KeyboardView {
   }
 
   public void createAndAddStripView(BrailleDisplayImeStripView.CallBack callback) {
-    runWhenViewIsReady(
-        viewContainer,
+    runWhenViewContainerIsReady(
         () -> {
           stripView = new BrailleDisplayImeStripView(context);
           stripView.setCallBack(callback);
@@ -178,8 +174,7 @@ public abstract class KeyboardView {
 
   /** Creates {@link TutorialView} and adds it into {@link ViewContainer}. */
   public void createAndAddTutorialView(State tutorialState, TutorialCallback tutorialCallback) {
-    runWhenViewIsReady(
-        viewContainer,
+    runWhenViewContainerIsReady(
         () -> {
           tutorialView = new TutorialView(context, tutorialCallback, getScreenSize());
           tutorialView.switchNextState(tutorialState, /* delay= */ 0);
@@ -195,10 +190,10 @@ public abstract class KeyboardView {
   public void showViewAttachedDialog(ViewAttachedDialog viewAttachedDialog) {
     if (viewContainer != null) {
       // Invoke show() when view is ready to prevents WindowManager$BadTokenException.
-      runWhenViewIsReady(viewContainer, () -> viewAttachedDialog.show(viewContainer));
+      runWhenViewContainerIsReady(() -> viewAttachedDialog.show(viewContainer));
     } else if (imeInputView != null) {
       // Invoke show() when view is ready to prevents WindowManager$BadTokenException.
-      runWhenViewIsReady(imeInputView, () -> viewAttachedDialog.show(imeInputView));
+      runWhenImeInputViewIsReady(() -> viewAttachedDialog.show(imeInputView));
     } else {
       throw new IllegalArgumentException("No available view to attach.");
     }
@@ -231,10 +226,23 @@ public abstract class KeyboardView {
     }
   }
 
-  /** Returns imeInputView size. Return empty if imeInputView haven't generated. */
-  public Optional<Size> getViewForImeFrameworksSize() {
-    return Optional.ofNullable(imeInputView)
-        .map(value -> new Size(value.getWidth(), value.getHeight()));
+  /** Returns ime region size on the screen. */
+  public Optional<Rect> obtainImeViewRegion() {
+    View view = imeInputView;
+    if (stripView != null && stripView.isAttachedToWindow()) {
+      view = stripView;
+    }
+    return Optional.ofNullable(view)
+        .map(
+            v -> {
+              int[] location = new int[2];
+              v.getLocationInWindow(location);
+              return new Rect(
+                  location[0],
+                  location[1],
+                  location[0] + v.getWidth(),
+                  location[1] + v.getHeight());
+            });
   }
 
   /** Returns BrailleDisplayImeStripView. */
@@ -242,24 +250,51 @@ public abstract class KeyboardView {
     return stripView;
   }
 
-  private void runWhenViewIsReady(View view, Runnable runnable) {
-    if (view.isShown() || "robolectric".equals(Build.FINGERPRINT)) {
+  private void runWhenViewContainerIsReady(Runnable runnable) {
+    if (isViewContainerShown() || "robolectric".equals(Build.FINGERPRINT)) {
       runnable.run();
       return;
     }
-    view.getViewTreeObserver()
+    viewContainer
+        .getViewTreeObserver()
         .addOnGlobalLayoutListener(
             new OnGlobalLayoutListener() {
               @Override
               public void onGlobalLayout() {
-                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                runnable.run();
+                if (isViewContainerShown()) {
+                  viewContainer.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                  runnable.run();
+                }
               }
             });
   }
 
-  /** Returns {@link ViewContainer} displaying region size on the screen. */
-  public abstract Optional<Region> obtainViewContainerRegionOnTheScreen();
+  private void runWhenImeInputViewIsReady(Runnable runnable) {
+    if (isImeInputViewShown() || "robolectric".equals(Build.FINGERPRINT)) {
+      runnable.run();
+      return;
+    }
+    imeInputView
+        .getViewTreeObserver()
+        .addOnGlobalLayoutListener(
+            new OnGlobalLayoutListener() {
+              @Override
+              public void onGlobalLayout() {
+                if (isImeInputViewShown()) {
+                  imeInputView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                  runnable.run();
+                }
+              }
+            });
+  }
+
+  private boolean isViewContainerShown() {
+    return isViewContainerCreated() && viewContainer.isShown();
+  }
+
+  private boolean isImeInputViewShown() {
+    return imeInputView != null && imeInputView.isShown();
+  }
 
   /** Creates and returns the ImeInputView. */
   protected abstract View createImeInputViewInternal();
@@ -275,22 +310,22 @@ public abstract class KeyboardView {
 
   protected abstract void tearDownInternal();
 
-  private final ViewContainer.Callback viewContainerCallback =
-      new ViewContainer.Callback() {
-        @Override
-        public void onOrientationChanged(int orientation) {
-          BrailleImeLog.logD(TAG, "onOrientationChanged");
-          if (brailleInputView != null) {
-            brailleInputView.onOrientationChanged(orientation, getScreenSize());
-          }
-          if (tutorialView != null) {
-            tutorialView.onOrientationChanged(orientation, getScreenSize());
-          }
-          if (viewContainer != null) {
-            updateViewContainerInternal();
-          }
-        }
-      };
+  /** Signals that a orientation change has occurred. */
+  public void onOrientationChanged(int orientation) {
+    BrailleImeLog.logD(TAG, "onOrientationChanged");
+    if (brailleInputView != null) {
+      brailleInputView.onOrientationChanged(orientation, getScreenSize());
+    }
+    if (stripView != null) {
+      stripView.onOrientationChanged(orientation, getScreenSize());
+    }
+    if (tutorialView != null) {
+      tutorialView.onOrientationChanged(orientation, getScreenSize());
+    }
+    if (viewContainer != null) {
+      updateViewContainerInternal();
+    }
+  }
 
   private final DisplayManager.DisplayListener displayListener =
       new DisplayManager.DisplayListener() {
@@ -323,11 +358,6 @@ public abstract class KeyboardView {
   }
 
   @VisibleForTesting
-  public ViewContainer.Callback testing_getViewContainerCallback() {
-    return viewContainerCallback;
-  }
-
-  @VisibleForTesting
   public TutorialView testing_getTutorialView() {
     return tutorialView;
   }
@@ -341,45 +371,13 @@ public abstract class KeyboardView {
    */
   public static class ViewContainer extends FrameLayout {
 
-    /** A callback for receiving onConfigurationChanged from ViewContainer. */
-    public interface Callback {
-
-      /**
-       * Signals that a orientation change has occurred.
-       *
-       * <p>Since some components (such as InputMethodService instances) are not always informed of
-       * orientation changes, this method allows a View (which is always informed) to signal such a
-       * change to such a component.
-       */
-      void onOrientationChanged(int orientation);
-    }
-
     /** A callback for notify clients view status changed. */
     public interface ViewStatusCallback {
       void onViewAdded();
     }
 
-    private Callback callback;
-    private int orientation;
-
     public ViewContainer(Context context) {
       super(context);
-      this.orientation = getResources().getConfiguration().orientation;
-    }
-
-    public void setViewContainerCallback(Callback callback) {
-      this.callback = callback;
-    }
-
-    @Override
-    protected void onConfigurationChanged(Configuration newConfig) {
-      super.onConfigurationChanged(newConfig);
-      if (orientation != newConfig.orientation) {
-        orientation = newConfig.orientation;
-        if (callback != null) {
-          callback.onOrientationChanged(newConfig.orientation);
-        }
-      }
     }
 
     @Override

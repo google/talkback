@@ -21,12 +21,13 @@ import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBIL
 import android.content.Context;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.AccessibilityFocusEventInterpretation;
-import com.google.android.accessibility.compositor.AccessibilityFocusEventInterpreter;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.actor.ImageCaptioner;
+import com.google.android.accessibility.talkback.compositor.AccessibilityFocusEventInterpretation;
+import com.google.android.accessibility.talkback.compositor.AccessibilityFocusEventInterpreter;
+import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForScreenStateChange;
 import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration;
@@ -185,7 +186,7 @@ public class AccessibilityFocusInterpreter
       return null;
     }
     AccessibilityFocusEventInterpretation interpretation =
-        new AccessibilityFocusEventInterpretation(event.getEventType());
+        new AccessibilityFocusEventInterpretation(Compositor.toCompositorEvent(event));
     interpretation.setForceFeedbackEvenIfAudioPlaybackActive(
         info.forceFeedbackEvenIfAudioPlaybackActive());
     interpretation.setForceFeedbackEvenIfMicrophoneActive(
@@ -228,11 +229,21 @@ public class AccessibilityFocusInterpreter
   }
 
   /**
+   * Sets long press duration. It's only applicable when the typing method is not double-tap.
+   *
+   * @param duration in milliseconds
+   */
+  public void setTypingLongPressDurationMs(int duration) {
+    focusProcessorForTapAndTouchExploration.setTypingLongPressDurationMs(duration);
+  }
+
+  /**
    * Gets whether single-tap activation is enabled.
    *
    * @return Whether single-tap activation is enabled.
    */
-  public @TypingMethod int getTypingMethod() {
+  @TypingMethod
+  public int getTypingMethod() {
     return focusProcessorForTapAndTouchExploration.getTypingMethod();
   }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">ଏହାକୁ ପୁଣି ଦେଖାନ୍ତୁ ନାହିଁ</string>
+  <string name="done">ହୋଇଗଲା</string>
   <string name="number_announcement">ନମ୍ଵର</string>
   <string name="capitalize_announcement">କ୍ୟାପିଟାଲାଇଜେସନ</string>
   <string name="read_out_deleted">%s ଡିଲିଟ୍ କରାଯାଇଛି</string>
@@ -7,6 +9,7 @@
     <item quantity="one">%sଟି ଡଟ୍</item>
     <item quantity="other">%sଟି ଡଟ୍ସ</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">ୟୁନିଫାଏଡ ଇଂରାଜୀ ବ୍ରେଲି ଅନକଣ୍ଟ୍ରାକ୍ଟେଡ</string>
   <string name="code_user_facing_name_ueb2">ୟୁନିଫାଏଡ ଇଂରାଜୀ ବ୍ରେଲି କଣ୍ଟ୍ରାକ୍ଟେଡ</string>
   <string name="code_user_facing_name_es">ସ୍ପେନୀୟ</string>

@@ -189,8 +189,6 @@ public class ScrollFeedbackManager implements AccessibilityEventListener {
       return true;
     }
 
-    // The behavior of put() for an existing key is unspecified, so we can't
-    // recycle the old or new key nodes.
     cachedFromValues.put(eventId, fromIndex);
     cachedItemCounts.put(eventId, itemCount);
 
@@ -202,6 +200,8 @@ public class ScrollFeedbackManager implements AccessibilityEventListener {
    *
    * @param event The source event.
    */
+  // incompatible argument for parameter source of getDescriptionForPageEvent.
+  @SuppressWarnings("nullness:argument")
   private void handleScrollFeedback(
       AccessibilityEvent event, Performance.@Nullable EventId eventId) {
     final CharSequence text;
@@ -216,10 +216,6 @@ public class ScrollFeedbackManager implements AccessibilityEventListener {
     } else {
       text = getDescriptionForScrollEvent(event);
       flags = 0;
-    }
-
-    if (source != null) {
-      source.recycle();
     }
 
     if (TextUtils.isEmpty(text)) {
@@ -293,20 +289,14 @@ public class ScrollFeedbackManager implements AccessibilityEventListener {
     CharSequence title = null;
     for (int i = 0; i < numChildren; ++i) {
       AccessibilityNodeInfoCompat child = nodeCompat.getChild(i);
-      if (child != null) {
-        try {
-          if (child.isVisibleToUser()) {
-            if (title == null) {
-              // Try to roughly match RulePagerPage, which uses getNodeText
-              // (but completely matching all the time is not critical).
-              title = AccessibilityNodeInfoUtils.getNodeText(child);
-            } else {
-              // Multiple visible children, abort.
-              return null;
-            }
-          }
-        } finally {
-          child.recycle();
+      if (child != null && child.isVisibleToUser()) {
+        if (title == null) {
+          // Try to roughly match RulePagerPage, which uses getNodeText
+          // (but completely matching all the time is not critical).
+          title = AccessibilityNodeInfoUtils.getNodeText(child);
+        } else {
+          // Multiple visible children, abort.
+          return null;
         }
       }
     }
@@ -334,8 +324,6 @@ public class ScrollFeedbackManager implements AccessibilityEventListener {
           break;
         default: // fall out
       }
-
-      event.recycle();
     }
 
     /** Posts the delayed scroll position feedback. Call this for every VIEW_SCROLLED event. */
@@ -363,9 +351,6 @@ public class ScrollFeedbackManager implements AccessibilityEventListener {
         sendMessageDelayed(msg, DELAY_PAGE_FEEDBACK);
       } else {
         sendMessageDelayed(msg, DELAY_SCROLL_FEEDBACK);
-      }
-      if (source != null) {
-        source.recycle();
       }
     }
 

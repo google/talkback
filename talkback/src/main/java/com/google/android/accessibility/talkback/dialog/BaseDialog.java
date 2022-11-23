@@ -47,11 +47,12 @@ public abstract class BaseDialog {
   @Nullable private FeedbackReturner pipeline;
   private boolean isSoftInputMode = false;
   private boolean needToRestoreFocus = false;
+  private boolean includeNegativeButton = true;
   private int positiveButtonStringRes;
   private int negativeButtonStringRes;
   private int neutralButtonStringRes;
 
-  public BaseDialog(Context context, int dialogTitleResId, FeedbackReturner pipeline) {
+  public BaseDialog(Context context, int dialogTitleResId, @Nullable FeedbackReturner pipeline) {
     this.context = context;
     this.dialogTitleResId = dialogTitleResId;
     this.pipeline = pipeline;
@@ -141,6 +142,15 @@ public abstract class BaseDialog {
     this.neutralButtonStringRes = res;
   }
 
+  public void setPipeline(@Nullable FeedbackReturner pipeline) {
+    this.pipeline = pipeline;
+  }
+
+  /** Sets cancel Button on the dialog depending on the boolean value. */
+  public void setIncludeNegativeButton(boolean includeNegativeButton) {
+    this.includeNegativeButton = includeNegativeButton;
+  }
+
   ////////////////////////////////////////////////////////////////////////////
   // Status controller for dialog
 
@@ -162,10 +172,12 @@ public abstract class BaseDialog {
     A11yAlertDialogWrapper.Builder dialogBuilder =
         A11yAlertDialogWrapper.materialDialogBuilder(context)
             .setTitle(dialogTitleResId)
-            .setNegativeButton(negativeButtonStringRes, onClickListener)
             .setPositiveButton(positiveButtonStringRes, onClickListener)
             .setOnDismissListener(onDismissListener)
             .setCancelable(true);
+    if (includeNegativeButton) {
+      dialogBuilder.setNegativeButton(negativeButtonStringRes, onClickListener);
+    }
 
     if (neutralButtonStringRes != RESOURCE_ID_UNKNOWN) {
       dialogBuilder.setNeutralButton(neutralButtonStringRes, onClickListener);

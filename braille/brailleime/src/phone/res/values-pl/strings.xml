@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Klawiatura brajlowska TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Dane wejściowe monitora brajlowskiego</string>
   <string name="switch_to_screen_away_announcement">Tryb Ekran odsunięty</string>
   <string name="switch_to_tabletop_announcement">Tryb na stole. Połóż urządzenie tak, by port ładowania był po lewej stronie. Aby zmienić pozycję kropki, przytrzymaj ekran 6 palcami.</string>
   <string name="bring_ime_settings_page">Inne klawiatury nie są uruchomione, otwórz ustawienia klawiatury</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Jak używać klawiatury brajlowskiej</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Aby używać klawiatury brajlowskiej, otwórz klawiaturę standardową, a następnie kliknij ikonę klawiatury %1$s (zazwyczaj w prawym dolnym rogu). Wybierz „%2$s”.
   &lt;br&gt;&lt;br&gt;Jeśli nie widzisz opcji przełączania klawiatury, zainstaluj klawiaturę Google %3$s.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Włączanie klawiatury brajlowskiej:&lt;/b&gt; kliknij Ustawienia (poniżej). Na kolejnym ekranie włącz „%1$s”.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Używanie klawiatury brajlowskiej&lt;/b&gt;: otwórz klawiaturę standardową, a następnie kliknij ikonę wyboru klawiatury %2$s (zazwyczaj w prawym dolnym rogu). Wybierz „%1$s”.
-    &lt;br&gt;&lt;br&gt;Jeśli nie widzisz opcji przełączania klawiatury, zainstaluj klawiaturę Google %3$s.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Ustawienia</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Kliknij „Ustawienia” poniżej. Na kolejnym ekranie włącz „%1$s”.&lt;br&gt;&lt;br&gt;
+    2. Otwórz klawiaturę standardową, a następnie kliknij przełącznik metody wprowadzania %2$s (zazwyczaj w prawym dolnym rogu).&lt;br&gt;&lt;br&gt;
+    3. Wybierz „%1$s”.
+    &lt;br&gt;&lt;br&gt;Jeśli nie widzisz opcji przełączania klawiatury, zainstaluj klawiaturę Google %3$s.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Włącz klawiaturę brajlowską poniżej.&lt;br&gt;&lt;br&gt;
+    2. Otwórz klawiaturę standardową, a następnie kliknij przełącznik metody wprowadzania %2$s (zazwyczaj w prawym dolnym rogu).&lt;br&gt;&lt;br&gt;
+    3. Wybierz „%1$s”.
+    &lt;br&gt;&lt;br&gt;Jeśli nie widzisz opcji przełączania klawiatury, zainstaluj klawiaturę Google %3$s.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Ustawienia</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Włącz</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Włącz klawiaturę brajlowską</string>
   <string name="typing_languages_title">Języki wpisywania</string>
   <string name="preferred_language_title">Preferowany język</string>
-  <string name="dont_show_again">Nie pokazuj ponownie</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Szybko zmieniaj język podczas pisania</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Aby zmieniać język podczas pisania przy użyciu klawiatury brajlowskiej, otwórz menu opcji, przesuwając w górę 3 palcami. Następnie wybierz opcję „Przełącz na następny język”.</string>
   <string name="title_pref_accumulate_presses">Uwzględniaj wszystkie naciśnięte punkty</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Aby przełączyć się na <b>następną klawiaturę</b>, przesuń 3 palcami w dół</string>
   <string name="gesture_submit_text">Aby <b>przesłać tekst</b>, przesuń 2 palcami w górę</string>
   <string name="gesture_open_context_menu">Aby wyświetlić <b>pomoc i inne opcje</b>, przesuń 3 palcami w górę</string>
-  <string name="done">OK</string>
   <string name="not_enough_touch_points_dialog_title">Urządzenie nie obsługuje klawiatury brajlowskiej</string>
   <string name="not_enough_touch_points_dialog_message">Urządzenie nie obsługuje dostatecznie wielu punktów kontaktu. Aby uzyskać więcej informacji, skontaktuj się z producentem urządzenia.</string>
   <string name="talkback_off_dialog_title">Włącz TalkBack, by używać klawiatury brajlowskiej</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Usunięto literę</string>
   <string name="perform_delete_word_announcement">Usunięto słowo</string>
   <string name="continue_tutorial_announcement">Kontynuujmy samouczek. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Podłączono zewnętrzny monitor brajlowski, którego możesz użyć do pisania na tym urządzeniu.\nMożesz też skorzystać z klawiatury brajlowskiej na ekranie dotykowym lub innej metody wprowadzania tekstu.</string>
-  <string name="braille_keyboard_strip_button">Przełącz się na klawiaturę na ekranie dotykowym</string>
+  <string name="switch_on_screen_keyboard_announcement">Przełączam na brajlowski ekran dotykowy</string>
+  <string name="braille_keyboard_strip_summary">Podłączono zewnętrzny monitor brajlowski, którego możesz użyć do pisania na telefonie.\n\nMożesz też przełączyć się na klawiaturę brajlowską na ekranie dotykowym lub inną metodę wprowadzania tekstu.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Przełącz na brajlowski ekran dotykowy</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Przełącz na następną metodę wprowadzania</string>
 </resources>

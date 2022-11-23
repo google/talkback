@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack-ի բրայլյան ստեղնաշար</string>
+  <string name="braille_ime_bd_mode_name">Ներածում բրայլյան էկրանի միջոցով</string>
   <string name="switch_to_screen_away_announcement">Շրջած էկրանի ռեժիմ</string>
   <string name="switch_to_tabletop_announcement">Սեղանի ռեժիմ։ Դրեք ձեր սարքը լիցքավորման միացքով դեպի ձախ։ Կետերի դիրքը թարմացնելու համար 6 մատը սեղմած պահեք էկրանին։</string>
   <string name="bring_ime_settings_page">Ոչ մի ստեղնաշար միացված չէ։ Անցեք ստեղնաշարի կարգավորումներ։</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Ինչպես օգտագործել բրայլյան ստեղնաշարը</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Բրայլյան ստեղնաշարն օգտագործելու համար բացեք ձեր սովորական ստեղնաշարը, ապա հպեք ստեղնաշարի ընտրության %1$s պատկերակին (սովորաբար գտնվում է ներքևի աջ անկյունում)։ Ընտրեք «%2$s»։
   &lt;br&gt;&lt;br&gt;Եթե չեք տեսնում ստեղնաշարի ընտրության կոճակը, փորձեք տեղադրել %3$s-ը՝ Google Ստեղնաշարը։</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Միացրեք բրայլյան ստեղնաշարը։&lt;/b&gt; Հպեք կարգավորումների պատկերակին ներքևում։ Հաջորդ էկրանին միացրեք «%1$s» գործառույթը։
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Մուտքագրեք բրայլյան ստեղնաշարի միջոցով։&lt;/b&gt; Բացեք ձեր սովորական ստեղնաշարը, ապա հպեք ստեղնաշարի ընտրության %2$s պատկերակին (սովորաբար գտնվում է ներքևի աջ անկյունում)։ Ընտրեք «%1$s»։
-  &lt;br&gt;&lt;br&gt;Եթե չեք տեսնում ստեղնաշարի ընտրության կոճակը, փորձեք տեղադրել %3$s-ը՝ Google ստեղնաշարը։</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Կարգավորումներ</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Ստորև հպեք «Կարգավորումներ»։ Հաջորդ էկրանին միացրեք «%1$s» կարգավորումը։&lt;br&gt;&lt;br&gt;
+    2. Բացեք ձեր սովորական ստեղնաշարը, ապա հպեք «Փոխել ներածման եղանակը» %2$s (սովորաբար գտնվում է ներքևի աջ անկյունում)։&lt;br&gt;&lt;br&gt;
+    3. Ընտրեք «%1$s»։
+  &lt;br&gt;&lt;br&gt;Եթե չեք տեսնում ստեղնաշարի ընտրության կոճակը, փորձեք տեղադրել %3$s-ը՝ Google-ի ստեղնաշարը։</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Միացրեք բրայլյան ստեղնաշարը ստորև։&lt;br&gt;&lt;br&gt;
+    2. Բացեք ձեր սովորական ստեղնաշարը, ապա հպեք «Փոխել ներածման եղանակը» %2$s (սովորաբար գտնվում է ներքևի աջ անկյունում)։&lt;br&gt;&lt;br&gt;
+    3. Ընտրեք «%1$s»։
+    &lt;br&gt;&lt;br&gt;Եթե չեք կարող փոխել ստեղնաշարը, փորձեք տեղադրել %3$s-ը՝ Google ստեղնաշարը։</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Կարգավորումներ</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Միացնել</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Միացնել բրայլյան ստեղնաշարը</string>
   <string name="typing_languages_title">Մուտքագրման լեզուներ</string>
   <string name="preferred_language_title">Նախընտրած լեզու</string>
-  <string name="dont_show_again">Այլևս ցույց չտալ</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Արագ փոխեք լեզուն տեքստ մուտքագրելիս</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Բրայլյան ստեղնաշարով տեքստ մուտքագրելիս լեզուն փոխելու համար 3 մատը սահեցրեք վերև, ապա ընտրեք «անցնել հաջորդ լեզվին»։</string>
   <string name="title_pref_accumulate_presses">Ներառել սեղմված բոլոր կետերը</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>Հաջորդ ստեղնաշարին անցնելու</b> համար 3 մատը սահեցրեք ներքև</string>
   <string name="gesture_submit_text"><b>Տեքստ ուղարկելու</b> համար 2 մատը սահեցրեք վեր</string>
   <string name="gesture_open_context_menu"><b>Օգնություն ստանալու և այլ պարամետրերի</b> համար 3 մատը սահեցրեք վեր</string>
-  <string name="done">Պատրաստ է</string>
   <string name="not_enough_touch_points_dialog_title">Ձեր սարքում չի աջակցվում բրայլյան ստեղնաշար</string>
   <string name="not_enough_touch_points_dialog_message">Ձեր սարքում սեղմման կետերի քանակը բավարար չէ։ Լրացուցիչ տեղեկությունների համար կապվեք սարքի արտադրողի հետ։</string>
   <string name="talkback_off_dialog_title">Բրայլյան ստեղնաշարն օգտագործելու համար միացրեք TalkBack-ը</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Տառը ջնջվեց</string>
   <string name="perform_delete_word_announcement">Բառը ջնջվեց</string>
   <string name="continue_tutorial_announcement">Վերադարձեք ուղեցույցին։ %1$s</string>
-  <string name="braille_keyboard_strip_summary">Կապ է հաստատվել արտաքին բրայլյան էկրանի հետ, որը դուք կարող եք օգտագործել այս սարքում տեքստ մուտքագրելու համար։\nԴուք նաև կարող եք անցնել հպէկրանի բրայլյան ստեղնաշարին կամ մուտքագրման մյուս եղանակին։</string>
-  <string name="braille_keyboard_strip_button">Բացել հպէկրանի ստեղնաշարը</string>
+  <string name="switch_on_screen_keyboard_announcement">Անցում բրայլյան էկրանային ստեղնաշարին</string>
+  <string name="braille_keyboard_strip_summary">Կապ է հաստատվել արտաքին բրայլյան էկրանի հետ, որը դուք կարող եք օգտագործել ձեր հեռախոսում տեքստ մուտքագրելու համար։\n\nԿարող եք նաև անցնել բրայլյան էկրանային ստեղնաշարին կամ ներածման հաջորդ եղանակին։</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Անցնել բրայլյան էկրանային ստեղնաշարին</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Անցնել ներածման հաջորդ եղանակին</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack 盲文键盘</string>
+  <string name="braille_ime_bd_mode_name">盲文显示屏输入</string>
   <string name="switch_to_screen_away_announcement">屏幕朝外模式</string>
   <string name="switch_to_tabletop_announcement">桌面模式。请将设备放在桌面上，保持充电端口朝左。如需更新圆点位置，请用 6 根手指按住屏幕。</string>
   <string name="bring_ime_settings_page">未启用任何其他键盘，请转至键盘设置</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">如何使用盲文键盘</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">要使用盲文键盘，请打开常规键盘，然后点按“选择键盘”图标 %1$s（通常位于右下角）。选择“%2$s”。
   &lt;br&gt;&lt;br&gt;如果您没有看到用于切换键盘的选项，请尝试安装 %3$s（Google 键盘）。</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;开启盲文键盘&lt;/b&gt;：点按下面的“设置”。在下一个屏幕上，开启“%1$s”。
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;使用盲文键盘&lt;/b&gt;：打开常规键盘，然后点按“选择键盘”图标 %2$s（通常位于右下角）。选择“%1$s”。
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. 点按下面的“设置”。在随之出现的下一个页面中，开启“%1$s”。&lt;br&gt;&lt;br&gt;
+    2. 打开常规键盘，然后点按切换输入法 %2$s（通常位于右下角）。&lt;br&gt;&lt;br&gt;
+    3. 选择“%1$s”。
     &lt;br&gt;&lt;br&gt;如果您没有看到用于切换键盘的选项，请尝试安装 %3$s（Google 键盘）。</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">设置</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. 开启下面的盲文键盘。&lt;br&gt;&lt;br&gt;
+    2. 打开常规键盘，然后点按切换输入法 %2$s（通常位于右下角）。&lt;br&gt;&lt;br&gt;
+    3. 选择“%1$s”。
+    &lt;br&gt;&lt;br&gt;如果您无法切换键盘，请尝试安装 %3$s（Google 键盘）。</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">设置</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">开启</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">开启盲文键盘</string>
   <string name="typing_languages_title">输入语言</string>
   <string name="preferred_language_title">首选语言</string>
-  <string name="dont_show_again">不要再显示</string>
   <string name="switch_input_code_gesture_tip_dialog_title">在输入内容时快速更改语言</string>
   <string name="switch_input_code_gesture_tip_dialog_message">若要在使用盲文键盘输入内容时更改语言，请用 3 根手指向上滑动。然后，选择“切换到下一种语言”。</string>
   <string name="title_pref_accumulate_presses">包含所有按下的点</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">要切换至<b>下一个键盘</b>，请用三根手指向下滑动</string>
   <string name="gesture_submit_text">要<b>提交文本</b>，请用两根手指向上滑动</string>
   <string name="gesture_open_context_menu">如需<b>获取帮助并了解其他选项</b>，请用三根手指向上滑动</string>
-  <string name="done">完成</string>
   <string name="not_enough_touch_points_dialog_title">您的设备不支持盲文键盘</string>
   <string name="not_enough_touch_points_dialog_message">您的设备支持的接触点不够多。如需了解详情，请与您的设备制造商联系。</string>
   <string name="talkback_off_dialog_title">开启 TalkBack 即可使用盲文键盘</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">已删除字符</string>
   <string name="perform_delete_word_announcement">已删除字词</string>
   <string name="continue_tutorial_announcement">我们继续学习教程吧。%1$s</string>
-  <string name="braille_keyboard_strip_summary">连接了一个外部盲文显示屏，您可以借助该显示屏在该设备中输入文本。\n或者，您也可以切换到触摸屏盲文键盘或其他输入法。</string>
-  <string name="braille_keyboard_strip_button">切换到触摸屏键盘</string>
+  <string name="switch_on_screen_keyboard_announcement">正在切换到盲文触摸屏</string>
+  <string name="braille_keyboard_strip_summary">连接了一个外置盲文显示屏，您可以借助该显示屏向手机中输入文本。\n\n您也可以切换到触摸屏盲文键盘或下个输入法。</string>
+  <string name="braille_keyboard_strip_touch_screen_button">切换到盲文触摸屏</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">切换到下一个输入法</string>
 </resources>

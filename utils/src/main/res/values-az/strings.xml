@@ -7,17 +7,6 @@
   <string name="template_capital_letter">böyük %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
   <string name="template_current_tts_engine">%1$s istifadə edilir</string>
-  <string name="keycombo_assign_dialog_instruction">Yeni qısayol yaratmaq üçün klaviş kombinasiyasına basın. Bu ən azı ALT və ya Kontrol düyməsindən ibarət olmalıdır.</string>
-  <string name="keycombo_assign_dialog_default_keymap_instruction">Yeni qısayol yerləşdirmək üçün %1$s dəyişdirici açarı ilə birlikdə açar kombinasiyasına basın.</string>
-  <string name="keycombo_unassigned">Təyin edilməyib</string>
-  <string name="keycombo_key_modifier_shift">Shift</string>
-  <string name="keycombo_key_modifier_alt">Alt</string>
-  <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">Axtarış</string>
-  <string name="keycombo_key_arrow_right">Sağ Ox</string>
-  <string name="keycombo_key_arrow_left">Sol Ox</string>
-  <string name="keycombo_key_arrow_up">Yuxarı Ox</string>
-  <string name="keycombo_key_arrow_down">Aşağı Ox</string>
   <string name="granularity_default">Defolt</string>
   <string name="granularity_character">Simvollar</string>
   <string name="granularity_word">Sözlər</string>

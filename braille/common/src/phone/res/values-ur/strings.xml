@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">اسے دوبارہ نہ دکھائیں</string>
+  <string name="done">ہو گیا</string>
   <string name="number_announcement">نمبر</string>
   <string name="capitalize_announcement">کیپ</string>
   <string name="read_out_deleted">%s حذف ہو گیا</string>
@@ -7,8 +9,9 @@
     <item quantity="one">%s ڈاٹ</item>
     <item quantity="other">%s نقطے</item>
   </plurals>
-  <string name="code_user_facing_name_ueb1">غیر معاہدہ کردہ یونیفائیڈ انگریزی بریل</string>
-  <string name="code_user_facing_name_ueb2">معاہدہ کردہ یونیفائیڈ انگریزی بریل</string>
+  <string name="language_split_comma">\u0020،</string>
+  <string name="code_user_facing_name_ueb1">غیر مختصر کردہ یونیفائیڈ انگریزی بریل</string>
+  <string name="code_user_facing_name_ueb2">مختصر کردہ یونیفائیڈ انگریزی بریل</string>
   <string name="code_user_facing_name_es">ہسپانوی</string>
   <string name="code_user_facing_name_ar">عربی</string>
   <string name="code_user_facing_name_fr">فرانسيسی</string>

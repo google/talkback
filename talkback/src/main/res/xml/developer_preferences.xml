@@ -2,23 +2,24 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="@string/pref_category_developer_key">
   <Preference
-      android:key="@string/pref_version_code_key"
-      android:title="@string/title_pref_version_code" />
-  <Preference
       android:key="@string/pref_developer_version_code_key"
       android:title="@string/title_pref_version_code" />
+  <SwitchPreference
+      android:defaultValue="@bool/pref_diagnosis_mode_default"
+      android:key="@string/pref_diagnosis_mode_key"
+      android:title="@string/title_pref_diagnosis_mode"/>
   <SwitchPreference
       android:defaultValue="@bool/pref_tts_overlay_default"
       android:key="@string/pref_tts_overlay_key"
       android:title="@string/title_pref_tts_overlay"/>
   <SwitchPreference
+      android:defaultValue="@bool/pref_talkback_gesture_detection_default"
+      android:key="@string/pref_talkback_gesture_detection_key"
+      android:title="@string/title_pref_talkback_gesture_detection"/>
+  <SwitchPreference
       android:defaultValue="@bool/pref_echo_recognized_text_default"
       android:key="@string/pref_echo_recognized_text_speech_key"
       android:title="@string/title_pref_echo_recognized_text_speech"/>
-  <SwitchPreference
-      android:defaultValue="@bool/pref_reduce_window_delay_default"
-      android:key="@string/pref_reduce_window_delay_key"
-      android:title="@string/pref_reduce_window_delay_title"/>
   <SwitchPreference
       android:defaultValue="@bool/pref_performance_stats_default"
       android:key="@string/pref_performance_stats_reflect_key"

@@ -19,6 +19,8 @@ package com.google.android.accessibility.talkback.training.content;
 import static android.widget.Toast.LENGTH_LONG;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -96,11 +98,11 @@ public class Text extends PageContentConfig {
 
     SpannableString spannableString = new SpannableString(text);
     if (paragraph.link()) {
-      setURLSpan(context, spannableString, text);
+      setURLSpan(context, spannableString, text, paragraph.urlLink());
     }
 
     if (paragraph.bulletPoint()) {
-      setBulletSpan(context, spannableString, text);
+      setBulletSpan(context, spannableString);
     }
 
     return spannableString;
@@ -123,19 +125,32 @@ public class Text extends PageContentConfig {
         : context.getString(paragraph.textWithActualGestureResId(), Ascii.toLowerCase(gesture));
   }
 
-  /** Adds a @link ToastURLSpan}. */
-  private static SpannableString setURLSpan(
-      Context context, SpannableString spannableString, String text) {
+  /**
+   * Sets SpannableString with a {@link TextURLSpan} and shows a new activity by link when clicks.
+   * If urlResId is INVALID_URL_RESID, it shows a toast when clicks.
+   *
+   * @param context The current context
+   * @param spannableString The SpannableString which is set up with URLSpan
+   * @param urlText The text of URL
+   * @param urlLink The link of URL
+   */
+  private static void setURLSpan(
+      Context context, SpannableString spannableString, String urlText, String urlLink) {
+
     spannableString.setSpan(
-        new ToastURLSpan(context, context.getString(R.string.activated_view, text)),
-        0,
-        text.length(),
+        new TextURLSpan(context, urlText, urlLink),
+        /* start= */ 0,
+        urlText.length(),
         Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-    return spannableString;
   }
 
-  private static SpannableString setBulletSpan(
-      Context context, SpannableString spannableString, String text) {
+  /**
+   * Sets SpannableString with a {@link BulletSpan}.
+   *
+   * @param context The current context
+   * @param spannableString The SpannableString which is set up with URLSpan
+   */
+  private static void setBulletSpan(Context context, SpannableString spannableString) {
     if (FeatureSupport.customBulletRadius()) {
       spannableString.setSpan(
           new BulletSpan(GAP_WIDTH, context.getColor(R.color.training_text_color), BULLET_RADIUS),
@@ -149,31 +164,38 @@ public class Text extends PageContentConfig {
           1,
           Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
-    return spannableString;
   }
 
-  /** Shows a Toast when the span is clicked. */
-  public static class ToastURLSpan extends URLSpan {
+  /** A URL span to use for a link of a text. If there is no url link, it will show a toast. */
+  private static class TextURLSpan extends URLSpan {
 
     private final Context context;
-    private final String text;
+    private final String urlText;
 
-    public ToastURLSpan(Context context, String text) {
-      super("");
+    TextURLSpan(Context context, String urlText, String urlLink) {
+      super(urlLink);
       this.context = context;
-      this.text = text;
+      this.urlText = urlText;
     }
 
     @Override
     public void onClick(View view) {
-      super.onClick(view);
-      Toast.makeText(context, text, LENGTH_LONG).show();
+      String urlLink = super.getURL();
+      if (TextUtils.isEmpty(urlLink)) {
+        super.onClick(view);
+        Toast.makeText(context, context.getString(R.string.activated_view, urlText), LENGTH_LONG)
+            .show();
+      } else {
+        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(urlLink)));
+      }
     }
   }
 
   /** The information of a paragraph in TextView, including style and data. */
   @AutoValue
   public abstract static class Paragraph {
+    private static final String INVALID_URL_LINK = "";
+
     @StringRes
     public abstract int textResId();
 
@@ -191,8 +213,10 @@ public class Text extends PageContentConfig {
     /** Return true, if the text is a subtext whose size is smaller than others. */
     public abstract boolean subText();
 
-    /** Return true, if the text needs a {@link ToastURLSpan}. */
+    /** Return true, if the text needs a {@link TextURLSpan}. */
     public abstract boolean link();
+
+    public abstract String urlLink();
 
     public static Builder builder(@StringRes int textResId) {
       return new AutoValue_Text_Paragraph.Builder()
@@ -202,7 +226,8 @@ public class Text extends PageContentConfig {
           .setActionKey(UNKNOWN_RESOURCE_ID)
           .setBulletPoint(false)
           .setSubText(false)
-          .setLink(false);
+          .setLink(false)
+          .setUrlLink(INVALID_URL_LINK);
     }
 
     /** Builder for a paragraph in TextView. */
@@ -223,6 +248,8 @@ public class Text extends PageContentConfig {
       public abstract Builder setSubText(boolean isSubText);
 
       public abstract Builder setLink(boolean isLink);
+
+      public abstract Builder setUrlLink(String urlLink);
 
       abstract Paragraph autoBuild();
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Clavier braille TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Entrée de l\'afficheur braille</string>
   <string name="switch_to_screen_away_announcement">Mode Écran retourné</string>
   <string name="switch_to_tabletop_announcement">Mode À plat. Placez votre appareil avec le port de recharge vers la gauche. Pour modifier la position des points, maintenez six doigts sur l\'écran.</string>
   <string name="bring_ime_settings_page">Aucun autre clavier n\'est activé; allez aux paramètres du clavier</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Comment utiliser le clavier braille</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Pour utiliser le clavier braille, ouvrez votre clavier ordinaire, puis touchez l\'icône %1$s pour choisir le clavier (habituellement dans le coin inférieur droit de l\'écran). Sélectionnez « %2$s ».
   &lt;br&gt;&lt;br&gt;Si vous ne voyez pas d\'option pour changer de clavier, essayez d\'installer %3$s, le clavier Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Activer le clavier braille :&lt;/b&gt; touchez Paramètres ci-dessous. Sur l\'écran suivant, activez « %1$s ».
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Utiliser le clavier braille :&lt;/b&gt; ouvrez votre clavier ordinaire, puis touchez l\'icône %2$s pour choisir le clavier (habituellement dans le coin inférieur droit de l\'écran). Sélectionnez « %1$s ».
-    &lt;br&gt;&lt;br&gt;Si vous ne voyez pas d\'option pour changer de clavier, essayez d\'installer %3$s, le clavier Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Paramètres</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Touchez « Paramètres » ci-dessous. À l\'écran suivant, activez « %1$s »&lt;br&gt;&lt;br&gt;
+    2. Ouvrez votre clavier habituel, puis touchez Changer de méthode d\'entrée %2$s (habituellement dans le coin inférieur droit).&lt;br&gt;&lt;br&gt;
+    3. Sélectionnez « %1$s ».
+    &lt;br&gt;&lt;br&gt;Si vous ne voyez pas d\'option pour changer de clavier, essayez d\'installer %3$s (le clavier Google).</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Activez le clavier braille ci-dessous.&lt;br&gt;&lt;br&gt;
+    2. Ouvrez votre clavier habituel, puis touchez Changer de méthode d\'entrée %2$s (habituellement dans le coin inférieur droit).&lt;br&gt;&lt;br&gt;
+    3. Sélectionnez « %1$s ».
+    &lt;br&gt;&lt;br&gt;Si vous ne parvenez pas à changer de clavier, essayez d\'installer %3$s (le clavier Google).</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Paramètres</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Activer</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Activer le clavier braille</string>
   <string name="typing_languages_title">Langues de rédaction</string>
   <string name="preferred_language_title">Langue préférée</string>
-  <string name="dont_show_again">Ne plus afficher ce message</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Changer rapidement de langue pendant la saisie</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Pour changer la langue pendant la saisie avec le clavier braille, balayez vers le haut avec trois doigts. Ensuite, sélectionnez « activer la langue suivante ».</string>
   <string name="title_pref_accumulate_presses">Inclure tous les points enfoncés</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Pour passer au <b>clavier suivant</b>, balayez l\'écran vers le bas avec trois doigts</string>
   <string name="gesture_submit_text">Pour <b>envoyer du texte</b>, balayez l\'écran vers le haut avec deux doigts</string>
   <string name="gesture_open_context_menu">Pour accéder <b>à l\'aide et à d\'autres options</b>, balayez l\'écran vers le haut avec trois doigts</string>
-  <string name="done">OK</string>
   <string name="not_enough_touch_points_dialog_title">Votre appareil ne prend pas en charge le clavier braille</string>
   <string name="not_enough_touch_points_dialog_message">Votre appareil ne prend pas en charge suffisamment de points tactiles. Pour en savoir plus, communiquez avec le fabricant de votre appareil.</string>
   <string name="talkback_off_dialog_title">Activer TalkBack pour utiliser le clavier braille</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Lettre supprimée</string>
   <string name="perform_delete_word_announcement">Mot supprimé</string>
   <string name="continue_tutorial_announcement">Continuons le tutoriel. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Un afficheur braille externe est connecté, utilisez-le pour taper du texte dans cet appareil.\nVous pouvez autrement passer au clavier braille sur l\'écran tactile ou à la méthode d\'entrée suivante.</string>
-  <string name="braille_keyboard_strip_button">Passer au clavier sur l\'écran tactile</string>
+  <string name="switch_on_screen_keyboard_announcement">Passage à l\'écran tactile braille</string>
+  <string name="braille_keyboard_strip_summary">Un afficheur braille externe est connecté, utilisez-le pour taper du texte sur votre téléphone.\n\nVous pouvez également passer au clavier braille sur l\'écran tactile ou à la méthode d\'entrée suivante.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Passer à l\'écran tactile braille</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Passer à la méthode d\'entrée suivante</string>
 </resources>

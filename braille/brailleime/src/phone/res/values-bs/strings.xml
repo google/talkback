@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBackova tastatura s Braillevim pismom</string>
+  <string name="braille_ime_bd_mode_name">Unos na Brailleovom ekranu</string>
   <string name="switch_to_screen_away_announcement">Način rada s ekranom okrenutim od korisnika</string>
   <string name="switch_to_tabletop_announcement">Način rada na stolu. Postavite uređaj tako da priključak za punjenje bude lijevo. Da ažurirate položaj tačaka, držite pritisnutim sa 6 prstiju.</string>
   <string name="bring_ime_settings_page">Nijedna druga tastatura nije omogućena. Idite u postavke za tastaturu</string>
@@ -22,14 +23,20 @@
   <string name="set_up_braille_keyboard">Postavite tastaturu za Braillevo pismo</string>
   <string name="how_to_use_braille_keyboard">Kako koristiti tastaturu za Braillevo pismo</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Da koristite tastaturu s Braillevim pismom, otvorite običnu tastaturu i dodirnite ikonu za odabir tastature %1$s (obično je u donjem desnom uglu). Odaberite \"%2$s.\"
-  &lt;br&gt;&lt;br&gt;Ako ne vidite opciju za promjenu tastature, pokušajte instalirati %3$s, Google Tastaturu.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Uključite tastaturu s Braillevim pismom&lt;/b&gt;: Dodirnite Postavke ispod. Na narednom ekranu uključite \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Koristite tastaturu s Braillevim pismom&lt;/b&gt;: Otvorite običnu tastaturu, zatim dodirnite ikonu za odabir tastature %2$s (obično se nalazi u donjem desnom uglu). Odaberite \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;Ako ne vidite opciju za promjenu tastature, pokušajte instalirati %3$s, Google Tastaturu.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Postavke</string>
+  &lt;br&gt;&lt;br&gt;Ako ne vidite opciju za promjenu tastature, pokušajte instalirati %3$s, Googleovu tastaturu.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Dodirnite \"Postavke\" u nastavku. Na sljedećem ekranu uključite \"%1$s\"&lt;br&gt;&lt;br&gt;
+    2. Otvorite uobičajenu tastaturu i potom dodirnite opciju za promjenu načina unosa %2$s (obično se nalazi u donjem desnom uglu).&lt;br&gt;&lt;br&gt;
+    3. Odaberite \"%1$s.\"
+    &lt;br&gt;&lt;br&gt;Ako ne vidite opciju za promjenu tastature, pokušajte instalirati %3$s, Googleovu tastaturu.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Uključite tastaturu s Braillevim pismom u nastavku.&lt;br&gt;&lt;br&gt;
+    2. Otvorite uobičajenu tastaturu i potom dodirnite opciju za promjenu načina unosa %2$s (obično se nalazi u donjem desnom uglu).&lt;br&gt;&lt;br&gt;
+    3. Odaberite \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Ako ne možete promijeniti tastaturu, pokušajte instalirati %3$s, Googleovu tastaturu.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Postavke</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Uključi</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Uključi tastaturu s Braillevim pismom</string>
   <string name="typing_languages_title">Jezici pisanja</string>
   <string name="preferred_language_title">Željeni jezik</string>
-  <string name="dont_show_again">Ne prikazuj ovo ponovo</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Brzo promijenite jezik prilikom unosa teksta</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Da promijenite jezik prilikom unosa teksta pomoću tastature s Braillevim pismom, prevucite nagore s 3 prsta. Zatim odaberite \"prebaci na sljedeći jezik\".</string>
   <string name="title_pref_accumulate_presses">Uvrsti sve pritisnute tačke</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Da pređete na <b>sljedeću tastaturu</b>, prevucite prema dolje s 3 prsta</string>
   <string name="gesture_submit_text">Da <b>pošaljete tekst</b>, prevucite prema gore s 2 prsta</string>
   <string name="gesture_open_context_menu">Za <b>pomoć i druge opcije</b>, prevucite prema gore s 3 prsta</string>
-  <string name="done">Gotovo</string>
   <string name="not_enough_touch_points_dialog_title">Vaš uređaj ne podržava tastaturu s Braillevim pismom</string>
   <string name="not_enough_touch_points_dialog_message">Vaš uređaj ne podržava dovoljno dodirnih tačaka. Za više informacija obratite se proizvođaču uređaja.</string>
   <string name="talkback_off_dialog_title">Uključite TalkBack za korištenje tastature s Braillevim pismom</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Izbrisano je slovo</string>
   <string name="perform_delete_word_announcement">Izbrisana je riječ</string>
   <string name="continue_tutorial_announcement">Nastavimo pratiti vodič. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Povezan je vanjski Brailleov ekran, koji možete koristiti za pisanje teksta na ovom uređaju.\nIli možete preći na Brailleovu tastaturu s ekranom na dodir ili sljedeći način unosa.</string>
-  <string name="braille_keyboard_strip_button">Prebaci na tastaturu s ekranom na dodir</string>
+  <string name="switch_on_screen_keyboard_announcement">Prebacivanje na Brailleov ekran na dodir</string>
+  <string name="braille_keyboard_strip_summary">Povezan je vanjski Brailleov ekran koji možete koristiti da unesite tekst na telefonu.\n\nTakođer možete prebaciti na tastaturu Braillevog pisma na ekranu na dodir ili na sljedeći način unosa.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Prebaci na Brailleov ekran na dodir</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Prebaci na sljedeći način za unos</string>
 </resources>

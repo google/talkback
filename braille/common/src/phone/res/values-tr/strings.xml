@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Bunu bir daha gösterme</string>
+  <string name="done">Bitti</string>
   <string name="number_announcement">Sayı</string>
   <string name="capitalize_announcement">Büyük harf</string>
   <string name="read_out_deleted">%s silindi</string>
@@ -7,6 +9,7 @@
     <item quantity="one">%s nokta</item>
     <item quantity="other">%s nokta</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille (Kısaltılmamış)</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille (Kısaltılmış)</string>
   <string name="code_user_facing_name_es">İspanyolca</string>

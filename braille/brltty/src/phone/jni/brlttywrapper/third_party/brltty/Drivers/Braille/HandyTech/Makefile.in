@@ -1,0 +1,28 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2019 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+DRIVER_CODE = ht
+DRIVER_NAME = HandyTech
+DRIVER_COMMENT = Modular 20/40/80, Modular Evolution 64/88, Modular Connect 88, Active Braille, Active Star 40, Actilino, Activator, Basic Braille 16/20/32/40/48/64/80, Braillino, Braille Wave, Easy Braille, Braille Star 40/80, Connect Braille 40, Bookworm
+DRIVER_VERSION = 0.6
+DRIVER_DEVELOPERS = Andreas Gross <andi.gross@gmx.de>, Dave Mielke <dave@mielke.cc>, Mario Lang <mlang@delysid.org>
+include $(SRC_TOP)braille.mk
+
+braille.$O:
+	$(CC) $(BRL_CFLAGS) -c $(SRC_DIR)/braille.c
+

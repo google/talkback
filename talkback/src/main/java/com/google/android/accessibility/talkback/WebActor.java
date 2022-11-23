@@ -17,6 +17,7 @@
 package com.google.android.accessibility.talkback;
 
 import static com.google.android.accessibility.utils.WebInterfaceUtils.DIRECTION_FORWARD;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_KEYBOARD;
 
 import android.accessibilityservice.AccessibilityService;
 import android.os.Bundle;
@@ -28,7 +29,6 @@ import com.google.android.accessibility.talkback.focusmanagement.record.FocusAct
 import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
-import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -104,7 +104,7 @@ public class WebActor {
 
     if (!WebInterfaceUtils.supportsWebActions(start)) {
       LogUtils.w(LOG_TAG, "Cannot navigate to HTML target: current pivot is not a web element.");
-      if (navigationAction.inputMode == InputModeManager.INPUT_MODE_KEYBOARD) {
+      if (navigationAction.inputMode == INPUT_MODE_KEYBOARD) {
         speakTTSText(service.getString(R.string.keycombo_announce_shortcut_not_supported), eventId);
       }
       return false;

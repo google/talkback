@@ -18,14 +18,16 @@ package com.google.android.accessibility.talkback.training;
 
 import static com.google.android.accessibility.talkback.training.NavigationButtonBar.BUTTON_TYPE_EXIT;
 import static com.google.android.accessibility.talkback.training.NavigationButtonBar.DEFAULT_BUTTONS;
-import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_TEXT_IN_IMAGES;
-import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_UPDATE_WELCOME_12_2;
-import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_VOLUME_CONTROL_CHANGES;
-import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_WINDOW_NAVIGATION;
-import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_WINDOW_NAVIGATION_PRE_R;
+import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_ACTIONS_IN_READING_CONTROLS;
+import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_DESCRIBE_ICONS;
+import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_SUPPORT_FOR_BRAILLE_DISPLAYS;
+import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_TRY_LOOKOUT_AND_TALKBACK;
+import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_UPDATE_WELCOME_13_0;
+import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_UPDATE_WELCOME_13_0_PRE_R;
 import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_ON_BOARDING_FOR_MULTIFINGER_GESTURES;
-import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_ON_BOARDING_TALKBACK_12_2;
-import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_ON_BOARDING_TALKBACK_12_2_PRE_R;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_ON_BOARDING_TALKBACK_13_0;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_ON_BOARDING_TALKBACK_13_0_PRE_R;
+import static com.google.android.accessibility.talkback.training.content.PageButton.PageButtonOnClickListener.LINK_TO_SETTINGS;
 
 import android.accessibilityservice.AccessibilityService;
 import android.app.NotificationManager;
@@ -47,12 +49,16 @@ import com.google.common.collect.ImmutableList;
 public class OnboardingInitiator {
 
   static final int NEW_GESTURE_NOTIFICATION_ID = 1;
+  private static final String LOOKOUT_PLAYSTORE_URL =
+      "https://play.google.com/store/apps/details?id=com.google.android.apps.accessibility.reveal";
 
   @StringRes
-  private static final int newFeatureShownKey = R.string.pref_update_welcome_12_2_shown_key;
+  private static final int newFeatureShownKey = R.string.pref_update_welcome_13_0_shown_key;
 
   /** A list of legacy preferences for old onboardings. */
-  private static final int[] legacyKey = {R.string.pref_update_talkback91_shown_key};
+  private static final int[] legacyKey = {
+    R.string.pref_update_talkback91_shown_key, R.string.pref_update_welcome_12_2_shown_key
+  };
 
   /** Sets onboarding preferences to true to ignore onboarding. */
   public static void ignoreOnboarding(Context context) {
@@ -114,13 +120,13 @@ public class OnboardingInitiator {
     } else {
       if (FeatureSupport.isMultiFingerGestureSupported()) {
         context.startActivity(
-            TrainingActivity.createTrainingIntent(context, TRAINING_ID_ON_BOARDING_TALKBACK_12_2));
+            TrainingActivity.createTrainingIntent(context, TRAINING_ID_ON_BOARDING_TALKBACK_13_0));
         // Device is Android R, so it's unnecessary to show an onboarding for R.
         sharedPreferences.edit().putBoolean(updateMultiFingerGesturesShownKey, true).apply();
       } else {
         context.startActivity(
             TrainingActivity.createTrainingIntent(
-                context, TRAINING_ID_ON_BOARDING_TALKBACK_12_2_PRE_R));
+                context, TRAINING_ID_ON_BOARDING_TALKBACK_13_0_PRE_R));
       }
       updateNewFeaturePreference(sharedPreferences, context);
     }
@@ -131,8 +137,8 @@ public class OnboardingInitiator {
     return TrainingActivity.createTrainingIntent(
         context,
         FeatureSupport.isMultiFingerGestureSupported()
-            ? TRAINING_ID_ON_BOARDING_TALKBACK_12_2
-            : TRAINING_ID_ON_BOARDING_TALKBACK_12_2_PRE_R);
+            ? TRAINING_ID_ON_BOARDING_TALKBACK_13_0
+            : TRAINING_ID_ON_BOARDING_TALKBACK_13_0_PRE_R);
   }
 
   /** Sets the preference of showing new feature pages and removes legacy of preferences. */
@@ -194,39 +200,50 @@ public class OnboardingInitiator {
           .captureGesture(
               AccessibilityService.GESTURE_2_FINGER_DOUBLE_TAP_AND_HOLD,
               R.string.new_shortcut_gesture_selection_mode_on_announcement);
-  static final PageConfig.Builder UPDATE_WELCOME_12_2 =
-      PageConfig.builder(PAGE_ID_UPDATE_WELCOME_12_2, R.string.welcome_to_updated_talkback_title)
-          .addText(R.string.update_welcome_12_2);
-  static final PageConfig.Builder VOLUME_CONTROL_CHANGES =
-      PageConfig.builder(PAGE_ID_VOLUME_CONTROL_CHANGES, R.string.volume_control_changes_title)
-          .addText(R.string.volume_control_changes_text);
-  static final PageConfig.Builder TEXT_IN_IMAGES =
-      PageConfig.builder(PAGE_ID_TEXT_IN_IMAGES, R.string.text_in_images_title)
-          .addText(R.string.text_in_images_text);
-  static final PageConfig.Builder WINDOW_NAVIGATION =
-      PageConfig.builder(PAGE_ID_WINDOW_NAVIGATION, R.string.window_navigation_title)
-          .addText(R.string.window_navigation_text);
-  static final PageConfig.Builder WINDOW_NAVIGATION_PRE_R =
-      PageConfig.builder(PAGE_ID_WINDOW_NAVIGATION_PRE_R, R.string.window_navigation_title)
-          .addText(R.string.window_navigation_text_pre_r);
+  static final PageConfig.Builder UPDATE_WELCOME_13_0 =
+      PageConfig.builder(PAGE_ID_UPDATE_WELCOME_13_0, R.string.welcome_to_updated_talkback_title)
+          .addText(R.string.update_welcome_13_0_text);
+  static final PageConfig.Builder UPDATE_WELCOME_13_0_PRE_R =
+      PageConfig.builder(
+              PAGE_ID_UPDATE_WELCOME_13_0_PRE_R, R.string.welcome_to_updated_talkback_title)
+          .addText(R.string.update_welcome_13_0_text_pre_r);
+  static final PageConfig.Builder SUPPORT_FOR_BRAILLE_DISPLAYS =
+      PageConfig.builder(
+              PAGE_ID_SUPPORT_FOR_BRAILLE_DISPLAYS, R.string.support_for_braille_displays_title)
+          .addText(R.string.support_for_braille_displays_text);
+  static final PageConfig.Builder ACTIONS_IN_READING_CONTROLS =
+      PageConfig.builder(
+              PAGE_ID_ACTIONS_IN_READING_CONTROLS, R.string.actions_in_reading_controls_title)
+          .addText(R.string.actions_in_reading_controls_text);
+  static final PageConfig.Builder DESCRIBE_ICONS =
+      PageConfig.builder(PAGE_ID_DESCRIBE_ICONS, R.string.describe_icons_title)
+          .addText(R.string.describe_icons_text)
+          .addButton(R.string.describe_icons_link_text, LINK_TO_SETTINGS);
+  static final PageConfig.Builder TRY_LOOKOUT_AND_TALKBACK =
+      PageConfig.builder(PAGE_ID_TRY_LOOKOUT_AND_TALKBACK, R.string.try_lookout_and_talkback_title)
+          .addText(R.string.try_lookout_and_talkback_text)
+          .addTextWithLink(R.string.try_lookout_and_talkback_playstore_text, LOOKOUT_PLAYSTORE_URL);
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Training
 
-  static final TrainingConfig ON_BOARDING_TALKBACK_12_2 =
+  static final TrainingConfig ON_BOARDING_TALKBACK_13_0 =
       TrainingConfig.builder(R.string.new_feature_in_talkback_title)
           .setPages(
               ImmutableList.of(
-                  UPDATE_WELCOME_12_2, VOLUME_CONTROL_CHANGES, TEXT_IN_IMAGES, WINDOW_NAVIGATION))
+                  UPDATE_WELCOME_13_0,
+                  SUPPORT_FOR_BRAILLE_DISPLAYS,
+                  DESCRIBE_ICONS,
+                  TRY_LOOKOUT_AND_TALKBACK))
           .setButtons(DEFAULT_BUTTONS)
           .build();
-  static final TrainingConfig ON_BOARDING_TALKBACK_12_2_PRE_R =
+  static final TrainingConfig ON_BOARDING_TALKBACK_13_0_PRE_R =
       TrainingConfig.builder(R.string.new_feature_in_talkback_title)
           .setPages(
               ImmutableList.of(
-                  UPDATE_WELCOME_12_2,
-                  VOLUME_CONTROL_CHANGES,
-                  WINDOW_NAVIGATION_PRE_R))
+                  UPDATE_WELCOME_13_0_PRE_R,
+                  SUPPORT_FOR_BRAILLE_DISPLAYS,
+                  TRY_LOOKOUT_AND_TALKBACK))
           .setButtons(DEFAULT_BUTTONS)
           .build();
   static final TrainingConfig ON_BOARDING_FOR_MULTIFINGER_GESTURES =

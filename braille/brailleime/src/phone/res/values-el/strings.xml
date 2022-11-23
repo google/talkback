@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Πληκτρολόγιο μπράιγ TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Εισαγωγή συσκευής μπράιγ</string>
   <string name="switch_to_screen_away_announcement">Λειτουργία οθόνης στραμμένης προς τα έξω</string>
   <string name="switch_to_tabletop_announcement">Επιτραπέζια λειτουργία. Τοποθετήστε τη συσκευή σας με τη θύρα φόρτισης στα αριστερά. Για να ενημερώσετε τη θέση των κουκκίδων, πατήστε παρατεταμένα με έξι δάχτυλα.</string>
   <string name="bring_ime_settings_page">Δεν υπάρχει άλλο ενεργοποιημένο πληκτρολόγιο. Μεταβείτε στις ρυθμίσεις πληκτρολογίου.</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Πώς να χρησιμοποιήσετε το πληκτρολόγιο μπράιγ</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Για χρήση πληκτρολογίου μπράιγ, ανοίξτε το κανονικό σας πληκτρολόγιο και πατήστε το εικονίδιο επιλογής πληκτρολογίου %1$s (συνήθως βρίσκεται στην κάτω δεξιά γωνία). Επιλέξτε \"%2$s\".
   &lt;br&gt;&lt;br&gt;Εάν δεν εμφανίζεται μια επιλογή εναλλαγής πληκτρολογίου, δοκιμάστε να εγκαταστήσετε %3$s, το Πληκτρολόγιο Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Ενεργοποίηση πληκτρολογίου μπράιγ&lt;/b&gt;: Πατήστε Ρυθμίσεις παρακάτω. Στην επόμενη οθόνη, ενεργοποιήστε το \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Χρήση πληκτρολογίου μπράιγ&lt;/b&gt;: Ανοίξτε το κανονικό σας πληκτρολόγιο και έπειτα πατήστε το εικονίδιο επιλογής πληκτρολογίου %2$s (συνήθως βρίσκεται στην κάτω δεξιά γωνία). Επιλέξτε \"%1$s\".
-    &lt;br&gt;&lt;br&gt;Εάν δεν εμφανίζεται μια επιλογή εναλλαγής πληκτρολογίου, δοκιμάστε να εγκαταστήσετε %3$s, το Πληκτρολόγιο Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Ρυθμίσεις</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Πατήστε Ρυθμίσεις παρακάτω. Στην επόμενη οθόνη, ενεργοποιήστε τη ρύθμιση %1$s.&lt;br&gt;&lt;br&gt;
+    2. Ανοίξτε το κανονικό σας πληκτρολόγιο και έπειτα πατήστε Εναλλαγή μεθόδου εισαγωγής %2$s (συνήθως βρίσκεται στην κάτω δεξιά γωνία).&lt;br&gt;&lt;br&gt;
+    3. Επιλέξτε %1$s.
+    &lt;br&gt;&lt;br&gt;Εάν δεν εμφανίζεται μια επιλογή εναλλαγής πληκτρολογίου, δοκιμάστε να εγκαταστήσετε το %3$s, το Πληκτρολόγιο Google.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Ενεργοποιήστε το πληκτρολόγιο μπράιγ παρακάτω.&lt;br&gt;&lt;br&gt;
+    2. Ανοίξτε το κανονικό σας πληκτρολόγιο και έπειτα πατήστε Εναλλαγή μεθόδου εισαγωγής %2$s (συνήθως βρίσκεται στην κάτω δεξιά γωνία).&lt;br&gt;&lt;br&gt;
+    3. Επιλέξτε %1$s.
+    &lt;br&gt;&lt;br&gt;Εάν δεν εμφανίζεται μια επιλογή εναλλαγής πληκτρολογίου, δοκιμάστε να εγκαταστήσετε το %3$s, το Πληκτρολόγιο Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Ρυθμίσεις</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Ενεργοποίηση</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Ενεργοποίηση πληκτρολογίου μπράιγ</string>
   <string name="typing_languages_title">Γλώσσες πληκτρολόγησης</string>
   <string name="preferred_language_title">Προτιμώμενη γλώσσα</string>
-  <string name="dont_show_again">Να μην εμφανιστεί ξανά</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Γρήγορη αλλαγή γλώσσας κατά την πληκτρολόγηση</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Για να αλλάξετε τη γλώσσα κατά την πληκτρολόγηση με το πληκτρολόγιο μπράιγ, σύρετε προς τα επάνω με τρία δάχτυλα. Στη συνέχεια, επιλέξτε Εναλλαγή σε επόμενη γλώσσα.</string>
   <string name="title_pref_accumulate_presses">Συμπερίληψη όλων των πατημένων κουκκίδων</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Για εναλλαγή στο <b>επόμενο πληκτρολόγιο</b>, σύρετε προς τα κάτω με τρία δάχτυλα.</string>
   <string name="gesture_submit_text">Για <b>υποβολή κειμένου</b>, σύρετε προς τα πάνω με δύο δάχτυλα.</string>
   <string name="gesture_open_context_menu">Για <b>βοήθεια και άλλες επιλογές</b>, σύρετε προς τα πάνω με τρία δάχτυλα.</string>
-  <string name="done">Τέλος</string>
   <string name="not_enough_touch_points_dialog_title">Η συσκευή σας δεν υποστηρίζει πληκτρολόγιο μπράιγ</string>
   <string name="not_enough_touch_points_dialog_message">Η συσκευή σας δεν υποστηρίζει αρκετά σημεία επαφής. Για περισσότερες πληροφορίες, επικοινωνήστε με τον κατασκευαστή της συσκευής σας.</string>
   <string name="talkback_off_dialog_title">Ενεργοποιήστε το TalkBack για χρήση πληκτρολογίου μπράιγ</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Το γράμμα διαγράφηκε</string>
   <string name="perform_delete_word_announcement">Η λέξη διαγράφηκε</string>
   <string name="continue_tutorial_announcement">Ας συνεχίσουμε τον οδηγό. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Έχει συνδεθεί μια εξωτερική συσκευή μπράιγ που μπορείτε να χρησιμοπ. για πληκτρολόγηση κειμένου στη συσκευή.\nΕναλλακτικά, χρησιμοποιήστε το πληκτρ. οθόνης αφής μπράιγ ή την επόμενη μέθοδο εισαγωγής.</string>
-  <string name="braille_keyboard_strip_button">Εναλλαγή σε πληκτρολόγιο οθόνης αφής</string>
+  <string name="switch_on_screen_keyboard_announcement">Εναλλαγή στην οθόνη αφής μπράιγ</string>
+  <string name="braille_keyboard_strip_summary">Μπορείτε να χρησιμοπ. τη συνδεδεμένη εξωτερική συσκευή μπράιγ για πληκτρολ. κειμένου στο τηλέφ.\n\nΕπίσης, μπορείτε να κάνετε εναλλαγή στο πληκτρολ. οθόνης αφής μπράιγ ή στην επόμενη μέθοδο εισαγωγής.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Εναλλαγή στην οθόνη αφής μπράιγ</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Εναλλαγή στην επόμενη μέθοδο εισαγωγής</string>
 </resources>

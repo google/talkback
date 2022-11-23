@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Να μην εμφανιστεί ξανά</string>
+  <string name="done">Τέλος</string>
   <string name="number_announcement">Αριθμός</string>
   <string name="capitalize_announcement">Κεφαλαία</string>
   <string name="read_out_deleted">Διαγράφηκε το %s</string>
@@ -7,6 +9,7 @@
     <item quantity="one">κουκκίδα %s</item>
     <item quantity="other">κουκκίδες %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
   <string name="code_user_facing_name_es">Ισπανικά</string>

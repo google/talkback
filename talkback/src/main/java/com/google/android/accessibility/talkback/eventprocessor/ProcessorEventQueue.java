@@ -18,8 +18,8 @@ package com.google.android.accessibility.talkback.eventprocessor;
 
 import android.os.Message;
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.compositor.Compositor;
-import com.google.android.accessibility.compositor.EventFilter;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.EventFilter;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;

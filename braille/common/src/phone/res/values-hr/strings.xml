@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Ne prikazuj to ponovo</string>
+  <string name="done">Gotovo</string>
   <string name="number_announcement">Broj</string>
   <string name="capitalize_announcement">Veliko slovo</string>
   <string name="read_out_deleted">Izbrisano: %s</string>
@@ -8,6 +10,7 @@
     <item quantity="few">točke %s</item>
     <item quantity="other">točke %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
   <string name="code_user_facing_name_es">španjolski</string>

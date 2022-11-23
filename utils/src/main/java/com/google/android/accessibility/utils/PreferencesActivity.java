@@ -45,6 +45,7 @@ public abstract class PreferencesActivity extends BasePreferencesActivity {
 
     if (FeatureSupport.isTv(this)) {
       disableExpandActionBar();
+      hideBackButton();
     }
 
     if (supportHatsSurvey()) {

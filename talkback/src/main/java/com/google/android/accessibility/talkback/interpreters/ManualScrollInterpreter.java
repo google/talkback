@@ -19,13 +19,13 @@ package com.google.android.accessibility.talkback.interpreters;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollEventHandler;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollEventInterpretation;
 import com.google.android.accessibility.talkback.focusmanagement.record.NodePathDescription;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.input.ScrollActionRecord;
+import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollEventHandler;
+import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollEventInterpretation;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.auto.value.AutoValue;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -69,10 +69,13 @@ public class ManualScrollInterpreter implements ScrollEventHandler {
   private ScrolledViewChangeListener listener;
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  // Constructor
+  // Construction
 
-  public ManualScrollInterpreter(ScrolledViewChangeListener listener, ActorState actorState) {
+  public void setActorState(ActorState actorState) {
     this.actorState = actorState;
+  }
+
+  public void setListener(ScrolledViewChangeListener listener) {
     this.listener = listener;
   }
 
@@ -82,7 +85,7 @@ public class ManualScrollInterpreter implements ScrollEventHandler {
   @Override
   public void onScrollEvent(
       AccessibilityEvent event, ScrollEventInterpretation interpretation, EventId eventId) {
-    if ((interpretation.userAction != ScrollEventInterpreter.ACTION_MANUAL_SCROLL)
+    if ((interpretation.userAction != ScrollActionRecord.ACTION_MANUAL_SCROLL)
         || (interpretation.scrollDirection == TraversalStrategy.SEARCH_FOCUS_UNKNOWN)) {
       return;
     }

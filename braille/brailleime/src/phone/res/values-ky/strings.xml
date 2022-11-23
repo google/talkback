@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack Брайль баскычтобу</string>
+  <string name="braille_ime_bd_mode_name">Брайль дисплейине киргизүү</string>
   <string name="switch_to_screen_away_announcement">Экранды ары каратып колдонуу режими</string>
   <string name="switch_to_tabletop_announcement">Столдун үстүндө колдонуу режими. Түзмөгүңүздү столго кубаттоо оюкчасын солго каратып коюңуз. Чекиттердин ордун өзгөртүү үчүн 6 манжаңыз менен экранды басып туруңуз.</string>
   <string name="bring_ime_settings_page">Башка иштетилген баскычтоп жок. Баскычтоптун жөндөөлөрүнө өтүңүз</string>
@@ -19,17 +20,23 @@
   <string name="calibration_fail_announcement">Чекиттердин орду өзгөргөн жок. Экранды 6 манжаңыз менен коё бербей басып туруңуз. Андан кийин кайталап көрүңүз.</string>
   <string name="switch_to_language_announcement">%s тилине которулду</string>
   <string name="braille_keyboard">Брайль баскычтобу</string>
-  <string name="set_up_braille_keyboard">Брайль баскычтобун жөндөө</string>
+  <string name="set_up_braille_keyboard">Брайль баскычтобун орнотуу</string>
   <string name="how_to_use_braille_keyboard">Брайль баскычтобун кантип колдонуу керек</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Брайль баскычтобун колдонуу үчүн кадимки баскычтопту ачып, %1$s баскычтопту тандоо сүрөтчөсүн таптап коюңуз (адатта ал төмөнкү оң бурчта жайгашат). \"%2$s\" дегенди тандаңыз.
   &lt;br&gt;&lt;br&gt;Эгер баскычтопту которуштуруу параметри болбосо, %3$s, Google баскычтобун орнотуп көрүңүз.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Брайль баскычтобун күйгүзүү&lt;/b&gt;: Төмөндөгү Жөндөөлөрдү таптап коюңуз. Кийинки экрандан \"%1$s\" күйгүзүңүз.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Брайль баскычтобун колдонуу&lt;/b&gt;: Кадимки баскычтопту ачып, %2$s баскычтопту тандоо сүрөтчөсүн таптап коюңуз (адатта ал төмөнкү оң бурчта жайгашат). \"%1$s\" дегенди тандаңыз.
-    &lt;br&gt;&lt;br&gt;Эгер баскычтопту которуштуруу параметри болбосо, %3$s, Google баскычтобун орнотуп көрүңүз.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Жөндөөлөр</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Төмөндөгү \"Жөндөөлөрдү\" таптап коюңуз. Кийинки экрандан \"%1$s\" күйгүзүңүз&lt;br&gt;&lt;br&gt;
+    2. Кадимки баскычтобуңузду ачып, киргизүү ыкмасын которгучту таптап коюңуз %2$s (адатта ылдыйкы оң бурчта).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" дегенди тандаңыз.
+    &lt;br&gt;&lt;br&gt;Эгер баскычтопту которуштуруу параметри болбосо, Google\'дун %3$s баскычтобун орнотуп көрүңүз.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Брайль баскычтобун иштетиңиз.&lt;br&gt;&lt;br&gt;
+2. Кадимки баскычтопту ачып, %2$s баскычы аркылуу киргизүү ыкмасын өзгөртүңүз (экрандын ылдыйкы оң бурчундагы).&lt;br&gt;&lt;br&gt;
+3. \"%1$s\" тандаңыз.
+&lt;br&gt;&lt;br&gt;Эгер баскычтопторду өзгөртө албай жатсаңыз, Google\'дун %3$s баскычтобун орнотуп көрүңүз.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Жөндөөлөр</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Күйгүзүү</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Брайль баскычтобун күйгүзүңүз</string>
   <string name="typing_languages_title">Терүү үчүн колдонулган тилдер</string>
   <string name="preferred_language_title">Тандалган тил</string>
-  <string name="dont_show_again">Бул нерсе экинчи көрүнбөсүн</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Терип жатканда тилди ыкчам өзгөртүү</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Брайль баскычтобунда терип жатканда тилди өзгөртүү үчүн 3 манжаңыз менен экранды өйдө сүрүп коюңуз. Андан соң \"кийинки тилге которулууну\" тандаңыз.</string>
   <string name="title_pref_accumulate_presses">Бардык басылган чекиттер камтылсын</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>Кийинки баскычтопко</b> которулуу үчүн экранды 3 манжаңыз менен ылдый сүрүңүз</string>
   <string name="gesture_submit_text"><b>Текстти тапшыруу</b> үчүн экранды 2 манжаңыз менен өйдө сүрүңүз</string>
   <string name="gesture_open_context_menu"><b>Жардам алуу жана башка параметрлер</b> үчүн экранды 3 манжаңыз менен өйдө сүрүңүз</string>
-  <string name="done">Бүттү</string>
   <string name="not_enough_touch_points_dialog_title">Түзмөгүңүздө Брайль баскычтобу жок</string>
   <string name="not_enough_touch_points_dialog_message">Түзмөгүңүзгө бир нече манжаңыз менен басып киргизүүгө болбойт. Толук маалымат алуу үчүн, түзмөктү өндүрүүчүгө кайрылыңыз.</string>
   <string name="talkback_off_dialog_title">Брайль баскычтобун колдонуу үчүн TalkBack\'ти күйгүзүңүз</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Тамга өчүрүлдү</string>
   <string name="perform_delete_word_announcement">Сөз өчүрүлдү</string>
   <string name="continue_tutorial_announcement">Үйрөткүчтү уланталы. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Тышкы брайль дисплейи туташты. Анын жардамы менен бул түзмөктө текст тере аласыз.\nЖе болбосо, сенсордук экрандын брайль баскычтобуна же кийинки киргизүү ыкмасына которулсаңыз болот.</string>
-  <string name="braille_keyboard_strip_button">Сенсордук экрандын баскычтобуна которулуу</string>
+  <string name="switch_on_screen_keyboard_announcement">Брайль сенсордук экранына которулууда</string>
+  <string name="braille_keyboard_strip_summary">Тышкы брайль дисплейи туташты. Анын жардамы менен бул телефонуңузда текст тере аласыз.\n\nОшондой эле, сенсордук экрандын брайль баскычтобуна же кийинки киргизүү ыкмасына которулсаңыз болот.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Брайль сенсордук экранына которулуу</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Кийинки киргизүү ыкмасына которулуу</string>
 </resources>

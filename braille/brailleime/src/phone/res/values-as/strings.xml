@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack ব্ৰেইল কীব\'র্ড</string>
+  <string name="braille_ime_bd_mode_name">ব্ৰেইল ডিছপ্লে’ৰ ইনপুট</string>
   <string name="switch_to_screen_away_announcement">স্ক্ৰীন এৱে’ ম’ড</string>
   <string name="switch_to_tabletop_announcement">টেবুলটপ ম’ড। চাৰ্জিং প’ৰ্টটো বাওঁফালে থকাকৈ আপোনাৰ ডিভাইচটো ৰাখক। বিন্দুৰ স্থান আপডে’ট কৰিবলৈ ৬ টা আঙুলিৰে বিন্দুকেইটা টিপি ধৰক।</string>
   <string name="bring_ime_settings_page">অন্য কোনো কীব\'র্ড সক্ষম কৰি ৰখা নাই, কীব\'র্ডৰ ছেটিঙলৈ যাওক</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">ব্ৰেইল কীব’ৰ্ড কেনেকৈ ব্যৱহাৰ কৰিব লাগে</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">ব্ৰেইল কীব\'র্ডখন ব্যৱহাৰ কৰিবলৈ, আপুনি নিয়মীয়াকৈ ব্যৱহাৰ কৰা কীব\'র্ডখন খুলি কীব\'র্ড বাছনি কৰক চিহ্নটো %1$s (সাধাৰণতে তলৰ সোঁ কোণত থকা) টিপক। \"%2$s\" বাছনি কৰক।
   &lt;br&gt;&lt;br&gt;যদি আপুনি কীব\'র্ডসমূহ সলনি কৰিবলৈ বিকল্প দেখা নাপায়, তেন্তে %3$s Google কীব\'র্ডখন ইনষ্টল কৰি চাওক।</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">১) &lt;b&gt;ব্ৰেইল কীব\'র্ড অন কৰক&lt;/b&gt;: তলৰ ছেটিঙত টিপক। পৰৱৰ্তী স্ক্ৰীনখনত, \"%1$s\" অন কৰক।
-    &lt;br&gt;&lt;br&gt;২) &lt;b&gt;ব্ৰেইল কীব\'র্ড ব্যৱহাৰ কৰক&lt;/b&gt;: আপুনি নিয়মীয়াকৈ ব্যৱহাৰ কৰা কীব\'র্ডখন খুলি কীব\'র্ড বাছনি কৰক চিহ্নটো %2$s (সাধাৰণতে তলৰ সোঁ কোণত থকা) টিপক। \"%1$s.\" বাছনি কৰক।
-    &lt;br&gt;&lt;br&gt;যদি আপুনি কীব\'র্ডসমূহ সলনি কৰিবলৈ বিকল্প দেখা নাপায়, তেন্তে %3$s, Google কীব\'র্ডখন ইনষ্টল কৰি চাওক।</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">ছেটিং</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">১) তলত \"ছেটিঙ\"ত টিপক। পৰৱৰ্তী স্ক্ৰীনখনত, \"%1$s\" অন কৰক&lt;br&gt;&lt;br&gt;
+    ২) আপোনাৰ নিয়মীয়া কীব’ৰ্ড খোলক, তাৰ পাছত ছুইচৰ ইনপুটৰ পদ্ধতিত টিপক %2$s (সচৰাচৰ সোঁফালৰ চুকটোৰ একেবাৰে তলত)।&lt;br&gt;&lt;br&gt;
+    ৩) \"%1$s\" বাছনি কৰক।
+    &lt;br&gt;&lt;br&gt;যদি আপুনি কীব’ৰ্ড সলনি কৰিবলৈ বিকল্প দেখা নাপায়, তেন্তে Google কীব’ৰ্ড %3$s ইনষ্টল কৰি চাওক।</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">১) তলত ব্ৰেইল কীব’ৰ্ড অন কৰক।&lt;br&gt;&lt;br&gt;
+    ২) আপোনাৰ নিয়মীয়া কীব’ৰ্ড খোলক, তাৰ পাছত ছুইচৰ ইনপুটৰ পদ্ধতিত টিপক %2$s (সচৰাচৰ সোঁফালৰ চুকটোৰ একেবাৰে তলত)।&lt;br&gt;&lt;br&gt;
+    ৩) \"%1$s\".
+    &lt;br&gt;&lt;br&gt;যদি আপুনি কীব’ৰ্ড সলনি কৰিব নোৱাৰে %3$s, Google কীব’ৰ্ড ইনষ্টল কৰি চাওক।</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">ছেটিং</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">অন কৰক</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">ব্ৰেইল কীব’ৰ্ড অন কৰক</string>
   <string name="typing_languages_title">টাইপ কৰা ভাষা</string>
   <string name="preferred_language_title">অগ্ৰাধিকাৰ দিয়া ভাষা</string>
-  <string name="dont_show_again">এইটো পুনৰ নেদেখুৱাব</string>
   <string name="switch_input_code_gesture_tip_dialog_title">টাইপ কৰি থাকোঁতে ভাষা সলনি কৰক</string>
   <string name="switch_input_code_gesture_tip_dialog_message">ব্ৰেইল কীব’ৰ্ডেৰে টাইপ কৰি থাকোঁতে আপোনাৰ ভাষা সলনি কৰাৰ বাবে বিকল্পৰ মেনুখন খুলিবলৈ ৩ টা আঙুলিৰে ওপৰলৈ ছোৱাইপ কৰক। তাৰ পাছত \"পৰৱৰ্তী ভাষাটোলৈ সলনি কৰক\" বাছনি কৰক।</string>
   <string name="title_pref_accumulate_presses">টিপা আটাইবোৰ বিন্দু অন্তর্ভুক্ত কৰক</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>পৰৱর্তী কীব\'র্ড</b>খন ব্যৱহাৰ কৰিবলৈ, তললৈ ৩ টা আঙুলিৰে ছোৱাইপ কৰক</string>
   <string name="gesture_submit_text"><b>পাঠ দাখিল কৰিব</b>লৈ, ২ টা আঙুলিৰে ওপৰলৈ ছোৱাইপ কৰক</string>
   <string name="gesture_open_context_menu"><b>সহায় আৰু অন্য বিকল্পসমূহ</b>ৰ বাবে, ৩ টা আঙুলিৰে ওপৰলৈ ছোৱাইপ কৰক</string>
-  <string name="done">কৰা হ’ল</string>
   <string name="not_enough_touch_points_dialog_title">আপোনাৰ ডিভাইচটোৱে ব্ৰেইল কীব\'র্ড সমর্থন নকৰে</string>
   <string name="not_enough_touch_points_dialog_message">আপোনাৰ ডিভাইচটোৱে পর্যাপ্ত সংখ্যক স্পর্শ বিন্দু সমর্থন নকৰে। অধিক তথ্যৰ বাবে, আপোনাৰ ডিভাইচ নিৰ্মাতাৰ সৈতে যোগাযোগ কৰক।</string>
   <string name="talkback_off_dialog_title">ব্ৰেইল কীব\'র্ড ব্যৱহাৰ কৰিবলৈ TalkBack অন কৰক</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">আখৰটো মচা হ\'ল</string>
   <string name="perform_delete_word_announcement">শব্দটো মচা হৈছে</string>
   <string name="continue_tutorial_announcement">আহক টিউট\'ৰিয়েল অব্যাহত ৰাখোঁ। %1$s</string>
-  <string name="braille_keyboard_strip_summary">এখন বাহ্যিক ব্ৰেইলি ডিছপ্লে\' সংযোগ কৰা হৈছে, যিখন আপুনি এই ডিভাইচটোত পাঠ টাইপ কৰিবলৈ ব্যৱহাৰ কৰিব পাৰে।\nঅথবা, আপুনি টাচ্চস্ক্ৰীন ব্ৰেইলি কীব’ৰ্ডখনলৈ অথবা পৰৱৰ্তী ইনপুট পদ্ধতিটোলৈ সলনি কৰিব পাৰে।</string>
-  <string name="braille_keyboard_strip_button">টাচ্চস্ক্ৰীন কীব’ৰ্ডলৈ সলনি কৰক</string>
+  <string name="switch_on_screen_keyboard_announcement">ব্ৰেইল টাচ্চস্ক্ৰীনলৈ সলনি কৰি থকা হৈছে</string>
+  <string name="braille_keyboard_strip_summary">এখন বাহ্যিক ব্ৰেইল ডিছপ্লে’ সংযোগ কৰা হৈছে, যিখন আপুনি নিজৰ ফ’নত পাঠ টাইপ কৰিবলৈ ব্যৱহাৰ কৰিব পাৰে।\n\nআপুনি টাচ্চস্ক্ৰীন ব্ৰেইল কীব’ৰ্ডখনলৈ অথবা পৰৱৰ্তী ইনপুট পদ্ধতিটোলৈ সলনি কৰিবও পাৰে।</string>
+  <string name="braille_keyboard_strip_touch_screen_button">ব্ৰেইল টাচ্চস্ক্ৰীনলৈ সলনি কৰক</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">পৰৱৰ্তী ইনপুটৰ পদ্ধতিলৈ সলনি কৰক</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack ಬ್ರೈಲ್‌ ಕೀಬೋರ್ಡ್</string>
+  <string name="braille_ime_bd_mode_name">ಬ್ರೈಲ್ ಡಿಸ್‌ಪ್ಲೇ ಇನ್‌ಪುಟ್</string>
   <string name="switch_to_screen_away_announcement">ಸ್ಕ್ರೀನ್-ಅವೇ ಮೋಡ್</string>
   <string name="switch_to_tabletop_announcement">ಟೇಬಲ್‍‍ಟಾಪ್ ಮೋಡ್. ನಿಮ್ಮ ಸಾಧನದ ಚಾರ್ಜಿಂಗ್ ಪೋರ್ಟ್ ಅನ್ನು ಎಡಕ್ಕೆ ಇರಿಸಿ. ಡಾಟ್ ಸ್ಥಾನವನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಲು, 6 ಬೆರಳುಗಳನ್ನು ಹಿಡಿದುಕೊಳ್ಳಿ.</string>
   <string name="bring_ime_settings_page">ಯಾವುದೇ ಕೀಬೋರ್ಡ್ ಸಕ್ರಿಯಗೊಂಡಿಲ್ಲ, ಕೀಬೋರ್ಡ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಬಳಸುವುದು ಹೇಗೆ?</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಬಳಸಲು, ನಿಮ್ಮ ಸಾಮಾನ್ಯ ಕೀಬೋರ್ಡ್ ತೆರೆಯಿರಿ, ನಂತರ ಕೀಬೋರ್ಡ್ ಐಕಾನ್ %1$s ಆಯ್ಕೆ ಮಾಡಿ ಎಂಬುದನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ (ಇದು ಸಾಮಾನ್ಯವಾಗಿ ಕೆಳಗಿನ ಬಲ ಮೂಲೆಯಲ್ಲಿರುತ್ತದೆ). \"%2$s\" ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.
   &lt;br&gt;&lt;br&gt;ಕೀಬೋರ್ಡ್‌ಗಳನ್ನು ಬದಲಿಸುವ ಆಯ್ಕೆಯು ನಿಮಗೆ ದೊರೆಯದಿದ್ದರೆ, Google ಕೀಬೋರ್ಡ್ %3$s ಅನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಆನ್ ಮಾಡಿ&lt;/b&gt;: ಕೆಳಗಿನ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ. ಮುಂದಿನ ಪರದೆಯಲ್ಲಿ, \"%1$s\" ಅನ್ನು ಆನ್ ಮಾಡಿ.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಬಳಸಿ&lt;/b&gt;: ನಿಮ್ಮ ಸಾಮಾನ್ಯ ಕೀಬೋರ್ಡ್ ತೆರೆಯಿರಿ, ನಂತರ %2$s ಕೀಬೋರ್ಡ್ ಐಕಾನ್ ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿ ಎಂಬುದನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ (ಇದು ಸಾಮಾನ್ಯವಾಗಿ ಕೆಳಗಿನ ಬಲ ಮೂಲೆಯಲ್ಲಿರುತ್ತದೆ). \"%1$s\" ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. ಕೆಳಗಿನ \"ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು\" ಟ್ಯಾಪ್ ಮಾಡಿ. ಮುಂದಿನ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ, \"%1$s\" ಅನ್ನು ಆನ್ ಮಾಡಿ&lt;br&gt;&lt;br&gt;
+    2. ನಿಮ್ಮ ಸಾಮಾನ್ಯ ಕೀಬೋರ್ಡ್ ಅನ್ನು ತೆರೆಯಿರಿ ನಂತರ ಇನ್‌ಪುಟ್ ವಿಧಾನವನ್ನು %2$s ಬದಲಿಸಿ ಎಂಬುದನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ (ಇದು ಸಾಮಾನ್ಯವಾಗಿ ಕೆಳಗಿನ ಬಲ ಮೂಲೆಯಲ್ಲಿರುತ್ತದೆ).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಿ.
     &lt;br&gt;&lt;br&gt;ಕೀಬೋರ್ಡ್‌ಗಳನ್ನು ಬದಲಿಸುವ ಆಯ್ಕೆಯು ನಿಮಗೆ ದೊರೆಯದಿದ್ದರೆ, Google ಕೀಬೋರ್ಡ್ %3$s ಅನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. ಕೆಳಗಿನ \"ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಅನ್ನು ಆನ್ ಮಾಡಿ.&lt;br&gt;&lt;br&gt;
+    2. ನಿಮ್ಮ ಸಾಮಾನ್ಯ ಕೀಬೋರ್ಡ್ ಅನ್ನು ತೆರೆಯಿರಿ ನಂತರ ಇನ್‌ಪುಟ್ ವಿಧಾನವನ್ನು %2$s ಬದಲಿಸಿ ಎಂಬುದನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ (ಇದು ಸಾಮಾನ್ಯವಾಗಿ ಕೆಳಗಿನ ಬಲ ಮೂಲೆಯಲ್ಲಿರುತ್ತದೆ).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ.
+    &lt;br&gt;&lt;br&gt;ಕೀಬೋರ್ಡ್‌ಗಳನ್ನು ಬದಲಿಸಲು ನಿಮಗೆ ಸಾಧ್ಯವಾಗದಿದ್ದರೆ, Google ಕೀಬೋರ್ಡ್ %3$s ಅನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ಆನ್ ಮಾಡಿ</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಅನ್ನು ಆನ್ ಮಾಡಿ</string>
   <string name="typing_languages_title">ಟೈಪಿಂಗ್ ಭಾಷೆಗಳು</string>
   <string name="preferred_language_title">ಆದ್ಯತೆಯ ಭಾಷೆ</string>
-  <string name="dont_show_again">ಇದನ್ನು ಮತ್ತೊಮ್ಮೆ ತೋರಿಸಬೇಡಿ</string>
   <string name="switch_input_code_gesture_tip_dialog_title">ಟೈಪ್ ಮಾಡುವಾಗ ತ್ವರಿತವಾಗಿ ಭಾಷೆಯನ್ನು ಬದಲಾಯಿಸಿ</string>
   <string name="switch_input_code_gesture_tip_dialog_message">ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಬಳಸಿ ಟೈಪ್ ಮಾಡುತ್ತಿರುವಾಗ ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಬದಲಾಯಿಸಲು, 3 ಬೆರಳುಗಳಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ನಂತರ \"ಮುಂದಿನ ಭಾಷೆಗೆ ಬದಲಿಸಿಕೊಳ್ಳಿ\" ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ.</string>
   <string name="title_pref_accumulate_presses">ಒತ್ತಲಾದ ಎಲ್ಲಾ ಚುಕ್ಕೆಗಳನ್ನು ಸೇರಿಸಿ</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>ಮುಂದಿನ ಕೀಬೋರ್ಡ್‌ಗೆ</b> ಬದಲಿಸಲು, 3 ಬೆರಳುಗಳಿಂದ ಕೆಳಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
   <string name="gesture_submit_text"><b>ಪಠ್ಯವನ್ನು ಸಲ್ಲಿಸಲು</b>, 2 ಬೆರಳುಗಳಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
   <string name="gesture_open_context_menu"><b>ಸಹಾಯ ಮತ್ತು ಇತರ ಆಯ್ಕೆಗಳಿಗಾಗಿ</b>, 3 ಬೆರಳುಗಳಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
-  <string name="done">ಪೂರ್ಣಗೊಂಡಿದೆ</string>
   <string name="not_enough_touch_points_dialog_title">ನಿಮ್ಮ ಸಾಧನವು ಬ್ರೈಲ್ ಕೀಬೋರ್ಡನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ</string>
   <string name="not_enough_touch_points_dialog_message">ನಿಮ್ಮ ಸಾಧನವು ಸಾಕಷ್ಟು ಸ್ಪರ್ಶ ಬಿಂದುಗಳನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ ಸಾಧನ ತಯಾರಕರನ್ನು ಸಂಪರ್ಕಿಸಿ.</string>
   <string name="talkback_off_dialog_title">ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಬಳಸಲು, TalkBack ಆನ್ ಮಾಡಿ</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">ಅಕ್ಷರವನ್ನು ಅಳಿಸಲಾಗಿದೆ</string>
   <string name="perform_delete_word_announcement">ಪದವನ್ನು ಅಳಿಸಲಾಗಿದೆ</string>
   <string name="continue_tutorial_announcement">ಟುಟೋರಿಯಲ್ ಅನ್ನು ಮುಂದುವರಿಸೋಣ. %1$s</string>
-  <string name="braille_keyboard_strip_summary">ಈ ಸಾಧನಕ್ಕೆ ಬಾಹ್ಯ ಬ್ರೈಲ್ ಡಿಸ್ಪ್ಲೇ ಅನ್ನು ಕನೆಕ್ಟ್ ಮಾಡಲಾಗಿದೆ, ಈ ಸಾಧನದಲ್ಲಿ ಪಠ್ಯವನ್ನು ಟೈಪ್ ಮಾಡಲು ನೀವು ಅದನ್ನು ಬಳಸಬಹುದು.\n ಅಥವಾ ನೀವು ಟಚ್‌ಸ್ಕ್ರೀನ್ ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಅಥವಾ ಮುಂದಿನ ಇನ್‌ಪುಟ್ ವಿಧಾನಕ್ಕೆ ಬದಲಾಯಿಸಬಹುದು.</string>
-  <string name="braille_keyboard_strip_button">ಟಚ್‌ಸ್ಕ್ರೀನ್ ಕೀಬೋರ್ಡ್‌ಗೆ ಬದಲಾಯಿಸಿ</string>
+  <string name="switch_on_screen_keyboard_announcement">ಬ್ರೈಲ್ ಟಚ್‌ಸ್ಕ್ರೀನ್‌ಗೆ ಬದಲಾಯಿಸಲಾಗುತ್ತಿದೆ</string>
+  <string name="braille_keyboard_strip_summary">ನಿಮ್ಮ ಫೋನ್‌ಗೆ ಬಾಹ್ಯ ಬ್ರೈಲ್ ಡಿಸ್‌ಪ್ಲೇ ಅನ್ನು ಕನೆಕ್ಟ್ ಮಾಡಲಾಗಿದೆ, ಈ ಫೋನ್‌ನಲ್ಲಿ ಪಠ್ಯವನ್ನು ಟೈಪ್ ಮಾಡಲು ನೀವು ಅದನ್ನು ಬಳಸಬಹುದು.\n\nನೀವು ಟಚ್‌ಸ್ಕ್ರೀನ್ ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್ ಅಥವಾ ಮುಂದಿನ ಇನ್‌ಪುಟ್ ವಿಧಾನಕ್ಕೆ ಬದಲಾಯಿಸಬಹುದು.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">ಬ್ರೈಲ್ ಟಚ್‌ಸ್ಕ್ರೀನ್‌ಗೆ ಬದಲಿಸಿ</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">ಮುಂದಿನ ಇನ್‌ಪುಟ್ ವಿಧಾನಕ್ಕೆ ಬದಲಿಸಿ</string>
 </resources>

@@ -1,0 +1,61 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2018 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+note There are four thumb keys on the front. From left to right, they are:
+note * Previous, Back, Advance, Next.
+
+####################
+# Default Bindings #
+####################
+
+bind Back+Advance HOME
+bind Back LNUP
+bind Advance LNDN
+bind Previous FWINLT
+bind Next FWINRT
+
+bind Previous+Back TOP_LEFT
+bind Previous+Advance BOT_LEFT
+bind Next+Back PRDIFLN
+bind Next+Advance NXDIFLN
+
+bind Previous+RoutingKey CLIP_NEW
+bind Back+RoutingKey CLIP_ADD
+bind Advance+RoutingKey COPY_RECT
+bind Next+RoutingKey COPY_LINE
+bind Previous+Next PASTE
+
+
+#################
+# Menu Bindings #
+#################
+
+context menu
+
+bind Previous FWINLT
+bind Next FWINRT
+bind Back MENU_PREV_ITEM
+bind Advance MENU_NEXT_ITEM
+bind Previous+Back MENU_FIRST_ITEM
+bind Previous+Advance MENU_LAST_ITEM
+bind Next+Back MENU_PREV_SETTING
+bind Next+Advance MENU_NEXT_SETTING
+bind Back+Advance PREFMENU
+bind Back+Advance+Previous PREFLOAD
+bind Back+Advance+Next PREFSAVE
+

@@ -24,7 +24,13 @@ public class HatsSurveyRequester {
     // Do nothing.
   }
 
+  /** Requests Hats survey. */
   public void requestSurvey() {
+    // Do nothing.
+  }
+
+  /** Dismisses Hats survey. */
+  public void dismissSurvey() {
     // Do nothing.
   }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">මෙය නැවත නොපෙන්වන්න</string>
+  <string name="done">නිමයි</string>
   <string name="number_announcement">අංකය</string>
   <string name="capitalize_announcement">කැප්</string>
   <string name="read_out_deleted">%s මකන ලදි</string>
@@ -7,6 +9,7 @@
     <item quantity="one">තිත් %s</item>
     <item quantity="other">තිත් %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
   <string name="code_user_facing_name_es">ස්පාඤ්ඤ</string>

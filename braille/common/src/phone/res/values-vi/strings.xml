@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Không hiện lại nữa</string>
+  <string name="done">Xong</string>
   <string name="number_announcement">Số</string>
   <string name="capitalize_announcement">Viết hoa</string>
   <string name="read_out_deleted">Đã xóa %s</string>
@@ -7,6 +9,7 @@
     <item quantity="one">dấu chấm %s</item>
     <item quantity="other">dấu chấm %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Chữ nổi tiếng Anh hợp nhất không rút gọn</string>
   <string name="code_user_facing_name_ueb2">Chữ nổi tiếng Anh hợp nhất rút gọn</string>
   <string name="code_user_facing_name_es">Tiếng Tây Ban Nha</string>

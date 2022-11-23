@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.talkback.gesture;
 
+import static android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_NEXT;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_TOP;
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.COPY;
@@ -40,8 +41,8 @@ import static com.google.android.accessibility.talkback.Feedback.PassThroughMode
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.COPY_LAST;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SAVE_LAST;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.TOGGLE_VOICE_FEEDBACK;
+import static com.google.android.accessibility.talkback.Feedback.UniversalSearch.Action.TOGGLE_SEARCH;
 import static com.google.android.accessibility.talkback.Feedback.VoiceRecognition.Action.START_LISTENING;
-import static com.google.android.accessibility.talkback.actor.SystemActionPerformer.GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS;
 import static com.google.android.accessibility.talkback.actor.SystemActionPerformer.GLOBAL_ACTION_ACCESSIBILITY_BUTTON;
 import static com.google.android.accessibility.talkback.actor.SystemActionPerformer.GLOBAL_ACTION_ACCESSIBILITY_BUTTON_CHOOSER;
 import static com.google.android.accessibility.talkback.actor.SystemActionPerformer.GLOBAL_ACTION_KEYCODE_HEADSETHOOK;
@@ -49,18 +50,16 @@ import static com.google.android.accessibility.talkback.training.PageConfig.ANNO
 import static com.google.android.accessibility.talkback.training.PageConfig.UNKNOWN_ANNOUNCEMENT;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 import static com.google.android.accessibility.utils.input.CursorGranularity.DEFAULT;
-import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_TOUCH;
 import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_BACKWARD;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_FORWARD;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.FingerprintGestureController;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -74,7 +73,13 @@ import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.contextmenu.ListMenuManager;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.selector.SelectorController;
+import com.google.android.accessibility.talkback.selector.SelectorController.AnnounceType;
+import com.google.android.accessibility.talkback.selector.SelectorController.Setting;
 import com.google.android.accessibility.talkback.training.TrainingActivity;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants;
+import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.KeyboardUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
@@ -82,7 +87,6 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.TreeDebug;
 import com.google.android.accessibility.utils.WindowUtils;
-import com.google.android.accessibility.utils.keyboard.KeyboardUtils;
 import com.google.android.accessibility.utils.monitor.ScreenMonitor;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
@@ -153,7 +157,6 @@ public class GestureController {
    * @param gesture Fingerprint gesture Id
    * @return Mapped action shortcut
    */
-  @TargetApi(Build.VERSION_CODES.O)
   private String actionFromFingerprintGesture(int gesture) {
     SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(service);
     switch (gesture) {
@@ -305,17 +308,26 @@ public class GestureController {
         service.getString(R.string.shortcut_value_perform_long_click_action))) {
       result = pipeline.returnFeedback(eventId, Feedback.focus(LONG_CLICK_CURRENT));
     } else if (action.equals(service.getString(R.string.shortcut_value_select_previous_setting))) {
-      selectorController.selectPreviousOrNextSetting(eventId, false);
+      selectorController.selectPreviousOrNextSetting(
+          eventId, AnnounceType.DESCRIPTION_AND_HINT, false);
     } else if (action.equals(service.getString(R.string.shortcut_value_select_next_setting))) {
-      selectorController.selectPreviousOrNextSetting(eventId, true);
+      selectorController.selectPreviousOrNextSetting(
+          eventId, AnnounceType.DESCRIPTION_AND_HINT, true);
     } else if (action.equals(
         service.getString(R.string.shortcut_value_selected_setting_previous_action))) {
       selectorController.adjustSelectedSetting(eventId, false);
     } else if (action.equals(
         service.getString(R.string.shortcut_value_selected_setting_next_action))) {
       selectorController.adjustSelectedSetting(eventId, true);
+    } else if (action.equals(
+        service.getString(R.string.shortcut_value_action_setting_activate_current_action))) {
+      if (selectorController.getCurrentSetting().equals(Setting.ACTIONS)) {
+        selectorController.activateCurrentAction(eventId);
+      } else {
+        result = pipeline.returnFeedback(eventId, Feedback.focus(CLICK_CURRENT));
+      }
     } else if (action.equals(service.getString(R.string.shortcut_value_screen_search))) {
-      service.getUniversalSearchManager().toggleSearch(eventId);
+      result = pipeline.returnFeedback(eventId, Feedback.universalSearch(TOGGLE_SEARCH));
     } else if (action.equals(
         service.getString(R.string.shortcut_value_pass_through_next_gesture))) {
       result =
@@ -331,11 +343,11 @@ public class GestureController {
     } else if (action.equals(service.getString(R.string.shortcut_value_pause_or_resume_feedback))) {
       pipeline.returnFeedback(eventId, Feedback.speech(Feedback.Speech.Action.PAUSE_OR_RESUME));
     } else if (action.equals(service.getString(R.string.shortcut_value_start_selection_mode))) {
-      AccessibilityNodeInfoCompat node = getEditTextFocus();
+      AccessibilityNodeInfoCompat node = getSelectTextFocus();
       if (node == null) {
         result = false;
       } else {
-        // Edit text found.
+        // Editable or non-editable selectable text found.
         if (actorState.getDirectionNavigation().isSelectionModeActive()) {
           result = pipeline.returnFeedback(eventId, Feedback.edit(node, END_SELECT));
         } else {
@@ -357,7 +369,7 @@ public class GestureController {
         pipeline.returnFeedback(eventId, Feedback.edit(node, CURSOR_TO_END));
       }
     } else if (action.equals(service.getString(R.string.shortcut_value_select_all))) {
-      AccessibilityNodeInfoCompat node = getEditTextFocus();
+      AccessibilityNodeInfoCompat node = getSelectTextFocus();
       if (node == null) {
         result = false;
       } else {
@@ -398,6 +410,12 @@ public class GestureController {
                 eventId,
                 Feedback.speech(
                     service.getString(R.string.switch_to_braille_keyboard_failure_msg)));
+      }
+    } else if (action.equals(service.getString(R.string.shortcut_value_braille_display_settings))) {
+      if (FeatureSupport.supportBrailleDisplay(service)) {
+        Intent intent = new Intent().setComponent(Constants.BRAILLE_DISPLAY_SETTINGS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        service.startActivity(intent);
       }
     } else if (action.equals(service.getString(R.string.shortcut_value_tutorial))) {
       pipeline.returnFeedback(eventId, Feedback.triggerIntent(Action.TRIGGER_TUTORIAL));
@@ -513,6 +531,17 @@ public class GestureController {
       }
     }
     return false;
+  }
+
+  private @Nullable AccessibilityNodeInfoCompat getSelectTextFocus() {
+    @Nullable AccessibilityNodeInfoCompat node =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
+    if (AccessibilityNodeInfoUtils.isTextSelectable(node)) {
+      return node;
+    } else {
+      speak(service.getString(R.string.not_selectable));
+      return null;
+    }
   }
 
   private @Nullable AccessibilityNodeInfoCompat getEditTextFocus() {

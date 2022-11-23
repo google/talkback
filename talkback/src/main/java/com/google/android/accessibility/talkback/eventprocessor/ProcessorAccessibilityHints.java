@@ -16,31 +16,32 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
+import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_FOCUSED;
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED;
-import static com.google.android.accessibility.compositor.Compositor.EVENT_SPEAK_HINT;
 import static com.google.android.accessibility.talkback.Feedback.HINT;
+import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_SPEAK_HINT;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.text.Spannable;
 import android.text.style.SuggestionSpan;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.Compositor;
-import com.google.android.accessibility.compositor.EventInterpretation;
-import com.google.android.accessibility.compositor.HintEventInterpretation;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.EventInterpretation;
+import com.google.android.accessibility.talkback.compositor.HintEventInterpretation;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
-import com.google.android.accessibility.utils.feedbackpolicy.AbstractAccessibilityHintsManager;
 import java.util.HashSet;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -48,10 +49,16 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 /**
  * Implements {@link AccessibilityEventListener} and manages accessibility-focus events. When an
  * accessibility-focus event happened and hints are enabled, schedules hints for the event.
- * ProcessorScreen is for TalkBack only to use Pipeline to speak hint.
  */
-public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManager
+public class ProcessorAccessibilityHints
     implements AccessibilityEventListener, ServiceKeyEventListener {
+
+  ///////////////////////////////////////////////////////////////////////////////////////
+  // Constants
+
+  /** Timeout before reading a hint. */
+  public static final long DELAY_HINT = 400; // ms
+
   /** Event types that are handled by ProcessorAccessibilityHints. */
   private static final int MASK_EVENTS_HANDLED_BY_PROCESSOR_A11Y_HINTS =
       AccessibilityEvent.TYPE_VIEW_CLICKED
@@ -60,9 +67,131 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
           | TYPE_VIEW_FOCUSED
           | TYPE_VIEW_TEXT_CHANGED;
 
+  ///////////////////////////////////////////////////////////////////////////////////////
+  // Inner classes
+
+  /** Data-structure that holds a variety of hint data. */
+  protected static class HintInfo {
+    /** The source node whose hint will be read by the utterance complete action. */
+    private @Nullable AccessibilityNodeInfoCompat pendingHintSource;
+    /**
+     * Whether the current hint is a forced feedback. Set to {@code true} if the hint corresponds to
+     * accessibility focus that was not genenerated from unknown source for audioplayback and
+     * microphone active. Set to false if ssb is active.
+     *
+     * @see FeedbackItem#FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+     * @see FeedbackItem#FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+     * @see FeedbackItem#FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE
+     */
+    private boolean nodeHintForceFeedbackEvenIfAudioPlaybackActive = true;
+
+    private boolean nodeHintForceFeedbackEvenIfMicrophoneActive = true;
+
+    /** The event type for the hint source node. */
+    private int pendingHintEventType;
+
+    /** A hint about screen whose hint will be read by the utterance complete action. */
+    private @Nullable CharSequence pendingScreenHint;
+
+    /**
+     * A hint about selector (quick menu) whose hint will be read by the utterance complete action.
+     */
+    private @Nullable CharSequence pendingSelectorHint;
+
+    public HintInfo() {}
+
+    /**
+     * Sets whether the hint for the hint source node is a forced feedback when audio playback is
+     * active.
+     */
+    public void setNodeHintForceFeedbackEvenIfAudioPlaybackActive(
+        boolean nodeHintForceFeedbackAudioPlaybackActive) {
+      this.nodeHintForceFeedbackEvenIfAudioPlaybackActive =
+          nodeHintForceFeedbackAudioPlaybackActive;
+    }
+
+    public boolean getNodeHintForceFeedbackEvenIfAudioPlaybackActive() {
+      return nodeHintForceFeedbackEvenIfAudioPlaybackActive;
+    }
+
+    /**
+     * Sets whether the hint for the hint source node is a forced feedback when microphone is
+     * active.
+     */
+    public void setNodeHintForceFeedbackEvenIfMicrophoneActive(
+        boolean nodeHintForcedFeedbackMicrophoneActive) {
+      this.nodeHintForceFeedbackEvenIfMicrophoneActive = nodeHintForcedFeedbackMicrophoneActive;
+    }
+
+    public boolean getNodeHintForceFeedbackEvenIfMicrophoneActive() {
+      return nodeHintForceFeedbackEvenIfMicrophoneActive;
+    }
+
+    /**
+     * Sets accessibility event type. The default value for the hint event type should be
+     * TYPE_VIEW_ACCESSIBILITY_FOCUSED
+     */
+    public void setPendingHintEventType(int hintEventType) {
+      pendingHintEventType = hintEventType;
+    }
+
+    public int getPendingHintEventType() {
+      return pendingHintEventType;
+    }
+
+    /** Sets hint source node. Caller keeps ownership of hintSource. */
+    public void setPendingHintSource(AccessibilityNodeInfoCompat hintSource) {
+      pendingHintSource = hintSource;
+    }
+
+    public @Nullable AccessibilityNodeInfoCompat getPendingHintSource() {
+      return pendingHintSource;
+    }
+
+    /** Sets a hint about screen. */
+    public void setPendingScreenHint(CharSequence screenHint) {
+      pendingScreenHint = screenHint;
+    }
+
+    public @Nullable CharSequence getPendingScreenHint() {
+      return pendingScreenHint;
+    }
+
+    /** Sets a hint about selector (quick menu). */
+    public void setPendingSelectorHint(@Nullable CharSequence selectorHint) {
+      pendingSelectorHint = selectorHint;
+    }
+
+    public @Nullable CharSequence getPendingSelectorHint() {
+      return pendingSelectorHint;
+    }
+
+    /** Clears hint data */
+    public void clear() {
+      // Clears hint source node and related.
+      pendingHintSource = null;
+      nodeHintForceFeedbackEvenIfAudioPlaybackActive = true;
+      nodeHintForceFeedbackEvenIfMicrophoneActive = true;
+
+      // Clears a hint about screen.
+      pendingScreenHint = null;
+
+      // Clears a hint about selector (quick menu).
+      pendingSelectorHint = null;
+    }
+  }
+
+  ///////////////////////////////////////////////////////////////////////////////////////
+  // Member data
+
+  protected final HintInfo hintInfo = new HintInfo();
+
   private ActorState actorState;
   private Pipeline.InterpretationReceiver pipelineInterpretationReceiver;
   private Pipeline.FeedbackReturner pipeline;
+
+  ///////////////////////////////////////////////////////////////////////////////////////
+  // Construction
 
   public ProcessorAccessibilityHints() {}
 
@@ -77,6 +206,9 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
   public void setPipelineInterpretationReceiver(Pipeline.InterpretationReceiver pipeline) {
     this.pipelineInterpretationReceiver = pipeline;
   }
+
+  ///////////////////////////////////////////////////////////////////////////////////////
+  // Methods
 
   private @Nullable EventInterpretation getEventInterpretation() {
     @HintEventInterpretation.HintType int hintEventType;
@@ -119,13 +251,14 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
   }
 
   /** Starts the hint timeout. */
-  @Override
   protected void startHintDelay() {
     EventInterpretation eventInterp = getEventInterpretation();
     if (eventInterp == null) {
       return;
     }
 
+    // TODO: This code should be a feedback-mapper, that directly sends this
+    // compositor-event to compositor.
     pipelineInterpretationReceiver.input(
         EVENT_ID_UNTRACKED,
         /* event= */ null,
@@ -135,7 +268,6 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
   }
 
   /** Cancels the pending accessibility hint */
-  @Override
   protected void cancelHintDelay() {
     pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.interrupt(HINT, /* level= */ 1));
   }
@@ -236,6 +368,32 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
     }
   }
 
+  /**
+   * Should be called when the window state changes. This method will cancel the pending hint if
+   * deemed appropriate based on the window event.
+   */
+  public void onScreenStateChanged() {
+    cancelA11yHintBasedOnEventType();
+  }
+
+  /**
+   * Cancels the pending accessibility hint if the hint source is null or if the event that
+   * triggered the hint was not a view getting focused or accessibility focused.
+   *
+   * @return {@code true} if the pending accessibility hint was canceled, {@code false} otherwise.
+   */
+  @VisibleForTesting
+  public boolean cancelA11yHintBasedOnEventType() {
+    if (hintInfo.getPendingHintSource() == null
+        || (hintInfo.getPendingHintEventType() != TYPE_VIEW_FOCUSED
+            && hintInfo.getPendingHintEventType() != TYPE_VIEW_ACCESSIBILITY_FOCUSED)) {
+      cancelHintDelay();
+      hintInfo.clear();
+      return true;
+    }
+    return false;
+  }
+
   @Override
   public boolean onKeyEvent(KeyEvent event, EventId eventId) {
     if (event.getAction() == KeyEvent.ACTION_DOWN) {
@@ -263,5 +421,77 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
       }
     }
     return matchedSpanFlags;
+  }
+
+  ///////////////////////////////////////////////////////////////////////////////////////
+  // Methods for executing hints
+
+  /** Posts a hint about screen. The hint will be spoken after the next utterance is completed. */
+  public void postHintForScreen(CharSequence hint) {
+    cancelHintDelay();
+    hintInfo.clear();
+
+    hintInfo.setPendingScreenHint(hint);
+
+    startHintDelay();
+  }
+
+  /**
+   * Posts a hint about node. The hint will be spoken after the next utterance is completed. Caller
+   * keeps ownership of node.
+   */
+  public void postHintForNode(AccessibilityEvent event, AccessibilityNodeInfoCompat node) {
+    postHintForNode(
+        event,
+        node,
+        /* forceFeedbackEvenIfAudioPlaybackActive= */ false,
+        /* forceFeedbackEvenIfMicrophoneActive= */ false);
+  }
+
+  /**
+   * Posts a hint about node with customized flag {@link
+   * HintInfo#nodeHintForceFeedbackEvenIfMicrophoneActive} and {@link
+   * HintInfo#nodeHintForceFeedbackEvenIfAudioPlaybackActive}. The hint will be spoken after the
+   * next utterance is completed. Caller keeps ownership of node.
+   *
+   * @param event accessibility event
+   * @param node AccessibilityNodeInfoCompat which keeps the hint information
+   * @param forceFeedbackEvenIfAudioPlaybackActive force to speak the hint when audio playback
+   *     actives
+   * @param forceFeedbackEvenIfMicrophoneActive force to speak the hint when micro phone actives
+   */
+  public void postHintForNode(
+      AccessibilityEvent event,
+      AccessibilityNodeInfoCompat node,
+      boolean forceFeedbackEvenIfAudioPlaybackActive,
+      boolean forceFeedbackEvenIfMicrophoneActive) {
+    cancelHintDelay();
+    hintInfo.clear();
+
+    // Store info about event that caused pending hint.
+    hintInfo.setPendingHintSource(node);
+    // The hint for a node is usually posted when the node is getting accessibility focus, thus
+    // the default value for the hint event type should be TYPE_VIEW_ACCESSIBILITY_FOCUSED.
+    int eventType =
+        (event != null)
+            ? event.getEventType()
+            : AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
+    hintInfo.setPendingHintEventType(eventType);
+    hintInfo.setNodeHintForceFeedbackEvenIfAudioPlaybackActive(
+        forceFeedbackEvenIfAudioPlaybackActive);
+    hintInfo.setNodeHintForceFeedbackEvenIfMicrophoneActive(forceFeedbackEvenIfMicrophoneActive);
+
+    startHintDelay();
+  }
+
+  /**
+   * Posts a hint about selector (quick menu). The hint will be spoken after the next utterance is
+   * completed.
+   */
+  public void postHintForSelector(CharSequence hint) {
+    cancelHintDelay();
+    hintInfo.clear();
+    hintInfo.setPendingSelectorHint(hint);
+    startHintDelay();
   }
 }

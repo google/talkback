@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">แป้นพิมพ์อักษรเบรลล์ของ TalkBack</string>
+  <string name="braille_ime_bd_mode_name">การป้อนข้อมูลด้วยจอแสดงผลอักษรเบรลล์</string>
   <string name="switch_to_screen_away_announcement">โหมดหันหน้าจอออก</string>
   <string name="switch_to_tabletop_announcement">โหมดบนโต๊ะ วางอุปกรณ์โดยหันพอร์ตชาร์จไปทางซ้าย ใช้ 6 นิ้วกดหน้าจอไว้เพื่ออัปเดตตำแหน่งของจุด</string>
   <string name="bring_ime_settings_page">ไม่ได้เปิดใช้แป้นพิมพ์อื่นไว้ ไปที่การตั้งค่าแป้นพิมพ์</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">วิธีใช้แป้นพิมพ์อักษรเบรลล์</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">หากต้องการใช้แป้นพิมพ์อักษรเบรลล์ ให้เปิดแป้นพิมพ์ปกติ แล้วแตะไอคอน \"เลือกแป้นพิมพ์\" %1$s (โดยปกติจะอยู่ที่มุมขวาล่าง) เลือก \"%2$s\"
   &lt;br&gt;&lt;br&gt;หากไม่เห็นตัวเลือกเพื่อเปลี่ยนแป้นพิมพ์ ให้ลองติดตั้ง %3$s แป้นพิมพ์ของ Google</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;เปิดแป้นพิมพ์อักษรเบรลล์&lt;/b&gt;: แตะ \"การตั้งค่า\" ด้านล่าง ในหน้าจอถัดไป ให้เปิด \"%1$s\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;ใช้แป้นพิมพ์อักษรเบรลล์&lt;/b&gt;: เปิดแป้นพิมพ์ปกติ แล้วแตะไอคอน \"เลือกแป้นพิมพ์\" %2$s (โดยปกติจะอยู่ที่มุมขวาล่าง) เลือก \"%1$s\"
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. แตะ \"การตั้งค่า\" ด้านล่าง ในหน้าจอถัดไป ให้เปิด \"%1$s\"&lt;br&gt;&lt;br&gt;
+    2. เปิดแป้นพิมพ์ปกติ แล้วแตะ \"เปลี่ยนวิธีการป้อนข้อมูล\" %2$s (โดยปกติจะอยู่ที่มุมขวาล่าง)&lt;br&gt;&lt;br&gt;
+    3. เลือก \"%1$s\"
     &lt;br&gt;&lt;br&gt;หากไม่เห็นตัวเลือกเพื่อเปลี่ยนแป้นพิมพ์ ให้ลองติดตั้ง %3$s แป้นพิมพ์ของ Google</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">การตั้งค่า</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. เปิดแป้นพิมพ์อักษรเบรลล์ด้านล่าง&lt;br&gt;&lt;br&gt;
+    2. เปิดแป้นพิมพ์ปกติ แล้วแตะ \"เปลี่ยนวิธีการป้อนข้อมูล\" %2$s (โดยปกติจะอยู่ที่มุมขวาล่าง)&lt;br&gt;&lt;br&gt;
+    3. เลือก \"%1$s\"
+    &lt;br&gt;&lt;br&gt;หากเปลี่ยนแป้นพิมพ์ไม่ได้ ให้ลองติดตั้ง %3$s แป้นพิมพ์ของ Google</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">การตั้งค่า</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">เปิด</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">เปิดแป้นพิมพ์อักษรเบรลล์</string>
   <string name="typing_languages_title">ภาษาที่พิมพ์</string>
   <string name="preferred_language_title">ภาษาที่ต้องการ</string>
-  <string name="dont_show_again">ไม่ต้องแสดงข้อความนี้อีก</string>
   <string name="switch_input_code_gesture_tip_dialog_title">เปลี่ยนภาษาอย่างรวดเร็วขณะพิมพ์</string>
   <string name="switch_input_code_gesture_tip_dialog_message">หากต้องการเปลี่ยนภาษาขณะพิมพ์ด้วยแป้นพิมพ์อักษรเบรลล์ ให้ใช้ 3 นิ้วปัดขึ้น แล้วเลือก \"เปลี่ยนเป็นภาษาถัดไป\"</string>
   <string name="title_pref_accumulate_presses">รวมจุดที่กดไว้ทั้งหมด</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">หากต้องการเปลี่ยนไปใช้<b>แป้นพิมพ์ถัดไป</b> ให้ใช้ 3 นิ้วเลื่อนลง</string>
   <string name="gesture_submit_text">หากต้องการ<b>ส่งข้อความ</b> ให้ใช้ 2 นิ้วเลื่อนขึ้น</string>
   <string name="gesture_open_context_menu">หากต้องการดู<b>ความช่วยเหลือและตัวเลือกอื่นๆ</b> ให้ใช้ 3 นิ้วเลื่อนขึ้น</string>
-  <string name="done">เสร็จสิ้น</string>
   <string name="not_enough_touch_points_dialog_title">อุปกรณ์ของคุณไม่รองรับแป้นพิมพ์อักษรเบรลล์</string>
   <string name="not_enough_touch_points_dialog_message">อุปกรณ์ของคุณไม่รองรับจุดที่สัมผัสจำนวนมากพอ โปรดติดต่อผู้ผลิตอุปกรณ์เพื่อสอบถามข้อมูลเพิ่มเติม</string>
   <string name="talkback_off_dialog_title">เปิด TalkBack เพื่อใช้แป้นพิมพ์อักษรเบรลล์</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">ลบตัวอักษรแล้ว</string>
   <string name="perform_delete_word_announcement">ลบคำแล้ว</string>
   <string name="continue_tutorial_announcement">มาดูบทแนะนำต่อเลย %1$s</string>
-  <string name="braille_keyboard_strip_summary">เชื่อมต่อจอแสดงผลอักษรเบรลล์ภายนอกอยู่ ซึ่งคุณสามารถใช้เพื่อพิมพ์ข้อความลงในอุปกรณ์เครื่องนี้\nหรือจะเปลี่ยนไปใช้แป้นพิมพ์อักษรเบรลล์บนหน้าจอสัมผัสหรือวิธีการป้อนข้อมูลถัดไปก็ได้</string>
-  <string name="braille_keyboard_strip_button">เปลี่ยนไปใช้แป้นพิมพ์บนหน้าจอสัมผัส</string>
+  <string name="switch_on_screen_keyboard_announcement">กำลังเปลี่ยนไปใช้หน้าจอสัมผัสอักษรเบรลล์</string>
+  <string name="braille_keyboard_strip_summary">เชื่อมต่อจอแสดงผลอักษรเบรลล์ภายนอกอยู่ ซึ่งคุณสามารถใช้เพื่อพิมพ์ข้อความลงในโทรศัพท์\n\nหรือจะเปลี่ยนไปใช้แป้นพิมพ์อักษรเบรลล์บนหน้าจอสัมผัสหรือวิธีถัดไปในการป้อนข้อมูลก็ได้</string>
+  <string name="braille_keyboard_strip_touch_screen_button">เปลี่ยนไปใช้หน้าจอสัมผัสอักษรเบรลล์</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">เปลี่ยนไปใช้วิธีถัดไปในการป้อนข้อมูล</string>
 </resources>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Teclat braille de TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Introducció de la pantalla braille</string>
   <string name="switch_to_screen_away_announcement">Mode amb pantalla allunyada</string>
   <string name="switch_to_tabletop_announcement">Mode de taula. Posa el dispositiu amb el port de càrrega a l\'esquerra. Actualitza la posició dels punts mantenint premuda la pantalla amb 6 dits.</string>
   <string name="bring_ime_settings_page">No hi ha cap altre teclat activat; ves a la configuració del teclat</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Com es pot utilitzar el teclat braille</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Per fer servir el teclat braille, obre el teclat normal i toca la icona de teclat %1$s (normalment a l\'extrem inferior dret). Selecciona \"%2$s\".
   &lt;br&gt;&lt;br&gt;Si no veus cap opció per canviar de teclat, prova d\'instal·lar %3$s, el Teclat de Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Activa el teclat braille&lt;/b&gt;: toca Configuració més avall. A la pantalla següent, activa %1$s.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Fes servir el teclat braille&lt;/b&gt;: obre el teclat normal i toca la icona de teclat %2$s (normalment a l\'extrem inferior dret). Selecciona %1$s.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Toca Configuració més avall. A la pantalla següent, activa %1$s.&lt;br&gt;&lt;br&gt;
+    2. Obre el teclat normal i toca Canvia el mètode d\'introducció de text %2$s (normalment és a l\'extrem inferior dret).&lt;br&gt;&lt;br&gt;
+    3. Selecciona %1$s.
     &lt;br&gt;&lt;br&gt;Si no veus cap opció per canviar de teclat, prova d\'instal·lar %3$s, el Teclat de Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Configuració</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Activa el teclat braille amb l\'opció que hi ha més avall.&lt;br&gt;&lt;br&gt;
+    2. Obre el teclat normal i toca Canvia el mètode d\'introducció de text %2$s (normalment és a l\'extrem inferior dret).&lt;br&gt;&lt;br&gt;
+    3. Selecciona %1$s.
+    &lt;br&gt;&lt;br&gt;Si no pots canviar de teclat, prova d\'instal·lar %3$s, el Teclat de Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Configuració</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Activa</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Activa el teclat braille</string>
   <string name="typing_languages_title">Idiomes d\'escriptura</string>
   <string name="preferred_language_title">Idioma preferit</string>
-  <string name="dont_show_again">No ho tornis a mostrar</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Canvia l\'idioma ràpidament mentre escrius</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Per canviar l\'idioma mentre escrius amb el teclat braille, fes lliscar 3 dits cap amunt. A continuació, selecciona Canvia a l\'idioma següent.</string>
   <string name="title_pref_accumulate_presses">Inclou tots els punts premuts</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Per canviar al <b>teclat següent</b>, fes lliscar tres dits cap avall</string>
   <string name="gesture_submit_text">Per <b>enviar el text</b>, fes lliscar dos dits cap amunt</string>
   <string name="gesture_open_context_menu">Per <b>accedir a l\'ajuda i a altres opcions</b>, fes lliscar tres dits cap amunt</string>
-  <string name="done">Fet</string>
   <string name="not_enough_touch_points_dialog_title">El dispositiu no és compatible amb el teclat braille</string>
   <string name="not_enough_touch_points_dialog_message">El dispositiu no admet prou punts tàctils. Per obtenir més informació, contacta amb el fabricant del dispositiu.</string>
   <string name="talkback_off_dialog_title">Activa TalkBack per fer servir el teclat braille</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">S\'ha suprimit una lletra</string>
   <string name="perform_delete_word_announcement">S\'ha suprimit una paraula</string>
   <string name="continue_tutorial_announcement">Continuem amb el tutorial. %1$s</string>
-  <string name="braille_keyboard_strip_summary">S\'ha connectat una pantalla braille externa que pots fer servir per escriure en aquest dispositiu.\nO pots canviar al teclat braille amb pantalla tàctil o al mètode d\'introducció de text següent.</string>
-  <string name="braille_keyboard_strip_button">Canvia al teclat amb pantalla tàctil</string>
+  <string name="switch_on_screen_keyboard_announcement">S\'està canviant a la pantalla braille tàctil</string>
+  <string name="braille_keyboard_strip_summary">S\'ha connectat una pantalla braille externa que pots fer servir per escriure al telèfon.\n\nTambé pots canviar al teclat braille de la pantalla tàctil o al mètode d\'introducció de text següent.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Canvia a la pantalla braille tàctil</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Canvia al mètode d\'introducció de text següent</string>
 </resources>

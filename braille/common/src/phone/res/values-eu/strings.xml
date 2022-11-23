@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Ez erakutsi berriro</string>
+  <string name="done">Eginda</string>
   <string name="number_announcement">Zenbakia</string>
   <string name="capitalize_announcement">Maiuskula</string>
   <string name="read_out_deleted">Ezabatu da %s</string>
   <plurals name="braille_dots">
-    <item quantity="one">%s puntu</item>
-    <item quantity="other">%s puntu</item>
+    <item quantity="one">%s puntua</item>
+    <item quantity="other">%s puntuak</item>
   </plurals>
-  <string name="code_user_facing_name_ueb1">Ingelesezko Braille bateratu osoa</string>
-  <string name="code_user_facing_name_ueb2">Ingelesezko Braille bateratu laburtua</string>
+  <string name="language_split_comma">,\u0020</string>
+  <string name="code_user_facing_name_ueb1">Ingelesezko braille bateratu osoa</string>
+  <string name="code_user_facing_name_ueb2">Ingelesezko braille bateratu laburtua</string>
   <string name="code_user_facing_name_es">Gaztelania</string>
   <string name="code_user_facing_name_ar">Arabiera</string>
   <string name="code_user_facing_name_fr">Frantsesa</string>

@@ -42,11 +42,19 @@
   <dimen name="tutorial_button_margin">8dp</dimen>
   <dimen name="tutorial_continue_button_bottom_padding">18dp</dimen>
   <dimen name="hint_margin">12dp</dimen>
+  <dimen name="hint_horizontal_padding">20dp</dimen>
+  <dimen name="hint_vertical_padding">5dp</dimen>
   <dimen name="hint_text_size">16sp</dimen>
+  <dimen name="action_result_horizontal_padding">40dp</dimen>
+  <dimen name="action_result_vertical_padding">20dp</dimen>
   <dimen name="action_result_text_size">58sp</dimen>
   <dimen name="dot_block_padding">4dp</dimen>
   <dimen name="dot_block_dash_path_stroke_width">3dp</dimen>
   <dimen name="dot_block_dash_path_interval">10dp</dimen>
+  <dimen name="hint_toast_background_height">20dp</dimen>
+  <dimen name="hint_toast_background_width">100dp</dimen>
+  <dimen name="action_result_width">20dp</dimen>
+  <dimen name="action_result_radius">10dp</dimen>
 
   <!-- Tutorial intro animation drawable -->
   <dimen name="intro_animation_border_width">5dp</dimen>
@@ -67,9 +75,6 @@
   <dimen name="intro_animation_dot_vertical_length_to_near_border_tabletop">32dp</dimen>
   <dimen name="intro_animation_dot_vertical_length_to_far_border_tabletop">51dp</dimen>
   <dimen name="intro_animation_letter_vertical_bottom_padding_tabletop">60dp</dimen>
-
-  <!-- Dialogs -->
-  <dimen name="checkbox_padding">16dp</dimen>
 
   <!-- Braille Display keyboard -->
   <dimen name="braille_display_keyboard_padding">4dp</dimen>

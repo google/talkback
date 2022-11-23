@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">ಇದನ್ನು ಮತ್ತೊಮ್ಮೆ ತೋರಿಸಬೇಡಿ</string>
+  <string name="done">ಪೂರ್ಣಗೊಂಡಿದೆ</string>
   <string name="number_announcement">ಸಂಖ್ಯೆ</string>
   <string name="capitalize_announcement">ದೊಡ್ಡಕ್ಷರಗಳು</string>
   <string name="read_out_deleted">%s ಅನ್ನು ಅಳಿಸಲಾಗಿದೆ</string>
@@ -7,6 +9,7 @@
     <item quantity="one">ಚುಕ್ಕೆಗಳು %s</item>
     <item quantity="other">ಚುಕ್ಕೆಗಳು %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">ಸಂಕ್ಷೇಪಿಸಿರದ ಯೂನಿಫೈಡ್ ಇಂಗ್ಲಿಷ್ ಬ್ರೈಲ್</string>
   <string name="code_user_facing_name_ueb2">ಸಂಕ್ಷೇಪಿಸಿದ ಯೂನಿಫೈಡ್ ಇಂಗ್ಲಿಷ್ ಬ್ರೈಲ್</string>
   <string name="code_user_facing_name_es">ಸ್ಪ್ಯಾನಿಶ್</string>

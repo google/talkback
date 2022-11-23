@@ -1,0 +1,61 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2019 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+DRIVER_CODE = eu
+DRIVER_NAME = EuroBraille
+DRIVER_COMMENT = AzerBraille, Clio, Esys, Iris, NoteBraille, Scriba
+DRIVER_VERSION = 2.0
+DRIVER_DEVELOPERS = Yannick PLASSIARD <yan@mistigri.org>, Olivier BERT <obert01@mistigri.org>, Nicolas PITRE <nico@fluxnic.net>
+include $(SRC_TOP)braille.mk
+
+SRC_FILES = eu_braille.c eu_clio.c eu_esysiris.c
+
+OBJ_FILES = $(SRC_FILES:.c=.$O)
+
+braille.$O: $(OBJ_FILES)
+	$(MKREL) $@ $(OBJ_FILES)
+
+%.$O: $(SRC_DIR)/%.c
+	$(CC) $(BRL_CFLAGS) -o $@ -c $<
+
+###############################################################################
+
+EU_TRANSFER_OBJECTS = eutp_brl.$O eutp_convert.$O eutp_debug.$O eutp_pc.$O eutp_tools.$O eutp_transfer.$O eutp_main.$O
+
+EU_TRANSFER_TOOL = eutp$X
+EU_TRANSFER_MAN = $(SRC_DIR)/eutp.1
+
+$(EU_TRANSFER_TOOL): $(EU_TRANSFER_OBJECTS) brlapi
+	$(CC) $(LDFLAGS) -o $@ $(EU_TRANSFER_OBJECTS) $(API_LIBS)
+
+api: $(EU_TRANSFER_TOOL)
+braille-all:: $(BUILD_API)
+
+clean::
+	-rm -f $(EU_TRANSFER_TOOL) $(EU_TRANSFER_OBJECTS)
+
+install-api:: install-eu-transfer-tool
+
+install-eu-transfer-tool: $(EU_TRANSFER_TOOL) install-program-directory install-man1-directory
+	$(INSTALL_PROGRAM) $(EU_TRANSFER_TOOL) $(INSTALL_PROGRAM_DIRECTORY)
+	$(INSTALL_DATA) $(EU_TRANSFER_MAN) $(INSTALL_MAN1_DIRECTORY)
+
+uninstall::
+	-rm -f $(INSTALL_PROGRAM_DIRECTORY)/$(EU_TRANSFER_TOOL)
+	-rm -f $(INSTALL_MAN1_DIRECTORY)/$(EU_TRANSFER_MAN)
+

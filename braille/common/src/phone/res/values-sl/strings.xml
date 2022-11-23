@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Tega ne prikazuj več</string>
+  <string name="done">Končano</string>
   <string name="number_announcement">Številka</string>
   <string name="capitalize_announcement">Velika črka</string>
   <string name="read_out_deleted">Besedilo »%s« je izbrisano</string>
@@ -9,6 +11,7 @@
     <item quantity="few">pike %s</item>
     <item quantity="other">pike %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Neskrčena poenotena angleška braillova pisava</string>
   <string name="code_user_facing_name_ueb2">Skrčena poenotena angleška braillova pisava</string>
   <string name="code_user_facing_name_es">španščina</string>

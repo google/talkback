@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Boshqa chiqmasin</string>
+  <string name="done">OK</string>
   <string name="number_announcement">Raqam</string>
   <string name="capitalize_announcement">Bosh harf</string>
   <string name="read_out_deleted">%s oʻchirib tashlandi</string>
@@ -7,8 +9,9 @@
     <item quantity="one">%s-nuqta</item>
     <item quantity="other">%s-nuqta</item>
   </plurals>
-  <string name="code_user_facing_name_ueb1">Yagona ingliz brayl alifbosi shartnomasiz</string>
-  <string name="code_user_facing_name_ueb2">Yagona ingliz brayl alifbosi shartnomali</string>
+  <string name="language_split_comma">,\u0020</string>
+  <string name="code_user_facing_name_ueb1">Qisqartirilmagan yagona ingliz brayl alifbosi</string>
+  <string name="code_user_facing_name_ueb2">Qisqartirilgan yagona ingliz brayl alifbosi</string>
   <string name="code_user_facing_name_es">Ispan</string>
   <string name="code_user_facing_name_ar">Arab</string>
   <string name="code_user_facing_name_fr">Fransuz</string>

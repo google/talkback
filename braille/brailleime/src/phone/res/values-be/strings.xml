@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Клавіятура Брайля TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Увод праз брайлеўскі дысплэй</string>
   <string name="switch_to_screen_away_announcement">Рэжым \"Экран ад сябе\"</string>
   <string name="switch_to_tabletop_announcement">Настольны рэжым. Пакладзіце прыладу так, каб порт зарадкі аказаўся злева. Каб абнавіць пазіцыю кропкі, утрымлівайце 6 пальцаў націснутымі.</string>
   <string name="bring_ime_settings_page">Іншыя клавіятуры не ўключаны. Будуць адкрыты налады клавіятуры</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Як выкарыстоўваць клавіятуру Брайля</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Каб карыстацца клавіятурай Брайля, адкрыйце звычайную клавіятуру, потым націсніце значок \"%1$s\" (звычайна ён знаходзіцца ў правым ніжнім вугле экрана). Выберыце \"%2$s\".
   &lt;br&gt;&lt;br&gt;Калі ў вас няма варыянта выбару клавіятуры, усталюйце %3$s – клавіятуру Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Каб уключыць клавіятуру Брайля&lt;/b&gt;, націсніце \"Налады\" ўнізе. На наступным экране ўключыце \"%1$s\".
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Каб карыстацца клавіятурай Брайля&lt;/b&gt;, адкрыйце звычайную клавіятуру, потым націсніце значок \"%2$s\" (звычайна ён знаходзіцца ў правым ніжнім вугле экрана). Выберыце \"%1$s\".
-    &lt;br&gt;&lt;br&gt;Калі ў вас няма варыянта выбару клавіятуры, усталюйце %3$s – клавіятуру Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Налады</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Націсніце ўнізе \"Налады\". На наступным экране ўключыце \"%1$s\"&lt;br&gt;&lt;br&gt;
+    2. Адкрыйце звычайную клавіятуру, пасля націсніце пераключальнік спосабу ўводу %2$s (звычайна знаходзіцца ў ніжнім правым вугле экрана).&lt;br&gt;&lt;br&gt;
+    3. Выберыце \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Калі ў вас адсутнічае магчымасць пераключэння клавіятур, усталюйце %3$s – клавіятуру Google.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Уключыце ўнізе брайлеўскую клавіятуру.&lt;br&gt;&lt;br&gt;
+    2. Адкрыйце звычайную клавіятуру, пасля націсніце пераключальнік спосабу ўводу %2$s (звычайна знаходзіцца ў ніжнім правым вугле экрана).&lt;br&gt;&lt;br&gt;
+    3. Выберыце \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Калі вы не можаце пераключыць клавіятуру, усталюйце %3$s – клавіятуру Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Налады</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Уключыць</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Уключыць брайлеўскую клавіятуру</string>
   <string name="typing_languages_title">Мовы набору тэксту</string>
   <string name="preferred_language_title">Прыярытэтная мова</string>
-  <string name="dont_show_again">Больш не паказваць</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Хутка змяняйце мову падчас уводу тэксту</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Каб змяніць мову падчас набору тэксту на клавіятуры Брайля, правядзіце трыма пальцамі ўверх. Потым выберыце \"Пераключыцца на наступную мову\".</string>
   <string name="title_pref_accumulate_presses">Уключаць усе націснутыя кропкі</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Каб перайсці да <b>наступнай клавіятуры</b>, правядзіце трыма пальцамі ўніз</string>
   <string name="gesture_submit_text">Каб <b>адправіць тэкст</b>, правядзіце двума пальцамі ўверх</string>
   <string name="gesture_open_context_menu">Каб адкрыць <b>даведку і іншыя параметры</b>, правядзіце трыма пальцамі ўверх</string>
-  <string name="done">Гатова</string>
   <string name="not_enough_touch_points_dialog_title">Ваша прылада не падтрымлівае клавіятуру Брайля</string>
   <string name="not_enough_touch_points_dialog_message">На вашай прыладзе падтрымліваецца недастатковая колькасць месцаў дотыку. Па дадатковую інфармацыю звярніцеся да вытворцы прылады.</string>
   <string name="talkback_off_dialog_title">Уключыць TalkBack для карыстання клавіятурай Брайля</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Літара выдалена</string>
   <string name="perform_delete_word_announcement">Слова выдалена</string>
   <string name="continue_tutorial_announcement">Працягнем навучанне. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Падключаны знешні брайлеўскі дысплэй, які вы можаце выкарыстоўваць на гэтай прыладзе для ўводу тэксту.\nТаксама вы можаце пераключыцца на сэнсарную клавіятуру Брайля ці выбраць наступны спосаб уводу.</string>
-  <string name="braille_keyboard_strip_button">Пераключыцца на сэнсарную клавіятуру</string>
+  <string name="switch_on_screen_keyboard_announcement">Пераключэнне на брайлеўскі сэнсарны экран</string>
+  <string name="braille_keyboard_strip_summary">Для ўводу тэксту на гэтым тэлефоне вы можаце выкарыстоўваць падключаны знешні брайлеўскі дысплэй.\n\nТаксама вы можаце пераключыцца на сэнсарную брайлеўскую клавіятуру ці на наступны спосаб уводу.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Пераключыцца на брайлеўскі сэнсарны экран</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Пераключыцца на наступны спосаб уводу</string>
 </resources>

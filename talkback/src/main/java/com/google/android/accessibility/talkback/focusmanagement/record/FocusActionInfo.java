@@ -32,7 +32,8 @@ public class FocusActionInfo {
     TOUCH_EXPLORATION,
     FOCUS_SYNCHRONIZATION,
     LOGICAL_NAVIGATION,
-    SCREEN_STATE_CHANGE
+    SCREEN_STATE_CHANGE,
+    ENSURE_ON_SCREEN
   })
   @Retention(RetentionPolicy.SOURCE)
   public @interface SourceAction {}
@@ -43,6 +44,7 @@ public class FocusActionInfo {
   public static final int FOCUS_SYNCHRONIZATION = 3;
   public static final int LOGICAL_NAVIGATION = 4;
   public static final int SCREEN_STATE_CHANGE = 5;
+  public static final int ENSURE_ON_SCREEN = 6;
 
   /** Type of initial focus after screen state change. */
   @IntDef({
@@ -78,6 +80,10 @@ public class FocusActionInfo {
     return (sourceAction == TOUCH_EXPLORATION) || (sourceAction == LOGICAL_NAVIGATION);
   }
 
+  public boolean isSourceEnsureOnScreen() {
+    return sourceAction == ENSURE_ON_SCREEN;
+  }
+
   public static String sourceActionToString(@SourceAction int sourceAction) {
     switch (sourceAction) {
       case MANUAL_SCROLL:
@@ -90,6 +96,8 @@ public class FocusActionInfo {
         return "LOGICAL_NAVIGATION";
       case SCREEN_STATE_CHANGE:
         return "SCREEN_STATE_CHANGE";
+      case ENSURE_ON_SCREEN:
+        return "ENSURE_ON_SCREEN";
       case UNKNOWN:
         // Fall down
       default:

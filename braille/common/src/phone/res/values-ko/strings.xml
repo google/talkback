@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">다시 표시하지 않음</string>
+  <string name="done">완료</string>
   <string name="number_announcement">숫자</string>
   <string name="capitalize_announcement">대문자</string>
   <string name="read_out_deleted">%s 삭제됨</string>
   <plurals name="braille_dots">
-    <item quantity="one">점 %s개</item>
-    <item quantity="other">점 %s개</item>
+    <item quantity="one">점 %s</item>
+    <item quantity="other">점 %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">통합 영어 정자 점자</string>
   <string name="code_user_facing_name_ueb2">통합 영어 약자 점자</string>
   <string name="code_user_facing_name_es">스페인어</string>

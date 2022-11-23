@@ -2,7 +2,6 @@ package com.google.android.accessibility.brailleime.keyboardview;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
-import android.graphics.Region;
 import android.os.Build;
 import android.util.Size;
 import android.view.Gravity;
@@ -11,7 +10,6 @@ import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.widget.FrameLayout;
 import com.google.android.accessibility.brailleime.Utils;
-import java.util.Optional;
 
 /**
  * A sub-class of {@link KeyboardView} which uses an Accessibility Overlay for taking touch input.
@@ -21,12 +19,6 @@ public class AccessibilityOverlayKeyboardView extends KeyboardView {
   public AccessibilityOverlayKeyboardView(
       Context context, KeyboardViewCallback keyboardViewCallback) {
     super(context, keyboardViewCallback);
-  }
-
-  @Override
-  public Optional<Region> obtainViewContainerRegionOnTheScreen() {
-    // We are using full screen accessibility overlay view here, so return empty Region.
-    return Optional.of(new Region());
   }
 
   @Override

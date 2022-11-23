@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Ne jelenjen meg többé</string>
+  <string name="done">Kész</string>
   <string name="number_announcement">Szám</string>
   <string name="capitalize_announcement">Nagybetű</string>
   <string name="read_out_deleted">%s törölve</string>
   <plurals name="braille_dots">
-    <item quantity="one">az %s. pontra</item>
-    <item quantity="other">a %s. pontra</item>
+    <item quantity="one">az %s. pont</item>
+    <item quantity="other">a %s. pont</item>
   </plurals>
-  <string name="code_user_facing_name_ueb1">Egységes angol Braille (összevonások nélkül)</string>
-  <string name="code_user_facing_name_ueb2">Egységes angol Braille (összevonásokkal)</string>
+  <string name="language_split_comma">,\u0020</string>
+  <string name="code_user_facing_name_ueb1">egységes angol Braille (összevonások nélkül)</string>
+  <string name="code_user_facing_name_ueb2">egységes angol Braille (összevonásokkal)</string>
   <string name="code_user_facing_name_es">spanyol</string>
-  <string name="code_user_facing_name_ar">Arab</string>
+  <string name="code_user_facing_name_ar">arab</string>
   <string name="code_user_facing_name_fr">francia</string>
   <string name="code_user_facing_name_pl">lengyel</string>
   <string name="screen_away">„Elfordított képernyő” mód</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack braille klavye</string>
+  <string name="braille_ime_bd_mode_name">Braille ekran girişi</string>
   <string name="switch_to_screen_away_announcement">Ekran karşıda modu</string>
   <string name="switch_to_tabletop_announcement">Masa üstünde modu. Cihazınızı, şarj noktası sol tarafa gelecek şekilde koyun. Nokta konumunu güncellemek için 6 parmağınızla ekranı basılı tutun.</string>
   <string name="bring_ime_settings_page">Başka etkin klavye yok, klavye ayarlarına gidin</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Braille klavyesinin kullanımı</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Braille klavyeyi kullanmak için normal klavyenizi açın, ardından klavye seçme simgesine %1$s (genellikle sağ alt köşededir) dokunun. \"%2$s\" öğesini seçin.
   &lt;br&gt;&lt;br&gt;Klavye değiştirme seçeneği görmüyorsanız %3$s, yani Google klavyeyi yüklemeyi deneyin.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Braille klavyeyi açma&lt;/b&gt;: Aşağıda Ayarlar\'a dokunun. Bir sonraki ekranda \"%1$s\" öğesini açın.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Braille klavyeyi kullanma&lt;/b&gt;: Normal klavyenizi açın, ardından klavye seçme simgesine %2$s (genellikle sağ alt köşededir) dokunun. \"%1$s\" öğesini seçin.
-    &lt;br&gt;&lt;br&gt;Klavye değiştirme seçeneği görmüyorsanız %3$s, yani Google klavyeyi yüklemeyi deneyin.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Ayarlar</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Aşağıda \"Ayarlar\"a dokunun. Bir sonraki ekranda \"%1$s\" öğesini açın.&lt;br&gt;&lt;br&gt;
+    2. Normal klavyenizi açın, ardından giriş yöntemini değiştir seçeneğine %2$s (genellikle sağ alt köşededir) dokunun.&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" öğesini seçin.
+    &lt;br&gt;&lt;br&gt;Klavye değiştirme seçeneği görmüyorsanız %3$s, yani Google Klavye\'yi yüklemeyi deneyin.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Aşağıdan braille klavyeyi açın.&lt;br&gt;&lt;br&gt;
+    2. Normal klavyenizi açın, ardından giriş yöntemini değiştir seçeneğine %2$s (genellikle sağ alt köşededir) dokunun.&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" öğesini seçin.
+    &lt;br&gt;&lt;br&gt;Klavye değiştiremiyorsanız %3$s, yani Google Klavye\'yi yüklemeyi deneyin.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Ayarlar</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Aç</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Braille klavyeyi aç</string>
   <string name="typing_languages_title">Yazma dilleri</string>
   <string name="preferred_language_title">Tercih edilen dil</string>
-  <string name="dont_show_again">Bunu bir daha gösterme</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Yazarken dili hızlıca değiştirme</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Braille klavye ile yazarken dilinizi değiştirmek için 3 parmağınızla yukarı kaydırın. Ardından \"bir sonraki dile geç\"i seçin.</string>
   <string name="title_pref_accumulate_presses">Tüm sıkıştırılmış noktaları dahil etme</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>Sonraki klavyeye</b> geçmek için 3 parmağınızla ekranı aşağı kaydırın</string>
   <string name="gesture_submit_text"><b>Metni göndermek</b> için 2 parmağınızla ekranı yukarı kaydırın</string>
   <string name="gesture_open_context_menu"><b>Yardım ve diğer seçenekler</b> için 3 parmağınızla ekranı yukarı kaydırın</string>
-  <string name="done">Bitti</string>
   <string name="not_enough_touch_points_dialog_title">Cihazınız braille klavyeyi desteklemiyor</string>
   <string name="not_enough_touch_points_dialog_message">Cihazınız yeterince temas noktası desteklemiyor. Daha fazla bilgi için cihazınızın üreticisiyle iletişime geçin.</string>
   <string name="talkback_off_dialog_title">Braille klavye kullanmak için TalkBack\'i açma</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Harf silindi</string>
   <string name="perform_delete_word_announcement">Kelime silindi</string>
   <string name="continue_tutorial_announcement">Eğitime devam edelim. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Harici bir braille ekran bağlı. Bu ekranı kullanarak bu cihaza metin yazabilirsiniz.\nBunun yerine dokunmatik ekranlı braille klavyeye veya sonraki giriş yöntemine de geçebilirsiniz.</string>
-  <string name="braille_keyboard_strip_button">Dokunmatik ekranlı klavyeye geç</string>
+  <string name="switch_on_screen_keyboard_announcement">Braille dokunmatik ekrana geçiliyor</string>
+  <string name="braille_keyboard_strip_summary">Harici bir braille ekran bağlı. Bu ekranı kullanarak telefonunuza metin yazabilirsiniz.\n\nDokunmatik ekranlı braille klavyeye veya sonraki giriş yöntemine de geçebilirsiniz.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Braille dokunmatik ekrana geç</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Sonraki giriş yöntemine geç</string>
 </resources>

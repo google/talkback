@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">ഇത് വീണ്ടും കാണിക്കരുത്</string>
+  <string name="done">പൂർത്തിയായി</string>
   <string name="number_announcement">നമ്പർ</string>
   <string name="capitalize_announcement">വലിയക്ഷരമാക്കി</string>
   <string name="read_out_deleted">%s ഇല്ലാതാക്കി</string>
@@ -7,8 +9,9 @@
     <item quantity="one">%s ഡോട്ട്</item>
     <item quantity="other">%s ഡോട്ടുകൾ</item>
   </plurals>
-  <string name="code_user_facing_name_ueb1">യൂണിഫൈഡ് ഇംഗ്ലീഷ് ബ്രെയ്‌ലി ചുരുക്കിയത് മാറ്റി</string>
-  <string name="code_user_facing_name_ueb2">യൂണിഫൈഡ് ഇംഗ്ലീഷ് ബ്രെയ്‌ലി ചുരുക്കി</string>
+  <string name="language_split_comma">,\u0020</string>
+  <string name="code_user_facing_name_ueb1">യൂണിഫൈഡ് ഇംഗ്ലീഷ് ബ്രെയ്‌ലി അൺകോൺട്രാക്റ്റഡ്</string>
+  <string name="code_user_facing_name_ueb2">യൂണിഫൈഡ് ഇംഗ്ലീഷ് ബ്രെയ്‌ലി കോൺട്രാക്റ്റഡ്</string>
   <string name="code_user_facing_name_es">സ്‌പാനിഷ്</string>
   <string name="code_user_facing_name_ar">അറബിക്</string>
   <string name="code_user_facing_name_fr">ഫ്രഞ്ച്</string>

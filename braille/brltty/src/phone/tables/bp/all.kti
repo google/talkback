@@ -1,0 +1,126 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+note The six round keys near the back are a braille keyboard.
+note From left to right, they're named: Dot3, Dot2, Dot1, Dot4, Dot5, Dot6.
+note From left to right, the three long function keys are named: Shift, Space, Control.
+note This table maps Shift to Dot7, and Control to Dot8.
+note The joystick between the dot and function keys has five positions named: Up, Down, Left, Right, Enter.
+note The round scroll keys at either end of the braille display are named: Left, Right.
+
+
+####################
+# Default Bindings #
+####################
+
+# ROUTE+128 is a long-press on the routing key.
+ifKey RoutingKey bind RoutingKey ROUTE:ROUTE+128
+
+bind ScrollLeft+ScrollRight HOME
+bind ScrollLeft FWINLT
+bind ScrollRight FWINRT
+bind ScrollLeft+Space LNUP
+bind ScrollRight+Space LNDN
+bind ScrollLeft+Shift FWINLTSKIP
+bind ScrollRight+Control FWINRTSKIP
+
+bind ScrollLeft+JoystickEnter SETLEFT
+bind ScrollLeft+JoystickLeft CHRLT
+bind ScrollLeft+JoystickRight CHRRT
+bind ScrollLeft+JoystickUp PRDIFLN
+bind ScrollLeft+JoystickDown NXDIFLN
+
+bind ScrollRight+JoystickEnter DESCCHAR
+bind ScrollRight+JoystickLeft HWINLT
+bind ScrollRight+JoystickRight HWINRT
+bind ScrollRight+JoystickUp ATTRUP
+bind ScrollRight+JoystickDown ATTRDN
+
+bind ScrollLeft+ScrollRight+JoystickEnter BACK
+bind ScrollLeft+ScrollRight+JoystickLeft PRPGRPH
+bind ScrollLeft+ScrollRight+JoystickRight NXPGRPH
+bind ScrollLeft+ScrollRight+JoystickUp PRPROMPT
+bind ScrollLeft+ScrollRight+JoystickDown NXPROMPT
+
+bind Shift+JoystickEnter CSRJMP_VERT
+bind Shift+JoystickLeft LNBEG
+bind Shift+JoystickRight LNEND
+bind Shift+JoystickUp TOP
+bind Shift+JoystickDown BOT
+
+bind Control+JoystickLeft CLIP_NEW
+bind Control+JoystickUp CLIP_ADD
+bind Control+JoystickRight COPY_LINE
+bind Control+JoystickDown COPY_RECT
+bind Control+JoystickEnter PASTE
+
+bind Dot1+JoystickEnter DISPMD
+bind Dot1+JoystickLeft DISPMD+off
+bind Dot1+JoystickRight DISPMD+on
+bind Dot1+Dot2+JoystickEnter SKPBLNKWINS
+bind Dot1+Dot2+JoystickLeft SKPBLNKWINS+off
+bind Dot1+Dot2+JoystickRight SKPBLNKWINS+on
+bind Dot1+Dot4+JoystickEnter CSRVIS
+bind Dot1+Dot4+JoystickLeft CSRVIS+off
+bind Dot1+Dot4+JoystickRight CSRVIS+on
+bind Dot1+Dot2+Dot4+JoystickEnter FREEZE
+bind Dot1+Dot2+Dot5+JoystickEnter HELP
+bind Dot2+Dot4+JoystickEnter SKPIDLNS
+bind Dot2+Dot4+JoystickLeft SKPIDLNS+off
+bind Dot2+Dot4+JoystickRight SKPIDLNS+on
+bind Dot1+Dot2+Dot3+Dot4+JoystickEnter PREFMENU
+bind Dot1+Dot2+Dot3+Dot4+JoystickLeft PREFLOAD
+bind Dot1+Dot2+Dot3+Dot4+JoystickRight PREFSAVE
+bind Dot2+Dot3+Dot4+JoystickEnter INFO
+bind Dot2+Dot3+Dot4+Dot5+JoystickEnter CSRTRK
+bind Dot2+Dot3+Dot4+Dot5+JoystickLeft CSRTRK+off
+bind Dot2+Dot3+Dot4+Dot5+JoystickRight CSRTRK+on
+bind Dot1+Dot3+Dot6+JoystickEnter ATTRVIS
+bind Dot1+Dot3+Dot6+JoystickLeft ATTRVIS+off
+bind Dot1+Dot3+Dot6+JoystickRight ATTRVIS+on
+bind Dot2+Dot4+Dot5+Dot6+JoystickEnter SLIDEWIN
+bind Dot2+Dot4+Dot5+Dot6+JoystickLeft SLIDEWIN+off
+bind Dot2+Dot4+Dot5+Dot6+JoystickRight SLIDEWIN+on
+bind Dot2+Dot3+Dot5+JoystickEnter SIXDOTS+on
+bind Dot2+Dot3+Dot6+JoystickEnter SIXDOTS+off
+
+map Dot1 DOT1
+map Dot2 DOT2
+map Dot3 DOT3
+map Dot4 DOT4
+map Dot5 DOT5
+map Dot6 DOT6
+map Shift DOT7
+map Control DOT8
+map Space SPACE
+
+bind Space+Shift KEY_BACKSPACE
+bind Space+Control KEY_ENTER
+
+bind JoystickLeft KEY_CURSOR_LEFT
+bind JoystickRight KEY_CURSOR_RIGHT
+bind JoystickUp KEY_CURSOR_UP
+bind JoystickDown KEY_CURSOR_DOWN
+
+########################
+# BrailleBack Bindings #
+########################
+
+assign chord7 Shift
+assign chord8 Control
+include ../android-chords.kti

@@ -39,7 +39,7 @@ public class SpannableTraversalUtils {
     Set<AccessibilityNodeInfoCompat> visitedNode = new HashSet<>();
     try {
       return searchSpannableStringsInNodeTree(
-          AccessibilityNodeInfoUtils.obtain(node), // Root node.
+          node, // Root node.
           visitedNode, // Visited nodes.
           null, // Result list. No need to collect result here.
           targetSpanClass // Target span class
@@ -48,10 +48,7 @@ public class SpannableTraversalUtils {
     }
   }
 
-  /**
-   * Collects SpannableStrings with target span within the node tree description. Caller should
-   * recycle {@code node}.
-   */
+  /** Collects SpannableStrings with target span within the node tree description. */
   public static void collectSpannableStringsWithTargetSpanInNodeDescriptionTree(
       AccessibilityNodeInfoCompat node,
       Class<?> targetSpanClass,

@@ -16,22 +16,18 @@
 package com.google.android.accessibility.talkback.preference;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import androidx.annotation.IntDef;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants;
+import com.google.android.accessibility.talkback.actor.ImageCaptioner;
 import com.google.android.accessibility.utils.BuildConfig;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.SettingsUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
@@ -47,18 +43,20 @@ public class TalkBackPreferenceFilter {
     HIDDEN_ON_WATCH,
     HIDDEN_NO_VIBRATION,
     HIDDEN_SETUP,
-    HIDDEN_HAS_ACCESSIBILITY_SHORTCUT,
     HIDE_NO_PROXIMITY_SENSOR,
     HIDE_HAS_VOLUME_KEY,
     HIDE_NO_BRAILLE_KEYBOARD,
     HIDE_NO_BRAILLE_DISPLAY,
+    HIDE_IF_NO_USER_DISABLING_OF_GLOBAL_ANIMATIONS,
     SHOW_IF_MULTI_FINGER,
     SHOW_IF_FINGER_PRINT,
     SHOW_SYSTEM_ACTION,
     SHOW_IF_MULTI_FINGER_TAP_AND_HOLD,
     SHOW_FOCUS_INDICATOR,
     HIDE_NO_ACCESSIBILITY_AUDIO_STREAM,
+    HIDDEN_NO_MEDIA_CONTROL,
     HIDDEN_ON_RELEASE_BUILD,
+    HIDE_ICON_DETECTION,
     HIDDEN
   })
   @Retention(RetentionPolicy.SOURCE)
@@ -76,8 +74,6 @@ public class TalkBackPreferenceFilter {
   private static final int HIDDEN_NO_VIBRATION = 0x10;
   /** Flag to hide preference during device setup. */
   private static final int HIDDEN_SETUP = 0x20;
-  /** Flag to hide preference if the device support accessibility shortcut. */
-  private static final int HIDDEN_HAS_ACCESSIBILITY_SHORTCUT = 0x40;
   /** Flag to hide preference if no proximity sensor. */
   private static final int HIDE_NO_PROXIMITY_SENSOR = 0x100;
   /** Flag to hide volume settings if system supports volume keys. */
@@ -100,6 +96,12 @@ public class TalkBackPreferenceFilter {
   private static final int HIDE_NO_BRAILLE_DISPLAY = 0x20000;
 
   private static final int HIDE_NO_ACCESSIBILITY_AUDIO_STREAM = 0x40000;
+  /** Flag to hide media control (play/pause) if system doesn't support it. */
+  private static final int HIDDEN_NO_MEDIA_CONTROL = 0x80000;
+  /** Flag to hide if no animation control capability. */
+  private static final int HIDE_IF_NO_USER_DISABLING_OF_GLOBAL_ANIMATIONS = 0x100000;
+  /** Flag to hide icon detection if system doesn't support it. */
+  private static final int HIDE_ICON_DETECTION = 0x200000;
 
   /** List TalkBack preferences. */
   enum TalkBackPreference {
@@ -113,14 +115,13 @@ public class TalkBackPreferenceFilter {
     CUSTOM_LABELS(R.string.pref_manage_labels_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDDEN_SETUP),
     SINGLE_TAP_ACTIVATION(
         R.string.pref_single_tap_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDDEN_ON_ARC),
+    REDUCE_WINDOW_DELAY(
+        R.string.pref_reduce_window_delay_key, HIDE_IF_NO_USER_DISABLING_OF_GLOBAL_ANIMATIONS),
     KEYBOARD_SHORTCUTS(
         R.string.pref_category_manage_keyboard_shortcut_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH),
-    SUSPEND_AND_RESUME(
-        R.string.pref_two_volume_long_press_key,
-        HIDDEN_ON_TV | HIDDEN_ON_ARC | HIDDEN_ON_WATCH | HIDDEN_HAS_ACCESSIBILITY_SHORTCUT),
-    RESUME_FROM_SUSPEND(
-        R.string.pref_resume_talkback_key,
-        HIDDEN_ON_TV | HIDDEN_ON_ARC | HIDDEN_ON_WATCH | HIDDEN_HAS_ACCESSIBILITY_SHORTCUT),
+    PLAY_PAUSE_MEDIA(R.string.keycombo_shortcut_global_play_pause_media, HIDDEN_NO_MEDIA_CONTROL),
+    TYPING_CONFIRMATION(R.string.pref_typing_confirmation_key, HIDDEN_ON_TV),
+    TYPING_LONG_PRESS_DURATION(R.string.pref_typing_long_press_duration_key, HIDDEN_ON_TV),
     PRIVACY_POLICY(R.string.pref_policy_key, HIDDEN_SETUP),
     TERMS_OF_SERVICE(R.string.pref_show_tos_key, HIDDEN_SETUP),
     // Help & Tutorial.
@@ -159,9 +160,6 @@ public class TalkBackPreferenceFilter {
         R.string.pref_show_context_menu_system_action_setting_key, SHOW_SYSTEM_ACTION),
     CUSTOMIZE_TALKBACK_MENU_VIBRATION_FEEDBACK(
         R.string.pref_show_context_menu_vibration_feedback_setting_key, HIDDEN_NO_VIBRATION),
-    CUSTOMIZE_TALKBACK_MENU_PAUSE_TALKBACK(
-        R.string.pref_show_context_menu_pause_feedback_setting_key,
-        HIDDEN_ON_WATCH | HIDDEN_HAS_ACCESSIBILITY_SHORTCUT),
     CUSTOMIZE_TALKBACK_MENU_IMAGE_CAPTION(
         R.string.pref_show_context_menu_image_caption_setting_key, HIDDEN_ON_WATCH),
 
@@ -203,7 +201,8 @@ public class TalkBackPreferenceFilter {
     CUSTOMIZE_GESTURE_3FINGER_3TAP_HOLD(
         R.string.pref_shortcut_3finger_3tap_hold_key, SHOW_IF_MULTI_FINGER_TAP_AND_HOLD),
     CUSTOMIZE_FOCUS_INDICATOR(
-        R.string.pref_category_manage_focus_indicator_key, SHOW_FOCUS_INDICATOR);
+        R.string.pref_category_manage_focus_indicator_key, SHOW_FOCUS_INDICATOR),
+    ICON_DETECTION(R.string.pref_icon_detection_key, HIDDEN_ON_WATCH | HIDE_ICON_DETECTION);
 
     TalkBackPreference(int resId, int hideFlags) {
       this.resId = resId;
@@ -225,7 +224,6 @@ public class TalkBackPreferenceFilter {
    * the device met flags defines in {@link TalkBackPreference#hideFlags}.
    */
   public void filterPreferences(PreferenceGroup preferenceGroup) {
-
     for (int i = 0; i < preferenceGroup.getPreferenceCount(); ++i) {
       Preference preference = preferenceGroup.getPreference(i);
       if (hide(preference)) {
@@ -282,11 +280,6 @@ public class TalkBackPreferenceFilter {
       return true;
     }
 
-    if (hasFlag(pref.get(), HIDDEN_HAS_ACCESSIBILITY_SHORTCUT)
-        && FeatureSupport.hasAccessibilityShortcut(context)) {
-      return true;
-    }
-
     if (hasFlag(pref.get(), HIDE_NO_PROXIMITY_SENSOR)
         && !FeatureSupport.supportProximitySensor(context)) {
       return true;
@@ -297,23 +290,19 @@ public class TalkBackPreferenceFilter {
       return true;
     }
 
-    if (hasFlag(pref.get(), HIDE_NO_BRAILLE_KEYBOARD)) {
-      PackageManager packageManager = context.getPackageManager();
-      Intent serviceIntent = new Intent().setComponent(Constants.BRAILLE_KEYBOARD);
-      List<ResolveInfo> resolveInfo = packageManager.queryIntentServices(serviceIntent, 0);
-      if (resolveInfo == null
-          || resolveInfo.isEmpty()
-          || packageManager.getComponentEnabledSetting(Constants.BRAILLE_KEYBOARD)
-              != PackageManager.COMPONENT_ENABLED_STATE_ENABLED) {
-        return true;
-      }
+    if (hasFlag(pref.get(), HIDE_NO_BRAILLE_KEYBOARD)
+        && !FeatureSupport.supportBrailleKeyboard(context)) {
+      return true;
     }
 
-    if (hasFlag(pref.get(), HIDE_NO_BRAILLE_DISPLAY)) {
-      Intent activityIntent = new Intent().setComponent(Constants.BRAILLE_DISPLAY_SETTINGS);
-      if (activityIntent.resolveActivityInfo(context.getPackageManager(), 0) == null) {
-        return true;
-      }
+    if (hasFlag(pref.get(), HIDE_NO_BRAILLE_DISPLAY)
+        && !FeatureSupport.supportBrailleDisplay(context)) {
+      return true;
+    }
+
+    if (hasFlag(pref.get(), HIDE_IF_NO_USER_DISABLING_OF_GLOBAL_ANIMATIONS)
+        && !FeatureSupport.supportsUserDisablingOfGlobalAnimations()) {
+      return true;
     }
 
     if (hasFlag(pref.get(), SHOW_IF_MULTI_FINGER)
@@ -331,7 +320,8 @@ public class TalkBackPreferenceFilter {
       return true;
     }
 
-    if (hasFlag(pref.get(), SHOW_SYSTEM_ACTION) && !FeatureSupport.supportSystemActions(context)) {
+    if (hasFlag(pref.get(), SHOW_SYSTEM_ACTION)
+        && !FeatureSupport.supportGetSystemActions(context)) {
       return true;
     }
 
@@ -342,6 +332,14 @@ public class TalkBackPreferenceFilter {
 
     if (hasFlag(pref.get(), HIDE_NO_ACCESSIBILITY_AUDIO_STREAM)
         && !FeatureSupport.hasAccessibilityAudioStream(context)) {
+      return true;
+    }
+    if (hasFlag(pref.get(), HIDDEN_NO_MEDIA_CONTROL) && !FeatureSupport.supportMediaControls()) {
+      return true;
+    }
+
+    if (hasFlag(pref.get(), HIDE_ICON_DETECTION)
+        && !ImageCaptioner.supportsIconDetection(context)) {
       return true;
     }
 

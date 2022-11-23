@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Больш не паказваць</string>
+  <string name="done">Гатова</string>
   <string name="number_announcement">Нумар</string>
   <string name="capitalize_announcement">Вялікая літара</string>
   <string name="read_out_deleted">Выдалена: %s</string>
@@ -9,6 +11,7 @@
     <item quantity="many">кропкі %s</item>
     <item quantity="other">кропкі %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Поўная версія адзінай англійскай клавіятуры Брайля</string>
   <string name="code_user_facing_name_ueb2">Скарочаная версія англійскай клавіятуры Брайля</string>
   <string name="code_user_facing_name_es">Іспанская</string>

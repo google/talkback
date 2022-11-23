@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Без повторно показване</string>
+  <string name="done">Готово</string>
   <string name="number_announcement">Номер</string>
   <string name="capitalize_announcement">Главни букви</string>
   <string name="read_out_deleted">Изтрихте текста „%s“</string>
@@ -7,6 +9,7 @@
     <item quantity="one">точка %s</item>
     <item quantity="other">точки %s</item>
   </plurals>
+  <string name="language_split_comma">,</string>
   <string name="code_user_facing_name_ueb1">Унифицирано англ. брайлово писмо без съкращения</string>
   <string name="code_user_facing_name_ueb2">Унифицирано англ. брайлово писмо със съкращения</string>
   <string name="code_user_facing_name_es">испански</string>

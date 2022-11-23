@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">\'टॉकबैक\' से जुड़ा ब्रेल कीबोर्ड</string>
+  <string name="braille_ime_bd_mode_name">ब्रेल डिसप्ले का इनपुट</string>
   <string name="switch_to_screen_away_announcement">स्क्रीन अवे मोड</string>
   <string name="switch_to_tabletop_announcement">टेबलटॉप मोड. अपने डिवाइस के चार्जिंग पोर्ट को बाईं ओर घुमाकर रखें. डॉट की पोज़िशन को कैलिब्रेट करने के लिए, छह उंगलियों का इस्तेमाल करें.</string>
   <string name="bring_ime_settings_page">कोई और कीबोर्ड चालू नहीं है, कीबोर्ड की सेटिंग पर जाएं</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">ब्रेल कीबोर्ड इस्तेमाल करने का तरीका</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">ब्रेल कीबोर्ड इस्तेमाल करने के लिए, अपना सामान्य कीबोर्ड खाेलें. इसके बाद, कीबोर्ड चुनें आइकॉन %1$s (आम तौर पर, सबसे नीचे दाएं काेने में होता है) पर टैप करें. \"%2$s\" चुनें.
   &lt;br&gt;&lt;br&gt;अगर आपको कीबोर्ड स्विच करने का विकल्प नहीं दिखता, तो Google कीबोर्ड, %3$s इंस्टॉल करें.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;ब्रेल कीबोर्ड चालू करना&lt;/b&gt;: नीचे \'सेटिंग\' पर टैप करें. अगली स्क्रीन पर, \"%1$s\" चालू करें.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;ब्रेल कीबोर्ड इस्तेमाल करना&lt;/b&gt;: अपना सामान्य कीबोर्ड खोलें. इसके बाद, कीबोर्ड चुनें आइकॉन %2$s (आम तौर पर, सबसे नीचे दाएं काेने में होता है) पर टैप करें. \"%1$s\" चुनें.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. नीचे \"सेटिंग\" पर टैप करें. अगली स्क्रीन पर, \"%1$s\" को चालू करें&lt;br&gt;&lt;br&gt;
+    2. अपना सामान्य कीबोर्ड खोलें और इनपुट का तरीका स्विच करें %2$s (आम तौर पर, सबसे नीचे दाईं ओर) पर टैप करें.&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" चुनें.
     &lt;br&gt;&lt;br&gt;अगर आपको कीबोर्ड स्विच करने का विकल्प नहीं दिखता, तो Google कीबोर्ड, %3$s इंस्टॉल करें.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">सेटिंग</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. नीचे मौजूद ब्रेल कीबोर्ड चालू करें.&lt;br&gt;&lt;br&gt;
+    2. अपना सामान्य कीबोर्ड खोलें और इनपुट का तरीका स्विच करें %2$s (आम तौर पर, सबसे नीचे दाईं ओर) पर टैप करें.&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" चुनें.
+    &lt;br&gt;&lt;br&gt;अगर कीबोर्ड स्विच नहीं किया जा सकता, तो Google कीबोर्ड, %3$s इंस्टॉल करें.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">सेटिंग</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">चालू करें</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">ब्रेल कीबोर्ड चालू करें</string>
   <string name="typing_languages_title">टाइपिंग के लिए इस्तेमाल की जाने वाली भाषाएं</string>
   <string name="preferred_language_title">पसंदीदा भाषा</string>
-  <string name="dont_show_again">इसे दोबारा न दिखाएं</string>
   <string name="switch_input_code_gesture_tip_dialog_title">टाइप करते समय, भाषा को तेज़ी से बदलें</string>
   <string name="switch_input_code_gesture_tip_dialog_message">ब्रेल कीबोर्ड से टाइप करते समय भाषा बदलने के लिए, तीन उंगलियों से ऊपर की ओर स्वाइप करें. इसके बाद, \"अगली भाषा पर स्विच करें\" को चुनें.</string>
   <string name="title_pref_accumulate_presses">दबाए गए सभी बिंदुओं को शामिल करने वाला माेड</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>अगले कीबोर्ड</b> पर जाने के लिए, तीन उंगलियों से नीचे की ओर स्वाइप करें</string>
   <string name="gesture_submit_text"><b>टेक्स्ट सबमिट</b> करने के लिए, दो उंगलियों से ऊपर की ओर स्वाइप करें</string>
   <string name="gesture_open_context_menu"><b>मदद पाने और दूसरे विकल्पों</b> के लिए, तीन उंगलियों से ऊपर की ओर स्वाइप करें</string>
-  <string name="done">हो गया</string>
   <string name="not_enough_touch_points_dialog_title">आपके डिवाइस पर ब्रेल कीबोर्ड काम नहीं करता</string>
   <string name="not_enough_touch_points_dialog_message">आपके डिवाइस पर इतने टच पॉइंट काम नहीं करते. ज़्यादा जानकारी के लिए डिवाइस बनाने वाली कंपनी से संपर्क करें.</string>
   <string name="talkback_off_dialog_title">ब्रेल कीबोर्ड इस्तेमाल करने के लिए \'टॉकबैक\' चालू करें</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">अक्षर मिटाया गया</string>
   <string name="perform_delete_word_announcement">शब्द मिटाया गया</string>
   <string name="continue_tutorial_announcement">ट्यूटोरियल जारी रखें. %1$s</string>
-  <string name="braille_keyboard_strip_summary">इस डिवाइस पर टाइप करने के लिए, एक बाहरी ब्रेल प्रदर्शन कनेक्ट किया गया है.\nइसके अलावा, ब्रेल कीबोर्ड या इनपुट के किसी दूसरे तरीके पर भी स्विच किया जा सकता है.</string>
-  <string name="braille_keyboard_strip_button">टचस्क्रीन कीबोर्ड पर स्विच करें</string>
+  <string name="switch_on_screen_keyboard_announcement">टचस्क्रीन वाले ब्रेल कीबोर्ड पर स्विच किया जा रहा है</string>
+  <string name="braille_keyboard_strip_summary">फ़ोन पर मैसेज टाइप करने के लिए, एक बाहरी ब्रेल डिसप्ले कनेक्ट किया गया है.\n\nइसके अलावा, टचस्क्रीन वाले ब्रेल कीबोर्ड या इनपुट के किसी दूसरे तरीके पर भी स्विच किया जा सकता है.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">टचस्क्रीन वाले ब्रेल कीबोर्ड पर स्विच करें</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">इनपुट के दूसरे तरीके पर स्विच करें</string>
 </resources>

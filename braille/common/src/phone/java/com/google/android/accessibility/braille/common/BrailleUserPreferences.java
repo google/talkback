@@ -58,7 +58,7 @@ public class BrailleUserPreferences {
   private static final int EXIT_KEYBOARD_DEFAULT = 0;
   private static final int SHOW_OPTION_DIALOG_DEFAULT = 0;
   // Braille display constants.
-  private static final boolean WORD_WRAP_DEFAULT = false;
+  private static final boolean WORD_WRAP_DEFAULT = true;
   private static final boolean SHOW_OVERLAY_DEFAULT = false;
 
   private BrailleUserPreferences() {}
@@ -174,21 +174,25 @@ public class BrailleUserPreferences {
     if (preferredCodesInStringSet.isEmpty()) {
       return getDefaultPreferredCodes(context);
     }
-    return extractValidCodes(preferredCodesInStringSet);
+    List<Code> preferredCodesInList = extractValidCodes(preferredCodesInStringSet);
+    return preferredCodesInList.isEmpty()
+        ? getDefaultPreferredCodes(context)
+        : preferredCodesInList;
   }
 
   // Prefs that are BK-specific
 
-  /** Reads should notify changing input code preference. */
-  public static boolean readShowSwitchInputCodeGestureTip(Context context) {
+  /** Reads should notify changing braille keyboard input code preference. */
+  public static boolean readShowSwitchBrailleKeyboardInputCodeGestureTip(Context context) {
     return getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME)
         .getBoolean(
             context.getString(R.string.pref_show_switch_input_code_gesture_tip),
             SHOW_SWITCH_INPUT_CODE_GESTURE_TIP);
   }
 
-  /** Writes should notify changing input code preference. */
-  public static void writeShowSwitchInputCodeGestureTip(Context context, boolean showTip) {
+  /** Writes should notify changing braille keyboard input code preference. */
+  public static void writeShowSwitchBrailleKeyboardInputCodeGestureTip(
+      Context context, boolean showTip) {
     getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME)
         .edit()
         .putBoolean(context.getString(R.string.pref_show_switch_input_code_gesture_tip), showTip)
@@ -531,6 +535,41 @@ public class BrailleUserPreferences {
     getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME)
         .edit()
         .putBoolean(context.getString(R.string.pref_search_tutorial_never_show), neverShowAgain)
+        .apply();
+  }
+
+  /** Reads should notify changing braille display input code preference. */
+  public static boolean readShowBrailleDisplaySwitchInputCodeGestureTip(Context context) {
+    return getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME)
+        .getBoolean(
+            context.getString(R.string.pref_bd_show_switch_input_code_gesture_tip),
+            SHOW_SWITCH_INPUT_CODE_GESTURE_TIP);
+  }
+
+  /** Writes should notify changing braille display input code preference. */
+  public static void writeShowSwitchBrailleDisplayInputCodeGestureTip(
+      Context context, boolean showTip) {
+    getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME)
+        .edit()
+        .putBoolean(context.getString(R.string.pref_bd_show_switch_input_code_gesture_tip), showTip)
+        .apply();
+  }
+
+  /** Reads should notify changing braille display input code preference. */
+  public static boolean readShowBrailleDisplaySwitchOutputCodeGestureTip(Context context) {
+    return getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME)
+        .getBoolean(
+            context.getString(R.string.pref_bd_show_switch_output_code_gesture_tip),
+            SHOW_SWITCH_INPUT_CODE_GESTURE_TIP);
+  }
+
+  /** Writes should notify changing braille display output code preference. */
+  public static void writeShowSwitchBrailleDisplayOutputCodeGestureTip(
+      Context context, boolean showTip) {
+    getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME)
+        .edit()
+        .putBoolean(
+            context.getString(R.string.pref_bd_show_switch_output_code_gesture_tip), showTip)
         .apply();
   }
 

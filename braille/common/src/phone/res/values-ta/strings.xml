@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">இதை மீண்டும் காட்ட வேண்டாம்</string>
+  <string name="done">முடிந்தது</string>
   <string name="number_announcement">எண்</string>
   <string name="capitalize_announcement">பேரெழுத்தாக்கம்</string>
   <string name="read_out_deleted">%s நீக்கப்பட்டது</string>
@@ -7,6 +9,7 @@
     <item quantity="one">%s புள்ளி</item>
     <item quantity="other">%s புள்ளிகள்</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">ஒருங்கிணைந்த ஆங்கில பிரெய்லின் விரிவான வடிவம்</string>
   <string name="code_user_facing_name_ueb2">ஒருங்கிணைந்த ஆங்கில பிரெய்லின் சுருக்க வடிவம்</string>
   <string name="code_user_facing_name_es">ஸ்பானிஷ்</string>

@@ -22,7 +22,6 @@ import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_INPUT;
 import android.graphics.Rect;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
@@ -72,14 +71,6 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     mRootRectPadded.inset(fudge, fudge);
 
     processNodes(mRoot, false /* forceRefresh */);
-
-    // Before N, sometimes AccessibilityNodeInfo is not properly updated after transitions
-    // occur. This was fixed in a system framework change for N. REFERTO for context.
-    // To work-around, manually refresh AccessibilityNodeInfo if it initially
-    // looks like there's nothing to focus on.
-    if (mFocusables.isEmpty() && !BuildVersionUtils.isAtLeastN()) {
-      processNodes(mRoot, true /* forceRefresh */);
-    }
   }
 
   /**
@@ -263,15 +254,6 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
   public Map<AccessibilityNodeInfoCompat, Boolean> getSpeakingNodesCache() {
     return null;
   }
-
-  /**
-   * TODO: Remove once all dependencies have been removed.
-   *
-   * @deprecated Accessibility is discontinuing recycling.
-   */
-  @Override
-  @Deprecated
-  public void recycle() {}
 
   /**
    * Returns the bounding rect of the given node for directional navigation purposes. Any node that

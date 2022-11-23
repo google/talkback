@@ -56,7 +56,7 @@ class MultiFingerMultiTapAndHold extends MultiFingerMultiTap {
   @Override
   public String getGestureName() {
     final StringBuilder builder = new StringBuilder();
-    builder.append(mTargetFingerCount).append("-Finger ");
+    builder.append(targetFingerCount).append("-Finger ");
     if (mTargetTapCount == 1) {
       builder.append("Single");
     } else if (mTargetTapCount == 2) {

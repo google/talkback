@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Příště již nezobrazovat</string>
+  <string name="done">Hotovo</string>
   <string name="number_announcement">Číslo</string>
   <string name="capitalize_announcement">Omezení</string>
   <string name="read_out_deleted">%s úkol byl smazán</string>
@@ -9,8 +11,9 @@
     <item quantity="many">body %s</item>
     <item quantity="other">body %s</item>
   </plurals>
-  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
-  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="language_split_comma">,\u0020</string>
+  <string name="code_user_facing_name_ueb1">Unified English Braille (plnopis)</string>
+  <string name="code_user_facing_name_ueb2">Unified English Braille (zkratkopis)</string>
   <string name="code_user_facing_name_es">španělština</string>
   <string name="code_user_facing_name_ar">Arabština</string>
   <string name="code_user_facing_name_fr">francouzština</string>

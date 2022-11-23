@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Ära seda enam näita</string>
+  <string name="done">Valmis</string>
   <string name="number_announcement">Number</string>
   <string name="capitalize_announcement">Suurtäht</string>
   <string name="read_out_deleted">%s kustutati</string>
@@ -7,8 +9,9 @@
     <item quantity="one">punkt %s</item>
     <item quantity="other">punktid %s</item>
   </plurals>
-  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
-  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="language_split_comma">,\u0020</string>
+  <string name="code_user_facing_name_ueb1">Ühtne inglise punktkiri (ahendamata)</string>
+  <string name="code_user_facing_name_ueb2">Ühtne inglise punktkiri (ahendatud)</string>
   <string name="code_user_facing_name_es">hispaania</string>
   <string name="code_user_facing_name_ar">araabia</string>
   <string name="code_user_facing_name_fr">Prantsuse keel</string>

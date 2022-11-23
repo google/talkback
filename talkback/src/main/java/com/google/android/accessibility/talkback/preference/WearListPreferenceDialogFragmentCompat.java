@@ -56,7 +56,8 @@ public class WearListPreferenceDialogFragmentCompat extends ListPreferenceDialog
   }
 
   @Override
-  public @NonNull Dialog onCreateDialog(Bundle savedInstanceState) {
+  @NonNull
+  public Dialog onCreateDialog(Bundle savedInstanceState) {
     Dialog dialog = super.onCreateDialog(savedInstanceState);
     if (dialog instanceof AlertDialog) {
       dialog.create();

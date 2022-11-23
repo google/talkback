@@ -318,15 +318,6 @@ public class AccessibilityEventUtils {
     return source != null;
   }
 
-  /** Returns {@code true} if the event source window is anchored. */
-  public static boolean hasAnchoredWindow(AccessibilityEvent event) {
-    if (event == null) {
-      return false;
-    }
-    AccessibilityWindowInfo sourceWindow = AccessibilityNodeInfoUtils.getWindow(event.getSource());
-    return AccessibilityWindowInfoUtils.getAnchor(sourceWindow) != null;
-  }
-
   /**
    * Recycles an old event, and obtains a copy of a new event to replace the old event.
    *

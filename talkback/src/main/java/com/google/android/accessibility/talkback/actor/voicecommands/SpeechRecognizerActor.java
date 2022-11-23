@@ -53,6 +53,7 @@ import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.permission.PermissionRequestActivity;
 import com.google.android.accessibility.talkback.training.VoiceCommandHelpInitiator;
 import com.google.android.accessibility.utils.DelayHandler;
+import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -309,14 +310,14 @@ public class SpeechRecognizerActor {
   public void getSpeechPermissionAndListen(boolean checkDialog) {
     if (!SpeechRecognizer.isRecognitionAvailable(talkbackContext)) {
       LogUtils.e(TAG, "Platform does not support voice command.");
-      pipeline.returnFeedback(
-          EVENT_ID_UNTRACKED,
-          Feedback.showToast(
-              ShowToast.Action.SHOW,
-              talkbackContext.getString(R.string.voice_commands_no_action),
-              false));
+      speak(talkbackContext.getString(R.string.voice_commands_no_action));
+      return;
+    } else if (!SettingsUtils.allowLinksOutOfSettings(talkbackContext)) {
+      LogUtils.e(TAG, "Reject voice command during setup.");
+      speak(talkbackContext.getString(R.string.voice_commands_during_setup_hint));
       return;
     }
+
     if (!hasMicPermission()) {
       if (ContextCompat.checkSelfPermission(talkbackContext, Manifest.permission.RECORD_AUDIO)
           == PackageManager.PERMISSION_GRANTED) {
@@ -481,6 +482,17 @@ public class SpeechRecognizerActor {
         // TODO: Add performance EventId support for speech commands.
         EVENT_ID_UNTRACKED,
         Feedback.speech(text, speakOptions).setDelayMs(RECOGNITION_SPEECH_DELAY_MS));
+  }
+
+  private void speak(String text) {
+    SpeakOptions speakOptions =
+        SpeakOptions.create()
+            .setFlags(
+                FeedbackItem.FLAG_NO_HISTORY
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
+    pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.speech(text, speakOptions));
   }
 
   public boolean hasMicPermission() {

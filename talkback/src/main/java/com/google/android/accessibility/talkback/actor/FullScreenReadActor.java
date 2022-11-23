@@ -17,6 +17,7 @@
 package com.google.android.accessibility.talkback.actor;
 
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.CLEAR;
+import static com.google.android.accessibility.talkback.Feedback.Focus.Action.INITIAL_FOCUS_FIRST_CONTENT;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 import static com.google.android.accessibility.utils.input.CursorGranularity.DEFAULT;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_FORWARD;
@@ -34,6 +35,7 @@ import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.eventprocessor.EventState;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
+import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -93,6 +95,8 @@ public class FullScreenReadActor {
 
   private final RetryReadingHandler retryReadingHandler = new RetryReadingHandler();
 
+  private final ScreenStateMonitor.State screenState;
+
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // State-reading interface
 
@@ -117,7 +121,8 @@ public class FullScreenReadActor {
   public FullScreenReadActor(
       AccessibilityFocusMonitor accessibilityFocusMonitor,
       TalkBackService service,
-      SpeechController speechController) {
+      SpeechController speechController,
+      ScreenStateMonitor.State screenState) {
     if (accessibilityFocusMonitor == null) {
       throw new IllegalStateException();
     }
@@ -128,6 +133,7 @@ public class FullScreenReadActor {
     wakeLock =
         ((PowerManager) service.getSystemService(Context.POWER_SERVICE))
             .newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, TAG);
+    this.screenState = screenState;
   }
 
   public void setPipeline(Pipeline.FeedbackReturner pipeline) {
@@ -225,7 +231,7 @@ public class FullScreenReadActor {
     // This is potentially a refocus, so we should set the refocus flag just in case.
     EventState.getInstance().setFlag(EventState.EVENT_NODE_REFOCUSED);
     pipeline.returnFeedback(eventId, Feedback.focus(CLEAR));
-    moveForward();
+    moveToBeginning();
   }
 
   public void readFocusedContent(EventId eventId) {
@@ -247,6 +253,20 @@ public class FullScreenReadActor {
 
     if (wakeLock.isHeld()) {
       wakeLock.release();
+    }
+  }
+
+  private void moveToBeginning() {
+    EventId eventId = EVENT_ID_UNTRACKED; // First node's speech is already performance tracked.
+    if (!pipeline.returnFeedback(
+        eventId,
+        Feedback.part()
+            .setFocus(
+                Feedback.focus(INITIAL_FOCUS_FIRST_CONTENT)
+                    .setScreenState(screenState.getStableScreenState())
+                    .build()))) {
+      pipeline.returnFeedback(eventId, Feedback.sound(R.raw.complete));
+      interrupt();
     }
   }
 

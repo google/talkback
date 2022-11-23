@@ -1,0 +1,61 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+####################
+# Default Bindings #
+####################
+
+bind Thumb2+Thumb3 HOME
+bind Thumb2 LNUP
+bind Thumb3 LNDN
+bind Thumb1 FWINLT
+bind Thumb4 FWINRT
+
+bind Thumb1+Thumb2 TOP_LEFT
+bind Thumb1+Thumb3 BOT_LEFT
+bind Thumb4+Thumb2 PRDIFLN
+bind Thumb4+Thumb3 NXDIFLN
+
+bind Thumb1+RoutingKey CLIP_NEW
+bind Thumb2+RoutingKey CLIP_ADD
+bind Thumb3+RoutingKey COPY_RECT
+bind Thumb4+RoutingKey COPY_LINE
+bind Thumb1+Thumb4 PASTE
+
+include ../bm/display6.kti
+include ../bm/routing6.kti
+
+
+#################
+# Menu Bindings #
+#################
+
+context menu
+
+bind Thumb1 FWINLT
+bind Thumb4 FWINRT
+bind Thumb2 MENU_PREV_ITEM
+bind Thumb3 MENU_NEXT_ITEM
+bind Thumb1+Thumb2 MENU_FIRST_ITEM
+bind Thumb1+Thumb3 MENU_LAST_ITEM
+bind Thumb4+Thumb2 MENU_PREV_SETTING
+bind Thumb4+Thumb3 MENU_NEXT_SETTING
+bind Thumb2+Thumb3 PREFMENU
+bind Thumb2+Thumb3+Thumb1 PREFLOAD
+bind Thumb2+Thumb3+Thumb4 PREFSAVE
+

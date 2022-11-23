@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Bàn phím chữ nổi TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Nhập bằng màn hình chữ nổi</string>
   <string name="switch_to_screen_away_announcement">Chế độ màn hình hướng ra ngoài</string>
   <string name="switch_to_tabletop_announcement">Chế độ trên mặt bàn. Đặt thiết bị sao cho cổng sạc ở bên trái. Nhấn và giữ bằng 6 ngón tay để cập nhật vị trí dấu chấm.</string>
   <string name="bring_ime_settings_page">Bạn chưa bật bàn phím nào khác, hãy chuyển đến phần cài đặt bàn phím</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Cách sử dụng bàn phím chữ nổi</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Để dùng bàn phím chữ nổi, hãy mở bàn phím thông thường của bạn rồi nhấn vào biểu tượng chọn bàn phím %1$s (thường nằm ở góc dưới cùng bên phải). Chọn \"%2$s\".
   &lt;br&gt;&lt;br&gt;Nếu bạn không thấy tùy chọn để chuyển đổi bàn phím, hãy thử cài đặt bàn phím Google %3$s.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Bật bàn phím chữ nổi&lt;/b&gt;: Nhấn vào Cài đặt ở bên dưới. Trên màn hình tiếp theo, hãy bật \"%1$s\".
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Dùng bàn phím chữ nổi&lt;/b&gt;: Mở bàn phím thông thường của bạn rồi nhấn vào biểu tượng chọn bàn phím %2$s (thường nằm ở góc dưới cùng bên phải). Chọn \"%1$s\".
-    &lt;br&gt;&lt;br&gt;Nếu bạn không thấy tùy chọn để chuyển đổi bàn phím, hãy thử cài đặt bàn phím Google %3$s.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Cài đặt</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Nhấn vào mục \"Cài đặt\" bên dưới. Trên màn hình tiếp theo, hãy bật \"%1$s\".&lt;br&gt;&lt;br&gt;
+    2. Mở bàn phím thông thường của bạn, sau đó nhấn vào nút chuyển phương thức nhập %2$s (thường ở góc dưới cùng bên phải).&lt;br&gt;&lt;br&gt;
+    3. Chọn \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Nếu bạn không thấy nút để chuyển đổi bàn phím, hãy thử cài đặt bàn phím Google %3$s.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Bật bàn phím chữ nổi bên dưới.&lt;br&gt;&lt;br&gt;
+    2. Mở bàn phím thông thường của bạn, sau đó nhấn vào nút chuyển đổi phương thức nhập %2$s (thường ở góc dưới cùng bên phải).&lt;br&gt;&lt;br&gt;
+    3. Chọn \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Nếu bạn không thể chuyển đổi bàn phím, hãy thử cài đặt bàn phím của Google %3$s.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Cài đặt</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Bật</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Bật bàn phím chữ nổi</string>
   <string name="typing_languages_title">Ngôn ngữ nhập</string>
   <string name="preferred_language_title">Ngôn ngữ ưu tiên</string>
-  <string name="dont_show_again">Không hiện lại nữa</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Thay đổi nhanh ngôn ngữ trong khi nhập</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Để thay đổi ngôn ngữ khi nhập bằng bàn phím chữ nổi, hãy vuốt lên bằng 3 ngón tay. Sau đó, chọn \"chuyển sang ngôn ngữ tiếp theo\".</string>
   <string name="title_pref_accumulate_presses">Bao gồm tất cả các dấu chấm được nhấn</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Để chuyển sang <b>bàn phím tiếp theo</b>, hãy vuốt xuống bằng 3 ngón tay</string>
   <string name="gesture_submit_text">Để <b>gửi nội dung</b>, hãy vuốt lên bằng 2 ngón tay</string>
   <string name="gesture_open_context_menu">Để được <b>trợ giúp và xem các tùy chọn khác</b>, hãy vuốt lên bằng 3 ngón tay</string>
-  <string name="done">Xong</string>
   <string name="not_enough_touch_points_dialog_title">Thiết bị của bạn không hỗ trợ bàn phím chữ nổi</string>
   <string name="not_enough_touch_points_dialog_message">Thiết bị của bạn không hỗ trợ đầy đủ điểm cảm ứng. Để biết thêm thông tin, hãy liên hệ với nhà sản xuất thiết bị của bạn.</string>
   <string name="talkback_off_dialog_title">Bật TalkBack để dùng bàn phím chữ nổi</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Đã xóa chữ cái</string>
   <string name="perform_delete_word_announcement">Đã xóa từ</string>
   <string name="continue_tutorial_announcement">Hãy tiếp tục xem hướng dẫn. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Đã kết nối màn hình chữ nổi bên ngoài. Bạn có thể dùng màn hình này để nhập văn bản vào thiết bị.\nHoặc bạn có thể chuyển sang Bàn phím chữ nổi trên màn hình cảm ứng hoặc phương thức nhập tiếp theo.</string>
-  <string name="braille_keyboard_strip_button">Chuyển sang bàn phím trên màn hình cảm ứng</string>
+  <string name="switch_on_screen_keyboard_announcement">Chuyển sang màn hình chữ nổi cảm ứng</string>
+  <string name="braille_keyboard_strip_summary">Bạn có thể dùng màn hình chữ nổi ngoài đã kết nối để nhập văn bản vào điện thoại.\n\nBạn cũng có thể chuyển sang bàn phím chữ nổi trên màn hình cảm ứng hoặc phương thức nhập tiếp theo.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Chuyển sang màn hình chữ nổi cảm ứng</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Chuyển sang phương thức nhập tiếp theo</string>
 </resources>

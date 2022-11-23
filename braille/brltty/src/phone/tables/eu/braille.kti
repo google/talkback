@@ -1,0 +1,70 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+note The eight dot keys of the braille keyboard are behind the cursor routing keys.
+note From left to right, they are: Dot7, Dot3, Dot2, Dot1, Dot4, Dot5, Dot6, Dot8.
+note The two keys of the braille keyboard in front of the braille cells, from left to right, are: Backspace, Space.
+
+map Dot1 DOT1
+map Dot2 DOT2
+map Dot3 DOT3
+map Dot4 DOT4
+map Dot5 DOT5
+map Dot6 DOT6
+map Dot7 DOT7
+map Dot8 DOT8
+
+map Space SPACE
+bind Backspace KEY_BACKSPACE
+bind Backspace+Space KEY_ENTER
+
+bind Space+Dot7 SHIFT
+bind Space+Dot8 META
+bind Space+Dot7+Dot8 CONTROL
+
+bind Space+Dot2+Dot5+Dot6 KEY_TAB
+bind Space+Dot2+Dot3+Dot6 KEY_TAB+shift
+
+bind Space+Dot4 KEY_CURSOR_UP
+bind Space+Dot6 KEY_CURSOR_DOWN
+bind Space+Dot2 KEY_CURSOR_LEFT
+bind Space+Dot5 KEY_CURSOR_RIGHT
+
+bind Space+Dot1+Dot3 KEY_PAGE_UP
+bind Space+Dot4+Dot6 KEY_PAGE_DOWN
+
+bind Space+Dot1+Dot2+Dot3 KEY_HOME
+bind Space+Dot4+Dot5+Dot6 KEY_END
+
+bind Space+Dot3+Dot6 KEY_DELETE
+bind Space+Dot1+Dot2+Dot4+Dot5 KEY_ESCAPE
+bind Space+Dot1+Dot3+Dot5 KEY_INSERT
+
+bind Backspace+Dot1 KEY_FUNCTION+0
+bind Backspace+Dot1+Dot2 KEY_FUNCTION+1
+bind Backspace+Dot1+Dot4 KEY_FUNCTION+2
+bind Backspace+Dot1+Dot4+Dot5 KEY_FUNCTION+3
+bind Backspace+Dot1+Dot5 KEY_FUNCTION+4
+bind Backspace+Dot1+Dot2+Dot4 KEY_FUNCTION+5
+bind Backspace+Dot1+Dot2+Dot4+Dot5 KEY_FUNCTION+6
+bind Backspace+Dot1+Dot2+Dot5 KEY_FUNCTION+7
+bind Backspace+Dot2+Dot4 KEY_FUNCTION+8
+bind Backspace+Dot2+Dot4+Dot5 KEY_FUNCTION+9
+bind Backspace+Dot1+Dot3 KEY_FUNCTION+10
+bind Backspace+Dot1+Dot2+Dot3 KEY_FUNCTION+11
+

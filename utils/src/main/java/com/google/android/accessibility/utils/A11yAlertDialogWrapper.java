@@ -731,6 +731,38 @@ public class A11yAlertDialogWrapper implements DialogInterface {
   }
 
   /**
+   * A builder for an alert dialog that creates {@link AlertDialog} for the most of the platforms
+   * excpet the Wear OS or {@link android.app.AlertDialog} for the Wear OS. This builder is used for
+   * these dialogs at the settings.
+   */
+  private static class AlertDialogBuilder {
+    private final Context context;
+    /**
+     * Creates a builder of {@link AlertDialog} or {@link android.app.AlertDialog}.
+     *
+     * @param context the parent context
+     */
+    public AlertDialogBuilder(@NonNull Context context) {
+      this.context = context;
+    }
+
+    /**
+     * Creates a builder,{@link AlertDialog.Builder} or {@link android.app.AlertDialog}.
+     *
+     * @return A11yAlertDialogWrapper.Builder
+     */
+    A11yAlertDialogWrapper.Builder create() {
+      // Creates android.app.AlertDialog.Builder if this is the Wear OS. Otherwise, creates
+      // androidx.appcompat.app.AlertDialog.Builder for the dialogs at the settings.
+      if (FeatureSupport.isWatch(context)) {
+        return new A11yAlertDialogWrapper.AppBuilder(AlertDialogUtils.builder(context));
+      } else {
+        return new A11yAlertDialogWrapper.V7Builder(AlertDialogUtils.v7Builder(context));
+      }
+    }
+  }
+
+  /**
    * Creates {@link A11yAlertDialogWrapper.Builder} which holds {@link
    * com.google.android.material.dialog.MaterialAlertDialogBuilder} for the most of the platforms
    * except the Wear OS or {@link android.app.AlertDialog.Builder} for the Wear OS.
@@ -740,5 +772,26 @@ public class A11yAlertDialogWrapper implements DialogInterface {
    */
   public static A11yAlertDialogWrapper.Builder materialDialogBuilder(@NonNull Context context) {
     return new A11yAlertDialogWrapper.MaterialDialogBuilder(context).create();
+  }
+
+  /**
+   * Creates {@link A11yAlertDialogWrapper.Builder} which holds {@link AlertDialog.Builder}.
+   *
+   * @param context The current context
+   * @return {@link A11yAlertDialogWrapper.Builder} returns A11yAlertDialogWrapper.Builder
+   */
+  public static A11yAlertDialogWrapper.Builder alertDialogBuilder(@NonNull Context context) {
+    return new A11yAlertDialogWrapper.AlertDialogBuilder(context).create();
+  }
+
+  /**
+   * Focuses the cancel button.
+   *
+   * @param alertDialog The {@link A11yAlertDialogWrapper} which focuses the cancel button.
+   */
+  public static void focusCancelButton(A11yAlertDialogWrapper alertDialog) {
+    Button cancelButton = alertDialog.getButton(BUTTON_NEGATIVE);
+    cancelButton.setFocusableInTouchMode(true);
+    cancelButton.requestFocus();
   }
 }

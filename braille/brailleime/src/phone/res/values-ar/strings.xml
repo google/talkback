@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">‏لوحة مفاتيح برايل TalkBack</string>
+  <string name="braille_ime_bd_mode_name">إدخال النصوص على جهاز عرض بلغة برايل</string>
   <string name="switch_to_screen_away_announcement">وضع \"الشاشة البعيدة\"</string>
   <string name="switch_to_tabletop_announcement">وضع \"الشاشة المسطحة\": ضَع الجهاز بشكل مسطح واحرِص على أن يكون منفذ الشحن إلى جهة اليسار. لتعديل موضع النقاط، يُرجى الضغط مع الاستمرار بستة أصابع.</string>
   <string name="bring_ime_settings_page">ليس هناك أي لوحة مفاتيح أخرى مفعَّلة، انتقِل إلى إعدادات لوحة المفاتيح.</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">كيفية استخدام لوحة مفاتيح برايل</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">‏لاستخدام لوحة مفاتيح برايل، افتَح لوحة المفاتيح العادية، ثم انقر على رمز اختيار لوحة المفاتيح %1$s (يكون عادةً في أسفل يسار الشاشة). اختَر \"%2$s.\"
   &lt;br&gt;&lt;br&gt;إذا لم يظهر لك خيار لتبديل لوحات المفاتيح، حاوِل تثبيت %3$s، \"لوحة مفاتيح Google\".</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">‏1- &lt;b&gt;تفعيل لوحة برايل&lt;/b&gt;: انقر على \"الإعدادات\" أدناه. في الشاشة التالية، فعِّل \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2- &lt;b&gt;استخدام لوحة مفاتيح برايل&lt;/b&gt;: افتَح لوحة المفاتيح العادية، ثم انقر على رمز اختيار لوحة المفاتيح %2$s (يكون عادةً في أسفل يسار الشاشة). اختَر \"%1$s\".
-  &lt;br&gt;&lt;br&gt;إذا لم يظهر لك خيار لتبديل لوحات المفاتيح، حاوِل تثبيت %3$s، \"لوحة مفاتيح Google\".</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">الإعدادات</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">‏1. انقر على \"الإعدادات\" أدناه. في الشاشة التالية، فعِّل \"%1$s\".&lt;br&gt;&lt;br&gt;
+    2. افتح لوحة المفاتيح العادية، ثم انقر على \"تبديل أسلوب الإدخال %2$s\" (يظهر عادةً في أسفل يسار الشاشة).&lt;br&gt;&lt;br&gt;
+    3. اختَر \"%1$s\".
+  &lt;br&gt;&lt;br&gt;إذا لم يظهر لك خيار لتبديل لوحات المفاتيح، حاوِل تثبيت %3$s، أي لوحة مفاتيح Google.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">‏1. فعِّل لوحة مفاتيح برايل أدناه.&lt;br&gt;&lt;br&gt;
+    2. افتح لوحة المفاتيح العادية، ثم انقر على \"تبديل أسلوب الإدخال %2$s\" (يظهر عادةً في أسفل يسار الشاشة).&lt;br&gt;&lt;br&gt;
+    3. اختَر \"%1$s\".
+    &lt;br&gt;&lt;br&gt;إذا لم تتمكّن من تبديل لوحات المفاتيح، حاوِل تثبيت %3$s، أي لوحة مفاتيح Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">الإعدادات</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">تفعيل</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">تفعيل لوحة مفاتيح برايل</string>
   <string name="typing_languages_title">لغات الكتابة</string>
   <string name="preferred_language_title">اللغة المفضّلة</string>
-  <string name="dont_show_again">عدم إظهار هذا مجددًا</string>
   <string name="switch_input_code_gesture_tip_dialog_title">تغيير اللغة بسرعة أثناء الكتابة</string>
   <string name="switch_input_code_gesture_tip_dialog_message">لتغيير اللغة أثناء الكتابة باستخدام لوحة برايل، مرِّر سريعًا للأعلى باستخدام 3 أصابع ثم اختَر \"التبديل إلى اللغة التالية\".</string>
   <string name="title_pref_accumulate_presses">تضمين كل النقاط التي تم الضغط عليها</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">للتبديل إلى <b>لوحة المفاتيح التالية</b>، مرّر سريعًا للأسفل بثلاثة أصابع.</string>
   <string name="gesture_submit_text"><b>لإرسال نص</b>، مرّر سريعًا للأعلى بإصبعين.</string>
   <string name="gesture_open_context_menu">للحصول على <b>المساعدة والخيارات الأخرى</b>، مرّر سريعًا للأعلى بثلاثة أصابع.</string>
-  <string name="done">تم</string>
   <string name="not_enough_touch_points_dialog_title">جهازك غير متوافق مع لوحة مفاتيح برايل.</string>
   <string name="not_enough_touch_points_dialog_message">لا يتّسع جهازك لنقاط لمس كافية. لمزيد من المعلومات، يُرجى التواصل مع الشركة المصنّعة لجهازك.</string>
   <string name="talkback_off_dialog_title">‏تفعيل TalkBack لاستخدام لوحة مفاتيح برايل</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">تم حذف الحرف.</string>
   <string name="perform_delete_word_announcement">تم حذف الكلمة.</string>
   <string name="continue_tutorial_announcement">لنواصل الدليل التوجيهي. %1$s</string>
-  <string name="braille_keyboard_strip_summary">تم توصيل جهاز عرض خارجي بلغة برايل يمكن استخدامه لكتابة نص على هذا الجهاز، أو يمكنك التبديل إلى لوحة مفاتيح برايل على الشاشة التي تعمل باللمس أو اختيار أسلوب الإدخال التالي.</string>
-  <string name="braille_keyboard_strip_button">الانتقال إلى لوحة المفاتيح على الشاشة التي تعمل باللمس</string>
+  <string name="switch_on_screen_keyboard_announcement">جارٍ التبديل إلى لوحة مفاتيح برايل على شاشة تعمل باللمس</string>
+  <string name="braille_keyboard_strip_summary">‏تم توصيل جهاز عرض خارجي بلغة برايل يمكن استخدامه لكتابة نص على هاتفك.\n\nويمكنك أيضًا التبديل إلى لوحة مفاتيح برايل على الشاشة التي تعمل باللمس أو اختيار أسلوب الإدخال التالي.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">التبديل إلى لوحة مفاتيح برايل على الشاشة التي تعمل باللمس</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">التبديل إلى أسلوب الإدخال التالي</string>
 </resources>

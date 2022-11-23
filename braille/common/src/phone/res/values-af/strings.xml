@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Moet dit nie weer wys nie</string>
+  <string name="done">Klaar</string>
   <string name="number_announcement">Getal</string>
   <string name="capitalize_announcement">Plafon</string>
   <string name="read_out_deleted">%s is uitgevee</string>
@@ -7,6 +9,7 @@
     <item quantity="one">punt %s</item>
     <item quantity="other">punte %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Verenigde Engelse Braille – nie verkort nie</string>
   <string name="code_user_facing_name_ueb2">Verenigde Engelse Braille – verkort</string>
   <string name="code_user_facing_name_es">Spaans</string>

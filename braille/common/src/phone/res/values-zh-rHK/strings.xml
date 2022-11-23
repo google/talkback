@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">不要再顯示此選框</string>
+  <string name="done">完成</string>
   <string name="number_announcement">數字</string>
   <string name="capitalize_announcement">大楷</string>
   <string name="read_out_deleted">刪除咗%s</string>
@@ -7,6 +9,7 @@
     <item quantity="one">%s 點</item>
     <item quantity="other">%s 點</item>
   </plurals>
+  <string name="language_split_comma">、</string>
   <string name="code_user_facing_name_ueb1">統一英文一級點字</string>
   <string name="code_user_facing_name_ueb2">統一英文二級點字</string>
   <string name="code_user_facing_name_es">西班牙文</string>

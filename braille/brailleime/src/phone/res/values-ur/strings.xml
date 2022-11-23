@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">‏TalkBack بریل کی بورڈ</string>
+  <string name="braille_ime_bd_mode_name">بریل ڈسپلے ان پٹ</string>
   <string name="switch_to_screen_away_announcement">اسکرین سے دور کی وضع</string>
   <string name="switch_to_tabletop_announcement">ٹیبل ٹاپ وضع۔ بائیں جانب چارجنگ پورٹ کے ساتھ اپنا آلہ رکھیں۔ ڈاٹ پوزیشن کو اپ ڈیٹ کرنے کیلئے، 6 انگلیوں سے دبائے رکھیں۔</string>
   <string name="bring_ime_settings_page">کوئی اور کی بورڈ فعال نہیں ہے، کی بورڈ کی ترتیبات پر جائیں</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">بریل کی بورڈ استعمال کرنے کا طریقہ</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">‏بریل کی بورڈ کو استعمال کرنے کے لیے، اپنا ریگولر کی بورڈ کھولیں، پھر کی بورڈ منتخب کریں آئیکن %1$s پر تھپتھپائیں (عام طور پر نیچلے دائیں کونے میں)۔ منتخب کریں \"%2$s.\"
   &lt;br&gt;&lt;br&gt;اگر آپ کو کی بورڈز کو سوئچ کرنے کا اختیار نظر نہیں آتا ہے تو Google کے %3$s کی بورڈ کو انسٹال کرنے کی کوشش کریں۔</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">‏1۔ &lt;b&gt;بریل کی بورڈ کو آن کریں&lt;/b&gt;: نیچے ترتیبات پر تھپتھپائیں۔ دوسری اسکرین پر, آن کریں \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;بریل کی بورڈ استعمال کریں&lt;/b&gt;: اپنا ریگولر کی بورڈ کھولیں,پھر کی بورڈ منتخب کریں آئیکن %2$s پر تھپتھپائیں (عام طور پر نیچلے دائیں کونے میں)۔ منتخب کریں \"%1$s.\"
-  &lt;br&gt;&lt;br&gt;اگر آپ کو کی بورڈز کو سوئچ کرنے کا اختیار نظر نہیں آتا ہے تو Google کے %3$s کی بورڈ کو انسٹال کرنے کی کوشش کریں۔</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">ترتیبات</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">‏1۔ ذیل میں \"ترتیبات\" پر تھپتھپائیں۔ دوسری اسکرین پر، \"%1$s\" کو آن کریں&lt;br&gt;&lt;br&gt;
+    2۔ اپنا ریگولر کی بورڈ کھولیں، پھر اندراج کا طریقہ سوئچ کریں پر تھپتھپائیں %2$s (عام طور پر نیچے دائیں کونے میں)۔&lt;br&gt;&lt;br&gt;
+     3۔ \"%1$s\" کو منتخب کریں۔
+    &lt;br&gt;&lt;br&gt;اگر آپ کو کی بورڈز کو سوئچ کرنے کا اختیار نظر نہیں آتا ہے تو Google کا %3$s کی بورڈ انسٹال کرنے کی کوشش کریں۔</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">‏1۔ ذیل میں بریل کی بورڈ آن کریں۔&lt;br&gt;&lt;br&gt;
+    2۔ اپنا ریگولر کی بورڈ کھولیں، پھر اندراج کا طریقہ سوئچ کریں پر تھپتھپائیں %2$s (عام طور پر نیچے دائیں کونے میں)۔&lt;br&gt;&lt;br&gt;
+     3۔ \"%1$s\" کو منتخب کریں۔
+    &lt;br&gt;&lt;br&gt;اگر آپ کی بورڈز سوئچ نہیں کر سکتے ہیں تو Google کا %3$s کی بورڈ انسٹال کرنے کی کوشش کریں۔</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">ترتیبات</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">آن کریں</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">بریل کی بورڈ آن کریں</string>
   <string name="typing_languages_title">ٹائپنگ کی زبان</string>
   <string name="preferred_language_title">ترجیحی زبان</string>
-  <string name="dont_show_again">اسے دوبارہ نہ دکھائیں</string>
   <string name="switch_input_code_gesture_tip_dialog_title">ٹائپ کرتے وقت زبان تیزی سے تبدیل کریں</string>
   <string name="switch_input_code_gesture_tip_dialog_message">بریل کی بورڈ سے ٹائپ کرتے وقت اپنی زبان تبدیل کرنے کے لیے، 3 انگلیوں سے اوپر کی طرف سوائپ کریں۔ پھر \"اگلی زبان پر سوئچ کریں\" کو منتخب کریں۔</string>
   <string name="title_pref_accumulate_presses">تمام دبائے ہوئے نقطے شامل کریں</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>اگلے کی بورڈ</b> پر سوئچ کرنے کے لیے، تین انگلیوں سے نیچے سوائپ کریں</string>
   <string name="gesture_submit_text"><b>متن جمع</b> کرانے کے لیے، دو انگلیوں سے اوپر سوائپ کریں</string>
   <string name="gesture_open_context_menu"><b>امداد اور دیگر اختیارات</b> کے لیے، تین انگلیوں سے اوپر سوائپ کریں</string>
-  <string name="done">ہو گیا</string>
   <string name="not_enough_touch_points_dialog_title">آپ کا آلہ بریل کی بورڈ کو سپورٹ نہیں کرتا ہے</string>
   <string name="not_enough_touch_points_dialog_message">آپ کا آلہ کافی ٹچ پوائنٹس کو سپورٹ نہیں کرتا ہے۔ مزید معلومات کے لیے، اپنے آلہ کے مینوفیکچرر سے رابطہ کریں۔</string>
   <string name="talkback_off_dialog_title">‏بریل کی بورڈ استعمال کرنے کے لیے TalkBack کو آن کریں</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">حرف حذف کیا گیا</string>
   <string name="perform_delete_word_announcement">لفظ حذف کیا گیا</string>
   <string name="continue_tutorial_announcement">آئیے ٹیوٹوریل کو جاری رکھیں۔ %1$s</string>
-  <string name="braille_keyboard_strip_summary">‏ایک اضافی بریل ڈسپلے منسلک ہے جسے آپ اس آلے میں ٹیکسٹ ٹائپ کرنے کے لیے استعمال کر سکتے ہیں۔\nیا آپ ٹچ اسکرین کے بریل کی بورڈ یا اگلے اندراج کے طریقے پر سوئچ کر سکتے ہیں۔</string>
-  <string name="braille_keyboard_strip_button">ٹچ اسکرین کی بورڈ پر سوئچ کریں</string>
+  <string name="switch_on_screen_keyboard_announcement">بریل ٹچ اسکرین پر سوئچ کیا جا رہا ہے</string>
+  <string name="braille_keyboard_strip_summary">‏ایک اضافی بریل ڈسپلے منسلک ہے جسے آپ اپنے فون میں ٹیکسٹ ٹائپ کرنے کیلئے استعمال کر سکتے ہیں۔\n\nآپ ٹچ اسکرین کے بریل کی بورڈ یا اگلے اندراج کے طریقے پر بھی سوئچ کر سکتے ہیں۔</string>
+  <string name="braille_keyboard_strip_touch_screen_button">بریل ٹچ اسکرین پر سوئچ کریں</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">اگلے اندراج کے طریقے پر سوئچ کریں</string>
 </resources>

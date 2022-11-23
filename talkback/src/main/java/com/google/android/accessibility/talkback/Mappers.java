@@ -16,16 +16,16 @@
 
 package com.google.android.accessibility.talkback;
 
-import static com.google.android.accessibility.compositor.Compositor.EVENT_SPEAK_HINT;
-import static com.google.android.accessibility.compositor.Compositor.EVENT_UNKNOWN;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.INTERRUPT;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.READ_FOCUSED_CONTENT;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN;
 import static com.google.android.accessibility.talkback.Feedback.PassThroughMode.Action.DISABLE_PASSTHROUGH;
 import static com.google.android.accessibility.talkback.Feedback.PassThroughMode.Action.STOP_TIMER;
 import static com.google.android.accessibility.talkback.Interpretation.VoiceCommand.Action.VOICE_COMMAND_UNKNOWN;
+import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_SPEAK_HINT;
+import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_UNKNOWN;
 import static com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration.DOUBLE_TAP;
-import static com.google.android.accessibility.utils.keyboard.KeyComboManager.ACTION_UNKNOWN;
+import static com.google.android.accessibility.talkback.keyboard.KeyComboManager.ACTION_UNKNOWN;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_NO_HISTORY;
@@ -38,9 +38,6 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.Compositor;
-import com.google.android.accessibility.compositor.EventInterpretation;
-import com.google.android.accessibility.compositor.HintEventInterpretation;
 import com.google.android.accessibility.talkback.Feedback.Focus;
 import com.google.android.accessibility.talkback.Feedback.Speech;
 import com.google.android.accessibility.talkback.Feedback.UiChange.Action;
@@ -48,8 +45,10 @@ import com.google.android.accessibility.talkback.Interpretation.CompositorID;
 import com.google.android.accessibility.talkback.Interpretation.UiChange;
 import com.google.android.accessibility.talkback.Interpretation.UiChange.UiChangeType;
 import com.google.android.accessibility.talkback.Interpretation.VoiceCommand;
-import com.google.android.accessibility.talkback.actor.DirectionNavigationMapper;
 import com.google.android.accessibility.talkback.actor.voicecommands.VoiceCommandMapper;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.EventInterpretation;
+import com.google.android.accessibility.talkback.compositor.HintEventInterpretation;
 import com.google.android.accessibility.talkback.focusmanagement.FocusFeedbackMapper;
 import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration.TypingMethod;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
@@ -265,8 +264,6 @@ public final class Mappers {
                       | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE);
       return Feedback.create(
           eventId, Feedback.Part.builder().speech(announcement, speakOptions).build());
-    } else if (interpretation instanceof Interpretation.KeyCombo) {
-      return DirectionNavigationMapper.onComboPerformed(eventId, variables, depth);
     } else if (interpretation instanceof Interpretation.VoiceCommand) {
       return VoiceCommandMapper.handleSpeechCommand(eventId, variables, depth);
     } else if (interpretation instanceof Interpretation.DirectionNavigation) {
@@ -320,6 +317,21 @@ public final class Mappers {
                     sourceBounds)
                 .build());
       }
+    } else if (interpretation instanceof Interpretation.Scroll) {
+      if (variables.isMediaPlayerAutoScroll(depth) || !variables.isFromScrollable(depth)) {
+        return null;
+      }
+      float rate = (float) Math.pow(2.0f, (variables.scrollPercent(depth) / 50.0f) - 1);
+      float volume = rate;
+      long minSeparationMillisec = 250;
+      Feedback feedback =
+          Feedback.create(
+              eventId,
+              Feedback.part()
+                  .setSound(
+                      Feedback.Sound.create(R.raw.scroll_tone, rate, volume, minSeparationMillisec))
+                  .build());
+      return feedback;
     }
 
     return null;
@@ -566,6 +578,28 @@ public final class Mappers {
               : UiChangeType.UNKNOWN;
       LogDepth.logVar(LOG_TAG, ++depth, "uiChangeType", uiChangeType);
       return uiChangeType;
+    }
+
+    public boolean isMediaPlayerAutoScroll(int depth) {
+      boolean result =
+          (interpretation instanceof Interpretation.Scroll)
+              && ((Interpretation.Scroll) interpretation).scroll.isMediaPlayerAutoScroll;
+      LogDepth.logVar(LOG_TAG, ++depth, "isMediaPlayerAutoScroll", result);
+      return result;
+    }
+
+    public boolean isFromScrollable(int depth) {
+      boolean result =
+          (interpretation instanceof Interpretation.Scroll)
+              && ((Interpretation.Scroll) interpretation).scroll.isFromScrollable;
+      LogDepth.logVar(LOG_TAG, ++depth, "isFromScrollable", result);
+      return result;
+    }
+
+    public float scrollPercent(int depth) {
+      float percent = AccessibilityEventUtils.getScrollPercent(event, 50.0f);
+      LogDepth.logVar(LOG_TAG, ++depth, "scrollPercent", percent);
+      return percent;
     }
 
     @Override

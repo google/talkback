@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Turpmāk vairs nerādīt</string>
+  <string name="done">Gatavs</string>
   <string name="number_announcement">Cipari</string>
   <string name="capitalize_announcement">Lielie burti</string>
   <string name="read_out_deleted">Teksts “%s” ir izdzēsts.</string>
@@ -8,6 +10,7 @@
     <item quantity="one">punkti %s</item>
     <item quantity="other">punkti %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Vienotais angļu valodas Braila raksts (nesaīsināts)</string>
   <string name="code_user_facing_name_ueb2">Vienotais angļu valodas Braila raksts (saīsināts)</string>
   <string name="code_user_facing_name_es">Spāņu</string>

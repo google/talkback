@@ -40,13 +40,14 @@ public class CharacterCaptionRequest extends CaptionRequest implements OcrListen
 
   /** This object takes ownership of node, caller should not recycle. */
   public CharacterCaptionRequest(
+      int requestId,
       AccessibilityService service,
       AccessibilityNodeInfoCompat node,
       Bitmap screenCapture,
       @NonNull OnFinishListener onFinishListener,
       @NonNull OnErrorListener onErrorListener,
       boolean isUserRequested) {
-    super(node, onFinishListener, onErrorListener, isUserRequested);
+    super(requestId, node, onFinishListener, onErrorListener, isUserRequested);
     ocrController = new OcrController(service, this);
     this.screenCapture = screenCapture;
   }

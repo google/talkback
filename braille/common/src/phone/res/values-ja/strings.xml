@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">次回から表示しない</string>
+  <string name="done">完了</string>
   <string name="number_announcement">番号</string>
   <string name="capitalize_announcement">大文字</string>
   <string name="read_out_deleted">%sを削除しました</string>
@@ -7,6 +9,7 @@
     <item quantity="one">ドット%s</item>
     <item quantity="other">ドット%s</item>
   </plurals>
+  <string name="language_split_comma">、</string>
   <string name="code_user_facing_name_ueb1">統一英語点字（非縮約形）</string>
   <string name="code_user_facing_name_ueb2">統一英語点字（縮約形）</string>
   <string name="code_user_facing_name_es">スペイン語</string>

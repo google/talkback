@@ -41,10 +41,6 @@ import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollTimeout;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter.UserAction;
-import com.google.android.accessibility.talkback.actor.AutoScrollActor.AutoScrollRecord.Source;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget.TargetType;
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
@@ -66,6 +62,9 @@ import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.Role.RoleName;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import com.google.android.accessibility.utils.WindowUtils;
+import com.google.android.accessibility.utils.input.ScrollActionRecord;
+import com.google.android.accessibility.utils.input.ScrollActionRecord.UserAction;
+import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollTimeout;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
@@ -111,7 +110,8 @@ public class FocusProcessorForLogicalNavigation {
           int type = window.getType();
           return (type == AccessibilityWindowInfo.TYPE_APPLICATION)
               || (type == AccessibilityWindowInfo.TYPE_INPUT_METHOD)
-              || (type == AccessibilityWindowInfo.TYPE_SYSTEM);
+              || (type == AccessibilityWindowInfo.TYPE_SYSTEM)
+              || (type == AccessibilityWindowInfo.TYPE_MAGNIFICATION_OVERLAY);
         }
       };
 
@@ -373,7 +373,7 @@ public class FocusProcessorForLogicalNavigation {
 
     if (AccessibilityNodeInfoUtils.supportsAction(pivot, scrollAction)) {
       // Try to scroll the node itself first. It's useful when focusing on a SeekBar.
-      scrollableNode = AccessibilityNodeInfoUtils.obtain(pivot);
+      scrollableNode = pivot;
     } else if ((pivot != null) && pivot.isAccessibilityFocused()) {
       scrollableNode = AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(pivot, nodeFilter);
     }
@@ -386,7 +386,7 @@ public class FocusProcessorForLogicalNavigation {
     }
     return (scrollableNode != null)
         && performScrollActionInternal(
-            ScrollEventInterpreter.ACTION_SCROLL_SHORTCUT,
+            ScrollActionRecord.ACTION_SCROLL_COMMAND,
             scrollableNode,
             pivot,
             scrollAction,
@@ -623,12 +623,37 @@ public class FocusProcessorForLogicalNavigation {
       return true;
     }
 
+    // On TV only, If current focus is in a linear navigating container, it may not handle
+    // directional scrolling actions, attempt linear scrolling if on an edge node。
+    //
+    // TODO: remove this logic when RecyclerView handles directional navigation.
+    if (FeatureSupport.isTv(service)) {
+      AccessibilityNodeInfoCompat linearScrollingContainer =
+          getLinearScrollingAncestor(pivot, navigationAction);
+      if (linearScrollingContainer != null) {
+        TraversalStrategy linearTraversalStrategy =
+            TraversalStrategyUtils.getTraversalStrategy(
+                linearScrollingContainer, focusFinder, logicalDirection);
+        NavigationAction linearNavigationAction =
+            NavigationAction.Builder.copy(navigationAction).setDirection(logicalDirection).build();
+
+        if (TraversalStrategyUtils.isAutoScrollEdgeListItem(
+            pivot,
+            linearScrollingContainer,
+            ignoreDescendantsOfPivot,
+            logicalDirection,
+            linearTraversalStrategy)) {
+          return autoScroll(linearScrollingContainer, pivot, linearNavigationAction, eventId);
+        }
+      }
+    }
+
     // Search for target node within current window.
     Filter<AccessibilityNodeInfoCompat> nodeFilter =
         NavigationTarget.createNodeFilter(
             navigationAction.targetType, traversalStrategy.getSpeakingNodesCache());
     if (ignoreDescendantsOfPivot) {
-      final AccessibilityNodeInfoCompat pivotCopy = AccessibilityNodeInfoUtils.obtain(pivot);
+      final AccessibilityNodeInfoCompat pivotCopy = pivot;
       nodeFilter =
           new Filter<AccessibilityNodeInfoCompat>() {
             @Override
@@ -836,11 +861,7 @@ public class FocusProcessorForLogicalNavigation {
         // TODO: remove the workaround after fixing the bug in framework and a11y
         // event is ready.
         scrollCallback =
-            new AutoScrollCallback(
-                this,
-                navigationAction,
-                AccessibilityNodeInfoUtils.obtain(pivot),
-                /* assumeScrollSuccess= */ true);
+            new AutoScrollCallback(this, navigationAction, pivot, /* assumeScrollSuccess= */ true);
         return true;
       }
 
@@ -913,8 +934,8 @@ public class FocusProcessorForLogicalNavigation {
     // If we find no target on screen for native macro granularity, we do our best attempt to
     // scroll to the next screen and place the focus on the new screen if it exists.
     if (target == null) {
-      AccessibilityNodeInfoCompat scrollableNode = null;
-      scrollableNode = findScrollableNode(referenceNode, navigationAction);
+      AccessibilityNodeInfoCompat scrollableNode =
+          findScrollableNode(referenceNode, navigationAction);
       if (autoScroll(scrollableNode, referenceNode, navigationAction, eventId)) {
         return true;
       }
@@ -1116,6 +1137,30 @@ public class FocusProcessorForLogicalNavigation {
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Logic related to auto-scroll.
+  /*
+   * Returns the first scrolling ancestor that does not handle directional scrolling but handles
+   * forward/backward scrolling. Returns null otherwise.
+   */
+  @Nullable
+  private static AccessibilityNodeInfoCompat getLinearScrollingAncestor(
+      AccessibilityNodeInfoCompat currentFocus, NavigationAction navigationAction) {
+    AccessibilityNodeInfoCompat firstScrollingAncestor =
+        AccessibilityNodeInfoUtils.getMatchingAncestor(currentFocus, FILTER_AUTO_SCROLL);
+
+    Filter<AccessibilityNodeInfoCompat> linearFilter =
+        new NodeActionFilter(ACTION_SCROLL_FORWARD.getId())
+            .or(new NodeActionFilter(ACTION_SCROLL_BACKWARD.getId()));
+    int directionalAction =
+        TraversalStrategyUtils.convertSearchDirectionToScrollAction(
+            navigationAction.searchDirection);
+    if (firstScrollingAncestor != null
+        && linearFilter.accept(firstScrollingAncestor)
+        && !AccessibilityNodeInfoUtils.supportsAction(firstScrollingAncestor, directionalAction)) {
+      return firstScrollingAncestor;
+    }
+    return null;
+  }
+
   /**
    * Returns scrollable node filter for given {@link NavigationAction}.
    *
@@ -1259,7 +1304,7 @@ public class FocusProcessorForLogicalNavigation {
     // a longer time to finish the scrolling action(like home screen), a short timeout will make
     // TalkBack detects the scroll action always fail, even through it's actually success.
     return performScrollActionInternal(
-        ScrollEventInterpreter.ACTION_AUTO_SCROLL,
+        ScrollActionRecord.ACTION_AUTO_SCROLL,
         scrollableNode,
         pivot,
         scrollAction,
@@ -1313,12 +1358,12 @@ public class FocusProcessorForLogicalNavigation {
       // Don't update a11y focus in callback if pivot is not a descendant of scrollable node.
       scrollCallback = null;
     } else {
-      scrollCallback =
-          new AutoScrollCallback(this, sourceAction, AccessibilityNodeInfoUtils.obtain(pivotNode));
+      scrollCallback = new AutoScrollCallback(this, sourceAction, pivotNode);
     }
     return pipeline.returnFeedback(
         eventId,
-        Feedback.scroll(scrollableNode, userAction, scrollAction, Source.FOCUS, scrollTimeout));
+        Feedback.scroll(
+            scrollableNode, userAction, scrollAction, ScrollActionRecord.FOCUS, scrollTimeout));
   }
 
   /** Determines feedback for auto-scroll success after directional-navigation action. */
@@ -1759,7 +1804,9 @@ public class FocusProcessorForLogicalNavigation {
     AccessibilityNodeInfoCompat maximumScrollableNode;
     int maximumSize;
 
-    /** @param node Initial node of the max size check, caller keeps ownership of the node. */
+    /**
+     * @param node Initial node of the max size check, caller keeps ownership of the node.
+     */
     MaxSizeNodeAccumulator(
         @Nullable AccessibilityNodeInfoCompat node,
         Filter<AccessibilityNodeInfoCompat> scrollableFilter) {
@@ -1767,7 +1814,7 @@ public class FocusProcessorForLogicalNavigation {
       if (node == null) {
         maximumSize = 0;
       } else {
-        maximumScrollableNode = AccessibilityNodeInfoUtils.obtain(node);
+        maximumScrollableNode = node;
         Rect nodeBounds = new Rect();
         maximumScrollableNode.getBoundsInScreen(nodeBounds);
         maximumSize = nodeBounds.width() * nodeBounds.height();
@@ -1788,7 +1835,7 @@ public class FocusProcessorForLogicalNavigation {
       } else {
         // Update maximum scrollable node if the node is scrollable.
         if (scrollableFilter.accept(node)) {
-          maximumScrollableNode = AccessibilityNodeInfoUtils.obtain(node);
+          maximumScrollableNode = node;
           maximumSize = nodeSize;
         }
       }
@@ -1812,10 +1859,10 @@ public class FocusProcessorForLogicalNavigation {
       }
       int type = window.getType();
       return ((type == AccessibilityWindowInfo.TYPE_APPLICATION)
-              || (type == AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER)
-              || (type == AccessibilityWindowInfo.TYPE_SYSTEM))
-          && !WindowUtils.isStatusBar(context, window)
-          && !WindowUtils.isNavigationBar(context, window);
+          || (type == AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER)
+          || (type == AccessibilityWindowInfo.TYPE_SYSTEM
+              && !WindowUtils.isSystemBar(context, window))
+          || (type == AccessibilityWindowInfo.TYPE_MAGNIFICATION_OVERLAY));
     }
   }
 }

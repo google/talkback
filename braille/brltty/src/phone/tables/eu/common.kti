@@ -1,0 +1,33 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+note The cursor routing keys are the small, round buttons just behind the braille cells.
+note RoutingKey1 means pressing a cursor routing key once (a single click).
+note RoutingKey2 means pressing a cursor routing key twice quickly (a double click).
+
+# ROUTE+128 is a long-press on the routing key.
+bind RoutingKey1 ROUTE:ROUTE+128
+bind RoutingKey2 DESCCHAR
+
+include braille.kti
+
+########################
+# BrailleBack Bindings #
+########################
+
+include ../android-chords.kti

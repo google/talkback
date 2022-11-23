@@ -29,11 +29,11 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
@@ -76,6 +76,12 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
           | AccessibilityEvent.TYPE_VIEW_LONG_CLICKED
           | AccessibilityEvent.TYPE_VIEW_HOVER_ENTER
           | AccessibilityEvent.TYPE_ANNOUNCEMENT
+          // When gesture detection occurs in TalkBack, the events dispatch order is different than
+          // when gestures are detected by the framework. When gestures are detected in TalkBack,
+          // the TYPE_TOUCH_INTERACTION_END comes after the onGesture; that's why the phonetic hints
+          // are interrupted. We put the TYPE_TOUCH_INTERACTION_END event in here so that the
+          // phonetic letter won't be interrupted.
+          | AccessibilityEvent.TYPE_TOUCH_INTERACTION_END
           |
           // Do not cancel phonetic letter feedback for TYPE_WINDOWS_CHANGED event.
           // ProcessorCursorState introduces an overlay on EditText. When we open a
@@ -99,7 +105,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
   private Pipeline.FeedbackReturner pipeline;
 
   // Maps Language -> letter -> Phonetic letter.
-  private Map<String, Map<String, String>> phoneticLetters =
+  private final Map<String, Map<String, String>> phoneticLetters =
       new HashMap<String, Map<String, String>>();
 
   public ProcessorPhoneticLetters(TalkBackService service) {

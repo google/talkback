@@ -1,0 +1,104 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title Seika Braille Displays
+
+note The round keys to the left/right of the braille cells are named K1 and K8.
+note The left/right ends of the left rocker are named K2 and K3.
+note The long keys to the left/right of the center are named K4 and K5.
+note The left/right ends of the right rocker are named K6 and K7.
+
+####################
+# Default Bindings #
+####################
+
+bind !RoutingKey ROUTE
+
+bind K1 FWINLT
+bind K8 FWINRT
+
+bind K2 LNUP
+bind K3 LNDN
+
+bind K4 CSRTRK
+bind K5 RETURN
+
+bind K1+K8+K2 CONTEXT+PRINDENT
+bind K1+K8+K3 CONTEXT+NXINDENT
+bind K1+K8+K4 CONTEXT+SETLEFT
+bind K1+K8+K5 CONTEXT+DESCCHAR
+bind K1+K8+K6 CONTEXT+PRDIFCHAR
+bind K1+K8+K7 CONTEXT+NXDIFCHAR
+
+bind K1+K8+K2+K6 CONTEXT+CLIP_NEW
+bind K1+K8+K2+K7 CONTEXT+CLIP_ADD
+bind K1+K8+K3+K6 CONTEXT+COPY_LINE
+bind K1+K8+K3+K7 CONTEXT+COPY_RECT
+
+bind K1+K2 HELP
+bind K1+K4 PREFLOAD
+bind K1+K5 PREFSAVE
+bind K1+K6 PREFMENU
+bind K1+K7 INFO
+
+bind K8+K2 DISPMD
+bind K8+K3 FREEZE
+bind K8+K6 SIXDOTS
+bind K8+K7 SKPIDLNS
+
+########################
+# BrailleBack Bindings #
+########################
+
+# Long press currently focused item
+bind K2+K3+K6+K7 ROUTE+255
+# Back key
+bind K2+K3 KEY_ESCAPE
+# Home key
+bind K4+K5 KEY_FUNCTION+0
+# Recent apps key
+bind K6+K7 KEY_FUNCTION+1
+# Notifications bar
+bind K2+K4 KEY_FUNCTION+2
+# Scroll backwards
+bind K3+K6 WINUP
+# Scroll forwards
+bind K3+K7 WINDN
+# Previous element
+bind K6 CHRLT
+# Next element
+bind K7 CHRRT
+# Keyboard help
+bind K1+K3 LEARN
+# Next section
+bind K5+K7 KEY_FUNCTION+6
+# Previous section
+bind K5+K6 KEY_FUNCTION+7
+# Next control
+bind K4+K7 KEY_FUNCTION+8
+# Previous control
+bind K4+K6 KEY_FUNCTION+9
+# Next list
+bind K5+K3 KEY_FUNCTION+10
+# Previous list
+bind K5+K2 KEY_FUNCTION+11
+# Top item in view
+bind K2+K6 TOP
+# Bottom item in view
+bind K2+K7 BOT
+# Incremental search mapping omitted since no braille input keyboard

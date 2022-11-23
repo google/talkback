@@ -16,13 +16,11 @@
 
 package com.google.android.accessibility.talkback.preference.base;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.widget.Button;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
@@ -32,24 +30,25 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.TalkBackService.TalkbackServiceStateNotifier.TalkBackServiceStateChangeListener;
+import com.google.android.accessibility.talkback.keyboard.DefaultKeyComboModel;
+import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
+import com.google.android.accessibility.talkback.keyboard.KeyComboModel;
 import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
-import com.google.android.accessibility.utils.AlertDialogUtils;
+import com.google.android.accessibility.talkback.preference.TalkBackPreferenceFilter;
+import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
-import com.google.android.accessibility.utils.keyboard.DefaultKeyComboModel;
-import com.google.android.accessibility.utils.keyboard.KeyComboManager;
-import com.google.android.accessibility.utils.keyboard.KeyComboModel;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Consumer;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Panel holding a set of keyboard shortcut preferences. */
 public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFragment {
-  private static final String TAG = "TalkBackKeyboardShortcutPreferenceFragment";
 
   private static final int[] HIDDEN_SHORTCUT_KEY_IDS_IN_ARC = {
-    R.string.keycombo_shortcut_global_suspend,
     R.string.keycombo_shortcut_global_home,
     R.string.keycombo_shortcut_global_recents,
     R.string.keycombo_shortcut_global_notifications,
@@ -70,19 +69,16 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
     super(R.xml.key_combo_preferences);
   }
 
-  public static String getFragmentName() {
-    return TAG;
-  }
-
-  private static void focusCancelButton(AlertDialog alertDialog) {
-    Button cancelButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE);
-    cancelButton.setFocusableInTouchMode(true);
-    cancelButton.requestFocus();
-  }
-
   @Override
   public CharSequence getTitle() {
     return getText(R.string.title_pref_manage_keyboard_shortcuts);
+  }
+
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    TalkBackService.TalkbackServiceStateNotifier.getInstance()
+        .registerTalkBackServiceStateChangeListener(serviceStateChangeListener);
   }
 
   @Override
@@ -97,15 +93,14 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
     }
   }
 
-  // TODO: Refactor KeyComboManager.
   /** Updates fragment whenever their values change. */
   private final OnSharedPreferenceChangeListener sharedPreferenceChangeListener =
-      (SharedPreferences prefs, String key) -> {
+      (prefs, key) -> {
         if (TextUtils.equals(key, getString(R.string.pref_select_keymap_key))) {
           keymap = getKeymap();
-          // Set new key combo model.
+          // Refreshes key combo model after keymap changes.
           KeyComboManager keyComboManager = getKeyComboManager();
-          keyComboManager.setKeyComboModel(keyComboManager.createKeyComboModelFor(keymap));
+          keyComboManager.refreshKeyComboModel();
           updateFragment();
         } else if (TextUtils.equals(
             key, getString(R.string.pref_default_keymap_trigger_modifier_key))) {
@@ -114,7 +109,7 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
       };
 
   private final DialogInterface.OnClickListener chooseTriggerModifierConfirmDialogPositive =
-      (DialogInterface dialogInterface, int i) -> {
+      (dialogInterface, i) -> {
         resetKeymap();
 
         KeyComboModel keyComboModel = getKeyComboManager().getKeyComboModel();
@@ -129,12 +124,7 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
         keyComboModel.notifyTriggerModifierChanged();
 
         // Update UI.
-        Set<String> keySet = getKeyComboManager().getKeyComboModel().getKeyComboCodeMap().keySet();
-        for (String key : keySet) {
-          KeyboardShortcutDialogPreference preference =
-              (KeyboardShortcutDialogPreference) findPreference(key);
-          preference.onTriggerModifierChanged();
-        }
+        setUpDialogPreference(KeyboardShortcutDialogPreference::onTriggerModifierChanged);
 
         // Announce that trigger modifier has changed.
         CharSequence[] entries = listPreference.getEntries();
@@ -148,7 +138,7 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
       };
 
   private final DialogInterface.OnClickListener resetKeymapConfirmDialogPositive =
-      (DialogInterface dialogInterface, int i) -> {
+      (dialogInterface, i) -> {
         resetKeymap();
 
         dialogInterface.dismiss();
@@ -158,10 +148,10 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
       };
 
   private final Preference.OnPreferenceClickListener resetKeymapPreferenceClickListener =
-      (Preference preference) -> {
+      (preference) -> {
         // Show confirm dialog.
-        AlertDialog dialog =
-            AlertDialogUtils.builder(getActivity())
+        A11yAlertDialogWrapper dialog =
+            A11yAlertDialogWrapper.alertDialogBuilder(getActivity())
                 .setTitle(getString(R.string.keycombo_menu_reset_keymap))
                 .setMessage(getString(R.string.message_in_reset_keymap_confirm_dialog))
                 .setPositiveButton(
@@ -173,13 +163,13 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
                 .create();
         dialog.show();
 
-        focusCancelButton(dialog);
+        A11yAlertDialogWrapper.focusCancelButton(dialog);
 
         return true;
       };
 
   private final OnPreferenceChangeListener preferenceChangeListener =
-      (Preference preference, Object newValue) -> {
+      (preference, newValue) -> {
         String preferenceKeyForTriggerModifier =
             getKeyComboManager().getKeyComboModel().getPreferenceKeyForTriggerModifier();
         if (preference instanceof KeyboardShortcutDialogPreference && newValue instanceof Long) {
@@ -218,8 +208,8 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
               entries[listPreference.findIndexOfValue(triggerModifierToBeSet)];
 
           // Show alert dialog.
-          AlertDialog dialog =
-              AlertDialogUtils.builder(getActivity())
+          A11yAlertDialogWrapper dialog =
+              A11yAlertDialogWrapper.alertDialogBuilder(getActivity())
                   .setTitle(R.string.keycombo_menu_alert_title_trigger_modifier)
                   .setMessage(
                       getString(
@@ -233,7 +223,7 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
                   .create();
           dialog.show();
 
-          focusCancelButton(dialog);
+          A11yAlertDialogWrapper.focusCancelButton(dialog);
           return false;
         }
         return true;
@@ -301,6 +291,8 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
   public void onDestroy() {
     super.onDestroy();
     prefs.unregisterOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
+    TalkBackService.TalkbackServiceStateNotifier.getInstance()
+        .unregisterTalkBackServiceStateChangeListener(serviceStateChangeListener);
   }
 
   @Override
@@ -324,6 +316,13 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
 
   /** Updates preference, including UI, by KeyComboModel. */
   private void updatePreference() {
+    // By default, the preference filter is applied in TalkbackBaseFragment which is only performed
+    // 1st time the fragment created. Keyboard shortcut preference group can changed between classic
+    // and default key map, we need to redo the filter when the preference changed.
+    TalkBackPreferenceFilter talkBackPreferenceFilter =
+        new TalkBackPreferenceFilter(getActivity().getApplicationContext());
+    talkBackPreferenceFilter.filterPreferences(getPreferenceScreen());
+
     PreferenceScreen resetKeymapPreferenceScreen =
         (PreferenceScreen) findPreference(getString(R.string.pref_reset_keymap_key));
     resetKeymapPreferenceScreen.setOnPreferenceClickListener(resetKeymapPreferenceClickListener);
@@ -347,10 +346,6 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
     Set<String> hiddenShortcutKeys = new HashSet<>();
     for (int id : hiddenShortcutKeyIds) {
       hiddenShortcutKeys.add(getString(id));
-    }
-
-    if (FeatureSupport.hasAccessibilityShortcut(getActivity())) {
-      hiddenShortcutKeys.add(getString(R.string.keycombo_shortcut_global_suspend));
     }
 
     initPreferenceUIs(getPreferenceScreen(), hiddenShortcutKeys);
@@ -396,4 +391,31 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
       }
     }
   }
+
+  private void setUpDialogPreference(Consumer<KeyboardShortcutDialogPreference> consumer) {
+    Set<String> keySet = getKeyComboManager().getKeyComboModel().getKeyComboCodeMap().keySet();
+    for (String key : keySet) {
+      KeyboardShortcutDialogPreference preference = findPreference(key);
+      if (preference != null) {
+        consumer.accept(preference);
+      }
+    }
+  }
+
+  /** Enabled or disabled the dialog preference if the state of TalkbackService is changed. */
+  TalkBackService.TalkbackServiceStateNotifier.TalkBackServiceStateChangeListener
+      serviceStateChangeListener =
+          new TalkBackServiceStateChangeListener() {
+            @Override
+            public void onServiceStateChange(boolean isServiceActive) {
+              setUpDialogPreference(
+                  preference -> {
+                    preference.updateAvailability(isServiceActive);
+                    if (isServiceActive) {
+                      preference.updateKeyComoManager();
+                      preference.onTriggerModifierChanged();
+                    }
+                  });
+            }
+          };
 }

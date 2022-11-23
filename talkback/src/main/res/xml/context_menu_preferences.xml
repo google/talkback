@@ -193,14 +193,6 @@
             android:summary="@string/summary_tts_settings"/>
         <CheckBoxPreference
             android:layout="@layout/listitem_2texts"
-            android:defaultValue="@bool/pref_show_context_menu_pause_feedback_default"
-            android:key="@string/pref_show_context_menu_pause_feedback_setting_key"
-            android:order="25"
-            android:title="@string/shortcut_pause_feedback"
-            app:singleLineTitle="false"
-            android:summary="@string/summary_pause_feedback"/>
-        <CheckBoxPreference
-            android:layout="@layout/listitem_2texts"
             android:defaultValue="@bool/pref_show_context_menu_system_action_default"
             android:key="@string/pref_show_context_menu_system_action_setting_key"
             android:order="26"

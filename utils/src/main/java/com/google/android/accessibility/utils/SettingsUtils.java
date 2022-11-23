@@ -53,10 +53,10 @@ public class SettingsUtils {
    * false.
    */
   public static boolean isAnimationDisabled(Context context) {
-    return FeatureSupport.disableAnimation()
-        && (0 == getGlobalInt(context, Settings.Global.WINDOW_ANIMATION_SCALE))
-        && (0 == getGlobalInt(context, Settings.Global.TRANSITION_ANIMATION_SCALE))
-        && (0 == getGlobalInt(context, Settings.Global.ANIMATOR_DURATION_SCALE));
+    return FeatureSupport.supportsUserDisablingOfGlobalAnimations()
+        && (0 == getGlobalFloat(context, Settings.Global.WINDOW_ANIMATION_SCALE))
+        && (0 == getGlobalFloat(context, Settings.Global.TRANSITION_ANIMATION_SCALE))
+        && (0 == getGlobalFloat(context, Settings.Global.ANIMATOR_DURATION_SCALE));
   }
 
   /**
@@ -79,8 +79,7 @@ public class SettingsUtils {
   }
 
   /** Returns value of constants in Settings.Global. */
-  private static int getGlobalInt(Context context, String constantName) {
-    int value = Settings.Global.getInt(context.getContentResolver(), constantName, -1);
-    return value;
+  private static float getGlobalFloat(Context context, String constantName) {
+    return Settings.Global.getFloat(context.getContentResolver(), constantName, -1);
   }
 }

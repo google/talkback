@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Ekki sýna þetta aftur</string>
+  <string name="done">Lokið</string>
   <string name="number_announcement">Númer</string>
   <string name="capitalize_announcement">Hástafir</string>
   <string name="read_out_deleted">%s eytt</string>
@@ -7,6 +9,7 @@
     <item quantity="one">punktur %s</item>
     <item quantity="other">punktar %s</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Óstytt samræmt enskt blindraletur</string>
   <string name="code_user_facing_name_ueb2">Stytt samræmt enskt blindraletur</string>
   <string name="code_user_facing_name_es">Spænska</string>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">دیگر نشان داده نشود</string>
+  <string name="done">تمام</string>
   <string name="number_announcement">عدد</string>
   <string name="capitalize_announcement">بزرگ‌نویسی</string>
   <string name="read_out_deleted">%s حذف شد</string>
@@ -7,6 +9,7 @@
     <item quantity="one">نقاط %s</item>
     <item quantity="other">نقاط %s</item>
   </plurals>
+  <string name="language_split_comma">،</string>
   <string name="code_user_facing_name_ueb1">بریل انگلیسی یکپارچه خلاصه‌نشده</string>
   <string name="code_user_facing_name_ueb2">بریل انگلیسی یکپارچه خلاصه‌شده</string>
   <string name="code_user_facing_name_es">اسپانیایی</string>

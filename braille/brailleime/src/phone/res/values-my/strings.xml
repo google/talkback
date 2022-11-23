@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack မျက်မမြင်စာရေးစနစ် လက်ကွက်</string>
+  <string name="braille_ime_bd_mode_name">မျက်မမြင်စာဖတ်ကိရိယာ ထည့်သွင်းစနစ်</string>
   <string name="switch_to_screen_away_announcement">ဖန်သားပြင်နှင့်ဝေးနေချိန်မုဒ်</string>
   <string name="switch_to_tabletop_announcement">စားပွဲတင်မုဒ်။ အားသွင်းပေါက်ကိုဘယ်ဘက်တွင်ထား၍ သင့်စက်ကိုတင်ပါ။ ဒေါ့(တ်)တည်နေရာကို အပ်ဒိတ်လုပ်ရန် လက်ချောင်း ၆ ချောင်းနှင့် ဖိထားပါ။</string>
   <string name="bring_ime_settings_page">အခြားလက်ကွက် ဖွင့်မထားပါ၊ လက်ကွက်ဆက်တင်များသို့ သွားပါ</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">မျက်မမြင်စာရေးစနစ်လက်ကွက် အသုံးပြုနည်း</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို အသုံးပြုရန် သင်၏ ပုံမှန်လက်ကွက်ကို ဖွင့်ပါ၊ ပြီးနောက် လက်ကွက်သင်္ကေတ ရွေးမည်ကို တို့နှိပ်ပါ %1$s (ပုံမှန်အားဖြင့် အောက်ညာဘက်ထောင့်တွင် ရှိသည်)။ \"%2$s\" ကို ရွေးပါ။
   &lt;br&gt;&lt;br&gt;လက်ကွက်ပြောင်းရန် ရွေးချယ်မှုကို မတွေ့ရှိပါက Google လက်ကွက် %3$s ကို ထည့်သွင်း၍ ကြိုးစားကြည့်ပါ။</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">၁။ &lt;b&gt;မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို ဖွင့်ရန်&lt;/b&gt; - အောက်တွင်ရှိသော ဆက်တင်များကို တို့ပါ။ နောက်စာမျက်နှာတွင် \"%1$s\" ကို ဖွင့်ပါ။
-    &lt;br&gt;&lt;br&gt;၂။ &lt;b&gt;မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို ဖွင့်ရန်&lt;/b&gt; - သင်၏ ပုံမှန်လက်ကွက်ကို ဖွင့်ပါ၊ ပြီးနောက် လက်ကွက်သင်္ကေတ ရွေးမည်ကို တို့နှိပ်ပါ %2$s (ပုံမှန်အားဖြင့် အောက်ညာဘက်ထောင့်တွင် ရှိသည်)။ \"%1$s\" ကို ရွေးပါ။
-    &lt;br&gt;&lt;br&gt;လက်ကွက်ပြောင်းရန် ရွေးချယ်မှုကို မတွေ့ရှိပါက Google လက်ကွက် %3$s ကို ထည့်သွင်း၍ ကြိုးစားကြည့်ပါ။</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">ဆက်တင်များ</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">၁။ အောက်ရှိ “ဆက်တင်များ” ကို တို့ပါ။ လာမည့်စခရင်တွင် “%1$s” ကို ဖွင့်ပါ&lt;br&gt;&lt;br&gt;
+    ၂။ ပုံမှန်ကီးဘုတ်ဖွင့်ပြီး လက်ကွက်စနစ် %2$s ပြောင်းရန်ကို နှိပ်ပါ (အောက်ခြေညာဘက်ထောင့်တွင် ရှိတတ်သည်)။&lt;br&gt;&lt;br&gt;
+    ၃။ “%1$s” ကို ရွေးပါ။
+    &lt;br&gt;&lt;br&gt;ကီးဘုတ်များပြောင်းရန် ရွေးချယ်စရာ မတွေ့ပါက Google လက်ကွက် %3$s ကို ထည့်သွင်းကြည့်ပါ။</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">၁။ အောက်ရှိ မျက်မမြင်စာရေးစနစ် ကီးဘုတ် ဖွင့်ပါ။&lt;br&gt;&lt;br&gt;
+    2. ပုံမှန်ကီးဘုတ်ဖွင့်ပြီး လက်ကွက် %2$s ပြောင်းပါ (အောက်ခြေညာဘက်ထောင့်တွင် ရှိတတ်သည်)။&lt;br&gt;&lt;br&gt;
+    ၃။ \"%1$s\" ကို ရွေးပါ။
+    &lt;br&gt;&lt;br&gt;ကီးဘုတ်များပြောင်း၍မရပါက Google လက်ကွက် %3$s ကို ထည့်သွင်းကြည့်ပါ။</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">ဆက်တင်များ</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ဖွင့်ရန်</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">မျက်မမြင်စာရေးစနစ်ကီးဘုတ် ဖွင့်ရန်</string>
   <string name="typing_languages_title">အသုံးပြုသည့် ဘာသာစကားများ</string>
   <string name="preferred_language_title">ဦးစားပေး ဘာသာစကား</string>
-  <string name="dont_show_again">ဤအရာကို ထပ်မပြပါနှင့်</string>
   <string name="switch_input_code_gesture_tip_dialog_title">စာရိုက်နေစဉ် ဘာသာစကားအမြန်ပြောင်းခြင်း</string>
   <string name="switch_input_code_gesture_tip_dialog_message">မျက်မမြင်စာရေးစနစ်သုံးကီးဘုတ်ဖြင့် စာရိုက်နေစဉ် ဘာသာစကားပြောင်းရန် လက် ၃ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပါ။ ထို့နောက် “ဘာသာစကားနောက်တစ်ခုပြောင်းရန်” ရွေးပါ။</string>
   <string name="title_pref_accumulate_presses">နှိပ်ထားသော အစက်များ အားလုံးပါဝင်သည်</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>နောက်လက်ကွက်</b>သို့ ပြောင်းရန် လက် ၃ ချောင်းဖြင့် အောက်သို့ပွတ်ဆွဲပါ</string>
   <string name="gesture_submit_text"><b>စာသားပို့ရန်</b> လက် ၂ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပါ</string>
   <string name="gesture_open_context_menu"><b>အကူအညီနှင့် အခြား ရွေးချယ်စရာများ</b>အတွက် လက် ၃ ချောင်းဖြင့် အပေါ်သို့ပွတ်ဆွဲပါ</string>
-  <string name="done">ပြီးပြီ</string>
   <string name="not_enough_touch_points_dialog_title">သင့်စက်က မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို မပံ့ပိုးပါ</string>
   <string name="not_enough_touch_points_dialog_message">သင့်စက်က လုံလောက်သော တို့ထိမှုအမှတ်ကို မပံ့ပိုးပါ။ နောက်ထပ် အချက်အလက်များအတွက် သင်၏ စက်ပစ္စည်း ထုတ်လုပ်သူထံ ဆက်သွယ်ပါ။</string>
   <string name="talkback_off_dialog_title">မျက်မမြင်စာရေးစနစ် လက်ကွက်ကို အသုံးပြုရန် TalkBack ကို ဖွင့်ပါ</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">စာဖျက်ပြီးပြီ</string>
   <string name="perform_delete_word_announcement">စာလုံး ဖျက်ပြီးပြီ</string>
   <string name="continue_tutorial_announcement">သရုပ်ပြမှုကို ရှေ့ဆက်ကြရအောင်။ %1$s</string>
-  <string name="braille_keyboard_strip_summary">ဤစက်တွင် စာရိုက်ရန်အတွက် သုံးနိုင်သည့် ပြင်ပ မျက်မမြင်စာဖတ်ကိရိယာနှင့် ချိတ်ဆက်ထားပါသည်။\nထိုနည်းမဟုတ် တို့ထိ မျက်နှာပြင် ‘မျက်မမြင်စာရေးစနစ် ကီးဘုတ်’ (သို့) နောက်ထပ် လက်ကွက်သို့ ပြောင်းနိုင်ပါသည်။</string>
-  <string name="braille_keyboard_strip_button">တို့ထိ မျက်နှာပြင် ကီးဘုတ်သို့ ပြောင်းရန်</string>
+  <string name="switch_on_screen_keyboard_announcement">မျက်မမြင်စာရေးစနစ်သုံး တို့ထိမျက်နှာပြင်သို့ ပြောင်းနေသည်</string>
+  <string name="braille_keyboard_strip_summary">သင့်ဖုန်းတွင်စာရိုက်နိုင်သော ပြင်ပသုံး မျက်မမြင်စာဖတ်ကိရိယာကို ချိတ်ဆက်ထားသည်။\n\nတို့ထိမျက်နှာပြင်ဖြင့် မျက်မမြင်စာရေးစနစ်သုံးကီးဘုတ် (သို့) နောက်လက်ကွက်တစ်ခုသို့လည်း ပြောင်းနိုင်သည်။</string>
+  <string name="braille_keyboard_strip_touch_screen_button">မျက်မမြင်စာရေးစနစ်သုံး တို့ထိမျက်နှာပြင်သို့ ပြောင်းရန်</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">နောက်လက်ကွက်သို့ ပြောင်းရန်</string>
 </resources>

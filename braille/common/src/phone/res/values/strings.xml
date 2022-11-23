@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <!-- Don’t show this again checkbox. [CHAR_LIMIT=30] -->
+  <string name="dont_show_again">Don’t show this again</string>
+  <!-- Done button. [CHAR_LIMIT=20] -->
+  <string name="done">Done</string>
   <!-- Audial announcement that plays when number indicator is pressed. [CHAR_LIMIT=30] -->
   <string name="number_announcement">Number</string>
   <!-- Audial announcement that plays when capitalize indicator is pressed. [CHAR_LIMIT=30] -->
@@ -11,6 +15,8 @@
     <item quantity="one">dot %s</item>
     <item quantity="other">dots %s</item>
   </plurals>
+  <!-- The comma used for conjoining multiple language names into a list. In English, we use a comma followed by a space; other languages might use a comma on its own with no space (such as the stand-alone Chinese comma). This will be used to separate language names, resulting in phrases such as "Spanish, Arabic, French". [CHAR_LIMIT=5]-->
+  <string name="language_split_comma">,\u0020</string>
   <!-- Language list preference item: this is a proper name for a certain
        braille coding standard that is common in English-speaking countries.
        While it's permissible to translate this term into the local language if

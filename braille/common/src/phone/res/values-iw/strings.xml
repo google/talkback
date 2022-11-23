@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">לא להציג שוב</string>
+  <string name="done">סיום</string>
   <string name="number_announcement">מספר</string>
   <string name="capitalize_announcement">CapsLock</string>
   <string name="read_out_deleted">בוצעה מחיקה של %s</string>
@@ -9,6 +11,7 @@
     <item quantity="many">%s נקודות</item>
     <item quantity="other">%s נקודות</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">אנגלית אחידה לברייל לא מקוצר</string>
   <string name="code_user_facing_name_ueb2">אנגלית אחידה לברייל מקוצר</string>
   <string name="code_user_facing_name_es">ספרדית</string>

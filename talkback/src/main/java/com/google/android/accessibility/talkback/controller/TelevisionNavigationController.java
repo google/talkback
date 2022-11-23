@@ -20,7 +20,7 @@ import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTIO
 import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.CLICK_ANCESTOR;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.LONG_CLICK_CURRENT;
-import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TV_REMOTE;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_TV_REMOTE;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_DOWN;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_LEFT;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_RIGHT;
@@ -49,9 +49,9 @@ import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.TvNavigation;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
+import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.ClassLoadingCache;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Filter;
@@ -64,7 +64,6 @@ import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.TreeDebug;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.WindowUtils;
-import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirection;
@@ -157,7 +156,7 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
 
   @Override
   public boolean onKeyEvent(KeyEvent event, EventId eventId) {
-    service.getInputModeManager().setInputMode(InputModeManager.INPUT_MODE_TV_REMOTE);
+    service.getInputModeTracker().setInputMode(INPUT_MODE_TV_REMOTE);
 
     // Let the system handle keyboards. The keys are input-focusable so this works fine.
     // Note: on Android TV, it looks like the on-screen IME always appears, even when a physical
@@ -377,10 +376,6 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
         if (!shouldProcessDPadKeyEvent) {
           return false;
         }
-        if (!BuildVersionUtils.isAtLeastN()) {
-          // For before N platforms, only handle when we are not ignoring UP/DOWN key
-          return !AccessibilityNodeInfoUtils.isOrHasMatchingAncestor(cursor, IGNORE_UP_DOWN_M);
-        }
         return true;
       case KeyEvent.KEYCODE_DPAD_LEFT:
       case KeyEvent.KEYCODE_DPAD_RIGHT:
@@ -538,7 +533,7 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
           if (key != null && key.equals(treeDebugPrefKey)) {
             treeDebugEnabled =
-                SharedPreferencesUtils.getBooleanPref(
+                PreferencesActivityUtils.getDiagnosticPref(
                     sharedPreferences,
                     service.getResources(),
                     R.string.pref_tree_debug_key,

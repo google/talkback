@@ -36,20 +36,12 @@ import java.util.List;
 public class VolumeButtonPatternDetector {
 
   /** Constants denoting different sequences of pushing the volume buttons. */
-  @IntDef({
-    SHORT_PRESS_PATTERN,
-    LONG_PRESS_PATTERN,
-    SHORT_DOUBLE_PRESS_PARTTERN,
-    TWO_BUTTONS_LONG_PRESS_PATTERN,
-    TWO_BUTTONS_THREE_PRESS_PATTERN
-  })
+  @IntDef({SHORT_PRESS_PATTERN, LONG_PRESS_PATTERN, SHORT_DOUBLE_PRESS_PATTERN})
   public @interface ButtonSequence {}
 
   public static final int SHORT_PRESS_PATTERN = 1;
   public static final int LONG_PRESS_PATTERN = 2;
-  public static final int TWO_BUTTONS_LONG_PRESS_PATTERN = 3;
-  public static final int TWO_BUTTONS_THREE_PRESS_PATTERN = 4;
-  public static final int SHORT_DOUBLE_PRESS_PARTTERN = 5;
+  public static final int SHORT_DOUBLE_PRESS_PATTERN = 3;
 
   /** Constants denoting different combinations of the volume buttons. */
   @IntDef({VOLUME_UP, VOLUME_DOWN, TWO_BUTTONS, PLAY_PAUSE})
@@ -85,8 +77,6 @@ public class VolumeButtonPatternDetector {
     patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(LONG_PRESS_PATTERN, VOLUME_UP));
     patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(LONG_PRESS_PATTERN, VOLUME_DOWN));
     patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(LONG_PRESS_PATTERN, PLAY_PAUSE));
-    patternMatchers.add(new DoubleVolumeButtonLongPressPatternMatcher());
-    patternMatchers.add(new DoubleVolumeButtonThreeShortPressPatternMatcher());
   }
 
   public boolean onKeyEvent(KeyEvent keyEvent) {

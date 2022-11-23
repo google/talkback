@@ -113,29 +113,6 @@ public class Event {
       };
 
   ///////////////////////////////////////////////////////////////////////////////////////
-  // Recycling
-
-  /**
-   * Returns whether the wrapped event is already recycled.
-   *
-   * <p>TODO: Remove once all dependencies have been removed.
-   *
-   * @deprecated Accessibility is discontinuing recycling. Function will return false.
-   */
-  @Deprecated
-  public final synchronized boolean isRecycled() {
-    return false;
-  }
-
-  /**
-   * Recycles the wrapped node & window. Errors if called more than once.
-   *
-   * @deprecated Accessibility is discontinuing recycling.
-   */
-  @Deprecated
-  public final synchronized void recycle(String caller) {}
-
-  ///////////////////////////////////////////////////////////////////////////////////////
   // AccessibilityEvent/Compat methods. Also see:
   // https://developer.android.com/reference/android/view/accessibility/AccessibilityEvent
 

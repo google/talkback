@@ -22,7 +22,6 @@ import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_SO
 import static java.lang.Math.min;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -30,7 +29,6 @@ import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.media.AudioRecordingConfiguration;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -716,6 +714,11 @@ public class SpeechControllerImpl implements SpeechController {
           EVENT_ID_UNTRACKED);
       isMuteSpeech = true;
     }
+  }
+
+  @Override
+  public boolean isMute() {
+    return isMuteSpeech;
   }
 
   @Override
@@ -1600,19 +1603,16 @@ public class SpeechControllerImpl implements SpeechController {
    *
    * @see #handleSpeechCompleted(int status)
    */
-  @TargetApi(Build.VERSION_CODES.N)
   private void handleSpeechStarting() {
     for (SpeechController.Observer observer : mObservers) {
       observer.onSpeechStarting();
     }
 
     boolean useAudioFocus = mUseAudioFocus;
-    if (BuildVersionUtils.isAtLeastN()) {
-      List<AudioRecordingConfiguration> recordConfigurations =
-          mAudioManager.getActiveRecordingConfigurations();
-      if (recordConfigurations.size() != 0) {
-        useAudioFocus = false;
-      }
+    List<AudioRecordingConfiguration> recordConfigurations =
+        mAudioManager.getActiveRecordingConfigurations();
+    if (!recordConfigurations.isEmpty()) {
+      useAudioFocus = false;
     }
 
     if (useAudioFocus) {
@@ -1928,7 +1928,10 @@ public class SpeechControllerImpl implements SpeechController {
       // completion. This means we interrupted a previous utterance and
       // can safely ignore this callback.
       LogUtils.v(
-          TAG, "Interrupted %d with %s", utteranceIndex, mCurrentFeedbackItem.getUtteranceId());
+          TAG,
+          "Interrupted %d with %s",
+          utteranceIndex,
+          (mCurrentFeedbackItem == null) ? null : mCurrentFeedbackItem.getUtteranceId());
       return;
     }
 

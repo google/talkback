@@ -16,12 +16,14 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.action;
 
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_UNKNOWN;
+
 import androidx.annotation.IntDef;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget.TargetType;
 import com.google.android.accessibility.utils.input.CursorGranularity;
-import com.google.android.accessibility.utils.input.InputModeManager;
-import com.google.android.accessibility.utils.input.InputModeManager.InputMode;
+import com.google.android.accessibility.utils.monitor.InputModeTracker;
+import com.google.android.accessibility.utils.monitor.InputModeTracker.InputMode;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirectionOrUnknown;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
@@ -91,7 +93,7 @@ public class NavigationAction {
     sb.append("NavigationAction{");
     sb.append("actionType=").append(actionTypeToString(actionType));
     sb.append(", targetType=").append(NavigationTarget.targetTypeToString(targetType));
-    sb.append(", inputMode=").append(InputModeManager.inputModeToString(inputMode));
+    sb.append(", inputMode=").append(InputModeTracker.inputModeToString(inputMode));
     sb.append(", searchDirection=")
         .append(TraversalStrategyUtils.directionToString(searchDirection));
     sb.append(", shouldWrap=").append(shouldWrap);
@@ -132,7 +134,7 @@ public class NavigationAction {
   public static final class Builder {
     @ActionType private int actionType = UNKNOWN;
     @TargetType private int targetType = NavigationTarget.TARGET_DEFAULT;
-    @InputMode private int inputMode = InputModeManager.INPUT_MODE_UNKNOWN;
+    @InputMode private int inputMode = INPUT_MODE_UNKNOWN;
     @SearchDirectionOrUnknown private int searchDirection = TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
     private boolean shouldWrap = false;
     private boolean shouldScroll = false;

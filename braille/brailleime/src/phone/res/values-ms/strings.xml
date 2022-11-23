@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Papan kekunci braille TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Input paparan braille</string>
   <string name="switch_to_screen_away_announcement">Mod skrin jauh</string>
   <string name="switch_to_tabletop_announcement">Mod atas meja. Letakkan peranti anda dengan port pengecas di sebelah kiri. Untuk mengemas kini kedudukan titik, tekan 6 jari.</string>
   <string name="bring_ime_settings_page">Tiada papan kekunci lain yang telah didayakan, pergi ke tetapan papan kekunci</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Cara menggunakan papan kekunci braille</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Untuk menggunakan papan kekunci braille, buka papan kekunci biasa anda, kemudian ketik ikon pilih papan kekunci %1$s (biasanya di penjuru kanan sebelah bawah). Pilih \"%2$s.\"
   &lt;br&gt;&lt;br&gt;Jika pilihan untuk menukar papan kekunci tidak kelihatan, cuba pasang %3$s, iaitu papan kekunci Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Hidupkan papan kekunci braille&lt;/b&gt;: Ketik Tetapan di bawah. Pada skrin berikutnya, hidupkan \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Gunakan papan kekunci braille&lt;/b&gt;: Buka papan kekunci biasa anda, kemudian ketik ikon pilih papan kekunci %2$s (biasanya di penjuru kanan sebelah bawah). Pilih \"%1$s.\"
-    &lt;br&gt;&lt;br&gt;Jika pilihan untuk menukar papan kekunci tidak kelihatan, cuba pasang %3$s, iaitu papan kekunci Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Tetapan</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Ketik \"Tetapan\" di bawah. Pada skrin berikutnya, hidupkan \"%1$s\"&lt;br&gt;&lt;br&gt;
+    2. Buka papan kekunci biasa anda, kemudian ketik tukar kaedah masukan%2$s (biasanya di sudut kanan bawah).&lt;br&gt;&lt;br&gt;
+    3. Pilih \"%1$s.\"
+    &lt;br&gt;&lt;br&gt;Jika pilihan untuk menukar papan kekunci tidak kelihatan, cuba pasang %3$s, papan kekunci Google.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Hidupkan papan kekunci braille di bawah.&lt;br&gt;&lt;br&gt;
+    2. Buka papan kekunci biasa anda, kemudian ketik suis kaedah masukan %2$s (biasanya di sudut kanan bawah).&lt;br&gt;&lt;br&gt;
+    3. Pilih \"%1$s\".
+    &lt;br&gt;&lt;br&gt;Jika anda tidak boleh menukar papan kekunci, cuba pasang %3$s, papan kekunci Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Tetapan</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Hidupkan</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Hidupkan papan kekunci braille</string>
   <string name="typing_languages_title">Bahasa penaipan</string>
   <string name="preferred_language_title">Bahasa pilihan</string>
-  <string name="dont_show_again">Jangan tunjukkan ini lagi</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Tukar bahasa dengan cepat semasa menaip</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Untuk menukar bahasa anda semasa menaip menggunakan papan kekunci braille, leret ke atas menggunakan 3 jari. Kemudian pilih \"tukar kepada bahasa seterusnya\".</string>
   <string name="title_pref_accumulate_presses">Termasuk semua titik yang ditekan</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Untuk bertukar kepada <b>papan kekunci seterusnya</b>, leret ke bawah menggunakan 3 jari</string>
   <string name="gesture_submit_text">Untuk <b>menyerahkan teks</b>, leret ke atas menggunakan 2 jari</string>
   <string name="gesture_open_context_menu">Untuk mendapatkan <b>bantuan dan pilihan lain</b>, leret ke atas menggunakan 3 jari</string>
-  <string name="done">Selesai</string>
   <string name="not_enough_touch_points_dialog_title">Peranti anda tidak menyokong papan kekunci braille</string>
   <string name="not_enough_touch_points_dialog_message">Peranti anda tidak menyokong bilangan titik sentuh yang mencukupi. Untuk mendapatkan maklumat lanjut, hubungi pengilang peranti anda.</string>
   <string name="talkback_off_dialog_title">Hidupkan TalkBack untuk menggunakan papan kekunci braille</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Huruf dipadamkan</string>
   <string name="perform_delete_word_announcement">Perkataan dipadamkan</string>
   <string name="continue_tutorial_announcement">Mari teruskan tutorial. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Paparan braille luaran disambungkan, yang boleh anda gunakan untuk menaipkan teks dalam peranti ini.\nAtau, anda boleh menukar kepada Papan Kekunci Braille skrin sentuh atau kaedah masukan seterusnya.</string>
-  <string name="braille_keyboard_strip_button">Tukar kepada papan kekunci skrin sentuh</string>
+  <string name="switch_on_screen_keyboard_announcement">Menukar kepada skrin sentuh braille</string>
+  <string name="braille_keyboard_strip_summary">Paparan braille luaran disambungkan yang boleh anda gunakan untuk menaip teks dalam telefon anda.\n\nAnda juga boleh menukar kepada papan kekunci braille skrin sentuh atau kaedah masukan seterusnya.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Tukar kepada skrin sentuh braille</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Tukar kepada kaedah masukan seterusnya</string>
 </resources>

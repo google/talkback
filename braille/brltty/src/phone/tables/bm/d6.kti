@@ -1,0 +1,91 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+bind Display2 FWINLT
+bind Display5 FWINRT
+
+bind Display1+Display2+Display3 LNBEG
+bind Display4+Display5+Display6 LNEND
+
+bind Display1+Display4 TOP
+bind Display3+Display6 BOT
+
+bind Display2+Display4 TOP_LEFT
+bind Display2+Display6 BOT_LEFT
+
+bind Display2+Display5+Display1+Display4 PRPROMPT
+bind Display2+Display5+Display3+Display6 NXPROMPT
+
+bind Display2+Display5+Display4 PRPGRPH
+bind Display2+Display5+Display6 NXPGRPH
+
+bind Display2+Display4+Display6+Display1 PRSEARCH
+bind Display2+Display4+Display6+Display3 NXSEARCH
+
+bind Display1+Display6 BACK
+
+bind Display2+Display4+Display6 HOME
+bind Display1+Display3+Display5 SPKHOME
+
+bind Display1+Display3+Display4+Display6 CSRJMP_VERT
+bind Display2+Display5 INFO
+
+bind Display1+Display4+Display5 DISPMD
+bind Display1+Display5 TIME
+bind Display1+Display2+Display4 FREEZE
+bind Display1+Display3+Display4 PREFMENU
+bind Display1+Display2+Display3+Display4 PASTE
+bind Display2+Display3+Display4 RESTARTSPEECH
+bind Display2+Display3+Display4+Display5 ATTRVIS
+
+bind Display2+Display3+Display5 SIXDOTS+on
+bind Display2+Display3+Display6 SIXDOTS+off
+
+bind Display1+Display2+Display3+Display6 SWITCHVT_NEXT
+bind Display3+Display4+Display5+Display6 SWITCHVT_PREV
+
+bind Display3+Display4 MUTE
+bind Display3+Display5 SAY_LINE
+bind Display3+Display5+Display4 SAY_ABOVE
+bind Display3+Display5+Display6 SAY_BELOW
+bind Display3+Display4+Display6 AUTOSPEAK
+
+########################
+# BrailleBack Bindings #
+########################
+
+bind Display1 LNUP
+bind Display4 LNDN
+
+bind Display3 CHRLT
+bind Display6 CHRRT
+
+# Back key
+bind Display1+Display2 KEY_ESCAPE
+# Home key
+bind Display1+Display2+Display5 KEY_FUNCTION+0
+# Recent apps key
+bind Display1+Display2+Display3+Display5 KEY_FUNCTION+1
+# Notifications bar
+bind Display1+Display3+Display4+Display5 KEY_FUNCTION+2
+# Scroll backwards
+bind Display2+Display3 WINUP
+# Scroll forwards
+bind Display5+Display6 WINDN
+# Keyboard help
+bind Display1+Display4+Display5+Display6 LEARN

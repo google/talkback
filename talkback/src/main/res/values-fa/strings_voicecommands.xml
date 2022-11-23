@@ -53,7 +53,7 @@
   <string name="voice_commands_bottom">پایین</string>
   <string name="voice_commands_type">تایپ کردن</string>
   <string name="voice_commands_input">وارد کردن</string>
-  <string name="voice_commands_dictate">تایپ صوتی</string>
+  <string name="voice_commands_dictate">دیکته کردن</string>
   <string name="voice_commands_write">نوشتن</string>
   <string name="voice_commands_Spell">هجی کردن</string>
   <string name="voice_commands_talkback_settings">‏تنظیمات TalkBack</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">‏برای استفاده از فرمان‌های صوتی، تند به‌چپ و سپس بالا بکشید. هرزمان خواستید برای این فهرست فرمان‌ها، بگویید «help» (راهنمایی) یا «?what can I say» (چه‌چیزی می‌توانم بگویم؟).</string>
   <string name="voice_commands_help_hint">برای بهترین نتایج، عبارت دقیق فهرست‌شده در صفحه‌های بعدی را بگویید.</string>
   <string name="voice_command_screen_locked_hint">‏فرمان‌های صوتی هنگام قفل بودن صفحه دردسترس نیستند. درعوض برای استفاده از منوی TalkBack، %1$s.</string>
+  <string name="voice_commands_during_setup_hint">درطول راه‌اندازی، فرمان‌های صوتی دردسترس نیستند</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">تغییر نحوه خواندن محتوا در صفحه فعلی</string>
   <string name="voice_commands_help_next">[عنوان] بعدی</string>

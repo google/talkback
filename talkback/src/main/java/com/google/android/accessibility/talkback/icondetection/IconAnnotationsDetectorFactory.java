@@ -24,7 +24,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public final class IconAnnotationsDetectorFactory {
 
   public static @Nullable IconAnnotationsDetector create(Context context) {
-    return null;
+    return new IconAnnotationsDetectorImpl(context);
   }
 
   private IconAnnotationsDetectorFactory() {}

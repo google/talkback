@@ -96,7 +96,7 @@
   <string name="voice_commands_timeout">Diga \"%1$s\" para ver uma lista de todos os comandos.</string>
   <string name="voice_commands_many_requests">Tente novamente em alguns minutos</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" não foi reconhecido como um comando de voz.</string>
-  <string name="voice_commands_label_saved">Etiqueta salva</string>
+  <string name="voice_commands_label_saved">Marcador salvo</string>
   <string name="voice_commands_no_actions_feedback">Nenhuma ação disponível</string>
   <string name="voice_commands_no_next_heading_feedback">Nenhum cabeçalho a seguir</string>
   <string name="voice_commands_no_next_link_feedback">Nenhum link a seguir</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Para usar comandos de voz, deslize para a direita e depois para cima. Diga \"Ajuda\" ou \"O que posso dizer?\" a qualquer momento para ver a lista de comandos.</string>
   <string name="voice_commands_help_hint">Para ter resultados melhores, diga as palavras exatas listadas nas próximas telas.</string>
   <string name="voice_command_screen_locked_hint">Os comandos de voz ficam indisponíveis quando a tela está bloqueada. Para usar o menu do TalkBack, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Os comandos de voz não estão disponíveis durante a configuração.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Mude como o conteúdo é lido na tela atual</string>
   <string name="voice_commands_help_next">Próximo [cabeçalho]</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack brayl klaviaturasi</string>
+  <string name="braille_ime_bd_mode_name">Brayl ekranidan matn kiritish</string>
   <string name="switch_to_screen_away_announcement">Ekran qarshisida rejimi</string>
   <string name="switch_to_tabletop_announcement">Stol usti rejimi. Qurilmani quvvatlash porti chapga qaragan holda joylang. Nuqta holatini yangilash uchun 6 ta barmoq bilan bosib turing.</string>
   <string name="bring_ime_settings_page">Boshqa klaviatura yoqilmagan, klaviatura sozlamalarini oching.</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Brayl klaviaturasi qanday ishlatiladi</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Brayl klaviaturasidan foydalanish uchun odatiy klaviaturani ochib, %1$s belgisini tanlang (pastki oʻng burchakdagi). “%2$s.” xizmatini tanlang
   &lt;br&gt;&lt;br&gt;Klaviaturani almashtirib boʻlmasa, %3$s – Google klaviaturasini oʻrnating.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Brayl klaviaturasini yoqish uchun&lt;/b&gt;: quyidagi Sozlamalarni oching. Keyingi ekranda “%1$s.” xizmatini yoqing
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Brayl klaviaturasidan foydalanish uchun&lt;/b&gt;: odatiy klaviaturani ochib, %2$s belgisini bosing (pastki oʻng burchakdagi). “%1$s.” xizmatini tanlang
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Quyida “Sozlamalar” tugmasini bosing. Keyingi ekranda “%1$s.” xizmatini yoqing
+    &lt;br&gt;&lt;br&gt;2. Oddiy klaviaturani oching, keyin matn kiritish usulini %2$s bilan almashtiring (odatda quyi oʻng burchakda turadi).&lt;br&gt;&lt;br&gt;
+    3. “%1$s.” xizmatini tanlang
     &lt;br&gt;&lt;br&gt;Klaviaturani almashtirib boʻlmasa, %3$s – Google klaviaturasini oʻrnating.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Sozlamalar</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Quyida brayl klaviaturasini yoqing.&lt;br&gt;&lt;br&gt;
+    2. Oddiy klaviaturani oching, keyin matn kiritish usulini %2$s bilan almashtiring (odatda quyi oʻng burchakda turadi).&lt;br&gt;&lt;br&gt;
+    3. “%1$s” bandini tanlang.
+    &lt;br&gt;&lt;br&gt;Agar klaviaturalarni almashtira olmasangiz, %3$s – Google klaviaturasini oʻrnating.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Sozlamalar</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Yoqish</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Brayl klaviaturasini yoqish</string>
   <string name="typing_languages_title">Matn kiritish tillari</string>
   <string name="preferred_language_title">Tanlangan til</string>
-  <string name="dont_show_again">Boshqa chiqmasin</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Yozayotganda tilni tez oʻzgartirish</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Brayl klaviaturasida yozayotganda tilni oʻzgartirish uchun 3 ta barmogʻingiz bilan tepaga suring. Keyin esa “keyingi tilga oʻtish” bandini tanlang.</string>
   <string name="title_pref_accumulate_presses">Barcha bosilgan nuqtalar bilan</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>Keyingi klaviaturaga</b> almashtirish uchun 3 barmoq bilan pastga suring</string>
   <string name="gesture_submit_text"><b>Matn kiritish</b> uchun 2 barmoq bilan tepaga suring</string>
   <string name="gesture_open_context_menu"><b>Yordam va boshqa parametrlar</b> uchun 3 barmoq bilan tepaga suring</string>
-  <string name="done">OK</string>
   <string name="not_enough_touch_points_dialog_title">Qurilmangizda brayl klaviaturasi ishlamaydi</string>
   <string name="not_enough_touch_points_dialog_message">Qurilmangizda ishlaydigan sensor nuqtalar soni yetarli emas. Batafsil axborot uchun qurilma ishlab chiqaruvchisiga murojaat qiling.</string>
   <string name="talkback_off_dialog_title">Brayl klaviaturasidan foydalanish uchun TalkBack xizmatini yoqing</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Harf oʻchirildi</string>
   <string name="perform_delete_word_announcement">Soʻz oʻchirildi</string>
   <string name="continue_tutorial_announcement">Darslikni davom ettirish. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Tashqi brayl ekrani ulangan, bunda ushbu qurilmaga matn kiritishingiz mumkin.\nSensorli ekran brayl klaviaturasiga yoki keyingi matn kiritish usuliga almashtirishingiz mumkin.</string>
-  <string name="braille_keyboard_strip_button">Sensorli ekran klaviaturasiga almashtirish</string>
+  <string name="switch_on_screen_keyboard_announcement">Brayl sensorli ekraniga oʻtish</string>
+  <string name="braille_keyboard_strip_summary">Tashqi brayl ekrani ulangan, bunda ushbu telefonga matn kiritishingiz mumkin.\n\nSensorli ekran brayl klaviaturasiga yoki keyingi matn kiritish usuliga almashtirishingiz mumkin.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Brayl sensorli ekraniga oʻtish</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Keyingi matn kiritish usuliga oʻtish</string>
 </resources>

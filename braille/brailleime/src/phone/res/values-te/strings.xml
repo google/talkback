@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack బ్రెయిలీ కీబోర్డ్</string>
+  <string name="braille_ime_bd_mode_name">బ్రెయిలీ డిస్‌ప్లే ఇన్‌పుట్</string>
   <string name="switch_to_screen_away_announcement">స్క్రీన్‌కు దూరంగా ఉన్నట్లు సూచించే మోడ్</string>
   <string name="switch_to_tabletop_announcement">టేబుల్‌టాప్ సెట్టింగ్ మోడ్. మీ పరికరాన్ని ఛార్జింగ్ పోర్ట్‌తో ఎడమవైపు ఉంచండి. డాట్ స్థానాన్ని అప్‌డేట్ చేయడానికి 6 వేళ్లను కిందకి ఉంచండి.</string>
   <string name="bring_ime_settings_page">వేరే కీబోర్డ్ ఏదీ ఎనేబుల్ చేయబడి లేదు, కీబోర్డ్ సెట్టింగ్‌లకు వెళ్ళండి</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">బ్రెయిలీ కీబోర్డ్‌ను ఎలా ఉపయోగించాలి</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">బ్రెయిలీ కీబోర్డ్‌ను ఉపయోగించాలంటే, సాధారణ కీబోర్డ్‌ను తెరిచి, కీబోర్డ్ ఎంపిక చిహ్నం %1$sని ట్యాప్ చేయండి (సాధారణంగా దిగువున కుడివైపు మూలలో ఉంటుంది). \"%2$s\"ను ఎంచుకోండి.
   &lt;br&gt;&lt;br&gt;కీబోర్డ్‌లను మార్చే ఆప్షన్ లేకపోతే, Google కీబోర్డ్ అయిన %3$sను ఇన్‌స్టాల్ చేయడానికి ట్రై చేయండి.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;బ్రెయిలీ కీబోర్డ్‌ను ఆన్ చేయండి&lt;/b&gt;: కింది సెట్టింగ్‌లను ట్యాప్ చేయండి. తర్వాతి స్క్రీన్‌లో, \"%1$s ఆన్ చేయండి.\"
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;బ్రెయిలీ కీబోర్డ్‌ను ఉపయోగించండి&lt;/b&gt;: మీ సాధారణ కీబోర్డ్‌ను తెరిచి, కీబోర్డ్ ఎంపిక చిహ్నం %2$sను ట్యాప్ చేయండి (సాధారణంగా దిగువున కుడివైపు మూలలో ఉంటుంది). \"%1$s\"ను ఎంచుకోండి.
-  &lt;br&gt;&lt;br&gt;కీబోర్డ్‌లను మార్చే ఆప్షన్ లేకపోతే, Google కీబోర్డ్ అయిన %3$sను ఇన్‌స్టాల్ చేయడానికి ట్రై చేయండి.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">సెట్టింగ్‌లు</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. దిగువున \"సెట్టింగ్‌లను\" ట్యాప్ చేయండి. తర్వాతి స్క్రీన్‌లో, \"%1$s\"ను ఆన్ చేయండి&lt;br&gt;&lt;br&gt;
+    2. మీ సాధారణ కీబోర్డ్‌ను తెరిచి, ఇన్‌పుట్ విధానాన్ని మార్చండి %2$s‌ను ట్యాప్ చేయండి (సాధారణంగా ఇది దిగువున కుడి వైపు మూలలో ఉంటుంది).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\"ను ఎంచుకోండి.
+  &lt;br&gt;&lt;br&gt;కీబోర్డ్‌లను మార్చే ఆప్షన్ లేకపోతే, Google కీబోర్డ్ అయిన %3$s‌ను ఇన్‌స్టాల్ చేయడానికి ట్రై చేయండి.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. దిగువున బ్రెయిలీ కీబోర్డ్‌ను ఆన్ చేయండి.&lt;br&gt;&lt;br&gt;
+    2. మీ సాధారణ కీబోర్డ్‌ను తెరిచి, ఇన్‌పుట్ విధానాన్ని మార్చండి %2$s‌ను ట్యాప్ చేయండి (సాధారణంగా ఇది దిగువున కుడి వైపు మూలలో ఉంటుంది).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\"ను ఎంచుకోండి.
+    &lt;br&gt;&lt;br&gt;మీరు కీబోర్డ్‌లను మార్చలేకపోతున్నట్లయితే, Google కీబోర్డ్ అయిన %3$s‌ను ఇన్‌స్టాల్ చేయడానికి ట్రై చేయండి.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">సెట్టింగ్‌లు</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ఆన్ చేయండి</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">బ్రెయిలీ కీబోర్డ్‌ను ఆన్ చేయండి</string>
   <string name="typing_languages_title">టైపింగ్ భాషలు</string>
   <string name="preferred_language_title">ప్రాధాన్యతనిచ్చే భాష</string>
-  <string name="dont_show_again">దీన్ని మళ్లీ చూపవద్దు</string>
   <string name="switch_input_code_gesture_tip_dialog_title">టైప్ చేస్తున్నప్పుడు త్వరగా భాషను మార్చండి</string>
   <string name="switch_input_code_gesture_tip_dialog_message">బ్రెయిలీ కీబోర్డ్‌తో టైప్ చేస్తున్నప్పుడు మీ భాషను మార్చడానికి, 3 వేళ్లతో పైకి స్వైప్ చేయండి. తర్వాత \"తర్వాత భాషకు స్విచ్ అవ్వండి\" ఆప్షన్‌ను ఎంచుకోండి.</string>
   <string name="title_pref_accumulate_presses">నొక్కిన చుక్కలన్నిటినీ చేర్చండి</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>తర్వాతి కీబోర్డ్‌కు</b> మారడానికి, 3 వేళ్ళతో కిందికి స్వైప్ చేయండి</string>
   <string name="gesture_submit_text"><b>వచనాన్ని సబ్మిట్ చేయడానికి</b>, 2 వేళ్ళతో పైకి స్వైప్ చేయండి</string>
   <string name="gesture_open_context_menu"><b>సహాయం, ఇతర ఆప్షన్‌ల</b> కోసం, 3 వేళ్ళతో పైకి స్వైప్ చేయండి</string>
-  <string name="done">పూర్తయింది</string>
   <string name="not_enough_touch_points_dialog_title">మీ పరికరం బ్రెయిలీ కీబోర్డ్‌కు సపోర్ట్ చేయదు</string>
   <string name="not_enough_touch_points_dialog_message">మీ పరికరం, తాకడానికి సరిపడినన్ని పాయింట్‌లకు సపోర్ట్ చేయదు. మరింత సమాచాచారం కోసం మీ పరికరాన్ని తయారు చేసిన కంపెనీని సంప్రదించండి.</string>
   <string name="talkback_off_dialog_title">బ్రెయిలీ కీబోర్డ్‌ను ఉపయోగించడానికి TalkBackను ఆన్ చేయండి</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">అక్షరం తొలగించబడింది</string>
   <string name="perform_delete_word_announcement">పదం తొలగించబడింది</string>
   <string name="continue_tutorial_announcement">ట్యుటోరియల్‌ను కొనసాగిద్దాం. %1$s</string>
-  <string name="braille_keyboard_strip_summary">బయటి బ్రెయిలీ డిస్‌ప్లే కనెక్ట్ చేయబడింది, దానిని మీరు ఈ పరికరంలో టెక్స్ట్ టైప్ చేయడానికి ఉపయోగించవచ్చు.\nలేదా, మీరు టచ్-స్క్రీన్ బ్రెయిలీ కీబోర్డ్ లేదా తదుపరి ఇన్‌పుట్ విధానానికి మారవచ్చు.</string>
-  <string name="braille_keyboard_strip_button">టచ్-స్క్రీన్ కీబోర్డ్‌కు మారండి</string>
+  <string name="switch_on_screen_keyboard_announcement">బ్రెయిలీ టచ్‌స్క్రీన్‌కు స్విచ్ అవుతోంది</string>
+  <string name="braille_keyboard_strip_summary">బయటి బ్రెయిలీ డిస్‌ప్లే కనెక్ట్ చేయబడింది, దీన్ని మీరు మీ ఫోన్‌లో టెక్స్ట్ టైప్ చేయడానికి ఉపయోగించవచ్చు.\n\nమీరు టచ్‌స్క్రీన్ బ్రెయిలీ కీబోర్డ్ లేదా తర్వాతి ఇన్‌పుట్ పద్ధతికి కూడా మారవచ్చు.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">బ్రెయిలీ టచ్‌స్క్రీన్‌కు మారండి</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">తర్వాతి ఇన్‌పుట్ విధానానికి మారండి</string>
 </resources>

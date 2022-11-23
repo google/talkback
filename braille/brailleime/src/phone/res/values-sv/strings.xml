@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Punktskriftstangentbord för TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Inmatning via punktskriftsskärm</string>
   <string name="switch_to_screen_away_announcement">Bortvänt läge</string>
   <string name="switch_to_tabletop_announcement">Bordsläge. Placera enheten med laddningsporten till vänster. Håll ned sex fingrar för att uppdatera punktpositionerna.</string>
   <string name="bring_ime_settings_page">Det finns inget annat aktiverat tangentbord. Öppna tangentbordsinställningarna.</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Hur punktskriftstangentbordet ska användas</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Om du vill använda punktskriftstangentbordet öppnar du det vanliga tangentbordet och trycker sedan på ikonen för att välja tangentbord %1$s (sitter vanligtvis nere till höger). Välj %2$s.
   &lt;br&gt;&lt;br&gt;Om du inte ser alternativet för att byta tangentbord testar du att installera %3$s, Googles tangentbord.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Aktivera punktskriftstangentbordet&lt;/b&gt;: Tryck på Inställningar nedan. På nästa skärm aktiverar du %1$s.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Använda punktskriftstangentbordet&lt;/b&gt;: Öppna det vanliga tangentbordet och tryck sedan på ikonen för att välja tangentbord %2$s (sitter vanligtvis nere till höger). Välj %1$s.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Tryck på Inställningar nedan. Aktivera %1$s på nästa skärm&lt;br&gt;&lt;br&gt;
+    2. Öppna det vanliga tangentbordet och tryck sedan på Byt inmatningsmetod %2$s (vanligtvis längst ned till höger).&lt;br&gt;&lt;br&gt;
+    3. Välj %1$s.
     &lt;br&gt;&lt;br&gt;Om du inte ser alternativet för att byta tangentbord testar du att installera %3$s, Googles tangentbord.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Inställningar</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Aktivera punktskriftstangentbordet nedan.&lt;br&gt;&lt;br&gt;
+    2. Öppna det vanliga tangentbordet och tryck sedan på Byt inmatningsmetod %2$s (vanligtvis längst ned till höger).&lt;br&gt;&lt;br&gt;
+    3. Välj %1$s.
+    &lt;br&gt;&lt;br&gt;Om det inte går att byta tangentbord testar du att installera %3$s, Googles tangentbord.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Inställningar</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Aktivera</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Aktivera punktskriftstangentbord</string>
   <string name="typing_languages_title">Språk för inmatning</string>
   <string name="preferred_language_title">Önskat språk</string>
-  <string name="dont_show_again">Visa inte det här igen</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Byt snabbt språk medan du skriver</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Du kan byta språk när du skriver på punktskriftstangentbordet genom att svepa uppåt med tre fingrar. Välj sedan Byt till nästa språk.</string>
   <string name="title_pref_accumulate_presses">Inkludera alla nedtryckta punkter</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Svep nedåt med tre fingrar för att byta till <b>nästa tangentbord</b></string>
   <string name="gesture_submit_text">Svep uppåt med två fingrar för att <b>skicka text</b></string>
   <string name="gesture_open_context_menu">Svep uppåt med tre fingrar för <b>hjälp och andra alternativ</b></string>
-  <string name="done">Klar</string>
   <string name="not_enough_touch_points_dialog_title">Enheten har inte stöd för punktskriftstangentbord</string>
   <string name="not_enough_touch_points_dialog_message">Enheten har inte stöd för tryckpunkter. Kontakta enhetens tillverkare om du vill veta mer.</string>
   <string name="talkback_off_dialog_title">Aktivera TalkBack för att använda punktskriftstangentbordet</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Bokstav raderad</string>
   <string name="perform_delete_word_announcement">Ord raderat</string>
   <string name="continue_tutorial_announcement">Vi fortsätter med självstudierna. %1$s</string>
-  <string name="braille_keyboard_strip_summary">En extern punktskriftsskärm som du kan använda för att skriva text på enheten har anslutits.\nDu kan även byta till punktskriftstangentbord på pekskärm eller nästa inmatningsmetod.</string>
-  <string name="braille_keyboard_strip_button">Byt till tangentbord på pekskärm</string>
+  <string name="switch_on_screen_keyboard_announcement">Byter till pekskärm för punktskrift</string>
+  <string name="braille_keyboard_strip_summary">En extern punktskriftsskärm som du kan använda för att skriva text på telefonen har anslutits.\n\nDu kan även byta till punktskriftstangentbord på pekskärm eller till nästa inmatningsmetod.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Byt till pekskärm för punktskrift</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Byt till nästa inmatningsmetod</string>
 </resources>

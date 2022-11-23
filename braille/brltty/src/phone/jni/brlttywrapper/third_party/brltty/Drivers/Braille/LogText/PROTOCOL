@@ -1,0 +1,72 @@
+File: Develop
+by Hans Schou
+
+Logtext manufactor:
+ Tactilog
+ Roskildevej 15
+ DK-7441 Bording
+
+ Contact: Poul Erik Skov
+ Phone: +45 86 86 20 88
+ Fax: +45 86 86 21 88
+
+9600 baud
+
+Logtext protocol
+----------------
+
+1. Request from Logtext
+
+1.1. Update a line: <start><line>
+ start: start code 0xFF
+ 
+ line: line number to update
+   0x01 <= line 0x19
+when going into terminal
+
+1.2. Update cursor line: <start><0>
+ start: start code 0xFF
+
+ 0: code 0x00
+
+2. Answer from computer
+
+2.1. Protocol: <start><line><cursor><column><count><text>
+ start: start code 0xFF.
+
+ line: line number on screen.
+   0x01 <= line 0x19
+
+ cursor: cursor position on this line.
+   0x01 <= cursor <= 0x50
+ Special cursor == 0x00, no cursor on this line.
+
+ column: text starts from this column.
+   0x01 <= column <= 0x50
+
+ count: number of bytes in text.
+   0x00 <= count <= 0x50
+
+ text: ASCII characters. Any character except 0xFF.
+  It is not possible to turn on all dots (0xFF).
+
+
+2.2. Automatic cursor tracking.
+If the mode is currently in cursor tracking and the
+cursor moves to another line, the computer should send
+a new updated line to Logtext. If the cursor moves
+within the same line the computer sends an update of
+the cursor position.
+
+Regardless of the mode, the computer always send an
+updated line if the content has changed.
+
+
+-------------------------
+If a wrong protocol package is send
+the Logtext will go into an error mode
+and stop receiving.
+
+Key pressed on Logtext comes as ANSI codes.
+Press dot 1 gives 'a' and 12 gives 'b'.
+Cursor movements comes as ANSI starting with 0x00.

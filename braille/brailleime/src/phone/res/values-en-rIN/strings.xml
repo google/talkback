@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack braille keyboard</string>
+  <string name="braille_ime_bd_mode_name">Braille display input</string>
   <string name="switch_to_screen_away_announcement">Screen-away mode</string>
   <string name="switch_to_tabletop_announcement">Tabletop mode. Place your device with the charging port to the left. To update dot position, hold down six fingers.</string>
   <string name="bring_ime_settings_page">There is no other keyboard enabled – go to keyboard settings</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">How to use braille keyboard</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">To use the braille keyboard, open your regular keyboard, then tap the \'choose keyboard\' icon %1$s (usually at the bottom-right corner). Select \'%2$s\'.
   &lt;br&gt;&lt;br&gt;If you don’t see an option to switch keyboards, try installing %3$s, the Google Keyboard.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Turn on braille keyboard&lt;/b&gt;: Tap Settings below. On the next screen, turn on \'%1$s\'.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Use braille keyboard&lt;/b&gt;: Open your regular keyboard, then tap the \'choose keyboard\' icon %2$s (usually at the bottom-right corner). Select \'%1$s\'.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Tap \'Settings\' below. On the next screen, turn on \'%1$s\'&lt;br&gt;&lt;br&gt;
+    2. Open your regular keyboard, then tap switch input method %2$s (usually in the bottom-right corner).&lt;br&gt;&lt;br&gt;
+    3. Select \'%1$s\'.
     &lt;br&gt;&lt;br&gt;If you don’t see an option to switch keyboards, try installing %3$s, the Google Keyboard.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Settings</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Turn on braille keyboard below.&lt;br&gt;&lt;br&gt;
+    2. Open your regular keyboard, then tap switch input method %2$s (usually in the bottom-right corner).&lt;br&gt;&lt;br&gt;
+    3. Select \"%1$s\".
+    &lt;br&gt;&lt;br&gt;If you can\'t switch keyboards, try installing %3$s, the Google Keyboard.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Settings</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Turn on</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Turn on braille keyboard</string>
   <string name="typing_languages_title">Typing languages</string>
   <string name="preferred_language_title">Preferred language</string>
-  <string name="dont_show_again">Don’t show this again</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Quickly change language while typing</string>
   <string name="switch_input_code_gesture_tip_dialog_message">To change your language while typing with the braille keyboard, swipe up with three fingers. Then, select \'switch to next language\'.</string>
   <string name="title_pref_accumulate_presses">Include all pressed dots</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">To switch to the <b>next keyboard</b>, swipe down with three fingers</string>
   <string name="gesture_submit_text">To <b>submit text</b>, swipe up with two fingers</string>
   <string name="gesture_open_context_menu">For <b>help and other options</b>, swipe up with three fingers</string>
-  <string name="done">Done</string>
   <string name="not_enough_touch_points_dialog_title">Your device doesn’t support braille keyboard</string>
   <string name="not_enough_touch_points_dialog_message">Your device doesn’t support enough touch points. For more information, contact your device manufacturer.</string>
   <string name="talkback_off_dialog_title">Turn on TalkBack to use braille keyboard</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Letter deleted</string>
   <string name="perform_delete_word_announcement">Word deleted</string>
   <string name="continue_tutorial_announcement">Let’s continue the tutorial. %1$s</string>
-  <string name="braille_keyboard_strip_summary">An external braille display is connected, which you can use to type text into this device.\nOr, you can switch to the touch-screen braille keyboard or the next input method.</string>
-  <string name="braille_keyboard_strip_button">Switch to touch-screen keyboard</string>
+  <string name="switch_on_screen_keyboard_announcement">Switching to braille touchscreen</string>
+  <string name="braille_keyboard_strip_summary">An external braille display is connected, which you can use to type text into your phone.\n\nYou can also switch to the touchscreen braille keyboard or the next input method.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Switch to braille touchscreen</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Switch to next input method</string>
 </resources>

@@ -33,6 +33,7 @@ public class IconDetectionRequest extends CaptionRequest
   private final Locale locale;
 
   public IconDetectionRequest(
+      int requestId,
       @NonNull AccessibilityNodeInfoCompat node,
       @NonNull Bitmap screenCapture,
       @NonNull IconAnnotationsDetector iconAnnotationsDetector,
@@ -40,7 +41,7 @@ public class IconDetectionRequest extends CaptionRequest
       @NonNull OnFinishListener onFinishListener,
       @NonNull OnErrorListener onErrorListener,
       boolean isUserRequested) {
-    super(node, onFinishListener, onErrorListener, isUserRequested);
+    super(requestId, node, onFinishListener, onErrorListener, isUserRequested);
     this.screenCapture = screenCapture;
     this.iconAnnotationsDetector = iconAnnotationsDetector;
     this.locale = locale;

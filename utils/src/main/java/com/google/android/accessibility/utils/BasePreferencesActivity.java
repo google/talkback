@@ -53,6 +53,14 @@ public abstract class BasePreferencesActivity extends AppCompatActivity {
   /** Disables to expand action bar */
   protected void disableExpandActionBar() {}
 
+  /** Hides the back button (or home) inside the action bar */
+  protected void hideBackButton() {
+    ActionBar actionBar = getSupportActionBar();
+    if (actionBar != null) {
+      actionBar.setDisplayHomeAsUpEnabled(false);
+    }
+  }
+
   /**
    * Gets Identifier of the container whose fragment(s) at the activity should use.
    *

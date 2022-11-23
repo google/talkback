@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Braillská klávesnice TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Vstup hmatového displeje</string>
   <string name="switch_to_screen_away_announcement">Režim s obrazovkou od sebe</string>
   <string name="switch_to_tabletop_announcement">Režim s obrazovkou nahoru. Položte zařízení tak, aby byl nabíjecí port nalevo. Pozici bodů změníte podržením šesti prstů na obrazovce.</string>
   <string name="bring_ime_settings_page">Není povolena žádná jiná klávesnice, přejděte do nastavení klávesnice</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Jak používat braillskou klávesnici</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Chcete-li používat braillskou klávesnici, otevřete běžnou klávesnici a klepněte na ikonu výběru klávesnice %1$s (obvykle se nachází v pravém dolním rohu). Vyberte možnost %2$s.
   &lt;br&gt;&lt;br&gt;Pokud možnost přepnutí klávesnice nevidíte, zkuste nainstalovat %3$s, klávesnici od Googlu.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Zapněte braillskou klávesnici&lt;/b&gt;: Níže klepněte na Nastavení. Na další obrazovce zapněte možnost %1$s.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Použijte braillskou klávesnici&lt;/b&gt;: Otevřete běžnou klávesnici a klepněte na ikonu výběru klávesnice %2$s (obvykle se nachází v pravém dolním rohu). Vyberte možnost %1$s.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Níže klepněte na Nastavení. Na další obrazovce zapněte možnost %1$s.&lt;br&gt;&lt;br&gt;
+    2. Otevřete běžnou klávesnici a klepněte na přepnutí metody zadávání %2$s (obvykle se nachází v pravém dolním rohu).&lt;br&gt;&lt;br&gt;
+    3. Vyberte možnost %1$s.
     &lt;br&gt;&lt;br&gt;Pokud možnost přepnutí klávesnice nevidíte, zkuste nainstalovat %3$s, klávesnici od Googlu.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Nastavení</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Níže zapněte braillskou klávesnici.&lt;br&gt;&lt;br&gt;
+    2. Otevřete běžnou klávesnici a klepněte na přepnutí metody zadávání %2$s (obvykle se nachází v pravém dolním rohu).&lt;br&gt;&lt;br&gt;
+    3. Vyberte možnost %1$s.
+    &lt;br&gt;&lt;br&gt;Pokud klávesnice přepnout nemůžete, zkuste nainstalovat %3$s, klávesnici od Googlu.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Nastavení</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Zapnout</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Zapnout braillskou klávesnici</string>
   <string name="typing_languages_title">Jazyky zadávání</string>
   <string name="preferred_language_title">Preferovaný jazyk</string>
-  <string name="dont_show_again">Příště již nezobrazovat</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Rychlé přepnutí jazyka při psaní</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Pokud při psaní na braillské klávesnici chcete změnit jazyk, přejeďte třemi prsty nahoru. Poté vyberte Přepnout na další jazyk.</string>
   <string name="title_pref_accumulate_presses">Zahrnout všechny stisknuté body</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Chcete-li přepnout na <b>další klávesnici</b>, přejeďte třemi prsty dolů</string>
   <string name="gesture_submit_text">Chcete-li <b>odeslat text</b>, přejeďte dvěma prsty nahoru</string>
   <string name="gesture_open_context_menu">Chcete-li <b>zobrazit nápovědu a další možnosti</b>, přejeďte třemi prsty nahoru</string>
-  <string name="done">Hotovo</string>
   <string name="not_enough_touch_points_dialog_title">Zařízení braillskou klávesnici nepodporuje</string>
   <string name="not_enough_touch_points_dialog_message">Zařízení nepodporuje dostatek dotykových bodů. Další informace vám poskytne výrobce zařízení.</string>
   <string name="talkback_off_dialog_title">Chcete-li používat braillskou klávesnici, zapněte funkci TalkBack</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Bylo smazáno písmeno</string>
   <string name="perform_delete_word_announcement">Bylo smazáno slovo</string>
   <string name="continue_tutorial_announcement">Výukový program bude pokračovat. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Je připojen externí hmatový displej, který můžete použít k zadávání textu do tohoto zařízení.\nPřípadně můžete přepnout na braillskou klávesnici na dotykové obrazovce nebo na další metodu zadávání.</string>
-  <string name="braille_keyboard_strip_button">Přepnout na klávesnici na dotykové obrazovce</string>
+  <string name="switch_on_screen_keyboard_announcement">Přepínání na braillskou dotykovou obrazovku</string>
+  <string name="braille_keyboard_strip_summary">Je připojen externí hmatový displej, který můžete použít k zadávání textu do telefonu.\n\nMůžete také přepnout na braillskou klávesnici na obrazovce nebo na další metodu zadávání.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Přepnout na braillskou dotykovou obrazovku</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Přepnout na další metodu zadávání</string>
 </resources>

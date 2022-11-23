@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">దీన్ని మళ్లీ చూపవద్దు</string>
+  <string name="done">పూర్తయింది</string>
   <string name="number_announcement">నంబర్</string>
   <string name="capitalize_announcement">క్యాపిటలైజేషన్</string>
   <string name="read_out_deleted">%s తొలగించబడింది</string>
@@ -7,6 +9,7 @@
     <item quantity="one">%s చుక్క</item>
     <item quantity="other">%s చుక్కలు</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">సంక్షిప్తం కాని యూనిఫైడ్ ఇంగ్లీష్ బ్రెయిలీ</string>
   <string name="code_user_facing_name_ueb2">సంక్షిప్తం అయిన యూనిఫైడ్ ఇంగ్లీష్ బ్రెయిలీ</string>
   <string name="code_user_facing_name_es">స్పానిష్</string>

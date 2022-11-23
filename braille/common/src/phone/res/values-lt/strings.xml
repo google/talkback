@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Daugiau nerodyti</string>
+  <string name="done">Atlikta</string>
   <string name="number_announcement">Skaičiai</string>
   <string name="capitalize_announcement">Didžiosios raidės</string>
   <string name="read_out_deleted">Ištrinta: %s</string>
@@ -9,6 +11,7 @@
     <item quantity="many">%s taško</item>
     <item quantity="other">%s taškų</item>
   </plurals>
+  <string name="language_split_comma">,\u0020</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
   <string name="code_user_facing_name_es">Ispanų k.</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack тастатура са Брајевом азбуком</string>
+  <string name="braille_ime_bd_mode_name">Унос на Брајевом екрану</string>
   <string name="switch_to_screen_away_announcement">Режим рада са екраном надоле</string>
   <string name="switch_to_tabletop_announcement">Стони режим. Поставите уређај тако да порт за пуњење буде лево. Да бисте ажурирали положај тачака, притисните и држите са 6 прстију.</string>
   <string name="bring_ime_settings_page">Није омогућена ниједна друга тастатура, идите у подешавања тастатуре</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Како да користите тастатуру са Брајевом азбуком</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Да бисте користили тастатуру са Брајевом азбуком, отворите уобичајену тастатуру, па додирните икону Одаберите тастатуру %1$s (обично је у доњем десном углу). Изаберите „%2$s.“
   &lt;br&gt;&lt;br&gt;Ако не видите опцију да пређете на другу тастатуру, пробајте да инсталирате %3$s, Google тастатуру.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Укључите тастатуру са Брајевом азбуком&lt;/b&gt;: Додирните Подешавања у наставку. На следећем екрану укључите: %1$s.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Користите тастатуру са Брајевом азбуком&lt;/b&gt;: Отворите уобичајену тастатуру, па додирните икону Одаберите тастатуру %2$s (обично је у доњем десном углу). Изаберите „%1$s.“
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Додирните Подешавања у наставку. На следећем екрану укључите %1$s&lt;br&gt;&lt;br&gt;
+    2. Отворите уобичајену тастатуру, па додирните опцију за промену метода уноса %2$s (обично у доњем десном углу).&lt;br&gt;&lt;br&gt;
+    3. Изаберите %1$s.
     &lt;br&gt;&lt;br&gt;Ако не видите опцију да пређете на другу тастатуру, пробајте да инсталирате %3$s, Google тастатуру.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Подешавања</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Укључите тастатуру са Брајевом азбуком у наставку.&lt;br&gt;&lt;br&gt;
+    2. Отворите уобичајену тастатуру, па додирните опцију за промену метода уноса %2$s (обично у доњем десном углу).&lt;br&gt;&lt;br&gt;
+    3. Изаберите %1$s.
+    &lt;br&gt;&lt;br&gt;Ако не можете пређете на другу тастатуру, пробајте да инсталирате %3$s, Google тастатуру.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Подешавања</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Укључи</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Укључите тастатуру са Брајевом азбуком.</string>
   <string name="typing_languages_title">Језици за куцање</string>
   <string name="preferred_language_title">Жељени језик</string>
-  <string name="dont_show_again">Не приказуј ово поново</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Брзо промените језик при куцању</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Да бисте променили језик док куцате помоћу тастатуре са Брајевом азбуком, превуците нагоре помоћу 3 прста. Затим изаберите „пређи на следећи језик“.</string>
   <string name="title_pref_accumulate_presses">Уврсти све притиснуте тачке</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Да бисте прешли на <b>следећу тастатуру</b>, превуците надоле помоћу 3 прста</string>
   <string name="gesture_submit_text">Да бисте <b>послали текст</b>, превуците нагоре помоћу 2 прста</string>
   <string name="gesture_open_context_menu">Да бисте пронашли <b>помоћ и друге опције</b>, превуците нагоре помоћу 3 прста</string>
-  <string name="done">Готово</string>
   <string name="not_enough_touch_points_dialog_title">Уређај не подржава тастатуру са Брајевом азбуком</string>
   <string name="not_enough_touch_points_dialog_message">Уређај не подржава довољно додирних тачака. Више информација потражите од произвођача уређаја.</string>
   <string name="talkback_off_dialog_title">Укључите TalkBack да бисте користили тастатуру са Брајевом азбуком</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Слово је избрисано</string>
   <string name="perform_delete_word_announcement">Реч је избрисана</string>
   <string name="continue_tutorial_announcement">Хајде да наставимо са водичем. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Спољни брајев екран је повезан и може да се користи за унос текста на овом уређају.\nМожете и да пређете на тастатуру са Брајевом азбуком на додирном екрану или на следећи метод уноса.</string>
-  <string name="braille_keyboard_strip_button">Пређи на тастатуру на додирном екрану</string>
+  <string name="switch_on_screen_keyboard_announcement">Прелази се на додирни Брајев екран</string>
+  <string name="braille_keyboard_strip_summary">Спољни Брајев екран је повезан и може да се користи за унос текста на телефону.\n\nМожете и да пређете на тастатуру са Брајевом азбуком на додирном екрану или на следећи метод уноса.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Пређите на додирни Брајев екран</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Пређите на следећи метод уноса</string>
 </resources>

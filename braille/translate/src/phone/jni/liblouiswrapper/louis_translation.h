@@ -29,7 +29,7 @@ JNIEXPORT jboolean JNICALL JNI_METHOD(checkTableNative)(JNIEnv* env,
                                                         jstring tableName);
 
 JNIEXPORT jobject JNICALL JNI_METHOD(translateNative)(
-    JNIEnv* env, jclass clazz, jstring text, jstring tableName,
+    JNIEnv* env, jclass clazz, jobject text, jstring tableName,
     jint cursorPosition, jboolean computerBrailleAtCursor);
 
 JNIEXPORT jstring JNICALL JNI_METHOD(backTranslateNative)(

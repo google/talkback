@@ -78,6 +78,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /** Views that displays the braille tutorial and there are several {@link State} in the tutorial. */
 public class TutorialView extends FrameLayout implements OrientationSensitive {
 
+  private static final int HIGHLIGHT_CHARACTER_ANIMATION_DURATION_MILLISECOND = 10;
+
   /** An interface of tutorial state machine. */
   public interface TutorialState {
 
@@ -331,11 +333,12 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
 
     private void startHighlightTextAnimation() {
       final TextView highlightTextView = findViewById(R.id.highlight_description);
-      CharSequence highlightText = ((TextView) findViewById(R.id.highlight_description)).getText();
+      CharSequence highlightText = highlightTextView.getText();
       final int highlightColor =
           getResources().getColor(R.color.text_highlight_color, /* theme= */ null);
       animator = ValueAnimator.ofInt(1, highlightText.length());
-      animator.setDuration(highlightText.length() * 10);
+      animator.setDuration(
+          (long) highlightText.length() * HIGHLIGHT_CHARACTER_ANIMATION_DURATION_MILLISECOND);
       animator.start();
       animator.addUpdateListener(
           animation -> {
@@ -1488,7 +1491,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
   private final BrailleInputView inputView;
   private final DotBlockView dotBlockView;
   private DotsFlashingAnimationView dotsFlashingAnimationView;
-  private final TutorialAnimationView tutorialAnimationView;
+  private TutorialAnimationView tutorialAnimationView;
   private final GestureDetector gestureDetector;
   private final ContextMenuDialog contextMenuDialog;
 
@@ -1551,6 +1554,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
   @Override
   public void onOrientationChanged(int orientation, Size screenSize) {
     this.orientation = orientation;
+    tutorialAnimationView = new TutorialAnimationView(context, orientation, screenSize, isTabletop);
     inputView.onOrientationChanged(orientation, screenSize);
     dotBlockView.onOrientationChanged(orientation, screenSize);
     if (dotsFlashingAnimationView != null) {

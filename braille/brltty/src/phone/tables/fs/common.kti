@@ -1,0 +1,77 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2016 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.com/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+bind Left\{navKeyType}Press LNBEG
+bind Right\{navKeyType}Press LNEND
+
+bind LeftSelector+RightSelector PASTE
+
+bind LeftAdvance FWINLT
+bind RightAdvance FWINRT
+
+bind LeftSelector+LeftAdvance TOP_LEFT
+bind LeftSelector+RightAdvance BOT_LEFT
+
+bind RightSelector+LeftAdvance TOP
+bind RightSelector+RightAdvance BOT
+
+bind !Left\{navKeyType}Up LNUP
+bind !Left\{navKeyType}Down LNDN
+
+bind Left\{navKeyType}Press+!Left\{navKeyType}Up PRDIFLN
+bind Left\{navKeyType}Press+!Left\{navKeyType}Down NXDIFLN
+
+bind Right\{navKeyType}Press+!Right\{navKeyType}Up CHRLT
+bind Right\{navKeyType}Press+!Right\{navKeyType}Down CHRRT
+
+bind LeftAdvance+!Left\{navKeyType}Up PRPROMPT
+bind LeftAdvance+!Left\{navKeyType}Down NXPROMPT
+
+bind RightAdvance+!Left\{navKeyType}Up PRPGRPH
+bind RightAdvance+!Left\{navKeyType}Down NXPGRPH
+
+bind LeftSelector+!Left\{navKeyType}Up ATTRUP
+bind LeftSelector+!Left\{navKeyType}Down ATTRDN
+
+bind RightSelector+!Left\{navKeyType}Up PRSEARCH
+bind RightSelector+!Left\{navKeyType}Down NXSEARCH
+
+# ROUTE+128 is a long-press on the routing key.
+bind RoutingKey ROUTE:ROUTE+128
+bind Left\{navKeyType}Press+!RoutingKey SETLEFT
+bind Right\{navKeyType}Press+!RoutingKey DESCCHAR
+
+bind RoutingKey+!RoutingKey CLIP_COPY
+bind LeftAdvance+!RoutingKey CLIP_NEW
+bind RightAdvance+!RoutingKey COPY_RECT
+bind LeftSelector+!RoutingKey CLIP_ADD
+bind RightSelector+!RoutingKey COPY_LINE
+
+########################
+# BrailleBack Bindings #
+########################
+
+# Scroll backwards
+bind LeftSelector WINUP
+# Scroll forwards
+bind RightSelector WINDN
+
+# Previous item
+bind !Right\{navKeyType}Up CHRLT
+# Next item
+bind !Right\{navKeyType}Down CHRRT

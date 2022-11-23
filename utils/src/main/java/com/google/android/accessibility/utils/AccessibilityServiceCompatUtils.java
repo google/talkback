@@ -20,10 +20,8 @@ import android.accessibilityservice.AccessibilityButtonController;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.accessibilityservice.FingerprintGestureController;
-import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
-import android.os.Build;
 import android.util.SparseArray;
 import android.view.Display;
 import android.view.accessibility.AccessibilityManager;
@@ -70,11 +68,17 @@ public class AccessibilityServiceCompatUtils {
             ACCESSIBILITY_SUITE_PACKAGE_NAME,
             "com.google.android.accessibility.brailleime.BrailleIme");
 
+    /** The name of the Braille keyboard settings activity. */
+    public static final ComponentName BRAILLE_KEYBOARD_SETTINGS =
+        new ComponentName(
+            ACCESSIBILITY_SUITE_PACKAGE_NAME,
+            "com.google.android.accessibility.brailleime.settings.BrailleImePreferencesActivity");
+
     /** The name of the Braille display settings activity. */
     public static final ComponentName BRAILLE_DISPLAY_SETTINGS =
         new ComponentName(
             ACCESSIBILITY_SUITE_PACKAGE_NAME,
-            "com.google.android.accessibility.braille.brailledisplay.BrailleDisplaySettingsActivity");
+            "com.google.android.accessibility.braille.brailledisplay.settings.BrailleDisplaySettingsActivity");
   }
 
   /** @return root node of the Application window */
@@ -93,13 +97,9 @@ public class AccessibilityServiceCompatUtils {
 
   public static @Nullable String getActiveWindowPackageName(AccessibilityService service) {
     @Nullable AccessibilityNodeInfoCompat rootNode = getRootInActiveWindow(service);
-    try {
-      return ((rootNode == null) || (rootNode.getPackageName() == null))
-          ? null
-          : rootNode.getPackageName().toString();
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(rootNode);
-    }
+    return ((rootNode == null) || (rootNode.getPackageName() == null))
+        ? null
+        : rootNode.getPackageName().toString();
   }
 
   /**
@@ -178,9 +178,7 @@ public class AccessibilityServiceCompatUtils {
     if (rootInActiveWindow == null) {
       return null;
     }
-    AccessibilityWindowInfo window = AccessibilityNodeInfoUtils.getWindow(rootInActiveWindow);
-    rootInActiveWindow.recycle();
-    return window;
+    return AccessibilityNodeInfoUtils.getWindow(rootInActiveWindow);
   }
 
   /** Returns whether input method window is on the screen. */
@@ -239,7 +237,6 @@ public class AccessibilityServiceCompatUtils {
    * @param fingerprintGestureId The fingerprint gesture Id
    * @return The string representative of the fingeprint gesture
    */
-  @TargetApi(Build.VERSION_CODES.O)
   public static String fingerprintGestureIdToString(int fingerprintGestureId) {
     switch (fingerprintGestureId) {
       case FingerprintGestureController.FINGERPRINT_GESTURE_SWIPE_LEFT:

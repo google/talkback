@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack-punktskrifttastatur</string>
+  <string name="braille_ime_bd_mode_name">Inndata på leselist</string>
   <string name="switch_to_screen_away_announcement">Skjerm vendt bort-modus</string>
   <string name="switch_to_tabletop_announcement">Skjerm vendt opp-modus. Plassér enheten med ladeporten til venstre. For å oppdatere punktposisjonen, hold seks fingre nede.</string>
   <string name="bring_ime_settings_page">Ingen andre tastaturer er aktivert. Gå til tastaturinnstillingene</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Slik bruker du punktskrifttastatur</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">For å bruke punktskrifttastaturet, åpne det vanlige tastaturet og trykk på velg tastatur-ikonet %1$s (vanligvis nederst til høyre). Velg «%2$s».
   &lt;br&gt;&lt;br&gt;Hvis du ikke ser et alternativ for å bytte tastatur, kan du prøve å installere %3$s – Google-tastaturet.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Slå på punktskrifttastatur&lt;/b&gt;: Trykk på Innstillinger nedenfor. Slå på «%1$s» på den neste skjermen.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Bruk punktskrifttastatur&lt;/b&gt;: Åpne det vanlige tastaturet, og trykk på velg tastatur-ikonet %2$s (vanligvis nederst til høyre). Velg «%1$s».
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Trykk på «Innstillinger» nedenfor. Slå på «%1$s» på den neste skjermen.&lt;br&gt;&lt;br&gt;
+    2. Åpne det vanlige tastaturet og trykk på Bytt inndatametode %2$s (vanligvis nederst til høyre).&lt;br&gt;&lt;br&gt;
+    3. Velg «%1$s».
     &lt;br&gt;&lt;br&gt;Hvis du ikke ser et alternativ for å bytte tastatur, kan du prøve å installere %3$s – Google-tastaturet.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Innstillinger</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Slå på punktskrifttastaturet nedenfor.&lt;br&gt;&lt;br&gt;
+    2. Åpne det vanlige tastaturet og trykk på Bytt inndatametode %2$s (vanligvis nederst til høyre).&lt;br&gt;&lt;br&gt;
+    3. Velg «%1$s».
+    &lt;br&gt;&lt;br&gt;Hvis du ikke kan bytte tastatur, kan du prøve å installere %3$s – Google-tastaturet.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Innstillinger</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Slå på</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Slå på punktskrifttastatur</string>
   <string name="typing_languages_title">Skriftspråk</string>
   <string name="preferred_language_title">Foretrukket språk</string>
-  <string name="dont_show_again">Ikke vis dette igjen</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Bytt språk raskt mens du skriver</string>
   <string name="switch_input_code_gesture_tip_dialog_message">For å endre språk mens du skriver med punktskrifttastaturet, sveip opp med tre fingre. Velg deretter «Bytt til neste språk».</string>
   <string name="title_pref_accumulate_presses">Inkluder alle trykte punkter</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">For å bytte til <b>neste tastatur</b>, sveip ned med tre fingre</string>
   <string name="gesture_submit_text">For å <b>sende inn tekst</b>, sveip opp med to fingre</string>
   <string name="gesture_open_context_menu">For å åpne <b>hjelp og andre alternativer</b>, sveip opp med tre fingre</string>
-  <string name="done">Ferdig</string>
   <string name="not_enough_touch_points_dialog_title">Enheten din støtter ikke punktskrifttastatur</string>
   <string name="not_enough_touch_points_dialog_message">Enheten din støtter ikke nok kontaktpunkter. Kontakt enhetsprodusenten for å få mer informasjon.</string>
   <string name="talkback_off_dialog_title">Slå på TalkBack for å bruke punktskrifttastatur</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Bokstaven er slettet</string>
   <string name="perform_delete_word_announcement">Ordet er slettet</string>
   <string name="continue_tutorial_announcement">La oss fortsette veiledningen. %1$s</string>
-  <string name="braille_keyboard_strip_summary">En ekstern leselist er tilkoblet. Du kan bruke den til å skrive inn tekst på denne enheten.\nEller du kan bytte til punktskrifttastaturet på berøringsskjermen eller den neste inndatametoden.</string>
-  <string name="braille_keyboard_strip_button">Bytt til tastaturet på berøringsskjermen</string>
+  <string name="switch_on_screen_keyboard_announcement">Bytter til berøringsskjerm med punktskrift</string>
+  <string name="braille_keyboard_strip_summary">En ekstern leselist er tilkoblet. Du kan bruke den til å skrive inn tekst på telefonen.\n\nDu kan også bytte til punktskrifttastaturet på berøringsskjermen eller den neste inndatametoden.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Bytt til berøringsskjerm med punktskrift</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Bytt til neste inndatametode</string>
 </resources>

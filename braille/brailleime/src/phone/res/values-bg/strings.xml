@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">Брайлова клавиатура за TalkBack</string>
+  <string name="braille_ime_bd_mode_name">Въвеждане на текст чрез екран за брайлово писмо</string>
   <string name="switch_to_screen_away_announcement">Режим на обърнат екран</string>
   <string name="switch_to_tabletop_announcement">Настолен режим. Насочете наляво порта за зареждане на устройството. За да актуализирате позициите на точките, задръжте 6 пръста върху екрана.</string>
   <string name="bring_ime_settings_page">Не е активирана друга клавиатура, отворете съответните настройки</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Как да използвате брайловата клавиатура</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">За да използвате брайловата клавиатура, отворете стандартната и докоснете иконата за избиране на клавиатура %1$s (обикновено е в долния десен ъгъл). Изберете „%2$s“.
   &lt;br&gt;&lt;br&gt;Ако не виждате опция за превключване на клавиатурите, инсталирайте %3$s – клавиатурата на Google.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Включване на брайловата клавиатура&lt;/b&gt;: Докоснете „Настройки“ по-долу. На следващия екран включете „%1$s“.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Използване на брайловата клавиатура&lt;/b&gt;: Отворете стандартната и докоснете иконата за избиране на клавиатура %2$s (обикновено е в долния десен ъгъл). Изберете „%1$s“.
-    &lt;br&gt;&lt;br&gt;Ако не виждате опция за превключване на клавиатурата, инсталирайте %3$s – клавиатурата на Google.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Настройки</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Докоснете „Настройки“ по-долу. На следващия екран включете „%1$s“.&lt;br&gt;&lt;br&gt;
+2. Отворете стандартната клавиатура и докоснете бутона за превключване на метода на въвеждане %2$s (обикновено е в долния десен ъгъл).&lt;br&gt;&lt;br&gt;
+3. Изберете %1$s.
+&lt;br&gt;&lt;br&gt;Ако не виждате опция за превключване на клавиатурата, инсталирайте %3$s – клавиатурата на Google.</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Изберете „Включване на брайловата клавиатура“ по-долу.&lt;br&gt;&lt;br&gt;
+2. Отворете стандартната клавиатура и докоснете бутона за превключване на метода на въвеждане %2$s (обикновено е в долния десен ъгъл).&lt;br&gt;&lt;br&gt;
+3. Изберете %1$s.
+&lt;br&gt;&lt;br&gt;Ако не можете да превключвате между клавиатурите, инсталирайте %3$s – клавиатурата на Google.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Настройки</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Включване</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Включване на брайловата клавиатура</string>
   <string name="typing_languages_title">Езици за въвеждане</string>
   <string name="preferred_language_title">Предпочитан език</string>
-  <string name="dont_show_again">Без повторно показване</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Бърза промяна на езика по време на въвеждане</string>
   <string name="switch_input_code_gesture_tip_dialog_message">За да промените езика при въвеждане с брайловата клавиатура, прекарайте три пръста нагоре, след което изберете опцията за превключване към следващия език.</string>
   <string name="title_pref_accumulate_presses">Включване на всички натиснати точки</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">За да превключите към <b>следващата клавиатура</b>, прекарайте 3 пръста надолу</string>
   <string name="gesture_submit_text">За <b>да изпратите текст</b>, прекарайте 2 пръста нагоре</string>
   <string name="gesture_open_context_menu">За <b>помощ и други опции</b> прекарайте 3 пръста нагоре</string>
-  <string name="done">Готово</string>
   <string name="not_enough_touch_points_dialog_title">Устройството ви не поддържа брайлова клавиатура</string>
   <string name="not_enough_touch_points_dialog_message">Устройството ви не поддържа достатъчно тактилни точки. За повече информация се обърнете към производителя му.</string>
   <string name="talkback_off_dialog_title">Включване на TalkBack с цел използване на брайлова клавиатура</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Буквата е изтрита</string>
   <string name="perform_delete_word_announcement">Думата е изтрита</string>
   <string name="continue_tutorial_announcement">Да продължим урока. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Свързан е външен екран за брайлово писмо, чрез който можете да въвеждате текст на това у-во.\nМожете и да превключите към сензорната клавиатура за брайлово писмо или към следващия метод на въвеждане.</string>
-  <string name="braille_keyboard_strip_button">Превключване към сензорната клавиатура</string>
+  <string name="switch_on_screen_keyboard_announcement">Превключва се към сензорната клавиатура за брайлово писмо</string>
+  <string name="braille_keyboard_strip_summary">Свързан е външен екран за брайлово писмо, чрез който можете да въвеждате текст на телефона си.\n\nМожете и да превключите към сензорн. клавиатура за брайлово писмо или към следващия метод на въвежд.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Превключване към сензорната клавиатура за брайлово писмо</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Превключване към следващия метод на въвеждане</string>
 </resources>

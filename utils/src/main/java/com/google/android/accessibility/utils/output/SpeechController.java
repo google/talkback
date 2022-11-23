@@ -253,6 +253,8 @@ public interface SpeechController {
 
   void toggleVoiceFeedback();
 
+  boolean isMute();
+
   void setMute(boolean mute);
 
   /**

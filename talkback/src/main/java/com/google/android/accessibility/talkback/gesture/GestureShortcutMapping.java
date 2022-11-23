@@ -28,8 +28,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
-import com.google.android.accessibility.compositor.GestureShortcutProvider;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.compositor.GestureShortcutProvider;
+import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.WindowUtils;
@@ -182,6 +183,17 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         SINGLE_FINGER,
         R.string.pref_shortcut_left_and_up_key,
         R.string.pref_shortcut_left_and_up_default),
+    // One-finger Tap
+    ONE_FINGER_DOUBLE_TAP(
+        AccessibilityService.GESTURE_DOUBLE_TAP,
+        MULTI_FINGER,
+        R.string.pref_shortcut_1finger_2tap_key,
+        R.string.pref_shortcut_1finger_2tap_default),
+    ONE_FINGER_DOUBLE_TAP_AND_HOLD(
+        AccessibilityService.GESTURE_DOUBLE_TAP_AND_HOLD,
+        MULTI_FINGER,
+        R.string.pref_shortcut_1finger_2tap_hold_key,
+        R.string.pref_shortcut_1finger_2tap_hold_default),
     // Multi-finger Gestures
     TWO_FINGER_SINGLE_TAP(
         AccessibilityService.GESTURE_2_FINGER_SINGLE_TAP,
@@ -676,6 +688,12 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
       String action =
           prefs.getString(
               context.getString(gesture.keyId), context.getString(gesture.defaultActionId));
+      // When diagnosis-mode is on, override a gesture to dump node-tree to logs.
+      if ((gesture == TalkBackGesture.FOUR_FINGER_SINGLE_TAP)
+          && PreferencesActivityUtils.isDiagnosisModeOn(prefs, context.getResources())) {
+        action = context.getString(R.string.shortcut_value_print_node_tree);
+      }
+
       GestureCollector gestureCollector;
       if (actionToGesture.containsKey(action)) {
         gestureCollector = actionToGesture.get(action);
@@ -698,10 +716,7 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         // table.
         continue;
       }
-      gestureIdToActionKey.put(
-          gesture.gestureId,
-          prefs.getString(
-              context.getString(gesture.keyId), context.getString(gesture.defaultActionId)));
+      gestureIdToActionKey.put(gesture.gestureId, action);
     }
 
     // Don't need to keep unassigned action in the map.

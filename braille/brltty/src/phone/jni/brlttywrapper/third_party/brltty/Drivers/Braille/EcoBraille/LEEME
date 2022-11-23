@@ -1,0 +1,49 @@
+Fichero leeme del driver para la EcoBraille
+
+Version 1.01 (1 de Marzo de 2000)
+
+
+Licencia
+========
+
+Este software es gratuito.
+Este driver se distrbuye bajo la Licencia Pública General Reducida de GNU.
+Lease el fichero 'LICENSE-LGPL' para mas detalles de la licencia.
+Mandeme sus comentarios o errores encontrados al e-mail ofa@once.es
+puede hacerlo en castellano, catalan o en ingles.
+
+Puede coger la ultima version en ftp://ftp.once.es/pub/accessibility
+
+
+Hardware soportado
+==================
+
+Este driver trabaja con todos los modelos de lineas braille EcoBraille,
+incluido la Eco20, Eco40 y Eco80.
+
+Si necesita informacion de los producto EcoBraille, visite la pagina Web
+http://www.once.es/
+
+
+Configuracion de puertos
+------------------------
+En el fichero 'Makefile' localizado en el directorio BRLTTY, se dispone de 
+una linea en donde se puede definir el puerto serie utilizado. Por ejemplo;
+/dev/ttyS0.  La velocidad de conexion viene definida en el fichero braille.h
+
+Por defecto, la linea EcoBraille se comunica a 19200 baudios.
+
+
+Ejecutar el driver
+==================
+
+Para compilar y ejecutar el programa BRLTTY, lease la documentacion del
+mismo. 
+
+Debe ejecutar el programa BRLTTY con la linea EcoBraille conectada al 
+puerto serie y encendida.
+
+
+Oscar Fernandez
+ofa@once.es
+January,29 1999

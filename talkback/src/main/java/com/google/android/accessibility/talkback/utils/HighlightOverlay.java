@@ -35,33 +35,33 @@ import android.view.WindowManager;
 import android.view.WindowManager.BadTokenException;
 import android.widget.FrameLayout;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.DiagnosticOverlayUtils.DiagnosticType;
 import com.google.android.accessibility.utils.widget.SimpleOverlay;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /** Highlights for clickability of nodes and for nodes that were traversed but not focused */
 public class HighlightOverlay extends SimpleOverlay {
-  private static final float HIGHLIGHT_ALPHA = 0.45f;
+  private static final float HIGHLIGHT_ALPHA = 0.25f;
   static View highlightView;
-  private static int ORANGE = 0xFFFFA500;
 
-  /** {@code unfocusableNodes} obtained in
-   * {@link DiagnosticOverlayControllerImpl#appendLog and
-   * @link DiagnosticOverlayControllerImpl#clearUnfocusedNodes()} respectively}}*/
-  private HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> unfocusableNodes = null;
+  // Nodes passed over during sequential navigation
+  private HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> skippedNodes = null;
 
-  /** {@code focusednode} obtained in {@link DiagnosticOverlayControllerImpl#appendLog(Feedback)} */
+  // Nodes on refocus node path
+  private HashSet<AccessibilityNode> refocusNodePath = null;
+
+  // Node currently focused
   private AccessibilityNodeInfoCompat focusedNode;
 
   /** Highlights multiple nodes */
   public class MultipleHighlightView extends View {
-    private final Paint clickablePaint = new Paint();
-    private final Paint nonClickablePaint = new Paint();
-    private final Paint unfocusablePaint = new Paint();
+    private final Paint refocusPaint = new Paint();
+    private final Paint skippedNodePaint = new Paint();
     private final Paint borderPaint = new Paint();
 
     public MultipleHighlightView(Context context) {
@@ -69,13 +69,11 @@ public class HighlightOverlay extends SimpleOverlay {
 
       /** Use {@link BlendMode#DST_OUT for clickable highlight if larger screen focusability
        * can be filtered out*/
-      clickablePaint.setColor(Color.GREEN);
-      clickablePaint.setBlendMode(BlendMode.COLOR);
-      nonClickablePaint.setColor(Color.BLUE);
-      nonClickablePaint.setBlendMode(BlendMode.COLOR);
+      refocusPaint.setColor(Color.GREEN);
+      refocusPaint.setBlendMode(BlendMode.COLOR);
 
-      unfocusablePaint.setStyle(Style.FILL);
-      unfocusablePaint.setBlendMode(BlendMode.OVERLAY);
+      skippedNodePaint.setStyle(Style.FILL);
+      skippedNodePaint.setBlendMode(BlendMode.OVERLAY);
       // Paint requires one to draw same rectangle twice for different colored borders - once
       // w/ fill and once w/ stroke
       borderPaint.setColor(Color.BLACK);
@@ -85,46 +83,52 @@ public class HighlightOverlay extends SimpleOverlay {
           context.getResources().getDimensionPixelSize(R.dimen.highlight_overlay_border));
     }
 
-    /** Draws color-coded unfocused/clickable nodes onto {@code canvas} defined as device screen */
     @Override
     public void onDraw(Canvas canvas) {
-      if (unfocusableNodes != null) {
-        unfocusablePaint.setColor(Color.RED);
+      if (skippedNodes != null) {
+        skippedNodePaint.setColor(Color.RED);
         processUnfocusableNodes(FOCUS_FAIL_FAIL_ALL_FOCUS_TESTS, canvas);
-
-        unfocusablePaint.setColor(Color.MAGENTA);
         processUnfocusableNodes(FOCUS_FAIL_NOT_SPEAKABLE, canvas);
-
-        unfocusablePaint.setColor(Color.YELLOW);
         processUnfocusableNodes(FOCUS_FAIL_NOT_VISIBLE, canvas);
-
-        unfocusablePaint.setColor(ORANGE);
         processUnfocusableNodes(FOCUS_FAIL_SAME_WINDOW_BOUNDS_CHILDREN, canvas);
       }
-      Rect clickableBounds = new Rect();
-      focusedNode.getBoundsInScreen(clickableBounds);
-
-      boolean clickable = focusedNode.isClickable();
-      if (clickable) {
-        canvas.drawRect(clickableBounds, clickablePaint);
-      } else {
-        canvas.drawRect(clickableBounds, nonClickablePaint);
+      if (refocusNodePath != null) {
+        for (AccessibilityNode node : refocusNodePath) {
+          Rect nodeBounds = new Rect();
+          node.getBoundsInScreen(nodeBounds);
+          drawRectangle(canvas, nodeBounds, refocusPaint);
+        }
       }
     }
 
     private void processUnfocusableNodes(@DiagnosticType Integer type, Canvas canvas) {
       ArrayList<AccessibilityNodeInfoCompat> currentNodes =
           new ArrayList<AccessibilityNodeInfoCompat>();
-      currentNodes = unfocusableNodes.get(type);
+      currentNodes = skippedNodes.get(type);
       if (currentNodes != null) {
         for (AccessibilityNodeInfoCompat node : currentNodes) {
           Rect r = new Rect();
           node.getBoundsInScreen(r);
-          canvas.drawRect(r, unfocusablePaint);
-          canvas.drawRect(r, borderPaint);
+          drawRectangle(canvas, r, skippedNodePaint);
         }
       }
     }
+
+    private void drawRectangle(Canvas canvas, Rect rectOnScreen, Paint paint) {
+      // Adjust location by overlay position on screen.
+      int[] overlayScreenXY = {0, 0};
+      highlightView.getLocationOnScreen(overlayScreenXY);
+      Rect rectInHighlightView = moveRect(rectOnScreen, -overlayScreenXY[0], -overlayScreenXY[1]);
+
+      // Draw fill and outline.
+      canvas.drawRect(rectInHighlightView, paint);
+      canvas.drawRect(rectInHighlightView, borderPaint);
+    }
+  }
+
+  private static Rect moveRect(Rect rect, int deltaX, int deltaY) {
+    return new Rect(
+        rect.left + deltaX, rect.top + deltaY, rect.right + deltaX, rect.bottom + deltaY);
   }
 
   public HighlightOverlay(Context context) {
@@ -154,7 +158,8 @@ public class HighlightOverlay extends SimpleOverlay {
 
   public void highlightNodesOnScreen(
       AccessibilityNodeInfoCompat focusedNode,
-      HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> unfocusedNodeList) {
+      HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> skippedNodes,
+      HashSet<AccessibilityNode> refocusNodePath) {
     highlightView.setVisibility(View.VISIBLE);
     try {
       show();
@@ -162,7 +167,8 @@ public class HighlightOverlay extends SimpleOverlay {
       LogUtils.e(
           "Highlight Overlay", e, "Caught WindowManager.BadTokenException while displaying text.");
     }
-    unfocusableNodes = unfocusedNodeList;
+    this.skippedNodes = skippedNodes;
+    this.refocusNodePath = refocusNodePath;
     this.focusedNode = focusedNode;
     // calling invalidate will update highlightView
     highlightView.invalidate();

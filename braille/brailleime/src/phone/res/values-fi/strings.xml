@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBackin pistekirjoitusnäppäimistö</string>
+  <string name="braille_ime_bd_mode_name">Syöttö pistekirjoitusnäytöllä</string>
   <string name="switch_to_screen_away_announcement">Näyttö pois ‑tila</string>
   <string name="switch_to_tabletop_announcement">Pöytätila. Aseta laite niin, että latausportti on vasemmalla. Jos haluat muuttaa pisteen sijaintia, paina pitkään kuudella sormella.</string>
   <string name="bring_ime_settings_page">Toista näppäimistöä ei ole käytössä, siirry näppäimistöasetuksiin</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">Pistekirjoitusnäppäimistön käyttäminen</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Voit käyttää pistekirjoitusnäppäimistöä avaamalla tavallisen näppäimistön ja napauttamalla näppäimistön valintakuvaketta %1$s (yleensä oikeassa alakulmassa). Valitse %2$s.
   &lt;br&gt;&lt;br&gt;Jos et näe näppäimistön vaihtamisen vaihtoehtoa, kokeile asentaa Google-näppäimistö %3$s.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Pistekirjoitusnäppäimistön käyttöönotto&lt;/b&gt;: Napauta alta Asetukset. Ota seuraavasta näytöstä käyttöön %1$s.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Pistekirjoitusnäytön käyttäminen&lt;/b&gt;: Avaa tavallinen näppäimistö ja napauta näppäimistön valintakuvaketta %2$s (yleensä oikeassa alakulmassa). Valitse %1$s.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. Valitse alta Asetukset. Laita seuraavassa kohdassa päälle %1$s.&lt;br&gt;&lt;br&gt;
+    2. Avaa normaali näppäimistö ja valitse sitten Vaihda syöttötapaa %2$s (yleensä oikeassa alakulmassa).&lt;br&gt;&lt;br&gt;
+    3. Valitse %1$s.
     &lt;br&gt;&lt;br&gt;Jos et näe näppäimistön vaihtamisen vaihtoehtoa, kokeile asentaa Google-näppäimistö %3$s.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">Asetukset</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. Laita pistekirjoitusnäppäimistö päälle.&lt;br&gt;&lt;br&gt;
+    2. Avaa normaali näppäimistö ja valitse sitten Vaihda syöttötapaa %2$s (yleensä oikeassa alakulmassa).&lt;br&gt;&lt;br&gt;
+    3. Valitse %1$s.
+    &lt;br&gt;&lt;br&gt;Jos et voi vaihtaa näppäimistöä, kokeile asentaa Google-näppäimistö %3$s.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Asetukset</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Laita päälle</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Laita pistekirjoitusnäppäimistö päälle</string>
   <string name="typing_languages_title">Kirjoituskielet</string>
   <string name="preferred_language_title">Ensisijainen kieli</string>
-  <string name="dont_show_again">Älä näytä tätä uudelleen</string>
   <string name="switch_input_code_gesture_tip_dialog_title">Vaihda kieltä nopeasti kirjoitettaessa</string>
   <string name="switch_input_code_gesture_tip_dialog_message">Jos haluat vaihtaa kieltä kirjoittaessasi pistekirjoitusnäppäimistöllä, avaa valikko pyyhkäisemällä ylös kolmella sormella. Valitse sitten \"Vaihda seuraavaan kieleen\".</string>
   <string name="title_pref_accumulate_presses">Sisällytä kaikki painetut pisteet</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard">Vaihda <b>seuraavaan näppäimistöön</b> pyyhkäisemällä alas kolmella sormella</string>
   <string name="gesture_submit_text"><b>Lähetä teksti</b> pyyhkäisemällä ylös kahdella sormella</string>
   <string name="gesture_open_context_menu">Näet <b>ohjeita ja muita vaihtoehtoja</b> pyyhkäisemällä ylös kolmella sormella</string>
-  <string name="done">Valmis</string>
   <string name="not_enough_touch_points_dialog_title">Laitteesi ei tue pistekirjoitusnäppäimistöä.</string>
   <string name="not_enough_touch_points_dialog_message">Laitteesi ei tue riittävää määrää kosketuspisteitä. Saat lisätietoja laitteen valmistajalta.</string>
   <string name="talkback_off_dialog_title">TalkBackin ottaminen käyttöön pistekirjoitusnäppäimistön käyttöä varten</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">Kirjain poistettiin</string>
   <string name="perform_delete_word_announcement">Sana poistettiin</string>
   <string name="continue_tutorial_announcement">Jatketaan ohjetta. %1$s</string>
-  <string name="braille_keyboard_strip_summary">Laitteeseen on yhdistetty ulkoinen pistekirjoitusnäyttö, jonka avulla voit kirjoittaa tekstiä.\nVoit myös valita kosketusnäytön pistekirjoitusnäppäimistön tai seuraavan syöttötavan.</string>
-  <string name="braille_keyboard_strip_button">Vaihda kosketusnäyttönäppäimistöön</string>
+  <string name="switch_on_screen_keyboard_announcement">Vaihdetaan kosketusnäytön pistekirjoitusnäppäimistöön</string>
+  <string name="braille_keyboard_strip_summary">Puhelimeen on yhdistetty ulkoinen pistekirjoitusnäyttö, jonka avulla voit kirjoittaa tekstiä.\n\nVoit myös valita kosketusnäytön pistekirjoitusnäppäimistön tai seuraavan syöttötavan.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">Vaihda kosketusnäytön pistekirjoitusnäppäimistöön</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">Vaihda seuraavaan syöttötapaan</string>
 </resources>

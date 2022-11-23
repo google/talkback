@@ -47,11 +47,6 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
     mController.initOrder(mRootNode, false);
   }
 
-  /** @deprecated Accessibility is discontinuing recycling. */
-  @Override
-  @Deprecated
-  public void recycle() {}
-
   @Override
   public Map<AccessibilityNodeInfoCompat, Boolean> getSpeakingNodesCache() {
     return mSpeakingNodesCache;

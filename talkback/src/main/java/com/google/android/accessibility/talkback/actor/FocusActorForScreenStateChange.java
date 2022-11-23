@@ -152,8 +152,13 @@ public class FocusActorForScreenStateChange {
 
     primesController.startTimer(Timer.INITIAL_FOCUS_FOLLOW_INPUT);
     AccessibilityNodeInfoCompat inputFocusedNode = focusFinder.findFocusCompat(FOCUS_INPUT);
-    return (inputFocusedNode != null)
-        && (inputFocusedNode.isEditable()
+    AccessibilityWindowInfo currentActiveWindow = screenState.getActiveWindow();
+    if (inputFocusedNode == null
+        || currentActiveWindow == null
+        || (inputFocusedNode.getWindowId() != currentActiveWindow.getId())) {
+      return false;
+    }
+    return (inputFocusedNode.isEditable()
             || (Role.getRole(inputFocusedNode) == Role.ROLE_EDIT_TEXT))
         && pipeline.returnFeedback(
             eventId, Feedback.focus(inputFocusedNode, FOCUS_ACTION_INFO_SYNCED_EDIT_TEXT));

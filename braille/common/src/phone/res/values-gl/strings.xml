@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Non mostrar de novo</string>
+  <string name="done">Feito</string>
   <string name="number_announcement">Números</string>
   <string name="capitalize_announcement">Maiúsculas</string>
   <string name="read_out_deleted">Eliminouse: %s</string>
@@ -7,8 +9,9 @@
     <item quantity="one">punto %s</item>
     <item quantity="other">puntos %s</item>
   </plurals>
-  <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
-  <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
+  <string name="language_split_comma">,\u0020</string>
+  <string name="code_user_facing_name_ueb1">Braille inglés unificado sen contraer</string>
+  <string name="code_user_facing_name_ueb2">Braille inglés unificado contraído</string>
   <string name="code_user_facing_name_es">Español</string>
   <string name="code_user_facing_name_ar">Árabe</string>
   <string name="code_user_facing_name_fr">Francés</string>

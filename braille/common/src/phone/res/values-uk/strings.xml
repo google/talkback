@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">Більше не показувати</string>
+  <string name="done">Готово</string>
   <string name="number_announcement">Номер</string>
   <string name="capitalize_announcement">Великі літери</string>
   <string name="read_out_deleted">Видалено: %s</string>
   <plurals name="braille_dots">
-    <item quantity="one">крапка %s</item>
-    <item quantity="few">крапка %s</item>
-    <item quantity="many">крапка %s</item>
-    <item quantity="other">крапка %s</item>
+    <item quantity="one">крапки %s</item>
+    <item quantity="few">крапки %s</item>
+    <item quantity="many">крапки %s</item>
+    <item quantity="other">крапки %s</item>
   </plurals>
+  <string name="language_split_comma">,</string>
   <string name="code_user_facing_name_ueb1">Unified English Braille Uncontracted</string>
   <string name="code_user_facing_name_ueb2">Unified English Braille Contracted</string>
   <string name="code_user_facing_name_es">Іспанська</string>

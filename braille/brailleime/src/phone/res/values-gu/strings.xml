@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="braille_ime_service_name">ટૉકબૅક બ્રેઇલ કીબોર્ડ</string>
+  <string name="braille_ime_service_name">TalkBack બ્રેઇલ કીબોર્ડ</string>
+  <string name="braille_ime_bd_mode_name">બ્રેઇલ ડિસ્પ્લે પર ટેક્સ્ટનું ઇનપુટ</string>
   <string name="switch_to_screen_away_announcement">સ્ક્રીન અવે મોડ</string>
   <string name="switch_to_tabletop_announcement">ટેબલટોપ મોડ. તમારા ડિવાઇસને એવી રીતે રાખો કે ચાર્જિંગ પોર્ટ ડાબી બાજુએ રહે. ડોટની સ્થિતિ અપડેટ કરવા માટે, 6 આંગળીથી દબાવી રાખો.</string>
   <string name="bring_ime_settings_page">બીજું કોઈ કીબોર્ડ ચાલુ નથી, કીબોર્ડ સેટિંગ પર જાઓ</string>
   <string name="reminder_announcement">વધુ વિકલ્પો માટે 3 આંગળી વડે ઉપરની તરફ સ્વાઇપ કરો</string>
   <string name="braille_ime_displayed_name">બ્રેઇલ કીબોર્ડ</string>
   <string name="multiple_languages_braille_ime_displayed_name">બ્રેઇલ કીબોર્ડ, %s</string>
-  <string name="input_view_caption">ટૉકબૅક બ્રેઇલ કીબોર્ડ - સહાય માટે, g.co/help/brailleની મુલાકાત લો</string>
+  <string name="input_view_caption">TalkBack બ્રેઇલ કીબોર્ડ - સહાય માટે, g.co/help/brailleની મુલાકાત લો</string>
   <string name="perform_action_next">આગળ</string>
   <string name="perform_action_submitting">ટેક્સ્ટ સબમિટ કરવી</string>
   <string name="calibration_step1_hold_left_finger_announcement">ડોટની સ્થિતિ અપડેટ કરી રહ્યાં છીએ. પહેલા, તમારા ડાબા હાથના ડોટને રેકોર્ડ કરીએ. સ્ક્રીનને તમારા ડાબા હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
@@ -23,13 +24,19 @@
   <string name="how_to_use_braille_keyboard">બ્રેઇલ કીબોર્ડનો ઉપયોગ કેવી રીતે કરવો</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">બ્રેઇલ કીબોર્ડનો ઉપયોગ કરવા માટે, તમારું નિયમિત કીબોર્ડ ખોલો, પછી કીબોર્ડ પસંદ કરો આઇકન %1$s (જે સામાન્ય રીતે નીચલા જમણા ખૂણા પર હોય છે) પર ટૅપ કરો. \"%2$s\"ને પસંદ કરો.
   &lt;br&gt;&lt;br&gt;જો તમને કીબોર્ડને સ્વિચ કરવાનો વિકલ્પ ન દેખાય, તો %3$s, Google કીબોર્ડને ઇન્સ્ટૉલ કરી જુઓ.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;બ્રેઇલ કીબોર્ડ ચાલુ કરો&lt;/b&gt;: નીચે સેટિંગ પર ટૅપ કરો. આગલી સ્ક્રીન પર, \"%1$s\"ને ચાલુ કરો.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;બ્રેઇલ કીબોર્ડનો ઉપયોગ કરો&lt;/b&gt;: તમારું નિયમિત કીબોર્ડ ખોલો, પછી કીબોર્ડ પસંદ કરો આઇકન %2$s (જે સામાન્ય રીતે નીચલા જમણા ખૂણા પર હોય છે) પર ટૅપ કરો. \"%1$s\"ને પસંદ કરો.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. નીચે આપેલા \"સેટિંગ\" પર ટૅપ કરો. આગળની સ્ક્રીન પર, \"%1$s\" ચાલુ કરો&lt;br&gt;&lt;br&gt;
+    2. તમારું નિયમિત કીબોર્ડ ખોલો, પછી ઇનપુટ પદ્ધતિ %2$s સ્વિચ કરો પર ટૅપ કરો (જે સામાન્ય રીતે સૌથી નીચે જમણા ખૂણા પર હોય છે).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\"ને પસંદ કરો.
   &lt;br&gt;&lt;br&gt;જો તમને કીબોર્ડને સ્વિચ કરવાનો વિકલ્પ ન દેખાય, તો %3$s, Google કીબોર્ડને ઇન્સ્ટૉલ કરી જુઓ.</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">સેટિંગ</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. નીચે આપેલું બ્રેઇલ કીબોર્ડ ચાલુ કરો.&lt;br&gt;&lt;br&gt;
+    2. તમારું નિયમિત કીબોર્ડ ખોલો, પછી ઇનપુટ પદ્ધતિ %2$s સ્વિચ કરો પર ટૅપ કરો (જે સામાન્ય રીતે સૌથી નીચે જમણા ખૂણા પર હોય છે).&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\"ને પસંદ કરો.
+    &lt;br&gt;&lt;br&gt;જો તમે કીબોર્ડ સ્વિચ કરી શકતા ન હોય, તો %3$s, Google કીબોર્ડને ઇન્સ્ટૉલ કરી જુઓ.</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">સેટિંગ</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ચાલુ કરો</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">બ્રેઇલ કીબોર્ડ ચાલુ કરો</string>
   <string name="typing_languages_title">ટાઇપ કરવાની ભાષાઓ</string>
   <string name="preferred_language_title">પસંદગીની ભાષા</string>
-  <string name="dont_show_again">આ ફરી બતાવશો નહીં</string>
   <string name="switch_input_code_gesture_tip_dialog_title">ટાઇપિંગ કરતી વખતે ઝડપથી ભાષા બદલો</string>
   <string name="switch_input_code_gesture_tip_dialog_message">બ્રેઇલ કીબોર્ડ વડે ટાઇપ કરતી વખતે તમારી ભાષા બદલવા માટે, 3 આંગળીઓથી ઉપરની તરફ સ્વાઇપ કરો. પછી \"આગલી ભાષા પર સ્વિચ થાઓ\"ને પસંદ કરો.</string>
   <string name="title_pref_accumulate_presses">બધા દબાવેલા ડોટને શામેલ કરો</string>
@@ -55,10 +62,9 @@
   <string name="gesture_next_keyboard"><b>આગલા કીબોર્ડ</b> પર સ્વિચ કરવા માટે, 3 આંગળી વડે નીચેની તરફ સ્વાઇપ કરો</string>
   <string name="gesture_submit_text"><b>ટેક્સ્ટ સબમિટ કરવા</b> માટે, 2 આંગળી વડે ઉપરની તરફ સ્વાઇપ કરો</string>
   <string name="gesture_open_context_menu"><b>સહાય અને અન્ય વિકલ્પો</b> માટે, 3 આંગળી વડે ઉપરની તરફ સ્વાઇપ કરો</string>
-  <string name="done">થઈ ગયું</string>
   <string name="not_enough_touch_points_dialog_title">તમારા ડિવાઇસમાં બ્રેઇલ કીબોર્ડની સુવિધા ઉપલબ્ધ નથી</string>
   <string name="not_enough_touch_points_dialog_message">તમારા ડિવાઇસમાં પૂરતાં પ્રમાણમાં ટચ પૉઇન્ટ ઉપલબ્ધ નથી. વધુ માહિતી માટે, તમારા ડિવાઇસના નિર્માતાનો સંપર્ક કરો.</string>
-  <string name="talkback_off_dialog_title">બ્રેઇલ કીબોર્ડનો ઉપયોગ કરવા માટે ટૉકબૅક ચાલુ કરો</string>
+  <string name="talkback_off_dialog_title">બ્રેઇલ કીબોર્ડનો ઉપયોગ કરવા માટે TalkBack ચાલુ કરો</string>
   <string name="talkback_off_dialog_positive_button">ઍક્સેસિબિલિટી સેટિંગમાં ચાલુ કરો</string>
   <string name="talkback_suspend_dialog_title">બ્રેઇલ કીબોર્ડનો ઉપયોગ કરવા માટે ટૉકબૅક ફરી શરૂ કરો</string>
   <string name="talkback_off_or_suspend_dialog_message">જ્યારે ટૉકબૅક ચાલુ હોય, ત્યારે તમે બ્રેઇલ પ્રતીકોને દાખલ કરવા માટે તમારી સ્ક્રીન પર ટૅપ કરી શકો છો.</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">અક્ષર ડિલીટ કર્યો</string>
   <string name="perform_delete_word_announcement">શબ્દ ડિલીટ કર્યો</string>
   <string name="continue_tutorial_announcement">ચાલો ત્યારે ટ્યૂટૉરિઅલ ચાલુ કરીએ. %1$s</string>
-  <string name="braille_keyboard_strip_summary">કોઈ બાહ્ય બ્રેઇલ ડિસ્પ્લે કનેક્ટ કરેલું છે, જેનો ઉપયોગ તમે આ ડિવાઇસમાં ટેક્સ્ટ ટાઇપ કરવા માટે કરી શકો છો.\nઅથવા તમે ટચ સ્ક્રીનના બ્રેઇલ કીબોર્ડ પર કે ઇનપુટની આગલી કોઈ પદ્ધતિ પર સ્વિચ કરી શકો છો.</string>
-  <string name="braille_keyboard_strip_button">ટચ સ્ક્રીનવાળા કીબોર્ડ પર સ્વિચ કરો</string>
+  <string name="switch_on_screen_keyboard_announcement">બ્રેઇલ ટચસ્ક્રીન પર સ્વિચ કરી રહ્યાં છીએ</string>
+  <string name="braille_keyboard_strip_summary">કોઈ બાહ્ય બ્રેઇલ ડિસ્પ્લે કનેક્ટ કરેલું છે, જેનો ઉપયોગ તમે તમારા ફોનમાં ટેક્સ્ટ ટાઇપ કરવા માટે કરી શકો છો.\n\nતમે ટચસ્ક્રીન બ્રેઇલ કીબોર્ડ અથવા આગલી ઇનપુટ પદ્ધતિ પર સ્વિચ પણ કરી શકો છો.</string>
+  <string name="braille_keyboard_strip_touch_screen_button">બ્રેઇલ ટચસ્ક્રીન પર સ્વિચ કરો</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">આગલી ઇનપુટ પદ્ધતિ પર સ્વિચ કરો</string>
 </resources>

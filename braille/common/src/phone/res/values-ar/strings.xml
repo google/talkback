@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="dont_show_again">عدم إظهار هذا مجددًا</string>
+  <string name="done">تم</string>
   <string name="number_announcement">الرقم</string>
   <string name="capitalize_announcement">الكتابة بالأحرف الكبيرة</string>
   <string name="read_out_deleted">تم حذف %s.</string>
   <plurals name="braille_dots">
-    <item quantity="zero">%s نقطة</item>
-    <item quantity="one">نقطة واحدة (%s)</item>
-    <item quantity="two">نقطتان (%s)</item>
-    <item quantity="few">%s نقاط</item>
-    <item quantity="many">%s نقطة</item>
-    <item quantity="other">%s نقطة</item>
+    <item quantity="zero">النقاط %s</item>
+    <item quantity="one">النقطة %s</item>
+    <item quantity="two">النقطتان %s</item>
+    <item quantity="few">النقاط %s</item>
+    <item quantity="many">النقاط %s</item>
+    <item quantity="other">النقاط %s</item>
   </plurals>
+  <string name="language_split_comma">،</string>
   <string name="code_user_facing_name_ueb1">لغة برايل الإنجليزية الموحدة غير المختصرة</string>
   <string name="code_user_facing_name_ueb2">لغة برايل الإنجليزية الموحدة المختصرة</string>
   <string name="code_user_facing_name_es">الإسبانية</string>

@@ -16,6 +16,10 @@
 
 package com.google.android.accessibility.talkback.selector;
 
+import static android.accessibilityservice.AccessibilityServiceInfo.FLAG_SERVICE_HANDLES_DOUBLE_TAP;
+import static android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction.ACTION_DRAG_CANCEL;
+import static android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction.ACTION_DRAG_DROP;
+import static android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction.ACTION_DRAG_START;
 import static com.google.android.accessibility.talkback.Feedback.AdjustValue.Action.DECREASE_VALUE;
 import static com.google.android.accessibility.talkback.Feedback.AdjustValue.Action.INCREASE_VALUE;
 import static com.google.android.accessibility.talkback.Feedback.AdjustVolume.Action.DECREASE_VOLUME;
@@ -23,10 +27,13 @@ import static com.google.android.accessibility.talkback.Feedback.AdjustVolume.Ac
 import static com.google.android.accessibility.talkback.Feedback.AdjustVolume.StreamType.STREAM_TYPE_ACCESSIBILITY;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.BRIGHTEN;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.DIM;
+import static com.google.android.accessibility.talkback.Feedback.Focus.Action.CLICK_NODE;
 import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.NEXT_PAGE;
 import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.PREVIOUS_PAGE;
 import static com.google.android.accessibility.talkback.Feedback.Language.Action.NEXT_LANGUAGE;
 import static com.google.android.accessibility.talkback.Feedback.Language.Action.PREVIOUS_LANGUAGE;
+import static com.google.android.accessibility.talkback.Feedback.ServiceFlag.Action.DISABLE_FLAG;
+import static com.google.android.accessibility.talkback.Feedback.ServiceFlag.Action.ENABLE_FLAG;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_ITEM_ACTION_OVERLAY;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER;
@@ -35,7 +42,7 @@ import static com.google.android.accessibility.talkback.selector.SelectorControl
 import static com.google.android.accessibility.talkback.selector.SelectorController.Setting.GRANULARITY_CHARACTERS;
 import static com.google.android.accessibility.talkback.selector.SelectorController.Setting.GRANULARITY_WINDOWS;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
-import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_TOUCH;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_BACKWARD;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_FORWARD;
 
@@ -59,17 +66,16 @@ import com.google.android.accessibility.talkback.Feedback.SpeechRate.Action;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
+import com.google.android.accessibility.talkback.eventprocessor.ProcessorAccessibilityHints;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.gesture.GestureShortcutMapping;
 import com.google.android.accessibility.talkback.preference.base.VerbosityPrefFragment;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
-import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
-import com.google.android.accessibility.utils.feedbackpolicy.AbstractAccessibilityHintsManager;
 import com.google.android.accessibility.utils.input.CursorGranularity;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
@@ -92,21 +98,19 @@ public class SelectorController {
   private static final int GRANULARITY_FOR_ALL_NODE = 0;
   private static final int GRANULARITY_FOR_NATIVE_NODE = 1;
   private static final int GRANULARITY_FOR_WEB_NODE = 2;
-  private static final int NO_SETTING_INSERTED = -1;
-
-  private static final Filter<AccessibilityNodeInfoCompat> FILTER_HAS_MENU_ACTION =
-      new Filter.NodeCompat(
-          (node) -> {
-            for (AccessibilityActionCompat action : node.getActionList()) {
-              if (shouldIncludeAction(action)) {
-                return true;
-              }
-            }
-            return false;
-          });
+  private static final int DEFAULT_SETTING_ACTION = AccessibilityNodeInfoCompat.ACTION_CLICK;
 
   /** The current action id selected for the actions setting. */
-  private int currentActionId = NO_SETTING_INSERTED;
+  private int currentActionId = DEFAULT_SETTING_ACTION;
+
+  private boolean hasRequestServiceHandlesDoubleTap = false;
+
+  /** Audial feedback announce types. */
+  public enum AnnounceType {
+    SILENCE,
+    DESCRIPTION,
+    DESCRIPTION_AND_HINT,
+  }
 
   /** Selector settings. */
   public enum Setting {
@@ -308,7 +312,7 @@ public class SelectorController {
   private final TalkBackAnalytics analytics;
   private final SharedPreferences prefs;
   private final GestureShortcutMapping gestureMapping;
-  private final AbstractAccessibilityHintsManager hintsManager;
+  private final ProcessorAccessibilityHints hintsManager;
   /**
    * Keeps gestures to announce the usage hint for how to select setting (change quick menu item).
    */
@@ -346,10 +350,10 @@ public class SelectorController {
           Setting.ADJUSTABLE_WIDGET);
 
   /** Lists all {@link Setting} that should be hidden for users. */
-  private static final ImmutableList<Setting> HIDDEN_SETTINGS = ImmutableList.of(Setting.ACTIONS);
+  private final ImmutableList<Setting> hiddenSettings;
 
   private static final ImmutableList<ContextualSetting> CONTEXTUAL_SETTINGS =
-      ImmutableList.of(new AdjustableWidgetSetting());
+      ImmutableList.of(new AdjustableWidgetSetting(), new ActionsSetting());
 
   private final OnSharedPreferenceChangeListener sharedPreferenceChangeListener =
       (prefs, key) -> {
@@ -378,13 +382,18 @@ public class SelectorController {
       @NonNull AccessibilityFocusMonitor accessibilityFocusMonitor,
       @NonNull TalkBackAnalytics analytics,
       @NonNull GestureShortcutMapping gestureMapping,
-      AbstractAccessibilityHintsManager hintsManager) {
+      ProcessorAccessibilityHints hintsManager) {
 
     this.context = context;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
     this.analytics = analytics;
     this.gestureMapping = gestureMapping;
     this.hintsManager = hintsManager;
+
+    // Initialize hidden Setting List.
+    ImmutableList.Builder<Setting> builder = ImmutableList.builder();
+    builder.add(ACTIONS);
+    hiddenSettings = builder.build();
 
     prefs = SharedPreferencesUtils.getSharedPreferences(this.context);
     prefs.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
@@ -465,9 +474,9 @@ public class SelectorController {
     }
   }
 
-  /** Sets the current Setting and announces the hint if {@code announce} is true. */
+  /** Sets the current Setting and announces depends on {@code announceType}. */
   private void setCurrentSetting(
-      EventId eventId, Setting newSetting, boolean announce, boolean showOverlay) {
+      EventId eventId, Setting newSetting, AnnounceType announceType, boolean showOverlay) {
     updateSettingPref(context, newSetting);
     String actionDescription = null;
     String hint = null;
@@ -505,6 +514,8 @@ public class SelectorController {
         hint = getAdjustSelectedSettingGestures();
         break;
       case ACTIONS:
+        // Reset currentActionId to the default action.
+        currentActionId = DEFAULT_SETTING_ACTION;
         actionDescription = context.getString(R.string.title_pref_selector_actions);
         hint = getAdjustSelectedSettingGestures();
         break;
@@ -546,13 +557,29 @@ public class SelectorController {
       default:
     }
 
+    // Actions menu requests FLAG_SERVICE_HANDLES_DOUBLE_TAP to allow triggering the action by
+    // double-tap.
+    if (newSetting.equals(ACTIONS)) {
+      pipeline.returnFeedback(
+          eventId, Feedback.requestServiceFlag(ENABLE_FLAG, FLAG_SERVICE_HANDLES_DOUBLE_TAP));
+      hasRequestServiceHandlesDoubleTap = true;
+    } else {
+      if (hasRequestServiceHandlesDoubleTap) {
+        pipeline.returnFeedback(
+            eventId, Feedback.requestServiceFlag(DISABLE_FLAG, FLAG_SERVICE_HANDLES_DOUBLE_TAP));
+        hasRequestServiceHandlesDoubleTap = false;
+      }
+    }
+
     if (hint != null) {
       analytics.onSelectorEvent();
     }
     if (TextUtils.isEmpty(actionDescription)) {
       return;
     }
-    if (announce) {
+    if (announceType == AnnounceType.DESCRIPTION) {
+      announceSetting(eventId, actionDescription, null);
+    } else if (announceType == AnnounceType.DESCRIPTION_AND_HINT) {
       announceSetting(eventId, actionDescription, hint);
     }
     if (showOverlay) {
@@ -561,7 +588,7 @@ public class SelectorController {
   }
 
   /** Gets the current setting from the preference. */
-  private Setting getCurrentSetting() {
+  public Setting getCurrentSetting() {
     @Nullable Setting currentSetting =
         Setting.getSettingFromPrefValue(
             context,
@@ -577,13 +604,13 @@ public class SelectorController {
    * the setting during the selection mode life time, system will change the setting back to its
    * original value when the selection mode stops.
    */
-  public void editTextSelected(boolean isSelected) {
+  public void editTextOrSelectableTextSelected(boolean isSelected) {
     if (isSelected) {
       settingToRestore = getCurrentSetting();
       setCurrentSetting(
           EVENT_ID_UNTRACKED,
           Setting.GRANULARITY_CHARACTERS,
-          /* announce= */ false,
+          /* announceType= */ AnnounceType.SILENCE,
           /* showOverlay= */ false);
       return;
     }
@@ -602,10 +629,13 @@ public class SelectorController {
    * is wrapped into AccessibilityNodeInfoCompat node.
    */
   public void newItemFocused(AccessibilityNodeInfo nodeInfo) {
+    // Reset currentActionId to the default action.
+    currentActionId = DEFAULT_SETTING_ACTION;
     Setting currentSetting = getCurrentSetting();
     if (nodeInfo != null) {
       Optional<ContextualSetting> contextualMenu =
-          getMatchedContextualSetting(context, AccessibilityNodeInfoCompat.wrap(nodeInfo));
+          getMatchedContextualSetting(
+              context, AccessibilityNodeInfoCompat.wrap(nodeInfo), hiddenSettings);
       // If a matched contextual setting is available, switch to that setting automatically.
       if (contextualMenu.isPresent()) {
         if (contextualMenu.get().getSetting() != currentSetting) {
@@ -613,7 +643,7 @@ public class SelectorController {
           setCurrentSetting(
               EVENT_ID_UNTRACKED,
               contextualMenu.get().getSetting(),
-              /* announce= */ false,
+              /* announceType= */ AnnounceType.SILENCE,
               /* showOverlay= */ false);
         }
 
@@ -630,7 +660,8 @@ public class SelectorController {
   }
 
   /** Selects the previous or next setting. For selecting setting via gesture. */
-  public void selectPreviousOrNextSetting(EventId eventId, boolean isNext) {
+  public void selectPreviousOrNextSetting(
+      EventId eventId, AnnounceType announceType, boolean isNext) {
     List<Setting> settings = getFilteredSettings();
 
     int settingsSize = settings.size();
@@ -658,7 +689,7 @@ public class SelectorController {
       }
     }
 
-    setCurrentSetting(eventId, settings.get(index), true, /* showOverlay= */ true);
+    setCurrentSetting(eventId, settings.get(index), announceType, /* showOverlay= */ true);
   }
 
   /**
@@ -668,7 +699,7 @@ public class SelectorController {
   private void selectFirstAvailableSetting() {
     List<Setting> settings = getFilteredSettings();
     if (!settings.isEmpty()) {
-      selectSetting(settings.get(0), false, false);
+      selectSetting(settings.get(0), AnnounceType.SILENCE, false);
     } else {
       resetSelectedSetting(context);
     }
@@ -681,7 +712,10 @@ public class SelectorController {
   private void restoreSetting() {
     if (settingToRestore != null && allowedSetting(settingToRestore)) {
       setCurrentSetting(
-          EVENT_ID_UNTRACKED, settingToRestore, /* announce= */ false, /* showOverlay= */ false);
+          EVENT_ID_UNTRACKED,
+          settingToRestore,
+          /* announceType= */ AnnounceType.SILENCE,
+          /* showOverlay= */ false);
     } else {
       selectFirstAvailableSetting();
     }
@@ -692,16 +726,19 @@ public class SelectorController {
 
   /** Selects setting and announces selected setting. For selecting setting via voice-shortcut. */
   public boolean selectSetting(@Nullable Setting setting) {
-    return selectSetting(setting, /* announce= */ true, /* showOverlay= */ true);
+    return selectSetting(
+        setting, /* announceType= */ AnnounceType.DESCRIPTION_AND_HINT, /* showOverlay= */ true);
   }
 
   /** Selects setting and announces selected setting. For selecting setting via voice-shortcut. */
   public boolean selectSetting(@Nullable Setting setting, boolean showOverlay) {
-    return selectSetting(setting, /* announce= */ true, showOverlay);
+    return selectSetting(
+        setting, /* announceType= */ AnnounceType.DESCRIPTION_AND_HINT, showOverlay);
   }
 
   /** Selects setting and announces selected setting. For selecting setting via voice-shortcut. */
-  private boolean selectSetting(@Nullable Setting setting, boolean announce, boolean showOverlay) {
+  private boolean selectSetting(
+      @Nullable Setting setting, AnnounceType announceType, boolean showOverlay) {
     if (setting == null || !allowedSetting(setting)) {
       return false;
     }
@@ -714,7 +751,7 @@ public class SelectorController {
       prefs.edit().putString(currentSettingKey, settingValue).apply();
     }
 
-    setCurrentSetting(EVENT_ID_UNTRACKED, setting, announce, showOverlay);
+    setCurrentSetting(EVENT_ID_UNTRACKED, setting, announceType, showOverlay);
     return true;
   }
 
@@ -754,11 +791,16 @@ public class SelectorController {
         return FeatureSupport.hasAccessibilityAudioStream(context);
       case ACTIONS:
         {
-          if (node == null) {
-            node = accessibilityFocusMonitor.getAccessibilityFocus(false);
+          Optional<ContextualSetting> actions = findContextualSetting(ACTIONS);
+          if (actions.isEmpty()) {
+            return false;
           }
 
-          return hasActions(node);
+          if (node == null) {
+            node =
+                accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
+          }
+          return actions.get().shouldActivateSetting(context, node);
         }
       case GRANULARITY_HEADINGS:
       case GRANULARITY_WORDS:
@@ -802,7 +844,7 @@ public class SelectorController {
         accessibilityFocusMonitor.getAccessibilityFocus(false);
 
     for (Setting setting : SELECTOR_SETTINGS) {
-      if (HIDDEN_SETTINGS.contains(setting)) {
+      if (hiddenSettings.contains(setting)) {
         continue;
       }
 
@@ -811,16 +853,6 @@ public class SelectorController {
       }
     }
     return filteredSettingsBuilder.build();
-  }
-
-  private boolean hasActions(@Nullable AccessibilityNodeInfoCompat node) {
-    if (node == null) {
-      return false;
-    }
-
-    AccessibilityNodeInfoCompat actionNode =
-        AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(node, FILTER_HAS_MENU_ACTION);
-    return actionNode != null;
   }
 
   /** Announces the quick menu item or action, and the usage hint. */
@@ -1049,22 +1081,6 @@ public class SelectorController {
           eventId, Feedback.speech(context.getString(R.string.actions_setting_not_enabled)));
       return;
     }
-    if (currentActionId == NO_SETTING_INSERTED) {
-      // Hint needs to be before text in talkback structure.
-      pipeline.returnFeedback(
-          eventId,
-          Feedback.Part.builder()
-              .setSpeech(
-                  Speech.builder()
-                      .setAction(Speech.Action.SPEAK)
-                      .setText(context.getString(R.string.no_action_selected))
-                      .setHintSpeakOptions(
-                          SpeechController.SpeakOptions.create()
-                              .setFlags(FeedbackItem.FLAG_NO_HISTORY))
-                      .setHint(context.getString(R.string.hint_select_action))
-                      .build()));
-      return;
-    }
 
     @Nullable AccessibilityNodeInfoCompat node =
         accessibilityFocusMonitor.getAccessibilityFocus(false);
@@ -1103,8 +1119,15 @@ public class SelectorController {
       return false;
     }
 
+    // Always perform click action on the node.
+    if (currentActionId == AccessibilityNodeInfoCompat.ACTION_CLICK) {
+      pipeline.returnFeedback(eventId, Feedback.focus(CLICK_NODE).setTarget(node));
+      return true;
+    }
+
     AccessibilityNodeInfoCompat actionNode =
-        AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(node, FILTER_HAS_MENU_ACTION);
+        AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
+            node, ActionsSetting.HAS_ACTION_FOR_MENU);
     if (actionNode == null) {
       return false;
     }
@@ -1358,7 +1381,16 @@ public class SelectorController {
       currentActionId = action.getId();
       displayText = action.getLabel();
       if (displayText == null) {
-        if (currentActionId == AccessibilityNodeInfoCompat.ACTION_DISMISS) {
+        if (FeatureSupport.supportDragAndDrop() && currentActionId == ACTION_DRAG_START.getId()) {
+          // TODO: Replace with AndroidX constants
+          displayText = context.getString(R.string.title_action_drag_start);
+        } else if (FeatureSupport.supportDragAndDrop()
+            && currentActionId == ACTION_DRAG_DROP.getId()) {
+          displayText = context.getString(R.string.title_action_drag_drop);
+        } else if (FeatureSupport.supportDragAndDrop()
+            && currentActionId == ACTION_DRAG_CANCEL.getId()) {
+          displayText = context.getString(R.string.title_action_drag_cancel);
+        } else if (currentActionId == AccessibilityNodeInfoCompat.ACTION_DISMISS) {
           displayText = context.getString(R.string.title_action_dismiss);
         } else if (currentActionId == AccessibilityNodeInfoCompat.ACTION_EXPAND) {
           displayText = context.getString(R.string.title_action_expand);
@@ -1369,7 +1401,7 @@ public class SelectorController {
           displayText = context.getString(R.string.value_unlabelled);
         }
       }
-      announceSetting(eventId, displayText.toString(), getSelectSettingGestures());
+      announceSetting(eventId, displayText.toString(), context.getString(R.string.use_action_hint));
       showQuickMenuActionOverlay(eventId, displayText);
     }
   }
@@ -1390,15 +1422,22 @@ public class SelectorController {
       return -1;
     }
 
-    AccessibilityNodeInfoCompat actionNode = null;
-    actionNode = AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(node, FILTER_HAS_MENU_ACTION);
+    AccessibilityNodeInfoCompat actionNode =
+        AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
+            node, ActionsSetting.HAS_ACTION_FOR_MENU);
     if (actionNode == null) {
       return -1;
     }
 
-    int currentActionIndex = -1;
+    // Add default action ACTION_CLICK to the menu.
+    actions.add(
+        new AccessibilityActionCompat(
+            AccessibilityNodeInfoCompat.ACTION_CLICK,
+            context.getString(R.string.shortcut_perform_click_action)));
+
+    int currentActionIndex = 0; // Point to the default action "Click".
     for (AccessibilityActionCompat action : actionNode.getActionList()) {
-      if (shouldIncludeAction(action)) {
+      if (ActionsSetting.shouldIncludeAction(action)) {
         if (action.getId() == currentActionId) {
           currentActionIndex = actions.size();
         }
@@ -1406,14 +1445,6 @@ public class SelectorController {
       }
     }
     return currentActionIndex;
-  }
-
-  private static boolean shouldIncludeAction(AccessibilityActionCompat action) {
-    int id = action.getId();
-    return ((AccessibilityNodeInfoUtils.isCustomAction(action) && (action.getLabel() != null))
-        || (id == AccessibilityNodeInfoCompat.ACTION_DISMISS)
-        || (id == AccessibilityNodeInfoCompat.ACTION_EXPAND)
-        || (id == AccessibilityNodeInfoCompat.ACTION_COLLAPSE));
   }
 
   private static boolean isContextualSetting(Setting setting) {
@@ -1425,9 +1456,11 @@ public class SelectorController {
   }
 
   private static Optional<ContextualSetting> getMatchedContextualSetting(
-      Context context, AccessibilityNodeInfoCompat node) {
+      Context context, AccessibilityNodeInfoCompat node, List<Setting> hiddenSettings) {
     return CONTEXTUAL_SETTINGS.stream()
-        .filter((s) -> s.shouldActivateSetting(context, node))
+        .filter(
+            (s) ->
+                !hiddenSettings.contains(s.getSetting()) && s.shouldActivateSetting(context, node))
         .findFirst();
   }
 

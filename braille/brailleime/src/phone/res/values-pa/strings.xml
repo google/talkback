@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="braille_ime_service_name">TalkBack ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ</string>
+  <string name="braille_ime_bd_mode_name">ਬਰੇਲ ਡਿਸਪਲੇ ਇਨਪੁੱਟ</string>
   <string name="switch_to_screen_away_announcement">ਸਕ੍ਰੀਨ ਤੋਂ ਦੂਰ ਮੋਡ</string>
   <string name="switch_to_tabletop_announcement">ਟੇਬਲਟੌਪ ਮੋਡ। ਆਪਣੇ ਡੀਵਾਈਸ ਨੂੰ ਚਾਰਜ ਕਰਨ ਵਾਲੇ ਪੋਰਟ ਨੂੰ ਖੱਬੇ ਪਾਸੇ ਵੱਲ ਰੱਖੋ। ਬਿੰਦੂ ਦੀ ਸਥਿਤੀ ਨੂੰ ਅੱਪਡੇਟ ਕਰਨ ਲਈ, 6 ਉਂਗਲਾਂ ਨੂੰ ਸਕ੍ਰੀਨ \'ਤੇ ਰੱਖੋ।</string>
   <string name="bring_ime_settings_page">ਕੋਈ ਹੋਰ ਕੀ-ਬੋਰਡ ਚਾਲੂ ਨਹੀਂ ਹੈ, ਕੀ-ਬੋਰਡ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਜਾਓ</string>
@@ -19,17 +20,23 @@
   <string name="calibration_fail_announcement">ਬਿੰਦੂ ਦੀ ਸਥਿਤੀ ਨੂੰ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਸਕ੍ਰੀਨ ਨੂੰ 6 ਉਂਗਲਾਂ ਨਾਲ ਸਪਰਸ਼ ਕਰਕੇ ਰੱਖੋ। ਫਿਰ, ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
   <string name="switch_to_language_announcement">%s \'ਤੇ ਸਵਿੱਚ ਕੀਤਾ ਗਿਆ</string>
   <string name="braille_keyboard">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ</string>
-  <string name="set_up_braille_keyboard">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਸੈੱਟਅੱਪ ਕਰੋ</string>
+  <string name="set_up_braille_keyboard">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਦਾ ਸੈੱਟਅੱਪ ਕਰੋ</string>
   <string name="how_to_use_braille_keyboard">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਨੂੰ ਕਿਵੇਂ ਵਰਤਣਾ ਹੈ</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਵਰਤਣ ਲਈ, ਆਪਣਾ ਆਮ ਕੀ-ਬੋਰਡ ਖੋਲ੍ਹੋ, ਫਿਰ \'ਕੀ-ਬੋਰਡ ਚੁਣੋ\' ਪ੍ਰਤੀਕ \'ਤੇ ਟੈਪ ਕਰੋ %1$s (ਆਮ ਤੌਰ \'ਤੇ ਹੇਠਲੇ ਸੱਜੇ ਕੋਨੇ ਵਿੱਚ)। \"%2$s\" ਚੁਣੋ।
   &lt;br&gt;&lt;br&gt;ਜੇ ਤੁਹਾਨੂੰ ਕੀ-ਬੋਰਡਾਂ ਵਿਚਾਲੇ ਅਦਲਾ-ਬਦਲੀ ਕਰਨ ਦਾ ਵਿਕਲਪ ਨਹੀਂ ਮਿਲਦਾ, ਤਾਂ %3$s ਸਥਾਪਤ ਕਰਕੇ ਦੇਖੋ, ਜੋ ਕਿ Google ਕੀ-ਬੋਰਡ ਹੈ।</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਚਾਲੂ ਕਰਕੇ ਦੇਖੋ&lt;/b&gt;: ਹੇਠਾਂ ਦਿੱਤੀਆਂ ਸੈਟਿੰਗਾਂ \'ਤੇ ਟੈਪ ਕਰੋ। ਅਗਲੀ ਸਕ੍ਰੀਨ \'ਤੇ, \"%1$s\" ਚਾਲੂ ਕਰੋ।
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਵਰਤੋ&lt;/b&gt;: ਆਪਣਾ ਆਮ ਕੀ-ਬੋਰਡ ਖੋਲ੍ਹੋ, ਫਿਰ \'ਕੀ-ਬੋਰਡ ਚੁਣੋ\' ਪ੍ਰਤੀਕ \'ਤੇ ਟੈਪ ਕਰੋ %2$s (ਆਮ ਤੌਰ \'ਤੇ ਹੇਠਲੇ ਸੱਜੇ ਕੋਨੇ ਵਿੱਚ)। \"%1$s\" ਚੁਣੋ।
-    &lt;br&gt;&lt;br&gt;ਜੇ ਤੁਹਾਨੂੰ ਕੀ-ਬੋਰਡਾਂ ਦੀ ਅਦਲਾ-ਬਦਲੀ ਕਰਨ ਦਾ ਵਿਕਲਪ ਨਹੀਂ ਮਿਲਦਾ, ਤਾਂ %3$s ਸਥਾਪਤ ਕਰਕੇ ਦੇਖੋ, ਜੋ ਕਿ Google ਕੀ-ਬੋਰਡ ਹੈ।</string>
-  <string name="use_brailleime_pref_button_case_ime_disabled">ਸੈਟਿੰਗਾਂ</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">1. ਹੇਠਾਂ \"ਸੈਟਿੰਗਾਂ\" \'ਤੇ ਟੈਪ ਕਰੋ। ਅਗਲੀ ਸਕ੍ਰੀਨ \'ਤੇ, \"%1$s\" ਚਾਲੂ ਕਰੋ&lt;br&gt;&lt;br&gt;
+    2. ਆਪਣਾ ਆਮ ਕੀ-ਬੋਰਡ ਖੋਲ੍ਹੋ, ਫਿਰ \'ਇਨਪੁੱਟ ਵਿਧੀ ਨੂੰ ਸਵਿੱਚ ਕਰੋ\' \'ਤੇ ਟੈਪ ਕਰੋ %2$s (ਆਮ ਤੌਰ \'ਤੇ ਹੇਠਲੇ ਸੱਜੇ ਕੋਨੇ ਵਿੱਚ)।&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" ਚੁਣੋ।
+    &lt;br&gt;&lt;br&gt;ਜੇ ਤੁਹਾਨੂੰ ਕੀ-ਬੋਰਡਾਂ ਨੂੰ ਸਵਿੱਚ ਕਰਨ ਦਾ ਵਿਕਲਪ ਨਹੀਂ ਮਿਲਦਾ, ਤਾਂ %3$s ਸਥਾਪਤ ਕਰ ਕੇ ਦੇਖੋ, ਜੋ ਕਿ Google ਕੀ-ਬੋਰਡ ਹੈ।</string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">1. ਹੇਠਾਂ ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਨੂੰ ਚਾਲੂ ਕਰੋ।&lt;br&gt;&lt;br&gt;
+    2. ਆਪਣਾ ਆਮ ਕੀ-ਬੋਰਡ ਖੋਲ੍ਹੋ, ਫਿਰ \'ਇਨਪੁੱਟ ਵਿਧੀ ਨੂੰ ਸਵਿੱਚ ਕਰੋ\' \'ਤੇ ਟੈਪ ਕਰੋ %2$s (ਆਮ ਤੌਰ \'ਤੇ ਹੇਠਲੇ ਸੱਜੇ ਕੋਨੇ ਵਿੱਚ)।&lt;br&gt;&lt;br&gt;
+    3. \"%1$s\" ਚੁਣੋ।
+    &lt;br&gt;&lt;br&gt;ਜੇ ਤੁਸੀਂ ਕੀ-ਬੋਰਡਾਂ ਨੂੰ ਸਵਿੱਚ ਨਹੀਂ ਕਰ ਸਕਦੇ, ਤਾਂ %3$s ਸਥਾਪਤ ਕਰ ਕੇ ਦੇਖੋ, ਜੋ ਕਿ Google ਕੀ-ਬੋਰਡ ਹੈ।</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">ਸੈਟਿੰਗਾਂ</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">ਚਾਲੂ ਕਰੋ</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
   <string name="typing_languages_title">ਟਾਈਪ ਕਰਨ ਵਾਲੀਆਂ ਭਾਸ਼ਾਵਾਂ</string>
   <string name="preferred_language_title">ਤਰਜੀਹੀ ਭਾਸ਼ਾ</string>
-  <string name="dont_show_again">ਇਸਨੂੰ ਦੁਬਾਰਾ ਨਾ ਦਿਖਾਓ</string>
   <string name="switch_input_code_gesture_tip_dialog_title">ਟਾਈਪ ਕਰਨ ਵੇਲੇ ਤੇਜ਼ੀ ਨਾਲ ਭਾਸ਼ਾ ਬਦਲੋ</string>
   <string name="switch_input_code_gesture_tip_dialog_message">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਨਾਲ ਟਾਈਪ ਕਰਦੇ ਸਮੇਂ ਭਾਸ਼ਾ ਬਦਲਣ ਵਾਸਤੇ, 3 ਉਂਗਲਾਂ ਨਾਲ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਫਿਰ \"ਅਗਲੀ ਭਾਸ਼ਾ \'ਤੇ ਸਵਿੱਚ ਕਰੋ\" ਨੂੰ ਚੁਣੋ।</string>
   <string name="title_pref_accumulate_presses">ਸਾਰੀਆਂ ਦੱਬੀਆਂ ਹੋਈਆਂ ਬਿੰਦੀਆਂ ਸ਼ਾਮਲ ਕਰੋ</string>
@@ -55,7 +62,6 @@
   <string name="gesture_next_keyboard"><b>ਅਗਲੇ ਕੀ-ਬੋਰਡ</b> \'ਤੇ ਜਾਣ ਲਈ, 3 ਉਂਗਲਾਂ ਨਾਲ ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
   <string name="gesture_submit_text"><b>ਲਿਖਤ ਸਪੁਰਦ ਕਰਨ</b> ਲਈ, 2 ਉਂਗਲਾਂ ਨਾਲ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
   <string name="gesture_open_context_menu"><b>ਮਦਦ ਅਤੇ ਹੋਰ ਵਿਕਲਪਾਂ</b> ਲਈ, 3 ਉਂਗਲਾਂ ਨਾਲ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
-  <string name="done">ਹੋ ਗਿਆ</string>
   <string name="not_enough_touch_points_dialog_title">ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ</string>
   <string name="not_enough_touch_points_dialog_message">ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਲੋੜੀਂਦੇ ਸਪਰਸ਼ ਪੁਆਇੰਟਾਂ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ। ਜ਼ਿਆਦਾ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਡੀਵਾਈਸ ਨਿਰਮਾਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।</string>
   <string name="talkback_off_dialog_title">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਨੂੰ ਵਰਤਣ ਲਈ TalkBack ਚਾਲੂ ਕਰੋ</string>
@@ -114,6 +120,8 @@
   <string name="perform_delete_letter_announcement">ਅੱਖਰ ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="perform_delete_word_announcement">ਸ਼ਬਦ ਮਿਟਾਇਆ ਗਿਆ</string>
   <string name="continue_tutorial_announcement">ਚਲੋ ਟਿਊਟੋਰੀਅਲ \'ਤੇ ਜਾਰੀ ਰੱਖੀਏ। %1$s</string>
-  <string name="braille_keyboard_strip_summary">ਬਾਹਰੀ ਬਰੇਲ ਡਿਸਪਲੇ ਨੂੰ ਕਨੈਕਟ ਕੀਤਾ ਗਿਆ ਹੈ, ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਲਿਖਤ ਟਾਈਪ ਕਰਨ ਲਈ ਵਰਤ ਸਕਦੇ ਹੋ।\nਜਾਂ, ਤੁਸੀਂ ਟੱਚ-ਸਕ੍ਰੀਨ ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਜਾਂ ਕਿਸੇ ਹੋਰ ਇਨਪੁੱਟ ਵਿਧੀ \'ਤੇ ਸਵਿੱਚ ਕਰ ਸਕਦੇ ਹੋ।</string>
-  <string name="braille_keyboard_strip_button">ਟੱਚ-ਸਕ੍ਰੀਨ ਕੀ-ਬੋਰਡ \'ਤੇ ਸਵਿੱਚ ਕਰੋ</string>
+  <string name="switch_on_screen_keyboard_announcement">ਬਰੇਲ ਲਿਪੀ ਟੱਚਸਕ੍ਰੀਨ \'ਤੇ ਸਵਿੱਚ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
+  <string name="braille_keyboard_strip_summary">ਬਾਹਰੀ ਬਰੇਲ ਡਿਸਪਲੇ ਨੂੰ ਕਨੈਕਟ ਕੀਤਾ ਗਿਆ ਹੈ, ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਆਪਣੇ ਫ਼ੋਨ \'ਤੇ ਲਿਖਤ ਟਾਈਪ ਕਰਨ ਲਈ ਵਰਤ ਸਕਦੇ ਹੋ।\n\nਤੁਸੀਂ ਟੱਚ-ਸਕ੍ਰੀਨ ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਜਾਂ ਕਿਸੇ ਹੋਰ ਇਨਪੁੱਟ ਵਿਧੀ \'ਤੇ ਵੀ ਸਵਿੱਚ ਕਰ ਸਕਦੇ ਹੋ।</string>
+  <string name="braille_keyboard_strip_touch_screen_button">ਬਰੇਲ ਲਿਪੀ ਟੱਚਸਕ੍ਰੀਨ \'ਤੇ ਸਵਿੱਚ ਕਰੋ</string>
+  <string name="braille_keyboard_strip_next_keyboard_button">ਅਗਲੀ ਇਨਪੁੱਟ ਵਿਧੀ \'ਤੇ ਸਵਿੱਚ ਕਰੋ</string>
 </resources>

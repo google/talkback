@@ -37,47 +37,59 @@ import com.google.android.accessibility.braille.interfaces.BrailleDisplayForBrai
 public interface EditBuffer {
 
   /**
-   * Append a {@link BrailleCharacter} to the end of the buffer, possibly mutating the IME Editor.
+   * Appends a {@link BrailleCharacter} to the end of the buffer, possibly mutating the IME Editor.
    */
   String appendBraille(ImeConnection imeConnection, BrailleCharacter brailleCharacter);
 
-  /** Append a space (' ') to the end of the buffer, possibly mutating the IME Editor. */
+  /** Appends a space (' ') to the end of the buffer, possibly mutating the IME Editor. */
   void appendSpace(ImeConnection imeConnection);
 
-  /** Append a newline to the end of the buffer, possibly mutating the IME Editor. */
+  /** Appends a newline to the end of the buffer, possibly mutating the IME Editor. */
   void appendNewline(ImeConnection imeConnection);
 
   /**
-   * Delete a single character backward from the end of the buffer, possibly mutating the IME
+   * Deletes a single character backward from the end of the buffer, possibly mutating the IME
    * Editor.
    */
   void deleteCharacterBackward(ImeConnection imeConnection);
 
-  /** Delete a single character from the end of the buffer, possibly mutating the IME Editor. */
+  /** Deletes a single character from the end of the buffer, possibly mutating the IME Editor. */
   void deleteCharacterForward(ImeConnection imeConnection);
 
-  /** Delete a word from the end of the buffer, possibly mutating the IME Editor. */
+  /** Deletes a word from the end of the buffer, possibly mutating the IME Editor. */
   void deleteWord(ImeConnection imeConnection);
 
   /** Commits all {@link BrailleCharacter} in the buffer, possibly mutating the IME Editor. */
   void commit(ImeConnection imeConnection);
 
-  /** Move the cursor of the buffer forward. */
+  /** Moves the cursor of the buffer forward. */
   boolean moveCursorForward(ImeConnection imeConnection);
 
-  /** Move the cursor of the buffer backward. */
+  /** Moves the cursor of the buffer backward. */
   boolean moveCursorBackward(ImeConnection imeConnection);
 
-  /** Move the cursor of the buffer forward by line. */
+  /** Moves the cursor of the buffer forward by word. */
+  boolean moveCursorForwardByWord(ImeConnection imeConnection);
+
+  /** Moves the cursor of the buffer backward by word. */
+  boolean moveCursorBackwardByWord(ImeConnection imeConnection);
+
+  /** Moves the cursor of the buffer forward by line. */
   boolean moveCursorForwardByLine(ImeConnection imeConnection);
 
-  /** Move the cursor of the buffer backward by line. */
+  /** Moves the cursor of the buffer backward by line. */
   boolean moveCursorBackwardByLine(ImeConnection imeConnection);
 
-  /** Move the cursor in the text field. */
+  /** Moves the cursor in the text field. */
   boolean moveTextFieldCursor(ImeConnection imeConnection, int index);
 
-  /** Move the cursor of the holdings. */
+  /** Moves the cursor to the beginning of text field. */
+  boolean moveCursorToBeginning(ImeConnection imeConnection);
+
+  /** Moves the cursor to the end of text field. */
+  boolean moveCursorToEnd(ImeConnection imeConnection);
+
+  /** Moves the cursor of the holdings. */
   default boolean moveHoldingsCursor(ImeConnection imeConnection, int index) {
     return false;
   }
