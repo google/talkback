@@ -81,7 +81,7 @@ public abstract class EditBufferCommon implements EditBuffer {
   public String appendBraille(ImeConnection imeConnection, BrailleCharacter brailleCharacter) {
     String result = "";
     String previousTranslation = translator.translateToPrint(holdings);
-    holdings.add(brailleCharacter);
+    holdings.append(brailleCharacter);
     String currentTranslation = translator.translateToPrint(holdings);
     if (currentTranslation.startsWith(previousTranslation)) {
       result = currentTranslation.substring(previousTranslation.length());
@@ -119,13 +119,13 @@ public abstract class EditBufferCommon implements EditBuffer {
 
   @Override
   public void appendSpace(ImeConnection imeConnection) {
-    clearHoldingsAndFinishComposing(imeConnection.inputConnection);
+    commit(imeConnection);
     imeConnection.inputConnection.commitText(" ", 1);
   }
 
   @Override
   public void appendNewline(ImeConnection imeConnection) {
-    clearHoldingsAndFinishComposing(imeConnection.inputConnection);
+    commit(imeConnection);
     imeConnection.inputConnection.commitText("\n", 1);
   }
 
@@ -162,6 +162,19 @@ public abstract class EditBufferCommon implements EditBuffer {
   }
 
   @Override
+  public boolean moveCursorToBeginning(ImeConnection imeConnection) {
+    commit(imeConnection);
+    return imeConnection.inputConnection.setSelection(0, 0);
+  }
+
+  @Override
+  public boolean moveCursorToEnd(ImeConnection imeConnection) {
+    commit(imeConnection);
+    int end = EditBufferUtils.getTextFieldText(imeConnection.inputConnection).length();
+    return imeConnection.inputConnection.setSelection(end, end);
+  }
+
+  @Override
   public boolean moveCursorForward(ImeConnection imeConnection) {
     return moveTextFieldCursor(
         imeConnection, EditBufferUtils.getCursorPosition(imeConnection.inputConnection) + 1);
@@ -171,6 +184,18 @@ public abstract class EditBufferCommon implements EditBuffer {
   public boolean moveCursorBackward(ImeConnection imeConnection) {
     return moveTextFieldCursor(
         imeConnection, EditBufferUtils.getCursorPosition(imeConnection.inputConnection) - 1);
+  }
+
+  @Override
+  public boolean moveCursorForwardByWord(ImeConnection imeConnection) {
+    int newPos = EditBufferUtils.findWordBreakForwardIndex(imeConnection.inputConnection);
+    return moveTextFieldCursor(imeConnection, newPos);
+  }
+
+  @Override
+  public boolean moveCursorBackwardByWord(ImeConnection imeConnection) {
+    int newPos = EditBufferUtils.findWordBreakBackwardIndex(imeConnection.inputConnection);
+    return moveTextFieldCursor(imeConnection, newPos);
   }
 
   @Override
@@ -189,7 +214,7 @@ public abstract class EditBufferCommon implements EditBuffer {
 
   @Override
   public boolean moveTextFieldCursor(ImeConnection imeConnection, int index) {
-    clearHoldingsAndFinishComposing(imeConnection.inputConnection);
+    commit(imeConnection);
     if (0 <= index
         && index <= EditBufferUtils.getTextFieldText(imeConnection.inputConnection).length()) {
       return imeConnection.inputConnection.setSelection(index, index);

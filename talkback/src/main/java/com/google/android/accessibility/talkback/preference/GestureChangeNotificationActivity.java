@@ -17,6 +17,7 @@
 package com.google.android.accessibility.talkback.preference;
 
 import static com.google.android.accessibility.talkback.preference.PreferencesActivityUtils.GESTURE_CHANGE_NOTIFICATION_ID;
+import static com.google.android.accessibility.utils.PreferencesActivity.FRAGMENT_NAME;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -26,7 +27,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
+import com.android.talkback.TalkBackPreferencesActivity;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.preference.base.TalkBackGestureShortcutPreferenceFragment;
 import com.google.android.accessibility.utils.MaterialComponentUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 
@@ -93,7 +96,10 @@ public class GestureChangeNotificationActivity extends Activity {
             dismissNotification();
             dialog.dismiss();
             final Intent shortcutsIntent =
-                new Intent(getApplicationContext(), TalkBackShortcutPreferencesActivity.class);
+                new Intent(getApplicationContext(), TalkBackPreferencesActivity.class);
+            shortcutsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            shortcutsIntent.putExtra(
+                FRAGMENT_NAME, TalkBackGestureShortcutPreferenceFragment.class.getName());
             startActivity(shortcutsIntent);
             finish();
           }

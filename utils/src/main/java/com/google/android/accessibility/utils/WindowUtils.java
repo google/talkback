@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Insets;
 import android.graphics.Rect;
+import android.hardware.display.DisplayManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -32,6 +33,9 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /** Utility functions for system-UI windows. */
 public class WindowUtils {
@@ -128,6 +132,51 @@ public class WindowUtils {
   }
 
   /**
+   * Returns {@code true} if the input system window is a system bar window, for example status bar,
+   * navigation bar and caption bar. And this method supports multi-display feature.
+   *
+   * @param context context
+   * @param window the target window to check
+   * @see android.view.WindowInsets.Type
+   */
+  public static boolean isSystemBar(
+      @NonNull Context context, @NonNull AccessibilityWindowInfo window) {
+    if (window.getType() != AccessibilityWindowInfo.TYPE_SYSTEM) {
+      return false;
+    }
+    if (!FeatureSupport.supportReportingInsetsByZOrder()) {
+      return isNavigationBar(context, window) || isStatusBar(context, window);
+    }
+
+    final WindowManager windowManager;
+    int displayId = AccessibilityWindowInfoUtils.getDisplayId(window);
+    if (displayId == Display.DEFAULT_DISPLAY) {
+      windowManager = context.getSystemService(WindowManager.class);
+    } else {
+      DisplayManager displayManager = context.getSystemService(DisplayManager.class);
+      Display display = displayManager.getDisplay(displayId);
+      final Context displayContext = context.createDisplayContext(display);
+      windowManager = displayContext.getSystemService(WindowManager.class);
+    }
+    WindowMetrics windowMetrics = windowManager.getCurrentWindowMetrics();
+    Rect windowBoundsExcludedSystemBars = new Rect(windowMetrics.getBounds());
+    Insets windowInsets =
+        windowMetrics.getWindowInsets().getInsetsIgnoringVisibility(WindowInsets.Type.systemBars());
+    windowBoundsExcludedSystemBars.inset(windowInsets);
+
+    // The systemBar window should not intersect or overlap the non-systemBar window.
+    // While on the foldable phone, the navigation bar window would have 1dp overlaps with
+    // non-systemBar window due to the rounded corner.
+    Rect windowBounds = new Rect();
+    window.getBoundsInScreen(windowBounds);
+    if (Rect.intersects(windowBoundsExcludedSystemBars, windowBounds)) {
+      return !windowBoundsExcludedSystemBars.contains(windowBounds);
+    } else {
+      return true;
+    }
+  }
+
+  /**
    * Gets the global window insets from the window metrics.
    *
    * @param windowMetrics Metrics about a Window
@@ -149,13 +198,17 @@ public class WindowUtils {
    */
   public static boolean rootChildMatchesResId(AccessibilityService service, int resId) {
     AccessibilityNodeInfo root = service.getRootInActiveWindow();
-    try {
-      return (root != null)
-          && WindowUtils.isChildNodeResId(
-              service, AccessibilityNodeInfoUtils.getWindow(root), resId);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(root);
-    }
+    return (root != null)
+        && WindowUtils.isChildNodeResId(service, AccessibilityNodeInfoUtils.getWindow(root), resId);
+  }
+
+  /** Gets the list of all displays. */
+  @NonNull
+  public static List<Display> getAllDisplays(Context context) {
+    List<Display> displays =
+        Arrays.asList(context.getSystemService(DisplayManager.class).getDisplays());
+    displays.removeAll(Collections.singletonList(null));
+    return displays;
   }
 
   /** Return true if {@code resId} is the resource ID of child node. */
@@ -170,26 +223,18 @@ public class WindowUtils {
       return false;
     }
 
-    AccessibilityNodeInfo node = null;
-    try {
-      for (int i = 0; i < root.getChildCount(); i++) {
-        node = root.getChild(i);
-        if (node == null) {
-          continue;
-        }
-        boolean result =
-            TextUtils.equals(
-                node.getViewIdResourceName(), context.getResources().getResourceName(resId));
-        AccessibilityNodeInfoUtils.recycleNodes(node);
-        node = null;
-        if (result) {
-          return true;
-        }
+    for (int i = 0; i < root.getChildCount(); i++) {
+      AccessibilityNodeInfo node = root.getChild(i);
+      if (node == null) {
+        continue;
       }
-      return false;
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(node, root);
+
+      if (TextUtils.equals(
+          node.getViewIdResourceName(), context.getResources().getResourceName(resId))) {
+        return true;
+      }
     }
+    return false;
   }
 
   /** Return {@code true} if {@code intA} is equal to {@code intB} roughly. */

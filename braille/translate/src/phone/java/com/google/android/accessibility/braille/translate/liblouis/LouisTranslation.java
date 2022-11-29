@@ -77,7 +77,7 @@ public class LouisTranslation {
 
   /** Translates a string into the corresponding dot patterns. */
   public static TranslationResult translate(
-      String text, String tableName, int cursorPosition, boolean computerBrailleAtCursor) {
+      CharSequence text, String tableName, int cursorPosition, boolean computerBrailleAtCursor) {
     return translateNative(text, tableName, cursorPosition, computerBrailleAtCursor);
   }
 
@@ -89,7 +89,7 @@ public class LouisTranslation {
   // Native methods.
 
   private static native TranslationResult translateNative(
-      String text, String tableName, int cursorPosition, boolean computerBrailleAtCursor);
+      CharSequence text, String tableName, int cursorPosition, boolean computerBrailleAtCursor);
 
   private static native String backTranslateNative(byte[] dotPatterns, String tableName, int mode);
 

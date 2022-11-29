@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.record;
 
+import android.content.Context;
 import android.os.SystemClock;
 import android.util.Pair;
 import android.view.accessibility.AccessibilityEvent;
@@ -25,6 +26,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import java.util.ArrayDeque;
@@ -116,6 +118,16 @@ public final class AccessibilityFocusActionHistory {
   @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
   static final int TIMEOUT_TOLERANCE_MS = 300;
 
+  /**
+   * Maximum difference between action time and event time on TV, within which we think the event
+   * might result from the action.
+   *
+   * <p>On TV, specially Sony TV, the customized ATV contains rich animiation on FOCUS action. Thus
+   * it needs more tolerance than others platform.
+   */
+  @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+  static final int TV_TIMEOUT_TOLERANCE_MS = 400;
+
   //////////////////////////////////////////////////////////////////////////////////////////
   // Member variables
 
@@ -142,13 +154,21 @@ public final class AccessibilityFocusActionHistory {
   private @Nullable ScreenState pendingScreenState = null;
   private long pendingWebFocusActionTime = -1;
 
+  private final Context context;
+  private int timeoutToleranceMs;
+
   //////////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
-  public AccessibilityFocusActionHistory() {
+  public AccessibilityFocusActionHistory(Context context) {
+    this.context = context;
     focusActionRecordList = new ArrayDeque<>();
     windowIdTitlePairToFocusActionRecordMap =
         new LruCache<Pair<Integer, CharSequence>, FocusActionRecord>(MAXIMUM_WINDOW_MAP_SIZE);
+    timeoutToleranceMs = TIMEOUT_TOLERANCE_MS;
+    if (FeatureSupport.isTv(context)) {
+      timeoutToleranceMs = TV_TIMEOUT_TOLERANCE_MS;
+    }
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -272,7 +292,7 @@ public final class AccessibilityFocusActionHistory {
       long timeDiff = eventTime - record.getActionTime();
       AccessibilityNodeInfoCompat recordNode = record.getFocusedNode();
 
-      boolean timeMatches = timeDiff >= 0 && timeDiff < TIMEOUT_TOLERANCE_MS;
+      boolean timeMatches = timeDiff >= 0 && timeDiff < timeoutToleranceMs;
       boolean nodeMatches = eventNode.equals(recordNode);
       if (timeMatches && nodeMatches) {
         result = FocusActionRecord.copy(record);
@@ -285,7 +305,7 @@ public final class AccessibilityFocusActionHistory {
   private void tryMatchingPendingFocusAction(
       AccessibilityNodeInfoCompat focusedNode, long focusEventTime) {
     if ((pendingWebFocusActionInfo != null)
-        && (focusEventTime - pendingWebFocusActionTime < TIMEOUT_TOLERANCE_MS)
+        && (focusEventTime - pendingWebFocusActionTime < timeoutToleranceMs)
         && (focusEventTime - pendingWebFocusActionTime > 0)
         && WebInterfaceUtils.supportsWebActions(focusedNode)) {
       onAccessibilityFocusAction(

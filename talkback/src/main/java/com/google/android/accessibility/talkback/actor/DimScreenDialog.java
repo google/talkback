@@ -32,7 +32,7 @@ public class DimScreenDialog extends FirstTimeUseDialog {
         /* showDialogPreference= */ R.string.pref_show_dim_screen_confirmation_dialog,
         /* dialogTitleResId= */ R.string.dialog_title_dim_screen,
         /* dialogMainMessageResId= */ R.string.dialog_message_dim_screen,
-        /* checkboxTextResId= */ R.string.show_suspend_warning_label);
+        /* checkboxTextResId= */ R.string.always_show_warning_checkbox);
 
     this.dimScreenController = dimScreenController;
   }

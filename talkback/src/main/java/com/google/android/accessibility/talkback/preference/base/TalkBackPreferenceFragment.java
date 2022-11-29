@@ -23,13 +23,21 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
+import androidx.annotation.StringRes;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
+import androidx.preference.SwitchPreference;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.actor.ImageCaptioner;
+import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter;
+import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter.DownloadStateListener;
+import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter.UninstallStateListener;
 import com.google.android.accessibility.talkback.training.OnboardingInitiator;
 import com.google.android.accessibility.talkback.utils.RemoteIntentUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -102,6 +110,18 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
       if (preference != null) {
         preference.setTitle(R.string.title_pref_sound);
       }
+    }
+
+    // Remove braille category if none of braille feature supported.
+    if (!FeatureSupport.supportBrailleDisplay(context)
+        && !FeatureSupport.supportBrailleKeyboard(context)) {
+      removeCategory(R.string.pref_category_braille_key);
+    }
+
+    if (ImageCaptioner.supportsIconDetection(context)) {
+      setupIconDetectionPreference();
+    } else {
+      removePreference(R.string.pref_category_controls_key, R.string.pref_icon_detection_key);
     }
   }
 
@@ -292,4 +312,101 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
           return true;
         }
       };
+
+  private void setupIconDetectionPreference() {
+    Preference iconDetectionPreference = findPreferenceByResId(R.string.pref_icon_detection_key);
+    if (iconDetectionPreference == null) {
+      return;
+    }
+
+    SwitchPreference iconDetectionSwitchPreference = (SwitchPreference) iconDetectionPreference;
+    IconDetectionModuleDownloadPrompter prompter =
+        new IconDetectionModuleDownloadPrompter(
+            context,
+            /* triggeredByTalkBackMenu= */ false,
+            new DownloadStateListener() {
+              @Override
+              public void onInstalled() {
+                updateIconDetectionPreference(
+                    R.string.summary_pref_icon_detection, /* checked= */ true);
+                showToast(context, R.string.download_icon_detection_successful_hint);
+              }
+
+              @Override
+              public void onFailed() {
+                updateIconDetectionPreference(
+                    R.string.summary_pref_icon_detection, /* checked= */ false);
+                showToast(context, R.string.download_icon_detection_failed_hint);
+              }
+
+              @Override
+              public void onAccepted() {
+                updateIconDetectionPreference(
+                    R.string.summary_pref_icon_detection_downloading, /* checked= */ true);
+              }
+
+              @Override
+              public void onRejected() {}
+
+              @Override
+              public void onDialogDismissed(@Nullable AccessibilityNodeInfoCompat queuedNode) {}
+            });
+
+    prompter.setUninstallStateListener(
+        new UninstallStateListener() {
+          @Override
+          public void onAccepted() {
+            updateIconDetectionPreference(
+                R.string.summary_pref_icon_detection, /* checked= */ false);
+          }
+
+          @Override
+          public void onRejected() {}
+        });
+
+    // The summary of preference will not be saved when exiting the Settings page, so they should be
+    // restored when the preference is created. The fragment hasn't been created and it still not
+    // visible, so updateIconDetectionPreference() does not work here.
+    if (prompter.isIconDetectionModuleAvailable()) {
+      iconDetectionSwitchPreference.setSummary(R.string.summary_pref_icon_detection);
+      iconDetectionSwitchPreference.setChecked(true);
+    } else {
+      if (prompter.isIconDetectionModuleDownloading()) {
+        // The icon detection module is downloading.
+        iconDetectionSwitchPreference.setSummary(R.string.summary_pref_icon_detection_downloading);
+        iconDetectionSwitchPreference.setChecked(true);
+      }
+    }
+
+    iconDetectionSwitchPreference.setOnPreferenceChangeListener(
+        (preference, newValue) -> {
+          if ((Boolean) newValue) {
+            // Shows the dialog to confirm the download the icon detection module.
+            prompter.showConfirmationDialog();
+          } else {
+            // Shows the dialog to confirm the deletion of the icon detection module.
+            prompter.showUninstallDialog();
+          }
+          return false;
+        });
+  }
+
+  private void updateIconDetectionPreference(@StringRes int summary, boolean checked) {
+    if (!isVisible()) {
+      // The fragment is stopped, the icon detection preference needn't be updated.
+      return;
+    }
+
+    Preference preference = findPreferenceByResId(R.string.pref_icon_detection_key);
+    if (preference == null) {
+      return;
+    }
+
+    preference.setSummary(summary);
+    ((SwitchPreference) preference).setChecked(checked);
+  }
+
+  private void showToast(Context context, @StringRes int text) {
+    Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+  }
 }

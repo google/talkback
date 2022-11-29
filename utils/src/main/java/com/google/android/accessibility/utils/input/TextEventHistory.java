@@ -19,7 +19,6 @@ package com.google.android.accessibility.utils.input;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -93,7 +92,6 @@ public class TextEventHistory {
     return mLastTextChangePackageName;
   }
 
-  /** Caller must recycle event. */
   public void setLastKeptTextSelection(@Nullable AccessibilityEvent event) {
     mLastKeptTextSelection = AccessibilityEventUtils.replaceWithCopy(mLastKeptTextSelection, event);
     traceSet("LastKeptTextSelection", "(object)");
@@ -121,23 +119,16 @@ public class TextEventHistory {
     return mLastToIndex;
   }
 
-  /** TextEventHistory will recycle newNode. */
   public void setLastNode(@Nullable AccessibilityNodeInfo newNode) {
-    try {
-      AccessibilityNodeInfoUtils.recycleNodes(mLastNode);
-      mLastNode = newNode;
-      newNode = null;
-      traceSet("LastNode", "(object)");
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(newNode);
-    }
+    mLastNode = newNode;
+    newNode = null;
+    traceSet("LastNode", "(object)");
   }
 
   public @Nullable AccessibilityNodeInfo getLastNode() {
     return mLastNode;
   }
 
-  /** Caller must recycle newEvent. */
   // incompatible types in assignment.
   @SuppressWarnings("nullness:assignment")
   public void setLastProcessedEvent(AccessibilityEvent newEvent) {

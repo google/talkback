@@ -19,7 +19,7 @@ package com.google.android.accessibility.talkback;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.PowerManager;
-import com.google.android.accessibility.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import java.util.ArrayList;

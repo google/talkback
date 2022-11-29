@@ -33,6 +33,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.inputmethodservice.InputMethodService;
 import android.net.Uri;
@@ -53,6 +54,7 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.braille.common.BrailleCommonUtils;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.braille.common.ImeConnection;
@@ -66,9 +68,7 @@ import com.google.android.accessibility.braille.common.translate.EditBufferUtils
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 import com.google.android.accessibility.braille.interfaces.BrailleDisplayForBrailleIme;
 import com.google.android.accessibility.braille.interfaces.BrailleDisplayForBrailleIme.ResultForDisplay;
-import com.google.android.accessibility.braille.interfaces.BrailleDots;
 import com.google.android.accessibility.braille.interfaces.BrailleImeForBrailleDisplay;
-import com.google.android.accessibility.braille.interfaces.BrailleImeForBrailleDisplay.Result;
 import com.google.android.accessibility.braille.interfaces.BrailleImeForTalkBack;
 import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleIme;
 import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleIme.ServiceStatus;
@@ -96,7 +96,7 @@ import com.google.android.accessibility.brailleime.tutorial.TutorialView.Tutoria
 import com.google.android.accessibility.brailleime.tutorial.TutorialView.TutorialState.State;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants;
 import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.keyboard.KeyboardUtils;
+import com.google.android.accessibility.utils.KeyboardUtils;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
@@ -171,6 +171,7 @@ public class BrailleIme extends InputMethodService {
   private KeyboardView keyboardView;
   private Handler handler;
   private boolean brailleDisplayConnectedAndNotSuspended;
+  private int orientation;
 
   /** An interface to notify orientation change. */
   public interface OrientationSensitive {
@@ -184,6 +185,7 @@ public class BrailleIme extends InputMethodService {
       BrailleDisplayForBrailleIme brailleDisplayForBrailleIme) {
     BrailleIme.talkBackForBrailleIme = talkBackForBrailleIme;
     BrailleIme.brailleDisplayForBrailleIme = brailleDisplayForBrailleIme;
+    BrailleImePreferencesActivity.initialize(talkBackForBrailleIme);
     Utils.setComponentEnabled(context, Constants.BRAILLE_KEYBOARD, true);
   }
 
@@ -191,7 +193,7 @@ public class BrailleIme extends InputMethodService {
   public void onCreate() {
     super.onCreate();
     BrailleImeLog.logD(TAG, "onCreate");
-
+    orientation = getResources().getConfiguration().orientation;
     readDeviceFeatures();
     handler = new Handler();
     if (brailleDisplayForBrailleIme != null) {
@@ -302,6 +304,15 @@ public class BrailleIme extends InputMethodService {
   }
 
   @Override
+  public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+    if (orientation != newConfig.orientation) {
+      orientation = newConfig.orientation;
+      keyboardView.onOrientationChanged(newConfig.orientation);
+    }
+  }
+
+  @Override
   public void onFinishInputView(boolean finishingInput) {
     if (Utils.isPhonePermissionGranted(this)) {
       TelephonyManager telephonyManager =
@@ -374,6 +385,7 @@ public class BrailleIme extends InputMethodService {
     createEditBuffer();
     OrientationMonitor.getInstance().enable();
     OrientationMonitor.getInstance().registerCallback(orientationMonitorCallback);
+    updateNavigationBarColor();
   }
 
   private void createViewContainerAndAddView() {
@@ -526,7 +538,7 @@ public class BrailleIme extends InputMethodService {
    *
    * <p>Return {@code true} if the keyboard should remain showing.
    */
-  private void performEnterAction(InputConnection inputConnection) {
+  private void performEditorAction(InputConnection inputConnection) {
     EditorInfo editorInfo = getCurrentInputEditorInfo();
     int editorAction = editorInfo.imeOptions & EditorInfo.IME_MASK_ACTION;
     BrailleImeLog.logD(TAG, "performEnterAction editorAction = " + editorAction);
@@ -628,6 +640,17 @@ public class BrailleIme extends InputMethodService {
     if (tutorialState == NONE) {
       brailleImeAnalytics.startSession();
     }
+  }
+
+  private void updateNavigationBarColor() {
+    getWindow()
+        .getWindow()
+        .setNavigationBarColor(
+            ContextCompat.getColor(
+                this,
+                brailleDisplayConnectedAndNotSuspended
+                    ? R.color.braille_keyboard_background
+                    : R.color.google_transparent));
   }
 
   private final LayoutOrientatorCallback layoutOrientatorCallback =
@@ -889,7 +912,7 @@ public class BrailleIme extends InputMethodService {
             if (direction == Direction.UP && touchCount == 2) {
               editBuffer.commit(imeConnection);
               hideSelf(); // Restore EBT so a11y focus could jump to next field.
-              performEnterAction(getCurrentInputConnection());
+              performEditorAction(getCurrentInputConnection());
               BrailleImeVibrator.getInstance(BrailleIme.this).vibrate(VibrationType.OTHER_GESTURES);
               brailleImeAnalytics.logGestureActionSubmitText();
               brailleImeAnalytics.collectSessionEvents();
@@ -922,6 +945,7 @@ public class BrailleIme extends InputMethodService {
               }
               BrailleImeVibrator.getInstance(BrailleIme.this)
                   .vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR);
+              brailleImeAnalytics.logGestureActionMoveCursorBackward();
             } else if (direction == Direction.DOWN && touchCount == 1) {
               if (talkBackForBrailleIme.shouldUseCharacterGranularity()) {
                 editBuffer.moveCursorForward(imeConnection);
@@ -931,13 +955,17 @@ public class BrailleIme extends InputMethodService {
               }
               BrailleImeVibrator.getInstance(BrailleIme.this)
                   .vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR);
+              brailleImeAnalytics.logGestureActionMoveCursorForward();
             } else {
               valid = false;
               BrailleImeLog.logD(TAG, "unknown swipe");
             }
           }
-          if (valid && !brailleDisplayConnectedAndNotSuspended) {
-            escapeReminder.restartTimer();
+          if (valid) {
+            showOnBrailleDisplay();
+            if (!brailleDisplayConnectedAndNotSuspended) {
+              escapeReminder.restartTimer();
+            }
           }
         }
 
@@ -962,6 +990,7 @@ public class BrailleIme extends InputMethodService {
           String result = editBuffer.appendBraille(getImeConnection(), brailleChar);
           if (!TextUtils.isEmpty(result)) {
             escapeReminder.restartTimer();
+            showOnBrailleDisplay();
           }
           BrailleImeVibrator.getInstance(BrailleIme.this).vibrate(VibrationType.BRAILLE_COMMISSION);
           return result;
@@ -1020,6 +1049,9 @@ public class BrailleIme extends InputMethodService {
         public void onViewAdded() {
           activateBrailleIme();
           layoutOrientator.startIfNeeded();
+          if (!keyboardView.isTutorialShown()) {
+            showOnBrailleDisplay();
+          }
         }
 
         @Override
@@ -1047,18 +1079,25 @@ public class BrailleIme extends InputMethodService {
   private final BrailleDisplayImeStripView.CallBack brailleDisplayKeyboardCallback =
       new BrailleDisplayImeStripView.CallBack() {
         @Override
-        public void onClicked() {
+        public void onSwitchToOnscreenKeyboard() {
           BrailleImeLog.logD(TAG, "onStripClicked");
           brailleDisplayConnectedAndNotSuspended = false;
           updateInputView();
+          talkBackForBrailleImeInternal.speakInterrupt(
+              getString(R.string.switch_on_screen_keyboard_announcement));
           keyboardView.setTableMode(isCurrentTableTopMode());
-          activateBrailleIme();
           brailleDisplayForBrailleIme.suspendInFavorOfBrailleKeyboard();
+          updateNavigationBarColor();
+        }
+
+        @Override
+        public void onSwitchToNextKeyboard() {
+          switchToNextInputMethod();
         }
       };
 
   private void showOnBrailleDisplay() {
-    if (brailleDisplayForBrailleIme == null || editBuffer == null) {
+    if (brailleDisplayForBrailleIme == null || editBuffer == null || !isInputViewShown()) {
       return;
     }
     handler.post(
@@ -1067,12 +1106,14 @@ public class BrailleIme extends InputMethodService {
               ResultForDisplay.builder()
                   .setHoldingsInfo(editBuffer.getHoldingsInfo(getImeConnection()))
                   .setOnScreenText(EditBufferUtils.getTextFieldText(getCurrentInputConnection()))
-                  .setTextSelectionRange(
-                      BrailleCommonUtils.getTextSelectionRange(getCurrentInputConnection()))
+                  .setTextSelection(
+                      BrailleCommonUtils.getTextSelection(getCurrentInputConnection()))
                   .setIsMultiLine(
                       EditBufferUtils.isMultiLineField(getCurrentInputEditorInfo().inputType))
                   .setAction(Utils.getActionLabel(this, getCurrentInputEditorInfo()).toString())
-                  .setHint(Utils.getHint(getCurrentInputEditorInfo()).toString())
+                  .setHint(Utils.getHint(getImeConnection()).toString())
+                  .setShowPassword(
+                      BrailleCommonUtils.isVisiblePasswordField(getCurrentInputEditorInfo()))
                   .build();
           brailleDisplayForBrailleIme.showOnDisplay(result);
         });
@@ -1109,16 +1150,6 @@ public class BrailleIme extends InputMethodService {
         getCurrentInputConnection(), getCurrentInputEditorInfo(), announceType);
   }
 
-  private Result mapToResult(boolean returnValue) {
-    if (returnValue) {
-      return Result.SUCCESS;
-    }
-    if (EditBufferUtils.isCursorAtEdge(getCurrentInputConnection())) {
-      return Result.REACH_EDGE;
-    }
-    return Result.INVALID_INPUT_CONNECTION;
-  }
-
   private final OnSharedPreferenceChangeListener onSharedPreferenceChangeListener =
       new OnSharedPreferenceChangeListener() {
         @Override
@@ -1126,14 +1157,17 @@ public class BrailleIme extends InputMethodService {
           if (key.equals(getString(R.string.pref_brailleime_translator_code))) {
             Code newCode =
                 BrailleUserPreferences.readCurrentActiveInputCodeAndCorrect(BrailleIme.this);
-            talkBackForBrailleImeInternal.speakInterrupt(
-                getString(
-                    R.string.switch_to_language_announcement,
-                    newCode.getUserFacingName(getResources())));
+            if (!brailleDisplayConnectedAndNotSuspended) {
+              talkBackForBrailleImeInternal.speakInterrupt(
+                  getString(
+                      R.string.switch_to_language_announcement,
+                      newCode.getUserFacingName(getResources())));
+            }
             if (editBuffer != null) {
               editBuffer.commit(getImeConnection());
             }
             createEditBuffer();
+            showOnBrailleDisplay();
           }
         }
       };
@@ -1145,6 +1179,7 @@ public class BrailleIme extends InputMethodService {
           activateBrailleIme();
           startAnalyticsPossibly();
           layoutOrientator.startIfNeeded();
+          showOnBrailleDisplay();
         }
 
         @Override
@@ -1322,6 +1357,7 @@ public class BrailleIme extends InputMethodService {
           brailleDisplayConnectedAndNotSuspended = true;
           updateInputView();
           activateBrailleIme();
+          updateNavigationBarColor();
         }
 
         @Override
@@ -1339,14 +1375,13 @@ public class BrailleIme extends InputMethodService {
           }
           keyboardView.getStripView().animateInput(brailleCharacter.toDotNumbers());
           boolean result;
-          if (brailleCharacter.toInt() == BrailleDots.EMPTY_CELL) {
+          if (brailleCharacter.isEmpty()) {
             editBuffer.appendSpace(getImeConnection());
             result = true;
-          } else if (brailleCharacter.toInt() == BrailleDots.DOT7) {
+          } else if (brailleCharacter.equals(BrailleCharacter.DOT7)) {
             result = deleteBackward();
-          } else if (brailleCharacter.toInt() == BrailleDots.DOT8) {
-            editBuffer.commit(getImeConnection());
-            result = performEnterKeyAction();
+          } else if (brailleCharacter.equals(BrailleCharacter.DOT8)) {
+            result = commitHoldingsAndPerformEnterKeyAction();
           } else {
             editBuffer.appendBraille(getImeConnection(), brailleCharacter);
             result = true;
@@ -1356,21 +1391,39 @@ public class BrailleIme extends InputMethodService {
         }
 
         @Override
-        public Result moveCursorForward() {
+        public boolean moveCursorForward() {
           boolean result = editBuffer.moveCursorForward(getImeConnection());
           if (result) {
             showOnBrailleDisplay();
           }
-          return mapToResult(result);
+          return result;
         }
 
         @Override
-        public Result moveCursorBackward() {
+        public boolean moveCursorBackward() {
           boolean result = editBuffer.moveCursorBackward(getImeConnection());
           if (result) {
             showOnBrailleDisplay();
           }
-          return mapToResult(result);
+          return result;
+        }
+
+        @Override
+        public boolean moveCursorBackwardByWord() {
+          boolean result = editBuffer.moveCursorBackwardByWord(getImeConnection());
+          if (result) {
+            showOnBrailleDisplay();
+          }
+          return result;
+        }
+
+        @Override
+        public boolean moveCursorForwardByWord() {
+          boolean result = editBuffer.moveCursorForwardByWord(getImeConnection());
+          if (result) {
+            showOnBrailleDisplay();
+          }
+          return result;
         }
 
         @Override
@@ -1416,6 +1469,16 @@ public class BrailleIme extends InputMethodService {
         }
 
         @Override
+        public boolean moveCursorToBeginning() {
+          return editBuffer.moveCursorToBeginning(getImeConnection());
+        }
+
+        @Override
+        public boolean moveCursorToEnd() {
+          return editBuffer.moveCursorToEnd(getImeConnection());
+        }
+
+        @Override
         public boolean deleteBackward() {
           editBuffer.deleteCharacterBackward(getImeConnection());
           showOnBrailleDisplay();
@@ -1423,22 +1486,29 @@ public class BrailleIme extends InputMethodService {
         }
 
         @Override
-        public boolean deleteForward() {
-          editBuffer.deleteCharacterForward(getImeConnection());
+        public boolean deleteWordBackward() {
+          editBuffer.deleteWord(getImeConnection());
           showOnBrailleDisplay();
           return true;
         }
 
         @Override
-        public boolean submit() {
-          editBuffer.commit(getImeConnection());
-          showOnBrailleDisplay();
-          performEnterAction(getCurrentInputConnection());
+        public void commitHoldings() {
+          if (editBuffer != null) {
+            editBuffer.commit(getImeConnection());
+          }
+        }
+
+        @Override
+        public boolean commitHoldingsAndPerformEditorAction() {
+          commitHoldings();
+          performEditorAction(getImeConnection().inputConnection);
           return true;
         }
 
         @Override
-        public boolean performEnterKeyAction() {
+        public boolean commitHoldingsAndPerformEnterKeyAction() {
+          commitHoldings();
           if (getCurrentInputConnection()
               .sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER))) {
             return getCurrentInputConnection()

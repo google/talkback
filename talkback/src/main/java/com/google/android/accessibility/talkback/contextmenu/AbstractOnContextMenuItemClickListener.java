@@ -18,7 +18,6 @@ package com.google.android.accessibility.talkback.contextmenu;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 
 /**
  * AbstractOnContextMenuItemClickListener implements {@link OnContextMenuItemClickListener} and is a
@@ -35,7 +34,7 @@ public abstract class AbstractOnContextMenuItemClickListener
       AccessibilityNodeInfoCompat node,
       Pipeline.FeedbackReturner pipeline,
       TalkBackAnalytics analytics) {
-    this.node = AccessibilityNodeInfoUtils.obtain(node);
+    this.node = node;
     this.pipeline = pipeline;
     this.analytics = analytics;
   }

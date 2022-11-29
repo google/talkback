@@ -18,9 +18,7 @@ package com.google.android.accessibility.utils.input;
 
 import static com.google.android.accessibility.utils.input.TextEventHistory.NO_INDEX;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.TtsSpan;
@@ -28,7 +26,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.uiunderstanding.PreferenceProvider;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
@@ -41,6 +38,7 @@ import com.google.android.accessibility.utils.output.ActorStateProvider;
 import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.List;
+import java.util.regex.Pattern;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -48,10 +46,12 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * Looks at current event & event history, to more specifically determine current event type, and to
  * extract important pieces of event data.
  */
-@TargetApi(Build.VERSION_CODES.M)
+
 public class TextEventInterpreter {
 
   private static final String TAG = "TextEventInterpreter";
+  // The (?s)/DOTALL is for the line termination support; when user clicks Enter in EditText.
+  private static final Pattern PUNCTUATION_PATTERN = Pattern.compile("(?s).*[\\p{Punct}]$");
 
   ///////////////////////////////////////////////////////////////////////////////////
   // Inner classes
@@ -87,8 +87,8 @@ public class TextEventInterpreter {
   // Member variables
 
   private final Context mContext;
-  @Nullable private final TextCursorTracker textCursorTracker;
-  @Nullable private final SelectionStateReader selectionStateReader;
+  private final @Nullable TextCursorTracker textCursorTracker;
+  private final @Nullable SelectionStateReader selectionStateReader;
   private final InputModeManager mInputModeManager;
   private final ActorStateProvider actorStateProvider;
   private final PreferenceProvider preferenceProvider;
@@ -215,6 +215,8 @@ public class TextEventInterpreter {
     return interpretation;
   }
 
+  // dereference of possibly-null reference event.getBeforeText()
+  @SuppressWarnings("nullness:dereference.of.nullable")
   private TextEventInterpretation interpretTextChange(AccessibilityEvent event) {
     // Default to original event type.
     int eventType = event.getEventType();
@@ -338,6 +340,8 @@ public class TextEventInterpreter {
    *
    * <p>Fortunately, password field at lock screen doesn't have this issue.
    */
+  // incompatible argument for parameter node of isPinEntry.
+  @SuppressWarnings("nullness:argument")
   private static boolean isJunkyCharacterReplacedByBulletInUnlockPinEntry(
       AccessibilityEvent event) {
     if (!BuildVersionUtils.isAtLeastP()
@@ -357,7 +361,7 @@ public class TextEventInterpreter {
     final boolean isGranularTraversal =
         (event.getEventType()
             == AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY);
-    @Nullable final CharSequence text;
+    final @Nullable CharSequence text;
     if (isGranularTraversal) {
       // Gets text from node instead of event to prevent missing locale spans.
       @Nullable AccessibilityNodeInfoCompat nodeToAnnounce =
@@ -551,7 +555,7 @@ public class TextEventInterpreter {
 
   // Visible for testing only.
   protected void setHistoryLastNode(AccessibilityEvent event) {
-    mHistory.setLastNode(event.getSource()); // TextEventHistory will recycle source node.
+    mHistory.setLastNode(event.getSource());
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////
@@ -581,8 +585,7 @@ public class TextEventInterpreter {
     return ((beforeText.length() + diff) == afterText.length());
   }
 
-  @Nullable
-  private static CharSequence getRemovedText(AccessibilityEvent event) {
+  private static @Nullable CharSequence getRemovedText(AccessibilityEvent event) {
     final CharSequence beforeText = event.getBeforeText();
     if (beforeText == null) {
       return null;
@@ -608,8 +611,7 @@ public class TextEventInterpreter {
    * @param event
    * @return the added text.
    */
-  @Nullable
-  private static CharSequence getAddedText(AccessibilityEvent event) {
+  private static @Nullable CharSequence getAddedText(AccessibilityEvent event) {
     final List<CharSequence> textList = event.getText();
     // noinspection ConstantConditions
     if (textList == null || textList.size() > 1) {
@@ -652,7 +654,7 @@ public class TextEventInterpreter {
       AccessibilityEvent event, TextEventInterpretation interpretation) {
     final CharSequence text = getEventText(event);
     final CharSequence addedText = getAddedText(event);
-    final int fromIndex = event.getFromIndex();
+    int fromIndex = event.getFromIndex();
 
     if (fromIndex > text.length()) {
       LogUtils.w(TAG, "Received event with invalid fromIndex: %s", event);
@@ -663,11 +665,15 @@ public class TextEventInterpreter {
     if (addedText != null) {
       int trimmedLength = TextUtils.getTrimmedLength(addedText);
       if (trimmedLength > 0) {
-        return false;
+        if (!PUNCTUATION_PATTERN.matcher(text).matches()) {
+          return false;
+        } else {
+          // Skip the trailing punctuation.
+          fromIndex = text.length() - 1;
+        }
       }
     }
-
-    final int breakIndex = getPrecedingWhitespace(text, fromIndex);
+    final int breakIndex = getPrecedingWhitespaceOrPunctuation(mContext, text, fromIndex);
     final CharSequence word = text.subSequence(breakIndex, fromIndex);
 
     // Did the user just type a word?
@@ -692,14 +698,19 @@ public class TextEventInterpreter {
     return eventText.get(0);
   }
 
-  /** Returns index of first whitespace preceding fromIndex. */
-  private static int getPrecedingWhitespace(CharSequence text, int fromIndex) {
+  /** Returns index of first whitespace or punctuation preceding fromIndex. */
+  private static int getPrecedingWhitespaceOrPunctuation(
+      Context context, CharSequence text, int fromIndex) {
     if (fromIndex > text.length()) {
       fromIndex = text.length();
     }
     for (int i = (fromIndex - 1); i > 0; i--) {
       if (Character.isWhitespace(text.charAt(i))) {
         return i;
+      }
+      if (SpeechCleanupUtils.characterToName(context, text.charAt(i)) != null) {
+        // The preceding punctuation is not preserved.
+        return i + 1;
       }
     }
 
@@ -713,8 +724,7 @@ public class TextEventInterpreter {
     return (source != null) && source.equals(lastNode);
   }
 
-  @Nullable
-  private CharSequence getUnselectedText(
+  private @Nullable CharSequence getUnselectedText(
       boolean isPassword,
       @Nullable CharSequence text,
       int fromIndex,
@@ -729,8 +739,7 @@ public class TextEventInterpreter {
     }
   }
 
-  @Nullable
-  private CharSequence getSelectedText(
+  private @Nullable CharSequence getSelectedText(
       boolean isPassword,
       @Nullable CharSequence text,
       int fromIndex,
@@ -758,8 +767,7 @@ public class TextEventInterpreter {
    * @return the requested subsequence or an alternate description for passwords, or null if range
    *     is invalid.
    */
-  @Nullable
-  private CharSequence getSubsequence(
+  private @Nullable CharSequence getSubsequence(
       boolean isPassword, @Nullable CharSequence text, int from, int to) {
     if (isPassword && !preferenceProvider.shouldSpeakPasswords()) {
       if (to - from == 1) {
@@ -773,8 +781,7 @@ public class TextEventInterpreter {
   }
 
   // REFERTO. Remove only TtsSpans marked up beyond the boundary of traversed text.
-  @Nullable
-  public static CharSequence getSubsequenceWithSpans(
+  public static @Nullable CharSequence getSubsequenceWithSpans(
       @Nullable CharSequence text, int from, int to) {
     if (text == null) {
       return null;

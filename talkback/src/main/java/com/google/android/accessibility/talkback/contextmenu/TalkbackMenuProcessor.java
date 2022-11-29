@@ -29,7 +29,6 @@ import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.actor.DimScreenActor;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem.DeferredType;
 import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
@@ -58,7 +57,6 @@ public class TalkbackMenuProcessor {
    * ORDER_VOICE_COMMANDS = 21;
    * ORDER_TALKBACK_SETTINGS = 22;
    * ORDER_TTS_SETTINGS = 23;
-   * ORDER_SUSPEND_TALKBACK = 24;
    */
   private static final int ORDER_ACTIONS = 1;
   private static final int ORDER_LINKS = 3;
@@ -181,13 +179,6 @@ public class TalkbackMenuProcessor {
   // Adds context_menu.xml, such as read from, last spoken, find on screen sub menu, .., to menu
   private void addContextMenuXMLMenu(ContextMenu menu) {
     new MenuInflater(service).inflate(R.menu.context_menu, menu);
-
-    if (FeatureSupport.hasAccessibilityShortcut(service)
-        || !showMenuItem(
-            R.string.pref_show_context_menu_pause_feedback_setting_key,
-            R.bool.pref_show_context_menu_pause_feedback_default)) {
-      menu.removeItem(R.id.pause_feedback);
-    }
 
     // Removes talkback TTS settings if phone is locked, Setup Wizard doesn't complete or uncheck
     // show item.
@@ -352,7 +343,7 @@ public class TalkbackMenuProcessor {
     if (currentNode == null) {
       return;
     }
-    AccessibilityNodeInfoCompat node = AccessibilityNodeInfoUtils.obtain(currentNode);
+    AccessibilityNodeInfoCompat node = currentNode;
     nodeMenuRuleProcessor.prepareTalkbackMenuForNode(menu, node, itemId, titleId, itemOrder);
   }
 
@@ -427,7 +418,7 @@ public class TalkbackMenuProcessor {
       return;
     }
 
-    if (!FeatureSupport.supportSystemActions(service)
+    if (!FeatureSupport.supportGetSystemActions(service)
         || ScreenMonitor.isDeviceLocked(service)
         || !SettingsUtils.allowLinksOutOfSettings(service)) {
       return;

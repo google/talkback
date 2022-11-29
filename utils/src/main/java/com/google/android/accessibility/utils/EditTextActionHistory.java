@@ -17,8 +17,12 @@
 package com.google.android.accessibility.utils;
 
 import android.os.SystemClock;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
-/** Maintains a history of when EditText actions occurred. */
+/**
+ * Maintains a history of when EditText actions or selection of {@link
+ * AccessibilityNodeInfoUtils#isNonEditableSelectableText(AccessibilityNodeInfoCompat)} occurred.
+ */
 public class EditTextActionHistory {
 
   /** Read-only interface, for use by event-interpreters. */

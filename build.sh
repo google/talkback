@@ -24,6 +24,21 @@ function fail_with_message  {
   exit 1
 }
 
+function print_sdk_info {
+  log "\${ANDROID_SDK}: ${ANDROID_SDK}"
+  log "ls ${ANDROID_SDK}"; ls "${ANDROID_SDK}"
+  if [[ -d "${ANDROID_SDK}/platforms" ]]; then
+    log "\${ANDROID_SDK}/platforms: ${ANDROID_SDK}/platforms"
+    log "ls ${ANDROID_SDK}/platforms"; ls "${ANDROID_SDK}/platforms"
+  fi
+  if [[ -d "${ANDROID_SDK}/build-tools" ]]; then
+    log "\${ANDROID_SDK}/build-tools: ${ANDROID_SDK}/build-tools"
+    log "ls ${ANDROID_SDK}/build-tools"; ls "${ANDROID_SDK}/build-tools"
+  fi
+  log "\${ANDROID_NDK}: ${ANDROID_NDK}"
+  log "ls \${ANDROID_NDK}:"; ls "${ANDROID_NDK}"
+}
+
 
 log "pwd: $(pwd)"
 
@@ -31,13 +46,10 @@ log "pwd: $(pwd)"
 if [[ -z "${ANDROID_SDK}" ]]; then
   fail_with_message "ANDROID_SDK environment variable is unset"
 fi
-log "\${ANDROID_SDK}: ${ANDROID_SDK}"
-log "ls ${ANDROID_SDK}"; ls "${ANDROID_SDK}"
 if [[ -z "${ANDROID_NDK}" ]]; then
   fail_with_message "ANDROID_NDK environment variable is unset"
 fi
-log "\${ANDROID_NDK}: ${ANDROID_NDK}"
-log "ls \${ANDROID_NDK}:"; ls "${ANDROID_NDK}"
+print_sdk_info
 log
 
 
@@ -101,9 +113,17 @@ log
 
 log "find gradle"
 find gradle
-log "gradlew --version"
+chmod 777 gradlew
+log "./gradlew --version"
 ./gradlew --version
 log
+
+
+if [[ "$GRADLE_TRACE" = true ]]; then
+  log "./gradlew dependencies"
+  ./gradlew dependencies
+  log
+fi
 
 
 GRADLEW_DEBUG=
@@ -113,10 +133,14 @@ if [[ "$GRADLE_TRACE" = true ]]; then
   GRADLEW_STACKTRACE=--stacktrace
 fi
 log "./gradlew assembleDebug"
-chmod 777 gradlew
 ./gradlew ${GRADLEW_DEBUG} ${GRADLEW_STACKTRACE} assemble
 BUILD_EXIT_CODE=$?
 log
+
+
+print_sdk_info
+log
+
 
 if [[ $BUILD_EXIT_CODE -eq 0 ]]; then
   log "find . -name *.apk"

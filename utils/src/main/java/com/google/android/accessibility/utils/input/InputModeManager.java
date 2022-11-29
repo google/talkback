@@ -35,7 +35,8 @@ public class InputModeManager implements ServiceKeyEventListener {
     INPUT_MODE_KEYBOARD,
     INPUT_MODE_TV_REMOTE,
     // INPUT_MODE_NON_ALPHABETIC_KEYBOARD will be used for numeric keypads built into phones.
-    INPUT_MODE_NON_ALPHABETIC_KEYBOARD
+    INPUT_MODE_NON_ALPHABETIC_KEYBOARD,
+    INPUT_MODE_BRAILLE_DISPLAY
   })
   public @interface InputMode {}
 
@@ -44,6 +45,7 @@ public class InputModeManager implements ServiceKeyEventListener {
   public static final int INPUT_MODE_KEYBOARD = 1;
   public static final int INPUT_MODE_TV_REMOTE = 2;
   public static final int INPUT_MODE_NON_ALPHABETIC_KEYBOARD = 3;
+  public static final int INPUT_MODE_BRAILLE_DISPLAY = 4;
 
   @InputMode private int mInputMode = INPUT_MODE_UNKNOWN;
 
@@ -57,7 +59,6 @@ public class InputModeManager implements ServiceKeyEventListener {
     if (inputMode == INPUT_MODE_UNKNOWN) {
       return;
     }
-
     mInputMode = inputMode;
   }
 
@@ -93,6 +94,8 @@ public class InputModeManager implements ServiceKeyEventListener {
         return "INPUT_MODE_TV_REMOTE";
       case INPUT_MODE_NON_ALPHABETIC_KEYBOARD:
         return "INPUT_MODE_NON_ALPHABETIC_KEYBOARD";
+      case INPUT_MODE_BRAILLE_DISPLAY:
+        return "INPUT_MODE_BRAILLE_DISPLAY";
       default:
         return "INPUT_MODE_UNKNOWN";
     }

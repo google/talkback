@@ -19,11 +19,14 @@ package com.google.android.accessibility.talkback.focusmanagement.record;
 import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.toStringShort;
 
 import android.os.SystemClock;
+import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
+import com.google.android.accessibility.utils.compat.CompatUtils;
 import java.util.Objects;
 
 /**
@@ -39,9 +42,26 @@ public class FocusActionRecord {
   /** Node being accessibility focused. */
   private final AccessibilityNodeInfoCompat focusedNode;
   /** Describes how to find focused node from root node. */
-  private final @NonNull NodePathDescription nodePathDescription;
+  @NonNull private final NodePathDescription nodePathDescription;
   /** Extra information about source focus action. */
   private final FocusActionInfo extraInfo;
+  /** Unique id for the node */
+  private String uniqueId;
+
+  // This is temporarily used until the androidx api is ready; then we can call getUniqueId
+  // directly. TODO: call AccessibilityNodeInfoCompat.getUniqueId() instead.
+  private static String getUniqueIdViaReflection(AccessibilityNodeInfoCompat nodeInfo) {
+    if (nodeInfo == null) {
+      return null;
+    }
+    String val =
+        (String)
+            CompatUtils.invoke(
+                nodeInfo.unwrap(),
+                /* defaultValue= */ null,
+                CompatUtils.getMethod(AccessibilityNodeInfo.class, "getUniqueId"));
+    return val;
+  }
 
   /**
    * Constructs a FocusActionRecord.
@@ -54,10 +74,11 @@ public class FocusActionRecord {
       @NonNull AccessibilityNodeInfoCompat focusedNode,
       FocusActionInfo extraInfo,
       long actionTime) {
-    this.focusedNode = AccessibilityNodeInfoUtils.obtain(focusedNode);
+    this.focusedNode = focusedNode;
     nodePathDescription = NodePathDescription.obtain(focusedNode);
     this.extraInfo = extraInfo;
     this.actionTime = actionTime;
+    this.uniqueId = (focusedNode == null) ? null : getUniqueIdViaReflection(focusedNode);
   }
 
   /** Constructs FocusActionRecord. Used internally by {@link #copy(FocusActionRecord)}. */
@@ -66,7 +87,7 @@ public class FocusActionRecord {
       @NonNull NodePathDescription nodePathDescription,
       FocusActionInfo extraInfo,
       long actionTime) {
-    this.focusedNode = AccessibilityNodeInfoUtils.obtain(focusedNode);
+    this.focusedNode = focusedNode;
     this.nodePathDescription = new NodePathDescription(nodePathDescription);
     this.extraInfo = extraInfo;
     this.actionTime = actionTime;
@@ -74,7 +95,7 @@ public class FocusActionRecord {
 
   /** Returns an instance of the focused node. */
   public AccessibilityNodeInfoCompat getFocusedNode() {
-    return AccessibilityNodeInfoUtils.obtain(focusedNode);
+    return focusedNode;
   }
 
   /** Returns reference to node-path. */
@@ -95,6 +116,12 @@ public class FocusActionRecord {
     return actionTime;
   }
 
+  /** Returns the stored unique id which is created in the FocusActionRecord constructor. */
+  @Nullable
+  public String getUniqueId() {
+    return uniqueId;
+  }
+
   /** Returns a copied instance of another FocusActionRecord. */
   @Nullable
   public static FocusActionRecord copy(FocusActionRecord record) {
@@ -106,6 +133,21 @@ public class FocusActionRecord {
   }
 
   /**
+   * Returns true when the unique id are identical or both null.
+   *
+   * @param uniqueId existing uniqueId.
+   * @param node Accessibility node to check its own uniqueId
+   */
+  private static boolean checkUniqueIdIdentical(
+      @Nullable String uniqueId, AccessibilityNodeInfoCompat node) {
+    if (uniqueId == null) {
+      return getUniqueIdViaReflection(node) == null;
+    } else {
+      return uniqueId.equals(getUniqueIdViaReflection(node));
+    }
+  }
+
+  /**
    * Returns the last focused node in {@code window} if it's still valid on screen, otherwise
    * returns focusable node with the same position.
    */
@@ -114,9 +156,30 @@ public class FocusActionRecord {
       @Nullable AccessibilityNodeInfoCompat root,
       @NonNull FocusFinder focusFinder,
       @NonNull FocusActionRecord focusActionRecord) {
-    @NonNull AccessibilityNodeInfoCompat lastFocusedNode = focusActionRecord.getFocusedNode();
-    if (lastFocusedNode.refresh() && AccessibilityNodeInfoUtils.shouldFocusNode(lastFocusedNode)) {
+    AccessibilityNodeInfoCompat lastFocusedNode = focusActionRecord.getFocusedNode();
+
+    // When looking up the focusable node by focus record, the unique id is the highest priority to
+    // match.
+    @Nullable String uniqueId = focusActionRecord.getUniqueId();
+    if (lastFocusedNode.refresh()
+        && checkUniqueIdIdentical(uniqueId, lastFocusedNode)
+        && AccessibilityNodeInfoUtils.shouldFocusNode(lastFocusedNode)) {
       return lastFocusedNode;
+    }
+
+    if (uniqueId != null) {
+      lastFocusedNode =
+          AccessibilityNodeInfoUtils.searchFromBfs(
+              root,
+              new Filter<AccessibilityNodeInfoCompat>() {
+                @Override
+                public boolean accept(AccessibilityNodeInfoCompat node) {
+                  return uniqueId.equals(getUniqueIdViaReflection(node));
+                }
+              });
+      if (lastFocusedNode != null && AccessibilityNodeInfoUtils.shouldFocusNode(lastFocusedNode)) {
+        return lastFocusedNode;
+      }
     }
 
     if (root == null) {
@@ -155,13 +218,23 @@ public class FocusActionRecord {
     return (focusedNode.equals(otherRecord.focusedNode))
         && (nodePathDescription.equals(otherRecord.nodePathDescription))
         && (extraInfo.equals(otherRecord.extraInfo))
-        && (actionTime == otherRecord.actionTime);
+        && (actionTime == otherRecord.actionTime)
+        && Objects.equals(uniqueId, ((FocusActionRecord) other).uniqueId);
   }
 
   public boolean focusedNodeEquals(AccessibilityNodeInfoCompat targetNode) {
     if (focusedNode == null || targetNode == null) {
       return false;
     }
+
+    // Unique id (if it exists) dominates the focus record comparison.
+    String targetUniqueId = getUniqueIdViaReflection(targetNode);
+    if (!Objects.equals(uniqueId, targetUniqueId)) {
+      return false;
+    } else if (uniqueId != null) {
+      return true;
+    }
+
     return (focusedNode == targetNode) || focusedNode.equals(targetNode);
   }
 
@@ -175,6 +248,9 @@ public class FocusActionRecord {
         + actionTime
         + "\n    "
         + "extraInfo="
-        + extraInfo.toString();
+        + extraInfo.toString()
+        + "\n    "
+        + "uniqueId="
+        + uniqueId;
   }
 }

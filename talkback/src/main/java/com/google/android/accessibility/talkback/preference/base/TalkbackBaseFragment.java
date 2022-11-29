@@ -80,4 +80,12 @@ public abstract class TalkbackBaseFragment extends BasePreferencesFragment {
       super.onDisplayPreferenceDialog(preference);
     }
   }
+
+  /** Turns a preference on or off, selecting the preference by key-resource-ID. */
+  public void setEnabled(Context context, int preferenceKeyResId, boolean enable) {
+    Preference preference = findPreference(context.getString(preferenceKeyResId));
+    if (preference != null) {
+      preference.setEnabled(enable);
+    }
+  }
 }

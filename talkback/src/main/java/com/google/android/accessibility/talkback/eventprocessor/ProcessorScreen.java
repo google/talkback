@@ -26,6 +26,8 @@ import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.gesture.GestureShortcutMapping;
+import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
+import com.google.android.accessibility.talkback.keyboard.KeyComboModel;
 import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.FocusFinder;
@@ -35,8 +37,6 @@ import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.feedbackpolicy.ScreenFeedbackManager;
 import com.google.android.accessibility.utils.input.WindowEventInterpreter;
-import com.google.android.accessibility.utils.keyboard.KeyComboManager;
-import com.google.android.accessibility.utils.keyboard.KeyComboModel;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -194,8 +194,8 @@ public class ProcessorScreen extends ScreenFeedbackManager {
   @PureFunction
   private static class TalkBackFeedbackComposer extends ScreenFeedbackManager.FeedbackComposer {
 
-    @Nullable private FocusFinder focusFinder;
-    @Nullable private GestureShortcutMapping gestureShortcutMapping;
+    private @Nullable FocusFinder focusFinder;
+    private @Nullable GestureShortcutMapping gestureShortcutMapping;
 
     @Override
     public Feedback customizeFeedback(

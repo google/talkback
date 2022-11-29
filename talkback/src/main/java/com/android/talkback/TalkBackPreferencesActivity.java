@@ -18,13 +18,16 @@ package com.android.talkback;
 
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentOnAttachListener;
+import android.text.TextUtils;
 import androidx.preference.PreferenceFragmentCompat;
 import com.google.android.accessibility.talkback.HatsSurveyRequester;
-import com.google.android.accessibility.talkback.preference.base.TalkBackKeyboardShortcutPreferenceFragment;
 import com.google.android.accessibility.talkback.preference.base.TalkBackPreferenceFragment;
-import com.google.android.accessibility.talkback.preference.base.VerbosityPrefFragment;
-import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.talkback.preference.base.TalkbackBaseFragment;
 import com.google.android.accessibility.utils.PreferencesActivity;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -35,17 +38,29 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * installed talkback onto a clean device with older bundled talkback.
  * REFERTO
  */
-public class TalkBackPreferencesActivity extends PreferencesActivity {
+public class TalkBackPreferencesActivity extends PreferencesActivity
+    implements FragmentOnAttachListener {
 
   private static final String TAG = "PreferencesActivity";
 
+  private HatsSurveyRequester hatsSurveyRequester;
+
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
+    // Must be called before super.onCreate
+    getSupportFragmentManager().addFragmentOnAttachListener(this);
     super.onCreate(savedInstanceState);
     // Request the HaTS.
     if (supportHatsSurvey()) {
-      new HatsSurveyRequester(this).requestSurvey();
+      hatsSurveyRequester = new HatsSurveyRequester(this);
+      hatsSurveyRequester.requestSurvey();
     }
+  }
+
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    getSupportFragmentManager().removeFragmentOnAttachListener(this);
   }
 
   @Override
@@ -55,46 +70,55 @@ public class TalkBackPreferencesActivity extends PreferencesActivity {
     String fragmentName = intent.getStringExtra(FRAGMENT_NAME);
     PreferenceFragmentCompat fragment = getFragmentByName(fragmentName);
 
-    if (fragment != null) {
-      getSupportFragmentManager()
-          .beginTransaction()
-          .replace(getContainerId(), fragment, getFragmentTag())
-          // Add root page to back-history
-          .addToBackStack(/* name= */ null)
-          .commit();
-    }
+    getSupportFragmentManager()
+        .beginTransaction()
+        .replace(getContainerId(), fragment, getFragmentTag())
+        // Add root page to back-history
+        .addToBackStack(/* name= */ null)
+        .commit();
   }
 
   @Override
   protected PreferenceFragmentCompat createPreferenceFragment() {
     Intent intent = getIntent();
-    PreferenceFragmentCompat fragment = null;
+    String fragmentName = null;
     if (intent != null) {
-      String fragmentName = intent.getStringExtra(FRAGMENT_NAME);
-
-      fragment = getFragmentByName(fragmentName);
+      fragmentName = intent.getStringExtra(FRAGMENT_NAME);
     }
+    return getFragmentByName(fragmentName);
+  }
 
-    return (fragment == null) ? new TalkBackPreferenceFragment() : fragment;
+  @Override
+  public void onAttachFragment(FragmentManager fragmentManager, Fragment fragment) {
+    if ((fragment instanceof TalkbackBaseFragment)
+        && (!(fragment instanceof TalkBackPreferenceFragment))) {
+      dismissHatsSurvey();
+    }
   }
 
   private static PreferenceFragmentCompat getFragmentByName(String fragmentName) {
-    if (fragmentName == null) {
-      return null;
+    if (TextUtils.isEmpty(fragmentName)) {
+      return new TalkBackPreferenceFragment();
     }
 
-    if (fragmentName.equals(TalkBackKeyboardShortcutPreferenceFragment.getFragmentName())) {
-      return new TalkBackKeyboardShortcutPreferenceFragment();
-    } else if (fragmentName.equals(VerbosityPrefFragment.getFragmentName())) {
-      return new VerbosityPrefFragment();
+    try {
+      return (PreferenceFragmentCompat) Class.forName(fragmentName).newInstance();
+    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
+      LogUtils.d(TAG, "Failed to load class: %s", fragmentName);
+      return null;
     }
-    return null;
   }
 
   @Override
   protected boolean supportHatsSurvey() {
-    // HaTS requests Theme.AppCompat to display the survey, so disable it if the setting activity is
-    // using the material next theme.
-    return !FeatureSupport.supportSettingsTheme();
+    return true;
+  }
+
+  /** Dismisses Hats survey. */
+  private void dismissHatsSurvey() {
+    if (hatsSurveyRequester != null) {
+      hatsSurveyRequester.dismissSurvey();
+      hatsSurveyRequester = null;
+    }
   }
 }

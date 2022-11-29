@@ -30,6 +30,7 @@ import com.google.android.accessibility.talkback.preference.PreferencesActivityU
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.common.collect.ImmutableMap;
 import java.util.ArrayList;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -40,13 +41,11 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
   // Member data
   private SharedPreferences preferences;
   private String verbosityValue; // String identifier for selected verbosity.
+  private ImmutableMap<String, Boolean> switchPreferenceKeyValueMap;
+  private ImmutableMap<String, Integer> listPreferenceKeyValueMap;
 
   public VerbosityPrefFragment() {
     super(R.xml.verbosity_preferences);
-  }
-
-  public static String getFragmentName() {
-    return TAG;
   }
 
   @Override
@@ -62,7 +61,50 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
   @Override
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     super.onCreatePreferences(savedInstanceState, rootKey);
+    buildMap();
     updatePreferences();
+  }
+
+  private void buildMap() {
+    switchPreferenceKeyValueMap =
+        ImmutableMap.<String, Boolean>builder()
+            .put(
+                getString(R.string.pref_screenoff_key),
+                getResources().getBoolean(R.bool.pref_screenoff_default))
+            .put(
+                getString(R.string.pref_a11y_hints_key),
+                getResources().getBoolean(R.bool.pref_a11y_hints_default))
+            .put(
+                getString(R.string.pref_intonation_key),
+                getResources().getBoolean(R.bool.pref_intonation_default))
+            .put(
+                getString(R.string.pref_phonetic_letters_key),
+                getResources().getBoolean(R.bool.pref_phonetic_letters_default))
+            .put(
+                getString(R.string.pref_speak_roles_key),
+                getResources().getBoolean(R.bool.pref_speak_container_element_positions_default))
+            .put(
+                getString(R.string.pref_speak_container_element_positions_key),
+                getResources().getBoolean(R.bool.pref_a11y_hints_default))
+            .put(
+                getString(R.string.pref_verbose_scroll_announcement_key),
+                getResources().getBoolean(R.bool.pref_verbose_scroll_announcement_default))
+            .put(
+                getString(R.string.pref_punctuation_key),
+                getResources().getBoolean(R.bool.pref_punctuation_default))
+            .buildOrThrow();
+
+    listPreferenceKeyValueMap =
+        ImmutableMap.<String, Integer>builder()
+            .put(
+                getString(R.string.pref_keyboard_echo_on_screen_key),
+                R.string.pref_keyboard_echo_default)
+            .put(
+                getString(R.string.pref_keyboard_echo_physical_key),
+                R.string.pref_keyboard_echo_default)
+            .put(
+                getString(R.string.pref_capital_letters_key), R.string.pref_capital_letters_default)
+            .buildOrThrow();
   }
 
   /** Collects all verbosity-controlled preferences. */
@@ -120,7 +162,11 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
         ListPreference prefList = (ListPreference) preference;
         String value =
             VerbosityPreferences.getPreferenceVerbosityString(
-                preferences, getResources(), verbosityValue, key, null);
+                preferences,
+                getResources(),
+                verbosityValue,
+                key,
+                getDefaultValueForListPreferences(key));
         if (value != null) {
           prefList.setValue(value);
         }
@@ -142,26 +188,22 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
     }
   }
 
-  // Returns the default value for the given key.
+  // Returns the default value for the given SwitchPreference key.
   private boolean getDefaultValueForSwitchPreferences(String key) {
-    if (key.equals(getString(R.string.pref_screenoff_key))) {
-      return getResources().getBoolean(R.bool.pref_screenoff_default);
-    } else if (key.equals(getString(R.string.pref_a11y_hints_key))) {
-      return getResources().getBoolean(R.bool.pref_a11y_hints_default);
-    } else if (key.equals(getString(R.string.pref_intonation_key))) {
-      return getResources().getBoolean(R.bool.pref_intonation_default);
-    } else if (key.equals(getString(R.string.pref_phonetic_letters_key))) {
-      return getResources().getBoolean(R.bool.pref_phonetic_letters_default);
-    } else if (key.equals(getString(R.string.pref_speak_roles_key))) {
-      return getResources().getBoolean(R.bool.pref_speak_roles_default);
-    } else if (key.equals(getString(R.string.pref_speak_container_element_positions_key))) {
-      return getResources().getBoolean(R.bool.pref_speak_container_element_positions_default);
-    } else if (key.equals(getString(R.string.pref_verbose_scroll_announcement_key))) {
-      return getResources().getBoolean(R.bool.pref_verbose_scroll_announcement_default);
-    } else if (key.equals(getString(R.string.pref_punctuation_key))) {
-      return getResources().getBoolean(R.bool.pref_punctuation_default);
+    Boolean value = true;
+    if (key != null) {
+      value = switchPreferenceKeyValueMap.get(key);
     }
-    return true;
+    return value == null || value;
+  }
+
+  // Returns the default value for the given ListPreference key.
+  private String getDefaultValueForListPreferences(String key) {
+    Integer value = null;
+    if (key != null) {
+      value = listPreferenceKeyValueMap.get(key);
+    }
+    return value == null ? null : getString(value);
   }
 
   @Override

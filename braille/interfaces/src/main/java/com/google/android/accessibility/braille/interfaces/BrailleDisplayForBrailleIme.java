@@ -15,29 +15,23 @@
  */
 package com.google.android.accessibility.braille.interfaces;
 
-import android.util.Range;
 import com.google.auto.value.AutoValue;
 import java.nio.ByteBuffer;
 
 /** Allows BrailleIme to signal to BrailleDisplay. */
 public interface BrailleDisplayForBrailleIme {
-
   /** Tells BrailleDisplay to show the result on a braille display. */
   void showOnDisplay(ResultForDisplay result);
-
   /** Whether a physical braille display is connected and not suspended. */
   boolean isBrailleDisplayConnectedAndNotSuspended();
-
   /** Suspends braille display so it will not render dots and receive inputs. */
   void suspendInFavorOfBrailleKeyboard();
-
   /** Results returns to BrailleDisplay. */
   @AutoValue
-  public abstract class ResultForDisplay {
-
+  abstract class ResultForDisplay {
     public abstract CharSequence onScreenText();
 
-    public abstract Range<Integer> textSelectionRange();
+    public abstract SelectionRange textSelection();
 
     public abstract HoldingsInfo holdingsInfo();
 
@@ -47,17 +41,24 @@ public interface BrailleDisplayForBrailleIme {
 
     public abstract String action();
 
-    public static ResultForDisplay.Builder builder() {
-      return new AutoValue_BrailleDisplayForBrailleIme_ResultForDisplay.Builder();
-    }
+    public abstract boolean showPassword();
 
+    public static ResultForDisplay.Builder builder() {
+      return new AutoValue_BrailleDisplayForBrailleIme_ResultForDisplay.Builder()
+          .setOnScreenText("")
+          .setAction("")
+          .setHint("")
+          .setTextSelection(new SelectionRange(0, 0))
+          .setHoldingsInfo(HoldingsInfo.create(ByteBuffer.wrap(new byte[] {}), -1))
+          .setIsMultiLine(false)
+          .setShowPassword(false);
+    }
     /** Builder for result to braille display. */
     @AutoValue.Builder
     public abstract static class Builder {
-
       public abstract Builder setOnScreenText(CharSequence onScreenText);
 
-      public abstract Builder setTextSelectionRange(Range<Integer> range);
+      public abstract Builder setTextSelection(SelectionRange range);
 
       public abstract Builder setHoldingsInfo(HoldingsInfo holdingsInfo);
 
@@ -66,6 +67,8 @@ public interface BrailleDisplayForBrailleIme {
       public abstract Builder setHint(String hint);
 
       public abstract Builder setAction(String action);
+
+      public abstract Builder setShowPassword(boolean showPassword);
 
       public abstract ResultForDisplay build();
     }

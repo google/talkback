@@ -18,8 +18,8 @@ package com.google.android.accessibility.talkback.eventprocessor;
 
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_FOCUSED;
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED;
-import static com.google.android.accessibility.compositor.Compositor.EVENT_SPEAK_HINT;
 import static com.google.android.accessibility.talkback.Feedback.HINT;
+import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_SPEAK_HINT;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.text.Spannable;
@@ -28,13 +28,13 @@ import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.Compositor;
-import com.google.android.accessibility.compositor.EventInterpretation;
-import com.google.android.accessibility.compositor.HintEventInterpretation;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.EventInterpretation;
+import com.google.android.accessibility.talkback.compositor.HintEventInterpretation;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;

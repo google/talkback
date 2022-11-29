@@ -17,6 +17,7 @@
 package com.google.android.accessibility.braille.common.translate;
 
 import static com.google.android.accessibility.braille.common.ImeConnection.AnnounceType.NORMAL;
+import static com.google.android.accessibility.braille.common.translate.BrailleTranslateUtils.PASSWORD_BULLET;
 import static com.google.android.accessibility.braille.common.translate.EditBufferUtils.NO_CURSOR;
 import static com.google.common.base.Strings.nullToEmpty;
 
@@ -49,7 +50,6 @@ import java.util.Map;
  */
 public class EditBufferUeb2 implements EditBuffer {
   private static final String TAG = "EditBufferUeb2";
-  public static final String PASSWORD_BULLET = "\u2022";
   private final Context context;
   private final BrailleTranslator translator;
   private final BrailleWord holdings = new BrailleWord();
@@ -76,12 +76,16 @@ public class EditBufferUeb2 implements EditBuffer {
 
   @Override
   public String appendBraille(ImeConnection imeConnection, BrailleCharacter brailleCharacter) {
+    CharSequence selectedText = imeConnection.inputConnection.getSelectedText(0);
+    if (!TextUtils.isEmpty(selectedText)) {
+      // Delete selection first.
+      imeConnection.inputConnection.commitText("", 1);
+    }
     int previousTranslationIndex;
     if (holdingPosition == NO_CURSOR || holdingPosition == holdings.size()) {
-      holdings.add(brailleCharacter);
+      holdings.append(brailleCharacter);
       holdingPosition = holdings.size();
     } else {
-      // TODO: Check the readout is correct.
       holdings.insert(holdingPosition, brailleCharacter);
       holdingPosition++;
     }
@@ -192,6 +196,24 @@ public class EditBufferUeb2 implements EditBuffer {
   }
 
   @Override
+  public boolean moveCursorForwardByWord(ImeConnection imeConnection) {
+    if (!holdings.isEmpty()) {
+      commit(imeConnection);
+    }
+    int newPos = EditBufferUtils.findWordBreakForwardIndex(imeConnection.inputConnection);
+    return moveTextFieldCursor(imeConnection, newPos);
+  }
+
+  @Override
+  public boolean moveCursorBackwardByWord(ImeConnection imeConnection) {
+    if (!holdings.isEmpty()) {
+      commit(imeConnection);
+    }
+    int newPos = EditBufferUtils.findWordBreakBackwardIndex(imeConnection.inputConnection);
+    return moveTextFieldCursor(imeConnection, newPos);
+  }
+
+  @Override
   public boolean moveCursorForwardByLine(ImeConnection imeConnection) {
     if (!holdings.isEmpty()) {
       commit(imeConnection);
@@ -244,6 +266,19 @@ public class EditBufferUeb2 implements EditBuffer {
       return imeConnection.inputConnection.setSelection(index, index);
     }
     return false;
+  }
+
+  @Override
+  public boolean moveCursorToBeginning(ImeConnection imeConnection) {
+    commit(imeConnection);
+    return imeConnection.inputConnection.setSelection(0, 0);
+  }
+
+  @Override
+  public boolean moveCursorToEnd(ImeConnection imeConnection) {
+    commit(imeConnection);
+    int end = EditBufferUtils.getTextFieldText(imeConnection.inputConnection).length();
+    return imeConnection.inputConnection.setSelection(end, end);
   }
 
   @Override

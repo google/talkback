@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.talkback.actor.search;
 
-import static com.google.android.accessibility.talkback.ScrollEventInterpreter.ACTION_AUTO_SCROLL;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_ITEM_ACTION_OVERLAY;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER;
@@ -57,7 +56,6 @@ import com.google.android.accessibility.talkback.Feedback.TalkBackUI;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.talkback.actor.AutoScrollActor.AutoScrollRecord.Source;
 import com.google.android.accessibility.talkback.actor.search.SearchState.MatchedNodeInfo;
 import com.google.android.accessibility.talkback.actor.search.StringMatcher.MatchResult;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget;
@@ -71,6 +69,7 @@ import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.input.ScrollActionRecord;
 import com.google.android.accessibility.utils.traversal.OrderedTraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
@@ -84,6 +83,8 @@ import java.util.List;
  * interface for SearchScreenNodeStrategy to callback. Screen mockup REFERTO.
  */
 public class SearchScreenOverlay implements SearchObserver {
+
+  public static final String SEARCH = "SEARCH"; // Scroll source id
 
   /** The delay in milliseconds for focusable node finder. */
   static final int DELAY_FIND_NODE_MILLISEC = 50;
@@ -149,7 +150,7 @@ public class SearchScreenOverlay implements SearchObserver {
   private AccessibilityNode initialFocusedNode;
 
   /** The scroll actors used for previous/next screen. */
-  private final Pipeline.FeedbackReturner pipeline;
+  private Pipeline.FeedbackReturner pipeline;
 
   /** Caches the ttsOverlay config before showing screen search overlay. */
   private boolean ttsOverlayWasOn = false;
@@ -174,22 +175,20 @@ public class SearchScreenOverlay implements SearchObserver {
    * @param service the parent service
    * @param focusFinder find input/accessibility focus
    * @param labelManager the custom label manager
-   * @param pipeline the actors which need to perform scroll event
    */
   public SearchScreenOverlay(
-      TalkBackService service,
-      FocusFinder focusFinder,
-      CustomLabelManager labelManager,
-      Pipeline.FeedbackReturner pipeline) {
+      TalkBackService service, FocusFinder focusFinder, CustomLabelManager labelManager) {
     this.service = service;
     this.focusFinder = focusFinder;
-    this.pipeline = pipeline;
     this.toastHandler = new Handler();
 
     // Create search strategy object.
     searchStrategy = new SearchScreenNodeStrategy(this, labelManager);
   }
-
+  /** pipeline the actors which need to perform scroll event */
+  public void setPipeline(Pipeline.FeedbackReturner pipeline) {
+    this.pipeline = pipeline;
+  }
   /** Creates search overlay window and necessary widgets. */
   private void createUIElements() {
     WindowManager wm = (WindowManager) service.getSystemService(Context.WINDOW_SERVICE);
@@ -460,10 +459,11 @@ public class SearchScreenOverlay implements SearchObserver {
 
     boolean result = false;
 
-    pipeline.returnFeedback(
-        EVENT_ID_UNTRACKED,
-        Feedback.scroll(scrollableNode, ACTION_AUTO_SCROLL, action, Source.SEARCH));
-
+    if (pipeline != null) {
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.scroll(scrollableNode, ScrollActionRecord.ACTION_AUTO_SCROLL, action, SEARCH));
+    }
     if (result) {
       // Screen is scrolled, clears previous search results.
       clearSearchResult();
@@ -696,17 +696,19 @@ public class SearchScreenOverlay implements SearchObserver {
             false);
       }
       // Turns off quick menu overlays when search screen is showing on Android O.
-      pipeline.returnFeedback(
-          EVENT_ID_UNTRACKED,
-          Feedback.talkBackUI(
-              TalkBackUI.Action.NOT_SUPPORT, SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER));
-      pipeline.returnFeedback(
-          EVENT_ID_UNTRACKED,
-          Feedback.talkBackUI(
-              TalkBackUI.Action.NOT_SUPPORT, SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER));
-      pipeline.returnFeedback(
-          EVENT_ID_UNTRACKED,
-          Feedback.talkBackUI(TalkBackUI.Action.NOT_SUPPORT, SELECTOR_ITEM_ACTION_OVERLAY));
+      if (pipeline != null) {
+        pipeline.returnFeedback(
+            EVENT_ID_UNTRACKED,
+            Feedback.talkBackUI(
+                TalkBackUI.Action.NOT_SUPPORT, SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER));
+        pipeline.returnFeedback(
+            EVENT_ID_UNTRACKED,
+            Feedback.talkBackUI(
+                TalkBackUI.Action.NOT_SUPPORT, SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER));
+        pipeline.returnFeedback(
+            EVENT_ID_UNTRACKED,
+            Feedback.talkBackUI(TalkBackUI.Action.NOT_SUPPORT, SELECTOR_ITEM_ACTION_OVERLAY));
+      }
     }
 
     // Updates initial focused window before overlay UI show up, for caching nodes info to search.
@@ -759,16 +761,17 @@ public class SearchScreenOverlay implements SearchObserver {
           R.string.pref_tts_overlay_key,
           true);
     }
-    pipeline.returnFeedback(
-        EVENT_ID_UNTRACKED,
-        Feedback.talkBackUI(TalkBackUI.Action.SUPPORT, SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER));
-    pipeline.returnFeedback(
-        EVENT_ID_UNTRACKED,
-        Feedback.talkBackUI(TalkBackUI.Action.SUPPORT, SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER));
-    pipeline.returnFeedback(
-        EVENT_ID_UNTRACKED,
-        Feedback.talkBackUI(TalkBackUI.Action.SUPPORT, SELECTOR_ITEM_ACTION_OVERLAY));
-
+    if (pipeline != null) {
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.talkBackUI(TalkBackUI.Action.SUPPORT, SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER));
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.talkBackUI(TalkBackUI.Action.SUPPORT, SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER));
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.talkBackUI(TalkBackUI.Action.SUPPORT, SELECTOR_ITEM_ACTION_OVERLAY));
+    }
     if (overlayPanel == null) {
       return;
     }

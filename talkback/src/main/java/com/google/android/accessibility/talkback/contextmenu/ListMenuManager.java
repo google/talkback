@@ -275,6 +275,11 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
                 menuItem.onClickPerformed();
               }
             });
+    // WindowEventInterpreter on T+ only handles window state change event with pane title.
+    if (FeatureSupport.windowStateChangeRequiresPane()) {
+      customview.setAccessibilityPaneTitle(title);
+    }
+
     builder.setView(customview);
     builder.setNegativeButton(
         android.R.string.cancel,

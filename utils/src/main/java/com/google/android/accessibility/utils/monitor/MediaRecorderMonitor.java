@@ -19,12 +19,10 @@ package com.google.android.accessibility.utils.monitor;
 import static android.media.MediaRecorder.AudioSource.MIC;
 import static android.media.MediaRecorder.AudioSource.VOICE_RECOGNITION;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.AudioManager.AudioRecordingCallback;
 import android.media.AudioRecordingConfiguration;
-import android.os.Build;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.compat.media.AudioSystemCompatUtils;
 import java.util.List;
@@ -84,7 +82,6 @@ public class MediaRecorderMonitor {
     }
   }
 
-  @TargetApi(Build.VERSION_CODES.N)
   public void onResumeInfrastructure() {
     if ((audioRecordingCallback != null) && (audioManager != null)) {
       isRecording = false;
@@ -92,7 +89,6 @@ public class MediaRecorderMonitor {
     }
   }
 
-  @TargetApi(Build.VERSION_CODES.N)
   public void onSuspendInfrastructure() {
     if ((audioRecordingCallback != null) && (audioManager != null)) {
       audioManager.unregisterAudioRecordingCallback(audioRecordingCallback);
@@ -103,7 +99,6 @@ public class MediaRecorderMonitor {
     this.listener = listener;
   }
 
-  @TargetApi(Build.VERSION_CODES.N)
   private static boolean containsAudioSources(List<AudioRecordingConfiguration> configs) {
     if (configs == null) {
       return false;

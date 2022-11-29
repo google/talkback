@@ -296,7 +296,7 @@ public class TraversalStrategyUtils {
    *
    * @param cursor Node to check.
    * @param scrollableNode The scrollable container that for checking the cursor is at the edge or
-   *     not. Caller is responsible to recycle it.
+   *     not.
    * @param ignoreDescendantsOfCursor Whether to ignore descendants of cursor when search down the
    *     node tree.
    * @param direction The direction in which to move from the cursor.
@@ -431,7 +431,7 @@ public class TraversalStrategyUtils {
     AccessibilityNodeInfoCompat initialNode = traversalStrategy.focusInitial(root, direction);
 
     if (nodeFilter.accept(initialNode)) {
-      return AccessibilityNodeInfoUtils.obtain(initialNode);
+      return initialNode;
     }
     return TraversalStrategyUtils.searchFocus(
         traversalStrategy, initialNode, direction, nodeFilter);

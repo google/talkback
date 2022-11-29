@@ -23,6 +23,7 @@ import static com.google.android.accessibility.talkback.Feedback.DimScreen.Actio
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.COPY_SAVED;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.REPEAT_SAVED;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SPELL_SAVED;
+import static com.google.android.accessibility.talkback.Feedback.UniversalSearch.Action.TOGGLE_SEARCH;
 import static com.google.android.accessibility.talkback.Feedback.VoiceRecognition.Action.START_LISTENING;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 import static com.google.android.accessibility.utils.PreferencesActivity.FRAGMENT_NAME;
@@ -81,8 +82,7 @@ public class ContextMenuItemClickProcessor {
         || (itemId == R.id.enable_dimming)
         || (itemId == R.id.disable_dimming)
         || (itemId == R.id.screen_search)
-        || (itemId == R.id.voice_commands)
-        || (itemId == R.id.pause_feedback);
+        || (itemId == R.id.voice_commands);
   }
 
   public boolean onMenuItemClicked(MenuItem menuItem) {
@@ -110,7 +110,7 @@ public class ContextMenuItemClickProcessor {
     } else if (itemId == R.id.verbosity) {
       Intent intent = new Intent(service, TalkBackPreferencesActivity.class);
       intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      intent.putExtra(FRAGMENT_NAME, VerbosityPrefFragment.getFragmentName());
+      intent.putExtra(FRAGMENT_NAME, VerbosityPrefFragment.class.getName());
       service.startActivity(intent);
     } else if (itemId == R.id.audio_ducking) {
       switchValueAndEcho(
@@ -142,13 +142,10 @@ public class ContextMenuItemClickProcessor {
     } else if (itemId == R.id.disable_dimming) {
       pipeline.returnFeedback(eventId, Feedback.dimScreen(BRIGHTEN));
     } else if (itemId == R.id.screen_search) {
-      service.getUniversalSearchManager().toggleSearch(eventId);
+      pipeline.returnFeedback(eventId, Feedback.universalSearch(TOGGLE_SEARCH));
     } else if (itemId == R.id.voice_commands) {
         pipeline.returnFeedback(
             eventId, Feedback.voiceRecognition(START_LISTENING, /* checkDialog= */ true));
-    } else if (itemId == R.id.pause_feedback) {
-      // Toggle talkback suspended state.
-      service.requestSuspendTalkBack(eventId);
     }
 
     return true;

@@ -73,6 +73,12 @@ public class BrailleImeAnalytics {
   public void logGestureActionOpenOptionsMenu() {}
 
   /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorForward() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorBackward() {}
+
+  /** Stub implementation does nothing. */
   public void logContractedToggle(boolean contractedModeOn) {}
 
   /** Stub implementation does nothing. */

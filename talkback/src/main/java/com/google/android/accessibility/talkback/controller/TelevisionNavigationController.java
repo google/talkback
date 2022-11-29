@@ -49,9 +49,9 @@ import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.TvNavigation;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
+import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.ClassLoadingCache;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Filter;
@@ -377,10 +377,6 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
         if (!shouldProcessDPadKeyEvent) {
           return false;
         }
-        if (!BuildVersionUtils.isAtLeastN()) {
-          // For before N platforms, only handle when we are not ignoring UP/DOWN key
-          return !AccessibilityNodeInfoUtils.isOrHasMatchingAncestor(cursor, IGNORE_UP_DOWN_M);
-        }
         return true;
       case KeyEvent.KEYCODE_DPAD_LEFT:
       case KeyEvent.KEYCODE_DPAD_RIGHT:
@@ -538,7 +534,7 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
           if (key != null && key.equals(treeDebugPrefKey)) {
             treeDebugEnabled =
-                SharedPreferencesUtils.getBooleanPref(
+                PreferencesActivityUtils.getDiagnosticPref(
                     sharedPreferences,
                     service.getResources(),
                     R.string.pref_tree_debug_key,

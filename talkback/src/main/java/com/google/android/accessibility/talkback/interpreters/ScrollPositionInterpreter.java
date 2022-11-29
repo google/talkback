@@ -16,25 +16,21 @@
 
 package com.google.android.accessibility.talkback.interpreters;
 
-import static com.google.android.accessibility.compositor.Compositor.EVENT_SCROLL_POSITION;
+import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_SCROLL_POSITION;
 
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollEventHandler;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollEventInterpretation;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.DelayHandler;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
+import com.google.android.accessibility.utils.input.ScrollActionRecord;
+import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollEventHandler;
+import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollEventInterpretation;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-/**
- * Manages scroll position feedback. If an interpreted {@link AccessibilityEvent#TYPE_VIEW_SCROLLED}
- * event passes through this processor and no further events are received for a specified duration,
- * a "scroll position" message is spoken.
- */
+/** Filters scroll-events, waiting for the last scroll-event within some wait-time. */
 public class ScrollPositionInterpreter implements ScrollEventHandler {
 
   /** Delay before sending a scroll position notification for non-viewpager node. */
@@ -92,9 +88,9 @@ public class ScrollPositionInterpreter implements ScrollEventHandler {
     // scrolling manually from ViewPager (b/174631424). Always announce for ViewPager, because user
     // needs to know about page-changes for 2-finger pass-through scrolling.
     if (!isVerbose
-        && (interpretation.userAction != ScrollEventInterpreter.ACTION_SCROLL_SHORTCUT)
+        && (interpretation.userAction != ScrollActionRecord.ACTION_SCROLL_COMMAND)
         && (Role.getSourceRole(event) != Role.ROLE_PAGER
-            || interpretation.userAction != ScrollEventInterpreter.ACTION_MANUAL_SCROLL)) {
+            || interpretation.userAction != ScrollActionRecord.ACTION_MANUAL_SCROLL)) {
       return;
     }
 

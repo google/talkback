@@ -23,6 +23,7 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static com.google.android.accessibility.talkback.Feedback.AdjustValue.Action.DECREASE_VALUE;
 import static com.google.android.accessibility.talkback.Feedback.AdjustVolume.Action.DECREASE_VOLUME;
 import static com.google.android.accessibility.talkback.Feedback.SpeechRate.Action.INCREASE_RATE;
+import static com.google.android.accessibility.utils.PreferencesActivity.FRAGMENT_NAME;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_FORWARD;
 
 import android.content.ActivityNotFoundException;
@@ -31,6 +32,7 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.widget.Toast;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.android.talkback.TalkBackPreferencesActivity;
 import com.google.android.accessibility.talkback.Feedback.AdjustValue;
 import com.google.android.accessibility.talkback.Feedback.AdjustVolume;
 import com.google.android.accessibility.talkback.Feedback.ContinuousRead;
@@ -46,6 +48,7 @@ import com.google.android.accessibility.talkback.Feedback.Language;
 import com.google.android.accessibility.talkback.Feedback.NodeAction;
 import com.google.android.accessibility.talkback.Feedback.PassThroughMode;
 import com.google.android.accessibility.talkback.Feedback.Scroll;
+import com.google.android.accessibility.talkback.Feedback.ServiceFlag;
 import com.google.android.accessibility.talkback.Feedback.ShowToast;
 import com.google.android.accessibility.talkback.Feedback.Sound;
 import com.google.android.accessibility.talkback.Feedback.Speech;
@@ -54,9 +57,11 @@ import com.google.android.accessibility.talkback.Feedback.SystemAction;
 import com.google.android.accessibility.talkback.Feedback.TalkBackUI;
 import com.google.android.accessibility.talkback.Feedback.TriggerIntent;
 import com.google.android.accessibility.talkback.Feedback.UiChange;
+import com.google.android.accessibility.talkback.Feedback.UniversalSearch;
 import com.google.android.accessibility.talkback.Feedback.Vibration;
 import com.google.android.accessibility.talkback.Feedback.VoiceRecognition;
 import com.google.android.accessibility.talkback.Feedback.WebAction;
+import com.google.android.accessibility.talkback.TalkBackService.ServiceFlagRequester;
 import com.google.android.accessibility.talkback.actor.AutoScrollActor;
 import com.google.android.accessibility.talkback.actor.DimScreenActor;
 import com.google.android.accessibility.talkback.actor.DirectionNavigationActor;
@@ -76,11 +81,12 @@ import com.google.android.accessibility.talkback.actor.TalkBackUIActor;
 import com.google.android.accessibility.talkback.actor.TextEditActor;
 import com.google.android.accessibility.talkback.actor.VolumeAdjustor;
 import com.google.android.accessibility.talkback.actor.search.SearchScreenNodeStrategy;
+import com.google.android.accessibility.talkback.actor.search.UniversalSearchActor;
 import com.google.android.accessibility.talkback.actor.voicecommands.SpeechRecognizerActor;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction;
 import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
-import com.google.android.accessibility.talkback.preference.TalkBackHelpPreferencesActivity;
+import com.google.android.accessibility.talkback.preference.base.TutorialAndHelpFragment;
 import com.google.android.accessibility.talkback.training.TutorialInitiator;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -126,6 +132,8 @@ class Actors {
   private final SpeechRecognizerActor speechRecognizer;
   private final GestureReporter gestureReporter;
   private final ImageCaptioner imageCaptioner;
+  private final UniversalSearchActor universalSearchActor;
+  private final ServiceFlagRequester serviceFlagRequester;
 
   //////////////////////////////////////////////////////////////////////////
   // Construction methods
@@ -155,7 +163,9 @@ class Actors {
       VolumeAdjustor volumeAdjustor,
       SpeechRecognizerActor speechRecognizer,
       GestureReporter gestureReporter,
-      ImageCaptioner imageCaptioner) {
+      ImageCaptioner imageCaptioner,
+      UniversalSearchActor universalSearchActor,
+      ServiceFlagRequester serviceFlagRequester) {
     this.context = context;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
     this.dimmer = dimmer;
@@ -181,6 +191,8 @@ class Actors {
     this.speechRecognizer = speechRecognizer;
     this.gestureReporter = gestureReporter;
     this.imageCaptioner = imageCaptioner;
+    this.universalSearchActor = universalSearchActor;
+    this.serviceFlagRequester = serviceFlagRequester;
 
     actorState =
         new ActorStateWritable(
@@ -225,6 +237,7 @@ class Actors {
     numberAdjustor.setPipeline(pipelineFeedbackReturner);
     speechRecognizer.setPipeline(pipelineFeedbackReturner);
     imageCaptioner.setPipeline(pipelineFeedbackReturner);
+    universalSearchActor.setPipeline(pipelineFeedbackReturner);
   }
 
   public void setUserInterface(UserInterface userInterface) {
@@ -351,7 +364,8 @@ class Actors {
     // Sound effects
     @Nullable Sound sound = part.sound();
     if (sound != null) {
-      soundAndVibration.playAuditory(sound.resourceId(), sound.rate(), sound.volume(), eventId);
+      soundAndVibration.playAuditory(
+          sound.resourceId(), sound.rate(), sound.volume(), eventId, sound.separationMillisec());
     }
 
     // Vibration
@@ -366,8 +380,9 @@ class Actors {
       Intent intent = null;
       switch (triggerIntent.action()) {
         case TRIGGER_TUTORIAL:
-          intent = new Intent(context, TalkBackHelpPreferencesActivity.class);
-          intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TOP);
+          intent = new Intent(context, TalkBackPreferencesActivity.class);
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TOP);
+          intent.putExtra(FRAGMENT_NAME, TutorialAndHelpFragment.class.getName());
           break;
         case TRIGGER_PRACTICE_GESTURE:
           intent = TutorialInitiator.createPracticeGesturesIntent(context);
@@ -544,10 +559,10 @@ class Actors {
               focuserTouch.setAccessibilityFocus(focus.target(), focus.forceRefocus(), eventId);
           break;
         case CLICK_NODE:
-          success &= focuserTouch.performClick(focus.target(), eventId);
+          success &= focuser.clickNode(focus.target(), eventId);
           break;
         case LONG_CLICK_NODE:
-          success &= focuserTouch.attemptLongPress(focus.target(), eventId);
+          success &= focuser.longClickNode(focus.target(), eventId);
           break;
         case CLICK_CURRENT:
           success &= focuser.clickCurrentFocus(eventId);
@@ -807,6 +822,12 @@ class Actors {
               imageCaptioner.caption(
                   imageCaption.target(), /* isUserRequested= */ imageCaption.userRequested());
           break;
+        case CONFIRM_DOWNLOAD_AND_PERFORM_CAPTIONS:
+          success &= imageCaptioner.confirmDownloadAndPerformCaption(imageCaption.target());
+          break;
+        case INITIALIZE_ICON_DETECTION:
+          success &= imageCaptioner.initIconDetection();
+          break;
       }
     }
 
@@ -834,6 +855,38 @@ class Actors {
           break;
         case CLEAR_CACHE_FOR_VIEW:
           success &= imageCaptioner.clearCacheForView(sourceBounds);
+          break;
+      }
+    }
+
+    // UniversalSearch events
+    @Nullable UniversalSearch universalSearch = part.universalSearch();
+    if (universalSearch != null) {
+      switch (universalSearch.action()) {
+        case TOGGLE_SEARCH:
+          universalSearchActor.toggleSearch(eventId);
+          break;
+        case CANCEL_SEARCH:
+          universalSearchActor.cancelSearch(eventId);
+          break;
+        case HANDLE_SCREEN_STATE:
+          universalSearchActor.handleScreenState(eventId);
+          break;
+        case RENEW_OVERLAY:
+          universalSearchActor.renewOverlay(universalSearch.config());
+          break;
+      }
+    }
+
+    // Change service flags
+    @Nullable ServiceFlag serviceFlag = part.serviceFlag();
+    if (serviceFlag != null) {
+      switch (serviceFlag.action()) {
+        case ENABLE_FLAG:
+          serviceFlagRequester.requestFlag(serviceFlag.flag(), /* requestedState= */ true);
+          break;
+        case DISABLE_FLAG:
+          serviceFlagRequester.requestFlag(serviceFlag.flag(), /* requestedState= */ false);
           break;
       }
     }

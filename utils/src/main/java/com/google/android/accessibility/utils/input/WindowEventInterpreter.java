@@ -412,7 +412,7 @@ public class WindowEventInterpreter implements WindowsDelegate {
       return false;
     }
 
-    if (BuildVersionUtils.isAtLeastT()) {
+    if (FeatureSupport.windowStateChangeRequiresPane()) {
       switch (event.getContentChangeTypes()) {
         case AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_APPEARED:
         case AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_DISAPPEARED:
@@ -542,14 +542,10 @@ public class WindowEventInterpreter implements WindowsDelegate {
 
     // Sets the bounds of the source node when the source node of the event is available
     AccessibilityNode sourceNode = AccessibilityNode.takeOwnership(event.getSource());
-    try {
-      if (sourceNode != null) {
-        Rect rect = new Rect();
-        sourceNode.getBoundsInScreen(rect);
-        interpretation.setSourceBoundsInScreen(rect);
-      }
-    } finally {
-      AccessibilityNode.recycle("WindowEventInterpreter.interpretInternal", sourceNode);
+    if (sourceNode != null) {
+      Rect rect = new Rect();
+      sourceNode.getBoundsInScreen(rect);
+      interpretation.setSourceBoundsInScreen(rect);
     }
 
     // Collect old window information into interpretation.
@@ -771,6 +767,8 @@ public class WindowEventInterpreter implements WindowsDelegate {
 
   /** Updates anchor node role for interpretation if the source window has an anchor node. */
   private void updateAnchorNodeRole(AccessibilityEvent event, EventInterpretation interpretation) {
+    // incompatible argument for parameter node of getWindow.
+    @SuppressWarnings("nullness:argument")
     AccessibilityWindowInfo sourceWindow = AccessibilityNodeInfoUtils.getWindow(event.getSource());
     if (sourceWindow == null) {
       return;
@@ -906,7 +904,6 @@ public class WindowEventInterpreter implements WindowsDelegate {
         AccessibilityNodeInfoUtils.toCompat(event.getSource());
     if (accessibilityNodeInfoCompat != null) {
       accessibilityPaneTitle = accessibilityNodeInfoCompat.getPaneTitle();
-      accessibilityNodeInfoCompat.recycle();
     }
     if (TextUtils.isEmpty(accessibilityPaneTitle)) {
       accessibilityPaneTitle =
@@ -970,7 +967,6 @@ public class WindowEventInterpreter implements WindowsDelegate {
    * work around to make them could be announced.
    */
   // TODO  : define the behavior of non-active floating windows in TalkBack
-  @TargetApi(Build.VERSION_CODES.O)
   private static boolean shouldAnnounceWindowStateChange(AccessibilityEvent event) {
     if (event.getEventType() != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
       throw new IllegalStateException();
@@ -1063,7 +1059,6 @@ public class WindowEventInterpreter implements WindowsDelegate {
           boolean isOverlayOnEditTextSupported = !BuildVersionUtils.isAtLeastO();
           AccessibilityNodeInfo root = AccessibilityWindowInfoUtils.getRoot(window);
           boolean isTalkbackOverlay = (Role.getRole(root) == Role.ROLE_TALKBACK_EDIT_TEXT_OVERLAY);
-          AccessibilityNodeInfoUtils.recycleNodes(root);
           // Only add overlay window not shown by talkback.
           if (!isOverlayOnEditTextSupported || !isTalkbackOverlay) {
             accessibilityOverlayWindows.add(window);
@@ -1273,7 +1268,6 @@ public class WindowEventInterpreter implements WindowsDelegate {
             AccessibilityWindowInfoUtils.getRoot(accessibilityWindowInfo);
         if (rootNode != null) {
           packageName = rootNode.getPackageName();
-          rootNode.recycle();
         }
         break;
       }
@@ -1311,15 +1305,10 @@ public class WindowEventInterpreter implements WindowsDelegate {
     AccessibilityWindowInfoCompat windowInfoCompat =
         AccessibilityNodeInfoUtils.getWindow(nodeInfoCompat);
     if (windowInfoCompat == null) {
-      nodeInfoCompat.recycle();
       return WINDOW_TYPE_NONE;
     }
 
-    int windowType = windowInfoCompat.getType();
-    windowInfoCompat.recycle();
-    nodeInfoCompat.recycle();
-
-    return windowType;
+    return windowInfoCompat.getType();
   }
 
   private static List<AccessibilityWindowInfo> getAllWindows(AccessibilityService service) {

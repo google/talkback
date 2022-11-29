@@ -26,6 +26,7 @@ import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 /** Utils for translation of Braille. */
 public class BrailleTranslateUtils {
   public static final BrailleCharacter NUMERIC = new BrailleCharacter(3, 4, 5, 6);
+  public static final String PASSWORD_BULLET = "\u2022";
 
   /**
    * Returns a String representation of {@link BrailleCharacter} with human understanding text.

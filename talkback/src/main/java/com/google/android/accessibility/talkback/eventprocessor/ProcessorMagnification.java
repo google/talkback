@@ -16,37 +16,165 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
-import android.accessibilityservice.AccessibilityService;
+import static android.accessibilityservice.MagnificationConfig.MAGNIFICATION_MODE_FULLSCREEN;
+
 import android.accessibilityservice.AccessibilityService.MagnificationController;
-import android.annotation.TargetApi;
+import android.accessibilityservice.AccessibilityService.MagnificationController.OnMagnificationChangedListener;
+import android.accessibilityservice.MagnificationConfig;
 import android.graphics.Rect;
 import android.graphics.Region;
-import android.os.Build;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.GlobalVariables;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Re-centers magnifier to accessibility focused or input focused node on {@link
  * AccessibilityEvent#TYPE_VIEW_ACCESSIBILITY_FOCUSED} and {@link
- * AccessibilityEvent#TYPE_VIEW_FOCUSED} events.
+ * AccessibilityEvent#TYPE_VIEW_FOCUSED} events. And Handles the feedback when the magnification
+ * state is changed.
  */
 public class ProcessorMagnification implements AccessibilityEventListener {
 
+  /** Magnification is disabled. */
+  public static final int STATE_OFF = 0;
+  /** Magnification is enabled. */
+  public static final int STATE_ON = 1;
+  /** Magnification scale is changed. */
+  public static final int STATE_SCALE_CHANGED = 2;
+  /** Magnification state for compositor speech feedback. */
+  @IntDef({STATE_OFF, STATE_ON, STATE_SCALE_CHANGED})
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface MagnificationState {}
+
   private static final int EVENT_MASK =
       AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED | AccessibilityEvent.TYPE_VIEW_FOCUSED;
-  private final @Nullable MagnificationController magnificationController;
 
-  public ProcessorMagnification(AccessibilityService service) {
-    if (FeatureSupport.supportMagnificationController()) {
-      magnificationController = service.getMagnificationController();
+  /** The fraction for getting window magnification center offset. */
+  private static final float WINDOW_MAGNIFICATION_CENTER_OFFSET_FRACTION = 0.2f;
+
+  private final boolean supportWindowMagnification;
+
+  private final @Nullable MagnificationController magnificationController;
+  private final GlobalVariables globalVariables;
+  private final Compositor compositor;
+
+  /** Magnification bounds for testing. */
+  private Rect testMagBounds = null;
+
+  @Nullable @VisibleForTesting
+  public final OnMagnificationChangedListener onMagnificationChangedListener;
+
+  private float lastScale = 1.0f;
+  private int lastMode = MagnificationConfig.MAGNIFICATION_MODE_DEFAULT;
+
+  public ProcessorMagnification(
+      MagnificationController magnificationController,
+      GlobalVariables globalVariables,
+      Compositor compositor,
+      boolean supportWindowMagnification) {
+    this.magnificationController = magnificationController;
+    this.globalVariables = globalVariables;
+    this.compositor = compositor;
+    this.supportWindowMagnification = supportWindowMagnification;
+
+    onMagnificationChangedListener = createMagnificationChangeListener();
+  }
+
+  /** Creates the magnification change listener by platform support. */
+  private @Nullable OnMagnificationChangedListener createMagnificationChangeListener() {
+    if (!FeatureSupport.supportMagnificationController()) {
+      return null;
+    }
+
+    if (supportWindowMagnification) {
+      // Magnification change listener for SDK 33+ that can listen to the multiple modes.
+      return new OnMagnificationChangedListener() {
+        // Suppress the warning since this is for target SDK 33.
+        @SuppressWarnings("Override")
+        @Override
+        public void onMagnificationChanged(
+            MagnificationController magnificationController,
+            Region region,
+            MagnificationConfig config) {
+
+          final int mode = config.getMode();
+          final float scale = config.getScale();
+          final boolean modeIsChanged = mode != lastMode;
+          try {
+            // Do nothing if scale and mode haven't changed.
+            if (!modeIsChanged && (scale == lastScale)) {
+              return;
+            }
+
+            handleMagnificationChanged(mode, scale, lastScale, modeIsChanged);
+          } finally {
+            lastMode = mode;
+            lastScale = scale;
+          }
+        }
+
+        @Override
+        public void onMagnificationChanged(
+            MagnificationController magnificationController,
+            Region region,
+            float scale,
+            float centerX,
+            float centerY) {
+          // Legacy listener has no action.
+        }
+      };
     } else {
-      magnificationController = null;
+      // Legacy magnification change listener for old platform that can only listen to full-screen
+      // magnification.
+      return (magnificationController, region, scale, centerX, centerY) -> {
+
+        // Do nothing if scale hasn't changed.
+        if (scale == lastScale) {
+          return;
+        }
+
+        try {
+          handleMagnificationChanged(MAGNIFICATION_MODE_FULLSCREEN, scale, lastScale, false);
+        } finally {
+          lastScale = scale;
+        }
+      };
+    }
+  }
+
+  private void handleMagnificationChanged(
+      int mode, float scale, float lastScale, boolean modeIsChanged) {
+    @MagnificationState int state;
+    if (scale > 1 && (modeIsChanged || lastScale == 1)) {
+      state = STATE_ON;
+    } else if (scale == 1 && lastScale > 1) {
+      state = STATE_OFF;
+    } else if (scale > 1) {
+      state = STATE_SCALE_CHANGED;
+    } else {
+      return;
+    }
+
+    globalVariables.updateMagnificationState(mode, scale, state);
+
+    if (FeatureSupport.supportAnnounceMagnificationChanged()) {
+      // TODO use pipeline to handle compositor for magnification
+      compositor.handleEvent(
+          Compositor.EVENT_MAGNIFICATION_CHANGED, Performance.EVENT_ID_UNTRACKED);
     }
   }
 
@@ -61,23 +189,75 @@ public class ProcessorMagnification implements AccessibilityEventListener {
       return;
     }
     AccessibilityNodeInfoCompat sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+    AccessibilityWindowInfoCompat window = AccessibilityNodeInfoUtils.getWindow(sourceNode);
     // It’s unnecessary to recenter the magnifier if the focus is on the keyboard because Keyboard
     // isn't in the magnifier and when the magnifier is not magnifying.
     // TODO: recenter magnifier for window magnification
     if (sourceNode == null
-        || AccessibilityNodeInfoUtils.isKeyboard(event, sourceNode)
-        || magnificationController.getScale() <= 1) {
+        || window == null
+        || AccessibilityNodeInfoUtils.isKeyboard(sourceNode)
+        || (window.getType() == AccessibilityWindowInfo.TYPE_MAGNIFICATION_OVERLAY)
+        || getMagnificationScale() <= 1) {
       return;
     }
-    recenterMagnifier(sourceNode);
+
+    recenterMagnifier(sourceNode, window.getType());
   }
 
-  @TargetApi(Build.VERSION_CODES.N)
-  private void recenterMagnifier(AccessibilityNodeInfoCompat node) {
+  /** Registers the magnification change listener when TalkBack resumes. */
+  public void onResumeInfrastructure() {
+    if (FeatureSupport.supportMagnificationController() && magnificationController != null) {
+      magnificationController.addListener(onMagnificationChangedListener);
+    }
+  }
+
+  /** Unregisters the magnification change listener when TalkBack is suspended. */
+  public void onSuspendInfrastructure() {
+    if (FeatureSupport.supportMagnificationController() && magnificationController != null) {
+      magnificationController.removeListener(onMagnificationChangedListener);
+
+      lastScale = 1.0f;
+      lastMode = MagnificationConfig.MAGNIFICATION_MODE_DEFAULT;
+    }
+  }
+
+  @VisibleForTesting
+  public void setMagnificationBounds(Rect rect) {
+    testMagBounds = rect;
+  }
+
+  private Rect getMagnificationBounds() {
+    if (testMagBounds != null) {
+      return testMagBounds;
+    }
+    // New API supports getting magnification bounds of multiple magnification modes.
+    if (supportWindowMagnification) {
+      return magnificationController.getCurrentMagnificationRegion().getBounds();
+    }
+    return magnificationController.getMagnificationRegion().getBounds();
+  }
+
+  private void recenterMagnifier(AccessibilityNodeInfoCompat node, int windowType) {
+    if (!supportWindowMagnification) {
+      recenterFullScreenMagnifier(node);
+      return;
+    }
+
+    int mode = magnificationController.getMagnificationConfig().getMode();
+    if (mode == MAGNIFICATION_MODE_FULLSCREEN) {
+      recenterFullScreenMagnifier(node);
+    } else if (mode == MagnificationConfig.MAGNIFICATION_MODE_WINDOW
+        && windowType != AccessibilityWindowInfo.TYPE_SYSTEM) {
+      // Support magnification re-centering except system window because the nodes on status bar
+      // window would send accessibility view focused event repeatedly.
+      recenterWindowMagnifier(node);
+    }
+  }
+
+  private void recenterFullScreenMagnifier(AccessibilityNodeInfoCompat node) {
     Rect sourceNodeBounds = new Rect();
     node.getBoundsInScreen(sourceNodeBounds);
-    Region magRegion = magnificationController.getMagnificationRegion();
-    Rect magBounds = magRegion.getBounds();
+    Rect magBounds = getMagnificationBounds();
     float magScale = magnificationController.getScale();
     float halfMagWidth = (float) magBounds.width() / (2f * magScale); // use screen coordinates
     float halfMagHeight = (float) magBounds.height() / (2f * magScale);
@@ -117,6 +297,31 @@ public class ProcessorMagnification implements AccessibilityEventListener {
     magnificationController.setCenter(newMagCenterX, newMagCenterY, /* animate= */ true);
   }
 
+  private void recenterWindowMagnifier(AccessibilityNodeInfoCompat node) {
+    Rect sourceNodeBounds = new Rect();
+    node.getBoundsInScreen(sourceNodeBounds);
+    Rect magBounds = getMagnificationBounds();
+    float newMagCenterY = sourceNodeBounds.exactCenterY();
+    float newMagCenterX;
+    // If the source node width is smaller than the width of window magnification bounds.
+    // The new magnification center can be moved to the center of the source node.
+    if (sourceNodeBounds.width() <= magBounds.width()) {
+      newMagCenterX = sourceNodeBounds.exactCenterX();
+    } else {
+      // The new magnification center would be 20% or 80% position in the source node width based
+      // on the node text direction for reading convenience.
+      float offset = (sourceNodeBounds.width() * WINDOW_MAGNIFICATION_CENTER_OFFSET_FRACTION);
+      newMagCenterX =
+          isLeftToRight(node) ? sourceNodeBounds.left + offset : sourceNodeBounds.right - offset;
+    }
+    MagnificationConfig newConfig =
+        new MagnificationConfig.Builder()
+            .setCenterX(newMagCenterX)
+            .setCenterY(newMagCenterY)
+            .build();
+    magnificationController.setMagnificationConfig(newConfig, /* animate= */ false);
+  }
+
   /**
    * Returns whether a node's content starts at left or right side.
    *
@@ -134,5 +339,12 @@ public class ProcessorMagnification implements AccessibilityEventListener {
     int direction = Character.getDirectionality(text.charAt(0));
     return (direction != Character.DIRECTIONALITY_RIGHT_TO_LEFT
         && direction != Character.DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC);
+  }
+
+  private float getMagnificationScale() {
+    if (supportWindowMagnification) {
+      return magnificationController.getMagnificationConfig().getScale();
+    }
+    return magnificationController.getScale();
   }
 }

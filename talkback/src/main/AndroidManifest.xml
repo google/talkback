@@ -127,23 +127,6 @@
             </intent-filter>
         </activity>
 
-        <!-- TalkBack Gesture Shortcut Preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackShortcutPreferencesActivity"
-            android:exported="true"
-            android:label="@string/title_pref_category_manage_gestures"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings"
-            android:configChanges="orientation|screenSize"
-            tools:ignore="ExportedActivity" >
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".TalkBackShortcutPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <!-- TalkBack permission request activity proxy -->
         <activity
             android:name="com.google.android.accessibility.talkback.permission.PermissionRequestActivity"
@@ -152,22 +135,6 @@
             android:directBootAware="true"
             android:exported="false"
             android:noHistory="false" >
-        </activity>
-
-        <!-- TalkBack tutorial and help preferences -->
-        <activity
-            android:name="com.google.android.accessibility.talkback.preference.TalkBackHelpPreferencesActivity"
-            android:configChanges="orientation|screenSize"
-            android:exported="false"
-            android:label="@string/title_pref_category_tutorial_and_help"
-            android:launchMode="singleTop"
-            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
-            android:theme="@style/TalkBackSettings">
-            <!-- This preference activity can receive an implicit intent action -->
-            <intent-filter>
-                <action android:name=".preference.TalkBackHelpPreferencesActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
         </activity>
 
         <!-- TalkBack training -->

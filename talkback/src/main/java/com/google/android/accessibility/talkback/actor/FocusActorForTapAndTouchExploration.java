@@ -17,7 +17,6 @@
 package com.google.android.accessibility.talkback.actor;
 
 import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK;
-import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_FOCUS;
 import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_LONG_CLICK;
 
 import androidx.annotation.Nullable;
@@ -28,7 +27,6 @@ import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 
 /** The feedback-actor to handle accessibility focus during touch interaction. */
@@ -106,13 +104,6 @@ public class FocusActorForTapAndTouchExploration {
 
     if (node == null) {
       return false;
-    }
-
-    // Performing a click on an EditText does not show the IME, so we need
-    // to place input focus on it. If the IME was already connected and is
-    // hidden, there is nothing we can do.
-    if (Role.getRole(node) == Role.ROLE_EDIT_TEXT) {
-      return pipeline.returnFeedback(eventId, Feedback.nodeAction(node, ACTION_FOCUS.getId()));
     }
 
     // If a user quickly touch explores in web content (event stream <

@@ -16,141 +16,125 @@
 
 package com.google.android.accessibility.braille.translate;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import com.google.android.accessibility.braille.interfaces.BrailleDots;
+import static com.google.android.accessibility.braille.interfaces.BrailleCharacter.EMPTY_CELL;
+
+import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
+import com.google.android.accessibility.braille.interfaces.BrailleWord;
 import com.google.android.apps.common.proguard.UsedByNative;
-import java.util.Arrays;
-import java.util.Objects;
+import com.google.auto.value.AutoValue;
+import com.google.common.collect.ImmutableList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The result of translating text to braille, including character to cell mappings in both
  * directions.
+ *
+ * <ul>
+ *   For example, "phone|", the translation result in UEB2 is:
+ *   <ul>
+ *     <li>text: "phone"
+ *     <li>cells: 1234-125-5-135
+ *     <li>
+ *         <ul>
+ *           text to braille positions: [0,1,2,2,2]
+ *           <li>with p mapping to 1234 at the index 0
+ *           <li>with h mapping to 125 at the index 1
+ *           <li>with o mapping to 5-135 starting at the index 2
+ *           <li>with n mapping to 5-135 starting at the index 2
+ *           <li>with e mapping to 5-135 starting at the index 2
+ *         </ul>
+ *         <ul>
+ *           braille to text positions: [0,1,2,2]
+ *           <li>with 123 mapping to p at the index 0
+ *           <li>with 125 mapping to h at the index 1
+ *           <li>with 5 mapping to one starting at the index 2
+ *           <li>with 135 mapping to one starting at the index 2
+ *         </ul>
+ *     <li>cursor position in braille: 4
  */
-@UsedByNative("TranslationResult.java")
-public class TranslationResult implements Parcelable {
+@AutoValue
+@UsedByNative("louis_translation.cc")
+public abstract class TranslationResult {
+
+  /** Texts to be translated in braille. */
+  public abstract CharSequence text();
 
   /** Braille characters in byte array. */
-  private final byte[] cells;
+  public abstract BrailleWord cells();
   /**
    * The mapping of each character of print to its position in braille. an(1-1345) is [0, 1]. a is
    * translated to 1, which is at the position 0 of all braille.
    */
-  private final int[] textToBraillePositions;
+  public abstract ImmutableList<Integer> textToBraillePositions();
   /**
    * The mapping of each braille character to its position in print. an(1-1345) is [0, 1]. 1 is is
    * the translation of a, which is at the position 0 of "an".
    */
-  private final int[] brailleToTextPositions;
+  public abstract ImmutableList<Integer> brailleToTextPositions();
+
   /** The text cursor position in braille. */
-  private final int cursorPosition;
+  public abstract Integer cursorBytePosition();
 
-  @UsedByNative("TranslationResult.java")
-  /**
-   * Creates a translation result of print to braille, the mapping of each character of print to
-   * braille, the mapping of each braille to print and the cursor position in braille.
-   */
-  public TranslationResult(
-      byte[] cells,
-      int[] textToBraillePositions,
-      int[] brailleToTextPositions,
-      int cursorPosition) {
-    this.cells = cells;
-    this.textToBraillePositions = textToBraillePositions;
-    this.brailleToTextPositions = brailleToTextPositions;
-    this.cursorPosition = cursorPosition;
+  public static Builder builder() {
+    return new AutoValue_TranslationResult.Builder();
   }
 
-  private TranslationResult(Parcel in) {
-    cells = in.createByteArray();
-    textToBraillePositions = in.createIntArray();
-    brailleToTextPositions = in.createIntArray();
-    cursorPosition = in.readInt();
-  }
+  /** Builder for translation result. */
+  @AutoValue.Builder
+  public abstract static class Builder {
 
-  /** Returns the braille cells corresponding to the original text. */
-  public byte[] getCells() {
-    return cells;
-  }
+    /** Returns text to be translated. */
+    public abstract Builder setText(CharSequence text);
 
-  /** Maps a position in the original text to the corresponding position in the braille cells. */
-  public int[] getTextToBraillePositions() {
-    return textToBraillePositions;
-  }
+    /** Returns the braille cells corresponding to the original text. */
+    public abstract Builder setCells(BrailleWord cells);
 
-  /** Maps a position in the braille cells to the corresponding position in the original text. */
-  public int[] getBrailleToTextPositions() {
-    return brailleToTextPositions;
-  }
+    /** Maps a position in the original text to the corresponding position in the braille cells. */
+    public abstract Builder setTextToBraillePositions(List<Integer> textToBraillePositions);
 
-  /**
-   * Returns the cursor position corresponding to the cursor position specified when translating the
-   * text, or -1, if there was no cursor position specified.
-   */
-  public int getCursorPosition() {
-    return cursorPosition;
-  }
+    /** Maps a position in the braille cells to the corresponding position in the original text. */
+    public abstract Builder setBrailleToTextPositions(List<Integer> brailleToTextPositions);
 
-  // For Parcelable support.
+    /**
+     * Returns the cursor position corresponding to the cursor position specified when translating
+     * the text, or -1, if there was no cursor position specified.
+     */
+    public abstract Builder setCursorBytePosition(int cursorBytePosition);
 
-  public static final Creator<TranslationResult> CREATOR =
-      new Creator<TranslationResult>() {
-        @Override
-        public TranslationResult createFromParcel(Parcel in) {
-          return new TranslationResult(in);
-        }
-
-        @Override
-        public TranslationResult[] newArray(int size) {
-          return new TranslationResult[size];
-        }
-      };
-
-  @Override
-  public int describeContents() {
-    return 0;
-  }
-
-  @Override
-  public void writeToParcel(Parcel out, int flags) {
-    out.writeByteArray(cells);
-    out.writeIntArray(textToBraillePositions);
-    out.writeIntArray(brailleToTextPositions);
-    out.writeInt(cursorPosition);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(
-        Arrays.hashCode(cells),
-        Arrays.hashCode(textToBraillePositions),
-        Arrays.hashCode(brailleToTextPositions),
-        cursorPosition);
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof TranslationResult)) {
-      return false;
-    }
-    TranslationResult translationResult = (TranslationResult) o;
-    return Arrays.equals(cells, translationResult.cells)
-        && Arrays.equals(textToBraillePositions, translationResult.textToBraillePositions)
-        && Arrays.equals(brailleToTextPositions, translationResult.brailleToTextPositions)
-        && cursorPosition == translationResult.cursorPosition;
+    public abstract TranslationResult build();
   }
 
   /** Creates a result where all cells contain the special unknown, not-sure-what-to-render cell. */
-  public static TranslationResult createUnknown(String text, int cursorPosition) {
-    int[] map = new int[text.length()];
-    byte[] translation = new byte[text.length()];
+  public static TranslationResult createUnknown(CharSequence text, int cursorPosition) {
+    List<Integer> map = new ArrayList<>(text.length());
+    BrailleWord translation = new BrailleWord();
     for (int i = 0; i < text.length(); i++) {
-      map[i] = i;
-      translation[i] = (byte) BrailleDots.FULL_CELL;
+      map.add(i);
+      translation.append(BrailleCharacter.FULL_CELL);
     }
-    return new TranslationResult(translation, map, map, cursorPosition);
+    return TranslationResult.builder()
+        .setText(text)
+        .setCells(translation)
+        .setTextToBraillePositions(map)
+        .setBrailleToTextPositions(map)
+        .setCursorBytePosition(cursorPosition)
+        .build();
+  }
+
+  /** Extends translation result by one empty cell. */
+  public static TranslationResult appendOneEmptyCell(TranslationResult result) {
+    List<Integer> brailleToText = new ArrayList<>(result.textToBraillePositions());
+    brailleToText.add(result.cells().size());
+    List<Integer> textToBraille = new ArrayList<>(result.brailleToTextPositions());
+    textToBraille.add(result.text().length());
+    result.cells().append(EMPTY_CELL);
+    return TranslationResult.builder()
+        .setCells(result.cells())
+        .setText(result.text() + " ")
+        .setTextToBraillePositions(brailleToText)
+        .setBrailleToTextPositions(textToBraille)
+        .setCursorBytePosition(result.cursorBytePosition())
+        .build();
   }
 }

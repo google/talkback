@@ -62,11 +62,7 @@ public class ImageCaptionStorage {
     this.iconAnnotationsDetector = iconAnnotationsDetector;
   }
 
-  /**
-   * Retrieves the localized label of the detected icon which matches the specified node.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Retrieves the localized label of the detected icon which matches the specified node. */
   @Nullable
   public CharSequence getDetectedIconLabel(Locale locale, AccessibilityNodeInfoCompat node) {
     return (iconAnnotationsDetector == null)
@@ -74,30 +70,18 @@ public class ImageCaptionStorage {
         : iconAnnotationsDetector.getIconLabel(locale, node);
   }
 
-  /**
-   * Retrieves image caption results for the specified node.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Retrieves image caption results for the specified node. */
   @Nullable
   public ImageNode getCaptionResults(AccessibilityNodeInfoCompat node) {
     AccessibilityNode wrapNode = AccessibilityNode.obtainCopy(node);
-    try {
-      @Nullable ImageNode imageNode = findImageNode(wrapNode);
-      if (imageNode == null || !imageNode.isIconLabelStable() || !imageNode.isValid()) {
-        return null;
-      }
-      return imageNode;
-    } finally {
-      AccessibilityNode.recycle("ImageManager.getNodeText()", wrapNode);
+    @Nullable ImageNode imageNode = findImageNode(wrapNode);
+    if (imageNode == null || !imageNode.isIconLabelStable() || !imageNode.isValid()) {
+      return null;
     }
+    return imageNode;
   }
 
-  /**
-   * Stores the OCR result for the specified node in the cache.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Stores the OCR result for the specified node in the cache. */
   public void updateCharacterCaptionResult(AccessibilityNode node, CharSequence result) {
     if (!ImageCaptionStorage.isStorable(node) || TextUtils.isEmpty(result)) {
       LogUtils.v(TAG, "Character caption result (" + result + ") should not be stored.");
@@ -114,11 +98,7 @@ public class ImageCaptionStorage {
     imageNodes.put(imageNode);
   }
 
-  /**
-   * Stores the label of the detected icons for the specified node in the cache.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Stores the label of the detected icons for the specified node in the cache. */
   public void updateDetectedIconLabel(AccessibilityNode node, CharSequence detectedIconLabel) {
     if (!ImageCaptionStorage.isStorable(node) || TextUtils.isEmpty(detectedIconLabel)) {
       LogUtils.v(TAG, "DetectedIconLabel (" + detectedIconLabel + ") should not be stored.");
@@ -135,8 +115,6 @@ public class ImageCaptionStorage {
 
   /**
    * Marks the OCR text and the detected icon label for the specific node as invalid in the cache.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
    */
   public void invalidateCaptionForNode(AccessibilityNode node) {
     if (!ImageCaptionStorage.isStorable(node)) {
@@ -149,11 +127,7 @@ public class ImageCaptionStorage {
     }
   }
 
-  /**
-   * Checks if node has a resource name with a package name and is not in the collection.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Checks if node has a resource name with a package name and is not in the collection. */
   public static boolean isStorable(AccessibilityNode node) {
     @Nullable final ViewResourceName viewResourceName = node.getPackageNameAndViewId();
     return viewResourceName != null
@@ -164,8 +138,6 @@ public class ImageCaptionStorage {
   /**
    * Retrieves the related {@link ImageNode} for the specified node. The returned ImageNode will be
    * regarded as the newest element.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
    */
   @Nullable
   private ImageNode findImageNode(AccessibilityNode node) {

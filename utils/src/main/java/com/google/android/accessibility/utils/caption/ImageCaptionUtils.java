@@ -37,22 +37,14 @@ public class ImageCaptionUtils {
 
   private ImageCaptionUtils() {}
 
-  /**
-   * Checks if the node needs image captions.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Checks if the node needs image captions. */
   public static boolean needImageCaption(
       Context context, @Nullable AccessibilityNodeInfoCompat node) {
     return isCaptionable(context, node)
         && TextUtils.isEmpty(AccessibilityNodeInfoUtils.getNodeText(node));
   }
 
-  /**
-   * Checks if the node can be captioned.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Checks if the node can be captioned. */
   public static boolean isCaptionable(Context context, @Nullable AccessibilityNodeInfoCompat node) {
     if (node == null || !FeatureSupport.canTakeScreenShotByAccessibilityService()) {
       return false;

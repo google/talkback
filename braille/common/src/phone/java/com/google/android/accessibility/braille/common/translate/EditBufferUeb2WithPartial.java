@@ -65,7 +65,7 @@ public class EditBufferUeb2WithPartial implements EditBuffer {
     String result = "";
     int previousTranslationIndex;
     if (holdingPosition == NO_CURSOR || holdingPosition == holdings.size()) {
-      holdings.add(brailleCharacter);
+      holdings.append(brailleCharacter);
       holdingPosition = holdings.size();
       previousTranslationIndex = holdingPosition - 1;
     } else {
@@ -192,6 +192,24 @@ public class EditBufferUeb2WithPartial implements EditBuffer {
   }
 
   @Override
+  public boolean moveCursorForwardByWord(ImeConnection imeConnection) {
+    if (!holdings.isEmpty()) {
+      commit(imeConnection);
+    }
+    int newPos = EditBufferUtils.findWordBreakForwardIndex(imeConnection.inputConnection);
+    return moveHoldingsCursor(imeConnection, newPos);
+  }
+
+  @Override
+  public boolean moveCursorBackwardByWord(ImeConnection imeConnection) {
+    if (!holdings.isEmpty()) {
+      commit(imeConnection);
+    }
+    int newPos = EditBufferUtils.findWordBreakBackwardIndex(imeConnection.inputConnection);
+    return moveHoldingsCursor(imeConnection, newPos);
+  }
+
+  @Override
   public boolean moveCursorForwardByLine(ImeConnection imeConnection) {
     if (!holdings.isEmpty()) {
       commit(imeConnection);
@@ -218,6 +236,19 @@ public class EditBufferUeb2WithPartial implements EditBuffer {
       return imeConnection.inputConnection.setSelection(index, index);
     }
     return false;
+  }
+
+  @Override
+  public boolean moveCursorToBeginning(ImeConnection imeConnection) {
+    commit(imeConnection);
+    return imeConnection.inputConnection.setSelection(0, 0);
+  }
+
+  @Override
+  public boolean moveCursorToEnd(ImeConnection imeConnection) {
+    commit(imeConnection);
+    int end = EditBufferUtils.getTextFieldText(imeConnection.inputConnection).length();
+    return imeConnection.inputConnection.setSelection(end, end);
   }
 
   @Override

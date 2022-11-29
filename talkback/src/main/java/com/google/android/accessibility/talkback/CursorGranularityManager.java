@@ -26,8 +26,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.Compositor;
-import com.google.android.accessibility.compositor.GlobalVariables;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPhoneticLetters;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Filter;
@@ -571,7 +571,7 @@ public class CursorGranularityManager {
       return supportedGranularities;
     }
 
-    AccessibilityNodeInfoCompat currentNode = AccessibilityNodeInfoUtils.obtain(root);
+    AccessibilityNodeInfoCompat currentNode = root;
     if (!visitedNodes.add(currentNode)) {
       // Root already visited. Stop searching.
       return supportedGranularities;
@@ -580,7 +580,7 @@ public class CursorGranularityManager {
       LogUtils.d(TAG, "Adding granularities supported by Talkback managed granularity navigation");
       supportedGranularities |= GranularityTraversal.TALKBACK_SUPPORTED_GRANULARITIES;
       if (nodes != null) {
-        nodes.add(AccessibilityNodeInfoUtils.obtain(root));
+        nodes.add(root);
       }
 
     } else if (AccessibilityNodeInfoUtils.getMovementGranularity(root) != 0) {

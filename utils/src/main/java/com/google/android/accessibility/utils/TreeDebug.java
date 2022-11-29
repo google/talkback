@@ -19,9 +19,11 @@ package com.google.android.accessibility.utils;
 import android.accessibilityservice.AccessibilityService;
 import android.graphics.Rect;
 import android.text.TextUtils;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.utils.compat.CompatUtils;
 import com.google.android.accessibility.utils.traversal.OrderedTraversalStrategy;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashSet;
@@ -49,7 +51,6 @@ public class TreeDebug {
       AccessibilityNodeInfoCompat root =
           AccessibilityNodeInfoUtils.toCompat(AccessibilityWindowInfoUtils.getRoot(window));
       logNodeTree(root);
-      AccessibilityNodeInfoUtils.recycleNodes(root);
     }
   }
 
@@ -61,9 +62,6 @@ public class TreeDebug {
 
     HashSet<AccessibilityNodeInfoCompat> seen = new HashSet<>();
     logNodeTree(AccessibilityNodeInfoCompat.obtain(node), "", seen);
-    for (AccessibilityNodeInfoCompat n : seen) {
-      n.recycle();
-    }
   }
 
   private static void logNodeTree(
@@ -99,6 +97,19 @@ public class TreeDebug {
     sb.append(fullName, dotIndex, fullName.length());
   }
 
+  // FocusActionRecord.getUniqueIdViaReflection() is used temporarily. TODO: call
+  // AccessibilityNodeInfoCompat.getUniqueId() instead.
+  private static String getUniqueIdViaReflection(AccessibilityNodeInfoCompat nodeInfo) {
+    if (nodeInfo == null) {
+      return null;
+    }
+    return (String)
+        CompatUtils.invoke(
+            nodeInfo.unwrap(),
+            /* defaultValue= */ null,
+            CompatUtils.getMethod(AccessibilityNodeInfo.class, "getUniqueId"));
+  }
+
   /** Gets a description of the properties of a node. */
   public static CharSequence nodeDebugDescription(AccessibilityNodeInfoCompat node) {
     StringBuilder sb = new StringBuilder();
@@ -108,6 +119,13 @@ public class TreeDebug {
       appendSimpleName(sb, node.getClassName());
     } else {
       sb.append("??");
+    }
+
+    String uniqueId = getUniqueIdViaReflection(node);
+    if (uniqueId != null) {
+      sb.append(":U(");
+      sb.append(uniqueId);
+      sb.append(")");
     }
 
     if (!node.isVisibleToUser()) {
@@ -272,7 +290,6 @@ public class TreeDebug {
       AccessibilityNodeInfoCompat root =
           AccessibilityNodeInfoUtils.toCompat(AccessibilityWindowInfoUtils.getRoot(window));
       logOrderedTraversalTree(root);
-      AccessibilityNodeInfoUtils.recycleNodes(root);
     }
   }
 
@@ -283,7 +300,6 @@ public class TreeDebug {
     }
     OrderedTraversalStrategy orderTraversalStrategy = new OrderedTraversalStrategy(node);
     orderTraversalStrategy.dumpTree();
-    orderTraversalStrategy.recycle();
   }
 
   /**
