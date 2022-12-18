@@ -20,6 +20,7 @@ import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.Build;
 import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.ColorInt;
 import com.google.android.accessibility.talkback.R;
@@ -55,6 +56,12 @@ public class FocusIndicatorUtils {
   public static void setAccessibilityFocusAppearance(
       AccessibilityService service, int borderWidth, int borderColor) {
     // TODO: Uses the public API of SDK 31, AccessibilityService#setAccessibilityFocusAppearance
+
+    // INFO: TalkBack For Developers modification
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+      service.setAccessibilityFocusAppearance(borderWidth, borderColor);
+    }
+    // ------------------------------------------
   }
 
   /**

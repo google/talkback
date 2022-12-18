@@ -1,11 +1,11 @@
 // For building the open-source release of TalkBack.
 
 ext {
-    talkbackApplicationId = "com.android.talkback"
+    talkbackApplicationId = "com.android.talkback4d"
 }
 
 android {
-    compileSdkVersion 'android-Tiramisu'
+    compileSdkVersion 'android-33'
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -58,4 +58,10 @@ dependencies {
 
     // UI understanding
     implementation 'joda-time:joda-time:2.9.9'
+}
+
+android {
+    defaultConfig {
+        buildConfigField("String", "APPLICATION_ID", "\"" + talkbackApplicationId + "\"")
+    }
 }

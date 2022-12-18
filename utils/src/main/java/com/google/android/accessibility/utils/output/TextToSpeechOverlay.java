@@ -19,6 +19,7 @@ package com.google.android.accessibility.utils.output;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Message;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -27,6 +28,9 @@ import android.view.WindowManager;
 import android.view.WindowManager.BadTokenException;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.core.content.ContextCompat;
+
 import com.google.android.accessibility.utils.R;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.widget.DialogUtils;
@@ -67,9 +71,13 @@ public class TextToSpeechOverlay extends SimpleOverlay {
     int bottomMargin =
         context.getResources().getDimensionPixelSize(R.dimen.tts_overlay_text_bottom_margin);
 
+    // INFO: TalkBack For Developers modification
     text = new TextView(context);
-    text.setBackgroundColor(0xAA000000);
-    text.setTextColor(Color.WHITE);
+//    text.setBackgroundColor(0xAA000000);
+//    text.setTextColor(Color.WHITE);
+    text.setBackground(ContextCompat.getDrawable(context, R.drawable.toast_transition));
+    text.setTextColor(Color.BLACK);
+    // ------------------------------------------
     text.setPadding(padding, padding, padding, padding);
     text.setGravity(Gravity.CENTER);
 
@@ -109,6 +117,11 @@ public class TextToSpeechOverlay extends SimpleOverlay {
             LogUtils.e(LOG_TAG, e, "Caught WindowManager.BadTokenException while displaying text.");
           }
           parent.text.setText((CharSequence) msg.obj);
+
+          // INFO: TalkBack For Developers modification
+          AnimationDrawable animation = (AnimationDrawable)parent.text.getBackground();
+          if (animation != null) animation.start();
+          // ------------------------------------------
           break;
         case MSG_CLEAR_TEXT:
           parent.text.setText("");

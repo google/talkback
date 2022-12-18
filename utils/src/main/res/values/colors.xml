@@ -31,4 +31,10 @@
   <color name="a11y_button_background_color">@color/google_grey200</color>
   <color name="a11y_button_stroke_color">@color/google_grey200</color>
 
+  <!-- INFO: TalkBack For Developers modification-->
+  <!-- Toast colours -->
+  <color name="toast_back_color">@color/google_grey200</color>
+  <color name="toast_border_color_end">@color/google_grey200</color>
+  <color name="toast_border_color_start">#00de7a</color>
+  <color name="toast_border_color_center">@color/google_white</color>
 </resources>

@@ -820,7 +820,7 @@
     <string name="pref_node_desc_order_default">pref_node_desc_order_value_state_name_role_pos</string>
     <bool name="pref_speak_element_ids_default">false</bool>
     <bool name="pref_diagnosis_mode_default">false</bool>
-    <bool name="pref_tts_overlay_default">false</bool>
+    <bool name="pref_tts_overlay_default">true</bool>
     <bool name="pref_echo_recognized_text_default">false</bool>
     <bool name="pref_reduce_window_delay_default">true</bool>
     <bool name="pref_tree_debug_default">false</bool>

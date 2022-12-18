@@ -1,9 +1,6 @@
 // For building the open-source release of TalkBack.
-
 apply plugin: 'com.android.application'
-
 apply from: 'shared.gradle'
-
 apply from: 'version.gradle'
 
 final BUILD_TIMESTAMP = new Date().format('yyyy_MM_dd_HHmm')
@@ -19,7 +16,7 @@ buildscript {
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'com.android.tools.build:gradle:3.5.4'
+        classpath 'com.android.tools.build:gradle:4.2.2'
     }
 }
 
@@ -31,10 +28,10 @@ allprojects {
 }
 
 android {
-    buildToolsVersion '29.0.0'
+    buildToolsVersion '30.0.2'
     defaultConfig {
         applicationId talkbackApplicationId
-        versionName talkbackVersionName + "-" + BUILD_TIMESTAMP
+        versionName talkbackVersionName + "-" + BUILD_TIMESTAMP + "-" + talkback4DevVersionName
         minSdkVersion 26
         targetSdkVersion 30
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'

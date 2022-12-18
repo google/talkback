@@ -1132,7 +1132,8 @@ public class SelectorController {
   }
 
   /** Moves to the next or previous at specific granularity. */
-  private void moveAtGranularity(EventId eventId, Granularity granularity, boolean isNext) {
+  // INFO: TalkBack For Developers modification
+  public void moveAtGranularity(EventId eventId, Granularity granularity, boolean isNext) {
     // Sets granularity and locks navigate within the focused node.
     pipeline.returnFeedback(eventId, Feedback.granularity(granularity.cursorGranularity));
 

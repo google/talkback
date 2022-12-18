@@ -82,6 +82,17 @@ public abstract class PreferencesActivity extends BasePreferencesActivity {
     }
     return true;
   }
+  // INFO: TalkBack For Developers modification
+  @Override
+  public boolean onSupportNavigateUp() {
+    return onNavigateUp();
+  }
+
+  @Override
+  public void onBackPressed() {
+    onNavigateUp();
+  }
+  // ------------------------------------------
 
   @Override
   protected void onStart() {

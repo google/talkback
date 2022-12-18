@@ -83,8 +83,9 @@
 
         <!-- TalkBack -->
         <service
-            android:icon="@drawable/icon"
-            android:name="com.google.android.marvin.talkback.TalkBackService"
+            android:icon="@drawable/icon_tb4d"
+            android:roundIcon="@drawable/icon_tb4d_round"
+            android:name="com.developer.talkback.TalkBackDevService"
             android:exported="true"
             android:label="@string/talkback_title"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
@@ -104,7 +105,8 @@
         </service>
 
         <service
-            android:icon="@drawable/icon"
+            android:icon="@drawable/icon_tb4d"
+            android:roundIcon="@drawable/icon_tb4d_round"
             android:name="com.google.android.accessibility.talkback.ipc.IpcService"
             android:enabled="true"
             android:exported="false"

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- INFO: TalkBack For Developers modification -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+  <!-- Defines whether support for speaking text replacements is enabled.  Overridden in some locales -->
+  <integer name="frame_delay">80</integer>
+</resources>
