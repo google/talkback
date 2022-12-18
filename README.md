@@ -73,6 +73,8 @@ BROADCAST -a com.a11y.adb.volume_toggle # special case that toggles between 5% a
 ## FIXED
 - Menus lacking dark mode / styling
 - Back button in menus
+- Colour focus preference crash
+- Colour focus preference not applying
 
 [0]: https://github.com/qbalsdon/talkback/blob/main/talkback/src/main/java/com/google/android/accessibility/talkback/adb/A11yAction.java
 [1]: https://github.com/qbalsdon/talkback/blob/main/talkback/src/main/java/com/google/android/accessibility/talkback/selector/SelectorController.java#L116
