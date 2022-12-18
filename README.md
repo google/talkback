@@ -79,4 +79,4 @@ BROADCAST -a com.a11y.adb.volume_toggle # special case that toggles between 5% a
 [2]: https://github.com/qbalsdon/talkback/blob/main/talkback/src/main/java/com/google/android/accessibility/talkback/adb/ToggleDeveloperSetting.java
 [3]: https://github.com/qbalsdon/talkback/blob/main/talkback/src/main/java/com/google/android/accessibility/talkback/adb/VolumeSetting.java
 [4]: https://android.googlesource.com/platform/frameworks/uiautomator/+/android-support-test/src/main/java/android/support/test/uiautomator/AccessibilityNodeInfoDumper.java#125
-[100]: ./talkback/src/main/res/drawable-xxxhdpi/icon_tb4d_round.png "TalkBack for developers" {: height="200px"}
+[100]: ./talkback/src/main/res/drawable-xxxhdpi/icon_tb4d_round.png "TalkBack for developers"
