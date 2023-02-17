@@ -63,7 +63,7 @@ public class AdbReceiver extends BroadcastReceiver {
                     String granularityParam = "default";
                     if (intent.hasExtra(A11yAction.granularityParameter)) {
                         String granularityParamExtra = intent.getStringExtra(A11yAction.granularityParameter);
-                        if (granularityParamExtra != null || granularityParamExtra.isEmpty()) {
+                        if (granularityParamExtra != null && granularityParamExtra.trim().length() > 0) {
                             granularityParam = granularityParamExtra;
                         }
                     }

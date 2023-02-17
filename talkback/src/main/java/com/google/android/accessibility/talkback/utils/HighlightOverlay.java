@@ -61,7 +61,6 @@ public class HighlightOverlay extends SimpleOverlay {
   /** Highlights multiple nodes */
   public class MultipleHighlightView extends View {
     private final Paint refocusPaint = new Paint();
-    private final Paint whitePaint = new Paint();
     private final Paint skippedNodePaint = new Paint();
     private final Paint borderPaint = new Paint();
 
@@ -80,12 +79,8 @@ public class HighlightOverlay extends SimpleOverlay {
       borderPaint.setColor(Color.BLACK);
       borderPaint.setStyle(Style.STROKE);
       borderPaint.setBlendMode(BlendMode.DARKEN);
-      borderPaint.setStrokeWidth(context.getResources().getDimensionPixelSize(R.dimen.highlight_overlay_border));
-
-      whitePaint.setColor(Color.WHITE);
-      whitePaint.setStyle(Style.STROKE);
-      borderPaint.setBlendMode(BlendMode.COLOR_DODGE);
-      whitePaint.setStrokeWidth(context.getResources().getDimensionPixelSize(R.dimen.tb4d_node_label_line));
+      borderPaint.setStrokeWidth(
+              context.getResources().getDimensionPixelSize(R.dimen.highlight_overlay_border));
     }
 
     @Override
@@ -104,16 +99,11 @@ public class HighlightOverlay extends SimpleOverlay {
           drawRectangle(canvas, nodeBounds, refocusPaint);
         }
       }
-      if (focusedNode != null) {
-        Rect nodeBounds = new Rect();
-        focusedNode.getBoundsInScreen(nodeBounds);
-        drawThing(canvas, nodeBounds, whitePaint);
-      }
     }
 
     private void processUnfocusableNodes(@DiagnosticType Integer type, Canvas canvas) {
       ArrayList<AccessibilityNodeInfoCompat> currentNodes =
-          new ArrayList<AccessibilityNodeInfoCompat>();
+              new ArrayList<AccessibilityNodeInfoCompat>();
       currentNodes = skippedNodes.get(type);
       if (currentNodes != null) {
         for (AccessibilityNodeInfoCompat node : currentNodes) {
@@ -134,42 +124,18 @@ public class HighlightOverlay extends SimpleOverlay {
       canvas.drawRect(rectInHighlightView, paint);
       canvas.drawRect(rectInHighlightView, borderPaint);
     }
-
-    private void drawThing(Canvas canvas, Rect rectOnScreen, Paint paint) {
-      // Adjust location by overlay position on screen.
-      int[] overlayScreenXY = {0, 0};
-      highlightView.getLocationOnScreen(overlayScreenXY);
-      Rect rectInHighlightView = moveRect(rectOnScreen, -overlayScreenXY[0], -overlayScreenXY[1]);
-
-      int radius = Math.min(rectOnScreen.height(), rectOnScreen.width()) / 4;
-      // Draw thing
-      canvas.drawArc(rectInHighlightView.centerX() - radius,
-              rectInHighlightView.centerY() - radius,
-              rectInHighlightView.centerX() + radius,
-              rectInHighlightView.centerY() + radius,
-              0f, 360f, true, whitePaint);
-    }
-
-    private void drawExclusion(Canvas canvas, Rect rectOnScreen, Paint paint) {
-      // Adjust location by overlay position on screen.
-      int[] overlayScreenXY = {0, 0};
-      highlightView.getLocationOnScreen(overlayScreenXY);
-      Rect rectInHighlightView = moveRect(rectOnScreen, -overlayScreenXY[0], -overlayScreenXY[1]);
-
-      drawRectangle(canvas, exclusion1, borderPaint);
-    }
   }
 
   private static Rect moveRect(Rect rect, int deltaX, int deltaY) {
     return new Rect(
-        rect.left + deltaX, rect.top + deltaY, rect.right + deltaX, rect.bottom + deltaY);
+            rect.left + deltaX, rect.top + deltaY, rect.right + deltaX, rect.bottom + deltaY);
   }
 
   public HighlightOverlay(Context context) {
     super(context, 0, false);
 
     final WindowManager windowManager =
-        (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
     final WindowManager.LayoutParams layPar = new WindowManager.LayoutParams();
     layPar.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
     layPar.format = PixelFormat.TRANSLUCENT;
@@ -191,15 +157,15 @@ public class HighlightOverlay extends SimpleOverlay {
   }
 
   public void highlightNodesOnScreen(
-      AccessibilityNodeInfoCompat focusedNode,
-      HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> skippedNodes,
-      HashSet<AccessibilityNode> refocusNodePath) {
+          AccessibilityNodeInfoCompat focusedNode,
+          HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> skippedNodes,
+          HashSet<AccessibilityNode> refocusNodePath) {
     highlightView.setVisibility(View.VISIBLE);
     try {
       show();
     } catch (BadTokenException e) {
       LogUtils.e(
-          "Highlight Overlay", e, "Caught WindowManager.BadTokenException while displaying text.");
+              "Highlight Overlay", e, "Caught WindowManager.BadTokenException while displaying text.");
     }
     this.skippedNodes = skippedNodes;
     this.refocusNodePath = refocusNodePath;
