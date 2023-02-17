@@ -46,6 +46,7 @@ public class AdbReceiver extends BroadcastReceiver {
         String action = intent.getAction().replace(IntentActionPrefix + ".", "").toLowerCase();
 
         if (performA11yAction(context, action, intent, talkBackServiceInstance)) return;
+        if (setDeveloperSetting(context, action, intent, talkBackServiceInstance)) return;
         if (toggleDeveloperSetting(context, action, intent, talkBackServiceInstance)) return;
         if (setAccessibilityVolume(context, action, intent, talkBackServiceInstance)) return;
 
@@ -78,6 +79,26 @@ public class AdbReceiver extends BroadcastReceiver {
             }
         }
         return false;
+    }
+
+    private boolean setDeveloperSetting(Context context,
+                                           String action,
+                                           Intent intent,
+                                           TalkBackService talkBackServiceInstance) {
+        DeveloperSetting developerSetting = DeveloperSetting.fromString(action);
+        if (developerSetting == DeveloperSetting.UNKNOWN) return false;
+        if (!intent.hasExtra(DeveloperSetting.valueParameter)) return false;
+        Boolean settingValue = Boolean.parseBoolean(intent.getStringExtra(DeveloperSetting.valueParameter));
+
+        SharedPreferences preferences = SharedPreferencesUtils.getSharedPreferences(context);
+        Resources resources = context.getResources();
+        SharedPreferencesUtils.putBooleanPref(
+                preferences,
+                resources,
+                developerSetting.keyId,
+                settingValue
+        );
+        return true;
     }
 
     private boolean toggleDeveloperSetting(Context context,

@@ -12,6 +12,7 @@ enum DeveloperSetting {
     EXPLORE_BY_TOUCH(R.string.pref_explore_by_touch_key, R.bool.pref_explore_by_touch_default),
     NODE_TREE_DEBUGGING(R.string.title_pref_tree_debug, R.bool.pref_tree_debug_default);
 
+    public static final String valueParameter = "value";
 
     private DeveloperSetting(int keyId, int defaultKey) {
         this.keyId = keyId;

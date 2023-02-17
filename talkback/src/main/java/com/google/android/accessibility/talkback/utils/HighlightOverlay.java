@@ -61,6 +61,7 @@ public class HighlightOverlay extends SimpleOverlay {
   /** Highlights multiple nodes */
   public class MultipleHighlightView extends View {
     private final Paint refocusPaint = new Paint();
+    private final Paint whitePaint = new Paint();
     private final Paint skippedNodePaint = new Paint();
     private final Paint borderPaint = new Paint();
 
@@ -79,8 +80,12 @@ public class HighlightOverlay extends SimpleOverlay {
       borderPaint.setColor(Color.BLACK);
       borderPaint.setStyle(Style.STROKE);
       borderPaint.setBlendMode(BlendMode.DARKEN);
-      borderPaint.setStrokeWidth(
-          context.getResources().getDimensionPixelSize(R.dimen.highlight_overlay_border));
+      borderPaint.setStrokeWidth(context.getResources().getDimensionPixelSize(R.dimen.highlight_overlay_border));
+
+      whitePaint.setColor(Color.WHITE);
+      whitePaint.setStyle(Style.STROKE);
+      borderPaint.setBlendMode(BlendMode.COLOR_DODGE);
+      whitePaint.setStrokeWidth(context.getResources().getDimensionPixelSize(R.dimen.tb4d_node_label_line));
     }
 
     @Override
@@ -98,6 +103,11 @@ public class HighlightOverlay extends SimpleOverlay {
           node.getBoundsInScreen(nodeBounds);
           drawRectangle(canvas, nodeBounds, refocusPaint);
         }
+      }
+      if (focusedNode != null) {
+        Rect nodeBounds = new Rect();
+        focusedNode.getBoundsInScreen(nodeBounds);
+        drawThing(canvas, nodeBounds, whitePaint);
       }
     }
 
@@ -123,6 +133,30 @@ public class HighlightOverlay extends SimpleOverlay {
       // Draw fill and outline.
       canvas.drawRect(rectInHighlightView, paint);
       canvas.drawRect(rectInHighlightView, borderPaint);
+    }
+
+    private void drawThing(Canvas canvas, Rect rectOnScreen, Paint paint) {
+      // Adjust location by overlay position on screen.
+      int[] overlayScreenXY = {0, 0};
+      highlightView.getLocationOnScreen(overlayScreenXY);
+      Rect rectInHighlightView = moveRect(rectOnScreen, -overlayScreenXY[0], -overlayScreenXY[1]);
+
+      int radius = Math.min(rectOnScreen.height(), rectOnScreen.width()) / 4;
+      // Draw thing
+      canvas.drawArc(rectInHighlightView.centerX() - radius,
+              rectInHighlightView.centerY() - radius,
+              rectInHighlightView.centerX() + radius,
+              rectInHighlightView.centerY() + radius,
+              0f, 360f, true, whitePaint);
+    }
+
+    private void drawExclusion(Canvas canvas, Rect rectOnScreen, Paint paint) {
+      // Adjust location by overlay position on screen.
+      int[] overlayScreenXY = {0, 0};
+      highlightView.getLocationOnScreen(overlayScreenXY);
+      Rect rectInHighlightView = moveRect(rectOnScreen, -overlayScreenXY[0], -overlayScreenXY[1]);
+
+      drawRectangle(canvas, exclusion1, borderPaint);
     }
   }
 
