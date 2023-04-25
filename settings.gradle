@@ -12,8 +12,8 @@ include ':brailleime'
 project(':brailleime').projectDir = new File('braille/brailleime')
 include 'brailleimeanalytics'
 project(':brailleimeanalytics').projectDir = new File('braille/brailleimeanalytics')
-include 'brailletranslate'
-project(':brailletranslate').projectDir = new File('braille/translate')
+//include 'brailletranslate'
+//project(':brailletranslate').projectDir = new File('braille/translate')
 include 'brailledisplay'
 project(':brailledisplay').projectDir = new File('braille/brailledisplay')
 include 'brailledisplayanalytics'
