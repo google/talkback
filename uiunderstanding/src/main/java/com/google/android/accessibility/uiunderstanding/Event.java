@@ -56,6 +56,7 @@ public abstract class Event {
     public int hashCode() {
       return Objects.hash(className, uptimeMillisec);
     }
+    //note: this is where I think that override begins
 
     @Override
     public String toString() {

@@ -3,6 +3,6 @@ apply from: "../../shared.gradle"
 
 dependencies {
     implementation project(':utils')
-    implementation project(':braillecommon')
-    implementation project(':brailleinterfaces')
+    //implementation project(':braillecommon')
+    //implementation project(':brailleinterfaces')
 }

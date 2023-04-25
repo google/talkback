@@ -2,8 +2,8 @@ apply plugin: 'com.android.library'
 apply from: "../../shared.gradle"
 
 dependencies {
-    implementation project(':brailleinterfaces')
-    implementation project(':brailletranslate')
-    implementation project(':proguard')
-    implementation project(':utils')
+    //implementation project(':brailleinterfaces')
+    //implementation project(':brailletranslate')
+    //implementation project(':proguard')
+    //implementation project(':utils')
 }
