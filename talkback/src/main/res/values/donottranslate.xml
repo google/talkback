@@ -31,6 +31,7 @@
     <string name="pref_performance_stats_key">pref_performance_stats</string>
     <string name="pref_performance_stats_reflect_key">pref_performance_stats_reflect</string>
     <string name="pref_log_overlay_key" translatable="false">pref_log_overlay_reflect</string>
+    <string name="pref_tb4d_block_overlay_key" translatable="false">pref_tb4d_block_overlay_key_reflect</string>
     <string name="pref_web_scripts_key">pref_web_scripts</string>
     <!-- Deprecated. Use pref_dump_event_mask_key instead. -->
     <string name="pref_dump_event_key_prefix">pref_dump_event_<xliff:g example="1" id="eventType">%1$d</xliff:g></string>
@@ -826,6 +827,7 @@
     <bool name="pref_tree_debug_default">false</bool>
     <bool name="pref_performance_stats_default">false</bool>
     <bool name="pref_log_overlay_default">false</bool>
+    <bool name="pref_tb4d_overlay_block_default">false</bool>
     <bool name="pref_talkback_gesture_detection_default">true</bool>
     <bool name="pref_web_scripts_default">true</bool>
     <string name="pref_typing_confirmation_default">@string/typing_type_lift_to_type</string>

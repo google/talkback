@@ -131,6 +131,7 @@ import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
 import com.google.android.accessibility.talkback.labeling.LabelDialogManager;
 import com.google.android.accessibility.talkback.labeling.PackageRemovalReceiver;
 import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor;
+import com.google.android.accessibility.talkback.overlay.DevInfoOverlayController;
 import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
 import com.google.android.accessibility.talkback.selector.SelectorController;
 import com.google.android.accessibility.talkback.speech.SpeakPasswordsManager;
@@ -300,6 +301,8 @@ public class TalkBackService extends AccessibilityService
      * Controller for diagnostic overlay (developer mode).
      */
     private DiagnosticOverlayControllerImpl diagnosticOverlayController;
+
+    private DevInfoOverlayController devInfoOverlayController;
 
     /**
      * Staged pipeline for separating interpreters, feedback-mappers, and actors.
@@ -599,6 +602,7 @@ public class TalkBackService extends AccessibilityService
         interruptAllFeedback(false /* stopTtsSpeechCompletely */);
         if (pipeline != null) {
             pipeline.onUnbind(calculateFinalAnnouncementVolume(), disableTalkBackCompleteAction);
+            interruptAllFeedback(false /* stopTtsSpeechCompletely */);
         }
         if (gestureShortcutMapping != null) {
             gestureShortcutMapping.onUnbind();
@@ -699,6 +703,10 @@ public class TalkBackService extends AccessibilityService
         if (diagnosticOverlayController != null) {
             diagnosticOverlayController.displayEvent(event);
         }
+//        if (devOverlayController != null) {
+//            devOverlayController.displayFeedback(event);
+//        }
+
     }
 
     public boolean supportsTouchScreen() {
@@ -817,12 +825,14 @@ public class TalkBackService extends AccessibilityService
 
     @Override
     public boolean onGesture(AccessibilityGestureEvent accessibilityGestureEvent) {
-        if (handleOnGestureById(accessibilityGestureEvent.getGestureId())) {
-            pipeline
-                    .getFeedbackReturner()
-                    .returnFeedback(
-                            Performance.EVENT_ID_UNTRACKED, Feedback.saveGesture(accessibilityGestureEvent));
-            return true;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            if (handleOnGestureById(accessibilityGestureEvent.getGestureId())) {
+                pipeline
+                        .getFeedbackReturner()
+                        .returnFeedback(
+                                EVENT_ID_UNTRACKED, Feedback.saveGesture(accessibilityGestureEvent));
+                return true;
+            }
         }
         return false;
     }
@@ -1157,6 +1167,7 @@ public class TalkBackService extends AccessibilityService
         speechController = new SpeechControllerImpl(this, this, feedbackController);
         speechStateMonitor = new SpeechStateMonitor();
         diagnosticOverlayController = new DiagnosticOverlayControllerImpl(this);
+        devInfoOverlayController = new DevInfoOverlayController(this);
 
         gestureShortcutMapping = new GestureShortcutMapping(this);
 
@@ -1329,6 +1340,7 @@ public class TalkBackService extends AccessibilityService
                         proximitySensorListener,
                         speechController,
                         diagnosticOverlayController,
+                        devInfoOverlayController,
                         compositor,
                         userInterface);
 
@@ -2156,6 +2168,13 @@ public class TalkBackService extends AccessibilityService
                 PreferencesActivityUtils.getDiagnosticPref(
                         prefs, res, R.string.pref_log_overlay_key, R.bool.pref_log_overlay_default);
         diagnosticOverlayController.setLogOverlayEnabled(logOverlayEnabled);
+
+        boolean blockOutEnabled =
+                getBooleanPref(R.string.pref_tb4d_block_overlay_key, R.bool.pref_tb4d_overlay_block_default);
+        devInfoOverlayController.setOverlayEnabled(blockOutEnabled);
+        if (blockOutEnabled && logOverlayEnabled) {
+            diagnosticOverlayController.setLogOverlayEnabled(false);
+        }
 
         accessibilityEventProcessor.setSpeakWhenScreenOff(
                 VerbosityPreferences.getPreferenceValueBool(

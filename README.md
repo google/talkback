@@ -47,10 +47,14 @@ BROADCAST -a com.a11y.adb.next           # default granularity
 BROADCAST -a com.a11y.adb.previous -e mode headings # move tp previous heading
 BROADCAST -a com.a11y.adb.next -e mode headings     # move to next heading
 
-# Toggle settings
+# Toggle settings 
 BROADCAST -a com.a11y.adb.toggle_speech_output # show special toasts for spoken text
 BROADCAST -a com.a11y.adb.perform_click_action
 BROADCAST -a com.a11y.adb.volume_toggle # special case that toggles between 5% and 50%
+BROADCAST -a com.a11y.adb.debug_log_overlay # special case that toggles between 5% and 50%
+
+# Custom settings
+BROADCAST -a com.a11y.adb.block_out # toggle blocking out everything except the focused element
 ```
 
 ## All parameters
@@ -67,7 +71,7 @@ BROADCAST -a com.a11y.adb.volume_toggle # special case that toggles between 5% a
     - Touch target size check
     - Developer-friendly details on curtain (add to announcements)
     - [NAF control checker][4]
-    - Hide all screen except highlighted node
+    - [x] Hide all screen except highlighted node
     - Show labels
 
 ## FIXED

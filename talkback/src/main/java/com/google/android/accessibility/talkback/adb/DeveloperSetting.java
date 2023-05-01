@@ -6,6 +6,7 @@ enum DeveloperSetting {
     // developer_preferences.xml
     UNKNOWN(-1, -1),
     TOGGLE_SPEECH_OUTPUT(R.string.pref_tts_overlay_key, R.bool.pref_tts_overlay_default),
+    BLOCK_OUT(R.string.pref_tb4d_block_overlay_key, R.bool.pref_tb4d_overlay_block_default),
     ECHO_RECOGNIZED_SPEECH(R.string.pref_echo_recognized_text_speech_key, R.bool.pref_echo_recognized_text_default),
     REDUCE_WINDOW_ANNOUNCEMENT_DELAY(R.string.pref_reduce_window_delay_key, R.bool.pref_reduce_window_delay_default),
     ENABLE_PERFORMANCE_STATISTICS(R.string.pref_performance_stats_key, R.bool.pref_performance_stats_default),

@@ -121,6 +121,7 @@ public class AdbReceiver extends BroadcastReceiver {
                 developerSetting.keyId,
                 prefValue
         );
+
         return true;
     }
 

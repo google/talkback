@@ -691,6 +691,11 @@
     <string name="title_pref_diagnosis_mode">Diagnosis mode</string>
     <!--
       Source: Preference title.
+      Description: This preference allows the user blur everything except the focused component.
+    -->
+    <string name="title_pref_tb4d_block_overlay">Block out overlay</string>
+    <!--
+      Source: Preference title.
       Description: This preference allows the user to show speech output on the screen.
     -->
     <string name="title_pref_tts_overlay">Display speech output</string>

@@ -32,6 +32,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.TalkBackService.ProximitySensorListener;
 import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.talkback.eventprocessor.AccessibilityEventProcessor.AccessibilityEventIdleListener;
+import com.google.android.accessibility.talkback.overlay.DevInfoOverlayController;
 import com.google.android.accessibility.talkback.utils.DiagnosticOverlayControllerImpl;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
@@ -213,6 +214,7 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
   private final SpeechObserver speechObserver;
   private final UserInterface userInterface;
   private final DiagnosticOverlayControllerImpl diagnosticOverlayController;
+  private final DevInfoOverlayController devInfoOverlayController;
   private final Compositor compositor;
 
   private CharSequence hintTTSOutput;
@@ -237,6 +239,7 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
       ProximitySensorListener proximitySensorListener,
       SpeechController speechController,
       DiagnosticOverlayControllerImpl diagnosticOverlayController,
+      DevInfoOverlayController devInfoOverlayController,
       Compositor compositor,
       UserInterface userInterface) {
     this.context = context;
@@ -245,6 +248,7 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
     this.mappers = mappers;
     this.actors = actors;
     this.diagnosticOverlayController = diagnosticOverlayController;
+    this.devInfoOverlayController = devInfoOverlayController;
     this.compositor = compositor;
     this.userInterface = userInterface;
 
@@ -362,6 +366,7 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
         actors.interruptGentle(feedback.eventId());
       }
       diagnosticOverlayController.displayFeedback(feedback);
+      devInfoOverlayController.displayFeedback(feedback);
 
       boolean success = true;
       if (part.delayMs() <= 0) {

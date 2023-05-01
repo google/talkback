@@ -9,6 +9,10 @@
       android:key="@string/pref_diagnosis_mode_key"
       android:title="@string/title_pref_diagnosis_mode"/>
   <SwitchPreference
+      android:defaultValue="@bool/pref_tb4d_overlay_block_default"
+      android:key="@string/pref_tb4d_block_overlay_key"
+      android:title="@string/title_pref_tb4d_block_overlay"/>
+  <SwitchPreference
       android:defaultValue="@bool/pref_tts_overlay_default"
       android:key="@string/pref_tts_overlay_key"
       android:title="@string/title_pref_tts_overlay"/>

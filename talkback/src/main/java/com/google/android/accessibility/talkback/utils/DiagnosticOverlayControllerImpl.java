@@ -98,7 +98,7 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
 
   /** Highlights focused View after a focus-action. */
   public void displayFeedback(Feedback feedback) {
-    if (!enabled || highlightOverlay == null || diagnosticOverlay == null) {
+    if (!enabled || highlightOverlay == null) {
       return;
     }
 
@@ -184,7 +184,7 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
         diagnosticOverlay = null;
       }
       if (highlightOverlay != null) {
-        highlightOverlay.clearHighlight();
+        highlightOverlay.removeHighlight();
         highlightOverlay = null;
       }
     }
