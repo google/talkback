@@ -28,6 +28,12 @@ public class LibLouis implements TranslatorFactory {
     if (codeName.equals("FRENCH")) {
       return new LibLouisTranslatorFrench(context);
     }
+    if (codeName.equals("CROATIAN")) {
+      return new LibLouisTranslatorCroatian(context);
+    }
+    if (codeName.equals("SERBIAN")) {
+      return new LibLouisTranslatorSerbian(context);
+    }
     if (codeName.equals("POLISH")) {
       return new LibLouisTranslatorPolish(context);
     }
