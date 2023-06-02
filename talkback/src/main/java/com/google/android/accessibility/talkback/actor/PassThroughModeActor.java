@@ -26,6 +26,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
+import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Timer;
@@ -93,16 +94,12 @@ public class PassThroughModeActor {
             Display.DEFAULT_DISPLAY, getRegionOfFullScreen(service));
         startPassThroughGuardTimer();
         LogUtils.v(TAG, "Enter touch explore pass-through mode.");
-        pipeline.returnFeedback(
-            EVENT_ID_UNTRACKED,
-            Feedback.sound(com.google.android.accessibility.compositor.R.raw.chime_up));
+        pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.sound(R.raw.chime_up));
       } else {
         service.setTouchExplorationPassthroughRegion(Display.DEFAULT_DISPLAY, new Region());
         if (touchExplorePassThroughActive) {
           LogUtils.v(TAG, "Leave touch explore pass-through mode.");
-          pipeline.returnFeedback(
-              EVENT_ID_UNTRACKED,
-              Feedback.sound(com.google.android.accessibility.compositor.R.raw.chime_down));
+          pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.sound(R.raw.chime_down));
         }
       }
       touchExplorePassThroughActive = enable;

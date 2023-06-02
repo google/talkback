@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.utils.output;
 
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.ComponentCallbacks;
 import android.content.ContentResolver;
@@ -28,7 +27,6 @@ import android.database.ContentObserver;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
 import android.os.PowerManager;
@@ -1046,7 +1044,6 @@ public class FailoverTextToSpeech {
           }
         }
 
-        @TargetApi(Build.VERSION_CODES.N) // This callback will only be called on N+.
         @Override
         public void onAudioAvailable(String utteranceId, byte[] audio) {
           // onAudioAvailable() is usually called many times per utterance,
@@ -1054,7 +1051,6 @@ public class FailoverTextToSpeech {
           updatePerformanceMetrics(utteranceId);
         }
 
-        @TargetApi(Build.VERSION_CODES.O)
         @Override
         public void onRangeStart(String utteranceId, int start, int end, int frame) {
           if (mShouldHandleTtsCallbackInMainThread) {

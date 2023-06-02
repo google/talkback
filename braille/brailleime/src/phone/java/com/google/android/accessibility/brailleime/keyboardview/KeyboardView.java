@@ -1,7 +1,6 @@
 package com.google.android.accessibility.brailleime.keyboardview;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.Region;
 import android.hardware.display.DisplayManager;
 import android.inputmethodservice.InputMethodService;
@@ -112,7 +111,6 @@ public abstract class KeyboardView {
     init();
     viewContainer = createViewContainerInternal();
     updateViewContainerInternal();
-    viewContainer.setViewContainerCallback(viewContainerCallback);
     return viewContainer;
   }
 
@@ -275,22 +273,22 @@ public abstract class KeyboardView {
 
   protected abstract void tearDownInternal();
 
-  private final ViewContainer.Callback viewContainerCallback =
-      new ViewContainer.Callback() {
-        @Override
-        public void onOrientationChanged(int orientation) {
-          BrailleImeLog.logD(TAG, "onOrientationChanged");
-          if (brailleInputView != null) {
-            brailleInputView.onOrientationChanged(orientation, getScreenSize());
-          }
-          if (tutorialView != null) {
-            tutorialView.onOrientationChanged(orientation, getScreenSize());
-          }
-          if (viewContainer != null) {
-            updateViewContainerInternal();
-          }
-        }
-      };
+  /** Signals that a orientation change has occurred. */
+  public void onOrientationChanged(int orientation) {
+    BrailleImeLog.logD(TAG, "onOrientationChanged");
+    if (brailleInputView != null) {
+      brailleInputView.onOrientationChanged(orientation, getScreenSize());
+    }
+    if (stripView != null) {
+      stripView.onOrientationChanged(orientation, getScreenSize());
+    }
+    if (tutorialView != null) {
+      tutorialView.onOrientationChanged(orientation, getScreenSize());
+    }
+    if (viewContainer != null) {
+      updateViewContainerInternal();
+    }
+  }
 
   private final DisplayManager.DisplayListener displayListener =
       new DisplayManager.DisplayListener() {
@@ -323,11 +321,6 @@ public abstract class KeyboardView {
   }
 
   @VisibleForTesting
-  public ViewContainer.Callback testing_getViewContainerCallback() {
-    return viewContainerCallback;
-  }
-
-  @VisibleForTesting
   public TutorialView testing_getTutorialView() {
     return tutorialView;
   }
@@ -341,45 +334,13 @@ public abstract class KeyboardView {
    */
   public static class ViewContainer extends FrameLayout {
 
-    /** A callback for receiving onConfigurationChanged from ViewContainer. */
-    public interface Callback {
-
-      /**
-       * Signals that a orientation change has occurred.
-       *
-       * <p>Since some components (such as InputMethodService instances) are not always informed of
-       * orientation changes, this method allows a View (which is always informed) to signal such a
-       * change to such a component.
-       */
-      void onOrientationChanged(int orientation);
-    }
-
     /** A callback for notify clients view status changed. */
     public interface ViewStatusCallback {
       void onViewAdded();
     }
 
-    private Callback callback;
-    private int orientation;
-
     public ViewContainer(Context context) {
       super(context);
-      this.orientation = getResources().getConfiguration().orientation;
-    }
-
-    public void setViewContainerCallback(Callback callback) {
-      this.callback = callback;
-    }
-
-    @Override
-    protected void onConfigurationChanged(Configuration newConfig) {
-      super.onConfigurationChanged(newConfig);
-      if (orientation != newConfig.orientation) {
-        orientation = newConfig.orientation;
-        if (callback != null) {
-          callback.onOrientationChanged(newConfig.orientation);
-        }
-      }
     }
 
     @Override

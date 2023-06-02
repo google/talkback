@@ -2,7 +2,7 @@
 <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
     android:accessibilityEventTypes="typeAllMask"
     android:accessibilityFeedbackType="feedbackSpoken|feedbackHaptic|feedbackAudible"
-    android:accessibilityFlags="flagDefault|flagRequestTouchExplorationMode|flagReportViewIds|flagRequestFilterKeyEvents|flagEnableAccessibilityVolume|flagRetrieveInteractiveWindows|flagRequestShortcutWarningDialogSpokenFeedback"
+    android:accessibilityFlags="flagDefault|flagReportViewIds|flagRequestFilterKeyEvents|flagEnableAccessibilityVolume|flagRetrieveInteractiveWindows|flagRequestShortcutWarningDialogSpokenFeedback"
     android:canRequestFilterKeyEvents="true"
     android:canRequestTouchExplorationMode="true"
     android:canControlMagnification="true"
@@ -13,5 +13,6 @@
     android:notificationTimeout="0"
     android:interactiveUiTimeout="10000"
     android:animatedImageDrawable="@drawable/talkback_intro"
+    android:canPerformGestures="true"
     android:htmlDescription="@string/talkback_service_html_description"
     android:settingsActivity="com.android.talkback.TalkBackPreferencesActivity" />

@@ -1,15 +1,12 @@
 package com.google.android.accessibility.braille.common;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
-
 import android.text.InputType;
 import android.text.TextUtils;
-import android.util.Range;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.ExtractedText;
 import android.view.inputmethod.ExtractedTextRequest;
 import android.view.inputmethod.InputConnection;
+import com.google.android.accessibility.braille.interfaces.SelectionRange;
 
 /** Provides the utilities for common braille usages. */
 public class BrailleCommonUtils {
@@ -135,18 +132,16 @@ public class BrailleCommonUtils {
             || isTextPasswordField(editorInfo.inputType));
   }
 
-  /** Returns the range of selected text. */
-  public static Range<Integer> getTextSelectionRange(InputConnection inputConnection) {
-    ExtractedText extractedText =
-        inputConnection.getExtractedText(
-            new ExtractedTextRequest(), InputConnection.GET_EXTRACTED_TEXT_MONITOR);
+  /** Returns the start and the end of selected text. */
+  public static SelectionRange getTextSelection(InputConnection inputConnection) {
+    ExtractedText extractedText = inputConnection.getExtractedText(new ExtractedTextRequest(), 0);
     int selectionStart = 0;
     int selectionEnd = 0;
     if (extractedText != null) {
-      selectionStart = min(extractedText.selectionStart, extractedText.selectionEnd);
-      selectionEnd = max(extractedText.selectionStart, extractedText.selectionEnd);
+      selectionStart = extractedText.selectionStart;
+      selectionEnd = extractedText.selectionEnd;
     }
-    return new Range<>(selectionStart, selectionEnd);
+    return new SelectionRange(selectionStart, selectionEnd);
   }
 
   /**
@@ -174,6 +169,13 @@ public class BrailleCommonUtils {
         && (variation == InputType.TYPE_TEXT_VARIATION_PASSWORD
             || variation == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
             || variation == InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD);
+  }
+
+  /** Returns {@code true} if {@code editorInfo}'s input type is visible password. */
+  public static boolean isVisiblePasswordField(EditorInfo editorInfo) {
+    final int variation = editorInfo.inputType & InputType.TYPE_MASK_VARIATION;
+    return isPasswordField(editorInfo)
+        && variation == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
   }
 
   private static int getInputTypeClass(int inputType) {

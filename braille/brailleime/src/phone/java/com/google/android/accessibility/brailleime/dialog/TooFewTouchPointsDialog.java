@@ -20,8 +20,8 @@ import android.app.Dialog;
 import android.content.Context;
 import androidx.appcompat.app.AlertDialog;
 import com.google.android.accessibility.brailleime.R;
+import com.google.android.accessibility.utils.KeyboardUtils;
 import com.google.android.accessibility.utils.MaterialComponentUtils;
-import com.google.android.accessibility.utils.keyboard.KeyboardUtils;
 
 /** An error dialog which shows when the device supports too few touch points. */
 public class TooFewTouchPointsDialog extends ViewAttachedDialog {

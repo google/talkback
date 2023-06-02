@@ -16,13 +16,11 @@
 
 package com.google.android.accessibility.utils.monitor;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.AudioManager.AudioPlaybackCallback;
 import android.media.AudioPlaybackConfiguration;
-import android.os.Build;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -66,12 +64,11 @@ public class AudioPlaybackMonitor {
 
   private final @Nullable Context context;
   private @Nullable AudioManager audioManager;
-  @Nullable private final AudioPlaybackCallback audioPlaybackCallback;
+  private final @Nullable AudioPlaybackCallback audioPlaybackCallback;
 
-  @Nullable private AudioPlaybackStateChangedListener listener;
+  private @Nullable AudioPlaybackStateChangedListener listener;
   private boolean isPlaying = false;
 
-  @TargetApi(Build.VERSION_CODES.O)
   public AudioPlaybackMonitor(Context context) {
     this.context = context;
     if (BuildVersionUtils.isAtLeastO()) {
@@ -124,7 +121,6 @@ public class AudioPlaybackMonitor {
     return false;
   }
 
-  @TargetApi(Build.VERSION_CODES.O)
   public void onResumeInfrastructure() {
     if (audioPlaybackCallback != null) {
       isPlaying = false;
@@ -136,7 +132,6 @@ public class AudioPlaybackMonitor {
     }
   }
 
-  @TargetApi(Build.VERSION_CODES.O)
   public void onSuspendInfrastructure() {
     if (audioPlaybackCallback != null) {
       @Nullable AudioManager audioManagerNow = getAudioManager();
@@ -167,7 +162,6 @@ public class AudioPlaybackMonitor {
     return result;
   }
 
-  @TargetApi(Build.VERSION_CODES.O)
   private static boolean containsAudioPlaybackSources(List<AudioPlaybackConfiguration> configs) {
     if (configs == null) {
       return false;

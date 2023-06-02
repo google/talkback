@@ -18,6 +18,7 @@ package com.google.android.accessibility.braille.common.translate;
 
 import android.content.Context;
 import android.content.res.Resources;
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.braille.common.R;
 import com.google.android.accessibility.braille.common.TalkBackSpeaker;
 import com.google.android.accessibility.braille.translate.BrailleTranslator;
@@ -96,6 +97,7 @@ public class BrailleLanguages {
       }
     },
     FRENCH(PRINT_LANGUAGE_FR) {
+      @Nullable
       @Override
       public CharSequence getUserFacingName(Resources resources) {
         return null;
@@ -158,6 +160,7 @@ public class BrailleLanguages {
       }
     },
     STUB(PRINT_LANGUAGE_EN) {
+      @Nullable
       @Override
       public CharSequence getUserFacingName(Resources resources) {
         return null;

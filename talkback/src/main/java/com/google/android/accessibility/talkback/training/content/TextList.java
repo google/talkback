@@ -20,13 +20,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.ArrayRes;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.training.TrainingIpcClient.ServiceData;
+import com.google.android.accessibility.utils.widget.NonScrollableListView;
 
 /** A list view. */
 public class TextList extends PageContentConfig {
@@ -42,7 +41,7 @@ public class TextList extends PageContentConfig {
   public View createView(
       LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_text_list, container, false);
-    final ListView listView = view.findViewById(R.id.training_text_list);
+    final NonScrollableListView listView = view.findViewById(R.id.training_text_list);
     final String[] texts = context.getResources().getStringArray(textsResId);
     listView.setAdapter(
         new BaseAdapter() {
@@ -74,23 +73,6 @@ public class TextList extends PageContentConfig {
             return convertView;
           }
         });
-    LayoutParams layoutParams = listView.getLayoutParams();
-    if (texts.length > 0) {
-      layoutParams.height =
-          texts.length
-                  * (int)
-                      (context.getResources().getDimension(R.dimen.training_list_item_height)
-                          + context
-                              .getResources()
-                              .getDimension(R.dimen.training_list_item_margin_top)
-                          + context
-                              .getResources()
-                              .getDimension(R.dimen.training_list_item_margin_bottom))
-              + (texts.length - 1) * listView.getDividerHeight();
-    } else {
-      layoutParams.height = 0;
-    }
-    listView.setLayoutParams(layoutParams);
     return view;
   }
 }

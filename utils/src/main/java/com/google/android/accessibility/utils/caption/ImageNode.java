@@ -46,11 +46,7 @@ public abstract class ImageNode {
    */
   private boolean isIconLabelStable = true;
 
-  /**
-   * Creates an instance of {@link ImageNode} without the results of image captions.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Creates an instance of {@link ImageNode} without the results of image captions. */
   static @Nullable ImageNode create(AccessibilityNode node) {
     final @Nullable ViewResourceName viewResourceName = node.getPackageNameAndViewId();
     if (viewResourceName == null) {

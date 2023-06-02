@@ -19,7 +19,6 @@ package com.google.android.accessibility.talkback.actor;
 import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE;
 import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SET_TEXT;
 import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.SELECTION_MODE_OFF;
-import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.SELECTION_MODE_ON;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE;
@@ -47,7 +46,7 @@ import com.google.android.accessibility.utils.output.SpeechController.SpeakOptio
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-/** Executes text-editing actions on EditText views. */
+/** Executes text-manipulation actions on editable or non-editable selectable text views. */
 public class TextEditActor {
 
   /////////////////////////////////////////////////////////////////////////////////////////////
@@ -153,12 +152,12 @@ public class TextEditActor {
   /** Executes and announces start selecting text in edit-text. */
   public boolean startSelect(AccessibilityNodeInfoCompat node, EventId eventId) {
 
-    if (node == null || Role.getRole(node) != Role.ROLE_EDIT_TEXT) {
+    if (node == null || !AccessibilityNodeInfoUtils.isTextSelectable(node)) {
       return false;
     }
 
     // Start selecting.
-    pipeline.returnFeedback(eventId, Feedback.focusDirection(SELECTION_MODE_ON));
+    pipeline.returnFeedback(eventId, Feedback.selectionModeOn(node));
 
     // Announce selecting started.
     pipeline.returnFeedback(
@@ -169,10 +168,10 @@ public class TextEditActor {
     return true;
   }
 
-  /** Executes and announces end select text in edit-text. Modifies edit history. */
+  /** Executes and announces end select text in selectable text. Modifies edit history. */
   public boolean endSelect(AccessibilityNodeInfoCompat node, EventId eventId) {
 
-    if (node == null || Role.getRole(node) != Role.ROLE_EDIT_TEXT) {
+    if (node == null || !AccessibilityNodeInfoUtils.isTextSelectable(node)) {
       return false;
     }
 
@@ -185,8 +184,7 @@ public class TextEditActor {
         Feedback.speech(
             context.getString(R.string.notification_type_selection_mode_off), SPEAK_OPTIONS));
 
-    @Nullable
-    CharSequence textSelected =
+    @Nullable CharSequence textSelected =
         AccessibilityNodeInfoUtils.subsequenceSafe(
             AccessibilityNodeInfoUtils.getText(node),
             node.getTextSelectionStart(),
@@ -207,10 +205,10 @@ public class TextEditActor {
     return true;
   }
 
-  /** Executes and announces select-all text in edit-text. Modifies edit history. */
+  /** Executes and announces select-all text in selectable. Modifies edit history. */
   public boolean selectAll(AccessibilityNodeInfoCompat node, EventId eventId) {
 
-    if (node == null || Role.getRole(node) != Role.ROLE_EDIT_TEXT) {
+    if (node == null || !AccessibilityNodeInfoUtils.isTextSelectable(node)) {
       return false;
     }
 
@@ -246,8 +244,8 @@ public class TextEditActor {
   }
 
   /**
-   * Executes and announces copy text. If the node is edit-text, it would copy the selected text or
-   * it would copy the first non-empty node text within the root node.
+   * Executes and announces copy text. If the node is edit-text or has selectable text, it would
+   * copy the selected text or it would copy the first non-empty node text within the root node.
    */
   public boolean copy(@Nullable AccessibilityNodeInfoCompat node, EventId eventId) {
 
@@ -263,7 +261,7 @@ public class TextEditActor {
     @Nullable CharSequence selectedNodeText = AccessibilityNodeInfoUtils.getSelectedNodeText(node);
     // Perform copy action on target node. If the selection is not set, the primary clip will be
     // the node text.
-    if (Role.getRole(node) == Role.ROLE_EDIT_TEXT && !TextUtils.isEmpty(selectedNodeText)) {
+    if (AccessibilityNodeInfoUtils.isTextSelectable(node) && !TextUtils.isEmpty(selectedNodeText)) {
       copyData = selectedNodeText;
       result =
           PerformActionUtils.performAction(node, AccessibilityNodeInfoCompat.ACTION_COPY, eventId);
@@ -291,12 +289,14 @@ public class TextEditActor {
       return false;
     }
 
+    // Saved the selected text before performing the CUT action.
+    CharSequence cutData = AccessibilityNodeInfoUtils.getSelectedNodeText(node);
+
     editTextActionHistory.beforeCut();
     boolean result =
         PerformActionUtils.performAction(node, AccessibilityNodeInfoCompat.ACTION_CUT, eventId);
     editTextActionHistory.afterCut();
 
-    CharSequence cutData = AccessibilityNodeInfoUtils.getSelectedNodeText(node);
     pipeline.returnFeedback(
         eventId,
         Feedback.speech(

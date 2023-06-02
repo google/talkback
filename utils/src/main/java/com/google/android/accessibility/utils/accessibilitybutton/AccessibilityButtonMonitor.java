@@ -3,10 +3,8 @@ package com.google.android.accessibility.utils.accessibilitybutton;
 import android.accessibilityservice.AccessibilityButtonController;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.display.DisplayManager;
-import android.os.Build;
 import android.os.Message;
 import android.view.Display;
 import android.view.accessibility.AccessibilityManager;
@@ -111,7 +109,6 @@ public class AccessibilityButtonMonitor {
     displayManager = (DisplayManager) mService.getSystemService(Context.DISPLAY_SERVICE);
   }
 
-  @TargetApi(Build.VERSION_CODES.O)
   public void initAccessibilityButton(@NonNull AccessibilityButtonMonitorCallback callback) {
     mCallback = callback;
     if (!FeatureSupport.supportAccessibilityButton()) {
@@ -182,7 +179,6 @@ public class AccessibilityButtonMonitor {
     }
   }
 
-  @TargetApi(Build.VERSION_CODES.O)
   public void shutdown() {
     if (!FeatureSupport.supportAccessibilityButton()) {
       return;

@@ -352,6 +352,11 @@ public class AccessibilityEventProcessor {
       return true;
     }
 
+    // Do not drop TYPE_SPEECH_STATE_CHANGE event to avoid SpeechStateMonitor has any missing.
+    if (event.getEventType() == AccessibilityEvent.TYPE_SPEECH_STATE_CHANGE) {
+      return false;
+    }
+
     // If touch exploration is enabled, drop automatically generated events
     // that are sent immediately after a window state change... unless we
     // decide to keep the event.

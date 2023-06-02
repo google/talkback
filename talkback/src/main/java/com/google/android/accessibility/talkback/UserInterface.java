@@ -40,7 +40,7 @@ public class UserInterface {
 
   /** Notify the state of selection mode on an editable is changed. */
   public void setSelectionMode(boolean active) {
-    selectorController.editTextSelected(active);
+    selectorController.editTextOrSelectableTextSelected(active);
   }
 
   public void handleEvent(

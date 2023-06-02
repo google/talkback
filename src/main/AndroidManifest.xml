@@ -8,15 +8,4 @@
   value when a build executes.
   -->
 
-  <!-- Permission used to restrict sending gestures and resuming feedback. -->
-  <permission
-      android:name="${talkbackMainPermission}"
-      android:description="@string/permission_talkback_desc"
-      android:icon="@drawable/icon"
-      android:label="@string/permission_talkback_label"
-      android:protectionLevel="signature" />
-
-  <!-- Required for shortcuts and widgets. -->
-  <uses-permission android:name="${talkbackMainPermission}" />
-
 </manifest>

@@ -36,7 +36,6 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils;
  * <li>DimScreen {@link DimScreenDialog}
  * <li>FullScreenRead {@link FullScreenReadDialog}
  * <li>Voice commands {@link SpeechRecognitionDialog}
- * <li>SuspendTalkBack {@link com.google.android.accessibility.talkback.TalkBackSuspendDialog}
  */
 public abstract class FirstTimeUseDialog extends BaseDialog {
 
@@ -132,19 +131,6 @@ public abstract class FirstTimeUseDialog extends BaseDialog {
    */
   protected void setMainMessage(String mainMessage) {
     this.dialogMainMessage = mainMessage;
-  }
-
-  /**
-   * Sets dialog message text resource ID if customization is needed. And it's only for
-   * TalkBackSuspendDialog used now.
-   *
-   * @param dialogSecondMessageResId text resource ID for the second dialog message
-   * @param dialogThirdMessageResId text resource ID for the third dialog message
-   */
-  protected void setCustomizedDialogMessageResId(
-      int dialogSecondMessageResId, int dialogThirdMessageResId) {
-    this.dialogSecondMessageResId = dialogSecondMessageResId;
-    this.dialogThirdMessageResId = dialogThirdMessageResId;
   }
 
   /**

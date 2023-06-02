@@ -2,6 +2,8 @@
 <resources>
   <!-- User-facing name of the Soft Braille IME. [CHAR_LIMIT=50] -->
   <string name="braille_ime_service_name">TalkBack braille keyboard</string>
+  <!-- User-facing name of the Soft Braille IME when connecting to a braille display. [CHAR_LIMIT=60] -->
+  <string name="braille_ime_bd_mode_name">Braille display input</string>
   <!-- Audial announcement that plays when switching to screen-away mode. [CHAR_LIMIT=140] -->
   <string name="switch_to_screen_away_announcement">Screen-away mode</string>
   <!-- Audial announcement that plays when switching to tabletop mode. [CHAR_LIMIT=200] -->
@@ -47,22 +49,30 @@
   <string name="use_brailleime_pref_dialog_case_ime_enabled">To use the braille keyboard, open your regular keyboard, then tap the choose keyboard icon %1$s (usually in the bottom right corner). Select \"%2$s.\"
   &lt;br>&lt;br>If you don’t see an option to switch keyboards, try installing %3$s, the Google keyboard.</string>
   <!-- Turn on braille keyboard dialog (case braille keyboard is not presently enabled): message. %1$s is the resource 'braille_ime_service_name', %2$s is an image of a keyboard (which does not get translated), %3$s is the brand name for Gboard (which does not get translated). [CHAR_LIMIT=500] -->
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">
-    1. &lt;b>Turn on braille keyboard&lt;/b>: Tap Settings below. On the next screen, turn on \"%1$s.\"
-    &lt;br>&lt;br>2. &lt;b>Use braille keyboard&lt;/b>: Open your regular keyboard, then tap the choose keyboard icon %2$s (usually in the bottom right corner). Select \"%1$s.\"
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_settings">
+    1. Tap \"Settings\" below. On the next screen, turn on \"%1$s\"&lt;br>&lt;br>
+    2. Open your regular keyboard, then tap switch input method %2$s (usually in the bottom right corner).&lt;br>&lt;br>
+    3. Select \"%1$s.\"
     &lt;br>&lt;br>If you don’t see an option to switch keyboards, try installing %3$s, the Google keyboard.
+  </string>
+  <string name="use_brailleime_pref_dialog_case_ime_disabled_turn_on">
+    1. Turn on braille keyboard below.&lt;br>&lt;br>
+    2. Open your regular keyboard, then tap switch input method %2$s (usually in the bottom right corner).&lt;br>&lt;br>
+    3. Select \"%1$s\".
+    &lt;br>&lt;br>If you can\'t switch keyboards, try installing %3$s, the Google keyboard.
   </string>
   <!-- Keyboard icon. [CHAR_LIMIT=40]-->
   <string name="gboard_name" translatable="false">Gboard</string>
   <!-- Turn on braille keyboard dialog: positive button. [CHAR_LIMIT=40]-->
-  <string name="use_brailleime_pref_button_case_ime_disabled">Settings</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_settings">Settings</string>
+  <!-- Turn on braille keyboard dialog: positive button . [CHAR_LIMIT=40]-->
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on">Turn on</string>
+  <string name="use_brailleime_pref_button_case_ime_disabled_turn_on_announcement">Turn on braille keyboard</string>
 
   <!-- Typing languages list preference title. [CHAR_LIMIT=50] -->
   <string name="typing_languages_title">Typing languages</string>
   <!-- Preferred typing language preference title. [CHAR_LIMIT=50] -->
   <string name="preferred_language_title">Preferred language</string>
-  <!-- Don’t show this again checkbox. [CHAR_LIMIT=30] -->
-  <string name="dont_show_again">Don’t show this again</string>
   <!-- Dialog title for change language while typing. [CHAR_LIMIT=100] -->
   <string name="switch_input_code_gesture_tip_dialog_title">Quickly change language while typing</string>
   <!-- Dialog message for change language while typing. [CHAR_LIMIT=300] -->
@@ -117,8 +127,6 @@
   <string name="gesture_submit_text">To <b>submit text</b>, swipe up with 2 fingers</string>
   <!-- See all gestures dialog: swipe up with 3 fingers to open context menu. [CHAR_LIMIT=100] -->
   <string name="gesture_open_context_menu">For <b>help and other options</b>, swipe up with 3 fingers</string>
-  <!-- Done button. [CHAR_LIMIT=20] -->
-  <string name="done">Done</string>
 
   <!-- Not enough touch points dialog -->
   <!-- Not enough touch points dialog: title. [CHAR_LIMIT=100] -->
@@ -244,9 +252,13 @@
   <string name="perform_delete_word_announcement">Word deleted</string>
   <!-- Audial announcement that plays when user has tried a fixed number of instructions. %1$s is the instruction to teach the user how to complete the tutorial. [CHAR LIMIT=100] -->
   <string name="continue_tutorial_announcement">Let’s continue the tutorial. %1$s</string>
+  <!-- Audial announcement that plays when user switches to on screen keyboard. [CHAR LIMIT=60] -->
+  <string name="switch_on_screen_keyboard_announcement">Switching to braille touchscreen</string>
 
   <!-- Braille display strip summary. [CHAR_LIMIT=200] -->
-  <string name="braille_keyboard_strip_summary">An external braille display is connected, which you can use to type text into this device.\nOr, you can switch to the touch-screen Braille Keyboard or the next input method.</string>
-  <!-- Braille display strip button. [CHAR_LIMIT=100] -->
-  <string name="braille_keyboard_strip_button">Switch to touch-screen keyboard</string>
+  <string name="braille_keyboard_strip_summary">An external braille display is connected, which you can use to type text into your phone.\n\nYou can also switch to the touchscreen braille keyboard or the next input method.</string>
+  <!-- Braille display strip button: switch to touch-screen mode keyboard. [CHAR_LIMIT=100] -->
+  <string name="braille_keyboard_strip_touch_screen_button">Switch to braille touchscreen</string>
+  <!-- Braille display strip button: switch to next keyboard. [CHAR_LIMIT=100] -->
+  <string name="braille_keyboard_strip_next_keyboard_button">Switch to next input method</string>
 </resources>

@@ -96,14 +96,4 @@ public interface TraversalStrategy {
    * @return speaking node cache map. Could be null if cache is not used by traversal strategy
    */
   public Map<AccessibilityNodeInfoCompat, Boolean> getSpeakingNodesCache();
-
-  /**
-   * When there is no need in traversal strategy object it must be recycled before garbage collected
-   *
-   * <p>TODO: Remove once all dependencies have been removed.
-   *
-   * @deprecated Accessibility is discontinuing recycling.
-   */
-  @Deprecated
-  public void recycle();
 }

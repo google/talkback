@@ -102,8 +102,7 @@ public class RuleImageCaption extends NodeMenuRule {
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-      pipeline.returnFeedback(
-          EVENT_ID_UNTRACKED, Feedback.performImageCaptions(node, /* isUserRequested= */ true));
+      pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.confirmDownloadAndPerformCaptions(node));
       return true;
     }
   }

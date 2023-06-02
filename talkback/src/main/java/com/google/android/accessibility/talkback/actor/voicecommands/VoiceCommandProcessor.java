@@ -15,6 +15,7 @@
  */
 package com.google.android.accessibility.talkback.actor.voicecommands;
 
+import static com.google.android.accessibility.talkback.Feedback.UniversalSearch.Action.TOGGLE_SEARCH;
 import static com.google.android.accessibility.talkback.Interpretation.VoiceCommand.Action.VOICE_COMMAND_ALL_APPS;
 import static com.google.android.accessibility.talkback.Interpretation.VoiceCommand.Action.VOICE_COMMAND_BACK;
 import static com.google.android.accessibility.talkback.Interpretation.VoiceCommand.Action.VOICE_COMMAND_BRIGHTEN_SCREEN;
@@ -287,7 +288,7 @@ public class VoiceCommandProcessor {
     if (!FeatureSupport.isWatch(service)
         && (equals(command, R.string.voice_commands_screen_search)
             || equals(command, R.string.voice_commands_search_on_screen))) {
-      service.getUniversalSearchManager().toggleSearch(eventId);
+      pipeline.returnFeedback(eventId, Feedback.universalSearch(TOGGLE_SEARCH));
       handleVoiceCommandRecognized();
       return true;
     }
@@ -662,7 +663,7 @@ public class VoiceCommandProcessor {
     // all apps command
     // command format: * apps *
     if (containsWord(command, R.string.voice_commands_apps)
-        && FeatureSupport.supportSystemActions(service)
+        && FeatureSupport.supportGetSystemActions(service)
         && !containsWord(command, R.string.voice_commands_recent)
         && !containsWord(command, R.string.voice_commands_recents)) {
       boolean result = sendInterpretation(VOICE_COMMAND_ALL_APPS, eventId);

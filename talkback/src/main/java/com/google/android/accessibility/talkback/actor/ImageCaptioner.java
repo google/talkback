@@ -16,15 +16,18 @@
 
 package com.google.android.accessibility.talkback.actor;
 
+import static com.google.android.accessibility.talkback.Feedback.Focus.Action.MUTE_NEXT_FOCUS;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
@@ -34,22 +37,29 @@ import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.icondetection.IconAnnotationsDetectorFactory;
+import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter;
+import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter.DownloadStateListener;
 import com.google.android.accessibility.talkback.imagecaption.CaptionRequest;
 import com.google.android.accessibility.talkback.imagecaption.CharacterCaptionRequest;
 import com.google.android.accessibility.talkback.imagecaption.IconDetectionRequest;
 import com.google.android.accessibility.talkback.imagecaption.RequestList;
 import com.google.android.accessibility.talkback.imagecaption.ScreenshotCaptureRequest;
+import com.google.android.accessibility.talkback.utils.SplitCompatUtils;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.Performance;
+import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.caption.ImageCaptionStorage;
 import com.google.android.accessibility.utils.caption.ImageNode;
+import com.google.android.accessibility.utils.input.WindowEventInterpreter.EventInterpretation;
+import com.google.android.accessibility.utils.input.WindowEventInterpreter.WindowEventHandler;
 import com.google.android.accessibility.utils.screenunderstanding.IconAnnotationsDetector;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Locale;
 
 /** Performs image caption and manages related state. */
-public class ImageCaptioner {
+public class ImageCaptioner implements WindowEventHandler {
 
   private static final String TAG = "ImageCaptioner";
   public static final int CAPTION_REQUEST_CAPACITY = 10;
@@ -60,8 +70,10 @@ public class ImageCaptioner {
   private ActorState actorState;
   private final ImageCaptionStorage imageCaptionStorage;
   private final AccessibilityFocusMonitor accessibilityFocusMonitor;
+  private final IconDetectionModuleDownloadPrompter iconDetectionModuleDownloadPrompter;
   @VisibleForTesting @Nullable IconAnnotationsDetector iconAnnotationsDetector;
   private boolean iconAnnotationsDetectorStarted = false;
+  @Nullable private AccessibilityNodeInfoCompat queuedNode;
 
   private final RequestList<ScreenshotCaptureRequest> screenshotRequests =
       new RequestList<>(CAPTION_REQUEST_CAPACITY);
@@ -77,13 +89,48 @@ public class ImageCaptioner {
     this.service = service;
     this.imageCaptionStorage = imageCaptionStorage;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
-    if (supportsIconDetection(service)) {
-      iconAnnotationsDetector =
-          IconAnnotationsDetectorFactory.create(service.getApplicationContext());
-      if (iconAnnotationsDetector != null) {
-        imageCaptionStorage.setIconAnnotationsDetector(iconAnnotationsDetector);
-      }
-    }
+    this.iconDetectionModuleDownloadPrompter =
+        new IconDetectionModuleDownloadPrompter(
+            service,
+            /* triggeredByTalkBackMenu= */ true,
+            new DownloadStateListener() {
+              @Override
+              public void onInstalled() {
+                returnFeedback(R.string.download_icon_detection_successful_hint);
+              }
+
+              @Override
+              public void onFailed() {
+                returnFeedback(R.string.download_icon_detection_failed_hint);
+              }
+
+              @Override
+              public void onAccepted() {
+                // Clears the node which is waiting for recognition because it's unnecessary to
+                // perform other captions if the user accepts the download.
+                returnFeedback(R.string.downloading_icon_detection_hint);
+              }
+
+              @Override
+              public void onRejected() {
+                // Records how many times the button is tapped because the dialog shouldn't be shown
+                // if the download is rejected more than three times.
+                SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(service);
+                String dialogShownTimesKey =
+                    service.getString(R.string.pref_icon_detection_download_dialog_shown_times);
+                int dialogShownTimes = prefs.getInt(dialogShownTimesKey, /* defValue= */ 0);
+                prefs.edit().putInt(dialogShownTimesKey, ++dialogShownTimes).apply();
+
+                returnFeedback(R.string.confirm_download_icon_detection_negative_button_hint);
+              }
+
+              @Override
+              public void onDialogDismissed(@Nullable AccessibilityNodeInfoCompat queuedNode) {
+                pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.focus(MUTE_NEXT_FOCUS));
+                // Image captioning for the node will be executed when windows are stable.
+                ImageCaptioner.this.queuedNode = queuedNode;
+              }
+            });
   }
 
   public static boolean supportsImageCaption(Context context) {
@@ -95,6 +142,24 @@ public class ImageCaptioner {
     return FeatureSupport.canTakeScreenShotByAccessibilityService()
         && !FeatureSupport.isWatch(context)
         && SUPPORT_ICON_DETECTION;
+  }
+
+  public boolean initIconDetection() {
+    if (!supportsIconDetection(service)) {
+      return false;
+    }
+
+    // Allows immediate access to the code and resource of the dynamic feature module.
+    SplitCompatUtils.installActivity(service);
+
+    iconAnnotationsDetector =
+        IconAnnotationsDetectorFactory.create(service.getApplicationContext());
+    if (iconAnnotationsDetector == null) {
+      return false;
+    }
+
+    imageCaptionStorage.setIconAnnotationsDetector(iconAnnotationsDetector);
+    return true;
   }
 
   public void start() {
@@ -117,14 +182,60 @@ public class ImageCaptioner {
         }
       }
     }
+    iconDetectionModuleDownloadPrompter.shutdown();
   }
 
   public void setPipeline(Pipeline.FeedbackReturner pipeline) {
     this.pipeline = pipeline;
+    iconDetectionModuleDownloadPrompter.setPipeline(pipeline);
   }
 
   public void setActorState(ActorState actorState) {
     this.actorState = actorState;
+  }
+
+  @Override
+  public void handle(EventInterpretation interpretation, @Nullable Performance.EventId eventId) {
+    // Performs other image captions if there is a node waited for recognition.
+    if (interpretation.areWindowsStable() && queuedNode != null) {
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.performImageCaptions(queuedNode, /* isUserRequested= */ true));
+      queuedNode = null;
+    }
+  }
+
+  /**
+   * Shows the confirmation dialog to download the icon detection module and perform image captions
+   * for the given node.
+   *
+   * @return false, the caption request has not been performed and must wait until the icon
+   *     detection module is installed or the dialog is cancelled.
+   */
+  public boolean confirmDownloadAndPerformCaption(AccessibilityNodeInfoCompat node) {
+    if (iconAnnotationsDetector != null) {
+      caption(node, /* isUserRequested= */ true);
+      return true;
+    }
+
+    if (iconDetectionModuleDownloadPrompter.isIconDetectionModuleAvailable()) {
+      if (iconAnnotationsDetector == null) {
+        initIconDetection();
+      }
+      caption(node, /* isUserRequested= */ true);
+      return true;
+    }
+
+    // Icon detection module hasn't been downloaded.
+    // Checks if it is necessary to show the download confirmation dialog.
+    if (iconDetectionModuleDownloadPrompter.needDownloadDialog()) {
+      iconDetectionModuleDownloadPrompter.setCaptionNode(node);
+      iconDetectionModuleDownloadPrompter.showConfirmationDialog();
+      return false;
+    }
+
+    caption(node, /* isUserRequested= */ true);
+    return true;
   }
 
   /**
@@ -396,6 +507,10 @@ public class ImageCaptioner {
 
   private void returnNoResultFeedbackForUserRequest() {
     returnFeedback(service.getString(R.string.image_caption_no_text_found));
+  }
+
+  private void returnFeedback(@StringRes int text) {
+    returnFeedback(service.getString(text));
   }
 
   private void returnFeedback(String caption) {

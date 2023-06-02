@@ -166,16 +166,12 @@ public class TextEventFilter {
           // empty edit text is focused, in which case we need to manually update the index.
           AccessibilityNodeInfoCompat source =
               AccessibilityNodeInfoUtils.toCompat(event.getSource());
-          try {
-            if (source != null) {
-              if (AccessibilityNodeInfoUtils.isEmptyEditTextRegardlessOfHint(source)) {
-                textEventHistory.setLastFromIndex(0);
-                textEventHistory.setLastToIndex(0);
-                textEventHistory.setLastNode(AccessibilityNodeInfoUtils.obtain(source.unwrap()));
-              }
+          if (source != null) {
+            if (AccessibilityNodeInfoUtils.isEmptyEditTextRegardlessOfHint(source)) {
+              textEventHistory.setLastFromIndex(0);
+              textEventHistory.setLastToIndex(0);
+              textEventHistory.setLastNode(source.unwrap());
             }
-          } finally {
-            AccessibilityNodeInfoUtils.recycleNodes(source);
           }
         }
         return;
@@ -383,7 +379,6 @@ public class TextEventFilter {
     final AccessibilityRecordCompat record = AccessibilityEventCompat.asRecord(event);
     final AccessibilityNodeInfoCompat source = record.getSource();
     boolean isFocused = source != null && source.isFocused();
-    AccessibilityNodeInfoUtils.recycleNodes(source);
     if (!isFocused) {
       LogUtils.d(TAG, "Dropped text-selection event from non-focused field");
       return true;

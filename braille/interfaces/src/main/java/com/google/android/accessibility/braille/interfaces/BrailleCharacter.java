@@ -33,10 +33,24 @@ import java.util.List;
  * each of which can be on or off (raised or unraised).
  */
 public class BrailleCharacter {
-
-  private static final Range<Integer> DOT_RANGE = new Range<>(1, 8);
-
+  public static final BrailleCharacter EMPTY_CELL = new BrailleCharacter();
+  public static final BrailleCharacter FULL_CELL = new BrailleCharacter("12345678");
+  public static final BrailleCharacter DOT1 = new BrailleCharacter("1");
+  public static final BrailleCharacter DOT2 = new BrailleCharacter("2");
+  public static final BrailleCharacter DOT3 = new BrailleCharacter("3");
+  public static final BrailleCharacter DOT4 = new BrailleCharacter("4");
+  public static final BrailleCharacter DOT5 = new BrailleCharacter("5");
+  public static final BrailleCharacter DOT6 = new BrailleCharacter("6");
+  public static final BrailleCharacter DOT7 = new BrailleCharacter("7");
+  public static final BrailleCharacter DOT8 = new BrailleCharacter("8");
+  public static final int DOT_COUNT = 8;
+  private static final Range<Integer> DOT_RANGE = new Range<>(1, DOT_COUNT);
   private final BitSet dotNumbers;
+
+  /** Creates an empty braille character. */
+  public BrailleCharacter() {
+    this.dotNumbers = new BitSet(DOT_COUNT);
+  }
 
   /**
    * Creates a {@link BrailleCharacter} from a collection of dot numbers.
@@ -45,12 +59,38 @@ public class BrailleCharacter {
    * thrown.
    */
   public BrailleCharacter(Collection<Integer> dotNumbers) {
-    this.dotNumbers = new BitSet();
+    this();
     for (Integer dotNumber : dotNumbers) {
       checkArgument(DOT_RANGE.contains(dotNumber), "dot %s out of range %s", dotNumber, DOT_RANGE);
       // Maps dot number (1 to 8) to bit (0 to 7).
       this.dotNumbers.set(dotNumber - 1);
     }
+  }
+
+  /**
+   * Creates a braille character from dot numbers string.
+   *
+   * <p>For example the input "12" creates a {@link BrailleCharacter} with dots 1 and 2.
+   *
+   * <p>Passing in the empty string returns an empty character.
+   */
+  public BrailleCharacter(String dots) {
+    this();
+    for (char c : dots.toCharArray()) {
+      int digit = Character.digit(c, DOT_COUNT + 1);
+      checkArgument(digit != -1, "dot %s out of range", c);
+      this.dotNumbers.set(digit - 1);
+    }
+  }
+
+  /**
+   * Creates a {@link BrailleCharacter} from a BitSet.
+   *
+   * <p>The length must be less than 8, otherwise {@link IllegalArgumentException} is thrown.
+   */
+  public BrailleCharacter(BitSet bitSet) {
+    checkArgument(bitSet.length() <= DOT_COUNT, "Bitset length %s out of range", bitSet.length());
+    this.dotNumbers = bitSet;
   }
 
   /**
@@ -70,6 +110,30 @@ public class BrailleCharacter {
    */
   public BrailleCharacter(byte b) {
     this.dotNumbers = BitSet.valueOf(new byte[] {b});
+  }
+
+  /** Intersects this {@link BrailleCharacter} with another, creating a new one. */
+  public BrailleCharacter intersect(BrailleCharacter arg) {
+    BitSet dotNumbersCopy = (BitSet) dotNumbers.clone();
+    dotNumbersCopy.and(arg.dotNumbers);
+    return new BrailleCharacter(dotNumbersCopy);
+  }
+
+  /** Intersects this {@link BrailleCharacter} with another, mutating this. */
+  public void intersectMutate(BrailleCharacter arg) {
+    dotNumbers.and(arg.dotNumbers);
+  }
+
+  /** Unions this {@link BrailleCharacter} with another, creating a new one. */
+  public BrailleCharacter union(BrailleCharacter arg) {
+    BitSet dotNumbersCopy = (BitSet) dotNumbers.clone();
+    dotNumbersCopy.or(arg.dotNumbers);
+    return new BrailleCharacter(dotNumbersCopy);
+  }
+
+  /** Unions this {@link BrailleCharacter} with another, mutating this. */
+  public void unionMutate(BrailleCharacter arg) {
+    dotNumbers.or(arg.dotNumbers);
   }
 
   /** Returns the number of on dots. */

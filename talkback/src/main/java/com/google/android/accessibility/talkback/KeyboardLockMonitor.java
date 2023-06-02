@@ -17,7 +17,7 @@
 package com.google.android.accessibility.talkback;
 
 import android.view.KeyEvent;
-import com.google.android.accessibility.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
 

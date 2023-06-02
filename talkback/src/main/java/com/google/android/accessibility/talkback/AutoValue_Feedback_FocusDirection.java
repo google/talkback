@@ -20,8 +20,8 @@ import com.google.android.accessibility.talkback.focusmanagement.NavigationTarge
 import com.google.android.accessibility.utils.input.CursorGranularity;
 import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import javax.annotation.Generated;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 // This file is normally auto-generated using the @AutoValue processor.  But
 // that operation has been failing on the gradle-based build, so this file is
@@ -260,8 +260,9 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
       this.action = action;
       return this;
     }
+
     @Override
-    Feedback.FocusDirection autoBuild() {
+    public Feedback.FocusDirection build() {
       String missing = "";
       if (this.direction == null) {
         missing += " direction";

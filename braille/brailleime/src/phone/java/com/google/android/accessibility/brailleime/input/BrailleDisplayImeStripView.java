@@ -5,16 +5,21 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.util.AttributeSet;
+import android.util.Size;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.google.android.accessibility.brailleime.BrailleIme.OrientationSensitive;
 import com.google.android.accessibility.brailleime.R;
 import com.google.common.collect.ImmutableMap;
 import java.util.List;
 
 /** A strip which shows when braille display is connected. */
-public class BrailleDisplayImeStripView extends RelativeLayout {
+public class BrailleDisplayImeStripView extends RelativeLayout implements OrientationSensitive {
+  private static final int DURATION_MILLISECONDS = 150;
   private final ImmutableMap<Integer, Integer> dotsResMap =
       ImmutableMap.<Integer, Integer>builder()
           .put(1, R.drawable.dots_tapped_1)
@@ -26,12 +31,16 @@ public class BrailleDisplayImeStripView extends RelativeLayout {
           .put(7, R.drawable.dots_tapped_7)
           .put(8, R.drawable.dots_tapped_8)
           .buildOrThrow();
-  private final ImageView dotsBackground;
-  private final View switchToTouchScreenKeyboard;
+  private CallBack callBack;
+  private ImageView dotsBackground;
+  private View switchToTouchScreenKeyboard;
+  private View switchToNextKeyboard;
 
   /** Callback when BrailleDisplayImeStripView is clicked. */
   public interface CallBack {
-    void onClicked();
+    void onSwitchToOnscreenKeyboard();
+
+    void onSwitchToNextKeyboard();
   }
 
   public BrailleDisplayImeStripView(Context context) {
@@ -44,13 +53,34 @@ public class BrailleDisplayImeStripView extends RelativeLayout {
 
   public BrailleDisplayImeStripView(Context context, AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
-    View container = View.inflate(context, R.layout.brailledisplay_ime, this);
-    switchToTouchScreenKeyboard = container.findViewById(R.id.switch_to_touch_screen_keyboard);
-    dotsBackground = container.findViewById(R.id.dots_background);
+    addView();
   }
 
-  public void setCallBack(CallBack callBack) {
-    switchToTouchScreenKeyboard.setOnClickListener(view -> callBack.onClicked());
+  private void addView() {
+    View container =
+        View.inflate(
+            new ContextThemeWrapper(getContext(), R.style.BrailleDisplayKeyboardTheme),
+            R.layout.brailledisplay_ime,
+            this);
+    switchToTouchScreenKeyboard = container.findViewById(R.id.switch_to_touch_screen_keyboard);
+    switchToNextKeyboard = container.findViewById(R.id.switch_to_next_keyboard);
+    dotsBackground = container.findViewById(R.id.dots_background);
+    setCallBack(callBack);
+  }
+
+  @Override
+  public void onOrientationChanged(int orientation, Size screenSize) {
+    removeAllViews();
+    addView();
+  }
+
+  /** Sets callback for strip view. If null, remove callback for listeners. */
+  public void setCallBack(@Nullable CallBack callBack) {
+    this.callBack = callBack;
+    switchToTouchScreenKeyboard.setOnClickListener(
+        callBack == null ? null : view -> callBack.onSwitchToOnscreenKeyboard());
+    switchToNextKeyboard.setOnClickListener(
+        callBack == null ? null : view -> callBack.onSwitchToNextKeyboard());
   }
 
   /** Animates tapped dots. */
@@ -67,6 +97,6 @@ public class BrailleDisplayImeStripView extends RelativeLayout {
             });
     dotsBackground.setImageDrawable(transitionDrawable);
     transitionDrawable.setCrossFadeEnabled(true);
-    transitionDrawable.startTransition(500);
+    transitionDrawable.startTransition(DURATION_MILLISECONDS);
   }
 }

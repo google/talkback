@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.utils;
 
-import android.os.Build;
 import android.util.SparseArray;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.IntDef;
@@ -75,10 +74,6 @@ public class CollectionState {
   public static final int ALIGNMENT_VERTICAL = 0;
   public static final int ALIGNMENT_HORIZONTAL = 1;
 
-  static final String EVENT_ROW = "AccessibilityNodeInfo.CollectionItemInfo.rowIndex";
-  static final String EVENT_COLUMN = "AccessibilityNodeInfo.CollectionItemInfo.columnIndex";
-  static final String EVENT_HEADING = "AccessibilityNodeInfo.CollectionItemInfo.heading";
-
   @CollectionTransition private int mCollectionTransition = NAVIGATE_NONE;
   @RowColumnTransition private int mRowColumnTransition = TYPE_NONE;
   private @Nullable AccessibilityNodeInfoCompat mCollectionRoot;
@@ -87,8 +82,6 @@ public class CollectionState {
   private SparseArray<CharSequence> mRowHeaders = new SparseArray<>();
   private SparseArray<CharSequence> mColumnHeaders = new SparseArray<>();
   private int mCollectionLevel = -1;
-  private boolean mShouldComputeHeaders = false;
-  private boolean mShouldComputeNumbering = false;
 
   private static final Filter<AccessibilityNodeInfoCompat> FILTER_HIERARCHICAL_COLLECTION =
       new Filter<AccessibilityNodeInfoCompat>() {
@@ -117,14 +110,6 @@ public class CollectionState {
         }
       };
 
-  private static final Filter<AccessibilityNodeInfoCompat> FILTER_WEBVIEW =
-      new Filter<AccessibilityNodeInfoCompat>() {
-        @Override
-        public boolean accept(AccessibilityNodeInfoCompat node) {
-          return node != null && Role.getRole(node) == Role.ROLE_WEB_VIEW;
-        }
-      };
-
   /**
    * Base interface for internal collection item state. It should be kept private because clients of
    * the CollectionState should not need polymorphism for ListItemState/TableItemState. On the other
@@ -145,13 +130,10 @@ public class CollectionState {
     private final boolean mHeading;
     /** The index of the list item. */
     private final int mIndex;
-    /** Whether the index should be displayed; used to work around a framework bug pre-N. */
-    private final boolean mDisplayIndex;
 
-    public ListItemState(boolean heading, int index, boolean displayIndex) {
+    public ListItemState(boolean heading, int index) {
       mHeading = heading;
       mIndex = index;
-      mDisplayIndex = displayIndex;
     }
 
     @Override
@@ -174,11 +156,7 @@ public class CollectionState {
     }
 
     public int getIndex() {
-      if (mDisplayIndex) {
-        return mIndex;
-      } else {
-        return -1;
-      }
+      return mIndex;
     }
   }
 
@@ -244,22 +222,18 @@ public class CollectionState {
     private final int mRowIndex;
     /** The column index. */
     private final int mColumnIndex;
-    /** Whether the indices should be displayed; used to work around a framework bug pre-N. */
-    private final boolean mDisplayIndices;
 
     public TableItemState(
         @TableHeadingType int heading,
         @Nullable CharSequence rowName,
         @Nullable CharSequence columnName,
         int rowIndex,
-        int columnIndex,
-        boolean displayIndices) {
+        int columnIndex) {
       mHeading = heading;
       mRowName = rowName;
       mColumnName = columnName;
       mRowIndex = rowIndex;
       mColumnIndex = columnIndex;
-      mDisplayIndices = displayIndices;
     }
 
     @Override
@@ -295,19 +269,11 @@ public class CollectionState {
     }
 
     public int getRowIndex() {
-      if (mDisplayIndices) {
-        return mRowIndex;
-      } else {
-        return -1;
-      }
+      return mRowIndex;
     }
 
     public int getColumnIndex() {
-      if (mDisplayIndices) {
-        return mColumnIndex;
-      } else {
-        return -1;
-      }
+      return mColumnIndex;
     }
   }
 
@@ -342,9 +308,7 @@ public class CollectionState {
   }
 
   public int getCollectionRowCount() {
-    if (mCollectionRoot == null
-        || mCollectionRoot.getCollectionInfo() == null
-        || !mShouldComputeNumbering) {
+    if (mCollectionRoot == null || mCollectionRoot.getCollectionInfo() == null) {
       return -1;
     }
 
@@ -352,9 +316,7 @@ public class CollectionState {
   }
 
   public int getCollectionColumnCount() {
-    if (mCollectionRoot == null
-        || mCollectionRoot.getCollectionInfo() == null
-        || !mShouldComputeNumbering) {
+    if (mCollectionRoot == null || mCollectionRoot.getCollectionInfo() == null) {
       return -1;
     }
 
@@ -363,7 +325,7 @@ public class CollectionState {
 
   @CollectionAlignment
   public int getCollectionAlignment() {
-    if (mCollectionRoot == null || !mShouldComputeNumbering) {
+    if (mCollectionRoot == null) {
       return ALIGNMENT_VERTICAL;
     } else {
       return getCollectionAlignmentInternal(mCollectionRoot.getCollectionInfo());
@@ -402,9 +364,7 @@ public class CollectionState {
   }
 
   private static @Nullable ListItemState getListItemState(
-      AccessibilityNodeInfoCompat collectionRoot,
-      AccessibilityNodeInfoCompat announcedNode,
-      boolean computeNumbering) {
+      AccessibilityNodeInfoCompat collectionRoot, AccessibilityNodeInfoCompat announcedNode) {
     if (collectionRoot == null || collectionRoot.getCollectionInfo() == null) {
       return null;
     }
@@ -431,7 +391,7 @@ public class CollectionState {
       index = getColumnIndex(item, collection);
     }
 
-    return new ListItemState(heading, index, computeNumbering);
+    return new ListItemState(heading, index);
   }
 
   /**
@@ -455,14 +415,10 @@ public class CollectionState {
    *     pages. Its descendants include {@code announcedNode}
    * @param announcedNode the node that was given accessibility focus. It is or is a child of a page
    *     item that belongs to the pager defined by {@code collectionRoot}
-   * @param computeHeaders is {@code true} if {@link
-   *     #shouldComputeHeaders(AccessibilityNodeInfoCompat)} returns {@code true}
    * @return
    */
   private static @Nullable PagerItemState extractPagerItemState(
-      AccessibilityNodeInfoCompat collectionRoot,
-      AccessibilityNodeInfoCompat announcedNode,
-      boolean computeHeaders) {
+      AccessibilityNodeInfoCompat collectionRoot, AccessibilityNodeInfoCompat announcedNode) {
     if ((collectionRoot == null) || (collectionRoot.getCollectionInfo() == null)) {
       return null;
     }
@@ -484,7 +440,7 @@ public class CollectionState {
       CollectionInfoCompat collection = collectionRoot.getCollectionInfo();
       CollectionItemInfoCompat item = collectionItem.getCollectionItemInfo();
 
-      boolean heading = computeHeaders && collectionItem.isHeading();
+      boolean heading = collectionItem.isHeading();
       int rowIndex = getRowIndex(item, collection);
       int columnIndex = getColumnIndex(item, collection);
 
@@ -510,9 +466,7 @@ public class CollectionState {
       AccessibilityNodeInfoCompat collectionRoot,
       AccessibilityNodeInfoCompat announcedNode,
       SparseArray<CharSequence> rowHeaders,
-      SparseArray<CharSequence> columnHeaders,
-      boolean computeHeaders,
-      boolean computeNumbering) {
+      SparseArray<CharSequence> columnHeaders) {
     if (collectionRoot == null || collectionRoot.getCollectionInfo() == null) {
       return null;
     }
@@ -531,14 +485,13 @@ public class CollectionState {
     CollectionInfoCompat collection = collectionRoot.getCollectionInfo();
     CollectionItemInfoCompat item = collectionItem.getCollectionItemInfo();
 
-    int heading = computeHeaders ? getTableHeading(collectionItem, item, collection) : TYPE_NONE;
+    int heading = getTableHeading(collectionItem, item, collection);
     int rowIndex = getRowIndex(item, collection);
     int columnIndex = getColumnIndex(item, collection);
     CharSequence rowName = rowIndex != -1 ? rowHeaders.get(rowIndex) : null;
     CharSequence columnName = columnIndex != -1 ? columnHeaders.get(columnIndex) : null;
 
-    return new TableItemState(
-        heading, rowName, columnName, rowIndex, columnIndex, computeNumbering);
+    return new TableItemState(heading, rowName, columnName, rowIndex, columnIndex);
   }
 
   /**
@@ -620,30 +573,19 @@ public class CollectionState {
       case NAVIGATE_ENTER:
         {
           // Only recompute workarounds once per collection.
-          mShouldComputeHeaders = shouldComputeHeaders(newCollectionRoot);
-          mShouldComputeNumbering = shouldComputeNumbering(newCollectionRoot);
           mCollectionLevel = getCollectionLevelInternal(newCollectionRoot);
 
           ItemState newItemState = null;
           if (Role.getRole(newCollectionRoot) == Role.ROLE_GRID) {
             // Cache the row and column headers.
-            updateTableHeaderInfo(
-                newCollectionRoot, mRowHeaders, mColumnHeaders, mShouldComputeHeaders);
+            updateTableHeaderInfo(newCollectionRoot, mRowHeaders, mColumnHeaders);
 
             newItemState =
-                getTableItemState(
-                    newCollectionRoot,
-                    announcedNode,
-                    mRowHeaders,
-                    mColumnHeaders,
-                    mShouldComputeHeaders,
-                    mShouldComputeNumbering);
+                getTableItemState(newCollectionRoot, announcedNode, mRowHeaders, mColumnHeaders);
           } else if (Role.getRole(newCollectionRoot) == Role.ROLE_LIST) {
-            newItemState =
-                getListItemState(newCollectionRoot, announcedNode, mShouldComputeNumbering);
+            newItemState = getListItemState(newCollectionRoot, announcedNode);
           } else if (Role.getRole(newCollectionRoot) == Role.ROLE_PAGER) {
-            newItemState =
-                extractPagerItemState(newCollectionRoot, announcedNode, mShouldComputeHeaders);
+            newItemState = extractPagerItemState(newCollectionRoot, announcedNode);
           }
 
           // Row and column change only if we enter and there is collection item information.
@@ -663,19 +605,11 @@ public class CollectionState {
           ItemState newItemState = null;
           if (Role.getRole(newCollectionRoot) == Role.ROLE_GRID) {
             newItemState =
-                getTableItemState(
-                    newCollectionRoot,
-                    announcedNode,
-                    mRowHeaders,
-                    mColumnHeaders,
-                    mShouldComputeHeaders,
-                    mShouldComputeNumbering);
+                getTableItemState(newCollectionRoot, announcedNode, mRowHeaders, mColumnHeaders);
           } else if (Role.getRole(newCollectionRoot) == Role.ROLE_LIST) {
-            newItemState =
-                getListItemState(newCollectionRoot, announcedNode, mShouldComputeNumbering);
+            newItemState = getListItemState(newCollectionRoot, announcedNode);
           } else if (Role.getRole(newCollectionRoot) == Role.ROLE_PAGER) {
-            newItemState =
-                extractPagerItemState(newCollectionRoot, announcedNode, mShouldComputeHeaders);
+            newItemState = extractPagerItemState(newCollectionRoot, announcedNode);
           }
 
           // Determine if the row and/or column has changed.
@@ -719,14 +653,9 @@ public class CollectionState {
   private static void updateTableHeaderInfo(
       AccessibilityNodeInfoCompat collectionRoot,
       SparseArray<CharSequence> rowHeaders,
-      SparseArray<CharSequence> columnHeaders,
-      boolean computeHeaders) {
+      SparseArray<CharSequence> columnHeaders) {
     rowHeaders.clear();
     columnHeaders.clear();
-
-    if (!computeHeaders) {
-      return;
-    }
 
     if (collectionRoot == null || collectionRoot.getCollectionInfo() == null) {
       return;
@@ -911,49 +840,4 @@ public class CollectionState {
     return true;
   }
 
-  /**
-   * Don't compute headers if: (1) API level is pre-N, and (2) the collection root is not a
-   * descendant of a WebView, and (3) the collection root is itself a ListView or GridView.
-   *
-   * <p>Under these circumstances, the framework ListView/GridView will mark headers as non-headers
-   * and vice-versa.
-   */
-  private static boolean shouldComputeHeaders(@NonNull AccessibilityNodeInfoCompat collectionRoot) {
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-      if (!AccessibilityNodeInfoUtils.hasMatchingAncestor(collectionRoot, FILTER_WEBVIEW)) {
-        // TODO: Convert to use Role.
-        // Bugs exist in specific classes, so check class names and not roles.
-        if (AccessibilityNodeInfoUtils.nodeIsListOrGrid(collectionRoot)) {
-          return false;
-        }
-      }
-    }
-
-    return true;
-  }
-
-  /**
-   * Don't compute indices or row/column counts if: (1) API level is pre-N, (2) the collection root
-   * is not a descendant of a WebView, and (3) the collection root is not a pager.
-   *
-   * <p>Item indices are broken in some major first-party apps that use "spacer" items in
-   * collections; this check makes sure no apps in the wild are affected. TODO: Re-evaluate
-   * this check before N release to see if it needs to be extended to N.
-   *
-   * <p>Always compute for pagers. The ability to have pagers with collections was introduced after
-   * these bugs, and visually pagers should not have "spacer" items.
-   */
-  private static boolean shouldComputeNumbering(
-      @NonNull AccessibilityNodeInfoCompat collectionRoot) {
-    if (Role.getRole(collectionRoot) == Role.ROLE_PAGER) {
-      return true;
-    }
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-      if (!AccessibilityNodeInfoUtils.hasMatchingAncestor(collectionRoot, FILTER_WEBVIEW)) {
-        return false;
-      }
-    }
-
-    return true;
-  }
 }

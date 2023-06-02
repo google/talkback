@@ -17,27 +17,48 @@ package com.google.android.accessibility.talkback.preference;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
-import com.google.android.accessibility.talkback.HelpAndFeedbackUtils;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.utils.RemoteIntentUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 
 /** Utility class for Preferences and Activity */
 public class PreferencesActivityUtils {
+
+  private PreferencesActivityUtils() {} // Not instantiable
+
+  /** Returns a boolean-preference-value that may be overridden by diagnosis-mode. */
+  public static boolean getDiagnosticPref(Context context, int prefKeyResId, int prefDefaultResId) {
+    SharedPreferences preferences = SharedPreferencesUtils.getSharedPreferences(context);
+    Resources resources = context.getResources();
+    return getDiagnosticPref(preferences, resources, prefKeyResId, prefDefaultResId);
+  }
+
+  public static boolean getDiagnosticPref(
+      SharedPreferences preferences, Resources resources, int prefKeyResId, int prefDefaultResId) {
+    return isDiagnosisModeOn(preferences, resources)
+        || SharedPreferencesUtils.getBooleanPref(
+            preferences, resources, prefKeyResId, prefDefaultResId);
+  }
+
+  public static boolean isDiagnosisModeOn(SharedPreferences preferences, Resources resources) {
+    return SharedPreferencesUtils.getBooleanPref(
+        preferences,
+        resources,
+        R.string.pref_diagnosis_mode_key,
+        R.bool.pref_diagnosis_mode_default);
+  }
+
   /**
    * Notification ID for the Gesture Change notification. This is also used in the
    * GestureChangeNotificationActivity to dismiss the notification.
    */
   public static final int GESTURE_CHANGE_NOTIFICATION_ID = 2;
-
-  private static final String HELP_URL =
-      "https://support.google.com/accessibility/" + "android/answer/6283677";
 
   /**
    * Utility method for announcing text via accessibility event.
@@ -52,29 +73,6 @@ public class PreferencesActivityUtils {
       AccessibilityEvent event = AccessibilityEvent.obtain(AccessibilityEvent.TYPE_ANNOUNCEMENT);
       event.setContentDescription(text);
       accessibilityManager.sendAccessibilityEvent(event);
-    }
-  }
-
-  /** Provide the setting of Feedback Intent for the Help preference. */
-  public static void assignFeedbackIntentToPreference(TalkbackBaseFragment fragment) {
-    final Preference pref =
-        fragment.findPreference(fragment.getString(R.string.pref_help_and_feedback_key));
-
-    if (pref == null) {
-      return;
-    }
-
-    // Only wear doesn't support help and feedback
-    if (HelpAndFeedbackUtils.supportsHelpAndFeedback(fragment.getContext())) {
-      pref.setTitle(R.string.title_pref_help_and_feedback);
-      pref.setOnPreferenceClickListener(
-          preference -> {
-            HelpAndFeedbackUtils.launchHelpAndFeedback(fragment.getActivity());
-            return true;
-          });
-    } else {
-      pref.setTitle(R.string.title_pref_help);
-      RemoteIntentUtils.assignWebIntentToPreference(fragment, pref, HELP_URL);
     }
   }
 

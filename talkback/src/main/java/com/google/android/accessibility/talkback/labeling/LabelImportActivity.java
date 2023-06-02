@@ -24,7 +24,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.AlertDialogUtils;
+import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
 
 public class LabelImportActivity extends Activity {
 
@@ -93,7 +93,7 @@ public class LabelImportActivity extends Activity {
           }
         };
 
-    AlertDialogUtils.builder(this)
+    A11yAlertDialogWrapper.alertDialogBuilder(this)
         .setMessage(R.string.label_import_dialog_message)
         .setTitle(R.string.label_import_dialog_title)
         .setPositiveButton(R.string.label_import_dialog_skip, buttonClickListener)

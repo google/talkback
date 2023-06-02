@@ -43,9 +43,10 @@ import com.google.android.accessibility.talkback.training.NavigationButtonBar.Na
 import com.google.android.accessibility.talkback.training.PageConfig.PageId;
 import com.google.android.accessibility.talkback.training.PageController.OnPageChangeCallback;
 import com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId;
+import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.AlertDialogUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**
@@ -159,7 +160,7 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
       // service itself through a global method. 2. When the TrainingActivity is running on a
       // separate process,it's not applicable to access TalkBack's identifiers which is running on
       // another process.
-      AlertDialogUtils.builder(this)
+      A11yAlertDialogWrapper.alertDialogBuilder(this)
           .setTitle(R.string.talkback_inactive_title)
           .setMessage(R.string.talkback_inactive_message)
           .setCancelable(true)
@@ -196,6 +197,10 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
     Intent intent = new Intent(context, TrainingActivity.class);
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    if (FeatureSupport.isWatch(context)) {
+      // Wear platform prefers to not push AAS to the recent.
+      intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+    }
     // Passes a TrainingId which is an enum instead of a TrainingConfig to avoid the serialization
     // problem.
     intent.putExtra(TrainingActivity.EXTRA_TRAINING, training);
@@ -334,7 +339,7 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
   }
 
   private void showExitDialog() {
-    AlertDialogUtils.builder(this)
+    A11yAlertDialogWrapper.alertDialogBuilder(this)
         .setTitle(R.string.exit_tutorial_title)
         .setMessage(R.string.exit_tutorial_content)
         .setCancelable(true)

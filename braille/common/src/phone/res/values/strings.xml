@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <!-- Don’t show this again checkbox. [CHAR_LIMIT=30] -->
+  <string name="dont_show_again">Don’t show this again</string>
+  <!-- Done button. [CHAR_LIMIT=20] -->
+  <string name="done">Done</string>
   <!-- Audial announcement that plays when number indicator is pressed. [CHAR_LIMIT=30] -->
   <string name="number_announcement">Number</string>
   <!-- Audial announcement that plays when capitalize indicator is pressed. [CHAR_LIMIT=30] -->

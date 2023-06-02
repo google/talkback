@@ -104,7 +104,7 @@ public class OcrController {
    * @param image The {@link Bitmap} containing the screenshot.
    * @param ocrInfos Provides some information of {@link AccessibilityNodeInfoCompat} nodes
    *     representing the on-screen {@link android.view.View}s whose screenshots we want to extract
-   *     text from using OCR. Caller retains responsibility to recycle them.
+   *     text from using OCR.
    * @param filter Only the nodes which are accepted by the filter will be recognized.
    */
   public void recognizeTextForNodes(

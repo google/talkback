@@ -214,7 +214,7 @@ public abstract class GestureMatcher {
   }
 
   /** Indicates this stream of motion events can no longer match this gesture. */
-  protected final void cancelGesture(MotionEvent event) {
+  public final void cancelGesture(MotionEvent event) {
     setState(STATE_GESTURE_CANCELED, event);
   }
 

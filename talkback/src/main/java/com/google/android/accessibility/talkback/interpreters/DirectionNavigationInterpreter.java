@@ -29,14 +29,12 @@ import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.WindowUtils;
-import com.google.android.accessibility.utils.keyboard.KeyComboManager;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirection;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Event-interpreter for directional navigation. */
-public class DirectionNavigationInterpreter
-    implements AccessibilityEventListener, KeyComboManager.KeyComboListener {
+public class DirectionNavigationInterpreter implements AccessibilityEventListener {
 
   private static final String TAG = "DirectionNavigationInterpreter";
 
@@ -60,12 +58,6 @@ public class DirectionNavigationInterpreter
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  // Methods handling KeyCombo shortcuts.
-
-  @Override
-  public boolean onComboPerformed(int id, String name, EventId eventId) {
-    return pipeline.input(eventId, /* event= */ null, Interpretation.KeyCombo.create(id, name));
-  }
 
   @Override
   public int getEventTypes() {
@@ -89,9 +81,9 @@ public class DirectionNavigationInterpreter
       if ((navigationAction != null)
           && (navigationAction.originalNavigationGranularity != null)
           && navigationAction.originalNavigationGranularity.isMicroGranularity()) {
-        // Node reference only, do not recyle.
+        // Node reference only, do not recycle.
         AccessibilityNodeInfoCompat moveToNode =
-            AccessibilityNodeInfoUtils.isKeyboard(event, sourceNode) ? null : sourceNode;
+            AccessibilityNodeInfoUtils.isKeyboard(sourceNode) ? null : sourceNode;
         // Try to automatically perform micro-granularity movement.
         @SearchDirection
         int linearDirection =

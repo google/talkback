@@ -34,6 +34,20 @@ public class BrailleWord {
     list = new ArrayList<>();
   }
 
+  /** Creates a new {@link BrailleWord}. */
+  public BrailleWord(BrailleWord brailleWord) {
+    this();
+    append(brailleWord);
+  }
+
+  /** Creates a new {@link BrailleWord} with repeated times. */
+  public BrailleWord(BrailleWord brailleWord, int times) {
+    this();
+    for (int i = 0; i < times; i++) {
+      append(brailleWord);
+    }
+  }
+
   /** Creates a word from a collection of {@link BrailleCharacter}. */
   public BrailleWord(Collection<BrailleCharacter> characters) {
     this();
@@ -52,11 +66,7 @@ public class BrailleWord {
   public BrailleWord(String dashDelimited) {
     this();
     for (String token : Splitter.on('-').omitEmptyStrings().split(dashDelimited)) {
-      List<Integer> dotNumbers = new ArrayList<>();
-      for (int i = 0; i < token.length(); i++) {
-        dotNumbers.add(Character.getNumericValue(token.charAt(i)));
-      }
-      list.add(new BrailleCharacter(dotNumbers));
+      list.add(new BrailleCharacter(token));
     }
   }
 
@@ -78,13 +88,26 @@ public class BrailleWord {
   }
 
   /** Appends a {@link BrailleCharacter} to the end of the word. */
-  public void add(BrailleCharacter brailleCharacter) {
+  public void append(BrailleCharacter brailleCharacter) {
     list.add(brailleCharacter);
+  }
+
+  /** Appends a {@link BrailleWord} to the end of the word. */
+  public void append(BrailleWord brailleWord) {
+    list.addAll(brailleWord.list);
   }
 
   /** Inserts a {@link BrailleCharacter} to the specified position of the word. */
   public void insert(int index, BrailleCharacter brailleCharacter) {
     list.add(index, brailleCharacter);
+  }
+
+  /**
+   * Replaces {@link BrailleCharacter} at the specified position with the specified {@link
+   * BrailleCharacter}.
+   */
+  public void set(int index, BrailleCharacter brailleCharacter) {
+    list.set(index, brailleCharacter);
   }
 
   /**

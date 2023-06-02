@@ -28,7 +28,6 @@ import com.google.android.accessibility.talkback.actor.PassThroughModeActor;
 import com.google.android.accessibility.talkback.actor.SpeechRateActor;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -140,8 +139,7 @@ public class ActorStateWritable {
   public void setInputFocus(AccessibilityNodeInfoCompat node, long currentTime) {
     lastWindowId = node.getWindowId();
     lastWindowIdUptimeMs = currentTime;
-    inputFocusActionRecord =
-        new InputFocusActionRecord(AccessibilityNodeInfoUtils.obtain(node), currentTime);
+    inputFocusActionRecord = new InputFocusActionRecord(node, currentTime);
   }
 
   /** Returns nearly immutable focus data-structure. */
@@ -180,7 +178,7 @@ public class ActorStateWritable {
         StringBuilderUtils.optionalSubObj("inputFocusActionRecord", inputFocusActionRecord),
         StringBuilderUtils.optionalInt(
             "overrideFocusRestoreUptimeMs", overrideFocusRestoreUptimeMs, 0),
-        StringBuilderUtils.optionalSubObj("scrollState", scrollState.getAutoScrollRecord()),
+        StringBuilderUtils.optionalSubObj("scrollState", scrollState.get()),
         StringBuilderUtils.optionalTag(
             "isSelectionModeActive", directionNavigation.isSelectionModeActive()),
         StringBuilderUtils.optionalField(

@@ -15,6 +15,7 @@
  */
 package com.google.android.accessibility.talkback.actor.voicecommands;
 
+import static android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_NEXT;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_TOP;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.BRIGHTEN;
@@ -29,7 +30,6 @@ import static com.google.android.accessibility.talkback.Feedback.EditText.Action
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.START_SELECT;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.COPY_SAVED;
 import static com.google.android.accessibility.talkback.Feedback.VoiceRecognition.Action.SHOW_COMMAND_LIST;
-import static com.google.android.accessibility.talkback.actor.SystemActionPerformer.GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS;
 import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
 
 import android.accessibilityservice.AccessibilityService;

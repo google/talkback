@@ -16,13 +16,15 @@ public class BrailleDisplayAnalytics {
 
   private BrailleDisplayAnalytics(Context context) {}
 
-  public void logStartedEvent(String device, Code code, boolean wordWrappingEnabled) {}
+  public void logStartedEvent(String device, Code inputCode, Code outputCode) {}
 
   public void logTypingBrailleCharacter(int count) {}
 
   public void logReadingBrailleCharacter(int count) {}
 
-  public void logBrailleCodeSetting(Code code) {}
+  public void logBrailleInputCodeSetting(Code code) {}
+
+  public void logBrailleOutputCodeSetting(Code code) {}
 
   public void logWordWrappingSetting(boolean enabled) {}
 }

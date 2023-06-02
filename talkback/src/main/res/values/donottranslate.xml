@@ -16,13 +16,13 @@
     <string name="pref_category_developer_key">pref_category_developer</string>
     <string name="pref_soundback_volume_key">pref_soundback_volume</string>
     <string name="pref_tts_settings_key">pref_tts_settings</string>
-    <string name="pref_two_volume_long_press_key">pref_two_volume_long_press_key</string>
     <string name="pref_intonation_key">pref_intonation</string>
     <string name="pref_keyboard_echo_key">pref_keyboard_echo</string>
     <string name="pref_keyboard_echo_on_screen_key" translatable="false">pref_keyboard_echo_on_screen</string>
     <string name="pref_keyboard_echo_physical_key" translatable="false">pref_keyboard_echo_physical</string>
     <string name="pref_node_desc_order_key">pref_node_desc_order_key</string>
     <string name="pref_speak_element_ids_key">pref_element_ids_key</string>
+    <string name="pref_diagnosis_mode_key">pref_diagnosis_mode</string>
     <string name="pref_tts_overlay_key">pref_tts_overlay</string>
     <string name="pref_echo_recognized_text_speech_key">pref_echo_recognized_text_speech_key</string>
     <string name="pref_tree_debug_key">pref_tree_debug</string>
@@ -38,8 +38,8 @@
     <string name="pref_dump_a11y_event_key">pref_dump_a11y_event</string>
     <!-- Using for showing version information. [CHAR_LIMIT=NONE] -->
     <string name="pref_developer_version_code_key">pref_developer_version_code</string>
-    <string name="pref_resume_talkback_key">pref_resume_talkback</string>
     <string name="pref_typing_confirmation_key" translatable="false">pref_typing_confirmation</string>
+    <string name="pref_typing_long_press_duration_key" translatable="false">pref_typing_long_press_duration</string>
     <string name="pref_typing_tap_and_hold_duration_key" translatable="false">pref_type_and_hold_duration</string>
     <string name="pref_phonetic_letters_key">pref_phonetic_letters</string>
     <string name="pref_punctuation_key" translatable="false">pref_punctuation</string>
@@ -62,7 +62,9 @@
     <string name="pref_help_and_feedback_key">pref_help_and_feedback</string>
     <string name="pref_show_tos_key">pref_show_tos</string>
     <string name="pref_policy_key">pref_policy</string>
-    <string name="pref_category_controls_key"  translatable="false">pref_category_controls_key</string>
+    <string name="pref_category_controls_key" translatable="false">pref_category_controls_key</string>
+    <string name="pref_category_braille_key" translatable="false">pref_category_braille_key</string>
+    <string name="pref_category_general_key" translatable="false">pref_category_general_key</string>
     <string name="pref_speak_passwords_without_headphones">pref_speak_passwords_without_headphones</string>
     <string name="pref_new_feature_in_talkback_entry_point_key" translatable="false">pref_new_feature_in_talkback_entry_point_key</string>
     <string name="pref_category_help_and_feedback_key" translatable="false">pref_category_help_and_feedback_key</string>
@@ -71,10 +73,10 @@
     <string name="pref_category_legal_and_privacy_key" translatable="false">pref_category_legal_and_privacy_key</string>
     <string name="pref_tutorial_entry_point_key" translatable="false">pref_tutorial_entry_point_key</string>
     <string name="pref_practice_gestures_entry_point_key" translatable="false">pref_practice_gestures_entry_point_key</string>
-    <string name="pref_version_code_key" translatable="false">pref_version_code_key</string>
     <string name="pref_thick_border_key" translatable="false">pref_thick_border_key</string>
     <string name="pref_border_color_category_key" translatable="false">pref_border_color_category_key</string>
     <string name="pref_border_color_key" translatable="false">pref_border_color_key</string>
+    <string name="pref_icon_detection_key">pref_icon_detection</string>
 
   <!-- Selector preferences -->
     <string name="pref_current_selector_setting_key">pref_current_selector_setting_key</string>
@@ -187,6 +189,9 @@
     <string name="pref_shortcut_left_and_down_key">pref_shortcut_left_and_down</string>
     <string name="pref_shortcut_left_and_up_key">pref_shortcut_left_and_up</string>
 
+    <string name="pref_shortcut_1finger_2tap_key">pref_shortcut_one_finger_double_tap</string>
+    <string name="pref_shortcut_1finger_2tap_hold_key">pref_shortcut_one_finger_double_tap_and_hold</string>
+
     <string name="pref_shortcut_2finger_1tap_key">pref_shortcut_two_finger_single_tap</string>
     <string name="pref_shortcut_2finger_2tap_key">pref_shortcut_two_finger_double_tap</string>
     <string name="pref_shortcut_2finger_3tap_key">pref_shortcut_two_finger_triple_tap</string>
@@ -223,6 +228,93 @@
     <string name="pref_shortcut_fingerprint_left_key">pref_shortcut_fingerprint_left</string>
     <string name="pref_shortcut_fingerprint_right_key">pref_shortcut_fingerprint_right</string>
 
+  <!-- Keyboard preferences -->
+  <string name="pref_select_keymap_key">pref_select_keymap</string>
+  <string name="pref_default_keymap_trigger_modifier_key">pref_default_keymap_trigger_modifier</string>
+
+  <string name="classic_keymap_entry_value">classic_keymap</string>
+  <string name="default_keymap_entry_value">default_keymap</string>
+
+  <string name="trigger_modifier_alt_entry_value">trigger_modifier_alt</string>
+  <string name="trigger_modifier_meta_entry_value">trigger_modifier_meta</string>
+
+  <string name="keycombo_shortcut_navigate_next">keycombo_shortcut_navigate_next</string>
+  <string name="keycombo_shortcut_navigate_previous">keycombo_shortcut_navigate_previous</string>
+  <string name="keycombo_shortcut_navigate_next_default">keycombo_shortcut_navigate_next_default</string>
+  <string name="keycombo_shortcut_navigate_previous_default">keycombo_shortcut_navigate_previous_default</string>
+  <string name="keycombo_shortcut_navigate_first">keycombo_shortcut_navigate_first</string>
+  <string name="keycombo_shortcut_navigate_last">keycombo_shortcut_navigate_last</string>
+  <string name="keycombo_shortcut_perform_click">keycombo_shortcut_perform_click</string>
+  <string name="keycombo_shortcut_perform_long_click">keycombo_shortcut_perform_long_click</string>
+  <string name="keycombo_shortcut_global_back">keycombo_shortcut_global_back</string>
+  <string name="keycombo_shortcut_global_home">keycombo_shortcut_global_home</string>
+  <string name="keycombo_shortcut_global_recents">keycombo_shortcut_global_recents</string>
+  <string name="keycombo_shortcut_global_notifications">keycombo_shortcut_global_notifications</string>
+  <string name="keycombo_shortcut_global_play_pause_media" translatable="false">keycombo_shortcut_global_play_pause_media</string>
+  <string name="keycombo_shortcut_global_scroll_forward_reading_menu" translatable="false">keycombo_shortcut_global_scroll_forward_reading_menu</string>
+  <string name="keycombo_shortcut_global_scroll_backward_reading_menu" translatable="false">keycombo_shortcut_global_scroll_backward_reading_menu</string>
+  <string name="keycombo_shortcut_global_adjust_reading_settings_previous" translatable="false">keycombo_shortcut_global_adjust_reading_settings_previous</string>
+  <string name="keycombo_shortcut_global_adjust_reading_setting_next" translatable="false">keycombo_shortcut_global_adjust_reading_setting_next</string>
+  <string name="keycombo_shortcut_granularity_increase">keycombo_shortcut_granularity_increase</string>
+  <string name="keycombo_shortcut_granularity_decrease">keycombo_shortcut_granularity_decrease</string>
+  <string name="keycombo_shortcut_other_read_from_top">keycombo_shortcut_other_read_from_top</string>
+  <string name="keycombo_shortcut_other_read_from_next_item">keycombo_shortcut_other_read_from_next_item</string>
+  <string name="keycombo_shortcut_other_toggle_search">keycombo_shortcut_other_toggle_search</string>
+  <string name="keycombo_shortcut_other_talkback_context_menu">keycombo_shortcut_other_global_context_menu</string>
+  <string name="keycombo_shortcut_other_custom_actions">keycombo_shortcut_other_custom_actions</string>
+  <string name="keycombo_shortcut_other_language_options">keycombo_shortcut_other_language_options</string>
+  <string name="keycombo_shortcut_navigate_up">keycombo_shortcut_navigate_up</string>
+  <string name="keycombo_shortcut_navigate_down">keycombo_shortcut_navigate_down</string>
+  <string name="keycombo_shortcut_navigate_next_word">keycombo_shortcut_navigate_next_word</string>
+  <string name="keycombo_shortcut_navigate_previous_word">keycombo_shortcut_navigate_previous_word</string>
+  <string name="keycombo_shortcut_navigate_next_character">keycombo_shortcut_navigate_next_character</string>
+  <string name="keycombo_shortcut_navigate_previous_character">keycombo_shortcut_navigate_previous_character</string>
+  <string name="keycombo_shortcut_navigate_next_button">keycombo_shortcut_navigate_next_button</string>
+  <string name="keycombo_shortcut_navigate_previous_button">keycombo_shortcut_navigate_previous_button</string>
+  <string name="keycombo_shortcut_navigate_next_control">keycombo_shortcut_navigate_next_control</string>
+  <string name="keycombo_shortcut_navigate_previous_control">keycombo_shortcut_navigate_previous_control</string>
+  <string name="keycombo_shortcut_navigate_next_checkbox">keycombo_shortcut_navigate_next_checkbox</string>
+  <string name="keycombo_shortcut_navigate_previous_checkbox">keycombo_shortcut_navigate_previous_checkbox</string>
+  <string name="keycombo_shortcut_navigate_next_aria_landmark">keycombo_shortcut_navigate_next_aria_landmark</string>
+  <string name="keycombo_shortcut_navigate_previous_aria_landmark">keycombo_shortcut_navigate_previous_aria_landmark</string>
+  <string name="keycombo_shortcut_navigate_next_edit_field">keycombo_shortcut_navigate_next_edit_field</string>
+  <string name="keycombo_shortcut_navigate_previous_edit_field">keycombo_shortcut_navigate_previous_edit_field</string>
+  <string name="keycombo_shortcut_navigate_next_focusable_item">keycombo_shortcut_navigate_next_focusable_item</string>
+  <string name="keycombo_shortcut_navigate_previous_focusable_item">keycombo_shortcut_navigate_previous_focusable_item</string>
+  <string name="keycombo_shortcut_navigate_next_graphic">keycombo_shortcut_navigate_next_graphic</string>
+  <string name="keycombo_shortcut_navigate_previous_graphic">keycombo_shortcut_navigate_previous_graphic</string>
+  <string name="keycombo_shortcut_navigate_next_heading">keycombo_shortcut_navigate_next_heading</string>
+  <string name="keycombo_shortcut_navigate_previous_heading">keycombo_shortcut_navigate_previous_heading</string>
+  <string name="keycombo_shortcut_navigate_next_heading_1">keycombo_shortcut_navigate_next_heading_1</string>
+  <string name="keycombo_shortcut_navigate_previous_heading_1">keycombo_shortcut_navigate_previous_heading_1</string>
+  <string name="keycombo_shortcut_navigate_next_heading_2">keycombo_shortcut_navigate_next_heading_2</string>
+  <string name="keycombo_shortcut_navigate_previous_heading_2">keycombo_shortcut_navigate_previous_heading_2</string>
+  <string name="keycombo_shortcut_navigate_next_heading_3">keycombo_shortcut_navigate_next_heading_3</string>
+  <string name="keycombo_shortcut_navigate_previous_heading_3">keycombo_shortcut_navigate_previous_heading_3</string>
+  <string name="keycombo_shortcut_navigate_next_heading_4">keycombo_shortcut_navigate_next_heading_4</string>
+  <string name="keycombo_shortcut_navigate_previous_heading_4">keycombo_shortcut_navigate_previous_heading_4</string>
+  <string name="keycombo_shortcut_navigate_next_heading_5">keycombo_shortcut_navigate_next_heading_5</string>
+  <string name="keycombo_shortcut_navigate_previous_heading_5">keycombo_shortcut_navigate_previous_heading_5</string>
+  <string name="keycombo_shortcut_navigate_next_heading_6">keycombo_shortcut_navigate_next_heading_6</string>
+  <string name="keycombo_shortcut_navigate_previous_heading_6">keycombo_shortcut_navigate_previous_heading_6</string>
+  <string name="keycombo_shortcut_navigate_next_list_item">keycombo_shortcut_navigate_next_list_item</string>
+  <string name="keycombo_shortcut_navigate_previous_list_item">keycombo_shortcut_navigate_previous_list_item</string>
+  <string name="keycombo_shortcut_navigate_next_link">keycombo_shortcut_navigate_next_link</string>
+  <string name="keycombo_shortcut_navigate_previous_link">keycombo_shortcut_navigate_previous_link</string>
+  <string name="keycombo_shortcut_navigate_next_list">keycombo_shortcut_navigate_next_list</string>
+  <string name="keycombo_shortcut_navigate_previous_list">keycombo_shortcut_navigate_previous_list</string>
+  <string name="keycombo_shortcut_navigate_next_table">keycombo_shortcut_navigate_next_table</string>
+  <string name="keycombo_shortcut_navigate_previous_table">keycombo_shortcut_navigate_previous_table</string>
+  <string name="keycombo_shortcut_navigate_next_combobox">keycombo_shortcut_navigate_next_combobox</string>
+  <string name="keycombo_shortcut_navigate_previous_combobox">keycombo_shortcut_navigate_previous_combobox</string>
+  <string name="keycombo_shortcut_navigate_next_window">keycombo_shortcut_navigate_next_window</string>
+  <string name="keycombo_shortcut_navigate_previous_window">keycombo_shortcut_navigate_previous_window</string>
+  <string name="keycombo_shortcut_open_manage_keyboard_shortcuts">keycombo_shortcut_open_manage_keyboard_shortcuts</string>
+  <string name="keycombo_shortcut_open_talkback_settings">keycombo_shortcut_open_talkback_settings</string>
+
+  <!-- the shared preference key for log level configuration. -->
+  <string name="pref_log_level_default" translatable="false">6</string>
+  <string name="pref_log_level_key" translatable="false">pref_log_level</string>
     <!-- Array of gesture shortcut keys -->
     <string-array name="pref_shortcut_keys" translatable="false">
       <item>@string/pref_shortcut_up_key</item>
@@ -302,11 +394,9 @@
 
     <string name="pref_must_accept_gesture_change_notification">pref_must_accept_gesture_change_notification</string>
 
-    <string name="pref_show_suspension_confirmation_dialog">pref_show_suspension_confirmation_dialog</string>
     <string name="pref_show_dim_screen_confirmation_dialog">pref_show_dim_screen_confirmation_dialog</string>
     <string name="pref_show_phone_permission_confirmation_dialog">pref_show_phone_permission_confirmation_dialog</string>
     <string name="pref_vendor_overrides_processed">pref_vendor_overrides_processed</string>
-    <string name="pref_suspended">pref_suspended</string>
 
     <string name="pref_show_continuous_reading_mode_dialog">pref_show_continuous_reading_mode_dialog</string>
     <string name="pref_show_voice_command_dialog">pref_show_voice_command_dialog</string>
@@ -425,25 +515,6 @@
         <item>25</item>
     </string-array>
 
-    <!-- Resume from suspend preference entries -->
-    <string-array name="pref_resume_talkback_entries">
-        <item>@string/value_resume_screen_on</item>
-        <item>@string/value_resume_keyguard</item>
-        <item>@string/value_resume_manual</item>
-    </string-array>
-
-    <string name="resume_screen_on">SCREEN_ON</string>
-    <string name="resume_screen_keyguard">KEYGUARD</string>
-    <string name="resume_screen_manual">MANUAL</string>
-
-    <!-- Resume from suspend preference values -->
-    <!-- We depend on the order of these strings -->
-    <string-array name="pref_resume_talkback_values">
-        <item>@string/resume_screen_on</item>
-        <item>@string/resume_screen_keyguard</item>
-        <item>@string/resume_screen_manual</item>
-    </string-array>
-
     <!-- Sound volume preference entries -->
     <string-array name="pref_soundback_volume_entries">
         <item>@string/value_volume_100_percent</item>
@@ -476,6 +547,27 @@
       <item>1</item>
       <item>2</item>
     </string-array>
+
+  <!-- Typing method long press duration entries -->
+    <string-array name="pref_typing_long_press_entries">
+      <item>@string/value_typing_long_press_500ms</item>
+      <item>@string/value_typing_long_press_1000ms</item>
+      <item>@string/value_typing_long_press_2000ms</item>
+      <item>@string/value_typing_long_press_3000ms</item>
+      <item>@string/value_typing_long_press_5000ms</item>
+    </string-array>
+
+  <!-- Typing method long press duration values -->
+    <string-array name="pref_typing_long_press_values">
+      <item>500</item>
+      <item>1000</item>
+      <item>2000</item>
+      <item>3000</item>
+      <item>5000</item>
+    </string-array>
+
+    <string name="typing_long_press_default" translatable="false">3000</string>
+
 
   <!-- Shortcut preference of basic navigation -->
     <string-array name="shortcut_basic_navigation">
@@ -638,6 +730,7 @@
     <!-- TODO: add selector shortcuts to perform next and previous actions specific to the selected setting. add shortcuts to string-array pref_shortcut_values-->
     <string name="shortcut_value_selected_setting_next_action">SELECTED_SETTING_NEXT_ACTION</string>
     <string name="shortcut_value_selected_setting_previous_action">SELECTED_SETTING_PREVIOUS_ACTION</string>
+    <string name="shortcut_value_action_setting_activate_current_action" translatable="false">ACTION_SETTING_ACTIVATE_CURRENT_ACTION</string>
     <string name="shortcut_value_screen_search">SCREEN SEARCH</string>
     <string name="shortcut_value_media_control">MEDIA_CONTROL</string>
     <string name="shortcut_value_pass_through_next_gesture">ENABLE_PASS_THROUGH</string>
@@ -655,6 +748,7 @@
     <string name="shortcut_value_pause_or_resume_feedback">PAUSE_FEEDBACK</string>
     <string name="shortcut_value_all_apps" translatable="false">ALL_APPS</string>
     <string name="shortcut_value_braille_keyboard" translatable="false">BRAILLE_KEYBOARD</string>
+    <string name="shortcut_value_braille_display_settings" translatable="false">BRAILLE_DISPLAY_SETTINGS</string>
     <string name="shortcut_value_tutorial" translatable="false">TUTORIAL</string>
     <string name="shortcut_value_report_gesture" translatable="false">GESTURE_DEBUG</string>
     <string name="shortcut_value_practice_gestures" translatable="false">PRACTICE_GESTURES</string>
@@ -725,15 +819,17 @@
     <bool name="pref_punctuation_default">false</bool>
     <string name="pref_node_desc_order_default">pref_node_desc_order_value_state_name_role_pos</string>
     <bool name="pref_speak_element_ids_default">false</bool>
+    <bool name="pref_diagnosis_mode_default">false</bool>
     <bool name="pref_tts_overlay_default">false</bool>
     <bool name="pref_echo_recognized_text_default">false</bool>
-    <bool name="pref_reduce_window_delay_default">false</bool>
+    <bool name="pref_reduce_window_delay_default">true</bool>
     <bool name="pref_tree_debug_default">false</bool>
     <bool name="pref_performance_stats_default">false</bool>
     <bool name="pref_log_overlay_default">false</bool>
+    <bool name="pref_talkback_gesture_detection_default">true</bool>
     <bool name="pref_web_scripts_default">true</bool>
-    <string name="pref_resume_talkback_default">@string/resume_screen_keyguard</string>
     <string name="pref_typing_confirmation_default">@string/typing_type_lift_to_type</string>
+    <string name="pref_typing_long_press_duration_default">@string/typing_long_press_default</string>
     <bool name="pref_phonetic_letters_default">true</bool>
     <bool name="pref_a11y_hints_default">true</bool>
     <bool name="pref_speak_container_element_positions_default">true</bool>
@@ -741,11 +837,11 @@
     <bool name="pref_speak_system_window_titles_default">true</bool>
     <bool name="pref_explore_by_touch_default">true</bool>
     <bool name="pref_single_tap_default">false</bool>
-    <bool name="pref_resume_volume_buttons_long_click_default">true</bool>
     <bool name="pref_dim_when_talkback_enabled_default">false</bool>
     <bool name="pref_shake_to_read_default">false</bool>
     <string name="pref_shake_to_read_threshold_default">-1</string>
-    <bool name="pref_show_suspension_confirmation_dialog_default">true</bool>
+    <bool name="pref_icon_detection_default">false</bool>
+
     <!-- Selector preferences default values -->
     <string name="pref_selector_setting_default">@string/selector_granularity_characters</string>
     <bool name="pref_selector_activation_default">false</bool>
@@ -760,7 +856,7 @@
     <bool name="pref_selector_scroll_seq_default">false</bool>
     <bool name="pref_selector_a11y_volume_default">false</bool>
     <bool name="pref_selector_audio_focus_default">false</bool>
-    <bool name="pref_selector_actions_default">false</bool>
+    <bool name="pref_selector_actions_default">true</bool>
     <bool name="pref_selector_granularity_headings_default">true</bool>
     <bool name="pref_selector_granularity_words_default">true</bool>
     <bool name="pref_selector_granularity_paragraphs_default">true</bool>
@@ -793,7 +889,6 @@
     <bool name="pref_show_context_menu_vibration_feedback_default">false</bool>
     <bool name="pref_show_context_menu_talkback_settings_default">true</bool>
     <bool name="pref_show_context_menu_system_action_default">false</bool>
-    <bool name="pref_show_context_menu_pause_feedback_default">true</bool>
     <bool name="pref_show_context_menu_tts_settings_default">true</bool>
     <bool name="pref_show_context_menu_image_caption_default">true</bool>
 
@@ -826,6 +921,9 @@
     <string name="pref_shortcut_right_and_up_default">@string/shortcut_value_voice_commands</string>
     <string name="pref_shortcut_left_and_down_default">@string/shortcut_value_screen_search</string>
     <string name="pref_shortcut_left_and_up_default">@string/shortcut_value_overview</string>
+
+    <string name="pref_shortcut_1finger_2tap_default">@string/shortcut_value_action_setting_activate_current_action</string>
+    <string name="pref_shortcut_1finger_2tap_hold_default">@string/shortcut_value_perform_long_click_action</string>
 
     <string name="pref_shortcut_2finger_1tap_default">@string/shortcut_value_pause_or_resume_feedback</string>
     <string name="pref_shortcut_2finger_2tap_default">@string/shortcut_value_media_control</string>
@@ -883,9 +981,6 @@
     <string name="action_gesture_change_notification">com.google.android.marvin.talkback.NOTIFY_GESTURE_CHANGE</string>
 
     <string name="dim_screen_timer">%1$d:%2$s</string>
-
-    <!-- Notification IDs -->
-    <item type="id" name="notification_suspended" />
 
     <!-- Static IDs for dynamic menu items -->
     <item type="id" name="enable_dimming" />
@@ -949,7 +1044,6 @@
     <string name="pref_show_context_menu_vibration_feedback_setting_key" translatable="false">pref_vibration_feedback_menu_setting_key</string>
     <string name="pref_show_context_menu_talkback_settings_setting_key" translatable="false">pref_talkback_settings_menu_setting_key</string>
     <string name="pref_show_context_menu_system_action_setting_key" translatable="false">pref_system_action_menu_setting_key</string>
-    <string name="pref_show_context_menu_pause_feedback_setting_key" translatable="false">pref_pause_feedback_menu_setting_key</string>
     <string name="pref_show_context_menu_tts_settings_setting_key" translatable="false">pref_tts_settings_menu_setting_key</string>
     <string name="pref_show_context_menu_image_caption_setting_key" translatable="false">pref_image_caption_menu_setting_key</string>
 
@@ -996,4 +1090,14 @@
     <string name="pref_update_talkback91_shown_key" translatable="false">pref_update_talkback91_shown_key</string>
     <string name="pref_update_multi_finger_gestures_shown_key" translatable="false">pref_update_multi_finger_gestures_shown_key</string>
     <string name="pref_update_welcome_12_2_shown_key" translatable="false">pref_update_welcome_12_2_shown_key</string>
+    <string name="pref_update_welcome_13_0_shown_key" translatable="false">pref_update_welcome_13_0_shown_key</string>
+
+    <!-- Record the window animation scale before disabling animation. TalkBack will restore the value to animation before shut down. -->
+    <string name="pref_previous_global_window_animation_scale_key" translatable="false">pref_previous_global_window_animation_scale_key</string>
+    <string name="pref_window_animation_scale_default">1.0</string>
+
+    <string name="pref_talkback_gesture_detection_key" translatable="false">pref_talkback_gesture_detection_key</string>
+
+    <string name="pref_icon_detection_download_dialog_shown_times">pref_icon_detection_download_dialog_shown_times</string>
+    <string name="pref_icon_detection_download_dialog_do_no_show">pref_icon_detection_download_dialog_do_no_show</string>
 </resources>

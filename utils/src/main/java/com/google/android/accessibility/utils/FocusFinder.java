@@ -48,6 +48,11 @@ public class FocusFinder {
     this.service = service;
   }
 
+  /** Returns the view that has accessibility-focus. */
+  public @Nullable AccessibilityNodeInfoCompat findAccessibilityFocus() {
+    return getAccessibilityFocusNode(service, false);
+  }
+
   /** Finds the view that has the specified focus type. The type is defined in {@link FocusType}. */
   public @Nullable AccessibilityNodeInfoCompat findFocusCompat(@FocusType int focusType) {
     switch (focusType) {
@@ -67,53 +72,44 @@ public class FocusFinder {
    * focus is found, it allows to return the root node of the active window.
    *
    * @param fallbackOnRoot true for returning the root node if no focus is found.
-   *     <p><strong>Note:</strong> Caller is responsible for recycling the returned node.
    */
   public static @Nullable AccessibilityNodeInfoCompat getAccessibilityFocusNode(
       AccessibilityService service, boolean fallbackOnRoot) {
-    AccessibilityNodeInfo focused = null;
-    AccessibilityNodeInfo root = null;
-
-    try {
-      AccessibilityNodeInfo ret = null;
-      focused = service.findFocus(AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
-      if (focused == null) {
-        // Find the focused node from the root of the active window, as a alternative method if
-        // couldn't find the focused node by AccessibilityService.
-        root = service.getRootInActiveWindow();
-        if (root != null) {
-          focused = root.findFocus(AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
-        }
+    AccessibilityNodeInfo ret = null;
+    AccessibilityNodeInfo focused = service.findFocus(AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
+    if (focused == null) {
+      // Find the focused node from the root of the active window, as a alternative method if
+      // couldn't find the focused node by AccessibilityService.
+      AccessibilityNodeInfo root = service.getRootInActiveWindow();
+      if (root != null) {
+        focused = root.findFocus(AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
       }
+    }
 
-      if (focused != null) {
-        // If the focused node is from WebView, we still need to return it even though it's not
-        // visible to user. REFERTO for details.
-        if (focused.isVisibleToUser()
-            || WebInterfaceUtils.isWebContainer(AccessibilityNodeInfoUtils.toCompat(focused))) {
-          ret = focused;
-          focused = null;
-        }
+    if (focused != null) {
+      // If the focused node is from WebView, we still need to return it even though it's not
+      // visible to user. REFERTO for details.
+      if (focused.isVisibleToUser()
+          || WebInterfaceUtils.isWebContainer(AccessibilityNodeInfoUtils.toCompat(focused))) {
+        ret = focused;
+        focused = null;
       }
+    }
 
-      if (ret == null && fallbackOnRoot) {
-        ret = service.getRootInActiveWindow();
-        if (ret == null) {
-          LogUtils.e(TAG, "No current window root");
-        }
+    if (ret == null && fallbackOnRoot) {
+      ret = service.getRootInActiveWindow();
+      if (ret == null) {
+        LogUtils.e(TAG, "No current window root");
       }
+    }
 
-      if (ret != null) {
-        // When AccessibilityNodeProvider is used, the returned node may be stale.
-        boolean exist = ret.refresh();
-        if (!exist) {
-          AccessibilityNodeInfoUtils.recycleNodes(ret);
-          return null;
-        }
-        return AccessibilityNodeInfoUtils.toCompat(ret);
+    if (ret != null) {
+      // When AccessibilityNodeProvider is used, the returned node may be stale.
+      boolean exist = ret.refresh();
+      if (!exist) {
+        return null;
       }
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(focused, root);
+      return AccessibilityNodeInfoUtils.toCompat(ret);
     }
 
     return null;

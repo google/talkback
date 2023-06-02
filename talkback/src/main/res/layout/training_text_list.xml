@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-  <ListView
+  <com.google.android.accessibility.utils.widget.NonScrollableListView
       android:id="@+id/training_text_list"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

@@ -33,7 +33,7 @@ public class DoublePlayPauseButtonShortPressPatternMatcher extends VolumeButtonP
 
   public DoublePlayPauseButtonShortPressPatternMatcher() {
     super(
-        VolumeButtonPatternDetector.SHORT_DOUBLE_PRESS_PARTTERN,
+        VolumeButtonPatternDetector.SHORT_DOUBLE_PRESS_PATTERN,
         VolumeButtonPatternDetector.PLAY_PAUSE);
   }
 

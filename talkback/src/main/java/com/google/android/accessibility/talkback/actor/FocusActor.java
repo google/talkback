@@ -17,6 +17,11 @@
 package com.google.android.accessibility.talkback.actor;
 
 import android.accessibilityservice.AccessibilityService;
+import android.accessibilityservice.GestureDescription;
+import android.accessibilityservice.GestureDescription.StrokeDescription;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
@@ -38,10 +43,12 @@ import com.google.android.accessibility.utils.Performance.EventId;
 public class FocusActor {
 
   private static final String TAG = "FocusActor";
+  private static final int STROKE_TIME_GAP_MS = 40;
 
   /** The only class in TalkBack which has direct access to accessibility focus from framework. */
   private final FocusManagerInternal focusManagerInternal;
 
+  private final AccessibilityService service;
   private final AccessibilityFocusActionHistory history;
   private final AccessibilityFocusMonitor accessibilityFocusMonitor;
 
@@ -59,6 +66,7 @@ public class FocusActor {
       ScreenStateMonitor.State screenState,
       AccessibilityFocusActionHistory accessibilityFocusActionHistory,
       AccessibilityFocusMonitor accessibilityFocusMonitor) {
+    this.service = service;
     this.history = accessibilityFocusActionHistory;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
     focusManagerInternal =
@@ -87,11 +95,32 @@ public class FocusActor {
   // Methods
 
   public boolean clickCurrentFocus(EventId eventId) {
-    return performActionOnCurrentFocus(AccessibilityNodeInfoCompat.ACTION_CLICK, eventId);
+    AccessibilityNodeInfoCompat currentFocus =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
+    return clickNode(currentFocus, eventId);
+  }
+
+  public boolean clickNode(AccessibilityNodeInfoCompat node, EventId eventId) {
+    if (node == null) {
+      return false;
+    }
+    if (!performActionOnNode(AccessibilityNodeInfoCompat.ACTION_CLICK, node, eventId)) {
+      simulateClickOnNode(service, node);
+    }
+    return true;
   }
 
   public boolean longClickCurrentFocus(EventId eventId) {
-    return performActionOnCurrentFocus(AccessibilityNodeInfoCompat.ACTION_LONG_CLICK, eventId);
+    AccessibilityNodeInfoCompat currentFocus =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
+    return longClickNode(currentFocus, eventId);
+  }
+
+  public boolean longClickNode(AccessibilityNodeInfoCompat node, EventId eventId) {
+    if (node == null) {
+      return false;
+    }
+    return performActionOnNode(AccessibilityNodeInfoCompat.ACTION_LONG_CLICK, node, eventId);
   }
 
   public boolean clickCurrentHierarchical(EventId eventId) {
@@ -218,11 +247,25 @@ public class FocusActor {
     return focusManagerInternal.ensureAccessibilityFocusOnScreen(eventId);
   }
 
-  private boolean performActionOnCurrentFocus(int action, EventId eventId) {
-    AccessibilityNodeInfoCompat currentFocus =
-        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
-    return (currentFocus != null)
-        && PerformActionUtils.performAction(currentFocus, action, eventId);
+  private boolean performActionOnNode(
+      int action, AccessibilityNodeInfoCompat node, EventId eventId) {
+    return (node != null) && PerformActionUtils.performAction(node, action, eventId);
   }
 
+  /** Simulates a click on the center of a view. */
+  private boolean simulateClickOnNode(
+      AccessibilityService accessibilityService, AccessibilityNodeInfoCompat node) {
+    Rect rect = new Rect();
+    node.getBoundsInScreen(rect);
+    Path path = new Path();
+    path.moveTo(rect.centerX(), rect.centerY());
+    int durationMs = ViewConfiguration.getTapTimeout();
+    GestureDescription gestureDescription =
+        new GestureDescription.Builder()
+            .addStroke(new StrokeDescription(path, /* startTime= */ 0, durationMs))
+            .addStroke(new StrokeDescription(path, durationMs + STROKE_TIME_GAP_MS, durationMs))
+            .build();
+    return accessibilityService.dispatchGesture(
+        gestureDescription, /* callback= */ null, /* handler= */ null);
+  }
 }

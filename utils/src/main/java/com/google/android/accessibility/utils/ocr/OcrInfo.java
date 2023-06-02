@@ -31,7 +31,6 @@ public class OcrInfo {
   public final AccessibilityNodeInfoCompat node;
   @Nullable public List<TextBlock> textBlocks;
 
-  /** Caller retains responsibility to recycle the node. */
   public OcrInfo(AccessibilityNodeInfoCompat node) {
     this.node = node;
   }

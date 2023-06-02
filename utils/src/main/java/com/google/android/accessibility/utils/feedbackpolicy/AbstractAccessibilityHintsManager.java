@@ -154,7 +154,7 @@ public abstract class AbstractAccessibilityHintsManager {
   /** Data-structure that holds a variety of hint data. */
   protected static class HintInfo {
     /** The source node whose hint will be read by the utterance complete action. */
-    @Nullable private AccessibilityNodeInfoCompat pendingHintSource;
+    private @Nullable AccessibilityNodeInfoCompat pendingHintSource;
     /**
      * Whether the current hint is a forced feedback. Set to {@code true} if the hint corresponds to
      * accessibility focus that was not genenerated from unknown source for audioplayback and
@@ -172,12 +172,12 @@ public abstract class AbstractAccessibilityHintsManager {
     private int pendingHintEventType;
 
     /** A hint about screen whose hint will be read by the utterance complete action. */
-    @Nullable private CharSequence pendingScreenHint;
+    private @Nullable CharSequence pendingScreenHint;
 
     /**
      * A hint about selector (quick menu) whose hint will be read by the utterance complete action.
      */
-    @Nullable private CharSequence pendingSelectorHint;
+    private @Nullable CharSequence pendingSelectorHint;
 
     public HintInfo() {}
 
@@ -243,8 +243,7 @@ public abstract class AbstractAccessibilityHintsManager {
       pendingSelectorHint = selectorHint;
     }
 
-    @Nullable
-    public CharSequence getPendingSelectorHint() {
+    public @Nullable CharSequence getPendingSelectorHint() {
       return pendingSelectorHint;
     }
 

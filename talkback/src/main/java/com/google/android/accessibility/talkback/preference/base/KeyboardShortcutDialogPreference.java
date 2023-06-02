@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.talkback.preference.base;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -28,12 +27,12 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceDialogFragmentCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.utils.AlertDialogUtils;
+import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
+import com.google.android.accessibility.talkback.keyboard.KeyComboModel;
+import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
-import com.google.android.accessibility.utils.keyboard.KeyComboManager;
-import com.google.android.accessibility.utils.keyboard.KeyComboModel;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -57,7 +56,7 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
   private int temporaryModifier;
   private int temporaryKeyCode;
   private KeyboardShortcutPreferenceFragmentCompat keyboardShortcutPreferenceFragment;
-  private AlertDialog alertDialog;
+  private A11yAlertDialogWrapper alertDialog;
 
   public KeyboardShortcutDialogPreference(
       Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -422,8 +421,8 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
     String message =
         getContext()
             .getString(R.string.override_keycombo_message_two_params, currentAction, newAction);
-    AlertDialog.Builder builder =
-        AlertDialogUtils.builder(getContext())
+    A11yAlertDialogWrapper.Builder builder =
+        A11yAlertDialogWrapper.alertDialogBuilder(getContext())
             .setTitle(R.string.override_keycombo)
             .setMessage(message)
             .setNegativeButton(

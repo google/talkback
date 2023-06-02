@@ -24,6 +24,7 @@ import android.text.TextUtils;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.DiagnosticOverlayUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.LogDepth;
@@ -262,6 +263,7 @@ public final class NodePathDescription {
     if (node == null) {
       return null;
     }
+    DiagnosticOverlayUtils.appendLog(DiagnosticOverlayUtils.REFOCUS_PATH, node);
 
     // If node already checked... quit.
     if (visited.contains(node)) {

@@ -35,7 +35,6 @@ android {
     defaultConfig {
         applicationId talkbackApplicationId
         versionName talkbackVersionName + "-" + BUILD_TIMESTAMP
-        manifestPlaceholders = [talkbackMainPermission:talkbackMainPermission]
         minSdkVersion 26
         targetSdkVersion 30
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'

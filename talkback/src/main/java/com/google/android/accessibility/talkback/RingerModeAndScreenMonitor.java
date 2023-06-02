@@ -245,7 +245,10 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
         }
         // Normally we'll play the volume beep on the ring stream.
         pipeline.returnFeedback(
-            eventId, Feedback.sound(R.raw.volume_beep, 1.0f, volume).speech(ttsText, speakOptions));
+            eventId,
+            Feedback.part()
+                .setSound(Feedback.Sound.create(R.raw.volume_beep, 1.0f, volume))
+                .speech(ttsText, speakOptions));
       } else {
         pipeline.returnFeedback(eventId, Feedback.speech(ttsText, speakOptions));
       }

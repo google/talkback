@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.talkback.focusmanagement;
 
-import static com.google.android.accessibility.compositor.Compositor.EVENT_INPUT_DESCRIBE_NODE;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.LIFT;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.LONG_PRESS;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TAP;
@@ -24,6 +23,7 @@ import static com.google.android.accessibility.talkback.Interpretation.Touch.Act
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TOUCH_NOTHING;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TOUCH_START;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TOUCH_UNFOCUSED_NODE;
+import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_INPUT_DESCRIBE_NODE;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.os.Message;
@@ -67,8 +67,8 @@ public class FocusProcessorForTapAndTouchExploration {
 
   private Pipeline.InterpretationReceiver interpretationReceiver;
   private ActorState actorState;
-
-  private PostDelayHandler postDelayHandler;
+  private long longPressDuration = LIFT_TO_TYPE_LONG_PRESS_DELAY_MS;
+  private final PostDelayHandler postDelayHandler;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Settings
@@ -76,7 +76,7 @@ public class FocusProcessorForTapAndTouchExploration {
   private boolean isSingleTapEnabled = false;
 
   /** Indicates the current input type. */
-  private @TypingMethod int typingMethod = LIFT_TO_TYPE;
+  @TypingMethod private int typingMethod = LIFT_TO_TYPE;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Boolean values representing states in the state machine.
@@ -112,8 +112,6 @@ public class FocusProcessorForTapAndTouchExploration {
   // Whether the user hovers enter any node during touch exploration.
   private boolean hasHoveredEnterNode = false;
 
-  // The first focusable node being touched.
-  @Nullable private AccessibilityNodeInfoCompat firstFocusableNodeBeingTouched;
   // The last focusable node being touched.
   @Nullable private AccessibilityNodeInfoCompat lastFocusableNodeBeingTouched;
 
@@ -131,7 +129,7 @@ public class FocusProcessorForTapAndTouchExploration {
   // Contstructor methods
 
   public FocusProcessorForTapAndTouchExploration() {
-    postDelayHandler = new PostDelayHandler(this, LIFT_TO_TYPE_LONG_PRESS_DELAY_MS);
+    postDelayHandler = new PostDelayHandler(this, longPressDuration);
   }
 
   public boolean isEnableLiftToType() {
@@ -197,7 +195,6 @@ public class FocusProcessorForTapAndTouchExploration {
 
   /** Resets the cached information of the current touch interaction. */
   private void reset() {
-    firstFocusableNodeBeingTouched = null;
     lastFocusableNodeBeingTouched = null;
 
     hasHoveredEnterNode = false;
@@ -220,7 +217,6 @@ public class FocusProcessorForTapAndTouchExploration {
 
     boolean result;
     if (!hasHoveredEnterNode) {
-      firstFocusableNodeBeingTouched = AccessibilityNodeInfoUtils.obtain(touchedFocusableNode);
       hasHoveredEnterNode = true;
       // Handle the first node being touched.
       result = onHoverEnterFirstNode(touchedFocusableNode, eventId);
@@ -230,7 +226,7 @@ public class FocusProcessorForTapAndTouchExploration {
 
     // Reset it when last touched node is changed.
     mayBeLiftToType = true;
-    lastFocusableNodeBeingTouched = AccessibilityNodeInfoUtils.obtain(touchedFocusableNode);
+    lastFocusableNodeBeingTouched = touchedFocusableNode;
     return result;
   }
 
@@ -431,7 +427,15 @@ public class FocusProcessorForTapAndTouchExploration {
     typingMethod = type;
   }
 
-  public @TypingMethod int getTypingMethod() {
+  @TypingMethod
+  public int getTypingMethod() {
     return typingMethod;
+  }
+
+  public void setTypingLongPressDurationMs(int duration) {
+    longPressDuration = (long) duration;
+    if (postDelayHandler != null) {
+      postDelayHandler.longPressDelayMs = longPressDuration;
+    }
   }
 }

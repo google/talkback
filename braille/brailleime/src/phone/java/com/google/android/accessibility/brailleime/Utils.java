@@ -47,9 +47,12 @@ import android.view.Surface;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.ExtractedText;
+import android.view.inputmethod.ExtractedTextRequest;
 import androidx.annotation.ColorInt;
 import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
+import com.google.android.accessibility.braille.common.ImeConnection;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -383,8 +386,18 @@ public class Utils {
   }
 
   /** Returns hint of the edit field. */
-  public static CharSequence getHint(EditorInfo editorInfo) {
-    CharSequence hint = editorInfo.hintText;
-    return hint == null ? "" : hint;
+  public static CharSequence getHint(ImeConnection imeConnection) {
+    CharSequence hint = imeConnection.editorInfo.hintText;
+    if (!TextUtils.isEmpty(hint)) {
+      return hint;
+    }
+    ExtractedText extractedText =
+        imeConnection.inputConnection.getExtractedText(new ExtractedTextRequest(), 0);
+    if (extractedText != null
+        && Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+        && !TextUtils.isEmpty(extractedText.hint)) {
+      return extractedText.hint;
+    }
+    return "";
   }
 }

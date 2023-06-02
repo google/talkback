@@ -67,7 +67,4 @@ public class SimpleTraversalStrategy implements TraversalStrategy {
   public Map<AccessibilityNodeInfoCompat, Boolean> getSpeakingNodesCache() {
     return null;
   }
-
-  @Override
-  public void recycle() {}
 }

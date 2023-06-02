@@ -21,8 +21,6 @@ import static com.google.android.accessibility.utils.output.SpeechController.QUE
 
 import android.accessibilityservice.AccessibilityService;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.Compositor;
-import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.CursorGranularityManager;
 import com.google.android.accessibility.talkback.Feedback;
@@ -30,6 +28,8 @@ import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.UserInterface;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPhoneticLetters;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForLogicalNavigation;
@@ -38,7 +38,6 @@ import com.google.android.accessibility.talkback.focusmanagement.NavigationTarge
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction;
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction.ActionType;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
@@ -259,8 +258,8 @@ public class DirectionNavigationActor {
   }
 
   private boolean isEditingFocusedNode(boolean useInputFocusAsPivotIfEmpty) {
-    AccessibilityNodeInfoCompat currentFocus = null;
-    currentFocus = accessibilityFocusMonitor.getAccessibilityFocus(useInputFocusAsPivotIfEmpty);
+    AccessibilityNodeInfoCompat currentFocus =
+        accessibilityFocusMonitor.getAccessibilityFocus(useInputFocusAsPivotIfEmpty);
     return (currentFocus != null)
         && (currentFocus.isEditable() || (Role.getRole(currentFocus) == Role.ROLE_EDIT_TEXT))
         && currentFocus.isFocused();
@@ -518,11 +517,10 @@ public class DirectionNavigationActor {
       @Nullable AccessibilityNodeInfoCompat node,
       boolean isFromUser,
       EventId eventId) {
-    AccessibilityNodeInfoCompat current = null;
-    current =
+    AccessibilityNodeInfoCompat current =
         (node == null)
             ? accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true)
-            : AccessibilityNodeInfoUtils.obtain(node);
+            : node;
 
     if (current == null) {
       // Even if there's no focused node on screen, DEFAULT granularity should be acceptable.
@@ -569,8 +567,8 @@ public class DirectionNavigationActor {
 
   // Usage: SelectorController
   public boolean supportedGranularity(CursorGranularity granularity, EventId eventId) {
-    AccessibilityNodeInfoCompat current = null;
-    current = accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
+    AccessibilityNodeInfoCompat current =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
     return cursorGranularityManager.supportedGranularity(current, granularity, eventId);
   }
 
@@ -608,9 +606,9 @@ public class DirectionNavigationActor {
    *     than the default.
    */
   private boolean adjustGranularity(int direction, EventId eventId) {
-    AccessibilityNodeInfoCompat currentNode = null;
 
-    currentNode = accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
+    AccessibilityNodeInfoCompat currentNode =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
 
     final boolean wasAdjusted =
         cursorGranularityManager.adjustGranularityAt(currentNode, direction, eventId);
@@ -645,8 +643,10 @@ public class DirectionNavigationActor {
   public void setSelectionModeActive(AccessibilityNodeInfoCompat node, EventId eventId) {
     if (!cursorGranularityManager.isLockedTo(node)) {
       // If we're not navigating with micro granularity at node, force set granularity to CHARACTER.
+      // And pass in the node to clear the lockedNode, if it is not null. This means the next action
+      // of iterating over text won't turn off selection mode.
       setGranularity(
-          CursorGranularity.CHARACTER, /* node= */ null, /* isFromUser= */ false, eventId);
+          CursorGranularity.CHARACTER, /* node= */ node, /* isFromUser= */ false, eventId);
     }
 
     cursorGranularityManager.setSelectionModeActive(/* active= */ true);

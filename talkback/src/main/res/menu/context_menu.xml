@@ -53,8 +53,4 @@
       android:id="@+id/tts_settings"
       android:orderInCategory="23"
       android:title="@string/tts_preferences_title" />
-  <item
-      android:id="@+id/pause_feedback"
-      android:orderInCategory="24"
-      android:title="@string/shortcut_pause_feedback" />
 </menu>

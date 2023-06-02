@@ -6,7 +6,9 @@ import com.google.android.accessibility.braille.interfaces.BrailleWord;
 import com.google.android.accessibility.braille.translate.BrailleTranslator;
 import com.google.android.accessibility.braille.translate.TranslationResult;
 import com.google.common.base.Splitter;
-import java.nio.ByteBuffer;
+import com.google.common.collect.ImmutableList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -45,14 +47,15 @@ public class ExpandableContractedTranslator implements BrailleTranslator {
 
   @Override
   public TranslationResult translate(
-      String wholeText, int cursorPosition, boolean computerBrailleAtCursor) {
+      CharSequence wholeText, int cursorPosition, boolean computerBrailleAtCursor) {
     Iterable<String> words = Splitter.on(' ').split(wholeText);
     int lastSearchIndex = -1;
     for (String wordString : words) {
       if (TextUtils.isEmpty(wordString)) {
         continue;
       }
-      int startIndex = wholeText.indexOf(wordString, /* fromIndex= */ lastSearchIndex + 1);
+      int startIndex =
+          wholeText.toString().indexOf(wordString, /* fromIndex= */ lastSearchIndex + 1);
       int endIndex = startIndex + wordString.length();
       lastSearchIndex = endIndex;
       // Check if the cursor is at this word.
@@ -64,10 +67,10 @@ public class ExpandableContractedTranslator implements BrailleTranslator {
   }
 
   private TranslationResult getTranslationResult(
-      String wholeText, int startIndex, int endIndex, int cursorPosition) {
-    String beforeWord = wholeText.substring(0, startIndex);
-    String expandableString = wholeText.substring(startIndex, endIndex);
-    String afterWord = wholeText.substring(endIndex);
+      CharSequence wholeText, int startIndex, int endIndex, int cursorPosition) {
+    CharSequence beforeWord = wholeText.subSequence(0, startIndex);
+    CharSequence expandableString = wholeText.subSequence(startIndex, endIndex);
+    CharSequence afterWord = wholeText.subSequence(endIndex, wholeText.length());
     TranslationResult beforeWordResult =
         g2Translator.translate(
             beforeWord, /* cursorPosition= */ -1, /* computerBrailleAtCursor= */ false);
@@ -77,57 +80,66 @@ public class ExpandableContractedTranslator implements BrailleTranslator {
     TranslationResult afterWordResult =
         g2Translator.translate(
             afterWord, /* cursorPosition= */ -1, /* computerBrailleAtCursor= */ false);
-    byte[] beforeWordByteArray = beforeWordResult.getCells();
-    byte[] expandableWordArray = expandableWordResult.getCells();
-    byte[] afterWordByteArray = afterWordResult.getCells();
-    int[] beforeWordTextToBraillePositions = beforeWordResult.getTextToBraillePositions();
-    int[] beforeWordBrailleToTextPositions = beforeWordResult.getBrailleToTextPositions();
-    int[] expandableWordTextToBraillePositions = expandableWordResult.getTextToBraillePositions();
-    int[] expandableWordBrailleToTextPositions = expandableWordResult.getBrailleToTextPositions();
-    int[] afterWordTextToBraillePositions = afterWordResult.getTextToBraillePositions();
-    int[] afterWordBrailleToTextPositions = afterWordResult.getBrailleToTextPositions();
-    byte[] all =
-        ByteBuffer.allocate(
-                beforeWordByteArray.length + expandableWordArray.length + afterWordByteArray.length)
-            .put(beforeWordByteArray)
-            .put(expandableWordArray)
-            .put(afterWordByteArray)
-            .array();
-    int[] textToBraille = new int[wholeText.length()];
-    int[] brailleToText = new int[all.length];
+    BrailleWord beforeWordWord = beforeWordResult.cells();
+    BrailleWord expandableWord = expandableWordResult.cells();
+    BrailleWord afterWordWord = afterWordResult.cells();
+    ImmutableList<Integer> beforeWordTextToBraillePositions =
+        beforeWordResult.textToBraillePositions();
+    ImmutableList<Integer> beforeWordBrailleToTextPositions =
+        beforeWordResult.brailleToTextPositions();
+    ImmutableList<Integer> expandableWordTextToBraillePositions =
+        expandableWordResult.textToBraillePositions();
+    ImmutableList<Integer> expandableWordBrailleToTextPositions =
+        expandableWordResult.brailleToTextPositions();
+    ImmutableList<Integer> afterWordTextToBraillePositions =
+        afterWordResult.textToBraillePositions();
+    ImmutableList<Integer> afterWordBrailleToTextPositions =
+        afterWordResult.brailleToTextPositions();
+    BrailleWord all = new BrailleWord();
+    all.append(beforeWordWord);
+    all.append(expandableWord);
+    all.append(afterWordWord);
+    List<Integer> textToBraille = new ArrayList<>(wholeText.length());
+    List<Integer> brailleToText = new ArrayList<>(all.size());
     // Assign the position of braille byte array to each character in text.
-    for (int i = 0; i < textToBraille.length; i++) {
+    for (int i = 0; i < wholeText.length(); i++) {
       if (i < beforeWord.length()) {
-        textToBraille[i] = beforeWordTextToBraillePositions[i];
+        textToBraille.add(beforeWordTextToBraillePositions.get(i));
       } else if (i < beforeWord.length() + expandableString.length()) {
-        textToBraille[i] =
-            beforeWordByteArray.length
-                + expandableWordTextToBraillePositions[i - beforeWord.length()];
+        textToBraille.add(
+            beforeWordWord.size()
+                + expandableWordTextToBraillePositions.get(i - beforeWord.length()));
       } else if (i < wholeText.length()) {
-        textToBraille[i] =
-            beforeWordByteArray.length
-                + expandableWordArray.length
-                + afterWordTextToBraillePositions[
-                    i - beforeWord.length() - expandableString.length()];
+        textToBraille.add(
+            beforeWordWord.size()
+                + expandableWord.size()
+                + afterWordTextToBraillePositions.get(
+                    i - beforeWord.length() - expandableString.length()));
       }
     }
     // Assign the position of character in text to each byte in braille byte array.
-    for (int i = 0; i < all.length; i++) {
-      if (i < beforeWordByteArray.length) {
-        brailleToText[i] = beforeWordBrailleToTextPositions[i];
-      } else if (i < beforeWordByteArray.length + expandableWordArray.length) {
-        brailleToText[i] =
+    for (int i = 0; i < all.size(); i++) {
+      if (i < beforeWordWord.size()) {
+        brailleToText.add(beforeWordBrailleToTextPositions.get(i));
+      } else if (i < beforeWordWord.size() + expandableWord.size()) {
+        brailleToText.add(
             beforeWord.length()
-                + expandableWordBrailleToTextPositions[i - beforeWordByteArray.length];
-      } else if (i < all.length) {
-        brailleToText[i] =
+                + expandableWordBrailleToTextPositions.get(i - beforeWordWord.size()));
+      } else if (i < all.size()) {
+        brailleToText.add(
             beforeWord.length()
                 + expandableString.length()
-                + afterWordBrailleToTextPositions[
-                    i - beforeWordByteArray.length - expandableWordArray.length];
+                + afterWordBrailleToTextPositions.get(
+                    i - beforeWordWord.size() - expandableWord.size()));
       }
     }
-    return new TranslationResult(all, textToBraille, brailleToText, cursorPosition);
+    return TranslationResult.builder()
+        .setText(wholeText)
+        .setCells(all)
+        .setTextToBraillePositions(textToBraille)
+        .setBrailleToTextPositions(brailleToText)
+        .setCursorBytePosition(cursorPosition)
+        .build();
   }
 
   @Override

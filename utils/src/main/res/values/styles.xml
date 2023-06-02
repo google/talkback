@@ -35,6 +35,14 @@
     <item name="android:textSize">14sp</item>
   </style>
 
+  <!--The theme for the text of the subtitle inside alert dialog-->
+  <style name="A11yAlertDialogSubtitleStyle">
+    <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    <item name="android:textColor">@color/a11y_alert_dialog_subtitle_text_color</item>
+    <item name="android:fontFamily">@string/accessibility_font</item>
+    <item name="android:textSize">14sp</item>
+  </style>
+
   <!-- Material Components Theme -->
   <style name="A11yMaterialComponentsTheme" parent="Theme.MaterialComponents" />
 </resources>

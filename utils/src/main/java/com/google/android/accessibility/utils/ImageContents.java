@@ -39,11 +39,7 @@ public class ImageContents {
     this.imageCaptionStorage = imageCaptionStorage;
   }
 
-  /**
-   * Retrieves custom labels from the database.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Retrieves custom labels from the database. */
   public @Nullable String getLabel(AccessibilityNodeInfoCompat node) {
     if (labelManager == null) {
       return null;
@@ -52,11 +48,7 @@ public class ImageContents {
     return (label == null || label.getText() == null) ? null : label.getText();
   }
 
-  /**
-   * Retrieves the results of image captions from the cache.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Retrieves the results of image captions from the cache. */
   public @Nullable CharSequence getCaptionResult(AccessibilityNodeInfoCompat node) {
     if (imageCaptionStorage == null) {
       return null;
@@ -67,11 +59,7 @@ public class ImageContents {
         : captionResult.getOcrText();
   }
 
-  /**
-   * Retrieves the localized label of the detected icon which matches the specified node.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Retrieves the localized label of the detected icon which matches the specified node. */
   public @Nullable CharSequence getDetectedIconLabel(
       Locale locale, AccessibilityNodeInfoCompat node) {
     if (imageCaptionStorage == null) {
@@ -93,21 +81,13 @@ public class ImageContents {
         detectedIconLabel = imageNode.getDetectedIconLabel();
       }
     } else {
-      AccessibilityNode wrapNode = AccessibilityNode.obtainCopy(node);
-      try {
-        imageCaptionStorage.updateDetectedIconLabel(wrapNode, detectedIconLabel);
-      } finally {
-        AccessibilityNode.recycle("ImageContents.getDetectedIconLabel()", wrapNode);
-      }
+      imageCaptionStorage.updateDetectedIconLabel(
+          AccessibilityNode.obtainCopy(node), detectedIconLabel);
     }
     return detectedIconLabel;
   }
 
-  /**
-   * Checks if the node needs a label.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
-   */
+  /** Checks if the node needs a label. */
   public boolean needsLabel(AccessibilityNodeInfoCompat node) {
     return labelManager != null && labelManager.needsLabel(node);
   }

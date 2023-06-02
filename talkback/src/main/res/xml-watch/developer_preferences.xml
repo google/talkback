@@ -2,9 +2,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="@string/pref_category_developer_key">
   <Preference
-      android:key="@string/pref_version_code_key"
-      android:title="@string/title_pref_version_code" />
-  <Preference
       android:key="@string/pref_developer_version_code_key"
       android:title="@string/title_pref_version_code" />
   <SwitchPreference

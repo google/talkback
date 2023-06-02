@@ -1,8 +1,0 @@
-apply plugin: 'com.android.library'
-apply from: "../shared.gradle"
-
-dependencies {
-    implementation project(':proguard')
-    implementation project(':uiunderstanding')
-    implementation project(':utils')
-}

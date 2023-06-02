@@ -16,23 +16,24 @@
 
 package com.google.android.accessibility.talkback;
 
-import static com.google.android.accessibility.compositor.Compositor.EVENT_UNKNOWN;
+import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_UNKNOWN;
 import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.toStringShort;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
 
 import android.graphics.Rect;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.Compositor;
-import com.google.android.accessibility.compositor.EventInterpretation;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.EventInterpretation;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.input.CursorGranularity;
+import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollEventInterpretation;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirection;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
 import com.google.auto.value.AutoValue;
 import java.util.Objects;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Data-structure classes to hold event-interpretations. Many sub-classes are expected. */
@@ -214,8 +215,7 @@ public abstract class Interpretation {
     /** Caller retains ownership of destination, this class makes a copy. */
     public static DirectionNavigation create(
         @SearchDirection int direction, @Nullable AccessibilityNodeInfoCompat destination) {
-      return new AutoValue_Interpretation_DirectionNavigation(
-          direction, AccessibilityNodeInfoUtils.obtain(destination));
+      return new AutoValue_Interpretation_DirectionNavigation(direction, destination);
     }
 
     @Override
@@ -275,8 +275,7 @@ public abstract class Interpretation {
         @Nullable AccessibilityNodeInfoCompat targetNode,
         @Nullable CursorGranularity granularity,
         @Nullable CharSequence text) {
-      return new AutoValue_Interpretation_VoiceCommand(
-          command, AccessibilityNodeInfoUtils.obtain(targetNode), granularity, text);
+      return new AutoValue_Interpretation_VoiceCommand(command, targetNode, granularity, text);
     }
 
     @Override
@@ -296,7 +295,7 @@ public abstract class Interpretation {
 
     /** Caller retains ownership of node, this class makes a copy. */
     public InputFocus(AccessibilityNodeInfoCompat node) {
-      this.node = AccessibilityNodeInfoUtils.obtain(node);
+      this.node = node;
     }
 
     /** Caller does not own returned node. */
@@ -385,7 +384,7 @@ public abstract class Interpretation {
 
     /** Caller retains ownership of target, this class makes a copy. */
     public static Touch create(Touch.Action action, @Nullable AccessibilityNodeInfoCompat target) {
-      return new AutoValue_Interpretation_Touch(action, AccessibilityNodeInfoUtils.obtain(target));
+      return new AutoValue_Interpretation_Touch(action, target);
     }
 
     public static Touch create(Touch.Action action) {
@@ -448,10 +447,37 @@ public abstract class Interpretation {
     }
   }
 
+  /** Interpretation sub-type for general scroll event from ScrollEventInterpreter. */
+  public static final class Scroll extends Interpretation {
+    // Implemented without AutoValue, to avoid copybara open-sourcing problems.
+
+    public final @NonNull ScrollEventInterpretation scroll;
+
+    public Scroll(@NonNull ScrollEventInterpretation scroll) {
+      this.scroll = scroll;
+    }
+
+    @Override
+    public boolean equals(Object otherObject) {
+      @Nullable Scroll other = castOrNull(otherObject, Scroll.class);
+      return (other != null) && Objects.equals(this.scroll, other.scroll);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(scroll);
+    }
+
+    @Override
+    public String toString() {
+      return scroll.toString();
+    }
+  }
+
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Static utility methods
 
-  private static @Nullable <T> T castOrNull(Object object, Class<T> clazz) {
+  private static <T> @Nullable T castOrNull(Object object, Class<T> clazz) {
     return (object == null || !clazz.isInstance(object)) ? null : clazz.cast(object);
   }
 }

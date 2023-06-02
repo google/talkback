@@ -53,6 +53,7 @@ public class FullScreenReadDialog extends FirstTimeUseDialog {
         /* dialogTitleResId= */ R.string.dialog_title_continuous_reading_mode,
         /* dialogMainMessageResId= */ R.string.dialog_message_continuous_reading_mode,
         /* checkboxTextResId= */ R.string.always_show_this_message_label);
+    setIncludeNegativeButton(false);
   }
 
   public void setPipeline(Pipeline.FeedbackReturner pipeline) {

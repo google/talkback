@@ -3,13 +3,18 @@ package com.google.android.accessibility.braille.common;
 import static com.google.android.accessibility.braille.common.BrailleUserPreferences.BRAILLE_SHARED_PREFS_FILENAME;
 
 import android.content.Context;
+import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CheckBox;
 import androidx.annotation.Nullable;
 import androidx.preference.ListPreference;
 import androidx.preference.MultiSelectListPreference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import com.google.android.accessibility.braille.common.translate.BrailleLanguages;
 import com.google.android.accessibility.braille.common.translate.BrailleLanguages.Code;
+import com.google.android.accessibility.utils.MaterialComponentUtils;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import java.util.List;
@@ -103,6 +108,27 @@ public class BraillePreferenceUtils {
           }
           return true;
         });
+  }
+
+  /** Creates the tip dialog. */
+  public static AlertDialog createTipAlertDialog(
+      Context context,
+      String title,
+      String message,
+      BiConsumer<Context, Boolean> checkboxConsumer) {
+    AlertDialog.Builder builder = MaterialComponentUtils.alertDialogBuilder(context);
+    View view =
+        LayoutInflater.from(context).inflate(R.layout.dialog_dont_show_again_checkbox, null);
+    CheckBox dontShowAgainCheckBox = view.findViewById(R.id.dont_show_again);
+    builder
+        .setTitle(title)
+        .setMessage(message)
+        .setView(view)
+        .setPositiveButton(
+            R.string.done,
+            (dialog, which) ->
+                checkboxConsumer.accept(context, !dontShowAgainCheckBox.isChecked()));
+    return builder.create();
   }
 
   private static void setDefaultCodesAsPreferredCodes(

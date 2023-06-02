@@ -746,8 +746,7 @@ public class Performance {
     private final int mEventSubtype;
 
     /**
-     * Create a small event identifier for tracking event through processing stages, even after
-     * AccessibilityEvent has been recycled.
+     * Create a small event identifier for tracking event through processing stages.
      *
      * @param time Time in milliseconds.
      * @param type Event object type.

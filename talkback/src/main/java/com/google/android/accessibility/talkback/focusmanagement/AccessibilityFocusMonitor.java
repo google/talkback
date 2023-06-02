@@ -88,7 +88,7 @@ public class AccessibilityFocusMonitor {
     AccessibilityNodeInfoCompat a11yFocusedNode = focusFinder.findFocusCompat(FOCUS_ACCESSIBILITY);
 
     if ((a11yFocusedNode != null) && AccessibilityNodeInfoUtils.isVisible(a11yFocusedNode)) {
-      return AccessibilityNodeInfoUtils.obtain(a11yFocusedNode);
+      return a11yFocusedNode;
     }
 
     if (!useInputFocusIfEmpty) {
@@ -102,7 +102,7 @@ public class AccessibilityFocusMonitor {
       boolean isEditable =
           inputFocusedNode.isEditable() || Role.getRole(inputFocusedNode) == Role.ROLE_EDIT_TEXT;
       if (inputFocusedNode.isFocused() && (!requireEditable || isEditable)) {
-        return AccessibilityNodeInfoUtils.obtain(inputFocusedNode);
+        return inputFocusedNode;
       }
     }
 

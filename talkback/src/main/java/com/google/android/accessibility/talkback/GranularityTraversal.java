@@ -21,9 +21,9 @@ import android.text.TextUtils;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.compositor.Compositor;
-import com.google.android.accessibility.compositor.EventInterpretation;
 import com.google.android.accessibility.talkback.GranularityIterator.TextSegmentIterator;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.EventInterpretation;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPhoneticLetters;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.PackageManagerUtils;
@@ -97,6 +97,7 @@ public final class GranularityTraversal {
    *   <li>Views with no content description.
    *   <li>Edit texts which have input focus with an active keyboard.
    *   <li>Webviews.
+   *   <li>View with selectable text that aren't edit texts.
    * </ul>
    */
   static boolean shouldHandleGranularityTraversalInTalkback(
@@ -107,8 +108,10 @@ public final class GranularityTraversal {
       LogUtils.v(TAG, "Granularity traversal not handled by Talkback since its a webview");
       return false;
     }
-    // Edit texts that have input focus are handled by the framework.
-    if ((Role.getRole(node) == Role.ROLE_EDIT_TEXT) && node.isFocused()) {
+    // Edit texts that have input focus or non-editable selectable texts are handled by the
+    // framework.
+    if ((Role.getRole(node) == Role.ROLE_EDIT_TEXT) && node.isFocused()
+        || AccessibilityNodeInfoUtils.isNonEditableSelectableText(node)) {
       LogUtils.v(TAG, "Granularity traversal not handled by Talkback as node is focused");
       return false;
     }
@@ -201,7 +204,7 @@ public final class GranularityTraversal {
    */
   public static CharSequence getIterableTextForAccessibility(AccessibilityNodeInfoCompat node) {
     @Nullable CharSequence nodeText = AccessibilityNodeInfoUtils.getText(node);
-    if ((Role.getRole(node) == Role.ROLE_EDIT_TEXT) && !TextUtils.isEmpty(nodeText)) {
+    if (AccessibilityNodeInfoUtils.isTextSelectable(node) && !TextUtils.isEmpty(nodeText)) {
       return nodeText;
     }
 
@@ -278,6 +281,4 @@ public final class GranularityTraversal {
           isTalkbackPackage, traversedText.toString(), eventId);
     }
   }
-
-
 }
