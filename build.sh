@@ -9,7 +9,7 @@
 #-----------------------------------------------------------------------------
 DEVICE=""
 PIPELINE=false
-USAGE="./build.sh [[-s | --device] SERIAL_NUMBER]"
+USAGE="./build.sh [-s | --device] SERIAL_NUMBER]"
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -s|--device) DEVICE="$2"; shift ;;
@@ -111,55 +111,53 @@ log "java -version:"; java -version
 log "javac -version:"; javac -version
 log
 
-
+mkdir ~/tmp
+mkdir ~/tmp/opt
 GRADLE_ZIP_REMOTE_FILE=gradle-${GRADLE_DOWNLOAD_VERSION}-bin.zip
-GRADLE_ZIP_DEST_PATH=~/Desktop/${GRADLE_DOWNLOAD_VERSION}.zip
-GRADLE_UNZIP_HOSTING_FOLDER=/opt/gradle-${GRADLE_DOWNLOAD_VERSION}
-
+GRADLE_ZIP_DEST_PATH=~/tmp/${GRADLE_DOWNLOAD_VERSION}.zip
+GRADLE_UNZIP_HOSTING_FOLDER=~/tmp/opt/gradle-${GRADLE_DOWNLOAD_VERSION}
 
 if [[ ! -f "$GRADLE_ZIP_DEST_PATH" ]]; then
   log "--> Downloading GRADLE"
   if [[ "$PIPELINE" = true ]]; then
-    mkdir ~/tmp
-    mkdir ~/tmp/opt
-    GRADLE_ZIP_DEST_PATH=~/tmp/${GRADLE_DOWNLOAD_VERSION}.zip
-    GRADLE_UNZIP_HOSTING_FOLDER=~/tmp/opt/gradle-${GRADLE_DOWNLOAD_VERSION}
-    log "Download gradle binary from the web ${GRADLE_ZIP_REMOTE_FILE} to ${GRADLE_ZIP_DEST_PATH} using wget"
+    log "PIPELINE: Download gradle binary from the web ${GRADLE_ZIP_REMOTE_FILE} to ${GRADLE_ZIP_DEST_PATH} using wget"
     wget -O ${GRADLE_ZIP_DEST_PATH} https://services.gradle.org/distributions/${GRADLE_ZIP_REMOTE_FILE}
     log
   else
-    log "Download gradle binary from the web ${GRADLE_ZIP_REMOTE_FILE} to ${GRADLE_ZIP_DEST_PATH} using curl"
-    COMMAND="curl -L -o ${GRADLE_ZIP_DEST_PATH} https://services.gradle.org/distributions/${GRADLE_ZIP_REMOTE_FILE}"
+    log "LOCAL: Download gradle binary from the web ${GRADLE_ZIP_REMOTE_FILE} to ${GRADLE_ZIP_DEST_PATH} using curl"
     sudo curl -L -o ${GRADLE_ZIP_DEST_PATH} https://services.gradle.org/distributions/${GRADLE_ZIP_REMOTE_FILE}
   fi
+else
+  log "--> Using downloaded file: [$GRADLE_ZIP_DEST_PATH]"
 fi
 
 
 log "Unzip gradle zipfile ${GRADLE_ZIP_DEST_PATH} to ${GRADLE_UNZIP_HOSTING_FOLDER}"
 unzip -n -d ${GRADLE_UNZIP_HOSTING_FOLDER} ${GRADLE_ZIP_DEST_PATH}
+if [ $? -eq 0 ]; then
+    log "unzip succeeded"
+else
+    log "!! UNZIP FAILED !!"
+    log "unzip -n -d ${GRADLE_UNZIP_HOSTING_FOLDER} ${GRADLE_ZIP_DEST_PATH}"
+    log
+    exit 1
+fi
 log
 
 
 GRADLE_BINARY=${GRADLE_UNZIP_HOSTING_FOLDER}/gradle-${GRADLE_DOWNLOAD_VERSION}/bin/gradle
 log "\${GRADLE_BINARY} = ${GRADLE_BINARY}"
-log "\${GRADLE_BINARY} -version"
+log "${GRADLE_BINARY} -version"
 ${GRADLE_BINARY} -version
-log "Obtain gradle/wrapper/ with gradle wrapper --gradle-version ${GRADLE_DOWNLOAD_VERSION}"
+log "Obtain gradle wrapper"
+log "$GRADLE_BINARY wrapper --gradle-version ${GRADLE_DOWNLOAD_VERSION}"
 ${GRADLE_BINARY} wrapper --gradle-version ${GRADLE_DOWNLOAD_VERSION}
-log
-
-
-log "find gradle"
-find gradle
-chmod 777 gradlew
-log "./gradlew --version"
-./gradlew --version
 log
 
 
 if [[ "$GRADLE_TRACE" = true ]]; then
   log "./gradlew dependencies"
-  ./gradlew dependencies
+  ${GRADLE_BINARY} dependencies
   log
 fi
 
@@ -178,7 +176,7 @@ log
 if [[ $BUILD_EXIT_CODE -eq 0 ]]; then
   if [[ ! -z $DEVICE ]]; then
     log "installing on $DEVICE"
-    adb -s $DEVICE install ./build/outputs/apk/phone/debug/talkback-phone-debug.apk
+    adb -s "$DEVICE" install ./build/outputs/apk/phone/debug/talkback-phone-debug.apk
   fi
   print_sdk_info
   log

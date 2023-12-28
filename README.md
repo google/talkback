@@ -15,6 +15,10 @@ Ensure that:
 - jenv local 1.8
 - NDK 24.0.8215888 is installed
 
+Try: 
+- Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JDK
+- corretto-11 is the java version
+
 ### How to Install
 
 Install the apk onto your Android device in the usual manner using adb.
