@@ -31,6 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Configure dynamic menu items on the language context menu. */
@@ -40,12 +42,21 @@ public class LanguageMenuProcessor {
   private static @Nullable List<ContextMenuItem> getMenuItems(
       Context context, Pipeline.FeedbackReturner pipeline, ActorState actorState) {
 
-    @Nullable
-    Set<Locale> languagesAvailable = actorState.getLanguageState().getInstalledLanguages();
+    @Nullable Set<Locale> languagesAvailableRawSet =
+        actorState.getLanguageState().getInstalledLanguages();
 
-    if (languagesAvailable == null) {
+    if (languagesAvailableRawSet == null) {
       return null;
     }
+
+    SortedSet<Locale> languagesAvailable =
+        new TreeSet<>(
+            (o1, o2) ->
+                LanguageActor.getLocaleString(context, o1)
+                    .compareTo(LanguageActor.getLocaleString(context, o2)));
+    // Sorts the raw set into the new available set.
+    languagesAvailable.addAll(languagesAvailableRawSet);
+
     LanguageMenuItemClickListener clickListener =
         new LanguageMenuItemClickListener(context, pipeline, languagesAvailable);
     List<ContextMenuItem> menuItems = new ArrayList<>();

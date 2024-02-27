@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.talkback.labeling;
 
+import static android.content.Context.RECEIVER_EXPORTED;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,17 +29,12 @@ import android.content.pm.Signature;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Pair;
-import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.BuildConfig;
-import com.google.android.accessibility.utils.AccessibilityEventListener;
-import com.google.android.accessibility.utils.AccessibilityEventUtils;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.LocaleUtils;
-import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelManager;
@@ -61,12 +58,9 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * convenience methods for accessing and changing the state of labels, both persisted and in memory.
  * Methods in this class will often return nothing, and may expose asynchronous callbacks wrapped by
  * request classes to return results from processing activities on different threads.
- *
- * <p>This class also serves as an {@link AccessibilityEventListener} for purposes of automatically
- * prefetching labels into the managed cache.
  */
 // TODO: Most public methods in this class should support optional callbacks.
-public class CustomLabelManager implements LabelManager, AccessibilityEventListener {
+public class CustomLabelManager extends TalkBackLabelManager {
 
   private static final String TAG = "CustomLabelManager";
 
@@ -91,8 +85,9 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
   // Read-only interface
 
   /** Limited read-only interface to pull state data. */
-  public class State {
-    public long getLabelIdForViewId(AccessibilityNodeInfoCompat node) {
+  public class State implements LabelManager.State {
+    @Override
+    public long getLabelIdForNode(AccessibilityNodeInfoCompat node) {
       Label label =
           (node == null) ? null : getLabelForViewIdFromCache(node.getViewIdResourceName());
       if (label == null) {
@@ -102,37 +97,28 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
       return label.getId();
     }
 
-    public boolean supportsLabel(AccessibilityNodeInfoCompat node) {
-      return needsLabel(node);
+    @Override
+    public boolean supportsLabel(@Nullable AccessibilityNodeInfoCompat node) {
+      return canAddLabel(node) && needsLabel(node);
+    }
+
+    @Override
+    public boolean needsLabel(@Nullable AccessibilityNodeInfoCompat node) {
+      return CustomLabelManager.this.needsLabel(node);
     }
   }
 
-  /** Read-only interface for pulling state data. */
-  public final CustomLabelManager.State stateReader = new CustomLabelManager.State();
+  /** Interface for the change of the label which is invoked from main thread. */
+  public interface LabelChangeListener {
+    /** Callbacks when label changed. */
+    void onLabelChanged();
+  }
 
-  /**
-   * Gets the text of a <code>node</code> by returning the content description (if available) or by
-   * returning the text. Will use the specified <code>CustomLabelManager</code> as a fall back if
-   * both are null.
-   *
-   * @param node The node.
-   * @param labelManager The label manager.
-   * @return The node text.
-   */
-  public static @Nullable CharSequence getNodeText(
-      AccessibilityNodeInfoCompat node, CustomLabelManager labelManager) {
-    CharSequence text = AccessibilityNodeInfoUtils.getNodeText(node);
-    if (!TextUtils.isEmpty(text)) {
-      return text;
-    }
+  private final LabelManager.State stateReader = new CustomLabelManager.State();
 
-    if (labelManager != null && labelManager.isInitialized()) {
-      Label label = labelManager.getLabelForViewIdFromCache(node.getViewIdResourceName());
-      if (label != null) {
-        return label.getText();
-      }
-    }
-    return null;
+  @Override
+  public final LabelManager.State stateReader() {
+    return stateReader;
   }
 
   private final NavigableSet<Label> labelCache =
@@ -169,7 +155,9 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
   // Used to manage release of resources based on task completion
   private boolean shouldShutdownClient;
   private int runningTasks;
-  private boolean hasFocusedEventText = false;
+  // labelState can be null when this CustomLabelManager is initialized in LabelDialogManager.
+  private final @Nullable LabelChangeListener labelChangeListener;
+  private final PackageRemovalReceiver packageRemovalReceiver;
 
   private final LabelTask.TrackedTaskCallback taskCallback =
       new LabelTask.TrackedTaskCallback() {
@@ -183,6 +171,9 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
         public void onTaskPostExecute(LabelClientRequest<?> request) {
           checkUiThread();
           taskEnding(request);
+          if (labelChangeListener != null) {
+            labelChangeListener.onLabelChanged();
+          }
         }
       };
 
@@ -211,12 +202,22 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
       };
 
   public CustomLabelManager(Context context) {
+    this(context, /* labelChangeListener= */ null);
+  }
+
+  public CustomLabelManager(Context context, @Nullable LabelChangeListener labelChangeListener) {
     this.context = context;
+    this.labelChangeListener = labelChangeListener;
     packageManager = context.getPackageManager();
     client = new LabelProviderClient(context, AUTHORITY);
-    this.context.registerReceiver(refreshReceiver, REFRESH_INTENT_FILTER);
-    this.context.registerReceiver(
-        localeChangedReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
+    ContextCompat.registerReceiver(
+        this.context, refreshReceiver, REFRESH_INTENT_FILTER, RECEIVER_EXPORTED);
+    ContextCompat.registerReceiver(
+        this.context,
+        localeChangedReceiver,
+        new IntentFilter(Intent.ACTION_LOCALE_CHANGED),
+        RECEIVER_EXPORTED);
+    this.packageRemovalReceiver = new PackageRemovalReceiver();
     refreshCache();
   }
 
@@ -224,6 +225,18 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
     if (Looper.myLooper() != Looper.getMainLooper()) {
       throw new IllegalStateException("run not on UI thread");
     }
+  }
+
+  @Override
+  public void onResume(Context context) {
+    ContextCompat.registerReceiver(
+        context, packageRemovalReceiver, packageRemovalReceiver.getFilter(), RECEIVER_EXPORTED);
+    ensureDataConsistency();
+  }
+
+  @Override
+  public void onSuspend(Context context) {
+    context.unregisterReceiver(packageRemovalReceiver);
   }
 
   /**
@@ -247,16 +260,6 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
     task.execute();
   }
 
-  /**
-   * Retrieves a {@link Label} from the label cache given a fully-qualified resource identifier
-   * name.
-   *
-   * @param resourceName The fully-qualified resource identifier, such as
-   *     "com.android.deskclock:id/analog_appwidget", as provided by {@link
-   *     AccessibilityNodeInfo#getViewIdResourceName()}
-   * @return The {@link Label} matching the provided identifier, or {@code null} if no such label
-   *     exists or has not yet been fetched from storage
-   */
   @Override
   public @Nullable Label getLabelForViewIdFromCache(String resourceName) {
     if (!isInitialized()) {
@@ -325,6 +328,7 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
     task.execute();
   }
 
+  @Override
   public void getLabelsFromDatabase(LabelsFetchRequest.OnLabelsFetchedListener callback) {
     if (!isInitialized()) {
       return;
@@ -335,36 +339,8 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
     task.execute();
   }
 
-  /** Returns whether node needs a label. */
+  /** Returns whether the manager can store a label for the given node. */
   @Override
-  public boolean needsLabel(@Nullable AccessibilityNodeInfoCompat node) {
-    if (node == null) {
-      return false;
-    }
-
-    // The view don't need a label if it cannot be added a label.
-    if (!canAddLabel(node)) {
-      return false;
-    }
-
-    // Spoken words can come from accessibility event text or content description, like the focus is
-    // on ViewGroup that includes several non-focusable views.
-    if (Role.getRole(node) == Role.ROLE_VIEW_GROUP && hasFocusedEventText) {
-      return false;
-    }
-
-    // REFERTO. ImageView without content description, which isn't focusable and in a
-    // actionable ViewGroup, can't be labelled because it is not in the accessibility node tree but
-    // in the hierarchy viewer. The actionable ViewGroup should be labelled.
-    return node.isEnabled()
-        && (AccessibilityNodeInfoUtils.isClickable(node)
-            || AccessibilityNodeInfoUtils.isLongClickable(node)
-            || AccessibilityNodeInfoUtils.isFocusable(node))
-        && node.getChildCount() == 0
-        && TextUtils.isEmpty(AccessibilityNodeInfoUtils.getNodeText(node));
-  }
-
-  /** Returns whether CustomLabelManager can store a label for this node type. */
   public boolean canAddLabel(@Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return false;
@@ -391,7 +367,7 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
     return false;
   }
 
-  /** Overwrites the label for node. */
+  @Override
   public boolean setLabel(@Nullable AccessibilityNodeInfoCompat node, @Nullable String userLabel) {
     if (node == null) {
       return false;
@@ -617,7 +593,8 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
    * If there are no cached labels (possibly because CE storage was not yet available when the
    * CustomLabelManager instance was constructed), refreshes the labels from the label provider.
    */
-  public void ensureLabelsLoaded() {
+  @Override
+  public void onUnlockedBoot() {
     if (labelCache.isEmpty()) {
       refreshCache();
     }
@@ -646,7 +623,7 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
     return new Pair<>(splitId[0], splitId[1]);
   }
 
-  /** Shuts down the manager and releases resources. */
+  @Override
   public void shutdown() {
     LogUtils.v(TAG, "Shutdown requested.");
 
@@ -662,11 +639,7 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
     maybeShutdownClient();
   }
 
-  /**
-   * Returns whether the labeling client is properly initialized.
-   *
-   * @return {@code true} if client is ready, or {@code false} otherwise.
-   */
+  @Override
   public boolean isInitialized() {
     checkUiThread();
     return client.isInitialized();
@@ -715,17 +688,6 @@ public class CustomLabelManager implements LabelManager, AccessibilityEventListe
     final Intent refreshIntent = new Intent(ACTION_REFRESH_LABEL_CACHE);
     refreshIntent.putExtra(EXTRA_STRING_ARRAY_PACKAGES, packageNames);
     context.sendBroadcast(refreshIntent);
-  }
-
-  @Override
-  public int getEventTypes() {
-    return AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
-  }
-
-  @Override
-  public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
-    hasFocusedEventText =
-        !TextUtils.isEmpty(AccessibilityEventUtils.getEventTextOrDescription(event));
   }
 
   private class LocaleChangedReceiver extends BroadcastReceiver {

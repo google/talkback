@@ -36,41 +36,42 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class DirectionalTraversalStrategy implements TraversalStrategy {
 
   /** The root node within which to traverse. */
-  private AccessibilityNodeInfoCompat mRoot;
+  protected @Nullable AccessibilityNodeInfoCompat root;
 
   /** Instance for finding Accessibility/Input focus. */
   private final FocusFinder focusFinder;
 
-  /** The cached on-screen bounds of the root node. */
-  private final Rect mRootRect;
-
   /** The bounds of the root node, padded slightly for intersection checks. */
-  private final Rect mRootRectPadded;
+  private final Rect rootRectPadded;
 
-  /** A set of all visited nodes in mRoot's hierarchy. */
+  /** A set of all visited nodes in root's hierarchy. */
   private final Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
 
   /** A list of only focusable nodes. */
-  private final List<AccessibilityNodeInfoCompat> mFocusables = new ArrayList<>();
+  protected final List<AccessibilityNodeInfoCompat> focusableNodes = new ArrayList<>();
 
   /** The set of focusable nodes that have focusable descendants. */
-  private final Set<AccessibilityNodeInfoCompat> mContainers = new HashSet<>();
+  private final Set<AccessibilityNodeInfoCompat> containerNodes = new HashSet<>();
 
   /** Cache of nodes that have speech for use by AccessibilityNodeInfoUtils. */
-  private final Map<AccessibilityNodeInfoCompat, Boolean> mSpeakingNodesCache = new HashMap<>();
+  private final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache = new HashMap<>();
 
-  public DirectionalTraversalStrategy(AccessibilityNodeInfoCompat root, FocusFinder focusFinder) {
-    mRoot = AccessibilityNodeInfoCompat.obtain(root);
+  public DirectionalTraversalStrategy(
+      @Nullable AccessibilityNodeInfoCompat root, FocusFinder focusFinder) {
+    this.root = root;
     this.focusFinder = focusFinder;
 
-    mRootRect = new Rect();
-    mRoot.getBoundsInScreen(mRootRect);
+    // The cached on-screen bounds of the root node.
+    Rect rootRect = new Rect();
+    if (this.root != null) {
+      this.root.getBoundsInScreen(rootRect);
+    }
 
-    int fudge = -(mRootRect.width() / 20); // 5% fudge factor to catch objects near edge.
-    mRootRectPadded = new Rect(mRootRect);
-    mRootRectPadded.inset(fudge, fudge);
+    int fudge = -(rootRect.width() / 20); // 5% fudge factor to catch objects near edge.
+    rootRectPadded = new Rect(rootRect);
+    rootRectPadded.inset(fudge, fudge);
 
-    processNodes(mRoot, false /* forceRefresh */);
+    processNodes(this.root, /* forceRefresh= */ false);
   }
 
   /**
@@ -79,7 +80,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    *
    * @return whether the root is focusable or has focusable children in its hierarchy
    */
-  private boolean processNodes(AccessibilityNodeInfoCompat root, boolean forceRefresh) {
+  private boolean processNodes(@Nullable AccessibilityNodeInfoCompat root, boolean forceRefresh) {
     if (root == null || visitedNodes.contains(root)) {
       return false;
     }
@@ -91,38 +92,36 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     Rect currentRect = new Rect();
     root.getBoundsInScreen(currentRect);
 
-    // Determine if the node is inside mRootRect (within a fudge factor). If it is outside, we
+    // Determine if the node is inside rootRect (within a fudge factor). If it is outside, we
     // will optimize by skipping its entire hierarchy.
-    if (!Rect.intersects(currentRect, mRootRectPadded)) {
+    if (!Rect.intersects(currentRect, rootRectPadded)) {
       return false;
     }
 
-    AccessibilityNodeInfoCompat rootNode = AccessibilityNodeInfoCompat.obtain(root);
-    visitedNodes.add(rootNode);
+    visitedNodes.add(root);
 
     // When we reach a node that supports web navigation, we traverse using the web navigation
     // actions, so we should not add any of its descendants to the list of focusable nodes.
-    if (WebInterfaceUtils.hasNativeWebContent(rootNode)) {
-      mFocusables.add(rootNode);
+    if (WebInterfaceUtils.hasNativeWebContent(root)) {
+      focusableNodes.add(root);
       return true;
     } else {
-      boolean isFocusable =
-          AccessibilityNodeInfoUtils.shouldFocusNode(rootNode, mSpeakingNodesCache);
+      boolean isFocusable = AccessibilityNodeInfoUtils.shouldFocusNode(root, speakingNodesCache);
       if (isFocusable) {
-        mFocusables.add(rootNode);
+        focusableNodes.add(root);
       }
 
       boolean hasFocusableDescendants = false;
-      int childCount = rootNode.getChildCount();
+      int childCount = root.getChildCount();
       for (int i = 0; i < childCount; ++i) {
-        AccessibilityNodeInfoCompat child = rootNode.getChild(i);
+        AccessibilityNodeInfoCompat child = root.getChild(i);
         if (child != null) {
           hasFocusableDescendants |= processNodes(child, forceRefresh);
         }
       }
 
       if (hasFocusableDescendants) {
-        mContainers.add(rootNode);
+        containerNodes.add(root);
       }
 
       return isFocusable || hasFocusableDescendants;
@@ -134,17 +133,27 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
       AccessibilityNodeInfoCompat startNode, int direction) {
     if (startNode == null) {
       return null;
-    } else if (startNode.equals(mRoot)) {
+    } else if (startNode.equals(root)) {
       return getFirstOrderedFocus();
     }
 
     Rect focusedRect = new Rect();
     getAssumedRectInScreen(startNode, focusedRect);
 
-    return findFocus(startNode, focusedRect, direction);
+    return findFocusFromRect(startNode, focusedRect, direction);
   }
 
-  public @Nullable AccessibilityNodeInfoCompat findFocus(
+  /**
+   * Searches the best candidate to focus in the given direction.
+   *
+   * @param focused The node which is currently accessibility-focused.
+   * @param focusedRect The coordinates from which to start the search from. This may be different
+   *     from the actual coordinates of {@code focused}.
+   * @param direction The direction in which to search.
+   * @return Returns the best candidate to focus in the given direction or {@code null} if there is
+   *     no such candidate.
+   */
+  protected @Nullable AccessibilityNodeInfoCompat findFocusFromRect(
       AccessibilityNodeInfoCompat focused, Rect focusedRect, int direction) {
     // Using roughly the same algorithm as
     // frameworks/base/core/java/android/view/FocusFinder.java#findNextFocusInAbsoluteDirection
@@ -167,9 +176,9 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     }
 
     AccessibilityNodeInfoCompat closest = null;
-    for (AccessibilityNodeInfoCompat focusable : mFocusables) {
+    for (AccessibilityNodeInfoCompat focusable : focusableNodes) {
       // Skip the currently-focused view.
-      if (focusable.equals(focused) || focusable.equals(mRoot)) {
+      if (focusable.equals(focused) || focusable.equals(root)) {
         continue;
       }
 
@@ -182,11 +191,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
       }
     }
 
-    if (closest != null) {
-      return AccessibilityNodeInfoCompat.obtain(closest);
-    }
-
-    return null;
+    return closest;
   }
 
   /**
@@ -201,29 +206,28 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
         new Filter<AccessibilityNodeInfoCompat>() {
           @Override
           public boolean accept(AccessibilityNodeInfoCompat node) {
-            return node != null && mFocusables.contains(node);
+            return node != null && focusableNodes.contains(node);
           }
         };
 
     // 1. Attempt to find input-focused node.
     AccessibilityNodeInfoCompat inputFocused = focusFinder.findFocusCompat(FOCUS_INPUT);
 
-      AccessibilityNodeInfoCompat target =
-          AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(inputFocused, filter);
-      if (target != null) {
-        return target;
+    AccessibilityNodeInfoCompat target =
+        AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(inputFocused, filter);
+    if (target != null) {
+      return target;
     }
 
     // 2. Just use the OrderedTraversalStrategy.
-    final OrderedTraversalStrategy orderedStrategy = new OrderedTraversalStrategy(mRoot);
+    final OrderedTraversalStrategy orderedStrategy = new OrderedTraversalStrategy(root);
 
-    // Should not need to obtain() here; the inner code should do this for us.
     return TraversalStrategyUtils.searchFocus(
-        orderedStrategy, mRoot, TraversalStrategy.SEARCH_FOCUS_FORWARD, filter);
+        orderedStrategy, root, TraversalStrategy.SEARCH_FOCUS_FORWARD, filter);
   }
 
   @Override
-  public @Nullable AccessibilityNodeInfoCompat focusInitial(
+  public @Nullable AccessibilityNodeInfoCompat focusFirst(
       AccessibilityNodeInfoCompat root, int direction) {
     if (root == null) {
       return null;
@@ -247,7 +251,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
       searchRect.set(rootRect.left, rootRect.top - 1, rootRect.right, rootRect.top);
     }
 
-    return findFocus(focusedNode, searchRect, direction);
+    return findFocusFromRect(focusedNode, searchRect, direction);
   }
 
   @Override
@@ -259,9 +263,9 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    * Returns the bounding rect of the given node for directional navigation purposes. Any node that
    * is a container of a focusable node will be reduced to a strip at its very top edge.
    */
-  private void getAssumedRectInScreen(AccessibilityNodeInfoCompat node, Rect assumedRect) {
+  protected void getAssumedRectInScreen(AccessibilityNodeInfoCompat node, Rect assumedRect) {
     node.getBoundsInScreen(assumedRect);
-    if (mContainers.contains(node)) {
+    if (containerNodes.contains(node)) {
       assumedRect.set(assumedRect.left, assumedRect.top, assumedRect.right, assumedRect.top + 1);
     }
   }
@@ -287,7 +291,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     node.getBoundsInScreen(focusedRect);
 
     Rect rootBounds = new Rect();
-    mRoot.getBoundsInScreen(rootBounds);
+    root.getBoundsInScreen(rootBounds);
 
     switch (direction) {
       case TraversalStrategy.SEARCH_FOCUS_LEFT: // Start from right and move leftwards.
@@ -341,7 +345,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    * @param rect2 The current best candidate.
    * @return Whether the candidate is the new best.
    */
-  boolean isBetterCandidate(int direction, Rect source, Rect rect1, Rect rect2) {
+  private boolean isBetterCandidate(int direction, Rect source, Rect rect1, Rect rect2) {
 
     // to be a better candidate, need to at least be a candidate in the first
     // place :)
@@ -360,7 +364,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
       return true;
     }
 
-    // if rect2 is better, then rect1 cant' be :)
+    // if rect2 is better, then rect1 can't be :)
     if (beamBeats(direction, source, rect2, rect1)) {
       return false;
     }
@@ -380,7 +384,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    *
    * @return Whether rect1 is a better candidate than rect2 by virtue of it being in src's beam
    */
-  boolean beamBeats(int direction, Rect source, Rect rect1, Rect rect2) {
+  private boolean beamBeats(int direction, Rect source, Rect rect1, Rect rect2) {
     final boolean rect1InSrcBeam = beamsOverlap(direction, source, rect1);
     final boolean rect2InSrcBeam = beamsOverlap(direction, source, rect2);
 
@@ -407,7 +411,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
 
     // for vertical directions, beams only beat up to a point:
     // now, as long as rect2 isn't completely closer, rect1 wins
-    // e.g for direction down, completely closer means for rect2's top
+    // e.g. for direction down, completely closer means for rect2's top
     // edge to be closer to the source's top edge than rect1's bottom edge.
     return (majorAxisDistance(direction, source, rect1)
         < majorAxisDistanceToFarEdge(direction, source, rect2));
@@ -418,7 +422,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    * Warning: this fudge factor is finely tuned, be sure to run all focus tests if you dare tweak
    * it.
    */
-  int getWeightedDistanceFor(int majorAxisDistance, int minorAxisDistance) {
+  private int getWeightedDistanceFor(int majorAxisDistance, int minorAxisDistance) {
     if (majorAxisDistance > 10000 || minorAxisDistance > 10000) {
       return Integer.MAX_VALUE;
     } else {
@@ -434,7 +438,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    * <p>Includes an edge case for an empty rect (which is used in some cases when searching from a
    * point on the screen).
    */
-  boolean isCandidate(Rect srcRect, Rect destRect, int direction) {
+  private boolean isCandidate(Rect srcRect, Rect destRect, int direction) {
     switch (direction) {
       case TraversalStrategy.SEARCH_FOCUS_LEFT:
         return (srcRect.right > destRect.right || srcRect.left >= destRect.right)
@@ -461,7 +465,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    * @param rect2 The second rectangle
    * @return whether the beams overlap
    */
-  boolean beamsOverlap(int direction, Rect rect1, Rect rect2) {
+  private boolean beamsOverlap(int direction, Rect rect1, Rect rect2) {
     switch (direction) {
       case TraversalStrategy.SEARCH_FOCUS_LEFT:
       case TraversalStrategy.SEARCH_FOCUS_RIGHT:
@@ -474,8 +478,8 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     throw new IllegalArgumentException("direction must be a SearchDirection");
   }
 
-  /** e.g for left, is 'to left of' */
-  boolean isToDirectionOf(int direction, Rect src, Rect dest) {
+  /** e.g. for left, is 'to left of' */
+  private boolean isToDirectionOf(int direction, Rect src, Rect dest) {
     switch (direction) {
       case TraversalStrategy.SEARCH_FOCUS_LEFT:
         return src.left >= dest.right;

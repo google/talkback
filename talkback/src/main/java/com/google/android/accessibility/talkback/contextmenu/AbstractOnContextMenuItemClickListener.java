@@ -29,7 +29,6 @@ public abstract class AbstractOnContextMenuItemClickListener
   protected final Pipeline.FeedbackReturner pipeline;
   protected final TalkBackAnalytics analytics;
 
-  /** Copies node, caller retains ownership. */
   protected AbstractOnContextMenuItemClickListener(
       AccessibilityNodeInfoCompat node,
       Pipeline.FeedbackReturner pipeline,

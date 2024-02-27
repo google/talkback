@@ -22,6 +22,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.input.TextEventFilter.KeyboardEchoType;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**
@@ -75,6 +76,28 @@ public class VerbosityPreferences {
       String keyForVerbosity = toVerbosityPrefKey(verbosityValue, key);
       return preferences.getBoolean(keyForVerbosity, defaultValue);
     }
+  }
+
+  /** Reads echo type of physical keyboard. */
+  public static @KeyboardEchoType int readPhysicalKeyboardEcho(
+      SharedPreferences prefs, Resources resources) {
+    return Integer.parseInt(
+        VerbosityPreferences.getPreferenceValueString(
+            prefs,
+            resources,
+            resources.getString(R.string.pref_keyboard_echo_physical_key),
+            resources.getString(R.string.pref_keyboard_echo_default)));
+  }
+
+  /** Reads echo type of on-screen keyboard. */
+  public static @KeyboardEchoType int readOnScreenKeyboardEcho(
+      SharedPreferences prefs, Resources resources) {
+    return Integer.parseInt(
+        VerbosityPreferences.getPreferenceValueString(
+            prefs,
+            resources,
+            resources.getString(R.string.pref_keyboard_echo_on_screen_key),
+            resources.getString(R.string.pref_keyboard_echo_default)));
   }
 
   public static String getPreferenceVerbosityString(

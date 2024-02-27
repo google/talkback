@@ -17,17 +17,16 @@
 package com.google.android.accessibility.talkback.permission;
 
 import android.Manifest.permission;
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.fragment.app.FragmentActivity;
 import android.text.TextUtils;
 import androidx.core.app.ActivityCompat;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
+import com.google.android.accessibility.utils.material.A11yAlertDialogWrapper;
 
 /** Activity for TalkBack to request the permission. */
-public class PermissionRequestActivity extends Activity {
+public class PermissionRequestActivity extends FragmentActivity {
 
   /** Extra key of the requesting permissions. */
   public static final String PERMISSIONS = "permissions";
@@ -58,14 +57,14 @@ public class PermissionRequestActivity extends Activity {
     if (TextUtils.equals(permissions[0], permission.READ_PHONE_STATE)
         && permissions.length == 1
         && shouldShowRequestPermissionRationale(permission.READ_PHONE_STATE)) {
-      final DialogInterface.OnClickListener onClickListener =
-          (dialog, buttonClicked) -> requestPermission(permission.READ_PHONE_STATE);
       final A11yAlertDialogWrapper alertDialog =
-          A11yAlertDialogWrapper.materialDialogBuilder(this)
+          A11yAlertDialogWrapper.materialDialogBuilder(this, getSupportFragmentManager())
               .setTitle(R.string.title_request_phone_permission)
               .setMessage(R.string.message_request_phone_permission)
-              .setPositiveButton(R.string.continue_button, onClickListener)
-              .setNegativeButton(android.R.string.cancel, null)
+              .setPositiveButton(
+                  R.string.continue_button,
+                  (dialog, buttonClicked) -> requestPermission(permission.READ_PHONE_STATE))
+              .setNegativeButton(android.R.string.cancel, (dialog, buttonClicked) -> finish())
               .create();
       alertDialog.setCanceledOnTouchOutside(true);
       alertDialog.show();
@@ -78,6 +77,7 @@ public class PermissionRequestActivity extends Activity {
   @Override
   public void onRequestPermissionsResult(
       int requestCode, String[] permissions, int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     Intent broadcastIntent = new Intent();
     // finish this activity
     finish();

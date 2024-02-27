@@ -19,10 +19,34 @@
   </style>
 
   <style name="BrailleDisplayKeyboardButton" parent="@style/Widget.Material3.Button.OutlinedButton">
-    <item name="android:textSize">16sp</item>
+    <item name="android:textSize">@dimen/braille_display_keyboard_description_text_size</item>
     <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
     <item name="strokeColor">?android:attr/textColorSecondaryInverse</item>
     <item name="android:paddingLeft">15dp</item>
     <item name="android:paddingRight">15dp</item>
+  </style>
+
+  <style name="TutorialHintToast">
+    <item name="android:visibility">invisible</item>
+    <item name="android:background">@drawable/hint_toast_background</item>
+    <item name="android:paddingHorizontal">@dimen/hint_horizontal_padding</item>
+    <item name="android:paddingVertical">@dimen/hint_vertical_padding</item>
+    <item name="android:textColor">@android:color/white</item>
+    <item name="android:textSize">@dimen/hint_text_size</item>
+  </style>
+
+  <style name="TutorialActionResult">
+    <item name="android:visibility">invisible</item>
+    <item name="android:background">@drawable/action_result_background</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:textColor">@android:color/white</item>
+    <item name="android:paddingHorizontal">@dimen/action_result_horizontal_padding</item>
+    <item name="android:paddingVertical">@dimen/action_result_vertical_padding</item>
+    <item name="android:textSize">@dimen/action_result_text_size</item>
+    <item name="android:textAlignment">center</item>
+  </style>
+
+  <style name="BrailleImeTheme" parent="Theme.MaterialComponents.Light.Bridge">
+    <item name="android:textAllCaps">false</item>
   </style>
 </resources>

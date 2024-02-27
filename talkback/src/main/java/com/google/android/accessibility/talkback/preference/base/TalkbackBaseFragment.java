@@ -20,14 +20,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.StringRes;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceDialogFragmentCompat;
 import com.google.android.accessibility.talkback.preference.TalkBackPreferenceFilter;
-import com.google.android.accessibility.talkback.preference.WearListPreference;
-import com.google.android.accessibility.talkback.utils.TalkbackCustomViewSwipeAction;
-import com.google.android.accessibility.utils.BasePreferencesFragment;
-import com.google.android.accessibility.utils.FeatureSupport;
-import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.FormFactorUtils;
+import com.google.android.accessibility.utils.material.WrapSwipeDismissLayoutHelper;
+import com.google.android.accessibility.utils.preference.BasePreferencesFragment;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Panel holding a set of base fragment for preferences. */
 public abstract class TalkbackBaseFragment extends BasePreferencesFragment {
@@ -43,11 +42,29 @@ public abstract class TalkbackBaseFragment extends BasePreferencesFragment {
     this.xmlResId = xmlResId;
   }
 
+  /**
+   * This function is used to get the sub title which the fragment likes to show on app bar. The
+   * child class implements this function and will show sub title on app bar. If the child class
+   * doesn't implement this function, sub title will not show anything.
+   *
+   * @return The sub title of the fragment will show on app bar.
+   */
+  @Override
+  public @Nullable CharSequence getSubTitle() {
+    return null;
+  }
+
+  @Override
+  public int getXmlResId() {
+    return xmlResId;
+  }
+
   /** Preferences managed by this fragment. */
   @Override
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     if (xmlResId != INVALID_VALUE) {
-      PreferenceSettingsUtils.addPreferencesFromResource(this, xmlResId);
+      super.onCreatePreferences(savedInstanceState, rootKey);
+
       final Context context = getContext();
       if (context == null) {
         return;
@@ -57,28 +74,23 @@ public abstract class TalkbackBaseFragment extends BasePreferencesFragment {
     }
   }
 
+  // TODO: Wrap the root container instead of each view in the swipe dismiss layout.
+  /** A default implementation of wrapping swipe dismiss listener for the view. */
+  protected View wrapSwipeDismissLayout(View view) {
+    // Customs swipe action for view. This is for wear only.
+    return WrapSwipeDismissLayoutHelper.wrapSwipeDismissLayout(
+        getActivity(), view, /* swipeDismissListener= */ null);
+  }
+
   @Override
   public View onCreateView(
       LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View inflatedView = super.onCreateView(inflater, container, savedInstanceState);
-    if (FeatureSupport.isWatch(getContext()) && getListView() != null) {
+    if (FormFactorUtils.getInstance().isAndroidWear() && getListView() != null) {
       // To support rotary-button input, it needs to request focus of the scrollable view.
       getListView().requestFocus();
     }
-    // Customs swipe action for view. This is for wear only.
-    return TalkbackCustomViewSwipeAction.wrapWithSwipeHandler(getActivity(), inflatedView);
-  }
-
-  @Override
-  public void onDisplayPreferenceDialog(Preference preference) {
-    if (preference instanceof WearListPreference) {
-      PreferenceDialogFragmentCompat dialogFragment =
-          ((WearListPreference) preference).createDialogFragment();
-      dialogFragment.setTargetFragment(this, 0);
-      dialogFragment.show(getParentFragmentManager(), preference.getKey());
-    } else {
-      super.onDisplayPreferenceDialog(preference);
-    }
+    return wrapSwipeDismissLayout(inflatedView);
   }
 
   /** Turns a preference on or off, selecting the preference by key-resource-ID. */
@@ -87,5 +99,10 @@ public abstract class TalkbackBaseFragment extends BasePreferencesFragment {
     if (preference != null) {
       preference.setEnabled(enable);
     }
+  }
+
+  /** Returns the preference associated with the specified resource identifier. */
+  public Preference findPreferenceByResId(@StringRes int resId) {
+    return findPreference(getString(resId));
   }
 }

@@ -1,0 +1,173 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title Seika Note Takers
+
+####################
+# Default Bindings #
+####################
+
+bind LeftJoystickPress HELP
+bind RightJoystickPress LEARN
+
+bind LeftButton+RightButton HOME
+bind LeftButton FWINLT
+bind RightButton FWINRT
+
+bind LeftJoystickUp top
+bind LeftJoystickDown BOT
+bind LeftJoystickLeft LNBEG
+bind LeftJoystickRight LNEND
+
+bind RightJoystickUp LNUP
+bind RightJoystickDown LNDN
+bind RightJoystickLeft CHRLT
+bind RightJoystickRight CHRRT
+
+bind LeftJoystickLeft+RightJoystickUp ATTRUP
+bind LeftJoystickLeft+RightJoystickDown ATTRDN
+bind LeftJoystickRight+RightJoystickUp PRDIFLN
+bind LeftJoystickRight+RightJoystickDown NXDIFLN
+bind LeftJoystickUp+RightJoystickUp PRPROMPT
+bind LeftJoystickUp+RightJoystickDown NXPROMPT
+bind LeftJoystickDown+RightJoystickUp PRPGRPH
+bind LeftJoystickDown+RightJoystickDown NXPGRPH
+
+bind LeftJoystickLeft+RightJoystickLeft HWINLT
+bind LeftJoystickLeft+RightJoystickRight HWINRT
+bind LeftJoystickRight+RightJoystickLeft FWINLTSKIP
+bind LeftJoystickRight+RightJoystickRight FWINRTSKIP
+bind LeftJoystickUp+RightJoystickLeft PRSEARCH
+bind LeftJoystickUp+RightJoystickRight NXSEARCH
+bind LeftJoystickDown+RightJoystickLeft BACK
+bind LeftJoystickDown+RightJoystickRight CSRJMP_VERT
+
+bind LeftJoystickPress+RightJoystickUp INFO
+bind LeftJoystickPress+RightJoystickDown PREFMENU
+bind LeftJoystickPress+RightJoystickLeft PREFLOAD
+bind LeftJoystickPress+RightJoystickRight PREFSAVE
+
+bind RoutingKey ROUTE
+bind LeftButton+RoutingKey SETLEFT
+bind RightButton+RoutingKey DESCCHAR
+
+bind RightJoystickUp+RoutingKey PRINDENT
+bind RightJoystickDown+RoutingKey NXINDENT
+bind RightJoystickLeft+RoutingKey PRDIFCHAR
+bind RightJoystickRight+RoutingKey NXDIFCHAR
+
+bind LeftJoystickPress+RoutingKey SETMARK
+bind RightJoystickPress+RoutingKey GOTOMARK
+
+bind LeftJoystickPress+RightJoystickPress PASTE
+bind RoutingKey+RoutingKey CLIP_COPY
+bind LeftJoystickUp+RoutingKey+RoutingKey CLIP_APPEND
+bind LeftJoystickLeft+RoutingKey CLIP_NEW
+bind LeftJoystickUp+RoutingKey CLIP_ADD
+bind LeftJoystickRight+RoutingKey COPY_LINE
+bind LeftJoystickDown+RoutingKey COPY_RECT
+
+assign chord Space+
+include ../chords.kti
+
+map Dot1 DOT1
+map Dot2 DOT2
+map Dot3 DOT3
+map Dot4 DOT4
+map Dot5 DOT5
+map Dot6 DOT6
+map Dot7 DOT7
+map Dot8 DOT8
+#Overridden by BrailleBack.
+#map Backspace META
+map Space SPACE
+
+bind Space+LeftJoystickUp KEY_PAGE_UP
+bind Space+LeftJoystickDown KEY_PAGE_DOWN
+bind Space+LeftJoystickLeft KEY_HOME
+bind Space+LeftJoystickRight KEY_END
+bind Space+LeftJoystickPress KEY_INSERT
+
+bind Space+RightJoystickUp KEY_CURSOR_UP
+bind Space+RightJoystickDown KEY_CURSOR_DOWN
+bind Space+RightJoystickLeft KEY_CURSOR_LEFT
+bind Space+RightJoystickRight KEY_CURSOR_RIGHT
+bind Space+RightJoystickPress KEY_DELETE
+
+bind Space+RoutingKey KEY_FUNCTION
+bind Backspace+RoutingKey SWITCHVT
+
+bind Backspace+LeftJoystickUp SAY_LOUDER
+bind Backspace+LeftJoystickDown SAY_SOFTER
+bind Backspace+LeftJoystickLeft SAY_SLOWER
+bind Backspace+LeftJoystickRight SAY_FASTER
+bind Backspace+LeftJoystickPress AUTOSPEAK
+
+bind Backspace+RightJoystickUp SAY_ABOVE
+bind Backspace+RightJoystickDown SAY_BELOW
+bind Backspace+RightJoystickLeft MUTE
+bind Backspace+RightJoystickRight SAY_LINE
+bind Backspace+RightJoystickPress SPKHOME
+
+
+#################
+# Menu Bindings #
+#################
+
+#Unused by BrailleBack.
+#context menu
+
+#bind RightJoystickPress PREFMENU
+#bind RightJoystickUp MENU_PREV_ITEM
+#bind RightJoystickDown MENU_NEXT_ITEM
+#bind RightJoystickLeft MENU_PREV_SETTING
+#bind RightJoystickRight MENU_NEXT_SETTING
+
+#bind LeftJoystickUp MENU_FIRST_ITEM
+#bind LeftJoystickDown MENU_LAST_ITEM
+#bind LeftJoystickLeft PREFLOAD
+#bind LeftJoystickRight PREFSAVE
+
+########################
+# BrailleBack Bindings #
+########################
+
+# Activate currently focused item
+bind LeftJoystickPress ROUTE+127
+bind RightJoystickPress ROUTE+127
+
+# Long press currently focused item
+bind Space+LeftJoystickPress ROUTE+255
+bind Space+RightJoystickPress ROUTE+255
+
+# Long press item at routing key.
+bind Space+RoutingKey ROUTE+128
+
+map Backspace SPACE
+bind Backspace+Space SPACE
+
+include ../android-chords.kti
+
+assign chord Space
+include ../android-chords.kti
+
+assign chord Backspace
+include ../android-chords.kti
+
+assign chord Space+Backspace
+include ../android-chords.kti

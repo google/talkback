@@ -16,12 +16,18 @@
 
 package com.google.android.accessibility.talkback;
 
+import static com.google.android.accessibility.talkback.NotificationActivity.HELP_WEB_URL;
+import static com.google.android.accessibility.talkback.TalkBackService.PREF_HAS_TRAINING_FINISHED;
+import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.PERMISSIONS;
 import static com.google.android.accessibility.talkback.preference.PreferencesActivityUtils.GESTURE_CHANGE_NOTIFICATION_ID;
-import static com.google.android.accessibility.utils.PackageManagerUtils.TALBACK_PACKAGE;
+import static com.google.android.accessibility.utils.PackageManagerUtils.TALKBACK_PACKAGE;
+import static java.util.Arrays.stream;
 
+import android.Manifest.permission;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,6 +37,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Handler;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
 import com.google.android.accessibility.talkback.preference.GestureChangeNotificationActivity;
@@ -40,9 +48,14 @@ import com.google.android.accessibility.talkback.training.OnboardingInitiator;
 import com.google.android.accessibility.talkback.utils.NotificationUtils;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
+import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
+import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.util.ArrayList;
+import java.util.List;
 
 /** Class provides Talkback update information */
 public class TalkBackUpdateHelper {
@@ -59,16 +72,19 @@ public class TalkBackUpdateHelper {
   @VisibleForTesting static final int TALKBACK_UPDATED_NOTIFICATION_ID = 5;
 
   private final Handler handler = new Handler();
+  private final List<Runnable> notificationRunnablePendingList = new ArrayList<>();
 
   private final TalkBackService service;
   private final NotificationManager notificationManager;
   private final SharedPreferences sharedPreferences;
+  private final FormFactorUtils formFactorUtils;
 
   public TalkBackUpdateHelper(TalkBackService service) {
     this.service = service;
     notificationManager =
         (NotificationManager) this.service.getSystemService(Context.NOTIFICATION_SERVICE);
     sharedPreferences = SharedPreferencesUtils.getSharedPreferences(this.service);
+    formFactorUtils = FormFactorUtils.getInstance();
   }
 
   public void checkUpdate() {
@@ -149,28 +165,102 @@ public class TalkBackUpdateHelper {
       SelectorController.resetSelectorPreferences(service);
     }
 
-    // TalkBack 12.2, Reset Log Level to default
-    // 12.2.0.442723463 (talkback_12.2_4_RC04)
-    if (previousVersion < 60123270) {
-      editor.remove(service.getString(R.string.pref_log_level_key));
-      PreferencesActivityUtils.removeEditingKey(service.getApplicationContext());
-    }
-
-    // TalkBack 13.0, activate the window transition delay reduction
-    // TODO: update build id when 13.0 is final.
-    if (previousVersion < Integer.MAX_VALUE) {
-      if (FeatureSupport.supportsServiceControlOfGlobalAnimations()
-          && sharedPreferences.contains(service.getString(R.string.pref_reduce_window_delay_key))) {
-        // The turn-off animation feature is enabled by default in 13.0. But it needs extra
-        // configuration to activate it by disabling animation for devices running on Pre-Android T.
-        // For migration the devices which update to Android T before updating to Android 13, we
-        // will turn on the feature, too.
-        editor.remove(service.getString(R.string.pref_reduce_window_delay_key));
+    if (formFactorUtils.isAndroidWear()) {
+      // TalkBack wear 12.1, Reset Log Level to default
+      // The final version is talkback_12.1_wear3_RC00.
+      if (previousVersion < 60121543) {
+        editor.remove(service.getString(R.string.pref_log_level_key));
+        PreferencesActivityUtils.removeEditingKey(service.getApplicationContext());
+      }
+    } else {
+      // TalkBack 12.2, Reset Log Level to default
+      // 12.2.0.442723463 (talkback_12.2_4_RC04)
+      if (previousVersion < 60123270) {
+        editor.remove(service.getString(R.string.pref_log_level_key));
+        PreferencesActivityUtils.removeEditingKey(service.getApplicationContext());
       }
     }
 
-    if (!OnboardingInitiator.hasOnboardingBeenShown(
-        SharedPreferencesUtils.getSharedPreferences(service), service)) {
+    if (formFactorUtils.isAndroidWear()) {
+      // TalkBack wear 12.x, Reset voice command function to default (off)
+      // The final version is talkback_12.1_wear3_RC00.
+      if (previousVersion < 60121543) {
+        editor.remove(
+            service.getString(R.string.pref_show_context_menu_voice_commands_setting_key));
+        editor.remove(service.getString(R.string.pref_shortcut_right_and_up_key));
+      }
+    }
+
+    if (!formFactorUtils.isAndroidWear()) {
+      // TalkBack 13.0, activate the window transition delay reduction
+      // 13.0.0.451114697 (talkback_13.0.1_RC05)
+      if (previousVersion < 60124962) {
+        if (FeatureSupport.supportsServiceControlOfGlobalAnimations()
+            && sharedPreferences.contains(
+                service.getString(R.string.pref_reduce_window_delay_key))) {
+          // The turn-off animation feature is enabled by default in 13.0. But it needs extra
+          // configuration to activate it by disabling animation for devices running on Pre-Android
+          // T. For migration the devices which update to Android T before updating to Android 13,
+          // we will turn on the feature, too.
+          editor.remove(service.getString(R.string.pref_reduce_window_delay_key));
+        }
+      }
+    }
+
+    // Check upgrade from 13.0.1_RC12
+    if (previousVersion < 60125046 && previousVersion >= 60124962) {
+      if (BuildVersionUtils.isAtLeastT() && SettingsUtils.isAnimationDisabled(service)) {
+        // Resume animation unconditionally
+        service.setAnimationScale(1);
+        if (sharedPreferences.contains(
+            service.getString(R.string.pref_previous_global_window_animation_scale_key))) {
+          editor
+              .remove(service.getString(R.string.pref_previous_global_window_animation_scale_key))
+              .apply();
+        }
+      }
+    }
+
+    // Check upgrade from 13.0.0.476250252 wear (talkback_13.0_wear_2_RC01) or prior to the version
+    if (formFactorUtils.isAndroidWear()) {
+      if (previousVersion <= 60127376) {
+        // Resets to default since the capital_letters doesn't support to set by the user in the
+        // wear.
+        SharedPreferencesUtils.putStringPref(
+            sharedPreferences,
+            service.getResources(),
+            R.string.pref_capital_letters_key,
+            service.getString(R.string.pref_capital_letters_default));
+
+        // Resets to default since these gestures don't support in the wear.
+        SharedPreferencesUtils.putStringPref(
+            sharedPreferences,
+            service.getResources(),
+            R.string.pref_shortcut_2finger_3tap_hold_key,
+            service.getString(R.string.pref_shortcut_2finger_3tap_hold_default));
+        notifyGestureChange(
+            R.string.default_action_changed_details,
+            BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID,
+            R.string.talkback_built_in_gesture_open_url,
+            HELP_WEB_URL);
+      }
+
+      // Check upgrade from 14.0.0.559398617 wear
+      if (previousVersion != -1 && previousVersion < 60133190) {
+        // It represents that it is a user from old version. We regard it as that they already
+        // finished the tutorial by default.
+        sharedPreferences.edit().putBoolean(PREF_HAS_TRAINING_FINISHED, true).apply();
+      }
+    }
+
+    // TODO: If update user is real TalkBack user, the update user won't see tutorial.
+    if (previousVersion != -1) {
+      sharedPreferences.edit().putBoolean(PREF_HAS_TRAINING_FINISHED, true).apply();
+    }
+
+    if ((previousVersion != -1)
+        && !OnboardingInitiator.hasOnboardingForNewFeaturesBeenShown(
+            SharedPreferencesUtils.getSharedPreferences(service), service)) {
       notifyTalkBackUpdated();
     }
 
@@ -184,15 +274,21 @@ public class TalkBackUpdateHelper {
   }
 
   /**
-   * Shows the notification after a delay.
+   * Adds the notification to the pending list for later flushing.
    *
    * @param notification The notification to show.
    * @param notificationId The notification id.
    */
-  private void showNotification(Notification notification, int notificationId) {
+  private void addNotificationToPendingList(Notification notification, int notificationId) {
     NotificationPosterRunnable runnable =
         new NotificationPosterRunnable(notification, notificationId);
-    handler.postDelayed(runnable, NOTIFICATION_DELAY);
+    notificationRunnablePendingList.add(runnable);
+  }
+
+  /** Flushes the pending notifications. */
+  public void flushPendingNotification() {
+    notificationRunnablePendingList.forEach(
+        runnable -> handler.postDelayed(runnable, NOTIFICATION_DELAY));
   }
 
   /**
@@ -220,6 +316,7 @@ public class TalkBackUpdateHelper {
 
     editor.apply();
   }
+
   /** Copies preferences from the old preference keys, to preference keys for preset "custom". */
   private void copyVerbosityActivePrefsToPresetCustom(SharedPreferences.Editor editor) {
     Resources resources = service.getResources();
@@ -328,9 +425,9 @@ public class TalkBackUpdateHelper {
           new Intent(service, GestureChangeNotificationActivity.class);
       notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-      notificationIntent.setPackage(TALBACK_PACKAGE);
+      notificationIntent.setPackage(TALKBACK_PACKAGE);
 
-      showNotification(
+      addNotificationToPendingList(
           buildGestureChangeNotification(notificationIntent), GESTURE_CHANGE_NOTIFICATION_ID);
     }
   }
@@ -370,9 +467,9 @@ public class TalkBackUpdateHelper {
     final Intent notificationIntent = new Intent(service, GestureChangeNotificationActivity.class);
     notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-    notificationIntent.setPackage(TALBACK_PACKAGE);
+    notificationIntent.setPackage(TALKBACK_PACKAGE);
 
-    showNotification(
+    addNotificationToPendingList(
         buildGestureChangeNotification(notificationIntent), GESTURE_CHANGE_NOTIFICATION_ID);
   }
 
@@ -442,18 +539,33 @@ public class TalkBackUpdateHelper {
    * @param notificationId An identifier of this notification.
    */
   private void notifyGestureChange(int messageResId, int notificationId) {
+    notifyGestureChange(messageResId, notificationId, android.R.string.ok, null);
+  }
+
+  /**
+   * Posts a notification to notify default gestures are changed and starts {@link
+   * NotificationActivity} to shows a notification dialog when the notification is clicked.
+   *
+   * @param messageResId A string resource ID of message to show in the notification dialog.
+   * @param notificationId An identifier of this notification.
+   * @param buttonTextResId The text id in the button of this notification.
+   * @param url The url to launch web from the button in this notification.
+   */
+  private void notifyGestureChange(
+      int messageResId, int notificationId, int buttonTextResId, @Nullable String url) {
     // Build the intent to run NotificationActivity when the notification is clicked.
-    final Intent notificationIntent = new Intent(service, NotificationActivity.class);
-    notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-    notificationIntent.putExtra(
-        NotificationActivity.EXTRA_INT_DIALOG_TITLE,
-        R.string.notification_title_talkback_gestures_changed);
-    notificationIntent.putExtra(NotificationActivity.EXTRA_INT_DIALOG_MESSAGE, messageResId);
-    notificationIntent.putExtra(NotificationActivity.EXTRA_INT_NOTIFICATION_ID, notificationId);
+    final Intent notificationIntent =
+        NotificationActivity.createStartIntent(
+            service,
+            R.string.notification_title_talkback_gestures_changed,
+            messageResId,
+            notificationId,
+            buttonTextResId,
+            url);
 
     // Build notification, and run it after a delay.
-    showNotification(buildGestureChangeNotification(notificationIntent), notificationId);
+    addNotificationToPendingList(
+        buildGestureChangeNotification(notificationIntent), notificationId);
   }
 
   /**
@@ -576,11 +688,10 @@ public class TalkBackUpdateHelper {
         }
         if (!hasPrefDefaultDownAndUpKey) {
           LogUtils.d(TAG, "update down-then-up gesture value from legacy cycle pref.");
-          sharedPreferences
-              .edit()
-              .putString(
-                  shortcutDownAndUpKey, service.getString(R.string.shortcut_value_next_granularity))
-              .apply();
+          SharedPreferencesUtils.putStringPref(
+              sharedPreferences,
+              shortcutDownAndUpKey,
+              service.getString(R.string.shortcut_value_next_granularity));
         }
       }
     }
@@ -590,11 +701,11 @@ public class TalkBackUpdateHelper {
    * Posts a notification to notify TalkBack has been updated, and redirects to the onboarding page.
    */
   private void notifyTalkBackUpdated() {
-    if (FeatureSupport.isTv(service) || FeatureSupport.isWatch(service)) {
+    if (formFactorUtils.isAndroidTv() || formFactorUtils.isAndroidWear()) {
       return;
     }
 
-    showNotification(
+    addNotificationToPendingList(
         NotificationUtils.createNotification(
             service,
             service.getString(R.string.talkback_updated_notification_title),
@@ -603,7 +714,7 @@ public class TalkBackUpdateHelper {
             PendingIntent.getActivity(
                 service,
                 /* requestCode= */ 0,
-                OnboardingInitiator.createOnboardingIntent(service),
+                OnboardingInitiator.createOnboardingIntent(service, /* showExitBanner= */ true),
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE),
             /* autoCancel= */ true),
         TALKBACK_UPDATED_NOTIFICATION_ID);
@@ -623,7 +734,28 @@ public class TalkBackUpdateHelper {
 
     @Override
     public void run() {
-      notificationManager.notify(id, notification);
+      if (NotificationUtils.hasPostNotificationPermission(service)) {
+        notificationManager.notify(id, notification);
+      } else {
+        NotificationUtils.requestPostNotificationPermissionIfNeeded(
+            service,
+            new BroadcastReceiver() {
+              @Override
+              public void onReceive(Context context, Intent intent) {
+                String[] permissions = intent.getStringArrayExtra(PERMISSIONS);
+                boolean requestPostNotificationPermission =
+                    stream(permissions)
+                        .anyMatch(p -> TextUtils.equals(p, permission.POST_NOTIFICATIONS));
+
+                if (requestPostNotificationPermission) {
+                  context.unregisterReceiver(this);
+                  if (NotificationUtils.hasPostNotificationPermission(context)) {
+                    notificationManager.notify(id, notification);
+                  }
+                }
+              }
+            });
+      }
     }
   }
 }

@@ -17,17 +17,33 @@
 package com.google.android.accessibility.talkback;
 
 import android.content.Context;
+import android.os.Process;
+import java.util.HashSet;
+import java.util.Set;
 
 /** Specifics to control TV navigation. */
 public final class TvNavigation {
+  private static final long KEY_EVENT_TIMEOUT_MILLIS = 1500;
 
   private TvNavigation() {}
 
-  public static boolean isInitialFocusEnabled(Context context) {
+  public static boolean letSystemHandleDpadCenterWhenFocusNotInSync(Context context) {
+    return false;
+  }
+
+  public static Set<String> packagesDpadAllowlist(Context context) {
+    return new HashSet<>();
+  }
+
+  public static boolean useHandlerThread(Context context) {
     return true;
   }
 
-  public static boolean processDpadCenterInputFocusNodeWhenInsync(Context context) {
-    return true;
+  public static int handlerThreadPriority(Context context) {
+    return Process.THREAD_PRIORITY_VIDEO;
+  }
+
+  public static long keyEventTimeoutMillis(Context context) {
+    return KEY_EVENT_TIMEOUT_MILLIS;
   }
 }

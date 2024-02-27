@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <SwitchPreference
+        app:key="@string/pref_bd_reverse_panning_buttons"
+        app:title="@string/bd_preference_reverse_panning_buttons_title" />
+
+    <SwitchPreference
+        android:key="@string/pref_braille_overlay_key"
+        android:title="@string/bd_preference_braille_overlay_title" />
+
+    <ListPreference
+        android:key="@string/pref_bd_timed_message_duration_fraction_key"
+        android:entries="@array/timed_message_duration_fraction_entries"
+        android:entryValues="@array/timed_message_duration_fraction_entry_values"
+        android:summary="%s"
+        android:title="@string/bd_preference_timed_message_duration_title" />
+
+    <ListPreference
+        android:key="@string/pref_bd_blinking_interval_key"
+        android:summary="%s"
+        android:title="@string/bd_preference_blinking_interval_title" />
+</PreferenceScreen>

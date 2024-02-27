@@ -50,7 +50,7 @@ class SecondFingerMultiTap extends GestureMatcher {
 
     touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
     tapTimeout = ViewConfiguration.getTapTimeout();
-    doubleTapTimeout = ViewConfiguration.getDoubleTapTimeout();
+    doubleTapTimeout = GestureConfiguration.DOUBLE_TAP_TIMEOUT_MS;
     clear();
   }
 
@@ -88,8 +88,8 @@ class SecondFingerMultiTap extends GestureMatcher {
     if (!isSecondFingerInsideSlop(event, doubleTapSlop)) {
       cancelGesture(event);
     }
-    baseX = event.getX();
-    baseY = event.getY();
+    baseX = event.getX(index);
+    baseY = event.getY(index);
   }
 
   @Override

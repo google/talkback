@@ -19,36 +19,39 @@ package com.google.android.accessibility.talkback.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.view.View;
+import androidx.annotation.Nullable;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-/**
- * Utility class to access private API that allows system app to open URL on the phone. This is fake
- * class to solve copybara issue.
- */
+/** A dummy class for interaction with the remote device. */
 public class RemoteIntentUtils {
-  /**
-   * Assigns an URL intent to the preference. When clicking the preference, it would jump to URL. Do
-   * nothing since this function is used by wear only.
-   *
-   * @param fragment PreferenceFragmentCompat to get context.
-   * @param preference Preference to send Intent
-   * @param url URL which launches web page
-   */
+
+  /** An interface invoked when the animation is finished. */
+  public interface OnRemoteIntentAnimationFinishedListener {
+    void onAnimationFinished(boolean success);
+  }
+
   public static void assignWebIntentToPreference(
       PreferenceFragmentCompat fragment, Preference preference, String url) {}
 
-  /**
-   * Convenience function to start an activity for the given {@code uri} on another device and
-   * animates a success or failure message depending on the result. Do nothing since this function
-   * is used by wear only.
-   *
-   * @param uri the address to be opened
-   * @param activity the activity to display the confirmation over
-   * @param context the context for sending the intent
-   */
+  public static void assignWebIntentToPreference(
+      PreferenceFragmentCompat fragment,
+      Preference preference,
+      String url,
+      OnRemoteIntentAnimationFinishedListener listener) {}
+
   public static void startRemoteActivityToOpenUriOnPhone(
-      Uri uri, Activity activity, Context context) {}
+      Uri uri,
+      Context context,
+      Activity activity,
+      @Nullable OnRemoteIntentAnimationFinishedListener listener) {}
+
+  public static void startRemoteActivityToOpenUriOnPhone(
+      Uri uri,
+      Context context,
+      View rootView,
+      @Nullable OnRemoteIntentAnimationFinishedListener listener) {}
 
   private RemoteIntentUtils() {}
 }

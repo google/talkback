@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.talkback.imagecaption;
 
+import static com.google.android.accessibility.utils.caption.ImageCaptionUtils.CaptionType.OCR;
+
 import android.accessibilityservice.AccessibilityService;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
@@ -23,6 +25,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.android.accessibility.utils.caption.Result;
 import com.google.android.accessibility.utils.ocr.OcrController;
 import com.google.android.accessibility.utils.ocr.OcrController.OcrListener;
 import com.google.android.accessibility.utils.ocr.OcrInfo;
@@ -40,13 +43,14 @@ public class CharacterCaptionRequest extends CaptionRequest implements OcrListen
 
   /** This object takes ownership of node, caller should not recycle. */
   public CharacterCaptionRequest(
+      int requestId,
       AccessibilityService service,
       AccessibilityNodeInfoCompat node,
       Bitmap screenCapture,
       @NonNull OnFinishListener onFinishListener,
       @NonNull OnErrorListener onErrorListener,
       boolean isUserRequested) {
-    super(node, onFinishListener, onErrorListener, isUserRequested);
+    super(requestId, node, onFinishListener, onErrorListener, isUserRequested);
     ocrController = new OcrController(service, this);
     this.screenCapture = screenCapture;
   }
@@ -58,9 +62,10 @@ public class CharacterCaptionRequest extends CaptionRequest implements OcrListen
   @Override
   public void perform() {
     final List<OcrInfo> ocrInfos = new ArrayList<>();
-    ocrInfos.add(new OcrInfo(AccessibilityNodeInfoCompat.obtain(node)));
+    ocrInfos.add(new OcrInfo(node));
+    onCaptionStart();
     ocrController.recognizeTextForNodes(
-        screenCapture, ocrInfos, /* selectionBounds= */ null, new Filter.NodeCompat(node -> true));
+        screenCapture, ocrInfos, /* selectionBounds= */ null, Filter.node(node -> true));
 
     runTimeoutRunnable();
   }
@@ -72,7 +77,7 @@ public class CharacterCaptionRequest extends CaptionRequest implements OcrListen
   public void onOcrFinished(List<OcrInfo> ocrResults) {
     stopTimeoutRunnable();
     if (ocrResults == null) {
-      onError(ERROR_IMAGE_CAPTION_NO_RESULT);
+      onError(ERROR_TEXT_RECOGNITION_NO_RESULT);
       return;
     }
 
@@ -84,7 +89,6 @@ public class CharacterCaptionRequest extends CaptionRequest implements OcrListen
       }
       texts.add(text);
     }
-
-    onCaptionFinish(StringBuilderUtils.getAggregateText(texts));
+    onCaptionFinish(Result.create(OCR, StringBuilderUtils.getAggregateText(texts)));
   }
 }

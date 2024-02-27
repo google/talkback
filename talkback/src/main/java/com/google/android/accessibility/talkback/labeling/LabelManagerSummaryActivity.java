@@ -42,10 +42,10 @@ import android.widget.Toast;
 import androidx.core.content.FileProvider;
 import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
 import com.google.android.accessibility.utils.labeling.PackageLabelInfo;
+import com.google.android.accessibility.utils.preference.BasePreferencesActivity;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.io.File;
 import java.util.List;
@@ -128,7 +128,7 @@ public class LabelManagerSummaryActivity extends BasePreferencesActivity
 
     final PackageManager manager = getApplicationContext().getPackageManager();
     final List<ResolveInfo> info = manager.queryIntentActivities(importIntent, 0);
-    if (info.size() == 0) {
+    if (info.isEmpty()) {
       Toast.makeText(getApplicationContext(), R.string.no_apps_to_import_labels, Toast.LENGTH_SHORT)
           .show();
     } else {
@@ -185,7 +185,7 @@ public class LabelManagerSummaryActivity extends BasePreferencesActivity
 
           final PackageManager manager = getApplicationContext().getPackageManager();
           final List<ResolveInfo> info = manager.queryIntentActivities(shareIntent, 0);
-          if (info.size() == 0) {
+          if (info.isEmpty()) {
             Toast.makeText(
                     getApplicationContext(), R.string.no_apps_to_export_labels, Toast.LENGTH_SHORT)
                 .show();

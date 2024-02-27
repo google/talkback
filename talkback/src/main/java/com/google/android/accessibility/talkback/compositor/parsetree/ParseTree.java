@@ -21,6 +21,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
+import com.google.android.accessibility.talkback.compositor.CompositorUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -859,8 +860,8 @@ public class ParseTree {
    * @param outputId Which of the event's outputs to evaluate.
    * @param defaultValue The value to return if the mapping is unsuccessful.
    * @param delegate The delegate to retrieve variables from
-   * @return An integer value corresponding to the value mapped the the string value of the output,
-   *     or defaultValue if no mapping exists.
+   * @return An integer value corresponding to the value mapped the string value of the output, or
+   *     defaultValue if no mapping exists.
    */
   public int parseEventToEnum(
       int eventId, int outputId, int defaultValue, VariableDelegate delegate) {
@@ -1309,7 +1310,7 @@ public class ParseTree {
   @SuppressWarnings("nullness:argument")
   private static ParseTreeNode createJoinParseTreeFromObject(TreeInfo treeInfo, JSONObject value) {
     Object joinDefinition = value.opt("join");
-    String separator = value.optString("separator", ", ");
+    String separator = value.optString("separator", CompositorUtils.getSeparator());
     boolean pruneEmpty = value.optBoolean("prune_empty", true);
 
     return new ParseTreeJoinNode(

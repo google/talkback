@@ -61,6 +61,16 @@
     <color name="training_edit_text_hint_color">@color/google_grey500</color>
     <color name="training_link_text_color">#8ab5f7</color>
     <color name="training_divider_color">@color/google_grey700</color>
+    <color name="training_tip_background_color">@color/google_grey800</color>
+    <color name="training_banner_background_color">#30312B</color>
+    <color name="training_banner_button_text_color">@color/google_grey900</color>
+    <color name="training_banner_color">@color/google_red400</color>
+
+    <color name="tv_training_title_color">#E4F3FF</color>
+    <color name="tv_training_button_color">#0FDFF3FF</color>
+    <color name="tv_training_button_text_color">#E4F3FF</color>
+    <color name="tv_training_button_focused_color">#E4F3FF</color>
+    <color name="tv_training_button_focused_text_color">#001222</color>
 
     <color name="colorTalkBackIcon">#683CB7</color>
 
@@ -76,5 +86,11 @@
     <!-- Label manager text color-->
     <color name="label_text_color">@color/google_black</color>
     <color name="label_list_item_text_color">@color/google_black</color>
+
+    <!--
+    <color name="color_primary">#15B9ED</color>
+    <color name="color_secondary">#1B222D</color>
+    <color name="color_error">#171D26</color>
+    -->
 
 </resources>

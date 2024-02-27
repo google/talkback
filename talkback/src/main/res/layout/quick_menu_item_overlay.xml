@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center">
@@ -23,7 +23,7 @@
         android:layout_gravity="start|center_vertical"
         android:rotation="180"
         android:src="@drawable/ic_3_finger_swipe_right" />
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/quick_menu_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         android:textColor="@color/quick_menu_overlay_text_color"
         android:textSize="@dimen/quick_menu_overlay_text_size"
         android:textFontWeight="@integer/quick_menu_overlay_font_weight"
-        android:fontFamily="@string/accessibility_font"/>
+        app:fontFamily="@string/accessibility_font"/>
     <ImageView
         android:id="@+id/quick_menu_right_icon"
         android:layout_width="wrap_content"

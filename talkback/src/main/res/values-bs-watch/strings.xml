@@ -2,4 +2,12 @@
 <resources>
   <string name="talkback_service_description">TalkBack je čitač ekrana namijenjen prvenstveno slijepim i slabovidnim osobama. Ovaj alat omogućava interakciju s uređajem pomoću govornih povratnih informacija.</string>
   <string name="welcome_to_talkback_text">Primajte izgovorene povratne informacije da možete koristiti sat bez gledanja u ekran.</string>
+  <string name="summary_custom_action">Prikazuje se kada postoje prilagođene radnje za trenutnu stavku.</string>
+  <string name="notification_title_talkback_gestures_changed">Pokreti TalkBacka su ažurirani</string>
+  <string name="notification_message_talkback_gestures_changed">Otvorite Talkback za više detalja</string>
+  <string name="new_feature_in_talkback_title">Šta ima novo</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">Uredu</string>
+  <string name="scan_the_qr_code">Skenirajte QR kôd</string>
+  <string name="alternate_privacy_policy">Ili posjetite http://www.google.com/policies/privacy</string>
+  <string name="alternate_tos">Ili posjetite https://www.google.com/mobile/toscountry</string>
 </resources>

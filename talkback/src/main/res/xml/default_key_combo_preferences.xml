@@ -7,7 +7,7 @@
             android:key="@string/pref_select_keymap_key"
             android:title="@string/keycombo_menu_select_keymap"
             android:summary="%s"
-            android:defaultValue="@string/classic_keymap_entry_value"
+            android:defaultValue="@string/default_keymap_entry_value"
             android:entries="@array/pref_select_keymap_entries"
             android:entryValues="@array/pref_select_keymap_values" />
         <ListPreference
@@ -22,7 +22,9 @@
             android:title="@string/keycombo_menu_reset_keymap" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/keycombo_menu_category_navigation">
+    <PreferenceCategory
+        android:key="@string/pref_navigation_actions_category_key"
+        android:title="@string/keycombo_menu_category_navigation">
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_navigate_next_default"
             android:title="@string/keycombo_menu_navigate_next" />
@@ -66,7 +68,9 @@
             android:key="@string/keycombo_shortcut_perform_long_click"
             android:title="@string/keycombo_menu_perform_long_click" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/keycombo_menu_category_global">
+    <PreferenceCategory
+        android:key="@string/pref_global_actions_category_key"
+        android:title="@string/keycombo_menu_category_global">
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_global_back"
             android:title="@string/keycombo_menu_global_back" />
@@ -94,8 +98,13 @@
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_global_adjust_reading_setting_next"
             android:title="@string/keycombo_menu_global_adjust_reading_setting_next"/>
+        <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_hide_or_show_screen"
+            android:title="@string/keycombo_menu_global_hide_or_show_screen"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/keycombo_menu_category_other">
+    <PreferenceCategory
+        android:key="@string/pref_other_actions_category_key"
+        android:title="@string/keycombo_menu_category_other">
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_other_read_from_top"
             android:title="@string/keycombo_menu_other_read_from_top" />
@@ -115,13 +124,12 @@
             android:key="@string/keycombo_shortcut_other_toggle_search"
             android:title="@string/keycombo_menu_other_toggle_search" />
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
-            android:key="@string/keycombo_shortcut_open_manage_keyboard_shortcuts"
-            android:title="@string/keycombo_menu_other_open_manage_keyboard_shortcuts" />
-        <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
-            android:key="@string/keycombo_shortcut_open_talkback_settings"
-            android:title="@string/keycombo_menu_other_open_talkback_settings" />
+            android:key="@string/keycombo_shortcut_other_copy_last_spoken_phrase"
+            android:title="@string/keycombo_menu_other_copy_last_spoken_phrase"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/keycombo_menu_category_web">
+    <PreferenceCategory
+        android:key="@string/pref_web_navigation_actions_category_key"
+        android:title="@string/keycombo_menu_category_web">
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_navigate_next_button"
             android:title="@string/keycombo_menu_web_navigate_to_next_button" />

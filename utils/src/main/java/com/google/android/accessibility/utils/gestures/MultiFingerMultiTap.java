@@ -68,7 +68,7 @@ class MultiFingerMultiTap extends GestureMatcher {
     mTargetTapCount = taps;
     targetFingerCount = fingers;
     doubleTapSlop = ViewConfiguration.get(context).getScaledDoubleTapSlop() * fingers;
-    doubleTapTimeout = ViewConfiguration.getDoubleTapTimeout();
+    doubleTapTimeout = GestureConfiguration.DOUBLE_TAP_TIMEOUT_MS;
     tapTimeout = targetFingerCount * ViewConfiguration.getTapTimeout();
     touchSlop = ViewConfiguration.get(context).getScaledTouchSlop() * fingers;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">علامت حذف</string>
   <string name="symbol_ampersand">ایمپرسینڈ</string>
   <string name="symbol_angle_bracket_left">اس سے کم کا نشان</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">پاؤنڈ</string>
   <string name="symbol_pound_sterling">پاؤنڈ کرنسی کا نشان</string>
+  <string name="symbol_currency_peso">‏Peso کا نشان</string>
+  <string name="symbol_currency_dong">‏Dong کا نشان</string>
   <string name="symbol_question_mark">سوالیہ نشان</string>
   <string name="symbol_quotation_mark">علامت اقتباس</string>
   <string name="symbol_registered_trademark">رجسٹرڈ ٹریڈ مارک</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">پوری چوڑائی والا از کم کا نشان</string>
   <string name="symbol_full_width_greater_than_sign">پوری چوڑائی والا از زائد کا نشان</string>
   <string name="symbol_left_single_quotation_mark">بائیں سنگل کوٹیشن مارک</string>
+  <string name="symbol_braille">بریل %s</string>
+  <plurals name="dots">
+    <item quantity="one">نقطہ %s</item>
+    <item quantity="other">%s نقطے</item>
+  </plurals>
 </resources>

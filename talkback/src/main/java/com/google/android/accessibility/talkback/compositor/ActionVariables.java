@@ -21,21 +21,14 @@ import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
-import java.util.HashMap;
 
 /** A VariableDelegate that maps AccessbilityAction from AccessibilityNodeInfoCompat */
 class ActionVariables implements ParseTree.VariableDelegate {
   // IDs of variables.
-  private static final int ACTION_ID = 9000;
-  private static final int ACTION_LABEL = 9001;
-  private static final int ACTION_IS_CUSTOM_ACTION = 9002;
-  private static final int ACTION_IS_CLICK = 9003;
-  private static final int ACTION_IS_LONG_CLICK = 9004;
-
-  // IDs of enums.
-  private static final int ENUM_ACTION_ID = 9100;
+  private static final int ACTION_LABEL = 9000;
+  private static final int ACTION_IS_CLICK = 9001;
+  private static final int ACTION_IS_LONG_CLICK = 9002;
 
   private final Context mContext;
   private final ParseTree.VariableDelegate mParentVariables;
@@ -60,8 +53,6 @@ class ActionVariables implements ParseTree.VariableDelegate {
   @Override
   public boolean getBoolean(int variableId) {
     switch (variableId) {
-      case ACTION_IS_CUSTOM_ACTION:
-        return AccessibilityNodeInfoUtils.isCustomAction(mAction);
       case ACTION_IS_CLICK:
         return mAction.getId() == AccessibilityNodeInfoCompat.ACTION_CLICK;
       case ACTION_IS_LONG_CLICK:
@@ -100,12 +91,7 @@ class ActionVariables implements ParseTree.VariableDelegate {
 
   @Override
   public int getEnum(int variableId) {
-    switch (variableId) {
-      case ACTION_ID:
-        return mAction.getId();
-      default:
-        return mParentVariables.getEnum(variableId);
-    }
+    return mParentVariables.getEnum(variableId);
   }
 
   @Override
@@ -132,19 +118,9 @@ class ActionVariables implements ParseTree.VariableDelegate {
   }
 
   static void declareVariables(ParseTree parseTree) {
-    // Enumerations
-    // For action IDs, only the values in AccessibilityNodeInfo/Compat are valid at test time, not
-    // the values in AccessibilityAction/Compat.
-    HashMap<Integer, String> actions = new HashMap<>();
-    actions.put(AccessibilityNodeInfoCompat.ACTION_DISMISS, "dismiss");
-    actions.put(AccessibilityNodeInfoCompat.ACTION_EXPAND, "expand");
-    actions.put(AccessibilityNodeInfoCompat.ACTION_COLLAPSE, "collapse");
-    parseTree.addEnum(ENUM_ACTION_ID, actions);
 
     // Variables.
-    parseTree.addEnumVariable("action.id", ACTION_ID, ENUM_ACTION_ID);
     parseTree.addStringVariable("action.label", ACTION_LABEL);
-    parseTree.addBooleanVariable("action.isCustomAction", ACTION_IS_CUSTOM_ACTION);
     parseTree.addBooleanVariable("action.isClick", ACTION_IS_CLICK);
     parseTree.addBooleanVariable("action.isLongClick", ACTION_IS_LONG_CLICK);
   }

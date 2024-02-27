@@ -19,7 +19,7 @@ package com.google.android.accessibility.talkback.interpreters;
 import static com.google.android.accessibility.talkback.Interpretation.ID.Value.SUBTREE_CHANGED;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
-import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
@@ -27,22 +27,66 @@ import com.google.android.accessibility.talkback.Interpretation.ID;
 import com.google.android.accessibility.talkback.Pipeline.InterpretationReceiver;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.WeakReferenceHandler;
+import com.google.android.accessibility.utils.monitor.DisplayMonitor;
+import com.google.android.accessibility.utils.monitor.DisplayMonitor.DisplayStateChangedListener;
 
 /** Interprets subtree-change event, and sends interpretations to the pipeline. */
-public class SubtreeChangeEventInterpreter implements AccessibilityEventListener {
-  // The delay of interpreting subtree changed events. System may send a series of subtree changed
-  // events in a short time, so defer the interpretation until the screen is under a stabler state.
-  // The value should be longer than 100ms because system might delay 100ms to aggregate multiple
-  // events.
-  private static final int SUBTREE_CHANGED_DELAY_MS = 150;
+public class SubtreeChangeEventInterpreter
+    implements AccessibilityEventListener, DisplayStateChangedListener {
+  /**
+   * The delay of interpreting subtree changed events. System may send a series of subtree changed
+   * events in a short time, so defer the interpretation until the screen is under a stabler state.
+   * The value should be longer than ViewConfiguration#getSendRecurringAccessibilityEventsInterval
+   * (100ms) because system might delay 100ms to aggregate multiple events.
+   */
+  static final int SHORT_SUBTREE_CHANGED_DELAY_MS = 150;
+  /**
+   * The long delay of interpreting subtree changed events. For wear devices, they have multiple
+   * attempts for auto scrolling. Ideally, CONTENT_CHANGE_TYPE_SUBTREE and TYPE_VIEW_SCROLLED are
+   * sent at most once in every ViewConfiguration#getSendRecurringAccessibilityEventsInterval
+   * (100ms). The reason why we extend delay time is that when onAutoScrolled is called, it should
+   * spend more times (~350ms) on calculating whether it needs to perform auto-scrolling one more
+   * time and performing scrolling action. It is an experimental value and feel free to change it.
+   */
+  static final int LONG_SUBTREE_CHANGED_DELAY_MS = 350;
+
+  private int subtreeChangedDelayMs = SHORT_SUBTREE_CHANGED_DELAY_MS;
 
   private final SubtreeChangedHandler subtreeChangedHandler;
   private final ScreenStateMonitor.State screenState;
+  // Default is true since we assume when it receive a11y event without callback invocation, the
+  // default display should be on.
+  private boolean defaultDisplayOn = true;
+  private final DisplayMonitor displayMonitor;
 
-  public SubtreeChangeEventInterpreter(ScreenStateMonitor.State state) {
-    subtreeChangedHandler = new SubtreeChangedHandler();
+  /** Event types that are handled by SubtreeChangeEventInterpreter. */
+  private final int maskEventType;
+
+  private final FormFactorUtils formFactorUtils;
+
+  public SubtreeChangeEventInterpreter(
+      ScreenStateMonitor.State state, DisplayMonitor displayMonitor) {
+    subtreeChangedHandler = new SubtreeChangedHandler(this);
     screenState = state;
+    this.displayMonitor = displayMonitor;
+
+    formFactorUtils = FormFactorUtils.getInstance();
+
+    maskEventType =
+        formFactorUtils.isAndroidWear()
+            ? AccessibilityEvent.TYPE_VIEW_SCROLLED | AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED
+            : AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED;
+  }
+
+  public void onResumeInfrastructure() {
+    displayMonitor.addDisplayStateChangedListener(this);
+  }
+
+  public void onSuspendInfrastructure() {
+    displayMonitor.removeDisplayStateChangedListener(this);
   }
 
   public void setPipeline(InterpretationReceiver pipeline) {
@@ -51,7 +95,7 @@ public class SubtreeChangeEventInterpreter implements AccessibilityEventListener
 
   @Override
   public int getEventTypes() {
-    return AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED;
+    return maskEventType;
   }
 
   @Override
@@ -60,8 +104,9 @@ public class SubtreeChangeEventInterpreter implements AccessibilityEventListener
       return;
     }
 
-    if ((event.getContentChangeTypes() & AccessibilityEventCompat.CONTENT_CHANGE_TYPE_SUBTREE)
-        == 0) {
+    if ((event.getEventType() & AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) != 0
+        && (event.getContentChangeTypes() & AccessibilityEventCompat.CONTENT_CHANGE_TYPE_SUBTREE)
+            == 0) {
       return;
     }
 
@@ -75,19 +120,58 @@ public class SubtreeChangeEventInterpreter implements AccessibilityEventListener
       return;
     }
 
+    // Do nothing if the display is off.
+    if (!defaultDisplayOn) {
+      return;
+    }
+
+    extendSubtreeChangedDelayMsIfNeeded(event);
+
     Message msg =
         subtreeChangedHandler.obtainMessage(
             SubtreeChangedHandler.MSG_CHECK_ACCESSIBILITY_FOCUS, eventId);
-    subtreeChangedHandler.sendMessageDelayed(msg, SUBTREE_CHANGED_DELAY_MS);
+    subtreeChangedHandler.sendMessageDelayed(msg, subtreeChangedDelayMs);
+  }
+
+  /**
+   * Extends the message delayed time to {@link #LONG_SUBTREE_CHANGED_DELAY_MS} for a wear device's
+   * {@link AccessibilityEvent#TYPE_VIEW_SCROLLED} event to check whether their is a subsequent
+   * scrolling action. Besides, if the delay time is extended, we don't change the delay time while
+   * receiving other events types.
+   */
+  private void extendSubtreeChangedDelayMsIfNeeded(AccessibilityEvent event) {
+    if (formFactorUtils.isAndroidWear()
+        && (event.getEventType() & AccessibilityEvent.TYPE_VIEW_SCROLLED) != 0) {
+      subtreeChangedDelayMs = LONG_SUBTREE_CHANGED_DELAY_MS;
+    }
+  }
+
+  /** Resets message delayed time to the default {@link #SHORT_SUBTREE_CHANGED_DELAY_MS}. */
+  private void resetSubtreeChangedDelayMs() {
+    subtreeChangedDelayMs = SHORT_SUBTREE_CHANGED_DELAY_MS;
+  }
+
+  @Override
+  public void onDisplayStateChanged(boolean displayOn) {
+    defaultDisplayOn = displayOn;
+    if (!defaultDisplayOn) {
+      // If the display is off, we don't need to do it anymore.
+      subtreeChangedHandler.removeMessages(SubtreeChangedHandler.MSG_CHECK_ACCESSIBILITY_FOCUS);
+    }
   }
 
   /** A handler to delay the interpretation of subtree change event. */
-  private static class SubtreeChangedHandler extends Handler {
+  private static class SubtreeChangedHandler
+      extends WeakReferenceHandler<SubtreeChangeEventInterpreter> {
     static final int MSG_CHECK_ACCESSIBILITY_FOCUS = 1;
     InterpretationReceiver pipeline;
 
+    SubtreeChangedHandler(SubtreeChangeEventInterpreter interpreter) {
+      super(interpreter, Looper.myLooper());
+    }
+
     @Override
-    public void handleMessage(Message msg) {
+    public void handleMessage(Message msg, SubtreeChangeEventInterpreter parent) {
       if (pipeline == null) {
         return;
       }
@@ -97,6 +181,7 @@ public class SubtreeChangeEventInterpreter implements AccessibilityEventListener
         if (msg.obj != null && msg.obj instanceof EventId) {
           eventId = (EventId) msg.obj;
         }
+        parent.resetSubtreeChangedDelayMs();
         pipeline.input(eventId, new ID(SUBTREE_CHANGED));
       }
     }

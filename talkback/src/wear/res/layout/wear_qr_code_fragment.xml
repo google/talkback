@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <ScrollView
+      android:id="@+id/qrcode_scrollview"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <!-- TODO -->
+      <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center_horizontal"
+          app:fontFamily="@string/accessibility_font"
+          android:layout_marginTop="32dp"
+          android:textSize="16sp"
+          android:textColor="@color/a11y_wear_material_color_on_background_wear"/>
+
+      <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/call_to_action"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center_horizontal"
+          app:fontFamily="@string/accessibility_font"
+          android:layout_marginTop="16dp"
+          android:textSize="16sp"
+          android:textColor="@color/a11y_wear_material_color_on_background_wear"/>
+
+      <ImageView
+          android:id="@+id/qrcode"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_marginTop="8dp"
+          android:scaleType="fitCenter"
+          android:layout_gravity="center_horizontal"
+          android:contentDescription="@string/scan_the_qr_code"/>
+
+      <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/alternate"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center_horizontal"
+          app:fontFamily="@string/accessibility_font"
+          android:layout_marginTop="8dp"
+          android:layout_marginHorizontal="10dp"
+          android:layout_marginBottom="32dp"
+          android:textSize="14sp"
+          android:textColor="@color/a11y_wear_material_color_on_background_wear"/>
+
+    </LinearLayout>
+
+  </ScrollView>
+
+</FrameLayout>

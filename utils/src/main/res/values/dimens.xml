@@ -18,5 +18,44 @@
 <resources>
     <dimen name="tts_overlay_text_padding">8dp</dimen>
     <dimen name="tts_overlay_text_bottom_margin">12dp</dimen>
-    <dimen name="full_screen_preference_fragment_padding_on_watch">8dp</dimen>
+
+    <dimen name="wearable_alert_dialog_padding_top">8dp</dimen>
+    <dimen name="wearable_alert_dialog_padding_bottom">8dp</dimen>
+    <dimen name="wearable_alert_dialog_padding_start">20dp</dimen>
+    <dimen name="wearable_alert_dialog_padding_end">20dp</dimen>
+    <dimen name="wearable_alert_dialog_button_padding_start">50dp</dimen>
+    <dimen name="wearable_alert_dialog_button_padding_end">50dp</dimen>
+    <dimen name="wearable_alert_dialog_button_min_height">52dp</dimen>
+
+    <dimen name="wearable_button_icon_size">24dp</dimen>
+
+
+    <!-- Gesture recognition parameters. -->
+    <!-- Distance in cm a finger must travel before we decide if it is a gesture or not. -->
+    <item name="config_gesture_confirm_distance_cm" format="float" type="dimen">1.0</item>
+
+    <!-- Time threshold in ms used to determine if an interaction is a gesture or not. If the first
+         movement of 1cm takes longer than this value, we assume it's a slow movement, and
+         therefore not a gesture.
+
+         This value was determined by measuring the time for the first
+         1cm movement when gesturing, and touch exploring.  Based on user testing, all gestures
+         started with the initial movement taking less than 100ms. When touch exploring,
+         the first movement almost always takes longer than 200ms. -->
+    <integer name="config_max_time_to_start_swipe_ms_per_cm">150</integer>
+
+    <!-- Time threshold used to determine if a gesture should be cancelled. If the finger takes
+         more than this time to move to the next sample point, the ongoing gesture is cancelled. -->
+    <integer name="config_max_time_to_continue_swipe_ms_per_cm">350</integer>
+
+    <!-- Delta time as an offset to be added to ViewConfiguration.getTapTimeout(). -->
+    <integer name="config_tap_timeout_delta">0</integer>
+
+    <!-- Determine how far the 2-finger movement is regarded passthrough gesture. -->
+    <integer name="config_passthrough_slop_multiplier">3</integer>
+
+    <integer name="config_slop_default_multiplier">1</integer>
+
+
+    <dimen name="google_material_corner_radius">28dp</dimen>
 </resources>

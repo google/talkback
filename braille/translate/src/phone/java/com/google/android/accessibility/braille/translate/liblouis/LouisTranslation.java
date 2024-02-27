@@ -16,11 +16,11 @@
 
 package com.google.android.accessibility.braille.translate.liblouis;
 
-import android.os.Build;
 import android.util.Log;
+import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
+import com.google.android.accessibility.braille.interfaces.BrailleWord;
 import com.google.android.accessibility.braille.translate.TranslationResult;
-import java.lang.reflect.Field;
-import java.util.Set;
+import com.google.android.accessibility.utils.braille.BrailleUnicode;
 
 /**
  * Wraps the liblouis functions to translate to and from braille.
@@ -77,8 +77,20 @@ public class LouisTranslation {
 
   /** Translates a string into the corresponding dot patterns. */
   public static TranslationResult translate(
-      CharSequence text, String tableName, int cursorPosition, boolean computerBrailleAtCursor) {
-    return translateNative(text, tableName, cursorPosition, computerBrailleAtCursor);
+      CharSequence text, String tableName, int cursorPosition) {
+    TranslationResult result = translateNative(text, tableName, cursorPosition);
+    // Force translate braille unicode character to correct translation.
+    for (int i = 0; i < text.length(); i++) {
+      if (BrailleUnicode.isBraille(text.charAt(i))) {
+        result =
+            TranslationResult.correctTranslation(
+                result,
+                new BrailleWord(new BrailleCharacter(BrailleUnicode.toDotNumbers(text.charAt(i)))),
+                i,
+                i + 1);
+      }
+    }
+    return result;
   }
 
   /** Back-translates a byte array of dot patterns into the corresponding String. */
@@ -89,7 +101,7 @@ public class LouisTranslation {
   // Native methods.
 
   private static native TranslationResult translateNative(
-      CharSequence text, String tableName, int cursorPosition, boolean computerBrailleAtCursor);
+      CharSequence text, String tableName, int cursorPosition);
 
   private static native String backTranslateNative(byte[] dotPatterns, String tableName, int mode);
 
@@ -100,31 +112,8 @@ public class LouisTranslation {
   private static native void classInitNative();
 
   static {
-    if (isRobolectric()) {
-      // To prevent when a test is testing multiple sdk level, following exception will happen.
-      // java.lang.UnsatisfiedLinkError: Native Library xxx/liblouiswrap.so already loaded in
-      // another classloader.
-      clearLoadedLibraryNames();
-    }
     System.loadLibrary("louiswrap");
     classInitNative();
-  }
-
-  private static boolean isRobolectric() {
-    return "robolectric".equals(Build.FINGERPRINT);
-  }
-
-  @SuppressWarnings("unchecked")
-  private static void clearLoadedLibraryNames() {
-    try {
-      Field loadedLibraryNamesField = ClassLoader.class.getDeclaredField("loadedLibraryNames");
-      loadedLibraryNamesField.setAccessible(true);
-      Set<String> libraries =
-          (Set<String>) loadedLibraryNamesField.get(ClassLoader.getSystemClassLoader());
-      libraries.clear();
-    } catch (NoSuchFieldException | IllegalAccessException e) {
-      Log.w(LOG_TAG, "Can't clear loaded library names.");
-    }
   }
 
   private LouisTranslation() {}

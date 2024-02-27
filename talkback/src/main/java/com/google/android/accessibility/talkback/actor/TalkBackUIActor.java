@@ -17,11 +17,10 @@
 package com.google.android.accessibility.talkback.actor;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.quickmenu.QuickMenuOverlay;
-import com.google.android.accessibility.utils.DarkModeUtils;
-import com.google.android.accessibility.utils.FeatureSupport;
 import java.util.Collection;
 import java.util.EnumMap;
 import java.util.Map;
@@ -45,15 +44,19 @@ public class TalkBackUIActor {
     SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER,
     /** Shows the current action after adjusting the selected item via selector. */
     SELECTOR_ITEM_ACTION_OVERLAY,
+    /**
+     * Shows the current action or status of the action after set up the configuration, such as
+     * adjusting the volume, via the gesture.
+     */
+    GESTURE_ACTION_OVERLAY,
   }
 
   private final Map<Type, QuickMenuOverlay> typeToOverlay = new EnumMap<>(Type.class);
   private final Context context;
-  private boolean darkMode;
+  private Configuration cachedConfig;
 
   public TalkBackUIActor(Context context) {
     this.context = context;
-    darkMode = DarkModeUtils.isDarkModeEnabledInContext(context);
     createOverlays(context);
   }
 
@@ -68,6 +71,9 @@ public class TalkBackUIActor {
             context, R.layout.quick_menu_item_overlay_without_multifinger_gesture));
     typeToOverlay.put(
         Type.SELECTOR_ITEM_ACTION_OVERLAY,
+        new QuickMenuOverlay(context, R.layout.quick_menu_item_action_overlay));
+    typeToOverlay.put(
+        Type.GESTURE_ACTION_OVERLAY,
         new QuickMenuOverlay(context, R.layout.quick_menu_item_action_overlay));
   }
 
@@ -126,17 +132,20 @@ public class TalkBackUIActor {
   }
 
   /** Calls when the device configuration changes */
-  public boolean onConfigurationChanged() {
-    if (!FeatureSupport.supportDarkTheme()) {
-      return false;
-    }
-
-    boolean newDarkMode = DarkModeUtils.isDarkModeEnabledInContext(context);
-
-    if (darkMode != newDarkMode) {
+  public boolean onConfigurationChanged(Configuration configuration) {
+    if ((cachedConfig == null)
+        || (cachedConfig.densityDpi != configuration.densityDpi)
+        || (cachedConfig.getLayoutDirection() != configuration.getLayoutDirection())
+        || ((cachedConfig.uiMode & Configuration.UI_MODE_NIGHT_MASK)
+            != (configuration.uiMode & Configuration.UI_MODE_NIGHT_MASK))
+        || (cachedConfig.fontScale != configuration.fontScale)
+        || (cachedConfig.screenWidthDp != configuration.screenWidthDp)
+        || (cachedConfig.screenHeightDp != configuration.screenHeightDp)
+        || (cachedConfig.orientation != configuration.orientation)) {
+      // Re-create the overlay when screen layout/density/font size/orientation changed.
       createOverlays(context);
-      darkMode = newDarkMode;
     }
+    cachedConfig = new Configuration(configuration);
     return true;
   }
 }

@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.talkback.compositor.parsetree;
 
+import android.util.Log;
 import androidx.annotation.Nullable;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
@@ -65,15 +66,19 @@ class ParseTreeCommentNode extends ParseTreeNode {
 
   @Override
   public boolean resolveToBoolean(ParseTree.VariableDelegate delegate, String logIndent) {
-    logIndent = updateIndent(logIndent);
-    LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    if (LogUtils.shouldLog(Log.VERBOSE)) {
+      logIndent = updateIndent(logIndent);
+      LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    }
     return mChild != null && mChild.resolveToBoolean(delegate, logIndent);
   }
 
   @Override
   public int resolveToInteger(ParseTree.VariableDelegate delegate, String logIndent) {
-    logIndent = updateIndent(logIndent);
-    LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    if (LogUtils.shouldLog(Log.VERBOSE)) {
+      logIndent = updateIndent(logIndent);
+      LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    }
     if (mChild != null) {
       return mChild.resolveToInteger(delegate, logIndent);
     }
@@ -82,8 +87,10 @@ class ParseTreeCommentNode extends ParseTreeNode {
 
   @Override
   public double resolveToNumber(ParseTree.VariableDelegate delegate, String logIndent) {
-    logIndent = updateIndent(logIndent);
-    LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    if (LogUtils.shouldLog(Log.VERBOSE)) {
+      logIndent = updateIndent(logIndent);
+      LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    }
     if (mChild != null) {
       return mChild.resolveToNumber(delegate, logIndent);
     }
@@ -92,8 +99,10 @@ class ParseTreeCommentNode extends ParseTreeNode {
 
   @Override
   public CharSequence resolveToString(ParseTree.VariableDelegate delegate, String logIndent) {
-    logIndent = updateIndent(logIndent);
-    LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    if (LogUtils.shouldLog(Log.VERBOSE)) {
+      logIndent = updateIndent(logIndent);
+      LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    }
     if (mChild != null) {
       return mChild.resolveToString(delegate, logIndent);
     }
@@ -104,8 +113,10 @@ class ParseTreeCommentNode extends ParseTreeNode {
   @Nullable
   public ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
-    logIndent = updateIndent(logIndent);
-    LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    if (LogUtils.shouldLog(Log.VERBOSE)) {
+      logIndent = updateIndent(logIndent);
+      LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    }
     if (mChild != null) {
       return mChild.resolveToReference(delegate, logIndent);
     }
@@ -114,8 +125,10 @@ class ParseTreeCommentNode extends ParseTreeNode {
 
   @Override
   public List<CharSequence> resolveToArray(ParseTree.VariableDelegate delegate, String logIndent) {
-    logIndent = updateIndent(logIndent);
-    LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    if (LogUtils.shouldLog(Log.VERBOSE)) {
+      logIndent = updateIndent(logIndent);
+      LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    }
     if (mChild != null) {
       return mChild.resolveToArray(delegate, logIndent);
     }
@@ -125,8 +138,10 @@ class ParseTreeCommentNode extends ParseTreeNode {
   @Override
   public List<ParseTree.VariableDelegate> resolveToChildArray(
       ParseTree.VariableDelegate delegate, String logIndent) {
-    logIndent = updateIndent(logIndent);
-    LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    if (LogUtils.shouldLog(Log.VERBOSE)) {
+      logIndent = updateIndent(logIndent);
+      LogUtils.v(TAG, "%s%s", logIndent, String.format(mCommentFormat, mArgs));
+    }
     if (mChild != null) {
       return mChild.resolveToChildArray(delegate, logIndent);
     }

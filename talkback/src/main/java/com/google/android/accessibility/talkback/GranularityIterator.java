@@ -16,9 +16,15 @@
 
 package com.google.android.accessibility.talkback;
 
+import android.graphics.Rect;
+import android.text.TextUtils;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import java.text.BreakIterator;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -93,6 +99,19 @@ public final class GranularityIterator {
         }
     }
     return null;
+  }
+
+  /**
+   * Gets the iterator for line granularity traversal.
+   *
+   * @param node the node users wish to navigate within is used to get the location of text.
+   * @param text the text users wish to navigate within.
+   * @return the iterator for text traversal.
+   */
+  static TextSegmentIterator getLineIterator(AccessibilityNodeInfoCompat node, CharSequence text) {
+    LineTextSegmentIterator iterator = LineTextSegmentIterator.getInstance();
+    iterator.initialize(node, text);
+    return iterator;
   }
 
   /** Top level class for Talkback iterators */
@@ -298,6 +317,180 @@ public final class GranularityIterator {
         return Character.isLetterOrDigit(codePoint);
       }
       return false;
+    }
+  }
+
+  /**
+   * An iterator for line granularity traversal.
+   *
+   * <p>The next segment is the following line if the cursor is at the end of the line. Otherwise,
+   * the text after the cursor in the current line is the next segment.
+   *
+   * <p>The previous segment is the preceding line if the cursor is at the beginning of the line.
+   * Otherwise, the text before the cursor in the current line is the previous segment.
+   */
+  // TODO: It's better to take these private static classes out as package-private
+  // classes to maintain easily because they have large logic.
+  private static class LineTextSegmentIterator extends AbstractTextSegmentIterator {
+
+    private static class LazyHolder {
+      static final LineTextSegmentIterator INSTANCE = new LineTextSegmentIterator();
+    }
+
+    private static final int INVALID_INDEX = -1;
+
+    private LineTextSegmentIterator() {}
+
+    private static LineTextSegmentIterator getInstance() {
+      return LazyHolder.INSTANCE;
+    }
+
+    private AccessibilityNodeInfoCompat node;
+
+    void initialize(AccessibilityNodeInfoCompat node, CharSequence text) {
+      super.initialize(text.toString());
+      this.node = node;
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>If the text location list for the visible text in the node is empty, the returned value is
+     * also {@code null}.
+     */
+    @Nullable
+    @Override
+    public int[] following(int current) {
+      CharSequence text = getIteratorText();
+      if (TextUtils.isEmpty(text) || node == null) {
+        return null;
+      }
+
+      int textLength = text.length();
+      if (current >= textLength) {
+        return null;
+      }
+      if (current < 0) {
+        current = 0;
+      }
+
+      List<Rect> visibleTextLocations = new ArrayList<>();
+      int visibleTextIndex = getTextLocationsInNode(node, text, current, visibleTextLocations);
+      if (visibleTextIndex == INVALID_INDEX) {
+        return null;
+      }
+
+      int start = current;
+      int end = current;
+      do {
+        visibleTextIndex++;
+        end++;
+      } while (!isEndBoundary(visibleTextIndex, end, text, visibleTextLocations));
+
+      return getRange(start, end);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>If the text location list for the visible text in the node is empty, the returned value is
+     * also {@code null}.
+     */
+    @Nullable
+    @Override
+    public int[] preceding(int current) {
+      CharSequence text = getIteratorText();
+      if (TextUtils.isEmpty(text) || node == null) {
+        return null;
+      }
+
+      int textLength = getIteratorText().length();
+      if (current <= 0) {
+        return null;
+      }
+      if (current > textLength) {
+        current = textLength;
+      }
+
+      List<Rect> visibleTextLocations = new ArrayList<>();
+      int visibleTextIndex = getTextLocationsInNode(node, text, current, visibleTextLocations);
+      if (visibleTextIndex == INVALID_INDEX) {
+        return null;
+      }
+
+      int start = current;
+      int end = current;
+
+      do {
+        visibleTextIndex--;
+        start--;
+      } while (!isStartBoundary(visibleTextIndex, visibleTextLocations));
+
+      return getRange(start, end);
+    }
+
+    /**
+     * Gets the location of visible characters in the given node.
+     *
+     * @param node the node being queried.
+     * @param text the accessibility text of {@code node}.
+     * @param current the current index of the cursor in {@code} text.
+     * @param visibleTextLocations a list of location for all visible characters
+     * @return the index of the cursor in the visible text location list, or {@link
+     *     LineTextSegmentIterator#INVALID_INDEX} if the visible text location list is empty
+     */
+    private static int getTextLocationsInNode(
+        AccessibilityNodeInfoCompat node,
+        CharSequence text,
+        int current,
+        List<Rect> visibleTextLocations) {
+      int textLength = text.length();
+      // Gets locations of visible characters which are before the cursor.
+      if (current > 0) {
+        List<Rect> preTextLocations =
+            AccessibilityNodeInfoUtils.getTextLocations(node, text, 0, current);
+        if (preTextLocations != null) {
+          visibleTextLocations.addAll(preTextLocations);
+        }
+      }
+
+      // AccessibilityNodeInfoUtils.getTextLocations() only returns location of characters which are
+      // shown on the screen.
+      int visibleTextIndex = visibleTextLocations.size();
+
+      // Gets location of visible characters which are after the cursor
+      if (current < textLength) {
+        List<Rect> postTextLocations =
+            AccessibilityNodeInfoUtils.getTextLocations(node, text, current, textLength);
+        if (postTextLocations != null) {
+          visibleTextLocations.addAll(postTextLocations);
+        }
+      }
+
+      if (visibleTextLocations.isEmpty()) {
+        return INVALID_INDEX;
+      }
+
+      return visibleTextIndex;
+    }
+
+    private static boolean isStartBoundary(int index, List<Rect> textLocations) {
+      return index <= 0 || textLocations.get(index - 1).top < textLocations.get(index).top;
+    }
+
+    private static boolean isEndBoundary(
+        int index, int visibleTextIndex, CharSequence text, List<Rect> textLocations) {
+      int size = textLocations.size();
+      if (index < 0) {
+        return false;
+      } else if (visibleTextIndex < text.length() && text.charAt(visibleTextIndex) == '\n') {
+        return true;
+      } else if (index >= size) {
+        return true;
+      } else if (index == size - 1) {
+        return false;
+      }
+      return textLocations.get(index).top < textLocations.get(index + 1).top;
     }
   }
 

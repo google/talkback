@@ -1,0 +1,156 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+include fnkey.kti
+hide on
+
+bind Dot7 KEY_BACKSPACE
+bind Dot8 KEY_ENTER
+
+bind Space+Dot1+Dot3+Dot6 UPPER
+bind Space+Dot1+Dot3+Dot4 META
+
+bind Space+Dot1+Dot5 KEY_ESCAPE
+bind Space+Dot2+Dot4 KEY_INSERT
+bind Space+Dot1+Dot4+Dot5 KEY_DELETE
+
+bind F2+Dot1+Dot2+Dot3+Dot4+Dot8 KEY_INSERT+control
+bind F1+Dot1+Dot2+Dot3+Dot4+Dot8 KEY_INSERT+shift+control
+
+bind Space+Dot4+Dot5 KEY_TAB
+bind Space+Dot1+Dot2 KEY_TAB+shift
+bind Space+Dot1+Dot2+Dot8 KEY_TAB+control
+bind F2+F3 KEY_TAB+meta
+bind F1+F2+F3 KEY_TAB+shift+meta
+
+bind Space+Dot1+Dot3 KEY_HOME
+bind Space+Dot4+Dot6 KEY_END
+
+bind Space+Dot1+Dot2+Dot3 KEY_HOME+control
+bind Space+Dot4+Dot5+Dot6 KEY_END+control
+
+bind Space+Dot1+Dot2+Dot6 KEY_PAGE_UP
+bind Space+Dot3+Dot4+Dot5 KEY_PAGE_DOWN
+
+bind Space+Dot1+Dot2+Dot6+Dot8 KEY_PAGE_UP+control
+bind Space+Dot3+Dot4+Dot5+Dot8 KEY_PAGE_DOWN+control
+
+bind Space+Dot1 KEY_CURSOR_UP
+bind Space+Dot4 KEY_CURSOR_DOWN
+
+bind Space+RightScrollUp KEY_CURSOR_UP+shift
+bind Space+RightScrollDown KEY_CURSOR_DOWN+shift
+
+bind Space+Dot2+Dot3 KEY_CURSOR_UP+control
+bind Space+Dot5+Dot6 KEY_CURSOR_DOWN+control
+
+bind F1+Space+Dot2+Dot3+Dot8 KEY_CURSOR_UP+shift+control
+bind F1+Space+Dot5+Dot6+Dot8 KEY_CURSOR_DOWN+shift+control
+
+bind Dot2+Dot3+Dot7 KEY_CURSOR_UP+meta
+bind Dot5+Dot6+Dot7 KEY_CURSOR_DOWN+meta
+
+bind F1+Dot2+Dot3+Dot7 KEY_CURSOR_UP+shift+meta
+bind F1+Dot5+Dot6+Dot7 KEY_CURSOR_DOWN+shift+meta
+
+bind Space+Dot3 KEY_CURSOR_LEFT
+bind Space+Dot6 KEY_CURSOR_RIGHT
+
+bind Space+Dot2 KEY_CURSOR_LEFT+control
+bind Space+Dot5 KEY_CURSOR_RIGHT+control
+
+bind F1+Space+Dot2+Dot8 KEY_CURSOR_LEFT+shift+control
+bind F1+Space+Dot5+Dot8 KEY_CURSOR_RIGHT+shift+control
+
+bind Dot2+Dot7 KEY_CURSOR_LEFT+meta
+bind Dot5+Dot7 KEY_CURSOR_RIGHT+meta
+
+bind F1+Dot2+Dot7 KEY_CURSOR_LEFT+shift+meta
+bind F1+Dot5+Dot7 KEY_CURSOR_RIGHT+shift+meta
+
+bind Space+Dot1+Dot2+Dot5 KEY_FUNCTION+0
+bind F4+Space+Dot1+Dot2 KEY_FUNCTION+1
+bind F4+Dot1+Dot2+Dot4+Dot8 KEY_FUNCTION+2
+bind F3+Dot7 KEY_FUNCTION+3
+bind F2+Dot7 KEY_FUNCTION+4
+bind F4+Dot7 KEY_FUNCTION+5
+bind F4+Space KEY_FUNCTION+6
+bind F4+Dot8 KEY_FUNCTION+7
+bind Dot3+Dot4+Dot5+Dot6+Dot7 KEY_FUNCTION+8
+bind Space+Dot1+Dot3+Dot5 KEY_FUNCTION+9
+bind Dot1+Dot4+Dot5+Dot6+Dot7 KEY_FUNCTION+10
+bind F4+Dot1+Dot2+Dot4+Dot5+Dot8 KEY_FUNCTION+11
+
+bind F1+Dot7 KEY_FUNCTION+5+shift
+bind F1+Space KEY_FUNCTION+6+shift
+bind F1+Dot8 KEY_FUNCTION+7+shift
+bind F1+F4 KEY_FUNCTION+9+meta
+
+map Space SPACE
+map Dot1 dot1
+map Dot2 dot2
+map Dot3 dot3
+map Dot4 dot4
+map Dot5 dot5
+map Dot6 dot6
+
+bind Space+Dot7+Dot4 PASSDOTS+dot4
+bind Space+Dot7+Dot2+Dot4+Dot6 PASSDOTS+dot2+dot4+dot6
+bind Space+Dot7+Dot1+Dot2+Dot5+Dot6 PASSDOTS+dot1+dot2+dot5+dot6
+bind Space+Dot7+Dot2+Dot3+Dot4+Dot5+Dot6 PASSDOTS+dot2+dot3+dot4+dot5+dot6
+bind Space+Dot7+Dot4+Dot5 PASSDOTS+dot4+dot5
+
+beginVariables
+assign keys
+assign flags
+include letters.kti
+endVariables
+
+beginVariables
+assign keys Space+Dot7+
+assign flags +shift
+include letters.kti
+endVariables
+
+beginVariables
+assign keys F1+Dot7+
+assign flags +shift+meta
+include letters.kti
+endVariables
+
+beginVariables
+assign keys Dot7+
+# these conflict with shifted letters
+#assign flags +meta
+assign flags +shift
+include letters.kti
+endVariables
+
+beginVariables
+assign keys Dot8+
+assign flags +control
+include letters.kti
+endVariables
+
+beginVariables
+assign keys F1+
+assign flags +gui
+include letters.kti
+endVariables
+
+hide off

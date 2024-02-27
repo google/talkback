@@ -16,8 +16,11 @@
 
 package com.google.android.accessibility.utils;
 
+import static java.lang.Math.max;
+
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.util.Arrays;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -50,6 +53,7 @@ public class StringBuilderUtils {
   // Methods
 
   public static String repeatChar(char c, int times) {
+    times = max(0, times);
     char[] chars = new char[times];
     Arrays.fill(chars, c);
     return new String(chars);
@@ -82,6 +86,11 @@ public class StringBuilderUtils {
 
   /** Return labeled field-value, only if field-value is not default. */
   public static String optionalNum(String fieldName, float fieldValue, float defaultValue) {
+    return (fieldValue == defaultValue) ? "" : String.format("%s=%s", fieldName, fieldValue);
+  }
+
+  /** Return labeled field-value, only if field-value is not default. */
+  public static String optionalDouble(String fieldName, double fieldValue, double defaultValue) {
     return (fieldValue == defaultValue) ? "" : String.format("%s=%s", fieldName, fieldValue);
   }
 
@@ -139,6 +148,26 @@ public class StringBuilderUtils {
    */
   public static SpannableStringBuilder appendWithSeparator(
       SpannableStringBuilder builder, CharSequence... args) {
+    return appendWithSeparator(builder, false, args);
+  }
+
+  /**
+   * Appends CharSequence representations of the specified arguments to a {@link
+   * SpannableStringBuilder}, creating one if the supplied builder is {@code null}. A separator will
+   * be inserted between each of the arguments.
+   *
+   * @param builder An existing {@link SpannableStringBuilder}, or {@code null} to create one.
+   * @param wrapSeparatorWithIdentifierSpan Determine whether to wrap separators with {@link
+   *     SpannableUtils.IdentifierSpan} or not
+   * @param args The objects to append to the builder.
+   * @return A builder with the specified objects appended.
+   */
+  @CanIgnoreReturnValue
+  public static SpannableStringBuilder appendWithSeparator(
+      SpannableStringBuilder builder,
+      boolean wrapSeparatorWithIdentifierSpan,
+      CharSequence... args) {
+
     if (builder == null) {
       builder = new SpannableStringBuilder();
     }
@@ -148,15 +177,23 @@ public class StringBuilderUtils {
         continue;
       }
 
-      if (arg.toString().length() == 0) {
+      if (arg.length() == 0) {
         continue;
       }
 
       if (builder.length() > 0) {
         if (needsBreakingSeparator(builder)) {
-          builder.append(DEFAULT_BREAKING_SEPARATOR);
+          if (wrapSeparatorWithIdentifierSpan) {
+            builder.append(SpannableUtils.wrapWithIdentifierSpan(DEFAULT_BREAKING_SEPARATOR));
+          } else {
+            builder.append(DEFAULT_BREAKING_SEPARATOR);
+          }
         } else {
-          builder.append(DEFAULT_SEPARATOR);
+          if (wrapSeparatorWithIdentifierSpan) {
+            builder.append(SpannableUtils.wrapWithIdentifierSpan(DEFAULT_SEPARATOR));
+          } else {
+            builder.append(DEFAULT_SEPARATOR);
+          }
         }
       }
 

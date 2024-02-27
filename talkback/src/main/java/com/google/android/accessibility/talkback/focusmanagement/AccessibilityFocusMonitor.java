@@ -34,7 +34,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 /** Monitors the current accessibility-focus location, for both event-interpreters and actors. */
 public class AccessibilityFocusMonitor {
   public static final Filter<AccessibilityNodeInfoCompat> NUMBER_PICKER_FILTER_FOR_ADJUST =
-      new Filter.NodeCompat(
+      Filter.node(
           (node) ->
               (node != null)
                   && ClassLoadingCache.checkInstanceOf(
@@ -97,7 +97,7 @@ public class AccessibilityFocusMonitor {
 
     // TODO: If there's no focused node, we should either mimic following
     // focus from new window or try to be smart for things like list views.
-    AccessibilityNodeInfoCompat inputFocusedNode = focusFinder.findFocusCompat(FOCUS_INPUT);
+    AccessibilityNodeInfoCompat inputFocusedNode = getInputFocus();
     if (inputFocusedNode != null) {
       boolean isEditable =
           inputFocusedNode.isEditable() || Role.getRole(inputFocusedNode) == Role.ROLE_EDIT_TEXT;
@@ -119,7 +119,7 @@ public class AccessibilityFocusMonitor {
       // IME window check below is copied from legacy CursorController. What if the device is
       // connected to bluetooth keyboard?
       if (AccessibilityServiceCompatUtils.isInputWindowOnScreen(service)) {
-        return AccessibilityNodeInfoCompat.obtain(lastFocusedEditFieldInHistory);
+        return lastFocusedEditFieldInHistory;
       }
     }
     return null;
@@ -143,5 +143,51 @@ public class AccessibilityFocusMonitor {
     // customize the node matching rule for NumberPicker here.
     return AccessibilityNodeInfoUtils.getMatchingAncestor(
         focusNode, NUMBER_PICKER_FILTER_FOR_ADJUST);
+  }
+
+  /**
+   * Returns the visible editing node when the given {@link AccessibilityNodeInfoCompat} is focused
+   * and on an IME window.
+   */
+  public @Nullable AccessibilityNodeInfoCompat getEditingNodeFromFocusedKeyboard(
+      AccessibilityNodeInfoCompat accessibilityFocusNode) {
+    if (AccessibilityNodeInfoUtils.isSelfOrAncestorFocused(accessibilityFocusNode)
+        && AccessibilityNodeInfoUtils.isKeyboard(accessibilityFocusNode)) {
+      AccessibilityNodeInfoCompat inputFocus = getInputFocus();
+      if (inputFocus != null
+          && inputFocus.isVisibleToUser()
+          && Role.getRole(inputFocus) == Role.ROLE_EDIT_TEXT) {
+        return inputFocus;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Returns the node that currently has input focus.
+   *
+   * <p>Uses the {@link FocusFinder}.
+   */
+  public @Nullable AccessibilityNodeInfoCompat getInputFocus() {
+    return focusFinder.findFocusCompat(FOCUS_INPUT);
+  }
+
+  /**
+   * For some actions which are not directly operated on the Accessibility focused node, especially
+   * for EditText with IME popped. This method
+   *
+   * @param node Node of the focused node.
+   * @return the actionable node related to the focused node which can be either EditText or view
+   *     node inside keyboard.
+   */
+  public @Nullable AccessibilityNodeInfoCompat getNodeForEditingActions(
+      AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return null;
+    }
+    if (Role.getRole(node) == Role.ROLE_EDIT_TEXT) {
+      return node;
+    }
+    return getEditingNodeFromFocusedKeyboard(node);
   }
 }

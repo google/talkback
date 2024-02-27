@@ -19,8 +19,8 @@ package com.google.android.accessibility.talkback.focusmanagement.interpreter;
 import android.accessibilityservice.AccessibilityService;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityWindowInfo;
-import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
+import com.google.android.accessibility.talkback.monitor.InputMethodMonitor;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.input.WindowEventInterpreter.EventInterpretation;
@@ -28,6 +28,8 @@ import com.google.android.accessibility.utils.input.WindowEventInterpreter.Windo
 import com.google.android.accessibility.utils.input.WindowsDelegate;
 import java.util.ArrayList;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * A class works as a detector for {@link ScreenState} changes from {@link WindowEventHandler} and
@@ -67,8 +69,7 @@ public class ScreenStateMonitor implements WindowEventHandler {
       return ScreenStateMonitor.this.areMainWindowsStable;
     }
     /** Returns the {@link ScreenState} from the current stable windows. */
-    @Nullable
-    public ScreenState getStableScreenState() {
+    public @Nullable ScreenState getStableScreenState() {
       return ScreenStateMonitor.this.stableScreenState;
     }
   }
@@ -77,26 +78,39 @@ public class ScreenStateMonitor implements WindowEventHandler {
 
   private WindowsDelegate windowsDelegate;
   private final AccessibilityService service;
-  private final List<ScreenStateChangeListener> listeners =
-      new ArrayList<ScreenStateChangeListener>();
+  private final InputMethodMonitor inputMethodMonitor;
+  private final List<ScreenStateChangeListener> listeners = new ArrayList<>();
   private ScreenState stableScreenState;
   private boolean areMainWindowsStable;
 
-  public ScreenStateMonitor(AccessibilityService service) {
+  public ScreenStateMonitor(
+      @NonNull AccessibilityService service, @NonNull InputMethodMonitor inputMethodMonitor) {
     this.service = service;
+    this.inputMethodMonitor = inputMethodMonitor;
   }
 
   @Override
-  public void handle(
-      EventInterpretation interpretation,
-      @org.checkerframework.checker.nullness.qual.Nullable EventId eventId) {
+  public void handle(EventInterpretation interpretation, @Nullable EventId eventId) {
     areMainWindowsStable = !interpretation.getMainWindowsChanged();
-    if (interpretation.getMainWindowsChanged() && interpretation.areWindowsStable()) {
+    boolean windowsChanged =
+        interpretation.getMainWindowsChanged()
+            || (interpretation.getInputMethodChanged()
+                && inputMethodMonitor.useInputWindowAsActiveWindow());
+    if (windowsChanged && interpretation.areWindowsStable()) {
       areMainWindowsStable = true;
       AccessibilityWindowInfo activeWindow =
           AccessibilityServiceCompatUtils.getActiveWidow(service);
+      if (inputMethodMonitor.useInputWindowAsActiveWindow()
+          && AccessibilityServiceCompatUtils.isInputWindowOnScreen(service)) {
+        activeWindow = inputMethodMonitor.getActiveInputWindow();
+      }
+
       stableScreenState =
-          new ScreenState(windowsDelegate, activeWindow, interpretation.getEventStartTime());
+          new ScreenState(
+              windowsDelegate,
+              activeWindow,
+              interpretation.getEventStartTime(),
+              interpretation.isInterpretFirstTimeWhenWakeUp());
       onScreenStateChanged(stableScreenState, eventId);
     }
   }

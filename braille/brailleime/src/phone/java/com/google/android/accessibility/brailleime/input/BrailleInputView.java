@@ -26,18 +26,24 @@ import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.util.Size;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnAttachStateChangeListener;
 import androidx.core.view.ViewCompat;
-import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.braille.common.BrailleUtils;
+import com.google.android.accessibility.braille.common.Constants.BrailleType;
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 import com.google.android.accessibility.brailleime.BrailleIme.OrientationSensitive;
+import com.google.android.accessibility.brailleime.BrailleInputOptions;
 import com.google.android.accessibility.brailleime.R;
 import com.google.android.accessibility.brailleime.Utils;
+import com.google.android.accessibility.brailleime.input.BrailleInputPlane.CustomOnGestureListener;
 import com.google.android.accessibility.brailleime.input.BrailleInputPlane.DotTarget;
+import com.google.android.accessibility.brailleime.input.MultitouchHandler.HoldRecognizer;
 import com.google.common.collect.ImmutableList;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,13 +58,24 @@ import java.util.Optional;
  * have no need for it and we have a {@link Callback} that we need passed in during construction.
  */
 @SuppressWarnings("ViewConstructor")
-public class BrailleInputView extends View implements OrientationSensitive {
+public class BrailleInputView extends View
+    implements OrientationSensitive, OnAttachStateChangeListener {
 
   /** A callback for receiving signals from BrailleInputView. */
   public interface Callback {
 
-    /** Signals that {@link Swipe} input has been produced. */
-    void onSwipeProduced(Swipe swipe);
+    /**
+     * Signals that {@link Swipe} input has been produced. Returns true if the action is consumed.
+     */
+    @CanIgnoreReturnValue
+    boolean onSwipeProduced(Swipe swipe);
+
+    /**
+     * Signals that hold and dot swipe input has been produced. Returns true if the action is
+     * consumed.
+     */
+    @CanIgnoreReturnValue
+    boolean onDotHoldAndDotSwipe(Swipe swipe, BrailleCharacter heldBrailleCharacter);
 
     /**
      * Allows the client to state which potential hold events it cares about. If the client returns
@@ -66,10 +83,12 @@ public class BrailleInputView extends View implements OrientationSensitive {
      * chain with which it interfaces) will halt subsequent callbacks until the user releases (lifts
      * up) the press.
      */
-    boolean isHoldRecognized(int pointersHeldCount);
+    @CanIgnoreReturnValue
+    boolean isCalibrationHoldRecognized(boolean inTwoStepCalibration, int pointersHeldCount);
 
-    /** Signals that hold has been produced. */
-    void onHoldProduced(int pointersHeldCount);
+    /** Signals that hold has been produced. Returns true if the action is consumed. */
+    @CanIgnoreReturnValue
+    boolean onHoldProduced(int pointersHeldCount);
 
     /**
      * Signals that {@link BrailleCharacter} input has been produced.
@@ -79,29 +98,53 @@ public class BrailleInputView extends View implements OrientationSensitive {
      */
     String onBrailleProduced(BrailleCharacter brailleCharacter);
 
-    void onCalibration(FingersPattern hand);
+    /** Signals that calibration has been produced. Returns true if the action is consumed. */
+    @CanIgnoreReturnValue
+    boolean onCalibration(CalibrationTriggeredType type, FingersPattern hand);
+
+    /** Signals that calibration has failed. */
+    void onCalibrationFailed(CalibrationTriggeredType calibration);
+
+    /** Signals that two step calibration needs retry. */
+    void onTwoStepCalibrationRetry(boolean isFirstStep);
   }
 
   /** Indicates which finger pattern. */
   public enum FingersPattern {
-    UNKNOWN,
+    NO_FINGERS,
     SIX_FINGERS,
+    SEVEN_FINGERS,
+    EIGHT_FINGERS,
     FIVE_FINGERS,
     FIRST_THREE_FINGERS,
     REMAINING_THREE_FINGERS,
+    FIRST_FOUR_FINGERS,
+    REMAINING_FOUR_FINGERS,
+  }
+
+  /** Calibration triggered types. */
+  public enum CalibrationTriggeredType {
+    FIVE_FINGERS,
+    SIX_FINGERS,
+    SEVEN_FINGERS,
+    EIGHT_FINGERS,
+    MANUAL
   }
 
   private static final String TAG = "BrailleInputView";
   private static final boolean DRAW_DEBUG_BACKGROUND = false; // Leave as false in version control.
 
   private final Callback callback;
-  private final BrailleInputPlane inputPlane;
   private final InputViewCaption inputViewCaption;
+  private final BrailleInputPlane inputPlane;
   private CaptionText captionText;
   private Size screenSizeInPixels;
   private int orientation;
   private boolean isTableMode;
   private AutoPerformer autoPerformer;
+  private BrailleInputOptions options;
+  private boolean touchInteracting;
+  private CalibrationTriggeredType calibrationType;
 
   /**
    * Construct a BrailleInputView.
@@ -110,32 +153,47 @@ public class BrailleInputView extends View implements OrientationSensitive {
    * need for it and we have a Callback that we need passed in during construction.
    */
   public BrailleInputView(
-      Context context, Callback callback, Size screenSizeInPixels, boolean isTutorial) {
+      Context context, Callback callback, Size screenSizeInPixels, BrailleInputOptions options) {
     super(context);
     this.callback = callback;
     this.screenSizeInPixels = screenSizeInPixels;
     this.orientation = getResources().getConfiguration().orientation;
-    this.inputPlane = getInputPlane(context, isTutorial);
+    this.options = options;
+    this.inputPlane = getInputPlane(context);
     setBackgroundColor(getResources().getColor(R.color.input_plane_background));
     this.inputViewCaption = new InputViewCaption(context.getString(R.string.input_view_caption));
+    addOnAttachStateChangeListener(this);
   }
 
-  private BrailleInputPlane getInputPlane(Context context, boolean isTutorial) {
+  private BrailleInputPlane getInputPlane(Context context) {
+    HoldRecognizer holdRecognizer =
+        new HoldRecognizer() {
+          @Override
+          public boolean isCalibrationHoldRecognized(int pointersHeldCount) {
+            return callback.isCalibrationHoldRecognized(
+                inputPlane.inTwoStepCalibration(), pointersHeldCount);
+          }
+
+          @Override
+          public boolean isHoldRecognized(int pointersHeldCount) {
+            return !inputPlane.inTwoStepCalibration() && pointersHeldCount <= 3;
+          }
+        };
     return BrailleUtils.isPhoneSizedDevice(context.getResources())
         ? new BrailleInputPlanePhone(
             context,
             screenSizeInPixels,
+            holdRecognizer,
             orientation,
-            !isTutorial && BrailleUserPreferences.readReverseDotsMode(context),
-            callback::isHoldRecognized,
-            isTutorial)
+            options,
+            customOnGestureListener)
         : new BrailleInputPlaneTablet(
             context,
             screenSizeInPixels,
+            holdRecognizer,
             orientation,
-            !isTutorial && BrailleUserPreferences.readReverseDotsMode(context),
-            callback::isHoldRecognized,
-            isTutorial);
+            options,
+            customOnGestureListener);
   }
 
   @Override
@@ -143,6 +201,24 @@ public class BrailleInputView extends View implements OrientationSensitive {
     this.orientation = orientation;
     this.screenSizeInPixels = screenSize;
     this.inputPlane.setOrientation(orientation, screenSizeInPixels);
+    invalidate();
+    requestLayout();
+  }
+
+  @Override
+  public void onViewAttachedToWindow(View view) {}
+
+  @Override
+  public void onViewDetachedFromWindow(View view) {
+    if (inTwoStepCalibration()) {
+      callback.onCalibrationFailed(calibrationType);
+    }
+    removeOnAttachStateChangeListener(this);
+  }
+
+  public void setOptions(BrailleInputOptions options) {
+    this.options = options;
+    inputPlane.setOptions(options);
     invalidate();
     requestLayout();
   }
@@ -177,8 +253,22 @@ public class BrailleInputView extends View implements OrientationSensitive {
     return inputPlane.isAccumulationMode();
   }
 
+  /** Returns whether in the process of two step calibration. */
+  public boolean inTwoStepCalibration() {
+    return inputPlane.inTwoStepCalibration();
+  }
+
   public List<DotTarget> getDotTargets() {
     return inputPlane.getDotTargets();
+  }
+
+  /** Gets braille input view dot count. */
+  public int getBrailleDotCount() {
+    return options.brailleType().getDotCount();
+  }
+  /** Boolean value for whether a finger is currently touching the braille input view. */
+  public boolean isTouchInteracting() {
+    return touchInteracting;
   }
 
   @Override
@@ -202,25 +292,80 @@ public class BrailleInputView extends View implements OrientationSensitive {
     inputViewCaption.onDraw(canvas);
   }
 
+  private final CustomOnGestureListener customOnGestureListener =
+      new CustomOnGestureListener() {
+        @Override
+        public boolean detect(Optional<BrailleInputPlaneResult> resultOptional) {
+          if (resultOptional.isPresent()) {
+            if (shouldPerformCalibrationAnimation(
+                resultOptional.get().type, resultOptional.get().pointersHeldCount)) {
+              inputPlane.createAnimator(BrailleInputView.this);
+            }
+            boolean result = processResult(resultOptional.get());
+            invalidate();
+            return result;
+          }
+          return false;
+        }
+
+        @Override
+        public void onTwoStepCalibrationFailed() {
+          callback.onCalibrationFailed(calibrationType);
+          invalidate();
+        }
+
+        @Override
+        public void onTwoStepCalibrationRetry(boolean isFirstStep) {
+          callback.onTwoStepCalibrationRetry(isFirstStep);
+        }
+      };
+
   @Override
   @SuppressWarnings("ClickableViewAccessibility")
   public boolean onTouchEvent(MotionEvent event) {
-    Optional<BrailleInputPlaneResult> resultOptional = inputPlane.onTouchEvent(event);
-    if (resultOptional.isPresent()) {
-      if (resultOptional.get().type == BrailleInputPlaneResult.TYPE_CALIBRATION
-          && (resultOptional.get().pointersHeldCount == 6
-              || resultOptional.get().pointersHeldCount == 3)) {
-        inputPlane.createAnimator(this);
-      }
-      processResult(resultOptional.get());
-    }
+    updateTouchAction(event);
+    boolean result = inputPlane.onTouchEvent(event);
     invalidate();
-    return true;
+    return result;
   }
 
-  private void processResult(BrailleInputPlaneResult result) {
+  /** Calibrates dots positions. */
+  public void calibrateByTwoSteps() {
+    inputPlane.calibrateByTwoSteps();
+    calibrationType = CalibrationTriggeredType.MANUAL;
+    callback.onCalibration(CalibrationTriggeredType.MANUAL, FingersPattern.NO_FINGERS);
+    invalidate();
+  }
+
+  private void updateTouchAction(MotionEvent event) {
+    switch (event.getAction()) {
+      case MotionEvent.ACTION_DOWN:
+        touchInteracting = true;
+        break;
+      case MotionEvent.ACTION_UP:
+        touchInteracting = false;
+        break;
+      default: // fall out
+    }
+  }
+
+  private boolean shouldPerformCalibrationAnimation(int type, int heldCount) {
+    if (type != BrailleInputPlaneResult.TYPE_CALIBRATION) {
+      return false;
+    }
+    if (options.brailleType() == BrailleType.EIGHT_DOT) {
+      return heldCount == BrailleType.EIGHT_DOT.getDotCount()
+          || heldCount == BrailleType.EIGHT_DOT.getDotCount() / 2;
+    } else {
+      return heldCount == BrailleType.SIX_DOT.getDotCount()
+          || heldCount == BrailleType.SIX_DOT.getDotCount() / 2;
+    }
+  }
+
+  @CanIgnoreReturnValue
+  private boolean processResult(BrailleInputPlaneResult result) {
     if (result.type == MultitouchResult.TYPE_TAP) {
-      String newAddition = callback.onBrailleProduced(result.brailleCharacter);
+      String newAddition = callback.onBrailleProduced(result.releasedBrailleCharacter);
       if (newAddition != null) {
         if (captionText != null) {
           captionText.animator.cancel();
@@ -229,7 +374,7 @@ public class BrailleInputView extends View implements OrientationSensitive {
         captionText.animator.start();
       }
     } else if (result.type == MultitouchResult.TYPE_SWIPE) {
-      callback.onSwipeProduced(result.swipe);
+      boolean processed = callback.onSwipeProduced(result.swipe);
       if (Utils.isDebugBuild()) {
         if (result.swipe.getTouchCount() == 5) {
           if (autoPerformer == null) {
@@ -238,20 +383,41 @@ public class BrailleInputView extends View implements OrientationSensitive {
           }
         }
       }
+      return processed;
     } else if (result.type == BrailleInputPlaneResult.TYPE_CALIBRATION) {
       if (result.pointersHeldCount == 5) {
-        callback.onCalibration(FingersPattern.FIVE_FINGERS);
+        calibrationType = CalibrationTriggeredType.FIVE_FINGERS;
+        return callback.onCalibration(calibrationType, FingersPattern.FIVE_FINGERS);
       } else if (result.pointersHeldCount == 6) {
-        callback.onCalibration(FingersPattern.SIX_FINGERS);
+        calibrationType = CalibrationTriggeredType.SIX_FINGERS;
+        return callback.onCalibration(calibrationType, FingersPattern.SIX_FINGERS);
+      } else if (result.pointersHeldCount == 7) {
+        calibrationType = CalibrationTriggeredType.SEVEN_FINGERS;
+        return callback.onCalibration(calibrationType, FingersPattern.SEVEN_FINGERS);
+      } else if (result.pointersHeldCount == 8) {
+        calibrationType = CalibrationTriggeredType.EIGHT_FINGERS;
+        return callback.onCalibration(calibrationType, FingersPattern.EIGHT_FINGERS);
       } else if (result.pointersHeldCount == 3) {
-        callback.onCalibration(
+        return callback.onCalibration(
+            calibrationType,
             result.isLeft
                 ? FingersPattern.FIRST_THREE_FINGERS
                 : FingersPattern.REMAINING_THREE_FINGERS);
+      } else if (result.pointersHeldCount == 4) {
+        return callback.onCalibration(
+            calibrationType,
+            result.isLeft
+                ? FingersPattern.FIRST_FOUR_FINGERS
+                : FingersPattern.REMAINING_FOUR_FINGERS);
       } else {
-        callback.onCalibration(FingersPattern.UNKNOWN);
+        callback.onCalibrationFailed(calibrationType);
       }
+    } else if (result.type == BrailleInputPlaneResult.TYPE_HOLD) {
+      return callback.onHoldProduced(result.pointersHeldCount);
+    } else if (result.type == BrailleInputPlaneResult.TYPE_HOLD_AND_SWIPE) {
+      return callback.onDotHoldAndDotSwipe(result.swipe, result.heldBrailleCharacter);
     }
+    return false;
   }
 
   private void drawDebugBackground(Canvas canvas) {
@@ -335,6 +501,8 @@ public class BrailleInputView extends View implements OrientationSensitive {
       textPaint.setTextAlign(Paint.Align.CENTER);
       textPaint.setTextSize(resources.getDimensionPixelSize(R.dimen.input_view_caption_text_size));
       textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+      textPaint.setTypeface(
+          Typeface.create(getContext().getString(R.string.accessibility_font), Typeface.NORMAL));
       captionBottomMarginInPixels =
           resources.getDimensionPixelOffset(R.dimen.input_view_caption_bottom_margin);
     }

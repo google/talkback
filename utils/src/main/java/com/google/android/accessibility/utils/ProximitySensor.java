@@ -128,8 +128,18 @@ public class ProximitySensor {
             return;
           }
 
-          LogUtils.v(TAG, "Processing onSensorChanged event at %d.", System.currentTimeMillis());
-          mIsClose = (event.values[0] < mFarValue);
+          float distance = event.values[0];
+          mIsClose = (distance < mFarValue);
+          if (mIsClose) {
+            LogUtils.v(
+                TAG,
+                "Processing onSensorChanged event at %d.  Closed, distance=%s , farValue=%s ",
+                System.currentTimeMillis(),
+                distance,
+                mFarValue);
+          } else {
+            LogUtils.v(TAG, "Processing onSensorChanged event at %d. ", System.currentTimeMillis());
+          }
           mCallback.onProximityChanged(mIsClose);
         }
       };

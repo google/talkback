@@ -21,5 +21,15 @@
         <item>30</item>
         <item>10</item>
         <item>60</item>
+        <item>-9999</item><!-- SENTINEL SEPARATOR -->
+        <item>1</item><!-- CLICK -->
+        <item>255</item><!-- scale -->
+        <item>0</item><!-- delayMs -->
+        <item>4</item><!-- QUICK_RISE -->
+        <item>255</item><!-- scale -->
+        <item>50</item><!-- delayMs -->
+        <item>6</item><!-- FALL -->
+        <item>255</item><!-- scale -->
+        <item>80</item><!-- delayMs -->
     </integer-array>
 </resources>

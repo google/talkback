@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <Preference
+      app:key="@string/pref_key_brailleime_basic_controls"
+      app:title="@string/braille_keyboard_basic_controls"
+      app:summary="@string/braille_keyboard_basic_controls_summary"
+      app:icon="@drawable/gs_navigation_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+  <Preference
+      app:key="@string/pref_key_brailleime_cursor_movement"
+      app:title="@string/braille_keyboard_cursor_movement"
+      app:summary="@string/braille_keyboard_cursor_movement_summary"
+      app:icon="@drawable/gs_text_select_move_forward_character_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+  <Preference
+      app:key="@string/pref_key_brailleime_text_selection_and_editing"
+      app:title="@string/braille_keyboard_text_selection_and_editing"
+      app:summary="@string/braille_keyboard_text_selection_and_editing_summary"
+      app:icon="@drawable/gs_insert_text_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+  <Preference
+      app:key="@string/pref_key_brailleime_spell_check"
+      app:title="@string/braille_keyboard_spell_check"
+      app:summary="@string/braille_keyboard_spell_check_summary"
+      app:icon="@drawable/gs_spellcheck_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+</PreferenceScreen>

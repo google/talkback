@@ -49,6 +49,8 @@
     <string name="granularity_line">Lines</string>
     <!-- Announced when the user changes reading mode to read a single paragraph at a time. -->
     <string name="granularity_paragraph">Paragraphs</string>
+    <!-- Announced when the user changes reading mode to read a single container at a time. [CHAR_LIMIT=NONE] -->
+    <string name="granularity_container">Containers</string>
     <!-- Announced when the user changes reading mode to read a single window at a time. [CHAR_LIMIT=NONE] -->
     <string name="granularity_window">Windows</string>
     <!-- Announced when the user changes reading mode in web content to read a single section at a time. -->

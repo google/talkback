@@ -66,7 +66,7 @@ noback math \x2034 3-3-3 ‴ tierce
 
 #signes d'opérations
 # noback math \x002B 235 + plus
-     # unicode manquant (?) pour "grand plus"
+# unicode manquant (?) pour "grand plus"
 noback math \x2295 46-235 ⊕ plus encerclé
 noback math \x2A01 46-46-235 ⨁ grand plus encerclé
 noback math \x222A 456-235 ∪ union
@@ -76,23 +76,23 @@ noback math \x22C2 45-45-235 ⋂ grande intersection
 noback math \x2212 36 − moins
 noback math \x2213 36-235 ∓ moins ou plus
 noback math \x22C5 35-35 ⋅ point multiplicatif ; produit scalaire
-     # astérisque, étoile... 5-35 *
-     # unicode manquant (?) pour "grande croix de multiplication"
+# astérisque, étoile... 5-35 *
+# unicode manquant (?) pour "grande croix de multiplication"
 noback math \x2297 46-35 ⊗ produit tensoriel (croix dans un rond)
 noback math \x2A02 46-46-35 ⨂ grand produit tensoriel (grande croix dans un rond)
-     # unicode manquant (?) pour "croix double de multiplication"
-     # factorielle 456-35 !
+# unicode manquant (?) pour "croix double de multiplication"
+# factorielle 456-35 !
 noback math \x2227 45-35 ∧ et logique; produit vectoriel...
 noback math \x22C0 45-45-35 ⋀ grand et logique
 noback math \x2228 45-26 ∨ ou logique
 noback math \x22C1 45-45-26 ⋁ grand ou logique
 noback math \x2218 456-3456 ∘ rond
-     # divisé par (slash) 34 /
-     # exposant 4
+# divisé par (slash) 34 /
+# exposant 4
 
 
 # signes d'égalité et d'inégalité
-    # égal 2356 =
+# égal 2356 =
 noback math \x2260 46-2356 ≠ différent de
 noback math \x2248 5-2356 ≈ environ égal à
 noback math \x224A 456-5-2356 ≊ presque égal à
@@ -101,13 +101,13 @@ noback math \x2245 456-2356 ≅ approximativement égal à
 noback math \x2261 2356-2356 ≡ identique à
 noback math \x2262 46-2356-2356 ≢  non identique à
 noback math \x2259 25-2356 ≙ correspond à
-    # supérieur à >
+# supérieur à >
 noback math \x2265 45-345 ≥ supérieur ou égal à
 noback math \x2A7E 45-345 ⩾ supérieur ou égal à
-    # inférieur à <
+# inférieur à <
 noback math \x2264 45-126 ≤ inférieur ou égal à
 noback math \x2A7D 45-126 ⩽ inférieur ou égal à
-    # plus grand ou plus petit que ><
+# plus grand ou plus petit que ><
 noback math \x226B 5-5-345 ≫ très supérieur à
 noback math \x226A 5-5-126 ≪ très inférieur à
 noback math \x227B 46-46-345 ≻ suit
@@ -209,9 +209,9 @@ noback math \x222D 12346-12346-12346 ∭ intégrale triple (absent du code 2007)
 # Quantificateurs et signes d'implications
 noback math \x2203 456-16 ∃ il existe
 noback math \x2204 46-456-16 ∄ il n'existe pas
-    # 456-16-235 il existe un unique
+# 456-16-235 il existe un unique
 noback math \x2200 456-34 ∀ pour tout
-    # pas d'unicode pour la négation de "pour tout"
+# pas d'unicode pour la négation de "pour tout"
 noback math \x21d2 25-2 ⇒ implique
 noback math \x21CF 46-25-2 ⇏ négation de "implique"
 noback math \x21d0 5-25 ⇐ est impliqué par

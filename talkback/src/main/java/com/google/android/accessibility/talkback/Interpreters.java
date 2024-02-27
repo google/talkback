@@ -18,14 +18,17 @@ package com.google.android.accessibility.talkback;
 
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.Nullable;
+import com.google.android.accessibility.talkback.Pipeline.InterpretationReceiver;
 import com.google.android.accessibility.talkback.Pipeline.SyntheticEvent;
 import com.google.android.accessibility.talkback.actor.voicecommands.VoiceCommandProcessor;
-import com.google.android.accessibility.talkback.eventprocessor.ProcessorAccessibilityHints;
+import com.google.android.accessibility.talkback.compositor.Compositor;
+import com.google.android.accessibility.talkback.compositor.EventInterpretation;
 import com.google.android.accessibility.talkback.interpreters.AccessibilityEventIdleInterpreter;
 import com.google.android.accessibility.talkback.interpreters.AccessibilityFocusInterpreter;
 import com.google.android.accessibility.talkback.interpreters.AutoScrollInterpreter;
 import com.google.android.accessibility.talkback.interpreters.DirectionNavigationInterpreter;
 import com.google.android.accessibility.talkback.interpreters.FullScreenReadInterpreter;
+import com.google.android.accessibility.talkback.interpreters.HintEventInterpreter;
 import com.google.android.accessibility.talkback.interpreters.InputFocusInterpreter;
 import com.google.android.accessibility.talkback.interpreters.ManualScrollInterpreter;
 import com.google.android.accessibility.talkback.interpreters.PassThroughModeInterpreter;
@@ -35,6 +38,9 @@ import com.google.android.accessibility.talkback.interpreters.SubtreeChangeEvent
 import com.google.android.accessibility.talkback.interpreters.UiChangeEventInterpreter;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.input.ScrollEventInterpreter;
+import com.google.android.accessibility.utils.input.SelectionEventInterpreter;
+import com.google.android.accessibility.utils.input.TextEventInterpretation;
+import java.util.Optional;
 
 /** Wrapper around all event-interpreters, for use in Pipeline. */
 public class Interpreters {
@@ -49,11 +55,12 @@ public class Interpreters {
   private final AutoScrollInterpreter autoScrollInterpreter; // Listens to ScrollEventInterpreter
   private final ScrollPositionInterpreter
       scrollPositionInterpreter; // Listens to ScrollEventInterpreter
+  private final SelectionEventInterpreter selectionInterpreter;
   private final AccessibilityFocusInterpreter accessibilityFocusInterpreter;
   private final FullScreenReadInterpreter continuousReadInterpreter;
   private final StateChangeEventInterpreter stateChangeEventInterpreter;
   private final DirectionNavigationInterpreter directionNavigationInterpreter;
-  private final ProcessorAccessibilityHints processorAccessibilityHints;
+  private final HintEventInterpreter hintEventInterpreter;
   private final VoiceCommandProcessor voiceCommandProcessor;
   @Nullable private final PassThroughModeInterpreter passThroughModeInterpreter;
   private final SubtreeChangeEventInterpreter subtreeChangeEventInterpreter;
@@ -61,6 +68,8 @@ public class Interpreters {
   private final UiChangeEventInterpreter uiChangeEventInterpreter;
 
   private final int eventTypeMask; // Union of all sub-interpreter masks
+
+  private Optional<InterpretationReceiver> pipelineInterpretations = Optional.empty();
 
   //////////////////////////////////////////////////////////////////////////////////
   // Construction
@@ -71,11 +80,12 @@ public class Interpreters {
       ManualScrollInterpreter manualScrollInterpreter,
       AutoScrollInterpreter autoScrollInterpreter,
       ScrollPositionInterpreter scrollPositionInterpreter,
+      SelectionEventInterpreter selectionInterpreter,
       AccessibilityFocusInterpreter accessibilityFocusInterpreter,
       FullScreenReadInterpreter continuousReadInterpreter,
       StateChangeEventInterpreter stateChangeEventInterpreter,
       DirectionNavigationInterpreter directionNavigationInterpreter,
-      ProcessorAccessibilityHints processorAccessibilityHints,
+      HintEventInterpreter hintEventInterpreter,
       VoiceCommandProcessor voiceCommandProcessor,
       PassThroughModeInterpreter passThroughModeInterpreter,
       SubtreeChangeEventInterpreter subtreeChangeEventInterpreter,
@@ -87,11 +97,12 @@ public class Interpreters {
     this.manualScrollInterpreter = manualScrollInterpreter;
     this.autoScrollInterpreter = autoScrollInterpreter;
     this.scrollPositionInterpreter = scrollPositionInterpreter;
+    this.selectionInterpreter = selectionInterpreter;
     this.accessibilityFocusInterpreter = accessibilityFocusInterpreter;
     this.continuousReadInterpreter = continuousReadInterpreter;
     this.stateChangeEventInterpreter = stateChangeEventInterpreter;
     this.directionNavigationInterpreter = directionNavigationInterpreter;
-    this.processorAccessibilityHints = processorAccessibilityHints;
+    this.hintEventInterpreter = hintEventInterpreter;
     this.voiceCommandProcessor = voiceCommandProcessor;
     this.passThroughModeInterpreter = passThroughModeInterpreter;
     this.subtreeChangeEventInterpreter = subtreeChangeEventInterpreter;
@@ -104,13 +115,26 @@ public class Interpreters {
     scrollEventInterpreter.addListener(manualScrollInterpreter);
     scrollEventInterpreter.addListener(scrollPositionInterpreter);
     scrollEventInterpreter.addListener(autoScrollInterpreter);
+    selectionInterpreter.addListener(
+        (interpretation) -> {
+          if (!interpretation.isTransitional) {
+            pipelineInterpretations
+                .get()
+                .input(
+                    interpretation.eventId,
+                    interpretation.event,
+                    new Interpretation.CompositorID(Compositor.EVENT_TYPE_VIEW_SELECTED));
+          }
+        });
 
     eventTypeMask =
         inputFocusInterpreter.getEventTypes()
             | scrollEventInterpreter.getEventTypes()
+            | selectionInterpreter.getEventTypes()
             | continuousReadInterpreter.getEventTypes()
             | stateChangeEventInterpreter.getEventTypes()
             | subtreeChangeEventInterpreter.getEventTypes()
+            | hintEventInterpreter.getEventTypes()
             | ((passThroughModeInterpreter != null)
                 ? passThroughModeInterpreter.getEventTypes()
                 : 0);
@@ -125,12 +149,15 @@ public class Interpreters {
     continuousReadInterpreter.setActorState(actorState);
     stateChangeEventInterpreter.setActorState(actorState);
     directionNavigationInterpreter.setActorState(actorState);
+    hintEventInterpreter.setActorState(actorState);
     if (passThroughModeInterpreter != null) {
       passThroughModeInterpreter.setActorState(actorState);
     }
   }
 
   public void setPipelineInterpretationReceiver(Pipeline.InterpretationReceiver pipeline) {
+    pipelineInterpretations = Optional.of(pipeline);
+
     // Mappers also listen to scroll-event-interpreter.
     scrollEventInterpreter.addListener(
         (event, interpretation, eventId) ->
@@ -142,7 +169,7 @@ public class Interpreters {
     continuousReadInterpreter.setPipeline(pipeline);
     stateChangeEventInterpreter.setPipeline(pipeline);
     directionNavigationInterpreter.setPipeline(pipeline);
-    processorAccessibilityHints.setPipelineInterpretationReceiver(pipeline);
+    hintEventInterpreter.setPipelineInterpretationReceiver(pipeline);
     voiceCommandProcessor.setPipelineInterpretationReceiver(pipeline);
     if (passThroughModeInterpreter != null) {
       passThroughModeInterpreter.setPipeline(pipeline);
@@ -162,8 +189,10 @@ public class Interpreters {
 
   /** Handles accessibility-event, asynchronously returning interpretations to pipeline. */
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
+    hintEventInterpreter.onAccessibilityEvent(event, eventId);
     inputFocusInterpreter.onAccessibilityEvent(event, eventId);
     scrollEventInterpreter.onAccessibilityEvent(event, eventId);
+    selectionInterpreter.onAccessibilityEvent(event, eventId);
     continuousReadInterpreter.onAccessibilityEvent(event, eventId);
     stateChangeEventInterpreter.onAccessibilityEvent(event, eventId);
     subtreeChangeEventInterpreter.onAccessibilityEvent(event, eventId);
@@ -180,6 +209,26 @@ public class Interpreters {
   public void interpret(EventId eventId, SyntheticEvent event) {
     if (event.eventType == SyntheticEvent.Type.SCROLL_TIMEOUT) {
       autoScrollInterpreter.handleAutoScrollFailed();
+    } else if (event.eventType == SyntheticEvent.Type.TEXT_TRAVERSAL) {
+      if (pipelineInterpretations.isEmpty()) {
+        return;
+      }
+      EventInterpretation eventInterpreted =
+          new EventInterpretation(Compositor.EVENT_TYPE_INPUT_SELECTION_TEXT_TRAVERSAL);
+      // Extract traversed text and create TextEventInterpretation.
+      TextEventInterpretation textEventInterpreted =
+          new TextEventInterpretation(Compositor.EVENT_TYPE_INPUT_SELECTION_TEXT_TRAVERSAL);
+      textEventInterpreted.setTraversedText(event.eventText);
+      eventInterpreted.setTextEventInterpretation(textEventInterpreted);
+      eventInterpreted.setReadOnly();
+      // Request compositor handle text traversal event by pipeline interpretation.
+      pipelineInterpretations
+          .get()
+          .input(
+              eventId,
+              /* event= */ null,
+              new Interpretation.CompositorID(eventInterpreted.getEvent(), eventInterpreted, null),
+              /* eventSourceNode= */ null);
     }
   }
 

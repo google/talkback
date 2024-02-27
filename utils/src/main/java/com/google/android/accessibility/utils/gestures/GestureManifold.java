@@ -16,55 +16,12 @@
 
 package com.google.android.accessibility.utils.gestures;
 
-import static android.accessibilityservice.AccessibilityService.GESTURE_2_FINGER_DOUBLE_TAP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_2_FINGER_DOUBLE_TAP_AND_HOLD;
-import static android.accessibilityservice.AccessibilityService.GESTURE_2_FINGER_SINGLE_TAP;
 import static android.accessibilityservice.AccessibilityService.GESTURE_2_FINGER_SWIPE_DOWN;
 import static android.accessibilityservice.AccessibilityService.GESTURE_2_FINGER_SWIPE_LEFT;
 import static android.accessibilityservice.AccessibilityService.GESTURE_2_FINGER_SWIPE_RIGHT;
 import static android.accessibilityservice.AccessibilityService.GESTURE_2_FINGER_SWIPE_UP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_2_FINGER_TRIPLE_TAP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_DOUBLE_TAP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_DOUBLE_TAP_AND_HOLD;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_SINGLE_TAP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_SWIPE_DOWN;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_SWIPE_LEFT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_SWIPE_RIGHT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_SWIPE_UP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_TRIPLE_TAP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD;
-import static android.accessibilityservice.AccessibilityService.GESTURE_4_FINGER_DOUBLE_TAP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_4_FINGER_DOUBLE_TAP_AND_HOLD;
-import static android.accessibilityservice.AccessibilityService.GESTURE_4_FINGER_SINGLE_TAP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_4_FINGER_SWIPE_DOWN;
-import static android.accessibilityservice.AccessibilityService.GESTURE_4_FINGER_SWIPE_LEFT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_4_FINGER_SWIPE_RIGHT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_4_FINGER_SWIPE_UP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_4_FINGER_TRIPLE_TAP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_DOUBLE_TAP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_DOUBLE_TAP_AND_HOLD;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_DOWN;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_DOWN_AND_LEFT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_DOWN_AND_RIGHT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_DOWN_AND_UP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_LEFT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_LEFT_AND_DOWN;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_LEFT_AND_RIGHT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_LEFT_AND_UP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_RIGHT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_RIGHT_AND_DOWN;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_RIGHT_AND_LEFT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_RIGHT_AND_UP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_UP;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_UP_AND_DOWN;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_UP_AND_LEFT;
-import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_UP_AND_RIGHT;
-import static com.google.android.accessibility.utils.gestures.Swipe.DOWN;
-import static com.google.android.accessibility.utils.gestures.Swipe.LEFT;
-import static com.google.android.accessibility.utils.gestures.Swipe.RIGHT;
-import static com.google.android.accessibility.utils.gestures.Swipe.UP;
+import static com.google.android.accessibility.utils.gestures.TwoFingerSecondFingerMultiTap.ROTATE_DIRECTION_BACKWARD;
+import static com.google.android.accessibility.utils.gestures.TwoFingerSecondFingerMultiTap.ROTATE_DIRECTION_FORWARD;
 
 import android.accessibilityservice.AccessibilityGestureEvent;
 import android.content.Context;
@@ -72,6 +29,7 @@ import android.os.Build;
 import android.view.MotionEvent;
 import androidx.annotation.RequiresApi;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,10 +40,14 @@ import java.util.List;
  */
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 public class GestureManifold implements GestureMatcher.StateChangeListener {
+  public static final int GESTURE_FAKED_SPLIT_TYPING = -3;
+  public static final boolean ENABLE_MULTIPLE_GESTURE_SETS = false;
+  public static final int GESTURE_TAP_HOLD_AND_2ND_FINGER_FORWARD_DOUBLE_TAP = -4;
+  public static final int GESTURE_TAP_HOLD_AND_2ND_FINGER_BACKWARD_DOUBLE_TAP = -5;
+
   private static final String LOG_TAG = "GestureManifold";
 
   private final List<GestureMatcher> gestures = new ArrayList<>();
-  private final Context context;
   private final int displayId;
   // Listener to be notified of gesture start and end.
   private Listener listener;
@@ -99,101 +61,52 @@ public class GestureManifold implements GestureMatcher.StateChangeListener {
   // passthrough.
   private final List<GestureMatcher> twoFingerSwipes = new ArrayList<>();
 
-  public GestureManifold(Context context, Listener listener, int displayId) {
-    this.context = context;
+  public GestureManifold(
+      Context context, Listener listener, int displayId, ImmutableList<String> supportGestureList) {
     this.listener = listener;
     this.displayId = displayId;
     multiFingerGesturesEnabled = false;
     twoFingerPassthroughEnabled = false;
+
     // Set up gestures.
-    // Start with double tap.
-    gestures.add(new MultiTap(context, 2, GESTURE_DOUBLE_TAP, this));
-    gestures.add(new MultiTapAndHold(context, 2, GESTURE_DOUBLE_TAP_AND_HOLD, this));
-    // Second-finger double tap.
-    gestures.add(new SecondFingerMultiTap(context, 2, GESTURE_DOUBLE_TAP, this));
-    // One-direction swipes.
-    gestures.add(new Swipe(context, RIGHT, GESTURE_SWIPE_RIGHT, this));
-    gestures.add(new Swipe(context, LEFT, GESTURE_SWIPE_LEFT, this));
-    gestures.add(new Swipe(context, UP, GESTURE_SWIPE_UP, this));
-    gestures.add(new Swipe(context, DOWN, GESTURE_SWIPE_DOWN, this));
-    // Two-direction swipes.
-    gestures.add(new Swipe(context, LEFT, RIGHT, GESTURE_SWIPE_LEFT_AND_RIGHT, this));
-    gestures.add(new Swipe(context, LEFT, UP, GESTURE_SWIPE_LEFT_AND_UP, this));
-    gestures.add(new Swipe(context, LEFT, DOWN, GESTURE_SWIPE_LEFT_AND_DOWN, this));
-    gestures.add(new Swipe(context, RIGHT, UP, GESTURE_SWIPE_RIGHT_AND_UP, this));
-    gestures.add(new Swipe(context, RIGHT, DOWN, GESTURE_SWIPE_RIGHT_AND_DOWN, this));
-    gestures.add(new Swipe(context, RIGHT, LEFT, GESTURE_SWIPE_RIGHT_AND_LEFT, this));
-    gestures.add(new Swipe(context, DOWN, UP, GESTURE_SWIPE_DOWN_AND_UP, this));
-    gestures.add(new Swipe(context, DOWN, LEFT, GESTURE_SWIPE_DOWN_AND_LEFT, this));
-    gestures.add(new Swipe(context, DOWN, RIGHT, GESTURE_SWIPE_DOWN_AND_RIGHT, this));
-    gestures.add(new Swipe(context, UP, DOWN, GESTURE_SWIPE_UP_AND_DOWN, this));
-    gestures.add(new Swipe(context, UP, LEFT, GESTURE_SWIPE_UP_AND_LEFT, this));
-    gestures.add(new Swipe(context, UP, RIGHT, GESTURE_SWIPE_UP_AND_RIGHT, this));
-    // Set up multi-finger gestures to be enabled later.
-    // Two-finger taps.
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 2, 1, GESTURE_2_FINGER_SINGLE_TAP, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 2, 2, GESTURE_2_FINGER_DOUBLE_TAP, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTapAndHold(
-            this.context, 2, 2, GESTURE_2_FINGER_DOUBLE_TAP_AND_HOLD, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 2, 3, GESTURE_2_FINGER_TRIPLE_TAP, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTapAndHold(
-            this.context, 2, 3, GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD, this));
-    // Three-finger taps.
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 3, 1, GESTURE_3_FINGER_SINGLE_TAP, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 3, 2, GESTURE_3_FINGER_DOUBLE_TAP, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTapAndHold(
-            this.context, 3, 1, GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTapAndHold(
-            this.context, 3, 2, GESTURE_3_FINGER_DOUBLE_TAP_AND_HOLD, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 3, 3, GESTURE_3_FINGER_TRIPLE_TAP, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTapAndHold(
-            this.context, 3, 3, GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 3, 3, GESTURE_3_FINGER_TRIPLE_TAP, this));
-    // Four-finger taps.
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 4, 1, GESTURE_4_FINGER_SINGLE_TAP, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 4, 2, GESTURE_4_FINGER_DOUBLE_TAP, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTapAndHold(
-            this.context, 4, 2, GESTURE_4_FINGER_DOUBLE_TAP_AND_HOLD, this));
-    multiFingerGestures.add(
-        new MultiFingerMultiTap(this.context, 4, 3, GESTURE_4_FINGER_TRIPLE_TAP, this));
-    // Two-finger swipes.
-    twoFingerSwipes.add(new MultiFingerSwipe(context, 2, DOWN, GESTURE_2_FINGER_SWIPE_DOWN, this));
-    twoFingerSwipes.add(new MultiFingerSwipe(context, 2, LEFT, GESTURE_2_FINGER_SWIPE_LEFT, this));
-    twoFingerSwipes.add(
-        new MultiFingerSwipe(context, 2, RIGHT, GESTURE_2_FINGER_SWIPE_RIGHT, this));
-    twoFingerSwipes.add(new MultiFingerSwipe(context, 2, UP, GESTURE_2_FINGER_SWIPE_UP, this));
-    multiFingerGestures.addAll(twoFingerSwipes);
-    // Three-finger swipes.
-    multiFingerGestures.add(
-        new MultiFingerSwipe(context, 3, DOWN, GESTURE_3_FINGER_SWIPE_DOWN, this));
-    multiFingerGestures.add(
-        new MultiFingerSwipe(context, 3, LEFT, GESTURE_3_FINGER_SWIPE_LEFT, this));
-    multiFingerGestures.add(
-        new MultiFingerSwipe(context, 3, RIGHT, GESTURE_3_FINGER_SWIPE_RIGHT, this));
-    multiFingerGestures.add(new MultiFingerSwipe(context, 3, UP, GESTURE_3_FINGER_SWIPE_UP, this));
-    // Four-finger swipes.
-    multiFingerGestures.add(
-        new MultiFingerSwipe(context, 4, DOWN, GESTURE_4_FINGER_SWIPE_DOWN, this));
-    multiFingerGestures.add(
-        new MultiFingerSwipe(context, 4, LEFT, GESTURE_4_FINGER_SWIPE_LEFT, this));
-    multiFingerGestures.add(
-        new MultiFingerSwipe(context, 4, RIGHT, GESTURE_4_FINGER_SWIPE_RIGHT, this));
-    multiFingerGestures.add(new MultiFingerSwipe(context, 4, UP, GESTURE_4_FINGER_SWIPE_UP, this));
+    List<GestureMatcher> gestureMatcherList =
+        GestureMatcherFactory.getGestureMatcherList(context, supportGestureList, this);
+
+    for (GestureMatcher gestureMatcher : gestureMatcherList) {
+      if (gestureMatcher != null) {
+        if ((gestureMatcher instanceof Swipe)
+            || (gestureMatcher instanceof MultiTap)
+            || (gestureMatcher instanceof MultiTapAndHold)
+            || (gestureMatcher instanceof SecondFingerTap)) {
+          gestures.add(gestureMatcher);
+        } else {
+          multiFingerGestures.add(gestureMatcher);
+          int gestureId = gestureMatcher.getGestureId();
+          if ((gestureId == GESTURE_2_FINGER_SWIPE_DOWN)
+              || (gestureId == GESTURE_2_FINGER_SWIPE_LEFT)
+              || (gestureId == GESTURE_2_FINGER_SWIPE_RIGHT)
+              || (gestureId == GESTURE_2_FINGER_SWIPE_UP)) {
+            twoFingerSwipes.add(gestureMatcher);
+          }
+        }
+      }
+    }
+    if (ENABLE_MULTIPLE_GESTURE_SETS) {
+      gestures.add(
+          new TwoFingerSecondFingerMultiTap(
+              context,
+              2,
+              ROTATE_DIRECTION_FORWARD,
+              GESTURE_TAP_HOLD_AND_2ND_FINGER_FORWARD_DOUBLE_TAP,
+              this));
+      gestures.add(
+          new TwoFingerSecondFingerMultiTap(
+              context,
+              2,
+              ROTATE_DIRECTION_BACKWARD,
+              GESTURE_TAP_HOLD_AND_2ND_FINGER_BACKWARD_DOUBLE_TAP,
+              this));
+    }
   }
 
   /**
@@ -233,8 +146,12 @@ public class GestureManifold implements GestureMatcher.StateChangeListener {
    */
   public interface Listener {
 
-    /** Called when the system has decided the event stream is a potential gesture. */
-    void onGestureStarted();
+    /**
+     * Called when the system has decided the event stream is a potential gesture.
+     *
+     * @param gestureId the gesture which is start matching.
+     */
+    void onGestureStarted(int gestureId);
 
     /**
      * Called when an event stream is recognized as a gesture.
@@ -243,25 +160,22 @@ public class GestureManifold implements GestureMatcher.StateChangeListener {
      */
     void onGestureCompleted(AccessibilityGestureEvent gestureEvent);
 
-    /** Called when the system has decided an event stream doesn't match any known gesture. */
-    void onGestureCancelled();
+    /**
+     * Called when the system has decided an event stream doesn't match any known gesture.
+     *
+     * @param gestureId the gesture which is fail to match.
+     */
+    void onGestureCancelled(int gestureId);
   }
 
   @Override
   public void onStateChanged(int gestureId, int state, MotionEvent event) {
     if (state == GestureMatcher.STATE_GESTURE_STARTED) {
-      listener.onGestureStarted();
+      listener.onGestureStarted(gestureId);
     } else if (state == GestureMatcher.STATE_GESTURE_COMPLETED) {
       onGestureCompleted(gestureId, event);
     } else if (state == GestureMatcher.STATE_GESTURE_CANCELED) {
-      // We only want to call the cancelation callback if there are no other pending
-      // detectors.
-      for (GestureMatcher matcher : gestures) {
-        if (matcher.getState() == GestureMatcher.STATE_GESTURE_STARTED) {
-          return;
-        }
-      }
-      listener.onGestureCancelled();
+      listener.onGestureCancelled(gestureId);
     }
   }
 
@@ -270,12 +184,12 @@ public class GestureManifold implements GestureMatcher.StateChangeListener {
     // Gestures that complete on a delay call clear() here.
     AccessibilityGestureEvent gestureEvent =
         new AccessibilityGestureEvent(gestureId, displayId, new ArrayList<MotionEvent>());
-    listener.onGestureCompleted(gestureEvent);
     for (GestureMatcher matcher : gestures) {
       if (matcher.getGestureId() != gestureId) {
-        matcher.cancelGesture(event);
+        matcher.cancelGesture(event, false);
       }
     }
+    listener.onGestureCompleted(gestureEvent);
   }
 
   public boolean isMultiFingerGesturesEnabled() {

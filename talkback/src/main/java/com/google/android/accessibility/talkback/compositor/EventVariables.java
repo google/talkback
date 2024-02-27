@@ -16,24 +16,21 @@
 
 package com.google.android.accessibility.talkback.compositor;
 
-import android.app.Notification;
+import static com.google.android.accessibility.talkback.compositor.ParseTreeCreator.ENUM_ROLE;
+
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree.VariableDelegate;
+import com.google.android.accessibility.talkback.compositor.rule.EventTypeNotificationStateChangedFeedbackRule;
+import com.google.android.accessibility.talkback.compositor.rule.ScrollPositionFeedbackRule;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.LocaleUtils;
-import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Role;
-import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -43,7 +40,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 class EventVariables implements VariableDelegate {
   // IDs of enums.
   private static final int ENUM_CONTENT_CHANGE_TYPE = 8400;
-  private static final int ENUM_NOTIFICATION_CATEGORY = 8500;
 
   // IDs of variables.
   private static final int EVENT_TEXT = 8000;
@@ -68,6 +64,11 @@ class EventVariables implements VariableDelegate {
   private static final int EVENT_SOURCE_IS_KEYBOARD = 8028;
   private static final int EVENT_IS_WINDOW_CONTENT_CHANGED = 8030;
   private static final int EVENT_SOURCE_IS_LIVE_REGION = 8031;
+  private static final int EVENT_PAGER_INDEX_COUNT = 8032;
+  private static final int EVENT_SCROLL_POSITION_OUTPUT = 8033;
+  private static final int EVENT_DESCRIPTION = 8034;
+  private static final int EVENT_AGGREGATE_TEXT = 8035;
+  private static final int EVENT_PROGRESS_BAR_EARCON_RATE = 8036;
 
   // Constants used for ENUM_CONTENT_CHANGE_TYPE.
   private static final int CONTENT_CHANGE_TYPE_OTHER = -1;
@@ -78,21 +79,8 @@ class EventVariables implements VariableDelegate {
   private static final int CONTENT_CHANGE_TYPE_DRAG_STARTED = 8405;
   private static final int CONTENT_CHANGE_TYPE_DRAG_DROPPED = 8406;
   private static final int CONTENT_CHANGE_TYPE_DRAG_CANCELLED = 8407;
-
-  // Constants used for ENUM_NOTIFICATION_CATEGORY.
-  private static final int NOTIFICATION_CATEGORY_NONE = -1;
-  private static final int NOTIFICATION_CATEGORY_CALL = 8501;
-  private static final int NOTIFICATION_CATEGORY_MSG = 8502;
-  private static final int NOTIFICATION_CATEGORY_EMAIL = 8503;
-  private static final int NOTIFICATION_CATEGORY_EVENT = 8504;
-  private static final int NOTIFICATION_CATEGORY_PROMO = 8505;
-  private static final int NOTIFICATION_CATEGORY_ALARM = 8506;
-  private static final int NOTIFICATION_CATEGORY_PROGRESS = 8507;
-  private static final int NOTIFICATION_CATEGORY_SOCIAL = 8508;
-  private static final int NOTIFICATION_CATEGORY_ERR = 8509;
-  private static final int NOTIFICATION_CATEGORY_TRANSPORT = 8510;
-  private static final int NOTIFICATION_CATEGORY_SYS = 8511;
-  private static final int NOTIFICATION_CATEGORY_SERVICE = 8512;
+  private static final int CONTENT_CHANGE_TYPE_ERROR = 8408;
+  private static final int CONTENT_CHANGE_TYPE_ENABLED = 8409;
 
   private final Context mContext;
   private final VariableDelegate mParent;
@@ -100,6 +88,7 @@ class EventVariables implements VariableDelegate {
   private final AccessibilityNodeInfo mSource;
   // Stores the user preferred locale changed using language switcher.
   private final @Nullable Locale mUserPreferredLocale;
+  private final GlobalVariables globalVariables;
 
   /**
    * Constructs an EventVariables, which contains context variables to help generate feedback for an
@@ -113,8 +102,9 @@ class EventVariables implements VariableDelegate {
       VariableDelegate parent,
       AccessibilityEvent event,
       AccessibilityNodeInfo source,
-      @Nullable Locale userPreferredLocale) {
-    mUserPreferredLocale = userPreferredLocale;
+      GlobalVariables globalVariables) {
+    this.globalVariables = globalVariables;
+    mUserPreferredLocale = globalVariables.getUserPreferredLocale();
     mContext = context;
     mParent = parent;
     mEvent = event;
@@ -167,6 +157,9 @@ class EventVariables implements VariableDelegate {
         return AccessibilityEventUtils.getScrollPercent(mEvent, 50.0f);
       case EVENT_PROGRESS_PERCENT:
         return AccessibilityEventUtils.getProgressPercent(mEvent);
+      case EVENT_PROGRESS_BAR_EARCON_RATE:
+        return EarconFeedbackUtils.getProgressBarChangeEarconRate(
+            mEvent, AccessibilityNodeInfoUtils.toCompat(mSource));
       default:
         return mParent.getNumber(variableId);
     }
@@ -192,43 +185,31 @@ class EventVariables implements VariableDelegate {
     clean.set(false);
     switch (variableId) {
       case EVENT_CONTENT_DESCRIPTION:
-        {
-          /**
-           * Wrap the text with user preferred locale changed using language switcher, with an
-           * exception for all talkback created events. As talkback text is always in the system
-           * language.
-           */
-          if (PackageManagerUtils.isTalkBackPackage(mEvent.getPackageName())) {
-            return mEvent.getContentDescription();
-          }
-          // Note: mUserPreferredLocale will not override any LocaleSpan that is already attached
-          // to the description. The content description will have just one LocaleSpan.
-          return LocaleUtils.wrapWithLocaleSpan(
-              mEvent.getContentDescription(), mUserPreferredLocale);
-        }
+        return AccessibilityEventFeedbackUtils.getEventContentDescription(
+            mEvent, mUserPreferredLocale);
+      case EVENT_NOTIFICATION_CATEGORY:
+        return EventTypeNotificationStateChangedFeedbackRule.getNotificationCategoryStateText(
+            mContext, AccessibilityEventUtils.extractNotification(mEvent));
       case EVENT_NOTIFICATION_DETAILS:
-        return getNotificationDetails(AccessibilityEventUtils.extractNotification(mEvent));
+        return EventTypeNotificationStateChangedFeedbackRule.getNotificationDetailsStateText(
+            AccessibilityEventUtils.extractNotification(mEvent));
       case EVENT_TEXT_0:
-        {
-          // TODO: Support event.text[0] in ParseTree.
-          List<CharSequence> texts = mEvent.getText();
-          CharSequence text = (texts == null || texts.size() == 0) ? null : texts.get(0);
-          /**
-           * Wrap the text with user preferred locale changed using language switcher, with an
-           * exception for all talkback created events. As talkback text is always in the system
-           * language.
-           */
-          if (!PackageManagerUtils.isTalkBackPackage(mEvent.getPackageName())) {
-            // Note: mUserPreferredLocale will not override any LocaleSpan that is already attached
-            // to the text. The text will have just one LocaleSpan.
-            text = LocaleUtils.wrapWithLocaleSpan(text, mUserPreferredLocale);
-          }
-          return (text == null) ? "" : text;
-        }
+        return AccessibilityEventFeedbackUtils.getEventTextFromArrayString(
+            mEvent, 0, mUserPreferredLocale);
       case EVENT_BEFORE_TEXT:
         return mEvent.getBeforeText();
       case EVENT_SOURCE_ERROR:
         return (mSource == null) ? "" : mSource.getError();
+      case EVENT_PAGER_INDEX_COUNT:
+        return AccessibilityEventFeedbackUtils.getPagerIndexCount(
+            mEvent, mContext, globalVariables);
+      case EVENT_SCROLL_POSITION_OUTPUT:
+        return ScrollPositionFeedbackRule.getScrollPositionText(mEvent, mContext, globalVariables);
+      case EVENT_DESCRIPTION:
+        return AccessibilityEventFeedbackUtils.getEventContentDescriptionOrEventAggregateText(
+            mEvent, mUserPreferredLocale);
+      case EVENT_AGGREGATE_TEXT:
+        return AccessibilityEventFeedbackUtils.getEventAggregateText(mEvent, mUserPreferredLocale);
       default:
         clean.set(true);
         return mParent.getString(variableId);
@@ -238,8 +219,6 @@ class EventVariables implements VariableDelegate {
   @Override
   public int getEnum(int variableId) {
     switch (variableId) {
-      case EVENT_NOTIFICATION_CATEGORY:
-        return getNotificationCategory(AccessibilityEventUtils.extractNotification(mEvent));
       case EVENT_CONTENT_CHANGE_TYPE:
         return getContentChangeType(mEvent.getContentChangeTypes());
       case EVENT_SOURCE_ROLE:
@@ -269,16 +248,8 @@ class EventVariables implements VariableDelegate {
     switch (variableId) {
       case EVENT_TEXT:
         {
-          CharSequence eventText = mEvent.getText().get(index);
-          /**
-           * Wrap the text with user preferred locale changed using language switcher, with an
-           * exception for all talkback created events. As talkback text is always in the system
-           * language.
-           */
-          if (PackageManagerUtils.isTalkBackPackage(mEvent.getPackageName())) {
-            return eventText;
-          }
-          return LocaleUtils.wrapWithLocaleSpan(eventText, mUserPreferredLocale);
+          return AccessibilityEventFeedbackUtils.getEventTextFromArrayString(
+              mEvent, index, mUserPreferredLocale);
         }
       default:
         return mParent.getArrayStringElement(variableId, index);
@@ -293,22 +264,6 @@ class EventVariables implements VariableDelegate {
 
   static void declareVariables(ParseTree parseTree) {
 
-    Map<Integer, String> notificationCategories = new HashMap<>();
-    notificationCategories.put(NOTIFICATION_CATEGORY_NONE, "none");
-    notificationCategories.put(NOTIFICATION_CATEGORY_CALL, "call");
-    notificationCategories.put(NOTIFICATION_CATEGORY_MSG, "msg");
-    notificationCategories.put(NOTIFICATION_CATEGORY_EMAIL, "email");
-    notificationCategories.put(NOTIFICATION_CATEGORY_EVENT, "event");
-    notificationCategories.put(NOTIFICATION_CATEGORY_PROMO, "promo");
-    notificationCategories.put(NOTIFICATION_CATEGORY_ALARM, "alarm");
-    notificationCategories.put(NOTIFICATION_CATEGORY_PROGRESS, "progress");
-    notificationCategories.put(NOTIFICATION_CATEGORY_SOCIAL, "social");
-    notificationCategories.put(NOTIFICATION_CATEGORY_ERR, "err");
-    notificationCategories.put(NOTIFICATION_CATEGORY_TRANSPORT, "transport");
-    notificationCategories.put(NOTIFICATION_CATEGORY_SYS, "sys");
-    notificationCategories.put(NOTIFICATION_CATEGORY_SERVICE, "service");
-    parseTree.addEnum(ENUM_NOTIFICATION_CATEGORY, notificationCategories);
-
     Map<Integer, String> contentChangeTypes = new HashMap<>();
     contentChangeTypes.put(CONTENT_CHANGE_TYPE_OTHER, "other");
     contentChangeTypes.put(CONTENT_CHANGE_TYPE_UNDEFINED, "undefined");
@@ -318,14 +273,15 @@ class EventVariables implements VariableDelegate {
     contentChangeTypes.put(CONTENT_CHANGE_TYPE_DRAG_STARTED, "drag_started");
     contentChangeTypes.put(CONTENT_CHANGE_TYPE_DRAG_DROPPED, "drag_dropped");
     contentChangeTypes.put(CONTENT_CHANGE_TYPE_DRAG_CANCELLED, "drag_cancelled");
+    contentChangeTypes.put(CONTENT_CHANGE_TYPE_ERROR, "error");
+    contentChangeTypes.put(CONTENT_CHANGE_TYPE_ENABLED, "enabled");
     parseTree.addEnum(ENUM_CONTENT_CHANGE_TYPE, contentChangeTypes);
 
     // Variables.
     // Events.
     parseTree.addArrayVariable("event.text", EVENT_TEXT);
     parseTree.addStringVariable("event.contentDescription", EVENT_CONTENT_DESCRIPTION);
-    parseTree.addEnumVariable(
-        "event.notificationCategory", EVENT_NOTIFICATION_CATEGORY, ENUM_NOTIFICATION_CATEGORY);
+    parseTree.addStringVariable("event.notificationCategory", EVENT_NOTIFICATION_CATEGORY);
     parseTree.addEnumVariable(
         "event.contentChangeTypes", EVENT_CONTENT_CHANGE_TYPE, ENUM_CONTENT_CHANGE_TYPE);
     parseTree.addStringVariable("event.notificationDetails", EVENT_NOTIFICATION_DETAILS);
@@ -339,13 +295,18 @@ class EventVariables implements VariableDelegate {
     parseTree.addIntegerVariable("event.toIndex", EVENT_TO_INDEX);
     parseTree.addStringVariable("event.sourceError", EVENT_SOURCE_ERROR);
     parseTree.addIntegerVariable("event.sourceMaxTextLength", EVENT_SOURCE_MAX_TEXT_LENGTH);
-    parseTree.addEnumVariable("event.sourceRole", EVENT_SOURCE_ROLE, Compositor.ENUM_ROLE);
+    parseTree.addEnumVariable("event.sourceRole", EVENT_SOURCE_ROLE, ENUM_ROLE);
     parseTree.addBooleanVariable("event.sourceIsNull", EVENT_SOURCE_IS_NULL);
     parseTree.addNumberVariable("event.scrollPercent", EVENT_SCROLL_PERCENT);
     parseTree.addNumberVariable("event.progressPercent", EVENT_PROGRESS_PERCENT);
     parseTree.addBooleanVariable("event.sourceIsKeyboard", EVENT_SOURCE_IS_KEYBOARD);
     parseTree.addBooleanVariable("event.isWindowContentChanged", EVENT_IS_WINDOW_CONTENT_CHANGED);
     parseTree.addBooleanVariable("event.sourceIsLiveRegion", EVENT_SOURCE_IS_LIVE_REGION);
+    parseTree.addStringVariable("event.pagerIndexCount", EVENT_PAGER_INDEX_COUNT);
+    parseTree.addStringVariable("event.scrollPositionOutput", EVENT_SCROLL_POSITION_OUTPUT);
+    parseTree.addStringVariable("event.description", EVENT_DESCRIPTION);
+    parseTree.addStringVariable("event.aggregateText", EVENT_AGGREGATE_TEXT);
+    parseTree.addNumberVariable("event.progressBarEarconRate", EVENT_PROGRESS_BAR_EARCON_RATE);
   }
 
   private static int getContentChangeType(int contentChangeTypes) {
@@ -372,71 +333,19 @@ class EventVariables implements VariableDelegate {
     if (contentChangeTypes == AccessibilityEvent.CONTENT_CHANGE_TYPE_UNDEFINED) {
       return CONTENT_CHANGE_TYPE_UNDEFINED;
     }
+    // TODO: b/258703440 Integrate with new added CONTENT_CHANGE_TYPE_*.
+    // AccessibilityEventUtils.CONTENT_CHANGE_TYPE_ERROR is
+    // the integer value of AccessibilityEvent.CONTENT_CHANGE_TYPE_ERROR.
+    if ((contentChangeTypes & AccessibilityEventUtils.CONTENT_CHANGE_TYPE_ERROR) != 0) {
+      return CONTENT_CHANGE_TYPE_ERROR;
+    }
+    // TODO: b/258703440 Integrate with new added CONTENT_CHANGE_TYPE_*.
+    // AccessibilityEventUtils.CONTENT_CHANGE_TYPE_ENABLED is
+    // the integer value of AccessibilityEvent.CONTENT_CHANGE_TYPE_ENABLED.
+    if ((contentChangeTypes & AccessibilityEventUtils.CONTENT_CHANGE_TYPE_ENABLED) != 0) {
+      return CONTENT_CHANGE_TYPE_ENABLED;
+    }
+
     return CONTENT_CHANGE_TYPE_OTHER;
-  }
-
-  private static int getNotificationCategory(@Nullable Notification notification) {
-    if (notification == null || notification.category == null) {
-      return NOTIFICATION_CATEGORY_NONE;
-    }
-    switch (notification.category) {
-      case Notification.CATEGORY_CALL:
-        return NOTIFICATION_CATEGORY_CALL;
-      case Notification.CATEGORY_MESSAGE:
-        return NOTIFICATION_CATEGORY_MSG;
-      case Notification.CATEGORY_EMAIL:
-        return NOTIFICATION_CATEGORY_EMAIL;
-      case Notification.CATEGORY_EVENT:
-        return NOTIFICATION_CATEGORY_EVENT;
-      case Notification.CATEGORY_PROMO:
-        return NOTIFICATION_CATEGORY_PROMO;
-      case Notification.CATEGORY_ALARM:
-        return NOTIFICATION_CATEGORY_ALARM;
-      case Notification.CATEGORY_PROGRESS:
-        return NOTIFICATION_CATEGORY_PROGRESS;
-      case Notification.CATEGORY_SOCIAL:
-        return NOTIFICATION_CATEGORY_SOCIAL;
-      case Notification.CATEGORY_ERROR:
-        return NOTIFICATION_CATEGORY_ERR;
-      case Notification.CATEGORY_TRANSPORT:
-        return NOTIFICATION_CATEGORY_TRANSPORT;
-      case Notification.CATEGORY_SYSTEM:
-        return NOTIFICATION_CATEGORY_SYS;
-      case Notification.CATEGORY_SERVICE:
-        return NOTIFICATION_CATEGORY_SERVICE;
-      default:
-        return NOTIFICATION_CATEGORY_NONE;
-    }
-  }
-
-  private static CharSequence getNotificationDetails(@Nullable Notification notification) {
-    if (notification == null) {
-      return "";
-    }
-
-    List<CharSequence> notificationDetails = new ArrayList<CharSequence>();
-    CharSequence notificationTickerText = notification.tickerText;
-
-    if (notification.extras != null) {
-      // Get notification title and text from the Notification Extras bundle.
-      CharSequence notificationTitle = notification.extras.getCharSequence("android.title");
-      CharSequence notificationText = notification.extras.getCharSequence("android.text");
-
-      if (!TextUtils.isEmpty(notificationTitle)) {
-        notificationDetails.add(notificationTitle);
-      }
-
-      if (!TextUtils.isEmpty(notificationText)) {
-        notificationDetails.add(notificationText);
-      } else {
-        notificationDetails.add(notificationTickerText);
-      }
-    }
-
-    CharSequence text =
-        notificationDetails.isEmpty()
-            ? null
-            : StringBuilderUtils.getAggregateText(notificationDetails);
-    return (text == null) ? "" : text;
   }
 }

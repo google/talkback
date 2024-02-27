@@ -58,7 +58,7 @@ public class SpannableTraversalUtils {
     }
     Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
     searchSpannableStringsInNodeTree(
-        AccessibilityNodeInfoCompat.obtain(node), // Root node.
+        node, // Root node.
         visitedNodes, // Visited nodes.
         result, // List of SpannableStrings collected.
         targetSpanClass // Target span class

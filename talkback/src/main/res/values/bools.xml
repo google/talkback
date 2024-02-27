@@ -17,4 +17,8 @@
     <bool name="is_tablet">false</bool>
     <!-- Whether to support lift-to-type, declare it in meta-data of AndroidManifest.xml -->
     <bool name="support_lift_to_type">true</bool>
+    <!-- Whether to show play store in preference. -->
+    <bool name="show_play_store">true</bool>
+    <!-- Whether to skip showing tutorial in TalkBack launching. (not from user behaviors) -->
+    <bool name="skip_tutorial_in_launching">false</bool>
 </resources>

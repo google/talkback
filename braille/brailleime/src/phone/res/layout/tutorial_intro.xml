@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     android:background="@color/tutorial_background"
     android:orientation="vertical"
-    android:paddingStart="@dimen/tutorial_horizontal_padding"
-    android:paddingTop="@dimen/tutorial_vertical_padding"
-    android:paddingEnd="@dimen/tutorial_horizontal_padding">
+    android:paddingHorizontal="@dimen/tutorial_horizontal_padding"
+    android:paddingTop="@dimen/tutorial_vertical_padding">
   <TextView
       android:id="@+id/tutorial_title"
       android:layout_width="match_parent"
@@ -18,16 +17,16 @@
   <ImageView
       android:id="@+id/tutorial_animation"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_height="0dp"
       android:layout_gravity="center"
-      android:layout_marginTop="@dimen/tutorial_animation_margin"
-      android:layout_marginBottom="@dimen/tutorial_animation_margin"
-      android:src="@drawable/intro_animation" />
+      android:layout_weight="1"
+      android:src="@drawable/intro_animation"
+      android:importantForAccessibility="no"/>
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="0dp"
       android:layout_weight="1"
-      android:paddingBottom="@dimen/tutorial_vertical_padding">
+      android:layout_marginBottom="@dimen/tutorial_vertical_margin">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="@dimen/training_padding_top"
+      android:background="@drawable/training_tip_background"
+      android:padding="@dimen/training_note_padding"
+      android:focusable="true">
+
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/training_tip_layout_side_margin"
+      android:layout_marginLeft="@dimen/training_tip_layout_side_margin"
+      android:layout_marginRight="@dimen/training_tip_layout_side_margin"
+      android:gravity="center_vertical">
+
+    <ImageView
+        android:src="@drawable/ic_tips_and_updates_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/training_tip_title_margin"
+        android:text="@string/training_tip"
+        app:fontFamily="@string/accessibility_font"
+        android:lineHeight="@dimen/training_tip_title_text_height"
+        android:textColor="@color/training_icon_color"
+        android:textSize="@dimen/training_tip_title_text_size"/>
+  </LinearLayout>
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/training_tip_text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/training_tip_layout_side_margin"
+      android:layout_marginBottom="@dimen/training_tip_layout_side_margin"
+      android:layout_marginLeft="@dimen/training_tip_layout_side_margin"
+      android:layout_marginRight="@dimen/training_tip_layout_side_margin"
+      app:fontFamily="@string/accessibility_font"
+      android:lineHeight="@dimen/training_text_height"
+      android:textColor="@color/training_text_color"
+      android:textSize="@dimen/training_text_size"/>
+  </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.accessibility.talkback.trainingcommon.tv.TvTutorialRootView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/tv_training_page_margin_horizontal"
+    android:paddingRight="@dimen/tv_training_page_margin_horizontal"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:background="@drawable/tv_training_background">
+  <!-- left column -->
+  <RelativeLayout
+      android:orientation="vertical"
+      android:layout_width="@dimen/tv_training_left_column_width"
+      android:layout_height="match_parent"
+      android:layout_marginEnd="@dimen/tv_training_page_margin_middle">
+    <com.google.android.accessibility.talkback.trainingcommon.tv.TvTutorialScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:fillViewport="true"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="@dimen/tv_training_page_margin_vertical">
+        <LinearLayout
+            android:id="@+id/training_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/tv_training_page_margin_vertical"
+            android:paddingBottom="@dimen/tv_training_page_margin_vertical"
+            android:orientation="vertical"/>
+    </com.google.android.accessibility.talkback.trainingcommon.tv.TvTutorialScrollView>
+  </RelativeLayout>
+  <!-- right column -->
+  <LinearLayout
+      android:layout_width="@dimen/tv_training_right_column_width"
+      android:layout_height="match_parent"
+      android:paddingTop="@dimen/tv_training_page_margin_vertical"
+      android:paddingBottom="@dimen/tv_training_page_margin_vertical"
+      android:clipChildren="false"
+      android:clipToPadding="false"
+      android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/nav_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="horizontal" />
+    <ImageView
+        android:id="@+id/tv_training_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+  </LinearLayout>
+</com.google.android.accessibility.talkback.trainingcommon.tv.TvTutorialRootView>

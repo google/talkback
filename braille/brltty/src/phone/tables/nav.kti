@@ -1,0 +1,88 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+bind Up LNUP
+bind Down LNDN
+bind Left FWINLT
+bind Right FWINRT
+
+bind Dot4+Up TOP
+bind Dot4+Down BOT
+bind Dot4+Left LNBEG
+bind Dot4+Right LNEND
+
+bind Dot5+Up PRDIFLN
+bind Dot5+Down NXDIFLN
+bind Dot5+Left FWINLTSKIP
+bind Dot5+Right FWINRTSKIP
+
+bind Dot6+Up ATTRUP
+bind Dot6+Down ATTRDN
+bind Dot6+Left CHRLT
+bind Dot6+Right CHRRT
+
+Bind Dot4+Dot6+Up PRPGRPH
+Bind Dot4+Dot6+Down NXPGRPH
+Bind Dot4+Dot6+Left PRPROMPT
+Bind Dot4+Dot6+Right NXPROMPT
+
+Bind Dot4+Dot5+Dot6+Up PREFMENU
+Bind Dot4+Dot5+Dot6+Down TIME
+Bind Dot4+Dot5+Dot6+Left PREFLOAD
+Bind Dot4+Dot5+Dot6+Right PREFSAVE
+
+Bind Dot4+Dot5+Up FREEZE
+Bind Dot4+Dot5+Down DISPMD
+Bind Dot4+Dot5+Left COMPBRL6
+Bind Dot4+Dot5+Right CONTRACTED
+
+Bind Dot5+Dot6+Up PRSEARCH
+Bind Dot5+Dot6+Down NXSEARCH
+Bind Dot5+Dot6+Left SWITCHVT_PREV
+Bind Dot5+Dot6+Right SWITCHVT_NEXT
+
+bind Dot1+Up KEY_CURSOR_UP
+bind Dot1+Down KEY_CURSOR_DOWN
+bind Dot1+Left KEY_CURSOR_LEFT
+bind Dot1+Right KEY_CURSOR_RIGHT
+
+bind Dot2+Up KEY_PAGE_UP
+bind Dot2+Down KEY_PAGE_DOWN
+bind Dot2+Left KEY_HOME
+bind Dot2+Right KEY_END
+
+bind Dot3+Up KEY_ESCAPE
+bind Dot3+Down KEY_TAB
+bind Dot3+Left KEY_DELETE
+bind Dot3+Right KEY_INSERT
+
+bind Dot1+Dot2+Up SAY_ABOVE
+bind Dot1+Dot2+Down SAY_BELOW
+bind Dot1+Dot2+Left MUTE
+bind Dot1+Dot2+Right SAY_LINE
+
+bind Dot2+Dot3+Up SAY_LOUDER
+bind Dot2+Dot3+Down SAY_SOFTER
+bind Dot2+Dot3+Left SAY_SLOWER
+bind Dot2+Dot3+Right SAY_FASTER
+
+bind Dot1+Dot3+Up AUTOSPEAK
+bind Dot1+Dot3+Down SPKHOME
+bind Dot1+Dot3+Left SPEAK_INDENT
+bind Dot1+Dot3+Right SAY_ALL
+

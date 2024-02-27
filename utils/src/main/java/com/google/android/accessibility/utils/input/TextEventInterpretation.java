@@ -22,6 +22,7 @@ import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.ReadOnly;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.lang.annotation.Retention;
 
 /**
@@ -55,6 +56,7 @@ public class TextEventInterpretation extends ReadOnly {
   public static final int SELECTION_SELECT_ALL = AFTER_ACCESSIBILITY_EVENTS + 18;
   public static final int SELECTION_SELECT_ALL_WITH_KEYBOARD = AFTER_ACCESSIBILITY_EVENTS + 19;
   public static final int SELECTION_RESET_SELECTION = AFTER_ACCESSIBILITY_EVENTS + 20;
+  public static final int SET_TEXT_BY_ACTION = AFTER_ACCESSIBILITY_EVENTS + 21;
 
   public static final int AFTER_TEXT_EVENTS = AFTER_ACCESSIBILITY_EVENTS + 100;
 
@@ -80,6 +82,7 @@ public class TextEventInterpretation extends ReadOnly {
     SELECTION_SELECT_ALL,
     SELECTION_SELECT_ALL_WITH_KEYBOARD,
     SELECTION_RESET_SELECTION,
+    SET_TEXT_BY_ACTION,
   })
   @Retention(SOURCE)
   public @interface TextEvent {}
@@ -116,6 +119,7 @@ public class TextEventInterpretation extends ReadOnly {
     this.event = event;
   }
 
+  @CanIgnoreReturnValue
   public TextEventInterpretation setInvalid(String reason) {
     setEvent(CHANGE_INVALID);
     setReason(reason);
@@ -283,6 +287,8 @@ public class TextEventInterpretation extends ReadOnly {
         return "SELECTION_SELECT_ALL_WITH_KEYBOARD";
       case SELECTION_RESET_SELECTION:
         return "SELECTION_RESET_SELECTION";
+      case SET_TEXT_BY_ACTION:
+        return "SET_TEXT_BY_ACTION";
       default:
         return "(unknown event " + eventType + ")";
     }

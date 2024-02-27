@@ -1,0 +1,23 @@
+## generated content files
+braille/translate/src/phone/res/raw/translationtables.zip
+braille/brltty/src/phone/res/raw/keytables.zip
+
+## special build files
+local.properties
+.gradle/
+
+## generated intermediates
+braille/brailledisplay/build/
+braille/brailledisplayanalytics/build/
+braille/brailleime/build/
+braille/brailleimeanalytics/build/
+braille/brltty/.cxx/
+braille/brltty/build/
+braille/common/build/
+braille/interfaces/build/
+braille/translate/.cxx/
+braille/translate/build/
+build/
+proguard/build/
+talkback/build/
+utils/build/

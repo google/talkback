@@ -23,7 +23,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.actor.DirectionNavigationActor;
 import com.google.android.accessibility.talkback.actor.search.SearchState.MatchedNodeInfo;
 import com.google.android.accessibility.talkback.actor.search.StringMatcher.MatchResult;
-import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
+import com.google.android.accessibility.talkback.labeling.TalkBackLabelManager;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityWindow;
@@ -36,7 +36,7 @@ public final class SearchScreenNodeStrategy {
   @Nullable private SearchObserver observer;
 
   /** The custom label manager that is used for search screen node. */
-  @Nullable private final CustomLabelManager labelManager;
+  @Nullable private final TalkBackLabelManager labelManager;
 
   /** Stores last-searched keyword. */
   @Nullable private CharSequence lastKeyword;
@@ -51,7 +51,7 @@ public final class SearchScreenNodeStrategy {
    * @param labelManager The custom label manager, or {@code null} if the API version does not
    */
   public SearchScreenNodeStrategy(
-      @Nullable SearchObserver observer, @Nullable CustomLabelManager labelManager) {
+      @Nullable SearchObserver observer, @Nullable TalkBackLabelManager labelManager) {
     this.observer = observer;
     this.labelManager = labelManager;
     this.nodesCache = new ScreenNodesCache();
@@ -102,7 +102,7 @@ public final class SearchScreenNodeStrategy {
       List<MatchResult> matchResults =
           StringMatcher.findMatches(node.getNodeText().toString(), trimmedUserInput);
 
-      if (matchResults.size() > 0) {
+      if (!matchResults.isEmpty()) {
         state.addResult(new MatchedNodeInfo(node, matchResults));
       }
     }
@@ -125,7 +125,7 @@ public final class SearchScreenNodeStrategy {
             }
 
             // Keep the nodes with texts.
-            CharSequence nodeText = CustomLabelManager.getNodeText(node, labelManager);
+            CharSequence nodeText = TalkBackLabelManager.getNodeText(node, labelManager);
             return !TextUtils.isEmpty(nodeText);
           }
         });
@@ -170,7 +170,7 @@ public final class SearchScreenNodeStrategy {
               return false;
             }
             // Keep the nodes with texts.
-            @Nullable CharSequence nodeText = CustomLabelManager.getNodeText(node, labelManager);
+            @Nullable CharSequence nodeText = TalkBackLabelManager.getNodeText(node, labelManager);
             if (TextUtils.isEmpty(nodeText)) {
               return false;
             }
@@ -178,7 +178,7 @@ public final class SearchScreenNodeStrategy {
             // Check for target-text match.
             List<MatchResult> matches =
                 StringMatcher.findMatches(nodeText.toString(), trimmedUserInput);
-            return (matches != null) && (matches.size() > 0);
+            return (matches != null) && (!matches.isEmpty());
           }
         });
   }

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="talkback_service_description">टॉकबैक एक स्क्रीन रीडर है जिसे मुख्य रूप से दृष्टिहीन और कम दृष्टि वाले लोगों के लिए बनाया गया है. उपयोगकर्ता अपने डिवाइस से इंटरैक्ट करने के लिए, बोलकर जवाब देने वाली इस सुविधा का इस्तेमाल कर सकते हैं.</string>
+  <string name="talkback_service_description">TalkBack एक स्क्रीन रीडर है जिसे मुख्य रूप से दृष्टिहीन और कम दृष्टि वाले लोगों के लिए बनाया गया है. उपयोगकर्ता अपने डिवाइस से इंटरैक्ट करने के लिए, बोलकर जवाब देने वाली इस सुविधा का इस्तेमाल कर सकते हैं.</string>
   <string name="welcome_to_talkback_text">बोलकर दिए गए जवाब पाएं, ताकि आप स्क्रीन को देखे बिना अपने स्मार्टवॉच का इस्तेमाल कर सकें.</string>
+  <string name="summary_custom_action">यह तब दिखता है, जब मौजूदा आइटम के लिए, आपकी पसंद के मुताबिक कार्रवाइयां मौजूद होती हैं.</string>
+  <string name="notification_title_talkback_gestures_changed">TalkBack जेस्चर अपडेट किए गए</string>
+  <string name="notification_message_talkback_gestures_changed">ज़्यादा जानकारी के लिए, फ़ोन पर TalkBack मेन्यू खोलें</string>
+  <string name="new_feature_in_talkback_title">नया क्या है</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">ठीक है</string>
+  <string name="scan_the_qr_code">क्यूआर कोड स्कैन करें</string>
+  <string name="alternate_privacy_policy">या http://www.google.com/policies/privacy पर जाएं</string>
+  <string name="alternate_tos">या https://www.google.com/mobile/toscountry पर जाएं</string>
 </resources>

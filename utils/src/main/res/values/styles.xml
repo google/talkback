@@ -31,7 +31,7 @@
   <style name="A11yAlertDialogContentTextStyle">
     <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
     <item name="android:textColor">@color/a11y_alert_dialog_content_message_text_color</item>
-    <item name="android:fontFamily">@string/accessibility_font</item>
+    <item name="fontFamily">@string/accessibility_font</item>
     <item name="android:textSize">14sp</item>
   </style>
 
@@ -39,10 +39,12 @@
   <style name="A11yAlertDialogSubtitleStyle">
     <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
     <item name="android:textColor">@color/a11y_alert_dialog_subtitle_text_color</item>
-    <item name="android:fontFamily">@string/accessibility_font</item>
+    <item name="fontFamily">@string/accessibility_font</item>
     <item name="android:textSize">14sp</item>
   </style>
 
   <!-- Material Components Theme -->
   <style name="A11yMaterialComponentsTheme" parent="Theme.MaterialComponents" />
+
+  <style name="WearAlertDialog" parent="@style/Theme.AppCompat.NoActionBar" />
 </resources>

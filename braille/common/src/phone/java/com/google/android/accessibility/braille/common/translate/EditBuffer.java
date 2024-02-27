@@ -68,17 +68,10 @@ public interface EditBuffer {
   /** Moves the cursor of the buffer backward. */
   boolean moveCursorBackward(ImeConnection imeConnection);
 
-  /** Moves the cursor of the buffer forward by word. */
-  boolean moveCursorForwardByWord(ImeConnection imeConnection);
-
-  /** Moves the cursor of the buffer backward by word. */
-  boolean moveCursorBackwardByWord(ImeConnection imeConnection);
-
-  /** Moves the cursor of the buffer forward by line. */
-  boolean moveCursorForwardByLine(ImeConnection imeConnection);
-
-  /** Moves the cursor of the buffer backward by line. */
-  boolean moveCursorBackwardByLine(ImeConnection imeConnection);
+  /** Moves the cursor of the holdings. */
+  default boolean moveHoldingsCursor(ImeConnection imeConnection, int index) {
+    return false;
+  }
 
   /** Moves the cursor in the text field. */
   boolean moveTextFieldCursor(ImeConnection imeConnection, int index);
@@ -89,10 +82,8 @@ public interface EditBuffer {
   /** Moves the cursor to the end of text field. */
   boolean moveCursorToEnd(ImeConnection imeConnection);
 
-  /** Moves the cursor of the holdings. */
-  default boolean moveHoldingsCursor(ImeConnection imeConnection, int index) {
-    return false;
-  }
+  /** Selects All text from the text field. */
+  boolean selectAllText(ImeConnection imeConnection);
 
   /** Gets the holdings info for braille display. */
   HoldingsInfo getHoldingsInfo(ImeConnection imeConnection);

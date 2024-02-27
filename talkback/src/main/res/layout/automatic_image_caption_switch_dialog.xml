@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textDirection="locale"
+    android:scrollbarStyle="outsideOverlay"
+    android:theme="@style/A11yAlertDialogCustomViewTheme"
+    android:gravity="top">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/automatic_image_caption_switch_dialog_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="top|center_horizontal"
+        android:text="@string/switch_auto_image_caption_dialog_subtitle"
+        android:textAppearance="@style/A11yAlertDialogSubtitleStyle"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/automatic_image_caption_switch_dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="32dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
+
+    <RadioGroup
+        android:id="@+id/automatic_image_caption_switch_dialog_radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+      <RadioButton
+          android:id="@+id/automatic_image_caption_switch_dialog_radiobutton_enabled"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="@dimen/radio_button_min_height"
+          android:text="@string/summary_pref_feature_enabled"
+          android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
+      <RadioButton
+          android:id="@+id/automatic_image_caption_switch_dialog_radiobutton_disabled"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="@dimen/radio_button_min_height"
+          android:text="@string/summary_pref_feature_disabled"
+          android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
+      <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/automatic_image_caption_switch_dialog_radiobutton_disabled_subtext"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/disable_auto_image_caption_dialog_subtext"
+          android:textAppearance="@style/A11yAlertDialogSubtitleStyle"
+          android:visibility="gone" />
+    </RadioGroup>
+
+  </LinearLayout>
+
+</ScrollView>

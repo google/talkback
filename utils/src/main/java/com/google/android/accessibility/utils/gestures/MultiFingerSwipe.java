@@ -25,6 +25,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import com.google.android.accessibility.utils.R;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,6 +43,7 @@ class MultiFingerSwipe extends GestureMatcher {
   public static final int RIGHT = 1;
   public static final int UP = 2;
   public static final int DOWN = 3;
+  public static final int UNCERTAIN = 4;
 
   // Buffer for storing points for gesture detection.
   private final List<List<PointF>> strokeBuffers;
@@ -91,7 +93,9 @@ class MultiFingerSwipe extends GestureMatcher {
     final float pixelsPerCmY = displayMetrics.ydpi / GestureUtils.CM_PER_INCH;
     minPixelsBetweenSamplesX = MIN_CM_BETWEEN_SAMPLES * pixelsPerCmX;
     minPixelsBetweenSamplesY = MIN_CM_BETWEEN_SAMPLES * pixelsPerCmY;
-    touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+    touchSlop =
+        ViewConfiguration.get(context).getScaledTouchSlop()
+            * context.getResources().getInteger(R.integer.config_slop_default_multiplier);
     clear();
   }
 
@@ -288,7 +292,7 @@ class MultiFingerSwipe extends GestureMatcher {
         // Cancel if the finger starts to go the wrong way.
         // Note that this only works because this matcher assumes one direction.
         int direction = toDirection(x - base[pointerIndex].x, y - base[pointerIndex].y);
-        if (direction != targetDirection) {
+        if (direction != UNCERTAIN && direction != targetDirection) {
           cancelGesture(event);
           return;
         }
@@ -304,9 +308,17 @@ class MultiFingerSwipe extends GestureMatcher {
 
   @Override
   protected void onUp(MotionEvent event) {
-    if (getState() != STATE_GESTURE_STARTED) {
-      cancelGesture(event);
-      return;
+    switch (getState()) {
+      case STATE_GESTURE_STARTED:
+        break;
+      case STATE_CLEAR:
+        // For Swipe gestures, this is the very last motion event. When any of the swipe gesture
+        // detectors matches, the others will enter the clear state. We should not Cancel the
+        // detector again for the Up event, or it cannot detect new gesture immediately.
+        return;
+      default:
+        cancelGesture(event);
+        return;
     }
     currentFingerCount = 0;
     final int actionIndex = event.getActionIndex();
@@ -350,7 +362,7 @@ class MultiFingerSwipe extends GestureMatcher {
 
       LogUtils.v(getGestureName(), "path= %s", path.toString());
       // Classify line segments, and call Listener callbacks.
-      if (!recognizeGesturePath(event, path)) {
+      if (!recognizeGesturePath(path)) {
         cancelGesture(event);
         return;
       }
@@ -364,7 +376,7 @@ class MultiFingerSwipe extends GestureMatcher {
    *
    * @return True if the path matches the specified direction for this matcher, otherwise false.
    */
-  private boolean recognizeGesturePath(MotionEvent event, List<PointF> path) {
+  private boolean recognizeGesturePath(List<PointF> path) {
     for (int i = 0; i < path.size() - 1; ++i) {
       PointF start = path.get(i);
       PointF end = path.get(i + 1);
@@ -375,9 +387,9 @@ class MultiFingerSwipe extends GestureMatcher {
       if (direction != targetDirection) {
         LogUtils.v(
             getGestureName(),
-            "Found direction %s when expecting %s"
-                + directionToString(direction)
-                + directionToString(this.targetDirection));
+            "Found direction %s when expecting %s",
+            directionToString(direction),
+            directionToString(this.targetDirection));
         return false;
       }
     }
@@ -386,6 +398,9 @@ class MultiFingerSwipe extends GestureMatcher {
   }
 
   private static int toDirection(float dX, float dY) {
+    if (dX == 0 && dY == 0) {
+      return UNCERTAIN;
+    }
     if (Math.abs(dX) > Math.abs(dY)) {
       // Horizontal
       return (dX < 0) ? LEFT : RIGHT;
@@ -405,6 +420,8 @@ class MultiFingerSwipe extends GestureMatcher {
         return "up";
       case DOWN:
         return "down";
+      case UNCERTAIN:
+        return "still";
       default:
         return "Unknown Direction";
     }

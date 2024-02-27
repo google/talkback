@@ -19,13 +19,17 @@ package com.google.android.accessibility.braille.common.translate;
 import static java.lang.Character.PRIVATE_USE;
 
 import android.content.res.Resources;
-import android.view.inputmethod.EditorInfo;
 import com.google.android.accessibility.braille.common.R;
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 
 /** Utils for translation of Braille. */
 public class BrailleTranslateUtils {
-  public static final BrailleCharacter NUMERIC = new BrailleCharacter(3, 4, 5, 6);
+  public static final BrailleCharacter DOTS3456 = new BrailleCharacter(3, 4, 5, 6);
+  public static final BrailleCharacter DOTS45 = new BrailleCharacter(4, 5);
+  public static final BrailleCharacter DOTS46 = new BrailleCharacter(4, 6);
+  public static final BrailleCharacter DOTS456 = new BrailleCharacter(4, 5, 6);
+  public static final BrailleCharacter DOT6 = new BrailleCharacter(6);
+
   public static final String PASSWORD_BULLET = "\u2022";
 
   /**
@@ -56,15 +60,6 @@ public class BrailleTranslateUtils {
       }
     }
     return true;
-  }
-
-  /** Returns whether the edit field is multi-line. */
-  public static boolean isMultiLineField(int inputType) {
-    final int mask =
-        EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE | EditorInfo.TYPE_TEXT_FLAG_IME_MULTI_LINE;
-    // Consider this a multiline field if it is multiline in the main
-    // text field, and not multiline only in the ime fullscreen mode.
-    return ((inputType & mask) == EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE);
   }
 
   private BrailleTranslateUtils() {}

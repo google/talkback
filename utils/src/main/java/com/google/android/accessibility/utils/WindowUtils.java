@@ -169,7 +169,8 @@ public class WindowUtils {
     // non-systemBar window due to the rounded corner.
     Rect windowBounds = new Rect();
     window.getBoundsInScreen(windowBounds);
-    if (Rect.intersects(windowBoundsExcludedSystemBars, windowBounds)) {
+    if (windowBounds.intersect(windowMetrics.getBounds())
+        && Rect.intersects(windowBoundsExcludedSystemBars, windowBounds)) {
       return !windowBoundsExcludedSystemBars.contains(windowBounds);
     } else {
       return true;

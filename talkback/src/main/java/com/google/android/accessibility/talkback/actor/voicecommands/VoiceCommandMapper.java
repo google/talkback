@@ -30,7 +30,7 @@ import static com.google.android.accessibility.talkback.Feedback.EditText.Action
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.START_SELECT;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.COPY_SAVED;
 import static com.google.android.accessibility.talkback.Feedback.VoiceRecognition.Action.SHOW_COMMAND_LIST;
-import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_TOUCH;
 
 import android.accessibilityservice.AccessibilityService;
 import android.text.TextUtils;
@@ -43,8 +43,8 @@ import com.google.android.accessibility.talkback.Feedback.SystemAction;
 import com.google.android.accessibility.talkback.Feedback.VoiceRecognition;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Mappers;
+import com.google.android.accessibility.utils.LogDepth;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Feedback-mapper for voice command. This class reacts to voice command actions. */
@@ -53,9 +53,8 @@ public class VoiceCommandMapper {
 
   public static @Nullable Feedback handleSpeechCommand(
       EventId eventId, Mappers.Variables variables, int depth) {
+    LogDepth.logFunc(LOG_TAG, ++depth, "handleSpeechCommand");
     Interpretation.VoiceCommand voiceCommand = variables.voiceCommand(depth);
-
-    LogUtils.v(LOG_TAG, "handleSpeechCommand() command=\"%s\"", voiceCommand.toString());
 
     @Nullable AccessibilityNodeInfoCompat node = voiceCommand.targetNode();
     @Nullable CharSequence text = voiceCommand.text();

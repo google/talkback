@@ -15,21 +15,37 @@
  */
 package com.google.android.accessibility.braille.interfaces;
 
-import androidx.annotation.Nullable;
+import android.accessibilityservice.AccessibilityService;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer.ScreenReaderAction;
 import com.google.android.accessibility.utils.FocusFinder;
+import com.google.android.accessibility.utils.output.FeedbackController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /** Exposes some TalkBack behavior to BrailleDisplay. */
 public interface TalkBackForBrailleDisplay {
+  /** Obtains the AccessibilityService. */
+  AccessibilityService getAccessibilityService();
+
   /** Performs specific actions for screen reader. */
+  @CanIgnoreReturnValue
   boolean performAction(ScreenReaderAction action, Object... arg);
+
+  /** Sets voice feedback state. */
+  boolean setVoiceFeedback(boolean enabled);
+
+  /** Gets voice feedback enabled status. */
+  boolean getVoiceFeedbackEnabled();
 
   /** Gets accessibility focus node. */
   AccessibilityNodeInfoCompat getAccessibilityFocusNode(boolean fallbackOnRoot);
 
   /** Creates {@link FocusFinder} instance. */
   FocusFinder createFocusFinder();
+
+  /** Gets TalkBack's feedback controller. */
+  FeedbackController getFeedBackController();
 
   /** Shows custom label dialog for the Accessibility node to add or edit a label. */
   boolean showLabelDialog(CustomLabelAction action, AccessibilityNodeInfoCompat node);
@@ -40,48 +56,29 @@ public interface TalkBackForBrailleDisplay {
   /** Returns whether {@param AccessibilityNodeInfoCompat node} needs a label. */
   boolean needsLabel(AccessibilityNodeInfoCompat node);
 
-  /** Returns the callback of BrailleIme to BrailleDisplay. */
-  @Nullable
-  BrailleImeForBrailleDisplay getBrailleImeForBrailleDisplay();
+  /** Returns whether a label can be added for this {@param AccessibilityNodeInfoCompat}. */
+  boolean supportsLabel(AccessibilityNodeInfoCompat node);
 
   /** TalkBack provides the ability to speak an announcement. */
   void speak(CharSequence charSequence, int delayMs, SpeakOptions speakOptions);
 
-  /** Screen reader actions. */
-  public enum ScreenReaderAction {
-    NEXT_ITEM,
-    PREVIOUS_ITEM,
-    NEXT_LINE,
-    PREVIOUS_LINE,
-    NEXT_WINDOW,
-    PREVIOUS_WINDOW,
-    SCROLL_FORWARD,
-    SCROLL_BACKWARD,
-    NAVIGATE_TO_TOP,
-    NAVIGATE_TO_BOTTOM,
-    CLICK_CURRENT,
-    CLICK_NODE,
-    LONG_CLICK_CURRENT,
-    LONG_CLICK_NODE,
-    SCREEN_SEARCH,
-    OPEN_TALKBACK_MENU,
-    GLOBAL_HOME,
-    GLOBAL_BACK,
-    GLOBAL_RECENTS,
-    GLOBAL_NOTIFICATIONS,
-    GLOBAL_QUICK_SETTINGS,
-    GLOBAL_ALL_APPS,
-    WEB_NEXT_HEADING,
-    WEB_PREVIOUS_HEADING,
-    WEB_NEXT_CONTROL,
-    WEB_PREVIOUS_CONTROL,
-    WEB_NEXT_LINK,
-    WEB_PREVIOUS_LINK,
-  }
+  /** Returns keyboard status. */
+  boolean isOnscreenKeyboardActive();
+
+  /**
+   * Returns active onscreen keyboard window name.
+   *
+   * @return empty if window title is null.
+   */
+  CharSequence getOnScreenKeyboardName();
 
   /** Custom label actions. */
   enum CustomLabelAction {
     ADD_LABEL,
     EDIT_LABEL
   }
+
+  /** Switch the input method to braille keyboard. */
+  @CanIgnoreReturnValue
+  boolean switchInputMethodToBrailleKeyboard();
 }

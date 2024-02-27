@@ -28,19 +28,22 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import androidx.fragment.app.FragmentManager;
 import android.util.Log;
 import android.widget.Toast;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.TwoStatePreference;
+import com.google.android.accessibility.talkback.FeatureFlagReader;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
-import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.material.A11yAlertDialogWrapper;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -54,6 +57,7 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
   private SharedPreferences prefs;
 
   private Context context;
+  private FragmentManager fragmentManager;
 
   /** AlertDialog to ask if user really wants to enable node tree debugging. */
   private A11yAlertDialogWrapper treeDebugDialog;
@@ -83,13 +87,14 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
 
   @Override
   public @Nullable CharSequence getSubTitle() {
-    return FeatureSupport.supportSettingsTheme() ? null : versionInfo;
+    return shouldShowVersionInSubtitle() ? versionInfo : null;
   }
 
   @Override
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     super.onCreatePreferences(savedInstanceState, rootKey);
     context = getContext();
+    fragmentManager = getActivity().getSupportFragmentManager();
     prefs = SharedPreferencesUtils.getSharedPreferences(context);
 
     initVersionInfo();
@@ -100,10 +105,7 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
 
     final @Nullable Preference prefVersion =
         findPreference(getString(R.string.pref_developer_version_code_key));
-    if ((FeatureSupport.supportSettingsTheme() || FeatureSupport.isWatch(context))
-        // Watch does not have action bar. So we show the version info here.
-        && (prefVersion != null)
-        && (versionInfo != null)) {
+    if (!shouldShowVersionInSubtitle() && (prefVersion != null) && (versionInfo != null)) {
       prefVersion.setSummary(versionInfo);
     } else {
       getPreferenceScreen().removePreference(prefVersion);
@@ -115,7 +117,7 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
     if (prefTreeDebug != null) {
       prefTreeDebug.setOnPreferenceChangeListener(treeDebugChangeListener);
       treeDebugDialog =
-          A11yAlertDialogWrapper.alertDialogBuilder(context)
+          A11yAlertDialogWrapper.alertDialogBuilder(context, fragmentManager)
               .setNegativeButton(android.R.string.cancel, null)
               .setOnCancelListener(null)
               .setTitle(R.string.dialog_title_enable_tree_debug)
@@ -135,7 +137,7 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
     if (prefPerformanceStats != null) {
       prefPerformanceStats.setOnPreferenceChangeListener(performanceStatsChangeListener);
       performanceStatsDialog =
-          A11yAlertDialogWrapper.alertDialogBuilder(context)
+          A11yAlertDialogWrapper.alertDialogBuilder(context, fragmentManager)
               .setNegativeButton(android.R.string.cancel, null)
               .setOnCancelListener(null)
               .setTitle(R.string.dialog_title_enable_performance_stats)
@@ -155,7 +157,7 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
     if (logLevelPref != null) {
       logLevelPref.setOnPreferenceChangeListener(logLevelChangeListener);
       logLevelOptInDialog =
-          A11yAlertDialogWrapper.alertDialogBuilder(context)
+          A11yAlertDialogWrapper.alertDialogBuilder(context, fragmentManager)
               .setNegativeButton(android.R.string.cancel, null)
               .setOnCancelListener(null)
               .setTitle(R.string.dialog_title_extend_log_level)
@@ -180,7 +182,7 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
 
       // Create confirmation-dialog.
       A11yAlertDialogWrapper diagnosisOptInDialog =
-          A11yAlertDialogWrapper.alertDialogBuilder(context)
+          A11yAlertDialogWrapper.alertDialogBuilder(context, fragmentManager)
               .setNegativeButton(android.R.string.cancel, null)
               .setOnCancelListener(null)
               .setTitle(R.string.dialog_title_diagnosis_mode)
@@ -211,20 +213,51 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
     final @Nullable TwoStatePreference serviceGestureDetectionPref =
         findPreference(getString(R.string.pref_talkback_gesture_detection_key));
     if (serviceGestureDetectionPref != null) {
-      serviceGestureDetectionPref.setOnPreferenceChangeListener(
-          (preference, newValue) -> {
-            if (Boolean.TRUE.equals(newValue)) {
-              Toast.makeText(
-                      getContext(),
-                      R.string.toast_pref_talkback_gesture_detection,
-                      Toast.LENGTH_LONG)
-                  .show();
-            }
-            return true;
-          });
+      if (FeatureSupport.supportGestureDetection()) {
+        serviceGestureDetectionPref.setOnPreferenceChangeListener(
+            (preference, newValue) -> {
+              if (Boolean.TRUE.equals(newValue)) {
+                Toast.makeText(
+                        getContext(),
+                        R.string.toast_pref_talkback_gesture_detection,
+                        Toast.LENGTH_LONG)
+                    .show();
+              }
+              return true;
+            });
+      } else {
+        getPreferenceScreen().removePreference(serviceGestureDetectionPref);
+      }
+    }
+
+    final @Nullable TwoStatePreference multipleGestureSetPref =
+        findPreference(getString(R.string.pref_multiple_gesture_set_key));
+    if (multipleGestureSetPref != null) {
+      if (FeatureSupport.supportMultipleGestureSet()
+          && FeatureFlagReader.useMultipleGestureSet(context)) {
+        multipleGestureSetPref.setOnPreferenceChangeListener(
+            (preference, newValue) -> {
+              final SharedPreferences.Editor prefEditor = prefs.edit();
+              // Reset gesture set to set 0
+              prefEditor
+                  .remove(context.getResources().getString(R.string.pref_gesture_set_key))
+                  .apply();
+              return true;
+            });
+      } else {
+        getPreferenceScreen().removePreference(multipleGestureSetPref);
+      }
     }
 
     updateDisplayForDiagnosisMode();
+  }
+
+  private static boolean shouldShowVersionInSubtitle() {
+    // Watch does not have action bar.
+    // TV does have an action bar but it doesn't support a subtitle.
+    return !FeatureSupport.supportSettingsTheme()
+        && !FormFactorUtils.getInstance().isAndroidWear()
+        && !FormFactorUtils.getInstance().isAndroidTv();
   }
 
   private void updateDisplayForDiagnosisMode() {
@@ -277,7 +310,7 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
 
   /** Checks if the device is Android TV and changes preferences where necessary. */
   private void checkTelevision() {
-    if (FeatureSupport.isTv(context)) {
+    if (FormFactorUtils.getInstance().isAndroidTv()) {
       // Add TV-specific explanation for node tree debugging.
       final Preference treeDebugPreference =
           findPreference(getString(R.string.pref_tree_debug_reflect_key));
@@ -347,7 +380,7 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
 
     // Initialize preference dialog
     exploreByTouchDialog =
-        A11yAlertDialogWrapper.alertDialogBuilder(context)
+        A11yAlertDialogWrapper.alertDialogBuilder(context, fragmentManager)
             .setTitle(R.string.dialog_title_disable_exploration)
             .setMessage(R.string.dialog_message_disable_exploration)
             .setNegativeButton(android.R.string.cancel, null)
@@ -438,8 +471,10 @@ public class DeveloperPrefFragment extends TalkbackBaseFragment {
     if (!TalkBackService.isServiceActive()) {
       return true;
     }
-    if (requestedState && TalkBackService.getInstance() != null) {
-      TalkBackService.getInstance().showTutorialIfNecessary();
+
+    TalkBackService talkBackService = TalkBackService.getInstance();
+    if (requestedState && talkBackService != null && talkBackService.shouldShowTutorial()) {
+      talkBackService.showTutorial();
     }
 
     // If accessibility is on, we should wait for the "actual" state to

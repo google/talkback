@@ -74,15 +74,19 @@ public class ProcessorVolumeStream
   /** Handler for completing volume key handling outside of the main key-event handler. */
   private final VolumeStreamHandler handler = new VolumeStreamHandler(this);
 
+  private final TouchInteractingIndicator touchInteractingIndicator;
+
   /**
    * Whether touch interaction is in progress. In practice, a true value means that a single finger
    * is on the screen.
    */
+  // TODO: b/212947934#comment9. If the proposal confirmed, it needs
+  // 1. Removes the non Accessibility volume change logic.
+  // 2. Stops implementing the AccessibilityEventListener
   private boolean isTouchInteracting = false;
 
-  private TalkBackService service;
   private final ActorState actorState;
-  private VolumeButtonPatternDetector patternDetector;
+  private final VolumeButtonPatternDetector patternDetector;
 
   private final MostRecentVolumeKeyAdjustment mostRecentVolumeKeyAdjustment =
       new MostRecentVolumeKeyAdjustment();
@@ -110,18 +114,21 @@ public class ProcessorVolumeStream
   }
 
   @SuppressWarnings("deprecation")
-  public ProcessorVolumeStream(ActorState actorState, TalkBackService service) {
+  public ProcessorVolumeStream(
+      ActorState actorState,
+      TalkBackService service,
+      TouchInteractingIndicator touchInteractingIndicator) {
 
     audioManager = (AudioManager) service.getSystemService(Context.AUDIO_SERVICE);
     this.actorState = actorState;
+    this.touchInteractingIndicator = touchInteractingIndicator;
 
     final PowerManager pm = (PowerManager) service.getSystemService(Context.POWER_SERVICE);
     wakeLock =
         pm.newWakeLock(
             PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, WL_TAG);
 
-    this.service = service;
-    patternDetector = new VolumeButtonPatternDetector(this.service);
+    patternDetector = new VolumeButtonPatternDetector(service);
     patternDetector.setOnPatternMatchListener(this);
   }
 
@@ -171,7 +178,9 @@ public class ProcessorVolumeStream
 
     // While continuous reading is active, we do not want to show the UI and interrupt continuous
     // reading.
-    if (isTouchInteracting || actorState.getContinuousRead().isActive()) {
+    if (isTouchInteracting
+        || actorState.getContinuousRead().isActive()
+        || touchInteractingIndicator.isTouchInteracting()) {
       shouldRouteToAccessibilityStream = true;
     } else {
       boolean mostRecentAdjustmentJustHappened = mostRecentVolumeKeyAdjustment.onKeyPressed();
@@ -271,5 +280,11 @@ public class ProcessorVolumeStream
               /* what= */ 0, /* arg1= */ patternCode, /* arg2= */ buttonCombination, eventId);
       sendMessage(msg);
     }
+  }
+
+  /** Indicator determines whether volume key events with touch event. */
+  public interface TouchInteractingIndicator {
+    /** Indicates if a finger is currently touching the touch-display. */
+    boolean isTouchInteracting();
   }
 }

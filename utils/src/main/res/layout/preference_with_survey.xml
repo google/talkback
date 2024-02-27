@@ -23,8 +23,9 @@
 
   <FrameLayout
       android:id="@+id/survey_prompt_parent_sheet"
-      android:layout_width="match_parent"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
       android:clipChildren="false"/>
 
   <FrameLayout

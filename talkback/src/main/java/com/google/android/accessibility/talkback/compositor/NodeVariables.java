@@ -16,30 +16,27 @@
 
 package com.google.android.accessibility.talkback.compositor;
 
+import static com.google.android.accessibility.talkback.compositor.ParseTreeCreator.ENUM_LIVE_REGION;
+import static com.google.android.accessibility.talkback.compositor.ParseTreeCreator.ENUM_RANGE_INFO_TYPE;
+import static com.google.android.accessibility.talkback.compositor.ParseTreeCreator.ENUM_ROLE;
+import static com.google.android.accessibility.talkback.compositor.ParseTreeCreator.ENUM_WINDOW_TYPE;
+import static com.google.android.accessibility.talkback.compositor.ParseTreeCreator.RANGE_INFO_UNDEFINED;
+
 import android.content.Context;
-import android.text.Spannable;
-import android.text.style.LocaleSpan;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.RangeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
-import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree.VariableDelegate;
+import com.google.android.accessibility.talkback.compositor.roledescription.EditTextDescription;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.ImageContents;
-import com.google.android.accessibility.utils.LocaleUtils;
-import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
-import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.traversal.ReorderedChildrenIterator;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
-import com.google.common.base.Joiner;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -86,7 +83,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
   private static final int NODE_ACTION_LONG_CLICK = 7033;
   private static final int NODE_IS_PIN_KEY = 7034;
   // Used to show accessibility hints for web and edit texts
-  private static final int NODE_HINT = 7035;
+  private static final int NODE_HINT_DESCRIPTION = 7035;
   private static final int NODE_IS_SHOWING_HINT = 7036;
   private static final int NODE_VIEW_ID_TEXT = 7038;
   private static final int NODE_SELECTED_PAGE_TITLE = 7039;
@@ -96,27 +93,35 @@ class NodeVariables implements ParseTree.VariableDelegate {
   private static final int NODE_RANGE_INFO_TYPE = 7041;
   private static final int NODE_RANGE_CURRENT_VALUE = 7042;
 
-  private static final int NODE_TOOLTIP_TEXT = 7043;
-
-  private static final int NODE_IS_COLLECTION_ITEM = 7044;
+  private static final int NODE_UNIQUE_TOOLTIP_TEXT = 7043;
 
   private static final int NODE_IS_CONTENT_INVALID = 7045;
-  private static final int NODE_ERROR = 7046;
+  private static final int NODE_ERROR_TEXT = 7046;
 
   private static final int NODE_PROGRESS_PERCENT = 7047;
 
-  private static final int NODE_SELF_MENU_ACTION_IS_AVAILABLE = 7049;
-  private static final int NODE_SELF_MENU_ACTION_TYPE = 7050;
+  private static final int NODE_HINT_FOR_NODE_ACTIONS_HIGH_VERBOSITY = 7050;
   private static final int NODE_IS_WEB_CONTAINER = 7051;
   private static final int NODE_NEEDS_LABEL = 7052;
   private static final int NODE_STATE_DESCRIPTION = 7053;
   private static final int NODE_IS_WITHIN_ACCESSIBILITY_FOCUS = 7054;
-  private static final int NODE_IS_KEYBOARD_WINDOW = 7055;
   private static final int NODE_CAPTION_TEXT = 7056;
+  private static final int NODE_ALLOW_WINDOW_CONTENT_CHANGE_ANNOUNCEMENT = 7057;
 
-  private static final int NODE_ANNOUNCE_DISABLED = 7057;
-  private static final int NODE_DETECTED_ICON_LABEL = 7058;
   private static final int NODE_WINDOW_IS_IME = 7059;
+  private static final int NODE_ROLE_NAME = 7060;
+  private static final int NODE_EDIT_TEXT_STATE = 7061;
+  private static final int NODE_EDIT_TEXT_TEXT = 7062;
+  private static final int NODE_PAGER_PAGE_ROLE_DESCRIPTION = 7063;
+  private static final int NODE_HAS_SPELLING_SUGGESTIONS = 7064;
+  private static final int NODE_TYPO_COUNT = 7065;
+  private static final int NODE_NOTIFY_DISABLED = 7066;
+  private static final int NODE_NOTIFY_SELECTED = 7067;
+  private static final int NODE_NOTIFY_COLLAPSED_OR_EXPANDED = 7068;
+  private static final int NODE_TEXT_OR_LABEL = 7069;
+  private static final int NODE_TEXT_OR_LABEL_OR_ID = 7070;
+  private static final int NODE_UNLABELLED_DESCRIPTION = 7071;
+  private static final int NODE_ENABLED_STATE = 7072;
 
   private final Context mContext;
   private final @Nullable ImageContents imageContents;
@@ -131,7 +136,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
   private AccessibilityNodeInfoCompat mParentNode;
   // Stores the user preferred locale changed using language switcher.
   private final @Nullable Locale mUserPreferredLocale;
-  private final @Nullable NodeMenuProvider nodeMenuProvider;
+  private final GlobalVariables globalVariables;
 
   /**
    * Constructs a NodeVariables, which contains context variables to help generate feedback for an
@@ -142,30 +147,27 @@ class NodeVariables implements ParseTree.VariableDelegate {
   public NodeVariables(
       Context context,
       @Nullable ImageContents imageContents,
-      @Nullable NodeMenuProvider nodeMenuProvider,
       ParseTree.VariableDelegate parent,
       AccessibilityNodeInfoCompat node,
-      @Nullable Locale userPreferredLocale) {
+      @Nullable GlobalVariables globalVariables) {
     mContext = context;
     this.imageContents = imageContents;
     mParentVariables = parent;
     mNode = node;
     mRole = Role.getRole(node);
     mIsRoot = true;
-    mUserPreferredLocale = userPreferredLocale;
-    this.nodeMenuProvider = nodeMenuProvider;
+    this.globalVariables = globalVariables;
+    mUserPreferredLocale = globalVariables.getUserPreferredLocale();
   }
 
   private static NodeVariables constructForReferredNode(
       Context context,
       @Nullable ImageContents imageContents,
-      @Nullable NodeMenuProvider nodeMenuProvider,
       ParseTree.VariableDelegate parent,
       AccessibilityNodeInfoCompat node,
-      @Nullable Locale userPreferredLocale) {
+      GlobalVariables globalVariables) {
     NodeVariables instance =
-        new NodeVariables(
-            context, imageContents, nodeMenuProvider, parent, node, userPreferredLocale);
+        new NodeVariables(context, imageContents, parent, node, globalVariables);
     instance.mIsRoot = true; // This is a new root for node tree recursion.
     return instance;
   }
@@ -173,29 +175,15 @@ class NodeVariables implements ParseTree.VariableDelegate {
   private static NodeVariables constructForChildNode(
       Context context,
       @Nullable ImageContents imageContents,
-      @Nullable NodeMenuProvider nodeMenuProvider,
       ParseTree.VariableDelegate parent,
       AccessibilityNodeInfoCompat node,
       Set<AccessibilityNodeInfoCompat> visitedNodes,
-      @Nullable Locale userPreferredLocale) {
+      GlobalVariables globalVariables) {
     NodeVariables instance =
-        new NodeVariables(
-            context, imageContents, nodeMenuProvider, parent, node, userPreferredLocale);
+        new NodeVariables(context, imageContents, parent, node, globalVariables);
     instance.mIsRoot = false;
     instance.setVisitedNodes(visitedNodes);
     return instance;
-  }
-
-  private static boolean isKeyboardEvent(AccessibilityNodeInfoCompat node) {
-    if (node != null) {
-      AccessibilityWindowInfoCompat window = AccessibilityNodeInfoUtils.getWindow(node);
-      if (window != null && window.getType() == AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD) {
-        // TalkBack stops supporting getCurrentInputMethodSubtype() for locale. If you'd like to
-        // provide speech with locale setting, please use LocaleSpan instead.
-        return true;
-      }
-    }
-    return false;
   }
 
   private void setVisitedNodes(Set<AccessibilityNodeInfoCompat> visitedNodes) {
@@ -210,12 +198,10 @@ class NodeVariables implements ParseTree.VariableDelegate {
     switch (variableId) {
       case NODE_CHECKABLE:
         return mNode.isCheckable();
+      case NODE_ALLOW_WINDOW_CONTENT_CHANGE_ANNOUNCEMENT:
+        return WindowContentChangeAnnouncementFilter.shouldAnnounce(
+            mNode, globalVariables.getTextChangeRateUnlimited());
       case NODE_CHECKED:
-        // REFERTO. On M devices, the state of the switch is always the same until the
-        // focus changes. Refreshes the node before getting the state as a workaround.
-        if (BuildVersionUtils.isM()) {
-          mNode.refresh();
-        }
         return mNode.isChecked();
       case NODE_IS_VISIBLE:
         return AccessibilityNodeInfoUtils.isVisible(mNode);
@@ -259,44 +245,20 @@ class NodeVariables implements ParseTree.VariableDelegate {
         return AccessibilityNodeInfoUtils.isPinKey(mNode);
       case NODE_IS_HEADING:
         return AccessibilityNodeInfoUtils.isHeading(mNode);
-      case NODE_IS_COLLECTION_ITEM:
-        return mNode.getCollectionItemInfo() != null;
       case NODE_IS_CONTENT_INVALID:
         return mNode.isContentInvalid();
       case NODE_IS_WEB_CONTAINER:
         return WebInterfaceUtils.isWebContainer(mNode);
-      case NODE_SELF_MENU_ACTION_IS_AVAILABLE:
-        {
-          return nodeMenuProvider != null
-              && !nodeMenuProvider.getSelfNodeMenuActionTypes(mNode).isEmpty();
-        }
       case NODE_NEEDS_LABEL:
         return imageContents != null && imageContents.needsLabel(mNode);
       case NODE_IS_WITHIN_ACCESSIBILITY_FOCUS:
         {
           return AccessibilityNodeInfoUtils.isSelfOrAncestorFocused(mNode);
         }
-      case NODE_IS_KEYBOARD_WINDOW:
-        return isKeyboardEvent(mNode);
-      case NODE_ANNOUNCE_DISABLED:
-        {
-          // In some situations Views marked as headings (see ViewCompat#setAccessibilityHeading)
-          // are in the disabled state, even though being disabled is not very appropriate. An
-          // example are TextViews styled as preferenceCategoryStyle in certain themes.
-          if (mNode.isHeading()) {
-            return false;
-          }
-          if (BuildVersionUtils.isAtLeastS()) {
-            return !mNode.isEnabled();
-          }
-          return !mNode.isEnabled()
-              && (WebInterfaceUtils.hasNativeWebContent(mNode)
-                  || AccessibilityNodeInfoUtils.isActionableForAccessibility(mNode));
-        }
       case NODE_WINDOW_IS_IME:
-        AccessibilityWindowInfoCompat window = AccessibilityNodeInfoUtils.getWindow(mNode);
-        return (window != null)
-            && (window.getType() == AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD);
+        return AccessibilityNodeInfoUtils.isKeyboard(mNode);
+      case NODE_HAS_SPELLING_SUGGESTIONS:
+        return !AccessibilityNodeInfoUtils.getSpellingSuggestions(mNode).isEmpty();
       default:
         return mParentVariables.getBoolean(variableId);
     }
@@ -309,6 +271,8 @@ class NodeVariables implements ParseTree.VariableDelegate {
         return mNode.getWindowId();
       case NODE_VISIBLE_CHILD_COUNT:
         return AccessibilityNodeInfoUtils.countVisibleChildren(mNode);
+      case NODE_TYPO_COUNT:
+        return AccessibilityNodeInfoUtils.getTypoCount(mNode);
       default:
         return mParentVariables.getInteger(variableId);
     }
@@ -320,7 +284,11 @@ class NodeVariables implements ParseTree.VariableDelegate {
       case NODE_RANGE_CURRENT_VALUE:
         {
           RangeInfoCompat rangeInfo = mNode.getRangeInfo();
-          return (rangeInfo == null) ? 0 : rangeInfo.getCurrent();
+          if (rangeInfo == null) {
+            return 0;
+          }
+
+          return Math.round(rangeInfo.getCurrent() * 100.0) / 100.0;
         }
       case NODE_PROGRESS_PERCENT:
         return AccessibilityNodeInfoUtils.getProgressPercent(mNode);
@@ -331,85 +299,81 @@ class NodeVariables implements ParseTree.VariableDelegate {
 
   @Override
   public @Nullable CharSequence getString(int variableId) {
+    CharSequence result;
     switch (variableId) {
       case NODE_TEXT:
-        return prepareSpans(AccessibilityNodeInfoUtils.getText(mNode));
-      case NODE_HINT:
-        return AccessibilityNodeInfoUtils.getHintText(mNode);
-      case NODE_ERROR:
-        return mNode.getError();
-      case NODE_TOOLTIP_TEXT:
-        return mNode.getTooltipText();
+        return AccessibilityNodeFeedbackUtils.getNodeText(
+            mNode,
+            mContext,
+            (mUserPreferredLocale != null)
+                ? mUserPreferredLocale
+                : AccessibilityNodeInfoUtils.getLocalesByNode(mNode));
+      case NODE_HINT_DESCRIPTION:
+        return AccessibilityNodeFeedbackUtils.getHintDescription(mNode);
+      case NODE_ERROR_TEXT:
+        return AccessibilityNodeFeedbackUtils.getAccessibilityNodeErrorText(mNode, mContext);
+      case NODE_UNIQUE_TOOLTIP_TEXT:
+        return AccessibilityNodeFeedbackUtils.getUniqueTooltipText(
+            mNode, mContext, globalVariables);
       case NODE_CONTENT_DESCRIPTION:
-        return prepareSpans(mNode.getContentDescription());
+        return AccessibilityNodeFeedbackUtils.getNodeContentDescription(
+            mNode,
+            mContext,
+            (mUserPreferredLocale != null)
+                ? mUserPreferredLocale
+                : AccessibilityNodeInfoUtils.getLocalesByNode(mNode));
       case NODE_ROLE_DESCRIPTION:
-        return mNode.getRoleDescription();
+        return AccessibilityNodeFeedbackUtils.getNodeRoleDescription(
+            mNode, mContext, globalVariables);
+      case NODE_ROLE_NAME:
+        return AccessibilityNodeFeedbackUtils.getNodeRoleName(mNode, mContext);
       case NODE_LABEL_TEXT:
-        return imageContents == null ? "" : imageContents.getLabel(mNode);
+        return AccessibilityNodeFeedbackUtils.getNodeLabelText(mNode, imageContents);
       case NODE_VIEW_ID_TEXT:
         return AccessibilityNodeInfoUtils.getViewIdText(mNode);
       case NODE_SELECTED_PAGE_TITLE:
         return AccessibilityNodeInfoUtils.getSelectedPageTitle(mNode);
-      case NODE_SELF_MENU_ACTION_TYPE:
-        {
-          String returnString = "";
-          if (nodeMenuProvider != null) {
-            List<String> menuTypeList = nodeMenuProvider.getSelfNodeMenuActionTypes(mNode);
-            returnString = Joiner.on(",").join(menuTypeList);
-          }
-          return returnString;
-        }
+      case NODE_HINT_FOR_NODE_ACTIONS_HIGH_VERBOSITY:
+        return AccessibilityNodeFeedbackUtils.getHintForNodeActions(
+            mNode, mContext, globalVariables);
+
       case NODE_STATE_DESCRIPTION:
-        return prepareSpans(AccessibilityNodeInfoUtils.getState(mNode));
+        return AccessibilityNodeFeedbackUtils.getNodeStateDescription(
+            mNode,
+            mContext,
+            (mUserPreferredLocale != null)
+                ? mUserPreferredLocale
+                : AccessibilityNodeInfoUtils.getLocalesByNode(mNode));
       case NODE_CAPTION_TEXT:
-        {
-          @Nullable CharSequence ocrText =
-              (imageContents == null) ? null : imageContents.getCaptionResult(mNode);
-          return (ocrText == null)
-              ? ""
-              : mContext.getString(R.string.ocr_text_description, ocrText);
-        }
-      case NODE_DETECTED_ICON_LABEL:
-        {
-          Locale locale =
-              (mUserPreferredLocale == null) ? Locale.getDefault() : mUserPreferredLocale;
-          @Nullable CharSequence iconLabel =
-              (imageContents == null) ? null : imageContents.getDetectedIconLabel(locale, mNode);
-          return (iconLabel == null)
-              ? ""
-              : mContext.getString(R.string.detected_icon_description, iconLabel);
-        }
+        return AccessibilityNodeFeedbackUtils.getNodeCaptionText(
+            mNode, mContext, imageContents, globalVariables.getUserPreferredLocale());
+      case NODE_EDIT_TEXT_STATE:
+        return EditTextDescription.stateDescription(mNode, mContext, globalVariables);
+      case NODE_EDIT_TEXT_TEXT:
+        return EditTextDescription.nameDescription(mNode, mContext, imageContents, globalVariables);
+      case NODE_PAGER_PAGE_ROLE_DESCRIPTION:
+        return AccessibilityNodeFeedbackUtils.getPagerPageRoleDescription(
+            mNode, mContext, globalVariables);
+      case NODE_NOTIFY_DISABLED:
+        return AccessibilityNodeFeedbackUtils.getDisabledStateText(mNode, mContext);
+      case NODE_NOTIFY_SELECTED:
+        return AccessibilityNodeFeedbackUtils.getSelectedStateText(mNode, mContext);
+      case NODE_NOTIFY_COLLAPSED_OR_EXPANDED:
+        return AccessibilityNodeFeedbackUtils.getCollapsedOrExpandedStateText(mNode, mContext);
+      case NODE_TEXT_OR_LABEL:
+        return AccessibilityNodeFeedbackUtils.getNodeTextOrLabelDescription(
+            mNode, mContext, imageContents, globalVariables);
+      case NODE_TEXT_OR_LABEL_OR_ID:
+        return AccessibilityNodeFeedbackUtils.getNodeTextOrLabelOrIdDescription(
+            mNode, mContext, imageContents, globalVariables);
+      case NODE_UNLABELLED_DESCRIPTION:
+        return AccessibilityNodeFeedbackUtils.getUnlabelledNodeDescription(
+            mRole, mNode, mContext, imageContents, globalVariables);
+      case NODE_ENABLED_STATE:
+        return AccessibilityNodeFeedbackUtils.getAccessibilityEnabledState(mNode, mContext);
       default:
         return mParentVariables.getString(variableId);
     }
-  }
-
-  private @Nullable CharSequence prepareSpans(@Nullable CharSequence text) {
-    // Cleans up the edit text's text if it has just 1 symbol.
-    // Do not double clean up the password.
-    if (!mNode.isPassword()) {
-      text = SpeechCleanupUtils.collapseRepeatedCharactersAndCleanUp(mContext, text);
-    }
-    /**
-     * Wrap the text with user preferred locale changed using language switcher, with an exception
-     * for all talkback nodes. As talkback text is always in the system language.
-     */
-    if (PackageManagerUtils.isTalkBackPackage(mNode.getPackageName())) {
-      return text;
-    }
-    // mUserPreferredLocale will take precedence over any LocaleSpan that is attached to the
-    // text except in case of IMEs.
-    if (!isKeyboardEvent(mNode) && mUserPreferredLocale != null) {
-      if (text instanceof Spannable) {
-        Spannable ss = (Spannable) text;
-        LocaleSpan[] spans = ss.getSpans(0, text.length(), LocaleSpan.class);
-        for (LocaleSpan span : spans) {
-          ss.removeSpan(span);
-        }
-      }
-      return LocaleUtils.wrapWithLocaleSpan(text, mUserPreferredLocale);
-    }
-    return text;
   }
 
   @Override
@@ -424,7 +388,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
       case NODE_RANGE_INFO_TYPE:
         {
           RangeInfoCompat rangeInfo = mNode.getRangeInfo();
-          return (rangeInfo == null) ? Compositor.RANGE_INFO_UNDEFINED : rangeInfo.getType();
+          return (rangeInfo == null) ? RANGE_INFO_UNDEFINED : rangeInfo.getType();
         }
       default: // fall out
     }
@@ -448,10 +412,9 @@ class NodeVariables implements ParseTree.VariableDelegate {
           return constructForReferredNode(
               mContext,
               imageContents,
-              nodeMenuProvider,
               mParentVariables,
               mLabelNode,
-              mUserPreferredLocale);
+              globalVariables);
         }
       case NODE_PARENT:
         {
@@ -466,10 +429,9 @@ class NodeVariables implements ParseTree.VariableDelegate {
           return constructForReferredNode(
               mContext,
               imageContents,
-              nodeMenuProvider,
               mParentVariables,
               mParentNode,
-              mUserPreferredLocale);
+              globalVariables);
         }
       case NODE_ACTION_CLICK:
         for (AccessibilityActionCompat action : mNode.getActionList()) {
@@ -519,22 +481,20 @@ class NodeVariables implements ParseTree.VariableDelegate {
           return constructForChildNode(
               mContext,
               imageContents,
-              nodeMenuProvider,
               mParentVariables,
               mChildNodes.get(index),
               mVisitedNodes,
-              mUserPreferredLocale);
+              globalVariables);
         }
       case NODE_CHILDREN_ASCENDING:
         {
           return constructForChildNode(
               mContext,
               imageContents,
-              nodeMenuProvider,
               mParentVariables,
               mChildNodesAscending.get(index),
               mVisitedNodes,
-              mUserPreferredLocale);
+              globalVariables);
         }
       case NODE_ACTIONS:
         return new ActionVariables(mContext, this, mNode.getActionList().get(index));
@@ -607,11 +567,14 @@ class NodeVariables implements ParseTree.VariableDelegate {
   static void declareVariables(ParseTree parseTree) {
     // Variables.
     // Nodes.
-    parseTree.addEnumVariable("node.role", NODE_ROLE, Compositor.ENUM_ROLE);
+    parseTree.addEnumVariable("node.role", NODE_ROLE, ENUM_ROLE);
+    parseTree.addStringVariable("node.roleName", NODE_ROLE_NAME);
     parseTree.addStringVariable("node.text", NODE_TEXT);
+    parseTree.addBooleanVariable(
+        "node.notFrequentAnnounced", NODE_ALLOW_WINDOW_CONTENT_CHANGE_ANNOUNCEMENT);
     parseTree.addStringVariable("node.contentDescription", NODE_CONTENT_DESCRIPTION);
-    parseTree.addStringVariable("node.hint", NODE_HINT);
-    parseTree.addStringVariable("node.error", NODE_ERROR);
+    parseTree.addStringVariable("node.hintDescription", NODE_HINT_DESCRIPTION);
+    parseTree.addStringVariable("node.errorText", NODE_ERROR_TEXT);
     parseTree.addChildArrayVariable("node.children", NODE_CHILDREN);
     parseTree.addChildArrayVariable("node.childrenAscending", NODE_CHILDREN_ASCENDING);
     parseTree.addChildArrayVariable("node.actions", NODE_ACTIONS);
@@ -624,13 +587,13 @@ class NodeVariables implements ParseTree.VariableDelegate {
     parseTree.addBooleanVariable("node.isFocused", NODE_IS_FOCUSED);
     parseTree.addBooleanVariable("node.isAccessibilityFocused", NODE_IS_ACCESSIBILITY_FOCUSED);
     parseTree.addBooleanVariable("node.isShowingHint", NODE_IS_SHOWING_HINT);
-    parseTree.addEnumVariable("node.liveRegion", NODE_LIVE_REGION, Compositor.ENUM_LIVE_REGION);
+    parseTree.addEnumVariable("node.liveRegion", NODE_LIVE_REGION, ENUM_LIVE_REGION);
     parseTree.addBooleanVariable(
         "node.supportsActionSetSelection", NODE_SUPPORTS_ACTION_SET_SELECTION);
     parseTree.addBooleanVariable("node.isPassword", NODE_IS_PASSWORD);
     parseTree.addBooleanVariable("node.isPinKey", NODE_IS_PIN_KEY);
     parseTree.addIntegerVariable("node.windowId", NODE_WINDOW_ID);
-    parseTree.addEnumVariable("node.windowType", NODE_WINDOW_TYPE, Compositor.ENUM_WINDOW_TYPE);
+    parseTree.addEnumVariable("node.windowType", NODE_WINDOW_TYPE, ENUM_WINDOW_TYPE);
     parseTree.addBooleanVariable("node.supportsActionSelect", NODE_SUPPORTS_ACTION_SELECT);
     parseTree.addStringVariable("node.labelText", NODE_LABEL_TEXT);
     parseTree.addStringVariable("node.viewIdText", NODE_VIEW_ID_TEXT);
@@ -652,24 +615,31 @@ class NodeVariables implements ParseTree.VariableDelegate {
     parseTree.addReferenceVariable("node.actionClick", NODE_ACTION_CLICK);
     parseTree.addReferenceVariable("node.actionLongClick", NODE_ACTION_LONG_CLICK);
     parseTree.addBooleanVariable("node.isHeading", NODE_IS_HEADING);
-    parseTree.addEnumVariable(
-        "node.rangeInfoType", NODE_RANGE_INFO_TYPE, Compositor.ENUM_RANGE_INFO_TYPE);
+    parseTree.addEnumVariable("node.rangeInfoType", NODE_RANGE_INFO_TYPE, ENUM_RANGE_INFO_TYPE);
     parseTree.addNumberVariable("node.rangeCurrentValue", NODE_RANGE_CURRENT_VALUE);
-    parseTree.addStringVariable("node.tooltipText", NODE_TOOLTIP_TEXT);
-    parseTree.addBooleanVariable("node.isCollectionItem", NODE_IS_COLLECTION_ITEM);
+    parseTree.addStringVariable("node.uniqueTooltipText", NODE_UNIQUE_TOOLTIP_TEXT);
     parseTree.addBooleanVariable("node.isContentInvalid", NODE_IS_CONTENT_INVALID);
     parseTree.addNumberVariable("node.progressPercent", NODE_PROGRESS_PERCENT);
-    parseTree.addBooleanVariable(
-        "node.selfMenuActionAvailable", NODE_SELF_MENU_ACTION_IS_AVAILABLE);
-    parseTree.addStringVariable("node.selfMenuActions", NODE_SELF_MENU_ACTION_TYPE);
+    parseTree.addStringVariable(
+        "node.hintForNodeActionsHighVerbosity", NODE_HINT_FOR_NODE_ACTIONS_HIGH_VERBOSITY);
     parseTree.addBooleanVariable("node.isWebContainer", NODE_IS_WEB_CONTAINER);
     parseTree.addBooleanVariable("node.needsLabel", NODE_NEEDS_LABEL);
     parseTree.addStringVariable("node.stateDescription", NODE_STATE_DESCRIPTION);
     parseTree.addBooleanVariable(
         "node.isWithinAccessibilityFocus", NODE_IS_WITHIN_ACCESSIBILITY_FOCUS);
-    parseTree.addBooleanVariable("node.isKeyboardWindow", NODE_IS_KEYBOARD_WINDOW);
     parseTree.addStringVariable("node.captionText", NODE_CAPTION_TEXT);
-    parseTree.addBooleanVariable("node.announceDisabled", NODE_ANNOUNCE_DISABLED);
-    parseTree.addStringVariable("node.detectedIconLabel", NODE_DETECTED_ICON_LABEL);
+    parseTree.addStringVariable("node.editTextState", NODE_EDIT_TEXT_STATE);
+    parseTree.addStringVariable("node.editTextText", NODE_EDIT_TEXT_TEXT);
+    parseTree.addStringVariable("node.pagerPageRoleDescription", NODE_PAGER_PAGE_ROLE_DESCRIPTION);
+    parseTree.addBooleanVariable("node.hasSpellingSuggestions", NODE_HAS_SPELLING_SUGGESTIONS);
+    parseTree.addIntegerVariable("node.typoCount", NODE_TYPO_COUNT);
+    parseTree.addStringVariable("node.notifyDisabled", NODE_NOTIFY_DISABLED);
+    parseTree.addStringVariable("node.notifySelected", NODE_NOTIFY_SELECTED);
+    parseTree.addStringVariable(
+        "node.notifyCollapsedOrExpanded", NODE_NOTIFY_COLLAPSED_OR_EXPANDED);
+    parseTree.addStringVariable("node.textOrLabel", NODE_TEXT_OR_LABEL);
+    parseTree.addStringVariable("node.textOrLabelOrId", NODE_TEXT_OR_LABEL_OR_ID);
+    parseTree.addStringVariable("node.unlabelledDescription", NODE_UNLABELLED_DESCRIPTION);
+    parseTree.addStringVariable("node.enabledState", NODE_ENABLED_STATE);
   }
 }

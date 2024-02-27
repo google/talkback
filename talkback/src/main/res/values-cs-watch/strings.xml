@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="talkback_service_description">TalkBack je čtečka obrazovky určená primárně pro nevidomé a slabozraké. Umožňuje ovládat zařízení pomocí mluvené navigace.</string>
-  <string name="welcome_to_talkback_text">Dostávejte hlasovou zpětnou vazbu, abyste zařízení mohli používat bez pohledu na displej.</string>
+  <string name="welcome_to_talkback_text">Dostávejte hlasovou odezvu, abyste zařízení mohli používat a nemuseli se přitom dívat na displej.</string>
+  <string name="summary_custom_action">Zobrazí se, pokud jsou u aktuální položky k dispozici zvláštní akce.</string>
+  <string name="notification_title_talkback_gestures_changed">Gesta TalkBack byla aktualizována</string>
+  <string name="notification_message_talkback_gestures_changed">Pro další podrobnosti otevřete aplikaci TalkBack</string>
+  <string name="new_feature_in_talkback_title">Co je nového</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">OK</string>
+  <string name="scan_the_qr_code">Naskenujte QR kód</string>
+  <string name="alternate_privacy_policy">Nebo přejděte na adresu http://www.google.com/policies/privacy</string>
+  <string name="alternate_tos">Nebo přejděte na adresu https://www.google.com/mobile/toscountry</string>
 </resources>

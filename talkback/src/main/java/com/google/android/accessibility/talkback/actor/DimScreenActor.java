@@ -20,6 +20,7 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.os.Handler;
@@ -29,10 +30,11 @@ import android.provider.Settings;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import com.google.android.accessibility.talkback.DeviceConfigurationMonitor;
 import com.google.android.accessibility.talkback.DimmingOverlayView;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.Speech;
-import com.google.android.accessibility.talkback.OrientationMonitor;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
@@ -44,7 +46,7 @@ import com.google.android.accessibility.utils.widget.DialogUtils;
 import java.util.concurrent.TimeUnit;
 
 /** Manages UI and state related to dimming the screen */
-public class DimScreenActor implements OrientationMonitor.OnOrientationChangedListener {
+public class DimScreenActor implements DeviceConfigurationMonitor.OnConfigurationChangedListener {
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Constants
@@ -80,6 +82,7 @@ public class DimScreenActor implements OrientationMonitor.OnOrientationChangedLi
   private Context service;
   private Pipeline.FeedbackReturner pipeline;
   private SharedPreferences prefs;
+  private DimScreenNotifier dimScreenNotifier;
   private boolean isDimmed;
   private boolean stopFeedback;
   private WindowManager windowManager;
@@ -129,8 +132,7 @@ public class DimScreenActor implements OrientationMonitor.OnOrientationChangedLi
     // Screen dimming is disabled on Jasper because there is no easy way to exit this mode since
     // Talkback cannot capture volume button key presses on this platform.
     @Compositor.Flavor int compositorFlavor = service.getCompositorFlavor();
-    return compositorFlavor != Compositor.FLAVOR_ARC
-        && compositorFlavor != Compositor.FLAVOR_JASPER;
+    return compositorFlavor != Compositor.FLAVOR_JASPER;
   }
 
   /**
@@ -144,9 +146,13 @@ public class DimScreenActor implements OrientationMonitor.OnOrientationChangedLi
     return !ScreenMonitor.isDeviceLocked(service);
   }
 
-  public DimScreenActor(TalkBackService service, GestureShortcutMapping gestureShortcutMapping) {
+  public DimScreenActor(
+      TalkBackService service,
+      GestureShortcutMapping gestureShortcutMapping,
+      DimScreenNotifier dimScreenNotifier) {
     this.service = service;
     this.gestureShortcutMapping = gestureShortcutMapping;
+    this.dimScreenNotifier = dimScreenNotifier;
     prefs = SharedPreferencesUtils.getSharedPreferences(service);
     stopFeedback = false;
 
@@ -175,7 +181,12 @@ public class DimScreenActor implements OrientationMonitor.OnOrientationChangedLi
 
       initView();
       addExitInstructionView();
-      startDimmingCount();
+      if (!getShouldShowDialogPref()) {
+        hideInstructionAndTurnOnDimming();
+      } else {
+        startDimmingCount();
+      }
+      dimScreenNotifier.onScreenDim();
     }
 
     announceFeedbackAndUsageHintForScreenDimmed();
@@ -196,11 +207,13 @@ public class DimScreenActor implements OrientationMonitor.OnOrientationChangedLi
       viewParams.format = PixelFormat.OPAQUE;
 
       view = new DimmingOverlayView(service);
-      view.setInstruction(
-          gestureShortcutMapping.getGestureFromActionKey(
-              service.getString(R.string.shortcut_value_talkback_breakout)));
       view.setTimerLimit(INSTRUCTION_VISIBLE_SECONDS);
     }
+
+    // Updates the gesture to open TalkBack menu on the dimming overlay.
+    view.setInstruction(
+        gestureShortcutMapping.getGestureFromActionKey(
+            service.getString(R.string.shortcut_value_talkback_breakout)));
 
     initCurtainSize();
   }
@@ -287,6 +300,8 @@ public class DimScreenActor implements OrientationMonitor.OnOrientationChangedLi
       windowManager.removeViewImmediate(view);
       dimmingHandler.removeMessages(START_DIMMING_MESSAGE);
       dimmingHandler.removeMessages(UPDATE_TIMER_MESSAGE);
+
+      dimScreenNotifier.onScreenBright();
     }
     // Not to feedback since this actor is shut down.
     if (!stopFeedback) {
@@ -316,12 +331,13 @@ public class DimScreenActor implements OrientationMonitor.OnOrientationChangedLi
   }
 
   @Override
-  public void onOrientationChanged(int newOrientation) {
+  public void onConfigurationChanged(Configuration newConfig) {
     if (isDimmed) {
-      initCurtainSize();
       windowManager.removeViewImmediate(view);
-      view = new DimmingOverlayView(service);
-      view.setTimerLimit(INSTRUCTION_VISIBLE_SECONDS);
+    }
+    view = null;
+    initView();
+    if (isDimmed) {
       if (isInstructionDisplayed) {
         view.showText();
       } else {
@@ -356,5 +372,20 @@ public class DimScreenActor implements OrientationMonitor.OnOrientationChangedLi
                                 service.getString(R.string.shortcut_value_talkback_breakout)),
                             service.getString(R.string.shortcut_disable_dimming)))
                     .build()));
+  }
+
+  @VisibleForTesting
+  @Nullable
+  CharSequence getInstruction() {
+    return view == null ? null : view.getInstruction();
+  }
+
+  /** Notifies the listener for the status changed of screen. */
+  public interface DimScreenNotifier {
+    /** Notifies if the screen is hiding. */
+    void onScreenDim();
+
+    /** Notifies if the screen is showing. */
+    void onScreenBright();
   }
 }

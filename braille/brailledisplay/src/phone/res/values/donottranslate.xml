@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Preference keys -->
+  <string name="pref_key_bindings_key" translatable="false">key_bindings</string>
+  <string name="pref_key_braille_elements" translatable="false">key_braille_elements</string>
+  <string name="pref_key_braille_grade_contracted" translatable="false">pref_key_braille_grade_contracted</string>
+  <string name="pref_key_braille_grade_uncontracted" translatable="false">pref_key_braille_grade_uncontracted</string>
+  <string name="pref_key_braille_grade_tips" translatable="false">pref_key_braille_grade_tips</string>
+
+  <string name="pref_key_bd_banner" translatable="false">pref_key_bd_banner</string>
+  <string name="pref_key_bd_enabler" translatable="false">pref_key_bd_enabler</string>
+  <string name="pref_key_bd_rescan" translatable="false">pref_key_bd_rescan</string>
+  <string name="pref_key_bd_connection_category" translatable="false">pref_key_bd_connection_category</string>
+  <string name="pref_key_bd_auto_scroll" translatable="false">pref_key_bd_auto_scroll</string>
+  <string name="pref_key_bd_auto_adjust_duration" translatable="false">pref_key_bd_auto_adjust_duration</string>
+  <string name="pref_key_bd_auto_scroll_duration" translatable="false">pref_key_bd_auto_scroll_duration</string>
+  <string name="pref_key_bd_advanced" translatable="false">pref_key_bd_advanced</string>
+  <string name="pref_key_bd_auto_connect" translatable="false">pref_key_bd_auto_connect</string>
+  <string name="pref_key_bd_keybindings_basic" translatable="false">pref_key_bd_keybindings_basic</string>
+  <string name="pref_key_bd_keybindings_navigation" translatable="false">pref_key_bd_keybindings_navigation</string>
+  <string name="pref_key_bd_keybindings_system_actions" translatable="false">pref_key_bd_keybindings_system_actions</string>
+  <string name="pref_key_bd_keybindings_talkback_features" translatable="false">pref_key_bd_keybindings_talkback_features</string>
+  <string name="pref_key_bd_keybindings_braille_settings" translatable="false">pref_key_bd_keybindings_braille_settings</string>
+  <string name="pref_key_bd_keybindings_editing" translatable="false">pref_key_bd_keybindings_editing</string>
+  <string name="pref_key_bd_braille_elements_h1_to_h6" translatable="false">pref_key_bd_braille_elements_h1_to_h6</string>
+  <string name="pref_key_bd_braille_elements_checked" translatable="false">pref_key_bd_braille_elements_checked</string>
+  <string name="pref_key_bd_braille_elements_expanded" translatable="false">pref_key_bd_braille_elements_expanded</string>
+</resources>

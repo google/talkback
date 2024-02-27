@@ -16,13 +16,16 @@
 
 package com.google.android.accessibility.talkback.focusmanagement;
 
+import static androidx.core.view.accessibility.AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.LIFT;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.LONG_PRESS;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TAP;
+import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TOUCH_ENTERED_UNFOCUSED_NODE;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TOUCH_FOCUSED_NODE;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TOUCH_NOTHING;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TOUCH_START;
 import static com.google.android.accessibility.talkback.Interpretation.Touch.Action.TOUCH_UNFOCUSED_NODE;
+import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.GESTURE_LIFT_TO_TYPE;
 import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_INPUT_DESCRIBE_NODE;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
@@ -36,12 +39,13 @@ import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
+import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.focusmanagement.action.TouchExplorationAction;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
-import com.google.android.accessibility.utils.output.SpeechController;
 
 /** Event interpreter to handle accessibility focus during touch interaction. */
 public class FocusProcessorForTapAndTouchExploration {
@@ -123,12 +127,18 @@ public class FocusProcessorForTapAndTouchExploration {
    */
   private boolean mayBeLiftToType = true;
 
+  // When Split-tapping triggered, we record & skip the Lift-to-type decision, to avoid the double
+  // input phenomenon, until the touch interaction end.
+  private boolean isSplitTap = false;
+
   private long touchInteractionStartTime;
+  private final TalkBackAnalytics analytics;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Contstructor methods
 
-  public FocusProcessorForTapAndTouchExploration() {
+  public FocusProcessorForTapAndTouchExploration(TalkBackAnalytics analytics) {
+    this.analytics = analytics;
     postDelayHandler = new PostDelayHandler(this, longPressDuration);
   }
 
@@ -183,6 +193,7 @@ public class FocusProcessorForTapAndTouchExploration {
 
     touchInteractionStartTime = SystemClock.uptimeMillis();
 
+    interpretationReceiver.input(eventId, null, Interpretation.TouchInteraction.create(true));
     if (actorState.getSpeechState().isSpeaking()) {
       // We'll not refocus nor re-announce a node if TalkBack is currently speaking.
       mayBeRefocusAction = false;
@@ -203,6 +214,7 @@ public class FocusProcessorForTapAndTouchExploration {
     mayBeRefocusAction = true;
     mayBeSingleTap = true;
     mayBeLiftToType = true;
+    isSplitTap = false;
   }
 
   /**
@@ -214,7 +226,10 @@ public class FocusProcessorForTapAndTouchExploration {
       @Nullable AccessibilityNodeInfoCompat touchedFocusableNode, EventId eventId) {
     postDelayHandler.cancelLongPress();
     postDelayHandler.cancelRefocusTimeout();
-
+    if (touchedFocusableNode != null && !touchedFocusableNode.isAccessibilityFocused()) {
+      interpretationReceiver.input(
+          eventId, /* event= */ null, Interpretation.Touch.create(TOUCH_ENTERED_UNFOCUSED_NODE));
+    }
     boolean result;
     if (!hasHoveredEnterNode) {
       hasHoveredEnterNode = true;
@@ -284,8 +299,7 @@ public class FocusProcessorForTapAndTouchExploration {
 
     AccessibilityWindowInfoCompat window =
         AccessibilityNodeInfoUtils.getWindow(accessibilityNodeInfoCompat);
-    return (window != null)
-        && (window.getType() == AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD);
+    return (AccessibilityWindowInfoUtils.getType(window) == TYPE_INPUT_METHOD);
   }
 
   /** @return {@code true} if successfully performs an accessibility action. */
@@ -320,8 +334,10 @@ public class FocusProcessorForTapAndTouchExploration {
     boolean result = false;
     if (isEnableLiftToType()
         && supportsLiftToType(lastFocusableNodeBeingTouched)
-        && mayBeLiftToType) {
+        && mayBeLiftToType
+        && !isSplitTap) {
       // Perform click action for lift-to-type mode.
+      analytics.onGesture(GESTURE_LIFT_TO_TYPE);
       result =
           interpretationReceiver.input(
               eventId,
@@ -337,9 +353,34 @@ public class FocusProcessorForTapAndTouchExploration {
               /* event= */ null,
               Interpretation.Touch.create(TAP, lastFocusableNodeBeingTouched));
     }
+    // Perform Custom Action menu switching in reading control
+    interpretationReceiver.input(eventId, null, Interpretation.TouchInteraction.create(false));
 
     reset();
     return result;
+  }
+
+  /**
+   * Perform Click/Lift-to-type if the focused node exists and either it set text entry key or the
+   * window type is IME.
+   *
+   * @return {@code true} if successfully performs click action.
+   */
+  public boolean performSplitTap(EventId eventId) {
+    if (lastFocusableNodeBeingTouched != null
+        && (Role.getRole(lastFocusableNodeBeingTouched) == Role.ROLE_TEXT_ENTRY_KEY
+            || AccessibilityWindowInfoUtils.getType(
+                    AccessibilityNodeInfoUtils.getWindow(lastFocusableNodeBeingTouched))
+                == TYPE_INPUT_METHOD)) {
+      // Perform click action for lift-to-type mode.
+      interpretationReceiver.input(
+          eventId,
+          /* event= */ null,
+          Interpretation.Touch.create(LIFT, lastFocusableNodeBeingTouched));
+      isSplitTap = true;
+      return (true);
+    }
+    return (false);
   }
 
   private boolean touchFocusedNode(AccessibilityNodeInfoCompat node, @Nullable EventId eventId) {

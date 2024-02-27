@@ -20,6 +20,7 @@ import android.os.Bundle;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 
 /** Panel holding a set of customize menus preferences. */
 public class CustomizeMenusFragment extends TalkbackBaseFragment {
@@ -41,7 +42,8 @@ public class CustomizeMenusFragment extends TalkbackBaseFragment {
       return;
     }
 
-    if (!FeatureSupport.isMultiFingerGestureSupported() || FeatureSupport.isWatch(context)) {
+    if (!FeatureSupport.isMultiFingerGestureSupported()
+        || FormFactorUtils.getInstance().isAndroidWear()) {
       PreferencesActivityUtils.setSummary(
           context,
           getPreferenceManager(),

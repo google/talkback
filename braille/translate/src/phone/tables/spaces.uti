@@ -17,12 +17,12 @@
 #  License along with liblouis. If not, see
 #  <http://www.gnu.org/licenses/>.
 
-# These defintions prevouisly were hardcoded in the liblouis library
+# Previously, these definitions were hardcoded in the liblouis library
 # itself. Now they are migrated to an external table which can be
-# included by other tables. They are necesary for the proper operation
+# included by other tables. They are necessary for the proper operation
 # of liblouis or liblouisutdml.
 
-# Also this table defines all the space characters to be empty braille
+# This table also defines all the space characters to be empty braille
 # cells.
 
 space \s     0		SPACE
@@ -54,9 +54,9 @@ space \x2060 0		WORD JOINER
 space \x2800 0		BRAILLE PATTERN BLANK
 space \xfeff 0		ZERO WIDTH NO-BREAK SPACE (also Unicode BOM)
 
-# replace \x200b		ZERO WIDTH SPACE
+# replace \x200b		#ZERO WIDTH SPACE
 noback correct "\x200b" ""
 
-replace \x2060		WORD JOINER
-replace \xfeff		ZERO WIDTH NO-BREAK SPACE (also Unicode BOM)
+replace \x2060		#WORD JOINER
+replace \xfeff		#ZERO WIDTH NO-BREAK SPACE (also Unicode BOM)
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">ಅಪಾಸ್ಟ್ರಫಿ (Apostrophe )</string>
   <string name="symbol_ampersand">ಆಂಪರ್‌ಸೆಂಡ್</string>
   <string name="symbol_angle_bracket_left">ಕಡಿಮೆ ಸೂಚಕ ಚಿಹ್ನೆ</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">ಪೈ</string>
   <string name="symbol_pound">ಪೌಂಡ್</string>
   <string name="symbol_pound_sterling">ಪೌಂಡ್ ಕರೆನ್ಸಿ ಚಿಹ್ನೆ</string>
+  <string name="symbol_currency_peso">ಪೆಸೊ ಚಿಹ್ನೆ</string>
+  <string name="symbol_currency_dong">ಡಾಂಗ್ ಚಿಹ್ನೆ</string>
   <string name="symbol_question_mark">ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</string>
   <string name="symbol_quotation_mark">ಕೋಟ್‌ ಚಿಹ್ನೆ</string>
   <string name="symbol_registered_trademark">ನೊಂದಾಯಿಸಲಾದ ಟ್ರೇಡ್‌ಮಾರ್ಕ್‌</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">ಪೂರ್ಣ ಅಗಲದ ಕಡಿಮೆ ಮೌಲ್ಯವನ್ನು ಸೂಚಿಸುವ ಚಿಹ್ನೆ</string>
   <string name="symbol_full_width_greater_than_sign">ಪೂರ್ಣ ಅಗಲದ ಹೆಚ್ಚು ಮೌಲ್ಯವನ್ನು ಸೂಚಿಸುವ ಚಿಹ್ನೆ</string>
   <string name="symbol_left_single_quotation_mark">ಎಡಭಾಗದ ಏಕ ಉದ್ಧರಣ ಚಿಹ್ನೆ</string>
+  <string name="symbol_braille">ಬ್ರೈಲ್‌ %s</string>
+  <plurals name="dots">
+    <item quantity="one">ಡಾಟ್‌ಗಳು %s</item>
+    <item quantity="other">ಡಾಟ್‌ಗಳು %s</item>
+  </plurals>
 </resources>

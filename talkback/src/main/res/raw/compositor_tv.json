@@ -85,6 +85,14 @@
           }
         },
         {
+          "if": "$collection.selectionMode == 'single'",
+          "then": {
+            "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForClick",
+            "then": "@string/template_hint_single_selection_item_keyboard($keyCombo.stringRepresentationForClick)",
+            "else": "@string/template_hint_single_selection_item(@string/value_press_select)"
+          }
+        },
+        {
           "if": "$node.isCheckable",
           "then": {
             "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForClick",

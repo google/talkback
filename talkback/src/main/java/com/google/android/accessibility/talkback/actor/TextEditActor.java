@@ -23,27 +23,33 @@ import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FO
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_NO_HISTORY;
-import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_INTERRUPT;
+import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH;
 
+import android.accessibilityservice.AccessibilityService;
+import android.accessibilityservice.InputMethod;
 import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.content.Context;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.actor.DirectionNavigationActor.StateReader;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.EditTextActionHistory;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.SpellingSuggestion;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.input.TextCursorTracker;
+import com.google.android.accessibility.utils.output.EditTextActionHistory;
 import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Executes text-manipulation actions on editable or non-editable selectable text views. */
@@ -52,6 +58,8 @@ public class TextEditActor {
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Constants
 
+  private static final String TAG = "TextEditActor";
+
   /**
    * It makes sense to interrupt all the previous utterances generated in the talkback context menu.
    * After the cursor action is performed, it's the most important to notify the user what happens
@@ -59,7 +67,7 @@ public class TextEditActor {
    */
   private static final SpeakOptions SPEAK_OPTIONS =
       SpeakOptions.create()
-          .setQueueMode(QUEUE_MODE_INTERRUPT)
+          .setQueueMode(QUEUE_MODE_INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH)
           .setFlags(
               FLAG_NO_HISTORY
                   | FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
@@ -69,23 +77,26 @@ public class TextEditActor {
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Member variables
 
-  private final Context context;
+  private final AccessibilityService service;
   private final EditTextActionHistory editTextActionHistory;
   private final TextCursorTracker textCursorTracker;
   private final ClipboardManager clipboard;
+  private final DirectionNavigationActor.StateReader stateReader;
   private FeedbackReturner pipeline;
 
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
   public TextEditActor(
-      Context context,
+      AccessibilityService service,
       EditTextActionHistory editTextActionHistory,
       TextCursorTracker textCursorTracker,
+      StateReader stateReader,
       ClipboardManager clipboard) {
-    this.context = context;
+    this.service = service;
     this.editTextActionHistory = editTextActionHistory;
     this.textCursorTracker = textCursorTracker;
+    this.stateReader = stateReader;
     this.clipboard = clipboard;
   }
 
@@ -119,7 +130,7 @@ public class TextEditActor {
     // Announce cursor movement.
     pipeline.returnFeedback(
         eventId,
-        Feedback.speech(context.getString(R.string.notification_type_end_of_field), SPEAK_OPTIONS));
+        Feedback.speech(service.getString(R.string.notification_type_end_of_field), SPEAK_OPTIONS));
 
     return result;
   }
@@ -144,12 +155,13 @@ public class TextEditActor {
     pipeline.returnFeedback(
         eventId,
         Feedback.speech(
-            context.getString(R.string.notification_type_beginning_of_field), SPEAK_OPTIONS));
+            service.getString(R.string.notification_type_beginning_of_field), SPEAK_OPTIONS));
 
     return result;
   }
 
   /** Executes and announces start selecting text in edit-text. */
+  @CanIgnoreReturnValue
   public boolean startSelect(AccessibilityNodeInfoCompat node, EventId eventId) {
 
     if (node == null || !AccessibilityNodeInfoUtils.isTextSelectable(node)) {
@@ -163,7 +175,7 @@ public class TextEditActor {
     pipeline.returnFeedback(
         eventId,
         Feedback.speech(
-            context.getString(R.string.notification_type_selection_mode_on), SPEAK_OPTIONS));
+            service.getString(R.string.notification_type_selection_mode_on), SPEAK_OPTIONS));
 
     return true;
   }
@@ -182,7 +194,7 @@ public class TextEditActor {
     pipeline.returnFeedback(
         eventId,
         Feedback.speech(
-            context.getString(R.string.notification_type_selection_mode_off), SPEAK_OPTIONS));
+            service.getString(R.string.notification_type_selection_mode_off), SPEAK_OPTIONS));
 
     @Nullable CharSequence textSelected =
         AccessibilityNodeInfoUtils.subsequenceSafe(
@@ -191,8 +203,8 @@ public class TextEditActor {
             node.getTextSelectionEnd());
     CharSequence textToSpeak =
         TextUtils.isEmpty(textSelected)
-            ? context.getString(R.string.template_no_text_selected)
-            : context.getString(R.string.template_announce_selected_text, textSelected);
+            ? service.getString(R.string.template_no_text_selected)
+            : service.getString(R.string.template_announce_selected_text, textSelected);
     // Uses another speak options not to interrupt previous speech.
     SpeakOptions speakOptions =
         SpeakOptions.create()
@@ -212,21 +224,30 @@ public class TextEditActor {
       return false;
     }
 
-    editTextActionHistory.beforeSelectAll();
-
-    // Execute select-all on target node.
-    final Bundle args = new Bundle();
-    args.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT, 0);
     @Nullable CharSequence nodeText = AccessibilityNodeInfoUtils.getText(node);
     if (TextUtils.isEmpty(nodeText)) {
       return false;
     }
-    args.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT, nodeText.length());
-    boolean result =
-        PerformActionUtils.performAction(
-            node, AccessibilityNodeInfoCompat.ACTION_SET_SELECTION, args, eventId);
+
+    editTextActionHistory.beforeSelectAll();
+    boolean result = false;
+    if (FeatureSupport.supportInputConnectionByA11yService()) {
+      result = performSelectText(0, nodeText.length());
+      if (result && !stateReader.isSelectionModeActive()) {
+        pipeline.returnFeedback(eventId, Feedback.selectionModeOn(node));
+      }
+    }
     if (!result) {
-      return result;
+      // Execute select-all on target node.
+      final Bundle args = new Bundle();
+      args.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT, 0);
+      args.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT, nodeText.length());
+      result =
+          PerformActionUtils.performAction(
+              node, AccessibilityNodeInfoCompat.ACTION_SET_SELECTION, args, eventId);
+      if (!result) {
+        return false;
+      }
     }
     editTextActionHistory.afterSelectAll();
 
@@ -235,12 +256,12 @@ public class TextEditActor {
         eventId,
         Feedback.speech(
             SpeechCleanupUtils.cleanUp(
-                context,
-                context.getString(
+                service,
+                service.getString(
                     R.string.template_announce_selected_text,
                     AccessibilityNodeInfoUtils.getText(node))),
             SPEAK_OPTIONS));
-    return result;
+    return true;
   }
 
   /**
@@ -276,8 +297,8 @@ public class TextEditActor {
         eventId,
         Feedback.speech(
             copyData == null
-                ? context.getString(R.string.cannot_copy_feedback)
-                : (context.getString(R.string.template_text_copied, copyData.toString())),
+                ? service.getString(R.string.cannot_copy_feedback)
+                : (service.getString(R.string.template_text_copied, copyData.toString())),
             SPEAK_OPTIONS));
     return result;
   }
@@ -301,8 +322,8 @@ public class TextEditActor {
         eventId,
         Feedback.speech(
             cutData != null
-                ? (context.getString(R.string.template_text_cut, cutData.toString()))
-                : context.getString(R.string.cannot_cut_feedback),
+                ? (service.getString(R.string.template_text_cut, cutData.toString()))
+                : service.getString(R.string.cannot_cut_feedback),
             SPEAK_OPTIONS));
 
     return result;
@@ -336,8 +357,8 @@ public class TextEditActor {
         eventId,
         Feedback.speech(
             deletedText == null
-                ? context.getString(R.string.cannot_delete_feedback)
-                : (context.getString(R.string.template_text_removed, deletedText.toString())),
+                ? service.getString(R.string.cannot_delete_feedback)
+                : (service.getString(R.string.template_text_removed, deletedText.toString())),
             SPEAK_OPTIONS));
 
     // Move cursor to start of deleted text.
@@ -359,7 +380,7 @@ public class TextEditActor {
     if (!result) {
       pipeline.returnFeedback(
           eventId,
-          Feedback.speech(context.getString(R.string.cannot_paste_feedback), SPEAK_OPTIONS));
+          Feedback.speech(service.getString(R.string.cannot_paste_feedback), SPEAK_OPTIONS));
     }
 
     return result;
@@ -386,10 +407,7 @@ public class TextEditActor {
       currentText = null;
     }
 
-    LogUtils.v(
-        "RuleEditText",
-        "insert() currentText=\"%s\"",
-        (currentText == null ? "null" : currentText));
+    LogUtils.v(TAG, "insert() currentText=\"%s\"", (currentText == null ? "null" : currentText));
     if (currentText == null) {
       currentText = "";
     }
@@ -411,8 +429,73 @@ public class TextEditActor {
     return moveCursor(node, selectionStart + textToInsert.length(), eventId);
   }
 
-  /** Moves cursor in edit-text. */
-  private boolean moveCursor(AccessibilityNodeInfoCompat node, int cursorIndex, EventId eventId) {
+  /**
+   * Corrects the misspelling word by the suggestion.
+   *
+   * @param node Typo correction for the node.
+   * @param suggestion The misspelled word will be replaced with the suggestion.
+   * @param spellingSuggestion The wrap of {@link android.text.style.SuggestionSpan} for the
+   *     misspelled word.
+   * @param eventId Event ID for performance monitoring.
+   * @return If the misspelled is replaced with the suggestion.
+   */
+  public boolean correctTypo(
+      AccessibilityNodeInfoCompat node,
+      CharSequence suggestion,
+      SpellingSuggestion spellingSuggestion,
+      EventId eventId) {
+    if (node == null
+        || Role.getRole(node) != Role.ROLE_EDIT_TEXT
+        || TextUtils.isEmpty(suggestion)
+        || spellingSuggestion == null) {
+      return false;
+    }
+
+    @Nullable CharSequence currentText = AccessibilityNodeInfoUtils.getText(node);
+    if (TextUtils.isEmpty(currentText) || !(currentText instanceof Spanned)) {
+      return false;
+    }
+
+    // Finds the position of the misspelling word.
+    int start = spellingSuggestion.start();
+    int end = spellingSuggestion.end();
+    if (start == -1 || end == -1) {
+      LogUtils.d(TAG, "The suggestionSpan is not in the currentText.");
+      return false;
+    }
+
+    // Replaces text.
+    CharSequence textReplaced =
+        start == 0
+            ? TextUtils.concat(suggestion, currentText.subSequence(end, currentText.length()))
+            : TextUtils.concat(
+                currentText.subSequence(0, start),
+                suggestion,
+                currentText.subSequence(end, currentText.length()));
+    Bundle arguments = new Bundle();
+    arguments.putCharSequence(ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, textReplaced);
+    editTextActionHistory.beforeSetText();
+    boolean result = PerformActionUtils.performAction(node, ACTION_SET_TEXT, arguments, eventId);
+    editTextActionHistory.afterSetText();
+    if (result) {
+      pipeline.returnFeedback(
+          eventId,
+          Feedback.speech(service.getString(R.string.text_replaced_feedback), SPEAK_OPTIONS));
+    }
+
+    // Moves the cursor to the end of the replaced text.
+    return moveCursor(node, start + suggestion.length(), eventId);
+  }
+
+  /**
+   * Moves the cursor in {@link android.widget.EditText}.
+   *
+   * @param node where the cursor is moved
+   * @param cursorIndex the new position of the cursor
+   * @param eventId event ID to perform editing actions
+   * @return {@code true} if the cursor move is successful.
+   */
+  public boolean moveCursor(AccessibilityNodeInfoCompat node, int cursorIndex, EventId eventId) {
 
     if (node == null || Role.getRole(node) != Role.ROLE_EDIT_TEXT) {
       return false;
@@ -424,12 +507,20 @@ public class TextEditActor {
     @Nullable CharSequence nodeText = AccessibilityNodeInfoUtils.getText(node);
     if (AccessibilityNodeInfoUtils.supportsAction(
         node, AccessibilityNodeInfoCompat.ACTION_SET_SELECTION)) {
-      // Perform node-action to move cursor.
-      args.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT, cursorIndex);
-      args.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT, cursorIndex);
-      result =
-          PerformActionUtils.performAction(
-              node, AccessibilityNodeInfoCompat.ACTION_SET_SELECTION, args, eventId);
+      int cursor = node.getTextSelectionStart();
+      if (FeatureSupport.supportInputConnectionByA11yService()
+          && stateReader.isSelectionModeActive()
+          && cursorIndex != cursor) {
+        result = performSelectText(cursor, cursorIndex);
+      }
+      if (!result) {
+        // Perform node-action to move cursor.
+        args.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT, cursorIndex);
+        args.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT, cursorIndex);
+        result =
+            PerformActionUtils.performAction(
+                node, AccessibilityNodeInfoCompat.ACTION_SET_SELECTION, args, eventId);
+      }
     } else if (cursorIndex == 0) {
       // Fall-back to move cursor to start of text.
       args.putInt(
@@ -451,5 +542,23 @@ public class TextEditActor {
               node, AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY, args, eventId);
     }
     return result;
+  }
+
+  @CanIgnoreReturnValue
+  private boolean performSelectText(int start, int end) {
+    if (!FeatureSupport.supportInputConnectionByA11yService()) {
+      return false;
+    }
+    InputMethod inputMethod = service.getInputMethod();
+    if (inputMethod == null) {
+      return false;
+    }
+    InputMethod.AccessibilityInputConnection inputConnection =
+        inputMethod.getCurrentInputConnection();
+    if (inputConnection == null) {
+      return false;
+    }
+    inputConnection.setSelection(start, end);
+    return true;
   }
 }

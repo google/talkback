@@ -17,24 +17,36 @@ package com.google.android.accessibility.braille.interfaces;
 
 import android.graphics.Region;
 import android.view.WindowManager;
+import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer.ScreenReaderAction;
+import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /** Exposes some TalkBack behavior to BrailleIme. */
 public interface TalkBackForBrailleIme {
 
+  /** Returns the callback of BrailleIme to TalkBack. */
+  interface BrailleImeForTalkBackProvider {
+    /** A reference to the active Braille IME if any. */
+    BrailleImeForTalkBack getBrailleImeForTalkBack();
+  }
+
   /** TalkBack service status. */
-  public enum ServiceStatus {
+  enum ServiceStatus {
     ON,
     OFF,
     SUSPEND,
   }
+
+  /** Performs specific actions for screen reader. */
+  @CanIgnoreReturnValue
+  boolean performAction(ScreenReaderAction action, Object... arg);
 
   /**
    * BrailleIme invokes this when it becomes active. When TalkBack gets this signal, it should enter
    * an IME-friendly mode (by disabling Explore-by-Touch, for example).
    */
   void onBrailleImeActivated(
-      BrailleImeForTalkBack brailleImeForTalkBack,
       boolean disableEbt,
       boolean usePassThrough,
       Region passThroughRegion);
@@ -43,7 +55,7 @@ public interface TalkBackForBrailleIme {
    * BrailleIme invokes this when it becomes inactive. When TalkBack gets this signal, it should
    * restore its typical (non-IME-friendly) mode.
    */
-  void onBrailleImeInactivated(boolean usePassThrough);
+  void onBrailleImeInactivated(boolean usePassThrough, boolean brailleImeActive);
 
   /** TalkBack provides the ability to enable BrailleIme. */
   boolean setInputMethodEnabled();
@@ -75,8 +87,11 @@ public interface TalkBackForBrailleIme {
   /** Checks vibration feedback is enabled. */
   boolean isVibrationFeedbackEnabled();
 
-  /** Checks should braille keyboard announce character itself. */
-  boolean shouldAnnounceCharacter();
+  /** Checks should braille keyboard announce character when on-screen mode. */
+  boolean shouldAnnounceCharacterForOnScreenKeyboard();
+
+  /** Checks should braille keyboard announce character when physical mode. */
+  boolean shouldAnnounceCharacterForPhysicalKeyboard();
 
   /** Checks should braille keyboard announce password for typing. */
   boolean shouldSpeakPassword();
@@ -84,9 +99,33 @@ public interface TalkBackForBrailleIme {
   /** Whether use character granularity to be the moving granularity. */
   boolean shouldUseCharacterGranularity();
 
-  /** Moves the text cursor forward based on granularity settings. */
-  void moveCursorForward();
+  boolean isCurrentGranularityTypoCorrection();
 
-  /** Moves the text cursor backward based on granularity settings. */
-  void moveCursorBackward();
+  /** Moves the text cursor forward by current granularity from Talkback. */
+  boolean moveCursorForwardByDefault();
+
+  /** Moves the text cursor backward by current granularity from Talkback. */
+  @CanIgnoreReturnValue
+  boolean moveCursorBackwardByDefault();
+
+  /** Checks the status of the screen. */
+  boolean isHideScreenMode();
+
+  /** Switches to next granularity. */
+  boolean switchToNextEditingGranularity();
+
+  /** Switches to previous granularity. */
+  boolean switchToPreviousEditingGranularity();
+
+  /** Resets the granularity to CHARACTER. */
+  void resetGranularity();
+
+  /** Provides BrailleIme callback provider to TalkBack. */
+  BrailleImeForTalkBackProvider getBrailleImeForTalkBackProvider();
+
+  /** Sets BrailleIme callback provider. */
+  void setBrailleImeForTalkBack(BrailleImeForTalkBack brailleImeForTalkBack);
+
+  /** Creates {@link FocusFinder} instance. */
+  FocusFinder createFocusFinder();
 }

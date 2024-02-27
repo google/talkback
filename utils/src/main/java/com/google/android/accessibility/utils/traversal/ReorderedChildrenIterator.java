@@ -38,21 +38,22 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
 
   public static ReorderedChildrenIterator createAscendingIterator(
       AccessibilityNodeInfoCompat parent) {
-    return createAscendingIterator(parent, null);
+    return createAscendingIterator(parent, /* boundsCalculator= */ null);
   }
 
   public static ReorderedChildrenIterator createDescendingIterator(
       AccessibilityNodeInfoCompat parent) {
-    return createDescendingIterator(parent, null);
+    return createDescendingIterator(parent, /* boundsCalculator= */ null);
   }
 
   public static @Nullable ReorderedChildrenIterator createAscendingIterator(
-      AccessibilityNodeInfoCompat parent, @Nullable NodeCachedBoundsCalculator boundsCalculator) {
+      @Nullable AccessibilityNodeInfoCompat parent,
+      @Nullable NodeCachedBoundsCalculator boundsCalculator) {
     if (parent == null) {
       return null;
     }
 
-    return new ReorderedChildrenIterator(parent, true, boundsCalculator);
+    return new ReorderedChildrenIterator(parent, /* isAscending= */ true, boundsCalculator);
   }
 
   public static @Nullable ReorderedChildrenIterator createDescendingIterator(
@@ -61,15 +62,16 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
       return null;
     }
 
-    return new ReorderedChildrenIterator(parent, false, boundsCalculator);
+    return new ReorderedChildrenIterator(parent, /* isAscending= */ false, boundsCalculator);
   }
 
-  private final AccessibilityNodeInfoCompat mParent;
-  private int mCurrentIndex;
-  private final List<AccessibilityNodeInfoCompat> mNodes;
-  private final boolean mIsAscending;
-  private final boolean mRightToLeft = false; // TODO: Refactor to get RTL state.
-  private final NodeCachedBoundsCalculator mBoundsCalculator;
+  private final AccessibilityNodeInfoCompat parent;
+  private int currentIndex;
+  private final List<AccessibilityNodeInfoCompat> nodes;
+  private final boolean isAscending;
+  // TODO: Refactor to get RTL state.
+  private static final boolean RIGHT_TO_LEFT = false;
+  private final NodeCachedBoundsCalculator boundsCalculator;
 
   // Avoid constantly creating and discarding Rects.
   private final Rect mTempLeftBounds = new Rect();
@@ -79,20 +81,20 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
       AccessibilityNodeInfoCompat parent,
       boolean isAscending,
       @Nullable NodeCachedBoundsCalculator boundsCalculator) {
-    mParent = parent;
-    mIsAscending = isAscending;
-    mBoundsCalculator =
+    this.parent = parent;
+    this.isAscending = isAscending;
+    this.boundsCalculator =
         (boundsCalculator == null) ? new NodeCachedBoundsCalculator() : boundsCalculator;
 
-    mNodes = new ArrayList<>(mParent.getChildCount());
-    init(mParent);
-    mCurrentIndex = mIsAscending ? 0 : mNodes.size() - 1;
+    nodes = new ArrayList<>(this.parent.getChildCount());
+    init(this.parent);
+    currentIndex = this.isAscending ? 0 : nodes.size() - 1;
   }
 
   private void init(AccessibilityNodeInfoCompat node) {
     fillNodesFromParent();
-    if (!WebInterfaceUtils.isWebContainer(node) && needReordering(mNodes)) {
-      reorder(mNodes);
+    if (!WebInterfaceUtils.isWebContainer(node) && needReordering(nodes)) {
+      reorder(nodes);
     }
   }
 
@@ -102,7 +104,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
     }
 
     for (AccessibilityNodeInfoCompat node : nodes) {
-      if (mBoundsCalculator.usesChildrenBounds(node)) {
+      if (boundsCalculator.usesChildrenBounds(node)) {
         return true;
       }
     }
@@ -122,7 +124,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
     int currentIndex = size - 2;
     while (currentIndex >= 0) {
       AccessibilityNodeInfoCompat currentNode = nodeArray[currentIndex];
-      if (mBoundsCalculator.usesChildrenBounds(currentNode)) {
+      if (boundsCalculator.usesChildrenBounds(currentNode)) {
         moveNodeIfNecessary(nodeArray, currentIndex);
       }
 
@@ -150,8 +152,8 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
       return false;
     }
 
-    Rect leftBounds = mBoundsCalculator.getBounds(leftNode);
-    Rect rightBounds = mBoundsCalculator.getBounds(rightNode);
+    Rect leftBounds = boundsCalculator.getBounds(leftNode);
+    Rect rightBounds = boundsCalculator.getBounds(rightNode);
 
     // Sometimes the bounds compare() is overzealous, so swap the items only if the adjusted
     // (mBoundsCalculator) leftBounds > rightBounds but the original leftBounds < rightBounds,
@@ -209,7 +211,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
     }
 
     // We are ordering left-to-right, top-to-bottom.
-    if (mRightToLeft) {
+    if (RIGHT_TO_LEFT) {
       final int rightDifference = leftBounds.right - rightBounds.right;
       if (rightDifference != 0) {
         return -rightDifference;
@@ -240,30 +242,30 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
   }
 
   private void fillNodesFromParent() {
-    int count = mParent.getChildCount();
+    int count = parent.getChildCount();
     for (int i = 0; i < count; i++) {
-      AccessibilityNodeInfoCompat node = mParent.getChild(i);
+      AccessibilityNodeInfoCompat node = parent.getChild(i);
       if (node != null) {
-        mNodes.add(node);
+        nodes.add(node);
       }
     }
   }
 
   @Override
   public boolean hasNext() {
-    return mIsAscending ? mCurrentIndex < mNodes.size() : mCurrentIndex >= 0;
+    return isAscending ? currentIndex < nodes.size() : currentIndex >= 0;
   }
 
   @Override
   public @Nullable AccessibilityNodeInfoCompat next() {
-    AccessibilityNodeInfoCompat nextNode = mNodes.get(mCurrentIndex);
-    if (mIsAscending) {
-      mCurrentIndex++;
+    AccessibilityNodeInfoCompat nextNode = nodes.get(currentIndex);
+    if (isAscending) {
+      currentIndex++;
     } else {
-      mCurrentIndex--;
+      currentIndex--;
     }
 
-    return nextNode != null ? AccessibilityNodeInfoCompat.obtain(nextNode) : null;
+    return nextNode;
   }
 
   @Override

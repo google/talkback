@@ -5,7 +5,7 @@
 #-index-name: English, unified, uncontracted
 #-display-name: Unified English uncontracted braille
 #
-#+locale:en
+#+language:en
 #+type:literary
 #+contraction:no
 #+grade:1
@@ -55,7 +55,12 @@ include en-ueb-math.ctb UEB math from common linear format
 numsign 3456  number sign, just a dots operand
 numericmodechars .,
 nocontractsign 56
+nonumsign 56
 numericnocontchars abcdefghij
+
+# Correct order of comma and numeric indicator
+match %a , %# 2-34569  force correct position of numeric indicator
+noback pass2 @3456-2-34569 @2-3456    Clear up extra indicator after the match line
 
 # Correct order of dot and numeric indicator
 match %a . %# 256-34569  force correct position of numeric indicator

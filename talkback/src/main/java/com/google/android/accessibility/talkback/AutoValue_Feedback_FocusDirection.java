@@ -18,7 +18,7 @@ package com.google.android.accessibility.talkback;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget;
 import com.google.android.accessibility.utils.input.CursorGranularity;
-import com.google.android.accessibility.utils.input.InputModeManager;
+import com.google.android.accessibility.utils.monitor.InputModeTracker;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import javax.annotation.Generated;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -41,6 +41,7 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
 
   private final boolean wrap;
 
+  private final boolean toContainer;
   private final boolean toWindow;
 
   private final int inputMode;
@@ -58,6 +59,7 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
       boolean defaultToInputFocus,
       boolean scroll,
       boolean wrap,
+      boolean toContainer,
       boolean toWindow,
       int inputMode,
       @Nullable CursorGranularity granularity,
@@ -69,6 +71,7 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
     this.defaultToInputFocus = defaultToInputFocus;
     this.scroll = scroll;
     this.wrap = wrap;
+    this.toContainer = toContainer;
     this.toWindow = toWindow;
     this.inputMode = inputMode;
     this.granularity = granularity;
@@ -109,11 +112,16 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
   }
 
   @Override
+  public boolean toContainer() {
+    return toContainer;
+  }
+
+  @Override
   public boolean toWindow() {
     return toWindow;
   }
 
-  @InputModeManager.InputMode
+  @InputModeTracker.InputMode
   @Override
   public int inputMode() {
     return inputMode;
@@ -143,13 +151,18 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
       Feedback.FocusDirection that = (Feedback.FocusDirection) o;
       return this.direction == that.direction()
           && this.htmlTargetType == that.htmlTargetType()
-          && (this.targetNode == null ? that.targetNode() == null : this.targetNode.equals(that.targetNode()))
+          && (this.targetNode == null
+              ? that.targetNode() == null
+              : this.targetNode.equals(that.targetNode()))
           && this.defaultToInputFocus == that.defaultToInputFocus()
           && this.scroll == that.scroll()
           && this.wrap == that.wrap()
+          && this.toContainer == that.toContainer()
           && this.toWindow == that.toWindow()
           && this.inputMode == that.inputMode()
-          && (this.granularity == null ? that.granularity() == null : this.granularity.equals(that.granularity()))
+          && (this.granularity == null
+              ? that.granularity() == null
+              : this.granularity.equals(that.granularity()))
           && this.fromUser == that.fromUser()
           && this.action.equals(that.action());
     }
@@ -172,6 +185,8 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
     h$ *= 1000003;
     h$ ^= wrap ? 1231 : 1237;
     h$ *= 1000003;
+    h$ ^= toContainer ? 1231 : 1237;
+    h$ *= 1000003;
     h$ ^= toWindow ? 1231 : 1237;
     h$ *= 1000003;
     h$ ^= inputMode;
@@ -191,6 +206,7 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
     private Boolean defaultToInputFocus;
     private Boolean scroll;
     private Boolean wrap;
+    private Boolean toContainer;
     private Boolean toWindow;
     private Integer inputMode;
     private @Nullable CursorGranularity granularity;
@@ -214,10 +230,6 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
       return this;
     }
     @Override
-    @Nullable AccessibilityNodeInfoCompat targetNode() {
-      return targetNode;
-    }
-    @Override
     public Feedback.FocusDirection.Builder setDefaultToInputFocus(boolean defaultToInputFocus) {
       this.defaultToInputFocus = defaultToInputFocus;
       return this;
@@ -232,6 +244,13 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
       this.wrap = wrap;
       return this;
     }
+
+    @Override
+    public Feedback.FocusDirection.Builder setToContainer(boolean toContainer) {
+      this.toContainer = toContainer;
+      return this;
+    }
+
     @Override
     public Feedback.FocusDirection.Builder setToWindow(boolean toWindow) {
       this.toWindow = toWindow;
@@ -279,6 +298,9 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
       if (this.wrap == null) {
         missing += " wrap";
       }
+      if (this.toContainer == null) {
+        missing += " toContainer";
+      }
       if (this.toWindow == null) {
         missing += " toWindow";
       }
@@ -301,6 +323,7 @@ final class AutoValue_Feedback_FocusDirection extends Feedback.FocusDirection {
           this.defaultToInputFocus,
           this.scroll,
           this.wrap,
+          this.toContainer,
           this.toWindow,
           this.inputMode,
           this.granularity,

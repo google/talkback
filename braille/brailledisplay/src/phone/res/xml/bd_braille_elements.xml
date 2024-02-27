@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_key_braille_elements"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Preference
+        android:selectable="false"
+        app:summary="@string/bd_braille_elements_instructions" />
+    <PreferenceCategory
+        app:title="@string/bd_braille_elements_category_interacting_with_screen">
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_clickable" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_longClickable" />
+      <Preference
+          android:selectable="false"
+          android:key="@string/pref_key_bd_braille_elements_checked" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_btn" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_lnk" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_edt" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_drbtn" />
+    </PreferenceCategory>
+    <PreferenceCategory
+      app:title="@string/bd_braille_elements_category_reading">
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_gra" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_hdg" />
+      <Preference
+          android:key="@string/pref_key_bd_braille_elements_h1_to_h6"
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_h1_to_h6" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_new_line" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_mln" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_sel" />
+      <Preference
+          android:key="@string/pref_key_bd_braille_elements_expanded"
+          android:selectable="false" />
+      <Preference
+          android:selectable="false"
+          app:title="@string/bd_braille_elements_collapsed" />
+    </PreferenceCategory>
+</PreferenceScreen>

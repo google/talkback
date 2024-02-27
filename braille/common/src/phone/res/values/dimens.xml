@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Braille common category shape -->
+  <dimen name="braille_common_category_stroke_width">1dp</dimen>
+  <dimen name="braille_common_category_corners_radius">28dp</dimen>
+
+  <!-- Braille common category -->
+  <dimen name="braille_common_category_margin_top">16dp</dimen>
+  <dimen name="braille_common_category_margin_horizontal">24dp</dimen>
+  <dimen name="braille_common_category_padding">16dp</dimen>
+  <dimen name="braille_common_category_icon_margin_top">4dp</dimen>
+  <dimen name="braille_common_category_text_padding_start">16dp</dimen>
+  <dimen name="braille_common_category_text_padding_end">0dp</dimen>
+  <dimen name="braille_common_category_primary_text_size">22sp</dimen>
+  <dimen name="braille_common_category_secondary_text_size">16sp</dimen>
+  <dimen name="braille_common_category_secondary_margin_top">4dp</dimen>
+
+  <dimen name="braille_common_text_marginRight">72sp</dimen>
+  <dimen name="braille_common_text_marginTop">20sp</dimen>
+  <dimen name="braille_common_text_marginBottom">20sp</dimen>
+  <dimen name="braille_common_text_padding_start">24dp</dimen>
+  <dimen name="braille_common_text_padding_end">0dp</dimen>
+  <dimen name="braille_common_text_size">20sp</dimen>
+  <dimen name="braille_common_text_line_spacing_extra">4sp</dimen>
+
+  <dimen name="braille_common_text_with_icon_margin_horizontal">16dp</dimen>
+  <dimen name="braille_common_text_with_icon_icon_margin_top">3dp</dimen>
+</resources>

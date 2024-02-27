@@ -1,0 +1,88 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title EuroBraille Iris
+
+include common.kti
+note The Menu key is the small, round button to the left of the cursor routing keys.
+note The Z key is the small, round button to the right of the cursor routing keys.
+
+bind Down+Left CONTEXT+alt1
+bind Down+Right CONTEXT+alt2
+
+bind L1 FWINLT
+bind L2 LNUP
+bind L3 PRPROMPT
+bind L4 PREFMENU
+bind L5 INFO
+bind L6 NXPROMPT
+bind L7 LNDN
+bind L8 FWINRT
+bind Left KEY_CURSOR_LEFT
+bind Right KEY_CURSOR_RIGHT
+bind Up KEY_CURSOR_UP
+bind Down KEY_CURSOR_DOWN
+bind L1+L2 TOP_LEFT
+bind L3+L4 FREEZE
+bind L6+L7 HOME
+bind L7+L8 BOT_LEFT
+bind L1+L2+L3+L4 RESTARTBRL
+bind L5+L6+L7+L8 RESTARTSPEECH
+
+
+context alt1
+bind L1 TOP_LEFT
+bind L3 PRSEARCH
+bind L4 HELP
+bind L5 LEARN
+bind L6 NXSEARCH
+bind L8 BOT_LEFT
+bind Left LNBEG
+bind Right LNEND
+bind Up HOME
+bind Down BACK
+
+
+context alt2
+bind L1 CONTEXT+CLIP_NEW
+bind L2 CONTEXT+CLIP_ADD
+bind L3 CSRVIS
+bind L6 CONTEXT+COPY_RECT
+bind L7 PASTE
+bind L8 CONTEXT+COPY_LINE
+bind Up PREFMENU
+bind Down CSRTRK
+bind Right TUNES
+
+
+context CLIP_NEW
+bind RoutingKey1 CLIP_NEW
+
+
+context CLIP_ADD
+bind RoutingKey1 CLIP_ADD
+
+
+context COPY_RECT
+bind RoutingKey1 COPY_RECT
+
+
+context COPY_LINE
+bind RoutingKey1 COPY_LINE
+
+

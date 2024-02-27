@@ -201,9 +201,22 @@ public abstract class GestureMatcher {
    * canceled.
    */
   private void setState(@State int state, MotionEvent event) {
+    setState(state, event, true);
+  }
+
+  /**
+   * Transitions to a new state and notifies any listeners. Note that any pending transitions are
+   * canceled.
+   *
+   * @param state the new state for the gesture detector.
+   * @param event the MotionEvent caused the state transition.
+   * @param notify should notify the upper listener or not about the state change. This can avoid
+   *     the upper listeners receive call back more than once (especially for cancel event).
+   */
+  private void setState(@State int state, MotionEvent event, boolean notify) {
     this.state = state;
     cancelPendingTransitions();
-    if (listener != null) {
+    if (notify && listener != null) {
       listener.onStateChanged(gestureId, state, event);
     }
   }
@@ -214,6 +227,10 @@ public abstract class GestureMatcher {
   }
 
   /** Indicates this stream of motion events can no longer match this gesture. */
+  public final void cancelGesture(MotionEvent event, boolean notify) {
+    setState(STATE_GESTURE_CANCELED, event, notify);
+  }
+
   public final void cancelGesture(MotionEvent event) {
     setState(STATE_GESTURE_CANCELED, event);
   }
@@ -403,25 +420,32 @@ public abstract class GestureMatcher {
 
     public void cancel() {
       // Avoid meaningless debug messages.
-      if (isPending()) {
-        LogUtils.v(
-            LOG_TAG,
-            "%s: canceling delayed transition to %s",
-            getGestureName(),
-            getStateSymbolicName(targetState));
+      synchronized (GestureMatcher.this) {
+        if (isPending()) {
+          LogUtils.v(
+              LOG_TAG,
+              "%s: canceling delayed transition to %s",
+              getGestureName(),
+              getStateSymbolicName(targetState));
+        }
+        handler.removeCallbacks(this);
+        recycleEvent();
       }
-      handler.removeCallbacks(this);
     }
 
     public void post(int state, long delay, MotionEvent event) {
-      this.targetState = state;
-      this.event = event;
-      handler.postDelayed(this, delay);
-      LogUtils.v(
-          LOG_TAG,
-          "%s: posting delayed transition to %s",
-          getGestureName(),
-          getStateSymbolicName(targetState));
+      synchronized (GestureMatcher.this) {
+        this.targetState = state;
+        // Just in case the cancel is not performed immediately before post.
+        recycleEvent();
+        this.event = MotionEvent.obtain(event);
+        handler.postDelayed(this, delay);
+        LogUtils.v(
+            LOG_TAG,
+            "%s: posting delayed transition to %s",
+            getGestureName(),
+            getStateSymbolicName(targetState));
+      }
     }
 
     public boolean isPending() {
@@ -437,12 +461,26 @@ public abstract class GestureMatcher {
 
     @Override
     public void run() {
-      LogUtils.v(
-          LOG_TAG,
-          "%s: executing delayed transition to %s",
-          getGestureName(),
-          getStateSymbolicName(targetState));
-      setState(targetState, event);
+      synchronized (GestureMatcher.this) {
+        if (event == null) {
+          return;
+        }
+        LogUtils.v(
+            LOG_TAG,
+            "%s: executing delayed transition to %s",
+            getGestureName(),
+            getStateSymbolicName(targetState));
+        setState(targetState, event);
+        recycleEvent();
+      }
+    }
+
+    private void recycleEvent() {
+      if (event == null) {
+        return;
+      }
+      event.recycle();
+      event = null;
     }
   }
 

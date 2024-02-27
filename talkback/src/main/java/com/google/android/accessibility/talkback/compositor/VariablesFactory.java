@@ -23,42 +23,18 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree.VariableDelegate;
 import com.google.android.accessibility.utils.ImageContents;
-import java.util.Locale;
 
 /** Provides an interface for creating VariableDelegates for the Compositor. */
 class VariablesFactory {
   private final Context mContext;
-  private final GlobalVariables mGlobalVariables;
+  private final GlobalVariables globalVariables;
   @Nullable private final ImageContents imageContents;
-  @Nullable private NodeMenuProvider nodeMenuProvider;
-  // Stores the user preferred locale changed using language switcher.
-  @Nullable private Locale mUserPreferredLocale;
 
   VariablesFactory(
       Context context, GlobalVariables globalVariables, @Nullable ImageContents imageContents) {
     mContext = context;
-    mGlobalVariables = globalVariables;
+    this.globalVariables = globalVariables;
     this.imageContents = imageContents;
-    mUserPreferredLocale = null;
-  }
-
-  ParseTree.VariableDelegate getDefaultDelegate() {
-    return mGlobalVariables;
-  }
-
-  // Gets the user preferred locale changed using language switcher.
-  @Nullable
-  Locale getUserPreferredLocale() {
-    return mUserPreferredLocale;
-  }
-
-  // Sets the user preferred locale changed using language switcher.
-  void setUserPreferredLocale(Locale locale) {
-    mUserPreferredLocale = locale;
-  }
-
-  public void setNodeMenuProvider(@Nullable NodeMenuProvider nodeMenuProvider) {
-    this.nodeMenuProvider = nodeMenuProvider;
   }
 
   // Copies node.
@@ -66,31 +42,27 @@ class VariablesFactory {
       @Nullable AccessibilityEvent event,
       @Nullable AccessibilityNodeInfoCompat node,
       @Nullable EventInterpretation interpretation) {
-    VariableDelegate delegate = mGlobalVariables;
+    VariableDelegate delegate = globalVariables;
     if (event != null) {
-      delegate =
-          new EventVariables(mContext, delegate, event, event.getSource(), mUserPreferredLocale);
+      delegate = new EventVariables(mContext, delegate, event, event.getSource(), globalVariables);
     }
 
     if (interpretation != null) {
-      delegate =
-          new InterpretationVariables(mContext, delegate, interpretation, mUserPreferredLocale);
+      delegate = new InterpretationVariables(mContext, delegate, interpretation, globalVariables);
     }
 
     // Node variables is constructed last. This ensures that child nodes it creates have access to
     // top level global variables.
     if (node != null) {
-      delegate =
-          new NodeVariables(
-              mContext, imageContents, nodeMenuProvider, delegate, node, mUserPreferredLocale);
+      delegate = new NodeVariables(mContext, imageContents, delegate, node, globalVariables);
     }
     return delegate;
   }
 
   void declareVariables(ParseTree parseTree) {
-    if (mGlobalVariables != null) {
+    if (globalVariables != null) {
       // Allow mGlobalVariables to be null for tests.
-      mGlobalVariables.declareVariables(parseTree);
+      globalVariables.declareVariables(parseTree);
     }
     InterpretationVariables.declareVariables(parseTree);
     EventVariables.declareVariables(parseTree);

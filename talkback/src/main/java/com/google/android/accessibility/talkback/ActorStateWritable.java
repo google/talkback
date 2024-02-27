@@ -27,8 +27,8 @@ import com.google.android.accessibility.talkback.actor.NodeActionPerformer;
 import com.google.android.accessibility.talkback.actor.PassThroughModeActor;
 import com.google.android.accessibility.talkback.actor.SpeechRateActor;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
-import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.android.accessibility.utils.labeling.LabelManager;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -83,6 +83,9 @@ public class ActorStateWritable {
    */
   private long overrideFocusRestoreUptimeMs = 0;
 
+  /** Last performed system action ID. */
+  private int lastSystemAction = 0;
+
   /** Read-only on-demand data-puller for scroll state data. */
   public final AutoScrollActor.StateReader scrollState;
 
@@ -102,7 +105,7 @@ public class ActorStateWritable {
   public final PassThroughModeActor.State passThroughModeState;
 
   /** Read-only on-demand data-puller for CustomLabelManager state data. */
-  public final CustomLabelManager.State labelerState;
+  public final LabelManager.State labelerState;
 
   //////////////////////////////////////////////////////////////////////////
   // Construction methods
@@ -118,7 +121,7 @@ public class ActorStateWritable {
       LanguageActor.State languageState,
       SpeechRateActor.State speechRateState,
       PassThroughModeActor.State passThroughModeState,
-      CustomLabelManager.State labelerState) {
+      LabelManager.State labelerState) {
     this.dimScreen = dimScreen;
     this.speechState = speechState;
     this.continuousRead = continuousRead;
@@ -161,6 +164,14 @@ public class ActorStateWritable {
 
   public long getOverrideFocusRestoreUptimeMs() {
     return overrideFocusRestoreUptimeMs;
+  }
+
+  public int getLastSystemAction() {
+    return lastSystemAction;
+  }
+
+  public void setLastSystemAction(int action) {
+    lastSystemAction = action;
   }
 
   //////////////////////////////////////////////////////////////////////////

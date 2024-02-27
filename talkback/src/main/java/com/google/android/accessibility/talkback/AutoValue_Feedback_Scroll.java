@@ -19,8 +19,8 @@ package com.google.android.accessibility.talkback;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback.Scroll;
 import com.google.android.accessibility.utils.AccessibilityNode;
-import com.google.android.accessibility.utils.input.ScrollActionRecord;
 import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollTimeout;
+import com.google.android.accessibility.utils.output.ScrollActionRecord;
 import javax.annotation.Generated;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -206,26 +206,14 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
       return this;
     }
     @Override
-    @Nullable AccessibilityNode node() {
-      return node;
-    }
-    @Override
     public Feedback.Scroll.Builder setNodeCompat(@Nullable AccessibilityNodeInfoCompat nodeCompat) {
       this.nodeCompat = nodeCompat;
       return this;
     }
     @Override
-    @Nullable AccessibilityNodeInfoCompat nodeCompat() {
-      return nodeCompat;
-    }
-    @Override
     public Feedback.Scroll.Builder setNodeToMoveOnScreen(@Nullable AccessibilityNodeInfoCompat nodeToMoveOnScreen) {
       this.nodeToMoveOnScreen = nodeToMoveOnScreen;
       return this;
-    }
-    @Override
-    @Nullable AccessibilityNodeInfoCompat nodeToMoveOnScreen() {
-      return nodeToMoveOnScreen;
     }
     @Override
     public Feedback.Scroll.Builder setUserAction(int userAction) {

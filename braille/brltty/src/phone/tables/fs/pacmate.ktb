@@ -1,0 +1,46 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title FreedomScientific PAC Mate
+
+note The rear row of cursor routing keys is actually a set of navigation keys.
+note The 10 middle keys (5 on each side of the center) are special.
+note The two outer ones are named LeftSelector and RightSelector.
+note The eight inner ones are named Hot1 through Hot8.
+note The PanLeft key is any key to the left of the special keys.
+note The PanRight key is any key to the right of the special keys.
+
+bind Hot1 SKPIDLNS
+bind RightSelector+Hot1 SKPBLNKWINS
+bind Hot2 DISPMD
+bind RightSelector+Hot2 ATTRVIS
+bind Hot3 CSRTRK
+bind RightSelector+Hot3 CSRVIS
+bind Hot4 SIXDOTS
+bind RightSelector+Hot4 AUTOREPEAT
+bind Hot5 HELP
+bind RightSelector+Hot5 FREEZE
+bind Hot6 LEARN
+bind RightSelector+Hot6 PREFLOAD
+bind Hot7 PREFMENU
+bind RightSelector+Hot7 PREFSAVE
+bind Hot8 INFO
+bind RightSelector+Hot8 CSRJMP_VERT
+
+assign navKeyType Wheel
+include common.kti

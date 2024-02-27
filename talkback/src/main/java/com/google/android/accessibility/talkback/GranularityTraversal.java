@@ -16,25 +16,26 @@
 
 package com.google.android.accessibility.talkback;
 
-import android.accessibilityservice.AccessibilityService;
+import static com.google.android.accessibility.talkback.Feedback.EditText.Action.MOVE_CURSOR;
+
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.GranularityIterator.TextSegmentIterator;
-import com.google.android.accessibility.talkback.compositor.Compositor;
-import com.google.android.accessibility.talkback.compositor.EventInterpretation;
+import com.google.android.accessibility.talkback.Pipeline.SyntheticEvent;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPhoneticLetters;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import com.google.android.accessibility.utils.input.CursorGranularity;
-import com.google.android.accessibility.utils.input.TextEventInterpretation;
 import com.google.android.accessibility.utils.input.TextEventInterpreter;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -44,8 +45,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class GranularityTraversal {
   /**
    * Granularities supported within talkback if the conditions in {@link
-   * GranularityTraversal#shouldHandleGranularityTraversalInTalkback(AccessibilityNodeInfoCompat,
-   * AccessibilityService)} are satisfied.
+   * GranularityTraversal#shouldHandleGranularityTraversalInTalkback(AccessibilityNodeInfoCompat)}
+   * are satisfied.
    */
   static final int TALKBACK_SUPPORTED_GRANULARITIES =
       AccessibilityNodeInfo.MOVEMENT_GRANULARITY_CHARACTER
@@ -55,21 +56,26 @@ public final class GranularityTraversal {
   private static final int ACCESSIBILITY_CURSOR_POSITION_UNDEFINED = -1;
   private static final String TAG = "GranularityTraversal";
 
-  private final Compositor compositor;
   private final ProcessorPhoneticLetters processorPhoneticLetters;
+  private Optional<Pipeline.FeedbackReturner> pipelineReturner = Optional.empty();
+  private Optional<Pipeline.EventReceiver> pipelineReceiver = Optional.empty();
 
   /**
    * Manages the cursor position for each node while traversing with granularity within Talkback.
    */
   private final Map<AccessibilityNodeInfoCompat, Integer> cache = new ConcurrentHashMap<>();
 
-  GranularityTraversal(Compositor compositor, ProcessorPhoneticLetters processorPhoneticLetters) {
-    this.compositor = compositor;
+  GranularityTraversal(ProcessorPhoneticLetters processorPhoneticLetters) {
     this.processorPhoneticLetters = processorPhoneticLetters;
   }
 
-  public void setPipeline(Pipeline.FeedbackReturner pipeline) {
+  public void setPipelineFeedbackReturner(Pipeline.FeedbackReturner pipeline) {
     processorPhoneticLetters.setPipeline(pipeline);
+    pipelineReturner = Optional.of(pipeline);
+  }
+
+  public void setPipelineEventReceiver(Pipeline.EventReceiver pipeline) {
+    pipelineReceiver = Optional.of(pipeline);
   }
 
   /**
@@ -100,8 +106,7 @@ public final class GranularityTraversal {
    *   <li>View with selectable text that aren't edit texts.
    * </ul>
    */
-  static boolean shouldHandleGranularityTraversalInTalkback(
-      AccessibilityNodeInfoCompat node, AccessibilityService service) {
+  static boolean shouldHandleGranularityTraversalInTalkback(AccessibilityNodeInfoCompat node) {
 
     // Webviews are handled by the framework.
     if (WebInterfaceUtils.isWebContainer(node)) {
@@ -170,6 +175,95 @@ public final class GranularityTraversal {
   }
 
   /**
+   * Returns {@code true} if TalkBack should handle line granularity traversal.
+   *
+   * <p>Only line granularity traversal at {@link android.widget.EditText} is handled by TalkBack.
+   *
+   * @param forward {@code true} if move has to be in the forward direction.
+   */
+  public static boolean shouldHandleLineGranularityTraversalInTalkback(
+      AccessibilityNodeInfoCompat node, boolean forward) {
+    // WebViews and non-EditText are handled by the framework.
+    if (WebInterfaceUtils.isWebContainer(node) || Role.getRole(node) != Role.ROLE_EDIT_TEXT) {
+      LogUtils.v(
+          TAG,
+          "Line granularity traversal not handled by Talkback since it is a WebView or not an"
+              + " EditText");
+      return false;
+    }
+
+    if (TextUtils.isEmpty(getIterableTextForAccessibility(node))) {
+      LogUtils.v(
+          TAG,
+          "Line granularity traversal not handled by Talkback as iterable text is null or empty"
+              + " string");
+      return false;
+    }
+
+    int current = forward ? node.getTextSelectionEnd() : node.getTextSelectionStart();
+    if (current == ACCESSIBILITY_CURSOR_POSITION_UNDEFINED) {
+      LogUtils.v(TAG, "Line granularity traversal not handled by Talkback since no cursor");
+      return false;
+    }
+
+    LogUtils.d(TAG, "Line granularity traversal handled by Talkback");
+    return true;
+  }
+
+  /**
+   * Handles line granularity traversal by Talkback.
+   *
+   * @param node at which line granularity traversal is to be performed.
+   * @param forward {@code true} if move has to be in the forward direction.
+   * @param eventId ID of the event used for performance monitoring.
+   * @return {@code true} if traversal was successful.
+   */
+  public boolean traverseAtLineGranularity(
+      AccessibilityNodeInfoCompat node, boolean forward, EventId eventId) {
+    if (!node.refresh()) {
+      return false;
+    }
+
+    CharSequence text = getIterableTextForAccessibility(node);
+    LogUtils.d(TAG, "Text to be traversed: " + text);
+    if (TextUtils.isEmpty(text)) {
+      return false;
+    }
+    int current;
+    if (FeatureSupport.supportInputConnectionByA11yService()) {
+      current = node.getTextSelectionEnd();
+    } else {
+      current = forward ? node.getTextSelectionEnd() : node.getTextSelectionStart();
+    }
+
+    TextSegmentIterator iterator = GranularityIterator.getLineIterator(node, text);
+    int[] range = forward ? iterator.following(current) : iterator.preceding(current);
+    if (range == null) {
+      return false;
+    }
+
+    int segmentStart = range[0];
+    int segmentEnd = range[1];
+    LogUtils.v(TAG, "Text traversal segmentStart: " + segmentStart);
+    LogUtils.v(TAG, "Text traversal segmentEnd: " + segmentEnd);
+
+    pipelineReturner.ifPresent(
+        feedbackReturner ->
+            feedbackReturner.returnFeedback(
+                Feedback.create(
+                    eventId,
+                    Feedback.part()
+                        .setEdit(
+                            Feedback.edit(node, MOVE_CURSOR)
+                                .setCursorIndex(forward ? segmentEnd : segmentStart)
+                                .build())
+                        .build())));
+    sendViewTextTraversedAtGranularityEvent(
+        segmentStart, segmentEnd, text, CursorGranularity.LINE.value, node, eventId);
+    return true;
+  }
+
+  /**
    * Gets the iterator for granularity traversal. Talkback can handle only character, word and
    * paragraph granularity movements. If the granularity is not supported by Talkback or the text is
    * null, it returns {@code null}.
@@ -218,19 +312,9 @@ public final class GranularityTraversal {
     return ACCESSIBILITY_CURSOR_POSITION_UNDEFINED;
   }
 
-  /**
-   * Stores the cursor position for each node in the map.
-   *
-   * <p>Do not obtain the node to save in the map without checking if the map already contains the
-   * node as the key. If obtained without checking it might create unwanted instances of the node in
-   * the memory.
-   */
+  /** Stores the cursor position for each node in the map. */
   private void setCursorPosition(AccessibilityNodeInfoCompat node, int index) {
-    if (cache.containsKey(node)) {
-      cache.put(node, index);
-    } else {
-      cache.put(AccessibilityNodeInfoCompat.obtain(node), index);
-    }
+    cache.put(node, index);
   }
 
   /** Sets the cursor position for granularity traversal */
@@ -254,24 +338,13 @@ public final class GranularityTraversal {
       AccessibilityNodeInfoCompat node,
       EventId eventId) {
 
-    // TODO: Stop using compositor. Send synthetic traversal-event to pipeline
-    // event-interpreters.
-    EventInterpretation eventInterpreted =
-        new EventInterpretation(Compositor.EVENT_TYPE_INPUT_SELECTION_TEXT_TRAVERSAL);
-
-    // Extract traversed text and create TextEventInterpretation.
-    TextEventInterpretation textEventInterpreted =
-        new TextEventInterpretation(Compositor.EVENT_TYPE_INPUT_SELECTION_TEXT_TRAVERSAL);
-
     CharSequence traversedText =
-        text.subSequence(Math.min(fromIndex, toIndex), Math.max(fromIndex, toIndex));
-    textEventInterpreted.setTraversedText(
         TextEventInterpreter.getSubsequenceWithSpans(
-            text, Math.min(fromIndex, toIndex), Math.max(fromIndex, toIndex)));
-    eventInterpreted.setTextEventInterpretation(textEventInterpreted);
-    eventInterpreted.setReadOnly();
-    LogUtils.d(TAG, "sendViewTextTraversedAtGranularityEvent: " + eventInterpreted.toString());
-    compositor.handleEvent(eventId, eventInterpreted);
+            text, Math.min(fromIndex, toIndex), Math.max(fromIndex, toIndex));
+    if (pipelineReceiver.isPresent()) {
+      LogUtils.d(TAG, "sendViewTextTraversedAtGranularityEvent: " + traversedText);
+      pipelineReceiver.get().input(SyntheticEvent.Type.TEXT_TRAVERSAL, traversedText);
+    }
 
     // No current case where isTalkbackPackage would be true, but just kept it for safety.
     boolean isTalkbackPackage = PackageManagerUtils.isTalkBackPackage(node.getPackageName());

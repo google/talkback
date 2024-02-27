@@ -16,6 +16,9 @@
 
 package com.google.android.accessibility.talkback.ipc;
 
+import static com.google.android.accessibility.talkback.ipc.IpcService.MSG_ON_CLIENT_CONNECTED;
+import static com.google.android.accessibility.talkback.ipc.IpcService.MSG_ON_CLIENT_DISCONNECTED;
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -87,6 +90,8 @@ public abstract class IpcClient implements ServiceConnection {
     }
 
     context.unbindService(this);
+    // The method of unbindService won't necessarily trigger onServiceDisconnected.
+    sendMessage(Message.obtain(/* h= */ null, MSG_ON_CLIENT_DISCONNECTED));
     serviceMessenger = null;
   }
 
@@ -94,11 +99,13 @@ public abstract class IpcClient implements ServiceConnection {
   @Override
   public void onServiceConnected(ComponentName name, IBinder binder) {
     serviceMessenger = new Messenger(binder);
+    sendMessage(Message.obtain(/* h= */ null, MSG_ON_CLIENT_CONNECTED));
   }
 
   /** Called when the service has crashed or been killed. */
   @Override
   public final void onServiceDisconnected(ComponentName name) {
+    sendMessage(Message.obtain(/* h= */ null, MSG_ON_CLIENT_DISCONNECTED));
     serviceMessenger = null;
   }
 

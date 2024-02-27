@@ -72,6 +72,16 @@ public class SpeechRateActor {
             ? Math.min(currentRate * RATE_STEP, RATE_MAXIMUM)
             : Math.max(currentRate / RATE_STEP, RATE_MINIMUM);
 
+    // Since the speech rate will no longer be a multiple of RATE_STEP after reaching
+    // RATE_MAXIMUM or RATE_MINIMUM, the rate cannot get back to TTS_DEFAULT_RATE
+    // with further calculation through RATE_STEP. Therefore, forcing the new rate to be
+    // TTS_DEFAULT_RATE when the calculated result is close to 1.
+    // The boundary for resetting to TTS_DEFAULT_RATE should consider the value of RATE_STEP to
+    // avoid falling into a trap that the new rate could never escape.
+    if (newRate > 0.95f && newRate < 1.05f) {
+      newRate = 1.0f;
+    }
+
     prefs
         .edit()
         .putString(context.getString(R.string.pref_speech_rate_key), Float.toString(newRate))

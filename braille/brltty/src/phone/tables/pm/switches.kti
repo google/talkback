@@ -1,0 +1,164 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Papenmeier displays which have switches.
+
+ifVar keyEmulation
+  note The left and right switches are emulated. Enter key emulation mode by
+  note * pressing Thumb1 + Thumb2 (Left Windows + Right Windows). Then press:
+  note + Left Switch Rear: Dot 1 (f)
+  note + Left Switch Center: Dot 2 (d)
+  note + Left Switch Front: Dot 3 (s)
+  note + Right Switch Rear: Dot 4 (j)
+  note + Right Switch Center: Dot 5 (k)
+  note + Right Switch Front: Dot 6 (l)
+  note + center both switches: Dot 7 (a)
+else
+  note The rockers at each side of the top that stay when pressed
+  note * are named the Left and Right Switch.
+endIf
+
+context switchesRearCenter Advanced Vertical Navigation (left switch rear)
+
+bind BarUp1 PRDIFLN
+bind BarDown1 NXDIFLN
+bind BarUp2 ATTRUP
+bind BarDown2 ATTRDN
+bind BarLeft1 PRPROMPT
+bind BarRight1 NXPROMPT
+bind BarLeft2 PRPGRPH
+bind BarRight2 NXPGRPH
+
+hide on
+bind BarUp1+BarUp2 ATTRUP
+bind BarDown1+BarDown2 ATTRDN
+bind BarLeft1+BarLeft2 PRPGRPH
+bind BarRight1+BarRight2 NXPGRPH
+hide off
+
+
+context switchesFrontCenter Specialized Navigation (left switch front)
+
+bind BarUp1 PRSEARCH
+bind BarDown1 NXSEARCH
+bind BarUp2 HELP
+bind BarDown2 LEARN
+bind BarLeft1 CHRLT
+bind BarRight1 CHRRT
+bind BarLeft2 HWINLT
+bind BarRight2 HWINRT
+
+hide on
+bind BarUp1+BarUp2 HELP
+bind BarDown1+BarDown2 LEARN
+bind BarLeft1+BarLeft2 HWINLT
+bind BarRight1+BarRight2 HWINRT
+hide off
+
+
+context switchesCenterRear Content-based Navigation (right switch rear)
+
+bind BarUp1 KEY_CURSOR_UP
+bind BarDown1 KEY_CURSOR_DOWN
+bind BarUp2 KEY_PAGE_UP
+bind BarDown2 KEY_PAGE_DOWN
+bind BarLeft1 FWINLT+route
+bind BarRight1 FWINRT+route
+bind BarLeft2 LNBEG+route
+bind BarRight2 LNEND+route
+
+hide on
+bind BarUp1+BarUp2 KEY_PAGE_UP
+bind BarDown1+BarDown2 KEY_PAGE_DOWN
+bind BarLeft1+BarLeft2 LNBEG+route
+bind BarRight1+BarRight2 LNEND+route
+hide off
+
+
+context switchesCenterFront Function Key Emulation (right switch front)
+
+bind BarUp1 KEY_CURSOR_UP
+bind BarDown1 KEY_CURSOR_DOWN
+bind BarUp2 KEY_PAGE_UP
+bind BarDown2 KEY_PAGE_DOWN
+bind BarLeft1 KEY_CURSOR_LEFT
+bind BarRight1 KEY_CURSOR_RIGHT
+bind BarLeft2 KEY_HOME
+bind BarRight2 KEY_END
+
+hide on
+bind BarUp1+BarUp2 KEY_PAGE_UP
+bind BarDown1+BarDown2 KEY_PAGE_DOWN
+bind BarLeft1+BarLeft2 KEY_HOME
+bind BarRight1+BarRight2 KEY_END
+hide off
+
+
+context switchesRearRear Unused (left switch rear, right switch rear)
+
+
+context switchesRearFront Unused (left switch rear, right switch front)
+
+
+context switchesFrontRear Unused (left switch front, right switch rear)
+
+
+context switchesFrontFront Unused (left switch front, right switch front)
+
+
+context switchesRearCenter
+hotkey LeftSwitchRear NOOP CONTEXT+default
+hotkey RightSwitchRear CONTEXT+switchesRearRear NOOP
+hotkey RightSwitchFront CONTEXT+switchesRearFront NOOP
+
+context switchesFrontCenter
+hotkey LeftSwitchFront NOOP CONTEXT+default
+hotkey RightSwitchRear CONTEXT+switchesFrontRear NOOP
+hotkey RightSwitchFront CONTEXT+switchesFrontFront NOOP
+
+context switchesCenterRear
+hotkey RightSwitchRear NOOP CONTEXT+default
+hotkey LeftSwitchRear CONTEXT+switchesRearRear NOOP
+hotkey LeftSwitchFront CONTEXT+switchesFrontRear NOOP
+
+context switchesCenterFront
+hotkey RightSwitchFront NOOP CONTEXT+default
+hotkey LeftSwitchRear CONTEXT+switchesRearFront NOOP
+hotkey LeftSwitchFront CONTEXT+switchesFrontFront NOOP
+
+context switchesRearRear
+hotkey LeftSwitchRear NOOP CONTEXT+switchesCenterRear
+hotkey RightSwitchRear NOOP CONTEXT+switchesRearCenter
+
+context switchesRearFront
+hotkey LeftSwitchRear NOOP CONTEXT+switchesCenterFront
+hotkey RightSwitchFront NOOP CONTEXT+switchesRearCenter
+
+context switchesFrontRear
+hotkey LeftSwitchFront NOOP CONTEXT+switchesCenterRear
+hotkey RightSwitchRear NOOP CONTEXT+switchesFrontCenter
+
+context switchesFrontFront
+hotkey LeftSwitchFront NOOP CONTEXT+switchesCenterFront
+hotkey RightSwitchFront NOOP CONTEXT+switchesFrontCenter
+
+context default
+hotkey LeftSwitchRear CONTEXT+switchesRearCenter NOOP
+hotkey LeftSwitchFront CONTEXT+switchesFrontCenter NOOP
+hotkey RightSwitchRear CONTEXT+switchesCenterRear NOOP
+hotkey RightSwitchFront CONTEXT+switchesCenterFront NOOP

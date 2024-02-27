@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Apóstrofo</string>
   <string name="symbol_ampersand">Et</string>
   <string name="symbol_angle_bracket_left">Signo menor que</string>
@@ -19,12 +19,12 @@
   <string name="symbol_division">Signo de división</string>
   <string name="symbol_dollar_sign">Signo de dólar</string>
   <string name="symbol_ellipsis">Elipsis</string>
-  <string name="symbol_em_dash">Guión largo</string>
-  <string name="symbol_en_dash">Guión corto</string>
+  <string name="symbol_em_dash">Guion largo</string>
+  <string name="symbol_en_dash">Guion corto</string>
   <string name="symbol_euro">Euro</string>
   <string name="symbol_exclamation_mark">Signo de exclamación</string>
   <string name="symbol_grave_accent">Acento grave</string>
-  <string name="symbol_hyphen_minus">Guión</string>
+  <string name="symbol_hyphen_minus">Guion</string>
   <string name="symbol_low_double_quote">Comilla doble baja</string>
   <string name="symbol_multiplication">Signo de multiplicación</string>
   <string name="symbol_new_line">Nueva línea</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Numeral</string>
   <string name="symbol_pound_sterling">Símbolo de libra esterlina</string>
+  <string name="symbol_currency_peso">Signo de peso</string>
+  <string name="symbol_currency_dong">Signo de dong</string>
   <string name="symbol_question_mark">Signo de interrogación</string>
   <string name="symbol_quotation_mark">Comillas</string>
   <string name="symbol_registered_trademark">Marca registrada</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">Signo menor que de ancho total</string>
   <string name="symbol_full_width_greater_than_sign">Signo mayor que de ancho total</string>
   <string name="symbol_left_single_quotation_mark">Comilla simple de apertura</string>
+  <string name="symbol_braille">%s braille</string>
+  <plurals name="dots">
+    <item quantity="one">punto %s</item>
+    <item quantity="other">puntos %s</item>
+  </plurals>
 </resources>

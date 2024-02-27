@@ -31,7 +31,6 @@ public class DefaultKeyComboModel implements KeyComboModel {
   public static final String PREF_KEY_PREFIX = "default_key_combo_model";
 
   private final Context context;
-  private final boolean isArc;
   private final Map<String, Long> keyComboCodeMap = new TreeMap<>();
   private final KeyComboPersister persister;
 
@@ -39,7 +38,6 @@ public class DefaultKeyComboModel implements KeyComboModel {
 
   public DefaultKeyComboModel(Context context) {
     this.context = context;
-    isArc = FeatureSupport.isArc();
     persister = new KeyComboPersister(context, PREF_KEY_PREFIX);
 
     loadTriggerModifierFromPreferences();
@@ -48,23 +46,21 @@ public class DefaultKeyComboModel implements KeyComboModel {
 
   private void loadTriggerModifierFromPreferences() {
     SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
-    int defaultTriggerModifier =
-        isArc
-            ? R.string.trigger_modifier_meta_entry_value
-            : R.string.trigger_modifier_alt_entry_value;
 
     if (!prefs.contains(getPreferenceKeyForTriggerModifier())) {
       // Store default value in preferences to show it in preferences UI.
       prefs
           .edit()
           .putString(
-              getPreferenceKeyForTriggerModifier(), context.getString(defaultTriggerModifier))
+              getPreferenceKeyForTriggerModifier(),
+              context.getString(R.string.trigger_modifier_alt_entry_value))
           .apply();
     }
 
     String triggerModifier =
         prefs.getString(
-            getPreferenceKeyForTriggerModifier(), context.getString(defaultTriggerModifier));
+            getPreferenceKeyForTriggerModifier(),
+            context.getString(R.string.trigger_modifier_alt_entry_value));
     if (triggerModifier.equals(context.getString(R.string.trigger_modifier_alt_entry_value))) {
       this.triggerModifier = KeyEvent.META_ALT_ON;
     } else if (triggerModifier.equals(
@@ -73,115 +69,9 @@ public class DefaultKeyComboModel implements KeyComboModel {
     }
   }
 
-  private void addKeyCombos() {
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_perform_click));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_perform_long_click));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_read_from_top));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_read_from_next_item));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_talkback_context_menu));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_custom_actions));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_language_options));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_toggle_search));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_back));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_default));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_default));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_up));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_down));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_first));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_last));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_word));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_word));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_character));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_character));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_button));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_button));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_control));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_control));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_checkbox));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_checkbox));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_aria_landmark));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_aria_landmark));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_edit_field));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_edit_field));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_focusable_item));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_focusable_item));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_graphic));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_graphic));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_1));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_1));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_2));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_2));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_3));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_3));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_4));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_4));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_5));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_5));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_6));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_6));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_list_item));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_list_item));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_link));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_link));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_list));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_list));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_table));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_table));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_combobox));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_combobox));
-    if (!isArc) {
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_window));
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_window));
-    }
-    if (isArc) {
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_open_manage_keyboard_shortcuts));
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_open_talkback_settings));
-    }
-    if (!isArc) {
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_global_home));
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_global_recents));
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_global_notifications));
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_global_play_pause_media));
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_global_scroll_forward_reading_menu));
-      addKeyCombo(
-          context.getString(R.string.keycombo_shortcut_global_scroll_backward_reading_menu));
-      addKeyCombo(
-          context.getString(R.string.keycombo_shortcut_global_adjust_reading_settings_previous));
-      addKeyCombo(context.getString(R.string.keycombo_shortcut_global_adjust_reading_setting_next));
-    }
-  }
-
-  private void addKeyCombo(String key) {
-    if (!persister.contains(key)) {
-      persister.saveKeyCombo(key, getDefaultKeyComboCode(key));
-    }
-
-    keyComboCodeMap.put(key, persister.getKeyComboCode(key));
-  }
-
   @Override
   public int getTriggerModifier() {
     return triggerModifier;
-  }
-
-  public String getTriggerModifierName() {
-    SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
-    String triggerModifier =
-        prefs.getString(
-            getPreferenceKeyForTriggerModifier(),
-            context.getString(R.string.trigger_modifier_alt_entry_value));
-    String triggerModifierName = "";
-
-    if (triggerModifier.equals(context.getString(R.string.trigger_modifier_alt_entry_value))) {
-      triggerModifierName = context.getString(R.string.keycombo_key_modifier_alt);
-    } else if (triggerModifier.equals(
-        context.getString(R.string.trigger_modifier_meta_entry_value))) {
-      triggerModifierName = context.getString(R.string.keycombo_key_modifier_meta);
-    }
-
-    return triggerModifierName;
   }
 
   @Override
@@ -227,19 +117,11 @@ public class DefaultKeyComboModel implements KeyComboModel {
     }
 
     if (key.equals(context.getString(R.string.keycombo_shortcut_perform_click))) {
-      if (isArc) {
-        return KeyComboManager.getKeyComboCode(NO_MODIFIER, KeyEvent.KEYCODE_SPACE);
-      } else {
-        return KeyComboManager.getKeyComboCode(NO_MODIFIER, KeyEvent.KEYCODE_ENTER);
-      }
+      return KeyComboManager.getKeyComboCode(NO_MODIFIER, KeyEvent.KEYCODE_ENTER);
     }
 
     if (key.equals(context.getString(R.string.keycombo_shortcut_perform_long_click))) {
-      if (isArc) {
-        return KeyComboManager.getKeyComboCode(KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_SPACE);
-      } else {
-        return KeyComboManager.getKeyComboCode(KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_ENTER);
-      }
+      return KeyComboManager.getKeyComboCode(KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_ENTER);
     }
 
     if (key.equals(context.getString(R.string.keycombo_shortcut_other_read_from_top))) {
@@ -252,19 +134,11 @@ public class DefaultKeyComboModel implements KeyComboModel {
     }
 
     if (key.equals(context.getString(R.string.keycombo_shortcut_other_talkback_context_menu))) {
-      if (isArc) {
-        return KeyComboManager.getKeyComboCode(NO_MODIFIER, KeyEvent.KEYCODE_ENTER);
-      } else {
-        return KeyComboManager.getKeyComboCode(NO_MODIFIER, KeyEvent.KEYCODE_SPACE);
-      }
+      return KeyComboManager.getKeyComboCode(NO_MODIFIER, KeyEvent.KEYCODE_SPACE);
     }
 
     if (key.equals(context.getString(R.string.keycombo_shortcut_other_custom_actions))) {
-      if (isArc) {
-        return KeyComboManager.getKeyComboCode(KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_ENTER);
-      } else {
-        return KeyComboManager.getKeyComboCode(KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_SPACE);
-      }
+      return KeyComboManager.getKeyComboCode(KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_SPACE);
     }
 
     if (key.equals(context.getString(R.string.keycombo_shortcut_other_language_options))) {
@@ -521,14 +395,6 @@ public class DefaultKeyComboModel implements KeyComboModel {
       return KeyComboManager.getKeyComboCode(KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_DPAD_UP);
     }
 
-    if (key.equals(context.getString(R.string.keycombo_shortcut_open_manage_keyboard_shortcuts))) {
-      return KeyComboManager.getKeyComboCode(KeyComboModel.NO_MODIFIER, KeyEvent.KEYCODE_K);
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_open_talkback_settings))) {
-      return KeyComboManager.getKeyComboCode(KeyComboModel.NO_MODIFIER, KeyEvent.KEYCODE_0);
-    }
-
     return KEY_COMBO_CODE_UNASSIGNED;
   }
 
@@ -578,6 +444,105 @@ public class DefaultKeyComboModel implements KeyComboModel {
           context.getString(R.string.keycombo_shortcut_navigate_previous),
           context.getString(R.string.keycombo_shortcut_navigate_previous_default));
     }
+  }
+
+  private String getTriggerModifierName() {
+    SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
+    String triggerModifier =
+        prefs.getString(
+            getPreferenceKeyForTriggerModifier(),
+            context.getString(R.string.trigger_modifier_alt_entry_value));
+    String triggerModifierName = "";
+
+    if (triggerModifier.equals(context.getString(R.string.trigger_modifier_alt_entry_value))) {
+      triggerModifierName = context.getString(R.string.keycombo_key_modifier_alt);
+    } else if (triggerModifier.equals(
+        context.getString(R.string.trigger_modifier_meta_entry_value))) {
+      triggerModifierName = context.getString(R.string.keycombo_key_modifier_meta);
+    }
+
+    return triggerModifierName;
+  }
+
+  private void addKeyCombos() {
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_perform_click));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_perform_long_click));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_read_from_top));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_read_from_next_item));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_talkback_context_menu));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_custom_actions));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_language_options));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_toggle_search));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_back));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_default));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_default));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_up));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_down));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_first));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_last));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_word));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_word));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_character));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_character));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_button));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_button));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_control));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_control));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_checkbox));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_checkbox));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_aria_landmark));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_aria_landmark));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_edit_field));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_edit_field));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_focusable_item));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_focusable_item));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_graphic));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_graphic));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_1));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_1));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_2));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_2));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_3));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_3));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_4));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_4));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_5));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_5));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_heading_6));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_6));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_list_item));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_list_item));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_link));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_link));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_list));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_list));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_table));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_table));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_combobox));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_combobox));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_next_window));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_navigate_previous_window));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_home));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_recents));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_notifications));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_play_pause_media));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_scroll_forward_reading_menu));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_scroll_backward_reading_menu));
+    addKeyCombo(
+        context.getString(R.string.keycombo_shortcut_global_adjust_reading_settings_previous));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_adjust_reading_setting_next));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_copy_last_spoken_phrase));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_global_hide_or_show_screen));
+  }
+
+  private void addKeyCombo(String key) {
+    if (!persister.contains(key)) {
+      persister.saveKeyCombo(key, getDefaultKeyComboCode(key));
+    }
+
+    keyComboCodeMap.put(key, persister.getKeyComboCode(key));
   }
 
   /**

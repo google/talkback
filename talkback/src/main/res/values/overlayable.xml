@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="DuplicateDefinition">
+  <overlayable name="PreferenceConfig">
+    <policy type="oem|product|vendor">
+      <item name="show_play_store" type="bool"/>
+      <item name="skip_tutorial_in_launching" type="bool"/>
+    </policy>
+  </overlayable>
+</resources>

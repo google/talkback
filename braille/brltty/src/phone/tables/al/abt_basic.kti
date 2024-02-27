@@ -1,0 +1,97 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Alva models which have the basic ABT/Delphi keys.
+note The two long keys are named Left and Right.
+note The small keys immediately to their left and right are named Up and Down.
+note The three small keys at the left are named Prog, Home, and Cursor.
+
+
+####################
+# Default Bindings #
+####################
+
+bind !Left FWINLT
+bind !Right FWINRT
+bind Home+!Left LNBEG
+bind Home+!Right LNEND
+bind Cursor+!Left HWINLT
+bind Cursor+!Right HWINRT
+bind Prog+!Left CHRLT
+bind Prog+!Right CHRRT
+
+bind !Up LNUP
+bind !Down LNDN
+bind Home TOP_LEFT
+bind Home+!Up TOP
+bind Home+!Down BOT
+bind Cursor+!Up ATTRUP
+bind Cursor+!Down ATTRDN
+bind Home+Cursor+!Up PRDIFLN
+bind Home+Cursor+!Down NXDIFLN
+bind Prog+Home+!Up PRPROMPT
+
+bind Home+Cursor CSRTRK
+bind Cursor RETURN
+
+bind !RoutingKey1 ROUTE
+bind Prog+Home+!RoutingKey1 DESCCHAR
+bind Home+Cursor+!RoutingKey1 SETLEFT
+
+bind Prog+!RoutingKey1 CLIP_NEW
+bind Home+!RoutingKey1 COPY_RECT
+bind Prog+Home+!Down PASTE
+
+bind Prog HELP
+bind Prog+Home DISPMD
+bind Prog+Cursor PREFMENU
+bind Prog+!Up INFO
+bind Prog+!Down FREEZE
+
+bind !Status1A CAPBLINK
+bind !Status1B CSRVIS
+bind !Status1C CSRBLINK
+bind Cursor+!Status1A SIXDOTS
+bind Cursor+!Status1B CSRSIZE
+bind Cursor+!Status1C SLIDEWIN
+
+bind Home+Cursor+!Left MUTE
+bind Home+Cursor+!Right SAY_LINE
+bind Prog+Home+!Left RESTARTSPEECH
+bind Prog+Home+!Right SAY_BELOW
+
+
+#################
+# Menu Bindings #
+#################
+
+context menu
+
+bind !Up MENU_PREV_ITEM
+bind !Down MENU_NEXT_ITEM
+bind Home+!Up MENU_FIRST_ITEM
+bind Home+!Down MENU_LAST_ITEM
+
+bind !Left FWINLT
+bind !Right FWINRT
+bind Home+!Left PREFLOAD
+bind Home+!Right PREFSAVE
+
+bind Prog PREFMENU
+bind Home MENU_PREV_SETTING
+bind Cursor MENU_NEXT_SETTING

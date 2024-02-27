@@ -15,6 +15,7 @@
  */
 package com.google.android.accessibility.talkback.actor.voicecommands;
 
+import static android.content.Context.RECEIVER_EXPORTED;
 import static android.speech.SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS;
 import static android.speech.SpeechRecognizer.ERROR_NO_MATCH;
 import static android.speech.SpeechRecognizer.ERROR_RECOGNIZER_BUSY;
@@ -31,7 +32,6 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 
 import android.Manifest;
 import android.Manifest.permission;
-import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -50,9 +50,10 @@ import com.google.android.accessibility.talkback.Feedback.ShowToast;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
-import com.google.android.accessibility.talkback.permission.PermissionRequestActivity;
+import com.google.android.accessibility.talkback.permission.PermissionUtils;
 import com.google.android.accessibility.talkback.training.VoiceCommandHelpInitiator;
 import com.google.android.accessibility.utils.DelayHandler;
+import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -70,7 +71,6 @@ public class SpeechRecognizerActor {
   public String language;
   private final Context talkbackContext;
   private final TalkBackAnalytics analytics;
-  private @Nullable AlertDialog helpDialog;
   private SpeechRecognitionDialog speechRecognitionDialog;
   private static final int TURN_OFF_RECOGNITION_DELAY_MS = 10000;
   static final int RECOGNITION_SPEECH_DELAY_MS = 100;
@@ -258,7 +258,7 @@ public class SpeechRecognizerActor {
     // Cancel commands from overlapping partial/results.
     executeCommandDelayHandler.removeCallbacksAndMessages(null);
 
-    final String command = (result == null || result.size() == 0) ? null : result.get(0);
+    final String command = (result == null || result.isEmpty()) ? null : result.get(0);
     // SpeechRecognizer after recognizing the speech is triggering onPlaybackConfigChanged
     // in AudioPlaybackMonitor for config USAGE_ASSISTANCE_NAVIGATION_GUIDANCE, which is
     // activating VoiceActionMonitor#AudioPlaybackStateChangedListener() and interrupting
@@ -309,14 +309,14 @@ public class SpeechRecognizerActor {
   public void getSpeechPermissionAndListen(boolean checkDialog) {
     if (!SpeechRecognizer.isRecognitionAvailable(talkbackContext)) {
       LogUtils.e(TAG, "Platform does not support voice command.");
-      pipeline.returnFeedback(
-          EVENT_ID_UNTRACKED,
-          Feedback.showToast(
-              ShowToast.Action.SHOW,
-              talkbackContext.getString(R.string.voice_commands_no_action),
-              false));
+      speak(talkbackContext.getString(R.string.voice_commands_no_action));
+      return;
+    } else if (!SettingsUtils.allowLinksOutOfSettings(talkbackContext)) {
+      LogUtils.e(TAG, "Reject voice command during setup.");
+      speak(talkbackContext.getString(R.string.voice_commands_during_setup_hint));
       return;
     }
+
     if (!hasMicPermission()) {
       if (ContextCompat.checkSelfPermission(talkbackContext, Manifest.permission.RECORD_AUDIO)
           == PackageManager.PERMISSION_GRANTED) {
@@ -371,11 +371,16 @@ public class SpeechRecognizerActor {
   }
 
   public void reset() {
-    if (speechRecognizer != null) {
-      speechRecognizer.setRecognitionListener(null);
-      speechRecognizer.cancel();
-      speechRecognizer.destroy();
-      speechRecognizer = null;
+    try {
+      if (speechRecognizer != null) {
+        speechRecognizer.setRecognitionListener(null);
+        speechRecognizer.cancel();
+        speechRecognizer.destroy();
+        speechRecognizer = null;
+      }
+    } catch (java.lang.IllegalArgumentException e) {
+      // SpeechRecognizer#destroy may throw exception for immature service connection.
+      e.printStackTrace();
     }
     setListeningState(false);
     recognizerIntent = null;
@@ -433,17 +438,11 @@ public class SpeechRecognizerActor {
   /** Calls activity that asks user for mic access for talkback. */
   @VisibleForTesting
   protected void getMicPermission() {
-    // Creates the intent needed for the permission request activity.
-    Intent intent = new Intent(talkbackContext, PermissionRequestActivity.class);
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-    intent.putExtra(PermissionRequestActivity.PERMISSIONS, new String[] {permission.RECORD_AUDIO});
     // Creates an intent filter for broadcast receiver.
     IntentFilter filter = new IntentFilter();
     filter.addAction(ACTION_DONE);
-    talkbackContext.registerReceiver(receiver, filter);
-    // Start activity.
-    talkbackContext.startActivity(intent);
+    ContextCompat.registerReceiver(talkbackContext, receiver, filter, RECEIVER_EXPORTED);
+    PermissionUtils.requestPermissions(talkbackContext, permission.RECORD_AUDIO);
   }
 
   /** Activated when SpeechRecognizer has not stopped listening after 10 seconds. */
@@ -481,6 +480,17 @@ public class SpeechRecognizerActor {
         // TODO: Add performance EventId support for speech commands.
         EVENT_ID_UNTRACKED,
         Feedback.speech(text, speakOptions).setDelayMs(RECOGNITION_SPEECH_DELAY_MS));
+  }
+
+  private void speak(String text) {
+    SpeakOptions speakOptions =
+        SpeakOptions.create()
+            .setFlags(
+                FeedbackItem.FLAG_NO_HISTORY
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE);
+    pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.speech(text, speakOptions));
   }
 
   public boolean hasMicPermission() {

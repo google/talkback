@@ -1,0 +1,135 @@
+# This is google's unified shortcuts for braille displays.
+# Devices without braille dot keys should define the shortcuts based on the keys they have.
+#
+# chord1-chord5, chord7 are required
+# chord6 is currently unused
+# chord8 is optional
+# CUSTOM_KEY are used for android only and start from KEY_FUNCTION+100.
+#
+# Space + 13 is the power-off chord for BraillePen, and so Space + 1378 also has
+# the effect of being a power-off chord, so we avoid using that.
+#
+# chord is Space by default, but can be customized for devices without Space.
+# chord7 and chord8 can be customized for devices that have only six input
+# dots; otherwise, they will be set by default to Dot7 and Dot8.
+
+
+# Next item
+bind \{chord4}+\{chord5}+\{chord8} KEY_FUNCTION+100
+# Previous item
+bind \{chord1}+\{chord2}+\{chord7} KEY_FUNCTION+101
+# Next line
+bind \{chord}+\{chord4} KEY_FUNCTION+102
+# Previous line
+bind \{chord}+\{chord1} KEY_FUNCTION+103
+# Scroll forward
+bind \{chord1}+\{chord3}+\{chord5}+\{chord8} KEY_FUNCTION+104
+# Scroll backward
+bind \{chord2}+\{chord4}+\{chord6}+\{chord7} KEY_FUNCTION+105
+# Top of the page
+bind \{chord}+\{chord1}+\{chord2}+\{chord3} KEY_FUNCTION+106
+# Bottom of the page
+bind \{chord}+\{chord4}+\{chord5}+\{chord6} KEY_FUNCTION+107
+# Back key
+bind \{chord}+\{chord1}+\{chord2} KEY_FUNCTION+108
+# Home key
+bind \{chord}+\{chord1}+\{chord2}+\{chord5} KEY_FUNCTION+109
+# Recent apps key
+bind \{chord}+\{chord1}+\{chord2}+\{chord3}+\{chord5} KEY_FUNCTION+110
+# Notifications bar
+bind \{chord}+\{chord1}+\{chord3}+\{chord4}+\{chord5} KEY_FUNCTION+111
+# Keyboard help
+bind \{chord1}+\{chord3}+\{chord7}+\{chord8} KEY_FUNCTION+112
+# Next heading
+bind \{chord1}+\{chord2}+\{chord5}+\{chord8} KEY_FUNCTION+113
+# Previous heading
+bind \{chord1}+\{chord2}+\{chord5}+\{chord7} KEY_FUNCTION+114
+# Next control
+bind \{chord1}+\{chord4}+\{chord8} KEY_FUNCTION+115
+# Previous control
+bind \{chord1}+\{chord4}+\{chord7} KEY_FUNCTION+116
+# Next link
+bind \{chord1}+\{chord2}+\{chord3}+\{chord8} KEY_FUNCTION+117
+# Previous link
+bind \{chord1}+\{chord2}+\{chord3}+\{chord7} KEY_FUNCTION+118
+# Incremental Search
+bind \{chord}+\{chord3}+\{chord4} KEY_FUNCTION+119
+# Edit custom label
+bind \{chord}+\{chord1}+\{chord3}+\{chord4}+\{chord8} KEY_FUNCTION+120
+# Switch to next input language
+bind \{chord2}+\{chord4}+\{chord7}+\{chord8} KEY_FUNCTION+121
+# Switch to next output language
+bind \{chord1}+\{chord3}+\{chord5}+\{chord7}+\{chord8} KEY_FUNCTION+122
+# Braille display Settings
+bind \{chord1}+\{chord2}+\{chord7}+\{chord8} KEY_FUNCTION+123
+# TalkBack Settings
+bind \{chord2}+\{chord3}+\{chord4}+\{chord5}+\{chord7}+\{chord8} KEY_FUNCTION+124
+# Quick Settings
+bind \{chord}+\{chord1}+\{chord2}+\{chord3}+\{chord4}+\{chord5} KEY_FUNCTION+125
+# All apps
+bind \{chord}+\{chord1}+\{chord2}+\{chord3}+\{chord4} KEY_FUNCTION+126
+# Open TaklBack Menu
+bind \{chord}+\{chord1}+\{chord3}+\{chord4} KEY_FUNCTION+127
+# Delete while editing.
+bind \{chord7} KEY_FUNCTION+128
+# Enter while editing.
+ifVar chord8 bind \{chord8} KEY_FUNCTION+129
+# Turn off braille display
+bind \{chord1}+\{chord2}+\{chord3}+\{chord4}+\{chord5}+\{chord6}+\{chord7}+\{chord8} KEY_FUNCTION+130
+# Previous character
+bind \{chord}+\{chord3} KEY_FUNCTION+131
+# Next character
+bind \{chord}+\{chord6} KEY_FUNCTION+132
+# Previous word
+bind \{chord}+\{chord2} KEY_FUNCTION+133
+# Next word
+bind \{chord}+\{chord5} KEY_FUNCTION+134
+# Previous window
+bind \{chord2}+\{chord4}+\{chord5}+\{chord6}+\{chord7} KEY_FUNCTION+135
+# Next window
+bind \{chord2}+\{chord4}+\{chord5}+\{chord6}+\{chord8} KEY_FUNCTION+136
+# Delete a word
+bind \{chord}+\{chord2}+\{chord7} KEY_FUNCTION+137
+# Toggle voice feedback (mute/unmute)
+bind \{chord1}+\{chord3}+\{chord4}+\{chord7}+\{chord8} KEY_FUNCTION+138
+# Previous reading control
+bind \{chord2}+\{chord3}+\{chord7} KEY_FUNCTION+139
+# Next reading control
+bind \{chord5}+\{chord6}+\{chord8} KEY_FUNCTION+140
+# Move navigation focus backward or adjust reading control up
+bind \{chord3}+\{chord7} KEY_FUNCTION+141
+# Move navigation focus forward or adjust reading control down
+bind \{chord6}+\{chord8} KEY_FUNCTION+142
+# Switch grade
+bind \{chord}+\{chord1}+\{chord2}+\{chord4}+\{chord5} KEY_FUNCTION+143
+# Long press current
+bind \{chord}+\{chord8} KEY_FUNCTION+144
+# Stop reading
+bind \{chord7}+\{chord8} KEY_FUNCTION+145
+# Cut
+bind \{chord}+\{chord1}+\{chord3}+\{chord4}+\{chord6}+\{chord8} KEY_FUNCTION+146
+# Copy
+bind \{chord}+\{chord1}+\{chord4}+\{chord8} KEY_FUNCTION+147
+# Paste
+bind \{chord}+\{chord1}+\{chord2}+\{chord3}+\{chord6}+\{chord8} KEY_FUNCTION+148
+# Select all
+bind \{chord}+\{chord1}+\{chord2}+\{chord3}+\{chord4}+\{chord5}+\{chord6}+\{chord8} KEY_FUNCTION+149
+# Select previous character
+bind \{chord}+\{chord3}+\{chord8} KEY_FUNCTION+150
+# Select Next Character
+bind \{chord}+\{chord6}+\{chord8} KEY_FUNCTION+151
+# Select previous word
+bind \{chord}+\{chord2}+\{chord8} KEY_FUNCTION+152
+# Select next word
+bind \{chord}+\{chord5}+\{chord8} KEY_FUNCTION+153
+
+# TODO: As the text selection for line granularity movement does not work,
+# we mask off the action of selecting text by line.
+# Select previous line
+# bind \{chord}+\{chord1}+\{chord8} KEY_FUNCTION+154
+# Select next line
+# bind \{chord}+\{chord4}+\{chord8} KEY_FUNCTION+155
+# Toggle auto scroll
+bind \{chord}+\{chord1}+\{chord2}+\{chord4}+\{chord5}+\{chord6} KEY_FUNCTION+156
+# Play or pause media
+bind \{chord}+\{chord7}+\{chord8} KEY_FUNCTION+157

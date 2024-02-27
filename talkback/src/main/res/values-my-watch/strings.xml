@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="talkback_service_description">TalkBack သည် မျက်မမြင်နှင့် အမြင်အာရုံအားနည်းသူများအတွက် အဓိကထုတ်လုပ်ထားသော ဖန်သားပြင်ဖတ်အက်ပ် ဖြစ်ပါသည်။ ၎င်းက အသံထွက်အကြံပြုချက်ကိုသုံး၍ စက်ပစ္စည်းနှင့် အပြန်အလှန် ဆက်သွယ်ခွင့်ပြုသည်။</string>
+  <string name="talkback_service_description">TalkBack သည် မျက်မမြင်နှင့် အမြင်အာရုံအားနည်းသူများအတွက် အဓိကထုတ်လုပ်ထားသော ဖန်သားပြင်ဖတ် အက်ပ်ဖြစ်သည်။ ၎င်းက အသံထွက်အကြံပြုချက်သုံး၍ စက်ပစ္စည်းနှင့် အပြန်အလှန် ဆက်သွယ်ခွင့်ပြုသည်။</string>
   <string name="welcome_to_talkback_text">ဖန်သားပြင်ကိုမကြည့်ဘဲ သင့်နာရီကို အသုံးပြုနိုင်ရန် အသံထွက် အကြံပြုချက် ရယူပါ။</string>
+  <string name="summary_custom_action">လက်ရှိဖိုင်အတွက် စိတ်ကြိုက်လုပ်ဆောင်ချက် ရှိလျှင် ပြသည်။</string>
+  <string name="notification_title_talkback_gestures_changed">TalkBack လက်ဟန် အပ်ဒိတ်လုပ်ပြီး</string>
+  <string name="notification_message_talkback_gestures_changed">နောက်ထပ်အသေးစိတ်အတွက် Talkback ဖွင့်ပါ</string>
+  <string name="new_feature_in_talkback_title">အသစ်ပါဝင်မှုများ</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">OK</string>
+  <string name="scan_the_qr_code">QR ကုဒ်ကို စကင်ဖတ်ပါ</string>
+  <string name="alternate_privacy_policy">(သို့) http://www.google.com/policies/privacy တွင် ဝင်ကြည့်ပါ</string>
+  <string name="alternate_tos">(သို့) visit https://www.google.com/mobile/toscountry တွင် ဝင်ကြည့်ပါ</string>
 </resources>

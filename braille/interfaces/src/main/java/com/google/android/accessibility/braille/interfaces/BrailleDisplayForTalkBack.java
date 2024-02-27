@@ -25,6 +25,8 @@ public interface BrailleDisplayForTalkBack {
   void stop();
   /** Notifies receiving accessibility event. */
   void onAccessibilityEvent(AccessibilityEvent accessibilityEvent);
-  /** Returns callback of BrailleDisplay for BrailleIme. */
-  BrailleDisplayForBrailleIme getBrailleDisplayForBrailleIme();
+  /** Notifies receiving reading control changed with overlay shown event. */
+  void onReadingControlChanged(CharSequence readingControlDescription);
+  /** Switches braille display on or off. */
+  void switchBrailleDisplayOnOrOff();
 }

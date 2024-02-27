@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Apostrof</string>
   <string name="symbol_ampersand">Ampersand</string>
   <string name="symbol_angle_bracket_left">Semnul mai mic decât</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Diez</string>
   <string name="symbol_pound_sterling">Semnul de monedă pentru liră</string>
+  <string name="symbol_currency_peso">Simbolul pentru peso</string>
+  <string name="symbol_currency_dong">Simbolul pentru dong</string>
   <string name="symbol_question_mark">Semnul întrebării</string>
   <string name="symbol_quotation_mark">Semnul citării</string>
   <string name="symbol_registered_trademark">Marcă comercială înregistrată</string>
@@ -137,4 +139,10 @@
   <string name="symbol_full_width_less_than_sign">Semn mai mic decât lățimea întreagă</string>
   <string name="symbol_full_width_greater_than_sign">Semn mai mare decât lățimea întreagă</string>
   <string name="symbol_left_single_quotation_mark">Ghilimele simple la stânga</string>
+  <string name="symbol_braille">%s braille</string>
+  <plurals name="dots">
+    <item quantity="one">punct %s</item>
+    <item quantity="few">puncte %s</item>
+    <item quantity="other">puncte %s</item>
+  </plurals>
 </resources>

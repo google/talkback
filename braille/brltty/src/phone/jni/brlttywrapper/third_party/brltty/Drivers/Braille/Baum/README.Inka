@@ -1,0 +1,24 @@
+Both the keyboard and the serial ports of the Inka should be connected in order
+to use it with BRLTTY. The Inka itself is capable of communicating entirely via
+the keyboard port, but the Linux kernel keyboard driver can't handle this.
+
+In order to use the Inka with BRLTTY it is necessary to have the latest version
+(dated 1998) of the firmware. If the Inka says either "mode 1" or "mode 2" at
+the end of the version number after it's connected to a computer and turned on
+then it has the necessary firmware. If it doesn't then it'll probably need an
+upgrade. To do this, contact Baum and give them the serial number of the Inka
+(which is printed on the under side of the device).
+
+The newer firmware supports two modes of operation. Mode 1 uses the old Inka
+protocol and transfers data at 57,600 baud with non-standard flow control. Mode
+2 uses the new Inka protocol and transfers data at 19,200 baud with no flow
+control.
+
+The Inka defaults to mode 1. This is shown on the braille display when 
+the Inka first initializes or after a soft reset.
+
+Before running BRLTTY, change the Inka to mode 2 by pressing tl1+tl2+tr3 (which
+is the digit 2 represented as a dot-six number). To return to mode 1 (neither
+necessary nor desirable under Linux), press tl1+tr3 (which is the digit 1
+represented as a dot-six number). The new mode setting is shown on the display
+at the end of the line, after the version number and date of the firmware.

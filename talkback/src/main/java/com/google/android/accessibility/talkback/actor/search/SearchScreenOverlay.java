@@ -16,9 +16,13 @@
 
 package com.google.android.accessibility.talkback.actor.search;
 
+import static com.google.android.accessibility.talkback.Feedback.Focus.Action.CACHE;
+import static com.google.android.accessibility.talkback.Feedback.Focus.Action.RESTORE_ON_NEXT_WINDOW;
+import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.GESTURE_ACTION_OVERLAY;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_ITEM_ACTION_OVERLAY;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER;
+import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_ID_NONE;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.content.Context;
@@ -47,11 +51,11 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Feedback.Speech;
 import com.google.android.accessibility.talkback.Feedback.TalkBackUI;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
@@ -59,7 +63,7 @@ import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.actor.search.SearchState.MatchedNodeInfo;
 import com.google.android.accessibility.talkback.actor.search.StringMatcher.MatchResult;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget;
-import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
+import com.google.android.accessibility.talkback.labeling.TalkBackLabelManager;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
@@ -69,7 +73,9 @@ import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
-import com.google.android.accessibility.utils.input.ScrollActionRecord;
+import com.google.android.accessibility.utils.output.FeedbackItem;
+import com.google.android.accessibility.utils.output.ScrollActionRecord;
+import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.traversal.OrderedTraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
@@ -77,6 +83,7 @@ import java.lang.Character.UnicodeBlock;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * This class provide a overlay window to show screen search UI. It also implement SearchObserver
@@ -89,11 +96,11 @@ public class SearchScreenOverlay implements SearchObserver {
   /** The delay in milliseconds for focusable node finder. */
   static final int DELAY_FIND_NODE_MILLISEC = 50;
 
-  /** The delay in milliseconds for showing toast. */
-  private static final int DELAY_TOAST_MILLISEC = 1000;
-
   /** The delay in milliseconds for scrolling action. */
   private static final int DELAY_SCROLL_MILLISEC = 400;
+
+  /** The delay in milliseconds for speaking hint. */
+  private static final int DELAY_SPEAK_HINT = 1000;
 
   /**
    * The delay time for accessibility service to generate the accessibility node info after
@@ -121,27 +128,19 @@ public class SearchScreenOverlay implements SearchObserver {
   private ImageButton prevScreenButton;
   private ImageButton nextScreenButton;
   private RecyclerView searchResultList;
+  private Handler hintHandler;
 
   /** Adapter of search result. */
   private SearchAdapter searchStateAdapter;
 
   /** Search strategy for keyword searching. */
-  private SearchScreenNodeStrategy searchStrategy;
-
-  /** Handler to handle the delay for toast showing. */
-  private Handler toastHandler;
-
-  /**
-   * Toast object to record the last shown toast so we could cancel the latest one before showing
-   * another.
-   */
-  private Toast matchAnnouncement;
+  private final SearchScreenNodeStrategy searchStrategy;
 
   /** Search state obtained from SearchStrategy. */
   SearchState searchState;
 
   /** Instance for finding accessibility/input focus. */
-  private FocusFinder focusFinder;
+  private final FocusFinder focusFinder;
 
   /** The AccessibilityWindow that was focused before entering search mode. */
   @Nullable private AccessibilityWindow initialFocusedWindow = null;
@@ -177,10 +176,10 @@ public class SearchScreenOverlay implements SearchObserver {
    * @param labelManager the custom label manager
    */
   public SearchScreenOverlay(
-      TalkBackService service, FocusFinder focusFinder, CustomLabelManager labelManager) {
+      TalkBackService service, FocusFinder focusFinder, TalkBackLabelManager labelManager) {
     this.service = service;
     this.focusFinder = focusFinder;
-    this.toastHandler = new Handler();
+    this.hintHandler = new Handler();
 
     // Create search strategy object.
     searchStrategy = new SearchScreenNodeStrategy(this, labelManager);
@@ -305,9 +304,7 @@ public class SearchScreenOverlay implements SearchObserver {
 
   /** Returns the window id contains initial focus before searching. */
   public int getInitialFocusedWindowId() {
-    return initialFocusedWindow == null
-        ? AccessibilityWindow.WINDOW_ID_UNKNOWN
-        : initialFocusedWindow.getId();
+    return initialFocusedWindow == null ? WINDOW_ID_NONE : initialFocusedWindow.getId();
   }
 
   private void hideImeAndPerformAction(Action action) {
@@ -335,23 +332,22 @@ public class SearchScreenOverlay implements SearchObserver {
    */
   private void performSearch() {
     hideImeAndPerformAction(
-        () -> {
-          // Delay the cache action for a period of time to ensure that the nodes info is ready to
-          // use after the window change triggered by softInput hidden action.
-          new Handler()
-              .postDelayed(
-                  () -> {
-                    searchStrategy.cacheNodeTree(initialFocusedWindow);
-                    searchStrategy.searchKeyword(keywordEditText.getText());
-                  },
-                  IME_DELAY_MILLISEC);
-        });
+        () ->
+            // Delay the cache action for a period of time to ensure that the nodes info is ready to
+            // use after the window change triggered by softInput hidden action.
+            new Handler()
+                .postDelayed(
+                    () -> {
+                      searchStrategy.cacheNodeTree(initialFocusedWindow);
+                      searchStrategy.searchKeyword(keywordEditText.getText());
+                    },
+                    IME_DELAY_MILLISEC));
   }
 
   /**
-   * Gets the node from the matching list by position and visit all it's ancestors, including
-   * itself, to find the first visible and focusable target node. And perform focus on the target
-   * node. If not found, post-delay some time to try again until reaching the retry limit.
+   * Gets the node from the matching list by position and visit all its ancestors, including itself,
+   * to find the first visible and focusable target node. And perform focus on the target node. If
+   * not found, post-delay some time to try again until reaching the retry limit.
    *
    * <p>REFERTO: [Screen Search] The nodes, which are covered by software IME, are
    * invisible at the moment of closing IME.
@@ -367,6 +363,12 @@ public class SearchScreenOverlay implements SearchObserver {
       clickedNode.showOnScreen(EVENT_ID_UNTRACKED);
     }
 
+    // Override the restore focus state for the target node.
+    pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.focus(RESTORE_ON_NEXT_WINDOW));
+
+    // Close search UI.
+    hide();
+
     final Handler handler = new Handler();
     handler.postDelayed(
         new Runnable() {
@@ -381,11 +383,11 @@ public class SearchScreenOverlay implements SearchObserver {
                     AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
 
             if (focusableVisibleNode != null) {
-              // Set focus on the matching node.
-              focusableVisibleNode.performAction(
-                  AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null);
-              // Close search UI.
-              hide();
+              // Cache the matching node as the focus target then restore focus when the window
+              // state is stable.
+              pipeline.returnFeedback(
+                  EVENT_ID_UNTRACKED,
+                  Feedback.focus(CACHE).setTarget(focusableVisibleNode.getCompat()));
             } else {
               // Can not found a focusable visible node, post-delay to try again later or set as
               // the clicked node itself if exceed maximum retry.
@@ -393,10 +395,10 @@ public class SearchScreenOverlay implements SearchObserver {
                 counter++;
                 handler.postDelayed(this, DELAY_FIND_NODE_MILLISEC);
               } else {
-                // Set focus on the clicked node.
-                clickedNode.performAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null);
-                // Close search UI.
-                hide();
+                // Cache the clicked node as the focus target then restore focus when the window
+                // state is stable.
+                pipeline.returnFeedback(
+                    EVENT_ID_UNTRACKED, Feedback.focus(CACHE).setTarget(clickedNode.getCompat()));
               }
             }
           }
@@ -447,13 +449,8 @@ public class SearchScreenOverlay implements SearchObserver {
             searchStrategy.cacheNodeTree(initialFocusedWindow);
             // Search again since the result was already cleared before scrolling start.
             searchStrategy.searchKeyword(keywordEditText.getText().toString());
-
-            // Updates the button state instead of disabling button directly.
-            if (action == AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD) {
-              updateButtonState(prevScreenButton, AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD);
-            } else {
-              updateButtonState(nextScreenButton, AccessibilityNodeInfo.ACTION_SCROLL_FORWARD);
-            }
+            // Updates the scroll button state.
+            refreshUiState();
           }
         };
 
@@ -477,7 +474,7 @@ public class SearchScreenOverlay implements SearchObserver {
   }
 
   /** Handles scroll success. */
-  public void onAutoScrolled(AccessibilityNode scrolledNode, EventId eventId) {
+  public void onAutoScrolled(@NonNull AccessibilityNode scrolledNode, EventId eventId) {
     if (scrollCallback != null) {
       scrollCallback.onAutoScrolled(scrolledNode, eventId);
       scrollCallback = null;
@@ -485,7 +482,7 @@ public class SearchScreenOverlay implements SearchObserver {
   }
 
   /** Handles scroll failure. */
-  public void onAutoScrollFailed(AccessibilityNode scrolledNode) {
+  public void onAutoScrollFailed(@NonNull AccessibilityNode scrolledNode) {
     if (scrollCallback != null) {
       scrollCallback.onAutoScrollFailed(scrolledNode);
       scrollCallback = null;
@@ -529,15 +526,16 @@ public class SearchScreenOverlay implements SearchObserver {
 
   // Clear search result adapter and notify UI element.
   private void clearSearchResult() {
+    searchResultList.setClickable(false);
     searchStateAdapter.clearAndNotify();
   }
 
   private boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
     switch (keyCode) {
-      case (KeyEvent.KEYCODE_BACK):
+      case KeyEvent.KEYCODE_BACK:
         hide();
         return true;
-      case (KeyEvent.KEYCODE_ENTER):
+      case KeyEvent.KEYCODE_ENTER:
         // TODO: Add test cases for this.
         if (!keywordEditText.isFocused()) {
           return false;
@@ -653,18 +651,16 @@ public class SearchScreenOverlay implements SearchObserver {
     int matches = searchState.getResults().size();
     String text =
         (matches > 0)
-            ? (service
+            ? service
                 .getResources()
-                .getQuantityString(R.plurals.msg_matches_found, matches, matches))
-            : (service.getResources().getString(R.string.msg_no_matches));
+                .getQuantityString(R.plurals.msg_matches_found, matches, matches)
+            : service.getResources().getString(R.string.msg_no_matches);
 
-    // User would only like to know the latest match count, so cancel previous toast before showing
-    // another to prevent too long toast queue.
-    if (matchAnnouncement != null) {
-      matchAnnouncement.cancel();
-    }
-    matchAnnouncement = Toast.makeText(service, text, Toast.LENGTH_SHORT);
-    showToast();
+    speakHint(text);
+
+    // The searchResultList will be set as unClickable when clicked, so we need to set it as
+    // clickable when UI shows and the search result is not empty.
+    searchResultList.setClickable(matches > 0);
 
     // Clear previous searchState.
     if (this.searchState != null) {
@@ -708,6 +704,9 @@ public class SearchScreenOverlay implements SearchObserver {
         pipeline.returnFeedback(
             EVENT_ID_UNTRACKED,
             Feedback.talkBackUI(TalkBackUI.Action.NOT_SUPPORT, SELECTOR_ITEM_ACTION_OVERLAY));
+        pipeline.returnFeedback(
+            EVENT_ID_UNTRACKED,
+            Feedback.talkBackUI(TalkBackUI.Action.NOT_SUPPORT, GESTURE_ACTION_OVERLAY));
       }
     }
 
@@ -736,10 +735,6 @@ public class SearchScreenOverlay implements SearchObserver {
 
     // Move focus to keyword edit field.
     keywordEditText.requestFocus();
-
-    // The searchResultList will be set as unClickable when clicked, so we need to set it as
-    // clickable when UI shows
-    searchResultList.setClickable(true);
 
     refreshUiState();
   }
@@ -771,6 +766,9 @@ public class SearchScreenOverlay implements SearchObserver {
       pipeline.returnFeedback(
           EVENT_ID_UNTRACKED,
           Feedback.talkBackUI(TalkBackUI.Action.SUPPORT, SELECTOR_ITEM_ACTION_OVERLAY));
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.talkBackUI(TalkBackUI.Action.SUPPORT, GESTURE_ACTION_OVERLAY));
     }
     if (overlayPanel == null) {
       return;
@@ -798,22 +796,6 @@ public class SearchScreenOverlay implements SearchObserver {
       if (isFormattingSpan(span)) {
         spannedString.removeSpan(span);
       }
-    }
-  }
-
-  /**
-   * Shows the matching result toast on the screen. If the toast announcement is not allowed, will
-   * delay the toast till it's possible.
-   */
-  private void showToast() {
-    // Since we expect there will be only one toast, remove all pending toast before making another
-    // one.
-    toastHandler.removeCallbacksAndMessages(null);
-
-    if (shouldDelayToast()) {
-      toastHandler.postDelayed(() -> showToast(), DELAY_TOAST_MILLISEC);
-    } else {
-      matchAnnouncement.show();
     }
   }
 
@@ -952,9 +934,32 @@ public class SearchScreenOverlay implements SearchObserver {
     return (overlayPanel.getVisibility() == View.VISIBLE);
   }
 
-  /** Checks if the toast announcement will be silenced or not. */
-  private boolean shouldDelayToast() {
+  /** Checks if the hint announcement will be silenced or not. */
+  private boolean shouldDelayHint() {
     return service.isSsbActiveAndHeadphoneOff();
+  }
+
+  private void speakHint(String text) {
+    hintHandler.removeCallbacksAndMessages(null);
+    if (pipeline != null) {
+      // Use hint for confirming that the matching results will be announced after the editing
+      // announcement and also not be interrupted by it.
+      Feedback.Part.Builder builder =
+          Feedback.Part.builder()
+              .setSpeech(
+                  Speech.builder()
+                      .setAction(Speech.Action.SPEAK)
+                      .setHintSpeakOptions(
+                          SpeechController.SpeakOptions.create()
+                              .setFlags(FeedbackItem.FLAG_NO_HISTORY))
+                      .setHint(text)
+                      .build());
+      if (shouldDelayHint()) {
+        hintHandler.postDelayed(() -> speakHint(text), DELAY_SPEAK_HINT);
+      } else {
+        pipeline.returnFeedback(Feedback.create(EVENT_ID_UNTRACKED, builder.build()));
+      }
+    }
   }
 
   private void updateFocusedNodeAfterScrolled(AccessibilityNode scrolledNode, int scrollAction) {
@@ -977,7 +982,7 @@ public class SearchScreenOverlay implements SearchObserver {
             NavigationTarget.TARGET_DEFAULT, traversalStrategy.getSpeakingNodesCache());
 
     AccessibilityNode nodeToFocus =
-        scrolledNode.findInitialFocusInNodeTree(traversalStrategy, searchDirection, nodeFilter);
+        scrolledNode.findFirstFocusInNodeTree(traversalStrategy, searchDirection, nodeFilter);
     setInitialFocusedNode(nodeToFocus);
   }
 
@@ -988,7 +993,7 @@ public class SearchScreenOverlay implements SearchObserver {
   private void findTargetWindow() {
     AccessibilityNodeInfoCompat rootNode = null;
     AccessibilityNodeInfoCompat currentNode =
-        FocusFinder.getAccessibilityFocusNode(service, /* fallbackOnRoot=*/ false);
+        FocusFinder.getAccessibilityFocusNode(service, /* fallbackOnRoot= */ false);
     TraversalStrategy traversal = null;
 
     if (currentNode == null) {
@@ -1079,8 +1084,8 @@ public class SearchScreenOverlay implements SearchObserver {
       startPos = 0;
     }
 
-    if (styledNodeText.toString().length() - endPos < truncateLength) {
-      endPos = styledNodeText.toString().length();
+    if (styledNodeText.length() - endPos < truncateLength) {
+      endPos = styledNodeText.length();
     } else {
       // Find the index of space char after the keyword at least 'truncateLength' chars after the
       // keyword.

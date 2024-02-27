@@ -1,0 +1,40 @@
+{
+  "overview_step": {
+    "_comment": "This is the first step after setting the speech rate, which describes what TalkBack is in general. If 'title' is set to the empty string, Google's default title is used.",
+    "enabled": true,
+    "title": "",
+    "summary": "This is a custom summary."
+  },
+  "remote_step": {
+    "_comment": "This step describes the layout of the remote. If 'summary' is set to the empty string, Google's default summary is used.",
+    "enabled": true,
+    "title": "This is a custom title",
+    "summary": ""
+  },
+  "shortcut_step": {
+    "_comment": "This step is to explain to the user how to use the accessibility shortcut. If 'enabled' is set to false, the step will not appear in the flow.",
+    "enabled": false,
+    "title": "",
+    "summary": ""
+  },
+  "custom_steps": {
+    "_comment": "Partners can add more tutorial steps that appear after the default steps above.",
+    "steps": [
+      {
+        "title": "Custom Step 1",
+        "summary": "This is the first custom step. 'title' and 'summary' are the texts that appear in the left column. The 'image' attribute can be omitted. If the 'image' attribute is set to an empty string, no image will be shown.",
+        "image": ""
+      },
+      {
+        "title": "Custom Step 2",
+        "summary": "This is the second custom step. Custom steps appear in the order defined here and after the default steps.",
+        "image": ""
+      },
+      {
+        "title": "Custom Step 3",
+        "summary": "This is the third custom step. It is possible to add one image by putting it in the drawables directory and specifying its name in the 'image' attribute.",
+        "image": "talkback_intro"
+      }
+    ]
+  }
+}

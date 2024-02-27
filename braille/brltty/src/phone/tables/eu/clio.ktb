@@ -1,0 +1,102 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title EuroBraille AzerBraille, Clio, NoteBraille, PupiBraille, Scriba
+
+include braille.kti
+
+bind !Star CONTEXT+alt1
+bind !Sharp CONTEXT+alt2
+bind !RoutingKey ROUTE
+
+bind !Up KEY_CURSOR_UP
+bind !Left KEY_CURSOR_LEFT
+bind !Right KEY_CURSOR_Right
+bind !Down KEY_CURSOR_DOWN
+
+bind !Five HOME
+bind !One TOP_LEFT
+bind !Seven BOT_LEFT
+bind !Three PRDIFLN
+bind !Nine NXDIFLN
+bind !Zero CSRTRK
+
+bind !A FREEZE
+
+bind !E FWINLT
+bind !F LNUP
+bind !G PRPROMPT
+bind !H PREFMENU
+bind !I INFO
+bind !K NXPROMPT
+bind !L LNDN
+bind !M FWINRT
+
+
+context alt1
+bind !Star CONTEXT+default
+
+bind !Down CSRTRK
+bind !Right TUNES
+
+bind !E CONTEXT+CLIP_NEW
+bind !F CONTEXT+CLIP_ADD
+bind !G CSRVIS
+bind !K CONTEXT+COPY_RECT
+bind !L PASTE
+bind !M CONTEXT+COPY_LINE
+
+
+context alt2
+bind !Sharp CONTEXT+default
+
+bind !Left LNBEG
+bind !Right LNEND
+bind !Up HOME
+bind !Down BACK
+
+bind !One LEARN
+bind !Three TOP_LEFT
+bind !Nine BOT_LEFT
+
+bind !A DISPMD
+
+bind !E TOP_LEFT
+bind !G PRSEARCH
+bind !H HELP
+bind !K NXSEARCH
+bind !L LEARN
+bind !M BOT_LEFT
+
+
+context CLIP_NEW
+bind !RoutingKey CLIP_NEW
+
+
+context CLIP_ADD
+bind !RoutingKey CLIP_ADD
+
+
+context COPY_RECT
+bind !RoutingKey COPY_RECT
+
+
+context COPY_LINE
+bind !RoutingKey COPY_LINE
+
+

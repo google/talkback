@@ -71,6 +71,7 @@ public class Role {
     ROLE_KEYBOARD_KEY,
     ROLE_TALKBACK_EDIT_TEXT_OVERLAY,
     ROLE_TEXT_ENTRY_KEY,
+    ROLE_STAGGERED_GRID
   })
   @Retention(RetentionPolicy.SOURCE)
   public @interface RoleName {}
@@ -113,11 +114,22 @@ public class Role {
   public static final int ROLE_KEYBOARD_KEY = 32;
   public static final int ROLE_TALKBACK_EDIT_TEXT_OVERLAY = 33;
   public static final int ROLE_TEXT_ENTRY_KEY = 34;
+  public static final int ROLE_STAGGERED_GRID = 35;
 
-  // Number of roles: 34
+  // Number of roles: 35
 
   /** Used to identify and ignore a11y overlay windows created by Talkback. */
   public static final String TALKBACK_EDIT_TEXT_OVERLAY_CLASSNAME = "TalkbackEditTextOverlay";
+
+  /** Used to identify lists. */
+  public static final String TALKBACK_LIST_CLASSNAME = "android.widget.listview";
+
+  /** Used to identify grids. */
+  public static final String TALKBACK_GRID_CLASSNAME = "android.widget.gridview";
+
+  /** Used to identify staggered grids. */
+  public static final String TALKBACK_STAGGERED_GRID_CLASSNAME =
+      "androidx.recyclerview.widget.StaggeredGridLayoutManager";
 
   /**
    * Gets the source {@link Role} from the {@link AccessibilityEvent}.
@@ -289,7 +301,13 @@ public class Role {
 
     // Inheritance: View->TextView->EditText
     if (ClassLoadingCache.checkInstanceOf(className, android.widget.EditText.class)) {
-      return ROLE_EDIT_TEXT;
+      if (node.isEnabled() && !node.isEditable()) {
+        // Developers may want to provide extra information when an EditText is enabled but not
+        // editable.
+        return ROLE_NONE;
+      } else {
+        return ROLE_EDIT_TEXT;
+      }
     }
 
     // //////////////////////////////////////////////////////////////////////////////////////////
@@ -345,8 +363,14 @@ public class Role {
     // Inheritance: View->ViewGroup->ViewPager
     if (ClassLoadingCache.checkInstanceOf(className, androidx.viewpager.widget.ViewPager.class)
         || ClassLoadingCache.checkInstanceOf(className, "android.support.v4.view.ViewPager")
-        || ClassLoadingCache.checkInstanceOf(className, "androidx.core.view.ViewPager")) {
+        || ClassLoadingCache.checkInstanceOf(className, "androidx.core.view.ViewPager")
+        || ClassLoadingCache.checkInstanceOf(className, "com.android.internal.widget.ViewPager")) {
       return ROLE_PAGER;
+    }
+
+    // Inheritance: View->ViewGroup->LinearLayout->NumberPicker
+    if (ClassLoadingCache.checkInstanceOf(className, android.widget.NumberPicker.class)) {
+      return ROLE_NUMBER_PICKER;
     }
 
     // Inheritance: View->ViewGroup->AdapterView->AbsSpinner->Spinner
@@ -378,7 +402,25 @@ public class Role {
 
     CollectionInfoCompat collection = node.getCollectionInfo();
     if (collection != null) {
-      // RecyclerView will be classified as a list or grid.
+      // Grids, staggered grids, and lists can be empty or have only a single row or a single
+      // column. For these collections, we rely on the classname being set explicitly when
+      // assigning a role.
+      if (ClassLoadingCache.checkInstanceOf(className, TALKBACK_LIST_CLASSNAME)) {
+        return ROLE_LIST;
+      }
+      if (ClassLoadingCache.checkInstanceOf(className, TALKBACK_GRID_CLASSNAME)) {
+        return ROLE_GRID;
+      }
+      // Staggered grids don't always map neatly to row and column semantics (vertical staggered
+      // grids only have clear columns and horizontal staggered grids only have clear rows). We
+      // distinguish staggered grids from regular grids, which have both well defined rows and
+      // columns.
+      if (ClassLoadingCache.checkInstanceOf(className, TALKBACK_STAGGERED_GRID_CLASSNAME)) {
+        return ROLE_STAGGERED_GRID;
+      }
+
+      // Any collection that does not explicitly set a classname has its role assigned based on the
+      // collection count.
       if (collection.getRowCount() > 1 && collection.getColumnCount() > 1) {
         return ROLE_GRID;
       } else {
@@ -481,6 +523,8 @@ public class Role {
         return "ROLE_TALKBACK_EDIT_TEXT_OVERLAY";
       case ROLE_TEXT_ENTRY_KEY:
         return "ROLE_TEXT_ENTRY_KEY";
+      case ROLE_STAGGERED_GRID:
+        return "ROLE_STAGGERED_GRID";
       default:
         return "(unknown role " + role + ")";
     }

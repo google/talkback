@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/A11yAlertDialogCustomViewTheme"
+    android:padding="16dp"
+    android:orientation="vertical">
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/dialog_content"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingBottom="8dp"
+      android:paddingStart="8dp"
+      android:paddingEnd="8dp"
+      android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
+  <CheckBox
+      android:id="@+id/dont_show_again"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:theme="@style/CheckBoxTheme"
+      android:minHeight="48dp"
+      android:text="@string/keycombo_update_modifier_keys_do_not_show_again_check_box" />
+</LinearLayout>

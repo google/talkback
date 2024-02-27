@@ -35,7 +35,7 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.FrameLayout;
-import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
@@ -98,7 +98,7 @@ public class NodeBlockingOverlay extends SimpleOverlay {
 
   /** The NodeBlockingOverlay is only supported on non-TV platforms with explore-by-touch. */
   public static boolean isSupported(TalkBackService service) {
-    if (FeatureSupport.isTv(service)) {
+    if (FormFactorUtils.getInstance().isAndroidTv()) {
       return false;
     }
 

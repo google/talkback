@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.android.accessibility.braille.brailledisplay">
+
+  <uses-sdk
+      android:minSdkVersion="26"
+      android:targetSdkVersion="31" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+  <!-- If you need access to FINE location, you must request both ACCESS_FINE_LOCATION and ACCESS_COARSE_LOCATION. -->
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"  android:maxSdkVersion="30" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"  android:maxSdkVersion="30" />
+  <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <!-- Bluetooth permissions introduced in API level 31. -->
+  <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+  <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" />
+
+  <uses-feature android:name="android.hardware.usb.host" />
+
+  <application>
+
+    <activity
+        android:name="com.google.android.accessibility.braille.brailledisplay.settings.BrailleDisplaySettingsActivity"
+        android:label="@string/bd_preferences_title"
+        android:theme="@style/BrailleSettingsTheme"
+        android:configChanges="orientation|screenSize"
+        android:exported="true"
+        android:launchMode="singleTop" >
+      <intent-filter>
+        <action android:name=".BrailleDisplayPreferencesActivity" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </activity>
+
+    <activity
+        android:name="com.google.android.accessibility.braille.brailledisplay.settings.BrailleGradeActivity"
+        android:label="@string/pref_preferred_braille_grade_title"
+        android:exported="true"
+        android:theme="@style/BrailleSettingsTheme" >
+        <!-- TODO: Currently, braille grade is placed in braille display folder and share with braille keyboard. If we're going separate them into different settings. This intent filter can be removed. -->
+      <intent-filter>
+        <action android:name=".BrailleGradeActivity" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </activity>
+
+    <activity
+        android:name="com.google.android.accessibility.braille.brailledisplay.settings.KeyBindingsActivity"
+        android:label="@string/bd_preference_key_bindings_title"
+        android:exported="false"
+        android:theme="@style/BrailleSettingsTheme" />
+
+    <activity
+        android:name="com.google.android.accessibility.braille.brailledisplay.settings.KeyBindingsCommandActivity"
+        android:exported="true"
+        android:theme="@style/BrailleSettingsTheme" >
+      <intent-filter>
+        <action android:name=".KeyBindingsCommandActivity" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </activity>
+
+    <activity
+        android:name="com.google.android.accessibility.braille.brailledisplay.settings.BrailleElementsActivity"
+        android:label="@string/bd_preference_key_braille_elements_title"
+        android:exported="false"
+        android:theme="@style/BrailleSettingsTheme" />
+
+    <activity
+        android:name="com.google.android.accessibility.braille.brailledisplay.BrailleDisplayImeUnavailableActivity"
+        android:label="@string/bd_ime_unavailable_activity_name"
+        android:exported="false"
+        android:excludeFromRecents="true"
+        android:theme="@style/Theme.Transparent" />
+
+    <activity
+        android:name="com.google.android.accessibility.braille.brailledisplay.settings.AutoScrollActivity"
+        android:label="@string/bd_preference_key_auto_scroll_title"
+        android:exported="false"
+        android:theme="@style/BrailleSettingsTheme" />
+
+    <activity
+        android:name="com.google.android.accessibility.braille.brailledisplay.settings.AdvancedSettingsActivity"
+        android:label="@string/bd_preference_key_advanced_settings_title"
+        android:exported="false"
+        android:theme="@style/BrailleSettingsTheme" />
+  </application>
+
+</manifest>

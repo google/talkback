@@ -25,6 +25,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="20dp"
+      android:singleLine="true"
       android:text="@string/label_import" />
 
   <com.google.android.material.button.MaterialButton
@@ -32,6 +33,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="20dp"
+      android:singleLine="true"
       android:text="@string/title_pref_export_custom_labels" />
 
   <com.google.android.material.button.MaterialButton
@@ -39,6 +41,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="20dp"
+      android:singleLine="true"
       android:text="@string/revert_imported_labels" />
 
 </LinearLayout>

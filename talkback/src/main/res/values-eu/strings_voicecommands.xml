@@ -24,9 +24,9 @@
   <string name="voice_commands_all_apps">Aplikazio guztiak</string>
   <string name="voice_commands_apps">Aplikazioak</string>
   <string name="voice_commands_overview">Informazio orokorra</string>
-  <string name="voice_commands_recent_apps">Azken aplikazioak</string>
+  <string name="voice_commands_recent_apps">Azkenaldiko aplikazioak</string>
   <string name="voice_commands_recent">Azkena</string>
-  <string name="voice_commands_recents">Azkenak</string>
+  <string name="voice_commands_recents">Azkenaldikoak</string>
   <string name="voice_commands_find">Bilatu</string>
   <string name="voice_commands_search">Bilatu</string>
   <string name="voice_commands_search_for">Bilatu hau:</string>
@@ -79,7 +79,7 @@
   <string name="voice_commands_desktop">Mahaigaina</string>
   <string name="voice_commands_stop">Gelditu</string>
   <string name="voice_commands_quit">Irten</string>
-  <string name="voice_commands_quiet">Isildu</string>
+  <string name="voice_commands_quiet">Isilarazi</string>
   <string name="voice_commands_pause">Pausatu</string>
   <string name="voice_commands_nevermind">Utzi</string>
   <string name="voice_commands_shut_up">Isilarazi</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Ahozko aginduak erabiltzeko, pasatu hatza eskuinera eta, gero, gora. Aginduen zerrenda ikusteko, esan \"laguntza\" edo \"zer esan dezaket?\".</string>
   <string name="voice_commands_help_hint">Emaitza hobeak lortzeko, esan hurrengo pantailetan ageri diren hitz zehatzak.</string>
   <string name="voice_command_screen_locked_hint">Hemendik aurrera, pantaila blokeatuta dagoenean ere erabili ahal izango dituzu ahozko aginduak. Bestela, TalkBack-en menua erabiltzeko, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Ahozko aginduak ezin dira konfigurazio-prozesuan erabili.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Aldatu oraingo pantailako edukia irakurtzeko modua</string>
   <string name="voice_commands_help_next">Hurrengo [goiburua]</string>
@@ -132,7 +133,7 @@
   <string name="voice_commands_help_delete_description">Hautatu testu bat ezabatzen hasi aurretik</string>
   <string name="voice_commands_help_device_navigation_title">Gailuan nabigatzea</string>
   <string name="voice_commands_help_device_navigation_description">Joan hasierako pantailara, egin atzera, erakutsi jakinarazpenak, etab.</string>
-  <string name="voice_commands_help_overview_description">Ikusi azken aplikazioak</string>
+  <string name="voice_commands_help_overview_description">Ikusi azkenaldiko aplikazioak</string>
   <string name="voice_commands_help_assistant_description">Ireki Google-ren Laguntzailea</string>
   <string name="voice_commands_help_other_commands_title">Beste agindu batzuk</string>
   <string name="voice_commands_help_other_commands_description">Joan TalkBack-en ezarpenetara, ezkutatu pantaila, ikusi ekintzak, gehitu etiketa pertsonalizatuak, etab.</string>

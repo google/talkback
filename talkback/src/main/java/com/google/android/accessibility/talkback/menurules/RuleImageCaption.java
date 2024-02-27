@@ -19,7 +19,6 @@ package com.google.android.accessibility.talkback.menurules;
 import static com.google.android.accessibility.talkback.contextmenu.TalkbackMenuProcessor.ORDER_IMAGE_CAPTION;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
-import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,14 +50,14 @@ public class RuleImageCaption extends NodeMenuRule {
   }
 
   @Override
-  boolean accept(AccessibilityService service, AccessibilityNodeInfoCompat node) {
+  public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
     // Manual-caption item is shown for ALL views if the device can run image caption.
-    return ImageCaptioner.supportsImageCaption(service);
+    return ImageCaptioner.supportsImageCaption(context);
   }
 
   @Override
-  List<ContextMenuItem> getMenuItemsForNode(
-      AccessibilityService service, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
+  public List<ContextMenuItem> getMenuItemsForNode(
+      Context context, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
     List<ContextMenuItem> items = new ArrayList<>();
 
     final ImageCaptionMenuItemOnClickListener menuItemOnClickListener =
@@ -66,11 +65,11 @@ public class RuleImageCaption extends NodeMenuRule {
 
     ContextMenuItem item =
         ContextMenu.createMenuItem(
-            service,
+            context,
             Menu.NONE,
             R.id.image_caption_menu,
             ORDER_IMAGE_CAPTION,
-            service.getString(R.string.title_image_caption));
+            context.getString(R.string.title_image_caption));
     item.setOnMenuItemClickListener(menuItemOnClickListener);
     item.setSkipRefocusEvents(true);
     item.setSkipWindowEvents(true);

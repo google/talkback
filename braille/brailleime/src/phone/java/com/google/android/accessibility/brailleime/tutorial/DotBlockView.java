@@ -16,10 +16,7 @@
 
 package com.google.android.accessibility.brailleime.tutorial;
 
-import static com.google.android.accessibility.brailleime.input.BrailleInputPlane.DOT_COUNT;
 import static com.google.android.accessibility.brailleime.input.BrailleInputPlane.NUMBER_OF_COLUMNS_SCREEN_AWAY;
-import static com.google.android.accessibility.brailleime.input.BrailleInputPlane.NUMBER_OF_COLUMNS_TABLETOP;
-import static com.google.android.accessibility.brailleime.input.BrailleInputPlane.NUMBER_OF_ROWS_SCREEN_AWAY;
 import static com.google.android.accessibility.brailleime.input.BrailleInputPlane.NUMBER_OF_ROWS_TABLETOP;
 import static com.google.android.accessibility.brailleime.tutorial.TutorialView.ROTATION_270;
 
@@ -34,6 +31,7 @@ import android.util.Size;
 import android.view.View;
 import com.google.android.accessibility.braille.common.BrailleUtils;
 import com.google.android.accessibility.brailleime.BrailleIme.OrientationSensitive;
+import com.google.android.accessibility.brailleime.BrailleInputOptions;
 import com.google.android.accessibility.brailleime.R;
 
 /** View that draws yellow rectangles to separate braille dots. */
@@ -43,13 +41,15 @@ class DotBlockView extends View implements OrientationSensitive {
   private final Paint dashPathPaint;
   private final DashPathEffect dashPathEffectInColor1;
   private final Path path;
-  private int orientation;
   private final boolean isTabletop;
+  private final BrailleInputOptions options;
+  private int orientation;
 
-  DotBlockView(Context context, int orientation, boolean isTabletop) {
+  DotBlockView(Context context, int orientation, boolean isTabletop, BrailleInputOptions options) {
     super(context);
     this.orientation = orientation;
     this.isTabletop = isTabletop;
+    this.options = options;
     path = new Path();
     float pathIntervalInPixels =
         getResources().getDimensionPixelSize(R.dimen.dot_block_dash_path_interval);
@@ -89,8 +89,12 @@ class DotBlockView extends View implements OrientationSensitive {
       canvas.translate(/* dx= */ -getHeight(), /* dy= */ 0);
     }
 
-    int columnCount = isTabletop ? NUMBER_OF_COLUMNS_TABLETOP : NUMBER_OF_COLUMNS_SCREEN_AWAY;
-    int rowCount = isTabletop ? NUMBER_OF_ROWS_TABLETOP : NUMBER_OF_ROWS_SCREEN_AWAY;
+    int columnCount =
+        isTabletop ? options.brailleType().getDotCount() : NUMBER_OF_COLUMNS_SCREEN_AWAY;
+    int rowCount =
+        isTabletop
+            ? NUMBER_OF_ROWS_TABLETOP
+            : options.brailleType().getDotCount() / NUMBER_OF_COLUMNS_SCREEN_AWAY;
     int dotDiameter = 2 * getResources().getDimensionPixelSize(R.dimen.input_plane_dot_radius);
     float columnSpace = ((float) width - columnCount * dotDiameter) / (columnCount + 1);
     float rowSpace = ((float) height - rowCount * dotDiameter) / (rowCount + 1);
@@ -119,11 +123,12 @@ class DotBlockView extends View implements OrientationSensitive {
     canvas.restore();
   }
 
-  private static float getPairedPosition1(
+  private float getPairedPosition1(
       int dotDiameter, float columnOrRowSpace, int columnOrRowIndex, int padding) {
     return columnOrRowSpace * columnOrRowIndex
         + (columnOrRowSpace / 2)
-            * ((columnOrRowIndex + 1) / (2 + 2 * (columnOrRowIndex / (DOT_COUNT / 2))))
+            * ((columnOrRowIndex + 1)
+                / (2 + 2 * (columnOrRowIndex / (options.brailleType().getDotCount() / 2))))
         + dotDiameter * columnOrRowIndex
         + padding;
   }

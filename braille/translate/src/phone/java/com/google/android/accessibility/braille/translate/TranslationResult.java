@@ -24,6 +24,7 @@ import com.google.android.apps.common.proguard.UsedByNative;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -119,6 +120,57 @@ public abstract class TranslationResult {
         .setTextToBraillePositions(map)
         .setBrailleToTextPositions(map)
         .setCursorBytePosition(cursorPosition)
+        .build();
+  }
+
+  /** Corrects translation of text starts from {@code textStart} to {@code textEnd}. */
+  public static TranslationResult correctTranslation(
+      TranslationResult incorrectResult,
+      BrailleWord correctBrailleWord,
+      int textStart,
+      int textEnd) {
+    final BrailleWord brailleWord = new BrailleWord();
+    final List<Integer> textToBraillePositions = new ArrayList<>();
+    final List<Integer> brailleToTextPositions = new ArrayList<>();
+
+    if (textStart == 0) {
+      brailleToTextPositions.addAll(Collections.nCopies(correctBrailleWord.size(), 0));
+      textToBraillePositions.addAll(Collections.nCopies(textEnd - textStart, 0));
+    } else {
+      int byteStart = incorrectResult.textToBraillePositions().get(textStart);
+      brailleWord.append(incorrectResult.cells().subword(0, byteStart));
+      textToBraillePositions.addAll(incorrectResult.textToBraillePositions().subList(0, textStart));
+      brailleToTextPositions.addAll(incorrectResult.brailleToTextPositions().subList(0, byteStart));
+
+      textToBraillePositions.addAll(Collections.nCopies(textEnd - textStart, brailleWord.size()));
+      for (int i = 0; i < correctBrailleWord.size(); i++) {
+        brailleToTextPositions.add(incorrectResult.text().subSequence(0, textStart).length());
+      }
+    }
+    brailleWord.append(correctBrailleWord);
+
+    if (textEnd != incorrectResult.text().length()) {
+      int byteEnd = incorrectResult.textToBraillePositions().get(textEnd);
+      int byteStart = incorrectResult.textToBraillePositions().get(textStart);
+      brailleWord.append(incorrectResult.cells().subword(byteEnd, incorrectResult.cells().size()));
+      for (int i :
+          incorrectResult
+              .textToBraillePositions()
+              .subList(textEnd, incorrectResult.text().length())) {
+        textToBraillePositions.add(byteStart + (i - byteEnd) + correctBrailleWord.size());
+      }
+      brailleToTextPositions.addAll(
+          incorrectResult
+              .brailleToTextPositions()
+              .subList(byteEnd, incorrectResult.brailleToTextPositions().size()));
+    }
+
+    return TranslationResult.builder()
+        .setText(incorrectResult.text())
+        .setCells(brailleWord)
+        .setTextToBraillePositions(textToBraillePositions)
+        .setBrailleToTextPositions(brailleToTextPositions)
+        .setCursorBytePosition(incorrectResult.cursorBytePosition())
         .build();
   }
 

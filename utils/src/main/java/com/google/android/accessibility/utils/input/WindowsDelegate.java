@@ -22,9 +22,19 @@ public interface WindowsDelegate {
   /** Gets window title given the window ID. */
   CharSequence getWindowTitle(int windowId);
 
+  /** Gets the title of the accessibility pane associated with the given window ID. */
+  CharSequence getAccessibilityPaneTitle(int windowId);
+
   /**
    * Determines whether the screen is in the split-screen mode, where the screen has two
    * non-parented application windows.
    */
   boolean isSplitScreenMode(int displayId);
+
+  /**
+   * Returns {@code true} if the window contains the accessibility pane.
+   *
+   * @param windowId the ID of the window info
+   */
+  boolean hasAccessibilityPane(int windowId);
 }

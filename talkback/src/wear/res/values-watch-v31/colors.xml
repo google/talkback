@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2023 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Training page -->
+    <color name="training_text_color">@android:color/system_neutral1_50</color>
+    <color name="training_background_color">@android:color/system_neutral1_900</color>
+    <color name="training_navigation_button_bar_background_color">@android:color/system_neutral1_900</color>
+    <color name="training_subtext_color">@android:color/system_neutral2_200</color>
+    <color name="training_page_number_text_color">@android:color/system_neutral2_200</color>
+    <color name="training_icon_color">@android:color/system_accent1_300</color>
+    <color name="training_home_key_icon_color">@color/google_white</color>
+    <color name="training_list_item_border_color">@android:color/system_accent1_300</color>
+    <color name="training_list_item_text_color">@android:color/system_neutral1_50</color>
+    <color name="training_button_text_color">@android:color/system_neutral1_50</color>
+    <color name="training_heading_color">@android:color/system_neutral1_50</color>
+    <color name="training_note_text_color">@android:color/system_neutral1_50</color>
+    <color name="training_edit_text_text_color">@android:color/system_neutral1_50</color>
+    <color name="training_edit_text_hint_color">@android:color/system_neutral2_200</color>
+    <color name="training_note_border_color">@android:color/system_accent1_300</color>
+    <color name="training_link_text_color">@android:color/system_accent1_300</color>
+    <color name="training_divider_color">@android:color/system_neutral2_200</color>
+</resources>

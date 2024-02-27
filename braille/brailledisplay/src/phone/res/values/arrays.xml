@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="timed_message_duration_fraction_entries" translatable="false">
+    <item>@string/duration_short</item>
+    <item>@string/duration_medium</item>
+    <item>@string/duration_long</item>
+  </string-array>
+  <string-array name="timed_message_duration_fraction_entry_values" translatable="false">
+    <item>0.5</item>
+    <item>1</item>
+    <item>2</item>
+  </string-array>
+</resources>

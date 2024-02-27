@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Apostrof</string>
   <string name="symbol_ampersand">Ampersand</string>
   <string name="symbol_angle_bracket_left">Znak menej ako</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pí</string>
   <string name="symbol_pound">Krížik</string>
   <string name="symbol_pound_sterling">Znak meny (libra)</string>
+  <string name="symbol_currency_peso">Znak pesa</string>
+  <string name="symbol_currency_dong">Znak dongu</string>
   <string name="symbol_question_mark">Otáznik</string>
   <string name="symbol_quotation_mark">Úvodzovky</string>
   <string name="symbol_registered_trademark">Registrovaná ochranná známka</string>
@@ -137,4 +139,11 @@
   <string name="symbol_full_width_less_than_sign">Znak menej ako</string>
   <string name="symbol_full_width_greater_than_sign">Znak viac ako</string>
   <string name="symbol_left_single_quotation_mark">Ľavá jednoduchá úvodzovka</string>
+  <string name="symbol_braille">Braillov %s</string>
+  <plurals name="dots">
+    <item quantity="one">bod %s</item>
+    <item quantity="few">body %s</item>
+    <item quantity="many">body %s</item>
+    <item quantity="other">body %s</item>
+  </plurals>
 </resources>

@@ -64,8 +64,8 @@
   <string name="voice_commands_cut">@android:string/cut</string>
   <string name="voice_commands_delete">ಅಳಿಸಿ</string>
   <string name="voice_commands_paste">@android:string/paste</string>
-  <string name="voice_commands_notification">ಅಧಿಸೂಚನೆ</string>
-  <string name="voice_commands_notifications">ಅಧಿಸೂಚನೆಗಳು</string>
+  <string name="voice_commands_notification">ನೋಟಿಫಿಕೇಶನ್</string>
+  <string name="voice_commands_notifications">ನೋಟಿಫಿಕೇಶನ್‌ಗಳು</string>
   <string name="voice_commands_verbosity_parameter">ಶಬ್ದ ಬಾಹುಳ್ಯ %s</string>
   <string name="voice_commands_parameter_verbosity">%s ಶಬ್ದ ಬಾಹುಳ್ಯ</string>
   <string name="voice_commands_change_verbosity_to_parameter">ಶಬ್ದ ಬಾಹುಳ್ಯವನ್ನು %s ಗೆ ಬದಲಾಯಿಸಿ</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">ಧ್ವನಿ ಕಮಾಂಡ್‌ಗಳನ್ನು ಬಳಸಲು, ಬಲಕ್ಕೆ, ನಂತರ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ಕಮಾಂಡ್‌ಗಳ ಈ ಪಟ್ಟಿಗಾಗಿ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ \"ಸಹಾಯ\" ಅಥವಾ \"ನಾನು ಏನು ಹೇಳಲಿ?\" ಎಂದು ಹೇಳಿ.</string>
   <string name="voice_commands_help_hint">ಅತ್ಯುತ್ತಮ ಫಲಿತಾಂಶಗಳಿಗಾಗಿ, ಮುಂದಿನ ಸ್ಕ್ರೀನ್‌ಗಳಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡಿರುವ ನಿಖರವಾದ ಪದವನ್ನು ಹೇಳಿ.</string>
   <string name="voice_command_screen_locked_hint">ಸ್ಕ್ರೀನ್ ಲಾಕ್ ಆಗಿದ್ದಾಗ ಧ್ವನಿ ಆಜ್ಞೆಗಳು ಲಭ್ಯವಿರುವುದಿಲ್ಲ. ಅದರ ಬದಲು TalkBack ಮೆನುವನ್ನು ಬಳಸಲು, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">ಸೆಟಪ್ ಸಮಯದಲ್ಲಿ ಧ್ವನಿ ಆಜ್ಞೆಗಳು ಲಭ್ಯವಿರುವುದಿಲ್ಲ.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">ಪ್ರಸ್ತುತ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ನೀವು ವಿಷಯವನ್ನು ಹೇಗೆ ಓದುತ್ತೀರಿ ಎಂಬುದನ್ನು ಬದಲಾಯಿಸಿ</string>
   <string name="voice_commands_help_next">ಮುಂದಿನ [ಶಿರೋನಾಮೆ]</string>
@@ -133,7 +134,7 @@
   <string name="voice_commands_help_device_navigation_title">ಸಾಧನ ನ್ಯಾವಿಗೇಶನ್</string>
   <string name="voice_commands_help_device_navigation_description">ಮುಖಪುಟಕ್ಕೆ ಹೋಗಿ, ಹಿಂದಕ್ಕೆ ಹೋಗಿ, ಅಧಿಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ ಮತ್ತು ಇನ್ನಷ್ಟು</string>
   <string name="voice_commands_help_overview_description">ನಿಮ್ಮ ಇತ್ತೀಚಿನ ಆ್ಯಪ್‌ಗಳನ್ನು ನೋಡಿ</string>
-  <string name="voice_commands_help_assistant_description">Google ಅಸಿಸ್ಟೆಂಟ್‌ ಅನ್ನು ತೆರೆಯಿರಿ</string>
+  <string name="voice_commands_help_assistant_description">Google Assistant ಅನ್ನು ತೆರೆಯಿರಿ</string>
   <string name="voice_commands_help_other_commands_title">ಇತರ ಕಮಾಂಡ್‌ಗಳು</string>
   <string name="voice_commands_help_other_commands_description">TalkBack ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ, ಸ್ಕ್ರೀನ್ ಮರೆಮಾಡಿ, ಕ್ರಿಯೆಗಳನ್ನು ನೋಡಿ, ಕಸ್ಟಮ್ ಲೇಬಲ್‌ಗಳನ್ನು ಸೇರಿಸಿ ಮತ್ತು ಇನ್ನಷ್ಟು</string>
   <string name="voice_commands_help_label">ಲೇಬಲ್ [ಸಲ್ಲಿಸಿ]</string>

@@ -159,6 +159,11 @@ typedef struct {
 } FeatureWithImportance;
 
 typedef struct {
+	Feature feature;
+	int lineNumber;	 // no line number (-1) means it is a default value
+} FeatureWithLineNumber;
+
+typedef struct {
 	char *name;
 	List *features;
 } TableMeta;
@@ -192,7 +197,7 @@ feature_free(Feature *f) {
 /* ======================================================================== */
 
 /**
- * Sort features based on their keys.
+ * Sort features by their key (alphabetical order).
  */
 static int
 cmpKeys(Feature *f1, Feature *f2) {
@@ -200,14 +205,24 @@ cmpKeys(Feature *f1, Feature *f2) {
 }
 
 /**
+ * Sort features by their key and value (alphabetical order).
+ */
+static int
+cmpFeatures(Feature *f1, Feature *f2) {
+	int r = strcasecmp(f1->key, f2->key);
+	if (r == 0) r = strcasecmp(f1->val, f2->val);
+	return r;
+}
+
+/**
  * Compute the match quotient of the features in a query against the features in a table's
  * metadata.
  *
- * The features are assumed to be sorted and to have no duplicate
- * keys. The query's features must be of type FeatureWithImportance.
- * How a feature contributes to the match quotient depends on its
- * importance, on whether the feature is undefined, defined with the
- * same value (positive match), or defined with a different value
+ * The features are assumed to be sorted. The query's features must be
+ * of type FeatureWithImportance and are assumed to have no duplicate
+ * keys. How a feature contributes to the match quotient depends on
+ * its importance, on whether the feature is undefined, defined with
+ * the same value (positive match), or defined with a different value
  * (negative match), and on the `fuzzy' argument. If the `fuzzy'
  * argument evaluates to true, negative matches and undefined features
  * get a lower penalty.
@@ -241,7 +256,10 @@ matchFeatureLists(const List *query, const List *tableFeatures, int fuzzy) {
 		if (!l1) {
 			if (!l2) break;
 			quotient += extra;
-			l2 = l2->tail;
+			const List *l = l2;
+			l = l->tail;
+			while (l && cmpKeys(l->head, l2->head) == 0) l = l->tail;
+			l2 = l;
 		} else if (!l2) {
 			quotient += undefined;
 			l1 = l1->tail;
@@ -252,15 +270,27 @@ matchFeatureLists(const List *query, const List *tableFeatures, int fuzzy) {
 				l1 = l1->tail;
 			} else if (cmp > 0) {
 				quotient += extra;
-				l2 = l2->tail;
+				const List *l = l2;
+				l = l->tail;
+				while (l && cmpKeys(l->head, l2->head) == 0) l = l->tail;
+				l2 = l;
 			} else {
-				if (strcasecmp(((Feature *)l1->head)->val, ((Feature *)l2->head)->val) ==
-						0)
+				int pos = 0;
+				const List *l = l2;
+				while (1) {
+					if (!pos &&
+							strcasecmp(((Feature *)l1->head)->val,
+									((Feature *)l->head)->val) == 0)
+						pos = 1;
+					l = l->tail;
+					if (!l || cmpKeys(l->head, l2->head) != 0) break;
+				}
+				if (pos)
 					quotient += posMatch;
 				else
 					quotient += negMatch;
 				l1 = l1->tail;
-				l2 = l2->tail;
+				l2 = l;
 			}
 		}
 	}
@@ -301,20 +331,37 @@ parseQuery(const char *query) {
 		c = &query[pos++];
 		if (isSpace(*c) || (*c == '\n') | (*c == '\0')) {
 			if (key) {
-				char *k = malloc(keySize + 1);
-				k[keySize] = '\0';
-				memcpy(k, key, keySize);
 				char *v = NULL;
 				if (val) {
 					v = malloc(valSize + 1);
 					v[valSize] = '\0';
 					memcpy(v, val, valSize);
 				}
-				FeatureWithImportance f = { feature_new(k, v), 0 };
-				_lou_logMessage(LOU_LOG_DEBUG, "Query has feature '%s:%s'", f.feature.key,
-						f.feature.val);
-				features = list_conj(features, memcpy(malloc(sizeof(f)), &f, sizeof(f)),
-						NULL, NULL, (void (*)(void *))feature_free);
+				char *k = malloc(keySize + 1);
+				k[keySize] = '\0';
+				memcpy(k, key, keySize);
+				if (strcasecmp(k, "locale") == 0) {
+					// locale is shorthand for language + region
+					FeatureWithImportance f1 = { feature_new("language", v), 0 };
+					FeatureWithImportance f2 = { feature_new("region", v), 0 };
+					_lou_logMessage(LOU_LOG_DEBUG, "Query has feature '%s:%s'",
+							f1.feature.key, f1.feature.val);
+					_lou_logMessage(LOU_LOG_DEBUG, "Query has feature '%s:%s'",
+							f2.feature.key, f2.feature.val);
+					features =
+							list_conj(list_conj(features,
+											  memcpy(malloc(sizeof(f1)), &f1, sizeof(f1)),
+											  NULL, NULL, (void (*)(void *))feature_free),
+									memcpy(malloc(sizeof(f2)), &f2, sizeof(f2)), NULL,
+									NULL, (void (*)(void *))feature_free);
+				} else {
+					FeatureWithImportance f = { feature_new(k, v), 0 };
+					_lou_logMessage(LOU_LOG_DEBUG, "Query has feature '%s:%s'",
+							f.feature.key, f.feature.val);
+					features =
+							list_conj(features, memcpy(malloc(sizeof(f)), &f, sizeof(f)),
+									NULL, NULL, (void (*)(void *))feature_free);
+				}
 				free(k);
 				free(v);
 				key = val = NULL;
@@ -374,7 +421,8 @@ widestrToStr(const widechar *str, size_t n) {
 }
 
 /**
- * Extract a list of features from a table.
+ * Extract a list of features from a table. The features are of type
+ * FeatureWithLineNumber.
  */
 static List *
 analyzeTable(const char *table, int activeOnly) {
@@ -408,6 +456,8 @@ analyzeTable(const char *table, int activeOnly) {
 	info.status = 0;
 	info.lineNumber = 0;
 	if ((info.in = fopen(info.fileName, "rb"))) {
+		FeatureWithLineNumber *region = NULL;
+		FeatureWithLineNumber *language = NULL;
 		while (_lou_getALine(&info)) {
 			if (info.linelen == 0)
 				;
@@ -455,7 +505,6 @@ analyzeTable(const char *table, int activeOnly) {
 								goto compile_error;
 						}
 						if (info.linepos == info.linelen) {
-							char *k = widestrToStr(key, keySize);
 							char *v = val ? widestrToStr(val, valSize) : NULL;
 							if (!active) {
 								if (!v) goto compile_error;
@@ -478,12 +527,49 @@ analyzeTable(const char *table, int activeOnly) {
 								if (j > 0 && v[j - 1] == ' ') j--;
 								v[j] = '\0';
 							}
-							Feature f = feature_new(k, v);
-							_lou_logMessage(LOU_LOG_DEBUG, "Table has feature '%s:%s'",
-									f.key, f.val);
-							features = list_conj(features,
-									memcpy(malloc(sizeof(f)), &f, sizeof(f)), NULL, NULL,
-									(void (*)(void *))feature_free);
+							char *k = widestrToStr(key, keySize);
+							if (strcasecmp(k, "locale") == 0) {
+								FeatureWithLineNumber *f1 =
+										memcpy(malloc(sizeof(FeatureWithLineNumber)),
+												(&(FeatureWithLineNumber){
+														feature_new("language", v),
+														info.lineNumber }),
+												sizeof(FeatureWithLineNumber));
+								FeatureWithLineNumber *f2 =
+										memcpy(malloc(sizeof(FeatureWithLineNumber)),
+												(&(FeatureWithLineNumber){
+														feature_new("region", v),
+														info.lineNumber }),
+												sizeof(FeatureWithLineNumber));
+								_lou_logMessage(LOU_LOG_DEBUG,
+										"Table has feature '%s:%s'", f1->feature.key,
+										f1->feature.val);
+								_lou_logMessage(LOU_LOG_DEBUG,
+										"Table has feature '%s:%s'", f2->feature.key,
+										f2->feature.val);
+								features = list_conj(
+										features = list_conj(features, f1, NULL, NULL,
+												(void (*)(void *))feature_free),
+										f2, NULL, NULL, (void (*)(void *))feature_free);
+								if (!language) language = f1;
+								if (!region) region = f2;
+
+							} else {
+								FeatureWithLineNumber *f = memcpy(
+										malloc(sizeof(FeatureWithLineNumber)),
+										(&(FeatureWithLineNumber){
+												feature_new(k, v), info.lineNumber }),
+										sizeof(FeatureWithLineNumber));
+								_lou_logMessage(LOU_LOG_DEBUG,
+										"Table has feature '%s:%s'", f->feature.key,
+										f->feature.val);
+								features = list_conj(features, f, NULL, NULL,
+										(void (*)(void *))feature_free);
+								if (strcasecmp(k, "language") == 0) {
+									if (!language) language = f;
+								} else if (strcasecmp(k, "region") == 0)
+									if (!region) region = f;
+							}
 							free(k);
 							free(v);
 						} else
@@ -495,9 +581,19 @@ analyzeTable(const char *table, int activeOnly) {
 				break;
 		}
 		fclose(info.in);
+		if (!region && language) {
+			region = memcpy(malloc(sizeof(FeatureWithLineNumber)),
+					(&(FeatureWithLineNumber){
+							feature_new("region", language->feature.val), -1 }),
+					sizeof(FeatureWithLineNumber));
+			_lou_logMessage(LOU_LOG_DEBUG, "Table has feature '%s:%s'",
+					region->feature.key, region->feature.val);
+			features = list_conj(
+					features, region, NULL, NULL, (void (*)(void *))feature_free);
+		}
 	} else
 		_lou_logMessage(LOU_LOG_ERROR, "Cannot open table '%s'", info.fileName);
-	return list_sort(features, (int (*)(void *, void *))cmpKeys);
+	return list_sort(features, (int (*)(void *, void *))cmpFeatures);
 compile_error:
 	if (info.linepos < info.linelen)
 		_lou_logMessage(LOU_LOG_ERROR, "Unexpected character '%c' on line %d, column %d",
@@ -677,8 +773,8 @@ lou_findTables(const char *query) {
 		_lou_logMessage(LOU_LOG_INFO, "%d matches found", list_size(matches));
 		int i = 0;
 		tablesArray = malloc((1 + list_size(matches)) * sizeof(void *));
-		for (; matches; matches = matches->tail)
-			tablesArray[i++] = ((TableMatch *)matches->head)->name;
+		for (List *m = matches; m; m = m->tail)
+			tablesArray[i++] = ((TableMatch *)m->head)->name;
 		tablesArray[i] = NULL;
 		list_free(matches);
 		return tablesArray;
@@ -693,14 +789,20 @@ lou_getTableInfo(const char *table, const char *key) {
 	char *value = NULL;
 	List *features = analyzeTable(table, 0);
 	List *l;
+	int lineNumber = -1;  // line number of first matching feature
 	for (l = features; l; l = l->tail) {
-		Feature *f = l->head;
-		if (strcasecmp(f->key, key) == 0) {
-			value = strdup(f->val);
-			list_free(features);
+		FeatureWithLineNumber *f = l->head;
+		int cmp = strcasecmp(f->feature.key, key);
+		if (cmp == 0) {
+			if (lineNumber < 0 || lineNumber > f->lineNumber) {
+				value = strdup(f->feature.val);
+				lineNumber = f->lineNumber;
+			}
+		} else if (cmp > 0) {
 			break;
 		}
 	}
+	list_free(features);
 	return value;
 }
 

@@ -56,9 +56,9 @@
   <string name="voice_commands_dictate">기록</string>
   <string name="voice_commands_write">쓰기</string>
   <string name="voice_commands_Spell">철자</string>
-  <string name="voice_commands_talkback_settings">음성 안내 지원 설정</string>
-  <string name="voice_commands_talkback_setting">음성 안내 지원 설정</string>
-  <string name="voice_commands_screen_search">화면검색</string>
+  <string name="voice_commands_talkback_settings">TalkBack 설정</string>
+  <string name="voice_commands_talkback_setting">TalkBack 설정</string>
+  <string name="voice_commands_screen_search">화면 검색</string>
   <string name="voice_commands_search_on_screen">화면에서 검색</string>
   <string name="voice_commands_copy">@android:string/copy</string>
   <string name="voice_commands_cut">@android:string/cut</string>
@@ -105,7 +105,8 @@
   <string name="voice_commands_help_title">음성 명령 개요</string>
   <string name="voice_commands_help_description">음성 명령을 사용하려면 오른쪽으로 스와이프한 후 위로 스와이프하세요. 음성 명령 목록을 보려면 언제든지 \"도와줘\" 또는 \"뭐라고 말해야 해?\"라고 말하세요.</string>
   <string name="voice_commands_help_hint">다음 화면에 표시된 말을 그대로 따라 하는 것이 가장 효과가 좋습니다.</string>
-  <string name="voice_command_screen_locked_hint">화면이 잠겨 있을 때는 음성 명령을 사용할 수 없습니다. 대신 음성 안내 지원 메뉴를 사용하려면 %1$s하세요.</string>
+  <string name="voice_command_screen_locked_hint">화면이 잠겨 있을 때는 음성 명령을 사용할 수 없습니다. 대신 TalkBack 메뉴를 사용하려면 %1$s하세요.</string>
+  <string name="voice_commands_during_setup_hint">설정 중에는 음성 명령을 사용할 수 없습니다.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">현재 화면에서 콘텐츠를 읽는 방식을 변경합니다.</string>
   <string name="voice_commands_help_next">다음 [제목]</string>
@@ -135,7 +136,7 @@
   <string name="voice_commands_help_overview_description">최근 앱을 봅니다.</string>
   <string name="voice_commands_help_assistant_description">Google 어시스턴트를 엽니다.</string>
   <string name="voice_commands_help_other_commands_title">기타 명령어</string>
-  <string name="voice_commands_help_other_commands_description">음성 안내 지원 설정으로 이동하거나, 화면을 숨기거나, 작업을 보거나, 맞춤 라벨을 추가하는 등의 작업을 합니다.</string>
+  <string name="voice_commands_help_other_commands_description">TalkBack 설정으로 이동하거나, 화면을 숨기거나, 작업을 보거나, 맞춤 라벨을 추가하는 등의 작업을 합니다.</string>
   <string name="voice_commands_help_label">[제출] 라벨</string>
   <string name="voice_commands_help_hide_screen_description">공공장소에 있을 때 다른 사람에게 보이지 않도록 화면을 숨깁니다.</string>
   <string name="voice_commands_help_show_screen_description">화면을 숨긴 후 원래 상태로 되돌립니다.</string>

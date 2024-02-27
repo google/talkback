@@ -17,8 +17,12 @@
 package com.google.android.accessibility.utils.input;
 
 import static com.google.android.accessibility.utils.input.TextEventHistory.NO_INDEX;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_BRAILLE_KEYBOARD;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_KEYBOARD;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.TtsSpan;
@@ -29,12 +33,14 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.EditTextActionHistory;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
 import com.google.android.accessibility.utils.input.TextEventFilter.KeyboardEchoType;
+import com.google.android.accessibility.utils.monitor.InputModeTracker;
 import com.google.android.accessibility.utils.monitor.VoiceActionDelegate;
 import com.google.android.accessibility.utils.output.ActorStateProvider;
+import com.google.android.accessibility.utils.output.EditTextActionHistory;
+import com.google.android.accessibility.utils.output.SelectionStateReader;
 import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.List;
@@ -46,12 +52,14 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * Looks at current event & event history, to more specifically determine current event type, and to
  * extract important pieces of event data.
  */
-
 public class TextEventInterpreter {
 
   private static final String TAG = "TextEventInterpreter";
-  // The (?s)/DOTALL is for the line termination support; when user clicks Enter in EditText.
-  private static final Pattern PUNCTUATION_PATTERN = Pattern.compile("(?s).*[\\p{Punct}]$");
+  // Pre compiled pattern of character which is a punctuation symbol.
+  private static final Pattern PUNCTUATION_PATTERN = Pattern.compile("\\p{Punct}");
+  // TalkBack treats the ' ' as the general space character. In some situation, when the content is
+  // hyper formatted such as Gmail composer, the Non-Break Space (NBSP) '\u00A0' is used instead.
+  private static final char NBSP = '\u00A0';
 
   ///////////////////////////////////////////////////////////////////////////////////
   // Inner classes
@@ -78,18 +86,13 @@ public class TextEventInterpreter {
     void accept(Interpretation interpretation);
   }
 
-  /** A minimal interface to read text-selection state. */
-  public interface SelectionStateReader {
-    boolean isSelectionModeActive();
-  }
-
   // /////////////////////////////////////////////////////////////////////////////////
   // Member variables
 
   private final Context mContext;
   private final @Nullable TextCursorTracker textCursorTracker;
   private final @Nullable SelectionStateReader selectionStateReader;
-  private final InputModeManager mInputModeManager;
+  private final InputModeTracker inputModeTracker;
   private final ActorStateProvider actorStateProvider;
   private final PreferenceProvider preferenceProvider;
   private final TextEventFilter filter;
@@ -104,22 +107,21 @@ public class TextEventInterpreter {
   public TextEventInterpreter(
       Context context,
       @Nullable TextCursorTracker textCursorTracker,
-      @Nullable SelectionStateReader selectionStateReader,
-      InputModeManager inputModeManager,
+      InputModeTracker inputModeTracker,
       TextEventHistory history,
-      EditTextActionHistory.Provider actionHistory,
       ActorStateProvider actorStateProvider,
       PreferenceProvider preferenceProvider,
-      @Nullable VoiceActionDelegate voiceActionDelegate) {
+      @Nullable VoiceActionDelegate voiceActionDelegate,
+      TextEventFilter textEventFilter) {
     mContext = context;
     this.textCursorTracker = textCursorTracker;
-    this.selectionStateReader = selectionStateReader;
-    mInputModeManager = inputModeManager;
+    this.selectionStateReader = actorStateProvider.selectionState();
+    this.inputModeTracker = inputModeTracker;
     mHistory = history;
-    this.actionHistory = actionHistory;
+    this.actionHistory = actorStateProvider.editHistory();
     this.actorStateProvider = actorStateProvider;
     this.preferenceProvider = preferenceProvider;
-    this.filter = new TextEventFilter(context, textCursorTracker, mHistory);
+    this.filter = textEventFilter;
     this.filter.setVoiceActionDelegate(voiceActionDelegate);
   }
 
@@ -145,6 +147,17 @@ public class TextEventInterpreter {
 
   /** Extract text event interpretation data from event, and send to listeners. */
   public void interpret(@NonNull AccessibilityEvent event, @Nullable EventId eventId) {
+    AccessibilityNodeInfo nodeInfo = event.getSource();
+    if (nodeInfo != null && !nodeInfo.isVisibleToUser()) {
+      // For wearOS, we will receive 2 same text events from the real invisible EditText and the
+      // gBoard visible EditText. We should skip the invisible one.
+      if (Build.VERSION.SDK_INT != Build.VERSION_CODES.P) {
+        // In Android P, when typing with braille keyboard, nodeInfo.isVisibleToUser is false.
+        // Therefore add an exception here.
+        return;
+      }
+    }
+
     filter.updateTextCursorTracker(event, eventId);
     boolean shouldEchoAddedText = filter.shouldEchoAddedText(event.getEventTime());
     boolean shouldEchoInitialWords = filter.shouldEchoInitialWords(event.getEventTime());
@@ -156,6 +169,7 @@ public class TextEventInterpreter {
   }
 
   /** Extract a text event interpretation data from event. May return null. */
+  @SuppressLint("SwitchIntDef") // Event-types mix enums, and only a subset of values are handled.
   @VisibleForTesting
   @Nullable TextEventInterpretation interpret(
       AccessibilityEvent event, boolean shouldEchoAddedText, boolean shouldEchoInitialWords) {
@@ -414,8 +428,9 @@ public class TextEventInterpreter {
 
     int eventTypeInt = eventType;
     long eventTime = event.getEventTime();
-    boolean hasKeyboardAction =
-        (mInputModeManager.getInputMode() == InputModeManager.INPUT_MODE_KEYBOARD);
+    boolean hasKeyboardAction = (inputModeTracker.getInputMode() == INPUT_MODE_KEYBOARD);
+    boolean hasBrailleKeyboardAction =
+        (inputModeTracker.getInputMode() == INPUT_MODE_BRAILLE_KEYBOARD);
     if (eventTypeInt == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED) {
       if (!sourceEqualsLastNode(event)) {
         interpretation.setEvent(TextEventInterpretation.SELECTION_FOCUS_EDIT_TEXT);
@@ -432,6 +447,10 @@ public class TextEventInterpreter {
       } else if (actionHistory.hasPasteActionAtTime(eventTime)) {
         interpretation.setEvent(TextEventInterpretation.SELECTION_PASTE);
         interpretation.setReason("Paste action ongoing.");
+        return interpretation;
+      } else if (actionHistory.hasSetTextActionAtTime(eventTime)) {
+        interpretation.setEvent(TextEventInterpretation.SET_TEXT_BY_ACTION);
+        interpretation.setReason("Set text action ongoing.");
         return interpretation;
       } else if (fromIndex == 0
           && toIndex == 0
@@ -496,7 +515,7 @@ public class TextEventInterpreter {
         interpretation.setEvent(TextEventInterpretation.SELECTION_SELECT_ALL_WITH_KEYBOARD);
         interpretation.setReason("from==0 to==textLength and hasKeyboardAction");
         return interpretation;
-      } else if ((isSelectionModeActive || hasKeyboardAction)
+      } else if ((isSelectionModeActive || hasKeyboardAction || hasBrailleKeyboardAction)
           && mHistory.getLastFromIndex() == fromIndex
           && mHistory.getLastToIndex() == previousCursorPos
           && toIndex == currentCursorPos) {
@@ -621,7 +640,7 @@ public class TextEventInterpreter {
 
     // If the text was empty, the list will be empty. See the
     // implementation for TextView.onPopulateAccessibilityEvent().
-    if (textList.size() == 0) {
+    if (textList.isEmpty()) {
       return "";
     }
 
@@ -650,30 +669,34 @@ public class TextEventInterpreter {
     return (begin < 0) || (end > text.length()) || (begin >= end);
   }
 
+  private static boolean isWhiteSpace(char ch) {
+    return Character.isWhitespace(ch) || ch == NBSP;
+  }
+
+  private static boolean isPunctuation(char ch) {
+    return PUNCTUATION_PATTERN.matcher(Character.toString(ch)).matches();
+  }
+
   private boolean appendLastWordIfNeeded(
       AccessibilityEvent event, TextEventInterpretation interpretation) {
+    // Do not handle word's keyboard echo for password field.
+    if (event.isPassword()) {
+      return false;
+    }
     final CharSequence text = getEventText(event);
     final CharSequence addedText = getAddedText(event);
     int fromIndex = event.getFromIndex();
-
-    if (fromIndex > text.length()) {
-      LogUtils.w(TAG, "Received event with invalid fromIndex: %s", event);
+    if (addedText == null || addedText.length() == 0) {
       return false;
     }
-
-    // Check if any visible text was added.
-    if (addedText != null) {
-      int trimmedLength = TextUtils.getTrimmedLength(addedText);
-      if (trimmedLength > 0) {
-        if (!PUNCTUATION_PATTERN.matcher(text).matches()) {
-          return false;
-        } else {
-          // Skip the trailing punctuation.
-          fromIndex = text.length() - 1;
-        }
-      }
+    char lastChar = addedText.charAt(addedText.length() - 1);
+    // Echo word only occurs when the added character is either a space or a punctuation symbol.
+    if (!isWhiteSpace(lastChar) && !isPunctuation(lastChar)) {
+      return false;
     }
-    final int breakIndex = getPrecedingWhitespaceOrPunctuation(mContext, text, fromIndex);
+    fromIndex = fromIndex + addedText.length() - 1;
+
+    final int breakIndex = getPrecedingWhitespaceOrPunctuation(text, fromIndex);
     final CharSequence word = text.subSequence(breakIndex, fromIndex);
 
     // Did the user just type a word?
@@ -699,16 +722,15 @@ public class TextEventInterpreter {
   }
 
   /** Returns index of first whitespace or punctuation preceding fromIndex. */
-  private static int getPrecedingWhitespaceOrPunctuation(
-      Context context, CharSequence text, int fromIndex) {
+  private static int getPrecedingWhitespaceOrPunctuation(CharSequence text, int fromIndex) {
     if (fromIndex > text.length()) {
       fromIndex = text.length();
     }
     for (int i = (fromIndex - 1); i > 0; i--) {
-      if (Character.isWhitespace(text.charAt(i))) {
-        return i;
+      if (isWhiteSpace(text.charAt(i))) {
+        return i + 1;
       }
-      if (SpeechCleanupUtils.characterToName(context, text.charAt(i)) != null) {
+      if (isPunctuation(text.charAt(i))) {
         // The preceding punctuation is not preserved.
         return i + 1;
       }

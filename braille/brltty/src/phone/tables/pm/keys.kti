@@ -1,0 +1,114 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Papenmeier displays which have keys.
+
+ifVar keyEmulation
+  note The left and right keys are emulated. Enter key emulation mode by
+  note * pressing Thumb1 + Thumb2 (Left Windows + Right Windows). Then press:
+  note + Left Key Rear: Left Thumb (Left Windows)
+  note + Left Key Front: Space + Left Thumb (Context + Left Windows)
+  note + Right Key Rear: Right Thumb (Right Windows)
+  note + Right Key Front: Space + Right Thumb (Context + Right Windows)
+else
+  ifVar noRightKey
+    note The rocker at the left side of the top that doesn't stay when pressed
+    note * is named the Left Key.
+  else
+    note The rockers at each side of the top that don't stay when pressed
+    note * are named the Left and Right Key.
+  endIf
+endIf
+
+bind LeftKeyRear BACK
+bind LeftKeyFront HOME
+
+bind LeftKeyRear+BarLeft1 DISPMD
+bind LeftKeyRear+BarRight1 CSRTRK
+bind LeftKeyRear+BarUp1 SIXDOTS
+bind LeftKeyRear+BarDown1 PASTE
+
+bind LeftKeyRear+BarLeft2 ATTRVIS
+bind LeftKeyRear+BarRight2 CSRVIS
+bind LeftKeyRear+BarUp2 CAPBLINK
+bind LeftKeyRear+BarDown2 CSRJMP_VERT
+
+hide on
+bind LeftKeyRear+BarLeft1+BarLeft2 ATTRVIS
+bind LeftKeyRear+BarRight1+BarRight2 CSRVIS
+bind LeftKeyRear+BarUp1+BarUp2 CAPBLINK
+bind LeftKeyRear+BarDown1+BarDown2 CSRJMP_VERT
+hide off
+
+bind LeftKeyFront+BarLeft1 INFO
+bind LeftKeyFront+BarRight1 PREFMENU
+bind LeftKeyFront+BarUp1 AUTOSPEAK
+bind LeftKeyFront+BarDown1 AUTOREPEAT
+
+bind LeftKeyFront+BarLeft2 PREFLOAD
+bind LeftKeyFront+BarRight2 PREFSAVE
+bind LeftKeyFront+BarUp2 RESTARTBRL
+bind LeftKeyFront+BarDown2 FREEZE
+
+hide on
+bind LeftKeyFront+BarLeft1+BarLeft2 PREFLOAD
+bind LeftKeyFront+BarRight1+BarRight2 PREFSAVE
+bind LeftKeyFront+BarUp1+BarUp2 RESTARTBRL
+bind LeftKeyFront+BarDown1+BarDown2 FREEZE
+hide off
+
+ifNotVar noRightKey
+  bind RightKeyRear HELP
+  bind RightKeyFront LEARN
+
+  bind RightKeyRear+BarLeft1 MUTE
+  bind RightKeyRear+BarRight1 SAY_LINE
+  bind RightKeyRear+BarUp1 SAY_ABOVE
+  bind RightKeyRear+BarDown1 SAY_BELOW
+
+  bind RightKeyRear+BarLeft2 SAY_SLOWER
+  bind RightKeyRear+BarRight2 SAY_FASTER
+  bind RightKeyRear+BarUp2 SAY_LOUDER
+  bind RightKeyRear+BarDown2 SAY_SOFTER
+
+  hide on
+  bind RightKeyRear+BarLeft1+BarLeft2 SAY_SLOWER
+  bind RightKeyRear+BarRight1+BarRight2 SAY_FASTER
+  bind RightKeyRear+BarUp1+BarUp2 SAY_LOUDER
+  bind RightKeyRear+BarDown1+BarDown2 SAY_SOFTER
+  hide off
+
+  bind RightKeyFront+BarLeft1 SKPIDLNS
+  bind RightKeyFront+BarRight1 SKPBLNKWINS
+  bind RightKeyFront+BarUp1 SPKHOME
+  bind RightKeyFront+BarDown1 TUNES
+
+  bind RightKeyFront+BarUp2 RESTARTSPEECH
+  bind RightKeyFront+BarRight2 SLIDEWIN
+
+  hide on
+  bind RightKeyFront+BarUp1+BarUp2 RESTARTSPEECH
+  bind RightKeyFront+BarRight1+BarRight2 SLIDEWIN
+  hide off
+
+  bind LeftKeyRear+RoutingKey1 CLIP_NEW
+  bind LeftKeyFront+RoutingKey1 CLIP_ADD
+  bind RightKeyRear+RoutingKey1 COPY_LINE
+  bind RightKeyFront+RoutingKey1 COPY_RECT
+endIf
+

@@ -52,7 +52,7 @@
   <string name="voice_commands_last">Terakhir</string>
   <string name="voice_commands_bottom">Bawah</string>
   <string name="voice_commands_type">Ketik</string>
-  <string name="voice_commands_input">Masukkan</string>
+  <string name="voice_commands_input">Input</string>
   <string name="voice_commands_dictate">Dikte</string>
   <string name="voice_commands_write">Tulis</string>
   <string name="voice_commands_Spell">Eja</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Untuk menggunakan perintah suara, geser ke kanan lalu ke atas. Ucapkan \"Bantuan\" atau \"Apa yang bisa saya ucapkan?\" kapan saja untuk melihat daftar perintah ini.</string>
   <string name="voice_commands_help_hint">Untuk hasil terbaik, ucapkan kata yang sama persis dengan yang tercantum di daftar pada layar berikut.</string>
   <string name="voice_command_screen_locked_hint">Perintah suara tidak tersedia saat layar dikunci. Untuk menggunakan menu TalkBack, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Perintah suara tidak tersedia selama penyiapan.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Mengubah cara Anda membaca konten di layar saat ini</string>
   <string name="voice_commands_help_next">[Judul] berikutnya</string>

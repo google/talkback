@@ -19,7 +19,7 @@ package com.google.android.accessibility.utils.input;
 import static androidx.core.view.accessibility.AccessibilityEventCompat.CONTENT_CHANGE_TYPE_PANE_APPEARED;
 import static androidx.core.view.accessibility.AccessibilityEventCompat.CONTENT_CHANGE_TYPE_PANE_DISAPPEARED;
 import static androidx.core.view.accessibility.AccessibilityEventCompat.CONTENT_CHANGE_TYPE_PANE_TITLE;
-import static com.google.android.accessibility.utils.AccessibilityEventUtils.WINDOW_ID_NONE;
+import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_ID_NONE;
 import static com.google.android.accessibility.utils.Role.ROLE_NONE;
 
 import android.accessibilityservice.AccessibilityService;
@@ -28,7 +28,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.os.Build;
-import android.os.Handler;
+import android.os.Build.VERSION_CODES;
+import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.SparseArray;
@@ -37,9 +38,9 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -58,7 +59,10 @@ import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.Role.RoleName;
 import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.WindowUtils;
+import com.google.android.accessibility.utils.monitor.DisplayMonitor;
+import com.google.android.accessibility.utils.monitor.DisplayMonitor.DisplayStateChangedListener;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.auto.value.AutoValue;
 import java.util.ArrayList;
@@ -66,6 +70,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import org.checkerframework.checker.initialization.qual.UnderInitialization;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -84,7 +89,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *   <li>More windows returned by getWindowsOnAllDisplays(), including multiple system windows.
  * </ul>
  */
-public class WindowEventInterpreter implements WindowsDelegate {
+public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChangedListener {
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Constants
@@ -92,7 +97,6 @@ public class WindowEventInterpreter implements WindowsDelegate {
   private static final boolean DISPLAY_PERFORMANCE = false;
 
   private static final String TAG = "WindowEventInterpreter";
-  private static final int WINDOW_TYPE_NONE = -1;
 
   // Maximum delay times to interpret events and avoid incomplete transitional data.
   private static final int PIC_IN_PIC_DELAY_MS = 300;
@@ -105,11 +109,13 @@ public class WindowEventInterpreter implements WindowsDelegate {
   // TODO: Add minimum-delay-time only for split-screen on older android.
   private static final int DELAY_INCREMENT_MS = 10;
 
+  @RequiresApi(api = VERSION_CODES.P)
   private static final int WINDOWS_CHANGE_TYPES_USED =
       AccessibilityEvent.WINDOWS_CHANGE_ADDED
           | AccessibilityEvent.WINDOWS_CHANGE_TITLE
           | AccessibilityEvent.WINDOWS_CHANGE_REMOVED
           | AccessibilityEvent.WINDOWS_CHANGE_PIP;
+
   private static final int PANE_CONTENT_CHANGE_TYPES =
       CONTENT_CHANGE_TYPE_PANE_TITLE
           | CONTENT_CHANGE_TYPE_PANE_APPEARED
@@ -134,6 +140,8 @@ public class WindowEventInterpreter implements WindowsDelegate {
     /** Title from TYPE_WINDOW_STATE_CHANGED events that are not announcements. */
     private @Nullable CharSequence titleFromStateChange;
 
+    private boolean hasAccessibilityPane = false;
+
     public void setTitleFromWindowChange(@Nullable CharSequence newTitle) {
       if (!TextUtils.equals(this.titleFromWindowChange, newTitle)) {
         this.titleFromStateChange = null;
@@ -151,6 +159,14 @@ public class WindowEventInterpreter implements WindowsDelegate {
 
     public @Nullable CharSequence getTitleFromStateChange() {
       return titleFromStateChange;
+    }
+
+    public void setHasAccessibilityPane(boolean hasAccessibilityPane) {
+      this.hasAccessibilityPane = hasAccessibilityPane;
+    }
+
+    public boolean hasAccessibilityPane() {
+      return hasAccessibilityPane;
     }
 
     @RoleName public int eventSourceRole = ROLE_NONE;
@@ -288,20 +304,38 @@ public class WindowEventInterpreter implements WindowsDelegate {
   public boolean areWindowsChanging = false;
 
   /** Flag whether IME transition happened recently. */
-  private static boolean recentKeyboardWindowChange = false;
+  private boolean recentKeyboardWindowChange = false;
 
-  private final WindowEventDelayer windowEventDelayer = new WindowEventDelayer();
+  // android_library_with_nullness_check will throws an error of assignment.type.incompatible in
+  // this assignment. This assignment is safe here since we don't access it in the construction
+  // phrase, so we suppress it.
+  @SuppressWarnings({"nullness:assignment"})
+  private final WindowEventDelayer windowEventDelayer = new WindowEventDelayer(this);
 
   private List<WindowEventHandler> listeners = new ArrayList<>();
   private final List<WindowEventHandler> priorityListeners = new ArrayList<>();
 
   private final Performance.Statistics statisticsAboutDelay = new Performance.Statistics();
 
+  // We use Boolean since we want to initialize it as null before onDisplayStateChanged is invoked.
+  private @Nullable Boolean defaultDisplayOn = null;
+  private final DisplayMonitor displayMonitor;
+
+  @Override
+  public void onDisplayStateChanged(boolean displayOn) {
+    defaultDisplayOn = displayOn;
+    if (!displayOn) {
+      // When the display turns off, we clear screen state.
+      clearScreenState();
+    }
+  }
+
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
-  public WindowEventInterpreter(AccessibilityService service) {
+  public WindowEventInterpreter(AccessibilityService service, DisplayMonitor displayMonitor) {
     this.service = service;
+    this.displayMonitor = displayMonitor;
     boolean isArc = FeatureSupport.isArc();
     isSplitScreenModeAvailable =
         BuildVersionUtils.isAtLeastN() && !FeatureSupport.isTv(service) && !isArc;
@@ -317,13 +351,31 @@ public class WindowEventInterpreter implements WindowsDelegate {
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Methods
 
-  public void clearScreenState() {
+  public void onResumeInfrastructure() {
+    displayMonitor.addDisplayStateChangedListener(this);
+  }
+
+  public void onSuspendInfrastructure() {
+    displayMonitor.removeDisplayStateChangedListener(this);
+  }
+
+  private void clearScreenState() {
     clearRoles();
   }
 
   @Override // WindowsDelegate
   public CharSequence getWindowTitle(int windowId) {
     return getWindowTitleForFeedback(windowId);
+  }
+
+  @Override
+  public CharSequence getAccessibilityPaneTitle(int windowId) {
+    @Nullable Window window = windowIdToData.get(windowId);
+    if (window == null || !window.hasAccessibilityPane()) {
+      return "";
+    }
+
+    return window.title;
   }
 
   private @Nullable CharSequence getWindowTitleInternal(int windowId) {
@@ -387,6 +439,12 @@ public class WindowEventInterpreter implements WindowsDelegate {
     return false;
   }
 
+  @Override
+  public boolean hasAccessibilityPane(int windowId) {
+    @Nullable Window window = windowIdToData.get(windowId);
+    return (window != null) && window.hasAccessibilityPane();
+  }
+
   /**
    * Returns {@code true} if it is a supported {@link AccessibilityEvent#TYPE_WINDOWS_CHANGED}
    * event.
@@ -412,6 +470,8 @@ public class WindowEventInterpreter implements WindowsDelegate {
       return false;
     }
 
+    // TODO: Exclude more cases that doesn't need to be interpreted because some events should just
+    // update windowIdToData rather provide any window announcement.
     if (FeatureSupport.windowStateChangeRequiresPane()) {
       switch (event.getContentChangeTypes()) {
         case AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_APPEARED:
@@ -419,15 +479,19 @@ public class WindowEventInterpreter implements WindowsDelegate {
         case AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_TITLE:
           return true;
         default:
-          LogUtils.d(
-              TAG,
-              "Dropping window state changed event %s if the source window is not anchored.",
-              event.toString());
-          return AccessibilityEventUtils.hasAnchoredWindow(event);
+          int windowId = AccessibilityEventUtils.getWindowId(event);
+          if (windowIdToData.get(windowId) != null) {
+            LogUtils.d(
+                TAG,
+                "Dropping window state changed event %s if the windowIdToData was handled before.",
+                event.toString());
+            return false;
+          }
+          return true;
       }
     }
 
-    if (recentKeyboardWindowChange && isFromOnScreenKeyboard(event)) {
+    if (recentKeyboardWindowChange && AccessibilityEventUtils.isFromOnScreenKeyboard(event)) {
       LogUtils.v(
           TAG,
           "IME transition happened and handled, so ignore the resting announcements from IME.");
@@ -466,6 +530,18 @@ public class WindowEventInterpreter implements WindowsDelegate {
 
   @TargetApi(Build.VERSION_CODES.P)
   public void interpret(AccessibilityEvent event, @Nullable EventId eventId, boolean allowEvent) {
+
+    if (Boolean.FALSE.equals(defaultDisplayOn)) {
+      final int displayId = AccessibilityEventUtils.getDisplayId(event);
+      LogUtils.d(TAG, "interpret() : displayId=%s, default display is off", displayId);
+      // When the display is off, we clear screen's state. However, it continually receives a11y
+      // events and interprets windowRoles, making clear action ineffective. So, we don't interpret
+      // when the display is off.
+      if (displayId == Display.DEFAULT_DISPLAY) {
+        return;
+      }
+    }
+
     if (!isSupportedWindowsChange(event) && !isSupportedWindowStateChange(event)) {
       return;
     }
@@ -565,6 +641,7 @@ public class WindowEventInterpreter implements WindowsDelegate {
         windowRoles.inputMethodWindowId,
         windowRoles.inputMethodWindowTitle,
         interpretation.getInputMethod());
+    updateFirstTimeInterpretationWhenWakeUp(interpretation, depth + 1);
 
     // Update stored windows for titles.
     updateWindowTitles(event, interpretation, depth + 1);
@@ -620,7 +697,7 @@ public class WindowEventInterpreter implements WindowsDelegate {
    */
   private long calculateDelayMs(EventInterpretation interpretation) {
     if (!interpretation.getMainWindowsChanged()
-        && !interpretation.getInputMethodChanged()
+        && !interpretation.getShouldAnnounceInputMethodChange()
         && (interpretation.getAnnouncement() == null)) {
       return 0;
     }
@@ -639,19 +716,28 @@ public class WindowEventInterpreter implements WindowsDelegate {
   }
 
   /** Step 4: Delay event interpretation. */
-  private class WindowEventDelayer extends Handler {
+  private static class WindowEventDelayer extends WeakReferenceHandler<WindowEventInterpreter> {
     public static final int MSG_DELAY_INTERPRET = 1;
     public static final int MSG_WAIT_ANNOUNCEMENT = 2;
 
+    // android_library_with_nullness_check will throws an error of argument.type.incompatible in
+    // this constructor's parameter. It is safe for us to feed WindowEventInterpreter.this here
+    // since we can only access WindowEventInterpreter.this in the next message, so we suppress and
+    // annotate this parent as @UnderInitialization.
+    @SuppressWarnings({"nullness:argument"})
+    WindowEventDelayer(@UnderInitialization WindowEventInterpreter parent) {
+      super(parent, Looper.myLooper());
+    }
+
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message, WindowEventInterpreter parent) {
       if (message.what == MSG_DELAY_INTERPRET) {
         @SuppressWarnings("unchecked")
         EventIdAnd<EventInterpretation> eventIdAndInterpretation =
             (EventIdAnd<EventInterpretation>) message.obj;
-        delayedInterpret(eventIdAndInterpretation.object, eventIdAndInterpretation.eventId);
+        parent.delayedInterpret(eventIdAndInterpretation.object, eventIdAndInterpretation.eventId);
       } else if (message.what == MSG_WAIT_ANNOUNCEMENT) {
-        recentKeyboardWindowChange = false;
+        parent.recentKeyboardWindowChange = false;
         LogUtils.v(TAG, "IME transition finished & start to support Announcement from IME.");
       }
     }
@@ -794,6 +880,19 @@ public class WindowEventInterpreter implements WindowsDelegate {
     LogDepth.log(TAG, depth, "updateWindowTitles() windowIdToData=%s", windowIdToData);
   }
 
+  private void updateFirstTimeInterpretationWhenWakeUp(
+      EventInterpretation interpretation, int depth) {
+    // We combine these 2 conditions to indicate that it is the first time interpretation from wake
+    // up experience.
+    // 1. The display turns on so the defaultDisplayOn is true and not null.
+    // 2. The windowRoles for the window in the full screen mode or the main window in the split
+    //    screen mode is cleared when the display is off earlier.
+    interpretation.setInterpretFirstTimeWhenWakeUp(
+        windowRoles.windowIdA == WINDOW_ID_NONE && Boolean.TRUE.equals(defaultDisplayOn));
+    LogDepth.log(
+        TAG, depth, "updateFirstTimeInterpretationWhenWakeUp() windowIdToData=%s", windowIdToData);
+  }
+
   private void updateWindowTitlesImp(
       AccessibilityEvent event, EventInterpretation interpretation, int depth) {
     switch (event.getEventType()) {
@@ -809,7 +908,13 @@ public class WindowEventInterpreter implements WindowsDelegate {
             return;
           }
           int windowId = AccessibilityEventUtils.getWindowId(event);
-          boolean shouldAnnounceEvent = shouldAnnounceWindowStateChange(event);
+          boolean isFromVolumeWindow = AccessibilityEventUtils.isFromVolumeControlPanel(event);
+          boolean isFromIMEWindow =
+              AccessibilityEventUtils.isFromOnScreenKeyboard(event)
+                  // Assume window ID of -1 is the keyboard.
+                  || AccessibilityEventUtils.getWindowId(event) == WINDOW_ID_NONE;
+          boolean shouldAnnounceEvent =
+              shouldAnnounceWindowStateChanged(isFromVolumeWindow, isFromIMEWindow);
           CharSequence text =
               getTextFromWindowStateChange(event, /* useContentDescription= */ shouldAnnounceEvent);
           if (!TextUtils.isEmpty(text)) {
@@ -820,10 +925,7 @@ public class WindowEventInterpreter implements WindowsDelegate {
               // shown.
               interpretation.setAnnouncement(
                   Announcement.create(
-                      text,
-                      event.getPackageName(),
-                      AccessibilityEventUtils.isFromVolumeControlPanel(event),
-                      isFromOnScreenKeyboard(event)));
+                      text, event.getPackageName(), isFromVolumeWindow, isFromIMEWindow));
               LogDepth.log(
                   TAG,
                   depth,
@@ -894,7 +996,8 @@ public class WindowEventInterpreter implements WindowsDelegate {
    * and it should get from {@link AccessibilityNodeInfoCompat#getPaneTitle()} prior to {@link
    * AccessibilityEvent#getText()}.
    */
-  private static @Nullable CharSequence getAccessibilityPaneTitle(AccessibilityEvent event) {
+  private static @Nullable CharSequence getAccessibilityPaneTitleFromEvent(
+      AccessibilityEvent event) {
     if (event.getEventType() != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
         || !isPaneContentChangeTypes(event.getContentChangeTypes())) {
       return null;
@@ -917,7 +1020,7 @@ public class WindowEventInterpreter implements WindowsDelegate {
   }
 
   private void updateWindowTitleFromPane(AccessibilityEvent event, int depth) {
-    CharSequence accessibilityPaneTitle = getAccessibilityPaneTitle(event);
+    CharSequence accessibilityPaneTitle = getAccessibilityPaneTitleFromEvent(event);
     if (TextUtils.isEmpty(accessibilityPaneTitle)) {
       return;
     }
@@ -925,7 +1028,9 @@ public class WindowEventInterpreter implements WindowsDelegate {
     int windowId = AccessibilityEventUtils.getWindowId(event);
     Window oldWindow = windowIdToData.get(windowId);
     CharSequence title = null;
+    boolean isPaneDisappeared = false;
     if ((event.getContentChangeTypes() & CONTENT_CHANGE_TYPE_PANE_DISAPPEARED) != 0) {
+      isPaneDisappeared = true;
       // Rollback title to titleFromWindowChange if the title was came from pane and disappeared.
       if (oldWindow != null && TextUtils.equals(accessibilityPaneTitle, oldWindow.title)) {
         title = oldWindow.getTitleFromWindowChange();
@@ -940,6 +1045,7 @@ public class WindowEventInterpreter implements WindowsDelegate {
     // Only updates title value for pane events.
     Window newWindow = (oldWindow == null) ? new Window() : oldWindow;
     newWindow.title = title;
+    newWindow.setHasAccessibilityPane(!isPaneDisappeared);
     if (!sourceAncestorHasPane(event)) {
       // Keep outer-most pane-title for window.
       newWindow.setTitleFromStateChange(title);
@@ -957,7 +1063,7 @@ public class WindowEventInterpreter implements WindowsDelegate {
   private static boolean sourceAncestorHasPane(AccessibilityEvent event) {
     @Nullable AccessibilityNodeInfoCompat source = AccessibilityEventUtils.sourceCompat(event);
     return AccessibilityNodeInfoUtils.hasMatchingAncestor(
-        source, new Filter.NodeCompat((n) -> (n.getPaneTitle() != null)));
+        source, Filter.node((n) -> (n.getPaneTitle() != null)));
   }
 
   /**
@@ -965,31 +1071,18 @@ public class WindowEventInterpreter implements WindowsDelegate {
    * IME, or an invisible window is considered an announcement because they are inactive windows so
    * they can't be updated to window roles and run standard window-title updated process. This is a
    * work around to make them could be announced.
+   *
+   * <p>Note: Gboard design change since T. It stops sending window state changed event for
+   * accessibility announcement.
+   *
+   * <p>Note: IME service design change since T. IME navigation bar implementation is in IME service
+   * rather than system UI since T. So the window state changed event source of IME navigation bar
+   * is from IME service package.
    */
   // TODO  : define the behavior of non-active floating windows in TalkBack
-  private static boolean shouldAnnounceWindowStateChange(AccessibilityEvent event) {
-    if (event.getEventType() != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
-      throw new IllegalStateException();
-    }
-
-    // Assume window ID of -1 is the keyboard.
-    if (AccessibilityEventUtils.getWindowId(event) == WINDOW_ID_NONE) {
-      return true;
-    }
-
-    boolean announcementOnly = AccessibilityEventUtils.isIMEorVolumeWindow(event);
-    return announcementOnly;
-  }
-
-  private static boolean isFromOnScreenKeyboard(AccessibilityEvent event) {
-    if (Role.getSourceRole(event) == Role.ROLE_ALERT_DIALOG) {
-      // Filters out TYPE_INPUT_METHOD_DIALOG.
-      return false;
-    }
-    // Assume window ID of -1 is the keyboard.
-    return AccessibilityEventUtils.getWindowId(event) == WINDOW_ID_NONE
-        || getWindowType(event) == AccessibilityWindowInfo.TYPE_INPUT_METHOD
-        || AccessibilityEventUtils.isFromGBoardPackage(event.getPackageName());
+  private boolean shouldAnnounceWindowStateChanged(
+      boolean isFromVolumeWindow, boolean isFromIMEWindow) {
+    return isFromVolumeWindow || (isFromIMEWindow && !BuildVersionUtils.isAtLeastT());
   }
 
   private boolean isAlertDialog(int windowId) {
@@ -1052,18 +1145,8 @@ public class WindowEventInterpreter implements WindowsDelegate {
           }
           break;
         case AccessibilityWindowInfo.TYPE_ACCESSIBILITY_OVERLAY:
-          // From LMR1 to N, for Talkback we create a transparent a11y overlay on edit text when
-          // double click is performed. That is done so that we can adjust the cursor position to
-          // the end of the edit text instead of the center, which is the default behavior. This
-          // overlay should be ignored while detecting window changes.
-          boolean isOverlayOnEditTextSupported = !BuildVersionUtils.isAtLeastO();
-          AccessibilityNodeInfo root = AccessibilityWindowInfoUtils.getRoot(window);
-          boolean isTalkbackOverlay = (Role.getRole(root) == Role.ROLE_TALKBACK_EDIT_TEXT_OVERLAY);
-          // Only add overlay window not shown by talkback.
-          if (!isOverlayOnEditTextSupported || !isTalkbackOverlay) {
-            accessibilityOverlayWindows.add(window);
-            roleAssigned = true;
-          }
+          accessibilityOverlayWindows.add(window);
+          roleAssigned = true;
           break;
         case AccessibilityWindowInfo.TYPE_INPUT_METHOD:
           if (!isAlertDialog(window.getId())) {
@@ -1131,6 +1214,13 @@ public class WindowEventInterpreter implements WindowsDelegate {
 
       roles.windowIdA = applicationWindows.get(0).getId();
       roles.windowIdB = applicationWindows.get(1).getId();
+      // Determine the 2 application window placement.
+      @Nullable Rect rectA = AccessibilityWindowInfoUtils.getBounds(applicationWindows.get(0));
+      @Nullable Rect rectB = AccessibilityWindowInfoUtils.getBounds(applicationWindows.get(1));
+      boolean horizontalPlacement =
+          (rectA != null && rectB != null)
+              && (rectA.left >= rectB.right || rectA.right <= rectB.left);
+      interpretation.setHorizontalPlacement(horizontalPlacement);
     } else {
       LogDepth.log(TAG, depth, "updateWindowRoles() Default number of application windows case");
       // If there are more than 2 windows, report the active window as the current window.
@@ -1197,15 +1287,16 @@ public class WindowEventInterpreter implements WindowsDelegate {
    * announcement send to represent the window transition when {@code checkDuplicate} is true to
    * prevent generate duplicate feedback.
    */
-  // TODO  : remove code related to Annoucement after intergrating to Gboard done and
+  // TODO  : remove code related to Announcement after intergrating to Gboard done and
   // stable.
   private void detectInputMethodChanged(
       WindowRoles roles, EventInterpretation interpretation, boolean checkDuplicate, int depth) {
     setNewWindowInterpretation(roles.inputMethodWindowId, interpretation.getInputMethod());
     boolean inputMethodChanged = interpretation.getInputMethod().idOrTitleChanged();
     interpretation.setInputMethodChanged(inputMethodChanged);
+    interpretation.setShouldAnnounceInputMethodChange(inputMethodChanged);
 
-    if (interpretation.getInputMethodChanged() && checkDuplicate) {
+    if (interpretation.getShouldAnnounceInputMethodChange() && checkDuplicate) {
       Announcement announcement = interpretation.getAnnouncement();
       if (announcement != null && announcement.isFromInputMethodEditor()) {
         // It already has an announcement in IME transition, checks whether they come from the same
@@ -1218,7 +1309,7 @@ public class WindowEventInterpreter implements WindowsDelegate {
             || (inputMethodPackageName != null
                 && announcementPackageName != null
                 && inputMethodPackageName.toString().contentEquals(announcementPackageName))) {
-          interpretation.setInputMethodChanged(false);
+          interpretation.setShouldAnnounceInputMethodChange(false);
         }
       }
       // No announcement in IME transition yet, wait and drop the delayed announcements send from
@@ -1227,13 +1318,21 @@ public class WindowEventInterpreter implements WindowsDelegate {
       windowEventDelayer.sendEmptyMessageDelayed(WindowEventDelayer.MSG_WAIT_ANNOUNCEMENT, 1000);
     }
     LogDepth.log(
-        TAG, depth, "detectInputMethodChanged()=%s", interpretation.getInputMethodChanged());
+        TAG,
+        depth,
+        "detectInputMethodChanged()=%s",
+        interpretation.getShouldAnnounceInputMethodChange());
   }
 
   /** Returns window title for feedback. */
   public CharSequence getWindowTitleForFeedback(int windowId) {
-    return getWindowTitleForFeedback(
-        windowId, getWindowTitleInternal(windowId, /* windowInfoFirst= */ true));
+    // When TB receives CONTENT_CHANGE_TYPE_PANE_APPEARED, the window title will be assigned by the
+    // current pane title from the node before it disappears. For a watch device, we should use
+    // this pane title to visually distinguish distinct portion of window since such pane would
+    // occupy the whole screen, making use ignore the context of background window.
+    final boolean windowInfoFirst = !FeatureSupport.isWatch(service);
+
+    return getWindowTitleForFeedback(windowId, getWindowTitleInternal(windowId, windowInfoFirst));
   }
 
   /** Returns window title by priority: window title > application label > untitled. */
@@ -1291,26 +1390,6 @@ public class WindowEventInterpreter implements WindowsDelegate {
     return packageManager.getApplicationLabel(applicationInfo);
   }
 
-  private static int getWindowType(AccessibilityEvent event) {
-    if (event == null) {
-      return WINDOW_TYPE_NONE;
-    }
-
-    AccessibilityNodeInfo nodeInfo = event.getSource();
-    if (nodeInfo == null) {
-      return WINDOW_TYPE_NONE;
-    }
-
-    AccessibilityNodeInfoCompat nodeInfoCompat = AccessibilityNodeInfoUtils.toCompat(nodeInfo);
-    AccessibilityWindowInfoCompat windowInfoCompat =
-        AccessibilityNodeInfoUtils.getWindow(nodeInfoCompat);
-    if (windowInfoCompat == null) {
-      return WINDOW_TYPE_NONE;
-    }
-
-    return windowInfoCompat.getType();
-  }
-
   private static List<AccessibilityWindowInfo> getAllWindows(AccessibilityService service) {
     List<AccessibilityWindowInfo> windows = new ArrayList<>();
     SparseArray<List<AccessibilityWindowInfo>> windowsOnAllDisplays =
@@ -1340,11 +1419,15 @@ public class WindowEventInterpreter implements WindowsDelegate {
     private boolean originalEvent = false;
     private boolean allowAnnounce = true;
     private boolean inputMethodChanged = false;
+    private boolean shouldAnnounceInputMethodChange = false;
+    // How does the 2 app-window placement; horizontal/vertical.
+    private boolean horizontalPlacement;
     private int displayId = Display.DEFAULT_DISPLAY;
     private int eventType = 0;
     private long eventStartTime = 0;
     private long maxDelayMs = WINDOW_CHANGE_DELAY_MS;
     private long totalDelayMs = 0;
+    private boolean interpretFirstTimeWhenWakeUp = false;
 
     /** Bitmask from getContentChangeTypes() or getWindowChanges(), depending on eventType. */
     private int changeTypes = 0;
@@ -1419,13 +1502,45 @@ public class WindowEventInterpreter implements WindowsDelegate {
       return picInPicChanged;
     }
 
+    /**
+     * Sets the value for {@link #getInputMethodChanged()}.
+     *
+     * <p>Must only be called before this instance is locked.
+     */
     public void setInputMethodChanged(boolean changed) {
       checkIsWritable();
       inputMethodChanged = changed;
     }
 
+    /**
+     * Sets the value for {@link #getShouldAnnounceInputMethodChange()}.
+     *
+     * <p>Must only be called before this instance is locked.
+     */
+    public void setShouldAnnounceInputMethodChange(boolean shouldAnnounce) {
+      checkIsWritable();
+      shouldAnnounceInputMethodChange = shouldAnnounce;
+    }
+
+    /** Returns whether the input method has changed. */
     public boolean getInputMethodChanged() {
       return inputMethodChanged;
+    }
+
+    /**
+     * Returns whether the input method has changed and an according announcement should be made.
+     */
+    public boolean getShouldAnnounceInputMethodChange() {
+      return shouldAnnounceInputMethodChange;
+    }
+
+    public void setHorizontalPlacement(boolean horizontalPlacement) {
+      checkIsWritable();
+      this.horizontalPlacement = horizontalPlacement;
+    }
+
+    public boolean getHorizontalPlacement() {
+      return horizontalPlacement;
     }
 
     public void setWindowsStable(boolean stable) {
@@ -1535,6 +1650,14 @@ public class WindowEventInterpreter implements WindowsDelegate {
       return anchorNodeRole;
     }
 
+    public void setInterpretFirstTimeWhenWakeUp(boolean interpretFirstTimeWhenWakeUp) {
+      this.interpretFirstTimeWhenWakeUp = interpretFirstTimeWhenWakeUp;
+    }
+
+    public boolean isInterpretFirstTimeWhenWakeUp() {
+      return interpretFirstTimeWhenWakeUp;
+    }
+
     @Override
     public String toString() {
       return StringBuilderUtils.joinSubObjects(
@@ -1543,10 +1666,13 @@ public class WindowEventInterpreter implements WindowsDelegate {
                   "WindowIdFromEvent", windowIdFromEvent, WINDOW_ID_NONE),
               StringBuilderUtils.optionalTag("MainWindowsChanged", mainWindowsChanged),
               StringBuilderUtils.optionalTag("PicInPicChanged", picInPicChanged),
-              StringBuilderUtils.optionalTag("inputMethodChanged", inputMethodChanged),
+              StringBuilderUtils.optionalTag("inputMethodChanged", shouldAnnounceInputMethodChange),
+              StringBuilderUtils.optionalTag("horizontalPlacement", horizontalPlacement),
               StringBuilderUtils.optionalTag("WindowsStable", windowsStable),
               StringBuilderUtils.optionalTag("OriginalEvent", originalEvent),
               StringBuilderUtils.optionalTag("allowAnnounce", allowAnnounce),
+              StringBuilderUtils.optionalTag(
+                  "interpretFirstTimeWhenWakeUp", interpretFirstTimeWhenWakeUp),
               StringBuilderUtils.optionalInt("displayId", displayId, Display.DEFAULT_DISPLAY),
               StringBuilderUtils.optionalField(
                   "EventType",

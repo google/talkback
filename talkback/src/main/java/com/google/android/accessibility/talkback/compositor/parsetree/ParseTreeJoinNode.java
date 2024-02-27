@@ -16,9 +16,7 @@
 
 package com.google.android.accessibility.talkback.compositor.parsetree;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import com.google.android.accessibility.utils.SpannableUtils;
+import com.google.android.accessibility.talkback.compositor.CompositorUtils;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -46,27 +44,6 @@ public class ParseTreeJoinNode extends ParseTreeNode {
   @Override
   public CharSequence resolveToString(ParseTree.VariableDelegate delegate, String logIndent) {
     List<CharSequence> values = mChild.resolveToArray(delegate, logIndent);
-    return joinCharSequences(values, mSeparator, mPruneEmpty);
-  }
-
-  public static CharSequence joinCharSequences(
-      List<CharSequence> values, @Nullable CharSequence separator, boolean pruneEmpty) {
-    SpannableStringBuilder builder = new SpannableStringBuilder();
-    boolean first = true;
-    for (CharSequence value : values) {
-      if (!pruneEmpty || !TextUtils.isEmpty(value)) {
-        if (separator != null) {
-          if (first) {
-            first = false;
-          } else {
-            // We have to wrap each separator with a different span, because a single span object
-            // can only be used once in a CharSequence.
-            builder.append(SpannableUtils.wrapWithIdentifierSpan(separator));
-          }
-        }
-        builder.append(value);
-      }
-    }
-    return builder;
+    return CompositorUtils.joinCharSequences(values, mSeparator, mPruneEmpty);
   }
 }

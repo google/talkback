@@ -28,16 +28,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
+import com.google.android.accessibility.utils.preference.BasePreferencesActivity;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -128,7 +127,6 @@ public class LabelManagerPackageActivity extends BasePreferencesActivity {
       layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public View getView(int position, View view, ViewGroup parent) {
       if (view == null) {
@@ -151,17 +149,20 @@ public class LabelManagerPackageActivity extends BasePreferencesActivity {
       timestampView.setText(timestampMessage);
 
       view.setOnClickListener(
-          new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              final Context context = LabelManagerPackageActivity.this;
-              LabelDialogManager.editLabel(
-                  context, label.getId(), /* needToRestoreFocus= */ false, /* pipeline= */ null);
+          itemView -> {
+            final Context context = LabelManagerPackageActivity.this;
+            boolean unused =
+                LabelDialogManager.editLabel(
+                    context,
+                    label.getId(),
+                    /* needToRestoreFocus= */ false,
+                    /* pipeline= */ null,
+                    () -> {
+                      new UpdateLabelsTask().execute();
+                    });
 
-              // TODO: Also add intent for deleting the label.
-            }
+            // TODO: Also add intent for deleting the label.
           });
-
       return view;
     }
   }
@@ -190,9 +191,20 @@ public class LabelManagerPackageActivity extends BasePreferencesActivity {
 
     @Override
     protected void onPostExecute(List<Label> result) {
-      labelList.setAdapter(
-          new LabelAdapter(
-              LabelManagerPackageActivity.this, R.layout.label_manager_label_row, result));
+      LabelAdapter labelAdapter = null;
+      if (labelList.getAdapter() instanceof LabelAdapter) {
+        labelAdapter = (LabelAdapter) labelList.getAdapter();
+      }
+
+      if (labelAdapter == null) {
+        labelList.setAdapter(
+            new LabelAdapter(
+                LabelManagerPackageActivity.this, R.layout.label_manager_label_row, result));
+      } else {
+        labelAdapter.clear();
+        labelAdapter.addAll(result);
+        labelAdapter.notifyDataSetChanged();
+      }
     }
   }
 }

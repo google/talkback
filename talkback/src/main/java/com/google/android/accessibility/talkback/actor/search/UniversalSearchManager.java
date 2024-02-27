@@ -41,9 +41,9 @@ public class UniversalSearchManager implements WindowEventInterpreter.WindowEven
     // Registers screen state changed listener.
     if (ringerModeAndScreenMonitor != null) {
       ringerModeAndScreenMonitor.addScreenChangedListener(
-          (isScreenOn, eventId) -> {
-            // Cancels search when screen off.
-            if (!isScreenOn) {
+          (isInteractive, eventId) -> {
+            // Cancels search when screen is off (not interactive).
+            if (!isInteractive) {
               pipeline.returnFeedback(eventId, Feedback.universalSearch(CANCEL_SEARCH));
             }
           });

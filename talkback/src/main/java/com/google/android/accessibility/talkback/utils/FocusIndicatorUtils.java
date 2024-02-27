@@ -20,7 +20,6 @@ import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.ColorInt;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -54,7 +53,7 @@ public class FocusIndicatorUtils {
    */
   public static void setAccessibilityFocusAppearance(
       AccessibilityService service, int borderWidth, int borderColor) {
-    // TODO: Uses the public API of SDK 31, AccessibilityService#setAccessibilityFocusAppearance
+    service.setAccessibilityFocusAppearance(borderWidth, borderColor);
   }
 
   /**
@@ -79,15 +78,11 @@ public class FocusIndicatorUtils {
    * @param prefs Shared preferences from which to obtain the value
    * @param res Resources from which to obtain the key and default value
    */
-  public static @ColorInt int getTalkBackFocusColor(
-      Context context, SharedPreferences prefs, Resources res) {
-    final AccessibilityManager accessibilityManager =
-        (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+  @ColorInt
+  public static int getTalkBackFocusColor(Context context, SharedPreferences prefs, Resources res) {
     int borderColor =
         prefs.getInt(
             res.getString(R.string.pref_border_color_key),
-            // TODO: To support this API, use SDK 31.
-            // accessibilityManager.getAccessibilityFocusColor());
             res.getColor(R.color.accessibility_focus_highlight_color, null));
     return borderColor;
   }

@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
@@ -58,5 +59,19 @@ public class PerformActionUtils {
   public static boolean showOnScreen(
       @Nullable AccessibilityNodeInfoCompat node, @Nullable EventId eventId) {
     return performAction(node, AccessibilityAction.ACTION_SHOW_ON_SCREEN.getId(), eventId);
+  }
+
+  public static boolean isNodeSupportAction(AccessibilityNodeInfoCompat node, int actionId) {
+    if (node == null) {
+      return false;
+    }
+
+    for (AccessibilityActionCompat action : node.getActionList()) {
+      if (actionId == action.getId()) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }

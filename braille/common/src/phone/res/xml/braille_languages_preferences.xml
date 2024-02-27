@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory
+      app:key="@string/pref_braille_preferred_languages_category_key">
+  </PreferenceCategory>
+  <Preference
+      app:key="@string/pref_braille_add_language_preference_key"
+      app:icon="@drawable/quantum_gm_ic_add_gm_grey_24"
+      app:title="@string/braille_add_a_language_preference_title"/>
+</PreferenceScreen>

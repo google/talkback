@@ -34,14 +34,14 @@ public class LabelSeparator {
   }
 
   private void separate(List<Label> currentLabels, List<Label> importedLabels) {
-    if (currentLabels == null || currentLabels.size() == 0) {
+    if (currentLabels == null || currentLabels.isEmpty()) {
       if (importedLabels != null) {
         importedNewLabels.addAll(importedLabels);
       }
       return;
     }
 
-    if (importedLabels == null || importedLabels.size() == 0) {
+    if (importedLabels == null || importedLabels.isEmpty()) {
       return;
     }
 

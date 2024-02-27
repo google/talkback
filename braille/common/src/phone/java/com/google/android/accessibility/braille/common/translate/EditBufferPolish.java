@@ -16,16 +16,15 @@
 
 package com.google.android.accessibility.braille.common.translate;
 
+import static com.google.android.accessibility.braille.common.translate.BrailleTranslateUtils.DOTS46;
+
 import android.content.Context;
-import android.content.res.Resources;
-import com.google.android.accessibility.braille.common.R;
 import com.google.android.accessibility.braille.common.TalkBackSpeaker;
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 import com.google.android.accessibility.braille.translate.BrailleTranslator;
-import java.util.Optional;
 
 /** An EditBuffer for French Braille Grade 1. */
-public class EditBufferPolish extends EditBufferCommon {
+public class EditBufferPolish extends EditBufferUnContracted {
 
   public EditBufferPolish(
       Context context, BrailleTranslator ueb1Translator, TalkBackSpeaker talkBack) {
@@ -33,11 +32,7 @@ public class EditBufferPolish extends EditBufferCommon {
   }
 
   @Override
-  protected Optional<String> getAppendBrailleTextToSpeak(
-      Resources resources, BrailleCharacter brailleCharacter) {
-    if (brailleCharacter.equals(BrailleTranslateUtils.NUMERIC)) {
-      return Optional.of(resources.getString(R.string.number_announcement));
-    }
-    return Optional.empty();
+  protected BrailleCharacter getCapitalize() {
+    return DOTS46;
   }
 }

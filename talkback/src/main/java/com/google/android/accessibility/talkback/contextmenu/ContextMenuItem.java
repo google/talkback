@@ -27,6 +27,8 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import com.google.android.accessibility.talkback.actor.FocusActor;
+import com.google.auto.value.AutoValue;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** ContextMenuItem class */
@@ -90,18 +92,21 @@ public class ContextMenuItem implements MenuItem {
     return numericShortcut;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public ContextMenuItem setAlphabeticShortcut(char alphaChar) {
     alphaShortcut = alphaChar;
     return this;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public ContextMenuItem setNumericShortcut(char numericChar) {
     numericShortcut = numericChar;
     return this;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public ContextMenuItem setShortcut(char numericChar, char alphaChar) {
     numericShortcut = numericChar;
@@ -119,12 +124,14 @@ public class ContextMenuItem implements MenuItem {
     return icon;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setIcon(Drawable icon) {
     this.icon = icon;
     return this;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setIcon(int iconRes) {
     if (iconRes == 0) {
@@ -146,6 +153,7 @@ public class ContextMenuItem implements MenuItem {
     return intent;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setIntent(Intent intent) {
     this.intent = intent;
@@ -157,6 +165,7 @@ public class ContextMenuItem implements MenuItem {
     return enabled;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setEnabled(boolean enabled) {
     this.enabled = enabled;
@@ -168,12 +177,14 @@ public class ContextMenuItem implements MenuItem {
     return title;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setTitle(CharSequence title) {
     this.title = title;
     return this;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setTitle(int titleRes) {
     title = context.getText(titleRes);
@@ -185,6 +196,7 @@ public class ContextMenuItem implements MenuItem {
     return titleCondensed;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setTitleCondensed(CharSequence titleCondensed) {
     this.titleCondensed = titleCondensed;
@@ -211,24 +223,28 @@ public class ContextMenuItem implements MenuItem {
     return visible;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setCheckable(boolean checkable) {
     this.checkable = checkable;
     return this;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setChecked(boolean checked) {
     this.checked = checked;
     return this;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setVisible(boolean visible) {
     this.visible = visible;
     return this;
   }
 
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setOnMenuItemClickListener(OnMenuItemClickListener menuItemClickListener) {
     listener = menuItemClickListener;
@@ -296,15 +312,17 @@ public class ContextMenuItem implements MenuItem {
     return menuInfo;
   }
 
-  //TODO internal sdk has no setIconTintList abstract method but public sdk does.
+  // TODO internal sdk has no setIconTintList abstract method but public sdk does.
   // Check it after M release
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setIconTintList(ColorStateList tint) {
     return this;
   }
 
-  //TODO internal sdk has no setIconTintMode abstract method but public sdk does.
+  // TODO internal sdk has no setIconTintMode abstract method but public sdk does.
   // Check it after M release
+  @CanIgnoreReturnValue
   @Override
   public MenuItem setIconTintMode(PorterDuff.Mode tintMode) {
     return this;
@@ -457,10 +475,27 @@ public class ContextMenuItem implements MenuItem {
     return subMenu;
   }
 
+  /** Returns the {@link ContextMenuItemId} to identify the menu item. */
+  public ContextMenuItemId getContextMenuItemId() {
+    return ContextMenuItemId.create(itemId, title.toString());
+  }
+
   ListSubMenu getOrCreateSubMenu() {
     if (subMenu == null) {
       subMenu = new ListSubMenu(context, this);
     }
     return subMenu;
+  }
+
+  /** An object that identifies a {@link ContextMenuItem}. */
+  @AutoValue
+  public abstract static class ContextMenuItemId {
+    public abstract int itemId();
+
+    public abstract String title();
+
+    public static ContextMenuItemId create(int itemId, String title) {
+      return new AutoValue_ContextMenuItem_ContextMenuItemId(itemId, title);
+    }
   }
 }

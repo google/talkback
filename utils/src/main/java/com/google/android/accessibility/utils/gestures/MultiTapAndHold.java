@@ -35,14 +35,31 @@ public class MultiTapAndHold extends MultiTap {
   @Override
   protected void onDown(MotionEvent event) {
     super.onDown(event);
-    if (currentTaps + 1 == targetTaps) {
+    if (currentTaps + 1 == targetTaps && getState() != STATE_GESTURE_CANCELED) {
+      // We should check the detector state in advance because it may enter Cancel state in base
+      // class (MultiTap).
       completeAfterLongPressTimeout(event);
     }
   }
 
   @Override
   protected void onUp(MotionEvent event) {
-    super.onUp(event);
+    if (!isValidUpEvent(event)) {
+      cancelGesture(event);
+      return;
+    }
+    if (getState() == STATE_GESTURE_STARTED || getState() == STATE_CLEAR) {
+      currentTaps++;
+      if (currentTaps == targetTaps) {
+        cancelGesture(event);
+        return;
+      }
+      // Needs more taps.
+    } else {
+      // Either too many taps or nonsensical event stream.
+      cancelGesture(event);
+      return;
+    }
     cancelAfterDoubleTapTimeout(event);
   }
 

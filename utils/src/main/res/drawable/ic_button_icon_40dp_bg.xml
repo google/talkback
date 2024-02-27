@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:colorControlHighlight">
+  <item>
+    <shape android:shape="oval"
+        android:tint="@color/a11y_button_icon_background_color">
+      <solid android:color="@android:color/white" />
+      <size
+          android:width="@dimen/wearable_alert_dialog_button_min_height"
+          android:height="@dimen/wearable_alert_dialog_button_min_height" />
+    </shape>
+  </item>
+</ripple>

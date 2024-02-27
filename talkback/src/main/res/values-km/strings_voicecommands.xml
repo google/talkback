@@ -56,7 +56,7 @@
   <string name="voice_commands_dictate">សរសេរ​តាម​ការប្រាប់</string>
   <string name="voice_commands_write">សរសេរ</string>
   <string name="voice_commands_Spell">ប្រកប</string>
-  <string name="voice_commands_talkback_settings">ការកំណត់​មុខងារតបវិញ</string>
+  <string name="voice_commands_talkback_settings">ការកំណត់ TalkBack</string>
   <string name="voice_commands_talkback_setting">ការកំណត់​មុខងារតបវិញ</string>
   <string name="voice_commands_screen_search">ស្វែងរកលើអេក្រង់</string>
   <string name="voice_commands_search_on_screen">ស្វែងរកនៅលើ​អេក្រង់</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">ដើម្បីប្រើការបញ្ជាដោយសំឡេង សូមអូសទៅស្ដាំ រួចអូសឡើងលើ។ សូមនិយាយថា \"ជួយ\" ឬ \"តើខ្ញុំអាចនិយាយថាម៉េច?\" នៅពេលណាក៏បានដើម្បីឱ្យបង្ហាញបញ្ជីនៃការបញ្ជានេះ។</string>
   <string name="voice_commands_help_hint">ដើម្បីទទួលបានលទ្ធផលល្អបំផុត សូមនិយាយឱ្យដូចគ្នាបេះបិទនឹងពាក្យដែលមាននៅលើអេក្រង់បន្ទាប់។</string>
   <string name="voice_command_screen_locked_hint">មិនអាចប្រើការបញ្ជាដោយសំឡេងបានទេ នៅពេលអេក្រង់ជាប់សោ។ ដើម្បីប្រើ​ម៉ឺនុយ​មុខងារ TalkBack ជំនួសវិញ សូម%1$s។</string>
+  <string name="voice_commands_during_setup_hint">មិនអាចប្រើឃ្លាបញ្ជាដោយសំឡេងបានទេ នៅពេលរៀបចំ។</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">ប្ដូររបៀបដែលអ្នកអានខ្លឹមសារនៅលើអេក្រង់បច្ចុប្បន្ន</string>
   <string name="voice_commands_help_next">[ចំណងជើង] បន្ទាប់</string>

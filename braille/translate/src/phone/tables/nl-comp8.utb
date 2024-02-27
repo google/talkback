@@ -1,0 +1,411 @@
+#
+#  Copyright (C) 2019, 2020, 2023 by the Dutch Braille Authority <http://braille-autoriteit.org>
+#  Copyright (C) 2019, 2020 by Dedicon <http://www.dedicon.nl>
+#  Copyright (C) 2019 by Babbage B.V. <http://www.babbage.com>
+#  Copyright (C) 2020, 2023 by Leonard de Ruijter <alderuijter@gmail.com>
+#
+#  This file is part of liblouis.
+#
+#  liblouis is free software: you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as
+#  published by the Free Software Foundation, either version 2.1 of the
+#  License, or (at your option) any later version.
+#
+#  liblouis is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#  Lesser General Public License for more details.
+#
+#  You should have received a copy of the GNU Lesser General Public
+#  License along with liblouis. If not, see
+#  <http://www.gnu.org/licenses/>.
+#
+# -------------------------------------------------------------------------------
+#
+#  Dutch Computer Braille as used in Belgium and the Netherlands
+#  Version 2020.1, October 28th, 2020
+#  See «Achtpunts braillestandaard voor het Nederlandse taalgebied, versie 2020»
+#  by Braille Autoriteit <http://liblouis.io/braille-specs/dutch/>
+#
+
+#-index-name: Dutch, computer
+#-display-name: Dutch computer braille
+
+#+language:nl
+#+type:computer
+#+dots:8
+#+direction:both
+#+version:2020.1
+
+include spaces.uti
+
+punctuation ! 235		exclamation mark
+punctuation " 2356		quotation mark
+punctuation # 3456		number sign
+sign $ 1458		dollar sign
+punctuation % 123456		percent sign
+punctuation & 12346		ampersand
+punctuation ' 3		apostrophe
+punctuation ( 236		left parenthesis
+punctuation ) 356		right parenthesis
+punctuation * 35		asterisk
+math + 2358		plus sign
+punctuation , 2		comma
+punctuation - 36		hyphen-minus
+punctuation . 256		full stop
+punctuation / 34		solidus
+
+include digits6DotsPlusDot6.uti
+
+punctuation : 25		colon
+punctuation ; 23		semicolon
+math < 358		less-than sign
+math = 23568		equals sign
+math > 267		greater-than sign
+punctuation ? 26		question mark
+punctuation @ 345		commercial at
+
+include latinLetterDef8Dots.uti
+
+punctuation [ 12356		left square bracket
+punctuation \\ 167		reverse solidus
+punctuation ] 23456		right square bracket
+sign ^ 3467		circumflex accent
+punctuation _ 456		low line
+sign ` 6		grave accent
+punctuation { 23678		left curly bracket
+math | 4568		vertical line
+punctuation } 35678		right curly bracket
+math ~ 268		tilde
+punctuation ¡ 12478		inverted exclamation mark
+sign £ 12348		pound sign
+sign ¤ 13468		currency sign
+sign ¥ 134568		yen sign
+sign ¦ 458		broken bar
+punctuation § 578		section sign
+sign ¨ 4		diaeresis
+sign © 148		copyright sign
+noback punctuation « 2378		left-pointing double angle quotation mark
+math ¬ 25678		not sign
+replace ­		soft hyphen
+sign ® 12358		registered sign
+sign ° 12458		degree sign
+math ± 23578		plus-minus sign
+sign ² 237		superscript two
+sign ³ 257		superscript three
+sign ´ 8		acute accent
+lowercase µ 1348		micro sign
+punctuation ¶ 7		pilcrow sign
+punctuation · 5		middle dot
+sign ¸ 28		cedilla
+sign ¹ 27		superscript one
+noback punctuation » 5678		right-pointing double angle quotation mark
+sign ¼ 12567		vulgar fraction one quarter
+sign ½ 1238		vulgar fraction one half
+sign ¾ 124567		vulgar fraction three quarters
+punctuation ¿ 1578		inverted question mark
+uppercase À 1235678		latin capital letter a with grave
+uppercase Á 178		latin capital letter a with acute
+uppercase Â 1678		latin capital letter a with circumflex
+noback uppercase Ã 178		latin capital letter a with tilde
+uppercase Ä 34578		latin capital letter a with diaeresis
+noback uppercase Å 178		latin capital letter a with ring above
+uppercase Æ 1378		latin capital letter ae
+uppercase Ç 1234678		latin capital letter c with cedilla
+uppercase È 234678		latin capital letter e with grave
+uppercase É 12345678		latin capital letter e with acute
+uppercase Ê 12678		latin capital letter e with circumflex
+uppercase Ë 124678		latin capital letter e with diaeresis
+uppercase Ì 2478		latin capital letter i with grave
+uppercase Í 3478		latin capital letter i with acute
+uppercase Î 14678		latin capital letter i with circumflex
+uppercase Ï 1245678		latin capital letter i with diaeresis
+uppercase Ñ 134578		latin capital letter n with tilde
+uppercase Ò 13578		latin capital letter o with grave
+uppercase Ó 34678		latin capital letter o with acute
+uppercase Ô 145678		latin capital letter o with circumflex
+noback uppercase Õ 13578		latin capital letter o with tilde
+uppercase Ö 24678		latin capital letter o with diaeresis
+math × 2368		multiplication sign
+noback uppercase Ø 13578		latin capital letter o with stroke
+uppercase Ù 2345678		latin capital letter u with grave
+uppercase Ú 13678		latin capital letter u with acute
+uppercase Û 15678		latin capital letter u with circumflex
+uppercase Ü 125678		latin capital letter u with diaeresis
+uppercase Ý 1345678		latin capital letter y with acute
+lowercase ß 34568		latin small letter sharp s
+lowercase à 123568		latin small letter a with grave
+lowercase á 18		latin small letter a with acute
+lowercase â 168		latin small letter a with circumflex
+noback lowercase ã 18		latin small letter a with tilde
+lowercase ä 3458		latin small letter a with diaeresis
+noback lowercase å 18		latin small letter a with ring above
+lowercase æ 138		latin small letter ae
+lowercase ç 123468		latin small letter c with cedilla
+lowercase è 23468		latin small letter e with grave
+lowercase é 1234568		latin small letter e with acute
+lowercase ê 1268		latin small letter e with circumflex
+lowercase ë 12468		latin small letter e with diaeresis
+lowercase ì 248		latin small letter i with grave
+lowercase í 348		latin small letter i with acute
+lowercase î 1468		latin small letter i with circumflex
+lowercase ï 124568		latin small letter i with diaeresis
+lowercase ñ 13458		latin small letter n with tilde
+lowercase ò 1358		latin small letter o with grave
+lowercase ó 3468		latin small letter o with acute
+lowercase ô 14568		latin small letter o with circumflex
+noback lowercase õ 1358		latin small letter o with tilde
+lowercase ö 2468		latin small letter o with diaeresis
+math ÷ 2568		division sign
+noback lowercase ø 1358		latin small letter o with stroke
+lowercase ù 234568		latin small letter u with grave
+lowercase ú 1368		latin small letter u with acute
+lowercase û 1568		latin small letter u with circumflex
+lowercase ü 12568		latin small letter u with diaeresis
+noback lowercase ý 134568		latin small letter y with acute
+noback lowercase ÿ 134568		latin small letter y with diaeresis
+noback uppercase Ā 178		latin capital letter a with macron
+noback lowercase ā 18		latin small letter a with macron
+noback uppercase Ă 178		latin capital letter a with breve
+noback lowercase ă 18		latin small letter a with breve
+noback uppercase Ą 178		latin capital letter a with ogonek
+noback lowercase ą 18		latin small letter a with ogonek
+uppercase Ć 1478		latin capital letter c with acute
+noback lowercase ć 148		latin small letter c with acute
+noback uppercase Ĉ 1478		latin capital letter c with circumflex
+noback lowercase ĉ 148		latin small letter c with circumflex
+noback uppercase Ċ 1478		latin capital letter c with dot above
+noback lowercase ċ 148		latin small letter c with dot above
+noback uppercase Č 1478		latin capital letter c with caron
+noback lowercase č 148		latin small letter c with caron
+uppercase Ď 14578		latin capital letter d with caron
+noback lowercase ď 1458		latin small letter d with caron
+noback uppercase Đ 14578		latin capital letter d with stroke
+noback lowercase đ 1458		latin small letter d with stroke
+noback uppercase Ē 1578		latin capital letter e with macron
+noback lowercase ē 158		latin small letter e with macron
+noback uppercase Ĕ 1578		latin capital letter e with breve
+noback lowercase ĕ 158		latin small letter e with breve
+noback uppercase Ė 1578		latin capital letter e with dot above
+noback lowercase ė 158		latin small letter e with dot above
+noback uppercase Ę 1578		latin capital letter e with ogonek
+noback lowercase ę 158		latin small letter e with ogonek
+noback uppercase Ě 1578		latin capital letter e with caron
+noback lowercase ě 158		latin small letter e with caron
+noback uppercase Ĝ 124578		latin capital letter g with circumflex
+noback lowercase ĝ 12458		latin small letter g with circumflex
+noback uppercase Ğ 124578		latin capital letter g with breve
+noback lowercase ğ 12458		latin small letter g with breve
+noback uppercase Ġ 124578		latin capital letter g with dot above
+noback lowercase ġ 12458		latin small letter g with dot above
+noback uppercase Ģ 124578		latin capital letter g with cedilla
+noback lowercase ģ 12458		latin small letter g with cedilla
+uppercase Ĥ 12578		latin capital letter h with circumflex
+lowercase ĥ 1258		latin small letter h with circumflex
+noback uppercase Ħ 12578		latin capital letter h with stroke
+noback lowercase ħ 1258		latin small letter h with stroke
+noback uppercase Ĩ 2478		latin capital letter i with tilde
+noback lowercase ĩ 248		latin small letter i with tilde
+noback uppercase Ī 2478		latin capital letter i with macron
+noback lowercase ī 248		latin small letter i with macron
+noback uppercase Ĭ 2478		latin capital letter i with breve
+noback lowercase ĭ 248		latin small letter i with breve
+noback uppercase Į 2478		latin capital letter i with ogonek
+noback lowercase į 248		latin small letter i with ogonek
+noback uppercase İ 2478		latin capital letter i with dot above
+noback lowercase ı 248		latin small letter dotless i
+uppercase Ĵ 24578		latin capital letter j with circumflex
+lowercase ĵ 2458		latin small letter j with circumflex
+noback uppercase Ķ 1378		latin capital letter k with cedilla
+noback lowercase ķ 138		latin small letter k with cedilla
+uppercase Ĺ 12378		latin capital letter l with acute
+noback lowercase ĺ 1238		latin small letter l with acute
+noback uppercase Ļ 12378		latin capital letter l with cedilla
+noback lowercase ļ 1238		latin small letter l with cedilla
+noback uppercase Ľ 12378		latin capital letter l with caron
+noback lowercase ľ 1238		latin small letter l with caron
+noback uppercase Ŀ 12378		latin capital letter l with middle dot
+noback lowercase ŀ 1238		latin small letter l with middle dot
+noback uppercase Ł 12378		latin capital letter l with stroke
+noback lowercase ł 1238		latin small letter l with stroke
+noback uppercase Ń 134578		latin capital letter n with acute
+noback lowercase ń 13458		latin small letter n with acute
+noback uppercase Ņ 134578		latin capital letter n with cedilla
+noback lowercase ņ 13458		latin small letter n with cedilla
+noback uppercase Ň 134578		latin capital letter n with caron
+noback lowercase ň 13458		latin small letter n with caron
+noback lowercase ŉ 13458		latin small letter n preceded by apostrophe
+noback uppercase Ō 13578		latin capital letter o with macron
+noback lowercase ō 1358		latin small letter o with macron
+noback uppercase Ŏ 13578		latin capital letter o with breve
+noback lowercase ŏ 1358		latin small letter o with breve
+noback uppercase Ő 13578		latin capital letter o with double acute
+noback lowercase ő 1358		latin small letter o with double acute
+uppercase Œ 245678		latin capital ligature oe
+lowercase œ 24568		latin small ligature oe
+uppercase Ŕ 123578		latin capital letter r with acute
+noback lowercase ŕ 12358		latin small letter r with acute
+noback uppercase Ŗ 123578		latin capital letter r with cedilla
+noback lowercase ŗ 12358		latin small letter r with cedilla
+noback uppercase Ř 123578		latin capital letter r with caron
+noback lowercase ř 12358		latin small letter r with caron
+uppercase Ś 23478		latin capital letter s with acute
+noback lowercase ś 2348		latin small letter s with acute
+noback uppercase Ŝ 23478		latin capital letter s with circumflex
+noback lowercase ŝ 2348		latin small letter s with circumflex
+noback uppercase Ş 23478		latin capital letter s with cedilla
+noback lowercase ş 2348		latin small letter s with cedilla
+noback uppercase Š 23478		latin capital letter s with caron
+noback lowercase š 2348		latin small letter s with caron
+uppercase Ţ 234578		latin capital letter t with cedilla
+lowercase ţ 23458		latin small letter t with cedilla
+noback uppercase Ť 234578		latin capital letter t with caron
+noback lowercase ť 23458		latin small letter t with caron
+noback uppercase Ŧ 234578		latin capital letter t with stroke
+noback lowercase ŧ 23458		latin small letter t with stroke
+noback uppercase Ũ 13678		latin capital letter u with tilde
+noback lowercase ũ 1368		latin small letter u with tilde
+noback uppercase Ū 13678		latin capital letter u with macron
+noback lowercase ū 1368		latin small letter u with macron
+noback uppercase Ŭ 13678		latin capital letter u with breve
+noback lowercase ŭ 1368		latin small letter u with breve
+noback uppercase Ů 13678		latin capital letter u with ring above
+noback lowercase ů 1368		latin small letter u with ring above
+noback uppercase Ű 13678		latin capital letter u with double acute
+noback lowercase ű 1368		latin small letter u with double acute
+noback uppercase Ų 13678		latin capital letter u with ogonek
+noback lowercase ų 1368		latin small letter u with ogonek
+noback uppercase Ŵ 245678		latin capital letter w with circumflex
+noback lowercase ŵ 24568		latin small letter w with circumflex
+noback uppercase Ŷ 1345678		latin capital letter y with circumflex
+noback lowercase ŷ 134568		latin small letter y with circumflex
+noback uppercase Ÿ 1345678		latin capital letter y with diaeresis
+uppercase Ź 135678		latin capital letter z with acute
+lowercase ź 13568		latin small letter z with acute
+noback uppercase Ż 135678		latin capital letter z with dot above
+noback lowercase ż 13568		latin small letter z with dot above
+noback uppercase Ž 135678		latin capital letter z with caron
+noback lowercase ž 13568		latin small letter z with caron
+noback lowercase ſ 2348		latin small letter long s
+noback uppercase Α 178		greek capital letter alpha
+uppercase Β 1278		greek capital letter beta
+noback uppercase Γ 124578		greek capital letter gamma
+noback uppercase Δ 14578		greek capital letter delta
+noback uppercase Ε 1578		greek capital letter epsilon
+noback uppercase Ζ 135678		greek capital letter zeta
+noback uppercase Η 15678		greek capital letter eta
+noback uppercase Θ 145678		greek capital letter theta
+noback uppercase Ι 2478		greek capital letter iota
+noback uppercase Κ 1378		greek capital letter kappa
+noback uppercase Λ 12378		greek capital letter lamda
+uppercase Μ 13478		greek capital letter mu
+noback uppercase Ν 134578		greek capital letter nu
+noback uppercase Ξ 134678		greek capital letter xi
+noback uppercase Ο 13578		greek capital letter omicron
+uppercase Π 123478		greek capital letter pi
+noback uppercase Ρ 123578		greek capital letter rho
+noback uppercase Σ 23478		greek capital letter sigma
+noback uppercase Τ 234578		greek capital letter tau
+noback uppercase Υ 13678		greek capital letter upsilon
+noback uppercase Φ 12478		greek capital letter phi
+noback uppercase Χ 1234678		greek capital letter chi
+noback uppercase Ψ 1345678		greek capital letter psi
+noback uppercase Ω 245678		greek capital letter omega
+noback lowercase α 18		greek small letter alpha
+lowercase β 128		greek small letter beta
+noback lowercase γ 12458		greek small letter gamma
+noback lowercase δ 1458		greek small letter delta
+noback lowercase ε 158		greek small letter epsilon
+noback lowercase ζ 13568		greek small letter zeta
+noback lowercase η 1568		greek small letter eta
+noback lowercase θ 14568		greek small letter theta
+noback lowercase ι 248		greek small letter iota
+noback lowercase κ 138		greek small letter kappa
+noback lowercase λ 1238		greek small letter lamda
+noback lowercase μ 1348		greek small letter mu
+noback lowercase ν 13458		greek small letter nu
+noback lowercase ξ 13468		greek small letter xi
+noback lowercase ο 1358		greek small letter omicron
+noback lowercase π 12348		greek small letter pi
+noback lowercase ρ 12358		greek small letter rho
+noback lowercase σ 2348		greek small letter sigma
+noback lowercase τ 23458		greek small letter tau
+noback lowercase υ 1368		greek small letter upsilon
+lowercase φ 1248		greek small letter phi
+noback lowercase χ 123468		greek small letter chi
+noback lowercase ψ 134568		greek small letter psi
+noback lowercase ω 24568		greek small letter omega
+punctuation – 367		en dash
+punctuation — 78		em dash
+punctuation ‘ 378		left single quotation mark
+punctuation ’ 678		right single quotation mark
+punctuation ‚ 37		single low-9 quotation mark
+punctuation “ 2378		left double quotation mark
+punctuation ” 5678		right double quotation mark
+punctuation „ 23567		double low-9 quotation mark
+punctuation † 2357		dagger
+punctuation • 3678		bullet
+punctuation … 2567		horizontal ellipsis
+punctuation ‰ 1234567		per mille sign
+punctuation ′ 38		prime
+noback punctuation ‹ 378		single left-pointing angle quotation mark
+noback punctuation ⁃ 3678		hyphen bullet
+noback punctuation › 678		single right-pointing angle quotation mark
+sign € 158		euro sign
+noback sign ™ 23458		trade mark sign
+math ← 2348		leftwards arrow
+math ↑ 134678		upwards arrow
+math → 1567		rightwards arrow
+math ↓ 124578		downwards arrow
+noback sign ⇐ 2348		leftwards double arrow
+noback sign ⇑ 134678		upwards double arrow
+noback math ⇒ 1567		rightwards double arrow
+noback sign ⇓ 124578		downwards double arrow
+noback sign ⇦ 2348		leftwards white arrow
+noback sign ⇧ 134678		upwards white arrow
+noback sign ⇨ 1567		rightwards white arrow
+noback sign ⇩ 124578		downwards white arrow
+math − 368		minus sign
+math √ 1467		square root
+math ∛ 12467		cube root
+math ∜ 123467		fourth root
+noback math ∞ 1478		infinity
+math ∫ 234567		integral
+math ≈ 235678		almost equal to
+math ≠ 1234578		not equal to
+math ≤ 345678		less-than or equal to
+math ≥ 123678		greater-than or equal to
+noback sign ■ 3678		black square
+noback sign ▪ 3678		black small square
+noback sign ▲ 134678		black up-pointing triangle
+noback sign △ 134678		white up-pointing triangle
+noback sign ▴ 134678		black up-pointing small triangle
+noback sign ▵ 134678		white up-pointing small triangle
+noback sign ▶ 1567		black right-pointing triangle
+noback math ▷ 1567		white right-pointing triangle
+noback sign ▸ 1567		black right-pointing small triangle
+noback sign ▹ 1567		white right-pointing small triangle
+noback sign ► 1567		black right-pointing pointer
+noback sign ▻ 1567		white right-pointing pointer
+noback sign ▼ 124578		black down-pointing triangle
+noback sign ▽ 124578		white down-pointing triangle
+noback sign ▾ 124578		black down-pointing small triangle
+noback sign ▿ 124578		white down-pointing small triangle
+noback sign ◀ 2348		black left-pointing triangle
+noback math ◁ 2348		white left-pointing triangle
+noback sign ◂ 2348		black left-pointing small triangle
+noback sign ◃ 2348		white left-pointing small triangle
+noback sign ◄ 2348		black left-pointing pointer
+noback sign ◅ 2348		white left-pointing pointer
+noback sign ◘ 3678		inverse bullet
+noback sign ◦ 3678		white bullet
+noback math ◼ 3678		black medium square
+noback math ◾ 3678		black medium small square
+noback sign ♣ 3678		black club suit
+noback sign ♦ 3678		black diamond suit
+noback sign ✓ 3678		check mark
+noback sign ✔ 3678		heavy check mark
+noback sign ❖ 3678		black diamond minus white x
+noback sign ➢ 3678		three-d top-lighted rightwards arrowhead
+
+include braille-patterns.cti

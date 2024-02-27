@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="SettingsActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <item name="android:textColorPrimary">@color/settings_primary_text</item>
+    <item name="android:background">@color/settings_background</item>
+  </style>
+</resources>

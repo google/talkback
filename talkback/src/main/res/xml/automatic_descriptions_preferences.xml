@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
+      android:key="@string/pref_icon_detection_key"
+      android:title="@string/title_pref_icon_detection" />
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
+      android:key="@string/pref_image_description_key"
+      android:title="@string/title_pref_image_description" />
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
+      android:key="@string/pref_text_recognition_key"
+      android:title="@string/title_pref_text_recognition" />
+</PreferenceScreen>

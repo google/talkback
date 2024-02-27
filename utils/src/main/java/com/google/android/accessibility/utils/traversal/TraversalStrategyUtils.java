@@ -1,6 +1,12 @@
 package com.google.android.accessibility.utils.traversal;
 
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.SEARCH_FOCUS_FAIL;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_BACKWARD;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_DOWN;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_FORWARD;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_LEFT;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_RIGHT;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_UP;
 
 import android.graphics.Rect;
 import android.view.View;
@@ -11,12 +17,13 @@ import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.DiagnosticOverlayUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
-import com.google.android.accessibility.utils.NodeActionFilter;
 import com.google.android.accessibility.utils.Role;
+import com.google.android.accessibility.utils.ScrollableNodeInfo;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashSet;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class TraversalStrategyUtils {
@@ -44,13 +51,13 @@ public class TraversalStrategyUtils {
       FocusFinder focusFinder,
       @TraversalStrategy.SearchDirection int direction) {
     switch (direction) {
-      case TraversalStrategy.SEARCH_FOCUS_BACKWARD:
-      case TraversalStrategy.SEARCH_FOCUS_FORWARD:
+      case SEARCH_FOCUS_BACKWARD:
+      case SEARCH_FOCUS_FORWARD:
         return new OrderedTraversalStrategy(root);
-      case TraversalStrategy.SEARCH_FOCUS_LEFT:
-      case TraversalStrategy.SEARCH_FOCUS_RIGHT:
-      case TraversalStrategy.SEARCH_FOCUS_UP:
-      case TraversalStrategy.SEARCH_FOCUS_DOWN:
+      case SEARCH_FOCUS_LEFT:
+      case SEARCH_FOCUS_RIGHT:
+      case SEARCH_FOCUS_UP:
+      case SEARCH_FOCUS_DOWN:
         return new DirectionalTraversalStrategy(root, focusFinder);
       default: // fall out
     }
@@ -62,17 +69,17 @@ public class TraversalStrategyUtils {
   public static int nodeSearchDirectionToViewSearchDirection(
       @TraversalStrategy.SearchDirection int direction) {
     switch (direction) {
-      case TraversalStrategy.SEARCH_FOCUS_FORWARD:
+      case SEARCH_FOCUS_FORWARD:
         return View.FOCUS_FORWARD;
-      case TraversalStrategy.SEARCH_FOCUS_BACKWARD:
+      case SEARCH_FOCUS_BACKWARD:
         return View.FOCUS_BACKWARD;
-      case TraversalStrategy.SEARCH_FOCUS_LEFT:
+      case SEARCH_FOCUS_LEFT:
         return View.FOCUS_LEFT;
-      case TraversalStrategy.SEARCH_FOCUS_RIGHT:
+      case SEARCH_FOCUS_RIGHT:
         return View.FOCUS_RIGHT;
-      case TraversalStrategy.SEARCH_FOCUS_UP:
+      case SEARCH_FOCUS_UP:
         return View.FOCUS_UP;
-      case TraversalStrategy.SEARCH_FOCUS_DOWN:
+      case SEARCH_FOCUS_DOWN:
         return View.FOCUS_DOWN;
       default:
         throw new IllegalArgumentException("Direction must be a SearchDirection");
@@ -85,18 +92,23 @@ public class TraversalStrategyUtils {
    */
   public static boolean isSpatialDirection(@TraversalStrategy.SearchDirection int direction) {
     switch (direction) {
-      case TraversalStrategy.SEARCH_FOCUS_FORWARD:
-      case TraversalStrategy.SEARCH_FOCUS_BACKWARD:
+      case SEARCH_FOCUS_FORWARD:
+      case SEARCH_FOCUS_BACKWARD:
         return false;
-      case TraversalStrategy.SEARCH_FOCUS_UP:
-      case TraversalStrategy.SEARCH_FOCUS_DOWN:
-      case TraversalStrategy.SEARCH_FOCUS_LEFT:
-      case TraversalStrategy.SEARCH_FOCUS_RIGHT:
+      case SEARCH_FOCUS_UP:
+      case SEARCH_FOCUS_DOWN:
+      case SEARCH_FOCUS_LEFT:
+      case SEARCH_FOCUS_RIGHT:
         return true;
       default: // fall out
     }
 
     throw new IllegalArgumentException("direction must be a SearchDirection");
+  }
+
+  /** Returns {@code true} if {@code searchDirection} is logical (forward or backward). */
+  public static boolean isLogicalDirection(@TraversalStrategy.SearchDirection int direction) {
+    return direction == SEARCH_FOCUS_FORWARD || direction == SEARCH_FOCUS_BACKWARD;
   }
 
   /**
@@ -109,24 +121,24 @@ public class TraversalStrategyUtils {
     @TraversalStrategy.SearchDirection int left;
     @TraversalStrategy.SearchDirection int right;
     if (isRtl) {
-      left = TraversalStrategy.SEARCH_FOCUS_FORWARD;
-      right = TraversalStrategy.SEARCH_FOCUS_BACKWARD;
+      left = SEARCH_FOCUS_FORWARD;
+      right = SEARCH_FOCUS_BACKWARD;
     } else {
-      left = TraversalStrategy.SEARCH_FOCUS_BACKWARD;
-      right = TraversalStrategy.SEARCH_FOCUS_FORWARD;
+      left = SEARCH_FOCUS_BACKWARD;
+      right = SEARCH_FOCUS_FORWARD;
     }
 
     switch (direction) {
-      case TraversalStrategy.SEARCH_FOCUS_LEFT:
+      case SEARCH_FOCUS_LEFT:
         return left;
-      case TraversalStrategy.SEARCH_FOCUS_RIGHT:
+      case SEARCH_FOCUS_RIGHT:
         return right;
-      case TraversalStrategy.SEARCH_FOCUS_UP:
-      case TraversalStrategy.SEARCH_FOCUS_BACKWARD:
-        return TraversalStrategy.SEARCH_FOCUS_BACKWARD;
-      case TraversalStrategy.SEARCH_FOCUS_DOWN:
-      case TraversalStrategy.SEARCH_FOCUS_FORWARD:
-        return TraversalStrategy.SEARCH_FOCUS_FORWARD;
+      case SEARCH_FOCUS_UP:
+      case SEARCH_FOCUS_BACKWARD:
+        return SEARCH_FOCUS_BACKWARD;
+      case SEARCH_FOCUS_DOWN:
+      case SEARCH_FOCUS_FORWARD:
+        return SEARCH_FOCUS_FORWARD;
       default: // fall out
     }
 
@@ -139,18 +151,18 @@ public class TraversalStrategyUtils {
    */
   public static int convertSearchDirectionToScrollAction(
       @TraversalStrategy.SearchDirection int direction) {
-    if (direction == TraversalStrategy.SEARCH_FOCUS_FORWARD) {
+    if (direction == SEARCH_FOCUS_FORWARD) {
       return AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD;
-    } else if (direction == TraversalStrategy.SEARCH_FOCUS_BACKWARD) {
+    } else if (direction == SEARCH_FOCUS_BACKWARD) {
       return AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD;
     } else {
-      if (direction == TraversalStrategy.SEARCH_FOCUS_LEFT) {
+      if (direction == SEARCH_FOCUS_LEFT) {
         return AccessibilityAction.ACTION_SCROLL_LEFT.getId();
-      } else if (direction == TraversalStrategy.SEARCH_FOCUS_RIGHT) {
+      } else if (direction == SEARCH_FOCUS_RIGHT) {
         return AccessibilityAction.ACTION_SCROLL_RIGHT.getId();
-      } else if (direction == TraversalStrategy.SEARCH_FOCUS_UP) {
+      } else if (direction == SEARCH_FOCUS_UP) {
         return AccessibilityAction.ACTION_SCROLL_UP.getId();
-      } else if (direction == TraversalStrategy.SEARCH_FOCUS_DOWN) {
+      } else if (direction == SEARCH_FOCUS_DOWN) {
         return AccessibilityAction.ACTION_SCROLL_DOWN.getId();
       }
     }
@@ -166,18 +178,18 @@ public class TraversalStrategyUtils {
   @TraversalStrategy.SearchDirectionOrUnknown
   public static int convertScrollActionToSearchDirection(int scrollAction) {
     if (scrollAction == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
-      return TraversalStrategy.SEARCH_FOCUS_FORWARD;
+      return SEARCH_FOCUS_FORWARD;
     } else if (scrollAction == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
-      return TraversalStrategy.SEARCH_FOCUS_BACKWARD;
+      return SEARCH_FOCUS_BACKWARD;
     } else {
       if (scrollAction == AccessibilityAction.ACTION_SCROLL_LEFT.getId()) {
-        return TraversalStrategy.SEARCH_FOCUS_LEFT;
+        return SEARCH_FOCUS_LEFT;
       } else if (scrollAction == AccessibilityAction.ACTION_SCROLL_RIGHT.getId()) {
-        return TraversalStrategy.SEARCH_FOCUS_RIGHT;
+        return SEARCH_FOCUS_RIGHT;
       } else if (scrollAction == AccessibilityAction.ACTION_SCROLL_UP.getId()) {
-        return TraversalStrategy.SEARCH_FOCUS_UP;
+        return SEARCH_FOCUS_UP;
       } else if (scrollAction == AccessibilityAction.ACTION_SCROLL_DOWN.getId()) {
-        return TraversalStrategy.SEARCH_FOCUS_DOWN;
+        return SEARCH_FOCUS_DOWN;
       }
     }
 
@@ -185,107 +197,36 @@ public class TraversalStrategyUtils {
   }
 
   /**
-   * Determines if the current item is at the logical edge of a list by checking the scrollable
-   * predecessors of the items going forwards and backwards.
-   *
-   * @param node The node to check.
-   * @param traversalStrategy - traversal strategy that is used to define order of node
-   * @return true if the current item is at the edge of a list.
-   */
-  public static boolean isEdgeListItem(
-      AccessibilityNodeInfoCompat node, TraversalStrategy traversalStrategy) {
-    return isEdgeListItem(
-            node,
-            /* ignoreDescendantsOfPivot= */ false,
-            TraversalStrategy.SEARCH_FOCUS_BACKWARD,
-            null,
-            traversalStrategy)
-        || isEdgeListItem(
-            node,
-            /* ignoreDescendantsOfPivot= */ false,
-            TraversalStrategy.SEARCH_FOCUS_FORWARD,
-            null,
-            traversalStrategy);
-  }
-
-  /**
-   * Determines if the current item is at the edge of a list by checking the scrollable predecessors
-   * of the items in a relative or absolute direction.
-   *
-   * @param pivot The node to check.
-   * @param ignoreDescendantsOfPivot Whether to ignore descendants of pivot when searching down the
-   *     node tree.
-   * @param direction The direction in which to check.
-   * @param filter (Optional) Filter used to validate list-type ancestors.
-   * @param traversalStrategy - traversal strategy that is used to define order of node
-   * @return true if the current item is at the edge of a list.
-   */
-  private static boolean isEdgeListItem(
-      AccessibilityNodeInfoCompat pivot,
-      boolean ignoreDescendantsOfPivot,
-      @TraversalStrategy.SearchDirection int direction,
-      @Nullable Filter<AccessibilityNodeInfoCompat> filter,
-      TraversalStrategy traversalStrategy) {
-    if (pivot == null) {
-      return false;
-    }
-
-    int scrollAction = TraversalStrategyUtils.convertSearchDirectionToScrollAction(direction);
-    if (scrollAction != 0) {
-      NodeActionFilter scrollableFilter = new NodeActionFilter(scrollAction);
-      Filter<AccessibilityNodeInfoCompat> comboFilter = scrollableFilter.and(filter);
-
-      return isMatchingEdgeListItem(
-          pivot,
-          AccessibilityNodeInfoUtils.getMatchingAncestor(pivot, comboFilter),
-          ignoreDescendantsOfPivot,
-          direction,
-          comboFilter,
-          traversalStrategy);
-    }
-
-    return false;
-  }
-
-  /**
    * Convenience method determining if the current item is at the edge of a scrollable view and
    * suitable autoscroll. Calls {@code isEdgeListItem} with {@code FILTER_AUTO_SCROLL}.
    *
    * @param pivot The node to check.
-   * @param scrollableNode The scrollable container that for checking the pivot is at the edge or
-   *     not. Will find from the ancestor of the pivot if it's null.
+   * @param scrollableNodeInfo The info about the scrollable container for which is checked if the
+   *     pivot is at the edge or not.
    * @param ignoreDescendantsOfPivot Whether to ignore descendants of pivot when search down the
    *     node tree.
-   * @param direction The direction in which to check, one of:
-   *     <ul>
-   *       <li>{@code -1} to check backward
-   *       <li>{@code 0} to check both backward and forward
-   *       <li>{@code 1} to check forward
-   *     </ul>
-   *
-   * @param traversalStrategy - traversal strategy that is used to define order of node
+   * @param searchDirection The direction in which to check.
    * @return true if the current item is at the edge of a list.
    */
   public static boolean isAutoScrollEdgeListItem(
       AccessibilityNodeInfoCompat pivot,
-      @Nullable AccessibilityNodeInfoCompat scrollableNode,
+      @NonNull ScrollableNodeInfo scrollableNodeInfo,
       boolean ignoreDescendantsOfPivot,
-      int direction,
-      TraversalStrategy traversalStrategy) {
-    if (scrollableNode == null) {
-      return isEdgeListItem(
-          pivot,
-          ignoreDescendantsOfPivot,
-          direction,
-          AccessibilityNodeInfoUtils.FILTER_AUTO_SCROLL,
-          traversalStrategy);
+      @TraversalStrategy.SearchDirection int searchDirection,
+      FocusFinder focusFinder) {
+
+    Integer supportedDirection = scrollableNodeInfo.getSupportedScrollDirection(searchDirection);
+    if (supportedDirection == null) {
+      return false;
     }
 
+    TraversalStrategy traversalStrategy =
+        scrollableNodeInfo.getSupportedTraversalStrategy(supportedDirection, focusFinder);
     return isMatchingEdgeListItem(
         pivot,
-        scrollableNode,
+        scrollableNodeInfo.getNode(),
         ignoreDescendantsOfPivot,
-        direction,
+        supportedDirection,
         AccessibilityNodeInfoUtils.FILTER_AUTO_SCROLL,
         traversalStrategy);
   }
@@ -307,7 +248,7 @@ public class TraversalStrategyUtils {
    */
   private static boolean isMatchingEdgeListItem(
       final AccessibilityNodeInfoCompat cursor,
-      final AccessibilityNodeInfoCompat scrollableNode,
+      final @NonNull AccessibilityNodeInfoCompat scrollableNode,
       boolean ignoreDescendantsOfCursor,
       @TraversalStrategy.SearchDirection int direction,
       Filter<AccessibilityNodeInfoCompat> filter,
@@ -315,14 +256,14 @@ public class TraversalStrategyUtils {
     AccessibilityNodeInfoCompat webViewNode = null;
 
     boolean cursorNodeNotContainedInScrollableList =
-        scrollableNode == null
-            || !scrollableNode.isScrollable()
+        !scrollableNode.isScrollable()
             || !(AccessibilityNodeInfoUtils.hasAncestor(cursor, scrollableNode)
                 || scrollableNode.equals(cursor));
 
     if (cursorNodeNotContainedInScrollableList) {
       return false;
     }
+
     Filter<AccessibilityNodeInfoCompat> focusNodeFilter =
         AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS;
     if (ignoreDescendantsOfCursor) {
@@ -337,6 +278,7 @@ public class TraversalStrategyUtils {
     }
     AccessibilityNodeInfoCompat nextFocusNode =
         searchFocus(traversalStrategy, cursor, direction, focusNodeFilter);
+
     if ((nextFocusNode == null) || nextFocusNode.equals(scrollableNode)) {
       // Can't move from this position.
       return true;
@@ -368,15 +310,14 @@ public class TraversalStrategyUtils {
 
     AccessibilityNodeInfoCompat searchedAncestor =
         AccessibilityNodeInfoUtils.getMatchingAncestor(nextFocusNode, filter);
-      while (searchedAncestor != null) {
-        if (scrollableNode.equals(searchedAncestor)) {
-          return false;
-        }
-        searchedAncestor = AccessibilityNodeInfoUtils.getMatchingAncestor(searchedAncestor, filter);
+    while (searchedAncestor != null) {
+      if (scrollableNode.equals(searchedAncestor)) {
+        return false;
       }
-      // Moves outside of the scrollable container.
-      return true;
-
+      searchedAncestor = AccessibilityNodeInfoUtils.getMatchingAncestor(searchedAncestor, filter);
+    }
+    // Moves outside of the scrollable container.
+    return true;
   }
 
   /**
@@ -402,25 +343,39 @@ public class TraversalStrategyUtils {
       filter = DEFAULT_FILTER;
     }
 
-    AccessibilityNodeInfoCompat targetNode = AccessibilityNodeInfoCompat.obtain(currentFocus);
+    AccessibilityNodeInfoCompat targetNode = currentFocus;
     Set<AccessibilityNodeInfoCompat> seenNodes = new HashSet<>();
 
-      do {
-        seenNodes.add(targetNode);
-        targetNode = traversal.findFocus(targetNode, direction);
-        DiagnosticOverlayUtils.appendLog(SEARCH_FOCUS_FAIL, targetNode);
+    do {
+      seenNodes.add(targetNode);
+      targetNode = traversal.findFocus(targetNode, direction);
+      DiagnosticOverlayUtils.appendLog(SEARCH_FOCUS_FAIL, targetNode);
 
-        if (seenNodes.contains(targetNode)) {
-          LogUtils.e(TAG, "Found duplicate during traversal: %s", targetNode);
-          return null;
-        }
-      } while (targetNode != null && !filter.accept(targetNode));
-
+      if (seenNodes.contains(targetNode)) {
+        LogUtils.e(TAG, "Found duplicate during traversal: %s", targetNode);
+        return null;
+      }
+    } while (targetNode != null && !filter.accept(targetNode));
 
     return targetNode;
   }
 
-  public static @Nullable AccessibilityNodeInfoCompat findInitialFocusInNodeTree(
+  /**
+   * Finds the first focusable accessibility node in hierarchy started from root node when searching
+   * in the given direction.
+   *
+   * <p>For example, if {@code direction} is {@link TraversalStrategy#SEARCH_FOCUS_FORWARD}, then
+   * the method should return the first node in the traversal order. If {@code direction} is {@link
+   * TraversalStrategy#SEARCH_FOCUS_BACKWARD} then the method should return the last node in the
+   * traversal order.
+   *
+   * @param traversalStrategy the traversal strategy
+   * @param root the root node
+   * @param direction the direction to search from
+   * @param nodeFilter the {@link Filter} to determine which nodes to focus
+   * @return returns the first node that matches nodeFilter
+   */
+  public static @Nullable AccessibilityNodeInfoCompat findFirstFocusInNodeTree(
       TraversalStrategy traversalStrategy,
       AccessibilityNodeInfoCompat root,
       @TraversalStrategy.SearchDirection int direction,
@@ -428,13 +383,12 @@ public class TraversalStrategyUtils {
     if (root == null) {
       return null;
     }
-    AccessibilityNodeInfoCompat initialNode = traversalStrategy.focusInitial(root, direction);
+    AccessibilityNodeInfoCompat firstNode = traversalStrategy.focusFirst(root, direction);
 
-    if (nodeFilter.accept(initialNode)) {
-      return initialNode;
+    if (nodeFilter.accept(firstNode)) {
+      return firstNode;
     }
-    return TraversalStrategyUtils.searchFocus(
-        traversalStrategy, initialNode, direction, nodeFilter);
+    return TraversalStrategyUtils.searchFocus(traversalStrategy, firstNode, direction, nodeFilter);
   }
 
   private static boolean isNodeInBoundsOfOther(
@@ -468,19 +422,20 @@ public class TraversalStrategyUtils {
         }
       };
 
-  public static String directionToString(@TraversalStrategy.SearchDirection int direction) {
+  public static String directionToString(
+      @TraversalStrategy.SearchDirectionOrUnknown int direction) {
     switch (direction) {
-      case TraversalStrategy.SEARCH_FOCUS_FORWARD:
+      case SEARCH_FOCUS_FORWARD:
         return "SEARCH_FOCUS_FORWARD";
-      case TraversalStrategy.SEARCH_FOCUS_BACKWARD:
+      case SEARCH_FOCUS_BACKWARD:
         return "SEARCH_FOCUS_BACKWARD";
-      case TraversalStrategy.SEARCH_FOCUS_LEFT:
+      case SEARCH_FOCUS_LEFT:
         return "SEARCH_FOCUS_LEFT";
-      case TraversalStrategy.SEARCH_FOCUS_RIGHT:
+      case SEARCH_FOCUS_RIGHT:
         return "SEARCH_FOCUS_RIGHT";
-      case TraversalStrategy.SEARCH_FOCUS_UP:
+      case SEARCH_FOCUS_UP:
         return "SEARCH_FOCUS_UP";
-      case TraversalStrategy.SEARCH_FOCUS_DOWN:
+      case SEARCH_FOCUS_DOWN:
         return "SEARCH_FOCUS_DOWN";
       case TraversalStrategy.SEARCH_FOCUS_UNKNOWN:
         return "SEARCH_FOCUS_UNKNOWN";

@@ -28,15 +28,13 @@
       android:layout_height="wrap_content"
       android:background="@color/training_background_color"
       android:layout_below="@id/training_toolbar_layout"
-      android:layout_above="@+id/training_bottom"
+      android:layout_alignParentBottom="true"
       android:importantForAccessibility="yes"/>
 
-  <LinearLayout
-      android:id="@+id/training_bottom"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:background="@color/google_black"
-      android:orientation="vertical"/>
+  <ImageView
+      android:id="@+id/tv_training_image"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:visibility="gone" />
 
 </RelativeLayout>

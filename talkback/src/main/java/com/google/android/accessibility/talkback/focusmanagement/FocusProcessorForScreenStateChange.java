@@ -25,6 +25,7 @@ import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
+import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory.WindowIdentifier;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionRecord;
 import com.google.android.accessibility.talkback.interpreters.AccessibilityFocusInterpreter;
@@ -34,7 +35,7 @@ import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** The event-interpreter for window-events affecting focus. */
 public class FocusProcessorForScreenStateChange {
-  protected static final String TAG = "FocusInterpForScreen";
+  protected static final String TAG = "FocusProcessor-ScreenStateChange";
 
   /** Focus result for {@code onScreenStateChanged}. */
   public enum FocusResult {
@@ -44,6 +45,7 @@ public class FocusProcessorForScreenStateChange {
     FAIL_DEFAULT(0),
     SUCCESS(1);
     final int value;
+
     FocusResult(int result) {
       this.value = result;
     }
@@ -94,15 +96,15 @@ public class FocusProcessorForScreenStateChange {
         return FocusResult.FAIL_NO_ACTIVE_WINDOW;
       }
 
-      int activeWindowId = currentActiveWindow.getId();
-      CharSequence activeWindowTitle = screenState.getWindowTitle(activeWindowId);
+      WindowIdentifier windowIdentifier =
+          WindowIdentifier.create(currentActiveWindow.getId(), screenState);
 
       AccessibilityFocusActionHistory.Reader history = actorState.getFocusHistory();
       // REFERTO. Initial focus will be skipped if user interacts on old window. So we
       // only skip initial focus if the interaction is happened on active window to ensure it can
       // grant focus.
       FocusActionRecord lastRecordOnActiveWindow =
-          history.getLastFocusActionRecordInWindow(activeWindowId, activeWindowTitle);
+          history.getLastFocusActionRecordInWindow(windowIdentifier);
       if ((lastRecordOnActiveWindow != null)
           && (lastRecordOnActiveWindow.getActionTime()
               > screenState.getScreenTransitionStartTime())) {
@@ -141,11 +143,17 @@ public class FocusProcessorForScreenStateChange {
   }
 
   private boolean hasValidAccessibilityFocusInWindow(AccessibilityWindowInfo window) {
+    if (!window.isAccessibilityFocused()) {
+      LogUtils.w(
+          TAG,
+          "hasValidAccessibilityFocusInWindow: window %d not accessibilityFocused",
+          window.getId());
+      return false;
+    }
     AccessibilityNodeInfoCompat currentFocus =
         accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
     return (currentFocus != null)
         && AccessibilityNodeInfoUtils.isVisible(currentFocus)
         && (currentFocus.getWindowId() == window.getId());
   }
-
 }

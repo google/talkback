@@ -23,7 +23,7 @@
   <string name="voice_commands_cancel_hide_screen">annuler le masquage de l\'écran</string>
   <string name="voice_commands_all_apps">Toutes les applis</string>
   <string name="voice_commands_apps">Applis</string>
-  <string name="voice_commands_overview">Aperçu</string>
+  <string name="voice_commands_overview">Récents</string>
   <string name="voice_commands_recent_apps">Applis récentes</string>
   <string name="voice_commands_recent">Récente</string>
   <string name="voice_commands_recents">Récentes</string>
@@ -71,7 +71,7 @@
   <string name="voice_commands_change_verbosity_to_parameter">Régler niveau de verbosité sur %s</string>
   <string name="voice_commands_navigation_by_parameter">Navigation par %s</string>
   <string name="voice_commands_parameter_navigation">Navigation par %s</string>
-  <string name="voice_commands_parameter_granularity">Précision par %s</string>
+  <string name="voice_commands_parameter_granularity">Granularité par %s</string>
   <string name="voice_commands_read_by_parameter">Lire par %s</string>
   <string name="voice_commands_back">Retour</string>
   <string name="voice_commands_go_back">Revenir en arrière</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Pour utiliser les commandes vocales, balayez l\'écran vers la droite, puis vers le haut. Pour afficher cette liste de commandes, dites \"Aide\" ou \"Que puis-je dire\" à tout moment.</string>
   <string name="voice_commands_help_hint">Pour des résultats optimaux, utilisez la même formulation que sur les écrans suivants.</string>
   <string name="voice_command_screen_locked_hint">Les commandes vocales ne sont pas disponibles lorsque l\'écran est verrouillé. Pour utiliser le menu TalkBack à la place, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Les commandes vocales ne sont pas disponibles pendant la configuration.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Modifier la manière dont vous lisez le contenu de l\'écran actuel</string>
   <string name="voice_commands_help_next">[Titre] suivant</string>
@@ -140,6 +141,6 @@
   <string name="voice_commands_help_hide_screen_description">Masquer l\'écran pour qu\'il ne soit pas visible dans les lieux publics</string>
   <string name="voice_commands_help_show_screen_description">Après avoir masqué l\'écran, rétablir l\'état normal</string>
   <string name="voice_commands_help_actions_description">Afficher les actions disponibles pour l\'élément actuel</string>
-  <string name="voice_commands_help_label_description">Ajouter ou modifier un libellé personnalisé pour dire \"envoyer\"</string>
+  <string name="voice_commands_help_label_description">Ajouter ou modifier une étiquette personnalisée pour dire \"envoyer\"</string>
   <string name="voice_commands_help_stop_description">Arrêter la commande vocale actuelle</string>
 </resources>

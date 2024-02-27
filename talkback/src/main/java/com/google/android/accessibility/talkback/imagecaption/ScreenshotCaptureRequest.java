@@ -51,8 +51,9 @@ public class ScreenshotCaptureRequest implements Request {
 
   @Override
   public void perform() {
-    ScreenshotCapture.takeScreenshot(
+    ScreenshotCapture.takeScreenshotByNode(
         service,
+        node,
         (screenCapture, isFormatSupported) -> {
           onFinishListener.onFinish(node, screenCapture, isUserRequested);
         });

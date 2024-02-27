@@ -9,6 +9,9 @@
 
   <!-- Required for haptic feedback. -->
   <uses-permission android:name="android.permission.VIBRATE" />
+  <!-- Required to receive broadcasts from unexported receivers. -->
+  <uses-permission
+      android:name="com.google.android.marvin.talkback.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
   <application>
     <service
@@ -31,7 +34,7 @@
         android:exported="true"
         android:label="@string/braille_keyboard"
         android:launchMode="singleTop"
-        android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+        android:taskAffinity=""
         android:theme="@style/SettingsTheme"
         tools:ignore="ExportedActivity"
         >
@@ -40,6 +43,16 @@
         <category android:name="android.intent.category.DEFAULT" />
       </intent-filter>
     </activity>
+    <activity
+        android:name="com.google.android.accessibility.brailleime.settings.BrailleImeGestureActivity"
+        android:label="@string/braille_keyboard_gestures"
+        android:exported="false"
+        android:theme="@style/BrailleSettingsTheme" >
+    </activity>
+    <activity
+        android:name="com.google.android.accessibility.brailleime.settings.BrailleImeGestureCommandActivity"
+        android:exported="false"
+        android:theme="@style/BrailleSettingsTheme" />
 
     <receiver android:name="com.google.android.accessibility.brailleime.MyPackageReplacedReceiver"
         android:enabled="true"

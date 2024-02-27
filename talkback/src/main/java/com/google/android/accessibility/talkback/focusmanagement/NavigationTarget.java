@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.talkback.focusmanagement;
 
+import static com.google.android.accessibility.utils.input.CursorGranularity.CONTAINER;
 import static com.google.android.accessibility.utils.input.CursorGranularity.CONTROL;
 import static com.google.android.accessibility.utils.input.CursorGranularity.DEFAULT;
 import static com.google.android.accessibility.utils.input.CursorGranularity.HEADING;
@@ -59,6 +60,7 @@ public final class NavigationTarget {
   public static final int TARGET_HEADING = MASK_TARGET_NATIVE_MACRO_GRANULARITY + 1;
   public static final int TARGET_CONTROL = MASK_TARGET_NATIVE_MACRO_GRANULARITY + 2;
   public static final int TARGET_LINK = MASK_TARGET_NATIVE_MACRO_GRANULARITY + 3;
+  public static final int TARGET_CONTAINER = MASK_TARGET_NATIVE_MACRO_GRANULARITY + 4;
 
   // Targets for web-granularity navigation and keycombo navigation on html elements.
   public static final int TARGET_HTML_ELEMENT_LINK = MASK_TARGET_HTML_ELEMENT + 102;
@@ -110,6 +112,7 @@ public final class NavigationTarget {
     TARGET_HTML_ELEMENT_LIST_ITEM,
     TARGET_HTML_ELEMENT_TABLE,
     TARGET_HTML_ELEMENT_COMBOBOX,
+    TARGET_CONTAINER,
     TARGET_WINDOW,
   })
   @Retention(RetentionPolicy.SOURCE)
@@ -147,7 +150,6 @@ public final class NavigationTarget {
 
   /** Gets display name of HTML {@link TargetType}. Used to compose speaking feedback. */
   public static String htmlTargetToDisplayName(Context context, @TargetType int type) {
-    int resId;
     switch (type) {
       case TARGET_DEFAULT:
         return context.getString(R.string.granularity_default);
@@ -195,6 +197,8 @@ public final class NavigationTarget {
         return context.getString(R.string.display_name_table);
       case TARGET_HTML_ELEMENT_COMBOBOX:
         return context.getString(R.string.display_name_combobox);
+      case TARGET_CONTAINER:
+        return context.getString(R.string.display_name_container);
       case TARGET_WINDOW:
         return context.getString(R.string.display_name_window);
       default:
@@ -204,8 +208,8 @@ public final class NavigationTarget {
   }
 
   /** Gets display name of Native Macro {@link TargetType}. Used to compose speaking feedback. */
+  @SuppressWarnings("SwitchIntDef") // Only some values handled.
   public static String macroTargetToDisplayName(Context context, @TargetType int type) {
-    int resId;
     switch (type) {
       case TARGET_HEADING:
         return context.getString(R.string.display_name_heading);
@@ -213,6 +217,8 @@ public final class NavigationTarget {
         return context.getString(R.string.display_name_control);
       case TARGET_LINK:
         return context.getString(R.string.display_name_link);
+      case TARGET_CONTAINER:
+        return context.getString(R.string.display_name_container);
       default:
         LogUtils.e(TAG, "macroTargetToDisplayName() unhandled target type=" + type);
         return "(unknown)";
@@ -223,6 +229,7 @@ public final class NavigationTarget {
    * Gets HTML element name of {@link TargetType}. Used as parameter to perform html navigation
    * action.
    */
+  @SuppressWarnings("SwitchIntDef") // Only some values handled.
   @Nullable
   public static String targetTypeToHtmlElement(@TargetType int targetType) {
     switch (targetType) {
@@ -272,10 +279,11 @@ public final class NavigationTarget {
   }
 
   /** Gets node filter for non-html {@link TargetType}. */
+  @SuppressWarnings("SwitchIntDef") // Only some values handled.
   @Nullable
   public static Filter<AccessibilityNodeInfoCompat> createNodeFilter(
       @TargetType int target,
-      @Nullable final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache) {
+      @Nullable final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache) {
     if (NavigationTarget.isHtmlTarget(target)) {
       LogUtils.w(TAG, "Cannot define node filter for html target.");
       return null;
@@ -285,13 +293,15 @@ public final class NavigationTarget {
           @Override
           public boolean accept(AccessibilityNodeInfoCompat node) {
             return (node != null)
-                && AccessibilityNodeInfoUtils.shouldFocusNode(node, speakingNodeCache);
+                && AccessibilityNodeInfoUtils.shouldFocusNode(node, speakingNodesCache);
           }
         };
     Filter<AccessibilityNodeInfoCompat> additionalCheckFilter = null;
     switch (target) {
       case TARGET_HEADING:
-        additionalCheckFilter = AccessibilityNodeInfoUtils.FILTER_HEADING;
+        additionalCheckFilter =
+            AccessibilityNodeInfoUtils.FILTER_HEADING.or(
+                AccessibilityNodeInfoUtils.FILTER_CONTAINER_WITH_UNFOCUSABLE_HEADING);
         break;
       case TARGET_CONTROL:
         additionalCheckFilter =
@@ -359,6 +369,8 @@ public final class NavigationTarget {
         return "TARGET_HTML_ELEMENT_TABLE";
       case TARGET_HTML_ELEMENT_COMBOBOX:
         return "TARGET_HTML_ELEMENT_COMBOBOX";
+      case TARGET_CONTAINER:
+        return "TARGET_CONTAINER";
       case TARGET_WINDOW:
         return "TARGET_WINDOW";
       default:
@@ -375,6 +387,8 @@ public final class NavigationTarget {
         return CONTROL;
       case TARGET_LINK:
         return LINK;
+      case TARGET_CONTAINER:
+        return CONTAINER;
       case TARGET_WINDOW:
         return WINDOWS;
       case TARGET_HTML_ELEMENT_LINK:

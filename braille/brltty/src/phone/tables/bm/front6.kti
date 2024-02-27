@@ -1,0 +1,28 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Baum displays which have 6 front keys.
+note The keys in the upper row on the front are named:
+note * Front1, Front3, Front5.
+note The keys in the lower row on the front are named:
+note * Front2, Front4, Front6.
+note The keys in the upper row on the back are named:
+note * Back1, Back3, Back5.
+note The keys in the lower row on the back are named:
+note * Back2, Back4, Back6.
+

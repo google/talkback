@@ -15,18 +15,23 @@
  */
 package com.google.android.accessibility.talkback.preference.base;
 
+import static com.google.android.accessibility.talkback.preference.PreferencesActivityUtils.HELP_URL;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.preference.Preference;
 import com.google.android.accessibility.talkback.HelpAndFeedbackUtils;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.training.TutorialInitiator;
+import com.google.android.accessibility.talkback.trainingcommon.tv.TvTutorialInitiator;
+import com.google.android.accessibility.talkback.trainingcommon.tv.VendorConfigReader;
 import com.google.android.accessibility.talkback.utils.RemoteIntentUtils;
+import com.google.android.accessibility.utils.FormFactorUtils;
+import com.google.android.accessibility.utils.WebActivity;
 
 /** Fragment to display tutorial and help page. */
 public class TutorialAndHelpFragment extends TalkbackBaseFragment {
-
-  private static final String HELP_URL =
-      "https://support.google.com/accessibility/" + "android/answer/6283677";
 
   public TutorialAndHelpFragment() {
     super(R.xml.help_preferences);
@@ -34,6 +39,12 @@ public class TutorialAndHelpFragment extends TalkbackBaseFragment {
 
   @Override
   public CharSequence getTitle() {
+    if (FormFactorUtils.getInstance().isAndroidTv()) {
+      return getString(
+          TvTutorialInitiator.shouldShowTraining(VendorConfigReader.retrieveConfig(getActivity()))
+              ? R.string.title_pref_category_tutorial_and_help
+              : R.string.title_pref_category_help_no_tutorial);
+    }
     return getText(R.string.title_pref_category_tutorial_and_help);
   }
 
@@ -47,8 +58,7 @@ public class TutorialAndHelpFragment extends TalkbackBaseFragment {
   }
 
   private void assignTutorialIntent() {
-    final Preference prefTutorial =
-        findPreference(getString(R.string.pref_tutorial_entry_point_key));
+    final Preference prefTutorial = findPreferenceByResId(R.string.pref_tutorial_entry_point_key);
 
     if (prefTutorial == null) {
       return;
@@ -59,7 +69,7 @@ public class TutorialAndHelpFragment extends TalkbackBaseFragment {
 
   private void assignPracticeGesturesIntent() {
     final Preference prefPracticeGestures =
-        findPreference(getString(R.string.pref_practice_gestures_entry_point_key));
+        findPreferenceByResId(R.string.pref_practice_gestures_entry_point_key);
 
     if (prefPracticeGestures == null) {
       return;
@@ -70,7 +80,7 @@ public class TutorialAndHelpFragment extends TalkbackBaseFragment {
 
   /** Provide the setting of Feedback Intent for the Help preference. */
   private void assignFeedbackIntentToPreference() {
-    final Preference pref = findPreference(getString(R.string.pref_help_and_feedback_key));
+    final Preference pref = findPreferenceByResId(R.string.pref_help_and_feedback_key);
 
     if (pref == null) {
       return;
@@ -79,6 +89,11 @@ public class TutorialAndHelpFragment extends TalkbackBaseFragment {
     // Only wear doesn't support help and feedback
     if (HelpAndFeedbackUtils.supportsHelpAndFeedback(getContext())) {
       pref.setTitle(R.string.title_pref_help_and_feedback);
+      if (FormFactorUtils.getInstance().isAndroidAuto()) {
+        RemoteIntentUtils.assignWebIntentToPreference(this, pref, null);
+
+        return;
+      }
       pref.setOnPreferenceClickListener(
           preference -> {
             HelpAndFeedbackUtils.launchHelpAndFeedback(getActivity());
@@ -86,7 +101,11 @@ public class TutorialAndHelpFragment extends TalkbackBaseFragment {
           });
     } else {
       pref.setTitle(R.string.title_pref_help);
-      RemoteIntentUtils.assignWebIntentToPreference(this, pref, HELP_URL);
+      if (FormFactorUtils.getInstance().isAndroidTv()) {
+        pref.setIntent(new Intent(getContext(), WebActivity.class).setData(Uri.parse(HELP_URL)));
+      } else {
+        RemoteIntentUtils.assignWebIntentToPreference(this, pref, HELP_URL);
+      }
     }
   }
 }

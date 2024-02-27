@@ -29,7 +29,9 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.utils.gestures.GestureManifold;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -38,7 +40,7 @@ public class AccessibilityServiceCompatUtils {
 
   private static final String TAG = "A11yServiceCompatUtils";
 
-  /** Holds constants in support of BrailleIme. */
+  /** Holds constants in support of BrailleIme and TalkBack-on-TV. */
   public static class Constants {
 
     private Constants() {}
@@ -49,8 +51,17 @@ public class AccessibilityServiceCompatUtils {
     /** The package name for the Gboard app. */
     public static final String GBOARD_PACKAGE_NAME = "com.google.android.inputmethod.latin";
 
+    /**
+     * The package name for the Gboard app currently under development. It is expected to have
+     * {@link #GBOARD_PACKAGE_NAME} as prefix.
+     */
+    public static final String GBOARD_PACKAGE_NAME_DEV = "com.google.android.inputmethod.latin.dev";
+
+    /** The minimum version of the Gboard app that TalkBack is compatible with on TV. */
+    public static final int GBOARD_MIN_SUPPORTED_VERSION = 107460889;
+
     private static final String ACCESSIBILITY_SUITE_PACKAGE_NAME =
-        PackageManagerUtils.TALBACK_PACKAGE;
+        PackageManagerUtils.TALKBACK_PACKAGE;
 
     /** The name of the TalkBack Settings Activity. */
     public static final ComponentName SETTINGS_ACTIVITY =
@@ -81,7 +92,7 @@ public class AccessibilityServiceCompatUtils {
             "com.google.android.accessibility.braille.brailledisplay.settings.BrailleDisplaySettingsActivity");
   }
 
-  /** @return root node of the Application window */
+  /** Returns root node of the Application window. */
   public static @Nullable AccessibilityNodeInfoCompat getRootInActiveWindow(
       AccessibilityService service) {
     if (service == null) {
@@ -183,13 +194,44 @@ public class AccessibilityServiceCompatUtils {
 
   /** Returns whether input method window is on the screen. */
   public static boolean isInputWindowOnScreen(AccessibilityService service) {
+    return getOnscreenInputWindowInfo(service) != null;
+  }
+
+  /** Returns the picture-in-picture window if open, or {@code null}. */
+  public static @Nullable AccessibilityWindowInfo getPipWindow(AccessibilityService service) {
+    for (AccessibilityWindowInfo window : getWindows(service)) {
+      if (window.isInPictureInPictureMode()) {
+        return window;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Returns the active onscreen input {@link AccessibilityWindowInfo}.
+   *
+   * @return null if no active input window.
+   */
+  public static @Nullable AccessibilityWindowInfo getOnscreenInputWindowInfo(
+      AccessibilityService service) {
     List<AccessibilityWindowInfo> windows = getWindows(service);
     for (AccessibilityWindowInfo window : windows) {
       if (window != null && window.getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD) {
-        return true;
+        return window;
       }
     }
-    return false;
+    return null;
+  }
+
+  /** Returns a list of system window on the screen. */
+  public static List<AccessibilityWindowInfo> getSystemWindows(AccessibilityService service) {
+    List<AccessibilityWindowInfo> windows = new ArrayList<>();
+    for (AccessibilityWindowInfo window : getWindows(service)) {
+      if (window.getType() == AccessibilityWindowInfo.TYPE_SYSTEM) {
+        windows.add(window);
+      }
+    }
+    return windows;
   }
 
   public static String gestureIdToString(int gestureId) {
@@ -226,6 +268,66 @@ public class AccessibilityServiceCompatUtils {
         return "GESTURE_SWIPE_UP_AND_LEFT";
       case AccessibilityService.GESTURE_SWIPE_UP_AND_RIGHT:
         return "GESTURE_SWIPE_UP_AND_RIGHT";
+      case AccessibilityService.GESTURE_DOUBLE_TAP:
+        return "GESTURE_DOUBLE_TAP";
+      case AccessibilityService.GESTURE_DOUBLE_TAP_AND_HOLD:
+        return "GESTURE_DOUBLE_TAP_AND_HOLD";
+      case AccessibilityService.GESTURE_2_FINGER_SINGLE_TAP:
+        return "GESTURE_2_FINGER_SINGLE_TAP";
+      case AccessibilityService.GESTURE_2_FINGER_DOUBLE_TAP:
+        return "GESTURE_2_FINGER_DOUBLE_TAP";
+      case AccessibilityService.GESTURE_2_FINGER_TRIPLE_TAP:
+        return "GESTURE_2_FINGER_TRIPLE_TAP";
+      case AccessibilityService.GESTURE_3_FINGER_SINGLE_TAP:
+        return "GESTURE_3_FINGER_SINGLE_TAP";
+      case AccessibilityService.GESTURE_3_FINGER_DOUBLE_TAP:
+        return "GESTURE_3_FINGER_DOUBLE_TAP";
+      case AccessibilityService.GESTURE_3_FINGER_TRIPLE_TAP:
+        return "GESTURE_3_FINGER_TRIPLE_TAP";
+      case AccessibilityService.GESTURE_2_FINGER_SWIPE_UP:
+        return "GESTURE_2_FINGER_SWIPE_UP";
+      case AccessibilityService.GESTURE_2_FINGER_SWIPE_DOWN:
+        return "GESTURE_2_FINGER_SWIPE_DOWN";
+      case AccessibilityService.GESTURE_2_FINGER_SWIPE_LEFT:
+        return "GESTURE_2_FINGER_SWIPE_LEFT";
+      case AccessibilityService.GESTURE_2_FINGER_SWIPE_RIGHT:
+        return "GESTURE_2_FINGER_SWIPE_RIGHT";
+      case AccessibilityService.GESTURE_3_FINGER_SWIPE_UP:
+        return "GESTURE_3_FINGER_SWIPE_UP";
+      case AccessibilityService.GESTURE_3_FINGER_SWIPE_DOWN:
+        return "GESTURE_3_FINGER_SWIPE_DOWN";
+      case AccessibilityService.GESTURE_3_FINGER_SWIPE_LEFT:
+        return "GESTURE_3_FINGER_SWIPE_LEFT";
+      case AccessibilityService.GESTURE_3_FINGER_SWIPE_RIGHT:
+        return "GESTURE_3_FINGER_SWIPE_RIGHT";
+      case AccessibilityService.GESTURE_4_FINGER_SWIPE_UP:
+        return "GESTURE_4_FINGER_SWIPE_UP";
+      case AccessibilityService.GESTURE_4_FINGER_SWIPE_DOWN:
+        return "GESTURE_4_FINGER_SWIPE_DOWN";
+      case AccessibilityService.GESTURE_4_FINGER_SWIPE_LEFT:
+        return "GESTURE_4_FINGER_SWIPE_LEFT";
+      case AccessibilityService.GESTURE_4_FINGER_DOUBLE_TAP:
+        return "GESTURE_4_FINGER_DOUBLE_TAP";
+      case AccessibilityService.GESTURE_4_FINGER_TRIPLE_TAP:
+        return "GESTURE_4_FINGER_TRIPLE_TAP";
+      case AccessibilityService.GESTURE_2_FINGER_DOUBLE_TAP_AND_HOLD:
+        return "GESTURE_2_FINGER_DOUBLE_TAP_AND_HOLD";
+      case AccessibilityService.GESTURE_3_FINGER_DOUBLE_TAP_AND_HOLD:
+        return "GESTURE_3_FINGER_DOUBLE_TAP_AND_HOLD";
+      case AccessibilityService.GESTURE_4_FINGER_DOUBLE_TAP_AND_HOLD:
+        return "GESTURE_4_FINGER_DOUBLE_TAP_AND_HOLD";
+      case AccessibilityService.GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD:
+        return "GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD";
+      case AccessibilityService.GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD:
+        return "GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD";
+      case AccessibilityService.GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD:
+        return "GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD";
+      case GestureManifold.GESTURE_FAKED_SPLIT_TYPING:
+        return "GESTURE_FAKED_SPLIT_TYPING";
+      case GestureManifold.GESTURE_TAP_HOLD_AND_2ND_FINGER_FORWARD_DOUBLE_TAP:
+        return "GESTURE_TAP_HOLD_AND_2ND_FINGER_FORWARD_DOUBLE_TAP";
+      case GestureManifold.GESTURE_TAP_HOLD_AND_2ND_FINGER_BACKWARD_DOUBLE_TAP:
+        return "GESTURE_TAP_HOLD_AND_2ND_FINGER_BACKWARD_DOUBLE_TAP";
       default:
         return "(unhandled " + gestureId + ")";
     }

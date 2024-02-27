@@ -28,5 +28,7 @@ public interface ServiceKeyEventListener {
   boolean onKeyEvent(KeyEvent event, EventId eventId);
 
   /** Determines whether events are received when the service isn't running. */
-  boolean processWhenServiceSuspended();
+  default boolean processWhenServiceSuspended() {
+    return false;
+  }
 }

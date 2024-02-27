@@ -16,13 +16,16 @@
 
 package com.google.android.accessibility.brailleime.input;
 
+import androidx.annotation.Nullable;
+import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
+
 /**
  * Describes a user-initiated swipe on the touch screen.
  *
  * <p>A swipe has both a {@link Direction} and a touch count, which is the number of fingers that
  * were touching the screen while the swipe was occurring.
  */
-public class Swipe {
+public class Swipe implements Gesture {
 
   /** The direction in which the swipe occurred. */
   public enum Direction {
@@ -65,6 +68,21 @@ public class Swipe {
     return touchCount;
   }
 
+  @Override
+  public Swipe getSwipe() {
+    return new Swipe(this);
+  }
+
+  @Override
+  public BrailleCharacter getHeldDots() {
+    return new BrailleCharacter();
+  }
+
+  @Override
+  public Gesture mirrorDots() {
+    return new Swipe(this);
+  }
+
   private static Direction rotate90Degrees(Direction oldDirection) {
     if (oldDirection == Direction.UP) {
       return Direction.RIGHT;
@@ -99,5 +117,28 @@ public class Swipe {
   @Override
   public String toString() {
     return "Swipe{" + "direction=" + direction + ", touchCount=" + touchCount + '}';
+  }
+
+  @Override
+  public boolean equals(@Nullable Object obj) {
+    if (!(obj instanceof Swipe)) {
+      return false;
+    }
+    Swipe that = (Swipe) obj;
+    return direction.equals(that.direction) && touchCount == that.touchCount;
+  }
+
+  @Override
+  public int hashCode() {
+    /*
+     * Hashing function taken from an example in "Effective Java" page 38/39. The number 13 is
+     * arbitrary, but choosing non-zero number to start decreases the number of collisions. 37
+     * is used as it's an odd prime. If multiplication overflowed and the 37 was an even number,
+     * it would be equivalent to bit shifting. The fact that 37 is prime is standard practice.
+     */
+    int result = 13;
+    result = 37 * result + (direction == null ? 0 : direction.hashCode());
+    result = 37 * result + touchCount;
+    return result;
   }
 }

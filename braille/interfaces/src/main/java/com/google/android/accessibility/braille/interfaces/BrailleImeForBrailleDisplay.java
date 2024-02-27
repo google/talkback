@@ -69,6 +69,36 @@ public interface BrailleImeForBrailleDisplay {
   /** Tells BrailleIme to delete the editing word before cursor. */
   boolean deleteWordBackward();
 
+  /** Tells BrailleIme to cut selected text. */
+  boolean cutSelectedText();
+
+  /** Tells BrailleIme to copy selected text. */
+  boolean copySelectedText();
+
+  /** Tells BrailleIme to paste selected text. */
+  boolean pasteSelectedText();
+
+  /** Tells BrailleIme to select all text. */
+  boolean selectAllText();
+
+  /** Tells BrailleIme to select previous character. */
+  boolean selectPreviousCharacter();
+
+  /** Tells BrailleIme to select next character. */
+  boolean selectNextCharacter();
+
+  /** Tells BrailleIme to select previous word. */
+  boolean selectPreviousWord();
+
+  /** Tells BrailleIme to select next word. */
+  boolean selectNextWord();
+
+  /** Tells BrailleIme to select previous line. */
+  boolean selectPreviousLine();
+
+  /** Tells BrailleIme to select next line. */
+  boolean selectNextLine();
+
   /** Tells BrailleIme commit holdings to the editor. */
   void commitHoldings();
 
@@ -83,4 +113,10 @@ public interface BrailleImeForBrailleDisplay {
 
   /** Tells BrailleIme to update result. */
   void updateResultForDisplay();
+
+  /** Returns whether braille keyboard is activated. */
+  boolean isBrailleKeyboardActivated();
+
+  /** Handles keycode entered from braille display for BARD Mobile. */
+  boolean handleBrailleKeyForBARDMobile(int keyCode);
 }

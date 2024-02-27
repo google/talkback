@@ -31,7 +31,10 @@ import com.google.common.base.Ascii;
 public interface TranslatorFactory {
 
   /** Creates the translator. */
-  BrailleTranslator create(Context context, String codeName);
+  BrailleTranslator create(Context context, String codeName, boolean contractedMode);
+
+  /** Returns the library name of the translator. */
+  String getLibraryName();
 
   /** Returns the name associated with {@param aClass}. */
   static String getNameFromClass(Class<? extends TranslatorFactory> aClass) {

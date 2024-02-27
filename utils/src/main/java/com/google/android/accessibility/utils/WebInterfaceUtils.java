@@ -189,7 +189,8 @@ public class WebInterfaceUtils {
    * @param node The node containing supported html elements
    * @return supported html elements
    */
-  public static String @Nullable [] getSupportedHtmlElements(AccessibilityNodeInfoCompat node) {
+  public static String @Nullable [] getSupportedHtmlElements(
+      @Nullable AccessibilityNodeInfoCompat node) {
     SupportedHtmlNodeCollector supportedHtmlNodeCollector = new SupportedHtmlNodeCollector();
     AccessibilityNodeInfoUtils.isOrHasMatchingAncestor(node, supportedHtmlNodeCollector);
     if ((supportedHtmlNodeCollector.getSupportedTypes() == null)
@@ -336,7 +337,7 @@ public class WebInterfaceUtils {
    * @param node The node to evaluate
    * @return {@code true} if the node contains web content, {@code false} otherwise
    */
-  public static boolean supportsWebActions(AccessibilityNodeInfoCompat node) {
+  public static boolean supportsWebActions(@Nullable AccessibilityNodeInfoCompat node) {
     return AccessibilityNodeInfoUtils.supportsAnyAction(
         node,
         AccessibilityNodeInfoCompat.ACTION_NEXT_HTML_ELEMENT,
@@ -349,7 +350,7 @@ public class WebInterfaceUtils {
    * @param node The node to evaluate
    * @return {@code true} if the node contains native web content, {@code false} otherwise
    */
-  public static boolean hasNativeWebContent(AccessibilityNodeInfoCompat node) {
+  public static boolean hasNativeWebContent(@Nullable AccessibilityNodeInfoCompat node) {
     return supportsWebActions(node);
   }
 
@@ -385,7 +386,7 @@ public class WebInterfaceUtils {
    * @param node The node to check for web content.
    * @return Whether the given node has navigable web content.
    */
-  public static boolean hasNavigableWebContent(AccessibilityNodeInfoCompat node) {
+  public static boolean hasNavigableWebContent(@Nullable AccessibilityNodeInfoCompat node) {
     return supportsWebActions(node);
   }
 

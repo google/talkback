@@ -16,14 +16,24 @@
 
 package com.google.android.accessibility.talkback.utils;
 
+import static android.content.Context.RECEIVER_EXPORTED;
+import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.ACTION_DONE;
+
+import android.Manifest.permission;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.permission.PermissionUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Utility class for notification */
 public class NotificationUtils {
@@ -85,9 +95,7 @@ public class NotificationUtils {
       String content,
       PendingIntent pendingIntent,
       boolean autoCancel) {
-    setupNotificationChannel(context);
-    return new NotificationCompat.Builder(context, TALKBACK_CHANNEL_ID)
-        .setSmallIcon(R.drawable.ic_stat_info)
+    return createDefaultNotificationBuilder(context)
         .setTicker(ticker)
         .setContentTitle(title)
         .setContentText(content)
@@ -96,5 +104,41 @@ public class NotificationUtils {
         .setOngoing(true)
         .setWhen(0)
         .build();
+  }
+
+  /** Retrieves default {@link NotificationCompat.Builder} for Android Accessibility Suite. */
+  public static NotificationCompat.Builder createDefaultNotificationBuilder(Context context) {
+    setupNotificationChannel(context);
+    return new NotificationCompat.Builder(context, TALKBACK_CHANNEL_ID)
+        .setSmallIcon(R.drawable.quantum_gm_ic_accessibility_new_vd_theme_24);
+  }
+
+  /** Requests post notification permission for TalkBack. */
+  public static void requestPostNotificationPermissionIfNeeded(Context context) {
+    requestPostNotificationPermissionIfNeeded(context, null);
+  }
+
+  /** Requests post notification permission for TalkBack. */
+  public static void requestPostNotificationPermissionIfNeeded(
+      Context context, @Nullable BroadcastReceiver broadcastReceiver) {
+    if (hasPostNotificationPermission(context)) {
+      return;
+    }
+
+    if (broadcastReceiver != null) {
+      IntentFilter filter = new IntentFilter();
+      filter.addAction(ACTION_DONE);
+      ContextCompat.registerReceiver(context, broadcastReceiver, filter, RECEIVER_EXPORTED);
+    }
+    PermissionUtils.requestPermissions(context, permission.POST_NOTIFICATIONS);
+  }
+
+  public static boolean hasPostNotificationPermission(Context context) {
+    if (!FeatureSupport.postNotificationsPermission()) {
+      return true;
+    }
+
+    return ContextCompat.checkSelfPermission(context, permission.POST_NOTIFICATIONS)
+        == PackageManager.PERMISSION_GRANTED;
   }
 }

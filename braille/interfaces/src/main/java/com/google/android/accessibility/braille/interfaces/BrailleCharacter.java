@@ -18,12 +18,14 @@ package com.google.android.accessibility.braille.interfaces;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
+import android.icu.text.NumberFormat;
 import android.util.Range;
-import java.util.ArrayList;
+import com.google.android.accessibility.utils.braille.BrailleUnicode;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * An immutable configuration of braille dots, in a single braille cell, some of which are on
@@ -43,6 +45,8 @@ public class BrailleCharacter {
   public static final BrailleCharacter DOT6 = new BrailleCharacter("6");
   public static final BrailleCharacter DOT7 = new BrailleCharacter("7");
   public static final BrailleCharacter DOT8 = new BrailleCharacter("8");
+  public static final BrailleCharacter DOT12 = new BrailleCharacter("12");
+
   public static final int DOT_COUNT = 8;
   private static final Range<Integer> DOT_RANGE = new Range<>(1, DOT_COUNT);
   private final BitSet dotNumbers;
@@ -173,13 +177,7 @@ public class BrailleCharacter {
    * <p>The dot numbers are in the range 1 to 8.
    */
   public List<Integer> toDotNumbers() {
-    List<Integer> dotNumberList = new ArrayList<>();
-    for (int index = dotNumbers.nextSetBit(0);
-        index != -1;
-        index = dotNumbers.nextSetBit(index + 1)) {
-      dotNumberList.add(index + 1);
-    }
-    return dotNumberList;
+    return BrailleUnicode.toDotNumbers(dotNumbers);
   }
 
   /** Returns whether the given dot number is on. */
@@ -204,6 +202,19 @@ public class BrailleCharacter {
       if (dotNumbers.get(bitIndex)) {
         // Maps bit 0 to dot number 1.
         sb.append(bitIndex + 1);
+      }
+    }
+    return sb.toString();
+  }
+
+  /** Returns the number string using the current locale. */
+  public String toLocaleString() {
+    StringBuilder sb = new StringBuilder();
+    NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
+    for (int bitIndex = 0; bitIndex < dotNumbers.length(); bitIndex++) {
+      if (dotNumbers.get(bitIndex)) {
+        // Maps bit 0 to dot number 1.
+        sb.append(numberFormat.format(bitIndex + 1));
       }
     }
     return sb.toString();

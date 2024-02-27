@@ -36,7 +36,8 @@ public class HintEventInterpretation extends ReadOnly {
     HINT_TYPE_INPUT_FOCUS,
     HINT_TYPE_SCREEN,
     HINT_TYPE_SELECTOR,
-    HINT_TYPE_TEXT_SUGGESTION
+    HINT_TYPE_TEXT_SUGGESTION,
+    HINT_TYPE_TYPO
   })
   @Retention(RetentionPolicy.SOURCE)
   public @interface HintType {}
@@ -47,6 +48,7 @@ public class HintEventInterpretation extends ReadOnly {
   public static final int HINT_TYPE_SCREEN = 3;
   public static final int HINT_TYPE_SELECTOR = 4;
   public static final int HINT_TYPE_TEXT_SUGGESTION = 5;
+  public static final int HINT_TYPE_TYPO = 6;
 
   //////////////////////////////////////////////////////////////////////////////////////////
   // Member variables
@@ -124,6 +126,8 @@ public class HintEventInterpretation extends ReadOnly {
         return "HINT_TYPE_SELECTOR";
       case HINT_TYPE_TEXT_SUGGESTION:
         return "HINT_TYPE_TEXT_SUGGESTION";
+      case HINT_TYPE_TYPO:
+        return "HINT_TYPE_TYPO";
       default:
         return "(unhandled)";
     }

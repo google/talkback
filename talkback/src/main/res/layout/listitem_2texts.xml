@@ -38,7 +38,7 @@
         android:layout_marginBottom="@dimen/customize_menus_settings_menuitem_margin_bottom"
         android:layout_weight="1">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -46,7 +46,8 @@
             android:fadingEdge="horizontal"
             android:textColor="@color/actionBarTextColorPrimary" />
 
-        <TextView android:id="@android:id/summary"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@android:id/summary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@android:id/title"

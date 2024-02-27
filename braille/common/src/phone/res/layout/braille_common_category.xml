@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/braille_common_category_margin_top"
+    android:layout_marginHorizontal="@dimen/braille_common_category_margin_horizontal"
+    android:padding="@dimen/braille_common_category_padding"
+    android:background="@drawable/braille_common_category_shape"
+    android:orientation="horizontal"
+    android:focusable="true" >
+
+  <ImageView
+      android:id="@android:id/icon"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/braille_common_category_icon_margin_top"
+      android:tint="@color/braille_common_category_color"
+      android:gravity="start|top"
+      tools:ignore="ContentDescription" />
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingStart="@dimen/braille_common_category_text_padding_start"
+      android:paddingEnd="@dimen/braille_common_category_text_padding_end"
+      android:orientation="vertical">
+
+    <TextView
+        android:id="@android:id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@string/accessibility_font"
+        android:textColor="@color/settings_primary_text"
+        android:textSize="@dimen/braille_common_category_primary_text_size" />
+
+    <TextView
+        android:id="@android:id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/braille_common_category_secondary_margin_top"
+        android:fontFamily="@string/accessibility_font"
+        android:textColor="@color/settings_secondary_text"
+        android:textSize="@dimen/braille_common_category_secondary_text_size" />
+
+  </LinearLayout>
+
+</LinearLayout>
+

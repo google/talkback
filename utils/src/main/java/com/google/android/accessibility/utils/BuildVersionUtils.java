@@ -18,7 +18,6 @@ package com.google.android.accessibility.utils;
 
 import android.os.Build;
 import androidx.annotation.ChecksSdkIntAtLeast;
-import androidx.core.os.BuildCompat;
 
 /**
  * This file provides a wrapper for the Build versions. Everytime an android version number gets
@@ -72,7 +71,11 @@ public class BuildVersionUtils {
 
   @ChecksSdkIntAtLeast(api = 33)
   public static boolean isAtLeastT() {
-    // Build.VERSION_CODES.TIRAMISU is not open-sourced yet.
-    return Build.VERSION.SDK_INT > Build.VERSION_CODES.S_V2 || BuildCompat.isAtLeastT();
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU;
+  }
+
+  @ChecksSdkIntAtLeast(api = 34)
+  public static boolean isAtLeastU() {
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE;
   }
 }

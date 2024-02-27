@@ -23,8 +23,9 @@ import static android.media.AudioManager.STREAM_ACCESSIBILITY;
 import android.content.Context;
 import android.media.AudioManager;
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.Feedback.AdjustVolume.StreamType;
-import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 
 /**
  * This class supports to notify user while manipulating slider(SeekBar). When the current value is
@@ -38,10 +39,12 @@ public class VolumeAdjustor {
   // stream volume to be restored to this percentage level when user enables TalkBack.
   private static final int MIN_VOLUME_PERCENTAGE = 30;
   private final Context context;
+  private final FormFactorUtils formFactorUtils;
 
   public VolumeAdjustor(Context context) {
     this.context = context;
-    if (FeatureSupport.isWatch(context)) {
+    formFactorUtils = FormFactorUtils.getInstance();
+    if (formFactorUtils.isAndroidWear()) {
       resetVolume();
     }
   }
@@ -87,7 +90,8 @@ public class VolumeAdjustor {
    * settings is lower than that level. This is especially important for Accessibility Stream in
    * Wear device which does not have dedicate volume keys;
    */
-  private void resetVolume() {
+  @VisibleForTesting
+  protected void resetVolume() {
     @Nullable
     AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
     if (audioManager == null) {
@@ -100,7 +104,7 @@ public class VolumeAdjustor {
       return;
     }
     int minAllowedVolume =
-        FeatureSupport.isWatch(context)
+        formFactorUtils.isAndroidWear()
             ? (((maxVolume - minVolume) * MIN_VOLUME_PERCENTAGE) / 100) + minVolume
             : minVolume;
 

@@ -3,7 +3,7 @@
     android:key="@string/pref_category_manage_gestures_key">
 
   <!-- Select preset -->
-  <com.google.android.accessibility.talkback.preference.WearListPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteListPreference
       android:key="@string/pref_verbosity_preset_key"
       android:title="@string/pref_verbosity_preset_title"
       android:summary="%s"
@@ -12,66 +12,66 @@
       android:entryValues="@array/pref_verbosity_preset_values" />
 
   <!-- Preset settings -->
-  <PreferenceCategory
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreferenceCategory
       android:key="@string/pref_verbosity_category_preset_settings_key"
       android:title="@string/pref_verbosity_category_preset_settings_title">
 
     <!-- Hints -->
-    <SwitchPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
         android:defaultValue="@bool/pref_a11y_hints_default"
         android:key="@string/pref_a11y_hints_key"
         android:summary="@string/summary_pref_a11y_hints"
         android:title="@string/title_pref_a11y_hints" />
 
     <!-- Container positions -->
-    <SwitchPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
         android:defaultValue="@bool/pref_speak_container_element_positions_default"
         android:key="@string/pref_speak_container_element_positions_key"
         android:title="@string/pref_speak_container_element_positions_title" />
 
     <!-- Scroll announcement verbosity -->
-    <SwitchPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
         android:defaultValue="@bool/pref_verbose_scroll_announcement_default"
         android:key="@string/pref_verbose_scroll_announcement_key"
         android:summary="@string/summary_pref_verbose_scroll_announcement"
         android:title="@string/title_pref_verbose_scroll_announcement" />
 
     <!-- Role -->
-    <SwitchPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
         android:defaultValue="@bool/pref_speak_roles_default"
         android:key="@string/pref_speak_roles_key"
         android:summary="@string/pref_speak_roles_summary"
         android:title="@string/pref_speak_roles_title" />
 
     <!-- Window title -->
-    <SwitchPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
         android:defaultValue="@bool/pref_speak_system_window_titles_default"
         android:key="@string/pref_speak_system_window_titles_key"
         android:summary="@string/pref_speak_system_window_titles_summary"
         android:title="@string/pref_speak_system_window_titles_title" />
 
     <!-- Notifications when screen is off -->
-    <SwitchPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
         android:defaultValue="@bool/pref_screenoff_default"
         android:key="@string/pref_screenoff_key"
         android:title="@string/title_pref_speak_screenoff" />
 
     <!-- Pitch changes -->
-    <SwitchPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
         android:defaultValue="@bool/pref_intonation_default"
         android:key="@string/pref_intonation_key"
         android:summary="@string/summary_pref_intonation"
         android:title="@string/title_pref_intonation" />
 
     <!-- Phonetic spelling -->
-    <SwitchPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
         android:defaultValue="@bool/pref_phonetic_letters_default"
         android:key="@string/pref_phonetic_letters_key"
         android:summary="@string/summary_pref_phonetic_letters"
         android:title="@string/title_pref_phonetic_letters" />
 
     <!-- On-screen Keyboard echo -->
-    <com.google.android.accessibility.talkback.preference.WearListPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteListPreference
         android:defaultValue="@string/pref_keyboard_echo_default"
         android:dialogTitle="@string/title_pref_keyboard_echo_on_screen"
         android:entries="@array/pref_keyboard_echo_entries"
@@ -81,7 +81,7 @@
         android:title="@string/title_pref_keyboard_echo_on_screen" />
 
     <!-- Physical Keyboard echo -->
-    <com.google.android.accessibility.talkback.preference.WearListPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteListPreference
         android:defaultValue="@string/pref_keyboard_echo_default"
         android:dialogTitle="@string/title_pref_keyboard_echo_physical"
         android:entries="@array/pref_keyboard_echo_entries"
@@ -91,7 +91,7 @@
         android:title="@string/title_pref_keyboard_echo_physical" />
 
     <!-- Capital letter -->
-    <com.google.android.accessibility.talkback.preference.WearListPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteListPreference
         android:defaultValue="@string/pref_capital_letters_default"
         android:entries="@array/pref_capital_letters_entries"
         android:entryValues="@array/pref_capital_letters_values"
@@ -99,25 +99,25 @@
         android:summary="%s"
         android:title="@string/title_pref_capital_letters" />
 
-  </PreferenceCategory>
+  </com.google.android.accessibility.utils.preference.AccessibilitySuitePreferenceCategory>
 
-  <!-- Non-preset detailed settings -->
-  <PreferenceCategory
-      android:key="@string/pref_verbosity_category_misc_settings_key"
-      android:title="@string/pref_verbosity_category_misc_settings_title">
+  <!-- Limit frequent content change -->
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
+      android:defaultValue="@bool/pref_allow_frequent_content_change_announcement_default"
+      android:key="@string/pref_allow_frequent_content_change_announcement_key"
+      android:title="@string/pref_allow_frequent_content_change_announcement_title"
+      android:summary="@string/summary_pref_allow_frequent_content_change_announcement" />
+  <!-- Speak element IDs - Non-preset detailed settings -->
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
+      android:defaultValue="@bool/pref_speak_element_ids_default"
+      android:key="@string/pref_speak_element_ids_key"
+      android:summary="@string/summary_pref_speak_element_ids"
+      android:title="@string/title_pref_speak_element_ids" />
 
-    <SwitchPreference
-        android:defaultValue="@bool/pref_speak_element_ids_default"
-        android:key="@string/pref_speak_element_ids_key"
-        android:summary="@string/summary_pref_speak_element_ids"
-        android:title="@string/title_pref_speak_element_ids" />
-
-    <!-- Punctuation -->
-    <SwitchPreference
-        android:defaultValue="@bool/pref_punctuation_default"
-        android:key="@string/pref_punctuation_key"
-        android:title="@string/title_pref_punctuation" />
-
-  </PreferenceCategory>
+  <!-- Punctuation - Non-preset detailed settings -->
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
+      android:defaultValue="@bool/pref_punctuation_default"
+      android:key="@string/pref_punctuation_key"
+      android:title="@string/title_pref_punctuation" />
 
 </PreferenceScreen>

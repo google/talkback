@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="talkback_service_description">O TalkBack é um leitor de tela usado principalmente por pessoas cegas ou com baixa visão. Ele permite a interação com o dispositivo usando o feedback falado.</string>
-  <string name="welcome_to_talkback_text">Receba feedback falado para poder usar o relógio sem olhar para a tela.</string>
+  <string name="talkback_service_description">O TalkBack é um leitor de tela usado principalmente por pessoas cegas ou com baixa visão. Ele permite a interação com o dispositivo usando a resposta falada.</string>
+  <string name="welcome_to_talkback_text">Receba resposta falada para poder usar o relógio sem olhar para a tela.</string>
+  <string name="summary_custom_action">Aparece quando ações personalizadas existem para o item atual.</string>
+  <string name="notification_title_talkback_gestures_changed">Gestos do TalkBack atualizados</string>
+  <string name="notification_message_talkback_gestures_changed">Abra o TalkBack para mais detalhes</string>
+  <string name="new_feature_in_talkback_title">Novidades</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">OK</string>
+  <string name="scan_the_qr_code">Ler o código QR</string>
+  <string name="alternate_privacy_policy">Ou então, acesse http://www.google.com/policies/privacy</string>
+  <string name="alternate_tos">Ou então, acesse https://www.google.com/mobile/toscountry</string>
 </resources>

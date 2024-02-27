@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+  <CheckBoxPreference
+      android:key="@string/pref_key_braille_grade_contracted"
+      android:title="@string/bd_preference_braille_contracted" />
+  <CheckBoxPreference
+      android:key="@string/pref_key_braille_grade_uncontracted"
+      android:title="@string/bd_preference_braille_uncontracted" />
+  <PreferenceCategory
+      android:key="@string/pref_key_braille_grade_tips"
+      app:icon="@drawable/gs_info_vd_theme_24"/>
+</PreferenceScreen>

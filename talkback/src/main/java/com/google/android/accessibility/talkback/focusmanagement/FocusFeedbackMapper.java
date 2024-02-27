@@ -22,7 +22,7 @@ import static com.google.android.accessibility.talkback.Feedback.Focus.Action.IN
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.INITIAL_FOCUS_FOLLOW_INPUT;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.INITIAL_FOCUS_RESTORE;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.LONG_CLICK_NODE;
-import static com.google.android.accessibility.talkback.Feedback.Focus.Action.RESTORE;
+import static com.google.android.accessibility.talkback.Feedback.Focus.Action.RESTORE_TO_CACHE;
 
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -37,6 +37,7 @@ import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.LogDepth;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
@@ -58,29 +59,25 @@ public class FocusFeedbackMapper {
 
     LogDepth.logFunc(Mappers.LOG_TAG, ++depth, "mapWindowChangeToFocusAction");
 
-    // Force restore accessibility-focus.
     @Nullable ScreenState screenState = variables.screenState(depth);
+
+    // On TV, we only try to follow input focus.
+    if (FormFactorUtils.getInstance().isAndroidTv()) {
+      return Feedback.create(eventId, toFeedbackPart(INITIAL_FOCUS_FOLLOW_INPUT, screenState));
+    }
+
     ArrayList<Feedback.Part> feedbackFailovers = new ArrayList<>();
+    // Force restore accessibility-focus.
     if (variables.forceRestoreFocus(depth)) {
-      feedbackFailovers.add(toFeedbackPart(RESTORE, screenState));
+      feedbackFailovers.add(toFeedbackPart(RESTORE_TO_CACHE, screenState));
     }
-
     // Fail-over to restore accessibility-focus on resurfaced window.
-    boolean initialFocusEnabled = variables.isInitialFocusEnabled(depth);
-    if (initialFocusEnabled) {
-      feedbackFailovers.add(
-          Feedback.part()
-              .setFocus(Feedback.focus(INITIAL_FOCUS_RESTORE).setScreenState(screenState).build())
-              .build());
-    }
-
+    feedbackFailovers.add(toFeedbackPart(INITIAL_FOCUS_RESTORE, screenState));
     // Fail-over to move accessibility-focus to input-focus.
     feedbackFailovers.add(toFeedbackPart(INITIAL_FOCUS_FOLLOW_INPUT, screenState));
-
     // Fail-over to accessibility-focus on first non-title content.
-    if (initialFocusEnabled) {
-      feedbackFailovers.add(toFeedbackPart(INITIAL_FOCUS_FIRST_CONTENT, screenState));
-    }
+    feedbackFailovers.add(toFeedbackPart(INITIAL_FOCUS_FIRST_CONTENT, screenState));
+
     return Feedback.create(eventId, feedbackFailovers);
   }
 
@@ -106,6 +103,7 @@ public class FocusFeedbackMapper {
             Feedback.sound(R.raw.view_entered).vibration(R.array.view_hovered_pattern).build());
 
       case TOUCH_START:
+      case TOUCH_ENTERED_UNFOCUSED_NODE:
         return Feedback.create(eventId, Feedback.part().setInterruptGentle(true).build());
 
       case TOUCH_FOCUSED_NODE:
@@ -116,10 +114,7 @@ public class FocusFeedbackMapper {
         return toFeedback(eventId, Feedback.focus(FOCUS_FOR_TOUCH).setTarget(touchTarget));
 
       case LIFT:
-        if (variables.liftToType(depth)) {
-          return toFeedback(eventId, Feedback.focus(CLICK_NODE).setTarget(touchTarget));
-        }
-        break;
+        return toFeedback(eventId, Feedback.focus(CLICK_NODE).setTarget(touchTarget));
 
       case TAP:
         if (variables.singleTap(depth)) {
@@ -155,14 +150,27 @@ public class FocusFeedbackMapper {
     // Try to focus on the next/previous focusable node.
     TraversalStrategy traversalStrategy =
         TraversalStrategyUtils.getTraversalStrategy(scrolledNode, focusFinder, direction);
-    final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache =
+    final @Nullable Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache =
         traversalStrategy.getSpeakingNodesCache();
-    Filter.NodeCompat nodeFilter =
-        new Filter.NodeCompat(
-            (node) -> AccessibilityNodeInfoUtils.shouldFocusNode(node, speakingNodeCache));
-    @Nullable AccessibilityNodeInfoCompat nodeToFocus =
-        TraversalStrategyUtils.findInitialFocusInNodeTree(
-            traversalStrategy, scrolledNode, direction, nodeFilter);
+    Filter<AccessibilityNodeInfoCompat> nodeFilter =
+        Filter.node((node) -> AccessibilityNodeInfoUtils.shouldFocusNode(node, speakingNodesCache));
+
+    @Nullable AccessibilityNodeInfoCompat currentNode = variables.currentNode(depth);
+    @Nullable AccessibilityNodeInfoCompat nodeToFocus;
+    if (currentNode == null) {
+      nodeToFocus =
+          TraversalStrategyUtils.findFirstFocusInNodeTree(
+              traversalStrategy, scrolledNode, direction, nodeFilter);
+    } else {
+      nodeToFocus =
+          TraversalStrategyUtils.searchFocus(traversalStrategy, currentNode, direction, nodeFilter);
+      // If searchFocus can not find a node, we fallback to find initial focus in node tree.
+      if (nodeToFocus == null) {
+        nodeToFocus =
+            TraversalStrategyUtils.findFirstFocusInNodeTree(
+                traversalStrategy, scrolledNode, direction, nodeFilter);
+      }
+    }
 
     if (nodeToFocus == null) {
       return null;
@@ -171,12 +179,11 @@ public class FocusFeedbackMapper {
     FocusActionInfo focusActionInfo =
         new FocusActionInfo.Builder().setSourceAction(FocusActionInfo.MANUAL_SCROLL).build();
 
-    @Nullable AccessibilityNode nodeToFocusCopy = AccessibilityNode.obtainCopy(nodeToFocus);
     return Feedback.part()
         .setFocus(Feedback.focus(nodeToFocus, focusActionInfo).build())
         .setNodeAction(
             NodeAction.builder()
-                .setTarget(nodeToFocusCopy)
+                .setTarget(AccessibilityNode.takeOwnership(nodeToFocus))
                 .setActionId(AccessibilityAction.ACTION_SHOW_ON_SCREEN.getId())
                 .build());
   }

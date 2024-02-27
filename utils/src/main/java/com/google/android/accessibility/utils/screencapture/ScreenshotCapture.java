@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.utils.screencapture;
 
+import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_ID_NONE;
+
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityService.ScreenshotResult;
 import android.accessibilityservice.AccessibilityService.TakeScreenshotCallback;
@@ -23,9 +25,12 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.hardware.HardwareBuffer;
 import android.view.Display;
+import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.android.libraries.accessibility.utils.screencapture.ScreenCaptureController.CaptureListener;
+import java.util.concurrent.Executor;
 
 /**
  * The utility class supports to take screenshot by native {@link
@@ -48,14 +53,31 @@ public class ScreenshotCapture {
    *     argument.
    */
   public static void takeScreenshot(AccessibilityService service, CaptureListener listener) {
+    takeScreenshot(service, listener, service.getMainExecutor());
+  }
+
+  /**
+   * Method to take screenshot with native support method.
+   *
+   * @param service The Accessibility service which has already been granted this feature by
+   *     android:canTakeScreenshot="true" in accessibility-service xml.
+   * @param listener Call back when got a result; success/failure depends on the screenCapture
+   *     argument.
+   * @param executor Executor on which to run the callback
+   */
+  public static void takeScreenshot(
+      AccessibilityService service, CaptureListener listener, Executor executor) {
+    takeScreenshot(service, listener, executor, WINDOW_ID_NONE);
+  }
+
+  private static void takeScreenshot(
+      AccessibilityService service, CaptureListener listener, Executor executor, int windowId) {
     if (!FeatureSupport.canTakeScreenShotByAccessibilityService()) {
       LogUtils.e(TAG, "Taking screenshot but platform's not support");
       listener.onScreenCaptureFinished(/* screenCapture= */ null, /* isFormatSupported= */ false);
       return;
     }
-    service.takeScreenshot(
-        Display.DEFAULT_DISPLAY,
-        service.getMainExecutor(),
+    TakeScreenshotCallback callback =
         new TakeScreenshotCallback() {
           @Override
           public void onFailure(int errorCode) {
@@ -80,6 +102,30 @@ public class ScreenshotCapture {
 
             listener.onScreenCaptureFinished(bitmap, /* isFormatSupported= */ bitmap != null);
           }
-        });
+        };
+
+    if (windowId != WINDOW_ID_NONE && FeatureSupport.supportTakeScreenshotByWindow()) {
+      service.takeScreenshotOfWindow(windowId, executor, callback);
+    } else {
+      service.takeScreenshot(Display.DEFAULT_DISPLAY, executor, callback);
+    }
+  }
+
+  /**
+   * Method to take screenshot with native support method.
+   *
+   * @param service The Accessibility service which has already been granted this feature by
+   *     android:canTakeScreenshot="true" in accessibility-service xml.
+   * @param node specify the focused node with which the containing window would be used to take
+   *     screenshot.
+   * @param listener Call back when got a result; success/failure depends on the screenCapture
+   *     argument.
+   */
+  public static void takeScreenshotByNode(
+      AccessibilityService service,
+      @Nullable AccessibilityNodeInfoCompat node,
+      CaptureListener listener) {
+    int windowId = (node == null) ? WINDOW_ID_NONE : node.getWindowId();
+    takeScreenshot(service, listener, service.getMainExecutor(), windowId);
   }
 }

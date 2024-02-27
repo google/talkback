@@ -9,6 +9,16 @@
     <item>20</item>
     <item>10</item>
     <item>40</item>
+    <item>-9999</item><!-- SENTINEL SEPARATOR -->
+    <item>7</item><!-- TICK -->
+    <item>150</item><!-- scale -->
+    <item>0</item><!-- delayMs -->
+    <item>7</item><!-- TICK -->
+    <item>255</item><!-- scale -->
+    <item>50</item><!-- delayMs -->
+    <item>3</item><!-- SPIN -->
+    <item>255</item><!-- scale -->
+    <item>50</item><!-- delayMs -->
   </integer-array>
 </resources>
 

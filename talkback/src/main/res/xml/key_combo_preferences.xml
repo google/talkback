@@ -8,7 +8,7 @@
             android:key="@string/pref_select_keymap_key"
             android:title="@string/keycombo_menu_select_keymap"
             android:summary="%s"
-            android:defaultValue="@string/classic_keymap_entry_value"
+            android:defaultValue="@string/default_keymap_entry_value"
             android:entries="@array/pref_select_keymap_entries"
             android:entryValues="@array/pref_select_keymap_values" />
         <PreferenceScreen
@@ -17,12 +17,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="@string/pref_navigation_actions_category_key"
         android:title="@string/keycombo_menu_category_navigation" >
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
-            android:key="@string/keycombo_shortcut_navigate_next"
+            android:key="@string/keycombo_shortcut_navigate_next_default"
             android:title="@string/keycombo_menu_navigate_next"/>
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
-            android:key="@string/keycombo_shortcut_navigate_previous"
+            android:key="@string/keycombo_shortcut_navigate_previous_default"
             android:title="@string/keycombo_menu_navigate_previous"/>
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_navigate_first"
@@ -36,6 +37,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="@string/pref_global_actions_category_key"
         android:title="@string/keycombo_menu_category_global" >
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_global_back"
@@ -67,6 +69,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="@string/pref_navigation_category_key"
         android:title="@string/keycombo_menu_category_granularity" >
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_granularity_increase"
@@ -77,6 +80,7 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="@string/pref_other_actions_category_key"
         android:title="@string/keycombo_menu_category_other" >
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_other_read_from_top"
@@ -87,7 +91,6 @@
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_other_toggle_search"
             android:title="@string/keycombo_menu_other_toggle_search"/>
-
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_other_talkback_context_menu"
             android:title="@string/keycombo_menu_other_talkback_context_menu"/>
@@ -97,5 +100,8 @@
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_other_language_options"
             android:title="@string/keycombo_menu_other_language_options"/>
+        <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_copy_last_spoken_phrase"
+            android:title="@string/keycombo_menu_other_copy_last_spoken_phrase"/>
     </PreferenceCategory>
 </PreferenceScreen>

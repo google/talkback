@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- Gesture recognition parameters. -->
+    <!-- Distance in cm a finger must travel before we decide if it is a gesture or not. -->
+    <item name="config_gesture_confirm_distance_cm" format="float" type="dimen">0.85</item>
+
+    <!-- Time threshold in ms used to determine if an interaction is a gesture or not. If the first
+         movement of 1cm takes longer than this value, we assume it's a slow movement, and
+         therefore not a gesture.
+
+         This value was determined by measuring the time for the first
+         1cm movement when gesturing, and touch exploring.  Based on user testing, all gestures
+         started with the initial movement taking less than 100ms. When touch exploring,
+         the first movement almost always takes longer than 200ms. -->
+    <integer name="config_max_time_to_start_swipe_ms_per_cm">200</integer>
+
+    <!-- Time threshold used to determine if a gesture should be cancelled. If the finger takes
+         more than this time to move to the next sample point, the ongoing gesture is cancelled. -->
+    <integer name="config_max_time_to_continue_swipe_ms_per_cm">400</integer>
+
+    <!-- Delta time as an offset to be added to ViewConfiguration.getTapTimeout(). -->
+    <integer name="config_tap_timeout_delta">20</integer>
+
+    <!-- Determine how far the 2-finger movement is regarded passthrough gesture. -->
+    <integer name="config_passthrough_slop_multiplier">2</integer>
+
+    <integer name="config_slop_default_multiplier">1</integer>
+
+</resources>

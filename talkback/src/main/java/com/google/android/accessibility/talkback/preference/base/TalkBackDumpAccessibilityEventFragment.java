@@ -28,11 +28,11 @@ import android.view.accessibility.AccessibilityEvent;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceScreen;
-import androidx.preference.SwitchPreference;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,7 +100,7 @@ public class TalkBackDumpAccessibilityEventFragment extends TalkbackBaseFragment
     }
   }
 
-  private static class EventDumperSwitchPreference extends SwitchPreference
+  private static class EventDumperSwitchPreference extends AccessibilitySuiteSwitchPreference
       implements OnPreferenceChangeListener {
     private final int eventType;
 

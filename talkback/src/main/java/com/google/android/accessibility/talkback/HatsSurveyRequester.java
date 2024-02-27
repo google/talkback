@@ -17,9 +17,16 @@
 package com.google.android.accessibility.talkback;
 
 import android.app.Activity;
+import android.view.KeyEvent;
 
 /** The requester of the survey for user feedback. */
 public class HatsSurveyRequester {
+
+  /** Callback to notify the client that a survey is available. */
+  public interface OnSurveyAvailableListener {
+    void onSurveyAvailable();
+  }
+
   public HatsSurveyRequester(Activity activity) {
     // Do nothing.
   }
@@ -29,8 +36,34 @@ public class HatsSurveyRequester {
     // Do nothing.
   }
 
+  /**
+   * Presents the cached survey if available.
+   *
+   * @return True if survey is available, otherwise false
+   */
+  public boolean presentCachedSurvey() {
+    return false;
+  }
+
+  public boolean isSurveyAvailable() {
+    return false;
+  }
+
+  public void setOnSurveyAvailableListener(OnSurveyAvailableListener listener) {
+    // Do nothing.
+  }
+
   /** Dismisses Hats survey. */
   public void dismissSurvey() {
     // Do nothing.
+  }
+
+  /**
+   * Callback for back key being released ({@link KeyEvent#ACTION_UP}).
+   *
+   * @return {@code true} if the back key has been handled (stops propagation)
+   */
+  public boolean handleBackKeyPress() {
+    return false; // Do nothing.
   }
 }

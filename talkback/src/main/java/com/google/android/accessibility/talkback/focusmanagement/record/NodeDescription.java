@@ -23,6 +23,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionIt
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Filter;
+import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import java.util.Objects;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -103,14 +104,14 @@ public class NodeDescription {
     this.columnIndex = original.columnIndex;
     this.rawIndexInParent = original.rawIndexInParent;
     this.nodeInfoHashCode = original.nodeInfoHashCode;
-    this.savedNode = (original.savedNode == null) ? null : original.savedNode.obtainCopy();
+    this.savedNode = original.savedNode;
     this.text = original.text;
     this.previousSiblingText = original.previousSiblingText;
     this.nextSiblingText = original.nextSiblingText;
   }
 
   public NodeDescription(@NonNull AccessibilityNodeInfoCompat node, boolean isPathEnd) {
-    this.savedNode = AccessibilityNode.obtainCopy(node);
+    this.savedNode = AccessibilityNode.takeOwnership(node);
     this.nodeInfoHashCode = node.hashCode();
     this.text = getText(this.savedNode, isPathEnd);
     this.className = node.getClassName();
@@ -232,6 +233,7 @@ public class NodeDescription {
     private final StringBuilder text = new StringBuilder();
     private int numNodes = 0;
 
+    @Override
     public boolean accept(AccessibilityNodeInfoCompat node) {
       @Nullable CharSequence nodeText = AccessibilityNodeInfoUtils.getNodeText(node);
       if (!TextUtils.isEmpty(nodeText)) {
@@ -281,6 +283,15 @@ public class NodeDescription {
       return UNDEFINED_INDEX;
     }
 
+    // When the parent node is a view pager, the child index should be replaced with item info's
+    // column index.
+    if (parent.getRole() == Role.ROLE_PAGER) {
+      CollectionItemInfoCompat itemInfoCompat = node.getCollectionItemInfo();
+      if (itemInfoCompat != null) {
+        return itemInfoCompat.getColumnIndex();
+      }
+    }
+
     for (int i = 0; i < parent.getChildCount(); i++) {
       AccessibilityNode child = parent.getChild(i);
       if (node.equals(child)) {
@@ -293,6 +304,7 @@ public class NodeDescription {
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Methods for logging
 
+  @Override
   public String toString() {
     return StringBuilderUtils.joinFields(
         StringBuilderUtils.optionalInt("index", rawIndexInParent, UNDEFINED_INDEX),

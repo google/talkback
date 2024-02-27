@@ -62,10 +62,11 @@ import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem;
 import com.google.android.accessibility.talkback.contextmenu.ListMenuManager;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
-import com.google.android.accessibility.talkback.menurules.RuleCustomAction;
+import com.google.android.accessibility.talkback.menurules.RuleAction;
 import com.google.android.accessibility.talkback.selector.SelectorController;
 import com.google.android.accessibility.talkback.selector.SelectorController.Setting;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
@@ -91,7 +92,7 @@ public class VoiceCommandProcessor {
   private Pipeline.InterpretationReceiver interpretationReceiver;
   private final AccessibilityFocusMonitor accessibilityFocusMonitor;
   private ListMenuManager menuManager;
-  private final SelectorController selectorController;
+  private SelectorController selectorController;
   private ActorState actorState;
   private final TalkBackAnalytics analytics;
 
@@ -235,6 +236,10 @@ public class VoiceCommandProcessor {
     echoNotRecognizedTextEnabled = enable;
   }
 
+  public void setSelectorController(SelectorController selectorController) {
+    this.selectorController = selectorController;
+  }
+
   private void dimScreenVoiceCommand(EventId eventId) {
     if (DimScreenActor.isSupported(service)) {
       sendInterpretation(VOICE_COMMAND_DIM_SCREEN, eventId);
@@ -285,7 +290,7 @@ public class VoiceCommandProcessor {
 
     // screen search voice command
     // command format: screen search, search on screen
-    if (!FeatureSupport.isWatch(service)
+    if (!FormFactorUtils.getInstance().isAndroidWear()
         && (equals(command, R.string.voice_commands_screen_search)
             || equals(command, R.string.voice_commands_search_on_screen))) {
       pipeline.returnFeedback(eventId, Feedback.universalSearch(TOGGLE_SEARCH));
@@ -310,10 +315,11 @@ public class VoiceCommandProcessor {
     int actionCommand = equals(command, actionsCommandResArray);
     if (actionCommand >= 0) {
       node = accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
-      RuleCustomAction ruleCustomAction = new RuleCustomAction(pipeline, actorState, analytics);
+      RuleAction ruleAction =
+          new RuleAction(pipeline, actorState, accessibilityFocusMonitor, analytics);
       List<ContextMenuItem> menuItems =
-          ruleCustomAction.getMenuItemsForNode(service, node, /* includeAncestors= */ true);
-      if (node == null || menuItems.size() == 0) {
+          ruleAction.getMenuItemsForNode(service, node, /* includeAncestors= */ true);
+      if (node == null || menuItems.isEmpty()) {
         menuManager.showMenu(
             R.id.custom_action_menu, eventId, R.string.voice_commands_no_actions_feedback);
       } else {
@@ -426,7 +432,7 @@ public class VoiceCommandProcessor {
       node = accessibilityFocusMonitor.getAccessibilityFocus(false);
 
       if (!WebInterfaceUtils.supportsWebActions(node)
-          || sendInterpretation(
+          || !sendInterpretation(
               VOICE_COMMAND_NEXT_GRANULARITY, CursorGranularity.WEB_LANDMARK, eventId)) {
         pipeline.returnFeedback(eventId, Feedback.sound(R.raw.complete));
         speakDelayed(service.getString(R.string.voice_commands_no_next_landmark_feedback));
@@ -859,6 +865,7 @@ public class VoiceCommandProcessor {
   }
 
   private @Nullable AccessibilityNodeInfoCompat getEditTextFocus() {
+    // TODO: Apply the input focus node if the accessibility focus is on IME window.
     @Nullable AccessibilityNodeInfoCompat node =
         accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
     if (Role.getRole(node) == Role.ROLE_EDIT_TEXT) {

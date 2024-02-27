@@ -18,51 +18,78 @@ package com.google.android.accessibility.talkback;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioAttributes;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import com.google.android.accessibility.utils.input.SpeechStateMonitor;
+import androidx.annotation.IntDef;
+import com.google.android.accessibility.talkback.monitor.CallStateMonitor;
 import com.google.android.accessibility.utils.monitor.AudioPlaybackMonitor;
 import com.google.android.accessibility.utils.monitor.HeadphoneStateMonitor;
 import com.google.android.accessibility.utils.monitor.MediaRecorderMonitor;
+import com.google.android.accessibility.utils.monitor.SpeechStateMonitor;
 import com.google.android.accessibility.utils.monitor.VoiceActionDelegate;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 /**
  * Monitors voice actions from other applications. Prevents TalkBack's audio feedback from
  * interfering with voice assist applications.
  */
 public class VoiceActionMonitor implements VoiceActionDelegate {
+
+  private static final String TAG = "VoiceActionMonitor";
+
   private final TalkBackService service;
   private final MediaRecorderMonitor mediaRecorderMonitor;
   private final AudioPlaybackMonitor audioPlaybackMonitor;
   private final CallStateMonitor callStateMonitor;
   private final SpeechStateMonitor speechStateMonitor;
 
+  private static final int SSB = 0;
+  private static final int MEDIA_RECORDER = 1;
+  private static final int AUDIO_PLAYBACK = 2;
+  private static final int CALL_STATE = 3;
+
+  /** Defines voice action sources that would interrupt TalkBack audio. */
+  @IntDef({
+    SSB,
+    MEDIA_RECORDER,
+    AUDIO_PLAYBACK,
+    CALL_STATE,
+  })
+  @Retention(RetentionPolicy.SOURCE)
+  @interface VoiceActionSource {}
+
   private final MediaRecorderMonitor.MicrophoneStateChangedListener microphoneStateChangedListener =
-      new MediaRecorderMonitor.MicrophoneStateChangedListener() {
-        @Override
-        public void onMicrophoneActivated() {
-          if (!isHeadphoneOn()) {
-            interruptTalkBackAudio();
-          }
+      () -> {
+        if (!isHeadphoneOn()) {
+          interruptTalkBackAudio(MEDIA_RECORDER);
         }
       };
 
   private final AudioPlaybackMonitor.AudioPlaybackStateChangedListener
       audioPlaybackStateChangedListener =
-          new AudioPlaybackMonitor.AudioPlaybackStateChangedListener() {
-            @Override
-            public void onAudioPlaybackActivated() {
-              interruptTalkBackAudio();
+          (configs) -> {
+            // No need to interrupt if only media and game playback are activated.
+            if ((configs.size() == 1
+                    && (configs.get(0).getAudioAttributes().getUsage()
+                            == AudioAttributes.USAGE_MEDIA
+                        || configs.get(0).getAudioAttributes().getUsage()
+                            == AudioAttributes.USAGE_GAME))
+                || (configs.size() == 2
+                    && configs.get(0).getAudioAttributes().getUsage() == AudioAttributes.USAGE_MEDIA
+                    && configs.get(1).getAudioAttributes().getUsage()
+                        == AudioAttributes.USAGE_GAME)) {
+              return;
             }
+            interruptTalkBackAudio(AUDIO_PLAYBACK);
           };
 
   private final CallStateMonitor.CallStateChangedListener callStateChangedListener =
-      new CallStateMonitor.CallStateChangedListener() {
-        @Override
-        public void onCallStateChanged(int oldState, int newState) {
-          if (newState == TelephonyManager.CALL_STATE_OFFHOOK) {
-            interruptTalkBackAudio();
-          }
+      (oldState, newState) -> {
+        if (newState == TelephonyManager.CALL_STATE_OFFHOOK) {
+          interruptTalkBackAudio(CALL_STATE);
         }
       };
 
@@ -114,7 +141,7 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
    * headset.
    */
   public boolean isSsbActiveAndHeadphoneOff() {
-    return mediaRecorderMonitor.isVoiceRecognitionActive() && !isHeadphoneOn();
+    return isVoiceRecognitionActive() && !isHeadphoneOn();
   }
 
   /** Returns {@code true} if phone call is active. */
@@ -162,7 +189,8 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
     return mediaRecorderMonitor.isMicrophoneActive() || speechStateMonitor.isListening();
   }
 
-  private void interruptTalkBackAudio() {
+  private void interruptTalkBackAudio(@VoiceActionSource int source) {
+    LogUtils.v(TAG, "Interrupt TalkBack audio. voice action source= %d", source);
     service.interruptAllFeedback(false /* stopTtsSpeechCompletely */);
   }
 

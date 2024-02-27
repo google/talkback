@@ -14,7 +14,7 @@
   <string name="voice_commands_languages">Тилдер</string>
   <string name="voice_commands_custom_actions">ыңгайлаштырылган аракеттер</string>
   <string name="voice_commands_action">Аракет</string>
-  <string name="voice_commands_quick_settings">Ыкчам жөндөөлөр</string>
+  <string name="voice_commands_quick_settings">Ыкчам параметрлер</string>
   <string name="voice_commands_quick_setting">Ыкчам жөндөө</string>
   <string name="voice_commands_dim">күңүрт</string>
   <string name="voice_commands_darken">караңгылатуу</string>
@@ -56,8 +56,8 @@
   <string name="voice_commands_dictate">Айтып жаздыруу</string>
   <string name="voice_commands_write">Жазуу</string>
   <string name="voice_commands_Spell">Жазылышы</string>
-  <string name="voice_commands_talkback_settings">TalkBack жөндөөлөрү</string>
-  <string name="voice_commands_talkback_setting">TalkBack жөндөөлөрү</string>
+  <string name="voice_commands_talkback_settings">TalkBack параметрлери</string>
+  <string name="voice_commands_talkback_setting">TalkBack параметрлери</string>
   <string name="voice_commands_screen_search">Экранда издөө</string>
   <string name="voice_commands_search_on_screen">Экранда издөө</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Үй буйруктарын колдонуу үчүн экранды оңго жана өйдө сүрүңүз. Үй буйруктарынын тизмесин көрүү үчүн каалаган убакта \"Жардам\" же \"Эмне десем болот?\" деп айтыңыз.</string>
   <string name="voice_commands_help_hint">Туура натыйжаларды алуу үчүн төмөнкү экрандарда тизмеленген сөздөрдү так айтыңыз.</string>
   <string name="voice_command_screen_locked_hint">Экран кулпуланып турганда үн буйруктары жеткиликсиз. Анын ордуна TalkBack менюсун колдонуу үчүн %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Тууралап жатканда үн буйруктары иштебейт.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Учурдагы экранда көрсөтүлгөн мазмундун кантип окуларын өзгөртүңүз</string>
   <string name="voice_commands_help_next">Next [аталыш]</string>
@@ -123,7 +124,7 @@
   <string name="voice_commands_help_find_items_description">Учурдагы экранда белгилүү бир мазмунду табуу</string>
   <string name="voice_commands_help_find_text">[Сактоо] баскычын табуу</string>
   <string name="voice_commands_help_find_text_description">Учурдагы экранда \"сактоо\" деген сөз камтылган биринчи элементти табыңыз</string>
-  <string name="voice_commands_help_find_description">\"Сактоо\" деген сөз камтылган кийинки элементке өтүү үчүн \"табуу\" деп кайталаңыз</string>
+  <string name="voice_commands_help_find_description">\"Сактоо\" деген сөз камтылган кийинки нерсеге өтүү үчүн \"табуу\" деп кайталаңыз</string>
   <string name="voice_commands_help_screen_search_description">Экранда изделе турган текстти киргизесиз</string>
   <string name="voice_commands_help_text_editing_description">Текстти терүү, тандоо жана көчүрүү</string>
   <string name="voice_commands_help_type_text">[Макул] деп терүү</string>
@@ -135,11 +136,11 @@
   <string name="voice_commands_help_overview_description">Акыркы колдонмолорду көрүү</string>
   <string name="voice_commands_help_assistant_description">Google Жардамчыны ачуу</string>
   <string name="voice_commands_help_other_commands_title">Башка үй буйруктары</string>
-  <string name="voice_commands_help_other_commands_description">TalkBack жөндөөлөрүнө өтүү, экранды жашыруу, аракеттерди көрүү, ыңгайлаштырылган энбелгилерди кошуу жана башкалар</string>
+  <string name="voice_commands_help_other_commands_description">TalkBack параметрлерине өтүү, экранды жашыруу, аракеттерди көрүү, жеке энбелгилерди кошуу жана башкалар</string>
   <string name="voice_commands_help_label">[Тапшырууну] белгилөө</string>
   <string name="voice_commands_help_hide_screen_description">Коомдук жайларда экраныңыз башкаларга көрүнбөй тургандай кылып, дисплейди жашыруу</string>
   <string name="voice_commands_help_show_screen_description">Экраныңызды жашыргандан кийин, аны кадимки абалга кайтарыңыз</string>
   <string name="voice_commands_help_actions_description">Учурдагы элемент үчүн жеткиликтүү аракеттерди көрсөтүү</string>
-  <string name="voice_commands_help_label_description">\"Тапшыруу\" деп айтуу үчүн ыңгайлаштырылган энбелгини кошуу же түзөтүү</string>
+  <string name="voice_commands_help_label_description">Жеке энбелгилерди кошуп же өзгөртөсүз. \"Жөнөтүү\" деп айтышыңыз керек</string>
   <string name="voice_commands_help_stop_description">Учурдагы үн буйругун өчүрүү</string>
 </resources>

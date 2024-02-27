@@ -9,4 +9,12 @@
     <uses-feature
         android:name="android.hardware.type.watch"
         android:required="true" />
+
+    <!--
+           This instructs the Home app to get the licenses from this app and
+           show them on the Companion when requested.
+    -->
+    <meta-data
+        android:name="com.google.android.clockwork.home.licenses"
+        android:value="true" />
 </manifest>

@@ -17,6 +17,8 @@
 package com.google.android.accessibility.talkback.actor;
 
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.INTERRUPT;
+import static com.google.android.accessibility.talkback.Feedback.Focus.Action.MUTE_NEXT_FOCUS;
+import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.Feedback;
@@ -56,6 +58,7 @@ public class FullScreenReadDialog extends FirstTimeUseDialog {
     setIncludeNegativeButton(false);
   }
 
+  @Override
   public void setPipeline(Pipeline.FeedbackReturner pipeline) {
     this.pipeline = pipeline;
   }
@@ -79,6 +82,7 @@ public class FullScreenReadDialog extends FirstTimeUseDialog {
         .setFlag(EventState.EVENT_SKIP_WINDOWS_CHANGED_PROCESSING_AFTER_CURSOR_CONTROL);
     EventState.getInstance()
         .setFlag(EventState.EVENT_SKIP_WINDOW_STATE_CHANGED_PROCESSING_AFTER_CURSOR_CONTROL);
+    pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.focus(MUTE_NEXT_FOCUS));
     waitingForContentFocus = true;
   }
 

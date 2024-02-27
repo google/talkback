@@ -1,12 +1,18 @@
 package com.google.android.accessibility.braille.common;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.provider.Settings;
 import android.text.InputType;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.ExtractedText;
 import android.view.inputmethod.ExtractedTextRequest;
 import android.view.inputmethod.InputConnection;
 import com.google.android.accessibility.braille.interfaces.SelectionRange;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /** Provides the utilities for common braille usages. */
 public class BrailleCommonUtils {
@@ -138,8 +144,9 @@ public class BrailleCommonUtils {
     int selectionStart = 0;
     int selectionEnd = 0;
     if (extractedText != null) {
-      selectionStart = extractedText.selectionStart;
-      selectionEnd = extractedText.selectionEnd;
+      selectionStart =
+          extractedText.selectionStart > 0 ? extractedText.selectionStart : selectionStart;
+      selectionEnd = extractedText.selectionEnd > 0 ? extractedText.selectionEnd : selectionEnd;
     }
     return new SelectionRange(selectionStart, selectionEnd);
   }
@@ -155,6 +162,20 @@ public class BrailleCommonUtils {
     } catch (IllegalArgumentException e) {
       return def;
     }
+  }
+
+  /**
+   * Performs key action with specific key code.
+   *
+   * @return true if success; false if either action down or action up performs on invalid {@link
+   *     InputConnection}.
+   */
+  @CanIgnoreReturnValue
+  public static boolean performKeyAction(InputConnection inputConnection, int keyCode) {
+    if (inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, keyCode))) {
+      return inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, keyCode));
+    }
+    return false;
   }
 
   private static boolean isNumberPasswordField(int inputType) {
@@ -176,6 +197,48 @@ public class BrailleCommonUtils {
     final int variation = editorInfo.inputType & InputType.TYPE_MASK_VARIATION;
     return isPasswordField(editorInfo)
         && variation == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
+  }
+
+  /** Determines from system settings if {@code imeComponentName} is an enabled input method. */
+  @SuppressWarnings("StringSplitter") // Guava not used in project, so Splitter not available.
+  public static boolean isInputMethodEnabled(Context contextArg, ComponentName imeComponentName) {
+    final String enabledIMEIds =
+        Settings.Secure.getString(
+            contextArg.getContentResolver(), Settings.Secure.ENABLED_INPUT_METHODS);
+    if (enabledIMEIds == null) {
+      return false;
+    }
+
+    for (String enabledIMEId : enabledIMEIds.split(":")) {
+      if (imeComponentName.equals(ComponentName.unflattenFromString(enabledIMEId))) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /** Determines, from system settings, if {@code imeComponentName} is the default input method. */
+  public static boolean isInputMethodDefault(Context contextArg, ComponentName imeComponentName) {
+    final String defaultIMEId =
+        Settings.Secure.getString(
+            contextArg.getContentResolver(), Settings.Secure.DEFAULT_INPUT_METHOD);
+
+    return defaultIMEId != null
+        && imeComponentName.equals(ComponentName.unflattenFromString(defaultIMEId));
+  }
+
+  /** Filters non-printing characters like \u202A and \u202C. */
+  public static CharSequence filterNonPrintCharacter(CharSequence text) {
+    if (TextUtils.isEmpty(text)) {
+      return "";
+    }
+    SpannableStringBuilder stringBuilder = new SpannableStringBuilder(text);
+    for (int i = text.length() - 1; i >= 0; i--) {
+      if (Character.isIdentifierIgnorable(stringBuilder.charAt(i))) {
+        stringBuilder.delete(i, i + 1);
+      }
+    }
+    return stringBuilder;
   }
 
   private static int getInputTypeClass(int inputType) {

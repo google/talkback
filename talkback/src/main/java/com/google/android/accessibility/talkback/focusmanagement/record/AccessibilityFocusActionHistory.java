@@ -18,7 +18,6 @@ package com.google.android.accessibility.talkback.focusmanagement.record;
 
 import android.content.Context;
 import android.os.SystemClock;
-import android.util.Pair;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.VisibleForTesting;
 import androidx.collection.LruCache;
@@ -26,15 +25,17 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
+import com.google.auto.value.AutoValue;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -75,9 +76,9 @@ public final class AccessibilityFocusActionHistory {
     }
 
     public @Nullable FocusActionRecord getLastFocusActionRecordInWindow(
-        int windowId, CharSequence windowTitle) {
+        WindowIdentifier windowIdentifier) {
       return AccessibilityFocusActionHistory.this.getLastFocusActionRecordInWindow(
-          windowId, windowTitle);
+          windowIdentifier);
     }
 
     public @Nullable FocusActionRecord getLastEditableFocusActionRecord() {
@@ -103,7 +104,7 @@ public final class AccessibilityFocusActionHistory {
   //////////////////////////////////////////////////////////////////////////////////////////
   // Constants
 
-  /** Maximum size of {@link #windowIdTitlePairToFocusActionRecordMap} */
+  /** Maximum size of {@link #windowIdentifierToFocusActionRecordMap} */
   @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
   static final int MAXIMUM_WINDOW_MAP_SIZE = 10;
 
@@ -142,8 +143,8 @@ public final class AccessibilityFocusActionHistory {
    * FocusActionRecord} in each window with maximum size of {@link #MAXIMUM_WINDOW_MAP_SIZE}. The
    * eldest-accessed record will be removed when the map grows up to its maximum size.
    */
-  private final LruCache<Pair<Integer, CharSequence>, FocusActionRecord>
-      windowIdTitlePairToFocusActionRecordMap;
+  private final LruCache<WindowIdentifier, FocusActionRecord>
+      windowIdentifierToFocusActionRecordMap;
 
   /** The last {@link FocusActionRecord} on an editable node. */
   private @Nullable FocusActionRecord lastEditableFocusActionRecord;
@@ -153,20 +154,16 @@ public final class AccessibilityFocusActionHistory {
   private @Nullable FocusActionInfo pendingWebFocusActionInfo = null;
   private @Nullable ScreenState pendingScreenState = null;
   private long pendingWebFocusActionTime = -1;
-
-  private final Context context;
   private int timeoutToleranceMs;
 
   //////////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
   public AccessibilityFocusActionHistory(Context context) {
-    this.context = context;
     focusActionRecordList = new ArrayDeque<>();
-    windowIdTitlePairToFocusActionRecordMap =
-        new LruCache<Pair<Integer, CharSequence>, FocusActionRecord>(MAXIMUM_WINDOW_MAP_SIZE);
+    windowIdentifierToFocusActionRecordMap = new LruCache<>(MAXIMUM_WINDOW_MAP_SIZE);
     timeoutToleranceMs = TIMEOUT_TOLERANCE_MS;
-    if (FeatureSupport.isTv(context)) {
+    if (FormFactorUtils.getInstance().isAndroidTv()) {
       timeoutToleranceMs = TV_TIMEOUT_TOLERANCE_MS;
     }
   }
@@ -184,8 +181,8 @@ public final class AccessibilityFocusActionHistory {
    * @param currentScreenState Current {@link ScreenState}.
    */
   public void onAccessibilityFocusAction(
-      AccessibilityNodeInfoCompat node,
-      FocusActionInfo extraData,
+      @NonNull AccessibilityNodeInfoCompat node,
+      @NonNull FocusActionInfo extraData,
       long actionTime,
       @Nullable ScreenState currentScreenState) {
     // FocusActionRecord handles making a copy of 'node'. We don't nee to call obtain() here.
@@ -199,11 +196,9 @@ public final class AccessibilityFocusActionHistory {
     }
 
     final int windowId = node.getWindowId();
-    final CharSequence windowTitle =
-        (currentScreenState == null) ? null : currentScreenState.getWindowTitle(windowId);
+    WindowIdentifier windowIdentifier = WindowIdentifier.create(windowId, currentScreenState);
     // Add to the window record map.
-    windowIdTitlePairToFocusActionRecordMap.put(
-        Pair.create(windowId, windowTitle), FocusActionRecord.copy(record));
+    windowIdentifierToFocusActionRecordMap.put(windowIdentifier, FocusActionRecord.copy(record));
 
     // Update the last editable node focus action.
     if (node.isEditable() || (Role.getRole(node) == Role.ROLE_EDIT_TEXT)) {
@@ -225,18 +220,18 @@ public final class AccessibilityFocusActionHistory {
   }
 
   public @Nullable FocusActionRecord getLastFocusActionRecordInWindow(
-      int windowId, CharSequence windowTitle) {
-    return windowIdTitlePairToFocusActionRecordMap.get(Pair.create(windowId, windowTitle));
+      WindowIdentifier windowIdentifier) {
+    return windowIdentifierToFocusActionRecordMap.get(windowIdentifier);
   }
 
   public @Nullable FocusActionRecord getLastFocusActionRecordInWindow(int windowId) {
-    Map<Pair<Integer, CharSequence>, FocusActionRecord> orderedMap =
-        windowIdTitlePairToFocusActionRecordMap.snapshot();
-    List<Pair<Integer, CharSequence>> list = new ArrayList<>(orderedMap.keySet());
+    Map<WindowIdentifier, FocusActionRecord> orderedMap =
+        windowIdentifierToFocusActionRecordMap.snapshot();
+    List<WindowIdentifier> list = new ArrayList<>(orderedMap.keySet());
     // Traverse in reversed order, from MRU to LRU.
     for (int i = list.size() - 1; i >= 0; i--) {
-      Pair<Integer, CharSequence> windowIdentifier = list.get(i);
-      if (windowIdentifier.first == windowId) {
+      WindowIdentifier windowIdentifier = list.get(i);
+      if (windowIdentifier.windowId() == windowId) {
         return orderedMap.get(windowIdentifier);
       }
     }
@@ -248,8 +243,7 @@ public final class AccessibilityFocusActionHistory {
     return focusActionRecordList.peekLast();
   }
 
-  @Nullable
-  NodePathDescription getLastFocusNodePathDescription() {
+  @Nullable NodePathDescription getLastFocusNodePathDescription() {
     @Nullable FocusActionRecord record = getLastFocusActionRecord();
     return (record == null) ? null : record.getNodePathDescription();
   }
@@ -303,7 +297,7 @@ public final class AccessibilityFocusActionHistory {
   }
 
   private void tryMatchingPendingFocusAction(
-      AccessibilityNodeInfoCompat focusedNode, long focusEventTime) {
+      @NonNull AccessibilityNodeInfoCompat focusedNode, long focusEventTime) {
     if ((pendingWebFocusActionInfo != null)
         && (focusEventTime - pendingWebFocusActionTime < timeoutToleranceMs)
         && (focusEventTime - pendingWebFocusActionTime > 0)
@@ -335,7 +329,7 @@ public final class AccessibilityFocusActionHistory {
     focusActionRecordList.clear();
 
     // Clear the LruCache.
-    windowIdTitlePairToFocusActionRecordMap.evictAll();
+    windowIdentifierToFocusActionRecordMap.evictAll();
 
     // Clear editable node focus record.
     lastEditableFocusActionRecord = null;
@@ -356,5 +350,27 @@ public final class AccessibilityFocusActionHistory {
   @VisibleForTesting
   public FocusActionInfo getPendingWebFocusActionInfo() {
     return pendingWebFocusActionInfo;
+  }
+
+  /** An identifier for essential accessibility data pertaining to a window. */
+  @AutoValue
+  public abstract static class WindowIdentifier {
+    abstract int windowId();
+
+    abstract CharSequence windowTitle();
+
+    abstract CharSequence accessibilityPaneTitle();
+
+    public static WindowIdentifier create(int windowId, ScreenState screenState) {
+      CharSequence windowTitle = "";
+      CharSequence accessibilityPaneTitle = "";
+      if (screenState != null) {
+        windowTitle = screenState.getWindowTitle(windowId);
+        accessibilityPaneTitle = screenState.getAccessibilityPaneTitle(windowId);
+      }
+
+      return new AutoValue_AccessibilityFocusActionHistory_WindowIdentifier(
+          windowId, windowTitle, accessibilityPaneTitle);
+    }
   }
 }

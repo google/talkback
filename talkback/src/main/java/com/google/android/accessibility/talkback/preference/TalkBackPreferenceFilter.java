@@ -21,10 +21,14 @@ import androidx.annotation.IntDef;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
+import com.google.android.accessibility.talkback.FeatureFlagReader;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.actor.ImageCaptioner;
+import com.google.android.accessibility.talkback.trainingcommon.tv.TvTutorialInitiator;
+import com.google.android.accessibility.talkback.trainingcommon.tv.VendorConfigReader;
 import com.google.android.accessibility.utils.BuildConfig;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.SettingsUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -39,7 +43,6 @@ public class TalkBackPreferenceFilter {
   /** Flags to filter TalkBack preference setting. */
   @IntDef({
     HIDDEN_ON_TV,
-    HIDDEN_ON_ARC,
     HIDDEN_ON_WATCH,
     HIDDEN_NO_VIBRATION,
     HIDDEN_SETUP,
@@ -57,6 +60,7 @@ public class TalkBackPreferenceFilter {
     HIDDEN_NO_MEDIA_CONTROL,
     HIDDEN_ON_RELEASE_BUILD,
     HIDE_ICON_DETECTION,
+    HIDE_MULTIPLE_GESTURE_SET,
     HIDDEN
   })
   @Retention(RetentionPolicy.SOURCE)
@@ -66,8 +70,6 @@ public class TalkBackPreferenceFilter {
   private static final int HIDDEN = Integer.MAX_VALUE;
   /** Flag to hide preference on TV. */
   private static final int HIDDEN_ON_TV = 0x02;
-  /** Flag to hide preference on ARC device. */
-  private static final int HIDDEN_ON_ARC = 0x04;
   /** Flag to hide preference on watch. */
   private static final int HIDDEN_ON_WATCH = 0x08;
   /** Flag to hide preference if the device doesn't support vibration. */
@@ -103,18 +105,16 @@ public class TalkBackPreferenceFilter {
   /** Flag to hide icon detection if system doesn't support it. */
   private static final int HIDE_ICON_DETECTION = 0x200000;
 
-  /** List TalkBack preferences. */
+  private static final int HIDE_MULTIPLE_GESTURE_SET = 0x400000;
+
+  /** List TalkBack preferences that do not appear on all devices. */
   enum TalkBackPreference {
     // Sound and vibration.
-    SOUND_FEEDBACK(R.string.pref_soundback_key, HIDDEN_ON_TV),
-    SOUND_FEEDBACK_VOLUME(R.string.pref_soundback_volume_key, HIDDEN_ON_TV),
-    AUDIO_DUCKING(
-        R.string.pref_use_audio_focus_key, HIDDEN_ON_TV | HIDDEN_ON_ARC | HIDDEN_ON_WATCH),
-    VIBRATION_FEEDBACK(R.string.pref_vibration_key, HIDDEN_ON_ARC | HIDDEN_NO_VIBRATION),
+    AUDIO_DUCKING(R.string.pref_use_audio_focus_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH),
+    VIBRATION_FEEDBACK(R.string.pref_vibration_key, HIDDEN_NO_VIBRATION),
     // Advanced settings.
     CUSTOM_LABELS(R.string.pref_manage_labels_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDDEN_SETUP),
-    SINGLE_TAP_ACTIVATION(
-        R.string.pref_single_tap_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDDEN_ON_ARC),
+    SINGLE_TAP_ACTIVATION(R.string.pref_single_tap_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH),
     REDUCE_WINDOW_DELAY(
         R.string.pref_reduce_window_delay_key, HIDE_IF_NO_USER_DISABLING_OF_GLOBAL_ANIMATIONS),
     KEYBOARD_SHORTCUTS(
@@ -128,20 +128,21 @@ public class TalkBackPreferenceFilter {
     HELP_AND_FEEDBACK(R.string.pref_help_and_feedback_key, HIDDEN_SETUP),
     PRACTICE_GESTURES(
         R.string.pref_practice_gestures_entry_point_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH),
-    TUTORIAL(R.string.pref_tutorial_entry_point_key, HIDDEN_ON_TV),
+    // Tutorial is sometimes hidden on TV, see method hide() below.
+    TUTORIAL(R.string.pref_tutorial_entry_point_key, 0),
     // Basic settings.
-    NEW_FEATURE(
-        R.string.pref_new_feature_in_talkback_entry_point_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH),
-    PROXIMITY(R.string.pref_proximity_key, HIDDEN_ON_ARC | HIDDEN_ON_TV | HIDE_NO_PROXIMITY_SENSOR),
+    NEW_FEATURE(R.string.pref_new_feature_in_talkback_entry_point_key, HIDDEN_ON_TV),
+    PROXIMITY(R.string.pref_proximity_key, HIDDEN_ON_TV | HIDE_NO_PROXIMITY_SENSOR),
     TTS_SETTINGS(R.string.pref_tts_settings_key, HIDDEN_ON_WATCH),
     SPEECH_VOLUME(R.string.pref_speech_volume_key, HIDE_HAS_VOLUME_KEY),
-    SOUND_AND_VIBRATION(R.string.pref_sound_and_vibration_key, HIDDEN_ON_TV),
     BRAILLE_KEYBOARD(
         R.string.pref_brailleime_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDE_NO_BRAILLE_KEYBOARD),
     BRAILLE_DISPLAY(
         R.string.pref_brailledisplay_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDE_NO_BRAILLE_DISPLAY),
     CUSTOMIZE_MENU(R.string.pref_manage_customize_menus_key, HIDDEN_ON_TV),
     // TalkBack/Reading Menu
+    CUSTOMIZE_TALKBACK_MENU_VOICE_COMMAND_CONTROLS(
+        R.string.pref_show_context_menu_voice_commands_setting_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_TALKBACK_MENU_EDIT_NAVIGATION_CONTROLS(
         R.string.pref_show_navigation_menu_controls_setting_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_TALKBACK_MENU_EDIT_NAVIGATION_LINKS(
@@ -163,7 +164,6 @@ public class TalkBackPreferenceFilter {
     CUSTOMIZE_TALKBACK_MENU_IMAGE_CAPTION(
         R.string.pref_show_context_menu_image_caption_setting_key, HIDDEN_ON_WATCH),
 
-    CUSTOMIZE_READING_MENU_DO_ACTION(R.string.pref_selector_actions_key, HIDDEN),
     CUSTOMIZE_READING_MENU_NAVIGATION_LINKS(
         R.string.pref_selector_granularity_links_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_READING_MENU_NAVIGATION_LANDMARKS(
@@ -172,26 +172,34 @@ public class TalkBackPreferenceFilter {
         R.string.pref_selector_granularity_windows_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_READING_MENU_ADJUST_VOLUME(
         R.string.pref_selector_change_a11y_volume_key, HIDE_NO_ACCESSIBILITY_AUDIO_STREAM),
-    // Developer settings/
-    EXPLORE_BY_TOUCH(R.string.pref_explore_by_touch_reflect_key, HIDDEN_ON_ARC),
+    CUSTOMIZE_READING_MENU_SPELL_CHECK(
+        R.string.pref_selector_granularity_typo_key, HIDDEN_ON_WATCH),
+    // Developer settings
+    GESTURE_HANDLING(R.string.pref_talkback_gesture_detection_key, HIDDEN_ON_TV),
+    EXPLORE_BY_TOUCH(R.string.pref_explore_by_touch_reflect_key, HIDDEN_ON_TV),
     // Gesture/Verbosity Settings.
     CONFIG_ON_SCREEN_KEYBOARD_ECHO(R.string.pref_keyboard_echo_on_screen_key, HIDDEN_ON_WATCH),
     CONFIG_PHYSICAL_KEYBOARD_ECHO(R.string.pref_keyboard_echo_physical_key, HIDDEN_ON_WATCH),
-    SPEAK_LIST_AND_GRID(R.string.pref_speak_container_element_positions_key, HIDDEN_ON_WATCH),
     SPEAK_NUMBER_OF_LIST_(R.string.pref_verbose_scroll_announcement_key, HIDDEN_ON_WATCH),
     SPEAK_ELEMENT_TYPE(R.string.pref_speak_roles_key, HIDDEN_ON_WATCH),
     SPEAK_WINDOW_TITLES(R.string.pref_speak_system_window_titles_key, HIDDEN_ON_WATCH),
+    LIMIT_FREQUENT_CONTENT_CHANGE_ANNOUNCEMENT(
+        R.string.pref_allow_frequent_content_change_announcement_key, HIDDEN_ON_WATCH),
     SPEAK_PHONETIC_LETTERS(R.string.pref_phonetic_letters_key, HIDDEN_ON_WATCH),
     USE_PITCH_CHANGE(R.string.pref_intonation_key, HIDDEN_ON_WATCH),
     SPEAK_WHEN_SCREEN_OFF(R.string.pref_screenoff_key, HIDDEN_ON_WATCH),
-    VERBOSITY_MISC(R.string.pref_verbosity_category_misc_settings_key, HIDDEN_ON_WATCH),
+    SPEAK_CAPITAL_LETTERS(R.string.pref_capital_letters_key, HIDDEN_ON_WATCH),
+    SPEAK_ELEMENT_ID(R.string.pref_speak_element_ids_key, HIDDEN_ON_WATCH),
+    SPEAK_PUNCTUATION(R.string.pref_punctuation_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_GESTURE(R.string.pref_category_manage_gestures_key, HIDDEN_ON_TV),
+    MULTIPLE_GESTURE_SET(
+        R.string.pref_gesture_set_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDE_MULTIPLE_GESTURE_SET),
     CUSTOMIZE_GESTURE_GROUP_2FINGER(
         R.string.pref_category_2finger_shortcuts_key, SHOW_IF_MULTI_FINGER),
     CUSTOMIZE_GESTURE_GROUP_3FINGER(
-        R.string.pref_category_3finger_shortcuts_key, HIDDEN_ON_WATCH | SHOW_IF_MULTI_FINGER),
+        R.string.pref_category_3finger_shortcuts_key, SHOW_IF_MULTI_FINGER),
     CUSTOMIZE_GESTURE_GROUP_4FINGER(
-        R.string.pref_category_4finger_shortcuts_key, HIDDEN_ON_WATCH | SHOW_IF_MULTI_FINGER),
+        R.string.pref_category_4finger_shortcuts_key, SHOW_IF_MULTI_FINGER),
     CUSTOMIZE_GESTURE_FINGERPRINT(
         R.string.pref_category_fingerprint_touch_shortcuts_key, SHOW_IF_FINGER_PRINT),
     CUSTOMIZE_GESTURE_2FINGER_3TAP_HOLD(
@@ -202,6 +210,7 @@ public class TalkBackPreferenceFilter {
         R.string.pref_shortcut_3finger_3tap_hold_key, SHOW_IF_MULTI_FINGER_TAP_AND_HOLD),
     CUSTOMIZE_FOCUS_INDICATOR(
         R.string.pref_category_manage_focus_indicator_key, SHOW_FOCUS_INDICATOR),
+    AUTOMATIC_DESCRIPTIONS(R.string.pref_auto_image_captioning_key, HIDDEN_ON_TV),
     ICON_DETECTION(R.string.pref_icon_detection_key, HIDDEN_ON_WATCH | HIDE_ICON_DETECTION);
 
     TalkBackPreference(int resId, int hideFlags) {
@@ -209,11 +218,12 @@ public class TalkBackPreferenceFilter {
       this.hideFlags = hideFlags;
     }
 
-    int resId;
-    int hideFlags;
+    final int resId;
+    final int hideFlags;
   }
 
   private final Context context;
+  private final FormFactorUtils formFactorUtils = FormFactorUtils.getInstance();
 
   public TalkBackPreferenceFilter(Context context) {
     this.context = context;
@@ -260,15 +270,11 @@ public class TalkBackPreferenceFilter {
       return false;
     }
 
-    if (hasFlag(pref.get(), HIDDEN_ON_TV) && FeatureSupport.isTv(context)) {
+    if (hasFlag(pref.get(), HIDDEN_ON_TV) && formFactorUtils.isAndroidTv()) {
       return true;
     }
 
-    if (hasFlag(pref.get(), HIDDEN_ON_ARC) && FeatureSupport.isArc()) {
-      return true;
-    }
-
-    if (hasFlag(pref.get(), HIDDEN_ON_WATCH) && FeatureSupport.isWatch(context)) {
+    if (hasFlag(pref.get(), HIDDEN_ON_WATCH) && FormFactorUtils.getInstance().isAndroidWear()) {
       return true;
     }
 
@@ -340,6 +346,18 @@ public class TalkBackPreferenceFilter {
 
     if (hasFlag(pref.get(), HIDE_ICON_DETECTION)
         && !ImageCaptioner.supportsIconDetection(context)) {
+      return true;
+    }
+
+    if (hasFlag(pref.get(), HIDE_MULTIPLE_GESTURE_SET)
+        && !(FeatureSupport.supportMultipleGestureSet()
+            && FeatureFlagReader.useMultipleGestureSet(context))) {
+      return true;
+    }
+
+    if (pref.get() == TalkBackPreference.TUTORIAL
+        && formFactorUtils.isAndroidTv()
+        && !TvTutorialInitiator.shouldShowTraining(VendorConfigReader.retrieveConfig(context))) {
       return true;
     }
 

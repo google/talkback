@@ -16,111 +16,57 @@
 
 package com.google.android.accessibility.talkback.keyboard;
 
+import static android.content.res.Configuration.HARDKEYBOARDHIDDEN_NO;
+import static android.content.res.Configuration.HARDKEYBOARDHIDDEN_UNDEFINED;
+import static com.google.android.accessibility.utils.preference.PreferencesActivity.FRAGMENT_NAME;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.res.Configuration;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.app.NotificationCompat;
+import com.android.talkback.TalkBackPreferencesActivity;
+import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.actor.DirectionNavigationActor;
 import com.google.android.accessibility.talkback.actor.FullScreenReadActor;
+import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.contextmenu.ListMenuManager;
+import com.google.android.accessibility.talkback.preference.base.TalkBackKeyboardShortcutPreferenceFragment;
 import com.google.android.accessibility.talkback.selector.SelectorController;
-import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.talkback.utils.NotificationUtils;
+import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
 import com.google.android.accessibility.utils.ServiceStateListener;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.material.A11yAlertDialogWrapper;
+import com.google.android.accessibility.utils.widget.DialogUtils;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Manages state related to detecting key combinations.
- *
- * <p>TODO: move KeyComboManager under package talkback.keyboard.
- */
+/** Manages state related to detecting key combinations. */
 public class KeyComboManager implements ServiceKeyEventListener, ServiceStateListener {
-
+  private static final String TAG = "KeyComboManager";
+  public static final int KEYMAP_DEFAULT = R.string.default_keymap_entry_value;
+  @VisibleForTesting static final int KEYMAP_CHANGES_NOTIFICATION_ID = 6;
   public static final int NO_MATCH = -1;
   public static final int PARTIAL_MATCH = 1;
   public static final int EXACT_MATCH = 2;
-
-  public static final int ACTION_UNKNOWN = -1;
-  public static final int ACTION_NAVIGATE_NEXT = 1;
-  public static final int ACTION_NAVIGATE_PREVIOUS = 2;
-  public static final int ACTION_NAVIGATE_FIRST = 3;
-  public static final int ACTION_NAVIGATE_LAST = 4;
-  public static final int ACTION_PERFORM_CLICK = 5;
-  public static final int ACTION_BACK = 6;
-  public static final int ACTION_HOME = 7;
-  public static final int ACTION_RECENTS = 8;
-  public static final int ACTION_NOTIFICATION = 9;
-  public static final int ACTION_GRANULARITY_INCREASE = 11;
-  public static final int ACTION_GRANULARITY_DECREASE = 12;
-  public static final int ACTION_READ_FROM_TOP = 13;
-  public static final int ACTION_READ_FROM_NEXT_ITEM = 14;
-  public static final int ACTION_TOGGLE_SEARCH = 15;
-
-  public static final int ACTION_TALKBACK_CONTEXT_MENU = 17;
-  public static final int ACTION_NAVIGATE_UP = 18;
-  public static final int ACTION_NAVIGATE_DOWN = 19;
-  public static final int ACTION_NAVIGATE_NEXT_WORD = 20;
-  public static final int ACTION_NAVIGATE_PREVIOUS_WORD = 21;
-  public static final int ACTION_NAVIGATE_NEXT_CHARACTER = 22;
-  public static final int ACTION_NAVIGATE_PREVIOUS_CHARACTER = 23;
-  public static final int ACTION_PERFORM_LONG_CLICK = 24;
-  public static final int ACTION_NAVIGATE_NEXT_HEADING = 25;
-  public static final int ACTION_NAVIGATE_PREVIOUS_HEADING = 26;
-  public static final int ACTION_NAVIGATE_NEXT_BUTTON = 27;
-  public static final int ACTION_NAVIGATE_PREVIOUS_BUTTON = 28;
-  public static final int ACTION_NAVIGATE_NEXT_CHECKBOX = 29;
-  public static final int ACTION_NAVIGATE_PREVIOUS_CHECKBOX = 30;
-  public static final int ACTION_NAVIGATE_NEXT_ARIA_LANDMARK = 31;
-  public static final int ACTION_NAVIGATE_PREVIOUS_ARIA_LANDMARK = 32;
-  public static final int ACTION_NAVIGATE_NEXT_EDIT_FIELD = 33;
-  public static final int ACTION_NAVIGATE_PREVIOUS_EDIT_FIELD = 34;
-  public static final int ACTION_NAVIGATE_NEXT_FOCUSABLE_ITEM = 35;
-  public static final int ACTION_NAVIGATE_PREVIOUS_FOCUSABLE_ITEM = 36;
-  public static final int ACTION_NAVIGATE_NEXT_HEADING_1 = 37;
-  public static final int ACTION_NAVIGATE_PREVIOUS_HEADING_1 = 38;
-  public static final int ACTION_NAVIGATE_NEXT_HEADING_2 = 39;
-  public static final int ACTION_NAVIGATE_PREVIOUS_HEADING_2 = 40;
-  public static final int ACTION_NAVIGATE_NEXT_HEADING_3 = 41;
-  public static final int ACTION_NAVIGATE_PREVIOUS_HEADING_3 = 42;
-  public static final int ACTION_NAVIGATE_NEXT_HEADING_4 = 43;
-  public static final int ACTION_NAVIGATE_PREVIOUS_HEADING_4 = 44;
-  public static final int ACTION_NAVIGATE_NEXT_HEADING_5 = 45;
-  public static final int ACTION_NAVIGATE_PREVIOUS_HEADING_5 = 46;
-  public static final int ACTION_NAVIGATE_NEXT_HEADING_6 = 47;
-  public static final int ACTION_NAVIGATE_PREVIOUS_HEADING_6 = 48;
-  public static final int ACTION_NAVIGATE_NEXT_LINK = 49;
-  public static final int ACTION_NAVIGATE_PREVIOUS_LINK = 50;
-  public static final int ACTION_NAVIGATE_NEXT_CONTROL = 51;
-  public static final int ACTION_NAVIGATE_PREVIOUS_CONTROL = 52;
-  public static final int ACTION_NAVIGATE_NEXT_GRAPHIC = 53;
-  public static final int ACTION_NAVIGATE_PREVIOUS_GRAPHIC = 54;
-  public static final int ACTION_NAVIGATE_NEXT_LIST_ITEM = 55;
-  public static final int ACTION_NAVIGATE_PREVIOUS_LIST_ITEM = 56;
-  public static final int ACTION_NAVIGATE_NEXT_LIST = 57;
-  public static final int ACTION_NAVIGATE_PREVIOUS_LIST = 58;
-  public static final int ACTION_NAVIGATE_NEXT_TABLE = 59;
-  public static final int ACTION_NAVIGATE_PREVIOUS_TABLE = 60;
-  public static final int ACTION_NAVIGATE_NEXT_COMBOBOX = 61;
-  public static final int ACTION_NAVIGATE_PREVIOUS_COMBOBOX = 62;
-  public static final int ACTION_NAVIGATE_NEXT_WINDOW = 63;
-  public static final int ACTION_NAVIGATE_PREVIOUS_WINDOW = 64;
-  public static final int ACTION_OPEN_MANAGE_KEYBOARD_SHORTCUTS = 65;
-  public static final int ACTION_OPEN_TALKBACK_SETTINGS = 66;
-  public static final int ACTION_CUSTOM_ACTIONS = 67;
-  public static final int ACTION_NAVIGATE_NEXT_DEFAULT = 68;
-  public static final int ACTION_NAVIGATE_PREVIOUS_DEFAULT = 69;
-  public static final int ACTION_LANGUAGE_OPTIONS = 70;
-  public static final int ACTION_PLAY_PAUSE_MEDIA = 71;
-  public static final int ACTION_SCROLL_FORWARD_READING_MENU = 72;
-  public static final int ACTION_SCROLL_BACKWARD_READING_MENU = 73;
-  public static final int ACTION_ADJUST_READING_SETTING_PREVIOUS = 74;
-  public static final int ACTION_ADJUST_READING_SETTING_NEXT = 75;
 
   private static final int KEY_EVENT_MODIFIER_MASK =
       KeyEvent.META_SHIFT_ON | KeyEvent.META_CTRL_ON | KeyEvent.META_ALT_ON | KeyEvent.META_META_ON;
@@ -130,8 +76,6 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
 
   /** When user has pressed same key twice less than this interval, we handle them as double tap. */
   private static final long TIME_TO_DETECT_DOUBLE_TAP = 1000; // ms
-
-  private static final int DEFAULT_KEYMAP = R.string.default_keymap_entry_value;
 
   /** Returns keyComboCode that represent keyEvent. */
   public static long getKeyComboCode(KeyEvent keyEvent) {
@@ -165,7 +109,7 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
    * @param event Key event to be converted.
    * @return Converted key code.
    */
-  static int getConvertedKeyCode(KeyEvent event) {
+  private static int getConvertedKeyCode(KeyEvent event) {
     // We care only when meta key is pressed with.
     if ((event.getModifiers() & KeyEvent.META_META_ON) == 0) {
       return event.getKeyCode();
@@ -179,8 +123,6 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
       return event.getKeyCode();
     }
   }
-
-  private final boolean isArc;
 
   /** Whether the user performed a combo during the current interaction. */
   private boolean performedCombo;
@@ -197,11 +139,17 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
   private long previousKeyComboTime = 0;
 
   private Context context;
+  private NotificationManager notificationManager;
+  private SharedPreferences sharedPreferences;
   private boolean matchKeyCombo = true;
   private KeyComboModel keyComboModel;
   private int serviceState = SERVICE_STATE_INACTIVE;
   private ServiceKeyEventListener keyEventDelegate;
   private KeyComboMapper keyComboMapper;
+  private TalkBackAnalytics analytics;
+  private int hardwareKeyboardStatus = HARDKEYBOARDHIDDEN_UNDEFINED;
+  private Notification keymapNotification;
+  private A11yAlertDialogWrapper updateModifierKeysDialog;
 
   public static KeyComboManager create(Context context) {
     return new KeyComboManager(context);
@@ -209,7 +157,6 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
 
   private KeyComboManager(Context context) {
     this.context = context;
-    isArc = FeatureSupport.isArc();
     initializeDefaultPreferenceValues();
     keyComboModel = createKeyComboModel();
   }
@@ -219,26 +166,85 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
   public KeyComboManager(
       Context context,
       Pipeline.FeedbackReturner pipeline,
+      ActorState actorState,
       SelectorController selectorController,
       ListMenuManager menuManager,
-      FullScreenReadActor fullScreenReadActor) {
+      FullScreenReadActor fullScreenReadActor,
+      TalkBackAnalytics analytics,
+      DirectionNavigationActor.StateReader stateReader) {
     this(context);
+    notificationManager =
+        (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+    this.analytics = analytics;
+    hardwareKeyboardStatus = context.getResources().getConfiguration().hardKeyboardHidden;
     keyComboMapper =
-        new KeyComboMapper(context, pipeline, selectorController, menuManager, fullScreenReadActor);
+        new KeyComboMapper(
+            context,
+            pipeline,
+            actorState,
+            selectorController,
+            menuManager,
+            fullScreenReadActor,
+            stateReader);
+    sharedPreferences = SharedPreferencesUtils.getSharedPreferences(context);
+    sharedPreferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+    updateKeymapChangesNotificationVisibility();
+    showOrHideUpdateModifierKeysDialog();
   }
 
-  /** Store default values in preferences to show them in preferences UI. */
-  private void initializeDefaultPreferenceValues() {
-    SharedPreferences preferences = SharedPreferencesUtils.getSharedPreferences(context);
-    if (preferences.contains(context.getString(R.string.pref_select_keymap_key))) {
-      return;
+  /** Terminates instances to prevent leakage. */
+  public void shutdown() {
+    sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+  }
+
+  @Override
+  public void onServiceStateChanged(int newState) {
+    // Unfortunately, key events are lost when the TalkBackService becomes active. If a key-down
+    // occurs that triggers TalkBack to resume, the corresponding key-up event will not be
+    // sent, causing the partially-matched key history to become inconsistent.
+    // The following method will cause the key history to be reset.
+    setMatchKeyCombo(matchKeyCombo);
+
+    if (newState == SERVICE_STATE_INACTIVE && hardwareKeyboardStatus == HARDKEYBOARDHIDDEN_NO) {
+      analytics.onKeymapTypeUsed(keyComboModel);
+      analytics.onModifierKeyUsed(keyComboModel.getTriggerModifier());
+    }
+    serviceState = newState;
+  }
+
+  /**
+   * Handles incoming key events. May intercept keys if the user seems to be performing a key combo.
+   *
+   * @param event The key event.
+   * @return {@code true} if the key was intercepted.
+   */
+  @Override
+  public boolean onKeyEvent(KeyEvent event, EventId eventId) {
+    if (keyEventDelegate != null) {
+      if (keyEventDelegate.onKeyEvent(event, eventId)) {
+        return true;
+      }
     }
 
-    preferences
-        .edit()
-        .putString(
-            context.getString(R.string.pref_select_keymap_key), context.getString(DEFAULT_KEYMAP))
-        .apply();
+    if (!hasPartialMatch && !performedCombo && !matchKeyCombo) {
+      return false;
+    }
+
+    switch (event.getAction()) {
+      case KeyEvent.ACTION_DOWN:
+        return onKeyDown(event);
+      case KeyEvent.ACTION_MULTIPLE:
+        return hasPartialMatch;
+      case KeyEvent.ACTION_UP:
+        return onKeyUp(event);
+      default:
+        return false;
+    }
+  }
+
+  @Override
+  public boolean processWhenServiceSuspended() {
+    return true;
   }
 
   /**
@@ -252,28 +258,12 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
   /**
    * Returns keymap by reading preference.
    *
-   * @return key map. Returns default key map if can not find key.
+   * @return key map. Returns classic key map as default.
    */
   public String getKeymap() {
     SharedPreferences preferences = SharedPreferencesUtils.getSharedPreferences(context);
     return preferences.getString(
-        context.getString(R.string.pref_select_keymap_key), context.getString(DEFAULT_KEYMAP));
-  }
-
-  /**
-   * Creates key combo model by keymap key.
-   *
-   * @return Key combo model. null will be returned if keymap is invalid.
-   */
-  @Nullable
-  private KeyComboModel createKeyComboModel() {
-    String keymap = getKeymap();
-    if (keymap.equals(context.getString(R.string.classic_keymap_entry_value))) {
-      return new KeyComboModelApp(context);
-    } else if (keymap.equals(context.getString(R.string.default_keymap_entry_value))) {
-      return new DefaultKeyComboModel(context);
-    }
-    return null;
+        context.getString(R.string.pref_select_keymap_key), context.getString(KEYMAP_DEFAULT));
   }
 
   /** Refreshes key combo model after key map changes. */
@@ -284,311 +274,6 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
   /** Returns modifier part of key combo code. */
   public KeyComboModel getKeyComboModel() {
     return keyComboModel;
-  }
-
-  /**
-   * Returns corresponding action id to key. If invalid value is passed as key, ACTION_UNKNOWN will
-   * be returned.
-   */
-  private int getActionIdFromKey(String key) {
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next))) {
-      return ACTION_NAVIGATE_NEXT;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous))) {
-      return ACTION_NAVIGATE_PREVIOUS;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_default))) {
-      return ACTION_NAVIGATE_NEXT_DEFAULT;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_default))) {
-      return ACTION_NAVIGATE_PREVIOUS_DEFAULT;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_first))) {
-      return ACTION_NAVIGATE_FIRST;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_last))) {
-      return ACTION_NAVIGATE_LAST;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_perform_click))) {
-      return ACTION_PERFORM_CLICK;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_global_back))) {
-      return ACTION_BACK;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_global_home))) {
-      return ACTION_HOME;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_global_recents))) {
-      return ACTION_RECENTS;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_global_notifications))) {
-      return ACTION_NOTIFICATION;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_global_play_pause_media))) {
-      return ACTION_PLAY_PAUSE_MEDIA;
-    }
-
-    if (key.equals(
-        context.getString(R.string.keycombo_shortcut_global_scroll_forward_reading_menu))) {
-      return ACTION_SCROLL_FORWARD_READING_MENU;
-    }
-
-    if (key.equals(
-        context.getString(R.string.keycombo_shortcut_global_scroll_backward_reading_menu))) {
-      return ACTION_SCROLL_BACKWARD_READING_MENU;
-    }
-
-    if (key.equals(
-        context.getString(R.string.keycombo_shortcut_global_adjust_reading_settings_previous))) {
-      return ACTION_ADJUST_READING_SETTING_PREVIOUS;
-    }
-
-    if (key.equals(
-        context.getString(R.string.keycombo_shortcut_global_adjust_reading_setting_next))) {
-      return ACTION_ADJUST_READING_SETTING_NEXT;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_granularity_increase))) {
-      return ACTION_GRANULARITY_INCREASE;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_granularity_decrease))) {
-      return ACTION_GRANULARITY_DECREASE;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_other_read_from_top))) {
-      return ACTION_READ_FROM_TOP;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_other_read_from_next_item))) {
-      return ACTION_READ_FROM_NEXT_ITEM;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_other_toggle_search))) {
-      return ACTION_TOGGLE_SEARCH;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_other_talkback_context_menu))) {
-      return ACTION_TALKBACK_CONTEXT_MENU;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_other_custom_actions))) {
-      return ACTION_CUSTOM_ACTIONS;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_other_language_options))) {
-      return ACTION_LANGUAGE_OPTIONS;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_up))) {
-      return ACTION_NAVIGATE_UP;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_down))) {
-      return ACTION_NAVIGATE_DOWN;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_word))) {
-      return ACTION_NAVIGATE_NEXT_WORD;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_word))) {
-      return ACTION_NAVIGATE_PREVIOUS_WORD;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_character))) {
-      return ACTION_NAVIGATE_NEXT_CHARACTER;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_character))) {
-      return ACTION_NAVIGATE_PREVIOUS_CHARACTER;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_perform_long_click))) {
-      return ACTION_PERFORM_LONG_CLICK;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_heading))) {
-      return ACTION_NAVIGATE_NEXT_HEADING;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_heading))) {
-      return ACTION_NAVIGATE_PREVIOUS_HEADING;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_button))) {
-      return ACTION_NAVIGATE_NEXT_BUTTON;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_button))) {
-      return ACTION_NAVIGATE_PREVIOUS_BUTTON;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_checkbox))) {
-      return ACTION_NAVIGATE_NEXT_CHECKBOX;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_checkbox))) {
-      return ACTION_NAVIGATE_PREVIOUS_CHECKBOX;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_aria_landmark))) {
-      return ACTION_NAVIGATE_NEXT_ARIA_LANDMARK;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_aria_landmark))) {
-      return ACTION_NAVIGATE_PREVIOUS_ARIA_LANDMARK;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_edit_field))) {
-      return ACTION_NAVIGATE_NEXT_EDIT_FIELD;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_edit_field))) {
-      return ACTION_NAVIGATE_PREVIOUS_EDIT_FIELD;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_focusable_item))) {
-      return ACTION_NAVIGATE_NEXT_FOCUSABLE_ITEM;
-    }
-
-    if (key.equals(
-        context.getString(R.string.keycombo_shortcut_navigate_previous_focusable_item))) {
-      return ACTION_NAVIGATE_PREVIOUS_FOCUSABLE_ITEM;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_heading_1))) {
-      return ACTION_NAVIGATE_NEXT_HEADING_1;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_1))) {
-      return ACTION_NAVIGATE_PREVIOUS_HEADING_1;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_heading_2))) {
-      return ACTION_NAVIGATE_NEXT_HEADING_2;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_2))) {
-      return ACTION_NAVIGATE_PREVIOUS_HEADING_2;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_heading_3))) {
-      return ACTION_NAVIGATE_NEXT_HEADING_3;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_3))) {
-      return ACTION_NAVIGATE_PREVIOUS_HEADING_3;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_heading_4))) {
-      return ACTION_NAVIGATE_NEXT_HEADING_4;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_4))) {
-      return ACTION_NAVIGATE_PREVIOUS_HEADING_4;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_heading_5))) {
-      return ACTION_NAVIGATE_NEXT_HEADING_5;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_5))) {
-      return ACTION_NAVIGATE_PREVIOUS_HEADING_5;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_heading_6))) {
-      return ACTION_NAVIGATE_NEXT_HEADING_6;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_heading_6))) {
-      return ACTION_NAVIGATE_PREVIOUS_HEADING_6;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_link))) {
-      return ACTION_NAVIGATE_NEXT_LINK;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_link))) {
-      return ACTION_NAVIGATE_PREVIOUS_LINK;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_control))) {
-      return ACTION_NAVIGATE_NEXT_CONTROL;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_control))) {
-      return ACTION_NAVIGATE_PREVIOUS_CONTROL;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_graphic))) {
-      return ACTION_NAVIGATE_NEXT_GRAPHIC;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_graphic))) {
-      return ACTION_NAVIGATE_PREVIOUS_GRAPHIC;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_list_item))) {
-      return ACTION_NAVIGATE_NEXT_LIST_ITEM;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_list_item))) {
-      return ACTION_NAVIGATE_PREVIOUS_LIST_ITEM;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_list))) {
-      return ACTION_NAVIGATE_NEXT_LIST;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_list))) {
-      return ACTION_NAVIGATE_PREVIOUS_LIST;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_table))) {
-      return ACTION_NAVIGATE_NEXT_TABLE;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_table))) {
-      return ACTION_NAVIGATE_PREVIOUS_TABLE;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_combobox))) {
-      return ACTION_NAVIGATE_NEXT_COMBOBOX;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_combobox))) {
-      return ACTION_NAVIGATE_PREVIOUS_COMBOBOX;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_next_window))) {
-      return ACTION_NAVIGATE_NEXT_WINDOW;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_navigate_previous_window))) {
-      return ACTION_NAVIGATE_PREVIOUS_WINDOW;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_open_manage_keyboard_shortcuts))) {
-      return ACTION_OPEN_MANAGE_KEYBOARD_SHORTCUTS;
-    }
-
-    if (key.equals(context.getString(R.string.keycombo_shortcut_open_talkback_settings))) {
-      return ACTION_OPEN_TALKBACK_SETTINGS;
-    }
-
-    return ACTION_UNKNOWN;
   }
 
   /** Set whether to process keycombo */
@@ -634,6 +319,9 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
         case KeyEvent.KEYCODE_DPAD_DOWN:
           sb.append(context.getString(R.string.keycombo_key_arrow_down));
           break;
+        case KeyEvent.KEYCODE_DEL:
+          sb.append(context.getString(R.string.keycombo_key_backspace));
+          break;
         default:
           String keyCodeString = KeyEvent.keyCodeToString(keyCode);
           if (keyCodeString != null) {
@@ -650,6 +338,47 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     }
 
     return sb.toString();
+  }
+
+  /** Notifies configuration changed. */
+  public void onConfigurationChanged(Configuration newConfig) {
+    if (newConfig.hardKeyboardHidden != hardwareKeyboardStatus) {
+      hardwareKeyboardStatus = newConfig.hardKeyboardHidden;
+      updateKeymapChangesNotificationVisibility();
+      showOrHideUpdateModifierKeysDialog();
+    }
+  }
+
+  /**
+   * Make keymap default value consist with xml set up, which is the intended default keymap value.
+   */
+  private void initializeDefaultPreferenceValues() {
+    SharedPreferences preferences = SharedPreferencesUtils.getSharedPreferences(context);
+    if (preferences.contains(context.getString(R.string.pref_select_keymap_key))) {
+      return;
+    }
+
+    preferences
+        .edit()
+        .putString(
+            context.getString(R.string.pref_select_keymap_key), context.getString(KEYMAP_DEFAULT))
+        .apply();
+  }
+
+  /**
+   * Creates key combo model by keymap key.
+   *
+   * @return Key combo model. null will be returned if keymap is invalid.
+   */
+  @Nullable
+  private KeyComboModel createKeyComboModel() {
+    String keymap = getKeymap();
+    if (keymap.equals(context.getString(R.string.classic_keymap_entry_value))) {
+      return new ClassicKeyComboModel(context);
+    } else if (keymap.equals(context.getString(R.string.default_keymap_entry_value))) {
+      return new DefaultKeyComboModel(context);
+    }
+    return null;
   }
 
   /** Appends modifier. */
@@ -688,74 +417,14 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     }
   }
 
-  /**
-   * Handles incoming key events. May intercept keys if the user seems to be performing a key combo.
-   *
-   * @param event The key event.
-   * @return {@code true} if the key was intercepted.
-   */
-  @Override
-  public boolean onKeyEvent(KeyEvent event, EventId eventId) {
-    if (keyEventDelegate != null) {
-      if (keyEventDelegate.onKeyEvent(event, eventId)) {
-        return true;
-      }
-    }
-
-    if (!hasPartialMatch && !performedCombo && !matchKeyCombo) {
-      return false;
-    }
-
-    switch (event.getAction()) {
-      case KeyEvent.ACTION_DOWN:
-        return onKeyDown(event);
-      case KeyEvent.ACTION_MULTIPLE:
-        return hasPartialMatch;
-      case KeyEvent.ACTION_UP:
-        return onKeyUp(event);
-      default:
-        return false;
-    }
-  }
-
-  @Override
-  public boolean processWhenServiceSuspended() {
-    return true;
-  }
-
-  private KeyEvent convertKeyEventInArc(KeyEvent event) {
-    switch (event.getKeyCode()) {
-      case KeyEvent.KEYCODE_HOME:
-      case KeyEvent.KEYCODE_BACK:
-        // In Arc, Search + X is sent as KEYCODE_X with META_META_ON in Android. Android
-        // converts META_META_ON + KEYCODE_ENTER and META_META_ON + KEYCODE_DEL to
-        // KEYCODE_HOME and KEYCODE_BACK without META_META_ON. We add META_META_ON to this
-        // key event to satisfy trigger modifier condition. We don't need to do this in
-        // non-Arc since Search + X is usually sent as KEYCODE_X with META_META_ON and
-        // META_META_LEFT_ON or META_META_RIGHT_ON.
-        return new KeyEvent(
-            event.getDownTime(),
-            event.getEventTime(),
-            event.getAction(),
-            event.getKeyCode(),
-            event.getRepeatCount(),
-            event.getMetaState() | KeyEvent.META_META_ON);
-      default:
-        return event;
-    }
-  }
-
   private boolean onKeyDown(KeyEvent event) {
-    if (isArc) {
-      event = convertKeyEventInArc(event);
-    }
-
     currentKeysDown.add(event.getKeyCode());
     currentKeyComboCode = getKeyComboCode(event);
     currentKeyComboTime = event.getDownTime();
 
     // Check modifier.
     int triggerModifier = keyComboModel.getTriggerModifier();
+    event = convertMetaKeyCombo(triggerModifier, event);
     boolean hasModifier = triggerModifier != KeyComboModel.NO_MODIFIER;
     if (hasModifier && (triggerModifier & event.getModifiers()) != triggerModifier) {
       // Do nothing if condition of modifier is not met.
@@ -775,17 +444,24 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
 
       final int match = matchKeyEventWith(event, triggerModifier, entry.getValue());
       if (match == EXACT_MATCH) {
-        int comboId = getActionIdFromKey(entry.getKey());
-        String comboName = getKeyComboStringRepresentation(comboId);
-        EventId eventId = Performance.getInstance().onKeyComboEventReceived(comboId);
+        TalkBackPhysicalKeyboardShortcut action =
+            TalkBackPhysicalKeyboardShortcut.getActionFromKey(
+                context.getResources(), entry.getKey());
+        String comboName = getKeyComboStringRepresentation(currentKeyComboCode);
+        EventId eventId =
+            Performance.getInstance().onKeyComboEventReceived(action.getKeyboardShortcutOrdinal());
+
         // Checks interrupt events if matches key combos. To prevent interrupting actions generated
         // by key combos, we should send interrupt events
         // before performing key combos.
-        interrupt(comboId);
+        interrupt(action);
 
-        if (keyComboMapper.performKeyComboAction(comboId, comboName, eventId)) {
+        if (keyComboMapper.performKeyComboAction(action, comboName, eventId)) {
           performedCombo = true;
         }
+
+        analytics.onKeyboardShortcutUsed(action, triggerModifier, currentKeyComboCode);
+
         return true;
       }
 
@@ -819,6 +495,41 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     return hasPartialMatch;
   }
 
+  /**
+   * Android converts META_META_ON + KEYCODE_ENTER and META_META_ON + KEYCODE_DEL to KEYCODE_HOME
+   * and KEYCODE_BACK without META_META_ON. We recover it to the original event and add META_META_ON
+   * to this key event to satisfy trigger modifier condition.
+   */
+  private KeyEvent convertMetaKeyCombo(int triggerModifier, KeyEvent keyEvent) {
+    int keyCode = keyEvent.getKeyCode();
+    if (triggerModifier == KeyEvent.META_META_ON
+        && (keyCode == KeyEvent.KEYCODE_HOME || keyCode == KeyEvent.KEYCODE_BACK)
+        && (currentKeysDown.contains(KeyEvent.KEYCODE_META_LEFT)
+            || currentKeysDown.contains(KeyEvent.KEYCODE_META_RIGHT))) {
+
+      // The converted KeyEvent has no value of metaState, we should add META_META_ON to satisfy
+      // trigger modifier condition.
+      int metaState = keyEvent.getMetaState() | KeyEvent.META_META_ON;
+      switch (keyCode) {
+        case KeyEvent.KEYCODE_HOME:
+          keyCode = KeyEvent.KEYCODE_ENTER;
+          break;
+        case KeyEvent.KEYCODE_BACK:
+          keyCode = KeyEvent.KEYCODE_DEL;
+          break;
+        default: // fall out
+      }
+      return new KeyEvent(
+          keyEvent.getDownTime(),
+          keyEvent.getEventTime(),
+          keyEvent.getAction(),
+          keyCode,
+          keyEvent.getRepeatCount(),
+          metaState);
+    }
+    return keyEvent;
+  }
+
   private int matchKeyEventWith(KeyEvent event, int triggerModifier, long keyComboCode) {
     int keyCode = getConvertedKeyCode(event);
     int metaState = event.getModifiers() & KEY_EVENT_MODIFIER_MASK;
@@ -847,29 +558,131 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     return NO_MATCH;
   }
 
+  private boolean shouldShowKeymapChangesNotification() {
+    return hardwareKeyboardStatus == HARDKEYBOARDHIDDEN_NO
+        && keyComboModel != null
+        && keyComboModel instanceof ClassicKeyComboModel;
+  }
+
+  private void updateKeymapChangesNotificationVisibility() {
+    if (shouldShowKeymapChangesNotification()) {
+      notificationManager.notify(KEYMAP_CHANGES_NOTIFICATION_ID, createKeymapChangesNotification());
+    } else {
+      notificationManager.cancel(KEYMAP_CHANGES_NOTIFICATION_ID);
+    }
+  }
+
+  private Notification createKeymapChangesNotification() {
+    if (keymapNotification == null) {
+      NotificationCompat.Builder builder =
+          NotificationUtils.createDefaultNotificationBuilder(context);
+      Intent intent = new Intent(context, TalkBackKeymapChangesActivity.class);
+      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+      PendingIntent pendingIntent =
+          PendingIntent.getActivity(
+              context,
+              /* requestCode= */ 0,
+              intent,
+              PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+      keymapNotification =
+          builder
+              .setTicker(context.getString(R.string.keycombo_keymap_changes_instruction_title))
+              .setContentTitle(
+                  context.getString(R.string.keycombo_keymap_changes_instruction_title))
+              .setStyle(
+                  new NotificationCompat.BigTextStyle()
+                      .bigText(
+                          context.getString(
+                              R.string.keycombo_keymap_changes_notifications_content)))
+              .addAction(
+                  /* icon= */ 0,
+                  context.getString(R.string.keycombo_keymap_changes_notifications_action),
+                  pendingIntent)
+              .setContentIntent(pendingIntent)
+              .setAutoCancel(true)
+              .setOngoing(false)
+              .setWhen(0)
+              .build();
+    }
+    return keymapNotification;
+  }
+
+  private void showOrHideUpdateModifierKeysDialog() {
+    if (!BuildVersionUtils.isAtLeastU()) {
+      return;
+    }
+    boolean shouldShowDialogAgain =
+        !sharedPreferences.getBoolean(
+            context.getString(R.string.keycombo_update_modifier_keys_dialog_do_not_show_again),
+            false);
+    if (hardwareKeyboardStatus == HARDKEYBOARDHIDDEN_NO && shouldShowDialogAgain) {
+      if (updateModifierKeysDialog == null) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        final View root =
+            inflater.inflate(R.layout.do_not_show_again_checkbox_dialog, /* root= */ null);
+        CheckBox doNotShowAgainCheckBox = root.findViewById(R.id.dont_show_again);
+        doNotShowAgainCheckBox.setOnCheckedChangeListener(
+            (buttonView, isChecked) ->
+                sharedPreferences
+                    .edit()
+                    .putBoolean(
+                        context.getString(
+                            R.string.keycombo_update_modifier_keys_dialog_do_not_show_again),
+                        isChecked)
+                    .apply());
+        TextView contentTextView = root.findViewById(R.id.dialog_content);
+        contentTextView.setText(
+            context.getString(R.string.keycombo_update_modifier_key_warning_content));
+        updateModifierKeysDialog =
+            A11yAlertDialogWrapper.materialDialogBuilder(context)
+                .setView(root)
+                .setTitle(R.string.keycombo_update_modifier_key_warning_title)
+                .setPositiveButton(
+                    R.string.keycombo_go_to_settings,
+                    (dialog, which) -> {
+                      Intent intent = new Intent(context, TalkBackPreferencesActivity.class);
+                      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                      intent.putExtra(
+                          FRAGMENT_NAME,
+                          TalkBackKeyboardShortcutPreferenceFragment.class.getName());
+                      context.startActivity(intent);
+                    })
+                .setNegativeButton(
+                    R.string.keycombo_update_modifier_keys_warning_negative_button, null)
+                .create();
+        DialogUtils.setWindowTypeToDialog(updateModifierKeysDialog.getWindow());
+      }
+      if (!updateModifierKeysDialog.isShowing()) {
+        updateModifierKeysDialog.show();
+      }
+    } else {
+      if (updateModifierKeysDialog != null && updateModifierKeysDialog.isShowing()) {
+        updateModifierKeysDialog.dismiss();
+      }
+    }
+  }
+
   /**
-   * Notifies the {@link KeyComboMapper} whether should interrupt or not by checking the ActionId.
+   * Notifies the {@link KeyComboMapper} whether should interrupt or not by checking the action
+   * enum.
    *
-   * @param performedActionId the ActionId generating from key combos.
+   * @param performedAction the action generating from key combos.
    */
-  void interrupt(int performedActionId) {
+  private void interrupt(TalkBackPhysicalKeyboardShortcut performedAction) {
     if (keyComboMapper != null) {
-      keyComboMapper.interruptByKeyCombo(performedActionId);
+      keyComboMapper.interruptByKeyCombo(performedAction);
     }
   }
 
   private boolean onKeyUp(KeyEvent event) {
-    if (isArc) {
-      event = convertKeyEventInArc(event);
-    }
-
     currentKeysDown.remove(event.getKeyCode());
     boolean passed = passedKeys.remove(event.getKeyCode());
 
     if (currentKeysDown.isEmpty()) {
       // Checks interrupt events if no key combos performed in the interaction.
       if (!performedCombo) {
-        interrupt(ACTION_UNKNOWN);
+        interrupt(TalkBackPhysicalKeyboardShortcut.ACTION_UNKNOWN);
       }
       // The interaction is over, reset the state.
       performedCombo = false;
@@ -884,15 +697,13 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     return !passed;
   }
 
-  @Override
-  public void onServiceStateChanged(int newState) {
-    // Unfortunately, key events are lost when the TalkBackService becomes active. If a key-down
-    // occurs that triggers TalkBack to resume, the corresponding key-up event will not be
-    // sent, causing the partially-matched key history to become inconsistent.
-    // The following method will cause the key history to be reset.
-    setMatchKeyCombo(matchKeyCombo);
-
-
-    serviceState = newState;
-  }
+  private final OnSharedPreferenceChangeListener onSharedPreferenceChangeListener =
+      new OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+          if (context.getString(R.string.pref_select_keymap_key).equals(key)) {
+            updateKeymapChangesNotificationVisibility();
+          }
+        }
+      };
 }

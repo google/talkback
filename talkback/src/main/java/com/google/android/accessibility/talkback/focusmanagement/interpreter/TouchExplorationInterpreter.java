@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.interpreter;
 
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_TOUCH;
+
 import android.os.Message;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.Nullable;
@@ -26,7 +28,7 @@ import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
-import com.google.android.accessibility.utils.input.InputModeManager;
+import com.google.android.accessibility.utils.monitor.InputModeTracker;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,15 +63,15 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
           | AccessibilityEvent.TYPE_TOUCH_INTERACTION_END
           | AccessibilityEvent.TYPE_VIEW_HOVER_ENTER;
 
-  private final InputModeManager inputModeManager;
+  private final InputModeTracker inputModeTracker;
   private final PostDelayHandler postDelayHandler;
 
   private AccessibilityNodeInfoCompat lastTouchedNode;
 
   private final List<TouchExplorationActionListener> listeners = new ArrayList<>();
 
-  public TouchExplorationInterpreter(InputModeManager inputModeManager) {
-    this.inputModeManager = inputModeManager;
+  public TouchExplorationInterpreter(InputModeTracker inputModeTracker) {
+    this.inputModeTracker = inputModeTracker;
     postDelayHandler = new PostDelayHandler(this);
   }
 
@@ -176,7 +178,7 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
   }
 
   private void setInputTouchMode() {
-    inputModeManager.setInputMode(InputModeManager.INPUT_MODE_TOUCH);
+    inputModeTracker.setInputMode(INPUT_MODE_TOUCH);
   }
 
   /** Saves the last touched node. */

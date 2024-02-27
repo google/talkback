@@ -16,10 +16,13 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
+import static com.google.android.accessibility.talkback.eventprocessor.EventState.EVENT_SKIP_FOCUS_SYNC_FROM_VIEW_FOCUSED;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 import android.telephony.TelephonyManager;
@@ -29,8 +32,9 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityRecord;
+import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
-import androidx.core.view.accessibility.AccessibilityManagerCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import com.google.android.accessibility.talkback.ActorState;
@@ -41,34 +45,34 @@ import com.google.android.accessibility.talkback.VoiceActionMonitor;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Performance.EventIdAnd;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.WeakReferenceHandler;
+import com.google.android.accessibility.utils.monitor.DisplayMonitor;
+import com.google.android.accessibility.utils.monitor.DisplayMonitor.DisplayStateChangedListener;
 import com.google.android.accessibility.utils.output.Utterance;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import org.checkerframework.checker.initialization.qual.UnderInitialization;
 
 /** Runs a collection of AccessibilityEventListeners on each event. */
-public class AccessibilityEventProcessor {
+public class AccessibilityEventProcessor implements DisplayStateChangedListener {
   private static final String TAG = "A11yEventProcessor";
   private static final String DUMP_EVENT_LOG_FORMAT = "A11yEventDumper: %s";
   private TalkBackListener testingListener;
-
-  /**
-   * Used to not drop TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED for the below android versions to fix
-   * permissions dialog overlay
-   */
-  private static final boolean API_REQUIRES_PERMISSION_OVERLAY = !BuildVersionUtils.isAtLeastNMR1();
 
   /** Event types to drop after receiving a window state change. */
   public static final int AUTOMATIC_AFTER_STATE_CHANGE =
       AccessibilityEvent.TYPE_VIEW_FOCUSED
           | AccessibilityEvent.TYPE_VIEW_SELECTED
-          | AccessibilityEventCompat.TYPE_VIEW_SCROLLED;
+          | AccessibilityEvent.TYPE_VIEW_SCROLLED;
 
   /**
    * Event types that signal a change in touch interaction state and should be dropped on {@link
@@ -77,12 +81,12 @@ public class AccessibilityEventProcessor {
   private static final int MASK_EVENT_TYPES_TOUCH_STATE_CHANGES =
       AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START
           | AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END
-          | AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_START
-          | AccessibilityEventCompat.TYPE_TOUCH_EXPLORATION_GESTURE_END
+          | AccessibilityEvent.TYPE_TOUCH_EXPLORATION_GESTURE_START
+          | AccessibilityEvent.TYPE_TOUCH_EXPLORATION_GESTURE_END
           | AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_START
           | AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END
-          | AccessibilityEventCompat.TYPE_VIEW_HOVER_ENTER
-          | AccessibilityEventCompat.TYPE_VIEW_HOVER_EXIT;
+          | AccessibilityEvent.TYPE_VIEW_HOVER_ENTER
+          | AccessibilityEvent.TYPE_VIEW_HOVER_EXIT;
 
   /**
    * Event types that should be processed with a very minor delay in order to wait for state to
@@ -115,10 +119,10 @@ public class AccessibilityEventProcessor {
 
   private final TalkBackService service;
   private ActorState actorState;
-  private AccessibilityManager accessibilityManager;
+  private final AccessibilityManager accessibilityManager;
   private VoiceActionMonitor voiceActionMonitor;
   private RingerModeAndScreenMonitor ringerModeAndScreenMonitor;
-  private DelayedEventHandler handler = new DelayedEventHandler();
+  private final DelayedEventHandler handler;
 
   private static Method getSourceNodeIdMethod;
 
@@ -145,7 +149,7 @@ public class AccessibilityEventProcessor {
    * List of passive event processors. All processors in the list are sent the event in the order
    * they were added.
    */
-  private List<AccessibilityEventListener> accessibilityEventListeners = new ArrayList<>();
+  private final List<AccessibilityEventListener> accessibilityEventListeners = new ArrayList<>();
 
   private long lastWindowStateChanged;
   private AccessibilityEvent lastFocusedEvent;
@@ -154,6 +158,11 @@ public class AccessibilityEventProcessor {
 
   // Use bit mask to note what types of accessibility events should dump.
   private int dumpEventMask = 0;
+
+  // Default is true since we assume when it receive a11y event without callback invocation, the
+  // default display should be on.
+  private boolean defaultDisplayOn = true;
+  private final DisplayMonitor displayMonitor;
 
   /**
    * Callback interface for the idle state when {@link AccessibilityEventProcessor} doesn't receive
@@ -167,12 +176,14 @@ public class AccessibilityEventProcessor {
     void onIdle();
   }
 
-  public AccessibilityEventProcessor(TalkBackService service) {
+  public AccessibilityEventProcessor(TalkBackService service, DisplayMonitor displayMonitor) {
     accessibilityManager =
         (AccessibilityManager) service.getSystemService(Context.ACCESSIBILITY_SERVICE);
 
     this.service = service;
+    this.displayMonitor = displayMonitor;
     initDumpEventMask();
+    handler = new DelayedEventHandler(this);
   }
 
   /** Read dump event configuration from preferences. */
@@ -185,6 +196,14 @@ public class AccessibilityEventProcessor {
         dumpEventMask |= type;
       }
     }
+  }
+
+  public void onResumeInfrastructure() {
+    displayMonitor.addDisplayStateChangedListener(this);
+  }
+
+  public void onSuspendInfrastructure() {
+    displayMonitor.removeDisplayStateChangedListener(this);
   }
 
   public void setActorState(ActorState actorState) {
@@ -251,7 +270,18 @@ public class AccessibilityEventProcessor {
       testingListener.afterAccessibilityEvent(event);
     }
 
-    handler.refreshIdleMessage();
+    if (defaultDisplayOn) {
+      handler.refreshIdleMessage();
+    }
+  }
+
+  @Override
+  public void onDisplayStateChanged(boolean displayOn) {
+    defaultDisplayOn = displayOn;
+    if (!defaultDisplayOn) {
+      // If the display is off, we don't need to do it anymore.
+      handler.removeIdleMessage();
+    }
   }
 
   /**
@@ -269,10 +299,6 @@ public class AccessibilityEventProcessor {
    * <p>ii. User taps on screen to refocus on the a11y focused node. In this case event 2 and 4
    * should be spoken to the user.
    *
-   * <p>If the event is received from the ALLOW_BUTTON of ProcessorPermissionDialogs, the event need
-   * not be dropped and needs to be sent to ProcessorPermissionDialogs to clear the permissions
-   * overlay. This is required only for API level M to N.
-   *
    * @param event The current event.
    * @return {@code true} if the event should be dropped.
    */
@@ -280,8 +306,6 @@ public class AccessibilityEventProcessor {
     int eventType = event.getEventType();
     if (eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) {
       if (getSourceNodeIdMethod != null) {
-        AccessibilityRecordCompat record = AccessibilityEventCompat.asRecord(event);
-        AccessibilityNodeInfoCompat source = record.getSource();
         try {
           lastClearedSourceId = (long) getSourceNodeIdMethod.invoke(event);
           lastClearedWindowId = event.getWindowId();
@@ -293,14 +317,6 @@ public class AccessibilityEventProcessor {
             lastClearedSourceId = -1;
             lastClearedWindowId = -1;
             lastClearA11yFocus = 0;
-          }
-          // The event needs to be sent to ProcessorPermissionDialogs
-          // to clear the overlay
-          if (source != null
-              && API_REQUIRES_PERMISSION_OVERLAY
-              && TextUtils.equals(
-                  ProcessorPermissionDialogs.ALLOW_BUTTON, source.getViewIdResourceName())) {
-            return false;
           }
         } catch (Exception e) {
           LogUtils.d(TAG, "Exception accessing field: " + e.toString());
@@ -360,11 +376,15 @@ public class AccessibilityEventProcessor {
     // If touch exploration is enabled, drop automatically generated events
     // that are sent immediately after a window state change... unless we
     // decide to keep the event.
-    if (AccessibilityManagerCompat.isTouchExplorationEnabled(accessibilityManager)
+    if (accessibilityManager.isTouchExplorationEnabled()
         && ((event.getEventType() & AUTOMATIC_AFTER_STATE_CHANGE) != 0)
         && ((event.getEventTime() - lastWindowStateChanged) < DELAY_AUTO_AFTER_STATE)
         && !shouldKeepAutomaticEvent(event)) {
-      LogUtils.v(TAG, "Drop event after window state change");
+      LogUtils.v(
+          TAG,
+          "Drop event after window state change (event=%s, lastWindowStateChanged=%d)",
+          event,
+          lastWindowStateChanged);
       return true;
     }
 
@@ -372,6 +392,28 @@ public class AccessibilityEventProcessor {
     if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_SELECTED
         && !shouldKeepViewSelectedEvent(event)) {
       LogUtils.v(TAG, "Drop selected event after focused event");
+      return true;
+    }
+
+    if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_FOCUSED
+        && EventState.getInstance()
+            .checkAndClearRecentFlag(EVENT_SKIP_FOCUS_SYNC_FROM_VIEW_FOCUSED)) {
+      LogUtils.v(TAG, "Drop view focused event due to EventState");
+      return true;
+    }
+
+    // TYPE_VIEW_FOCUSED is received even if the input focus is on a non-focused window.
+    // On TV, we want to ignore such events. Since the Accessibility API does not correctly report
+    // the window focus, we have to work around that. One of the rare cases where we have multiple
+    // windows open, is when the picture-in-picture mode is active.
+    if (FormFactorUtils.getInstance().isAndroidTv()
+        && event.getEventType() == AccessibilityEvent.TYPE_VIEW_FOCUSED
+        && isPipFocused()
+        && event.getSource() != null
+        && event.getSource().getWindowId()
+            != AccessibilityServiceCompatUtils.getPipWindow(service).getId()) {
+      LogUtils.v(
+          TAG, "Drop view focused event due to focus being on PIP and event not coming from PIP");
       return true;
     }
 
@@ -383,11 +425,12 @@ public class AccessibilityEventProcessor {
     // TelephonyManager transitions to CALL_STATE_RINGING, so we need to check isDialerEvent().
     isPhoneRinging |= isDialerEvent(event);
 
-    // In most of the cases, Android system will drop all touch event when the screen is off. So
-    // TalkBack also drops accessibility events because the phone is unusable to users in this case.
-    // One exception is AoD(always on display) mode, the screen state is off but users may still
-    // interact with the screen. For example, charging on a Pixel Stand. In that kind of cases we
-    // use the state of Display to check the screen is interactive or not.
+    // In most of the cases, Android system will drop all touch event when the screen is off (not
+    // interactive). So, TalkBack also drops accessibility events because the phone is unusable to
+    // users in this case.
+    // One exception is AoD (always on display) mode, the screen state is off (not interactive) but
+    // users may still be able to interact with the screen. For example, charging on a Pixel Stand.
+    // In that kind of cases we use the state of Display to check the screen is interactive or not.
     // REFERTO for details.
     // System UI placed live regions in keyguard screen. When device put in pixel stand, it will
     // announce the charging status for any changes which is regarded as annoying.
@@ -396,8 +439,9 @@ public class AccessibilityEventProcessor {
     // REFERTO for details
     boolean isScreenInteractive =
         ringerModeAndScreenMonitor == null
-            || ringerModeAndScreenMonitor.isScreenOn()
-            || (BuildVersionUtils.isAtLeastR() && ringerModeAndScreenMonitor.isDisplayOn());
+            || ringerModeAndScreenMonitor.isInteractive()
+            || (BuildVersionUtils.isAtLeastR() && ringerModeAndScreenMonitor.isDefaultDisplayOn());
+    // AoD mode: isInteractive() is false, but isDefaultDisplayOn() is true
 
     if (!isScreenInteractive && !isPhoneRinging) {
       boolean isNotification = AccessibilityEventUtils.isNotificationEvent(event);
@@ -422,6 +466,15 @@ public class AccessibilityEventProcessor {
     return (touchscreenState == Configuration.TOUCHSCREEN_NOTOUCH) && isTouchInteractionStateChange;
   }
 
+  /** Helper method for checking if the pip window is both open and focused. */
+  @VisibleForTesting
+  boolean isPipFocused() {
+    AccessibilityWindowInfo window = AccessibilityServiceCompatUtils.getPipWindow(service);
+    return (window != null)
+        && (window.getRoot() != null)
+        && (window.getRoot().findFocus(AccessibilityNodeInfo.FOCUS_ACCESSIBILITY) != null);
+  }
+
   /**
    * Helper method for {@link #shouldDropEvent} that handles events that automatically occur
    * immediately after a window state change.
@@ -434,9 +487,8 @@ public class AccessibilityEventProcessor {
 
     // Don't drop focus events from EditTexts.
     if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_FOCUSED) {
-      AccessibilityNodeInfoCompat node = null;
 
-      node = record.getSource();
+      AccessibilityNodeInfoCompat node = record.getSource();
       if (Role.getRole(node) == Role.ROLE_EDIT_TEXT) {
         return true;
       }
@@ -529,6 +581,9 @@ public class AccessibilityEventProcessor {
   }
 
   public void postRemoveAccessibilityEventListener(final AccessibilityEventListener listener) {
+    if (!accessibilityEventListeners.contains(listener)) {
+      return;
+    }
     new Handler()
         .post(
             new Runnable() {
@@ -552,19 +607,25 @@ public class AccessibilityEventProcessor {
     void onAccessibilityEvent(AccessibilityEvent event);
 
     void afterAccessibilityEvent(AccessibilityEvent event);
+
     // TODO: Solve this by making a fake tts and look for calls into it instead
     void onUtteranceQueued(Utterance utterance);
   }
 
-  private class DelayedEventHandler extends Handler {
+  private static class DelayedEventHandler
+      extends WeakReferenceHandler<AccessibilityEventProcessor> {
 
     public static final int MESSAGE_WHAT_PROCESS_EVENT = 1;
     public static final int MESSAGE_WHAT_PROCESSOR_IDLE = 2;
 
     private AccessibilityEventIdleListener accessibilityEventIdleListener;
 
+    DelayedEventHandler(@UnderInitialization AccessibilityEventProcessor parent) {
+      super(parent, Looper.myLooper());
+    }
+
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message, AccessibilityEventProcessor parent) {
       switch (message.what) {
         case MESSAGE_WHAT_PROCESS_EVENT:
           if (message.obj == null) {
@@ -573,7 +634,7 @@ public class AccessibilityEventProcessor {
           @SuppressWarnings("unchecked")
           EventIdAnd<AccessibilityEvent> eventAndId = (EventIdAnd<AccessibilityEvent>) message.obj;
           AccessibilityEvent event = eventAndId.object;
-          processEvent(event, eventAndId.eventId);
+          parent.processEvent(event, eventAndId.eventId);
           break;
 
         case MESSAGE_WHAT_PROCESSOR_IDLE:
@@ -598,6 +659,10 @@ public class AccessibilityEventProcessor {
       sendEmptyMessageDelayed(
           MESSAGE_WHAT_PROCESSOR_IDLE,
           AccessibilityEventIdleListener.ACCESSIBILITY_EVENT_IDLE_STATE_MS);
+    }
+
+    public void removeIdleMessage() {
+      removeMessages(MESSAGE_WHAT_PROCESSOR_IDLE);
     }
 
     public void setAccessibilityEventIdleListener(AccessibilityEventIdleListener listener) {

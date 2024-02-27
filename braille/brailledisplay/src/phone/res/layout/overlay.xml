@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Forced LTR layout. The braille view always renders left-to-right, so the
+     buttons should be laid out accordingly, even in RTL languages. -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:brailledisplay="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layoutDirection="ltr"
+    android:background="#C0000000">
+
+    <ImageButton
+        android:id="@+id/pan_left_button"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:paddingLeft="@dimen/overlay_pan_button_padding"
+        android:paddingRight="@dimen/overlay_pan_button_padding"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_prev"
+        android:contentDescription="@string/overlay_pan_left_button" />
+
+    <com.google.android.accessibility.braille.brailledisplay.BrailleView
+        android:id="@+id/braille_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/overlay_text_size"
+        brailledisplay:dotRadius="@dimen/overlay_dot_radius"
+        brailledisplay:cellWidth="@dimen/overlay_cell_width"
+        brailledisplay:cellHeight="@dimen/overlay_cell_height"
+        brailledisplay:cellPadding="@dimen/overlay_cell_padding"
+        brailledisplay:highlightDrawable="@android:color/holo_blue_light" />
+
+    <ImageButton
+        android:id="@+id/pan_right_button"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:paddingLeft="@dimen/overlay_pan_button_padding"
+        android:paddingRight="@dimen/overlay_pan_button_padding"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_next"
+        android:contentDescription="@string/overlay_pan_right_button" />
+
+</LinearLayout>

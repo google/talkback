@@ -5,7 +5,7 @@
   <string name="voice_commands_edit_options">Opcje edycji</string>
   <string name="voice_commands_text_editing">Edytowanie tekstu</string>
   <string name="voice_commands_edit_text">Edytowanie tekstu</string>
-  <string name="voice_commands_editing_options">Opcje edytowania</string>
+  <string name="voice_commands_editing_options">Opcje edycji</string>
   <string name="voice_commands_edit">edytuj</string>
   <string name="voice_commands_what">co</string>
   <string name="voice_commands_say">powiedz</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Aby używać poleceń głosowych, przesuń palcem w prawo, a następnie do góry. Lista dostępnych poleceń głosowych zostanie wyświetlona, gdy powiesz „Pomoc” lub „Co mogę powiedzieć?”.</string>
   <string name="voice_commands_help_hint">By uzyskać jak najlepsze rezultaty, powiedz dokładnie to, co zobaczysz na kolejnych ekranach.</string>
   <string name="voice_command_screen_locked_hint">Polecenia głosowe nie są dostępne, gdy ekran jest zablokowany. Aby zamiast tego używać menu Talk Back, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Polecenia głosowe nie są dostępne podczas konfiguracji.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Zmienianie sposobu wyświetlania treści na ekranie</string>
   <string name="voice_commands_help_next">Następny [nagłówek]</string>

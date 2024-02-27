@@ -21,6 +21,7 @@ import android.graphics.drawable.Drawable;
 import android.view.SubMenu;
 import android.view.View;
 import androidx.annotation.NonNull;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /** Class that provides sub menu function */
 public class ListSubMenu extends ContextMenu implements SubMenu {
@@ -44,6 +45,7 @@ public class ListSubMenu extends ContextMenu implements SubMenu {
     return title == null ? null : title.toString();
   }
 
+  @CanIgnoreReturnValue
   @NonNull
   @Override
   public SubMenu setHeaderTitle(int titleRes) {
@@ -51,6 +53,7 @@ public class ListSubMenu extends ContextMenu implements SubMenu {
     return this;
   }
 
+  @CanIgnoreReturnValue
   @NonNull
   @Override
   public SubMenu setHeaderTitle(CharSequence title) {
@@ -58,6 +61,7 @@ public class ListSubMenu extends ContextMenu implements SubMenu {
     return this;
   }
 
+  @CanIgnoreReturnValue
   @NonNull
   @Override
   public SubMenu setHeaderIcon(int iconRes) {
@@ -65,6 +69,7 @@ public class ListSubMenu extends ContextMenu implements SubMenu {
     return this;
   }
 
+  @CanIgnoreReturnValue
   @NonNull
   @Override
   public SubMenu setHeaderIcon(Drawable icon) {
@@ -83,6 +88,7 @@ public class ListSubMenu extends ContextMenu implements SubMenu {
     throw new UnsupportedOperationException();
   }
 
+  @CanIgnoreReturnValue
   @NonNull
   @Override
   public SubMenu setIcon(int iconRes) {
@@ -90,6 +96,7 @@ public class ListSubMenu extends ContextMenu implements SubMenu {
     return this;
   }
 
+  @CanIgnoreReturnValue
   @NonNull
   @Override
   public SubMenu setIcon(Drawable icon) {

@@ -36,40 +36,59 @@ import javax.annotation.Nullable;
  */
 class MultitouchResult {
 
-  @IntDef({TYPE_TAP, TYPE_SWIPE, TYPE_HOLD})
+  @IntDef({TYPE_TAP, TYPE_SWIPE, TYPE_HOLD, TYPE_CALIBRATION_HOLD, TYPE_HOLD_AND_SWIPE})
   @Retention(RetentionPolicy.SOURCE)
   public @interface Type {}
 
   static final int TYPE_TAP = 0;
   static final int TYPE_SWIPE = 1;
   static final int TYPE_HOLD = 2;
+  static final int TYPE_CALIBRATION_HOLD = 3;
+  static final int TYPE_HOLD_AND_SWIPE = 4;
 
   @Type int type;
-  @Nullable List<PointF> points;
   @Nullable Swipe swipe;
-  int pointersHeldCount;
+  @Nullable List<PointF> heldPoints;
+  @Nullable List<PointF> releasedPoints;
 
   private MultitouchResult() {}
 
   static MultitouchResult createTap(List<PointF> releaseContributors) {
     MultitouchResult result = new MultitouchResult();
     result.type = TYPE_TAP;
-    result.points = releaseContributors;
+    result.releasedPoints = releaseContributors;
     return result;
   }
 
-  static MultitouchResult createSwipe(Swipe swipe) {
+  static MultitouchResult createSwipe(Swipe swipe, List<PointF> releaseContributors) {
     MultitouchResult result = new MultitouchResult();
     result.type = TYPE_SWIPE;
     result.swipe = swipe;
+    result.releasedPoints = releaseContributors;
+    return result;
+  }
+
+  static MultitouchResult createCalibrationHold(List<PointF> holdContributors) {
+    MultitouchResult result = new MultitouchResult();
+    result.type = TYPE_CALIBRATION_HOLD;
+    result.heldPoints = holdContributors;
     return result;
   }
 
   static MultitouchResult createHold(List<PointF> holdContributors) {
     MultitouchResult result = new MultitouchResult();
     result.type = TYPE_HOLD;
-    result.pointersHeldCount = holdContributors.size();
-    result.points = holdContributors;
+    result.heldPoints = holdContributors;
+    return result;
+  }
+
+  static MultitouchResult createHoldAndDotSwipe(
+      List<PointF> holdContributors, Swipe swipe, List<PointF> releaseContributors) {
+    MultitouchResult result = new MultitouchResult();
+    result.type = TYPE_HOLD_AND_SWIPE;
+    result.swipe = swipe;
+    result.heldPoints = holdContributors;
+    result.releasedPoints = releaseContributors;
     return result;
   }
 
@@ -79,11 +98,11 @@ class MultitouchResult {
         + "type="
         + type
         + ", releasePoints="
-        + points
+        + releasedPoints
         + ", swipe="
         + swipe
-        + ", pointersHeldCount="
-        + pointersHeldCount
+        + ", heldPoints="
+        + heldPoints
         + '}';
   }
 }

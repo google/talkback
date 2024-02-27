@@ -19,6 +19,7 @@ package com.google.android.accessibility.utils.labeling;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /** An object that builds and executes a query for creating a new SQLite table. */
 public class SQLiteTableBuilder {
@@ -82,6 +83,7 @@ public class SQLiteTableBuilder {
    *     {@link #TYPE_BLOB}.
    * @return the current {@link SQLiteTableBuilder} instance, with the newly added column.
    */
+  @CanIgnoreReturnValue
   public SQLiteTableBuilder addColumn(String columnName, int type) {
     return addColumn(columnName, type, false);
   }
@@ -97,6 +99,7 @@ public class SQLiteTableBuilder {
    * @param primaryKey Whether or not the column is a primary key.
    * @return the current {@link SQLiteTableBuilder} instance, with the newly added column.
    */
+  @CanIgnoreReturnValue
   public SQLiteTableBuilder addColumn(String columnName, int type, boolean primaryKey) {
     if (TextUtils.isEmpty(columnName)) {
       throw new IllegalArgumentException("Column name cannot be empty.");

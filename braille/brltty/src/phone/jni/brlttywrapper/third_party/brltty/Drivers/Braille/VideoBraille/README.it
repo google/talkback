@@ -1,0 +1,23 @@
+Introduzione
+
+Questo è il driver per il display braille Videobraille, distribuito dalla Tiflosoft.
+Questo driver funziona SOLO con il modello VB 40 e non funziona con l'aggiornamento PRO 9600.
+Potrei eventualmente aggiungere anche il supporto per il modello PRO 9600 se mi fosse richiesto, poiché si tratta solo di qualche breve modifica al codice; non ho implementato ancora il supporto per questo modello semplicemente perché non avrei avuto modo di testarlo.
+
+Implementazione
+
+Questo driver non è perfetto. Ho riscontrato vari problemi relativi soprattutto alla temporizzazione, e ho dovuto implementare una funzione di scrittura che scrive ogni riga due volte sul display braille, non chiedetermi perché: è solo questione di test.
+Per implementare il driver, ho contattato direttamente chi ha progettato questo display (Acquistapace) per ottenere della documentazione.
+
+Se volete contattarmi per qualunque problema o suggerimento, il mio indirizzo e-mail è christian_comaschi@libero.it
+Però, prima di contattarmi e scrivere che il driver non funziona, controllate che:
+- la vostra Videobraille non è PRO 9600 (se lo è e volete il driver, chiedete);
+- nel file braille.h LPTPORT è impostato correttamente: 0x378 per LPT1, 0x278 per LPT2,...
+Se tutto è giusto, provate a modificare in braille.h i valori VBDELAY, VBCLOCK e VBREFRESHDELAY: questi valori dipendono dalla velocità del computer, devono quindi essere adattati al vostro processore. Non penso che questo sia un buon modo di impostare i tempi di attesa, ma ho voluto rispettare l'implementazione originale, perché quando ho usato altri tipi di temporizzazione ho riscontrato problemi.
+
+Implementazione della funzione taglia/incolla
+
+Ho aggiornato in seguito il driver per implementare la funzione taglia/incolla in questo modo: si seleziona l'inizio di un blocco tenendo premuto uno dei 40 tastini dell'aggancio cursore e premendo Edit; si contrassegna la fine di un blocco tenendo premuto uno dei 40 tastini e premendo Menu.
+Il tastino da premere va selezionato come nella procedura di aggancio cursore.
+Quindi, per incollare il testo, basta premere contemporaneamente i tasti Attr e Menu.
+Per questa implementazione ho dovuto inventare le combinazioni dei tasti perché la funzione copia/incolla non esisteva nel driver DOS originale.

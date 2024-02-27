@@ -21,11 +21,24 @@ import android.content.Context;
 public class BrailleImeAnalytics {
   /** Context menu selections. */
   public enum ContextMenuSelections {
+    UNSPECIFIED_OPTION,
+    SWITCH_CONTRACTED_STATUS,
     SEE_ALL_ACTIONS,
+    CALIBRATION,
     TUTORIAL_OPEN,
     TUTORIAL_FINISH,
     GO_TO_SETTINGS,
-    UNSPECIFIED_OPTION,
+    TYPING_LANGUAGE
+  }
+
+  /** Calibration triggered type. */
+  public enum CalibrationTriggeredType {
+    UNSPECIFIED_FINGER,
+    FIVE_FINGER,
+    SIX_FINGER,
+    SEVEN_FINGER,
+    EIGHT_FINGER,
+    MANUAL
   }
 
   private static BrailleImeAnalytics instance;
@@ -104,4 +117,76 @@ public class BrailleImeAnalytics {
 
   /** Stub implementation does nothing. */
   public void logContextMenuOptionCount(ContextMenuSelections contextMenuSelections) {}
+
+  /** Logs for finishing calibration. */
+  public void logCalibrationFinish(
+      CalibrationTriggeredType calibrationType, boolean tabletop, boolean isEight) {}
+
+  /** Logs for calibration failure. */
+  public void logCalibrationFailed(
+      CalibrationTriggeredType calibrationType, boolean tabletop, boolean isEight) {}
+
+  /** Logs for starting calibration. */
+  public void logCalibrationStarted(
+      CalibrationTriggeredType calibrationType, boolean tabletop, boolean isEight) {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorForwardByCharacter() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorBackwardByCharacter() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorForwardByWord() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorBackwardByWord() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorForwardByLine() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorBackwardByLine() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorToBeginning() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionMoveCursorToEnd() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSelectNextCharacter() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSelectPreviousCharacter() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSelectNextWord() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSelectPreviousWord() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSelectNextLine() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSelectPreviousLine() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSelectAllText() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionCut() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionCopy() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionPaste() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSwitchToNextEditingGranularity() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSwitchToPreviousEditingGranularity() {}
 }

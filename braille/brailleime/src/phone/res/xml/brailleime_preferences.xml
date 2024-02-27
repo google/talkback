@@ -5,19 +5,25 @@
       android:key="@string/pref_brailleime_turn_on_braille_keyboard"
       android:title="@string/set_up_braille_keyboard" />
 
-  <MultiSelectListPreference
+  <Preference
+      android:key="@string/pref_brailleime_review_all_gestures"
+      android:title="@string/review_all_gestures_title" />
+
+  <Preference
       android:key="@string/pref_brailleime_translator_codes_preferred"
       android:summary="%s"
-      android:title="@string/typing_languages_title" />
+      android:title="@string/preferred_languages_title" />
 
   <ListPreference
       android:key="@string/pref_brailleime_translator_code"
       android:summary="%s"
-      android:title="@string/preferred_language_title" />
+      android:title="@string/preferred_typing_language_title" />
 
   <Preference
-      android:key="@string/pref_brailleime_see_all_actions"
-      android:title="@string/context_menu_see_all_gestures_selection" />
+      android:key="@string/pref_braille_contracted_mode"
+      android:title="@string/preferred_braille_grade_title">
+    <intent android:action=".BrailleGradeActivity" />
+  </Preference>
 
   <ListPreference
       android:key="@string/pref_brailleime_layout_mode"

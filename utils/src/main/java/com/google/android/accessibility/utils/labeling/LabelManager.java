@@ -16,15 +16,36 @@
 
 package com.google.android.accessibility.utils.labeling;
 
+import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
-/** An interface for retreiving custom labels. */
+/** An interface for retrieving custom labels. */
 public interface LabelManager {
   static final int SOURCE_TYPE_USER = 0; // labels that were inserted by user
   static final int SOURCE_TYPE_IMPORT = 1; // labels that were imported
   static final int SOURCE_TYPE_BACKUP = 2; // labels that were overridden by import
 
+  /**
+   * Retrieves a {@link Label} from the label cache given a fully-qualified resource identifier
+   * name.
+   *
+   * @param resourceName The fully-qualified resource identifier, such as
+   *     "com.android.deskclock:id/analog_appwidget", as provided by {@link
+   *     AccessibilityNodeInfo#getViewIdResourceName()}
+   * @return The {@link Label} matching the provided identifier, or {@code null} if no such label
+   *     exists or has not yet been fetched from storage
+   */
   Label getLabelForViewIdFromCache(String resourceName);
-  /** Returns whether node needs a label. */
-  boolean needsLabel(AccessibilityNodeInfoCompat node);
+
+  /** Read-only interface to pull state information. */
+  interface State {
+    public long getLabelIdForNode(AccessibilityNodeInfoCompat node);
+
+    public boolean supportsLabel(AccessibilityNodeInfoCompat node);
+
+    public boolean needsLabel(AccessibilityNodeInfoCompat node);
+  }
+
+  /** Returns an instance of the read-only {@link LabelManager.State}. */
+  State stateReader();
 }

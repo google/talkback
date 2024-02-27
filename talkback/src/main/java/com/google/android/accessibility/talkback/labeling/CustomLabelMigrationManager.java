@@ -95,7 +95,7 @@ public class CustomLabelMigrationManager {
         new LabelsFetchRequest.OnLabelsFetchedListener() {
           @Override
           public void onLabelsFetched(List<Label> results) {
-            if (results != null && results.size() > 0) {
+            if (results != null && !results.isEmpty()) {
               createLabelFileAsync(results, callback);
             } else {
               Toast.makeText(context, R.string.label_export_empty, Toast.LENGTH_SHORT).show();
@@ -192,7 +192,7 @@ public class CustomLabelMigrationManager {
       }
 
       List<Label> labels = parseLabels(text);
-      if (labels.size() == 0) {
+      if (labels.isEmpty()) {
         return;
       }
 

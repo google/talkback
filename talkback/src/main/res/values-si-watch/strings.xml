@@ -2,4 +2,12 @@
 <resources>
   <string name="talkback_service_description">TalkBack මූලික වශයෙන් අන්ධ භාවය සහ පෙනීම අඩු පුද්ගලයන් සඳහා තිර කියවනයකි. එය කථන ප්‍රතිපෝෂණ භාවිතයෙන් අන්තර්ක්‍රියාකාරිත්වයට ඉඩ දෙයි.</string>
   <string name="welcome_to_talkback_text">ඔබට තිරය දෙස බැලීමෙන් තොරව ඔබගේ නැරඹුම භාවිත කිරීමට හැකි වන ලෙස කථන ප්‍රතිපෝෂණ ලබා ගන්න.</string>
+  <string name="summary_custom_action">වත්මන් අයිතමය සඳහා අභිරුචි ක්‍රියා පවතින විට පෙන්වයි.</string>
+  <string name="notification_title_talkback_gestures_changed">TalkBack අභිනයන් යාවත්කාලීනයි</string>
+  <string name="notification_message_talkback_gestures_changed">වැඩි විස්තර සඳහා Talkback විවෘත කරන්න</string>
+  <string name="new_feature_in_talkback_title">අලුත් මොනවා ද</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">හරි</string>
+  <string name="scan_the_qr_code">QR කේතය ස්කෑන් කරන්න</string>
+  <string name="alternate_privacy_policy">නැතහොත් http://www.google.com/policies/privacy වෙත පිවිසෙන්න</string>
+  <string name="alternate_tos">නැතහොත් https://www.google.com/mobile/toscountry වෙත පිවිසෙන්න</string>
 </resources>

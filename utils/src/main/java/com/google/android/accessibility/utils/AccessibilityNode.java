@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.utils;
 
+import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_TYPE_NONE;
+
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -23,6 +25,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.ViewResourceName;
+import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WindowType;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role.RoleName;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
@@ -74,32 +77,35 @@ public class AccessibilityNode {
   // Construction
 
   /** Caller keeps ownership of nodeArg. */
+  @Deprecated
   public static @Nullable AccessibilityNode obtainCopy(@Nullable AccessibilityNodeInfo nodeArg) {
     return construct(nodeArg, /* copy= */ true, FACTORY);
   }
 
   /** Caller keeps ownership of nodeArg. */
+  @Deprecated
   public static @Nullable AccessibilityNode obtainCopy(
       @Nullable AccessibilityNodeInfoCompat nodeArg) {
     return construct(nodeArg, /* copy= */ true, FACTORY);
   }
 
   /** Gets a copy of this node. */
+  @Deprecated
   public @Nullable AccessibilityNode obtainCopy() {
     return obtainCopy(getCompat());
   }
 
-  /** Gets a copy of this node. */
+  /** Gets a copy of this node's inner compat-node. */
   public @Nullable AccessibilityNodeInfoCompat obtainCopyCompat() {
     return AccessibilityNodeInfoCompat.obtain(getCompat());
   }
 
-  /** Takes ownership of nodeArg. */
+  /** Wrapgs nodeArg, but does not recycle it. */
   public static @Nullable AccessibilityNode takeOwnership(@Nullable AccessibilityNodeInfo nodeArg) {
     return construct(nodeArg, /* copy= */ false, FACTORY);
   }
 
-  /** Takes ownership of nodeArg. */
+  /** Wraps nodeArg, but does not recycle it. */
   public static @Nullable AccessibilityNode takeOwnership(
       @Nullable AccessibilityNodeInfoCompat nodeArg) {
     return construct(nodeArg, /* copy= */ false, FACTORY);
@@ -258,7 +264,7 @@ public class AccessibilityNode {
   }
 
   /** Create and use compat wrapper on demand. */
-  private AccessibilityNodeInfoCompat getCompat() {
+  public AccessibilityNodeInfoCompat getCompat() {
     if (nodeCompat == null) {
       nodeCompat = AccessibilityNodeInfoCompat.wrap(nodeBare); // Available since compat 26.1.0
     }
@@ -301,6 +307,10 @@ public class AccessibilityNode {
   /** Gets the node bounds in parent coordinates. {@code rect} will be written to. */
   public final void getBoundsInScreen(Rect rect) {
     getCompat().getBoundsInScreen(rect);
+  }
+
+  public String getUniqueId() {
+    return getCompat().getUniqueId();
   }
 
   /** Gets the child at the given index. Caller must recycle the returned node. */
@@ -490,10 +500,10 @@ public class AccessibilityNode {
     return (window != null) && window.isFocused();
   }
 
-  @AccessibilityWindow.WindowType
+  @WindowType
   public final int windowGetType() {
     AccessibilityWindow window = getWindow();
-    return (window == null) ? AccessibilityWindow.TYPE_UNKNOWN : window.getType();
+    return (window == null) ? WINDOW_TYPE_NONE : window.getType();
   }
 
   // TODO: Add methods on demand. Keep alphabetic order.
@@ -514,13 +524,13 @@ public class AccessibilityNode {
     return TraversalStrategyUtils.getTraversalStrategy(getCompat(), focusFinder, direction);
   }
 
-  public @Nullable AccessibilityNode findInitialFocusInNodeTree(
+  public @Nullable AccessibilityNode findFirstFocusInNodeTree(
       TraversalStrategy traversalStrategy,
       @TraversalStrategy.SearchDirection int searchDirection,
       Filter<AccessibilityNodeInfoCompat> nodeFilter) {
 
     return AccessibilityNode.takeOwnership(
-        TraversalStrategyUtils.findInitialFocusInNodeTree(
+        TraversalStrategyUtils.findFirstFocusInNodeTree(
             traversalStrategy, getCompat(), searchDirection, nodeFilter));
   }
 

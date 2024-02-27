@@ -20,6 +20,8 @@ import java.nio.ByteBuffer;
 
 /** Allows BrailleIme to signal to BrailleDisplay. */
 public interface BrailleDisplayForBrailleIme {
+  /** Tells when braille keyboard visibility changed. */
+  void onImeVisibilityChanged(boolean visible);
   /** Tells BrailleDisplay to show the result on a braille display. */
   void showOnDisplay(ResultForDisplay result);
   /** Whether a physical braille display is connected and not suspended. */

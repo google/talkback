@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_vibration_default"
       android:key="@string/pref_vibration_key"
       android:title="@string/title_pref_vibration" />
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_use_audio_focus_default"
       android:key="@string/pref_use_audio_focus_key"
       android:title="@string/title_pref_use_audio_focus"
-      android:summary="@string/summary_pref_use_audio_focus" />
-  <SwitchPreference
+      android:summary="@string/summary_audio_ducking" />
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_soundback_default"
       android:key="@string/pref_soundback_key"
       android:title="@string/title_pref_soundback" />
-  <com.google.android.accessibility.talkback.preference.WearListPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteListPreference
       android:defaultValue="@string/pref_soundback_volume_default"
       android:dependency="@string/pref_soundback_key"
       android:entries="@array/pref_soundback_volume_entries"

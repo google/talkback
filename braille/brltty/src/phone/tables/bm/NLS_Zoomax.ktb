@@ -1,0 +1,107 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title NLS eReader Zoomax
+
+note An eight-dot standard braille keyboard is along the back edge of the top.
+note * From left to right, its keys are: Dot7, Dot3, Dot2, Dot1, Dot4, Dot5, Dot6, Dot8.
+note * The Space key is in between Dot1 and Dot4.
+
+note The two round keys at each end of the front are system keys. From left to right:
+note * the two on the left are S1 and S2, and the two on the right are S3 and S4.
+
+assign space Space
+include navpad.kti
+note There's a rectangular key on either side of the navigation pad.
+note * The one to the left is named BL, and the one to the right is named BR.
+
+bind BL KEY_BACKSPACE
+bind BL+RoutingKey SETLEFT
+
+map S1 GUI
+map S2 CONTROL
+map S3 META
+map S4 ALTGR
+
+bind S1 HELP
+bind S2 TIME
+bind S3 INFO
+bind S4 LEARN
+
+bind BL+Select PREFMENU
+bind BL+Up PREFLOAD
+bind BL+Down PREFSAVE
+
+bind BL+Left PRNBWIN
+bind BL+Right NXNBWIN
+
+bind Select+Left FWINLTSKIP
+bind Select+Right FWINRTSKIP
+
+bind Left+Up TOP_LEFT
+bind Left+Down BOT_LEFT
+
+bind Right+Up TOP
+bind Right+Down BOT
+
+bind S1+Up ATTRUP
+bind S1+Down ATTRDN
+
+bind S2+Up PRDIFLN
+bind S2+Down NXDIFLN
+
+bind S3+Up PRPROMPT
+bind S3+Down NXPROMPT
+
+bind S4+Up PRPGRPH
+bind S4+Down NXPGRPH
+
+bind S1+Left LNBEG
+bind S1+Right LNEND
+
+bind S2+Left CHRLT
+bind S2+Right CHRRT
+
+bind S3+Left HWINLT
+bind S3+Right HWINRT
+
+bind S4+Left PRSEARCH
+bind S4+Right NXSEARCH
+
+bind S1+RoutingKey PRDIFCHAR
+bind S2+RoutingKey NXDIFCHAR
+
+bind S3+RoutingKey PRINDENT
+bind S4+RoutingKey NXINDENT
+
+bind Select+S1 ATTRVIS
+bind Select+S2 CSRVIS
+bind Select+S3 CSRTRK
+bind Select+S4 SIXDOTS
+
+bind BL+S3 DISPMD
+bind BL+S4 FREEZE
+
+bind Left+Right PASTE
+bind S2+S3 CSRJMP_VERT
+
+include display6.kti
+include routing6.kti
+
+assign speech BL+
+include ../speech.kti

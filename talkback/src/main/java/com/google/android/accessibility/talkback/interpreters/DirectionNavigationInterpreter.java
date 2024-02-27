@@ -71,7 +71,11 @@ public class DirectionNavigationInterpreter implements AccessibilityEventListene
     }
     FocusActionInfo actionInfo = actorState.getFocusHistory().getFocusActionInfoFromEvent(event);
     if (actionInfo == null) {
-      LogUtils.w(TAG, "Unable to find source action info for event: %s", event);
+      LogUtils.w(
+          TAG,
+          "Accessibility focus is not assigned by TalkBack. Unable to find source action info for"
+              + " event: %s",
+          event);
       return;
     }
     AccessibilityNodeInfoCompat sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());

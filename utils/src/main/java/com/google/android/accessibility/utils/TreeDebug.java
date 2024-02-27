@@ -19,11 +19,13 @@ package com.google.android.accessibility.utils;
 import android.accessibilityservice.AccessibilityService;
 import android.graphics.Rect;
 import android.text.TextUtils;
-import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
+import android.view.accessibility.AccessibilityNodeInfo.CollectionItemInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.utils.compat.CompatUtils;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import com.google.android.accessibility.utils.traversal.OrderedTraversalStrategy;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashSet;
@@ -34,57 +36,72 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class TreeDebug {
 
   public static final String TAG = "TreeDebug";
+  private static final Logger defaultLogger =
+      (format, args) -> LogUtils.v(TreeDebug.TAG, format, args);
 
   /** Logs the layout hierarchy of node trees for given list of windows. */
   public static void logNodeTrees(List<AccessibilityWindowInfo> windows) {
+    logNodeTrees(windows, defaultLogger);
+  }
+
+  public static void logNodeTrees(
+      List<AccessibilityWindowInfo> windows, @NonNull Logger treeDebugLogger) {
     if (windows == null || windows.isEmpty()) {
       return;
     }
     int displayId = AccessibilityWindowInfoUtils.getDisplayId(windows.get(0));
-    LogUtils.v(TAG, "------------Node tree------------ display %d", displayId);
+    treeDebugLogger.log("------------Node tree------------ display %d", displayId);
     for (AccessibilityWindowInfo window : windows) {
       if (window == null) {
         continue;
       }
       // TODO: Filter and print useful window information.
-      LogUtils.v(TAG, "Window: %s", window);
+      treeDebugLogger.log("Window: %s", window);
       AccessibilityNodeInfoCompat root =
           AccessibilityNodeInfoUtils.toCompat(AccessibilityWindowInfoUtils.getRoot(window));
-      logNodeTree(root);
+      logNodeTree(root, treeDebugLogger);
     }
   }
 
   /** Logs the layout hierarchy of node tree for using the input node as the root. */
   public static void logNodeTree(@Nullable AccessibilityNodeInfoCompat node) {
+    logNodeTree(node, defaultLogger);
+  }
+
+  public static void logNodeTree(
+      @Nullable AccessibilityNodeInfoCompat node, @NonNull Logger treeDebugLogger) {
     if (node == null) {
       return;
     }
 
     HashSet<AccessibilityNodeInfoCompat> seen = new HashSet<>();
-    logNodeTree(AccessibilityNodeInfoCompat.obtain(node), "", seen);
+    logNodeTree(node, "", seen, treeDebugLogger);
   }
 
   private static void logNodeTree(
-      AccessibilityNodeInfoCompat node, String indent, HashSet<AccessibilityNodeInfoCompat> seen) {
+      AccessibilityNodeInfoCompat node,
+      String indent,
+      HashSet<AccessibilityNodeInfoCompat> seen,
+      @NonNull Logger looger) {
     if (!seen.add(node)) {
-      LogUtils.v(TAG, "Cycle: %d", node.hashCode());
+      looger.log("Cycle: %d", node.hashCode());
       return;
     }
 
     // Include the hash code as a "poor man's" id, knowing that it
     // might not always be unique.
-    LogUtils.v(TAG, "%s(%d)%s", indent, node.hashCode(), nodeDebugDescription(node));
+    looger.log("%s(%d)%s", indent, node.hashCode(), nodeDebugDescription(node));
 
     indent += "  ";
     int childCount = node.getChildCount();
     for (int i = 0; i < childCount; ++i) {
       AccessibilityNodeInfoCompat child = node.getChild(i);
       if (child == null) {
-        LogUtils.v(TAG, "%sCouldn't get child %d", indent, i);
+        looger.log("%sCouldn't get child %d", indent, i);
         continue;
       }
 
-      logNodeTree(child, indent, seen);
+      logNodeTree(child, indent, seen, looger);
     }
   }
 
@@ -97,19 +114,6 @@ public class TreeDebug {
     sb.append(fullName, dotIndex, fullName.length());
   }
 
-  // FocusActionRecord.getUniqueIdViaReflection() is used temporarily. TODO: call
-  // AccessibilityNodeInfoCompat.getUniqueId() instead.
-  private static String getUniqueIdViaReflection(AccessibilityNodeInfoCompat nodeInfo) {
-    if (nodeInfo == null) {
-      return null;
-    }
-    return (String)
-        CompatUtils.invoke(
-            nodeInfo.unwrap(),
-            /* defaultValue= */ null,
-            CompatUtils.getMethod(AccessibilityNodeInfo.class, "getUniqueId"));
-  }
-
   /** Gets a description of the properties of a node. */
   public static CharSequence nodeDebugDescription(AccessibilityNodeInfoCompat node) {
     StringBuilder sb = new StringBuilder();
@@ -118,13 +122,27 @@ public class TreeDebug {
     if (node.getClassName() != null) {
       appendSimpleName(sb, node.getClassName());
     } else {
-      sb.append("??");
+      sb.append("unknownClassName");
     }
 
-    String uniqueId = getUniqueIdViaReflection(node);
+    String uniqueId = node.getUniqueId();
     if (uniqueId != null) {
-      sb.append(":U(");
+      sb.append(":uniqueId(");
       sb.append(uniqueId);
+      sb.append(")");
+    }
+
+    if (AccessibilityNodeInfoUtils.hasRequestInitialAccessibilityFocus(node)) {
+      sb.append(":hasRequestInitialAccessibilityFocus");
+    }
+
+    // TODO: Will fix when the G3 tool chain supports the
+    // AccessibilityNodeInfoCompat#getMinMillisBetweenContentChanges API.
+    long refreshTime = AccessibilityNodeInfoUtils.getMinDurationBetweenContentChangesMillis(node);
+    // node.getMinMillisBetweenContentChanges();
+    if (refreshTime != 0) {
+      sb.append(":rate-update(");
+      sb.append(refreshTime);
       sb.append(")");
     }
 
@@ -169,6 +187,11 @@ public class TreeDebug {
       sb.append(AccessibilityNodeInfoUtils.getState(node).toString().trim());
       sb.append("}");
     }
+
+    sb.append(":GRANULARITY{");
+    sb.append(AccessibilityNodeInfoUtils.getMovementGranularity(node));
+    sb.append("}");
+
     // Views that inherit Checkable can have its own state description and the log already covered
     // by above SD, but for some views that are not Checkable but have checked status, like
     // overriding by AccessibilityDelegate, we should also log it.
@@ -211,9 +234,23 @@ public class TreeDebug {
       if ((actions & AccessibilityNodeInfoCompat.ACTION_COLLAPSE) != 0) {
         sb.append("COLLAPSE/");
       }
+      if ((actions & AccessibilityAction.ACTION_SCROLL_TO_POSITION.getId()) != 0) {
+        sb.append("SCROLL_TO_POSITION/");
+      }
       sb.setLength(sb.length() - 1);
       sb.append(")");
     }
+
+    sb.append("(custom action:");
+    List<AccessibilityActionCompat> actionsList = node.getActionList();
+    for (AccessibilityActionCompat action : actionsList) {
+      CharSequence label = action.getLabel();
+      if (label != null) {
+        sb.append("LABEL:").append(label).append("/");
+      }
+    }
+    sb.setLength(sb.length() - 1);
+    sb.append(")");
 
     if (node.isFocusable()) {
       sb.append(":focusable");
@@ -252,11 +289,26 @@ public class TreeDebug {
       sb.append(":disabled");
     }
 
+    if (node.isEditable()) {
+      sb.append(":editable");
+    }
+
+    if (AccessibilityNodeInfoUtils.isTextSelectable(node)) {
+      sb.append(":textSelectable");
+    }
+
+    int liveRegion = node.getLiveRegion();
+    if (liveRegion == ViewCompat.ACCESSIBILITY_LIVE_REGION_POLITE) {
+      sb.append(":politeLiveRegion");
+    } else if (liveRegion == ViewCompat.ACCESSIBILITY_LIVE_REGION_ASSERTIVE) {
+      sb.append(":assertiveLiveRegion");
+    }
+
     if (node.getCollectionInfo() != null) {
       sb.append(":collection");
-      sb.append("#R");
+      sb.append("#ROWS=");
       sb.append(node.getCollectionInfo().getRowCount());
-      sb.append("C");
+      sb.append("#COLS=");
       sb.append(node.getCollectionInfo().getColumnCount());
     }
 
@@ -266,40 +318,55 @@ public class TreeDebug {
       sb.append(":item");
     }
     if (node.getCollectionItemInfo() != null) {
-      sb.append("#r");
+      sb.append("#rowIndex=");
       sb.append(node.getCollectionItemInfo().getRowIndex());
-      sb.append("c");
+      sb.append(",colIndex=");
       sb.append(node.getCollectionItemInfo().getColumnIndex());
+      if (FeatureSupport.supportGridTitle()) {
+        if (node.unwrap() != null && node.unwrap().getCollectionItemInfo() != null) {
+          CollectionItemInfo itemInfo = node.unwrap().getCollectionItemInfo();
+          if (itemInfo.getRowTitle() != null) {
+            sb.append(",RowTitle=");
+            sb.append(itemInfo.getRowTitle());
+          }
+          if (itemInfo.getColumnTitle() != null) {
+            sb.append(",ColumnTitle=");
+            sb.append(itemInfo.getColumnTitle());
+          }
+        }
+      }
     }
 
     return sb.toString();
   }
 
   /** Logs the traversal order of node trees for given list of windows. */
-  public static void logOrderedTraversalTree(List<AccessibilityWindowInfo> windows) {
+  public static void logOrderedTraversalTree(
+      List<AccessibilityWindowInfo> windows, @NonNull Logger logger) {
     if (windows == null || windows.isEmpty()) {
       return;
     }
     int displayId = AccessibilityWindowInfoUtils.getDisplayId(windows.get(0));
-    LogUtils.v(TAG, "------------Node tree traversal order---------- display %d", displayId);
+    logger.log("------------Node tree traversal order---------- display %d", displayId);
     for (AccessibilityWindowInfo window : windows) {
       if (window == null) {
         continue;
       }
-      LogUtils.v(TreeDebug.TAG, "Window: %s", window);
+      logger.log("Window: %s", window);
       AccessibilityNodeInfoCompat root =
           AccessibilityNodeInfoUtils.toCompat(AccessibilityWindowInfoUtils.getRoot(window));
-      logOrderedTraversalTree(root);
+      logOrderedTraversalTree(root, logger);
     }
   }
 
   /** Logs the traversal order of node tree for using the input node as the root. */
-  private static void logOrderedTraversalTree(@Nullable AccessibilityNodeInfoCompat node) {
+  private static void logOrderedTraversalTree(
+      @Nullable AccessibilityNodeInfoCompat node, @NonNull Logger logger) {
     if (node == null) {
       return;
     }
     OrderedTraversalStrategy orderTraversalStrategy = new OrderedTraversalStrategy(node);
-    orderTraversalStrategy.dumpTree();
+    orderTraversalStrategy.dumpTree(logger);
   }
 
   /**
@@ -309,11 +376,23 @@ public class TreeDebug {
    * @param service The parent service
    */
   public static void logNodeTreesOnAllDisplays(@NonNull AccessibilityService service) {
+    logNodeTreesOnAllDisplays(service, defaultLogger);
+  }
+
+  /**
+   * Logs the layout hierarchy of node trees and the traversal order of node tree of all the
+   * displays.
+   *
+   * @param service The parent service
+   * @param treeDebugLogger The functional interface for logging
+   */
+  public static void logNodeTreesOnAllDisplays(
+      @NonNull AccessibilityService service, Logger treeDebugLogger) {
     AccessibilityServiceCompatUtils.forEachWindowInfoListOnAllDisplays(
         service,
         windowInfoList -> {
-          TreeDebug.logNodeTrees(windowInfoList);
-          TreeDebug.logOrderedTraversalTree(windowInfoList);
+          TreeDebug.logNodeTrees(windowInfoList, treeDebugLogger);
+          TreeDebug.logOrderedTraversalTree(windowInfoList, treeDebugLogger);
         });
   }
 }

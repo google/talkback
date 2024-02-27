@@ -31,6 +31,8 @@ import android.text.style.URLSpan;
 import android.util.Log;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -39,6 +41,9 @@ public final class SpannableUtils {
 
   /** Identifies separators attached in spoken feedback. */
   public static class IdentifierSpan {}
+
+  /** Marks in spoken feedback. */
+  private static class NonCopyableTextSpan {}
 
   public static CharSequence wrapWithIdentifierSpan(CharSequence text) {
     if (TextUtils.isEmpty(text)) {
@@ -51,6 +56,79 @@ public final class SpannableUtils {
         /* end= */ text.length(),
         /* flags= */ 0);
     return spannedText;
+  }
+
+  public static CharSequence wrapWithNonCopyableTextSpan(CharSequence text) {
+    if (TextUtils.isEmpty(text)) {
+      return text;
+    }
+    SpannableString spannedText = new SpannableString(text);
+    spannedText.setSpan(
+        new SpannableUtils.NonCopyableTextSpan(),
+        /* start= */ 0,
+        /* end= */ text.length(),
+        /* flags= */ Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    return spannedText;
+  }
+
+  /**
+   * Separates text segments by {@link SpannableUtils.IdentifierSpan}, removes text segments wrapped
+   * with {@link SpannableUtils.NonCopyableTextSpan}, and reconstructs the copyable text result.
+   *
+   * @param text Original text sequence that might contain non-copyable components
+   * @return Text without non-copyable components with a separator between each text segment
+   */
+  public static CharSequence getCopyableText(CharSequence text) {
+    if (TextUtils.isEmpty(text)) {
+      return text;
+    }
+
+    Queue<CharSequence> queuedCopyableTextSegments = new ArrayDeque<>();
+    SpannableString spannable = new SpannableString(text);
+
+    int textStart = 0;
+    int textEnd = 0;
+
+    while (textEnd >= 0 && textEnd < text.length()) {
+      // The non-identifier text ends at the begin index of next IdentifierSpan-wrapped object
+      textEnd =
+          spannable.nextSpanTransition(
+              textStart, text.length(), SpannableUtils.IdentifierSpan.class);
+
+      CharSequence textSegment = text.subSequence(textStart, textEnd);
+      if (!TextUtils.isEmpty(textSegment)
+          && !SpannableUtils.isWrappedWithTargetSpan(
+              textSegment, SpannableUtils.NonCopyableTextSpan.class, false)) {
+        queuedCopyableTextSegments.offer(textSegment);
+      }
+
+      // Since textEnd itself is always wrapped with IdentifierSpan, we start to search for the
+      // begin of non-identifier text from the next character of textEnd.
+      textStart = textEnd + 1;
+      while (textStart < text.length()
+          && SpannableUtils.isWrappedWithTargetSpan(
+              text.subSequence(textStart, textStart + 1),
+              SpannableUtils.IdentifierSpan.class,
+              false)) {
+        textStart += 1;
+      }
+    }
+
+    // Combine copyable text segments with separators
+    SpannableStringBuilder copyableText = new SpannableStringBuilder("");
+    CharSequence textSegment = queuedCopyableTextSegments.poll();
+    boolean first = true;
+    while (textSegment != null) {
+      if (first) {
+        first = false;
+      } else {
+        copyableText.append(StringBuilderUtils.DEFAULT_BREAKING_SEPARATOR);
+      }
+      copyableText.append(textSegment);
+      textSegment = queuedCopyableTextSegments.poll();
+    }
+
+    return copyableText;
   }
 
   public static <T> boolean isWrappedWithTargetSpan(

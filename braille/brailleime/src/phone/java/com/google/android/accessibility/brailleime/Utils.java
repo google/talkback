@@ -35,6 +35,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -131,7 +132,7 @@ public class Utils {
   /**
    * Returns {@code true} if the absolute values of the given coordinates have a large enough ratio
    * that the 2-D vector formed from them is nearly cardinal, where "nearly cardinal" is defined as
-   * any ratio that is greather than or equal to {@code ratioThreshold}.
+   * any ratio that is greater than or equal to {@code ratioThreshold}.
    *
    * <p>If either (but not both) of the coordinates are {@code 0}, then true is returned.
    *
@@ -157,18 +158,24 @@ public class Utils {
     return "robolectric".equals(Build.FINGERPRINT);
   }
 
-  /** Formats {@param substring} as {@param drawable}. Returns true if success; otherwise false. */
-  public static boolean formatSubstringAsDrawable(
+  /** Formats {@code substring} as {@code drawable}. */
+  public static SpannableString formatSubstringAsDrawable(
       SpannableString spannableString, String substring, Drawable drawable) {
+    String token = " ";
     int indexIconStart = spannableString.toString().indexOf(substring);
     int indexIconEnd = indexIconStart + substring.length();
     if (indexIconStart == -1) {
-      return false;
+      return spannableString;
     }
+    SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(spannableString);
+    spannableStringBuilder.replace(indexIconStart, indexIconEnd, token);
     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-    spannableString.setSpan(
-        new ImageSpan(drawable), indexIconStart, indexIconEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-    return true;
+    spannableStringBuilder.setSpan(
+        new ImageSpan(drawable),
+        indexIconStart,
+        indexIconStart + token.length(),
+        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+    return SpannableString.valueOf(spannableStringBuilder);
   }
 
   /** Formats {@param substring} as {@code url} link. Returns true if success; otherwise false. */
@@ -317,8 +324,7 @@ public class Utils {
    * is enabled.
    */
   public static boolean isNavigationBarLeftLocated(Context context) {
-    return Build.VERSION.SDK_INT > Build.VERSION_CODES.N
-        && !isFullGesturalNavigationEnabled(context)
+    return !isFullGesturalNavigationEnabled(context)
         && getDisplayRotationDegrees(context) == Surface.ROTATION_270;
   }
 
@@ -352,8 +358,7 @@ public class Utils {
     } else {
       String codeUserFacingName =
           BrailleUserPreferences.readCurrentActiveInputCodeAndCorrect(context)
-              .getUserFacingName(context.getResources())
-              .toString();
+              .getUserFacingName(context);
       name =
           context.getString(
               R.string.multiple_languages_braille_ime_displayed_name, codeUserFacingName);

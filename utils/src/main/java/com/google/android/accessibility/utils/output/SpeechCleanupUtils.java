@@ -32,10 +32,10 @@ import org.checkerframework.checker.nullness.qual.PolyNull;
 public class SpeechCleanupUtils {
   /** The regular expression used to match consecutive identical characters */
   // Double escaping of regex characters is required. "\\1" refers to the
-  // first capturing group between the outer nesting of "[]"s and "{2,}"
-  // refers to two or more additional repetitions thereof.
+  // first capturing group between the outer nesting of "[]"s.
+  // When the text contains any repeat of special characters, the collapse function applies.
   private static final String CONSECUTIVE_CHARACTER_REGEX =
-      "([\\-\\\\/|!@#$%^&*\\(\\)=_+\\[\\]\\{\\}.?;'\":<>\\u2022])\\1{2,}";
+      "([\\-\\\\/|!@#$%^&*\\(\\)=_+\\[\\]\\{\\}.?;'\":<>\\u2022])\\1+";
 
   /** The Pattern used to match consecutive identical characters */
   private static final Pattern CONSECUTIVE_CHARACTER_PATTERN =
@@ -81,12 +81,15 @@ public class SpeechCleanupUtils {
     UNICODE_MAP.put('π', R.string.symbol_pi);
     UNICODE_MAP.put('#', R.string.symbol_pound);
     UNICODE_MAP.put('£', R.string.symbol_pound_sterling);
+    UNICODE_MAP.put('\u20b1', R.string.symbol_currency_peso);
+    UNICODE_MAP.put('\u20AB', R.string.symbol_currency_dong);
     UNICODE_MAP.put('?', R.string.symbol_question_mark);
     UNICODE_MAP.put('"', R.string.symbol_quotation_mark);
     UNICODE_MAP.put('®', R.string.symbol_registered_trademark);
     UNICODE_MAP.put(';', R.string.symbol_semicolon);
     UNICODE_MAP.put('/', R.string.symbol_slash);
     UNICODE_MAP.put(' ', R.string.symbol_space);
+    UNICODE_MAP.put('\u00a0', R.string.symbol_space);
     UNICODE_MAP.put('[', R.string.symbol_square_bracket_left);
     UNICODE_MAP.put(']', R.string.symbol_square_bracket_right);
     UNICODE_MAP.put('√', R.string.symbol_square_root);
@@ -105,8 +108,8 @@ public class SpeechCleanupUtils {
     UNICODE_MAP.put('\u2190', R.string.symbol_leftwards_arrow);
     UNICODE_MAP.put('\u20B9', R.string.symbol_rupee);
     UNICODE_MAP.put('\u2665', R.string.symbol_black_heart);
-    UNICODE_MAP.put('\u007e', R.string.symbol_tilde);
-    UNICODE_MAP.put('\u003d', R.string.symbol_equal);
+    UNICODE_MAP.put('~', R.string.symbol_tilde);
+    UNICODE_MAP.put('=', R.string.symbol_equal);
     UNICODE_MAP.put('\uffe6', R.string.symbol_won);
     UNICODE_MAP.put('\u203b', R.string.symbol_reference);
     UNICODE_MAP.put('\u2606', R.string.symbol_white_star);

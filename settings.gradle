@@ -1,6 +1,5 @@
 include ':talkback'
 include ':utils'
-include ':uiunderstanding'
 include ':proguard'
 
 // Those subroots which are not direct sub-folders root need to be specially declared.
@@ -18,3 +17,5 @@ include 'brailledisplay'
 project(':brailledisplay').projectDir = new File('braille/brailledisplay')
 include 'brailledisplayanalytics'
 project(':brailledisplayanalytics').projectDir = new File('braille/brailledisplayanalytics')
+include 'braillebrltty'
+project(':braillebrltty').projectDir = new File('braille/brltty')

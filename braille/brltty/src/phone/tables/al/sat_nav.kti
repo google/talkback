@@ -1,0 +1,53 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for the Alva Satellite nav keypad.
+
+bind NavPadF1+!Up PRDIFLN
+bind NavPadF1+!Down NXDIFLN
+bind NavPadF2+!Up ATTRUP
+bind NavPadF2+!Down ATTRDN
+
+bind NavPadF1+!Left CHRLT
+bind NavPadF1+!Right CHRRT
+bind NavPadF2+!Left HWINLT
+bind NavPadF2+!Right HWINRT
+
+bind NavPadF1+!RoutingKey1 CLIP_NEW
+bind NavPadF1+!RoutingKey2 CLIP_ADD
+bind NavPadF2+!RoutingKey1 COPY_RECT
+bind NavPadF2+!RoutingKey2 COPY_LINE
+
+bind NavPadLeft PREFMENU
+bind NavPadRight INFO
+bind NavPadF1+NavPadLeft FREEZE
+bind NavPadF1+NavPadRight SIXDOTS
+bind NavPadF2+NavPadLeft PASTE
+bind NavPadF2+NavPadRight CSRJMP_VERT
+
+bind NavPadUp PRPROMPT
+bind NavPadDown NXPROMPT
+bind NavPadF1+NavPadUp PRPGRPH
+bind NavPadF1+NavPadDown NXPGRPH
+bind NavPadF2+NavPadUp PRSEARCH
+bind NavPadF2+NavPadDown NXSEARCH
+
+bind NavPadF1 HELP
+bind NavPadF2 LEARN
+bind NavPadF1+NavPadF2 RESTARTBRL
+

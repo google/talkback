@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.utils.caption;
 
-import android.text.TextUtils;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.ViewResourceName;
 import com.google.android.accessibility.utils.StringBuilderUtils;
@@ -29,9 +28,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public abstract class ImageNode {
   public abstract ViewResourceName viewResourceName();
 
-  private @Nullable CharSequence ocrText;
+  private @Nullable Result ocrTextResult;
 
-  private @Nullable CharSequence detectedIconLabel;
+  private @Nullable Result detectedIconLabelResult;
+
+  private @Nullable Result imageDescriptionResult;
 
   /**
    * When isValid is false, it means the view has been clicked and the icon inside the view may
@@ -60,27 +61,36 @@ public abstract class ImageNode {
   /** Returns a copy of the ImageNode-argument. */
   static ImageNode copy(ImageNode imageNode) {
     ImageNode copy = new AutoValue_ImageNode(imageNode.viewResourceName());
-    copy.setOcrText(imageNode.ocrText);
-    copy.setDetectedIconLabel(imageNode.detectedIconLabel);
+    copy.setOcrTextResult(imageNode.ocrTextResult);
+    copy.setDetectedIconLabelResult(imageNode.detectedIconLabelResult);
+    copy.setImageDescriptionResult(imageNode.imageDescriptionResult);
     copy.isValid = imageNode.isValid;
     copy.isIconLabelStable = imageNode.isIconLabelStable;
     return copy;
   }
 
-  public @Nullable CharSequence getOcrText() {
-    return ocrText;
+  public @Nullable Result getOcrTextResult() {
+    return ocrTextResult;
   }
 
-  public @Nullable CharSequence getDetectedIconLabel() {
-    return detectedIconLabel;
+  public @Nullable Result getDetectedIconLabelResult() {
+    return detectedIconLabelResult;
   }
 
-  public void setOcrText(@Nullable CharSequence ocrText) {
-    this.ocrText = ocrText;
+  public @Nullable Result getImageDescriptionResult() {
+    return imageDescriptionResult;
   }
 
-  public void setDetectedIconLabel(@Nullable CharSequence detectedIconLabel) {
-    this.detectedIconLabel = detectedIconLabel;
+  public void setOcrTextResult(@Nullable Result ocrTextResult) {
+    this.ocrTextResult = ocrTextResult;
+  }
+
+  public void setDetectedIconLabelResult(@Nullable Result detectedIconLabelResult) {
+    this.detectedIconLabelResult = detectedIconLabelResult;
+  }
+
+  public void setImageDescriptionResult(@Nullable Result imageDescriptionResult) {
+    this.imageDescriptionResult = imageDescriptionResult;
   }
 
   @Override
@@ -93,15 +103,21 @@ public abstract class ImageNode {
     }
     ImageNode imageNode = (ImageNode) object;
     return viewResourceName().equals(imageNode.viewResourceName())
-        && TextUtils.equals(ocrText, imageNode.getOcrText())
-        && TextUtils.equals(detectedIconLabel, imageNode.getDetectedIconLabel())
+        && Objects.equals(ocrTextResult, imageNode.getOcrTextResult())
+        && Objects.equals(detectedIconLabelResult, imageNode.getDetectedIconLabelResult())
+        && Objects.equals(imageDescriptionResult, imageNode.getImageDescriptionResult())
         && (isValid == imageNode.isValid)
         && (isIconLabelStable == imageNode.isIconLabelStable);
   }
 
   @Override
   public final int hashCode() {
-    return Objects.hash(viewResourceName(), getOcrText(), getDetectedIconLabel(), isValid);
+    return Objects.hash(
+        viewResourceName(),
+        getOcrTextResult(),
+        getDetectedIconLabelResult(),
+        getImageDescriptionResult(),
+        isValid);
   }
 
   @Override
@@ -111,8 +127,9 @@ public abstract class ImageNode {
             StringBuilderUtils.optionalSubObj("viewResourceName", viewResourceName()),
             StringBuilderUtils.optionalTag("isIconLabelStable", isIconLabelStable),
             StringBuilderUtils.optionalTag("isValid", isValid),
-            StringBuilderUtils.optionalText("ocrText", ocrText),
-            StringBuilderUtils.optionalText("detectedIconLabel", detectedIconLabel));
+            StringBuilderUtils.optionalSubObj("ocrTextResult", ocrTextResult),
+            StringBuilderUtils.optionalSubObj("detectedIconLabelResult", detectedIconLabelResult),
+            StringBuilderUtils.optionalSubObj("imageDescriptionResult", imageDescriptionResult));
   }
 
   boolean isValid() {

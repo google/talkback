@@ -2,4 +2,12 @@
 <resources>
   <string name="talkback_service_description">TalkBack ist ein Screenreader, der in erster Linie für Blinde und Menschen mit eingeschränktem Sehvermögen bestimmt ist. Die Interaktion mit dem Gerät erfolgt über gesprochenes Feedback.</string>
   <string name="welcome_to_talkback_text">Du erhältst gesprochenes Feedback, sodass du deine Smartwatch nutzen kannst, ohne auf das Display sehen zu müssen.</string>
+  <string name="summary_custom_action">Wird angezeigt, wenn für das aktuelle Element benutzerdefinierte Aktionen vorhanden sind.</string>
+  <string name="notification_title_talkback_gestures_changed">TalkBack-Gesten aktualisiert</string>
+  <string name="notification_message_talkback_gestures_changed">Öffne TalkBack für weitere Details</string>
+  <string name="new_feature_in_talkback_title">Das ist neu</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">Ok</string>
+  <string name="scan_the_qr_code">Scanne den QR-Code</string>
+  <string name="alternate_privacy_policy">Oder ruf http://www.google.com/policies/privacy auf</string>
+  <string name="alternate_tos">Oder ruf https://www.google.com/mobile/toscountry auf</string>
 </resources>

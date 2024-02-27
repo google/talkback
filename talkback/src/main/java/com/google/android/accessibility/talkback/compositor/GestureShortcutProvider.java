@@ -25,7 +25,25 @@ public interface GestureShortcutProvider {
   @Nullable
   CharSequence nodeMenuShortcut();
 
-  /** Returns shortcut name for SeekBar hint. */
+  /** Returns shortcut name to select the next setting in reading control. */
   @Nullable
-  CharSequence nodeSeekBarShortcut();
+  CharSequence readingMenuNextSettingShortcut();
+
+  /**
+   * Returns shortcut name to perform the next action of the selected setting in reading control
+   * setting.
+   */
+  @Nullable
+  CharSequence readingMenuUpShortcut();
+
+  /**
+   * Returns shortcut name to perform the previous action of the selected setting in reading control
+   * setting.
+   */
+  @Nullable
+  CharSequence readingMenuDownShortcut();
+
+  /** Returns shortcut name to select the supported custom actions. */
+  @Nullable
+  CharSequence actionsShortcut();
 }

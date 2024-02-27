@@ -16,15 +16,16 @@
 
 package com.google.android.accessibility.utils;
 
+import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_ID_NONE;
+import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_TYPE_NONE;
+
 import android.view.accessibility.AccessibilityWindowInfo;
-import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
+import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WindowType;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.errorprone.annotations.FormatMethod;
 import com.google.errorprone.annotations.FormatString;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.util.Collection;
 
 /**
@@ -38,33 +39,10 @@ import java.util.Collection;
  */
 public class AccessibilityWindow {
 
-  private static final String TAG = "AccessibilityWindow";
-
   ///////////////////////////////////////////////////////////////////////////////////////
   // Constants
 
-  /** Window types, including both bare and compat values. */
-  @Retention(RetentionPolicy.SOURCE)
-  @IntDef({
-    TYPE_ACCESSIBILITY_OVERLAY,
-    TYPE_APPLICATION,
-    TYPE_INPUT_METHOD,
-    TYPE_SPLIT_SCREEN_DIVIDER,
-    TYPE_SYSTEM,
-    TYPE_UNKNOWN
-  })
-  public @interface WindowType {}
-
-  public static final int TYPE_ACCESSIBILITY_OVERLAY =
-      AccessibilityWindowInfoCompat.TYPE_ACCESSIBILITY_OVERLAY;
-  public static final int TYPE_APPLICATION = AccessibilityWindowInfoCompat.TYPE_APPLICATION;
-  public static final int TYPE_INPUT_METHOD = AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD;
-  public static final int TYPE_SPLIT_SCREEN_DIVIDER =
-      AccessibilityWindowInfoCompat.TYPE_SPLIT_SCREEN_DIVIDER;
-  public static final int TYPE_SYSTEM = AccessibilityWindowInfoCompat.TYPE_SYSTEM;
-  public static final int TYPE_UNKNOWN = -1;
-
-  public static final int WINDOW_ID_UNKNOWN = -1;
+  private static final String TAG = "AccessibilityWindow";
 
   ///////////////////////////////////////////////////////////////////////////////////////
   // Member data
@@ -196,7 +174,7 @@ public class AccessibilityWindow {
     if (bare != null) {
       return bare.getId();
     }
-    return WINDOW_ID_UNKNOWN;
+    return WINDOW_ID_NONE;
   }
 
   @Nullable
@@ -205,10 +183,10 @@ public class AccessibilityWindow {
     return (compat == null) ? null : compat.getTitle();
   }
 
-  @AccessibilityWindow.WindowType
+  @WindowType
   public final int getType() {
     AccessibilityWindowInfoCompat compat = getCompat();
-    return (compat == null) ? TYPE_UNKNOWN : compat.getType();
+    return (compat == null) ? WINDOW_TYPE_NONE : compat.getType();
   }
 
   @Nullable
@@ -250,22 +228,4 @@ public class AccessibilityWindow {
     throw new IllegalStateException(String.format(format, parameters));
   }
 
-  public static String typeToString(@WindowType int windowType) {
-    switch (windowType) {
-      case TYPE_ACCESSIBILITY_OVERLAY:
-        return "TYPE_ACCESSIBILITY_OVERLAY";
-      case TYPE_APPLICATION:
-        return "TYPE_APPLICATION";
-      case TYPE_INPUT_METHOD:
-        return "TYPE_INPUT_METHOD";
-      case TYPE_SPLIT_SCREEN_DIVIDER:
-        return "TYPE_SPLIT_SCREEN_DIVIDER";
-      case TYPE_SYSTEM:
-        return "TYPE_SYSTEM";
-      case TYPE_UNKNOWN:
-        return "TYPE_UNKNOWN";
-      default:
-        return "(unhandled)";
-    }
-  }
 }

@@ -183,16 +183,17 @@ public class OcrController {
         }
       }
 
-      // TODO: Can we just assume all TextBlocks aren't empty (i.e. always contain Lines)?
+      if (textBlock.getLines().isEmpty() || TextUtils.isEmpty(text)) {
+        continue;
+      }
+
       // If this TextBlock isn't empty (i.e. contains Lines), replace the just-added wordSeparator
       // with a paragraphSeparator (if this isn't the last textblock) or remove the just-added
       // wordSeparator (if this is the last textblock).
-      if (!textBlock.getLines().isEmpty()) {
-        if (i < textBlocks.size() - 1) {
-          text.replace(text.length() - WORD_SEPARATOR.length(), text.length(), PARAGRAPH_SEPARATOR);
-        } else {
-          text.replace(text.length() - WORD_SEPARATOR.length(), text.length(), "");
-        }
+      if (i < textBlocks.size() - 1) {
+        text.replace(text.length() - WORD_SEPARATOR.length(), text.length(), PARAGRAPH_SEPARATOR);
+      } else {
+        text.replace(text.length() - WORD_SEPARATOR.length(), text.length(), "");
       }
     }
 

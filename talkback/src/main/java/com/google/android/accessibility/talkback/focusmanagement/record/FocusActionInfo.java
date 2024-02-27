@@ -19,13 +19,15 @@ package com.google.android.accessibility.talkback.focusmanagement.record;
 import androidx.annotation.IntDef;
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.Objects;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** The class contains extra information about accessibility focus action. */
 public class FocusActionInfo {
-  /** Type of the source focus action. */
+  /** Type of the source action of focus, it represents what triggers the Accessibility focus. */
   @IntDef({
     UNKNOWN,
     MANUAL_SCROLL,
@@ -38,28 +40,54 @@ public class FocusActionInfo {
   @Retention(RetentionPolicy.SOURCE)
   public @interface SourceAction {}
 
+  /** Triggered by unknown reasons. */
   public static final int UNKNOWN = 0;
+  /** Triggered by manually scroll from users. */
   public static final int MANUAL_SCROLL = 1;
+  /** Triggered by touching the screen manually. */
   public static final int TOUCH_EXPLORATION = 2;
+  /** Triggered by changed input focus. */
   public static final int FOCUS_SYNCHRONIZATION = 3;
+  /** Triggered by navigating by gestures or continuous reading mode. */
   public static final int LOGICAL_NAVIGATION = 4;
+  /** Triggered by window changes. It supports the initial focus strategy. */
   public static final int SCREEN_STATE_CHANGE = 5;
+  /**
+   * Fallback plan to keep searching focus when detecting main UI changes or no UI changes for a
+   * while. It supports the initial focus strategy.
+   */
   public static final int ENSURE_ON_SCREEN = 6;
 
-  /** Type of initial focus after screen state change. */
+  /**
+   * Type of initial focus for source {@code SCREEN_STATE_CHANGE} and {@code ENSURE_ON_SCREEN}. It
+   * represents the strategy to find the initial focus.
+   */
   @IntDef({
     UNDEFINED,
     FIRST_FOCUSABLE_NODE,
     RESTORED_LAST_FOCUS,
-    SYNCED_EDIT_TEXT,
+    SYNCED_INPUT_FOCUS,
+    REQUESTED_INITIAL_NODE,
   })
   @Retention(RetentionPolicy.SOURCE)
   public @interface InitialFocusType {}
 
+  /** Default type for other sources without initial focus strategy. */
   public static final int UNDEFINED = 0;
+  /** Initial focus from the first focusable node. */
   public static final int FIRST_FOCUSABLE_NODE = 1;
+  /**
+   * Initial focus from restoring the last focus. The main strategy is from {@link
+   * FocusActionRecord#getFocusableNodeFromFocusRecord}.
+   */
   public static final int RESTORED_LAST_FOCUS = 2;
-  public static final int SYNCED_EDIT_TEXT = 3;
+  /** Initial focus from syncing the input focus. */
+  public static final int SYNCED_INPUT_FOCUS = 3;
+  /**
+   * Initial focus from request by {@link
+   * AccessibilityNodeInfoCompat#hasRequestInitialAccessibilityFocus()}.
+   */
+  public static final int REQUESTED_INITIAL_NODE = 4;
 
   @SourceAction public final int sourceAction;
   public final boolean isFromRefocusAction;
@@ -111,8 +139,10 @@ public class FocusActionInfo {
         return "FIRST_FOCUSABLE_NODE";
       case RESTORED_LAST_FOCUS:
         return "RESTORED_LAST_FOCUS";
-      case SYNCED_EDIT_TEXT:
-        return "SYNCED_EDIT_TEXT";
+      case SYNCED_INPUT_FOCUS:
+        return "SYNCED_INPUT_FOCUS";
+      case REQUESTED_INITIAL_NODE:
+        return "REQUESTED_INITIAL_NODE";
       case UNDEFINED:
         // fall through
       default:
@@ -146,28 +176,33 @@ public class FocusActionInfo {
       return new FocusActionInfo(this);
     }
 
+    @CanIgnoreReturnValue
     public Builder setSourceAction(@SourceAction int sourceAction) {
       this.sourceAction = sourceAction;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public Builder setIsFromRefocusAction(boolean isFromRefocusAction) {
       this.isFromRefocusAction = isFromRefocusAction;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public Builder setNavigationAction(NavigationAction navigationAction) {
       this.navigationAction = navigationAction;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public Builder setInitialFocusType(@InitialFocusType int initialFocusType) {
       this.initialFocusType = initialFocusType;
       return this;
     }
 
-    public Builder forceMuteFeedback() {
-      forceMuteFeedback = true;
+    @CanIgnoreReturnValue
+    public Builder setForceMuteFeedback(boolean forceMuteFeedback) {
+      this.forceMuteFeedback = forceMuteFeedback;
       return this;
     }
   }
@@ -189,6 +224,25 @@ public class FocusActionInfo {
         StringBuilderUtils.optionalTag(
             "forceFeedbackEvenIfSsbActive", forceFeedbackEvenIfSsbActive()),
         "}");
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        sourceAction, isFromRefocusAction, navigationAction, initialFocusType, forceMuteFeedback);
+  }
+
+  @Override
+  public boolean equals(@androidx.annotation.Nullable Object otherObject) {
+    if (!(otherObject instanceof FocusActionInfo)) {
+      return false;
+    }
+    FocusActionInfo other = (FocusActionInfo) otherObject;
+    return this.forceMuteFeedback == other.forceMuteFeedback
+        && this.isFromRefocusAction == other.isFromRefocusAction
+        && this.initialFocusType == other.initialFocusType
+        && this.sourceAction == other.sourceAction
+        && Objects.equals(this.navigationAction, other.navigationAction);
   }
 
   private FocusActionInfo(Builder builder) {

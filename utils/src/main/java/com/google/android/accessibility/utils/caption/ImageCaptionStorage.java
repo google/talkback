@@ -73,7 +73,7 @@ public class ImageCaptionStorage {
   /** Retrieves image caption results for the specified node. */
   @Nullable
   public ImageNode getCaptionResults(AccessibilityNodeInfoCompat node) {
-    AccessibilityNode wrapNode = AccessibilityNode.obtainCopy(node);
+    AccessibilityNode wrapNode = AccessibilityNode.takeOwnership(node);
     @Nullable ImageNode imageNode = findImageNode(wrapNode);
     if (imageNode == null || !imageNode.isIconLabelStable() || !imageNode.isValid()) {
       return null;
@@ -82,8 +82,8 @@ public class ImageCaptionStorage {
   }
 
   /** Stores the OCR result for the specified node in the cache. */
-  public void updateCharacterCaptionResult(AccessibilityNode node, CharSequence result) {
-    if (!ImageCaptionStorage.isStorable(node) || TextUtils.isEmpty(result)) {
+  public void updateCharacterCaptionResult(AccessibilityNode node, Result result) {
+    if (!ImageCaptionStorage.isStorable(node) || Result.isEmpty(result)) {
       LogUtils.v(TAG, "Character caption result (" + result + ") should not be stored.");
       return;
     }
@@ -94,14 +94,14 @@ public class ImageCaptionStorage {
     if (imageNode == null) {
       return;
     }
-    imageNode.setOcrText(result);
+    imageNode.setOcrTextResult(result);
     imageNodes.put(imageNode);
   }
 
   /** Stores the label of the detected icons for the specified node in the cache. */
-  public void updateDetectedIconLabel(AccessibilityNode node, CharSequence detectedIconLabel) {
-    if (!ImageCaptionStorage.isStorable(node) || TextUtils.isEmpty(detectedIconLabel)) {
-      LogUtils.v(TAG, "DetectedIconLabel (" + detectedIconLabel + ") should not be stored.");
+  public void updateDetectedIconLabel(AccessibilityNode node, Result result) {
+    if (!ImageCaptionStorage.isStorable(node) || Result.isEmpty(result)) {
+      LogUtils.v(TAG, "DetectedIconLabel (" + result + ") should not be stored.");
       return;
     }
 
@@ -109,12 +109,30 @@ public class ImageCaptionStorage {
     if (imageNode == null) {
       return;
     }
-    imageNode.setDetectedIconLabel(detectedIconLabel);
+    imageNode.setDetectedIconLabelResult(result);
+    imageNodes.put(imageNode);
+  }
+
+  /** Stores the image description result for the specified node in the cache. */
+  public void updateImageDescriptionResult(AccessibilityNode node, Result result) {
+    if (!ImageCaptionStorage.isStorable(node) || Result.isEmpty(result)) {
+      LogUtils.v(TAG, "Image Description result (" + result + ") should not be stored.");
+      return;
+    }
+
+    // Always creating a new ImageNode here to avoid searching twice. Because it's necessary to find
+    // the ImageNode in LimitedCapacityCache.put().
+    @Nullable ImageNode imageNode = ImageNode.create(node);
+    if (imageNode == null) {
+      return;
+    }
+    imageNode.setImageDescriptionResult(result);
     imageNodes.put(imageNode);
   }
 
   /**
-   * Marks the OCR text and the detected icon label for the specific node as invalid in the cache.
+   * Marks the OCR text, the detected icon label and image description for the specific node as
+   * invalid in the cache.
    */
   public void invalidateCaptionForNode(AccessibilityNode node) {
     if (!ImageCaptionStorage.isStorable(node)) {
@@ -160,8 +178,10 @@ public class ImageCaptionStorage {
    */
   private static final class LimitedCapacityCache {
     private final int capacity;
+
     /** The key node for the first inserted ImageNode. */
     private Node<ViewResourceName> firstOldestKey = null;
+
     /** The key node for the last inserted ImageNode. */
     private Node<ViewResourceName> lastNewestKey = null;
 
@@ -251,20 +271,25 @@ public class ImageCaptionStorage {
       }
 
       LogUtils.v(TAG, "put() " + imageNode);
-      if (!TextUtils.isEmpty(imageNode.getOcrText())) {
+      if (!Result.isEmpty(imageNode.getOcrTextResult())) {
         oldImage.imageNode.setValid(true);
-        oldImage.imageNode.setOcrText(imageNode.getOcrText());
+        oldImage.imageNode.setOcrTextResult(imageNode.getOcrTextResult());
       }
-      if (!TextUtils.isEmpty(imageNode.getDetectedIconLabel())) {
+      if (!Result.isEmpty(imageNode.getDetectedIconLabelResult())) {
         // Checks whether detected icon labels are different for the same view id
-        CharSequence oldIconLabel = oldImage.imageNode.getDetectedIconLabel();
-        if ((oldIconLabel != null)
-            && !TextUtils.equals(oldIconLabel, imageNode.getDetectedIconLabel())) {
+        Result oldIconLabelResult = oldImage.imageNode.getDetectedIconLabelResult();
+        if ((oldIconLabelResult != null)
+            && !TextUtils.equals(
+                oldIconLabelResult.text(), imageNode.getDetectedIconLabelResult().text())) {
           oldImage.imageNode.setIconLabelStable(false);
           return;
         }
         oldImage.imageNode.setValid(true);
-        oldImage.imageNode.setDetectedIconLabel(imageNode.getDetectedIconLabel());
+        oldImage.imageNode.setDetectedIconLabelResult(imageNode.getDetectedIconLabelResult());
+      }
+      if (!Result.isEmpty(imageNode.getImageDescriptionResult())) {
+        oldImage.imageNode.setValid(true);
+        oldImage.imageNode.setImageDescriptionResult(imageNode.getImageDescriptionResult());
       }
     }
 

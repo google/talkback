@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Opuščaj</string>
   <string name="symbol_ampersand">Znak in</string>
   <string name="symbol_angle_bracket_left">Znak »manjše kot«</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Funt</string>
   <string name="symbol_pound_sterling">Znak za valuto funt</string>
+  <string name="symbol_currency_peso">Znak za peso</string>
+  <string name="symbol_currency_dong">Znak za dong</string>
   <string name="symbol_question_mark">Vprašaj</string>
   <string name="symbol_quotation_mark">Narekovaj</string>
   <string name="symbol_registered_trademark">Zaščitena blagovna znamka</string>
@@ -137,4 +139,11 @@
   <string name="symbol_full_width_less_than_sign">Znak »manjše kot« polne širine</string>
   <string name="symbol_full_width_greater_than_sign">Znak »večje kot« polne širine</string>
   <string name="symbol_left_single_quotation_mark">Levi enojni zgornji narekovaj</string>
+  <string name="symbol_braille">braillova pisava %s</string>
+  <plurals name="dots">
+    <item quantity="one">pika %s</item>
+    <item quantity="two">piki %s</item>
+    <item quantity="few">pike %s</item>
+    <item quantity="other">pike %s</item>
+  </plurals>
 </resources>

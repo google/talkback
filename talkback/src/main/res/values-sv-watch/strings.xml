@@ -2,4 +2,12 @@
 <resources>
   <string name="talkback_service_description">TalkBack är en skärmläsare som främst är avsedd för personer med helt eller delvis nedsatt syn så att de kan använda enheten med hjälp av talad feedback.</string>
   <string name="welcome_to_talkback_text">Få talad feedback så att du kan använda klockan utan att titta på skärmen.</string>
+  <string name="summary_custom_action">Visas när det finns anpassade åtgärder för det aktuella objektet.</string>
+  <string name="notification_title_talkback_gestures_changed">TalkBack-rörelser uppdaterades</string>
+  <string name="notification_message_talkback_gestures_changed">Öppna Talkback för mer information</string>
+  <string name="new_feature_in_talkback_title">Nyheter</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">OK</string>
+  <string name="scan_the_qr_code">Skanna QR-koden</string>
+  <string name="alternate_privacy_policy">Du kan även besöka http://www.google.com/policies/privacy</string>
+  <string name="alternate_tos">Du kan även besöka https://www.google.com/mobile/toscountry</string>
 </resources>
