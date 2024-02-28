@@ -71,7 +71,7 @@ log
 
 
 log "Accept SDK licenses"
-log "${ANDROID_SDK}"//cmdline-tools/latest/bin/sdkmanager --licenses; yes | "${ANDROID_SDK}"/cmdline-tools/latest/bin/sdkmanager --licenses
+log "${ANDROID_SDK}"/cmdline-tools/latest/bin/sdkmanager --licenses; yes | "${ANDROID_SDK}"/cmdline-tools/latest/bin/sdkmanager --licenses
 ACCEPT_SDK_LICENSES_EXIT_CODE=$?
 log
 if [[ $ACCEPT_SDK_LICENSES_EXIT_CODE -ne 0 ]]; then
