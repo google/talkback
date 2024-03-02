@@ -17,7 +17,10 @@
 package com.google.android.accessibility.utils.traversal;
 
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.Logger;
 import com.google.android.accessibility.utils.TreeDebug;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -29,22 +32,23 @@ public class OrderedTraversalController {
 
   private static final String TAG = "OrderedTraversalCont";
 
-  private @Nullable WorkingTree mTree;
-  private Map<AccessibilityNodeInfoCompat, WorkingTree> mNodeTreeMap;
-  private Map<AccessibilityNodeInfoCompat, Boolean> mSpeakNodesCache;
+  private Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache;
+  private @Nullable WorkingTree tree;
+  private final Map<AccessibilityNodeInfoCompat, WorkingTree> nodeTreeMap;
+  private @Nullable AccessibilityNodeInfoCompat initialFocusNode;
 
   public OrderedTraversalController() {
-    mNodeTreeMap = new LinkedHashMap<>();
+    nodeTreeMap = new LinkedHashMap<>();
   }
 
-  public void setSpeakNodesCache(Map<AccessibilityNodeInfoCompat, Boolean> speakNodeCache) {
-    mSpeakNodesCache = speakNodeCache;
+  public void setSpeakingNodesCache(Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache) {
+    this.speakingNodesCache = speakingNodesCache;
   }
 
   /**
    * before start next traversal node search the controller must be initialized. The initialisation
    * step includes traversal through all accessibility nodes hierarchy to collect information about
-   * traversal order of separate subtrees and moving subtries that has custom befor/after traverse
+   * traversal order of separate subtrees and moving subtries that has custom before/after traverse
    * view order
    *
    * @param compatRoot - accessibility node that serves as root node for tree hierarchy the
@@ -54,19 +58,16 @@ public class OrderedTraversalController {
    *     Access needs to know about all nodes at the time the tree is being created.
    */
   public void initOrder(
-      AccessibilityNodeInfoCompat compatRoot, boolean includeChildrenOfNodesWithWebActions) {
+      @Nullable AccessibilityNodeInfoCompat compatRoot,
+      boolean includeChildrenOfNodesWithWebActions) {
     if (compatRoot == null) {
       return;
     }
 
     NodeCachedBoundsCalculator boundsCalculator = new NodeCachedBoundsCalculator();
-    boundsCalculator.setSpeakNodesCache(mSpeakNodesCache);
-    mTree =
-        createWorkingTree(
-            AccessibilityNodeInfoCompat.obtain(compatRoot),
-            null,
-            boundsCalculator,
-            includeChildrenOfNodesWithWebActions);
+    boundsCalculator.setSpeakingNodesCache(speakingNodesCache);
+    tree =
+        createWorkingTree(compatRoot, null, boundsCalculator, includeChildrenOfNodesWithWebActions);
     reorderTree();
   }
 
@@ -81,17 +82,17 @@ public class OrderedTraversalController {
    * @return subtree that reproduces accessibility node hierarchy
    */
   private @Nullable WorkingTree createWorkingTree(
-      AccessibilityNodeInfoCompat rootNode,
+      @NonNull AccessibilityNodeInfoCompat rootNode,
       @Nullable WorkingTree parent,
-      NodeCachedBoundsCalculator boundsCalculator,
+      @NonNull NodeCachedBoundsCalculator boundsCalculator,
       boolean includeChildrenOfNodesWithWebActions) {
-    if (mNodeTreeMap.containsKey(rootNode)) {
+    if (nodeTreeMap.containsKey(rootNode)) {
       LogUtils.w(TAG, "creating node tree with looped nodes - break the loop edge");
       return null;
     }
 
     WorkingTree tree = new WorkingTree(rootNode, parent);
-    mNodeTreeMap.put(rootNode, tree);
+    nodeTreeMap.put(rootNode, tree);
 
     // When we reach a node that supports web navigation, we traverse using the web navigation
     // actions, so we should not try to determine the ordering of its descendants.
@@ -101,7 +102,7 @@ public class OrderedTraversalController {
 
     ReorderedChildrenIterator iterator =
         ReorderedChildrenIterator.createAscendingIterator(rootNode, boundsCalculator);
-    while (iterator != null && iterator.hasNext()) {
+    while (iterator.hasNext()) {
       AccessibilityNodeInfoCompat child = iterator.next();
       WorkingTree childSubTree =
           createWorkingTree(child, tree, boundsCalculator, includeChildrenOfNodesWithWebActions);
@@ -117,16 +118,20 @@ public class OrderedTraversalController {
    * nodes
    */
   private void reorderTree() {
-    for (WorkingTree subtree : mNodeTreeMap.values()) {
+    for (WorkingTree subtree : nodeTreeMap.values()) {
       AccessibilityNodeInfoCompat node = subtree.getNode();
+      if (AccessibilityNodeInfoUtils.hasRequestInitialAccessibilityFocus(node)) {
+        // TODO: Add test case after Roboletric in Google3 supports API 34.
+        initialFocusNode = node;
+      }
       AccessibilityNodeInfoCompat beforeNode = node.getTraversalBefore();
       if (beforeNode != null) {
-        WorkingTree targetTree = mNodeTreeMap.get(beforeNode);
+        WorkingTree targetTree = nodeTreeMap.get(beforeNode);
         moveNodeBefore(subtree, targetTree);
       } else {
         AccessibilityNodeInfoCompat afterNode = node.getTraversalAfter();
         if (afterNode != null) {
-          WorkingTree targetTree = mNodeTreeMap.get(afterNode);
+          WorkingTree targetTree = nodeTreeMap.get(afterNode);
           moveNodeAfter(subtree, targetTree);
         }
       }
@@ -156,14 +161,14 @@ public class OrderedTraversalController {
     // Unlink moving subtree from tree.
     detachSubtreeFromItsParent(movingTreeRoot);
 
-    //swap target node with moving node on targets node parent children list
+    // swap target node with moving node on targets node parent children list
     if (parent != null) {
       parent.swapChild(targetTree, movingTreeRoot);
     }
 
     movingTreeRoot.setParent(parent);
 
-    //add target node as last child of moving node
+    // add target node as last child of moving node
     movingTree.addChild(targetTree);
     targetTree.setParent(movingTree);
   }
@@ -220,7 +225,7 @@ public class OrderedTraversalController {
   }
 
   public @Nullable AccessibilityNodeInfoCompat findNext(AccessibilityNodeInfoCompat node) {
-    WorkingTree tree = mNodeTreeMap.get(node);
+    WorkingTree tree = nodeTreeMap.get(node);
     if (tree == null) {
       LogUtils.w(TAG, "findNext(), can't find WorkingTree for AccessibilityNodeInfo");
       return null;
@@ -228,14 +233,14 @@ public class OrderedTraversalController {
 
     WorkingTree nextTree = tree.getNext();
     if (nextTree != null) {
-      return AccessibilityNodeInfoCompat.obtain(nextTree.getNode());
+      return nextTree.getNode();
     }
 
     return null;
   }
 
   public @Nullable AccessibilityNodeInfoCompat findPrevious(AccessibilityNodeInfoCompat node) {
-    WorkingTree tree = mNodeTreeMap.get(node);
+    WorkingTree tree = nodeTreeMap.get(node);
     if (tree == null) {
       LogUtils.w(TAG, "findPrevious(), can't find WorkingTree for AccessibilityNodeInfo");
       return null;
@@ -243,7 +248,7 @@ public class OrderedTraversalController {
 
     WorkingTree prevTree = tree.getPrevious();
     if (prevTree != null) {
-      return AccessibilityNodeInfoCompat.obtain(prevTree.getNode());
+      return prevTree.getNode();
     }
 
     return null;
@@ -251,11 +256,11 @@ public class OrderedTraversalController {
 
   /** Searches first node to be focused */
   public @Nullable AccessibilityNodeInfoCompat findFirst() {
-    if (mTree == null) {
+    if (tree == null) {
       return null;
     }
 
-    return AccessibilityNodeInfoCompat.obtain(mTree.getRoot().getNode());
+    return tree.getRoot().getNode();
   }
 
   public @Nullable AccessibilityNodeInfoCompat findFirst(AccessibilityNodeInfoCompat rootNode) {
@@ -263,21 +268,38 @@ public class OrderedTraversalController {
       return null;
     }
 
-    WorkingTree tree = mNodeTreeMap.get(rootNode);
+    WorkingTree tree = nodeTreeMap.get(rootNode);
     if (tree == null) {
       return null;
     }
 
-    return AccessibilityNodeInfoCompat.obtain(tree.getNode());
+    return tree.getNode();
+  }
+
+  public @Nullable AccessibilityNodeInfoCompat findInitial(AccessibilityNodeInfoCompat rootNode) {
+    if (rootNode == null) {
+      return null;
+    }
+
+    WorkingTree tree = nodeTreeMap.get(rootNode);
+    if (tree == null) {
+      return null;
+    }
+
+    if (tree.hasDescendant(nodeTreeMap.get(initialFocusNode))) {
+      return initialFocusNode;
+    }
+
+    return null;
   }
 
   /** Searches last node to be focused */
   public @Nullable AccessibilityNodeInfoCompat findLast() {
-    if (mTree == null) {
+    if (tree == null) {
       return null;
     }
 
-    return AccessibilityNodeInfoCompat.obtain(mTree.getRoot().getLastNode().getNode());
+    return tree.getRoot().getLastNode().getNode();
   }
 
   public @Nullable AccessibilityNodeInfoCompat findLast(AccessibilityNodeInfoCompat rootNode) {
@@ -285,20 +307,19 @@ public class OrderedTraversalController {
       return null;
     }
 
-    WorkingTree tree = mNodeTreeMap.get(rootNode);
+    WorkingTree tree = nodeTreeMap.get(rootNode);
     if (tree == null) {
       return null;
     }
 
-    return AccessibilityNodeInfoCompat.obtain(tree.getLastNode().getNode());
+    return tree.getLastNode().getNode();
   }
 
   /** Dumps the traversal order tree. */
-  protected void dumpTree() {
+  protected void dumpTree(@NonNull Logger treeDebugLogger) {
     AccessibilityNodeInfoCompat node = findFirst();
     while (node != null) {
-      LogUtils.v(
-          TreeDebug.TAG,
+      treeDebugLogger.log(
           " (%d)%s%s",
           node.hashCode(),
           TreeDebug.nodeDebugDescription(node),
@@ -308,8 +329,8 @@ public class OrderedTraversalController {
   }
 
   /**
-   * Returns the string contains the attribute {@link AccessibilityNodeInfo#getTraversalAfter()} and
-   * {@link AccessibilityNodeInfo#getTraversalAfter()} of the target node.
+   * Returns the string contains the attribute {@link AccessibilityNodeInfo#getTraversalBefore()}
+   * and {@link AccessibilityNodeInfo#getTraversalAfter()} of the target node.
    */
   private static String getCustomizedTraversalNodeString(AccessibilityNodeInfoCompat node) {
     StringBuilder builder = new StringBuilder();

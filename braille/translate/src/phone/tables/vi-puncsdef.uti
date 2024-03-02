@@ -1,0 +1,446 @@
+# Vietnamese signs and punctuations
+#
+#-copyright: Sao Mai Center for the Blind
+#-license: LGPLv2.1
+#
+#  Copyright (C) 2018, 2023 by Sao Mai Center for the Blind <www.saomaicenter.org/en>
+#
+#  This file is part of liblouis.
+#
+#  liblouis is free software: you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as
+#  published by the Free Software Foundation, either version 2.1 of the
+#  License, or (at your option) any later version.
+#
+#  liblouis is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#  Lesser General Public License for more details.
+#
+#  You should have received a copy of the GNU Lesser General Public
+#  License along with liblouis. If not, see
+#  <http://www.gnu.org/licenses/>.
+#
+# Created and maintained by: Dang Hoai Phuc, danghoaiphuc@gmail.com
+
+display ! 2346
+punctuation ! 235
+
+display " 5
+punctuation " 236
+
+display ? 1456
+punctuation ? 26
+match %[^_~]%<* " %[_.$]*%[a#] 236
+match %[a#]%[_.$]* " %>*%[^_~] 356
+
+display # 3456
+sign # 3456
+display $ 1246
+sign $ 4-234
+display % 146
+sign % 3456-245-356
+math % 3456-245-356
+display & 12346
+sign & 12346
+punctuation ' 3
+display ( 12356
+punctuation ( 4-126
+display ) 23456
+punctuation ) 4-345
+display * 16
+punctuation * 236
+# Want to handle * sign case below but the command doesn't work. Noted for future updte
+# match %# * %# 5-236
+display + 346
+math + 5-235
+display , 6
+punctuation , 2
+decpoint , 256
+punctuation - 36
+math - 5-36
+hyphen - 36
+display . 46
+punctuation . 256
+decpoint . 3
+display / 34
+sign / 34
+math / 5-34
+punctuation / 34
+display : 156
+punctuation : 25
+display ; 56
+punctuation ; 23
+display < 126
+math < 5-246
+display = 123456
+math = 5-2356
+display > 345
+punctuation > 5-135
+display @ 47
+sign @ 4
+display [ 2467
+punctuation [ 46-126
+display \\ 12567
+sign \\ 4-16
+display ] 124567
+punctuation ] 46-345
+display ^ 457
+sign ^ 4-26
+display _ 456
+sign _ 4-456
+display ` 4
+sign ` 4-4 grave accent
+display } 12456
+punctuation } 456-345
+display | 1256
+sign | 456-1256
+display { 246
+punctuation { 456-126
+display ~ 45
+math ~ 4-35
+match - ... - 3-3-3
+
+# Most of Vietnamese unicode signs have same UEB char definitions
+#   Modifiers
+
+# acute accent
+sign \x00b4 45-34 ´
+sign \x0301 45-34 ́ 
+noback correct [$l]"́" "́"*
+
+# circumflex/carot
+display \x005e 457 ^
+sign \x005e 4-26 ^
+sign \x0302 45-146 ̂ 
+noback correct [$l]"̂" "̂"*
+
+# grave accent
+sign \x0060 46-16 `
+noback punctuation ` 4
+sign \x0300 45-16 ̀̀ 
+noback correct [$l]"̀" "̀"*
+
+# tilde
+display \x007e 45 ~
+math \x007e 4-35 ~
+sign \x0303 45-12456 ̃ 
+noback correct [$l]"̃" "̃"*
+noback pass2 @45-12456-6 @6-45-12456  move after capital sign
+
+# macron
+sign \x00af 4-36 ¯
+sign \x0304 45-4-36 ̄ 
+noback correct [$l]"̄" "̄"*
+
+# cedilla
+sign \x00b8 45-12346 ¸
+sign \x0327 45-12346 ̧ 
+noback correct [$l]"̧" "̧"*
+
+# diaeresis/umlat
+sign \x00a8 45-25 ¨
+sign \x0308 45-25 ̈  
+noback correct [$l]"̈" "̈"*
+
+# caron
+sign \x02c7 45-345 ˇ
+sign \x030c 45-346 ̌ 
+noback correct [$l]"̌" "̌"*
+
+# breve
+sign \x02d8 4-346 ˘
+sign \x0306 4-346 ̆ 
+noback correct [$l]"̆" "̆"*
+
+# ring/circle
+sign \x02da 45-1246 ˚
+sign \x030a 45-1246 ̊  
+noback correct [$l]"̊" "̊"*
+
+#   Unicode:  Latin-1 Supplement
+punctuation \x0093 236
+punctuation \x0094 356
+punctuation \x0096 36
+sign \x00a1 45-56-235 ¡
+punctuation \x00a1 235 ¡
+sign \x00a2 4-14 ¢ cent
+sign \x00a3 4-123 £ pound
+sign \x00a4 1246 ¤ currency
+sign \x00a5 4-13456 ¥ yen
+sign \x00a6 46-1256 ¦ broken bar
+punctuation \x00a6 456-1256 ¦ broken bar
+sign \x00a7 45-234 § section
+sign \x00a9 45-14 © copyright
+punctuation \x00ab 456-236 «
+sign \x00ac 4-1456 ¬
+punctuation \x00ad 36 - soft hyphen
+sign \x00ae 45-1235 ® registered
+sign \x00b0 45-245 °
+math \x00b1 456-235 ±
+
+# fake grade 1 and superscript indicator
+math \x00b2 35-3456-12 ²
+math \x00b3 35-3456-14 ³
+
+sign \x00b5 6-134 µ
+math \x00b7 4-16 ·
+
+# fake numeric indicator
+math \x00bc 3456-1-34-145 ¼
+math \x00bd 3456-1-34-12 ½
+math \x00be 3456-14-34-145 ¾
+
+sign \x00b6 45-1234 ¶ pilcrow
+punctuation \x00bb 456-356 »
+punctuation \x00bf 45-56-26 ¿
+math \x00d7 5-236 ×
+math \x00f7 34 ÷
+
+#   Unicode:  IPA Extensions
+sign \x02e6 45-46-14 ˦   high tone
+sign \x02e7 45-46-25 ˧   mid tone
+sign \x02e8 45-46-36 ˨   low tone
+
+#   Unicode:  General Punctuation
+
+space \x2000 0
+space \x2001 0
+space \x2002 0
+space \x2003 0
+space \x2004 0
+space \x2005 0
+space \x2006 0
+space \x2007 0
+space \x2008 0
+space \x2009 0
+space \x200a 0
+space \x200b 0
+punctuation \x2010 36 ‐
+punctuation \x2011 36 ‑
+noback punctuation \x2013 36 – backtranslate as \x2014
+punctuation \x2014 36 —   Rules of UEB, App.3
+punctuation \x2015 5-6-36 ―
+noback punctuation \x2018 6-236 ‘
+noback punctuation \x2019 6-356 ’
+match %a \x2019 %a 3 # single quote between letters is really  apostrophe
+punctuation \x201c 236 “
+punctuation \x201d 356 ”
+sign \x2020 4-6-1456 †   dagger
+sign \x2021 4-6-12456 ‡   double dagger
+sign \x2022 456-256 •   bullet
+punctuation \x2026 3-3-3 …   ellipsis
+space \x202f 0   narrow no-break space
+sign \x2032 3 ′   prime (derivative)
+sign \x2033 3-3 ″   double prime (second derivative)
+
+
+#   Unicode:  Currency Symbols
+sign \x20a3 4-124 ₣ franc
+sign \x20a6 4-1345 ₦ naira
+sign \x20ac 4-15 € euro
+
+
+#   Unicode:  Letterlike Symbols
+
+sign \x2122 45-2345 ™
+noback sign \x2126 456-2456 Ω Ohm sign, same as capital Omega
+
+#   Unicode:  Number Forms
+
+# fake numerical indicator for simple fractions
+math \x2150 3456-1-34-1245 ⅐
+math \x2151 3456-1-34-24 ⅑
+math \x2152 3456-1-34-1-245 ⅒
+math \x2153 3456-1-34-14 ⅓
+math \x2154 3456-12-34-14 ⅔
+math \x2155 3456-1-34-15 ⅕
+math \x2156 3456-12-34-15 ⅖
+math \x2157 3456-14-34-15 ⅗
+math \x2158 3456-145-34-15 ⅘
+math \x2159 3456-1-34-124 ⅙
+math \x215a 3456-15-34-124 ⅚
+math \x215b 3456-1-34-125 ⅛
+math \x215c 3456-14-34-125 ⅜
+math \x215d 3456-15-34-125 ⅝
+math \x215e 3456-1245-34-125 ⅞
+math \x2189 3456-245-34-14 ↉
+
+
+#   Unicode:  Arrows
+
+sign \x2190 56-1256-246 ←
+sign \x2191 56-1256-346 ↑
+sign \x2192 56-1256-135 →
+sign \x2193 56-1256-146 ↓
+sign \x2196 56-1256-156 ↖
+sign \x2197 56-1256-234 ↗
+sign \x2198 56-1256-126 ↘
+sign \x2199 56-1256-345 ↙
+sign \x21a6 56-1256-1256 ↦
+sign \x21b2 56-1256-256 ↲
+sign \x21b3 56-1256-356 ↳
+sign \x21b5 56-1256-256-146 ↵   Rules of UEB, page 21
+sign \x21c0 56-1256-4-1235 ⇀
+sign \x21c1 56-1256-6-1235 ⇁
+sign \x21cc 45-456-2356 ⇌   equilibrium arrow (harpoons)
+sign \x21d2 56-1256-2356-2356 ⇒
+
+
+#   Unicode:  Mathematical Operators
+
+sign \x2200 45-1 ∀   for all
+sign \x2202 4-145 ∂   partial derivative
+sign \x2203 45-15 ∃   there exists
+sign \x2204 45-15-4 ∄   there does not exist
+sign \x2205 4-245 ∅   empty set
+noback sign \x2206 456-145 ∆ Increment same as capital Delta
+sign \x2207 45-145 ∇   nabla
+sign \x2208 4-15 ∈   element of
+sign \x2209 4-15-4 ∉ not an element of
+sign \x220b 4-45-15 ∋   contains (such that)
+sign \x220c 4-45-15-4-156 ∌ does not contain as member
+sign \x220f 456-1234 ∏   product (capital pi)
+sign \x2211 456-234 ∑   sum (capitol sigma)
+sign \x2212 5-36 −   minus sign (not hyphen)
+sign \x2213 36-5-235 ∓   minus or plus
+noback sign \x2216 456-16 ∖  set minus
+noback sign \x2217 5-35 ∗   asterisk operator
+sign \x2218 5-356 ∘   hollow dot (ring operator)
+sign \x221a 146 √   square root
+sign \x221d 456-5-2356   ∝ proportional to
+sign \x221e 3456-135   ∞ infinity
+sign \x2220 1246-1245   ∠ angle
+sign \x2221 46-1246-1245   ∡ measured angle
+noback sign \x2223 126-356-345 ∣   divides
+sign \x2224 126-3456-345 ∤   does not divide
+sign \x2225 1246-2356   ∥ parallel to
+sign \x2226 1246-2356-4 ∦   not parallel to
+sign \x2227 4-236 ∧   logical and
+sign \x2228 4-235 ∨   logical or
+sign \x2229 46-236 ∩   set intersection
+sign \x222a 46-235 ∪   set union
+sign \x222b 23456 ∫   integral
+sign \x222e 5-23456   contour integral
+noback sign \x2234 6-16 ∴   therefore   # using noback to avoid conflict with Child
+sign \x2235 4-34 ∵   because
+noback sign \x2236 25 ∶   ratio   # using noback to avoid conflict with :
+sign \x2237 25-25 ∷   proportion
+noback sign \x223c 4-35 ∼   tilde operator
+sign \x2241 4-35-4-156 ≁   not tilde
+sign \x2243 5-26-26 ≃   asymptotically equal to
+sign \x2244 5-26-26-4 ≄  not asymptotically equal
+sign \x2245 5-26-26 ≅   approximately equal to
+sign \x2247 5-26-26-4 ≇  neither approximately nor actually equal
+sign \x2248 5-26-26 ≈   almost equal to
+sign \x2249 5-26-26-4 ≉  not almost equal
+sign \x224f 45-5-2356 ≏   difference between
+sign \x2251 46-5-2356 ≑   geometrically equal
+noback sign \x2260 5-23456 ≠   not equal
+sign \x2261 456-123456 ≡   identical (equivalent) to
+sign \x2262 456-123456-4-156 ≢   not identical to
+sign \x2264 5-246-2356 ≤   less than or equal to
+sign \x2265 5-135-2356 ≥   greater than or equal to
+sign \x226a 5-246-246 ≪   much less than
+sign \x226b 5-135-135 ≫   much greater than
+sign \x226e 5-246-4 ≮   not less than
+sign \x226f 5-135-4 ≯   not greater than
+sign \x2270 456-4-126-4-156 ≰  neither less than nor equal to
+sign \x2271 456-4-345-4-156 ≱   neither greather than nor equal to
+sign \x2282 45-126 ⊂   subset of
+sign \x2283 45-345 ⊃   superset of
+sign \x2284 45-126-4 ⊄ not subset of
+sign \x2285 45-345-4 ⊅ not superset of
+sign \x2286 45-126-2356 ⊆   subset or equal to
+sign \x2287 45-345-2356 ⊇   superset or equal to
+sign \x2288 456-45-126-4-156 ⊈   neither a subset nor equal
+sign \x2289 456-45-345-4-156 ⊉  neither a superset nor equal 
+sign \x228a 46-45-126 ⊊   proper subset
+sign \x228b 46-45-345 ⊋   proper superset
+noback sign \x22a2 456-25 ⊢  right tack
+sign \x22a3 4-456-25 ⊣   left tack
+sign \x22a5 3456-36 ⊥   up tack
+sign \x22a6 456-25 ⊦   assertion
+sign \x22a8 45-456-25 ⊨   valid
+sign \x22ac 456-25-4-156 ⊬  does not prove
+sign \x22ad 45-456-25-4-156 ⊭   not true
+sign \x22b2 4-456-126 ⊲   normal subgroup
+sign \x22b3 4-456-345 ⊳   contains as normal subgroup
+sign \x22b4 456-456-126 ⊴   normal subgroup or equal
+sign \x22b5 456-456-345 ⊵   contains as normal subgroup or equal
+sign \x22be 3456-456-246 ⊾   right angle with arc
+sign \x22c5 5-236 ⋅   dot operator
+sign \x22ea 4-456-126-4-156 ⋪ not normal subgroup
+sign \x22eb 4-456-345-4-156 ⋫ does not contain as normal subgroup
+sign \x22ec 456-456-126-4-156 ⋬ not normal subgroup nor equal
+sign \x22ed 456-456-345-4-156 ⋭ does not contain as normal subgroup nor equal
+
+#   Unicode:  Miscellaneous Technical
+
+math \x2329 456-126 〈
+math \x232A 456-345 〉
+
+
+#   Unicode:  Box Drawing
+
+noback sign \x2502 456 │   tally mark - vertical single solid line segment
+noback sign \x250a 45 ┊   first variant vertical line segment
+noback sign \x2551 6-456 ║   second variant vertical line segment
+noback sign \x2571 345 ╱   right-leaning single solid diagonal line segment   # using noback to avoid conflict with "ar" contraction
+noback sign \x2572 126 ╲   left-leaning single solid diagonal line segment   # using noback to avoid conflict with "gh" contraction
+
+
+#   Unicode:  Geometric Shapes
+
+sign \x25a0 456-1246-3456-145 ■   filled (solid) square
+sign \x25a1 1246-3456-145 □   square
+sign \x25a7 46-1246-3456-145 ▧   shaded square (upper left to lower right)
+sign \x25b2 456-1246-3456-14 ▲   filled (solid) (equilateral) triangle
+sign \x25b3 1246-3456-14 △   regular (equilateral) triangle
+sign \x25cb 1246-123456 ○   circle
+sign \x25cd 46-1246-123456 ◍   shaded circle
+sign \x25aa 456-256 ▪
+noback sign \x25cf 5-35 ●   black circle   # not representing filled circle shape as it is mostly used in password fields to represent hidden characters
+
+
+#   Unicode:  Miscellaneous Symbols
+
+sign \x2640 45-1346 ♀
+sign \x2642 45-13456 ♂
+sign \x266D 3456-126 ♭
+sign \x266E 3456-16 ♮
+sign \x266F 3456-146 ♯
+
+
+#   Unicode:  Dingbats
+
+sign \x2713 4-146 ✓ check mark
+noback sign \x2714 4-146 ✔ check mark
+
+
+#   Unicode:  Miscellaneous Mathematical Symbols-A
+
+noback sign \x27c2 1246-1236 ⟂  perpendicular
+
+
+#   Unicode:  Miscellaneous Mathematical Symbols-B
+
+sign \x2980 3456-456-123 ⦀ triple vertical bar delimiter
+sign \x29b5 46-245 ⦵   'normal' (superscript circle crossed by horizontal line)
+
+
+#   Unicode:  Supplemental Mathematical Operators
+
+sign \x2a23 45-146-5-235 ⨣
+sign \x2a24 45-12456-5-235 ⨤
+sign \x2ae4 46-456-25 ⫤   reverse 'is valid' sign
+noback sign \x2af4 3456-456-123 ⫴ triple vertical bar binary relation
+noback sign \x2afc 3456-456-123 ⫼ large triple vertical bar operator
+
+
+#   Unicode:  CJK Symbols and Punctuation
+
+sign \x3003 5-2 〃   ditto mark
+math \x3008 5-246 〈
+math \x3009 5-135 〉
+

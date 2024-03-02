@@ -19,40 +19,74 @@ package com.google.android.accessibility.talkback;
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
 
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.talkback.selector.SelectorController;
+import android.view.accessibility.AccessibilityNodeInfo;
 import com.google.android.accessibility.utils.Performance.EventId;
+import java.util.ArrayList;
+import java.util.List;
 
 /** A wrapper class for all user interfaces which need to response some input events. */
 public class UserInterface {
-  private final SelectorController selectorController;
+  /** Interface to notify user input events. */
+  public interface UserInputEventListener {
+    /**
+     * Invoked when the accessibility focus changed.
+     *
+     * @param nodeInfo the new focused node
+     * @param interpretation the focused event interpretation
+     */
+    void newItemFocused(AccessibilityNodeInfo nodeInfo, Interpretation interpretation);
 
-  public UserInterface(SelectorController selectorController) {
-    this.selectorController = selectorController;
+    /**
+     * Invoked when the state of selection mode on an editable is changed.
+     *
+     * @param active whether the selection mode is active or not
+     */
+    void editTextOrSelectableTextSelected(boolean active);
+
+    /**
+     * Invoked when Touch Interaction is active.
+     *
+     * @param active The state after TYPE_TOUCH_INTERACTION_START and before
+     *     TYPE_TOUCH_INTERACTION_END means active.
+     */
+    void touchInteractionState(boolean active);
   }
 
-  public void setActorState(ActorState actorState) {
-    selectorController.setActorState(actorState);
-  }
+  private final List<UserInputEventListener> listeners = new ArrayList<>();
 
-  public void setPipeline(Pipeline.FeedbackReturner pipeline) {
-    selectorController.setPipeline(pipeline);
-  }
-
-  /** Notify the state of selection mode on an editable is changed. */
+  /** Notifies the state of selection mode on an editable is changed. */
   public void setSelectionMode(boolean active) {
-    selectorController.editTextOrSelectableTextSelected(active);
+    if (listeners.isEmpty()) {
+      return;
+    }
+
+    listeners.stream().forEach(listener -> listener.editTextOrSelectableTextSelected(active));
+  }
+
+  public void registerListener(UserInputEventListener listener) {
+    listeners.add(listener);
+  }
+
+  public void unregisterListener(UserInputEventListener listener) {
+    listeners.remove(listener);
   }
 
   public void handleEvent(
       EventId eventId, AccessibilityEvent event, Interpretation eventInterpretation) {
-    if (selectorController == null
-        || event == null
-        || event.getEventType() != TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
+    if (listeners.isEmpty()) {
       return;
     }
-    if (eventInterpretation instanceof Interpretation.AccessibilityFocused) {
-      // Support the Quick Settings the immediate value adjusting.
-      selectorController.newItemFocused(event.getSource());
+    if (event != null && event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
+      if (eventInterpretation instanceof Interpretation.AccessibilityFocused) {
+        listeners.stream()
+            .forEach(listener -> listener.newItemFocused(event.getSource(), eventInterpretation));
+      }
+    } else if (eventInterpretation instanceof Interpretation.TouchInteraction) {
+      listeners.stream()
+          .forEach(
+              listener ->
+                  listener.touchInteractionState(
+                      ((Interpretation.TouchInteraction) eventInterpretation).interactionActive()));
     }
   }
 }

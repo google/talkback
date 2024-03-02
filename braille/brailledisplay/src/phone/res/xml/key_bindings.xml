@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+  <Preference
+      android:selectable="false"
+      app:summary="@string/bd_commands_bindings_instructions" />
+
+  <Preference
+      app:key="@string/pref_key_bd_keybindings_basic"
+      app:title="@string/bd_commands_bindings_category_basic_controls_title"
+      app:summary="@string/bd_commands_bindings_category_basic_controls_summary"
+      app:icon="@drawable/gs_control_camera_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+  <Preference
+      app:key="@string/pref_key_bd_keybindings_navigation"
+      app:title="@string/bd_commands_bindings_category_navigation_title"
+      app:summary="@string/bd_commands_bindings_category_navigation_summary"
+      app:icon="@drawable/gs_navigation_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+  <Preference
+      app:key="@string/pref_key_bd_keybindings_system_actions"
+      app:title="@string/bd_commands_bindings_category_system_actions_title"
+      app:summary="@string/bd_commands_bindings_category_system_actions_summary"
+      app:icon="@drawable/gs_stay_current_portrait_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+  <Preference
+      app:key="@string/pref_key_bd_keybindings_talkback_features"
+      app:title="@string/bd_commands_bindings_category_talkback_features_title"
+      app:summary="@string/bd_commands_bindings_category_talkback_features_summary"
+      app:icon="@drawable/gs_chat_bubble_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+  <Preference
+      app:key="@string/pref_key_bd_keybindings_braille_settings"
+      app:title="@string/bd_commands_bindings_category_braille_settings_title"
+      app:summary="@string/bd_commands_bindings_category_braille_settings_summary"
+      app:icon="@drawable/gs_drag_indicator_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+  <Preference
+      app:key="@string/pref_key_bd_keybindings_editing"
+      app:title="@string/bd_commands_bindings_category_text_editing_title"
+      app:summary="@string/bd_commands_bindings_category_text_editing_summary"
+      app:icon="@drawable/gs_text_select_move_forward_character_vd_theme_24"
+      app:layout="@layout/braille_common_category" >
+  </Preference>
+
+</PreferenceScreen>

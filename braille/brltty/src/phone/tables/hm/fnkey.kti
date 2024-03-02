@@ -1,0 +1,49 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+note Function Key Bindings
+note + Function-b: skip blank windows on/off
+note + Function-c: cursor show/hide
+note + Function-d: display mode attributes/text
+note + Function-f: screen image frozen/unfrozen
+note + Function-h: help screen enter/leave
+note + Function-i: skip identical lines on/off
+note + Function-l: learn mode enter/leave
+note + Function-p: preferences menu enter/leave
+note + Function-s: status line enter/leave
+note + Function-t: cursor tracking on/off
+note + Function-u: highlight underline on/off
+note + Function-v: bring cursor to current line
+note + Function-w: sliding window on/off
+
+hide on
+assign function F2+Space
+bind \{function}+Dot1+Dot2 SKPBLNKWINS
+bind \{function}+Dot1+Dot4 CSRVIS
+bind \{function}+Dot1+Dot4+Dot5 DISPMD
+bind \{function}+Dot1+Dot2+Dot4 FREEZE
+bind \{function}+Dot1+Dot2+Dot5 HELP
+bind \{function}+Dot2+Dot4 SKPIDLNS
+bind \{function}+Dot1+Dot2+Dot3 LEARN
+bind \{function}+Dot1+Dot2+Dot3+Dot4 PREFMENU
+bind \{function}+Dot2+Dot3+Dot4 INFO
+bind \{function}+Dot2+Dot3+Dot4+Dot5 CSRTRK
+bind \{function}+Dot1+Dot3+Dot6 ATTRVIS
+bind \{function}+Dot1+Dot2+Dot3+Dot6 CSRJMP_VERT
+bind \{function}+Dot2+Dot4+Dot5+Dot6 SLIDEWIN
+hide off

@@ -24,6 +24,7 @@ import static com.google.android.accessibility.utils.traversal.TraversalStrategy
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.PowerManager;
 import androidx.annotation.IntDef;
@@ -34,9 +35,12 @@ import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.eventprocessor.EventState;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
+import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
+import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.traversal.OrderedTraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
@@ -91,7 +95,9 @@ public class FullScreenReadActor {
   /** Dialog for continuous reading mode */
   FullScreenReadDialog fullScreenReadDialog;
 
-  private final RetryReadingHandler retryReadingHandler = new RetryReadingHandler();
+  private final RetryReadingHandler retryReadingHandler = new RetryReadingHandler(this);
+
+  private final ScreenStateMonitor.State screenState;
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // State-reading interface
@@ -117,7 +123,8 @@ public class FullScreenReadActor {
   public FullScreenReadActor(
       AccessibilityFocusMonitor accessibilityFocusMonitor,
       TalkBackService service,
-      SpeechController speechController) {
+      SpeechController speechController,
+      ScreenStateMonitor.State screenState) {
     if (accessibilityFocusMonitor == null) {
       throw new IllegalStateException();
     }
@@ -128,6 +135,7 @@ public class FullScreenReadActor {
     wakeLock =
         ((PowerManager) service.getSystemService(Context.POWER_SERVICE))
             .newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, TAG);
+    this.screenState = screenState;
   }
 
   public void setPipeline(Pipeline.FeedbackReturner pipeline) {
@@ -167,9 +175,6 @@ public class FullScreenReadActor {
 
     setReadingState(STATE_READING_FROM_NEXT);
 
-    // Continuous reading mode (CRM) always uses default granularity.
-    pipeline.returnFeedback(eventId, Feedback.granularity(DEFAULT));
-
     if (!wakeLock.isHeld()) {
       wakeLock.acquire();
     }
@@ -203,20 +208,18 @@ public class FullScreenReadActor {
     }
 
     TraversalStrategy traversal = new OrderedTraversalStrategy(rootNode);
-    AccessibilityNodeInfoCompat currentNode =
-        TraversalStrategyUtils.searchFocus(
+    AccessibilityNodeInfoCompat firstNode =
+        TraversalStrategyUtils.findFirstFocusInNodeTree(
             traversal,
             rootNode,
-            TraversalStrategy.SEARCH_FOCUS_FORWARD,
+            SEARCH_FOCUS_FORWARD,
             AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
 
-    if (currentNode == null) {
+    if (firstNode == null) {
       return;
     }
 
     setReadingState(STATE_READING_FROM_BEGINNING);
-    // Continuous reading mode (CRM) always uses default granularity.
-    pipeline.returnFeedback(eventId, Feedback.granularity(DEFAULT));
 
     if (!wakeLock.isHeld()) {
       wakeLock.acquire();
@@ -225,7 +228,7 @@ public class FullScreenReadActor {
     // This is potentially a refocus, so we should set the refocus flag just in case.
     EventState.getInstance().setFlag(EventState.EVENT_NODE_REFOCUSED);
     pipeline.returnFeedback(eventId, Feedback.focus(CLEAR));
-    moveForward();
+    moveTo(firstNode);
   }
 
   public void readFocusedContent(EventId eventId) {
@@ -243,6 +246,13 @@ public class FullScreenReadActor {
 
   /** Stops speech output and view traversal at the current position. */
   public void interrupt() {
+    interrupt(false);
+  }
+
+  private void interrupt(boolean internal) {
+    if (internal) {
+      LogUtils.d(TAG, "Continuous reading interrupt internal ");
+    }
     setReadingState(STATE_STOPPED);
 
     if (wakeLock.isHeld()) {
@@ -250,12 +260,25 @@ public class FullScreenReadActor {
     }
   }
 
+  private void moveTo(AccessibilityNodeInfoCompat node) {
+    EventId eventId = EVENT_ID_UNTRACKED; // First node's speech is already performance tracked.
+    FocusActionInfo focusActionInfo =
+        new FocusActionInfo.Builder().setSourceAction(FocusActionInfo.LOGICAL_NAVIGATION).build();
+    if (!pipeline.returnFeedback(
+        eventId, Feedback.part().setFocus(Feedback.focus(node, focusActionInfo).build()))) {
+      pipeline.returnFeedback(eventId, Feedback.sound(R.raw.complete));
+      interrupt(/* internal= */ true);
+    }
+  }
+
   private void moveForward() {
     EventId eventId = EVENT_ID_UNTRACKED; // First node's speech is already performance tracked.
+    // Continuous reading mode (CRM) always uses default granularity.
     if (!pipeline.returnFeedback(
-        eventId, Feedback.focusDirection(SEARCH_FOCUS_FORWARD).setScroll(true))) {
+        eventId,
+        Feedback.focusDirection(SEARCH_FOCUS_FORWARD).setGranularity(DEFAULT).setScroll(true))) {
       pipeline.returnFeedback(eventId, Feedback.sound(R.raw.complete));
-      interrupt();
+      interrupt(/* internal= */ true);
     }
   }
 
@@ -295,15 +318,19 @@ public class FullScreenReadActor {
    * to race condition. Then read from top action fails. This class is used to retry the action if
    * the active window is not updated yet.
    */
-  private final class RetryReadingHandler extends Handler {
+  private static final class RetryReadingHandler extends WeakReferenceHandler<FullScreenReadActor> {
     private static final int MSG_READ_FROM_TOP = 0;
     private static final int MAX_RETRY_COUNT = 10;
     private static final int RETRY_INTERVAL = 50;
 
+    RetryReadingHandler(FullScreenReadActor parent) {
+      super(parent, Looper.myLooper());
+    }
+
     @Override
-    public void handleMessage(Message msg) {
+    public void handleMessage(Message msg, FullScreenReadActor parent) {
       if (msg.what == MSG_READ_FROM_TOP) {
-        startReadingFromBeginningInternal((EventId) msg.obj, msg.arg1);
+        parent.startReadingFromBeginningInternal((EventId) msg.obj, msg.arg1);
       }
     }
 

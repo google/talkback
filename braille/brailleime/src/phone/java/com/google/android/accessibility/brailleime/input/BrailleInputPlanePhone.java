@@ -6,7 +6,9 @@ import android.graphics.PointF;
 import android.util.Size;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.braille.common.BrailleUtils;
+import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 import com.google.android.accessibility.brailleime.BrailleImeLog;
+import com.google.android.accessibility.brailleime.BrailleInputOptions;
 import com.google.android.accessibility.brailleime.input.MultitouchHandler.HoldRecognizer;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.List;
 
 /** {@link BrailleInputPlane} for phone. */
 public class BrailleInputPlanePhone extends BrailleInputPlane {
+  private static final String TAG = "BrailleInputPlanePhone";
 
   /**
    * Constructs a BrailleInputPlane.
@@ -24,11 +27,11 @@ public class BrailleInputPlanePhone extends BrailleInputPlane {
   BrailleInputPlanePhone(
       Context context,
       Size sizeInPixels,
-      int orientation,
-      boolean reverseDots,
       HoldRecognizer holdRecognizer,
-      boolean isTutorial) {
-    super(context, sizeInPixels, orientation, reverseDots, holdRecognizer, isTutorial);
+      int orientation,
+      BrailleInputOptions options,
+      CustomOnGestureListener customGestureDetector) {
+    super(context, sizeInPixels, holdRecognizer, orientation, options, customGestureDetector);
   }
 
   @Override
@@ -118,6 +121,14 @@ public class BrailleInputPlanePhone extends BrailleInputPlane {
   @Override
   BrailleInputPlaneResult createSwipe(Swipe swipe) {
     return BrailleInputPlaneResult.createSwipeForPhone(swipe, orientation, isTableTopMode);
+  }
+
+  @Override
+  BrailleInputPlaneResult createDotHoldAndSwipe(
+      Swipe swipe, BrailleCharacter heldBrailleCharacter) {
+    BrailleInputPlaneResult result =
+        BrailleInputPlaneResult.createSwipeForPhone(swipe, orientation, isTableTopMode);
+    return BrailleInputPlaneResult.createDotHoldAndDotSwipe(result.swipe, heldBrailleCharacter);
   }
 
   @Override

@@ -35,7 +35,9 @@ import android.os.Build.VERSION_CODES;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.accessibility.AccessibilityManager;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.ChecksSdkIntAtLeast;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -44,12 +46,25 @@ import com.google.android.libraries.accessibility.utils.log.LogUtils;
 public final class FeatureSupport {
   @Nullable private static Boolean brailleDisplaySettingsActivityPresent = null;
   @Nullable private static Boolean brailleKeyboardSettingsActivityPresent = null;
+  @Nullable private static Boolean isWatch = null;
 
+  // Enforce noninstantiability with a private constructor.
+  private FeatureSupport() {}
+
+  /**
+   * Returns {@code true} if the device is a watch.
+   *
+   * <p>The flag will be cached for further query.
+   */
   public static boolean isWatch(Context context) {
-    return context
-        .getApplicationContext()
-        .getPackageManager()
-        .hasSystemFeature(PackageManager.FEATURE_WATCH);
+    if (isWatch == null) {
+      isWatch =
+          context
+              .getApplicationContext()
+              .getPackageManager()
+              .hasSystemFeature(PackageManager.FEATURE_WATCH);
+    }
+    return isWatch;
   }
 
   public static boolean isArc() {
@@ -107,11 +122,6 @@ public final class FeatureSupport {
     final Vibrator vibrator =
         (context == null) ? null : (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
     return (vibrator != null) && vibrator.hasVibrator();
-  }
-
-  /** Return whether VibrationEffect is supported on this device. */
-  public static boolean supportVibrationEffect() {
-    return BuildVersionUtils.isAtLeastO();
   }
 
   /** Return whether enable/disable IME is supported on this device. */
@@ -185,11 +195,10 @@ public final class FeatureSupport {
    * Returns {@code true} if the device should announce magnification state when
    * onMagnificationChanged() is called. In S, window magnification is available but the
    * onMagnificationChanged listener doesn't support this yet. To prevent user confusing, this is
-   * blocked after S.
+   * blocked in S.
    */
   public static boolean supportAnnounceMagnificationChanged() {
-    // TODO Add VERSION_CODES.S_V2 after SDK_INT for T is available.
-    return BuildVersionUtils.isAtLeastN() && Build.VERSION.SDK_INT != VERSION_CODES.S;
+    return Build.VERSION.SDK_INT != VERSION_CODES.S && Build.VERSION.SDK_INT != VERSION_CODES.S_V2;
   }
 
   /**
@@ -228,6 +237,14 @@ public final class FeatureSupport {
   }
 
   /**
+   * Returns {@code true} if the device requires the permission to post notifications. {@link
+   * Manifest.permission#POST_NOTIFICATIONS}
+   */
+  public static boolean postNotificationsPermission() {
+    return BuildVersionUtils.isAtLeastT();
+  }
+
+  /**
    * Returns {@code true} if all the insets will be reported to the window regarding the z-order.
    * {@link android.view.WindowManager.LayoutParams#receiveInsetsIgnoringZOrder}
    */
@@ -263,6 +280,10 @@ public final class FeatureSupport {
   }
 
   public static boolean supportSettingsTheme() {
+    return BuildVersionUtils.isAtLeastS();
+  }
+
+  public static boolean supportBoldFont() {
     return BuildVersionUtils.isAtLeastS();
   }
 
@@ -414,11 +435,76 @@ public final class FeatureSupport {
 
   /** Returns {@code true} if the device supports animation off by Accessibility service. */
   public static boolean supportsServiceControlOfGlobalAnimations() {
-    return BuildVersionUtils.isAtLeastT();
+    // TODO Disable this feature until there's reliable mechanism to revert the
+    // animation scale for TalkBack on/off cycle.
+    return false; // BuildVersionUtils.isAtLeastT();
   }
 
   /** Returns {@code true} if the device supports AccessibilityNodeInfo#isTextSelectable */
   public static boolean supportsIsTextSelectable() {
+    return BuildVersionUtils.isAtLeastT();
+  }
+
+  /** Returns {@code true} if the device is the Automotive */
+  public static boolean isAuto(Context context) {
+    return context
+        .getApplicationContext()
+        .getPackageManager()
+        .hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE);
+  }
+
+  /** Returns {@code true} if the device supports gesture detection in the service side. */
+  public static boolean supportGestureDetection() {
+    return BuildVersionUtils.isAtLeastT();
+  }
+
+  /**
+   * Returns {@code true} if the device supports the row/column title from {@link
+   * AccessibilityNodeInfo.CollectionItemInfo}.
+   */
+  public static boolean supportGridTitle() {
+    return BuildVersionUtils.isAtLeastT();
+  }
+
+  /**
+   * Returns {@code true} if the device supports the App locale info from {@link
+   * AccessibilityWindowInfo#getLocales()}.
+   */
+  @ChecksSdkIntAtLeast(api = 34)
+  public static boolean supportAccessibilityAppLocale() {
+    return BuildVersionUtils.isAtLeastU();
+  }
+
+  @ChecksSdkIntAtLeast(api = 34)
+  public static boolean supportTakeScreenshotByWindow() {
+    return BuildVersionUtils.isAtLeastU();
+  }
+
+  /**
+   * Returns {@code true} if the device supports a requested initial focus from {@link
+   * AccessibilityNodeInfo#hasRequestInitialAccessibilityFocus()}.
+   *
+   * <p><b>Note:</b> the limitation is only applies to the native AccessibilityNodeInfo class.
+   * Calling via AndroidX is not affected.
+   */
+  @ChecksSdkIntAtLeast(api = 34)
+  public static boolean supportRequestInitialAccessibilityFocusNative() {
+    return BuildVersionUtils.isAtLeastU();
+  }
+
+  /**
+   * Returns {@code true} if the device supports multiple gesture set. The new gesture to switch
+   * between gesture set is available only for gesture detection on the service side.
+   */
+  public static boolean supportMultipleGestureSet() {
+    return BuildVersionUtils.isAtLeastT();
+  }
+
+  /**
+   * Returns {@code true} if the device supports AccessibilityService#getInputMethod which is added
+   * since Android T.
+   */
+  public static boolean supportInputConnectionByA11yService() {
     return BuildVersionUtils.isAtLeastT();
   }
 }

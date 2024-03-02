@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/training_exit_warning_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/training_banner_padding"
+    android:layout_marginStart="@dimen/training_banner_padding"
+    android:layout_marginEnd="@dimen/training_banner_padding"
+    android:padding="@dimen/training_banner_padding"
+    android:background="@drawable/training_exit_banner_background"
+    android:orientation="vertical">
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="start"
+      android:text="@string/talkback_is_on"
+      android:textColor="@color/training_text_color"
+      android:textSize="@dimen/training_banner_title_text_size"
+      app:fontFamily="@string/accessibility_font" />
+
+  <androidx.appcompat.widget.AppCompatTextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/training_banner_padding"
+      android:layout_gravity="start"
+      android:text="@string/talkback_turn_off_description"
+      android:textColor="@color/training_text_color"
+      android:textSize="@dimen/training_text_small_size"
+      app:fontFamily="@string/accessibility_font" />
+
+  <Button
+      android:id="@+id/training_exit_talkback_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/training_button_padding"
+      android:layout_gravity="center_horizontal"
+      android:paddingTop="@dimen/training_button_padding"
+      android:paddingBottom="@dimen/training_button_padding"
+      android:background="@drawable/training_exit_banner_button_background"
+      android:maxLines="2"
+      android:text="@string/turn_off_talkback"
+      android:textAlignment="center"
+      android:textAllCaps="false"
+      android:textColor="@color/training_banner_button_text_color"
+      android:textSize="@dimen/training_button_text_size"
+      app:fontFamily="@string/accessibility_font" />
+
+</LinearLayout>

@@ -27,6 +27,7 @@ import com.google.android.accessibility.braille.common.BrailleCommonUtils;
 import com.google.android.accessibility.braille.common.ImeConnection;
 import com.google.android.accessibility.braille.common.R;
 import com.google.android.accessibility.braille.common.TalkBackSpeaker;
+import com.google.android.accessibility.braille.common.TalkBackSpeaker.AnnounceType;
 import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 
 /** Utils for translation of Braille. */
@@ -64,9 +65,9 @@ public class EditBufferUtils {
       return NOT_FOUND;
     }
     int lastSpaceIndex =
-        findIndexBackward(extractedText.text.toString(), extractedText.selectionStart, SPACE);
+        findIndexBackward(extractedText.text.toString(), extractedText.selectionEnd, SPACE);
     int lastNewlineIndex =
-        findIndexBackward(extractedText.text.toString(), extractedText.selectionStart, LINE_BREAK);
+        findIndexBackward(extractedText.text.toString(), extractedText.selectionEnd, LINE_BREAK);
     return Math.max(lastSpaceIndex, lastNewlineIndex);
   }
 
@@ -89,8 +90,7 @@ public class EditBufferUtils {
     if (extractedText == null) {
       return NOT_FOUND;
     }
-    return findIndexBackward(
-        extractedText.text.toString(), extractedText.selectionStart, LINE_BREAK);
+    return findIndexBackward(extractedText.text.toString(), extractedText.selectionEnd, LINE_BREAK);
   }
 
   /** Finds the line break position forward from current cursor. */
@@ -114,13 +114,22 @@ public class EditBufferUtils {
   /** Speaks cleaned up text. */
   public static void speak(Context context, TalkBackSpeaker talkBackSpeaker, String text) {
     String speakText = SpeechCleanupUtils.cleanUp(context, text).toString();
-    talkBackSpeaker.speakInterrupt(speakText);
+    talkBackSpeaker.speak(speakText, AnnounceType.INTERRUPT);
+  }
+
+  /** Speaks cleaned up selected text. */
+  public static void speakSelectAll(Context context, TalkBackSpeaker talkBackSpeaker, String text) {
+    String speakText = SpeechCleanupUtils.cleanUp(context, text).toString();
+    talkBackSpeaker.speak(
+        context.getString(R.string.read_out_selected_text, speakText),
+        AnnounceType.INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH);
   }
 
   /** Speaks cleaned up deleted text. */
   public static void speakDelete(Context context, TalkBackSpeaker talkBackSpeaker, String text) {
     String speakText = SpeechCleanupUtils.cleanUp(context, text).toString();
-    talkBackSpeaker.speakInterrupt(context.getString(R.string.read_out_deleted, speakText));
+    talkBackSpeaker.speak(
+        context.getString(R.string.read_out_deleted, speakText), AnnounceType.INTERRUPT);
   }
 
   /** Whether the cursor is at the beginning or end of the field. */
@@ -130,11 +139,11 @@ public class EditBufferUtils {
             == EditBufferUtils.getCursorPosition(inputConnection));
   }
 
-  private static int findIndexBackward(String text, int selectionStartIndex, String target) {
-    if (text == null || selectionStartIndex <= 0) {
+  private static int findIndexBackward(String text, int selectionEndIndex, String target) {
+    if (text == null || selectionEndIndex <= 0) {
       return NOT_FOUND;
     }
-    return text.lastIndexOf(target, selectionStartIndex - 2) + 1;
+    return text.lastIndexOf(target, selectionEndIndex - 2) + 1;
   }
 
   private static int findIndexForward(String text, int selectionEndIndex, String target) {

@@ -26,20 +26,28 @@ import android.os.SystemClock;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.Consumer;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Intended for interpreting special cases involving selection-type events. */
-public final class SelectionEventInterpreter {
+public final class SelectionEventInterpreter implements AccessibilityEventListener {
   private static final int WINDOW_TRANSITION_PERIOD_MILLISECONDS = 100;
   private static final String TAG = "SelectionInterpreter";
+
+  /** Event types that are handled by SelectionEventInterpreter. */
+  private static final int MASK_EVENTS =
+      AccessibilityEvent.TYPE_WINDOWS_CHANGED
+          | AccessibilityEvent.TYPE_VIEW_SELECTED
+          | AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED;
 
   /** Data-structure containing raw-event and interpretation, sent to listeners. */
   public static class Interpretation {
@@ -77,7 +85,13 @@ public final class SelectionEventInterpreter {
     listeners.add(listener);
   }
 
-  public void interpret(AccessibilityEvent event, EventId eventId) {
+  @Override
+  public int getEventTypes() {
+    return MASK_EVENTS;
+  }
+
+  @Override
+  public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
     int eventType = event.getEventType();
     boolean selected = false;
 
@@ -92,6 +106,7 @@ public final class SelectionEventInterpreter {
       }
       @Nullable AccessibilityNodeInfoCompat source = AccessibilityEventUtils.sourceCompat(event);
       if (Role.getRole(source) != ROLE_CHECK_BOX) {
+        LogUtils.v(TAG, "Skip ROLE_CHECK_BOX for de-selection");
         return;
       }
       if ((source == null) || source.isSelected()) {
@@ -115,7 +130,12 @@ public final class SelectionEventInterpreter {
 
   @VisibleForTesting
   boolean isWithinWindowTransitionPeriod() {
-    return SystemClock.uptimeMillis() - windowChangeTimeInMillis
-        <= WINDOW_TRANSITION_PERIOD_MILLISECONDS;
+    long selectedTimeInMillis = SystemClock.uptimeMillis();
+    LogUtils.v(
+        TAG,
+        "TYPE_VIEW_SELECTED time=%d and TYPE_WINDOWS_CHANGED time=%d",
+        selectedTimeInMillis,
+        windowChangeTimeInMillis);
+    return selectedTimeInMillis - windowChangeTimeInMillis <= WINDOW_TRANSITION_PERIOD_MILLISECONDS;
   }
 }

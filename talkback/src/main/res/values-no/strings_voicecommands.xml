@@ -94,7 +94,7 @@
   <string name="voice_commands_error">Feil ved gjenkjenning av talekommando</string>
   <string name="voice_commands_partial_result">Denne kommandoen gjenkjennes ikke. Si «%1$s» for å åpne listen over alle kommandoer.</string>
   <string name="voice_commands_timeout">Si «%1$s» for å åpne listen over alle kommandoer.</string>
-  <string name="voice_commands_many_requests">Prøv igjen om en liten stund</string>
+  <string name="voice_commands_many_requests">Prøv på nytt om en liten stund</string>
   <string name="voice_commands_echo_feedback_not_recognized">«%1$s» gjenkjennes ikke som en talekommando.</string>
   <string name="voice_commands_label_saved">Etiketten er lagret</string>
   <string name="voice_commands_no_actions_feedback">Det finnes ingen tilgjengelige handlinger</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">For å bruke talekommandoer, sveip til høyre og så opp. Si «Hjelp» eller «Hva kan jeg si?» når som helst for å åpne denne listen over kommandoer.</string>
   <string name="voice_commands_help_hint">Du får best resultat ved å si den nøyaktige ordlyden som er oppført på de neste skjermene.</string>
   <string name="voice_command_screen_locked_hint">Talekommandoer er ikke tilgjengelige når skjermen er låst. For å bruke TalkBack-menyen i stedet, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Talekommandoer er ikke tilgjengelige under konfigureringen.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Endre hvordan du leser innhold på den nåværende skjermen</string>
   <string name="voice_commands_help_next">Neste [overskrift]</string>

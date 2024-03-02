@@ -15,6 +15,9 @@
  */
 package com.google.android.accessibility.talkback.preference.base;
 
+import static com.google.android.accessibility.talkback.NotificationActivity.HELP_WEB_URL;
+import static com.google.android.accessibility.talkback.preference.PreferencesActivityUtils.HELP_URL;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -23,28 +26,30 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.Toast;
-import androidx.annotation.StringRes;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
-import androidx.preference.SwitchPreference;
+import com.android.talkback.TalkBackPreferencesActivity.HatsRequesterViewModel;
+import com.google.android.accessibility.talkback.HatsSurveyRequester;
+import com.google.android.accessibility.talkback.NotificationActivity;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.actor.ImageCaptioner;
-import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter;
-import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter.DownloadStateListener;
-import com.google.android.accessibility.talkback.icondetection.IconDetectionModuleDownloadPrompter.UninstallStateListener;
 import com.google.android.accessibility.talkback.training.OnboardingInitiator;
+import com.google.android.accessibility.talkback.training.TutorialInitiator;
+import com.google.android.accessibility.talkback.trainingcommon.tv.TvTutorialInitiator;
+import com.google.android.accessibility.talkback.trainingcommon.tv.VendorConfigReader;
 import com.google.android.accessibility.talkback.utils.RemoteIntentUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.SettingsUtils;
 import java.util.List;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -52,9 +57,10 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 /** Fragment that holds the preference of Talkback settings. */
 public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
 
-  private boolean isWatch = false;
-
   private Context context;
+  private final FormFactorUtils formFactorUtils = FormFactorUtils.getInstance();
+
+  private Optional<HatsSurveyRequester> hatsSurveyRequester;
 
   public TalkBackPreferenceFragment() {
     super(R.xml.preferences);
@@ -74,23 +80,27 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
     super.onCreatePreferences(savedInstanceState, rootKey);
 
     context = getContext();
-
     if (context == null) {
       return;
     }
 
     fixListSummaries(getPreferenceScreen());
-    isWatch = FeatureSupport.isWatch(context);
+
+    HatsRequesterViewModel viewModel =
+        new ViewModelProvider(getActivity()).get(HatsRequesterViewModel.class);
+    hatsSurveyRequester = Optional.ofNullable(viewModel.getHatsSurveyRequester());
+    hatsSurveyRequester.ifPresent(
+        listener -> listener.setOnSurveyAvailableListener(() -> updateSurveyOption()));
 
     assignNewFeaturesIntent();
 
     showTalkBackVersion();
 
-    if (SettingsUtils.allowLinksOutOfSettings(context) || FeatureSupport.isTv(context)) {
+    if (SettingsUtils.allowLinksOutOfSettings(context) || formFactorUtils.isAndroidTv()) {
       assignTtsSettingsIntent();
 
       // We should never try to open the play store in WebActivity.
-      assignPlayStoreIntentToPreference(R.string.pref_play_store_key);
+      assignPlayStoreIntentToPreference();
     } else {
       // During setup, do not allow access to web.
       PreferenceSettingsUtils.hidePreference(
@@ -118,11 +128,62 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
       removeCategory(R.string.pref_category_braille_key);
     }
 
-    if (ImageCaptioner.supportsIconDetection(context)) {
-      setupIconDetectionPreference();
-    } else {
-      removePreference(R.string.pref_category_controls_key, R.string.pref_icon_detection_key);
+    if (formFactorUtils.isAndroidTv()) {
+      Preference preference = findPreferenceByResId(R.string.pref_category_help_and_feedback_key);
+      if (preference != null) {
+        preference.setTitle(
+            TvTutorialInitiator.shouldShowTraining(VendorConfigReader.retrieveConfig(context))
+                ? R.string.title_pref_category_tutorial_and_help
+                : R.string.title_pref_category_help_no_tutorial);
+      }
+    } else if (formFactorUtils.isAndroidWear()) {
+      Preference prefTutorial = findPreferenceByResId(R.string.pref_tutorial_key);
+      if (prefTutorial != null) {
+        prefTutorial.setIntent(TutorialInitiator.createTutorialIntent(getActivity()));
+      }
+      Preference prefHelp = findPreferenceByResId(R.string.pref_help_key);
+      if (prefHelp != null) {
+        RemoteIntentUtils.assignWebIntentToPreference(this, prefHelp, HELP_URL);
+      }
     }
+
+    if (ImageCaptioner.supportsImageCaption(context)) {
+      Preference prefAutoImageCaption =
+          findPreferenceByResId(R.string.pref_auto_image_captioning_key);
+      if (prefAutoImageCaption != null) {
+        if (ImageCaptioner.supportsIconDetection(context)) {
+          if (ImageCaptioner.supportsImageDescription(context)) {
+            prefAutoImageCaption.setSummary(R.string.summary_pref_auto_image_captioning);
+          } else {
+            // No image description.
+            prefAutoImageCaption.setSummary(R.string.summary_pref_auto_image_captioning_no_image);
+          }
+        } else {
+          if (ImageCaptioner.supportsImageDescription(context)) {
+            // No icon description.
+            prefAutoImageCaption.setSummary(R.string.summary_pref_auto_image_captioning_no_icon);
+          } else {
+            // No icon and image descriptions.
+            prefAutoImageCaption.setSummary(R.string.summary_pref_auto_image_captioning_text_only);
+          }
+        }
+      }
+    } else {
+      removePreference(
+          R.string.pref_category_controls_key, R.string.pref_auto_image_captioning_key);
+    }
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    updateSurveyOption();
+  }
+
+  @Override
+  public void onDestroyView() {
+    super.onDestroyView();
+    hatsSurveyRequester.ifPresent(requester -> requester.setOnSurveyAvailableListener(null));
   }
 
   private void removePreference(int categoryKeyId, int preferenceKeyId) {
@@ -139,41 +200,41 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
     }
   }
 
-  private void assignPlayStoreIntentToPreference(int preferenceId) {
-    final Preference pref = findPreferenceByResId(preferenceId);
+  private void assignPlayStoreIntentToPreference() {
+
+    Preference pref = findPreferenceByResId(R.string.pref_play_store_key);
     if (pref == null) {
       return;
     }
-    String packageName = PackageManagerUtils.TALBACK_PACKAGE;
 
-    // Only for watches, try the "market://" URL first. If there is a Play Store on the
-    // device, this should succeed. Only for LE devices, there will be no Play Store.
-    if (isWatch) {
-      Uri uri = Uri.parse("market://details?id=" + packageName);
-      Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-      if (canHandleIntent(intent)) {
-        pref.setIntent(intent);
-        return;
+    PreferenceGroup category =
+        (PreferenceGroup) findPreferenceByResId(R.string.pref_category_general_key);
+    if (!getResources().getBoolean(R.bool.show_play_store)) {
+      if (category != null) {
+        category.removePreference(pref);
       }
-    }
-
-    Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=" + packageName);
-    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-    if (isWatch) {
-      // The play.google.com URL goes to ClockworkHome which needs an extra permission,
-      // just redirect to the phone.
-      pref.setOnPreferenceClickListener(
-          preference -> {
-            RemoteIntentUtils.startRemoteActivityToOpenUriOnPhone(
-                uri, getActivity(), preference.getContext());
-            return true;
-          });
-    } else if (!canHandleIntent(intent)) {
-      getPreferenceScreen().removePreference(pref);
       return;
     }
 
-    pref.setIntent(intent);
+    String packageName = PackageManagerUtils.TALKBACK_PACKAGE;
+
+    Uri uri;
+    if (formFactorUtils.isAndroidWear()) {
+      // Only for watches, try the "market://" URL first. If there is a Play Store on the
+      // device, this should succeed. Only for LE devices, there will be no Play Store.
+      uri = Uri.parse("market://details?id=" + packageName);
+    } else {
+      uri = Uri.parse("https://play.google.com/store/apps/details?id=" + packageName);
+    }
+
+    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+    if (canHandleIntent(intent)) {
+      pref.setIntent(intent);
+    } else {
+      if (category != null) {
+        category.removePreference(pref);
+      }
+    }
   }
 
   private boolean canHandleIntent(Intent intent) {
@@ -193,7 +254,7 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
     }
 
     final String intentId =
-        FeatureSupport.isTv(context)
+        formFactorUtils.isAndroidTv()
             ? TalkBackService.INTENT_TTS_TV_SETTINGS
             : TalkBackService.INTENT_TTS_SETTINGS;
     Intent ttsSettingsIntent = new Intent(intentId);
@@ -213,11 +274,54 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
       return;
     }
 
-    if (FeatureSupport.isTv(context)) {
+    if (formFactorUtils.isAndroidTv()) {
       return;
     }
 
-    prefNewFeatures.setIntent(OnboardingInitiator.createOnboardingIntent(context));
+    Intent newFeatureIntent;
+    if (formFactorUtils.isAndroidWear()) {
+      newFeatureIntent =
+          NotificationActivity.createStartIntent(
+              context,
+              R.string.notification_title_talkback_gestures_changed,
+              R.string.default_action_changed_details,
+              Integer.MIN_VALUE,
+              R.string.talkback_built_in_gesture_open_url,
+              HELP_WEB_URL);
+    } else {
+      newFeatureIntent = OnboardingInitiator.createOnboardingIntent(context);
+    }
+    prefNewFeatures.setIntent(newFeatureIntent);
+  }
+
+  private void updateSurveyOption() {
+    final Preference prefSurvey =
+        findPreferenceByResId(R.string.pref_survey_setting_entry_point_key);
+
+    if (prefSurvey == null) {
+      return;
+    }
+
+    if (hatsSurveyRequester.isEmpty()) {
+      prefSurvey.setVisible(false);
+      return;
+    }
+
+    if (!hatsSurveyRequester.get().isSurveyAvailable()) {
+      prefSurvey.setVisible(false);
+      return;
+    }
+
+    prefSurvey.setVisible(true);
+    prefSurvey.setOnPreferenceClickListener(
+        preference -> {
+          hatsSurveyRequester.ifPresent(
+              requester -> {
+                boolean nouse = requester.presentCachedSurvey();
+              });
+          prefSurvey.setVisible(false);
+          return true;
+        });
   }
 
   /**
@@ -279,16 +383,6 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
   }
 
   /**
-   * Returns the preference associated with the specified resource identifier.
-   *
-   * @param resId A string resource identifier.
-   * @return The preference associated with the specified resource identifier.
-   */
-  private Preference findPreferenceByResId(int resId) {
-    return findPreference(getString(resId));
-  }
-
-  /**
    * Listens for preference changes and updates the summary to reflect the current setting. This
    * shouldn't be necessary, since preferences are supposed to automatically do this when the
    * summary is set to "%s".
@@ -312,101 +406,4 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
           return true;
         }
       };
-
-  private void setupIconDetectionPreference() {
-    Preference iconDetectionPreference = findPreferenceByResId(R.string.pref_icon_detection_key);
-    if (iconDetectionPreference == null) {
-      return;
-    }
-
-    SwitchPreference iconDetectionSwitchPreference = (SwitchPreference) iconDetectionPreference;
-    IconDetectionModuleDownloadPrompter prompter =
-        new IconDetectionModuleDownloadPrompter(
-            context,
-            /* triggeredByTalkBackMenu= */ false,
-            new DownloadStateListener() {
-              @Override
-              public void onInstalled() {
-                updateIconDetectionPreference(
-                    R.string.summary_pref_icon_detection, /* checked= */ true);
-                showToast(context, R.string.download_icon_detection_successful_hint);
-              }
-
-              @Override
-              public void onFailed() {
-                updateIconDetectionPreference(
-                    R.string.summary_pref_icon_detection, /* checked= */ false);
-                showToast(context, R.string.download_icon_detection_failed_hint);
-              }
-
-              @Override
-              public void onAccepted() {
-                updateIconDetectionPreference(
-                    R.string.summary_pref_icon_detection_downloading, /* checked= */ true);
-              }
-
-              @Override
-              public void onRejected() {}
-
-              @Override
-              public void onDialogDismissed(@Nullable AccessibilityNodeInfoCompat queuedNode) {}
-            });
-
-    prompter.setUninstallStateListener(
-        new UninstallStateListener() {
-          @Override
-          public void onAccepted() {
-            updateIconDetectionPreference(
-                R.string.summary_pref_icon_detection, /* checked= */ false);
-          }
-
-          @Override
-          public void onRejected() {}
-        });
-
-    // The summary of preference will not be saved when exiting the Settings page, so they should be
-    // restored when the preference is created. The fragment hasn't been created and it still not
-    // visible, so updateIconDetectionPreference() does not work here.
-    if (prompter.isIconDetectionModuleAvailable()) {
-      iconDetectionSwitchPreference.setSummary(R.string.summary_pref_icon_detection);
-      iconDetectionSwitchPreference.setChecked(true);
-    } else {
-      if (prompter.isIconDetectionModuleDownloading()) {
-        // The icon detection module is downloading.
-        iconDetectionSwitchPreference.setSummary(R.string.summary_pref_icon_detection_downloading);
-        iconDetectionSwitchPreference.setChecked(true);
-      }
-    }
-
-    iconDetectionSwitchPreference.setOnPreferenceChangeListener(
-        (preference, newValue) -> {
-          if ((Boolean) newValue) {
-            // Shows the dialog to confirm the download the icon detection module.
-            prompter.showConfirmationDialog();
-          } else {
-            // Shows the dialog to confirm the deletion of the icon detection module.
-            prompter.showUninstallDialog();
-          }
-          return false;
-        });
-  }
-
-  private void updateIconDetectionPreference(@StringRes int summary, boolean checked) {
-    if (!isVisible()) {
-      // The fragment is stopped, the icon detection preference needn't be updated.
-      return;
-    }
-
-    Preference preference = findPreferenceByResId(R.string.pref_icon_detection_key);
-    if (preference == null) {
-      return;
-    }
-
-    preference.setSummary(summary);
-    ((SwitchPreference) preference).setChecked(checked);
-  }
-
-  private void showToast(Context context, @StringRes int text) {
-    Toast.makeText(context, text, Toast.LENGTH_LONG).show();
-  }
 }

@@ -17,8 +17,6 @@
 package com.google.android.accessibility.brailleime.tutorial;
 
 import static android.view.animation.Animation.INFINITE;
-import static java.lang.Math.max;
-import static java.lang.Math.min;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -27,108 +25,84 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
-import android.graphics.Paint.Align;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.Shader.TileMode;
-import android.text.Layout.Alignment;
-import android.text.StaticLayout;
-import android.text.TextPaint;
 import android.util.Size;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import androidx.annotation.ColorInt;
 import com.google.android.accessibility.braille.common.BrailleUtils;
 import com.google.android.accessibility.brailleime.BrailleIme.OrientationSensitive;
 import com.google.android.accessibility.brailleime.R;
+import com.google.android.accessibility.brailleime.tutorial.TutorialAnimationView.CanvasView.Painter;
 import com.google.android.accessibility.brailleime.tutorial.TutorialAnimationView.SwipeAnimation.Direction;
 import java.util.ArrayList;
 import java.util.List;
 
 /** View that draws instruction text, gesture animation and action result text. */
-class TutorialAnimationView extends View implements OrientationSensitive {
+class TutorialAnimationView extends FrameLayout implements OrientationSensitive {
+  private static final int HINT_TOAST_ANIMATION_DURATION_MS = 200;
+  private static final int ACTION_RESULT_ANIMATION_DURATION_MS = 300;
 
-  private final HintToast hintToast;
-  private final ActionResult actionResult;
+  private final CanvasView canvasView;
+  private final TextView hintToast;
+  private final TextView actionResult;
   private final SwipeAnimation swipeAnimation;
+  private final Animation actionResultAnimation;
+  private final Animation hintToastAnimation;
 
-  private boolean shouldShowActionResult;
-  private boolean shouldShowSwipeAnimation;
-  private int orientation;
-  private Size screenSize;
   private final boolean isTabletop;
 
   TutorialAnimationView(Context context, int orientation, Size screenSize, boolean isTabletop) {
     super(context);
-    this.orientation = orientation;
+    inflate(getContext(), R.layout.tutorial_animation_view, this);
     this.isTabletop = isTabletop;
-    this.screenSize = getScreenSize(screenSize);
+    canvasView = new CanvasView(context, orientation, screenSize, isTabletop);
+    canvasView.setLayoutParams(
+        new FrameLayout.LayoutParams(screenSize.getWidth(), screenSize.getHeight()));
+    addView(canvasView);
+    hintToast = findViewById(R.id.hint_toast);
+    actionResult = findViewById(R.id.action_result);
+    swipeAnimation = new SwipeAnimation(context, canvasView::invalidate);
 
-    hintToast = new HintToast(context, this::invalidate);
-    actionResult = new ActionResult(context, this::invalidate);
-    swipeAnimation = new SwipeAnimation(context, this::invalidate);
+    actionResultAnimation = new AlphaAnimation(/* fromAlpha= */ 0.0f, /* toAlpha= */ 1.0f);
+    actionResultAnimation.setDuration(ACTION_RESULT_ANIMATION_DURATION_MS);
+    hintToastAnimation = new AlphaAnimation(/* fromAlpha= */ 0.0f, /* toAlpha= */ 1.0f);
+    hintToastAnimation.setDuration(HINT_TOAST_ANIMATION_DURATION_MS);
   }
 
   @Override
   public void onOrientationChanged(int orientation, Size screenSize) {
-    this.orientation = orientation;
-    this.screenSize = getScreenSize(screenSize);
+    canvasView.setLayoutParams(
+        new FrameLayout.LayoutParams(screenSize.getWidth(), screenSize.getHeight()));
+    canvasView.onOrientationChanged(orientation, screenSize);
     invalidate();
     requestLayout();
   }
 
-  private Size getScreenSize(Size screenSize) {
-    if (BrailleUtils.isPhoneSizedDevice(getResources())
-        && orientation == Configuration.ORIENTATION_PORTRAIT) {
-      screenSize =
-          new Size(/* width= */ screenSize.getHeight(), /* height= */ screenSize.getWidth());
-    }
-    return screenSize;
-  }
-
-  @Override
-  public void onDraw(Canvas canvas) {
-    canvas.save();
-    if (BrailleUtils.isPhoneSizedDevice(getResources())) {
-      if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-        canvas.rotate(isTabletop ? TutorialView.ROTATION_90 : TutorialView.ROTATION_270);
-        canvas.translate(
-            /* dx= */ isTabletop ? 0 : -screenSize.getWidth(),
-            /* dy= */ isTabletop ? -screenSize.getHeight() : 0);
-      } else {
-        canvas.rotate(isTabletop ? TutorialView.ROTATION_180 : TutorialView.ROTATION_0);
-        canvas.translate(
-            /* dx= */ isTabletop ? -screenSize.getWidth() : 0,
-            /* dy= */ isTabletop ? -screenSize.getHeight() : 0);
-      }
-    }
-
-    hintToast.onDraw(canvas, screenSize);
-    if (shouldShowActionResult) {
-      actionResult.onDraw(canvas, screenSize);
-    }
-    if (shouldShowSwipeAnimation) {
-      swipeAnimation.onDraw(canvas);
-    }
-    canvas.restore();
-  }
-
   void startHintToastAnimation(String text) {
     hintToast.setText(text);
-    hintToast.startAnimation();
+    hintToast.setVisibility(VISIBLE);
+    hintToast.startAnimation(hintToastAnimation);
   }
 
   void startActionResultAnimation(String text) {
-    shouldShowActionResult = true;
     actionResult.setText(text);
-    actionResult.startAnimation();
+    actionResult.setVisibility(VISIBLE);
+    actionResult.startAnimation(actionResultAnimation);
   }
 
   void startSwipeAnimation(int fingerCount, Direction swipeDirection) {
-    shouldShowSwipeAnimation = true;
     swipeAnimation.updatePaint(
-        fingerCount, screenSize, isTabletop ? mirror(swipeDirection) : swipeDirection);
+        fingerCount,
+        canvasView.getCanvasSize(),
+        isTabletop ? mirror(swipeDirection) : swipeDirection);
+    canvasView.addPainter(swipeAnimation);
     swipeAnimation.startAnimation();
   }
 
@@ -142,146 +116,92 @@ class TutorialAnimationView extends View implements OrientationSensitive {
   }
 
   void stopSwipeAnimation() {
-    shouldShowSwipeAnimation = false;
+    canvasView.removePainter(swipeAnimation);
     swipeAnimation.stopAnimation();
   }
 
   void reset() {
-    shouldShowActionResult = false;
-    shouldShowSwipeAnimation = false;
+    hintToast.setVisibility(INVISIBLE);
+    actionResult.setVisibility(INVISIBLE);
+    canvasView.removePainter(swipeAnimation);
   }
 
-  /** Draws the tutorial instruction of every stage in the top middle of screen. */
-  static class HintToast {
-
-    private static final int ANIMATION_DURATION_MS = 200;
-    private static final float HEIGHT_SCALE = 1.5f;
-
-    private final int top;
-
-    private final Paint textBackgroundPaint;
-    private final TextPaint textPaint;
-    private final RectF textBackgroundRect;
-    private final ValueAnimator animator;
-    private String text = "";
-
-    HintToast(Context context, Runnable invalidate) {
-      top = context.getResources().getDimensionPixelSize(R.dimen.hint_margin);
-
-      int backgroundColor = context.getColor(R.color.hint_background);
-      textBackgroundPaint = new Paint();
-      textBackgroundPaint.setColor(backgroundColor);
-      textPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-      textPaint.setColor(Color.WHITE);
-      textPaint.setTextSize(context.getResources().getDimensionPixelSize(R.dimen.hint_text_size));
-      textPaint.setTextAlign(Align.CENTER);
-      textBackgroundRect = new RectF();
-
-      animator = ValueAnimator.ofInt(0, Color.alpha(backgroundColor));
-      animator.setDuration(ANIMATION_DURATION_MS);
-      animator.addUpdateListener(animation -> invalidate.run());
+  /** View for drawing with canvas. */
+  static class CanvasView extends View implements OrientationSensitive {
+    /** Painter drawing on this canvas view. */
+    interface Painter {
+      void onDraw(Canvas canvas, Size canvasSize);
     }
 
-    void startAnimation() {
-      animator.start();
+    private final boolean isTabletop;
+    private final List<Painter> painters = new ArrayList<>();
+    private Size canvasSize;
+    private int orientation;
+
+    private CanvasView(Context context, int orientation, Size screenSize, boolean isTabletop) {
+      super(context);
+      this.orientation = orientation;
+      this.isTabletop = isTabletop;
+      this.canvasSize = calculateCanvasSize(screenSize);
     }
 
-    void setText(String text) {
-      this.text = text;
+    private Size getCanvasSize() {
+      return canvasSize;
     }
 
-    void onDraw(Canvas canvas, Size screenSize) {
-      int alpha = (int) animator.getAnimatedValue();
-      textBackgroundPaint.setAlpha(alpha);
-      // Append 4 spaces to make text look like it has left/right padding.
-      float measureTextWidth = textPaint.measureText("    " + text);
-      float textLength = min(screenSize.getWidth(), measureTextWidth);
-      StaticLayout staticLayout = buildStaticLayout(text, textPaint, (int) textLength);
+    private void addPainter(Painter painter) {
+      if (!painters.contains(painter)) {
+        painters.add(painter);
+      }
+    }
 
-      float left = (screenSize.getWidth() - textLength) / 2f;
-      float top = this.top;
-      float textHeight = staticLayout.getHeight();
-      textBackgroundRect.set(left, top, left + textLength, top + HEIGHT_SCALE * textHeight);
+    private void removePainter(Painter painter) {
+      painters.remove(painter);
+    }
 
-      float cornerRadius = (textBackgroundRect.bottom - textBackgroundRect.top) / 2f;
-      canvas.drawRoundRect(textBackgroundRect, cornerRadius, cornerRadius, textBackgroundPaint);
+    @Override
+    public void onOrientationChanged(int orientation, Size screenSize) {
+      this.orientation = orientation;
+      this.canvasSize = calculateCanvasSize(screenSize);
+      invalidate();
+      requestLayout();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
       canvas.save();
-      canvas.translate(textBackgroundRect.centerX(), textBackgroundRect.centerY() - textHeight / 2);
-      staticLayout.draw(canvas);
+      if (BrailleUtils.isPhoneSizedDevice(getResources())) {
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+          canvas.rotate(isTabletop ? TutorialView.ROTATION_90 : TutorialView.ROTATION_270);
+          canvas.translate(
+              /* dx= */ isTabletop ? 0 : -canvasSize.getWidth(),
+              /* dy= */ isTabletop ? -canvasSize.getHeight() : 0);
+        } else {
+          canvas.rotate(isTabletop ? TutorialView.ROTATION_180 : TutorialView.ROTATION_0);
+          canvas.translate(
+              /* dx= */ isTabletop ? -canvasSize.getWidth() : 0,
+              /* dy= */ isTabletop ? -canvasSize.getHeight() : 0);
+        }
+      }
+
+      for (Painter painter : painters) {
+        painter.onDraw(canvas, canvasSize);
+      }
       canvas.restore();
     }
-  }
 
-  /** Draws the braille output or gesture event in the middle of screen. */
-  static class ActionResult {
-
-    private static final int ANIMATION_DURATION_MS = 300;
-    private static final float ROUND_CORNER_RADIUS_DIVISOR = 5f;
-
-    private final Paint textBackgroundPaint;
-    private final TextPaint textPaint;
-    private final RectF textBackgroundRect;
-    private final ValueAnimator animator;
-    private String text = "";
-
-    ActionResult(Context context, Runnable invalidate) {
-      textBackgroundPaint = new Paint();
-      textBackgroundPaint.setColor(context.getColor(R.color.hint_background));
-      textPaint = new TextPaint(Paint.ANTI_ALIAS_FLAG);
-      textPaint.setColor(Color.WHITE);
-      textPaint.setTextSize(
-          context.getResources().getDimensionPixelSize(R.dimen.action_result_text_size));
-      textPaint.setTextAlign(Align.CENTER);
-      textBackgroundRect = new RectF();
-
-      animator = ValueAnimator.ofInt(0, Color.alpha(context.getColor(R.color.hint_background)));
-      animator.setDuration(ANIMATION_DURATION_MS);
-      animator.addUpdateListener(animation -> invalidate.run());
+    private Size calculateCanvasSize(Size screenSize) {
+      if (BrailleUtils.isPhoneSizedDevice(getResources())
+          && orientation == Configuration.ORIENTATION_PORTRAIT) {
+        screenSize =
+            new Size(/* width= */ screenSize.getHeight(), /* height= */ screenSize.getWidth());
+      }
+      return screenSize;
     }
-
-    void startAnimation() {
-      animator.start();
-    }
-
-    void setText(String text) {
-      this.text = text;
-    }
-
-    void onDraw(Canvas canvas, Size screenSize) {
-      int alpha = (int) animator.getAnimatedValue();
-      textBackgroundPaint.setAlpha(alpha);
-      // Append 4 spaces to make text look like it has left/right padding.
-      float measureTextWidth = (int) textPaint.measureText("    " + text);
-      float textLength = min(screenSize.getWidth(), measureTextWidth);
-      StaticLayout staticLayout = buildStaticLayout(text, textPaint, (int) textLength);
-
-      float textHeight = staticLayout.getHeight();
-      float rectHeight = 2f * textHeight;
-      float rectLength = max(textLength, rectHeight);
-      float left = (screenSize.getWidth() - rectLength) / 2f;
-      float top = (screenSize.getHeight() - rectHeight) / 2f;
-      textBackgroundRect.set(left, top, left + rectLength, top + rectHeight);
-      float cornerRadius = textHeight / ROUND_CORNER_RADIUS_DIVISOR;
-      canvas.drawRoundRect(textBackgroundRect, cornerRadius, cornerRadius, textBackgroundPaint);
-      canvas.save();
-      canvas.translate(textBackgroundRect.centerX(), textBackgroundRect.centerY() - textHeight / 2);
-      staticLayout.draw(canvas);
-      canvas.restore();
-    }
-  }
-
-  private static StaticLayout buildStaticLayout(
-      String text, TextPaint textPaint, int desiredLength) {
-    StaticLayout.Builder builder =
-        StaticLayout.Builder.obtain(text, /* start= */ 0, text.length(), textPaint, desiredLength)
-            .setAlignment(Alignment.ALIGN_NORMAL)
-            .setLineSpacing(/* spacingAdd= */ 0, /* spacingMult= */ 1)
-            .setIncludePad(false);
-    return builder.build();
   }
 
   /** Draws the swipe instruction animation in the middle of screen. */
-  static class SwipeAnimation {
+  static class SwipeAnimation implements Painter {
     public enum Direction {
       TOP_TO_BOTTOM,
       BOTTOM_TO_TOP,
@@ -316,20 +236,20 @@ class TutorialAnimationView extends View implements OrientationSensitive {
           context.getResources().getDimensionPixelSize(R.dimen.tutorial_gesture_dot_radius);
     }
 
-    void updatePaint(int fingerCount, Size screenSize, Direction swipeDirection) {
+    private void updatePaint(int fingerCount, Size canvasSize, Direction swipeDirection) {
       this.direction = swipeDirection;
       float canvasLength = 0;
       switch (swipeDirection) {
         case TOP_TO_BOTTOM:
         case BOTTOM_TO_TOP:
-          canvasLength = screenSize.getHeight() * SCALE_FACTOR;
+          canvasLength = canvasSize.getHeight() * SCALE_FACTOR;
           break;
         case LEFT_TO_RIGHT:
         case RIGHT_TO_LEFT:
-          canvasLength = screenSize.getWidth() * SCALE_FACTOR;
+          canvasLength = canvasSize.getWidth() * SCALE_FACTOR;
           break;
       }
-      updateGesturesCoordinates(fingerCount, (int) canvasLength, screenSize, swipeDirection);
+      updateGesturesCoordinates(fingerCount, (int) canvasLength, canvasSize, swipeDirection);
       Rect gradientVariation = determineGradientVariation((int) canvasLength, swipeDirection);
       Shader shader =
           new LinearGradient(
@@ -358,7 +278,7 @@ class TutorialAnimationView extends View implements OrientationSensitive {
 
     /** Determines the start coordinates of swipe animation. */
     void updateGesturesCoordinates(
-        int fingerCount, int canvasLength, Size screenSize, Direction swipeDirection) {
+        int fingerCount, int canvasLength, Size canvasSize, Direction swipeDirection) {
       gesturesCircleCoordinates.clear();
       int gestureInterval = DISTANCE_BETWEEN_GESTURES_IN_PIXELS + 2 * dotRadiusInPixels;
       int distanceToStartPoint = (fingerCount - 1) * gestureInterval / 2;
@@ -367,20 +287,20 @@ class TutorialAnimationView extends View implements OrientationSensitive {
         int y = 0;
         switch (swipeDirection) {
           case TOP_TO_BOTTOM:
-            x = screenSize.getWidth() / 2 - distanceToStartPoint + i * gestureInterval;
-            y = (screenSize.getHeight() - canvasLength) / 2;
+            x = canvasSize.getWidth() / 2 - distanceToStartPoint + i * gestureInterval;
+            y = (canvasSize.getHeight() - canvasLength) / 2;
             break;
           case BOTTOM_TO_TOP:
-            x = screenSize.getWidth() / 2 - distanceToStartPoint + i * gestureInterval;
-            y = (screenSize.getHeight() - canvasLength) / 2 + canvasLength;
+            x = canvasSize.getWidth() / 2 - distanceToStartPoint + i * gestureInterval;
+            y = (canvasSize.getHeight() - canvasLength) / 2 + canvasLength;
             break;
           case LEFT_TO_RIGHT:
-            x = (screenSize.getWidth() - canvasLength) / 2;
-            y = screenSize.getHeight() / 2 - distanceToStartPoint + i * gestureInterval;
+            x = (canvasSize.getWidth() - canvasLength) / 2;
+            y = canvasSize.getHeight() / 2 - distanceToStartPoint + i * gestureInterval;
             break;
           case RIGHT_TO_LEFT:
-            x = (screenSize.getWidth() - canvasLength) / 2 + canvasLength;
-            y = screenSize.getHeight() / 2 - distanceToStartPoint + i * gestureInterval;
+            x = (canvasSize.getWidth() - canvasLength) / 2 + canvasLength;
+            y = canvasSize.getHeight() / 2 - distanceToStartPoint + i * gestureInterval;
             break;
         }
         gesturesCircleCoordinates.add(new Point(x, y));
@@ -414,7 +334,8 @@ class TutorialAnimationView extends View implements OrientationSensitive {
       return gradientVariation;
     }
 
-    void onDraw(Canvas canvas) {
+    @Override
+    public void onDraw(Canvas canvas, Size canvasSize) {
       float range = (float) animator.getAnimatedValue();
       for (Point point : gesturesCircleCoordinates) {
         switch (direction) {

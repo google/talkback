@@ -12,8 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-WRAPPER_PATH := $(call my-dir)
+WRAPPER_PATH := $(call my-dir)/liblouiswrapper
 LIBLOUIS_PATH := $(call my-dir)/third_party/liblouis
+BRAILLE_ROOT_PATH := $(call my-dir)/../../../..
 
 #----------------------------------------------------------------
 # liblouiswrap
@@ -23,8 +24,9 @@ include $(CLEAR_VARS)
 LOCAL_PATH := $(WRAPPER_PATH)
 LOCAL_LDLIBS := -llog -landroid
 LOCAL_MODULE := louiswrap
-LOCAL_SRC_FILES := liblouiswrapper/louis_translation.cc
 LOCAL_C_INCLUDES := $(WRAPPER_PATH)/.. $(LIBLOUIS_PATH)
+LOCAL_CFLAGS := -I$(BRAILLE_ROOT_PATH)/common/src/phone/jni
+LOCAL_SRC_FILES := louis_translation.cc
 LOCAL_WHOLE_STATIC_LIBRARIES := liblouis
 
 include $(BUILD_SHARED_LIBRARY)

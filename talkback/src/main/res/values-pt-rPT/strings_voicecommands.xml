@@ -18,7 +18,7 @@
   <string name="voice_commands_quick_setting">Definição rápida</string>
   <string name="voice_commands_dim">esbater</string>
   <string name="voice_commands_darken">escurecer</string>
-  <string name="voice_commands_brighten_screen">aumentar o brilho do ecrã</string>
+  <string name="voice_commands_brighten_screen">aumentar o luminosidade do ecrã</string>
   <string name="voice_commands_restore_screen">restaurar o ecrã</string>
   <string name="voice_commands_cancel_hide_screen">cancelar a ocultação do ecrã</string>
   <string name="voice_commands_all_apps">Todas as apps</string>
@@ -80,7 +80,7 @@
   <string name="voice_commands_stop">Parar</string>
   <string name="voice_commands_quit">Sair</string>
   <string name="voice_commands_quiet">Silencioso</string>
-  <string name="voice_commands_pause">Colocar em pausa</string>
+  <string name="voice_commands_pause">Pausar</string>
   <string name="voice_commands_nevermind">Ignorar</string>
   <string name="voice_commands_shut_up">Silenciar</string>
   <string name="voice_commands_faster">Mais rápida</string>
@@ -89,7 +89,7 @@
   <string name="voice_commands_decrease_speech_rate">diminuir taxa de voz</string>
   <string name="voice_commands_possible_options_title">Pode dizer</string>
   <string name="voice_commands_no_action">Atalho de voz não suportado</string>
-  <string name="voice_commands_no_mic_permissions">Para utilizar esta funcionalidade, tem de conceder autorização para utilizar o microfone.</string>
+  <string name="voice_commands_no_mic_permissions">Para usar esta funcionalidade, tem de conceder autorização para utilizar o microfone.</string>
   <string name="voice_commands_no_voice_recognition_ability">Lamentamos, mas esta funcionalidade não está disponível no seu dispositivo.</string>
   <string name="voice_commands_error">Erro de reconhecimento do comando de voz.</string>
   <string name="voice_commands_partial_result">Não é possível reconhecer este comando. Diga \"%1$s\" para obter a lista de todos os comandos.</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Para utilizar comandos de voz, deslize rapidamente para a direita e, em seguida, para cima. Diga \"Ajuda\" ou \"O que posso dizer?\" em qualquer altura para obter a lista de comandos.</string>
   <string name="voice_commands_help_hint">Para obter os melhores resultados, diga as palavras exatas indicadas nos seguintes ecrãs.</string>
   <string name="voice_command_screen_locked_hint">Os comandos de voz não estão disponíveis com o ecrã bloqueado. Para optar por utilizar o menu do TalkBack, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Os comandos de voz não estão disponíveis durante a configuração.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Altere a forma como lê conteúdo no ecrã atual.</string>
   <string name="voice_commands_help_next">[Título] seguinte</string>
@@ -118,7 +119,7 @@
   <string name="voice_commands_help_verbosity_description">Altere para baixa, alta ou personalizada.</string>
   <string name="voice_commands_help_first_description">Mova para o primeiro item no ecrã atual.</string>
   <string name="voice_commands_help_last_description">Mova para o último item no ecrã atual.</string>
-  <string name="voice_commands_help_languages_description">Altere o idioma falado (síntese de voz).</string>
+  <string name="voice_commands_help_languages_description">Altere o idioma falado (conversão de texto em voz).</string>
   <string name="voice_commands_help_find_items_title">Localize Itens</string>
   <string name="voice_commands_help_find_items_description">Encontre conteúdo específico no ecrã atual.</string>
   <string name="voice_commands_help_find_text">Localizar [guardar]</string>

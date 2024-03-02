@@ -28,6 +28,7 @@ import android.os.Message;
 import android.telephony.TelephonyManager;
 import android.util.SparseIntArray;
 import androidx.annotation.VisibleForTesting;
+import com.google.android.accessibility.talkback.monitor.CallStateMonitor;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
@@ -342,10 +343,15 @@ public class VolumeMonitor extends BroadcastReceiver {
    * @return The stream volume as a percentage.
    */
   private int getStreamVolume(int streamType) {
-    final int totalVolume =
-        audioManager.getStreamMaxVolume(streamType) - audioManager.getStreamMinVolume(streamType);
-    final int currentVolume =
-        audioManager.getStreamVolume(streamType) - audioManager.getStreamMinVolume(streamType);
+    int minVolume = 0;
+    // For some stream types other than defined in
+    // https://developer.android.com/reference/android/media/AudioManager#getStreamMinVolume(int),
+    // AudioManager will trap the getStreamMinVolume.
+    if (STREAM_NAMES.get(streamType) > 0) {
+      minVolume = audioManager.getStreamMinVolume(streamType);
+    }
+    final int totalVolume = audioManager.getStreamMaxVolume(streamType) - minVolume;
+    final int currentVolume = audioManager.getStreamVolume(streamType) - minVolume;
 
     if (totalVolume != 0) {
       int result = 100 * currentVolume / totalVolume;

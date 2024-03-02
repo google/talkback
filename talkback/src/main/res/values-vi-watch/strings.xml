@@ -2,4 +2,12 @@
 <resources>
   <string name="talkback_service_description">TalkBack là trình đọc màn hình chủ yếu dành cho người khiếm thị và thị lực kém. Tính năng này cho phép tương tác với thiết bị bằng cách sử dụng phản hồi bằng giọng nói.</string>
   <string name="welcome_to_talkback_text">Nhận phản hồi bằng giọng nói để bạn có thể sử dụng đồng hồ mà không cần nhìn vào màn hình.</string>
+  <string name="summary_custom_action">Hiển thị khi có các thao tác tùy chỉnh cho mục hiện tại.</string>
+  <string name="notification_title_talkback_gestures_changed">Đã cập nhật cử chỉ TalkBack</string>
+  <string name="notification_message_talkback_gestures_changed">Mở TalkBack để biết thêm thông tin chi tiết</string>
+  <string name="new_feature_in_talkback_title">Tính năng mới</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">OK</string>
+  <string name="scan_the_qr_code">Quét mã QR</string>
+  <string name="alternate_privacy_policy">Hoặc truy cập http://www.google.com/policies/privacy</string>
+  <string name="alternate_tos">Hoặc truy cập https://www.google.com/mobile/toscountry</string>
 </resources>

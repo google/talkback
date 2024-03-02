@@ -2,17 +2,17 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="@string/pref_manage_customize_menus_key">
 
-    <Preference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
         android:key="@string/pref_category_manage_context_menu_key"
         android:summary="@string/pref_category_context_menu_summary"
         android:title="@string/title_pref_category_context_menu"
         android:fragment="com.google.android.accessibility.talkback.preference.base.ContextMenuFragment">
-    </Preference>
+    </com.google.android.accessibility.utils.preference.AccessibilitySuitePreference>
 
-    <Preference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
         android:key="@string/pref_category_manage_selector_menu_key"
         android:summary="@string/pref_category_selector_menu_summary"
         android:title="@string/title_pref_category_selector_menu"
         android:fragment="com.google.android.accessibility.talkback.preference.base.SelectorMenuFragment">
-    </Preference>
+    </com.google.android.accessibility.utils.preference.AccessibilitySuitePreference>
 </PreferenceScreen>

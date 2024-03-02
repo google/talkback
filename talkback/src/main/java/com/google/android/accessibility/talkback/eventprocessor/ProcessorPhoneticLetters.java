@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
+import static androidx.core.view.accessibility.AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD;
 import static com.google.android.accessibility.talkback.Feedback.HINT;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -38,6 +39,7 @@ import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -54,6 +56,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -67,15 +71,21 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
   private static final String TAG = "ProcPhoneticLetters";
 
   /** Timeout before reading a phonetic letter. */
-  private static final int DELAY_READING_PHONETIC_LETTER = 1000;
+  private static final int DELAY_READING_PHONETIC_LETTER = 250;
 
-  private static final String FALLBACK_LOCALE = "en_US";
+  private static final String FALLBACK_LOCALE = "en-US";
   private static final int MASK_EVENT_CANCEL_PHONETIC_LETTERS =
       ~(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED
           | AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED
           | AccessibilityEvent.TYPE_VIEW_LONG_CLICKED
           | AccessibilityEvent.TYPE_VIEW_HOVER_ENTER
           | AccessibilityEvent.TYPE_ANNOUNCEMENT
+          // When gesture detection occurs in TalkBack, the events dispatch order is different than
+          // when gestures are detected by the framework. When gestures are detected in TalkBack,
+          // the TYPE_TOUCH_INTERACTION_END comes after the onGesture; that's why the phonetic hints
+          // are interrupted. We put the TYPE_TOUCH_INTERACTION_END event in here so that the
+          // phonetic letter won't be interrupted.
+          | AccessibilityEvent.TYPE_TOUCH_INTERACTION_END
           |
           // Do not cancel phonetic letter feedback for TYPE_WINDOWS_CHANGED event.
           // ProcessorCursorState introduces an overlay on EditText. When we open a
@@ -89,7 +99,6 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
   /** Event types that are handled by ProcessorPhoneticLetters. */
   private static final int MASK_EVENTS_HANDLED_BY_PROCESSOR_PHONETIC_LETTERS =
       MASK_EVENT_CANCEL_PHONETIC_LETTERS
-          | AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED
           | AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
 
   private final SharedPreferences prefs;
@@ -99,12 +108,14 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
   private Pipeline.FeedbackReturner pipeline;
 
   // Maps Language -> letter -> Phonetic letter.
-  private Map<String, Map<String, String>> phoneticLetters =
-      new HashMap<String, Map<String, String>>();
+  private final Map<String, Map<String, String>> phoneticLetters = new HashMap<>();
 
-  public ProcessorPhoneticLetters(TalkBackService service) {
+  private final GlobalVariables globalVariables;
+
+  public ProcessorPhoneticLetters(TalkBackService service, GlobalVariables globalVariables) {
     prefs = SharedPreferencesUtils.getSharedPreferences(service);
     this.service = service;
+    this.globalVariables = globalVariables;
   }
 
   public void setPipeline(Pipeline.FeedbackReturner pipeline) {
@@ -119,6 +130,9 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
   @Override
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
     if (shouldCancelPhoneticLetter(event)) {
+      // The pending phonetic letter should be interrupted when receiving event
+      // TYPE_GESTURE_DETECTION_START. Since the system wouldn't sent this event when using TalkBack
+      // gesture detection, TalkBackService needs to notify it manually.
       cancelPhoneticLetter(eventId);
     }
 
@@ -126,28 +140,33 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
       return;
     }
 
-    if (isKeyboardEvent(event)) {
-      processKeyboardKeyEvent(event, eventId);
-    }
-
     if (AccessibilityEventUtils.isCharacterTraversalEvent(event)) {
       processTraversalEvent(event, eventId);
     }
   }
 
-  /** Handle an event that indicates a key is held on the soft keyboard. */
-  private void processKeyboardKeyEvent(AccessibilityEvent event, EventId eventId) {
-    GlobalVariables globalVariables = service.getGlobalVariables();
+  /**
+   * Returns the spelling for the given {@code event} if it corresponds to an accessibility-focus
+   * change on an on-screen keyboard.
+   *
+   * <p>If phonetic spelling is turned off in the settings, or it is a password input field, it will
+   * return nothing.
+   */
+  public Optional<CharSequence> getPhoneticLetterForKeyboardFocusEvent(AccessibilityEvent event) {
+    if (!arePhoneticLettersEnabled() || !isKeyboardEvent(event)) {
+      return Optional.empty();
+    }
+
     if (globalVariables != null
         && globalVariables.getLastTextEditIsPassword()
         && !globalVariables.shouldSpeakPasswords()) {
       // Skip phonetic letters when editing passwords.
-      return;
+      return Optional.empty();
     }
 
     final CharSequence text = AccessibilityEventUtils.getEventTextOrDescription(event);
     if (TextUtils.isEmpty(text)) {
-      return;
+      return Optional.empty();
     }
 
     String localeString = null;
@@ -158,19 +177,16 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
       LocaleSpan[] spans = spannable.getSpans(0, text.length(), LocaleSpan.class);
       for (LocaleSpan span : spans) {
         // Quit the loop when a LocaleSpan is detected. We expect just one LocaleSpan.
-        localeString = span.getLocale().toString();
+        localeString = span.getLocale().toLanguageTag();
         break;
       }
     }
     // Use system locale as the fallback option.
     if (localeString == null) {
-      localeString = Locale.getDefault().toString();
+      localeString = Locale.getDefault().toLanguageTag();
     }
 
-    CharSequence phoneticLetter = getPhoneticLetter(localeString, text.toString());
-    if (phoneticLetter != null) {
-      postPhoneticLetterRunnable(phoneticLetter, eventId);
-    }
+    return Optional.ofNullable(getPhoneticLetter(localeString, text.toString()));
   }
 
   private boolean arePhoneticLettersEnabled() {
@@ -191,7 +207,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
     // Input Method.
     final AccessibilityNodeInfo source = event.getSource();
     AccessibilityWindowInfo window = AccessibilityNodeInfoUtils.getWindow(source);
-    return (window != null) && (window.getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD);
+    return (AccessibilityWindowInfoUtils.getType(window) == TYPE_INPUT_METHOD);
   }
 
   /** Handle an event that indicates a text is being traversed at character granularity. */
@@ -217,7 +233,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
       return;
     }
     speakPhoneticLetterForTraversedText(
-        TextUtils.equals(event.getPackageName(), PackageManagerUtils.TALBACK_PACKAGE),
+        TextUtils.equals(event.getPackageName(), PackageManagerUtils.TALKBACK_PACKAGE),
         letter,
         eventId);
   }
@@ -229,9 +245,9 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
     // changed using language switcher, with an exception while reading talkback text.
     // As Talkback text is always in the system language.
     if (isTalkbackPackage || service.getUserPreferredLocale() == null) {
-      localeString = Locale.getDefault().toString();
+      localeString = Locale.getDefault().toLanguageTag();
     } else {
-      localeString = service.getUserPreferredLocale().toString();
+      localeString = service.getUserPreferredLocale().toLanguageTag();
     }
     CharSequence phoneticLetter = getPhoneticLetter(localeString, letter);
     if (phoneticLetter != null) {
@@ -240,7 +256,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
   }
 
   // Map a character to a phonetic letter. If the locale cannot be parsed, falls back to english.
-  private CharSequence getPhoneticLetter(String locale, String letter) {
+  private @Nullable CharSequence getPhoneticLetter(String locale, String letter) {
     Locale parsedLocale = LocaleUtils.parseLocaleString(locale);
     if (parsedLocale == null) {
       parsedLocale = Locale.getDefault();
@@ -258,7 +274,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
         return valueInBaseLanguage;
       }
     }
-    // Attaching the locale to the the phonetic letter
+    // Attaching the locale to the phonetic letter
     SpannableString ss = null;
     if (value != null) {
       ss = new SpannableString(value);
@@ -334,7 +350,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
   }
 
   /** Removes the phonetic letter timeout and completion action. */
-  private void cancelPhoneticLetter(EventId eventId) {
+  public void cancelPhoneticLetter(EventId eventId) {
     pipeline.returnFeedback(eventId, Feedback.interrupt(HINT, /* level= */ 1));
   }
 }

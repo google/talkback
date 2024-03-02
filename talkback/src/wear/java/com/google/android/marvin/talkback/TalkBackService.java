@@ -11,7 +11,7 @@ import android.support.wearable.input.WearableButtons;
 import android.support.wearable.input.WearableButtons.ButtonInfo;
 import android.util.Pair;
 import android.view.KeyEvent;
-import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -59,7 +59,7 @@ public class TalkBackService extends com.google.android.accessibility.talkback.T
 
   /** Transform the volume up and down buttons, if possible. */
   @Override
-  protected boolean onKeyEvent(KeyEvent keyEvent) {
+  protected boolean onKeyEventInternal(KeyEvent keyEvent) {
     // Do Wear specific transformations.
     if (SUPPORT_VOLUME_CHANGE_BY_WEAR_KEY) {
       int keyCode = keyEvent.getKeyCode();
@@ -71,14 +71,14 @@ public class TalkBackService extends com.google.android.accessibility.talkback.T
         }
       }
     }
-    return super.onKeyEvent(keyEvent);
+    return super.onKeyEventInternal(keyEvent);
   }
 
   /** Return volume up and down buttons */
   private Pair<Integer, Integer> getVolumeStemButtons(Context context) {
     Pair<Integer, Integer> volumeButtons = new Pair<>(KEYCODE_VOLUME_UP, KEYCODE_VOLUME_DOWN);
     // Check that this is a watch, based on BUILD rules it should be.
-    if (!FeatureSupport.isWatch(context)) {
+    if (!FormFactorUtils.getInstance().isAndroidWear()) {
       return volumeButtons;
     }
     if (WearableButtons.getButtonCount(context) != NUM_STEM_BUTTONS_REQUIRED) {

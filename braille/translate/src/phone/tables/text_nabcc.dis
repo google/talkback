@@ -45,7 +45,7 @@
 # The space and the 26 lowercase letters (a-z) are the same as in literary 
 # braille:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x0020 0        #  32      SPACE
 display \x0061 1        #  97 a    LATIN SMALL LETTER A
 display \x0062 12       #  98 b    LATIN SMALL LETTER B
@@ -77,7 +77,7 @@ display \x007a 1356     # 122 z    LATIN SMALL LETTER Z
 # The 26 uppercase letters A-Z) are the same as their lowercase counterparts 
 # except that dot7 is added:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x0041 17       #  65 A    LATIN CAPITAL LETTER A
 display \x0042 127      #  66 B    LATIN CAPITAL LETTER B
 display \x0043 147      #  67 C    LATIN CAPITAL LETTER C
@@ -107,7 +107,7 @@ display \x005a 13567    #  90 Z    LATIN CAPITAL LETTER Z
 
 # The 10 decimal digits 0-9) are the same as in the Nemeth Code:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x0030 356      #  48 0    DIGIT ZERO
 display \x0031 2        #  49 1    DIGIT ONE
 display \x0032 23       #  50 2    DIGIT TWO
@@ -122,7 +122,7 @@ display \x0039 35       #  57 9    DIGIT NINE
 # Common symbols used within mathematical expressions by popular computer
 # programming languages are the same as in the Nemeth Code:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x002e 46       #  46 .    FULL STOP
 display \x002b 346      #  43 +    PLUS SIGN
 display \x002d 36       #  45 -    HYPHEN-MINUS
@@ -135,7 +135,7 @@ display \x0029 23456    #  41 )    RIGHT PARENTHESIS
 # convenient representations were still available, and are used, for some of 
 # the remaining characters:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x0026 12346    #  38 &    AMPERSAND
 display \x0023 3456     #  35 #    NUMBER SIGN
 
@@ -147,7 +147,7 @@ display \x0023 3456     #  35 #    NUMBER SIGN
 # yields its corresponding character within the uppercase block (64-95) except
 # that removing dot 7 from the DEL control character yields the underscore.
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x002c 6        #  44 ,    COMMA
 display \x003b 56       #  59 ;    SEMICOLON
 display \x003a 156      #  58 :    COLON
@@ -173,14 +173,14 @@ display \x005c 12567    #  92 \    REVERSE SOLIDUS
 display \x005f 456      #  95 _    LOW LINE
 
 # The DEL control character
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x007f 4567     # 127 ^?   DELETE
 
 # Each of the characters within the basic control character block (0-31) is the
 # same as its corresponding character within both the uppercase block (64-95)
 # and the lowercase block (96-127) except that dots 7 and 8 are both used.
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x0000 478      #   0 ^@   NULL
 display \x0001 178      #   1 ^A   START OF HEADING
 display \x0002 1278     #   2 ^B   START OF TEXT
@@ -218,7 +218,7 @@ display \x001f 45678    #  31 ^_   UNIT SEPARATOR
 # is the same as its corresponding character within the basic control character
 # block (0-31) except that only dot 8 is used.
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x0080 48       # 128 ~@   <control>
 display \x0081 18       # 129 ~A   <CONTROL>
 display \x0082 128      # 130 ~B   BREAK PERMITTED HERE
@@ -265,7 +265,7 @@ display \x009f 4568     # 159 ~_   APPLICATION PROGRAM COMMAND
 
 # The 5 letters with a circumflex accent (^) use the [1-5] dot combinations:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00c2 278      # 194 Â    LATIN CAPITAL LETTER A WITH CIRCUMFLEX
 display \x00ca 2378     # 202 Ê    LATIN CAPITAL LETTER E WITH CIRCUMFLEX
 display \x00ce 2578     # 206 Î    LATIN CAPITAL LETTER I WITH CIRCUMFLEX
@@ -279,7 +279,7 @@ display \x00fb 268      # 251 û    LATIN SMALL LETTER U WITH CIRCUMFLEX
 
 # The 5 letters with a grave accent (`) use the [6-0] dot combinations:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00c0 23578    # 192 À    LATIN CAPITAL LETTER A WITH GRAVE
 display \x00c8 235678   # 200 È    LATIN CAPITAL LETTER E WITH GRAVE
 display \x00cc 23678    # 204 Ì    LATIN CAPITAL LETTER I WITH GRAVE
@@ -294,7 +294,7 @@ display \x00f9 3568     # 249 ù    LATIN SMALL LETTER U WITH GRAVE
 # The 6 letters with an acute accent (´) use the [a-f] dot combinations with
 # dots 6 and 8 added:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00c1 1678     # 193 Á    LATIN CAPITAL LETTER A WITH ACUTE
 display \x00c9 12678    # 201 É    LATIN CAPITAL LETTER E WITH ACUTE
 display \x00cd 14678    # 205 Í    LATIN CAPITAL LETTER I WITH ACUTE
@@ -312,7 +312,7 @@ display \x00fd 12468    # 253 ý    LATIN SMALL LETTER Y WITH ACUTE
 # dots 3 and 6 added, and the number sign (because it fits the sequence
 # reasonably well):
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00c4 1234678  # 196 Ä    LATIN CAPITAL LETTER A WITH DIAERESIS
 display \x00cb 12345678 # 203 Ë    LATIN CAPITAL LETTER E WITH DIAERESIS
 display \x00cf 1235678  # 207 Ï    LATIN CAPITAL LETTER I WITH DIAERESIS
@@ -329,12 +329,12 @@ display \x00ff 34568    # 255 ÿ    LATIN SMALL LETTER Y WITH DIAERESIS
 # lowercase double-s, which also doesn't have an uppercase counterpart in the
 # Latin1 character set, uses its representation:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00df 345678   # 223 ß    LATIN SMALL LETTER SHARP S
 
 # The remaining accented letters are:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00c3 578      # 195 Ã    LATIN CAPITAL LETTER A WITH TILDE
 display \x00d1 4678     # 209 Ñ    LATIN CAPITAL LETTER N WITH TILDE
 display \x00d5 5678     # 213 Õ    LATIN CAPITAL LETTER O WITH TILDE
@@ -357,7 +357,7 @@ display \x00fe 368      # 254 þ    LATIN SMALL LETTER THORN
 # Some characters are the same as other characters which they resemble but with
 # dot 7 added:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00ad 367      # 173 ­    SOFT HYPHEN
 display \x00ab 1267     # 171 «    LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
 display \x00bb 3457     # 187 »    RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
@@ -377,14 +377,14 @@ display \x00a3 34567    # 163 £    POUND SIGN
 # A few more characters follow this same convention but their relationships
 # to their base characters is a bit obscure:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00a4 1467     # 164 ¤    CURRENCY SIGN
 display \x00a5 123467   # 165 ¥    YEN SIGN
 
 # Some characters are represented by the first letters of their names lowered
 # by one row of dots:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00ac 2567     # 172 ¬    NOT SIGN
 display \x00b6 2357     # 182 ¶    PILCROW SIGN
 display \x00a9 23567    # 169 ©    COPYRIGHT SIGN
@@ -396,7 +396,7 @@ display \x00b0 3567     # 176 °    DEGREE SIGN
 # progress from left to right as the value of the fraction increases) together
 # with dots 2,3,5,6,7:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00bc 123567   # 188 ¼    VULGAR FRACTION ONE QUARTER
 display \x00bd 1234567  # 189 ½    VULGAR FRACTION ONE HALF
 display \x00be 234567   # 190 ¾    VULGAR FRACTION THREE QUARTERS
@@ -404,20 +404,20 @@ display \x00be 234567   # 190 ¾    VULGAR FRACTION THREE QUARTERS
 # Each of the three extended accent characters is the same as its conventional
 # compose character but with dot7 added:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00b4 37       # 180 ´    ACUTE ACCENT
 display \x00b8 67       # 184 ¸    CEDILLA
 display \x00a8 57       # 168 ¨    DIAERESIS
 
 # The two gender symbols are:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00ba 7        # 186 º    MASCULINE ORDINAL INDICATOR
 display \x00aa 8        # 170 ª    FEMININE ORDINAL INDICATOR
 
 # The three remaining characters are:
 
-        #Hex   Dots       Dec Char Description
+#        Hex   Dots       Dec Char Description
 display \x00af 267      # 175 ¯    MACRON
 display \x00b5 567      # 181 µ    MICRO SIGN
 display \x00a0 78       # 160      NO-BREAK SPACE

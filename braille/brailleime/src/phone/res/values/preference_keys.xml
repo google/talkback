@@ -4,7 +4,11 @@
   <string name="pref_brailleime_turn_on_braille_keyboard" translatable="false">pref_brailleime_turn_on_braille_keyboard</string>
 
   <!-- BEGIN: These keys are released. UserPreferences.upgradeHelper renamed key names from pref_xxx to pref_brailleime_xxx. -->
-  <string name="pref_brailleime_see_all_actions" translatable="false">pref_brailleime_see_all_actions</string>
-
+  <string name="pref_brailleime_review_all_gestures" translatable="false">pref_brailleime_review_all_gestures</string>
+  <string name="pref_key_brailleime_action_category_description" translatable="false">pref_key_brailleime_action_category_description</string>
+  <string name="pref_key_brailleime_basic_controls" translatable="false">pref_key_brailleime_basic_controls</string>
+  <string name="pref_key_brailleime_cursor_movement" translatable="false">pref_key_brailleime_cursor_movement</string>
+  <string name="pref_key_brailleime_text_selection_and_editing" translatable="false">pref_key_brailleime_text_selection_and_editing</string>
+  <string name="pref_key_brailleime_spell_check" translatable="false">pref_key_brailleime_spell_check</string>
   <!-- END: These keys should be renamed to be pref_brailleime_xxx -->
 </resources>

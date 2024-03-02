@@ -15,14 +15,4 @@
       android:layout_gravity="top"
       android:orientation="horizontal"/>
 
-  <Button
-      android:id="@+id/training_bottom_button"
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/training_button_height"
-      android:layout_gravity="bottom"
-      android:background="@color/google_blue600"
-      android:textColor="@color/google_white"
-      android:textSize="@dimen/training_button_text_size"
-      android:visibility="gone"/>
-
 </LinearLayout>

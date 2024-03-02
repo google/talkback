@@ -1,0 +1,88 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+assign prefix \{chord}Dot7+Dot8
+#Overridden by BrailleBack.
+#bind \{prefix}+Dot1+Dot2+Dot3+Dot4+Dot5+Dot6 GUI_BRL_ACTIONS
+
+bind \{prefix}+\{a} TXTSEL_ALL
+bind \{prefix}+Dot4 TXTSEL_CLEAR
+bind \{prefix}+\{c} HOST_COPY
+bind \{prefix}+\{v} HOST_PASTE
+bind \{prefix}+\{x} HOST_CUT
+
+#Overridden by BrailleBack.
+#bind \{prefix}+\{b} GUI_BACK
+bind \{prefix}+\{h} GUI_HOME
+#Overridden by BrailleBack.
+#bind \{prefix}+\{i} INDICATORS
+#Overridden by BrailleBack.
+#bind \{prefix}+\{m} GUI_APP_MENU
+bind \{prefix}+\{n} GUI_APP_ALERTS
+#Overridden by BrailleBack.
+#bind \{prefix}+\{o} GUI_DEV_OPTIONS
+bind \{prefix}+\{r} GUI_APP_LIST
+bind \{prefix}+\{s} GUI_DEV_SETTINGS
+#Overridden by BrailleBack.
+#bind \{prefix}+\{t} GUI_TITLE
+
+bind \{prefix}+Dot3+Dot6 GUI_AREA_ACTV
+bind \{prefix}+Dot3 GUI_AREA_PREV
+bind \{prefix}+Dot6 GUI_AREA_NEXT
+
+bind \{prefix}+Dot2 GUI_ITEM_PREV
+bind \{prefix}+Dot5 GUI_ITEM_NEXT
+
+bind \{prefix}+Dot2+Dot3 GUI_ITEM_FRST
+bind \{prefix}+Dot5+Dot6 GUI_ITEM_LAST
+
+#Unused by Brailleback
+#bind \{prefix}+Dot2+Dot5 CONTEXT+chrome
+#context chrome Web Page Navigation
+#bind Dot7+Dot8 CONTEXT+default
+
+superimpose meta
+map Dot1 DOT1
+map Dot2 DOT2
+map Dot3 DOT3
+map Dot4 DOT4
+map Dot5 DOT5
+map Dot6 DOT6
+map Dot7 DOT7
+map Dot8 DOT8
+
+########################
+# BrailleBack Bindings #
+########################
+
+# chord is Space by default, but can be customized for devices without Space.
+#
+# chord7 and chord8 can be customized for devices that have only six input
+# dots; otherwise, they will be set by default to Dot7 and Dot8.
+
+assignDefault chord Space
+assign chord1 Dot1
+assign chord2 Dot2
+assign chord3 Dot3
+assign chord4 Dot4
+assign chord5 Dot5
+assign chord6 Dot6
+assignDefault chord7 Dot7
+assignDefault chord8 Dot8
+
+include android-chords-google.kti

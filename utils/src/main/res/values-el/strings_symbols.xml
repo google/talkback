@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Απόστροφος</string>
   <string name="symbol_ampersand">Συμπλεκτικό σύμβολο</string>
   <string name="symbol_angle_bracket_left">Σύμβολο \"μικρότερο από\"</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">πι</string>
   <string name="symbol_pound">Δίεση</string>
   <string name="symbol_pound_sterling">Σύμβολο λίρας στερλίνας</string>
+  <string name="symbol_currency_peso">Σύμβολο νομίσματος πέσο</string>
+  <string name="symbol_currency_dong">Σύμβολο νομίσματος ντονγκ</string>
   <string name="symbol_question_mark">Ερωτηματικό</string>
   <string name="symbol_quotation_mark">Εισαγωγικά</string>
   <string name="symbol_registered_trademark">Σήμα κατατεθέν</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">Σύμβολο \"μικρότερο από\" πλήρους πλάτους</string>
   <string name="symbol_full_width_greater_than_sign">Σύμβολο \"μεγαλύτερο από\" πλήρους πλάτους</string>
   <string name="symbol_left_single_quotation_mark">Αριστερά μονά εισαγωγικά</string>
+  <string name="symbol_braille">μπράιγ %s</string>
+  <plurals name="dots">
+    <item quantity="one">κουκκίδα %s</item>
+    <item quantity="other">κουκκίδες %s</item>
+  </plurals>
 </resources>

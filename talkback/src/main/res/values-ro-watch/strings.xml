@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="talkback_service_description">TalkBack este un cititor de ecran destinat în principal utilizatorilor nevăzători și cu deficiențe de vedere. Cu acest serviciu, puteți interacționa cu dispozitivul folosind feedbackul rostit.</string>
-  <string name="welcome_to_talkback_text">Primiți feedback rostit pentru a folosi ceasul fără să vă uitați la ecran.</string>
+  <string name="talkback_service_description">TalkBack este un cititor de ecran destinat în principal utilizatorilor nevăzători și cu deficiențe de vedere. Cu acest serviciu, poți interacționa cu dispozitivul folosind feedbackul rostit.</string>
+  <string name="welcome_to_talkback_text">Primește feedback rostit pentru a folosi ceasul fără să te uiți la ecran.</string>
+  <string name="summary_custom_action">Arată când există acțiuni personalizate pentru elementul actual.</string>
+  <string name="notification_title_talkback_gestures_changed">Gesturile de TalkBack au fost actualizate</string>
+  <string name="notification_message_talkback_gestures_changed">Deschide Talkback pentru mai multe detalii</string>
+  <string name="new_feature_in_talkback_title">Noutăți</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">OK</string>
+  <string name="scan_the_qr_code">Scanează codul QR</string>
+  <string name="alternate_privacy_policy">Sau accesează http://www.google.com/policies/privacy</string>
+  <string name="alternate_tos">Sau accesează https://www.google.com/mobile/toscountry</string>
 </resources>

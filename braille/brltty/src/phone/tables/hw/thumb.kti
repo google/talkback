@@ -1,0 +1,68 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+assignDefault previous ThumbPrevious
+assignDefault left ThumbLeft
+assignDefault right ThumbRight
+assignDefault next ThumbNext
+
+note There are four rectangular thumb keys on the front. From left to right:
+note * The outer ones are named ThumbPrevious and ThumbNext.
+note * The inner ones are named ThumbLeft and ThumbRight.
+note * Some models have a round key in the middle - it's the internal menu key.
+
+####################
+# Default Bindings #
+####################
+
+bind ThumbLeft+ThumbRight HOME
+bind \{left} FWINLT
+bind \{right} FWINRT
+bind \{previous} LNUP
+bind \{next} LNDN
+
+bind \{left}+\{previous} TOP_LEFT
+bind \{left}+\{next} BOT_LEFT
+bind \{right}+\{previous} PRDIFLN
+bind \{right}+\{next} NXDIFLN
+
+bind ThumbPrevious+RoutingKey CLIP_NEW
+bind ThumbLeft+RoutingKey CLIP_ADD
+bind \{right}+RoutingKey COPY_LINE
+bind \{next}+RoutingKey COPY_RECT
+bind ThumbPrevious+ThumbNext PASTE
+
+
+#################
+# Menu Bindings #
+#################
+
+context menu
+
+bind \{left} FWINLT
+bind \{right} FWINRT
+bind \{previous} MENU_PREV_ITEM
+bind \{next} MENU_NEXT_ITEM
+bind \{left}+\{previous} MENU_FIRST_ITEM
+bind \{left}+\{next} MENU_LAST_ITEM
+bind \{right}+\{previous} MENU_PREV_SETTING
+bind \{right}+\{next} MENU_NEXT_SETTING
+bind ThumbLeft+ThumbRight PREFMENU
+bind ThumbLeft+ThumbRight+ThumbPrevious PREFLOAD
+bind ThumbLeft+ThumbRight+ThumbNext PREFSAVE
+

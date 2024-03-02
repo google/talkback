@@ -2,4 +2,12 @@
 <resources>
   <string name="talkback_service_description">TalkBack – це програма зчитування з екрана, призначена насамперед для людей, які не бачать або мають поганий зір. Вона дає змогу взаємодіяти з пристроєм за допомогою голосових підказок.</string>
   <string name="welcome_to_talkback_text">Отримуйте голосові підказки, щоб користуватися годинником, навіть не дивлячись на його екран.</string>
+  <string name="summary_custom_action">Доступно, якщо є спеціальні дії для поточного елемента.</string>
+  <string name="notification_title_talkback_gestures_changed">Жести TalkBack оновлено</string>
+  <string name="notification_message_talkback_gestures_changed">Щоб дізнатися більше, відкрийте TalkBack</string>
+  <string name="new_feature_in_talkback_title">Що нового</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">OK</string>
+  <string name="scan_the_qr_code">Зіскануйте QR-код</string>
+  <string name="alternate_privacy_policy">або перейдіть на сторінку http://www.google.com/policies/privacy</string>
+  <string name="alternate_tos">або перейдіть на сторінку https://www.google.com/mobile/toscountry</string>
 </resources>

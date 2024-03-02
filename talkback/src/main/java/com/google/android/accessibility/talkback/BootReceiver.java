@@ -21,6 +21,7 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import com.google.android.accessibility.utils.Performance.EventId;
 
 public class BootReceiver extends BroadcastReceiver {
@@ -44,7 +45,19 @@ public class BootReceiver extends BroadcastReceiver {
       case Intent.ACTION_BOOT_COMPLETED:
         service.onUnlockedBootCompleted();
         break;
+      case Intent.ACTION_SHUTDOWN:
+        service.onShutDown();
+        break;
       default: // fall out
     }
+  }
+
+  public static IntentFilter getFilter() {
+    final IntentFilter intentFilter = new IntentFilter();
+    intentFilter.addAction(Intent.ACTION_LOCKED_BOOT_COMPLETED);
+    intentFilter.addAction(Intent.ACTION_BOOT_COMPLETED);
+    intentFilter.addAction(Intent.ACTION_SHUTDOWN);
+    intentFilter.addCategory(Intent.CATEGORY_DEFAULT);
+    return intentFilter;
   }
 }

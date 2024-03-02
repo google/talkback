@@ -40,6 +40,7 @@ import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.dialog.BaseDialog;
+import com.google.android.accessibility.talkback.labeling.CustomLabelManager.LabelChangeListener;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
@@ -54,9 +55,9 @@ public class LabelDialogManager {
   private final Context context;
   private final CustomLabelManager labelManager;
 
-  private LabelDialogManager(Context context) {
+  private LabelDialogManager(Context context, @Nullable LabelChangeListener labelChangeListener) {
     this.context = context;
-    labelManager = new CustomLabelManager(context);
+    labelManager = new CustomLabelManager(context, labelChangeListener);
   }
 
   /**
@@ -73,11 +74,31 @@ public class LabelDialogManager {
       String resourceName,
       boolean needToRestoreFocus,
       @Nullable Pipeline.FeedbackReturner pipeline) {
+    return addLabel(
+        context, resourceName, needToRestoreFocus, pipeline, /* labelChangeListener= */ null);
+  }
+
+  /**
+   * Shows the dialog to add a label for the given node in the given context.
+   *
+   * @param context Context to display the dialog in
+   * @param resourceName Resource name from Accessibility node to add a label
+   * @param needToRestoreFocus Sets to {@code true} if caller needs to restore focus
+   * @param pipeline the FeedbackReturner which needs to perform restore focus
+   * @param labelChangeListener the listener which label changed
+   * @return True if showing the dialog was successful, otherwise false
+   */
+  public static boolean addLabel(
+      Context context,
+      String resourceName,
+      boolean needToRestoreFocus,
+      @Nullable Pipeline.FeedbackReturner pipeline,
+      @Nullable LabelChangeListener labelChangeListener) {
     if (context == null) {
       return false;
     }
 
-    LabelDialogManager dialogManager = new LabelDialogManager(context);
+    LabelDialogManager dialogManager = new LabelDialogManager(context, labelChangeListener);
     dialogManager.showAddLabelDialog(resourceName, needToRestoreFocus, pipeline);
     return true;
   }
@@ -96,11 +117,31 @@ public class LabelDialogManager {
       long viewLabelId,
       boolean needToRestoreFocus,
       @Nullable Pipeline.FeedbackReturner pipeline) {
+    return editLabel(
+        context, viewLabelId, needToRestoreFocus, pipeline, /* labelChangeListener= */ null);
+  }
+
+  /**
+   * Shows the dialog to edit the given label in the given context.
+   *
+   * @param context Context to display the dialog in
+   * @param viewLabelId Label Id to edit.
+   * @param needToRestoreFocus Sets to {@code true} if caller needs to restore focus
+   * @param pipeline the FeedbackReturner which needs to perform restore focus
+   * @param labelChangeListener the listener which label changed
+   * @return True if showing the dialog was successful, otherwise false
+   */
+  public static boolean editLabel(
+      Context context,
+      long viewLabelId,
+      boolean needToRestoreFocus,
+      @Nullable Pipeline.FeedbackReturner pipeline,
+      @Nullable LabelChangeListener labelChangeListener) {
     if ((context == null) || (viewLabelId == Label.NO_ID)) {
       return false;
     }
 
-    LabelDialogManager dialogManager = new LabelDialogManager(context);
+    LabelDialogManager dialogManager = new LabelDialogManager(context, labelChangeListener);
     dialogManager.showEditLabelDialog(viewLabelId, needToRestoreFocus, pipeline);
     return true;
   }

@@ -33,9 +33,9 @@ import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Performance.EventIdAnd;
 import com.google.android.accessibility.utils.Supplier;
-import com.google.android.accessibility.utils.input.ScrollActionRecord;
-import com.google.android.accessibility.utils.input.ScrollActionRecord.UserAction;
 import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollTimeout;
+import com.google.android.accessibility.utils.output.ScrollActionRecord;
+import com.google.android.accessibility.utils.output.ScrollActionRecord.UserAction;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**
@@ -57,6 +57,7 @@ public class AutoScrollActor {
 
   /** Limited read-only interface to pull state data. */
   public class StateReader implements Supplier<ScrollActionRecord> {
+    @Override
     public ScrollActionRecord get() {
       return AutoScrollActor.this.scrollActionRecord;
     }

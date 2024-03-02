@@ -1,0 +1,194 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+assign a Dot1
+assign b Dot1+Dot2
+assign c Dot1+Dot4
+assign d Dot1+Dot4+Dot5
+assign e Dot1+Dot5
+assign f Dot1+Dot2+Dot4
+assign g Dot1+Dot2+Dot4+Dot5
+assign h Dot1+Dot2+Dot5
+assign i Dot2+Dot4
+assign j Dot2+Dot4+Dot5
+assign k Dot1+Dot3
+assign l Dot1+Dot2+Dot3
+assign m Dot1+Dot3+Dot4
+assign n Dot1+Dot3+Dot4+Dot5
+assign o Dot1+Dot3+Dot5
+assign p Dot1+Dot2+Dot3+Dot4
+assign q Dot1+Dot2+Dot3+Dot4+Dot5
+assign r Dot1+Dot2+Dot3+Dot5
+assign s Dot2+Dot3+Dot4
+assign t Dot2+Dot3+Dot4+Dot5
+assign u Dot1+Dot3+Dot6
+assign v Dot1+Dot2+Dot3+Dot6
+assign w Dot2+Dot4+Dot5+Dot6
+assign x Dot1+Dot3+Dot4+Dot6
+assign y Dot1+Dot3+Dot4+Dot5+Dot6
+assign z Dot1+Dot3+Dot5+Dot6
+
+assign toggleOff Dot7
+assign toggleOn Dot8
+
+#Overridden by BrailleBack.
+#beginVariables
+#assign toggleKeys \{chord}\{b}
+#assign toggleCommand SKPBLNKWINS
+#include toggle.kti
+#endVariables
+
+beginVariables
+assign toggleKeys \{chord}\{c}
+assign toggleCommand CSRVIS
+include toggle.kti
+endVariables
+
+beginVariables
+assign toggleKeys \{chord}\{d}
+assign toggleCommand DISPMD
+include toggle.kti
+endVariables
+
+beginVariables
+assign toggleKeys \{chord}\{f}
+assign toggleCommand FREEZE
+include toggle.kti
+endVariables
+
+beginVariables
+assign toggleKeys \{chord}\{g}
+assign toggleCommand CONTRACTED
+include toggle.kti
+endVariables
+
+#Overridden by BrailleBack.
+#bind \{chord}\{h} HELP
+
+beginVariables
+assign toggleKeys \{chord}\{i}
+assign toggleCommand SKPIDLNS
+include toggle.kti
+endVariables
+
+#Overridden by BrailleBack.
+#bind \{chord}\{l} LEARN
+
+#Overridden by BrailleBack.
+#bind \{chord}\{p} PREFMENU
+bind \{chord}\{p}+\{toggleOff} PREFLOAD
+bind \{chord}\{p}+\{toggleOn} PREFSAVE
+bind \{chord}\{p}+\{toggleOff}+\{toggleOn} PREFRESET
+
+#Overridden by BrailleBack.
+#beginVariables
+#assign toggleKeys \{chord}\{r}
+#assign toggleCommand AUTOREPEAT
+#include toggle.kti
+#endVariables
+
+#bind \{chord}\{s} INFO
+
+beginVariables
+assign toggleKeys \{chord}\{t}
+assign toggleCommand CSRTRK
+include toggle.kti
+endVariables
+
+beginVariables
+assign toggleKeys \{chord}\{u}
+assign toggleCommand ATTRVIS
+include toggle.kti
+endVariables
+
+bind \{chord}\{v} CSRJMP_VERT
+bind \{chord}\{v}+\{toggleOff} SWITCHVT_PREV
+bind \{chord}\{v}+\{toggleOn} SWITCHVT_NEXT
+
+#Overridden by BrailleBack.
+#beginVariables
+#assign toggleKeys \{chord}\{w}
+#assign toggleCommand SLIDEWIN
+#include toggle.kti
+#endVariables
+
+bind \{chord}\{x} PASTE
+bind \{chord}\{x}+\{toggleOff} CLIP_RESTORE
+bind \{chord}\{x}+\{toggleOn} CLIP_SAVE
+
+bind \{chord}Dot2+Dot3+Dot5 COMPBRL6+on
+bind \{chord}Dot2+Dot3+Dot6 COMPBRL6+off
+
+bind \{chord}Dot1+Dot3+\{toggleOff} BRLKBD+off
+bind \{chord}Dot1+Dot3+\{toggleOn} BRLKBD+on
+
+#Overridden by BrailleBack.
+#bind \{chord}Dot4+Dot6+\{toggleOff} BRLUCDOTS+off
+#Overridden by BrailleBack.
+#bind \{chord}Dot4+Dot6+\{toggleOn} BRLUCDOTS+on
+
+#Overridden by BrailleBack.
+#bind \{chord}Dot3 KEY_CURSOR_LEFT
+#Overridden by BrailleBack.
+#bind \{chord}Dot6 KEY_CURSOR_RIGHT
+#Overridden by BrailleBack.
+#bind \{chord}Dot2 KEY_HOME
+#Overridden by BrailleBack.
+#bind \{chord}Dot5 KEY_END
+#Overridden by BrailleBack.
+#bind \{chord}Dot1 KEY_CURSOR_UP
+#Overridden by BrailleBack.
+#bind \{chord}Dot4 KEY_CURSOR_DOWN
+
+bind \{chord}Dot2+Dot3 KEY_PAGE_UP
+bind \{chord}Dot5+Dot6 KEY_PAGE_DOWN
+#Overridden by BrailleBack.
+#bind \{chord}Dot4+Dot5 KEY_TAB
+
+bind \{chord}Dot2+Dot5+Dot6 KEY_DELETE
+bind \{chord}Dot2+Dot6 KEY_ESCAPE
+bind \{chord}Dot3+Dot5 KEY_INSERT
+
+bind \{chord}Dot1+Dot8 GUI
+bind \{chord}Dot4+Dot8 SHIFT
+bind \{chord}Dot2+Dot8 META
+bind \{chord}Dot5+Dot8 ALTGR
+bind \{chord}Dot3+Dot8 CONTROL
+#Overridden by BrailleBack.
+#bind \{chord}Dot6+Dot8 UPPER
+bind \{chord}Dot7+Dot8 UNSTICK
+
+ifNotVar noUnchorded
+assignDefault commandDot7 KEY_BACKSPACE
+assignDefault commandDot8 KEY_ENTER
+
+bind Dot7 \{commandDot7}
+bind Dot8 \{commandDot8}
+
+bind \{chord}Dot7 PASSDOTS+dot7
+bind \{chord}Dot8 PASSDOTS+dot8
+
+#Unused by BrailleBack.
+#include menu.kti
+endIf
+
+#Dont konw why it's not running into it, but currently brltty used by braille
+#display in AAS only so comment it out.
+#ifPlatform android
+include android-chords.kti
+#endif

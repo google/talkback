@@ -1,0 +1,78 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+bind Left\{navKeyType}Press LNBEG
+bind Right\{navKeyType}Press LNEND
+
+bind LeftSelector BACK:TOP_LEFT
+bind RightSelector HOME:BOT_LEFT
+bind LeftSelector+RightSelector PASTE
+
+bind PanLeft FWINLT
+bind PanRight FWINRT
+bind PanLeft+PanRight CSRJMP_VERT
+
+bind LeftSelector+PanLeft TOP_LEFT
+bind LeftSelector+PanRight BOT_LEFT
+
+bind RightSelector+PanLeft TOP
+bind RightSelector+PanRight BOT
+
+bind !Left\{navKeyType}Up LNUP
+bind !Left\{navKeyType}Down LNDN
+
+bind !Right\{navKeyType}Up FWINLT
+bind !Right\{navKeyType}Down FWINRT
+
+bind Left\{navKeyType}Press+!Left\{navKeyType}Up PRDIFLN
+bind Left\{navKeyType}Press+!Left\{navKeyType}Down NXDIFLN
+
+bind Right\{navKeyType}Press+!Right\{navKeyType}Up CHRLT
+bind Right\{navKeyType}Press+!Right\{navKeyType}Down CHRRT
+
+bind PanLeft+!Left\{navKeyType}Up PRPROMPT
+bind PanLeft+!Left\{navKeyType}Down NXPROMPT
+
+bind PanRight+!Left\{navKeyType}Up PRPGRPH
+bind PanRight+!Left\{navKeyType}Down NXPGRPH
+
+bind LeftSelector+!Left\{navKeyType}Up ATTRUP
+bind LeftSelector+!Left\{navKeyType}Down ATTRDN
+
+bind RightSelector+!Left\{navKeyType}Up PRSEARCH
+bind RightSelector+!Left\{navKeyType}Down NXSEARCH
+
+
+#Overridden by BrailleBack.
+#bind RoutingKey ROUTE
+bind Left\{navKeyType}Press+RoutingKey SETLEFT
+bind Right\{navKeyType}Press+RoutingKey DESCCHAR
+
+bind RoutingKey+!RoutingKey CLIP_COPY
+bind PanLeft+RoutingKey CLIP_NEW
+bind PanRight+RoutingKey COPY_RECT
+bind LeftSelector+RoutingKey CLIP_ADD
+bind RightSelector+RoutingKey COPY_LINE
+
+
+########################
+# BrailleBack Bindings #
+########################
+
+# ROUTE+128 is a long-press on the routing key.
+bind RoutingKey ROUTE:ROUTE+128

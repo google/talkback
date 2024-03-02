@@ -16,9 +16,13 @@
 
 package com.google.android.accessibility.utils.monitor;
 
-/** Gets status of media and microphone actions. */
+/** Gets status of microphone. */
 public interface VoiceActionDelegate {
-  boolean isVoiceRecognitionActive();
+  default boolean isVoiceRecognitionActive() {
+    return false;
+  }
 
-  boolean isMicrophoneActive();
+  default boolean isMicrophoneActive() {
+    return false;
+  }
 }

@@ -16,10 +16,10 @@
 
 #include "louis_translation.h"
 
+#include <alog.h>
 #include <algorithm>
 #include <vector>
 
-#include "../alog.h"
 #include "third_party/liblouis/liblouis/internal.h"  // for MAXSTRING
 #include "third_party/liblouis/liblouis/liblouis.h"
 #define TRANSLATE_PACKAGE "com/google/android/accessibility/braille/translate/"
@@ -70,9 +70,10 @@ jobject create_array_list(JNIEnv* env, jintArray int_array) {
 
 // Translates print-characters to braille-cells. It returns a TranslationResult
 // object.
-JNIEXPORT jobject JNICALL JNI_METHOD(translateNative)(
-    JNIEnv* env, jclass clazz, jobject charSequence, jstring tableName,
-    jint cursorPosition, jboolean computerBrailleAtCursor) {
+JNIEXPORT jobject JNICALL JNI_METHOD(translateNative)(JNIEnv* env, jclass clazz,
+                                                      jobject charSequence,
+                                                      jstring tableName,
+                                                      jint cursorPosition) {
   jstring text = (jstring)env->CallObjectMethod(charSequence, method_toString);
   const jchar* text_utf16 = env->GetStringChars(text, nullptr);
   const char* table_name_utf8 = env->GetStringUTFChars(tableName, nullptr);
@@ -111,8 +112,7 @@ JNIEXPORT jobject JNICALL JNI_METHOD(translateNative)(
     int result = lou_translate(
         table_name_utf8, text_utf16, &in_used, out_buf.data(), &out_used,
         /* typeform= */ nullptr, /* spacing= */ nullptr, output_pos.data(),
-        input_pos.data(), cursor_pos_pointer,
-        computerBrailleAtCursor ? compbrlAtCursor | dotsIO : dotsIO);
+        input_pos.data(), cursor_pos_pointer, dotsIO);
     if (result == 0) {
       LOGE("Translation failed.");
       return nullptr;

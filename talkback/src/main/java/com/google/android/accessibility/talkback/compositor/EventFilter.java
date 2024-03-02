@@ -17,7 +17,6 @@
 package com.google.android.accessibility.talkback.compositor;
 
 import android.app.Notification;
-import android.content.Context;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -38,12 +37,6 @@ public class EventFilter {
   private static final String TAG = "EventFilter";
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // Constants
-
-  /** The minimum interval (in milliseconds) between scroll feedback events. */
-  private static final long MIN_SCROLL_INTERVAL = 250;
-
-  ///////////////////////////////////////////////////////////////////////////////////
   // Member variables
 
   private final Compositor compositor;
@@ -59,7 +52,6 @@ public class EventFilter {
 
   public EventFilter(
       Compositor compositor,
-      Context context,
       @NonNull TouchMonitor touchMonitor,
       GlobalVariables globalVariables) {
     this.compositor = compositor;
@@ -102,12 +94,7 @@ public class EventFilter {
       // Drop accessibility-focus events based on EventState.
       // TODO: Remove this when focus management is done.
       {
-        if (globalVariables.checkAndClearRecentFlag(
-                GlobalVariables.EVENT_SKIP_FOCUS_PROCESSING_AFTER_GRANULARITY_MOVE)
-            || globalVariables.checkAndClearRecentFlag(
-                GlobalVariables.EVENT_SKIP_FOCUS_PROCESSING_AFTER_CURSOR_CONTROL)
-            || globalVariables.checkAndClearRecentFlag(
-                GlobalVariables.EVENT_SKIP_FOCUS_PROCESSING_AFTER_IME_CLOSED)) {
+        if (globalVariables.resettingSkipFocusProcessing()) {
           return;
         }
         if ((a11yFocusEventInterpreted != null)
@@ -138,6 +125,12 @@ public class EventFilter {
         || eventType == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED
         || eventType == AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) {
       return; // Text-events only travel through TextEventInterpreter.
+    } else if (eventType == AccessibilityEvent.TYPE_VIEW_SELECTED) {
+      LogUtils.d(
+          TAG,
+          "Do not handle TYPE_VIEW_SELECTED by ProcessEventQueue. "
+              + "Handled in SelectionEventInterpreter.");
+      return;
     } else {
       // Let event go to compositor.
     }

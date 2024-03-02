@@ -87,10 +87,10 @@
   <string name="voice_commands_increase_speech_rate">加快語速</string>
   <string name="voice_commands_slower">慢啲</string>
   <string name="voice_commands_decrease_speech_rate">減慢語速</string>
-  <string name="voice_commands_possible_options_title">您可以說出…</string>
+  <string name="voice_commands_possible_options_title">你可以說出…</string>
   <string name="voice_commands_no_action">不支援語音快速指令</string>
-  <string name="voice_commands_no_mic_permissions">要使用此功能，您必須授予麥克風使用權限。</string>
-  <string name="voice_commands_no_voice_recognition_ability">抱歉！此功能不適用於您的裝置</string>
+  <string name="voice_commands_no_mic_permissions">要使用此功能，你必須授予麥克風使用權限。</string>
+  <string name="voice_commands_no_voice_recognition_ability">抱歉！此功能不適用於你的裝置</string>
   <string name="voice_commands_error">識別語音指令時發生錯誤</string>
   <string name="voice_commands_partial_result">無法辨識此指令。說出「%1$s」即可查看所有指令的清單。</string>
   <string name="voice_commands_timeout">說出「%1$s」即可查看所有指令的清單。</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">如要使用語音指令，請先向右再向上滑動。想查看此指令清單時，只要說出「說明」或「我可以用邊啲語音指令」即可。</string>
   <string name="voice_commands_help_hint">為獲得最佳效果，請確實說出後續畫面列出的文字內容。</string>
   <string name="voice_command_screen_locked_hint">螢幕鎖定時無法使用語音指令。如要改用 TalkBack 選單，請%1$s。</string>
+  <string name="voice_commands_during_setup_hint">設定期間無法使用語音指令。</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">變更目前畫面上的內容朗讀方式</string>
   <string name="voice_commands_help_next">下一個 [標題]</string>
@@ -114,7 +115,7 @@
   <string name="voice_commands_help_verbosity">[低] 詳細程度</string>
   <string name="voice_commands_help_next_description">前往下一個標題、控制項、清單或地標</string>
   <string name="voice_commands_help_navigation_description">依字詞、字元、行、段落、標題、控制項或其他元素瀏覽</string>
-  <string name="voice_commands_help_speech_rate_description">您亦可說出「講慢啲」</string>
+  <string name="voice_commands_help_speech_rate_description">你亦可說出「講慢啲」</string>
   <string name="voice_commands_help_verbosity_description">變更為低、高或自訂</string>
   <string name="voice_commands_help_first_description">移至目前畫面的第一個項目</string>
   <string name="voice_commands_help_last_description">移至目前畫面的最後一個項目</string>

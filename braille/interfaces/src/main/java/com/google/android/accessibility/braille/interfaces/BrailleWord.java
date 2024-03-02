@@ -27,6 +27,7 @@ import java.util.Objects;
 /** A sequence of {@link BrailleCharacter}. */
 public class BrailleWord {
 
+  public static final BrailleWord NEW_LINE = new BrailleWord("1246-123");
   private final List<BrailleCharacter> list;
 
   /** Creates an empty word. */
@@ -102,12 +103,26 @@ public class BrailleWord {
     list.add(index, brailleCharacter);
   }
 
+  /** Returns the starting position of the first occurrence of the word. */
+  public int indexOf(BrailleWord brailleWord) {
+    return Collections.indexOfSubList(list, brailleWord.list);
+  }
+
   /**
    * Replaces {@link BrailleCharacter} at the specified position with the specified {@link
    * BrailleCharacter}.
    */
   public void set(int index, BrailleCharacter brailleCharacter) {
     list.set(index, brailleCharacter);
+  }
+
+  /**
+   * Replaces {@link BrailleCharacter} at the specified position with the specified {@link
+   * BrailleWord}.
+   */
+  public void set(int index, BrailleWord brailleWord) {
+    list.remove(index);
+    list.addAll(index, brailleWord.list);
   }
 
   /**

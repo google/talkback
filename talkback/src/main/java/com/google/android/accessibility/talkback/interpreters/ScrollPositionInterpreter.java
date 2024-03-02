@@ -25,9 +25,9 @@ import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.DelayHandler;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
-import com.google.android.accessibility.utils.input.ScrollActionRecord;
 import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollEventHandler;
 import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollEventInterpretation;
+import com.google.android.accessibility.utils.output.ScrollActionRecord;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Filters scroll-events, waiting for the last scroll-event within some wait-time. */

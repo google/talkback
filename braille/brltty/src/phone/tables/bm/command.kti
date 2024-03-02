@@ -1,0 +1,36 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Baum displays which have command keys.
+note The command keys are in the middle, just behind the cursor routing keys,
+note and, from left to right, are named Command1 through Command7.
+
+map Command4 SPACE
+map Command3 DOT1
+map Command2 DOT2
+map Command1 DOT3
+map Command5 DOT4
+map Command6 DOT5
+map Command7 DOT6
+
+bind Command4+Command5 KEY_ENTER
+bind Command4+Command2 KEY_BACKSPACE
+bind Command4+Command6 KEY_TAB
+bind Command4+Command1 KEY_CURSOR_LEFT
+bind Command4+Command7 KEY_CURSOR_RIGHT
+

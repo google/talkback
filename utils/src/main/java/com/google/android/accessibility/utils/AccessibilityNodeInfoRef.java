@@ -19,6 +19,7 @@ package com.google.android.accessibility.utils;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.traversal.ReorderedChildrenIterator;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -36,7 +37,6 @@ import java.util.Set;
  */
 public class AccessibilityNodeInfoRef {
   private AccessibilityNodeInfoCompat mNode;
-  private boolean mOwned;
 
   /** Returns the current node. */
   public AccessibilityNodeInfoCompat get() {
@@ -51,7 +51,6 @@ public class AccessibilityNodeInfoRef {
   /** Resets this object to contain a new node, taking ownership of the new node. */
   public void reset(AccessibilityNodeInfoCompat newNode) {
     mNode = newNode;
-    mOwned = true;
   }
 
   /**
@@ -60,25 +59,23 @@ public class AccessibilityNodeInfoRef {
    */
   public void reset(AccessibilityNodeInfoRef newNode) {
     reset(newNode.get());
-    mOwned = newNode.mOwned;
-    newNode.mOwned = false;
   }
 
-  /** Creates a new instance of this class containing a new copy of {@code node}. */
+  /** Creates a new instance of this class. */
   public static AccessibilityNodeInfoRef obtain(AccessibilityNodeInfoCompat node) {
-    return new AccessibilityNodeInfoRef(AccessibilityNodeInfoCompat.obtain(node), true);
+    return new AccessibilityNodeInfoRef(node);
   }
 
   /** Creates a new instance of this class without assuming ownership of {@code node}. */
   @Nullable
   public static AccessibilityNodeInfoRef unOwned(AccessibilityNodeInfoCompat node) {
-    return node != null ? new AccessibilityNodeInfoRef(node, false) : null;
+    return node != null ? new AccessibilityNodeInfoRef(node) : null;
   }
 
   /** Creates a new instance of this class taking ownership of {@code node}. */
   @Nullable
   public static AccessibilityNodeInfoRef owned(AccessibilityNodeInfoCompat node) {
-    return node != null ? new AccessibilityNodeInfoRef(node, true) : null;
+    return node != null ? new AccessibilityNodeInfoRef(node) : null;
   }
 
   /**
@@ -93,22 +90,20 @@ public class AccessibilityNodeInfoRef {
    * Makes sure that this object owns its own copy of the node it holds by creating a new copy of
    * the node if not already owned or doing nothing otherwise.
    */
+  @CanIgnoreReturnValue
   public AccessibilityNodeInfoRef makeOwned() {
-    if (mNode != null && !mOwned) {
-      reset(AccessibilityNodeInfoCompat.obtain(mNode));
-    }
+    reset(mNode);
     return this;
   }
 
   public AccessibilityNodeInfoRef() {}
 
-  public static boolean isNull(AccessibilityNodeInfoRef ref) {
-    return ref == null || ref.get() == null;
+  private AccessibilityNodeInfoRef(AccessibilityNodeInfoCompat node) {
+    mNode = node;
   }
 
-  private AccessibilityNodeInfoRef(AccessibilityNodeInfoCompat node, boolean owned) {
-    mNode = node;
-    mOwned = owned;
+  public static boolean isNull(AccessibilityNodeInfoRef ref) {
+    return ref == null || ref.get() == null;
   }
 
   /**
@@ -118,7 +113,6 @@ public class AccessibilityNodeInfoRef {
    * underlying node so that any of the traversal methods can be used afterwards.
    */
   public AccessibilityNodeInfoCompat release() {
-    mOwned = false;
     return mNode;
   }
 
@@ -248,7 +242,7 @@ public class AccessibilityNodeInfoRef {
       return false;
     }
     Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
-    visitedNodes.add(AccessibilityNodeInfoCompat.obtain(mNode));
+    visitedNodes.add(mNode);
     AccessibilityNodeInfoCompat parentNode = mNode.getParent();
     while (parentNode != null) {
       if (visitedNodes.contains(parentNode)) {
@@ -309,7 +303,7 @@ public class AccessibilityNodeInfoRef {
       if (visitedNodes.contains(mNode)) {
         return false;
       }
-      visitedNodes.add(AccessibilityNodeInfoCompat.obtain(mNode));
+      visitedNodes.add(mNode);
     }
     return true;
   }

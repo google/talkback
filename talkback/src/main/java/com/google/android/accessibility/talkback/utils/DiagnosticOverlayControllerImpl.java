@@ -5,7 +5,6 @@ import android.content.Context;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.DiagnosticOverlayController;
@@ -37,7 +36,6 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
 
   @NonNull private static HashSet<AccessibilityNode> refocusNodePath = new HashSet<>();
 
-  private static AccessibilityNodeInfoCompat focusedNode = null;
   private static boolean collectNodes;
 
   public DiagnosticOverlayControllerImpl(Context context) {
@@ -46,7 +44,7 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
   }
 
   @VisibleForTesting
-  DiagnosticOverlayControllerImpl(
+  public DiagnosticOverlayControllerImpl(
       Context context, DiagnosticOverlay diagnosticOverlay, HighlightOverlay highlightOverlay) {
     this.context = context;
     // instantiate overlay in case preference is toggled on when TalkBack starts
@@ -55,6 +53,7 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
   }
 
   /** Receives and appends the category of {@link DiagnosticType} and related unfocusable nodes */
+  @Override
   public void appendLog(@DiagnosticType Integer diagnosticInfo, AccessibilityNodeInfoCompat node) {
     if (!this.enabled || !collectNodes || (node == null)) {
       return;
@@ -86,6 +85,7 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
       }
   }
 
+  @Override
   public void appendLog(@DiagnosticType Integer diagnosticInfo, AccessibilityNode node) {
     if (!this.enabled || (node == null)) {
       return;
@@ -96,55 +96,43 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
     }
   }
 
-  /** Highlights focused View after a focus-action. */
-  public void displayFeedback(Feedback feedback) {
-    if (!enabled || highlightOverlay == null) {
+  /** Clears the highlight focused View after a focus-action. */
+  public void clearHighlight() {
+    if (!isHighlightOverlayEnabled()) {
       return;
     }
+    highlightOverlay.clearHighlight();
+  }
 
-    Feedback.@Nullable Part failover =
-        (feedback.failovers() == null || feedback.failovers().size() < 1
-            ? null
-            : feedback.failovers().get(0));
-    if (failover == null) {
+  /**
+   * Checks if highlight node overlay is enabled.
+   *
+   * @return true if enabled.
+   */
+  public boolean isHighlightOverlayEnabled() {
+    if (!enabled || highlightOverlay == null || diagnosticOverlay == null) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * Highlights focused View after a focus-action.
+   *
+   * @param focusedNode The view has the focused node.
+   */
+  public void highlightNodesOnScreen(AccessibilityNodeInfoCompat focusedNode) {
+    if (!isHighlightOverlayEnabled() || (focusedNode == null)) {
       return;
     }
-    // Filter for FOCUS and FOCUS DIRECTION actions,
-    // which mark beg/end of swipe gesture + associated focus
-    if (failover.focus() == null
-        && failover.focusDirection() == null
-        && failover.scroll() == null) {
-      return;
-    }
-    /** Check to make sure eventID isn't null before checking for gestures */
-    if (feedback.eventId() == null) {
-      return;
-    }
-
-    if (feedback.eventId().getEventSubtype() == AccessibilityEvent.TYPE_WINDOWS_CHANGED
-        || feedback.eventId().getEventSubtype() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
-        || failover.scroll() != null) {
-      highlightOverlay.clearHighlight();
-    }
-
-    if (failover.focus() != null) {
-      Feedback.@Nullable Focus focus = failover.focus();
-      if (focus.target() != null) {
-        focusedNode = focus.target();
-        /**
-         * {@link TraversalStrategyUtils#searchFocus} will append focusedNode to list of unfocused
-         * nodes since it is the last node to get traversed, so we must remove
-         */
-        traversedIdToNode.remove(focusedNode.hashCode());
-        unfocusedIdToNode.remove(focusedNode.hashCode());
-        highlightOverlay.highlightNodesOnScreen(focusedNode, unfocusedIdToNode, refocusNodePath);
-        clearCollectionNodes();
-      }
-    } else if (failover.focusDirection() != null) {
-      highlightOverlay.clearHighlight();
-    }
-
-    // Do not display feedback text, because it is directly observable.
+    /**
+     * {@link TraversalStrategyUtils#searchFocus} will append focusedNode to list of unfocused nodes
+     * since it is the last node to get traversed, so we must remove
+     */
+    traversedIdToNode.remove(focusedNode.hashCode());
+    unfocusedIdToNode.remove(focusedNode.hashCode());
+    highlightOverlay.highlightNodesOnScreen(focusedNode, unfocusedIdToNode, refocusNodePath);
+    clearCollectionNodes();
   }
 
   @SuppressLint("SwitchIntDef") // Only some event-types are filtered out.
@@ -184,7 +172,7 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
         diagnosticOverlay = null;
       }
       if (highlightOverlay != null) {
-        highlightOverlay.removeHighlight();
+        highlightOverlay.clearHighlight();
         highlightOverlay = null;
       }
     }

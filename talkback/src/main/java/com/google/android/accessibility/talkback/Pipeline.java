@@ -16,11 +16,9 @@
 
 package com.google.android.accessibility.talkback;
 
-import static com.google.android.accessibility.talkback.Feedback.HINT;
 import static com.google.android.accessibility.talkback.Feedback.InterruptGroup;
-import static com.google.android.accessibility.talkback.Feedback.InterruptLevel;
+import static com.google.android.accessibility.talkback.eventprocessor.ProcessorAccessibilityHints.DELAY_HINT;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
-import static com.google.android.accessibility.utils.feedbackpolicy.AbstractAccessibilityHintsManager.DELAY_HINT;
 
 import android.content.Context;
 import android.os.Looper;
@@ -29,6 +27,7 @@ import android.os.SystemClock;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.talkback.Feedback.InterruptLevel;
 import com.google.android.accessibility.talkback.TalkBackService.ProximitySensorListener;
 import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.talkback.eventprocessor.AccessibilityEventProcessor.AccessibilityEventIdleListener;
@@ -67,19 +66,28 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
     /** Enumeration of fake event types. */
     public enum Type {
       SCROLL_TIMEOUT,
+      TEXT_TRAVERSAL,
     }
 
     public final @NonNull Type eventType;
+    public final CharSequence eventText;
     public final long uptimeMs;
 
     public SyntheticEvent(@NonNull Type eventType) {
       this.eventType = eventType;
+      eventText = null;
+      this.uptimeMs = SystemClock.uptimeMillis();
+    }
+
+    public SyntheticEvent(@NonNull Type eventType, CharSequence eventText) {
+      this.eventType = eventType;
+      this.eventText = eventText;
       this.uptimeMs = SystemClock.uptimeMillis();
     }
 
     @Override
     public String toString() {
-      return String.format("type=%s time=%d", eventType, uptimeMs);
+      return String.format("type=%s, text=%s, time=%d", eventType, eventText, uptimeMs);
     }
   }
 
@@ -91,6 +99,11 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
     /** Inputs event to pipeline. */
     public void input(SyntheticEvent.Type eventType) {
       Pipeline.this.inputEvent(EVENT_ID_UNTRACKED, new SyntheticEvent(eventType));
+    }
+
+    /** Inputs event to pipeline. */
+    public void input(SyntheticEvent.Type eventType, CharSequence text) {
+      Pipeline.this.inputEvent(EVENT_ID_UNTRACKED, new SyntheticEvent(eventType, text));
     }
   }
 
@@ -217,9 +230,6 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
   private final DevInfoOverlayController devInfoOverlayController;
   private final Compositor compositor;
 
-  private CharSequence hintTTSOutput;
-  private int hintFlags;
-
   /** Asynchronous message-handler to delay executing feedback. */
   private final FeedbackDelayer feedbackDelayer;
 
@@ -263,9 +273,6 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
     actors.setPipelineFeedbackReturner(feedbackReturner);
     actors.setUserInterface(userInterface);
 
-    userInterface.setActorState(actors.getState());
-    userInterface.setPipeline(feedbackReturner);
-
     feedbackDelayer = new FeedbackDelayer(this, actors);
     speechObserver = new SpeechObserver(proximitySensorListener, speechController);
   }
@@ -301,6 +308,10 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
     return feedbackReturner;
   }
 
+  public @NonNull InterpretationReceiver getInterpretationReceiver() {
+    return interpretationReceiver;
+  }
+
   /** Input a synthetic event, from internal source instead of accessibility-framework. */
   private void inputEvent(EventId eventId, SyntheticEvent event) {
     interpreters.interpret(eventId, event);
@@ -334,26 +345,50 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
     for (int p = 0; p < parts.size(); ++p) {
       Feedback.Part part = parts.get(p);
 
-      boolean speakUsageHints =
-          VerbosityPreferences.getPreferenceValueBool(
-              SharedPreferencesUtils.getSharedPreferences(context),
-              context.getResources(),
-              context.getString(R.string.pref_a11y_hints_key),
-              context.getResources().getBoolean(R.bool.pref_a11y_hints_default));
-
       // Convert Feedback if this is speak hint
       if ((part.speech() != null)
           && (part.speech().hintSpeakOptions() != null)
           && (part.speech().hint() != null)
-          && speakUsageHints) {
-        hintTTSOutput = part.speech().hint();
-        hintFlags = part.speech().hintSpeakOptions().mFlags;
-        part.speech().hintSpeakOptions().setCompletedAction(mA11yHintRunnable);
+          && speakUsageHints(context)) {
+        final CharSequence hintTTSOutput = part.speech().hint();
+        final int hintFlags = part.speech().hintSpeakOptions().mFlags;
+        final @InterruptGroup int hintInterruptGroup = part.speech().hintInterruptGroup();
+        final @InterruptLevel int hintInterruptLevel = part.speech().hintInterruptLevel();
+        part.speech()
+            .hintSpeakOptions()
+            .setCompletedAction(
+                (status) -> {
+                  // The utterance must have been spoken successfully or the utterance was
+                  // interrupted by the
+                  // other utterances inside hint group (status =
+                  // SpeechController.STATUS_INTERRUPTED when
+                  // interrupt speaker).
+                  if (!((status == SpeechController.STATUS_SPOKEN)
+                      || (status == SpeechController.STATUS_INTERRUPTED))) {
+                    return;
+                  }
+                  execute(
+                      Feedback.create(
+                          EVENT_ID_UNTRACKED,
+                          Feedback.Part.builder()
+                              .setDelayMs((int) DELAY_HINT)
+                              .setInterruptGroup(hintInterruptGroup)
+                              .setInterruptLevel(hintInterruptLevel)
+                              .setSenderName(LOG)
+                              .speech(
+                                  hintTTSOutput,
+                                  SpeechController.SpeakOptions.create()
+                                      .setQueueMode(SpeechController.QUEUE_MODE_QUEUE)
+                                      .setFlags(hintFlags)
+                                      .setUtteranceGroup(SpeechController.UTTERANCE_GROUP_DEFAULT))
+                              .build()));
+                });
       }
 
       // Cancel delayed feedback from same group and lower/equal level.
       if (part.interruptGroup() != Feedback.DEFAULT) {
         cancelDelay(part.interruptGroup(), part.interruptLevel(), part.senderName());
+        actors.clearHintUtteranceCompleteAction(part.interruptGroup(), part.interruptLevel());
       }
       // Interrupt playing sound / vibration / speech.
       if (part.interruptAllFeedback()) {
@@ -365,8 +400,14 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
       if (part.interruptGentle()) {
         actors.interruptGentle(feedback.eventId());
       }
-      diagnosticOverlayController.displayFeedback(feedback);
-      devInfoOverlayController.displayFeedback(feedback);
+
+      if (diagnosticOverlayController.isHighlightOverlayEnabled()) {
+        displayFeedbackForDiagnosticOverlay(feedback);
+      }
+
+        if (devInfoOverlayController.isHighlightOverlayEnabled()) {
+            devInfoOverlayController.displayFeedback(feedback);
+        }
 
       boolean success = true;
       if (part.delayMs() <= 0) {
@@ -383,6 +424,47 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
       }
     }
     return false;
+  }
+
+  private static boolean speakUsageHints(Context context) {
+    return VerbosityPreferences.getPreferenceValueBool(
+        SharedPreferencesUtils.getSharedPreferences(context),
+        context.getResources(),
+        context.getString(R.string.pref_a11y_hints_key),
+        context.getResources().getBoolean(R.bool.pref_a11y_hints_default));
+  }
+
+  private void displayFeedbackForDiagnosticOverlay(Feedback feedback) {
+    Feedback.@Nullable Part failover =
+        (feedback.failovers() == null || feedback.failovers().size() < 1
+            ? null
+            : feedback.failovers().get(0));
+    /** Checks to make sure both failover and eventID aren't null before checking for gestures */
+    if ((failover == null) || (feedback.eventId() == null)) {
+      return;
+    }
+
+    // Filter for FOCUS and FOCUS DIRECTION actions,
+    // which mark beg/end of swipe gesture + associated focus
+    if (failover.focus() == null
+        && failover.focusDirection() == null
+        && failover.scroll() == null) {
+      return;
+    }
+
+    if ((feedback.eventId().getEventSubtype() == AccessibilityEvent.TYPE_WINDOWS_CHANGED
+        || feedback.eventId().getEventSubtype() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
+        || failover.scroll() != null)) {
+      diagnosticOverlayController.clearHighlight();
+    }
+
+    if (failover.focus() != null) {
+      diagnosticOverlayController.highlightNodesOnScreen(failover.focus().target());
+    } else if (failover.focusDirection() != null) {
+      diagnosticOverlayController.clearHighlight();
+    }
+
+    // Do not display feedback text, because it is directly observable.
   }
 
   //////////////////////////////////////////////////////////////////////////////////
@@ -625,31 +707,4 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
     return proximityChangeListener;
   }
 
-  /** Posts a delayed hint action inside Pipeline. */
-  private final SpeechController.UtteranceCompleteRunnable mA11yHintRunnable =
-      (status) -> {
-        // The utterance must have been spoken successfully or the utterance was interrupted by the
-        // other utterances inside hint group (status = SpeechController.STATUS_INTERRUPTED when
-        // interrupt speaker).
-        if (!((status == SpeechController.STATUS_SPOKEN)
-            || (status == SpeechController.STATUS_INTERRUPTED))) {
-          return;
-        }
-
-        execute(
-            Feedback.create(
-                EVENT_ID_UNTRACKED,
-                Feedback.Part.builder()
-                    .setDelayMs((int) DELAY_HINT)
-                    .setInterruptGroup(HINT)
-                    .setInterruptLevel(1)
-                    .setSenderName(LOG)
-                    .speech(
-                        hintTTSOutput,
-                        SpeechController.SpeakOptions.create()
-                            .setQueueMode(SpeechController.QUEUE_MODE_QUEUE)
-                            .setFlags(hintFlags)
-                            .setUtteranceGroup(SpeechController.UTTERANCE_GROUP_DEFAULT))
-                    .build()));
-      };
 }

@@ -35,6 +35,7 @@ public class EventState extends TimedFlags {
 
   public static final int EVENT_SKIP_FOCUS_SYNC_FROM_WINDOWS_CHANGED = 11;
   public static final int EVENT_SKIP_FOCUS_SYNC_FROM_WINDOW_STATE_CHANGED = 12;
+  public static final int EVENT_SKIP_FOCUS_SYNC_FROM_VIEW_FOCUSED = 13;
 
   public static final int EVENT_HINT_FOR_SYNCED_ACCESSIBILITY_FOCUS = 15;
 

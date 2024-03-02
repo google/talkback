@@ -1,0 +1,98 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Alva models which have the basic Satellite keys.
+note The two long, flat keys are named Up and Down.
+note The two long, bent keys are named Left and Right.
+note The two round keys are named Home and Cursor.
+note The row of keys immediately behind the braille cells is named RoutingKey1,
+note * and the row of keys further back is named RoutingKey2.
+note The keypad at the left side of the top is named SpeechPad,
+note * and the one at the right side of the top is named NavPad.
+note * They can be swapped via the internal menu.
+note * The four inner keys of each are subnamed Left, Right, Up, and Down.
+note * The two outer keys of each are subnamed F1 and F2.
+
+
+####################
+# Default Bindings #
+####################
+
+note Enter the internal menu by pressing:
+note * SpeechPadF1 + SpeechPadF2 + NavPadF1 + NavPadF2
+bind SpeechPadF1+SpeechPadF2+NavPadF1+NavPadF2 NOOP
+
+include sat_speech.kti
+include sat_nav.kti
+
+bind !Up LNUP
+bind !Down LNDN
+bind Home+!Up TOP_LEFT
+bind Home+!Down BOT_LEFT
+bind Cursor+!Up TOP
+bind Cursor+!Down BOT
+
+bind !Left FWINLT
+bind !Right FWINRT
+bind Home+!Left LNBEG
+bind Home+!Right LNEND
+bind Cursor+!Left FWINLTSKIP
+bind Cursor+!Right FWINRTSKIP
+
+bind RoutingKey1 ROUTE
+bind RoutingKey2 DESCCHAR
+
+bind RoutingKey1+!RoutingKey1 CLIP_COPY
+bind RoutingKey2+!RoutingKey2 CLIP_APPEND
+
+bind Home+!RoutingKey2 SETMARK
+bind Home+!RoutingKey1 GOTOMARK
+bind Cursor+!RoutingKey2 PRINDENT
+bind Cursor+!RoutingKey1 NXINDENT
+
+bind !Status1A CSRVIS
+bind !Status2A SKPIDLNS
+bind !Status1B ATTRVIS
+bind !Status2B DISPMD
+bind !Status1C CAPBLINK
+bind !Status2C SKPBLNKWINS
+
+bind Home BACK
+bind Cursor HOME
+bind Home+Cursor CSRTRK
+
+
+#################
+# Menu Bindings #
+#################
+
+context menu
+
+bind !Up MENU_PREV_ITEM
+bind !Down MENU_NEXT_ITEM
+bind Home+!Up MENU_FIRST_ITEM
+bind Home+!Down MENU_LAST_ITEM
+
+bind !Left FWINLT
+bind !Right FWINRT
+bind Home+!Left PREFLOAD
+bind Home+!Right PREFSAVE
+
+bind Home MENU_PREV_SETTING
+bind Cursor MENU_NEXT_SETTING
+bind Home+Cursor PREFMENU

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- LINT.IfChange(braille_display_settings_preferences) -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <Preference
+      android:key="pref_key_bd_banner"
+      app:isPreferenceVisible="false"/>
+
+  <SwitchPreference
+      android:key="@string/pref_key_bd_enabler"
+      android:title="@string/bd_preference_enabler_title" />
+
+  <com.google.android.accessibility.braille.brailledisplay.settings.ProgressPreferenceCategory
+      app:key="@string/pref_key_bd_connection_category"
+      app:title="@string/bd_preference_connection_category_title">
+
+    <!-- DevicePreference objects get put here at runtime. -->
+
+  </com.google.android.accessibility.braille.brailledisplay.settings.ProgressPreferenceCategory>
+
+  <Preference
+      app:key="@string/pref_key_bd_rescan"
+      app:title="@string/bd_preference_scan_inactivated_title" />
+
+  <PreferenceCategory
+      app:title="@string/bd_preference_languages_and_commands_category_title">
+
+    <Preference
+        android:key="@string/pref_brailleime_translator_codes_preferred"
+        android:summary="%s"
+        android:title="@string/pref_codes_title" />
+
+    <ListPreference
+        android:key="@string/pref_bd_output_code"
+        android:summary="%s"
+        android:title="@string/pref_preferred_output_codes_title" />
+
+    <ListPreference
+        android:key="@string/pref_brailleime_translator_code"
+        android:summary="%s"
+        android:title="@string/pref_preferred_input_codes_title" />
+
+    <Preference
+        android:key="@string/pref_braille_contracted_mode"
+        android:title="@string/pref_preferred_braille_grade_title"/>
+
+    <Preference
+        android:key="@string/pref_key_bindings_key"
+        android:title="@string/bd_preference_key_bindings_title"
+        android:summary="@string/bd_preference_key_bindings_summary"/>
+
+    <Preference
+        android:key="@string/pref_key_braille_elements"
+        android:title="@string/bd_preference_key_braille_elements_title"
+        android:summary="@string/bd_preference_key_braille_elements_summary">
+    </Preference>
+
+  </PreferenceCategory>
+
+  <PreferenceCategory
+      android:title="@string/bd_preference_general_category_title">
+
+    <SwitchPreference
+        app:key="@string/pref_key_bd_auto_connect"
+        app:summary="@string/bd_preference_auto_connect_summary"
+        app:title="@string/bd_preference_auto_connect_title" />
+
+    <Preference
+        android:key="@string/pref_key_bd_auto_scroll"
+        android:title="@string/bd_preference_key_auto_scroll_title"
+        android:summary="@string/bd_preference_key_auto_scroll_summary"/>
+
+    <Preference
+        app:key="@string/pref_key_bd_advanced"
+        app:title="@string/bd_preference_key_advanced_settings_title"/>
+
+  </PreferenceCategory>
+
+</PreferenceScreen>
+<!-- LINT.ThenChange(//depot/google3/java/com/google/android/accessibility/braille/brailledisplay/impl/res/xml/bd_preferences.xml:braille_display_settings_preferences) -->

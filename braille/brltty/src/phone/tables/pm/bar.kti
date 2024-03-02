@@ -1,0 +1,98 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Papenmeier displays which have an Easy Access Bar.
+
+note The long key on the front is the Easy Access Bar.
+
+ifVar hasSingleStepBar
+  note * It can only be moved one step in each direction (left, right, up, down).
+  note * To emulate the second step, also press any of the lower routing keys
+  note * (those in the row just behind the text cells).
+else
+  note * It can be moved two steps in each direction (left, right, up, down).
+endIf
+
+bind BarUp1 LNUP
+bind BarDown1 LNDN
+bind BarLeft1 FWINLT
+bind BarRight1 FWINRT
+
+bind BarUp2 TOP
+bind BarDown2 BOT
+bind BarLeft2 LNBEG
+bind BarRight2 LNEND
+
+hide on
+bind BarUp1+BarUp2 TOP
+bind BarDown1+BarDown2 BOT
+bind BarLeft1+BarLeft2 LNBEG
+bind BarRight1+BarRight2 LNEND
+hide off
+
+include routing.kti
+
+ifNotVar hasSingleStepBar
+  bind BarUp1+RoutingKey1 PRINDENT
+  bind BarDown1+RoutingKey1 NXINDENT
+  bind BarLeft1+RoutingKey1 CLIP_ADD
+  bind BarRight1+RoutingKey1 COPY_LINE
+
+  bind BarUp2+RoutingKey1 SETLEFT
+  bind BarDown2+RoutingKey1 DESCCHAR
+  bind BarLeft2+RoutingKey1 CLIP_NEW
+  bind BarRight2+RoutingKey1 COPY_RECT
+
+  hide on
+  bind BarUp1+BarUp2+RoutingKey1 SETLEFT
+  bind BarDown1+BarDown2+RoutingKey1 DESCCHAR
+  bind BarLeft1+BarLeft2+RoutingKey1 CLIP_NEW
+  bind BarRight1+BarRight2+RoutingKey1 COPY_RECT
+  hide off
+endIf
+
+assign toggleOff BarLeft1
+assign toggleOn BarRight1
+include status\{statusKeys}.kti
+
+include keys.kti
+
+ifKey RoutingKey2
+endIf
+
+ifKey StatusKey2 bind !StatusKey2 GOTOLINE
+
+
+context menu
+bind BarUp1 MENU_PREV_ITEM
+bind BarDown1 MENU_NEXT_ITEM
+bind BarUp2 MENU_FIRST_ITEM
+bind BarDown2 MENU_LAST_ITEM
+bind BarLeft1 MENU_PREV_SETTING
+bind BarRight1 MENU_NEXT_SETTING
+bind BarLeft2 PREFLOAD
+bind BarRight2 PREFSAVE
+
+hide on
+bind BarUp1+BarUp2 MENU_FIRST_ITEM
+bind BarDown1+BarDown2 MENU_LAST_ITEM
+bind BarLeft1+BarLeft2 PREFLOAD
+bind BarRight1+BarRight2 PREFSAVE
+hide off
+
+

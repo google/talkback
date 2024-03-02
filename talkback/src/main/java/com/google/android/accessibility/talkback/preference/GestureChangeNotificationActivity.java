@@ -17,7 +17,7 @@
 package com.google.android.accessibility.talkback.preference;
 
 import static com.google.android.accessibility.talkback.preference.PreferencesActivityUtils.GESTURE_CHANGE_NOTIFICATION_ID;
-import static com.google.android.accessibility.utils.PreferencesActivity.FRAGMENT_NAME;
+import static com.google.android.accessibility.utils.preference.PreferencesActivity.FRAGMENT_NAME;
 
 import android.app.Activity;
 import android.app.NotificationManager;
@@ -30,8 +30,8 @@ import android.text.SpannableStringBuilder;
 import com.android.talkback.TalkBackPreferencesActivity;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.preference.base.TalkBackGestureShortcutPreferenceFragment;
-import com.google.android.accessibility.utils.MaterialComponentUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.material.MaterialComponentUtils;
 
 public class GestureChangeNotificationActivity extends Activity {
 

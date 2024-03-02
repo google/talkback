@@ -42,6 +42,7 @@ public class PassThroughModeDialog extends FirstTimeUseDialog {
         /* checkboxTextResId= */ R.string.always_show_this_message_label);
   }
 
+  @Override
   public void setPipeline(Pipeline.FeedbackReturner pipeline) {
     this.pipeline = pipeline;
   }

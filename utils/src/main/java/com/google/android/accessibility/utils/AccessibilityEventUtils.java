@@ -16,6 +16,9 @@
 
 package com.google.android.accessibility.utils;
 
+import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_ID_NONE;
+import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_TYPE_NONE;
+
 import android.app.Notification;
 import android.os.Build;
 import android.os.Parcelable;
@@ -26,13 +29,17 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import com.google.common.base.Function;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** This class contains utility methods. */
 public class AccessibilityEventUtils {
+
+  public static final int UNKNOWN_EVENT_TYPE = 0;
+
+  public static final int CONTENT_CHANGE_TYPE_ERROR = 1 << 11;
+  public static final int CONTENT_CHANGE_TYPE_ENABLED = 1 << 12;
 
   private static final String SYSTEM_UI_PACKAGE_NAME = "com.android.systemui";
   private static final String VOLUME_DIALOG_CLASS_NAME = "android.app.Dialog";
@@ -42,9 +49,6 @@ public class AccessibilityEventUtils {
   private static final String GBOARD_PACKAGE_NAME_GOOGLE_PREFIX = "com.google.android.inputmethod";
   private static final String GBOARD_PACKAGE_NAME_APPS_PREFIX =
       "com.google.android.apps.inputmethod";
-
-  /** Unknown window id. Must match private variable AccessibilityWindowInfo.UNDEFINED_WINDOW_ID */
-  public static final int WINDOW_ID_NONE = -1;
 
   /** Undefined scroll delta. */
   public static final int DELTA_UNDEFINED = -1;
@@ -147,36 +151,27 @@ public class AccessibilityEventUtils {
             == AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_CHARACTER);
   }
 
-  /**
-   * Returns true if the {@link AccessibilityEvent#TYPE_WINDOW_STATE_CHANGED} event comes from the
-   * IME or volume dialog.
-   */
-  public static boolean isIMEorVolumeWindow(AccessibilityEvent event) {
-    if (event.getEventType() != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+  /** Returns true if the event comes from the IME. */
+  public static boolean isFromOnScreenKeyboard(AccessibilityEvent event) {
+    if (Role.getSourceRole(event) == Role.ROLE_ALERT_DIALOG) {
+      // Filters out TYPE_INPUT_METHOD_DIALOG.
       return false;
     }
-    // If there's an actual window ID, we need to check the window type (if window available).
-    AccessibilityNodeInfo source = event.getSource();
-    AccessibilityWindowInfo window = AccessibilityNodeInfoUtils.getWindow(source);
-    if (window == null) {
-      // It may get null window after receiving TYPE_WINDOW_STATE_CHANGED
-      // because of framework timing issue. So we can't treat null window as non-main window
-      // directly, here use package name to check GBoard and volume cases.
-      if (isFromGBoardPackage(event.getPackageName()) || isFromVolumeControlPanel(event)) {
-        return true;
-      }
-    } else {
-      switch (window.getType()) {
-        case AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD:
-          // Filters out TYPE_INPUT_METHOD_DIALOG.
-          return Role.getSourceRole(event) != Role.ROLE_ALERT_DIALOG;
-        case AccessibilityWindowInfoCompat.TYPE_SYSTEM:
-          return isFromVolumeControlPanel(event);
-        default: // fall out
-      }
-    }
+    return getWindowType(event) == AccessibilityWindowInfo.TYPE_INPUT_METHOD
+        || AccessibilityEventUtils.isFromGBoardPackage(event.getPackageName());
+  }
 
-    return false;
+  /**
+   * Returns window type of the event source window. If the event source or the source window is
+   * unavailable, just return {@link WINDOW_TYPE_NONE}.
+   */
+  public static int getWindowType(AccessibilityEvent event) {
+    if (event == null) {
+      return WINDOW_TYPE_NONE;
+    }
+    // The event should have its view source or the event source window must be unavailable.
+    AccessibilityNodeInfoCompat nodeInfo = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+    return AccessibilityNodeInfoUtils.getWindowType(nodeInfo);
   }
 
   /**
@@ -318,15 +313,6 @@ public class AccessibilityEventUtils {
     return source != null;
   }
 
-  /** Returns {@code true} if the event source window is anchored. */
-  public static boolean hasAnchoredWindow(AccessibilityEvent event) {
-    if (event == null) {
-      return false;
-    }
-    AccessibilityWindowInfo sourceWindow = AccessibilityNodeInfoUtils.getWindow(event.getSource());
-    return AccessibilityWindowInfoUtils.getAnchor(sourceWindow) != null;
-  }
-
   /**
    * Recycles an old event, and obtains a copy of a new event to replace the old event.
    *
@@ -345,10 +331,22 @@ public class AccessibilityEventUtils {
    */
   public static @Nullable AccessibilityEvent replaceWithCopy(
       @Nullable AccessibilityEvent old, @Nullable AccessibilityEvent newEvent) {
-    return (newEvent == null) ? null : AccessibilityEvent.obtain(newEvent);
+    return copy(newEvent);
   }
 
-  /** @deprecated Accessibility is discontinuing recycling. */
+  /** Returns a copy of event. */
+  public static @Nullable AccessibilityEvent copy(@Nullable AccessibilityEvent event) {
+    if (event == null) {
+      return null;
+    }
+    return BuildVersionUtils.isAtLeastR()
+        ? new AccessibilityEvent(event)
+        : AccessibilityEvent.obtain(event);
+  }
+
+  /**
+   * @deprecated Accessibility is discontinuing recycling.
+   */
   @Deprecated
   public static void recycle(AccessibilityEvent event) {}
 
@@ -508,7 +506,7 @@ public class AccessibilityEventUtils {
     return flagsToString(flags, AccessibilityEventUtils::singleWindowChangeTypeToString);
   }
 
-  private static @Nullable String flagsToString(int flags, Function<Integer, String> flagMapper) {
+  public static @Nullable String flagsToString(int flags, Function<Integer, String> flagMapper) {
     if (flags == 0) {
       return null;
     }

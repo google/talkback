@@ -27,13 +27,17 @@ import android.util.AttributeSet;
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.preference.DialogPreference;
-import androidx.preference.PreferenceDialogFragmentCompat;
+import com.google.android.accessibility.talkback.FeatureFlagReader;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.actor.GestureReporter;
+import com.google.android.accessibility.talkback.actor.ImageCaptioner;
 import com.google.android.accessibility.talkback.gesture.GestureShortcutMapping;
+import com.google.android.accessibility.talkback.utils.TalkbackFeatureSupport;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.preference.AccessibilitySuiteDialogPreference;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.common.collect.ImmutableList;
 import java.lang.annotation.Retention;
@@ -46,7 +50,7 @@ import java.util.Optional;
  *
  * <p><b>Use {@link #createDialogFragment()} to create the dialog fragment.<b/>
  */
-public final class GestureListPreference extends DialogPreference {
+public final class GestureListPreference extends AccessibilitySuiteDialogPreference {
   private static final String TAG = "GestureListPreference";
 
   /** Type of view style for the action list. */
@@ -56,6 +60,7 @@ public final class GestureListPreference extends DialogPreference {
 
   /** A category of actions. */
   static final int TYPE_TITLE = 0;
+
   /** A supported action. */
   static final int TYPE_ACTION_ITEM = 1;
 
@@ -64,9 +69,11 @@ public final class GestureListPreference extends DialogPreference {
   private String initialValue;
   // A customized summary which is used when the preference is in disable state
   @Nullable private String summaryWhenDisabled;
+  private final FormFactorUtils formFactorUtils;
 
   public GestureListPreference(Context context, AttributeSet attributeSet) {
     super(context, attributeSet);
+    formFactorUtils = FormFactorUtils.getInstance();
     // Change preference title to multi-line style.
     setSingleLineTitle(false);
     populateActionItems();
@@ -89,8 +96,19 @@ public final class GestureListPreference extends DialogPreference {
     setSummary(actionString);
   }
 
-  /** Creates the dialog fragment, which contains the list of supported actions. */
-  public PreferenceDialogFragmentCompat createDialogFragment() {
+  /**
+   * Creates a fragment to show the available action items for this gesture preference. The style of
+   * this fragment is subject to the form factor.
+   *
+   * <p>The base classes for the {@link GesturePreferenceFragmentCompat} are as follows:
+   *
+   * <ul>
+   *   <li>Handset: {@link androidx.preference.PreferenceDialogFragmentCompat}
+   *   <li>Auto: {@link androidx.preference.PreferenceDialogFragmentCompat}
+   *   <li>Wear: {@link androidx.preference.PreferenceFragmentCompat}
+   * </ul>
+   */
+  public GesturePreferenceFragmentCompat createDialogFragment() {
     return GesturePreferenceFragmentCompat.create(this);
   }
 
@@ -131,6 +149,10 @@ public final class GestureListPreference extends DialogPreference {
     return targetValue;
   }
 
+  public String getDefaultValue() {
+    return initialValue;
+  }
+
   /** Returns the text of the action for the current preference value. */
   private String getCurrentActionText() {
     if (!isEnabled() && summaryWhenDisabled != null) {
@@ -142,7 +164,7 @@ public final class GestureListPreference extends DialogPreference {
     if (item.isPresent()) {
       return item.get().text;
     }
-    LogUtils.w(TAG, "Can't find the value from supported action list.");
+    LogUtils.w(TAG, "%s - Can't find the value from supported action list.", getTitle());
     return getContext().getResources().getString(R.string.shortcut_unassigned);
   }
 
@@ -153,13 +175,22 @@ public final class GestureListPreference extends DialogPreference {
             getContext().getResources().getString(R.string.shortcut_unassigned),
             getContext().getResources().getString(R.string.shortcut_value_unassigned),
             TYPE_ACTION_ITEM));
-    builder.addAll(createBasicNavigation());
-    builder.addAll(createSystemActions());
-    builder.addAll(createReadingControl());
-    builder.addAll(createMenuControl());
-    builder.addAll(createTextEditing());
-    builder.addAll(createSpecialFeatures());
+    addActionItemsToList(builder, createBasicNavigation());
+    addActionItemsToList(builder, createSystemActions());
+    addActionItemsToList(builder, createReadingControl());
+    addActionItemsToList(builder, createMenuControl());
+    addActionItemsToList(builder, createTextEditing());
+    addActionItemsToList(builder, createSpecialFeatures());
     items = builder.build();
+  }
+
+  private static void addActionItemsToList(
+      ImmutableList.Builder<ActionItem> builder, ImmutableList<ActionItem> items) {
+    // Skips if only has title without any items.
+    if ((items.size() == 1) && (items.get(0).viewType == TYPE_TITLE)) {
+      return;
+    }
+    builder.addAll(items);
   }
 
   private ImmutableList<ActionItem> createBasicNavigation() {
@@ -171,7 +202,7 @@ public final class GestureListPreference extends DialogPreference {
     Resources resources = getContext().getResources();
 
     // TODO: Remove scroll left/right/up/down once 2-finger pass through is ready.
-    if (FeatureSupport.isMultiFingerGestureSupported() && !FeatureSupport.isWatch(getContext())) {
+    if (FeatureSupport.isMultiFingerGestureSupported() && !formFactorUtils.isAndroidWear()) {
       builder.add(
           new ActionItem(
               resources.getString(R.string.shortcut_scroll_up),
@@ -247,7 +278,7 @@ public final class GestureListPreference extends DialogPreference {
             R.array.shortcut_text_editing,
             R.array.shortcut_value_text_editing);
     Resources resources = getContext().getResources();
-    if (FeatureSupport.supportSwitchToInputMethod() && !FeatureSupport.isWatch(getContext())) {
+    if (FeatureSupport.supportSwitchToInputMethod() && !formFactorUtils.isAndroidWear()) {
       builder.add(
           new ActionItem(
               resources.getString(R.string.shortcut_braille_keyboard),
@@ -272,17 +303,37 @@ public final class GestureListPreference extends DialogPreference {
 
     builder.add(
         new ActionItem(
-            resources.getString(R.string.shortcut_voice_commands),
-            resources.getString(R.string.shortcut_value_voice_commands),
+            resources.getString(R.string.shortcut_increase_volume),
+            resources.getString(R.string.shortcut_value_increase_volume),
             TYPE_ACTION_ITEM));
 
-    if (!FeatureSupport.isWatch(getContext())) {
+    builder.add(
+        new ActionItem(
+            resources.getString(R.string.shortcut_decrease_volume),
+            resources.getString(R.string.shortcut_value_decrease_volume),
+            TYPE_ACTION_ITEM));
+
+    if (TalkbackFeatureSupport.supportSpeechRecognize()) {
+      builder.add(
+          new ActionItem(
+              resources.getString(R.string.shortcut_voice_commands),
+              resources.getString(R.string.shortcut_value_voice_commands),
+              TYPE_ACTION_ITEM));
+    }
+
+    if (!formFactorUtils.isAndroidWear()) {
       builder.add(
           new ActionItem(
               resources.getString(R.string.title_show_screen_search),
               resources.getString(R.string.shortcut_value_screen_search),
               TYPE_ACTION_ITEM));
     }
+
+    builder.add(
+        new ActionItem(
+            resources.getString(R.string.title_show_hide_screen),
+            resources.getString(R.string.shortcut_value_show_hide_screen),
+            TYPE_ACTION_ITEM));
 
     if (FeatureSupport.supportPassthrough()) {
       builder.add(
@@ -329,7 +380,7 @@ public final class GestureListPreference extends DialogPreference {
             resources.getString(R.string.shortcut_value_tutorial),
             TYPE_ACTION_ITEM));
 
-    if (!FeatureSupport.isWatch(getContext())) {
+    if (!formFactorUtils.isAndroidWear()) {
       builder.add(
           new ActionItem(
               resources.getString(R.string.shortcut_practice_gestures),
@@ -342,6 +393,23 @@ public final class GestureListPreference extends DialogPreference {
           new ActionItem(
               resources.getString(R.string.shortcut_report_gesture),
               resources.getString(R.string.shortcut_value_report_gesture),
+              TYPE_ACTION_ITEM));
+    }
+
+    if (FeatureSupport.supportBrailleDisplay(getContext())
+        && FeatureFlagReader.useGestureBrailleDisplayOnOff(getContext())) {
+      builder.add(
+          new ActionItem(
+              resources.getString(R.string.shortcut_toggle_braille_display),
+              resources.getString(R.string.shortcut_value_toggle_braille_display),
+              TYPE_ACTION_ITEM));
+    }
+
+    if (ImageCaptioner.supportsImageCaption(getContext())) {
+      builder.add(
+          new ActionItem(
+              resources.getString(R.string.title_image_caption),
+              resources.getString(R.string.shortcut_value_describe_image),
               TYPE_ACTION_ITEM));
     }
 

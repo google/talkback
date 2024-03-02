@@ -1,0 +1,70 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# Key subtable for HandyTech Braille Star
+
+#Overridden by BrailleBack
+#bind RoutingKey ROUTE
+bind RoutingKey+!RoutingKey CLIP_COPY
+
+bind SpaceLeft+RoutingKey PRINDENT
+bind SpaceRight+RoutingKey NXINDENT
+
+bind SpaceLeft FWINLT
+bind SpaceRight FWINRT
+bind SpaceLeft+SpaceRight PASTE
+
+bind B1+SpaceLeft LNBEG
+bind B1+SpaceRight LNEND
+bind B2+SpaceLeft TOP
+bind B2+SpaceRight BOT
+bind B3+SpaceLeft HWINLT
+bind B3+SpaceRight HWINRT
+bind B6+SpaceLeft CHRLT
+bind B6+SpaceRight CHRRT
+bind B2+B3+SpaceLeft MUTE
+bind B2+B3+SpaceRight SAY_LINE
+
+include dots.kti
+include rockers.kti
+
+assign brailleOn B1+B8+SpaceRight
+assign brailleOff B1+B8+SpaceLeft
+assign space SpaceLeft
+assign enter SpaceRight
+include input.kti
+
+
+########################
+# BrailleBack Bindings #
+########################
+
+# ROUTE+128 is a long-press on the routing key.
+bind RoutingKey ROUTE:ROUTE+128
+
+assign space SpaceLeft
+include dots.kti
+
+assign space SpaceRight
+include dots.kti
+
+assign space SpaceLeft
+include input.kti
+
+assign space SpaceRight
+include input.kti

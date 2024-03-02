@@ -4,7 +4,7 @@
   android:layout_height="match_parent"
   android:orientation="horizontal"
   android:paddingTop="?android:attr/listPreferredItemPaddingStart">
-  <TextView
+  <androidx.appcompat.widget.AppCompatTextView
     android:id ="@+id/dialog_url_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

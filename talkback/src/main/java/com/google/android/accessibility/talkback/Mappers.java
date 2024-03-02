@@ -19,13 +19,13 @@ package com.google.android.accessibility.talkback;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.INTERRUPT;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.READ_FOCUSED_CONTENT;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN;
+import static com.google.android.accessibility.talkback.Feedback.HINT;
 import static com.google.android.accessibility.talkback.Feedback.PassThroughMode.Action.DISABLE_PASSTHROUGH;
 import static com.google.android.accessibility.talkback.Feedback.PassThroughMode.Action.STOP_TIMER;
 import static com.google.android.accessibility.talkback.Interpretation.VoiceCommand.Action.VOICE_COMMAND_UNKNOWN;
-import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_SPEAK_HINT;
 import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_UNKNOWN;
 import static com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration.DOUBLE_TAP;
-import static com.google.android.accessibility.talkback.keyboard.KeyComboManager.ACTION_UNKNOWN;
+import static com.google.android.accessibility.utils.AccessibilityEventUtils.UNKNOWN_EVENT_TYPE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_NO_HISTORY;
@@ -35,11 +35,10 @@ import static com.google.android.accessibility.utils.traversal.TraversalStrategy
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Rect;
-import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback.Focus;
-import com.google.android.accessibility.talkback.Feedback.Speech;
 import com.google.android.accessibility.talkback.Feedback.UiChange.Action;
 import com.google.android.accessibility.talkback.Interpretation.CompositorID;
 import com.google.android.accessibility.talkback.Interpretation.UiChange;
@@ -48,15 +47,16 @@ import com.google.android.accessibility.talkback.Interpretation.VoiceCommand;
 import com.google.android.accessibility.talkback.actor.voicecommands.VoiceCommandMapper;
 import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.talkback.compositor.EventInterpretation;
-import com.google.android.accessibility.talkback.compositor.HintEventInterpretation;
+import com.google.android.accessibility.talkback.eventprocessor.ProcessorAccessibilityHints;
 import com.google.android.accessibility.talkback.focusmanagement.FocusFeedbackMapper;
 import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration.TypingMethod;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
+import com.google.android.accessibility.talkback.monitor.BatteryMonitor;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.FocusFinder;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.LogDepth;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
@@ -66,6 +66,7 @@ import com.google.android.accessibility.utils.output.SpeechController.SpeakOptio
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirection;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirectionOrUnknown;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -76,10 +77,12 @@ public final class Mappers {
 
   public static final String LOG_TAG = "Mappers";
 
+  private static final int KEY_ACTION_UNKNOWN = -1;
+
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Member data
 
-  private final Context context;
+  private final @NonNull Context context;
   private final Compositor compositor;
   private final FocusFinder focusFinder;
   private Monitors.State monitors;
@@ -87,7 +90,7 @@ public final class Mappers {
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
-  public Mappers(Context context, Compositor compositor, FocusFinder focusFinder) {
+  public Mappers(@NonNull Context context, Compositor compositor, FocusFinder focusFinder) {
     this.context = context;
     this.compositor = compositor;
     this.focusFinder = focusFinder;
@@ -110,7 +113,7 @@ public final class Mappers {
       @Nullable Interpretation interpretation,
       @Nullable AccessibilityNodeInfoCompat eventSourceNode) {
 
-    final Variables variables = new Variables(context, event, interpretation, monitors);
+    final @NonNull Variables variables = new Variables(context, event, interpretation, monitors);
 
     int depth = 0;
     LogDepth.log(
@@ -160,63 +163,41 @@ public final class Mappers {
                     .setFocus(
                         Focus.builder().setAction(ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN).build())
                     .build());
+          case SPELLING_SUGGESTION_HINT:
+            return Feedback.create(
+                eventId,
+                ProcessorAccessibilityHints.suggestionSpanToHint(
+                        context, compositor.getTextComposer())
+                    .build());
         }
       }
     } else if (interpretation instanceof Interpretation.CompositorID) {
-      // TODO: Make compositor return feedback by value instead of callback.
+      // TODO: Make compositor return feedback by value (vs executing speech/etc).
       @Compositor.Event int id = variables.compositorEventID(depth);
-      if (id == EVENT_SPEAK_HINT) {
-        EventInterpretation eventInterp = ((CompositorID) interpretation).getEventInterpretation();
-        int hintType = eventInterp.getHint().getHintType();
-        if ((hintType == HintEventInterpretation.HINT_TYPE_INPUT_FOCUS)
-            || (hintType == HintEventInterpretation.HINT_TYPE_ACCESSIBILITY_FOCUS)
-            || (hintType == HintEventInterpretation.HINT_TYPE_SCREEN)
-            || (hintType == HintEventInterpretation.HINT_TYPE_SELECTOR)
-            || (hintType == HintEventInterpretation.HINT_TYPE_TEXT_SUGGESTION)) {
-          String hintTTSOutput;
-          if (hintType == HintEventInterpretation.HINT_TYPE_TEXT_SUGGESTION) {
-            hintTTSOutput = context.getString(R.string.hint_suggestion);
-          } else {
-            hintTTSOutput =
-                compositor.parseTTSText(
-                    ((CompositorID) interpretation).getNode(), eventInterp.getEvent(), eventInterp);
-            if (TextUtils.isEmpty(hintTTSOutput)) {
-              return null;
-            }
-          }
-
-          int hintFlags = FeedbackItem.FLAG_NO_HISTORY;
-          if (eventInterp.getHint().getForceFeedbackEvenIfAudioPlaybackActive()) {
-            hintFlags |= FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE;
-          }
-
-          if (eventInterp.getHint().getForceFeedbackEvenIfMicrophoneActive()) {
-            hintFlags |= FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE;
-          }
-
-          Feedback.Part.Builder builder =
-              Feedback.Part.builder()
-                  .setSpeech(
-                      Speech.builder()
-                          .setAction(Speech.Action.SPEAK)
-                          .setHintSpeakOptions(
-                              SpeechController.SpeakOptions.create().setFlags(hintFlags))
-                          .setHint(hintTTSOutput)
-                          .build());
-          if (hintType == HintEventInterpretation.HINT_TYPE_TEXT_SUGGESTION) {
-            return Feedback.create(
-                eventId, builder.sound(R.raw.typo).vibration(R.array.typo_pattern).build());
-          }
-          return Feedback.create(eventId, builder.build());
+      if (id != EVENT_UNKNOWN) {
+        EventInterpretation compositorEventInterp =
+            ((CompositorID) interpretation).getEventInterpretation();
+        if (compositorEventInterp == null) {
+          compositorEventInterp = new EventInterpretation(id);
         }
-      } else if (id != EVENT_UNKNOWN) {
-        EventInterpretation compositorEventInterp = new EventInterpretation(id);
         compositorEventInterp.setReadOnly();
-        if (event == null) {
+        if (event != null) {
+          compositor.handleEvent(event, eventId, compositorEventInterp);
+        } else if (eventSourceNode != null) {
           compositor.handleEvent(eventSourceNode, eventId, compositorEventInterp);
         } else {
-          compositor.handleEvent(event, eventId, compositorEventInterp);
+          compositor.handleEvent(eventId, compositorEventInterp);
         }
+      }
+    } else if (interpretation instanceof Interpretation.HintableEvent) {
+      Feedback.Part.@Nullable Builder feedback =
+          ProcessorAccessibilityHints.toFeedback(
+              variables, depth, context, compositor.getTextComposer());
+      return (feedback == null) ? null : Feedback.create(eventId, feedback.build());
+    } else if (interpretation instanceof Interpretation.Key) {
+      if (variables.keyAction(depth) == KeyEvent.ACTION_DOWN) {
+        // Cancel all delayed hints.
+        return Feedback.create(eventId, Feedback.interrupt(HINT, /* level= */ 2).build());
       }
     } else if (interpretation instanceof Interpretation.Power) {
       if (variables.isPhoneCallActive(depth)) {
@@ -260,8 +241,7 @@ public final class Mappers {
               .setQueueMode(SpeechController.QUEUE_MODE_INTERRUPT)
               .setFlags(
                   FeedbackItem.FLAG_NO_HISTORY
-                      | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
-                      | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE);
+                      | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE);
       return Feedback.create(
           eventId, Feedback.Part.builder().speech(announcement, speakOptions).build());
     } else if (interpretation instanceof Interpretation.VoiceCommand) {
@@ -278,7 +258,7 @@ public final class Mappers {
     } else if (interpretation instanceof Interpretation.InputFocus) {
       @Nullable AccessibilityNodeInfoCompat targetedNode = variables.inputFocusTarget(depth);
       if (targetedNode == null || !targetedNode.refresh()) {
-        LogDepth.log(LOG_TAG, depth, "target is null or fails to refresh");
+        LogDepth.log(LOG_TAG, depth, "Return, target is null or fails to refresh");
         return null;
       }
       FocusActionInfo focusActionInfo =
@@ -290,7 +270,7 @@ public final class Mappers {
       Feedback.Part.Builder focusBuilder =
           FocusFeedbackMapper.onNodeManuallyScrolled(variables, depth, focusFinder);
       if (focusBuilder == null) {
-        LogDepth.log(LOG_TAG, depth, "Manual scroll event cannot map to a feedback");
+        LogDepth.log(LOG_TAG, depth, "Return, Manual scroll event cannot map to a feedback");
         return null;
       }
       return Feedback.create(eventId, focusBuilder.build());
@@ -344,13 +324,14 @@ public final class Mappers {
    * Wrapper around Event and Interpretation, to simplify variable access in mappers, and to log
    * values while reading them.
    */
-  public static final class Variables {
+  public static class Variables {
     private final Context context;
     private SharedPreferences prefs;
     private final @Nullable AccessibilityEvent event;
     private final @Nullable Interpretation interpretation;
     private @Nullable AccessibilityNodeInfoCompat source;
     private final Monitors.State monitors;
+    private final FormFactorUtils formFactorUtils = FormFactorUtils.getInstance();
 
     public Variables(
         Context context,
@@ -364,7 +345,12 @@ public final class Mappers {
       this.monitors = monitors;
     }
 
-    /** Caller does not own returned node. */
+    public int eventType(int depth) {
+      int eventType = (event == null) ? UNKNOWN_EVENT_TYPE : event.getEventType();
+      LogDepth.logVar(LOG_TAG, ++depth, "eventType", eventType);
+      return eventType;
+    }
+
     public @Nullable AccessibilityNodeInfoCompat source(int depth) {
       if (source == null) {
         source = AccessibilityEventUtils.sourceCompat(event);
@@ -385,6 +371,15 @@ public final class Mappers {
           "scrollDirection",
           TraversalStrategyUtils.directionToString(directionID));
       return directionID;
+    }
+
+    public @Nullable AccessibilityNodeInfoCompat currentNode(int depth) {
+      AccessibilityNodeInfoCompat currentNode =
+          (interpretation instanceof Interpretation.ManualScroll)
+              ? ((Interpretation.ManualScroll) interpretation).currentFocusedNode()
+              : null;
+      LogDepth.logVar(LOG_TAG, ++depth, "currentNode", currentNode);
+      return currentNode;
     }
 
     public Interpretation.ID.Value interpretationID(int depth) {
@@ -428,15 +423,6 @@ public final class Mappers {
               : BatteryMonitor.UNKNOWN_LEVEL;
       LogDepth.logVar(LOG_TAG, ++depth, "batteryPercent", batteryPercent);
       return batteryPercent;
-    }
-
-    public int keyCombo(int depth) {
-      int id =
-          (interpretation instanceof Interpretation.KeyCombo)
-              ? ((Interpretation.KeyCombo) interpretation).id()
-              : ACTION_UNKNOWN;
-      LogDepth.logVar(LOG_TAG, ++depth, "keyCombo", id);
-      return id;
     }
 
     public VoiceCommand voiceCommand(int depth) {
@@ -490,18 +476,9 @@ public final class Mappers {
     }
 
     public boolean isTv(int depth) {
-      boolean tv = FeatureSupport.isTv(context);
+      boolean tv = formFactorUtils.isAndroidTv();
       LogDepth.logVar(LOG_TAG, ++depth, "isTv", tv);
       return tv;
-    }
-
-    public boolean isInitialFocusEnabled(int depth) {
-      // Initial focus can be enabled in TV for feature parity with mobile and consistency of input
-      // and accessibility focus.
-      boolean isInitialFocusEnabled =
-          !FeatureSupport.isTv(context) || TvNavigation.isInitialFocusEnabled(context);
-      LogDepth.logVar(LOG_TAG, ++depth, "isInitialFocusEnabled", isInitialFocusEnabled);
-      return isInitialFocusEnabled;
     }
 
     public @Nullable ScreenState screenState(int depth) {
@@ -547,7 +524,6 @@ public final class Mappers {
       return action;
     }
 
-    /** Caller does not own returned node. */
     public @Nullable AccessibilityNodeInfoCompat touchTarget(int depth) {
       return (interpretation instanceof Interpretation.Touch)
           ? ((Interpretation.Touch) interpretation).target()
@@ -600,6 +576,33 @@ public final class Mappers {
       float percent = AccessibilityEventUtils.getScrollPercent(event, 50.0f);
       LogDepth.logVar(LOG_TAG, ++depth, "scrollPercent", percent);
       return percent;
+    }
+
+    public int keyAction(int depth) {
+      int action =
+          (interpretation instanceof Interpretation.Key)
+              ? ((Interpretation.Key) interpretation).event.getAction()
+              : KEY_ACTION_UNKNOWN;
+      LogDepth.logVar(LOG_TAG, ++depth, "keyAction", action);
+      return action;
+    }
+
+    public boolean forceFeedbackEvenIfAudioPlaybackActive(int depth) {
+      boolean result =
+          (interpretation instanceof Interpretation.HintableEvent)
+              && ((Interpretation.HintableEvent) interpretation)
+                  .forceFeedbackEvenIfAudioPlaybackActive;
+      LogDepth.logVar(LOG_TAG, ++depth, "forceFeedbackEvenIfAudioPlaybackActive", result);
+      return result;
+    }
+
+    public boolean forceFeedbackEvenIfMicrophoneActive(int depth) {
+      boolean result =
+          (interpretation instanceof Interpretation.HintableEvent)
+              && ((Interpretation.HintableEvent) interpretation)
+                  .forceFeedbackEvenIfMicrophoneActive;
+      LogDepth.logVar(LOG_TAG, ++depth, "forceFeedbackEvenIfMicrophoneActive", result);
+      return result;
     }
 
     @Override

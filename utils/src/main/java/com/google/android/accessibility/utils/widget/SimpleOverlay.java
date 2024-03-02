@@ -192,6 +192,13 @@ public class SimpleOverlay {
       return;
     }
 
+    // The parent is ViewRootImpl which is available after adding view to the window.
+    // If we have ViewRootImpl and isVisible is false, it means we adding the view failed.
+    // And we try to remove the view from WindowManagerGlobal.
+    if (contentView.getParent() != null) {
+      windowManager.removeViewImmediate(contentView);
+    }
+
     windowManager.addView(contentView, params);
     isVisible = true;
 

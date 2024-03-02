@@ -304,6 +304,8 @@
   <string name="voice_commands_help_hint">For best results, say the exact wording listed on the following screens.</string>
   <!-- The hint of triggering voice command in lock screen mode. [CHAR_LIMIT=NONE] -->
   <string name="voice_command_screen_locked_hint">Voice commands are not available while the screen is locked. To use the TalkBack menu instead, <xliff:g id="gesture" example="Swipe right then up">%1$s</xliff:g>.</string>
+  <!-- The hint of triggering voice command in setup wizard. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_during_setup_hint">Voice commands are not available during setup.</string>
 
   <!-- The page title of voice command - reading controls. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Alama ya nukuu</string>
   <string name="symbol_ampersand">Ishara ya \'na\'</string>
   <string name="symbol_angle_bracket_left">Alama ya \'chini ya\'</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Ratili</string>
   <string name="symbol_pound_sterling">Alama ya sarafu ya pauni</string>
+  <string name="symbol_currency_peso">Alama ya Peso</string>
+  <string name="symbol_currency_dong">Alama ya Dong</string>
   <string name="symbol_question_mark">Alama ya kuuliza</string>
   <string name="symbol_quotation_mark">Nukuu</string>
   <string name="symbol_registered_trademark">Alama ya biashara iliyosajiliwa</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">Alama ya \'chini ya\' ya upana kamili</string>
   <string name="symbol_full_width_greater_than_sign">Alama ya \'zaidi ya\' ya upana kamili</string>
   <string name="symbol_left_single_quotation_mark">Alama moja ya kunukuu ya kushoto</string>
+  <string name="symbol_braille">nukta nundu %s</string>
+  <plurals name="dots">
+    <item quantity="one">nukta %s</item>
+    <item quantity="other">nukta %s</item>
+  </plurals>
 </resources>

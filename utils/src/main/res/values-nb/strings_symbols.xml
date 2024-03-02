@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Apostrofe</string>
   <string name="symbol_ampersand">Og-tegn</string>
   <string name="symbol_angle_bracket_left">Mindre-enn-tegn</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Nummertegn</string>
   <string name="symbol_pound_sterling">Pund-valutategn</string>
+  <string name="symbol_currency_peso">Pesotegn</string>
+  <string name="symbol_currency_dong">Dongtegn</string>
   <string name="symbol_question_mark">Spørsmålstegn</string>
   <string name="symbol_quotation_mark">Anførselstegn</string>
   <string name="symbol_registered_trademark">Registrert varemerke</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">Mindre-enn-tegn – full bredde</string>
   <string name="symbol_full_width_greater_than_sign">Større-enn-tegn – full bredde</string>
   <string name="symbol_left_single_quotation_mark">Enkelt anførselstegn, venstre</string>
+  <string name="symbol_braille">punktskrift %s</string>
+  <plurals name="dots">
+    <item quantity="one">punkt %s</item>
+    <item quantity="other">punkter %s</item>
+  </plurals>
 </resources>

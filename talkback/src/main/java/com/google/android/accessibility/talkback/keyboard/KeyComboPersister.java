@@ -32,14 +32,6 @@ public class KeyComboPersister {
     this.keyPrefix = keyPrefix;
   }
 
-  private String getPrefixedKey(String key) {
-    if (keyPrefix == null) {
-      return key;
-    } else {
-      return keyPrefix + PREFIX_CONCATENATOR + key;
-    }
-  }
-
   public void saveKeyCombo(String key, long keyComboCode) {
     prefs.edit().putLong(getPrefixedKey(key), keyComboCode).apply();
   }
@@ -54,5 +46,13 @@ public class KeyComboPersister {
 
   public Long getKeyComboCode(String key) {
     return prefs.getLong(getPrefixedKey(key), KeyComboModel.KEY_COMBO_CODE_UNASSIGNED);
+  }
+
+  private String getPrefixedKey(String key) {
+    if (keyPrefix == null) {
+      return key;
+    } else {
+      return keyPrefix + PREFIX_CONCATENATOR + key;
+    }
   }
 }

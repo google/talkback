@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">I-aphostrofi</string>
   <string name="symbol_ampersand">I-Ampersand</string>
   <string name="symbol_angle_bracket_left">Uphawu lokuncane kunokunye</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">i-Pi</string>
   <string name="symbol_pound">Iphawundi</string>
   <string name="symbol_pound_sterling">Uphawu lohlobo lwemali lephawundi</string>
+  <string name="symbol_currency_peso">Uphawu lwe-Peso</string>
+  <string name="symbol_currency_dong">Ungasayini</string>
   <string name="symbol_question_mark">Uphawu lombuzo</string>
   <string name="symbol_quotation_mark">Izicaphuni</string>
   <string name="symbol_registered_trademark">Uphawu lentengiso olubhalisiwe</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">Ububanzi obugcwele bophawu lokuncane</string>
   <string name="symbol_full_width_greater_than_sign">Ububanzi obugcwele bophawu lokukhulu</string>
   <string name="symbol_left_single_quotation_mark">Uphawu olungakwesokunxele lwezicaphuni olulodwa</string>
+  <string name="symbol_braille">i-%s ye-braille</string>
+  <plurals name="dots">
+    <item quantity="one">amachashazi %s</item>
+    <item quantity="other">amachashazi %s</item>
+  </plurals>
 </resources>

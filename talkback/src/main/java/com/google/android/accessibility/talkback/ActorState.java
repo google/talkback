@@ -27,7 +27,7 @@ import com.google.android.accessibility.talkback.actor.NodeActionPerformer;
 import com.google.android.accessibility.talkback.actor.PassThroughModeActor;
 import com.google.android.accessibility.talkback.actor.SpeechRateActor;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
-import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
+import com.google.android.accessibility.utils.labeling.LabelManager;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -84,6 +84,10 @@ public final class ActorState {
     return writable.getOverrideFocusRestoreUptimeMs();
   }
 
+  public int getLastSystemAction() {
+    return writable.getLastSystemAction();
+  }
+
   public AutoScrollActor.StateReader getScrollerState() {
     return writable.scrollState;
   }
@@ -108,7 +112,7 @@ public final class ActorState {
     return writable.passThroughModeState;
   }
 
-  public CustomLabelManager.State getCustomLabel() {
+  public LabelManager.State getLabelManagerState() {
     return writable.labelerState;
   }
 

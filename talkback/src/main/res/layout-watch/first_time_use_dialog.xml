@@ -31,7 +31,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/dialog_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:textColor="@color/text_color"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/dialog_second_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:textColor="@color/text_color"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/dialog_third_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

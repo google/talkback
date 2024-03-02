@@ -98,7 +98,7 @@
   <string name="voice_commands_echo_feedback_not_recognized">No se reconoce \"%1$s\" como comando de voz.</string>
   <string name="voice_commands_label_saved">Etiqueta guardada</string>
   <string name="voice_commands_no_actions_feedback">No hay acciones disponibles</string>
-  <string name="voice_commands_no_next_heading_feedback">No hay ningún título más adelante</string>
+  <string name="voice_commands_no_next_heading_feedback">No hay ningún encabezado más adelante</string>
   <string name="voice_commands_no_next_link_feedback">No hay ningún enlace más adelante</string>
   <string name="voice_commands_no_next_control_feedback">No hay ningún control más adelante</string>
   <string name="voice_commands_no_next_landmark_feedback">No hay ningún punto de referencia más adelante</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Para usar comandos de voz, desliza el dedo primero hacia la derecha y después hacia arriba. Di \"Ayuda\" o \"¿Qué puedo decir?\" si quieres que aparezca la lista de comandos.</string>
   <string name="voice_commands_help_hint">Para conseguir un mejor resultado, di las palabras exactas que aparecen en las siguientes pantallas.</string>
   <string name="voice_command_screen_locked_hint">Los comandos de voz no están disponibles cuando la pantalla está bloqueada. Para usar el menú de TalkBack, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Los comandos de voz no están disponibles durante la configuración.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Cambia cómo se lee el contenido que aparece en esta pantalla</string>
   <string name="voice_commands_help_next">Siguiente [encabezado]</string>

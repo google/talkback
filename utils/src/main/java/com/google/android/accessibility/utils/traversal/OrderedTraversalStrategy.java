@@ -16,7 +16,9 @@
 
 package com.google.android.accessibility.utils.traversal;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.utils.Logger;
 import java.util.HashMap;
 import java.util.Map;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -32,24 +34,19 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 @SuppressWarnings("JavadocReference")
 public class OrderedTraversalStrategy implements TraversalStrategy {
 
-  private @Nullable AccessibilityNodeInfoCompat mRootNode;
-  private final OrderedTraversalController mController;
-  private final Map<AccessibilityNodeInfoCompat, Boolean> mSpeakingNodesCache;
+  private final OrderedTraversalController controller;
+  private final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache;
 
-  public OrderedTraversalStrategy(AccessibilityNodeInfoCompat rootNode) {
-    if (rootNode != null) {
-      mRootNode = AccessibilityNodeInfoCompat.obtain(rootNode);
-    }
-
-    mSpeakingNodesCache = new HashMap<>();
-    mController = new OrderedTraversalController();
-    mController.setSpeakNodesCache(mSpeakingNodesCache);
-    mController.initOrder(mRootNode, false);
+  public OrderedTraversalStrategy(@Nullable AccessibilityNodeInfoCompat rootNode) {
+    speakingNodesCache = new HashMap<>();
+    controller = new OrderedTraversalController();
+    controller.setSpeakingNodesCache(speakingNodesCache);
+    controller.initOrder(rootNode, false);
   }
 
   @Override
   public Map<AccessibilityNodeInfoCompat, Boolean> getSpeakingNodesCache() {
-    return mSpeakingNodesCache;
+    return speakingNodesCache;
   }
 
   @Override
@@ -67,27 +64,32 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
   }
 
   private @Nullable AccessibilityNodeInfoCompat focusNext(AccessibilityNodeInfoCompat node) {
-    return mController.findNext(node);
+    return controller.findNext(node);
   }
 
   private @Nullable AccessibilityNodeInfoCompat focusPrevious(AccessibilityNodeInfoCompat node) {
-    return mController.findPrevious(node);
+    return controller.findPrevious(node);
   }
 
   @Override
-  public @Nullable AccessibilityNodeInfoCompat focusInitial(
+  public @Nullable AccessibilityNodeInfoCompat focusFirst(
       AccessibilityNodeInfoCompat root, @SearchDirection int direction) {
     if (direction == SEARCH_FOCUS_FORWARD) {
-      return mController.findFirst(root);
+      return controller.findFirst(root);
     } else if (direction == SEARCH_FOCUS_BACKWARD) {
-      return mController.findLast(root);
+      return controller.findLast(root);
     } else {
       return null;
     }
   }
 
+  @Override
+  public @Nullable AccessibilityNodeInfoCompat focusInitial(AccessibilityNodeInfoCompat root) {
+    return controller.findInitial(root);
+  }
+
   /** Dumps the traversal order tree. */
-  public void dumpTree() {
-    mController.dumpTree();
+  public void dumpTree(@NonNull Logger treeDebugLogger) {
+    controller.dumpTree(treeDebugLogger);
   }
 }

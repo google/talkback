@@ -82,13 +82,23 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
                 getResources().getBoolean(R.bool.pref_phonetic_letters_default))
             .put(
                 getString(R.string.pref_speak_roles_key),
-                getResources().getBoolean(R.bool.pref_speak_container_element_positions_default))
+                getResources().getBoolean(R.bool.pref_speak_roles_default))
             .put(
                 getString(R.string.pref_speak_container_element_positions_key),
-                getResources().getBoolean(R.bool.pref_a11y_hints_default))
+                getResources().getBoolean(R.bool.pref_speak_container_element_positions_default))
             .put(
                 getString(R.string.pref_verbose_scroll_announcement_key),
                 getResources().getBoolean(R.bool.pref_verbose_scroll_announcement_default))
+            .put(
+                getString(R.string.pref_speak_system_window_titles_key),
+                getResources().getBoolean(R.bool.pref_speak_system_window_titles_default))
+            .put(
+                getString(R.string.pref_allow_frequent_content_change_announcement_key),
+                getResources()
+                    .getBoolean(R.bool.pref_allow_frequent_content_change_announcement_default))
+            .put(
+                getString(R.string.pref_speak_element_ids_key),
+                getResources().getBoolean(R.bool.pref_speak_element_ids_default))
             .put(
                 getString(R.string.pref_punctuation_key),
                 getResources().getBoolean(R.bool.pref_punctuation_default))
@@ -107,7 +117,11 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
             .buildOrThrow();
   }
 
-  /** Collects all verbosity-controlled preferences. */
+  /**
+   * Collects all verbosity-controlled preferences.
+   *
+   * <p>Note: Speak element ids and Punctuation preference are not included.
+   */
   private ArrayList<Preference> collectDetailedPreferences() {
     ArrayList<Preference> detailedPrefs = new ArrayList<>();
     PreferenceGroup prefGroup =
@@ -243,10 +257,16 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
           // Handles ListPreference changed case and case where the verbosity is changed
           // using the selector and the fragment is visible.
           if (TextUtils.equals(key, getString(R.string.pref_verbosity_preset_key))) {
+            ListPreference preference =
+                (ListPreference) findPreference(R.string.pref_verbosity_preset_key);
+
             String newValueString =
                 preferences.getString(
                     getString(R.string.pref_verbosity_preset_key),
                     getString(R.string.pref_verbosity_preset_value_default));
+            if (preference != null) {
+              preference.setValue(newValueString);
+            }
 
             updateFragment(newValueString);
 

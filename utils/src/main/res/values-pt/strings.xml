@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">Caracteres de %1$d a %2$d</string>
+  <string name="template_password_traversed">Caractere %1$d</string>
   <string name="untitled_window">sem título</string>
   <string name="template_text_copied">copiado, %1$s</string>
   <string name="template_capital_letter">%1$s em letra maiúscula</string>
   <string name="character_collapse_template">\u0020%1$d %2$s</string>
   <string name="template_current_tts_engine">Usando %1$s</string>
-  <string name="keycombo_assign_dialog_instruction">Pressione a combinação de teclas para definir um novo atalho. Ela deve conter pelo menos a tecla ALT ou Control.</string>
-  <string name="keycombo_assign_dialog_default_keymap_instruction">Pressione a combinação de teclas com a tecla modificadora %1$s para definir um novo atalho.</string>
-  <string name="keycombo_unassigned">Não atribuído</string>
-  <string name="keycombo_key_modifier_shift">Shift</string>
-  <string name="keycombo_key_modifier_alt">Alt</string>
-  <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">Pesquisa</string>
-  <string name="keycombo_key_arrow_right">Seta para a direita</string>
-  <string name="keycombo_key_arrow_left">Seta para a esquerda</string>
-  <string name="keycombo_key_arrow_up">Seta para cima</string>
-  <string name="keycombo_key_arrow_down">Seta para baixo</string>
   <string name="granularity_default">Padrão</string>
   <string name="granularity_character">Caracteres</string>
   <string name="granularity_word">Palavras</string>
   <string name="granularity_line">Linhas</string>
   <string name="granularity_paragraph">Parágrafos</string>
+  <string name="granularity_container">Contêineres</string>
   <string name="granularity_window">Janelas</string>
   <string name="granularity_web_landmark">Pontos de referência</string>
   <string name="granularity_web_heading">Títulos</string>
@@ -43,6 +35,6 @@
   <string name="exit_scrim">Sair</string>
   <string name="show_keyboard_window">Exibindo %1$s</string>
   <string name="hide_keyboard_window">teclado oculto</string>
-  <string name="function_on">O feedback falado está ativado</string>
-  <string name="function_off">O feedback falado está desativado</string>
+  <string name="function_on">A resposta falada está ativada</string>
+  <string name="function_off">A resposta falada está desativada</string>
 </resources>

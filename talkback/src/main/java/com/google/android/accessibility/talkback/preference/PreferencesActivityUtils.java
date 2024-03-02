@@ -30,6 +30,9 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils;
 /** Utility class for Preferences and Activity */
 public class PreferencesActivityUtils {
 
+  public static final String HELP_URL =
+      "https://support.google.com/accessibility/" + "android/answer/6283677";
+
   private PreferencesActivityUtils() {} // Not instantiable
 
   /** Returns a boolean-preference-value that may be overridden by diagnosis-mode. */

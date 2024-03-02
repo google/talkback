@@ -1,0 +1,84 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+map Dot1 DOT1
+map Dot2 DOT2
+map Dot3 DOT3
+map Dot4 DOT4
+map Dot5 DOT5
+map Dot6 DOT6
+map Dot7 DOT7
+map Dot8 DOT8
+map \{space} SPACE
+
+assign chord \{space}+
+include ../chords.kti
+
+bind \{press} RETURN
+include ../nav.kti
+
+ifKey RoutingKey
+bind \{space}+RoutingKey KEY_FUNCTION
+bind \{space}+RoutingKey+!RoutingKey CLIP_APPEND
+
+bind RoutingKey+\{press} DESCCHAR
+bind RoutingKey+Left CLIP_NEW
+bind RoutingKey+Up CLIP_ADD
+bind RoutingKey+Right COPY_LINE
+bind RoutingKey+Down COPY_RECT
+endIf
+
+
+#################
+# Menu Bindings #
+#################
+
+#Unused by Brailleback
+#context menu
+
+#bind \{press} PREFMENU
+#bind Up MENU_PREV_ITEM
+#bind Down MENU_NEXT_ITEM
+#bind Left MENU_PREV_SETTING
+#bind Right MENU_NEXT_SETTING
+
+#bind \{space} MENU_PREV_LEVEL
+#bind \{space}+\{press} PREFSAVE
+#bind \{space}+Up MENU_FIRST_ITEM
+#bind \{space}+Down MENU_LAST_ITEM
+#bind \{space}+Left FWINLT
+#bind \{space}+Right FWINRT
+
+#context default
+
+
+########################
+# BrailleBack Bindings #
+########################
+
+assign chord Space
+include ../android-chords.kti
+
+# Activate the currently focused item.
+bind Press ROUTE+127
+
+# Long press the currently focused item
+# (The joystick press, at least on the Refreshabraille, will not send
+# a key down at key press, but instead the down/up pair are sent
+# in quick succession when the key is released.)
+bind Dot6+Press ROUTE+255

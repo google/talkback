@@ -37,13 +37,13 @@ public class NodeCachedBoundsCalculator {
 
   private static final Rect EMPTY_RECT = new Rect();
 
-  private Map<AccessibilityNodeInfoCompat, Rect> mBoundsMap = new HashMap<>();
-  private Map<AccessibilityNodeInfoCompat, Boolean> mSpeakNodesCache;
-  private Set<AccessibilityNodeInfoCompat> mCalculatingNodes = new HashSet<>();
-  private Rect mTempRect = new Rect();
+  private final Map<AccessibilityNodeInfoCompat, Rect> boundsMap = new HashMap<>();
+  private final Set<AccessibilityNodeInfoCompat> calculatingNodes = new HashSet<>();
+  private final Rect tempRect = new Rect();
+  private Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache;
 
-  public void setSpeakNodesCache(Map<AccessibilityNodeInfoCompat, Boolean> speakNodeCache) {
-    mSpeakNodesCache = speakNodeCache;
+  public void setSpeakingNodesCache(Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache) {
+    this.speakingNodesCache = speakingNodesCache;
   }
 
   public @Nullable Rect getBounds(AccessibilityNodeInfoCompat node) {
@@ -60,17 +60,17 @@ public class NodeCachedBoundsCalculator {
       return EMPTY_RECT;
     }
 
-    if (mCalculatingNodes.contains(node)) {
+    if (calculatingNodes.contains(node)) {
       LogUtils.w(TAG, "node tree loop detected while calculating node bounds");
       return EMPTY_RECT;
     }
 
-    Rect bounds = mBoundsMap.get(node);
+    Rect bounds = boundsMap.get(node);
     if (bounds == null) {
-      mCalculatingNodes.add(node);
+      calculatingNodes.add(node);
       bounds = fetchBound(node);
-      mBoundsMap.put(node, bounds);
-      mCalculatingNodes.remove(node);
+      boundsMap.put(node, bounds);
+      calculatingNodes.remove(node);
     }
 
     return bounds;
@@ -81,7 +81,7 @@ public class NodeCachedBoundsCalculator {
       return EMPTY_RECT;
     }
 
-    if (AccessibilityNodeInfoUtils.shouldFocusNode(node, mSpeakNodesCache)) {
+    if (AccessibilityNodeInfoUtils.shouldFocusNode(node, speakingNodesCache)) {
       Rect bounds = new Rect();
       node.getBoundsInScreen(bounds);
       return bounds;
@@ -147,7 +147,7 @@ public class NodeCachedBoundsCalculator {
       return false;
     }
 
-    node.getBoundsInScreen(mTempRect);
-    return !mTempRect.equals(bounds);
+    node.getBoundsInScreen(tempRect);
+    return !tempRect.equals(bounds);
   }
 }

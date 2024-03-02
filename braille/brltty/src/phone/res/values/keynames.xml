@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Names of braille display keys. -->
+<resources>
+    <!-- Keys that are common on most displays -->
+
+    <!-- Name for the backspace key on the braille display. -->
+    <string translatable="false" name="key_Backspace">Backspace</string>
+    <!-- Name for the space key on the braille display. -->
+    <string translatable="false" name="key_Space">Space</string>
+    <!-- Name for the key that represents braille dot 1 on the braille display. -->
+    <string translatable="false" name="key_Dot1">Dot1</string>
+    <!-- Name for the key that represents braille dot 2 on the braille display. -->
+    <string translatable="false" name="key_Dot2">Dot2</string>
+    <!-- Name for the key that represents braille dot 3 on the braille display. -->
+    <string translatable="false" name="key_Dot3">Dot3</string>
+    <!-- Name for the key that represents braille dot 4 on the braille display. -->
+    <string translatable="false" name="key_Dot4">Dot4</string>
+    <!-- Name for the key that represents braille dot 5 on the braille display. -->
+    <string translatable="false" name="key_Dot5">Dot5</string>
+    <!-- Name for the key that represents braille dot 6 on the braille display. -->
+    <string translatable="false" name="key_Dot6">Dot6</string>
+    <!-- Name for the key that represents braille dot 7 on the braille display. -->
+    <string translatable="false" name="key_Dot7">Dot7</string>
+    <!-- Name for the key that represents braille dot 8 on the braille display. -->
+    <string translatable="false" name="key_Dot8">Dot8</string>
+    <!-- Name for any of the routing keys on the braille display.  A key in a set of keys located close to the braille line with one key for each braille cell. -->
+    <string translatable="false" name="key_Routing">RoutingKey</string>
+    <!-- Key name representing pressing the joystick left on the braille display. -->
+    <string translatable="false" name="key_JoystickLeft">JoystickLeft</string>
+    <!-- Key name representing pressing the joystick right on the braille display. -->
+    <string translatable="false" name="key_JoystickRight">JoystickRight</string>
+    <!-- Key name representing pressing the joystick up on the braille display. -->
+    <string translatable="false" name="key_JoystickUp">JoystickUp</string>
+    <!-- Key name representing pressing the joystick down on the braille display. -->
+    <string translatable="false" name="key_JoystickDown">JoystickDown</string>
+    <!-- Key name representing pressing the joystick in the center on the braille display. -->
+    <string translatable="false" name="key_JoystickCenter">JoystickCenter</string>
+    <!-- Key name for the left panning key on a braille display. -->
+    <string translatable="false" name="key_pan_left">PanLeft</string>
+    <!-- Key name for the right panning key on a freedom scientific focus braille display. -->
+    <string translatable="false" name="key_pan_right">PanRight</string>
+    <!-- Name of a numbered function key on a braille display. -->
+    <string translatable="false" name="key_F1">F1</string>
+    <!-- Name of a numbered function key on a braille display. -->
+    <string translatable="false" name="key_F2">F2</string>
+    <!-- Name of a numbered function key on a braille display. -->
+    <string translatable="false" name="key_F3">F3</string>
+    <!-- Name of a numbered function key on a braille display. -->
+    <string translatable="false" name="key_F4">F4</string>
+    <!-- Name of the backward key on a braille display -->
+    <string translatable="false" name="key_Backward">Backward</string>
+    <!-- Name of the forward key on a braille display -->
+    <string translatable="false" name="key_Forward">Forward</string>
+    <!-- Name of the left scroll up key on a braille display -->
+    <string translatable="false" name="key_LeftScrollUp">LeftScrollUp</string>
+    <!-- Name of the left scroll down key on a braille display -->
+    <string translatable="false" name="key_LeftScrollDown">LeftScrollDown</string>
+    <!-- Name of the right scroll up key on a braille display -->
+    <string translatable="false" name="key_RightScrollUp">RightScrollUp</string>
+    <!-- Name of the right scroll down key on a braille display -->
+    <string translatable="false" name="key_RightScrollDown">RightScrollDown</string>
+    <!-- Key name representing pressing the left joystick left on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_LeftJoystickLeft">LeftJoystickLeft</string>
+    <!-- Key name representing pressing the left joystick right on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_LeftJoystickRight">LeftJoystickRight</string>
+    <!-- Key name representing pressing the left joystick up on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_LeftJoystickUp">LeftJoystickUp</string>
+    <!-- Key name representing pressing the left joystick down on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_LeftJoystickDown">LeftJoystickDown</string>
+    <!-- Key name representing pressing the left joystick in the center on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_LeftJoystickCenter">LeftJoystickCenter</string>
+    <!-- Key name representing pressing the right joystick left on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_RightJoystickLeft">RightJoystickLeft</string>
+    <!-- Key name representing pressing the right joystick right on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_RightJoystickRight">RightJoystickRight</string>
+    <!-- Key name representing pressing the right joystick up on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_RightJoystickUp">RightJoystickUp</string>
+    <!-- Key name representing pressing the right joystick down on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_RightJoystickDown">RightJoystickDown</string>
+    <!-- Key name representing pressing the right joystick in the center on an esys/eurobraille/seika ntk braille display. -->
+    <string translatable="false" name="key_RightJoystickCenter">RightJoystickCenter</string>
+
+    <!-- BraillePen keys -->
+
+    <!-- Name for the shift key on the braillepen display. -->
+    <string translatable="false" name="key_BP_Shift">Shift</string>
+    <!-- Name for the control key on the braillepen display. -->
+    <string translatable="false" name="key_BP_Control">Control</string>
+    <!-- Name for the scroll left key on the braille pen display. -->
+    <string translatable="false" name="key_BP_ScrollLeft">ScrollLeft</string>
+    <!-- Name for the scroll right key on the braille pen display. -->
+    <string translatable="false" name="key_BP_ScrollRight">ScrollRight</string>
+
+    <!-- Esys keys -->
+
+    <!-- Key name for pressing one of the front switches to the left on an esys/eurobraille display. -->
+    <string translatable="false" name="key_esys_SwitchLeft">FrontSwitchLeft</string>
+    <!-- Key name for pressing one of the front switches to the right on an esys/eurobraille display. -->
+    <string translatable="false" name="key_esys_SwitchRight">FrontSwitchRight</string>
+
+    <!-- Seika NTK -->
+
+    <!-- Name for pressing pan left key on a Seika NTK display. -->
+    <string translatable="false" name="key_skntk_PanLeft">LeftButton</string>
+    <!-- Name for pressing pan right key on a Seika NTK display. -->
+    <string translatable="false" name="key_skntk_PanRight">RightButton</string>
+
+    <!-- Focus -->
+
+    <!-- Key name for pressing the left wheel on a freedom scientific focus braille display. -->
+    <string translatable="false" name="key_focus_LeftWheelPress">LeftWheelPress</string>
+    <!-- Key name for moving the left wheel up on a freedom scientific focus braille display. -->
+    <string translatable="false" name="key_focus_LeftWheelUp">LeftWheelUp</string>
+    <!-- Key name for moving the left wheel down on a freedom scientific focus braille display. -->
+    <string translatable="false" name="key_focus_LeftWheelDown">LeftWheelDown</string>
+    <!-- Key name for pressing the right wheel on a freedom scientific focus braille display. -->
+    <string translatable="false" name="key_focus_RightWheelPress">RightWheelPress</string>
+    <!-- Key name for moving the right wheel up on a freedom scientific focus braille display. -->
+    <string translatable="false" name="key_focus_RightWheelUp">RightWheelUp</string>
+    <!-- Key name for moving the right wheel down on a freedom scientific focus braille display. -->
+    <string translatable="false" name="key_focus_RightWheelDown">RightWheelDown</string>
+    <!-- Name for the left shift key on a freedomscientific braille display. -->
+    <string translatable="false" name="key_focus_LeftShift">LeftShift</string>
+    <!-- Name for the right shift key on a freedomscientific braille display. -->
+    <string translatable="false" name="key_focus_RightShift">RightShift</string>
+    <!-- Name for the left gdf key on a freedomscientific braille display. -->
+    <string translatable="false" name="key_focus_LeftGdf">ScrollForward</string>
+    <!-- Name for the right gdf key on a freedomscientific braille display. -->
+    <string translatable="false" name="key_focus_RightGdf">ScrollBackward</string>
+    <!-- Name for pressing the left rocker up on a freedomscientific braille display. -->
+    <string translatable="false" name="key_focus_LeftRockerUp">LeftRockerUp</string>
+    <!-- Name for pressing the left rocker down on a freedomscientific braille display. -->
+    <string translatable="false" name="key_focus_LeftRockerDown">LeftRockerDown</string>
+    <!-- Name for pressing the right rocker up on a freedomscientific braille display. -->
+    <string translatable="false" name="key_focus_RightRockerUp">RightRockerUp</string>
+    <!-- Name for pressing the right rocker down on a freedomscientific braille display. -->
+    <string translatable="false" name="key_focus_RightRockerDown">RightRockerDown</string>
+
+    <!-- Brailliant -->
+
+    <!-- Name for the power key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Power">Power</string>
+    <!-- Name for the command 1 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Display1">Command1</string>
+    <!-- Name for the command 2 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Display2">Command2</string>
+    <!-- Name for the command 4 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Display3">Command3</string>
+    <!-- Name for the command 4 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Display4">Command4</string>
+    <!-- Name for the command 5 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Display5">Command5</string>
+    <!-- Name for the command 6 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Display6">Command6</string>
+    <!-- Name for the thumb 1 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Thumb1">Thumb1</string>
+    <!-- Name for the thumb 2 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Thumb2">Thumb2</string>
+    <!-- Name for the thumb 3 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Thumb3">Thumb3</string>
+    <!-- Name for the thumb 4 key on a Brailliant braille display. -->
+    <string translatable="false" name="key_brailliant_Thumb4">Thumb4</string>
+
+    <!-- APH Refreshabraille keys -->
+
+    <!-- Name for the advance left key on an APH Refreshabraille display. -->
+    <string translatable="false" name="key_APH_AdvanceLeft">AdvanceLeft</string>
+    <!-- Name for the advance right key on an APH Refreshabraille display. -->
+    <string translatable="false" name="key_APH_AdvanceRight">AdvanceRight</string>
+
+    <!-- HWG Brailliant (older model) -->
+
+    <!-- Name for the display 1 key on a HWG Brailliant display. -->
+    <string translatable="false" name="key_hwg_brailliant_Display1">Display1</string>
+    <!-- Name for the display 2 key on a HWG Brailliant display. -->
+    <string translatable="false" name="key_hwg_brailliant_Display2">Display2</string>
+    <!-- Name for the display 3 key on a HWG Brailliant display. -->
+    <string translatable="false" name="key_hwg_brailliant_Display3">Display3</string>
+    <!-- Name for the display 4 key on a HWG Brailliant display. -->
+    <string translatable="false" name="key_hwg_brailliant_Display4">Display4</string>
+    <!-- Name for the display 5 key on a HWG Brailliant display. -->
+    <string translatable="false" name="key_hwg_brailliant_Display5">Display5</string>
+    <!-- Name for the display 6 key on a HWG Brailliant display. -->
+    <string translatable="false" name="key_hwg_brailliant_Display6">Display6</string>
+
+    <!-- Braillex -->
+
+    <!-- Name for the right front key on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_RightKeyFront">RightKeyFront</string>
+    <!-- Name for the right rear key on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_RightKeyRear">RightKeyRear</string>
+    <!-- Name for the left front key on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_LeftKeyFront">LeftKeyFront</string>
+    <!-- Name for the left rear key on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_LeftKeyRear">LeftKeyRear</string>
+    <!-- Key name for pressing the easy bar 1 step left on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_BarLeft1">BarLeft1</string>
+    <!-- Key name for pressing the easy bar 2 steps left on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_BarLeft2">BarLeft2</string>
+    <!-- Key name for pressing the easy bar 1 step right on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_BarRight1">BarRight1</string>
+    <!-- Key name for pressing the easy bar 2 steps right on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_BarRight2">BarRight2</string>
+    <!-- Key name for pressing the easy bar 1 step up on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_BarUp1">BarUp1</string>
+    <!-- Key name for pressing the easy bar 2 steps up on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_BarUp2">BarUp2</string>
+    <!-- Key name for pressing the easy bar 1 step down on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_BarDown1">BarDown1</string>
+    <!-- Key name for pressing the easy bar 2 steps down on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_BarDown2">BarDown2</string>
+    <!-- Name for the left thumb key on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_LeftThumb">LeftThumb</string>
+    <!-- Name for the right thumb key on a Papenmeier Braillex display. -->
+    <string translatable="false" name="key_braillex_RightThumb">RightThumb</string>
+
+    <!-- Alva BC -->
+
+    <!-- Name for the ETouchLeftRear key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_ETouchLeftRear">ETouchLeftRear</string>
+    <!-- Name for the ETouchRightRear key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_ETouchRightRear">ETouchRightRear</string>
+    <!-- Name for the ETouchLeftFront key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_ETouchLeftFront">ETouchLeftFront</string>
+    <!-- Name for the ETouchRightFront key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_ETouchRightFront">ETouchRightFront</string>
+    <!-- Name for the SmartpadF1 key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_SmartpadF1">SmartpadF1</string>
+    <!-- Name for the SmartpadF2 key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_SmartpadF2">SmartpadF2</string>
+    <!-- Name for the SmartpadF3 key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_SmartpadF3">SmartpadF3</string>
+    <!-- Name for the SmartpadF4 key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_SmartpadF4">SmartpadF4</string>
+    <!-- Name for the SmartpadUp key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_SmartpadUp">SmartpadUp</string>
+    <!-- Name for the SmartpadDown key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_SmartpadDown">SmartpadDown</string>
+    <!-- Name for the SmartpadLeft key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_SmartpadLeft">SmartpadLeft</string>
+    <!-- Name for the SmartpadRight key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_SmartpadRight">SmartpadRight</string>
+    <!-- Name for the SmartpadEnter key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_SmartpadEnter">SmartpadEnter</string>
+    <!-- Name for the ThumbLeft key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_ThumbLeft">ThumbLeft</string>
+    <!-- Name for the ThumbRight key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_ThumbRight">ThumbRight</string>
+    <!-- Name for the ThumbUp key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_ThumbUp">ThumbUp</string>
+    <!-- Name for the ThumbDown key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_ThumbDown">ThumbDown</string>
+    <!-- Name for the ThumbHome key on an Alva BC display. -->
+    <string translatable="false" name="key_albc_ThumbHome">ThumbHome</string>
+
+    <!-- HandyTech keys -->
+
+    <!-- Left triple action key -->
+    <string translatable="false" name="key_handytech_LeftTrippleActionTop">LeftTrippleActionTop</string>
+    <string translatable="false" name="key_handytech_LeftTrippleActionBottom">LeftTrippleActionBottom</string>
+    <string translatable="false" name="key_handytech_LeftTrippleActionMiddle">LeftTrippleActionMiddle</string>
+
+    <!-- Right triple action key -->
+    <string translatable="false" name="key_handytech_RightTrippleActionTop">RightTrippleActionTop</string>
+    <string translatable="false" name="key_handytech_RightTrippleActionBottom">RightTrippleActionBottom</string>
+    <string translatable="false" name="key_handytech_RightTrippleActionMiddle">RightTrippleActionMiddle</string>
+
+    <!-- Left and right space bars -->
+    <string translatable="false" name="key_handytech_LeftSpace">LeftSpace</string>
+    <string translatable="false" name="key_handytech_RightSpace">RightSpace</string>
+
+    <!-- Seika Braille Display -->
+
+    <!-- Name for pressing pan left on a Seika Braille display. -->
+    <string translatable="false" name="key_skbdp_PanLeft">LeftButton</string>
+    <!-- Name for pressing pan right on a Seika Braille display. -->
+    <string translatable="false" name="key_skbdp_PanRight">RightButton</string>
+    <!-- Name for pressing left end of left rocker on a Seika Braille display. -->
+    <string translatable="false" name="key_skbdp_LeftRockerLeft">LeftCtrlLeft</string>
+    <!-- Name for pressing right end of left rocker on a Seika Braille display. -->
+    <string translatable="false" name="key_skbdp_LeftRockerRight">LeftCtrlRight</string>
+    <!-- Name for pressing long key to the left of center on a Seika Braille display. -->
+    <string translatable="false" name="key_skbdp_LeftLongKey">LeftShift</string>
+    <!-- Name for pressing long key to the right of center on a Seika Braille display. -->
+    <string translatable="false" name="key_skbdp_RightLongKey">RightShift</string>
+    <!-- Name for pressing left end of right rocker on a Seika Braille display. -->
+    <string translatable="false" name="key_skbdp_RightRockerLeft">RightCtrlLeft</string>
+    <!-- Name for pressing right end on a right rocker on a Seika Braille display. -->
+    <string translatable="false" name="key_skbdp_RightRockerRight">RightCtrlRight</string>
+
+</resources>

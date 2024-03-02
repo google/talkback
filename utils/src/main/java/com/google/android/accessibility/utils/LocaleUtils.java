@@ -33,11 +33,11 @@ public class LocaleUtils {
     if (TextUtils.isEmpty(localeString)) {
       return null;
     }
-    String[] localeParts = localeString.split("_", 3);
+    String[] localeParts = localeString.split("-", 3);
 
     if (localeParts.length >= 2) {
       return new Locale(localeParts[0], localeParts[1]);
-    } else if (localeParts.length >= 1) {
+    } else if (localeParts.length == 1) {
       return new Locale(localeParts[0]);
     } else {
       return null;
@@ -59,13 +59,13 @@ public class LocaleUtils {
   }
 
   public static String getDefaultLocale() {
-    String locale = Locale.getDefault().toString();
+    String locale = Locale.getDefault().toLanguageTag();
     return getLanguageLocale(locale);
   }
 
   public static String getLanguageLocale(String locale) {
     if (locale != null) {
-      int localeDivider = locale.indexOf('_');
+      int localeDivider = locale.indexOf('-');
       if (localeDivider > 0) {
         return locale.substring(0, localeDivider);
       }

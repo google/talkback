@@ -16,52 +16,46 @@
 
 package com.google.android.accessibility.talkback.compositor;
 
-import static android.accessibilityservice.MagnificationConfig.MAGNIFICATION_MODE_FULLSCREEN;
-import static android.accessibilityservice.MagnificationConfig.MAGNIFICATION_MODE_WINDOW;
-import static com.google.android.accessibility.talkback.compositor.Compositor.DESC_ORDER_ROLE_NAME_STATE_POSITION;
-import static com.google.android.accessibility.talkback.compositor.Compositor.ENUM_VERBOSITY_DESCRIPTION_ORDER;
-import static com.google.android.accessibility.talkback.eventprocessor.ProcessorMagnification.STATE_OFF;
-import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_KEYBOARD;
-import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_NON_ALPHABETIC_KEYBOARD;
-import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
-import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TV_REMOTE;
-import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_UNKNOWN;
+import static com.google.android.accessibility.talkback.compositor.ParseTreeCreator.ENUM_VERBOSITY_DESCRIPTION_ORDER;
+import static com.google.android.accessibility.talkback.compositor.roledescription.RoleDescriptionExtractor.DESC_ORDER_ROLE_NAME_STATE_POSITION;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_KEYBOARD;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_NON_ALPHABETIC_KEYBOARD;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_TOUCH;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_TV_REMOTE;
+import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_UNKNOWN;
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.StringRes;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.compositor.Compositor.DescriptionOrder;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree.VariableDelegate;
-import com.google.android.accessibility.talkback.compositor.parsetree.ParseTreeJoinNode;
-import com.google.android.accessibility.talkback.eventprocessor.ProcessorMagnification;
-import com.google.android.accessibility.talkback.eventprocessor.ProcessorMagnification.MagnificationState;
+import com.google.android.accessibility.talkback.compositor.roledescription.RoleDescriptionExtractor.DescriptionOrder;
+import com.google.android.accessibility.talkback.compositor.rule.InputTextFeedbackRules;
+import com.google.android.accessibility.talkback.compositor.rule.MagnificationStateChangedFeedbackRule;
+import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration;
 import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
 import com.google.android.accessibility.talkback.keyboard.KeyComboModel;
+import com.google.android.accessibility.talkback.selector.SelectorController;
+import com.google.android.accessibility.talkback.selector.SelectorController.Setting;
+import com.google.android.accessibility.talkback.utils.TalkbackFeatureSupport;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.CollectionState;
-import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.KeyboardUtils;
-import com.google.android.accessibility.utils.Role;
-import com.google.android.accessibility.utils.SpannableUtils;
 import com.google.android.accessibility.utils.TimedFlags;
-import com.google.android.accessibility.utils.compat.provider.SettingsCompatUtils;
-import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.input.WindowsDelegate;
-import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
+import com.google.android.accessibility.utils.monitor.CollectionState;
+import com.google.android.accessibility.utils.monitor.InputModeTracker;
 import com.google.android.apps.common.proguard.UsedByReflection;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.common.base.Ascii;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -69,9 +63,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class GlobalVariables extends TimedFlags implements ParseTree.VariableDelegate {
   private static final String TAG = "GlobalVariables";
   // Parameters used in join statement.
-  private static final CharSequence SEPARATOR = ", ";
   private static final CharSequence EMPTY_STRING = "";
-  private static final boolean PRUNE_EMPTY = true;
 
   public static final int EVENT_SKIP_FOCUS_PROCESSING_AFTER_GRANULARITY_MOVE = 1;
   public static final int EVENT_SKIP_FOCUS_PROCESSING_AFTER_CURSOR_CONTROL = 3;
@@ -88,53 +80,35 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   /** Used to suppress focus announcement when refocusing after an IME has closed. */
   public static final int EVENT_SKIP_FOCUS_PROCESSING_AFTER_IME_CLOSED = 13;
 
-  /**
-   * Indicates that the next ACCESSIBILITY_FOCUSED event is triggered by the synchronization of a11y
-   * focus and input focus. The generated utterance should not have FLAG_FORCE_FEEDBACK flag,
-   * because it's not generated by touch exploration.
-   */
-  public static final int EVENT_SYNCED_ACCESSIBILITY_FOCUS = 14;
-
   // Parse tree constants.
-  private static final int ENUM_COLLECTION_HEADING_TYPE = 6000;
   private static final int ENUM_INPUT_MODE = 6002;
+  private static final int ENUM_COLLECTION_SELECTION_MODE = 6003;
+  private static final int ENUM_READING_MENU_SETTING = 6004;
 
-  private static final int GLOBAL_SYNCED_ACCESSIBILITY_FOCUS_LATCH = 6000;
   private static final int GLOBAL_IS_KEYBOARD_ACTIVE = 6001;
   private static final int GLOBAL_IS_SELECTION_MODE_ACTIVE = 6002;
   private static final int GLOBAL_INPUT_MODE = 6003;
   private static final int GLOBAL_USE_SINGLE_TAP = 6004;
-  private static final int GLOBAL_SPEECH_RATE_CHANGE = 6005;
-  private static final int GLOBAL_USE_AUDIO_FOCUS = 6007;
   private static final int GLOBAL_LAST_TEXT_EDIT_IS_PASSWORD = 6008;
   private static final int GLOBAL_SPEAK_PASS_SERVICE_POLICY = 6009;
-  private static final int GLOBAL_SPEAK_PASS_FIELD_CONTENT = 6010;
   private static final int GLOBAL_ENABLE_USAGE_HINT = 6011;
-  private static final int GLOBAL_SEEKBAR_HINT = 6012;
+  private static final int GLOBAL_ADJUSTABLE_HINT = 6012;
   private static final int GLOBAL_INTERPRET_AS_ENTRY_KEY = 6013;
+  static final int GLOBAL_CURRENT_READING_MENU = 6014;
+  private static final int GLOBAL_HAS_READING_MENU_ACTION_SETTING = 6015;
+  private static final int GLOBAL_SUPPORT_TEXT_SUGGESTION = 6016;
 
-  private static final int COLLECTION_NAME = 6100;
-  private static final int COLLECTION_ROLE = 6101;
+  private static final int COLLECTION_ITEM_TRANSITION = 6101;
   private static final int COLLECTION_TRANSITION = 6102;
-  private static final int COLLECTION_EXISTS = 6103;
-  private static final int COLLECTION_IS_ROW_TRANSITION = 6104;
-  private static final int COLLECTION_IS_COLUMN_TRANSITION = 6105;
-  private static final int COLLECTION_TABLE_ITEM_HEADING_TYPE = 6106;
-  private static final int COLLECTION_TABLE_ITEM_ROW_NAME = 6107;
-  private static final int COLLECTION_TABLE_ITEM_ROW_INDEX = 6108;
-  private static final int COLLECTION_TABLE_ITEM_COLUMN_NAME = 6109;
-  private static final int COLLECTION_TABLE_ITEM_COLUMN_INDEX = 6110;
-  private static final int COLLECTION_LIST_ITEM_IS_HEADING = 6111;
-  private static final int COLLECTION_PAGER_ITEM_ROW_INDEX = 6112;
-  private static final int COLLECTION_PAGER_ITEM_COLUMN_INDEX = 6113;
-  private static final int COLLECTION_PAGER_ITEM_IS_HEADING = 6114;
-  private static final int COLLECTION_LIST_ITEM_POSITION_DESCRIPTION = 6115;
+  private static final int COLLECTION_SELECTION_MODE = 6116;
 
   private static final int WINDOWS_LAST_WINDOW_ID = 6200;
   private static final int WINDOWS_IS_SPLIT_SCREEN_MODE = 6201;
+  private static final int WINDOWS_CURRENT_WINDOW_TITLE = 6202;
 
   private static final int FOCUS_IS_CURRENT_FOCUS_IN_SCROLLABLE_NODE = 6300;
   private static final int FOCUS_IS_LAST_FOCUS_IN_SCROLLABLE_NODE = 6301;
+  public static final int FOCUS_IS_PAGE = 6302;
 
   private static final int KEY_COMBO_HAS_KEY_FOR_CLICK = 6400;
   private static final int KEY_COMBO_STRING_FOR_CLICK = 6401;
@@ -144,6 +118,8 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   private static final int MAGNIFICATION_STATE_CHANGED = 6500;
 
   private static final int GESTURE_STRING_FOR_NODE_ACTIONS = 6600;
+  private static final int GESTURE_STRING_FOR_READING_MENU_NEXT_SETTING = 6601;
+  private static final int GESTURE_STRING_FOR_READING_MENU_SELECTED_SETTING_NEXT_ACTION = 6602;
 
   // Verbosity
   private static final int VERBOSITY_SPEAK_ROLES = 10001;
@@ -154,34 +130,37 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
 
   private final Context mContext;
   private final AccessibilityService mService;
-  private final InputModeManager mInputModeManager;
-  private final @Nullable KeyComboManager mKeyComboManager;
-  private final CollectionState mCollectionState = new CollectionState();
+  private final InputModeTracker inputModeTracker;
+  private @Nullable KeyComboManager keyComboManager;
+  private final CollectionState collectionState;
   private WindowsDelegate mWindowsDelegate;
+  public @Nullable SelectorController selectorController;
+
+  /** Stores the user preferred locale changed using language switcher. */
+  @Nullable private Locale userPreferredLocale;
 
   private boolean mUseSingleTap = false;
-  private float mSpeechRate = 1.0f;
-  private boolean mUseAudioFocus = false;
 
   private int mLastWindowId = -1;
   private int mCurrentWindowId = -1;
   private int currentDisplayId = Display.INVALID_DISPLAY;
 
-  private Integer magnificationMode = null;
-  private float magnificationCurrentScale = -1.0f;
-  private @MagnificationState int magnificationState = STATE_OFF;
+  private MagnificationState magnificationState;
 
   private boolean mSelectionModeActive;
   private boolean mLastTextEditIsPassword;
 
-  private boolean mIsCurrentFocusInScrollableNode = false;
-  private boolean mIsLastFocusInScrollableNode = false;
+  private boolean isCurrentFocusInScrollableNode = false;
+  private boolean isLastFocusInScrollableNode = false;
+  private boolean isFocusPage = false;
   private boolean isInterpretAsEntryKey = false;
 
   // Defaults to true so that upgrading to this version will not impact previous behavior.
   private boolean mShouldSpeakPasswords = true;
 
   private final @Nullable GestureShortcutProvider gestureShortcutProvider;
+
+  private @Nullable NodeMenuProvider nodeMenuProvider;
 
   // Defaults to true to speak usage hint.
   private boolean usageHintEnabled = true;
@@ -194,36 +173,63 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   @DescriptionOrder private int descriptionOrder = DESC_ORDER_ROLE_NAME_STATE_POSITION;
   private boolean speakElementIds = false;
   private boolean speakSystemWindowTitles = true;
+  private boolean textChangeRateUnlimited = false;
+  private final FormFactorUtils formFactorUtils;
 
   public GlobalVariables(
       AccessibilityService service,
-      InputModeManager inputModeManager,
-      @Nullable KeyComboManager keyComboManager) {
-    this(service, inputModeManager, keyComboManager, /* gestureShortcutProvider= */ null);
-  }
-
-  public GlobalVariables(
-      AccessibilityService service,
-      InputModeManager inputModeManager,
-      @Nullable KeyComboManager keyComboManager,
+      InputModeTracker inputModeTracker,
+      CollectionState collectionState,
       @Nullable GestureShortcutProvider gestureShortcutProvider) {
     mContext = service;
     mService = service;
-    mInputModeManager = inputModeManager;
-    mKeyComboManager = keyComboManager;
+    this.inputModeTracker = inputModeTracker;
+    this.collectionState = collectionState;
     this.gestureShortcutProvider = gestureShortcutProvider;
+    formFactorUtils = FormFactorUtils.getInstance();
   }
 
   public void setWindowsDelegate(WindowsDelegate delegate) {
     mWindowsDelegate = delegate;
   }
 
+  public void setKeyComboManager(KeyComboManager keyComboManager) {
+    this.keyComboManager = keyComboManager;
+  }
+
+  public void setSelectorController(SelectorController selectorController) {
+    this.selectorController = selectorController;
+  }
+
+  /**
+   * Gets the preferred locale for feedback.
+   *
+   * <p>Note: It returns the user preferred locale if it is available. And it fallbacks to return
+   * node locale if the user preferred locale is not set.
+   */
+  public @Nullable Locale getPreferredLocaleByNode(AccessibilityNodeInfoCompat node) {
+    return userPreferredLocale == null
+        ? AccessibilityNodeInfoUtils.getLocalesByNode(node)
+        : userPreferredLocale;
+  }
+
+  /** Gets the user preferred locale changed using language switcher. */
+  public @Nullable Locale getUserPreferredLocale() {
+    return userPreferredLocale;
+  }
+
+  /** Sets the user preferred locale changed using language switcher. */
+  public void setUserPreferredLocale(Locale locale) {
+    userPreferredLocale = locale;
+  }
+
+  /** Declares {@link ParseTree} variables. */
   void declareVariables(ParseTree parseTree) {
-    Map<Integer, String> collectionHeadingType = new HashMap<>();
-    collectionHeadingType.put(CollectionState.TYPE_NONE, "none");
-    collectionHeadingType.put(CollectionState.TYPE_ROW, "row");
-    collectionHeadingType.put(CollectionState.TYPE_COLUMN, "column");
-    collectionHeadingType.put(CollectionState.TYPE_INDETERMINATE, "indeterminate");
+
+    Map<Integer, String> collectionSelectionMode = new HashMap<>();
+    collectionSelectionMode.put(CollectionState.SELECTION_NONE, "none");
+    collectionSelectionMode.put(CollectionState.SELECTION_SINGLE, "single");
+    collectionSelectionMode.put(CollectionState.SELECTION_MULTIPLE, "multiple");
 
     Map<Integer, String> inputMode = new HashMap<>();
     inputMode.put(INPUT_MODE_UNKNOWN, "unknown");
@@ -232,61 +238,46 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     inputMode.put(INPUT_MODE_TV_REMOTE, "tv_remote");
     inputMode.put(INPUT_MODE_NON_ALPHABETIC_KEYBOARD, "non_alphabetic_keyboard");
 
-    parseTree.addEnum(ENUM_COLLECTION_HEADING_TYPE, collectionHeadingType);
+    Map<Integer, String> readingMenuSettings = new HashMap<>();
+    for (Setting setting : Setting.values()) {
+      readingMenuSettings.put(setting.ordinal(), setting.name());
+    }
+
+    parseTree.addEnum(ENUM_COLLECTION_SELECTION_MODE, collectionSelectionMode);
     parseTree.addEnum(ENUM_INPUT_MODE, inputMode);
+    parseTree.addEnum(ENUM_READING_MENU_SETTING, readingMenuSettings);
 
     // Globals
-    parseTree.addBooleanVariable(
-        "global.syncedAccessibilityFocusLatch", GLOBAL_SYNCED_ACCESSIBILITY_FOCUS_LATCH);
-    parseTree.addBooleanVariable("global.isKeyboardActive", GLOBAL_IS_KEYBOARD_ACTIVE);
-    parseTree.addBooleanVariable("global.isSelectionModeActive", GLOBAL_IS_SELECTION_MODE_ACTIVE);
     parseTree.addEnumVariable("global.inputMode", GLOBAL_INPUT_MODE, ENUM_INPUT_MODE);
     parseTree.addBooleanVariable("global.useSingleTap", GLOBAL_USE_SINGLE_TAP);
-    parseTree.addNumberVariable("global.speechRate", GLOBAL_SPEECH_RATE_CHANGE);
-    parseTree.addBooleanVariable("global.useAudioFocus", GLOBAL_USE_AUDIO_FOCUS);
     parseTree.addBooleanVariable(
         "global.lastTextEditIsPassword", GLOBAL_LAST_TEXT_EDIT_IS_PASSWORD);
     parseTree.addBooleanVariable(
         "global.speakPasswordsServicePolicy", GLOBAL_SPEAK_PASS_SERVICE_POLICY);
-    parseTree.addBooleanVariable(
-        "global.speakPasswordFieldContent", GLOBAL_SPEAK_PASS_FIELD_CONTENT);
     parseTree.addBooleanVariable("global.enableUsageHint", GLOBAL_ENABLE_USAGE_HINT);
-    parseTree.addStringVariable("global.seekbarHint", GLOBAL_SEEKBAR_HINT);
+    parseTree.addStringVariable("global.adjustableHint", GLOBAL_ADJUSTABLE_HINT);
     parseTree.addBooleanVariable("global.isInterpretAsEntryKey", GLOBAL_INTERPRET_AS_ENTRY_KEY);
+    parseTree.addEnumVariable(
+        "global.currentReadingMenu", GLOBAL_CURRENT_READING_MENU, ENUM_READING_MENU_SETTING);
+    parseTree.addBooleanVariable(
+        "global.hasReadingMenuActionsSetting", GLOBAL_HAS_READING_MENU_ACTION_SETTING);
+    parseTree.addBooleanVariable("global.supportTextSuggestion", GLOBAL_SUPPORT_TEXT_SUGGESTION);
 
     // Collection
-    parseTree.addStringVariable("collection.name", COLLECTION_NAME);
     parseTree.addStringVariable("collection.transition", COLLECTION_TRANSITION);
-    parseTree.addEnumVariable("collection.role", COLLECTION_ROLE, Compositor.ENUM_ROLE);
-    parseTree.addBooleanVariable("collection.exists", COLLECTION_EXISTS);
-    parseTree.addBooleanVariable("collection.isRowTransition", COLLECTION_IS_ROW_TRANSITION);
-    parseTree.addBooleanVariable("collection.isColumnTransition", COLLECTION_IS_COLUMN_TRANSITION);
+    parseTree.addStringVariable("collection.itemTransition", COLLECTION_ITEM_TRANSITION);
     parseTree.addEnumVariable(
-        "collection.tableItem.headingType",
-        COLLECTION_TABLE_ITEM_HEADING_TYPE,
-        ENUM_COLLECTION_HEADING_TYPE);
-    parseTree.addStringVariable("collection.tableItem.rowName", COLLECTION_TABLE_ITEM_ROW_NAME);
-    parseTree.addIntegerVariable("collection.tableItem.rowIndex", COLLECTION_TABLE_ITEM_ROW_INDEX);
-    parseTree.addStringVariable(
-        "collection.tableItem.columnName", COLLECTION_TABLE_ITEM_COLUMN_NAME);
-    parseTree.addIntegerVariable(
-        "collection.tableItem.columnIndex", COLLECTION_TABLE_ITEM_COLUMN_INDEX);
-    parseTree.addIntegerVariable("collection.pagerItem.rowIndex", COLLECTION_PAGER_ITEM_ROW_INDEX);
-    parseTree.addIntegerVariable(
-        "collection.pagerItem.columnIndex", COLLECTION_PAGER_ITEM_COLUMN_INDEX);
-    parseTree.addBooleanVariable(
-        "collection.pagerItem.isHeading", COLLECTION_PAGER_ITEM_IS_HEADING);
-    parseTree.addBooleanVariable("collection.listItem.isHeading", COLLECTION_LIST_ITEM_IS_HEADING);
-    parseTree.addStringVariable(
-        "collection.listItem.positionDescription", COLLECTION_LIST_ITEM_POSITION_DESCRIPTION);
+        "collection.selectionMode", COLLECTION_SELECTION_MODE, ENUM_COLLECTION_SELECTION_MODE);
 
     parseTree.addBooleanVariable("windows.isSplitScreenMode", WINDOWS_IS_SPLIT_SCREEN_MODE);
     parseTree.addIntegerVariable("windows.lastWindowId", WINDOWS_LAST_WINDOW_ID);
+    parseTree.addStringVariable("windows.currentWindowTitle", WINDOWS_CURRENT_WINDOW_TITLE);
 
     parseTree.addBooleanVariable(
         "focus.isCurrentFocusInScrollableNode", FOCUS_IS_CURRENT_FOCUS_IN_SCROLLABLE_NODE);
     parseTree.addBooleanVariable(
         "focus.isLastFocusInScrollableNode", FOCUS_IS_LAST_FOCUS_IN_SCROLLABLE_NODE);
+    parseTree.addBooleanVariable("focus.isPage", FOCUS_IS_PAGE);
 
     parseTree.addBooleanVariable("keyCombo.hasKeyForClick", KEY_COMBO_HAS_KEY_FOR_CLICK);
     parseTree.addStringVariable(
@@ -298,6 +289,11 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     parseTree.addStringVariable("magnification.stateChanged", MAGNIFICATION_STATE_CHANGED);
 
     parseTree.addStringVariable("gesture.nodeMenuShortcut", GESTURE_STRING_FOR_NODE_ACTIONS);
+    parseTree.addStringVariable(
+        "gesture.readingMenuNextSettingShortcut", GESTURE_STRING_FOR_READING_MENU_NEXT_SETTING);
+    parseTree.addStringVariable(
+        "gesture.readingMenuSelectedSettingNextActionShortcut",
+        GESTURE_STRING_FOR_READING_MENU_SELECTED_SETTING_NEXT_ACTION);
 
     // Verbosity
     parseTree.addBooleanVariable("verbosity.speakRole", VERBOSITY_SPEAK_ROLES);
@@ -311,12 +307,8 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     parseTree.addBooleanVariable("verbosity.speakElementIds", VERBOSITY_SPEAK_ELEMENT_IDS);
 
     // Functions
-    parseTree.addFunction("cleanUp", this);
-    parseTree.addFunction("collapseRepeatedCharactersAndCleanUp", this);
     parseTree.addFunction("conditionalPrepend", this);
     parseTree.addFunction("conditionalAppend", this);
-    parseTree.addFunction("conditionalPrependWithSpaceSeparator", this);
-    parseTree.addFunction("getWindowTitle", this);
     parseTree.addFunction("round", this);
     parseTree.addFunction("roundForProgressPercent", this);
     parseTree.addFunction("roundForProgressInt", this);
@@ -326,19 +318,19 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     parseTree.addFunction("prependCapital", this);
   }
 
+  /** Updates global variables state by the event. */
   public void updateStateFromEvent(AccessibilityEvent event) {
     int eventType = event.getEventType();
     if (eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
       final AccessibilityNodeInfoCompat sourceNode =
           AccessibilityNodeInfoUtils.toCompat(event.getSource());
-      // Transition the collection state if necessary.
-      mCollectionState.updateCollectionInformation(sourceNode, event);
       if (sourceNode != null) {
         final AccessibilityNodeInfoCompat scrollableNode =
             AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
                 sourceNode, AccessibilityNodeInfoUtils.FILTER_SCROLLABLE);
-        mIsLastFocusInScrollableNode = mIsCurrentFocusInScrollableNode;
-        mIsCurrentFocusInScrollableNode = (scrollableNode != null);
+        isLastFocusInScrollableNode = isCurrentFocusInScrollableNode;
+        isCurrentFocusInScrollableNode = (scrollableNode != null);
+        isFocusPage = AccessibilityNodeInfoUtils.isPage(sourceNode);
 
         mLastWindowId = mCurrentWindowId;
         mCurrentWindowId = sourceNode.getWindowId();
@@ -347,37 +339,73 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     }
   }
 
+  /** Returns if TalkBack usage hint is enabled. */
+  public boolean getUsageHintEnabled() {
+    return usageHintEnabled;
+  }
+
+  /** Sets if TalkBack usage hint is enabled. */
   public void setUsageHintEnabled(boolean enabled) {
     usageHintEnabled = enabled;
   }
 
+  /** Returns if TalkBack speaks capital letter. */
+  public boolean getGlobalSayCapital() {
+    return sayCapital;
+  }
+
+  /** Sets if TalkBack speaks capital letter. */
   public void setGlobalSayCapital(boolean enabled) {
     sayCapital = enabled;
   }
 
+  /** Returns if TalkBack uses single-tap gesture. */
+  public boolean useSingleTap() {
+    return mUseSingleTap;
+  }
+
+  /** Sets if TalkBack uses single-tap gesture. */
   public void setUseSingleTap(boolean value) {
     mUseSingleTap = value;
   }
 
-  public void setSpeechRate(float value) {
-    mSpeechRate = value;
+  /** Returns the magnification state. If the state is not set before, the return value is null. */
+  public @Nullable MagnificationState getMagnificationState() {
+    return magnificationState;
   }
 
-  public void setUseAudioFocus(boolean value) {
-    mUseAudioFocus = value;
-  }
-
-  public void updateMagnificationState(
-      @Nullable Integer mode, float currentScale, @MagnificationState int state) {
-    magnificationMode = mode;
-    magnificationCurrentScale = currentScale;
+  /** Sets magnification state when handling magnification changed. */
+  public void setMagnificationState(MagnificationState state) {
     magnificationState = state;
   }
 
+  /**
+   * Returns the selection mode from the collection state. And the collection state is from the
+   * current focused node.
+   *
+   * <p>Note: the collection's selection mode is one of:
+   *
+   * <ul>
+   *   <li>{@link CollectionInfoCompat#SELECTION_MODE_NONE}
+   *   <li>{@link CollectionInfoCompat#SELECTION_MODE_SINGLE}
+   *   <li>{@link CollectionInfoCompat#SELECTION_MODE_MULTIPLE}
+   * </ul>
+   */
+  public int getCollectionSelectionMode() {
+    return collectionState.getSelectionMode();
+  }
+
+  /** Returns if the selection mode is active. */
+  public boolean getSelectionModeActive() {
+    return mSelectionModeActive;
+  }
+
+  /** Sets the current state of selection mode. */
   public void setSelectionModeActive(boolean value) {
     mSelectionModeActive = value;
   }
 
+  /** Sets if the last text edit is password. */
   public void setLastTextEditIsPassword(boolean value) {
     mLastTextEditIsPassword = value;
   }
@@ -393,6 +421,13 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
         || checkAndClearRecentFlag(EVENT_SKIP_SELECTION_CHANGED_AFTER_CURSOR_RESET);
   }
 
+  /** Returns and clears the state of skip focus state flags. */
+  public boolean resettingSkipFocusProcessing() {
+    return checkAndClearRecentFlag(EVENT_SKIP_FOCUS_PROCESSING_AFTER_GRANULARITY_MOVE)
+        || checkAndClearRecentFlag(EVENT_SKIP_FOCUS_PROCESSING_AFTER_CURSOR_CONTROL)
+        || checkAndClearRecentFlag(EVENT_SKIP_FOCUS_PROCESSING_AFTER_IME_CLOSED);
+  }
+
   /**
    * Set by SpeakPasswordsManager. Incorporates service-level speak-passwords preference and
    * headphone state.
@@ -403,11 +438,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
 
   /** Used internally and by TextEventInterpreter. */
   public boolean shouldSpeakPasswords() {
-    if (FeatureSupport.useSpeakPasswordsServicePref()) {
-      return mShouldSpeakPasswords;
-    } else {
-      return SettingsCompatUtils.SecureCompatUtils.shouldSpeakPasswords(mContext);
-    }
+    return mShouldSpeakPasswords;
   }
 
   /** Used by the hint decision. */
@@ -415,78 +446,260 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     isInterpretAsEntryKey = interpretAsEntryKey;
   }
 
+  /**
+   * Returns if it interprets all keys as entry keys. It is {@code true} when the typing method is
+   * {@link FocusProcessorForTapAndTouchExploration#FORCE_LIFT_TO_TYPE_ON_IME}
+   */
+  public boolean isInterpretAsEntryKey() {
+    return isInterpretAsEntryKey;
+  }
+
+  /** Returns if TalkBack speaks collection info. */
+  public boolean getSpeakCollectionInfo() {
+    return speakCollectionInfo;
+  }
+
+  /** Sets if TalkBack speaks collection info. */
   public void setSpeakCollectionInfo(boolean value) {
     speakCollectionInfo = value;
+  }
+
+  public boolean getSpeakRoles() {
+    return speakRoles;
   }
 
   public void setSpeakRoles(boolean value) {
     speakRoles = value;
   }
 
+  /** Returns if TalkBack speaks system window titles. */
+  public boolean getSpeakSystemWindowTitles() {
+    return speakSystemWindowTitles;
+  }
+
+  /** Sets if TalkBack speaks system window titles. */
   public void setSpeakSystemWindowTitles(boolean value) {
     speakSystemWindowTitles = value;
   }
 
+  /** Returns if TalkBack limits text change rate. */
+  public boolean getTextChangeRateUnlimited() {
+    return textChangeRateUnlimited;
+  }
+
+  /** Sets if TalkBack limits text change rate. */
+  public void setTextChangeRateUnlimited(boolean value) {
+    textChangeRateUnlimited = value;
+  }
+
+  /** Returns description order of TalkBack feedback. */
+  public int getDescriptionOrder() {
+    return descriptionOrder;
+  }
+
+  /** Sets description order of TalkBack feedback. */
   public void setDescriptionOrder(@DescriptionOrder int value) {
     descriptionOrder = value;
   }
 
+  /** Returns if TalkBack speaks element IDs. */
+  public boolean getSpeakElementIds() {
+    return speakElementIds;
+  }
+
+  /** Sets if TalkBack speaks element IDs. */
   public void setSpeakElementIds(boolean value) {
     speakElementIds = value;
+  }
+
+  /** Returns if either soft or hard keyboard is active. */
+  public boolean isKeyBoardActive() {
+    return KeyboardUtils.isKeyboardActive(mService);
+  }
+
+  /** Returns if the current focus is in scrollable node. */
+  public boolean currentFocusInScrollableNode() {
+    return isCurrentFocusInScrollableNode;
+  }
+
+  /** Returns if the last focus is in scrollable node. */
+  public boolean lastFocusInScrollableNode() {
+    return isLastFocusInScrollableNode;
+  }
+
+  /** Returns if the current focus is on page. */
+  public boolean focusIsPage() {
+    return isFocusPage;
+  }
+
+  /** Returns if the device is in splitc screen mode. */
+  public boolean isSplitScreenMode() {
+    return mWindowsDelegate != null && mWindowsDelegate.isSplitScreenMode(currentDisplayId);
+  }
+
+  /** Returns the window ID of the last {@link TYPE_VIEW_ACCESSIBILITY_FOCUSED} event. */
+  public int getLastWindowId() {
+    return mLastWindowId;
+  }
+
+  /** Returns the window ID of the current source node. */
+  public int getCurrentWindowId() {
+    return mCurrentWindowId;
+  }
+
+  /** Returns the gesture string for the node actions. */
+  public CharSequence getGestureStringForNodeActions() {
+    if (inputModeTracker.getInputMode() == INPUT_MODE_KEYBOARD) {
+      @Nullable CharSequence keyCombo =
+          getKeyComboStringRepresentation(R.string.keycombo_shortcut_other_talkback_context_menu);
+      if (!TextUtils.isEmpty(keyCombo)) {
+        return keyCombo;
+      }
+    }
+    return gestureShortcutProvider != null ? gestureShortcutProvider.nodeMenuShortcut() : "";
+  }
+
+  /** Returns the global input mode. */
+  public int getGlobalInputMode() {
+    return inputModeTracker.getInputMode();
+  }
+
+  public CharSequence getGlobalAdjustableHint() {
+    CharSequence gestureReadingMenuUp =
+        gestureShortcutProvider == null ? "" : gestureShortcutProvider.readingMenuUpShortcut();
+    CharSequence gestureReadingMenuDown =
+        gestureShortcutProvider == null ? "" : gestureShortcutProvider.readingMenuDownShortcut();
+    if (!TextUtils.isEmpty(gestureReadingMenuUp) && !TextUtils.isEmpty(gestureReadingMenuDown)) {
+      return mContext.getString(
+          R.string.template_hint_adjustable_2gesture, gestureReadingMenuUp, gestureReadingMenuDown);
+    } else if (TextUtils.isEmpty(gestureReadingMenuUp)
+        && TextUtils.isEmpty(gestureReadingMenuDown)) {
+      return formFactorUtils.isAndroidWear()
+          ? ""
+          : mContext.getString(
+              R.string.no_adjust_setting_gesture,
+              Ascii.toLowerCase(
+                  mContext.getString(R.string.shortcut_selected_setting_next_action)));
+    } else {
+      return mContext.getString(
+          R.string.template_hint_adjustable_1gesture,
+          TextUtils.isEmpty(gestureReadingMenuUp) ? gestureReadingMenuDown : gestureReadingMenuUp);
+    }
+  }
+
+  /** Returns the gesture string to select the next setting in reading menu. */
+  public CharSequence getGestureStringForReadingMenuNextSetting() {
+    if (inputModeTracker.getInputMode() == INPUT_MODE_KEYBOARD) {
+      @Nullable CharSequence keyCombo =
+          getKeyComboStringRepresentation(
+              R.string.keycombo_shortcut_global_scroll_backward_reading_menu);
+      if (!TextUtils.isEmpty(keyCombo)) {
+        return keyCombo;
+      }
+    }
+    return gestureShortcutProvider != null
+        ? gestureShortcutProvider.readingMenuNextSettingShortcut()
+        : "";
+  }
+
+  /** Returns the gesture string to perform the next action of selected setting in reading menu. */
+  public CharSequence getGestureStringForReadingMenuSelectedSettingNextAction() {
+    if (inputModeTracker.getInputMode() == INPUT_MODE_KEYBOARD) {
+      @Nullable CharSequence keyCombo =
+          getKeyComboStringRepresentation(
+              R.string.keycombo_shortcut_global_adjust_reading_setting_next);
+      if (!TextUtils.isEmpty(keyCombo)) {
+        return keyCombo;
+      }
+    }
+    return gestureShortcutProvider != null ? gestureShortcutProvider.readingMenuUpShortcut() : "";
+  }
+
+  /** Returns the gesture string to perform the next action of selected setting in reading menu. */
+  public CharSequence getGestureStringForActionShortcut() {
+    return gestureShortcutProvider != null ? gestureShortcutProvider.actionsShortcut() : "";
+  }
+
+  public CharSequence getKeyComboStringRepresentation(@StringRes int stringRes) {
+    return KeyComboManagerUtils.getKeyComboStringRepresentation(
+        stringRes, keyComboManager, mContext);
+  }
+
+  public long getKeyComboCodeForKey(@StringRes int stringRes) {
+    return KeyComboManagerUtils.getKeyComboCodeForKey(stringRes, keyComboManager, mContext);
+  }
+
+  /**
+   * Returns the collection role description when it is transitioned to a node inside a collection.
+   */
+  public CharSequence getCollectionTransitionDescription() {
+    return CollectionStateFeedbackUtils.getCollectionTransitionDescription(
+        collectionState, mContext);
+  }
+
+  /**
+   * Returns the collection item description when the collection is transitioned.
+   *
+   * <p>Note: The collection item description is for {@link ROLE_GRID} and {@link ROLE_LIST}.
+   */
+  public CharSequence getCollectionItemTransitionDescription() {
+    return CollectionStateFeedbackUtils.getCollectionItemTransitionDescription(
+        collectionState, mContext);
+  }
+
+  /** Returns if the reading menu has actions settings. */
+  public boolean hasReadingMenuActionSettings() {
+    return selectorController != null && selectorController.isSettingAvailable(Setting.ACTIONS);
+  }
+
+  /** Returns the current reading menu ordinal. */
+  public int getCurrentReadingMenuOrdinal() {
+    Setting setting = SelectorController.getCurrentSetting(mContext);
+    return setting == null ? -1 : setting.ordinal();
+  }
+
+  /** Sets the node menu provider. */
+  public void setNodeMenuProvider(NodeMenuProvider nodeMenuProvider) {
+    this.nodeMenuProvider = nodeMenuProvider;
+  }
+
+  /** Returns the node menu provider. */
+  public @Nullable NodeMenuProvider getNodeMenuProvider() {
+    return nodeMenuProvider;
   }
 
   @Override
   public boolean getBoolean(int variableId) {
     switch (variableId) {
         // Globals
-      case GLOBAL_SYNCED_ACCESSIBILITY_FOCUS_LATCH:
-        return checkAndClearRecentFlag(EVENT_SYNCED_ACCESSIBILITY_FOCUS);
       case GLOBAL_IS_KEYBOARD_ACTIVE:
-        return KeyboardUtils.isKeyboardActive(mService);
+        return isKeyBoardActive();
       case GLOBAL_IS_SELECTION_MODE_ACTIVE:
-        return mSelectionModeActive;
+        return getSelectionModeActive();
       case GLOBAL_SPEAK_PASS_SERVICE_POLICY:
-        return mShouldSpeakPasswords;
-      case GLOBAL_SPEAK_PASS_FIELD_CONTENT:
-        // Password field content is available only on android N-, and available only based on
-        // system setting, regardless of headphones state.
-        return shouldSpeakPasswords() && !FeatureSupport.useSpeakPasswordsServicePref();
+        return shouldSpeakPasswords();
       case GLOBAL_USE_SINGLE_TAP:
-        return mUseSingleTap;
-      case GLOBAL_USE_AUDIO_FOCUS:
-        return mUseAudioFocus;
+        return useSingleTap();
       case GLOBAL_LAST_TEXT_EDIT_IS_PASSWORD:
-        return mLastTextEditIsPassword;
+        return getLastTextEditIsPassword();
       case GLOBAL_ENABLE_USAGE_HINT:
-        return usageHintEnabled;
-
-        // Collections
-      case COLLECTION_EXISTS:
-        return mCollectionState.doesCollectionExist();
-      case COLLECTION_IS_ROW_TRANSITION:
-        return (mCollectionState.getRowColumnTransition() & CollectionState.TYPE_ROW) != 0;
-      case COLLECTION_IS_COLUMN_TRANSITION:
-        return (mCollectionState.getRowColumnTransition() & CollectionState.TYPE_COLUMN) != 0;
-      case COLLECTION_LIST_ITEM_IS_HEADING:
-        {
-          CollectionState.ListItemState itemState = mCollectionState.getListItemState();
-          return itemState != null && itemState.isHeading();
-        }
-      case COLLECTION_PAGER_ITEM_IS_HEADING:
-        {
-          CollectionState.PagerItemState itemState = mCollectionState.getPagerItemState();
-          return (itemState != null) && itemState.isHeading();
-        }
+        return getUsageHintEnabled();
+      case GLOBAL_HAS_READING_MENU_ACTION_SETTING:
+        return selectorController != null && selectorController.isSettingAvailable(Setting.ACTIONS);
+      case GLOBAL_SUPPORT_TEXT_SUGGESTION:
+        return TalkbackFeatureSupport.supportTextSuggestion();
 
         // Windows
       case WINDOWS_IS_SPLIT_SCREEN_MODE:
-        return mWindowsDelegate != null && mWindowsDelegate.isSplitScreenMode(currentDisplayId);
+        return isSplitScreenMode();
 
         // Focus
       case FOCUS_IS_CURRENT_FOCUS_IN_SCROLLABLE_NODE:
-        return mIsCurrentFocusInScrollableNode;
+        return currentFocusInScrollableNode();
       case FOCUS_IS_LAST_FOCUS_IN_SCROLLABLE_NODE:
-        return mIsLastFocusInScrollableNode;
+        return lastFocusInScrollableNode();
+      case FOCUS_IS_PAGE:
+        return focusIsPage();
 
         // KeyComboManager
       case KEY_COMBO_HAS_KEY_FOR_CLICK:
@@ -496,17 +709,17 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
         return getKeyComboCodeForKey(R.string.keycombo_shortcut_perform_long_click)
             != KeyComboModel.KEY_COMBO_CODE_UNASSIGNED;
       case GLOBAL_INTERPRET_AS_ENTRY_KEY:
-        return isInterpretAsEntryKey;
+        return isInterpretAsEntryKey();
 
         // Verbosity
       case VERBOSITY_SPEAK_ROLES:
-        return speakRoles;
+        return getSpeakRoles();
       case VERBOSITY_SPEAK_COLLECTION_INFO:
-        return speakCollectionInfo;
+        return getSpeakCollectionInfo();
       case VERBOSITY_SPEAK_ELEMENT_IDS:
-        return speakElementIds;
+        return getSpeakElementIds();
       case VERBOSITY_SPEAK_SYSTEM_WINDOW_TITLES:
-        return speakSystemWindowTitles;
+        return getSpeakSystemWindowTitles();
       default:
         return false;
     }
@@ -515,28 +728,8 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   @Override
   public int getInteger(int variableId) {
     switch (variableId) {
-      case COLLECTION_TABLE_ITEM_ROW_INDEX:
-        {
-          CollectionState.TableItemState itemState = mCollectionState.getTableItemState();
-          return itemState != null ? itemState.getRowIndex() : -1;
-        }
-      case COLLECTION_TABLE_ITEM_COLUMN_INDEX:
-        {
-          CollectionState.TableItemState itemState = mCollectionState.getTableItemState();
-          return itemState != null ? itemState.getColumnIndex() : -1;
-        }
-      case COLLECTION_PAGER_ITEM_ROW_INDEX:
-        {
-          CollectionState.PagerItemState itemState = mCollectionState.getPagerItemState();
-          return (itemState == null) ? -1 : itemState.getRowIndex();
-        }
-      case COLLECTION_PAGER_ITEM_COLUMN_INDEX:
-        {
-          CollectionState.PagerItemState itemState = mCollectionState.getPagerItemState();
-          return (itemState == null) ? -1 : itemState.getColumnIndex();
-        }
       case WINDOWS_LAST_WINDOW_ID:
-        return mLastWindowId;
+        return getLastWindowId();
       default:
         return 0;
     }
@@ -544,389 +737,57 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
 
   @Override
   public double getNumber(int variableId) {
-    switch (variableId) {
-      case GLOBAL_SPEECH_RATE_CHANGE:
-        return mSpeechRate;
-      default:
-        return 0;
-    }
+    return 0;
   }
 
   @Override
   public @Nullable CharSequence getString(int variableId) {
     switch (variableId) {
       case COLLECTION_TRANSITION:
-        return getCollectionTransition();
-      case COLLECTION_NAME:
-        return mCollectionState.getCollectionName();
-      case COLLECTION_TABLE_ITEM_ROW_NAME:
-        {
-          CollectionState.TableItemState itemState = mCollectionState.getTableItemState();
-          return itemState != null ? itemState.getRowName() : "";
-        }
-      case COLLECTION_TABLE_ITEM_COLUMN_NAME:
-        {
-          CollectionState.TableItemState itemState = mCollectionState.getTableItemState();
-          return itemState != null ? itemState.getColumnName() : "";
-        }
+        return getCollectionTransitionDescription();
+      case COLLECTION_ITEM_TRANSITION:
+        return getCollectionItemTransitionDescription();
+
       case KEY_COMBO_STRING_FOR_CLICK:
-        {
-          return getKeyComboStringRepresentation(
-              getKeyComboCodeForKey(R.string.keycombo_shortcut_perform_click));
-        }
+        return getKeyComboStringRepresentation(R.string.keycombo_shortcut_perform_click);
       case KEY_COMBO_STRING_FOR_LONG_CLICK:
-        {
-          return getKeyComboStringRepresentation(
-              getKeyComboCodeForKey(R.string.keycombo_shortcut_perform_long_click));
-        }
+        return getKeyComboStringRepresentation(R.string.keycombo_shortcut_perform_long_click);
+
       case GESTURE_STRING_FOR_NODE_ACTIONS:
         {
-          if (mInputModeManager.getInputMode() == INPUT_MODE_KEYBOARD) {
-            @Nullable CharSequence keyCombo =
-                getKeyComboStringRepresentation(
-                    getKeyComboCodeForKey(R.string.keycombo_shortcut_other_talkback_context_menu));
-            if (!TextUtils.isEmpty(keyCombo)) {
-              return keyCombo;
-            }
-          }
-          return gestureShortcutProvider != null ? gestureShortcutProvider.nodeMenuShortcut() : "";
+          return getGestureStringForNodeActions();
         }
-      case COLLECTION_LIST_ITEM_POSITION_DESCRIPTION:
-        {
-          int rowCount = mCollectionState.getCollectionRowCount();
-          int colCount = mCollectionState.getCollectionColumnCount();
-          CollectionState.ListItemState itemState = mCollectionState.getListItemState();
-          int itemIndex = itemState != null ? itemState.getIndex() : -1;
-          // Order of row and column checks does not matter since a list should have either the row
-          // or column count populated with > 1 but not both. Otherwise it's a grid.
-          if (itemIndex >= 0 && colCount > 1 && rowCount != -1) {
-            return mContext.getString(R.string.list_index_template, itemIndex + 1, colCount);
-          }
-          if (itemIndex >= 0 && rowCount > 1 && colCount != -1) {
-            return mContext.getString(R.string.list_index_template, itemIndex + 1, rowCount);
-          }
-          return "";
-        }
-      case GLOBAL_SEEKBAR_HINT:
-        @Nullable CharSequence result = null;
-        if (gestureShortcutProvider != null) {
-          result = gestureShortcutProvider.nodeSeekBarShortcut();
-        }
-        if (result == null) {
-          result =
-              FeatureSupport.isWatch(mContext)
-                  ? ""
-                  : mContext.getString(R.string.template_hint_seek_control);
-        }
-        return result;
+      case GESTURE_STRING_FOR_READING_MENU_NEXT_SETTING:
+        return getGestureStringForReadingMenuNextSetting();
+      case GESTURE_STRING_FOR_READING_MENU_SELECTED_SETTING_NEXT_ACTION:
+        return getGestureStringForReadingMenuSelectedSettingNextAction();
+
+      case GLOBAL_ADJUSTABLE_HINT:
+        return getGlobalAdjustableHint();
 
       case MAGNIFICATION_STATE_CHANGED:
-        int currentScale = (int) (magnificationCurrentScale * 100);
-        if (magnificationState == ProcessorMagnification.STATE_ON) {
-          if (magnificationMode == null) {
-            return mContext.getString(R.string.template_magnification_on, currentScale);
-          } else if (magnificationMode.equals(MAGNIFICATION_MODE_FULLSCREEN)) {
-            return mContext.getString(R.string.template_fullscreen_magnification_on, currentScale);
-          } else if (magnificationMode.equals(MAGNIFICATION_MODE_WINDOW)) {
-            return mContext.getString(R.string.template_partial_magnification_on, currentScale);
-          }
-        } else if (magnificationState == STATE_OFF) {
-          return mContext.getString(R.string.magnification_off);
-        } else if (magnificationState == ProcessorMagnification.STATE_SCALE_CHANGED) {
-          if (magnificationMode == null) {
-            return mContext.getString(R.string.template_magnification_scale_changed, currentScale);
-          } else if (magnificationMode.equals(MAGNIFICATION_MODE_FULLSCREEN)) {
-            return mContext.getString(
-                R.string.template_fullscreen_magnification_scale_changed, currentScale);
-          } else if (magnificationMode.equals(MAGNIFICATION_MODE_WINDOW)) {
-            return mContext.getString(
-                R.string.template_partial_magnification_scale_changed, currentScale);
-          }
-        }
-        return "";
+        return MagnificationStateChangedFeedbackRule.getMagnificationStateChangedText(
+            mContext, magnificationState);
+
+      case WINDOWS_CURRENT_WINDOW_TITLE:
+        return getWindowTitle(mCurrentWindowId);
+
       default:
         return "";
     }
-  }
-
-  private CharSequence getCollectionTransition() {
-    switch (mCollectionState.getCollectionTransition()) {
-      case CollectionState.NAVIGATE_ENTER:
-        if (mCollectionState.getCollectionRoleDescription() == null) {
-          switch (mCollectionState.getCollectionRole()) {
-            case Role.ROLE_LIST:
-              return joinCharSequences(
-                  getCollectionName(R.string.in_list, R.string.in_list_with_name),
-                  getCollectionLevel(),
-                  getCollectionListItemCount());
-            case Role.ROLE_GRID:
-              return joinCharSequences(
-                  getCollectionName(R.string.in_grid, R.string.in_grid_with_name),
-                  getCollectionLevel(),
-                  getCollectionGridItemCount());
-            case Role.ROLE_PAGER:
-              // A pager with a CollectionInfo with 0 or 1 elements will never get to this point
-              // because CollectionState#shouldEnter returns false beforehand. This case handles
-              // a ViewPager1 which doesn't have a CollectionInfo (rowCount and columnCount do
-              // not exist and are set to -1) but CollectionState#shouldEnter returns true
-              // because it has >2 children. It may or may not have a name.
-              if (!hasAnyCount()) {
-                return getCollectionName(R.string.in_pager, R.string.in_pager_with_name);
-              } else if (mCollectionState.getCollectionRowCount() > 1
-                  && mCollectionState.getCollectionColumnCount() > 1) {
-                return getCollectionGridPagerEnter();
-              } else if (isVerticalAligned()) {
-                return getCollectionVerticalPagerEnter();
-              } else {
-                return getCollectionHorizontalPagerEnter();
-              }
-            default:
-              return "";
-          }
-        } else { // has getCollectionRoleDescription
-          LogUtils.v(
-              TAG,
-              "Collection role description is %s",
-              mCollectionState.getCollectionRoleDescription());
-          CharSequence itemCountCharSequence = "";
-          switch (mCollectionState.getCollectionRole()) {
-            case Role.ROLE_LIST:
-              itemCountCharSequence = getCollectionListItemCount();
-              break;
-            case Role.ROLE_GRID:
-              itemCountCharSequence = getCollectionGridItemCount();
-              break;
-            case Role.ROLE_PAGER:
-              if (hasBothCount()) {
-                itemCountCharSequence = getCollectionGridPagerEnter();
-              } else if (hasAnyCount()) {
-                if (isVerticalAligned()) {
-                  itemCountCharSequence = getCollectionVerticalPagerEnter();
-                } else {
-                  itemCountCharSequence = getCollectionHorizontalPagerEnter();
-                }
-              } else {
-                // has no count
-                itemCountCharSequence = getCollectionNameWithRoleDescriptionEnter();
-              }
-              break;
-            default: // Fall out
-          }
-          return joinCharSequences(
-              getCollectionNameWithRoleDescriptionEnter(),
-              getCollectionLevel(),
-              itemCountCharSequence);
-        }
-      case CollectionState.NAVIGATE_EXIT:
-        if (mCollectionState.getCollectionRoleDescription() == null) {
-          switch (mCollectionState.getCollectionRole()) {
-            case Role.ROLE_LIST:
-              return getCollectionName(R.string.out_of_list, R.string.out_of_list_with_name);
-            case Role.ROLE_GRID:
-              return getCollectionName(R.string.out_of_grid, R.string.out_of_grid_with_name);
-            case Role.ROLE_PAGER:
-              if (hasBothCount()) {
-                return getCollectionName(
-                    R.string.out_of_grid_pager, R.string.out_of_grid_pager_with_name);
-              } else if (hasAnyCount()) {
-                if (isVerticalAligned()) {
-                  return getCollectionName(
-                      R.string.out_of_vertical_pager, R.string.out_of_vertical_pager_with_name);
-                } else {
-                  return getCollectionName(
-                      R.string.out_of_horizontal_pager, R.string.out_of_horizontal_pager);
-                }
-              } else {
-                // no count
-                return getCollectionName(R.string.out_of_pager, R.string.out_of_pager_with_name);
-              }
-            default:
-              return "";
-          }
-        } else { // has getCollectionRoleDescription
-          LogUtils.v(
-              TAG,
-              "Collection role description is %s",
-              mCollectionState.getCollectionRoleDescription());
-          return getCollectionNameWithRoleDescriptionExit();
-        }
-      default:
-        return "";
-    }
-  }
-
-  private CharSequence getCollectionLevel() {
-    if (mCollectionState.getCollectionLevel() >= 0) {
-      return mContext.getString(
-          R.string.template_collection_level, mCollectionState.getCollectionLevel() + 1);
-    }
-    return "";
-  }
-
-  private boolean isVerticalAligned() {
-    return mCollectionState.getCollectionAlignment() == CollectionState.ALIGNMENT_VERTICAL;
-  }
-
-  private boolean isHorizontalAligned() {
-    return mCollectionState.getCollectionAlignment() == CollectionState.ALIGNMENT_HORIZONTAL;
-  }
-
-  private CharSequence getCollectionListItemCount() {
-    if (hasBothCount()) {
-      if (isVerticalAligned() && mCollectionState.getCollectionRowCount() >= 0) {
-        return quantityCharSequence(
-            R.plurals.template_list_total_count,
-            mCollectionState.getCollectionRowCount(),
-            mCollectionState.getCollectionRowCount());
-      } else if (isHorizontalAligned() && mCollectionState.getCollectionColumnCount() >= 0) {
-        return quantityCharSequence(
-            R.plurals.template_list_total_count,
-            mCollectionState.getCollectionColumnCount(),
-            mCollectionState.getCollectionColumnCount());
-      }
-    }
-    return "";
-  }
-
-  private CharSequence quantityCharSequence(int resourceId, int count1, int count2) {
-    return mContext.getResources().getQuantityString(resourceId, count1, count2);
-  }
-
-  private CharSequence getCollectionGridItemCount() {
-    if (hasBothCount()) {
-      return joinCharSequences(
-          quantityCharSequence(
-              R.plurals.template_list_row_count,
-              mCollectionState.getCollectionRowCount(),
-              mCollectionState.getCollectionRowCount()),
-          quantityCharSequence(
-              R.plurals.template_list_column_count,
-              mCollectionState.getCollectionColumnCount(),
-              mCollectionState.getCollectionColumnCount()));
-    }
-    return "";
-  }
-
-  private CharSequence getCollectionName(int stringResId, int withNameStringResId) {
-    if (mCollectionState.getCollectionName() == null) {
-      return mContext.getString(stringResId);
-    } else {
-      return mContext.getString(withNameStringResId, mCollectionState.getCollectionName());
-    }
-  }
-
-  private CharSequence getCollectionNameWithRoleDescriptionEnter() {
-    if (TextUtils.isEmpty(mCollectionState.getCollectionRoleDescription())) {
-      return EMPTY_STRING;
-    }
-    if (mCollectionState.getCollectionName() != null) {
-      return mContext.getString(
-          R.string.in_collection_role_description_with_name,
-          mCollectionState.getCollectionRoleDescription(),
-          mCollectionState.getCollectionName());
-    } else {
-      return mContext.getString(
-          R.string.in_collection_role_description, mCollectionState.getCollectionRoleDescription());
-    }
-  }
-
-  private CharSequence getCollectionNameWithRoleDescriptionExit() {
-    if (TextUtils.isEmpty(mCollectionState.getCollectionRoleDescription())) {
-      return EMPTY_STRING;
-    }
-    if (mCollectionState.getCollectionName() != null) {
-      return mContext.getString(
-          R.string.out_of_role_description_with_name,
-          mCollectionState.getCollectionRoleDescription(),
-          mCollectionState.getCollectionName());
-    } else {
-      return mContext.getString(
-          R.string.out_of_role_description, mCollectionState.getCollectionRoleDescription());
-    }
-  }
-
-  private static CharSequence joinCharSequences(@Nullable CharSequence... list) {
-    List<CharSequence> arrayList = new ArrayList<>(list.length);
-    for (CharSequence charSequence : list) {
-      if (charSequence != null) {
-        arrayList.add(charSequence);
-      }
-    }
-    return ParseTreeJoinNode.joinCharSequences(arrayList, SEPARATOR, PRUNE_EMPTY);
-  }
-
-  private CharSequence getCollectionGridPagerEnter() {
-    return joinCharSequences(
-        getCollectionName(R.string.in_grid_pager, R.string.in_grid_pager_with_name),
-        getCollectionLevel(),
-        hasBothCount()
-            ? joinCharSequences(
-                mContext.getString(
-                    R.string.row_index_template, getInteger(COLLECTION_TABLE_ITEM_ROW_INDEX) + 1),
-                mContext.getString(
-                    R.string.column_index_template,
-                    getInteger(COLLECTION_TABLE_ITEM_COLUMN_INDEX) + 1))
-            : null,
-        quantityCharSequence(
-            R.plurals.template_list_row_count,
-            mCollectionState.getCollectionRowCount(),
-            mCollectionState.getCollectionRowCount()),
-        quantityCharSequence(
-            R.plurals.template_list_column_count,
-            mCollectionState.getCollectionColumnCount(),
-            mCollectionState.getCollectionColumnCount()));
-  }
-
-  private CharSequence getCollectionVerticalPagerEnter() {
-    int tableItemRowIndex = getInteger(COLLECTION_TABLE_ITEM_ROW_INDEX);
-    return joinCharSequences(
-        getCollectionName(R.string.in_vertical_pager, R.string.in_vertical_pager_with_name),
-        getCollectionLevel(),
-        tableItemRowIndex >= 0
-            ? mContext.getString(
-                R.string.template_viewpager_index_count,
-                tableItemRowIndex + 1,
-                mCollectionState.getCollectionRowCount())
-            : null);
-  }
-
-  private CharSequence getCollectionHorizontalPagerEnter() {
-    int tableItemColumnIndex = getInteger(COLLECTION_TABLE_ITEM_COLUMN_INDEX);
-    return joinCharSequences(
-        getCollectionName(R.string.in_horizontal_pager, R.string.in_horizontal_pager_with_name),
-        getCollectionLevel(),
-        tableItemColumnIndex >= 0
-            ? mContext.getString(
-                R.string.template_viewpager_index_count,
-                tableItemColumnIndex + 1,
-                mCollectionState.getCollectionColumnCount())
-            : null);
-  }
-
-  private boolean hasAnyCount() {
-    return mCollectionState.getCollectionRowCount() > -1
-        || mCollectionState.getCollectionColumnCount() > -1;
-  }
-
-  private boolean hasBothCount() {
-    return mCollectionState.getCollectionRowCount() > -1
-        && mCollectionState.getCollectionColumnCount() > -1;
   }
 
   @Override
   public int getEnum(int variableId) {
     switch (variableId) {
       case GLOBAL_INPUT_MODE:
-        return mInputModeManager.getInputMode();
-      case COLLECTION_ROLE:
-        return mCollectionState.getCollectionRole();
-      case COLLECTION_TABLE_ITEM_HEADING_TYPE:
-        {
-          CollectionState.TableItemState itemState = mCollectionState.getTableItemState();
-          return itemState != null ? itemState.getHeadingType() : 0;
-        }
+        return getGlobalInputMode();
       case VERBOSITY_DESCRIPTION_ORDER:
-        return descriptionOrder;
+        return getDescriptionOrder();
+      case COLLECTION_SELECTION_MODE:
+        return getCollectionSelectionMode();
+      case GLOBAL_CURRENT_READING_MENU:
+        return getCurrentReadingMenuOrdinal();
       default:
         return 0;
     }
@@ -952,139 +813,44 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     return null;
   }
 
-  // TODO: Move this function into utils.
-  private long getKeyComboCodeForKey(int keyStringResId) {
-    if (mKeyComboManager != null) {
-      return mKeyComboManager
-          .getKeyComboModel()
-          .getKeyComboCodeForKey(mContext.getString(keyStringResId));
-    } else {
-      return KeyComboModel.KEY_COMBO_CODE_UNASSIGNED;
+  /** Returns the window tile by the given window ID. */
+  public CharSequence getWindowTitle(int windowId) {
+    if (mWindowsDelegate == null) {
+      return EMPTY_STRING;
     }
-  }
 
-  // TODO: Move this function into utils.
-  private String getKeyComboStringRepresentation(long keyComboCode) {
-    if (mKeyComboManager == null) {
-      return "";
-    }
-    KeyComboModel keyComboModel = mKeyComboManager.getKeyComboModel();
-    long keyComboCodeWithTriggerModifier =
-        KeyComboManager.getKeyComboCode(
-            KeyComboManager.getModifier(keyComboCode) | keyComboModel.getTriggerModifier(),
-            KeyComboManager.getKeyCode(keyComboCode));
-
-    return mKeyComboManager.getKeyComboStringRepresentation(keyComboCodeWithTriggerModifier);
+    CharSequence title = mWindowsDelegate.getWindowTitle(windowId);
+    return title != null ? title : EMPTY_STRING;
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////
   // Functions callable from compositor script.
 
-  @UsedByReflection("compositor.json")
-  private CharSequence cleanUp(CharSequence text) {
-    return SpeechCleanupUtils.cleanUp(mContext, text);
-  }
-
-  @UsedByReflection("compositor.json")
-  private @Nullable CharSequence collapseRepeatedCharactersAndCleanUp(CharSequence text) {
-    return SpeechCleanupUtils.collapseRepeatedCharactersAndCleanUp(mContext, text);
-  }
-
-  // TODO: Add functionality to ParseTree to support this natively.
+  // TODO: Replace the reflection method
   @UsedByReflection("compositor.json")
   private static CharSequence conditionalAppend(
       CharSequence conditionalText, CharSequence appendText) {
-    if (TextUtils.isEmpty(conditionalText)) {
-      return "";
-    }
-    if (TextUtils.isEmpty(appendText)) {
-      return conditionalText;
-    }
-    SpannableStringBuilder result = new SpannableStringBuilder();
-    result.append(conditionalText);
-    result.append(SpannableUtils.wrapWithIdentifierSpan(", "));
-    result.append(appendText);
-    return result;
+    return CompositorUtils.conditionalAppend(
+        conditionalText, appendText, CompositorUtils.getSeparator());
   }
 
-  // TODO: Add functionality to ParseTree to support this natively.
+  // TODO: Replace the reflection method
   @UsedByReflection("compositor.json")
   private static CharSequence conditionalPrepend(
       CharSequence prependText, CharSequence conditionalText) {
-    if (TextUtils.isEmpty(conditionalText)) {
-      return "";
-    }
-    if (TextUtils.isEmpty(prependText)) {
-      return conditionalText;
-    }
-    SpannableStringBuilder result = new SpannableStringBuilder();
-    result.append(prependText);
-    result.append(SpannableUtils.wrapWithIdentifierSpan(", "));
-    result.append(conditionalText);
-    return result;
+    return CompositorUtils.conditionalPrepend(
+        prependText, conditionalText, CompositorUtils.getSeparator());
   }
 
   @UsedByReflection("compositor.json")
   private static CharSequence dedupJoin(
       CharSequence value1, CharSequence value2, CharSequence value3) {
-    CharSequence[] values = {value1, value2, value3};
-    SpannableStringBuilder builder = new SpannableStringBuilder();
-    HashSet<String> uniqueValues = new HashSet<>();
-    boolean first = true;
-    for (CharSequence value : values) {
-      if (TextUtils.isEmpty(value)) {
-        continue;
-      }
-      String lvalue = Ascii.toLowerCase(value.toString());
-      if (uniqueValues.contains(lvalue)) {
-        continue;
-      }
-      uniqueValues.add(lvalue);
-      if (first) {
-        first = false;
-      } else {
-        // We have to wrap each separator with a different span, because a single span object
-        // can only be used once in a CharSequence. An IdentifierSpan indicates the text is a
-        // separator, and the text will not be announced.
-        builder.append(SpannableUtils.wrapWithIdentifierSpan(", "));
-      }
-      builder.append(value);
-    }
-    return builder;
-  }
-
-  // TODO: The best way to implement this is to take the separator as an input parameter
-  // of the function. However, compositor does not allow hard coded string as parameter of function.
-  // Merge this function with conditionalPrepend when the feature supported.
-  @UsedByReflection("compositor.json")
-  private static CharSequence conditionalPrependWithSpaceSeparator(
-      CharSequence prependText, CharSequence conditionalText) {
-    if (TextUtils.isEmpty(conditionalText)) {
-      return "";
-    }
-    if (TextUtils.isEmpty(prependText)) {
-      return conditionalText;
-    }
-    SpannableStringBuilder result = new SpannableStringBuilder();
-    result.append(prependText);
-    result.append(SpannableUtils.wrapWithIdentifierSpan(" "));
-    result.append(conditionalText);
-    return result;
+    return CompositorUtils.dedupJoin(value1, value2, value3);
   }
 
   @UsedByReflection("compositor.json")
   private CharSequence spelling(CharSequence word) {
-    if (word.length() <= 1) {
-      return "";
-    }
-
-    StringBuilder chars = new StringBuilder();
-    for (int i = 0; i < word.length(); i++) {
-      final CharSequence character = Character.toString(word.charAt(i));
-      final CharSequence cleaned = SpeechCleanupUtils.cleanUp(mContext, character);
-      chars.append(cleaned);
-    }
-    return chars;
+    return InputTextFeedbackRules.spelling(word, mContext);
   }
 
   @UsedByReflection("compositor.json")
@@ -1104,23 +870,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
 
   @UsedByReflection("compositor.json")
   private CharSequence prependCapital(CharSequence s) {
-    if (TextUtils.isEmpty(s) || !sayCapital) {
-      return s;
-    }
-    if ((s.length() == 1) && Character.isUpperCase(s.charAt(0))) {
-      return mContext.getString(R.string.template_capital_letter, s.charAt(0));
-    }
-    return s;
-  }
-
-  @UsedByReflection("compositor.json")
-  private CharSequence getWindowTitle(int windowId) {
-    if (mWindowsDelegate == null) {
-      return "";
-    }
-
-    CharSequence title = mWindowsDelegate.getWindowTitle(windowId);
-    return title != null ? title : "";
+    return sayCapital ? CompositorUtils.prependCapital(s, mContext) : s;
   }
 
   @UsedByReflection("compositor.json")

@@ -76,4 +76,8 @@ public class DevInfoOverlayController {
     }
     this.enabled = enabled;
   }
+
+  public boolean isHighlightOverlayEnabled() {
+      return enabled && blockOutOverlay != null;
+  }
 }

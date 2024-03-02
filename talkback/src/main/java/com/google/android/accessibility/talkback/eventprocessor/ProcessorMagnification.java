@@ -17,6 +17,10 @@
 package com.google.android.accessibility.talkback.eventprocessor;
 
 import static android.accessibilityservice.MagnificationConfig.MAGNIFICATION_MODE_FULLSCREEN;
+import static android.view.accessibility.AccessibilityWindowInfo.TYPE_MAGNIFICATION_OVERLAY;
+import static com.google.android.accessibility.talkback.compositor.MagnificationState.STATE_OFF;
+import static com.google.android.accessibility.talkback.compositor.MagnificationState.STATE_ON;
+import static com.google.android.accessibility.talkback.compositor.MagnificationState.STATE_SCALE_CHANGED;
 
 import android.accessibilityservice.AccessibilityService.MagnificationController;
 import android.accessibilityservice.AccessibilityService.MagnificationController.OnMagnificationChangedListener;
@@ -24,21 +28,24 @@ import android.accessibilityservice.MagnificationConfig;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityWindowInfo;
-import androidx.annotation.IntDef;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
+import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.talkback.compositor.GlobalVariables;
+import com.google.android.accessibility.talkback.compositor.MagnificationState;
+import com.google.android.accessibility.talkback.compositor.MagnificationState.State;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import java.util.Locale;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -48,17 +55,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * state is changed.
  */
 public class ProcessorMagnification implements AccessibilityEventListener {
-
-  /** Magnification is disabled. */
-  public static final int STATE_OFF = 0;
-  /** Magnification is enabled. */
-  public static final int STATE_ON = 1;
-  /** Magnification scale is changed. */
-  public static final int STATE_SCALE_CHANGED = 2;
-  /** Magnification state for compositor speech feedback. */
-  @IntDef({STATE_OFF, STATE_ON, STATE_SCALE_CHANGED})
-  @Retention(RetentionPolicy.SOURCE)
-  public @interface MagnificationState {}
 
   private static final int EVENT_MASK =
       AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED | AccessibilityEvent.TYPE_VIEW_FOCUSED;
@@ -71,6 +67,7 @@ public class ProcessorMagnification implements AccessibilityEventListener {
   private final @Nullable MagnificationController magnificationController;
   private final GlobalVariables globalVariables;
   private final Compositor compositor;
+  private final TalkBackAnalytics analytics;
 
   /** Magnification bounds for testing. */
   private Rect testMagBounds = null;
@@ -85,10 +82,12 @@ public class ProcessorMagnification implements AccessibilityEventListener {
       MagnificationController magnificationController,
       GlobalVariables globalVariables,
       Compositor compositor,
+      TalkBackAnalytics analytics,
       boolean supportWindowMagnification) {
     this.magnificationController = magnificationController;
     this.globalVariables = globalVariables;
     this.compositor = compositor;
+    this.analytics = analytics;
     this.supportWindowMagnification = supportWindowMagnification;
 
     onMagnificationChangedListener = createMagnificationChangeListener();
@@ -148,7 +147,7 @@ public class ProcessorMagnification implements AccessibilityEventListener {
         }
 
         try {
-          handleMagnificationChanged(MAGNIFICATION_MODE_FULLSCREEN, scale, lastScale, false);
+          handleMagnificationChanged(null, scale, lastScale, false);
         } finally {
           lastScale = scale;
         }
@@ -157,10 +156,13 @@ public class ProcessorMagnification implements AccessibilityEventListener {
   }
 
   private void handleMagnificationChanged(
-      int mode, float scale, float lastScale, boolean modeIsChanged) {
-    @MagnificationState int state;
+      Integer mode, float scale, float lastScale, boolean modeIsChanged) {
+    @State int state;
     if (scale > 1 && (modeIsChanged || lastScale == 1)) {
       state = STATE_ON;
+
+      // Log magnification mode.
+      analytics.onMagnificationUsed((mode == null) ? MAGNIFICATION_MODE_FULLSCREEN : mode);
     } else if (scale == 1 && lastScale > 1) {
       state = STATE_OFF;
     } else if (scale > 1) {
@@ -169,7 +171,8 @@ public class ProcessorMagnification implements AccessibilityEventListener {
       return;
     }
 
-    globalVariables.updateMagnificationState(mode, scale, state);
+    globalVariables.setMagnificationState(
+        MagnificationState.builder().setMode(mode).setCurrentScale(scale).setState(state).build());
 
     if (FeatureSupport.supportAnnounceMagnificationChanged()) {
       // TODO use pipeline to handle compositor for magnification
@@ -196,12 +199,12 @@ public class ProcessorMagnification implements AccessibilityEventListener {
     if (sourceNode == null
         || window == null
         || AccessibilityNodeInfoUtils.isKeyboard(sourceNode)
-        || (window.getType() == AccessibilityWindowInfo.TYPE_MAGNIFICATION_OVERLAY)
+        || (AccessibilityWindowInfoUtils.getType(window) == TYPE_MAGNIFICATION_OVERLAY)
         || getMagnificationScale() <= 1) {
       return;
     }
 
-    recenterMagnifier(sourceNode, window.getType());
+    recenterMagnifier(sourceNode, AccessibilityWindowInfoUtils.getType(window));
   }
 
   /** Registers the magnification change listener when TalkBack resumes. */
@@ -334,7 +337,8 @@ public class ProcessorMagnification implements AccessibilityEventListener {
     }
     @Nullable CharSequence text = AccessibilityNodeInfoUtils.getText(node);
     if (TextUtils.isEmpty(text)) {
-      return true;
+      return TextUtils.getLayoutDirectionFromLocale(Locale.getDefault())
+          == View.LAYOUT_DIRECTION_LTR;
     }
     int direction = Character.getDirectionality(text.charAt(0));
     return (direction != Character.DIRECTIONALITY_RIGHT_TO_LEFT

@@ -42,7 +42,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * @param <T> The handler's parent class.
  */
 public abstract class WeakReferenceHandler<T> extends Handler {
-  private final WeakReference<T> mParentRef;
+
+  private final WeakReference<T> parentRef;
 
   /**
    * Constructs a new {@link WeakReferenceHandler} with a reference to its parent class.
@@ -50,7 +51,7 @@ public abstract class WeakReferenceHandler<T> extends Handler {
    * @param parent The handler's parent class.
    */
   public WeakReferenceHandler(T parent) {
-    mParentRef = new WeakReference<>(parent);
+    parentRef = new WeakReference<>(parent);
   }
 
   /**
@@ -61,7 +62,7 @@ public abstract class WeakReferenceHandler<T> extends Handler {
    */
   public WeakReferenceHandler(T parent, Looper looper) {
     super(looper);
-    mParentRef = new WeakReference<>(parent);
+    parentRef = new WeakReference<>(parent);
   }
 
   @Override
@@ -77,7 +78,7 @@ public abstract class WeakReferenceHandler<T> extends Handler {
 
   /** @return The parent class, or {@code null} if the reference has been cleared. */
   protected @Nullable T getParent() {
-    return mParentRef.get();
+    return parentRef.get();
   }
 
   /** Subclasses must implement this to receive messages. */

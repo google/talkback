@@ -16,20 +16,35 @@
 
 package com.google.android.accessibility.utils;
 
-import android.content.res.Configuration;
+import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
+import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
+import static android.content.res.Configuration.ORIENTATION_UNDEFINED;
+
+import android.accessibilityservice.AccessibilityGestureEvent;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.ArrayMap;
+import android.util.SparseArray;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.common.collect.EvictingQueue;
+import com.google.common.collect.ImmutableList;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Locale.Category;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Queue;
+import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicLong;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -45,20 +60,43 @@ public class Performance {
 
   private static final String TAG = "Performance";
 
+  private static final Logger DEFAULT_LOGGER = (format, args) -> LogUtils.v(TAG, format, args);
+
+  // Randomly choose the threshold first. Feel free to change it.
+  private static final long TTS_LATENCY_THRESHOLD_MS = 500;
+  private static final long FEEDBACK_COMPOSED_THRESHOLD_MS = 150;
+  private static final long FEEDBACK_QUEUED_THRESHOLD_MS = 1000;
+  private static final long FEEDBACK_HEARD_THRESHOLD_MS = 1000;
+
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Constants
 
   /** Stages that each event goes through, where we want to measure latency. */
-  @IntDef({STAGE_FRAMEWORK, STAGE_INLINE_HANDLING, STAGE_FEEDBACK_QUEUED, STAGE_FEEDBACK_HEARD})
+  @IntDef({
+    STAGE_FRAMEWORK,
+    STAGE_INLINE_HANDLING,
+    STAGE_FEEDBACK_QUEUED,
+    STAGE_FEEDBACK_HEARD,
+    STAGE_BETWEEN_FEEDBACK_QUEUED_AND_FEEDBACK_HEARD,
+    STAGE_FEEDBACK_COMPOSED,
+  })
   public @interface StageId {}
 
   public static final int STAGE_FRAMEWORK = 0; // Latency before TalkBack
   public static final int STAGE_INLINE_HANDLING = 1; // Time during synchronous event handlers
   public static final int STAGE_FEEDBACK_QUEUED = 2; // Time until first speech is queued
   public static final int STAGE_FEEDBACK_HEARD = 3; // Time until speech is heard.
-  public static final String[] STAGE_NAMES = {
-    "STAGE_FRAMEWORK", "STAGE_INLINE_HANDLING", "STAGE_FEEDBACK_QUEUED", "STAGE_FEEDBACK_HEARD"
-  };
+  public static final int STAGE_BETWEEN_FEEDBACK_QUEUED_AND_FEEDBACK_HEARD =
+      4; // Time between speech is queued and heard.
+  public static final int STAGE_FEEDBACK_COMPOSED = 5; // Time until speech is composed.
+  public static final ImmutableList<String> STAGE_NAMES =
+      ImmutableList.of(
+          "STAGE_FRAMEWORK",
+          "STAGE_INLINE_HANDLING",
+          "STAGE_FEEDBACK_QUEUED",
+          "STAGE_FEEDBACK_HEARD",
+          "STAGE_BETWEEN_FEEDBACK_QUEUED_AND_FEEDBACK_HEARD",
+          "STAGE_FEEDBACK_COMPOSED");
 
   /**
    * Event types for which we want to measure latency.
@@ -92,45 +130,62 @@ public class Performance {
   public static final int EVENT_TYPE_GESTURE = 4;
   public static final int EVENT_TYPE_ROTATE = 5;
   public static final int EVENT_TYPE_FINGERPRINT_GESTURE = 6;
-  public static final String[] EVENT_TYPE_NAMES = {
-    "EVENT_TYPE_ACCESSIBILITY",
-    "EVENT_TYPE_KEY",
-    "EVENT_TYPE_KEY_COMBO",
-    "EVENT_TYPE_VOLUME_KEY_COMBO",
-    "EVENT_TYPE_GESTURE",
-    "EVENT_TYPE_ROTATE",
-    "EVENT_TYPE_FINGERPRINT_GESTURE"
-  };
+  public static final ImmutableList<String> EVENT_TYPE_NAMES =
+      ImmutableList.of(
+          "EVENT_TYPE_ACCESSIBILITY",
+          "EVENT_TYPE_KEY",
+          "EVENT_TYPE_KEY_COMBO",
+          "EVENT_TYPE_VOLUME_KEY_COMBO",
+          "EVENT_TYPE_GESTURE",
+          "EVENT_TYPE_ROTATE",
+          "EVENT_TYPE_FINGERPRINT_GESTURE");
 
   public static final @Nullable EventId EVENT_ID_UNTRACKED = null;
 
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Member data
 
-  protected boolean mEnabled = false;
+  /** Enable to track the latency and compute the statistics accordingly. */
+  private boolean computeStatsEnabled = false;
 
   /** Recent events for which we are collecting stage latencies */
   protected static final int MAX_RECENT_EVENTS = 100;
 
-  protected LinkedList<EventId> mEventQueue = new LinkedList<EventId>();
-  protected HashMap<EventId, EventData> mEventIndex = new HashMap<EventId, EventData>();
-  private HashMap<String, EventId> mUtteranceToEvent = new HashMap<String, EventId>();
-  protected final Object mLockRecentEvents = new Object();
+  protected ArrayDeque<EventId> eventQueue = new ArrayDeque<>();
+  protected HashMap<EventId, EventData> eventIndex = new HashMap<>();
+  private final HashMap<String, EventId> utteranceToEvent = new HashMap<>();
+  protected final Object lockRecentEvents = new Object();
 
   /** Latency statistics for various event/label types */
-  protected HashMap<StatisticsKey, Statistics> mLabelToStats =
-      new HashMap<StatisticsKey, Statistics>();
+  protected HashMap<StatisticsKey, Statistics> labelToStats = new HashMap<>();
 
-  protected final Object mLockLabelToStats = new Object();
-  protected Statistics mAllEventStats = new Statistics();
+  /**
+   * Latency statistics for detecting gesture which could be in framework or Talkback side. we
+   * should do this testing only on the default display for convenience.
+   */
+  protected SparseArray<Statistics> gestureDetectionToStats = new SparseArray<>();
 
-  private static Performance sInstance = new Performance();
+  protected final Object lockGestureDetectionToStats = new Object();
+
+  /**
+   * The time interaction start obtained from the event time of {@link
+   * AccessibilityEvent#TYPE_TOUCH_INTERACTION_START}, which is {@link SystemClock#uptimeMillis()}
+   * stamp time base
+   */
+  private long timeInteractionStart;
+
+  protected final Object lockLabelToStats = new Object();
+  protected Statistics allEventStats = new Statistics();
+
+  private final ArrayMap<LatencyTracker, Executor> latencyTrackers = new ArrayMap<>();
+
+  private static final Performance instance = new Performance();
 
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
   public static Performance getInstance() {
-    return sInstance;
+    return instance;
   }
 
   protected Performance() {}
@@ -138,16 +193,16 @@ public class Performance {
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Simple getters/setters
 
-  public boolean getEnabled() {
-    return mEnabled;
+  public boolean getComputeStatsEnabled() {
+    return computeStatsEnabled;
   }
 
-  public void setEnabled(boolean enabled) {
-    mEnabled = enabled;
+  public void setComputeStatsEnabled(boolean computeStatsEnabled) {
+    this.computeStatsEnabled = computeStatsEnabled;
   }
 
   public Statistics getAllEventStats() {
-    return mAllEventStats;
+    return allEventStats;
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////
@@ -162,8 +217,12 @@ public class Performance {
    */
   public EventId onEventReceived(@NonNull AccessibilityEvent event) {
     @NonNull EventId eventId = toEventId(event);
-    if (!mEnabled) {
+    if (!trackEvents()) {
       return eventId;
+    }
+
+    if (event.getEventType() == AccessibilityEvent.TYPE_TOUCH_INTERACTION_START) {
+      timeInteractionStart = event.getEventTime();
     }
 
     // Segment events based on type.
@@ -175,19 +234,6 @@ public class Performance {
   }
 
   /**
-   * Constructs an EventId without tracking the event's times. Useful for recreating an id from an
-   * event that was tracked by onEventReceived(), when the event is available but id is not. Try to
-   * use this as little as possible, and instead pass the EventId from onEventReceived().
-   *
-   * @param event Event that has already been tracked by onEventReceived()
-   * @return EventId of event
-   */
-  @NonNull
-  public EventId toEventId(@NonNull AccessibilityEvent event) {
-    return new EventId(event.getEventTime(), EVENT_TYPE_ACCESSIBILITY, event.getEventType());
-  }
-
-  /**
    * Method to start tracking processing latency for a key event.
    *
    * @param event A key event just received by TalkBack
@@ -195,8 +241,8 @@ public class Performance {
    */
   public EventId onEventReceived(@NonNull KeyEvent event) {
     int keycode = event.getKeyCode();
-    EventId eventId = new EventId(event.getEventTime(), EVENT_TYPE_KEY, keycode);
-    if (!mEnabled) {
+    EventId eventId = toEventId(event);
+    if (!trackEvents()) {
       return eventId;
     }
 
@@ -217,6 +263,54 @@ public class Performance {
     return eventId;
   }
 
+  protected void onEventReceived(@NonNull EventId eventId, String[] labels) {
+    if (!trackEvents()) {
+      return;
+    }
+
+    // Create event data.
+    EventData eventData = new EventData(getTime(), getUptime(), labels, eventId);
+
+    // Collect event data.
+    addRecentEvent(eventId, eventData);
+    trimRecentEvents(MAX_RECENT_EVENTS);
+
+    if (!computeStatsEnabled) {
+      return;
+    }
+    @StageId int prevStage = STAGE_INLINE_HANDLING - 1;
+    long prevStageLatency = getUptime() - eventId.getEventTimeMs(); // Event times are uptime.
+    allEventStats.increment(prevStageLatency);
+
+    // Increment statistics for each event label.
+    if (eventData.labels != null) {
+      int numLabels = eventData.labels.length;
+      for (int labelIndex = 0; labelIndex < numLabels; ++labelIndex) {
+        String label = eventData.labels[labelIndex];
+        Statistics stats = getOrCreateStatistics(label, prevStage);
+        stats.increment(prevStageLatency);
+      }
+    }
+  }
+
+  /**
+   * Constructs an EventId without tracking the event's times. Useful for recreating an id from an
+   * event that was tracked by onEventReceived(), when the event is available but id is not. Try to
+   * use this as little as possible, and instead pass the EventId from onEventReceived().
+   *
+   * @param event Event that has already been tracked by onEventReceived()
+   * @return EventId of event
+   */
+  @NonNull
+  public EventId toEventId(@NonNull AccessibilityEvent event) {
+    return new EventId(event.getEventTime(), EVENT_TYPE_ACCESSIBILITY, event.getEventType());
+  }
+
+  @NonNull
+  public EventId toEventId(@NonNull KeyEvent event) {
+    return new EventId(event.getEventTime(), EVENT_TYPE_KEY, event.getKeyCode());
+  }
+
   /**
    * Method to start tracking processing latency for a gesture event. Uses event type as statistics
    * segmentation label.
@@ -226,16 +320,30 @@ public class Performance {
    */
   public EventId onGestureEventReceived(int gestureId) {
     EventId eventId = new EventId(getUptime(), EVENT_TYPE_GESTURE, gestureId);
-    if (!mEnabled) {
+    if (!trackEvents()) {
       return eventId;
     }
 
+    if (computeStatsEnabled) {
+      logGestureDetectionDuration(gestureId);
+    }
     // Segment events based on gesture id.
     String label = AccessibilityServiceCompatUtils.gestureIdToString(gestureId);
     String[] labels = {label};
 
     onEventReceived(eventId, labels);
     return eventId;
+  }
+
+  private void logGestureDetectionDuration(int gestureId) {
+    synchronized (lockGestureDetectionToStats) {
+      Statistics statistics = gestureDetectionToStats.get(gestureId);
+      if (statistics == null) {
+        statistics = new Statistics();
+        gestureDetectionToStats.put(gestureId, statistics);
+      }
+      statistics.increment(getUptime() - timeInteractionStart);
+    }
   }
 
   /**
@@ -248,7 +356,7 @@ public class Performance {
   public EventId onFingerprintGestureEventReceived(int fingerprintGestureId) {
     EventId eventId =
         new EventId(getUptime(), EVENT_TYPE_FINGERPRINT_GESTURE, fingerprintGestureId);
-    if (!mEnabled) {
+    if (!trackEvents()) {
       return eventId;
     }
 
@@ -263,7 +371,7 @@ public class Performance {
 
   public EventId onKeyComboEventReceived(int keyComboId) {
     EventId eventId = new EventId(getUptime(), EVENT_TYPE_KEY_COMBO, keyComboId);
-    if (!mEnabled) {
+    if (!trackEvents()) {
       return eventId;
     }
 
@@ -277,7 +385,7 @@ public class Performance {
 
   public EventId onVolumeKeyComboEventReceived(int keyComboId) {
     EventId eventId = new EventId(getUptime(), EVENT_TYPE_VOLUME_KEY_COMBO, keyComboId);
-    if (!mEnabled) {
+    if (!trackEvents()) {
       return eventId;
     }
 
@@ -291,48 +399,15 @@ public class Performance {
 
   public EventId onRotateEventReceived(int orientation) {
     EventId eventId = new EventId(getUptime(), EVENT_TYPE_ROTATE, orientation);
-    if (!mEnabled) {
+    if (!trackEvents()) {
       return eventId;
     }
 
     // Segment events based on orientation.
-    String label = "ORIENTATION_UNDEFINED";
-    if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-      label = "ORIENTATION_PORTRAIT";
-    } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-      label = "ORIENTATION_LANDSCAPE";
-    }
-    String[] labels = {label};
+    String[] labels = {orientationToSymbolicName(orientation)};
 
     onEventReceived(eventId, labels);
     return eventId;
-  }
-
-  protected void onEventReceived(@NonNull EventId eventId, String[] labels) {
-    if (!mEnabled) {
-      return;
-    }
-
-    // Create event data.
-    EventData eventData = new EventData(getTime(), labels, eventId);
-
-    // Collect event data.
-    addRecentEvent(eventId, eventData);
-    trimRecentEvents(MAX_RECENT_EVENTS);
-
-    @StageId int prevStage = STAGE_INLINE_HANDLING - 1;
-    long prevStageLatency = getUptime() - eventId.getEventTimeMs(); // Event times are uptime.
-    mAllEventStats.increment(prevStageLatency);
-
-    // For each event label... increment statistics.
-    if (eventData.labels != null) {
-      int numLabels = eventData.labels.length;
-      for (int labelIndex = 0; labelIndex < numLabels; ++labelIndex) {
-        String label = eventData.labels[labelIndex];
-        Statistics stats = getOrCreateStatistics(label, prevStage);
-        stats.increment(prevStageLatency);
-      }
-    }
   }
 
   /**
@@ -341,7 +416,7 @@ public class Performance {
    * @param eventId Identity of an event just handled by TalkBack
    */
   public void onHandlerDone(@NonNull EventId eventId) {
-    if (!mEnabled) {
+    if (!trackEvents()) {
       return;
     }
 
@@ -358,13 +433,58 @@ public class Performance {
     // Compute stage latency.
     long now = getTime();
     eventData.timeInlineHandled = now;
+    if (!computeStatsEnabled) {
+      return;
+    }
+
     long stageLatency = now - eventData.timeReceivedAtTalkback;
 
-    // For each event label... increment stage latency statistics.
+    // Increment the stage latency statistics for each event label.
     if (eventData.labels != null) {
       for (String label : eventData.labels) {
         Statistics stats = getOrCreateStatistics(label, STAGE_INLINE_HANDLING);
         stats.increment(stageLatency);
+      }
+    }
+  }
+
+  /**
+   * Track event latency between receiving event, and the spoken feedback is composed.
+   *
+   * @param eventId Identity of an event handled by TalkBack
+   */
+  public void onFeedbackComposed(@NonNull EventId eventId) {
+    if (!trackEvents()) {
+      return;
+    }
+
+    // If recent event not found... then labels are not available to increment statistics.
+    EventData eventData = getRecentEvent(eventId);
+    if (eventData == null) {
+      return;
+    }
+
+    long now = getTime();
+    eventData.setFeedbackComposed(now);
+    if (!computeStatsEnabled) {
+      return;
+    }
+
+    long stageLatency = now - eventData.timeReceivedAtTalkback;
+
+    // Increment the stage latency statistics for each event label.
+    if (eventData.labels != null) {
+      for (String label : eventData.labels) {
+        Statistics stats = getOrCreateStatistics(label, STAGE_FEEDBACK_COMPOSED);
+        stats.increment(stageLatency);
+
+        if (stageLatency > FEEDBACK_COMPOSED_THRESHOLD_MS) {
+          LogUtils.d(
+              TAG,
+              "Feedback composed latency exceeds %s ms : %s",
+              FEEDBACK_COMPOSED_THRESHOLD_MS,
+              stageLatency);
+        }
       }
     }
   }
@@ -376,7 +496,7 @@ public class Performance {
    * @param utteranceId Identity of a piece of spoken feedback, resulting from the event.
    */
   public void onFeedbackQueued(@NonNull EventId eventId, @NonNull String utteranceId) {
-    if (!mEnabled) {
+    if (!trackEvents()) {
       return;
     }
 
@@ -394,20 +514,34 @@ public class Performance {
     long now = getTime();
     eventData.setFeedbackQueued(now, utteranceId);
     indexRecentUtterance(utteranceId, eventId);
-    long stageLatency = now - eventData.timeReceivedAtTalkback;
+    if (!computeStatsEnabled) {
+      return;
+    }
 
-    // For each event label... increment stage latency statistics.
+    long stageLatency = now - eventData.timeReceivedAtTalkback;
+    // Increment the stage latency statistics for each event label.
     if (eventData.labels != null) {
       for (String label : eventData.labels) {
         Statistics stats = getOrCreateStatistics(label, STAGE_FEEDBACK_QUEUED);
         stats.increment(stageLatency);
+
+        if (stageLatency > FEEDBACK_QUEUED_THRESHOLD_MS) {
+          LogUtils.d(
+              TAG,
+              "Feedback queued latency exceeds %s ms : %s",
+              FEEDBACK_QUEUED_THRESHOLD_MS,
+              stageLatency);
+        }
       }
     }
   }
 
-  /** Track event latency between receiving event, and hearing audio feedback. */
+  /**
+   * Tracks event latency between receiving event, and hearing audio feedback. We also track the
+   * latency between queueing first piece of spoken feedback and hearing audio feedback.
+   */
   public void onFeedbackOutput(@NonNull String utteranceId) {
-    if (!mEnabled) {
+    if (!trackEvents()) {
       return;
     }
 
@@ -426,13 +560,40 @@ public class Performance {
       // Compute stage latency.
       long now = getTime();
       eventData.setFeedbackOutput(now);
-      long stageLatency = now - eventData.timeReceivedAtTalkback;
+      notifyLatencyTracker(eventData);
+      if (computeStatsEnabled) {
+        long stageLatency = now - eventData.timeReceivedAtTalkback;
 
-      // For each event label... increment stage latency statistics.
-      if (eventData.labels != null) {
-        for (String label : eventData.labels) {
-          Statistics stats = getOrCreateStatistics(label, STAGE_FEEDBACK_HEARD);
-          stats.increment(stageLatency);
+        // Increment the stage latency statistics for each event label.
+        if (eventData.labels != null) {
+          for (String label : eventData.labels) {
+            Statistics stats = getOrCreateStatistics(label, STAGE_FEEDBACK_HEARD);
+            stats.increment(stageLatency);
+
+            if (stageLatency > FEEDBACK_HEARD_THRESHOLD_MS) {
+              LogUtils.d(
+                  TAG,
+                  "Feedback heard latency exceeds %s ms : %s",
+                  FEEDBACK_HEARD_THRESHOLD_MS,
+                  stageLatency);
+            }
+
+            // Track latency between stage queued and stage heard.
+            if (eventData.getTimeFeedbackQueued() > 0) {
+              long latency = now - eventData.getTimeFeedbackQueued();
+              if (latency > TTS_LATENCY_THRESHOLD_MS) {
+                LogUtils.d(
+                    TAG,
+                    "TTS latency of %s exceeds %s ms : %s",
+                    utteranceId,
+                    TTS_LATENCY_THRESHOLD_MS,
+                    latency);
+              }
+              stats =
+                  getOrCreateStatistics(label, STAGE_BETWEEN_FEEDBACK_QUEUED_AND_FEEDBACK_HEARD);
+              stats.increment(latency);
+            }
+          }
         }
       }
     }
@@ -441,6 +602,43 @@ public class Performance {
     collectMissingLatencies(eventData);
     removeRecentEvent(eventId);
     removeRecentUtterance(utteranceId);
+  }
+
+  /**
+   * Adds {@link LatencyTracker} to track the latency.
+   *
+   * @param latencyTracker The callback invoked when the latency is measured.
+   * @param executor Executor on which to run the callback.
+   */
+  public void addLatencyTracker(LatencyTracker latencyTracker, Executor executor) {
+    synchronized (latencyTrackers) {
+      latencyTrackers.put(latencyTracker, executor);
+    }
+  }
+
+  /**
+   * Removes {@link LatencyTracker}.
+   *
+   * @param latencyTracker The callback invoked when the latency is measured.
+   */
+  public void removeLatencyTracker(LatencyTracker latencyTracker) {
+    synchronized (latencyTrackers) {
+      latencyTrackers.remove(latencyTracker);
+    }
+  }
+
+  private void notifyLatencyTracker(EventData eventData) {
+    ArrayMap<LatencyTracker, Executor> trackers;
+    synchronized (latencyTrackers) {
+      if (latencyTrackers.isEmpty()) {
+        return;
+      }
+      trackers = new ArrayMap<>(latencyTrackers);
+    }
+
+    for (Map.Entry<LatencyTracker, Executor> entry : trackers.entrySet()) {
+      entry.getValue().execute(() -> entry.getKey().onFeedbackOutput(eventData));
+    }
   }
 
   /** Pop recent events off the queue, and increment their statistics as "missing" */
@@ -491,68 +689,68 @@ public class Performance {
   // Methods to access recent event collection
 
   protected void addRecentEvent(@NonNull EventId eventId, @NonNull EventData eventData) {
-    synchronized (mLockRecentEvents) {
-      mEventQueue.add(eventId);
-      mEventIndex.put(eventId, eventData);
+    synchronized (lockRecentEvents) {
+      eventQueue.add(eventId);
+      eventIndex.put(eventId, eventData);
     }
   }
 
   private void indexRecentUtterance(@NonNull String utteranceId, @NonNull EventId eventId) {
-    synchronized (mLockRecentEvents) {
-      mUtteranceToEvent.put(utteranceId, eventId);
+    synchronized (lockRecentEvents) {
+      utteranceToEvent.put(utteranceId, eventId);
     }
   }
 
   protected EventData getRecentEvent(@NonNull EventId eventId) {
-    synchronized (mLockRecentEvents) {
-      return mEventIndex.get(eventId);
+    synchronized (lockRecentEvents) {
+      return eventIndex.get(eventId);
     }
   }
 
   protected EventId getRecentUtterance(@NonNull String utteranceId) {
-    synchronized (mLockRecentEvents) {
-      return mUtteranceToEvent.get(utteranceId);
+    synchronized (lockRecentEvents) {
+      return utteranceToEvent.get(utteranceId);
     }
   }
 
   protected int getNumRecentEvents() {
-    synchronized (mLockRecentEvents) {
-      return mEventQueue.size();
+    synchronized (lockRecentEvents) {
+      return eventQueue.size();
     }
   }
 
   protected @Nullable EventData popOldestRecentEvent() {
-    synchronized (mLockRecentEvents) {
-      if (mEventQueue.size() == 0) {
+    synchronized (lockRecentEvents) {
+      if (eventQueue.isEmpty()) {
         return null;
       }
-      EventId eventId = mEventQueue.remove();
-      EventData eventData = mEventIndex.remove(eventId);
+      EventId eventId = eventQueue.remove();
+      EventData eventData = eventIndex.remove(eventId);
       String utteranceId = (eventData == null) ? null : eventData.getUtteranceId();
       if (utteranceId != null) {
-        mUtteranceToEvent.remove(eventData.getUtteranceId());
+        utteranceToEvent.remove(eventData.getUtteranceId());
       }
       return eventData;
     }
   }
 
   protected void removeRecentEvent(@NonNull EventId eventId) {
-    synchronized (mLockRecentEvents) {
-      mEventIndex.remove(eventId);
-      mEventQueue.remove(eventId);
+    synchronized (lockRecentEvents) {
+      eventIndex.remove(eventId);
+      eventQueue.remove(eventId);
     }
   }
 
   public void clearRecentEvents() {
-    synchronized (mLockRecentEvents) {
-      mEventIndex.clear();
-      mEventQueue.clear();
+    synchronized (lockRecentEvents) {
+      eventIndex.clear();
+      eventQueue.clear();
     }
   }
 
   protected void removeRecentUtterance(@NonNull String utteranceId) {
-    synchronized (mLockRecentEvents) {
-      mUtteranceToEvent.remove(utteranceId);
+    synchronized (lockRecentEvents) {
+      utteranceToEvent.remove(utteranceId);
     }
   }
 
@@ -567,26 +765,36 @@ public class Performance {
    * @return The statistics for requested label & stage, or null if no such label & stage found.
    */
   public Statistics getStatistics(@NonNull String label, @StageId int stage) {
-    synchronized (mLockLabelToStats) {
+    synchronized (lockLabelToStats) {
       StatisticsKey statsKey = new StatisticsKey(label, stage);
-      return mLabelToStats.get(statsKey);
+      return labelToStats.get(statsKey);
     }
+  }
+
+  public void clearAllStatsAndRecords(Logger logger) {
+    clearAllStats();
+    clearRecentEvents();
+    logger.log("performance statistic is cleared");
   }
 
   public void clearAllStats() {
-    synchronized (mLockLabelToStats) {
-      mLabelToStats.clear();
+    synchronized (lockLabelToStats) {
+      labelToStats.clear();
     }
-    mAllEventStats.clear();
+    allEventStats.clear();
+
+    synchronized (lockGestureDetectionToStats) {
+      gestureDetectionToStats.clear();
+    }
   }
 
   protected Statistics getOrCreateStatistics(@NonNull String label, @StageId int stage) {
-    synchronized (mLockLabelToStats) {
+    synchronized (lockLabelToStats) {
       StatisticsKey statsKey = new StatisticsKey(label, stage);
-      Statistics stats = mLabelToStats.get(statsKey);
+      Statistics stats = labelToStats.get(statsKey);
       if (stats == null) {
         stats = new Statistics();
-        mLabelToStats.put(statsKey, stats);
+        labelToStats.put(statsKey, stats);
       }
       return stats;
     }
@@ -595,15 +803,20 @@ public class Performance {
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Methods to display results
 
-  /** Display label-vs-label comparisons for each summary statistic. */
+  /** Displays label-vs-label comparisons for each summary statistic. */
   public void displayStatToLabelCompare() {
-    display("displayStatToLabelCompare()");
+    displayStatToLabelCompare(DEFAULT_LOGGER);
+  }
 
-    StatisticsKey[] labelsSorted = new StatisticsKey[mLabelToStats.size()];
-    labelsSorted = mLabelToStats.keySet().toArray(labelsSorted);
+  /** Displays label-vs-label comparisons for each summary statistic. */
+  public void displayStatToLabelCompare(Logger logger) {
+    display(logger, "displayStatToLabelCompare()");
+
+    StatisticsKey[] labelsSorted = new StatisticsKey[labelToStats.size()];
+    labelsSorted = labelToStats.keySet().toArray(labelsSorted);
     Arrays.sort(labelsSorted);
 
-    ArrayList<BarInfo> barsMissing = new ArrayList<BarInfo>(labelsSorted.length);
+    ArrayList<BarInfo> barsMissing = new ArrayList<>(labelsSorted.length);
     ArrayList<BarInfo> barsCount = new ArrayList<BarInfo>(labelsSorted.length);
     ArrayList<BarInfo> barsMean = new ArrayList<BarInfo>(labelsSorted.length);
     ArrayList<BarInfo> barsMedian = new ArrayList<BarInfo>(labelsSorted.length);
@@ -611,7 +824,7 @@ public class Performance {
 
     // For each label... collect summary statistics.
     for (StatisticsKey label : labelsSorted) {
-      Statistics stats = mLabelToStats.get(label);
+      Statistics stats = labelToStats.get(label);
       barsMissing.add(new BarInfo(label.toString(), stats.getNumMissing()));
       barsCount.add(new BarInfo(label.toString(), stats.getCount()));
       barsMean.add(new BarInfo(label.toString(), stats.getMean()));
@@ -622,56 +835,100 @@ public class Performance {
     }
 
     // For each summary statistic... display comparison bar graph.
-    displayBarGraph("  ", "missing", barsMissing, "" /* barUnits */);
-    displayBarGraph("  ", "count", barsCount, "" /* barUnits */);
-    displayBarGraph("  ", "mean", barsMean, "ms");
-    displayBarGraph("  ", "median", barsMedian, "ms");
-    displayBarGraph("  ", "stddev", barsStdDev, "ms");
+    displayBarGraph(logger, "  ", "missing", barsMissing, /* barUnits= */ "");
+    displayBarGraph(logger, "  ", "count", barsCount, /* barUnits= */ "");
+    displayBarGraph(logger, "  ", "mean", barsMean, /* barUnits= */ "ms");
+    displayBarGraph(logger, "  ", "median", barsMedian, /* barUnits= */ "ms");
+    displayBarGraph(logger, "  ", "stddev", barsStdDev, /* barUnits= */ "ms");
   }
 
-  /** Display latency statistics for each label. */
+  /** Displays latency statistics for each label. */
   public void displayLabelToStats() {
-    display("displayLabelToStats()");
+    displayLabelToStats(DEFAULT_LOGGER);
+  }
+
+  /** Displays latency statistics for each label. */
+  public void displayLabelToStats(Logger logger) {
+    display(logger, "displayLabelToStats()");
 
     // For each label...
-    StatisticsKey[] labelsSorted = new StatisticsKey[mLabelToStats.size()];
-    labelsSorted = mLabelToStats.keySet().toArray(labelsSorted);
+    StatisticsKey[] labelsSorted = new StatisticsKey[labelToStats.size()];
+    labelsSorted = labelToStats.keySet().toArray(labelsSorted);
     Arrays.sort(labelsSorted);
     for (StatisticsKey labelAndStage : labelsSorted) {
-      Statistics stats = mLabelToStats.get(labelAndStage);
-      display("  %s", labelAndStage);
-      displayStatistics(stats);
+      Statistics stats = labelToStats.get(labelAndStage);
+      display(logger, "  %s", labelAndStage);
+      displayStatistics(logger, stats);
     }
   }
 
+  public void dump(Logger logger) {
+    if (!getComputeStatsEnabled()) {
+      logger.log("performance statistic is not enabled");
+      return;
+    }
+    displayLabelToStats(logger);
+    displayStatToLabelCompare(logger);
+    displayAllEventStats(logger);
+    displayGestureDetectionStats(logger);
+  }
+
   public void displayAllEventStats() {
-    display("displayAllEventStats()");
-    displayStatistics(mAllEventStats);
+    displayAllEventStats(DEFAULT_LOGGER);
+  }
+
+  public void displayAllEventStats(Logger logger) {
+    display(logger, "displayAllEventStats()");
+    displayStatistics(logger, allEventStats);
+  }
+
+  private void displayGestureDetectionStats(Logger logger) {
+    display(logger, "displayGestureDetectionStats()");
+    synchronized (lockGestureDetectionToStats) {
+      for (int i = 0; i < gestureDetectionToStats.size(); ++i) {
+        int gestureId = gestureDetectionToStats.keyAt(i);
+        display(logger, AccessibilityServiceCompatUtils.gestureIdToString(gestureId));
+        displayStatistics(logger, gestureDetectionToStats.get(gestureId));
+      }
+    }
+  }
+
+  @VisibleForTesting
+  public boolean trackEvents() {
+    return computeStatsEnabled || !latencyTrackers.isEmpty();
   }
 
   public static void displayStatistics(Statistics stats) {
+    displayStatistics(DEFAULT_LOGGER, stats);
+  }
+
+  public static void displayStatistics(Logger logger, Statistics stats) {
     // Display summary statistics.
     display(
-        "    missing=%s count=%s  mean=%sms  stdDev=%sms  median=%sms",
+        logger,
+        "    missing=%s, count=%s, mean=%sms, stdDev=%sms, median=%sms, 90th percentile=%sms, 99th"
+            + " percentile=%sms",
         stats.getNumMissing(),
         stats.getCount(),
         stats.getMean(),
         stats.getStdDev(),
-        stats.getMedianBinStart());
+        stats.getPercentile(50),
+        stats.getPercentile(90),
+        stats.getPercentile(99));
 
     // Display latency distribution.
-    ArrayList<BarInfo> bars = new ArrayList<BarInfo>(stats.mHistogram.size());
-    for (int bin = 0; bin < stats.mHistogram.size(); ++bin) {
+    ArrayList<BarInfo> bars = new ArrayList<>(stats.histogram.size());
+    for (int bin = 0; bin < stats.histogram.size(); ++bin) {
       long binStart = stats.histogramBinToStartValue(bin);
       bars.add(
           new BarInfo(
-              "" + binStart + "-" + (2 * binStart) + "ms", stats.mHistogram.get(bin).longValue()));
+              "" + binStart + "-" + (2 * binStart) + "ms", stats.histogram.get(bin).longValue()));
     }
-    displayBarGraph("      ", "distribution=", bars, "count");
+    displayBarGraph(logger, "      ", "distribution=", bars, "count");
   }
 
   /**
-   * Display a bar graph.
+   * Displays a bar graph.
    *
    * @param prefix Indentation to prepend to each bar line
    * @param title Title of graph
@@ -679,9 +936,9 @@ public class Performance {
    * @param barUnits Units to append to each bar value
    */
   private static void displayBarGraph(
-      String prefix, String title, ArrayList<BarInfo> bars, String barUnits) {
+      Logger logger, String prefix, String title, ArrayList<BarInfo> bars, String barUnits) {
     if (!TextUtils.isEmpty(title)) {
-      display("  %s", title);
+      display(logger, "  %s", title);
     }
 
     // Find multiplier to scale bars.
@@ -703,9 +960,9 @@ public class Performance {
         line.append("-" + floatToString(barInfo.rangeEnd));
       }
       line.append(barUnits + " for " + barInfo.label);
-      display(line.toString());
+      display(logger, line.toString());
     }
-    display("");
+    display(logger, "");
   }
 
   private static String floatToString(float value) {
@@ -715,13 +972,17 @@ public class Performance {
 
   public void displayRecentEvents() {
     display("perf.mEventQueue=");
-    for (EventId i : mEventQueue) {
+    for (EventId i : eventQueue) {
       display("\t" + i);
     }
     display("perf.mEventIndex=");
-    for (EventId i : mEventIndex.keySet()) {
-      display("\t" + i + ":" + mEventIndex.get(i));
+    for (EventId i : eventIndex.keySet()) {
+      display("\t" + i + ":" + eventIndex.get(i));
     }
+  }
+
+  static void display(Logger logger, String format, Object... args) {
+    logger.log(format, args);
   }
 
   private static void display(String format, Object... args) {
@@ -736,40 +997,59 @@ public class Performance {
     return repeated.toString();
   }
 
+  public @Nullable Statistics getStatisticsByLabelAndStageId(String label, @StageId int stageId) {
+    StatisticsKey[] labelsSorted = new StatisticsKey[labelToStats.size()];
+    labelsSorted = labelToStats.keySet().toArray(labelsSorted);
+
+    for (StatisticsKey labelAndStage : labelsSorted) {
+      if (TextUtils.equals(labelAndStage.label, label) && labelAndStage.stage == stageId) {
+        return labelToStats.get(labelAndStage);
+      }
+    }
+
+    return null;
+  }
+
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Inner classes for recent events
 
   /** Key for looking up EventData in HashMap. */
   public static class EventId {
-    private final long mEventTimeMs;
-    @EventTypeId private final int mEventType;
-    private final int mEventSubtype;
+    private final long eventTimeMs;
+    @EventTypeId private final int eventType;
+
+    /**
+     * The actual event type. Could be {@link AccessibilityEvent#getEventType()} or {@link
+     * AccessibilityGestureEvent#getGestureId()}.
+     */
+    private final int eventSubtype;
 
     /**
      * Create a small event identifier for tracking event through processing stages.
      *
      * @param time Time in milliseconds.
      * @param type Event object type.
-     * @param subtype Event object subtype from AccessibilityEvent.getEventType() or gesture id.
+     * @param subtype Event object subtype from {@link AccessibilityEvent#getEventType()} or {@link
+     *     AccessibilityGestureEvent#getGestureId()}.
      */
     @VisibleForTesting(otherwise = VisibleForTesting.PROTECTED)
     public EventId(long time, @EventTypeId int type, int subtype) {
-      mEventTimeMs = time; // Event creation times use system uptime.
-      mEventType = type;
-      mEventSubtype = subtype;
+      eventTimeMs = time; // Event creation times use system uptime.
+      eventType = type;
+      eventSubtype = subtype;
     }
 
     public long getEventTimeMs() {
-      return mEventTimeMs;
+      return eventTimeMs;
     }
 
     @EventTypeId
     public int getEventType() {
-      return mEventType;
+      return eventType;
     }
 
     public int getEventSubtype() {
-      return mEventSubtype;
+      return eventSubtype;
     }
 
     @Override
@@ -781,88 +1061,135 @@ public class Performance {
         return false;
       }
       EventId other = (EventId) otherObj;
-      return this.mEventTimeMs == other.mEventTimeMs
-          && this.mEventType == other.mEventType
-          && this.mEventSubtype == other.mEventSubtype;
+      return this.eventTimeMs == other.eventTimeMs
+          && this.eventType == other.eventType
+          && this.eventSubtype == other.eventSubtype;
     }
 
     @Override
     public int hashCode() {
-      return Objects.hash(mEventTimeMs, mEventType, mEventSubtype);
+      return Objects.hash(eventTimeMs, eventType, eventSubtype);
     }
 
     @Override
     public String toString() {
       String subtypeString;
-      switch (mEventType) {
+      switch (eventType) {
         case EVENT_TYPE_ACCESSIBILITY:
-          subtypeString = AccessibilityEventUtils.typeToString(mEventSubtype);
+          subtypeString = AccessibilityEventUtils.typeToString(eventSubtype);
           break;
         case EVENT_TYPE_KEY:
-          subtypeString = KeyEvent.keyCodeToString(mEventSubtype);
+          subtypeString = KeyEvent.keyCodeToString(eventSubtype);
           break;
         case EVENT_TYPE_GESTURE:
-          subtypeString = AccessibilityServiceCompatUtils.gestureIdToString(mEventSubtype);
+          subtypeString = AccessibilityServiceCompatUtils.gestureIdToString(eventSubtype);
           break;
         case EVENT_TYPE_FINGERPRINT_GESTURE:
           subtypeString =
-              AccessibilityServiceCompatUtils.fingerprintGestureIdToString(mEventSubtype);
+              AccessibilityServiceCompatUtils.fingerprintGestureIdToString(eventSubtype);
           break;
+        case EVENT_TYPE_KEY_COMBO:
+          subtypeString =
+              String.format(Locale.getDefault(Category.FORMAT), "KEY_COMBO_%d", eventSubtype);
+          break;
+        case EVENT_TYPE_ROTATE:
+          subtypeString = orientationToSymbolicName(eventSubtype);
+          break;
+        case EVENT_TYPE_VOLUME_KEY_COMBO:
+          subtypeString =
+              String.format(
+                  Locale.getDefault(Category.FORMAT), "VOLUME_KEY_COMBO_%d", eventSubtype);
+          break;
+
         default:
-          subtypeString = Integer.toString(mEventSubtype);
+          subtypeString = Integer.toString(eventSubtype);
       }
       return "type:"
-          + EVENT_TYPE_NAMES[mEventType]
+          + EVENT_TYPE_NAMES.get(eventType)
           + " subtype:"
           + subtypeString
           + " time:"
-          + mEventTimeMs;
+          + eventTimeMs;
+    }
+  }
+
+  private static String orientationToSymbolicName(int orientation) {
+    switch (orientation) {
+      case ORIENTATION_UNDEFINED:
+        return "ORIENTATION_UNDEFINED";
+      case ORIENTATION_LANDSCAPE:
+        return "ORIENTATION_LANDSCAPE";
+      case ORIENTATION_PORTRAIT:
+        return "ORIENTATION_PORTRAIT";
+      default:
+        return "ORIENTATION_" + orientation;
     }
   }
 
   /** Tracking the stage start times for an event. */
-  protected static class EventData {
+  public static final class EventData {
 
     // Members set when event is received at TalkBack.
-    public final String[] labels;
+    final String[] labels;
     public final EventId eventId; // This EventData's key in mEventIndex.
+
+    /** The timestamp retrieved from {@link System#currentTimeMillis()} when receiving the event. */
     public final long timeReceivedAtTalkback;
 
-    public long timeInlineHandled = -1;
+    /** The timestamp retrieved from {@link SystemClock#uptimeMillis()} when receiving the event. */
+    public final long uptimeReceivedAtTalkback;
+
+    long timeInlineHandled = -1;
+
+    private long timeFeedbackComposed = -1;
 
     // Members set when feedback is queued.
-    private long mTimeFeedbackQueued = -1;
-    private String mUtteranceId; // Updates may come from TalkBack or TextToSpeech threads.
+    private long timeFeedbackQueued = -1;
+    private String utteranceId; // Updates may come from TalkBack or TextToSpeech threads.
 
-    private long mTimeFeedbackOutput = -1;
+    private long timeFeedbackOutput = -1;
 
-    public EventData(long timeReceivedAtTalkbackArg, String[] labelsArg, EventId eventIdArg) {
-      labels = labelsArg;
-      eventId = eventIdArg;
-      timeReceivedAtTalkback = timeReceivedAtTalkbackArg;
+    private EventData(
+        long timeReceivedAtTalkback,
+        long uptimeReceivedAtTalkback,
+        String[] labels,
+        EventId eventId) {
+      this.labels = labels;
+      this.eventId = eventId;
+      this.timeReceivedAtTalkback = timeReceivedAtTalkback;
+      this.uptimeReceivedAtTalkback = uptimeReceivedAtTalkback;
     }
 
     // Synchronized because this method may be called from a separate audio handling thread.
-    public synchronized void setFeedbackQueued(long timeFeedbackQueued, String utteranceId) {
-      mTimeFeedbackQueued = timeFeedbackQueued;
-      mUtteranceId = utteranceId;
+    synchronized void setFeedbackComposed(long timeFeedbackComposed) {
+      this.timeFeedbackComposed = timeFeedbackComposed;
     }
 
     // Synchronized because this method may be called from a separate audio handling thread.
-    public synchronized void setFeedbackOutput(long timeFeedbackOutput) {
-      mTimeFeedbackOutput = timeFeedbackOutput;
+    synchronized void setFeedbackQueued(long timeFeedbackQueued, String utteranceId) {
+      this.timeFeedbackQueued = timeFeedbackQueued;
+      this.utteranceId = utteranceId;
+    }
+
+    // Synchronized because this method may be called from a separate audio handling thread.
+    synchronized void setFeedbackOutput(long timeFeedbackOutput) {
+      this.timeFeedbackOutput = timeFeedbackOutput;
+    }
+
+    public synchronized long getTimeFeedbackComposed() {
+      return timeFeedbackComposed;
     }
 
     public synchronized long getTimeFeedbackQueued() {
-      return mTimeFeedbackQueued;
+      return timeFeedbackQueued;
     }
 
     public synchronized String getUtteranceId() {
-      return mUtteranceId;
+      return utteranceId;
     }
 
     public synchronized long getTimeFeedbackOutput() {
-      return mTimeFeedbackOutput;
+      return timeFeedbackOutput;
     }
 
     @Override
@@ -872,12 +1199,12 @@ public class Performance {
           + " timeReceivedAtTalkback="
           + timeReceivedAtTalkback
           + " mTimeFeedbackQueued="
-          + mTimeFeedbackQueued
+          + timeFeedbackQueued
           + " mTimeFeedbackOutput="
-          + mTimeFeedbackOutput
+          + timeFeedbackOutput
           + " timeInlineHandled="
           + timeInlineHandled
-          + String.format(" mUtteranceId=%s", mUtteranceId);
+          + String.format(" mUtteranceId=%s", utteranceId);
     }
   }
 
@@ -888,20 +1215,20 @@ public class Performance {
   // REFERTO
   @SuppressWarnings("ComparableType")
   public static class StatisticsKey implements Comparable<Object> {
-    private final String mLabel;
-    @StageId private final int mStage;
+    private final String label;
+    @StageId private final int stage;
 
     public StatisticsKey(String label, @StageId int stage) {
-      mLabel = label;
-      mStage = stage;
+      this.label = label;
+      this.stage = stage;
     }
 
     public String getLabel() {
-      return mLabel;
+      return label;
     }
 
     public int getStage() {
-      return mStage;
+      return stage;
     }
 
     @Override
@@ -914,12 +1241,12 @@ public class Performance {
       }
       StatisticsKey other = (StatisticsKey) otherObj;
       // Compare stage.
-      int stageCompare = mStage - other.getStage();
+      int stageCompare = stage - other.getStage();
       if (stageCompare != 0) {
         return stageCompare;
       }
       // Compare label.
-      return mLabel.compareTo(other.getLabel());
+      return label.compareTo(other.getLabel());
     }
 
     @Override
@@ -931,75 +1258,80 @@ public class Performance {
         return true;
       }
       StatisticsKey other = (StatisticsKey) otherObj;
-      return this.mStage == other.mStage && this.mLabel.equals(other.getLabel());
+      return this.stage == other.stage && this.label.equals(other.getLabel());
     }
 
     @Override
     public int hashCode() {
-      return Objects.hash(mLabel, mStage);
+      return Objects.hash(label, stage);
     }
 
     @Override
     public String toString() {
-      return mLabel + "-" + STAGE_NAMES[mStage];
+      return label + "-" + STAGE_NAMES.get(stage);
     }
   }
 
   /** General-purpose summary & distribution statistics for a group of values. */
   public static class Statistics {
-    protected long mNumMissing;
-    protected long mCount;
-    protected long mSum;
-    protected long mSumSquares;
+    private static final int MAX_RAW_DATA_SIZE = 300;
+    protected long numMissing;
+    protected long count;
+    protected long sum;
+    protected long sumSquares;
+    private final Queue<Long> rawData;
 
     /** Bin start value = 2^(index-1) , except index=0 holds bin start value=0. */
-    protected ArrayList<AtomicLong> mHistogram = new ArrayList<AtomicLong>();
+    protected ArrayList<AtomicLong> histogram = new ArrayList<>();
 
     public Statistics() {
+      rawData = EvictingQueue.create(MAX_RAW_DATA_SIZE);
       clear();
     }
 
     public synchronized void clear() {
-      mNumMissing = 0;
-      mCount = 0;
-      mSum = 0;
-      mSumSquares = 0;
-      mHistogram.clear();
+      numMissing = 0;
+      count = 0;
+      sum = 0;
+      sumSquares = 0;
+      histogram.clear();
+      rawData.clear();
     }
 
     public synchronized void incrementNumMissing() {
-      ++mNumMissing;
+      ++numMissing;
     }
 
     public synchronized void increment(long value) {
       // Increment summary statistics.
-      ++mCount;
-      mSum += value;
-      mSumSquares += value * value;
+      ++count;
+      sum += value;
+      sumSquares += value * value;
 
       // Ensure histogram is big enough to hold this value.
       int binIndex = valueToHistogramBin(value);
-      if (mHistogram.size() < binIndex + 1) {
-        mHistogram.ensureCapacity(binIndex + 1);
-        while (mHistogram.size() <= binIndex) {
-          mHistogram.add(new AtomicLong(0));
+      if (histogram.size() < binIndex + 1) {
+        histogram.ensureCapacity(binIndex + 1);
+        while (histogram.size() <= binIndex) {
+          histogram.add(new AtomicLong(0));
         }
       }
       // Increment histogram count.
-      AtomicLong binCount = mHistogram.get(binIndex);
+      AtomicLong binCount = histogram.get(binIndex);
       binCount.set(binCount.longValue() + 1);
+      rawData.add(value);
     }
 
     public long getNumMissing() {
-      return mNumMissing;
+      return numMissing;
     }
 
     public long getCount() {
-      return mCount;
+      return count;
     }
 
     public long getMean() {
-      return (mCount <= 0) ? 0 : (mSum / mCount);
+      return (count <= 0) ? 0 : (sum / count);
     }
 
     /**
@@ -1009,30 +1341,30 @@ public class Performance {
      * @return Standard deviation of {@code increment(value)}
      */
     public double getStdDev() {
-      if (mCount <= 0) {
+      if (count <= 0) {
         return 0;
       }
-      double mean = (double) mSum / (double) mCount;
-      double meanOfSquares = (double) mSumSquares / (double) mCount;
+      double mean = (double) sum / (double) count;
+      double meanOfSquares = (double) sumSquares / (double) count;
       double variance = meanOfSquares - (mean * mean);
       return Math.sqrt(variance);
     }
 
     public long getMedianBinStart() {
-      if (mCount <= 0) {
+      if (count <= 0) {
         return 0;
       }
       // For each histogram bin, in order...
-      long medianCount = mCount / 2;
+      long medianCount = count / 2;
       long sumBins = 0;
-      for (int binIndex = 0; binIndex < mHistogram.size(); ++binIndex) {
+      for (int binIndex = 0; binIndex < histogram.size(); ++binIndex) {
         // If bin contains mCount/2... return bin start.
-        sumBins += mHistogram.get(binIndex).longValue();
+        sumBins += histogram.get(binIndex).longValue();
         if (sumBins >= medianCount) {
           return histogramBinToStartValue(binIndex);
         }
       }
-      return histogramBinToStartValue(mHistogram.size());
+      return histogramBinToStartValue(histogram.size());
     }
 
     public int valueToHistogramBin(long value) {
@@ -1041,6 +1373,24 @@ public class Performance {
 
     public long histogramBinToStartValue(int index) {
       return (index < 1) ? 0L : (1L << (index - 1));
+    }
+
+    /**
+     * Gets the percentile with the given rank.
+     *
+     * @param rank The rank, between 0 < rank <= 100.
+     * @return The percentile value otherwise -1 if {@code rawData} is invalid,
+     */
+    public long getPercentile(int rank) {
+      if (rawData == null || rawData.isEmpty()) {
+        return -1L;
+      }
+
+      List<Long> sortedData = new ArrayList<>(rawData);
+      Collections.sort(sortedData);
+      int index = ((rank * sortedData.size() + 99) / 100) - 1;
+
+      return sortedData.get(index);
     }
 
     /**

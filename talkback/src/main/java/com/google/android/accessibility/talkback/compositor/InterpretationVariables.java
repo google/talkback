@@ -19,11 +19,7 @@ package com.google.android.accessibility.talkback.compositor;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree;
-import com.google.android.accessibility.utils.LocaleUtils;
-import com.google.android.accessibility.utils.PackageManagerUtils;
-import com.google.android.accessibility.utils.input.TextEventInterpretation;
 import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -69,8 +65,8 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
       Context context,
       ParseTree.VariableDelegate parent,
       EventInterpretation eventInterpreted,
-      @Nullable Locale userPreferredLocale) {
-    mUserPreferredLocale = userPreferredLocale;
+      GlobalVariables globalVariables) {
+    mUserPreferredLocale = globalVariables.getUserPreferredLocale();
     mContext = context;
     mParent = parent;
     mEventInterpretation = eventInterpreted;
@@ -85,9 +81,11 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
   public boolean getBoolean(int variableId) {
     switch (variableId) {
       case EVENT_IS_CUT:
-        return safeTextInterpretation().getIsCutAction();
+        return AccessibilityInterpretationFeedbackUtils.safeTextInterpretation(mEventInterpretation)
+            .getIsCutAction();
       case EVENT_IS_PASTE:
-        return safeTextInterpretation().getIsPasteAction();
+        return AccessibilityInterpretationFeedbackUtils.safeTextInterpretation(mEventInterpretation)
+            .getIsPasteAction();
       case EVENT_HINT_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE:
         {
           @Nullable HintEventInterpretation hintInterp = mEventInterpretation.getHint();
@@ -100,23 +98,33 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
         }
       case EVENT_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE:
         {
-          return safeAccessibilityFocusInterpretation().getForceFeedbackEvenIfAudioPlaybackActive();
+          return AccessibilityInterpretationFeedbackUtils.safeAccessibilityFocusInterpretation(
+                  mEventInterpretation)
+              .getForceFeedbackEvenIfAudioPlaybackActive();
         }
       case EVENT_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE:
         {
-          return safeAccessibilityFocusInterpretation().getForceFeedbackEvenIfMicrophoneActive();
+          return AccessibilityInterpretationFeedbackUtils.safeAccessibilityFocusInterpretation(
+                  mEventInterpretation)
+              .getForceFeedbackEvenIfMicrophoneActive();
         }
       case EVENT_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE:
         {
-          return safeAccessibilityFocusInterpretation().getForceFeedbackEvenIfSsbActive();
+          return AccessibilityInterpretationFeedbackUtils.safeAccessibilityFocusInterpretation(
+                  mEventInterpretation)
+              .getForceFeedbackEvenIfSsbActive();
         }
       case EVENT_IS_INITIAL_FOCUS:
         {
-          return safeAccessibilityFocusInterpretation().getIsInitialFocusAfterScreenStateChange();
+          return AccessibilityInterpretationFeedbackUtils.safeAccessibilityFocusInterpretation(
+                  mEventInterpretation)
+              .getIsInitialFocusAfterScreenStateChange();
         }
       case EVENT_IS_USER_NAVIGATION:
         {
-          return safeAccessibilityFocusInterpretation().getIsNavigateByUser();
+          return AccessibilityInterpretationFeedbackUtils.safeAccessibilityFocusInterpretation(
+                  mEventInterpretation)
+              .getIsNavigateByUser();
         }
       default:
         return mParent.getBoolean(variableId);
@@ -153,30 +161,26 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
   private CharSequence getStringInternal(int variableId) {
     switch (variableId) {
       case EVENT_TEXT_OR_DESCRIPTION:
-        return safeTextInterpretation().getTextOrDescription();
+        return AccessibilityInterpretationFeedbackUtils.safeTextInterpretation(mEventInterpretation)
+            .getTextOrDescription();
       case EVENT_REMOVED_TEXT:
-        return safeTextInterpretation().getRemovedText();
+        return AccessibilityInterpretationFeedbackUtils.safeTextInterpretation(mEventInterpretation)
+            .getRemovedText();
       case EVENT_ADDED_TEXT:
-        return safeTextInterpretation().getAddedText();
+        return AccessibilityInterpretationFeedbackUtils.safeTextInterpretation(mEventInterpretation)
+            .getAddedText();
       case EVENT_TRAVERSED_TEXT:
-        {
-          CharSequence traversedText = safeTextInterpretation().getTraversedText();
-          /**
-           * Wrap the text with user preferred locale changed using language switcher, with an
-           * exception for all talkback created events. As talkback text is always in the system
-           * language.
-           */
-          if (PackageManagerUtils.isTalkBackPackage(mEventInterpretation.getPackageName())) {
-            return traversedText;
-          }
-          return LocaleUtils.wrapWithLocaleSpan(traversedText, mUserPreferredLocale);
-        }
+        return AccessibilityInterpretationFeedbackUtils.getEventTraversedText(
+            mEventInterpretation, mUserPreferredLocale);
       case EVENT_DESELECTED_TEXT:
-        return safeTextInterpretation().getDeselectedText();
+        return AccessibilityInterpretationFeedbackUtils.safeTextInterpretation(mEventInterpretation)
+            .getDeselectedText();
       case EVENT_SELECTED_TEXT:
-        return safeTextInterpretation().getSelectedText();
+        return AccessibilityInterpretationFeedbackUtils.safeTextInterpretation(mEventInterpretation)
+            .getSelectedText();
       case EVENT_LAST_WORD:
-        return safeTextInterpretation().getInitialWord();
+        return AccessibilityInterpretationFeedbackUtils.safeTextInterpretation(mEventInterpretation)
+            .getInitialWord();
       case EVENT_HINT_TEXT:
         {
           @Nullable HintEventInterpretation hintInterp = mEventInterpretation.getHint();
@@ -225,29 +229,6 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
     return mParent.getArrayChildElement(variableId, index);
   }
 
-  private TextEventInterpretation safeTextInterpretation() {
-    if (mEventInterpretation != null) {
-      TextEventInterpretation textInterpretation = mEventInterpretation.getText();
-      if (textInterpretation != null) {
-        return textInterpretation;
-      }
-    }
-    LogUtils.w(TAG, "Falling back to safe TextEventInterpretation");
-    return new TextEventInterpretation(Compositor.EVENT_UNKNOWN);
-  }
-
-  private AccessibilityFocusEventInterpretation safeAccessibilityFocusInterpretation() {
-    if (mEventInterpretation != null) {
-      AccessibilityFocusEventInterpretation a11yFocusInterpretation =
-          mEventInterpretation.getAccessibilityFocusInterpretation();
-      if (a11yFocusInterpretation != null) {
-        return a11yFocusInterpretation;
-      }
-    }
-    LogUtils.w(TAG, "Falling back to safe AccessibilityFocusEventInterpretation");
-    return new AccessibilityFocusEventInterpretation(Compositor.EVENT_UNKNOWN);
-  }
-
   static void declareVariables(ParseTree parseTree) {
 
     // Enum values for hint type.
@@ -258,6 +239,7 @@ class InterpretationVariables implements ParseTree.VariableDelegate {
     hintTypes.put(HintEventInterpretation.HINT_TYPE_SCREEN, "screen");
     hintTypes.put(HintEventInterpretation.HINT_TYPE_SELECTOR, "selector");
     hintTypes.put(HintEventInterpretation.HINT_TYPE_TEXT_SUGGESTION, "text_suggestion");
+    hintTypes.put(HintEventInterpretation.HINT_TYPE_TYPO, "typo");
     parseTree.addEnum(ENUM_HINT_TYPE, hintTypes);
 
     parseTree.addStringVariable("event.textOrDescription", EVENT_TEXT_OR_DESCRIPTION);

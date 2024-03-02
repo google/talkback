@@ -1,0 +1,61 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title HandyTech Bookworm
+
+
+####################
+# Default Bindings #
+####################
+
+bind Backward FWINLT
+bind Forward FWINRT
+bind Escape CSRTRK
+bind Escape+Backward BACK
+bind Escape+Forward DISPMD
+bind Enter ROUTE
+bind Enter+Backward LNUP
+bind Enter+Forward LNDN
+bind Escape+Enter PREFMENU
+bind Escape+Enter+Backward LNBEG
+bind Escape+Enter+Forward LNEND
+bind Backward+Forward HELP
+bind Backward+Forward+Escape CSRSIZE
+bind Backward+Forward+Enter FREEZE
+
+
+#################
+# Menu Bindings #
+#################
+
+context menu
+
+bind Backward FWINLT
+bind Forward FWINRT
+bind Escape PREFLOAD
+bind Escape+Backward MENU_PREV_SETTING
+bind Escape+Forward MENU_NEXT_SETTING
+bind Enter PREFMENU
+bind Enter+Backward MENU_PREV_ITEM
+bind Enter+Forward MENU_NEXT_ITEM
+bind Escape+Enter PREFSAVE
+bind Escape+Enter+Backward MENU_FIRST_ITEM
+bind Escape+Enter+Forward MENU_LAST_ITEM
+bind Backward+Forward NOOP
+bind Backward+Forward+Escape NOOP
+bind Backward+Forward+Enter NOOP

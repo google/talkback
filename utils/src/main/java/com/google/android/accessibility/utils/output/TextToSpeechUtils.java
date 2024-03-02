@@ -125,7 +125,7 @@ class TextToSpeechUtils {
    * list is empty, malformed or if there is no engine specific preference in the list.
    */
   private static @Nullable String parseEnginePrefFromList(String prefValue, String engineName) {
-    if (TextUtils.isEmpty(prefValue)) {
+    if (TextUtils.isEmpty(prefValue) || TextUtils.isEmpty(engineName)) {
       return null;
     }
 

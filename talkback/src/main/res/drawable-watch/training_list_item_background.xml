@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+  <corners android:radius="@dimen/training_list_item_corner_radius" />
+  <solid android:color="@color/a11y_wear_material_color_surface"/>
+</shape>

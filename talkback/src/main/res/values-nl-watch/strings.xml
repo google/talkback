@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="talkback_service_description">TalkBack is een schermlezer die voornamelijk is bedoeld voor slechtziende en blinde gebruikers. TalkBack maakt interactie met het apparaat mogelijk via gesproken feedback.</string>
-  <string name="welcome_to_talkback_text">Krijg gesproken feedback zodat je je horloge kunt gebruiken zonder naar het scherm te kijken.</string>
+  <string name="welcome_to_talkback_text">Krijg gesproken feedback zodat je je smartwatch kunt gebruiken zonder naar het scherm te kijken.</string>
+  <string name="summary_custom_action">Wordt weergegeven als er aangepaste acties zijn voor het huidige item.</string>
+  <string name="notification_title_talkback_gestures_changed">TalkBack-gebaren geüpdatet</string>
+  <string name="notification_message_talkback_gestures_changed">Open TalkBack voor meer informatie</string>
+  <string name="new_feature_in_talkback_title">Wat is er nieuw</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">OK</string>
+  <string name="scan_the_qr_code">Scan de QR-code</string>
+  <string name="alternate_privacy_policy">Of ga naar http://www.google.com/policies/privacy</string>
+  <string name="alternate_tos">Of ga naar https://www.google.com/mobile/toscountry</string>
 </resources>

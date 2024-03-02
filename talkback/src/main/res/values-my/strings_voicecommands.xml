@@ -6,7 +6,7 @@
   <string name="voice_commands_text_editing">စာသား တည်းဖြတ်ပါ</string>
   <string name="voice_commands_edit_text">စာသား တည်းဖြတ်ပါ</string>
   <string name="voice_commands_editing_options">တည်းဖြတ်နည်းများ</string>
-  <string name="voice_commands_edit">တည်းဖြတ်ပါ</string>
+  <string name="voice_commands_edit">တည်းဖြတ်ရန်</string>
   <string name="voice_commands_what">ဘာ</string>
   <string name="voice_commands_say">ပြောပါ</string>
   <string name="voice_commands_next">ရှေ့သို့</string>
@@ -24,7 +24,7 @@
   <string name="voice_commands_all_apps">အက်ပ်အားလုံး</string>
   <string name="voice_commands_apps">အက်ပ်များ</string>
   <string name="voice_commands_overview">အနှစ်ချုပ်</string>
-  <string name="voice_commands_recent_apps">လတ်တလောသုံး အက်ပ်များ</string>
+  <string name="voice_commands_recent_apps">မကြာသေးမီက အက်ပ်များ</string>
   <string name="voice_commands_recent">လတ်တလော</string>
   <string name="voice_commands_recents">လတ်တလောများ</string>
   <string name="voice_commands_find">ရှာရန်</string>
@@ -81,7 +81,7 @@
   <string name="voice_commands_quit">ထွက်ပါ</string>
   <string name="voice_commands_quiet">အသံတိတ်ပါ</string>
   <string name="voice_commands_pause">ခဏရပ်ပါ</string>
-  <string name="voice_commands_nevermind">ကိစ္စမရှိပါ</string>
+  <string name="voice_commands_nevermind">ထားလိုက်ပါ</string>
   <string name="voice_commands_shut_up">တိတ်တိတ်နေပါ</string>
   <string name="voice_commands_faster">ပိုမြန်ပါ</string>
   <string name="voice_commands_increase_speech_rate">စကားပြောနှုန်း တိုးပါ</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">အသံကွန်မန်းများ အသုံးပြုရန် ညာဘက်သို့ ပွတ်ဆွဲပြီးနောက် အပေါ်သို့ ပွတ်ဆွဲပါ။ ဤကွန်မန်းများ၏ စာရင်းအတွက် \"Help\" သို့မဟုတ် \"What can I say။\" ကို အချိန်မရွေး ပြောပါ။</string>
   <string name="voice_commands_help_hint">အကောင်းဆုံးရလဒ်များအတွက် အောက်ပါဖန်သားပြင်များတွင် ဖော်ပြထားသော အသုံးအနှုန်းကို အတိအကျ ပြောပါ။</string>
   <string name="voice_command_screen_locked_hint">ဖန်သားပြင်လော့ခ်ချထားစဉ် အသံကွန်မန်းများကို မရနိုင်ပါ။ TalkBack မီနူးကို အစားထိုးသုံးရန် %1$s။</string>
+  <string name="voice_commands_during_setup_hint">စနစ်ထည့်သွင်းနေစဉ် အသံကွန်မန်းများ မရနိုင်ပါ။</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">လက်ရှိဖန်သားပြင်တွင် အကြောင်းအရာများကို သင်၏ဖတ်ရှုပုံ ပြောင်းလဲပါ</string>
   <string name="voice_commands_help_next">နောက် [ခေါင်းစီး]</string>
@@ -118,7 +119,7 @@
   <string name="voice_commands_help_verbosity_description">နည်း၊ များ သို့မဟုတ် စိတ်ကြိုက်သို့ ပြောင်းပါ</string>
   <string name="voice_commands_help_first_description">လက်ရှိဖန်သားပြင်ရှိ ပထမအကြောင်းအရာသို့ ရွှေ့ပါ</string>
   <string name="voice_commands_help_last_description">လက်ရှိဖန်သားပြင်ရှိ နောက်ဆုံးအကြောင်းအရာသို့ ရွှေ့ပါ</string>
-  <string name="voice_commands_help_languages_description">သင်ပြောဆိုသည့် ဘာသာစကားကို ပြောင်းပါ (စာသားမှ စကားပြော)</string>
+  <string name="voice_commands_help_languages_description">သင်ပြောဆိုသည့် ဘာသာစကားကို ပြောင်းပါ (စာ-မှ-စကား)</string>
   <string name="voice_commands_help_find_items_title">အကြောင်းအရာများ ရှာဖွေခြင်း</string>
   <string name="voice_commands_help_find_items_description">လက်ရှိဖန်သားပြင်တွင် သတ်မှတ်ထားသော အကြောင်းအရာကို ရှာဖွေပါ</string>
   <string name="voice_commands_help_find_text">[သိမ်းထားသည်] ကို ရှာပါ</string>
@@ -132,7 +133,7 @@
   <string name="voice_commands_help_delete_description">မဖျက်မီ စာသားကို ရွေးချယ်ပါ</string>
   <string name="voice_commands_help_device_navigation_title">စက်ပစ္စည်းတွင်း လမ်းညွှန်ခြင်း</string>
   <string name="voice_commands_help_device_navigation_description">Home သို့သွားပါ၊ ပြန်သွားပါ၊ အကြောင်းကြားချက်များ ပြပါ စသည်</string>
-  <string name="voice_commands_help_overview_description">လတ်တလော အက်ပ်များကို ကြည့်ပါ</string>
+  <string name="voice_commands_help_overview_description">မကြာသေးမီက အက်ပ်များကို ကြည့်ပါ</string>
   <string name="voice_commands_help_assistant_description">Google Assistant ဖွင့်ပါ</string>
   <string name="voice_commands_help_other_commands_title">အခြား ကွန်မန်းများ</string>
   <string name="voice_commands_help_other_commands_description">TalkBack ဆက်တင်များသို့ သွားပါ၊ ဖန်သားပြင်ကို ဝှက်ပါ၊ လုပ်ဆောင်ချက်များကို ကြည့်ပါ၊ စိတ်ကြိုက်အညွှန်းများကို ထည့်ပါ စသည်</string>

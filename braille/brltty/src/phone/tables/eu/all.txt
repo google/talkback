@@ -1,0 +1,28 @@
+Help: EuroBraille
+      Driver developped by Yannick PLASSIARD and Olivier BERT
+
+To enter in the Learn-Mode, press #+L (on notebraille/clio), Alpha+L8 (for 
+Scriba) or Level1+L7 (on Iris - Level1 may be performed by pressing 
+FG+FB simultaneously).
+For Esys put LeftJoystick in the "Right" position and RightJoystick in the 
+"Up" position.
+
+Using Cut And Paste
+-------------------
+	To begin a block, press "*E" or Beta+L1 or Layer2+L1 depending on your
+braille display and then click on the cell where you want to start the block.
+To end a block press "*M" or Beta+L9 or Layer2+l8 depending on your braille 
+display, and click on the cell where you want to end the block. 
+When you do this, the block is copied into the BRLTTY clipboard, waiting to 
+be pasted anywhere you want. To paste a block,
+press the "*L" or Beta+L8 or Layer2+L7 depending on your braille display. 
+A separate help file for each model will be created soon.
+
+Note
+----
+Please note that the README file contains also version information and
+copyright notice, so if you find a bug that was not listed out in the README
+file, feel free to send an e-mail to me (yan@mistigri.org), because it's
+hard to test all possible functions, even if I use the driver 10 hours a day. 
+
+Thank you.

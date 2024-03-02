@@ -6,4 +6,22 @@
   <uses-sdk
       android:minSdkVersion="26"
       android:targetSdkVersion="31" />
+
+  <application>
+    <activity
+        android:name="com.google.android.accessibility.braille.common.settings.BrailleLanguagesActivity"
+        android:label="@string/braille_languages_title"
+        android:exported="false"
+        android:theme="@style/BrailleSettingsTheme" />
+    <activity
+        android:name="com.google.android.accessibility.braille.common.settings.LocaleLanguageActivity"
+        android:exported="false"
+        android:theme="@style/BrailleSettingsTheme" >
+    </activity>
+    <activity
+        android:name="com.google.android.accessibility.braille.common.settings.AddLanguageActivity"
+        android:label="@string/braille_add_a_language_preference_title"
+        android:exported="false"
+        android:theme="@style/BrailleSettingsTheme" />
+  </application>
 </manifest>

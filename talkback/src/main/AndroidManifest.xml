@@ -7,19 +7,6 @@
     placeholders, and they get replaced by the build system with the appropriate
     value when a build executes. -->
 
-    <!-- The <queries> element allows us to ask the package manager about
-    the installation status of external components we are interested in. This
-    policy change was introduced in Android 11. -->
-    <queries>
-        <intent>
-            <action android:name="android.intent.action.TTS_SERVICE" />
-        </intent>
-        <intent>
-            <action
-                android:name="android.speech.RecognitionService" />
-        </intent>
-    </queries>
-
     <!-- Used by voice commands. -->
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
     <uses-feature android:name="android.hardware.location" android:required="false" />
@@ -60,6 +47,9 @@
     <!-- Used to control Primes collection using Gservices flags -->
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
+    <!-- Required for posting notifications, beginning in Android T. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <!-- Hardware compatibility. -->
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -70,16 +60,6 @@
 
     <application
         android:supportsRtl="true">
-
-        <receiver android:name="com.google.android.accessibility.talkback.BootReceiver"
-            android:directBootAware="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
 
         <!-- TalkBack -->
         <service
@@ -115,7 +95,7 @@
         <!-- TalkBack Preferences -->
         <activity
             android:name="com.android.talkback.TalkBackPreferencesActivity"
-            android:configChanges="orientation|screenSize"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:exported="true"
             android:label="@string/talkback_preferences_title"
             android:launchMode="singleTop"
@@ -142,15 +122,19 @@
         <!-- TalkBack training -->
         <!-- To prevent slowdown of talkback event-handlers, arrange to run on a separate process. -->
         <activity
-            android:name="com.google.android.accessibility.talkback.training.TrainingActivity"
+            android:name="com.google.android.accessibility.talkback.trainingcommon.TrainingActivity"
             android:process=":Tutorial"
-            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/TrainingActivityTheme"
             android:windowSoftInputMode="adjustResize"
             tools:ignore="ExportedActivity"
             android:directBootAware="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.google.android.accessibility.talkback.training.START" />
+            </intent-filter>
         </activity>
 
         <activity android:name="com.google.android.accessibility.talkback.labeling.LabelImportActivity"
@@ -203,6 +187,17 @@
             android:theme="@style/DialogStyle"
             android:directBootAware="true"
             tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.google.android.accessibility.talkback.keyboard.TalkBackKeymapChangesActivity"
+            android:exported="true"
+            android:label="@string/keycombo_keymap_changes_instruction_title"
+            android:launchMode="singleTop"
+            android:theme="@style/TalkBackSettings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

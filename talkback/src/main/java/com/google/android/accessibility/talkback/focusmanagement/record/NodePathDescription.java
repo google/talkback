@@ -19,21 +19,29 @@ package com.google.android.accessibility.talkback.focusmanagement.record;
 import static com.google.android.accessibility.talkback.focusmanagement.record.NodeDescription.OUT_OF_RANGE;
 import static com.google.android.accessibility.talkback.focusmanagement.record.NodeDescription.UNDEFINED_INDEX;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_FORWARD;
+import static java.util.Comparator.comparingInt;
 
+import android.graphics.Rect;
 import android.text.TextUtils;
+import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.DiagnosticOverlayUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.LogDepth;
+import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.android.accessibility.utils.compat.CompatUtils;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
+import com.google.auto.value.AutoValue;
 import com.google.errorprone.annotations.FormatMethod;
 import com.google.errorprone.annotations.FormatString;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Map;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -44,6 +52,8 @@ public final class NodePathDescription {
 
   private static final String LOG_TAG = "NodePath";
   private static final boolean DO_LOG = false;
+
+  private static final double MAX_DIST = Float.MAX_VALUE;
 
   // Node and ancestors, ordered from leaf to root
   private final ArrayList<NodeDescription> nodeDescriptions;
@@ -70,7 +80,7 @@ public final class NodePathDescription {
         new Filter<AccessibilityNodeInfoCompat>() {
           @Override
           public boolean accept(AccessibilityNodeInfoCompat node) {
-            boolean isPathEnd = (nodePath.nodeDescriptions.size() == 0);
+            boolean isPathEnd = (nodePath.nodeDescriptions.isEmpty());
             nodePath.nodeDescriptions.add(new NodeDescription(node, isPathEnd));
             // Always return false to iterate until the root node.
             return false;
@@ -86,21 +96,37 @@ public final class NodePathDescription {
   public @Nullable AccessibilityNodeInfoCompat findNodeToRefocus(
       @Nullable AccessibilityNodeInfoCompat rootCompat, @NonNull FocusFinder focusFinder) {
 
-    @Nullable AccessibilityNode root = AccessibilityNode.obtainCopy(rootCompat);
+    @Nullable AccessibilityNodeInfoCompat lastFocusedNode = null;
+    if (!nodeDescriptions.isEmpty() && nodeDescriptions.get(0).savedNode != null) {
+      lastFocusedNode = nodeDescriptions.get(0).savedNode.obtainCopyCompat();
+    }
+
+    @Nullable AccessibilityNode root = AccessibilityNode.takeOwnership(rootCompat);
     log("findNodeToRefocus() this=%s", this);
     log("findNodeToRefocus() root=%s", root);
     if (root == null) {
       return null;
     }
 
+    @Nullable AccessibilityNode targetUp = matchAncestorUniqueId();
+    if (targetUp != null && lastFocusedNode != null) {
+      if (lastFocusedNode.refresh()
+          && AccessibilityNodeInfoUtils.shouldFocusNode(lastFocusedNode)) {
+        return lastFocusedNode;
+      }
+    }
+
     // If old node-tree still partially exists, find an existing path-ancestor, searching upward
     // from the last-focused-node.  This limits the scope of the downward tree-search needed to find
     // a node that matches the full node-path.
-    @Nullable AccessibilityNode targetUp = findUpward();
+    if (targetUp == null) {
+      targetUp = findUpward();
+    }
+
     log("findNodeToRefocus() targetUp=%s", targetUp);
     // Ensure targetUp is not null.
     if (targetUp == null) {
-      targetUp = root.obtainCopy();
+      targetUp = root;
     }
     // Search down from root or old-ancestor-node, finding lowest new-node that matches the
     // old-focused-node.
@@ -108,6 +134,24 @@ public final class NodePathDescription {
     log("findNodeToRefocus() targetDown=%s", targetDown);
 
     return (targetDown == null) ? targetUp.obtainCopyCompat() : targetDown.obtainCopyCompat();
+  }
+
+  private @Nullable AccessibilityNode matchAncestorUniqueId() {
+    for (int p = 1; p < nodeDescriptions.size() - 1; ++p) {
+      NodeDescription pathParent = nodeDescriptions.get(p); // Parent of pathNode
+      @Nullable AccessibilityNode lastParentNode =
+          pathParent.savedNode == null
+              ? null
+              : AccessibilityNode.obtainCopy(pathParent.savedNode.getCompat());
+      @Nullable AccessibilityNode parentNode = refreshOrNull(pathParent.savedNode);
+      if (parentNode != null && lastParentNode != null) {
+        @Nullable String lastUniqueId = lastParentNode.getUniqueId();
+        if (lastUniqueId != null && lastUniqueId.equals(parentNode.getUniqueId())) {
+          return parentNode;
+        }
+      }
+    }
+    return null;
   }
 
   /** Searches ancestors for a path-node that still exists, mostly unchanged. */
@@ -120,9 +164,9 @@ public final class NodePathDescription {
       log("findUpward() p=%s pathNode=%s", p, pathNode);
 
       // If node exists, with same content & identity... matched.
-      @Nullable AccessibilityNode pathNodeUpdated = copyAndRefresh(pathNode.savedNode);
+      @Nullable AccessibilityNode pathNodeUpdated = refreshOrNull(pathNode.savedNode);
       log("findUpward() p=%s pathNodeUpdated=%s", p, pathNodeUpdated);
-      @Nullable AccessibilityNode parentUpdated = copyAndRefresh(pathParent.savedNode);
+      @Nullable AccessibilityNode parentUpdated = refreshOrNull(pathParent.savedNode);
       log("findUpward() p=%s parentUpdated=%s", p, parentUpdated);
 
       // Match if only 1 changed among {identity, index, content, adjacent-content}
@@ -148,58 +192,96 @@ public final class NodePathDescription {
 
       // If ancestor matched... return ancestor.
       if (identityMatch && contentMatch && indexMatch) {
-        return pathNodeUpdated.obtainCopy();
+        return pathNodeUpdated;
       } else if (adjacentMatch != null) {
-        return adjacentMatch.obtainCopy();
+        return adjacentMatch;
       }
     }
     return null;
   }
 
+  /**
+   * The comparator of {@link Match}.
+   *
+   * <p>Priority:
+   *
+   * <ul>
+   *   <li>Node-match data that closes to the end of the node-path.
+   *   <li>Node-match data with a higher score that matches path-nodes.
+   *   <li>Node-match data with a lower physical distance with path-nodes.
+   * </ul>
+   */
+  private static final Comparator<Match> NODE_MATCH_COMPARATOR =
+      comparingInt(Match::depth)
+          .thenComparingDouble(Match::score)
+          .thenComparing(Match::distance, Comparator.reverseOrder());
+
   /** Node-match data for downward pruned-tree-search for current-node that matches path-nodes. */
-  private static class Match {
-    // Member data
-    public boolean prune = false;
-    public boolean isPathEnd = false;
-    public float score = 0;
-    public int depth = 0;
-    private @Nullable AccessibilityNode node;
+  @AutoValue
+  abstract static class Match {
+    /** Whether the node-match data should be pruned. Default is false. */
+    abstract boolean prune();
 
-    // Methods for node
-    public boolean isNull() {
-      return (this.node == null);
+    /** Whether the node-match data is at the end of path-nodes. Default is false. */
+    abstract boolean isPathEnd();
+
+    /**
+     * The score of the node-match data matches path-nodes. It is the sum of adjacent-match,
+     * index-match and content-match. Desfault is 0.
+     */
+    abstract double score();
+
+    /** The depth that the node-match data matches the node path. Default is 0. */
+    abstract int depth();
+
+    /**
+     * The distance between current-node and the path-node, using their bounds in screen
+     * coordinates. Default is {@link #MAX_DIST}.
+     */
+    abstract double distance();
+
+    @Nullable
+    abstract AccessibilityNode node();
+
+    static Builder builder() {
+      return new AutoValue_NodePathDescription_Match.Builder()
+          .setPrune(false)
+          .setIsPathEnd(false)
+          .setScore(0)
+          .setDepth(0)
+          .setDistance(MAX_DIST);
     }
 
-    public Match node(@Nullable AccessibilityNode newNode) {
-      this.node = newNode;
-      return this;
+    public boolean hasNode() {
+      return (node() != null);
     }
 
-    public @Nullable AccessibilityNode giveUpNode() {
-      @Nullable AccessibilityNode result = this.node;
-      this.node = null;
-      return result;
-    }
-
-    // Builder methods, for convenient set & return
-    public Match prune(boolean prune) {
-      this.prune = prune;
-      return this;
-    }
-
-    public Match score(float score) {
-      this.score = score;
-      return this;
-    }
-
-    // Logging methods
+    @Override
     public String toString() {
       return StringBuilderUtils.joinFields(
-          StringBuilderUtils.optionalTag("prune", prune),
-          StringBuilderUtils.optionalTag("isPathEnd", isPathEnd),
-          StringBuilderUtils.optionalNum("score", score, 0),
-          StringBuilderUtils.optionalInt("depth", depth, 0),
-          StringBuilderUtils.optionalSubObj("node", node));
+          StringBuilderUtils.optionalTag("prune", prune()),
+          StringBuilderUtils.optionalTag("isPathEnd", isPathEnd()),
+          StringBuilderUtils.optionalDouble("score", score(), 0),
+          StringBuilderUtils.optionalInt("depth", depth(), 0),
+          StringBuilderUtils.optionalDouble("distance", distance(), MAX_DIST),
+          StringBuilderUtils.optionalSubObj("node", node()));
+    }
+
+    @AutoValue.Builder
+    abstract static class Builder {
+      abstract Builder setPrune(boolean value);
+
+      abstract Builder setIsPathEnd(boolean value);
+
+      abstract Builder setScore(double value);
+
+      abstract Builder setDepth(int value);
+
+      abstract Builder setDistance(double value);
+
+      abstract Builder setNode(AccessibilityNode value);
+
+      abstract Match build();
     }
   }
 
@@ -227,30 +309,29 @@ public final class NodePathDescription {
 
     HashSet<AccessibilityNode> visited = new HashSet<>();
     @Nullable Match bestMatch =
-        findDownward(
+        findDownwardMatch(
             startNode,
             startNodeIndexInParent,
             startNodeDepth,
             /* previousSiblingText= */ null,
             /* nextSiblingText= */ null,
             visited);
-    log("findDownward() visited.size()=%d", visited.size());
+    log("findDownward() visited.size()=%d bestMatch=%s", visited.size(), bestMatch);
     // TODO: Refactor focus scoring system for easier maintainability.
-    // If no complete-path match exists, or only match for index(1.1f) or adjacent(1.0f), traverse
-    // forward from matching internal-node.
-    if ((bestMatch == null) || bestMatch.isNull() || bestMatch.score <= 1.1f) {
+    // If no complete-path match exists, traverse forward from matching internal-node.
+    if ((bestMatch == null) || !bestMatch.hasNode() || bestMatch.node().equalTo(root)) {
       return null;
     }
-    return (bestMatch.isPathEnd)
-        ? bestMatch.giveUpNode()
-        : nextInTraversalOrder(root, focusFinder, bestMatch.node);
+    return (bestMatch.isPathEnd())
+        ? bestMatch.node()
+        : nextInTraversalOrder(root, focusFinder, bestMatch.node());
   }
 
   /**
    * Returns matching node or null. Does recursive pruned depth-first-search on node-tree. Adds
    * nodes to visited.
    */
-  private @Nullable Match findDownward(
+  private @Nullable Match findDownwardMatch(
       @NonNull AccessibilityNode node,
       int childIndex,
       int depth,
@@ -269,14 +350,14 @@ public final class NodePathDescription {
     if (visited.contains(node)) {
       return null;
     } else {
-      visited.add(node.obtainCopy());
+      visited.add(node);
     }
 
     // If node does not match... prune tree-branch.
     @NonNull
     Match match = scoreMatch(node, childIndex, depth, previousSiblingText, nextSiblingText);
     log(depth, "findDownward() match=%s", match);
-    if (match.isNull() || match.prune) {
+    if (!match.hasNode() || match.prune()) {
       return null;
     }
     // If current node is path-end... do not recurse on children.
@@ -290,6 +371,11 @@ public final class NodePathDescription {
     @Nullable CharSequence childText = OUT_OF_RANGE;
     @Nullable AccessibilityNode child = null;
     boolean isChildPathEnd = (nodeDescriptions.size() - 1 <= depth + 1);
+    boolean nodeIsViewPager = false;
+    if (node.getRole() == Role.ROLE_PAGER) {
+      log(depth, "findDownward() node is a view pager");
+      nodeIsViewPager = true;
+    }
     // For each child...
     for (int nextChildIndex = 0; nextChildIndex <= node.getChildCount(); ++nextChildIndex) {
       @Nullable AccessibilityNode nextChild =
@@ -297,18 +383,25 @@ public final class NodePathDescription {
       @Nullable CharSequence nextChildText =
           (nextChild == null) ? OUT_OF_RANGE : NodeDescription.getText(nextChild, isChildPathEnd);
 
+      CollectionItemInfoCompat itemInfoCompat =
+          (nextChild == null) ? null : nextChild.getCollectionItemInfo();
+      // When the parent node is a view pager, the child index should be replaced with item info's
+      // column index.
+      int realIndex =
+          nodeIsViewPager
+              ? (itemInfoCompat != null) ? itemInfoCompat.getColumnIndex() : nextChildIndex
+              : nextChildIndex;
       if (child != null) {
         // Recursively search within child-subtree.
-        @Nullable Match descendantMatch = null;
-        descendantMatch =
-            findDownward(
-                child, nextChildIndex - 1, depth + 1, previousChildText, nextChildText, visited);
+        @Nullable Match descendantMatch =
+            findDownwardMatch(
+                child, realIndex - 1, depth + 1, previousChildText, nextChildText, visited);
         // Any lower/descendant-match is better than current higher inner-node-match.
         if ((descendantMatch != null)
-            && !descendantMatch.isNull()
-            && ((match.score < descendantMatch.score) || (match.depth < descendantMatch.depth))) {
+            && descendantMatch.hasNode()
+            && (NODE_MATCH_COMPARATOR.compare(descendantMatch, match) > 0)
+            && (descendantMatch.node().isVisibleToUser())) {
           match = descendantMatch;
-          descendantMatch = null;
         }
       }
 
@@ -316,7 +409,6 @@ public final class NodePathDescription {
       previousChildText = childText;
       childText = nextChildText;
       child = nextChild;
-      nextChild = null;
     }
 
     // Return best match found among current node and descendants.
@@ -330,38 +422,32 @@ public final class NodePathDescription {
       int depth,
       @Nullable CharSequence previousSiblingText,
       @Nullable CharSequence nextSiblingText) {
-    Match match = new Match();
-    match.depth = depth;
+    Match.Builder match = Match.builder().setDepth(depth);
     boolean isRoot = (depth == 0);
 
     // Always allow root-node, do not prune.
     if (isRoot) {
       log(depth, "scoreMatch() isRoot=%s", isRoot);
-      return match.node(node.obtainCopy());
+      return match.setNode(node).build();
     }
 
     // Prune if out of path.
     int pathIndex = nodeDescriptions.size() - depth - 1;
     if (pathIndex < 0) {
       log(depth, "scoreMatch() pathIndex=%d", pathIndex);
-      return match.prune(true);
+      return match.setPrune(true).build();
     }
 
     boolean isPathEnd = (pathIndex == 0);
-    match.isPathEnd = isPathEnd;
-    @Nullable NodeDescription pathNode = nodeDescriptions.get(pathIndex);
+    match.setIsPathEnd(isPathEnd);
+    NodeDescription pathNode = nodeDescriptions.get(pathIndex);
     log(depth, "scoreMatch() isPathEnd=%s pathNode=%s", isPathEnd, pathNode);
-
-    // Prune if out of path.
-    if (pathNode == null) {
-      return match.prune(true);
-    }
 
     log(depth, "scoreMatch() previousSiblingText=%s", previousSiblingText);
     log(depth, "scoreMatch() nextSiblingText=%s", nextSiblingText);
     boolean adjacentMatch =
-        TextUtils.equals(previousSiblingText, pathNode.previousSiblingText)
-            || TextUtils.equals(nextSiblingText, pathNode.nextSiblingText);
+        isTextMatchingNonEmptyText(previousSiblingText, pathNode.previousSiblingText)
+            || isTextMatchingNonEmptyText(nextSiblingText, pathNode.nextSiblingText);
 
     boolean contentMatch = contentMatches(pathNode, node, isPathEnd);
     boolean indexMatch = indexesMatch(pathNode, node, index);
@@ -374,12 +460,44 @@ public final class NodePathDescription {
     // Match-type priority:  adjacent < index < identity < content-match
     // Identity-match is not used findDownward(), because findUpward() would already have found an
     // identity-matching node, if it existed.
-    float score = (contentMatch ? 1.2f : 0) + (indexMatch ? 1.1f : 0) + (adjacentMatch ? 1.0f : 0);
+    double score = (contentMatch ? 1.2 : 0) + (indexMatch ? 1.1 : 0) + (adjacentMatch ? 1.0 : 0);
     log(depth, "scoreMatch() score=%s", score);
-    // Prune ancestors without even weak match.
-    match.score(score);
-    match.prune(score < 1.0f);
-    return match.prune ? match : match.node(node.obtainCopy()); // Copy non-pruned node.
+    match.setScore(score);
+    // Prune ancestors without even weak match. (Match for index(1.1) or adjacent(1.0))
+    if (score <= 1.1) {
+      return match.setPrune(true).build();
+    }
+
+    match.setNode(node);
+    if (pathNode.savedNode != null) {
+      double distance = getDistanceBetweenNodes(pathNode.savedNode, node);
+      match.setDistance(distance);
+      log(depth, "scoreMatch() distance=%s", distance);
+    }
+
+    return match.build();
+  }
+
+  private static boolean isTextMatchingNonEmptyText(CharSequence text, CharSequence targetText) {
+    if (TextUtils.isEmpty(text) || TextUtils.equals(text, OUT_OF_RANGE)) {
+      return false;
+    }
+
+    return TextUtils.equals(text, targetText);
+  }
+
+  /**
+   * Returns the distance between two {@link AccessibilityNode}, using their bounds in screen
+   * coordinates.
+   */
+  private static double getDistanceBetweenNodes(AccessibilityNode node1, AccessibilityNode node2) {
+    Rect rect1 = new Rect();
+    node1.getBoundsInScreen(rect1);
+    Rect rect2 = new Rect();
+    node2.getBoundsInScreen(rect2);
+    int xd = (int) Math.pow(rect2.centerX() - rect1.centerX(), 2);
+    int yd = (int) Math.pow(rect2.centerY() - rect1.centerY(), 2);
+    return Math.sqrt(xd + yd);
   }
 
   private @Nullable AccessibilityNode nextInTraversalOrder(
@@ -397,8 +515,7 @@ public final class NodePathDescription {
             traversal,
             nodeCompat,
             SEARCH_FOCUS_FORWARD,
-            new Filter.NodeCompat(
-                n -> AccessibilityNodeInfoUtils.shouldFocusNode(n, speakingNodes))));
+            Filter.node(n -> AccessibilityNodeInfoUtils.shouldFocusNode(n, speakingNodes))));
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -409,7 +526,8 @@ public final class NodePathDescription {
       @Nullable CharSequence targetNextChildText,
       @Nullable AccessibilityNode parent,
       boolean isPathEnd) {
-    if (parent == null) {
+    if ((parent == null)
+        || (TextUtils.isEmpty(targetPrevChildText) && TextUtils.isEmpty(targetNextChildText))) {
       return null;
     }
     return findChild(
@@ -475,11 +593,15 @@ public final class NodePathDescription {
     }
     @Nullable CharSequence nodeText = NodeDescription.getText(nodeUpdated, isPathEnd);
 
-    if (isPathEnd && (node.text == null)) {
+    if (isPathEnd && TextUtils.isEmpty(node.text)) {
       return false;
     }
-    return TextUtils.equals(node.text, nodeText)
-        && TextUtils.equals(node.className, nodeUpdated.getClassName());
+
+    if (!TextUtils.equals(node.className, nodeUpdated.getClassName())) {
+      return false;
+    }
+
+    return TextUtils.equals(node.text, nodeText);
   }
 
   private static @Nullable AccessibilityNode adjacentContentMatches(
@@ -540,8 +662,30 @@ public final class NodePathDescription {
       return false;
     }
     int hashCode = target.hashCode();
+    String targetUniqueId =
+        (String)
+            CompatUtils.invoke(
+                target.unwrap(),
+                /* defaultValue= */ null,
+                CompatUtils.getMethod(AccessibilityNodeInfo.class, "getUniqueId"));
+
     // Compare from root to leaf, because root node is more immutable.
     for (NodeDescription description : nodeDescriptions) {
+      if (description.savedNode != null && targetUniqueId != null) {
+        AccessibilityNodeInfoCompat accessibilityNodeInfoCompat =
+            description.savedNode.obtainCopyCompat();
+        if (accessibilityNodeInfoCompat != null) {
+          String uniQueueId =
+              (String)
+                  CompatUtils.invoke(
+                      accessibilityNodeInfoCompat.unwrap(),
+                      /* defaultValue= */ null,
+                      CompatUtils.getMethod(AccessibilityNodeInfo.class, "getUniqueId"));
+          if (uniQueueId != null && uniQueueId.equals(targetUniqueId)) {
+            return true;
+          }
+        }
+      }
       if ((description.nodeInfoHashCode == hashCode) && description.identityMatches(target)) {
         return true;
       }
@@ -567,19 +711,9 @@ public final class NodePathDescription {
     return nodeDescriptions.hashCode();
   }
 
-  // Returns copied & refreshed node.
-  private static @Nullable AccessibilityNode copyAndRefresh(@Nullable AccessibilityNode node) {
-    if (node == null) {
-      return null;
-    }
-    @Nullable AccessibilityNode copy = node.obtainCopy();
-    if (copy == null) {
-      return null;
-    }
-    if (!copy.refresh()) {
-      return null;
-    }
-    return copy;
+  // Returns refreshed node, or null.
+  private static @Nullable AccessibilityNode refreshOrNull(@Nullable AccessibilityNode node) {
+    return (node != null) && node.refresh() ? node : null;
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////////////

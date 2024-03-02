@@ -1,0 +1,53 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+bind PanLeft+Space SPEAK_CURR_CHAR:DESC_CURR_CHAR
+bind PanLeft+LeftShift SPEAK_PREV_CHAR
+bind PanLeft+RightShift SPEAK_NEXT_CHAR
+bind PanLeft+LeftShift+Space SPEAK_FRST_CHAR
+bind PanLeft+RightShift+Space SPEAK_LAST_CHAR
+
+bind LeftSelector+Space SPEAK_CURR_WORD:SPELL_CURR_WORD
+bind LeftSelector+LeftShift SPEAK_PREV_WORD
+bind LeftSelector+RightShift SPEAK_NEXT_WORD
+bind LeftSelector+LeftShift+Space SPEAK_CURR_LOCN
+bind LeftSelector+RightShift+Space ROUTE_CURR_LOCN
+
+bind RightSelector+Space SPEAK_CURR_LINE
+bind RightSelector+LeftShift SPEAK_PREV_LINE
+bind RightSelector+RightShift SPEAK_NEXT_LINE
+bind RightSelector+LeftShift+Space SPEAK_FRST_LINE
+bind RightSelector+RightShift+Space SPEAK_LAST_LINE
+
+bind PanRight+Space AUTOSPEAK
+bind PanRight+LeftShift MUTE
+bind PanRight+RightShift SAY_LINE
+
+bind PanRight+LeftShift+Space SAY_ABOVE
+bind PanRight+RightShift+Space SAY_BELOW
+bind PanRight+LeftShift+RightShift+Space SAY_ALL
+
+bind Space+Left\{navKeyType}Down SAY_SOFTER
+bind Space+Left\{navKeyType}Up SAY_Louder
+
+bind LeftShift+Left\{navKeyType}Down SAY_SLOWER
+bind LeftShift+Left\{navKeyType}Up SAY_FASTER
+
+bind RightShift+Left\{navKeyType}Down SAY_LOWER
+bind RightShift+Left\{navKeyType}Up SAY_HIGHER
+

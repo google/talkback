@@ -1,0 +1,126 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title EuroBraille Esytime
+
+include common.kti
+
+note The four keys below the left joystick, from top to bottom, are:
+note * L1, Escape, Tab, Shift.
+note The four keys below the right joystick, from top to bottom, are:
+note * L8, Insert, Alt, Control.
+note Some key combinations have been reserved for internal use:
+note + LeftJoystickDown: the Alt key
+note + LeftJoystickPress: the Alt key pressed twice in a row
+note + LeftJoystickDown + RightJoystick(Right/Left): enable/disable braille functions
+note + LeftJoystickDown + RightJoystick(Up/Down): switch to internal/external (Esytime/PC) USB interface
+note + LeftJoystickDown + L1 + Escape: switch to single-hand braille keyboard 1
+note + LeftJoystickDown + Shift + Tab: switch to single-hand braille keyboard 2
+note + LeftJoystickDown + Insert + L8: switch to standard (two-hand) braille keyboard
+note + RightJoystickPress: the Enter key
+note + RightJoystick(left/right/up/down): the Arrow Left/Right/Up/Down key
+
+bind L1+L8 HOME
+bind LeftJoystickPress+RightJoystickPress BACK
+
+bind L1 FWINLT
+bind L8 FWINRT
+
+bind LeftJoystickLeft LNUP
+bind LeftJoystickRight LNDN
+bind LeftJoystickUp CSRTRK
+bind LeftJoystickDown NOOP # internal: the Alt key
+bind LeftJoystickPress NOOP # internal: the Alt key pressed twice in a row
+
+bind RightJoystickLeft NOOP # internal: the Arrow Left key
+bind RightJoystickRight NOOP # internal: the Arrow Right key
+bind RightJoystickUp NOOP # internal: the Arrow Up key
+bind RightJoystickDown NOOP # internal: the Arrow Down key
+bind RightJoystickPress NOOP # internal: the Enter key
+
+bind LeftJoystickLeft+RightJoystickPress TOP
+bind LeftJoystickLeft+RightJoystickLeft PRPROMPT
+bind LeftJoystickLeft+RightJoystickRight PRPGRPH
+bind LeftJoystickLeft+RightJoystickUp PRDIFLN
+bind LeftJoystickLeft+RightJoystickDown ATTRUP
+
+bind LeftJoystickRight+RightJoystickPress BOT
+bind LeftJoystickRight+RightJoystickLeft NXPROMPT
+bind LeftJoystickRight+RightJoystickRight NXPGRPH
+bind LeftJoystickRight+RightJoystickUp NXDIFLN
+bind LeftJoystickRight+RightJoystickDown ATTRDN
+
+bind LeftJoystickUp+RightJoystickPress DISPMD
+bind LeftJoystickUp+RightJoystickLeft CSRVIS
+bind LeftJoystickUp+RightJoystickRight ATTRVIS
+bind LeftJoystickUp+RightJoystickUp SIXDOTS+on
+bind LeftJoystickUp+RightJoystickDown SIXDOTS+off
+
+bind LeftJoystickDown+RightJoystickPress INFO
+bind LeftJoystickDown+RightJoystickLeft NOOP # internal: disable braille functions
+bind LeftJoystickDown+RightJoystickRight NOOP # internal: enable braille functions
+bind LeftJoystickDown+RightJoystickUp NOOP # internal: switch to internal (Esytime) USB interface
+bind LeftJoystickDown+RightJoystickDown NOOP # internal: switch to external (PC) USB interface
+
+bind LeftJoystickPress+RightJoystickLeft NOOP
+bind LeftJoystickPress+RightJoystickRight NOOP
+bind LeftJoystickPress+RightJoystickUp NOOP
+bind LeftJoystickPress+RightJoystickDown NOOP
+
+bind LeftJoystickPress+RoutingKey1 SETLEFT
+bind LeftJoystickLeft+RoutingKey1 PRDIFCHAR
+bind LeftJoystickRight+RoutingKey1 NXDIFCHAR
+bind LeftJoystickUp+RoutingKey1 PRINDENT
+bind LeftJoystickDown+RoutingKey1 NXINDENT
+
+bind RightJoystickPress+RoutingKey1 DESCCHAR
+bind RightJoystickLeft+RoutingKey1 CLIP_NEW
+bind RightJoystickUp+RoutingKey1 CLIP_ADD
+bind RightJoystickRight+RoutingKey1 COPY_LINE
+bind RightJoystickDown+RoutingKey1 COPY_RECT
+
+bind L1+LeftJoystickPress TIME
+bind L1+LeftJoystickLeft CHRLT
+bind L1+LeftJoystickRight CHRRT
+bind L1+LeftJoystickUp PRSEARCH
+bind L1+LeftJoystickDown NXSEARCH
+
+bind L8+LeftJoystickPress CSRJMP_VERT
+bind L8+LeftJoystickLeft FWINLTSKIP
+bind L8+LeftJoystickRight FWINRTSKIP
+bind L8+LeftJoystickUp LNBEG
+bind L8+LeftJoystickDown LNEND
+
+bind L1+RightJoystickPress PREFMENU
+bind L1+RightJoystickLeft PREFLOAD
+bind L1+RightJoystickRight PREFSAVE
+bind L1+RightJoystickUp HELP
+bind L1+RightJoystickDown LEARN
+
+bind L8+RightJoystickPress PASTE
+bind L8+RightJoystickLeft CLIP_RESTORE
+bind L8+RightJoystickRight CLIP_SAVE
+bind L8+RightJoystickUp FREEZE
+bind L8+RightJoystickDown AUTOREPEAT
+
+context menu
+bind L8+RightJoystickUp MENU_PREV_ITEM
+bind L8+RightJoystickDown MENU_NEXT_ITEM
+bind L8+RightJoystickLeft MENU_PREV_SETTING
+bind L8+RightJoystickRight MENU_NEXT_SETTING
+bind L8+RightJoystickPress MENU_PREV_LEVEL

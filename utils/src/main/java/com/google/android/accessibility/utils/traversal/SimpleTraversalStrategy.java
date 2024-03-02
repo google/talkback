@@ -43,14 +43,14 @@ public class SimpleTraversalStrategy implements TraversalStrategy {
   }
 
   @Override
-  public @Nullable AccessibilityNodeInfoCompat focusInitial(
+  public @Nullable AccessibilityNodeInfoCompat focusFirst(
       AccessibilityNodeInfoCompat root, @SearchDirection int direction) {
     if (root == null) {
       return null;
     }
 
     if (direction == SEARCH_FOCUS_FORWARD) {
-      return AccessibilityNodeInfoCompat.obtain(root);
+      return root;
     } else if (direction == SEARCH_FOCUS_BACKWARD) {
       AccessibilityNodeInfoRef ref = AccessibilityNodeInfoRef.obtain(root);
       if (ref.lastDescendant()) {

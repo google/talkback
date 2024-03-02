@@ -28,6 +28,10 @@ public interface KeyComboModel {
   int KEY_COMBO_CODE_INVALID = -1;
   int NO_MODIFIER = 0;
 
+  // TODO: Migrating currently using (null) shared preference key to
+  // classic_key_combo_model.
+  String KEYMAP_SHORTCUT_START_KEY = "keycombo_shortcut";
+
   /**
    * Returns modifier of this model. If this model doesn't have modifier,
    * KEY_COMBO_MODEL_NO_MODIFIER will be returned.

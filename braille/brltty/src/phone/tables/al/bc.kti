@@ -1,0 +1,127 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+####################
+# Default Bindings #
+####################
+
+bind ETouchLeftRear+ETouchRightRear HELP
+bind ETouchLeftRear+ETouchRightFront LEARN
+bind ETouchLeftFront+ETouchRightRear INFO
+bind ETouchLeftFront+ETouchRightFront PREFMENU
+
+bind ThumbUp+!ThumbDown CSRTRK+on
+bind ThumbDown+!ThumbUp CSRTRK+off
+bind ThumbHome RETURN
+bind ThumbLeft+ThumbRight CSRJMP_VERT
+
+bind ThumbUp LNUP
+bind ThumbDown LNDN
+bind ThumbLeft FWINLT
+bind ThumbRight FWINRT
+
+bind ThumbHome+ThumbUp PRDIFLN
+bind ThumbHome+ThumbDown NXDIFLN
+bind ThumbHome+ThumbLeft FWINLTSKIP
+bind ThumbHome+ThumbRight FWINRTSKIP
+
+bind ThumbLeft+ThumbUp TOP_LEFT
+bind ThumbLeft+ThumbDown BOT_LEFT
+bind ThumbRight+ThumbUp ATTRUP
+bind ThumbRight+ThumbDown ATTRDN
+
+bind ETouchLeftRear+ThumbUp PRPROMPT
+bind ETouchLeftRear+ThumbDown NXPROMPT
+bind ETouchLeftFront+ThumbUp PRPGRPH
+bind ETouchLeftFront+ThumbDown NXPGRPH
+bind ETouchRightRear+ThumbUp PRSEARCH
+bind ETouchRightRear+ThumbDown NXSEARCH
+
+bind ETouchLeftRear LNBEG
+bind ETouchRightRear LNEND
+bind ETouchLeftFront CHRLT
+bind ETouchRightFront CHRRT
+
+bind RoutingKey1 ROUTE
+
+bind ETouchLeftRear+ETouchLeftFront+RoutingKey1 DESCCHAR
+bind RoutingKey1+!RoutingKey1 CLIP_COPY
+bind ETouchLeftRear+RoutingKey1 CLIP_NEW
+bind ETouchLeftFront+RoutingKey1 CLIP_ADD
+bind ETouchRightRear+RoutingKey1 COPY_LINE
+bind ETouchRightFront+RoutingKey1 COPY_RECT
+bind ETouchRightRear+ETouchRightFront PASTE
+
+bind ThumbLeft+RoutingKey1 PRINDENT
+bind ThumbRight+RoutingKey1 NXINDENT
+bind ThumbUp+RoutingKey1 PRDIFCHAR
+bind ThumbDown+RoutingKey1 NXDIFCHAR
+bind ThumbHome+RoutingKey1 SETLEFT
+
+bind ETouchLeftRear+ETouchLeftFront+ETouchRightRear FREEZE
+bind ETouchLeftRear+ETouchRightRear+ETouchRightFront DISPMD
+
+bind ThumbLeft+ETouchLeftRear CSRVIS
+bind ThumbLeft+ETouchLeftFront ATTRVIS
+bind ThumbLeft+ETouchRightFront SIXDOTS
+
+map Dot1 DOT1
+map Dot2 DOT2
+map Dot3 DOT3
+map Dot4 DOT4
+map Dot5 DOT5
+map Dot6 DOT6
+map Dot7 DOT7
+map Dot8 DOT8
+map Space SPACE
+map Control CONTROL
+map Alt META
+bind Enter KEY_ENTER
+bind Windows KEY_ESCAPE
+
+assign chord Space+
+include ../chords.kti
+
+
+#################
+# Menu Bindings #
+#################
+
+#Unused by Brailleback
+#context menu
+
+#bind ThumbLeft FWINLT
+#bind ThumbRight FWINRT
+#bind ThumbUp MENU_PREV_ITEM
+#bind ThumbDown MENU_NEXT_ITEM
+#bind ETouchLeftRear MENU_FIRST_ITEM
+#bind ETouchLeftFront MENU_LAST_ITEM
+#bind ETouchRightRear MENU_PREV_SETTING
+#bind ETouchRightFront MENU_NEXT_SETTING
+
+bind ThumbHome PREFMENU
+bind ETouchLeftRear+ETouchLeftFront PREFLOAD
+bind ETouchRightRear+ETouchRightFront PREFSAVE
+
+
+########################
+# BrailleBack Bindings #
+########################
+
+assign chord Space
+include ../android-chords.kti

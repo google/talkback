@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Apostroph</string>
   <string name="symbol_ampersand">Kaufmännisches Und</string>
   <string name="symbol_angle_bracket_left">Kleiner-als-Zeichen</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Raute</string>
   <string name="symbol_pound_sterling">Währungszeichen für britische Pfund</string>
+  <string name="symbol_currency_peso">Währungssymbol Peso</string>
+  <string name="symbol_currency_dong">Währungssymbol Dong</string>
   <string name="symbol_question_mark">Fragezeichen</string>
   <string name="symbol_quotation_mark">Anführungszeichen</string>
   <string name="symbol_registered_trademark">Eingetragene Marke</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">Kleiner-gleich-Zeichen (volle Breite)</string>
   <string name="symbol_full_width_greater_than_sign">Größer-gleich-Zeichen (volle Breite)</string>
   <string name="symbol_left_single_quotation_mark">Einfaches Anführungszeichen links</string>
+  <string name="symbol_braille">Braille-%s</string>
+  <plurals name="dots">
+    <item quantity="one">Punkt %s</item>
+    <item quantity="other">Punkte %s</item>
+  </plurals>
 </resources>

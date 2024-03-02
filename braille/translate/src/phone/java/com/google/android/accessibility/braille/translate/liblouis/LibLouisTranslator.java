@@ -153,9 +153,8 @@ public class LibLouisTranslator implements BrailleTranslator {
   }
 
   @Override
-  public TranslationResult translate(
-      CharSequence text, int cursorPosition, boolean computerBrailleAtCursor) {
-    return LouisTranslation.translate(text, tableName, cursorPosition, computerBrailleAtCursor);
+  public TranslationResult translate(CharSequence text, int cursorPosition) {
+    return LouisTranslation.translate(text, tableName, cursorPosition);
   }
 
   @Override

@@ -101,23 +101,22 @@
 
   </PreferenceCategory>
 
-  <!-- Non-preset detailed settings -->
-  <PreferenceCategory
-      android:key="@string/pref_verbosity_category_misc_settings_key"
-      android:title="@string/pref_verbosity_category_misc_settings_title">
-
-    <SwitchPreference
-        android:defaultValue="@bool/pref_speak_element_ids_default"
-        android:key="@string/pref_speak_element_ids_key"
-        android:summary="@string/summary_pref_speak_element_ids"
-        android:title="@string/title_pref_speak_element_ids" />
-
-    <!-- Punctuation -->
-    <SwitchPreference
-        android:defaultValue="@bool/pref_punctuation_default"
-        android:key="@string/pref_punctuation_key"
-        android:title="@string/title_pref_punctuation" />
-
-  </PreferenceCategory>
+  <!-- Limit frequent content change -->
+  <SwitchPreference
+      android:defaultValue="@bool/pref_allow_frequent_content_change_announcement_default"
+      android:key="@string/pref_allow_frequent_content_change_announcement_key"
+      android:title="@string/pref_allow_frequent_content_change_announcement_title"
+      android:summary="@string/summary_pref_allow_frequent_content_change_announcement" />
+  <!-- Speak element IDs - Non-preset detailed settings -->
+  <SwitchPreference
+      android:defaultValue="@bool/pref_speak_element_ids_default"
+      android:key="@string/pref_speak_element_ids_key"
+      android:summary="@string/summary_pref_speak_element_ids"
+      android:title="@string/title_pref_speak_element_ids" />
+  <!-- Punctuation - Non-preset detailed settings -->
+  <SwitchPreference
+      android:defaultValue="@bool/pref_punctuation_default"
+      android:key="@string/pref_punctuation_key"
+      android:title="@string/title_pref_punctuation" />
 
 </PreferenceScreen>

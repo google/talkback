@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Kesme işareti</string>
   <string name="symbol_ampersand">Ve işareti</string>
   <string name="symbol_angle_bracket_left">Küçüktür işareti</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Kare</string>
   <string name="symbol_pound_sterling">Sterlin para birimi simgesi</string>
+  <string name="symbol_currency_peso">Pezo işareti</string>
+  <string name="symbol_currency_dong">Dong işareti</string>
   <string name="symbol_question_mark">Soru işareti</string>
   <string name="symbol_quotation_mark">Tırnak</string>
   <string name="symbol_registered_trademark">Tescilli ticari marka</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">Tam genişlikte küçüktür işareti</string>
   <string name="symbol_full_width_greater_than_sign">Tam genişlikte büyüktür işareti</string>
   <string name="symbol_left_single_quotation_mark">Sol tek tırnak işareti</string>
+  <string name="symbol_braille">Braille %s</string>
+  <plurals name="dots">
+    <item quantity="one">%s nokta</item>
+    <item quantity="other">%s nokta</item>
+  </plurals>
 </resources>

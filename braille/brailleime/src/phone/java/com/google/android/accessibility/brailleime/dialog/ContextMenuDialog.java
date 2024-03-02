@@ -31,12 +31,11 @@ import android.widget.TextView;
 import androidx.annotation.StringRes;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.brailleime.BrailleIme;
-import com.google.android.accessibility.brailleime.Dialogs;
 import com.google.android.accessibility.brailleime.R;
 import com.google.android.accessibility.brailleime.Utils;
 import com.google.android.accessibility.brailleime.analytics.BrailleImeAnalytics;
 import com.google.android.accessibility.brailleime.analytics.BrailleImeAnalytics.ContextMenuSelections;
-import com.google.android.accessibility.utils.MaterialComponentUtils;
+import com.google.android.accessibility.utils.material.MaterialComponentUtils;
 import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,11 +55,13 @@ public class ContextMenuDialog extends ViewAttachedDialog {
     void onTutorialOpen();
 
     void onTutorialClosed();
+
+    void onCalibration();
   }
 
   private AlertDialog contextMenuDialog;
   private ContextMenuListAdapter contextMenuListAdapter;
-  private final SeeAllActionsDialog seeAllActionsDialog;
+  private final BasicActionsDialog basicActionsDialog;
   private final Context context;
   private final List<MenuItem> itemsAndActions;
   private final Callback callback;
@@ -70,7 +71,9 @@ public class ContextMenuDialog extends ViewAttachedDialog {
   public static final ImmutableList<Integer> ITEM_STRING_IDS =
       ImmutableList.of(
           R.string.context_menu_input_language_selection,
-          R.string.context_menu_see_all_gestures_selection,
+          R.string.context_menu_switch_contracted_status_selection,
+          R.string.context_menu_layout_calibration,
+          R.string.context_menu_review_gestures_selection,
           R.string.context_menu_tutorial_selection,
           R.string.context_menu_tutorial_finish,
           R.string.context_menu_settings_selection);
@@ -80,13 +83,13 @@ public class ContextMenuDialog extends ViewAttachedDialog {
     this.context = context;
     this.callback = callback;
     itemsAndActions = new ArrayList<>();
-    seeAllActionsDialog = new SeeAllActionsMaterialDialog(context);
+    basicActionsDialog = new BasicActionsMaterialDialog(context, this::dismiss);
   }
 
   @Override
   public void dismiss() {
     dismissContextMenuDialog();
-    dismissSeeAllActionsDialog();
+    dismissBasicActionsDialog();
   }
 
   @Override
@@ -109,8 +112,8 @@ public class ContextMenuDialog extends ViewAttachedDialog {
     return contextMenuDialog;
   }
 
-  private void showSeeAllActionsDialog() {
-    seeAllActionsDialog.show(viewToAttach);
+  private void showBasicActionsDialog() {
+    basicActionsDialog.show(viewToAttach);
   }
 
   private void dismissContextMenuDialog() {
@@ -119,14 +122,28 @@ public class ContextMenuDialog extends ViewAttachedDialog {
     }
   }
 
-  private void dismissSeeAllActionsDialog() {
-    seeAllActionsDialog.dismiss();
+  private void dismissBasicActionsDialog() {
+    basicActionsDialog.dismiss();
   }
 
   private void updateItemsAndActionsList() {
     itemsAndActions.clear();
     for (@StringRes int strRes : ITEM_STRING_IDS) {
-      if (strRes == R.string.context_menu_tutorial_selection) {
+      if (strRes == R.string.context_menu_switch_contracted_status_selection) {
+        if (!BrailleUserPreferences.readCurrentActiveInputCodeAndCorrect(context)
+            .isSupportsContracted(context)) {
+          continue;
+        }
+        int nextContractedStatusStrRes =
+            BrailleUserPreferences.readContractedMode(context)
+                ? R.string.uncontracted
+                : R.string.contracted;
+        itemsAndActions.add(
+            new MenuItem(
+                context.getString(strRes, context.getString(nextContractedStatusStrRes)),
+                /* closeWhenClick= */ false,
+                generateItemAction(strRes)));
+      } else if (strRes == R.string.context_menu_tutorial_selection) {
         if (!tutorialMode) {
           itemsAndActions.add(
               new MenuItem(
@@ -146,12 +163,11 @@ public class ContextMenuDialog extends ViewAttachedDialog {
         if (BrailleUserPreferences.readAvailablePreferredCodes(context).size() <= 1) {
           continue;
         }
-        CharSequence currentCode =
+        String currentCode =
             BrailleUserPreferences.readCurrentActiveInputCodeAndCorrect(context)
-                .getUserFacingName(context.getResources());
-        CharSequence nextCode =
-            BrailleUserPreferences.getNextInputCode(context)
-                .getUserFacingName(context.getResources());
+                .getUserFacingName(context);
+        String nextCode =
+            BrailleUserPreferences.getNextInputCode(context).getUserFacingName(context);
         itemsAndActions.add(
             new MenuItem(
                 context.getString(strRes, nextCode),
@@ -164,6 +180,14 @@ public class ContextMenuDialog extends ViewAttachedDialog {
         KeyguardManager keyguardManager =
             (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
         if (!keyguardManager.isKeyguardLocked()) {
+          itemsAndActions.add(
+              new MenuItem(
+                  context.getString(strRes),
+                  /* closeWhenClick= */ true,
+                  generateItemAction(strRes)));
+        }
+      } else if (strRes == R.string.context_menu_layout_calibration) {
+        if (!tutorialMode) {
           itemsAndActions.add(
               new MenuItem(
                   context.getString(strRes),
@@ -191,14 +215,20 @@ public class ContextMenuDialog extends ViewAttachedDialog {
       return () ->
           BrailleUserPreferences.writeCurrentActiveInputCode(
               context, BrailleUserPreferences.getNextInputCode(context));
-    } else if (strRes == R.string.context_menu_see_all_gestures_selection) {
-      return this::showSeeAllActionsDialog;
+    } else if (strRes == R.string.context_menu_switch_contracted_status_selection) {
+      return () ->
+          BrailleUserPreferences.writeContractedMode(
+              context, !BrailleUserPreferences.readContractedMode(context));
+    } else if (strRes == R.string.context_menu_review_gestures_selection) {
+      return this::showBasicActionsDialog;
     } else if (strRes == R.string.context_menu_tutorial_selection) {
       return callback::onTutorialOpen;
     } else if (strRes == R.string.context_menu_tutorial_finish) {
       return callback::onTutorialClosed;
     } else if (strRes == R.string.context_menu_settings_selection) {
       return callback::onLaunchSettings;
+    } else if (strRes == R.string.context_menu_layout_calibration) {
+      return callback::onCalibration;
     }
     return () -> {};
   }
@@ -238,7 +268,11 @@ public class ContextMenuDialog extends ViewAttachedDialog {
 
         private ContextMenuSelections convertContextMenuSelections(int optionPosition) {
           int stringRes = ContextMenuDialog.ITEM_STRING_IDS.get(optionPosition);
-          if (stringRes == R.string.context_menu_see_all_gestures_selection) {
+          if (stringRes == R.string.context_menu_input_language_selection) {
+            return ContextMenuSelections.TYPING_LANGUAGE;
+          } else if (stringRes == R.string.context_menu_switch_contracted_status_selection) {
+            return ContextMenuSelections.SWITCH_CONTRACTED_STATUS;
+          } else if (stringRes == R.string.context_menu_review_gestures_selection) {
             return ContextMenuSelections.SEE_ALL_ACTIONS;
           } else if (stringRes == R.string.context_menu_tutorial_selection) {
             return ContextMenuSelections.TUTORIAL_OPEN;
@@ -246,6 +280,8 @@ public class ContextMenuDialog extends ViewAttachedDialog {
             return ContextMenuSelections.TUTORIAL_FINISH;
           } else if (stringRes == R.string.context_menu_settings_selection) {
             return ContextMenuSelections.GO_TO_SETTINGS;
+          } else if (stringRes == R.string.context_menu_layout_calibration) {
+            return ContextMenuSelections.CALIBRATION;
           }
           return ContextMenuSelections.UNSPECIFIED_OPTION;
         }
@@ -278,7 +314,8 @@ public class ContextMenuDialog extends ViewAttachedDialog {
     }
   }
 
-  private static class MenuItem {
+  /** Context menu item. */
+  public static class MenuItem {
     // Menu item title.
     private final CharSequence itemTitle;
     // Menu item summary.
@@ -298,6 +335,14 @@ public class ContextMenuDialog extends ViewAttachedDialog {
 
     private MenuItem(CharSequence itemTitle, boolean closeWhenClick, Runnable action) {
       this(itemTitle, "", closeWhenClick, action);
+    }
+
+    public CharSequence getItemTitle() {
+      return itemTitle;
+    }
+
+    public CharSequence getItemSummary() {
+      return itemSummary;
     }
   }
 }

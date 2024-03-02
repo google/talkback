@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <Preference
+      android:selectable="false"
+      app:summary="@string/bd_auto_scroll_instructions" />
+  <SwitchPreference
+      app:key="@string/pref_key_bd_auto_adjust_duration"
+      app:title="@string/bd_auto_adjust_duration_title"
+      app:summary="@string/bd_auto_adjust_duration_summary" />
+  <com.google.android.accessibility.braille.brailledisplay.settings.AutoScrollDurationPreference
+      app:key="@string/pref_key_bd_auto_scroll_duration"
+      app:title="@string/bd_auto_scroll_duration_title" />
+  <PreferenceCategory
+      app:icon="@drawable/gs_info_vd_theme_24">
+    <Preference
+        android:selectable="false"
+        app:summary="@string/bd_auto_scroll_tips" />
+  </PreferenceCategory>
+</PreferenceScreen>

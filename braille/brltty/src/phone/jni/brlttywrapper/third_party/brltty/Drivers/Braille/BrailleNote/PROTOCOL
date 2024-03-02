@@ -1,0 +1,58 @@
+The BrailleNote operates at 38,400 baud, with 8 bits per character, with
+no parity, and with 1 stop bit.
+
+Whenever a key, or combination of keys (chord), is pressed, two bytes are
+sent to the computer. The first byte indicates which kind of key or chord
+has been used, and the second byte indicates which keys have been pressed.
+The byte sequence is sent once all of the keys have been released.
+
+0X80: Any combination of dots 1 through 6. The second byte consists of bit
+0 (0X01) for dot 1, bit 1 (0X02) for dot 2, bit 2 (0X04) for dot 3, bit 3
+(0X08) for dot 4, bit 4 (0X10) for dot 5, and bit 5 (0X20) for dot 6.
+
+0X81: Any combination of dots 1 through 6 in conjunction with the space
+bar. The second byte is as defined for 0X80. The following dot
+combinations are intercepted by the BrailleNote, and, therefore, aren't
+seen by the computer: [15], [125], [135], [1235], [136], [1356], [235],
+[123456\.
+
+0X82: Any combination of dots 1 through 6 in conjunction with both the
+space bar and the backspace key. The second byte is as defined for 0X80,
+except that bit 6 (0X40) is also always set.
+
+0X83: Any combination of dots 1 through 6 in conjunction with both the
+space bar and the enter key. The second byte is as for 0X80. The following
+dot combinations are intercepted by the BrailleNote, and, therefore,
+aren't seen by the computer: [1], [4], [2], [5], [3], [6], [145], [125],
+[234], [2345].
+
+0X84: Any combination of the thumb keys. The second byte consists of bit 0
+(0X01) for Previous, bit 1 (0X02) for Back, bit 2 (0X04) for Advance, and
+bit 3 (0X08) for Next. Three- and four-key combinations don't work.
+
+0X85: A cursor routing key. The second byte is 0X00 for the first
+(leftmost) key, 0x01 for the second, etc. This sequence is sent when the
+key is pressed, rather than when it is released, and is auto-repeated as
+long as the key is held down.
+
+If "<escape>?" is sent to it, then it responds with three bytes:
+
+    1: 0X86
+    2: The number of status cells.
+    3: The number of text cells.
+
+To refresh the braille cells: send "<escape>B", followed by one byte for
+each status cell, followed by one byte for each text cell. Those status
+and text bytes which match "<escape>" (0X1B) must be sent twice. 1-bits
+represent raised dots, and 0-bits represent lowered dots.
+
+    Bit  Hex  Dot
+     0    01   1
+     1    02   2
+     2    04   3
+     3    08   4
+     4    10   5
+     5    20   6
+     6    40   7
+     7    80   8
+

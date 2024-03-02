@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">बोलेर निर्देशन दिन दायाँ अनि माथितिर स्वाइप गर्नुहोस्। बोलेर दिन सकिने निर्देशनहरूको यो सूची हेर्न जुनसुक‍ै बेला \"मद्दत गर\" वा \"म के भन्न सक्छु?\" भन्नुहोस्।</string>
   <string name="voice_commands_help_hint">उत्कृष्ट परिणाम प्राप्त गर्न यसपछि देखाइने स्क्रिनहरूमा सूचीबद्ध गरिएका शब्दहरू जस्ताको तस्तै भन्नुहोस्।</string>
   <string name="voice_command_screen_locked_hint">स्क्रिन लक भएका बेला बोलेर दिइने निर्देशनहरूले काम गर्दैनन्। यसको साटो TalkBack मेनु प्रयोग गर्न %1$s।</string>
+  <string name="voice_commands_during_setup_hint">सेटअप गर्ने बेला बोलेर निर्देशनहरू दिने सुविधा उपलब्ध हुँदैन।</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">यो स्क्रिनमा भएको कुरा कसरी पढेर सुनाइनु पर्छ भन्ने कुरा परिवर्तन गर्नुहोस्</string>
   <string name="voice_commands_help_next">अर्को [शीर्षक]</string>
@@ -137,7 +138,7 @@
   <string name="voice_commands_help_other_commands_title">अन्य निर्देशनहरू</string>
   <string name="voice_commands_help_other_commands_description">TalkBack का सेटिङमा जानुहोस्, स्क्रिन लुकाउनुहोस्, कारबाहीहरू हेर्नुहोस्, आफ्नो रोजाइका लेबलहरू हाल्नुहोस् र अन्य कुरा गर्नुहोस्</string>
   <string name="voice_commands_help_label">[पेस गर्नुहोस् नामक शब्द] लेबल गर</string>
-  <string name="voice_commands_help_hide_screen_description">सार्वजनिक ठाउँमा भएका बेला तपाईंको स्क्रिन अरूले नदेखून् भन्नाका खातिर डिस्प्ले नदेखिने पार्नुहोस्</string>
+  <string name="voice_commands_help_hide_screen_description">सार्वजनिक ठाउँमा भएका बेला तपाईंको स्क्रिन अरूले नदेखून् भन्नाका लागि डिस्प्ले नदेखिने पार्नुहोस्</string>
   <string name="voice_commands_help_show_screen_description">आफ्नो स्क्रिन नदेखिने पारेपछि त्यसलाई सामान्य अवस्थामा फर्काउनुहोस्</string>
   <string name="voice_commands_help_actions_description">हालको वस्तुमा गर्न सकिने कारबाहीहरू हेर्नुहोस्</string>
   <string name="voice_commands_help_label_description">आफ्नो रोजाइको लेबल हाल्नुहोस् वा परिवर्तन गर्नुहोस् अनि \"पेस गर\" भन्नुहोस्</string>

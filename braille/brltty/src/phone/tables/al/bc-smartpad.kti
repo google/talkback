@@ -1,0 +1,107 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+note * The outer key on the left, identified by three horizontal bars, is subnamed F1.
+note * The inner key on the left, identified by one horizontal bar, is subnamed F2.
+note * The inner key on the right, identified by one vertical bar, is subnamed F3.
+note * The outer key on the right, identified by three vertical bars, is subnamed F4.
+note * The keys in the middle form a five-way directional pad:
+note + The round key in the middle is subnamed Enter.
+note + The short, thin keys that form a square around it are subnamed Left, Right, Up, and Down.
+
+
+####################
+# Default Bindings #
+####################
+
+bind SmartpadLeft KEY_CURSOR_LEFT
+bind SmartpadRight KEY_CURSOR_RIGHT
+bind SmartpadUp KEY_CURSOR_UP
+bind SmartpadDown KEY_CURSOR_DOWN
+bind SmartpadEnter PASTE
+
+#Overridden by Brailleback
+#bind SmartpadF2 TIME
+
+bind SmartpadF1+SmartpadLeft SWITCHVT_PREV
+bind SmartpadF1+SmartpadRight SWITCHVT_NEXT
+bind SmartpadF1+SmartpadEnter KEY_INSERT
+bind SmartpadF1+!RoutingKey1 SWITCHVT
+
+bind SmartpadF2+SmartpadUp KEY_PAGE_UP
+bind SmartpadF2+SmartpadDown KEY_PAGE_DOWN
+bind SmartpadF2+SmartpadLeft KEY_HOME
+bind SmartpadF2+SmartpadRight KEY_END
+bind SmartpadF2+SmartpadEnter KEY_DELETE
+bind SmartpadF2+!RoutingKey1 KEY_FUNCTION
+
+bind SmartpadF3+SmartpadF4 MUTE
+
+bind SmartpadF3+SmartpadRight SAY_LINE
+bind SmartpadF3+SmartpadUp SAY_ABOVE
+bind SmartpadF3+SmartpadDown SAY_BELOW
+bind SmartpadF3+SmartpadEnter SPKHOME
+
+bind SmartpadF4+SmartpadLeft SAY_SLOWER
+bind SmartpadF4+SmartpadRight SAY_FASTER
+bind SmartpadF4+SmartpadDown SAY_SOFTER
+bind SmartpadF4+SmartpadUp SAY_LOUDER
+bind SmartpadF4+SmartpadEnter AUTOSPEAK
+
+bind SmartpadF1+SmartpadF2+SmartpadEnter RESTARTBRL
+bind SmartpadF3+SmartpadF4+SmartpadEnter RESTARTSPEECH
+
+
+#################
+# Menu Bindings #
+#################
+
+#Unused by Brailleback
+#context menu
+
+#bind SmartpadF1 PREFMENU
+#bind SmartpadF2 MENU_PREV_LEVEL
+#bind SmartpadF4 PREFLOAD
+
+#bind SmartpadUp MENU_PREV_ITEM
+#bind SmartpadDown MENU_NEXT_ITEM
+#bind SmartpadLeft MENU_PREV_SETTING
+#bind SmartpadRight MENU_NEXT_SETTING
+#bind SmartpadEnter PREFSAVE
+
+
+########################
+# BrailleBack Bindings #
+########################
+
+# Back key
+bind SmartpadF1 KEY_FUNCTION+108
+# Home key
+bind SmartpadF2 KEY_FUNCTION+109
+# Recent apps key
+bind SmartpadF3 KEY_FUNCTION+110
+# Notifications bar
+bind SmartpadF4 KEY_FUNCTION+111
+
+# Activate currently focused item.
+bind SmartpadEnter ROUTE+127
+
+# Long press currently focused item. This display handles auto-repeat on its
+# own so we can't use long press of SmartpadEnter for this command.
+bind ThumbHome+SmartpadEnter ROUTE+255
+

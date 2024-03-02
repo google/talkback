@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-  <TextView
+  <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/training_title"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="@dimen/training_padding_top"
-      android:fontFamily="@string/accessibility_font"
+      app:fontFamily="@string/accessibility_font"
       android:textStyle="bold"
       android:textColor="@color/training_text_color"
       android:textSize="@dimen/training_title_text_size"

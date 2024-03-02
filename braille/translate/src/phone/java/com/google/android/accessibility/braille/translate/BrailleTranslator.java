@@ -32,10 +32,7 @@ public interface BrailleTranslator {
    * Translates a string into the corresponding dot patterns and returns the resulting byte array.
    * Returns {@code null} on error. {@code cursorPosition}, if positive, will be mapped to the
    * corresponding position in the output. This is sometimes more accurate than the position maps in
-   * the {@link TranslationResult}. If {@code computerBrailleAtCursor} is set, then the word
-   * underneath the cursor will be expanded into computer braille (if using a literary braille
-   * table).
+   * the {@link TranslationResult}.
    */
-  TranslationResult translate(
-      CharSequence text, int cursorPosition, boolean computerBrailleAtCursor);
+  TranslationResult translate(CharSequence text, int cursorPosition);
 }

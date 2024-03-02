@@ -25,6 +25,7 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import com.google.android.accessibility.utils.R;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 
@@ -36,6 +37,7 @@ import java.util.ArrayList;
 class Swipe extends GestureMatcher {
 
   // Direction constants.
+  public static final int NONE = -1;
   public static final int LEFT = 0;
   public static final int RIGHT = 1;
   public static final int UP = 2;
@@ -52,26 +54,7 @@ class Swipe extends GestureMatcher {
   // reducing noisy minor changes in direction.
   private static final float MIN_CM_BETWEEN_SAMPLES = 0.25f;
 
-  // Distance a finger must travel before we decide if it is a gesture or not.
-  public static final int GESTURE_CONFIRM_CM = 1;
-
-  // Time threshold used to determine if an interaction is a gesture or not.
-  // If the first movement of 1cm takes longer than this value, we assume it's
-  // a slow movement, and therefore not a gesture.
-  //
-  // This value was determined by measuring the time for the first 1cm
-  // movement when gesturing, and touch exploring.  Based on user testing,
-  // all gestures started with the initial movement taking less than 100ms.
-  // When touch exploring, the first movement almost always takes longer than
-  // 200ms.
-  public static final long MAX_TIME_TO_START_SWIPE_MS = 150 * GESTURE_CONFIRM_CM;
-
-  // Time threshold used to determine if a gesture should be cancelled.  If
-  // the finger takes more than this time to move  to the next sample point, the ongoing gesture
-  // is cancelled.
-  public static final long MAX_TIME_TO_CONTINUE_SWIPE_MS = 350 * GESTURE_CONFIRM_CM;
-
-  private int[] directions;
+  private final int[] directions;
   private float baseX;
   private float baseY;
   private long baseTime;
@@ -79,6 +62,10 @@ class Swipe extends GestureMatcher {
   private float previousGestureY;
   private final float minPixelsBetweenSamplesX;
   private final float minPixelsBetweenSamplesY;
+  // Time threshold in millisecond to determine if an interaction is a gesture or not.
+  private final int maxStartThreshold;
+  // Time threshold in millisecond to determine if a gesture should be cancelled.
+  private final int maxContinueThreshold;
   // The minmimum distance the finger must travel before we evaluate the initial direction of the
   // swipe.
   // Anything less is still considered a touch.
@@ -103,11 +90,19 @@ class Swipe extends GestureMatcher {
   private Swipe(
       Context context, int[] directions, int gesture, GestureMatcher.StateChangeListener listener) {
     super(gesture, new Handler(context.getMainLooper()), listener);
+    float gestureConfirmDistanceCm =
+        context.getResources().getFloat(R.dimen.config_gesture_confirm_distance_cm);
+    int maxTimeToStartSwipeMsPerCm =
+        context.getResources().getInteger(R.integer.config_max_time_to_start_swipe_ms_per_cm);
+    int maxTimeToContinueSwipeMsPerCm =
+        context.getResources().getInteger(R.integer.config_max_time_to_continue_swipe_ms_per_cm);
+    maxStartThreshold = (int) (maxTimeToStartSwipeMsPerCm * gestureConfirmDistanceCm);
+    maxContinueThreshold = (int) (maxTimeToContinueSwipeMsPerCm * gestureConfirmDistanceCm);
     this.directions = directions;
     DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
     gestureDetectionThresholdPixels =
         TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_MM, MM_PER_CM, displayMetrics)
-            * GESTURE_CONFIRM_CM;
+            * gestureConfirmDistanceCm;
     // Calculate minimum gesture velocity
     final float pixelsPerCmX = displayMetrics.xdpi / 2.54f;
     final float pixelsPerCmY = displayMetrics.ydpi / 2.54f;
@@ -158,7 +153,7 @@ class Swipe extends GestureMatcher {
       if (moveDelta < touchSlop) {
         // This still counts as a touch not a swipe.
         return;
-      } else if (strokeBuffer.size() == 0) {
+      } else if (strokeBuffer.isEmpty()) {
         // First, make sure the pointer is going in the right direction.
         int direction = toDirection(x - baseX, y - baseY);
         if (direction != directions[0]) {
@@ -176,13 +171,13 @@ class Swipe extends GestureMatcher {
       baseTime = time;
       startGesture(event);
     } else if (getState() == STATE_CLEAR) {
-      if (timeDelta > MAX_TIME_TO_START_SWIPE_MS) {
+      if (timeDelta > maxStartThreshold) {
         // The user isn't moving fast enough.
         cancelGesture(event);
         return;
       }
     } else if (getState() == STATE_GESTURE_STARTED) {
-      if (timeDelta > MAX_TIME_TO_CONTINUE_SWIPE_MS) {
+      if (timeDelta > maxContinueThreshold) {
         cancelGesture(event);
         return;
       }
@@ -197,9 +192,20 @@ class Swipe extends GestureMatcher {
 
   @Override
   protected void onUp(MotionEvent event) {
-    if (getState() != STATE_GESTURE_STARTED) {
-      cancelGesture(event);
-      return;
+    switch (getState()) {
+      case STATE_GESTURE_STARTED:
+        break;
+      case STATE_CLEAR:
+        // For Swipe gestures, this is the very last motion event. When any of the swipe gesture
+        // detectors matches, the others will enter the clear state. We should not Cancel the
+        // detector again for the Up event, or it cannot detect new gesture immediately.
+        // On the other hand, if we don't do clear(), the followed onDown event will credit the last
+        // stroke data, which caused miss-identified gesture.
+        clear();
+        return;
+      default:
+        cancelGesture(event);
+        return;
     }
 
     final float x = event.getX();

@@ -76,7 +76,7 @@ typedef struct intCharTupple {
 #define MAXPASS 4
 #define MAXSTRING 2048
 #define MAX_MACRO_VAR 100  // maximal number of variable substitutions a macro can contain
-#define MAX_EMPH_CLASSES 10   // maximal number of emphasis classes
+#define MAX_EMPH_CLASSES 10	  // maximal number of emphasis classes
 #define MAX_MODES 6			  // maximal number of modes that can be handled
 #define MAX_SOURCE_FILES 100  // maximal number of files a table can consist of
 
@@ -120,8 +120,8 @@ typedef enum {
 	CTC_UserDefined6 = 0x200000,
 	CTC_UserDefined7 = 0x400000,
 	CTC_UserDefined8 = 0x800000,
-	CTC_EndOfInput = 0x1000000,  // only used by pattern matcher
-	CTC_EmpMatch = 0x2000000,	// only used in TranslationTableRule->before and
+	CTC_EndOfInput = 0x1000000,	 // only used by pattern matcher
+	CTC_EmpMatch = 0x2000000,	 // only used in TranslationTableRule->before and
 								 // TranslationTableRule->after
 	CTC_MidEndNumericMode = 0x4000000,
 	/* At least 37 more bits available in a unsigned long long (at least 64 bits). Used
@@ -248,6 +248,7 @@ typedef enum { /* Op codes */
 	CTO_NoLetsign,
 	CTO_NoLetsignAfter,
 	CTO_NumberSign,
+	CTO_NoNumberSign,
 	CTO_NumericModeChars,
 	CTO_MidEndNumericModeChars,
 	CTO_NumericNoContractChars,
@@ -278,8 +279,8 @@ typedef enum { /* Op codes */
 	CTO_MultInd,
 	CTO_CompDots,
 	CTO_Comp6,
-	CTO_Class,  /* define a character class */
-	CTO_After,  /* only match if after character in class */
+	CTO_Class,	/* define a character class */
+	CTO_After,	/* only match if after character in class */
 	CTO_Before, /* only match if before character in class 30 */
 	CTO_NoBack,
 	CTO_NoFor,
@@ -348,146 +349,10 @@ typedef enum { /* Op codes */
 	CTO_Macro,
 	CTO_None,
 
-	/* More internal opcodes */
-	CTO_LetterRule,
-	CTO_NumberRule,
-	CTO_NoContractRule,
+	/** "internal" opcodes */
+	CTO_EndCapsPhraseBefore,
+	CTO_EndCapsPhraseAfter,
 
-	/* Start of (16 x 8) internal opcodes values
-	 * Do not change the order of the following opcodes! */
-	CTO_CapsLetterRule,
-	CTO_BegCapsWordRule,
-	CTO_EndCapsWordRule,
-	CTO_BegCapsRule,
-	CTO_EndCapsRule,
-	CTO_BegCapsPhraseRule,
-	CTO_EndCapsPhraseBeforeRule,
-	CTO_EndCapsPhraseAfterRule,
-	CTO_Mode2LetterRule,
-	CTO_BegMode2WordRule,
-	CTO_EndMode2WordRule,
-	CTO_BegMode2Rule,
-	CTO_EndMode2Rule,
-	CTO_BegMode2PhraseRule,
-	CTO_EndMode2PhraseBeforeRule,
-	CTO_EndMode2PhraseAfterRule,
-	CTO_Mode3LetterRule,
-	CTO_BegMode3WordRule,
-	CTO_EndMode3WordRule,
-	CTO_BegMode3Rule,
-	CTO_EndMode3Rule,
-	CTO_BegMode3PhraseRule,
-	CTO_EndMode3PhraseBeforeRule,
-	CTO_EndMode3PhraseAfterRule,
-	CTO_Mode4LetterRule,
-	CTO_BegMode4WordRule,
-	CTO_EndMode4WordRule,
-	CTO_BegMode4Rule,
-	CTO_EndMode4Rule,
-	CTO_BegMode4PhraseRule,
-	CTO_EndMode4PhraseBeforeRule,
-	CTO_EndMode4PhraseAfterRule,
-	CTO_Mode5LetterRule,
-	CTO_BegMode5WordRule,
-	CTO_EndMode5WordRule,
-	CTO_BegMode5Rule,
-	CTO_EndMode5Rule,
-	CTO_BegMode5PhraseRule,
-	CTO_EndMode5PhraseBeforeRule,
-	CTO_EndMode5PhraseAfterRule,
-	CTO_Mode6LetterRule,
-	CTO_BegMode6WordRule,
-	CTO_EndMode6WordRule,
-	CTO_BegMode6Rule,
-	CTO_EndMode6Rule,
-	CTO_BegMode6PhraseRule,
-	CTO_EndMode6PhraseBeforeRule,
-	CTO_EndMode6PhraseAfterRule,
-	CTO_Emph1LetterRule,
-	CTO_BegEmph1WordRule,
-	CTO_EndEmph1WordRule,
-	CTO_BegEmph1Rule,
-	CTO_EndEmph1Rule,
-	CTO_BegEmph1PhraseRule,
-	CTO_EndEmph1PhraseBeforeRule,
-	CTO_EndEmph1PhraseAfterRule,
-	CTO_Emph2LetterRule,
-	CTO_BegEmph2WordRule,
-	CTO_EndEmph2WordRule,
-	CTO_BegEmph2Rule,
-	CTO_EndEmph2Rule,
-	CTO_BegEmph2PhraseRule,
-	CTO_EndEmph2PhraseBeforeRule,
-	CTO_EndEmph2PhraseAfterRule,
-	CTO_Emph3LetterRule,
-	CTO_BegEmph3WordRule,
-	CTO_EndEmph3WordRule,
-	CTO_BegEmph3Rule,
-	CTO_EndEmph3Rule,
-	CTO_BegEmph3PhraseRule,
-	CTO_EndEmph3PhraseBeforeRule,
-	CTO_EndEmph3PhraseAfterRule,
-	CTO_Emph4LetterRule,
-	CTO_BegEmph4WordRule,
-	CTO_EndEmph4WordRule,
-	CTO_BegEmph4Rule,
-	CTO_EndEmph4Rule,
-	CTO_BegEmph4PhraseRule,
-	CTO_EndEmph4PhraseBeforeRule,
-	CTO_EndEmph4PhraseAfterRule,
-	CTO_Emph5LetterRule,
-	CTO_BegEmph5WordRule,
-	CTO_EndEmph5WordRule,
-	CTO_BegEmph5Rule,
-	CTO_EndEmph5Rule,
-	CTO_BegEmph5PhraseRule,
-	CTO_EndEmph5PhraseBeforeRule,
-	CTO_EndEmph5PhraseAfterRule,
-	CTO_Emph6LetterRule,
-	CTO_BegEmph6WordRule,
-	CTO_EndEmph6WordRule,
-	CTO_BegEmph6Rule,
-	CTO_EndEmph6Rule,
-	CTO_BegEmph6PhraseRule,
-	CTO_EndEmph6PhraseBeforeRule,
-	CTO_EndEmph6PhraseAfterRule,
-	CTO_Emph7LetterRule,
-	CTO_BegEmph7WordRule,
-	CTO_EndEmph7WordRule,
-	CTO_BegEmph7Rule,
-	CTO_EndEmph7Rule,
-	CTO_BegEmph7PhraseRule,
-	CTO_EndEmph7PhraseBeforeRule,
-	CTO_EndEmph7PhraseAfterRule,
-	CTO_Emph8LetterRule,
-	CTO_BegEmph8WordRule,
-	CTO_EndEmph8WordRule,
-	CTO_BegEmph8Rule,
-	CTO_EndEmph8Rule,
-	CTO_BegEmph8PhraseRule,
-	CTO_EndEmph8PhraseBeforeRule,
-	CTO_EndEmph8PhraseAfterRule,
-	CTO_Emph9LetterRule,
-	CTO_BegEmph9WordRule,
-	CTO_EndEmph9WordRule,
-	CTO_BegEmph9Rule,
-	CTO_EndEmph9Rule,
-	CTO_BegEmph9PhraseRule,
-	CTO_EndEmph9PhraseBeforeRule,
-	CTO_EndEmph9PhraseAfterRule,
-	CTO_Emph10LetterRule,
-	CTO_BegEmph10WordRule,
-	CTO_EndEmph10WordRule,
-	CTO_BegEmph10Rule,
-	CTO_EndEmph10Rule,
-	CTO_BegEmph10PhraseRule,
-	CTO_EndEmph10PhraseBeforeRule,
-	CTO_EndEmph10PhraseAfterRule,
-	/* End of ordered (16 x 8) internal opcodes */
-
-	CTO_BegCompRule,
-	CTO_EndCompRule,
-	CTO_CapsNoContRule,
 	CTO_All
 } TranslationTableOpcode;
 
@@ -496,7 +361,7 @@ typedef struct {
 	int sourceLine;
 	TranslationTableOffset charsnext;			/** next chars entry */
 	TranslationTableOffset dotsnext;			/** next dots entry */
-	TranslationTableCharacterAttributes after;  /** character types which must follow */
+	TranslationTableCharacterAttributes after;	/** character types which must follow */
 	TranslationTableCharacterAttributes before; /** character types which must precede */
 	TranslationTableOffset patterns;			/** before and after patterns */
 	TranslationTableOpcode opcode; /** rule for testing validity of replacement */
@@ -572,7 +437,7 @@ typedef struct { /* translation table */
 			numberedAttributes[8]; /* attributes 0-7 used in match rules (could also be
 								   stored in `characterClasses', but this is slightly
 								   faster) */
-	int usesAttributeOrClass;	  /* 1 = attribute, 2 = class */
+	int usesAttributeOrClass;	   /* 1 = attribute, 2 = class */
 	char *sourceFiles[MAX_SOURCE_FILES + 1];
 
 	/* needed for translation or other api functions */
@@ -588,6 +453,7 @@ typedef struct { /* translation table */
 	TranslationTableOffset letterSign;
 	TranslationTableOffset numberSign;
 	TranslationTableOffset noContractSign;
+	TranslationTableOffset noNumberSign;
 	widechar seqPatterns[SEQPATTERNSIZE];
 	char *emphClassNames[MAX_EMPH_CLASSES];
 	EmphasisClass emphClasses[MAX_EMPH_CLASSES];

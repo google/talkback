@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="@string/pref_category_developer_key">
-  <Preference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
       android:key="@string/pref_developer_version_code_key"
-      android:title="@string/title_pref_version_code" />
-  <SwitchPreference
+      android:title="@string/title_pref_version_code"
+      android:selectable="false"/>
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_diagnosis_mode_default"
       android:key="@string/pref_diagnosis_mode_key"
       android:title="@string/title_pref_diagnosis_mode"/>
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_tb4d_overlay_block_default"
       android:key="@string/pref_tb4d_block_overlay_key"
       android:title="@string/title_pref_tb4d_block_overlay"/>
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_tts_overlay_default"
       android:key="@string/pref_tts_overlay_key"
       android:title="@string/title_pref_tts_overlay"/>
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_talkback_gesture_detection_default"
       android:key="@string/pref_talkback_gesture_detection_key"
       android:title="@string/title_pref_talkback_gesture_detection"/>
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
+      android:defaultValue="@bool/pref_multiple_gesture_set_default"
+      android:key="@string/pref_multiple_gesture_set_key"
+      android:title="@string/title_pref_multiple_gesture_set"/>
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_echo_recognized_text_default"
       android:key="@string/pref_echo_recognized_text_speech_key"
       android:title="@string/title_pref_echo_recognized_text_speech"/>
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_performance_stats_default"
       android:key="@string/pref_performance_stats_reflect_key"
       android:title="@string/title_pref_performance_stats"/>
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_explore_by_touch_default"
       android:key="@string/pref_explore_by_touch_reflect_key"
       android:title="@string/title_pref_explore_by_touch" />
-
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_tree_debug_default"
       android:key="@string/pref_tree_debug_reflect_key"
       android:title="@string/title_pref_tree_debug"/>
-  <SwitchPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
       android:defaultValue="@bool/pref_log_overlay_default"
       android:key="@string/pref_log_overlay_key"
       android:title="@string/title_pref_log_overlay"/>
-  <ListPreference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteListPreference
       android:defaultValue="@string/pref_log_level_default"
       android:dialogTitle="@string/title_pref_log_level"
       android:entries="@array/pref_log_level_entries"
@@ -49,9 +53,8 @@
       android:key="@string/pref_log_level_key"
       android:summary="%s"
       android:title="@string/title_pref_log_level"/>
-  <Preference
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
       android:key="@string/pref_dump_a11y_event_key"
       android:title="@string/title_pref_dump_a11y_event"
-      android:fragment="com.google.android.accessibility.talkback.preference.base.TalkBackDumpAccessibilityEventFragment" >
-  </Preference>
+      android:fragment="com.google.android.accessibility.talkback.preference.base.TalkBackDumpAccessibilityEventFragment" />
 </PreferenceScreen>

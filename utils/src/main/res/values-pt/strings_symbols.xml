@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Apóstrofo</string>
   <string name="symbol_ampersand">E comercial</string>
   <string name="symbol_angle_bracket_left">Sinal menor que</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Cerquilha</string>
   <string name="symbol_pound_sterling">Símbolo da libra esterlina</string>
+  <string name="symbol_currency_peso">Símbolo de peso</string>
+  <string name="symbol_currency_dong">Símbolo de dong</string>
   <string name="symbol_question_mark">Ponto de interrogação</string>
   <string name="symbol_quotation_mark">Aspas</string>
   <string name="symbol_registered_trademark">Marca registrada</string>
@@ -137,4 +139,9 @@
   <string name="symbol_full_width_less_than_sign">Sinal menor que com largura total</string>
   <string name="symbol_full_width_greater_than_sign">Sinal maior que com largura total</string>
   <string name="symbol_left_single_quotation_mark">Aspa simples esquerda</string>
+  <string name="symbol_braille">%s braille</string>
+  <plurals name="dots">
+    <item quantity="one">ponto %s</item>
+    <item quantity="other">pontos %s</item>
+  </plurals>
 </resources>

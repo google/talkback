@@ -16,12 +16,21 @@
 
 package com.google.android.accessibility.utils.output;
 
+import static com.google.android.accessibility.utils.StringBuilderUtils.optionalField;
+
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public interface SpeechController {
@@ -31,29 +40,67 @@ public interface SpeechController {
           ? AudioManager.STREAM_ACCESSIBILITY
           : AudioManager.STREAM_MUSIC;
 
+  // Queue modes bit masks.
+  int QUEUE_MODE_BIT_DEFAULT = 0; // default is queued.
+  int QUEUE_MODE_BIT_INTERRUPT = 1 << 0;
+  int QUEUE_MODE_BIT_UNINTERRUPTIBLE_BY_NEW_SPEECH = 1 << 1;
+  int QUEUE_MODE_BIT_CAN_IGNORE_INTERRUPTS = 1 << 2;
+  int QUEUE_MODE_BIT_FLUSH_ALL = 1 << 3;
+
   // Queue modes.
-  int QUEUE_MODE_INTERRUPT = 0;
-  int QUEUE_MODE_QUEUE = 1;
+  int QUEUE_MODE_INTERRUPT = QUEUE_MODE_BIT_INTERRUPT;
+
+  /**
+   * The queue mode will be add the new feedback entry at the end of the playback queue.
+   *
+   * <p>And it acts like TTS queue mode {@link TextToSpeech#QUEUE_ADD} internally that would not
+   * flush the global TTS queue.
+   */
+  int QUEUE_MODE_QUEUE = 0;
+
   /**
    * Similar to QUEUE_MODE_QUEUE. The only difference is FeedbackItem in this mode cannot be
    * interrupted by another while it is speaking. This includes not being removed from the queue
    * unless shutdown is called. FeedbackItem in this mode will still be interrupted and removed from
    * the queue when {@link SpeechController#interrupt} is called.
    */
-  int QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH = 2;
+  int QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH = QUEUE_MODE_BIT_UNINTERRUPTIBLE_BY_NEW_SPEECH;
 
-  int QUEUE_MODE_FLUSH_ALL = 3;
+  int QUEUE_MODE_FLUSH_ALL = QUEUE_MODE_BIT_FLUSH_ALL | QUEUE_MODE_INTERRUPT;
+
   /**
    * FeedbackItem in this mode cannot be interrupted or removed from the queue when {@link
    * SpeechController#interrupt(boolean, boolean, boolean)} is called and the
    * interruptItemsThatCanIgnoreInterrupts parameter is true.
    */
-  int QUEUE_MODE_CAN_IGNORE_INTERRUPTS = 4;
+  int QUEUE_MODE_CAN_IGNORE_INTERRUPTS = QUEUE_MODE_BIT_CAN_IGNORE_INTERRUPTS;
+
   /**
    * FeedbackItems in this mode have the properties of both QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH
    * and QUEUE_MODE_CAN_IGNORE_INTERRUPTS.
    */
-  int QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS = 5;
+  int QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS =
+      QUEUE_MODE_BIT_UNINTERRUPTIBLE_BY_NEW_SPEECH | QUEUE_MODE_BIT_CAN_IGNORE_INTERRUPTS;
+
+  /**
+   * FeedbackItems in this mode have the properties of both QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH
+   * and QUEUE_MODE_INTERRUPT.
+   */
+  int QUEUE_MODE_INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH =
+      QUEUE_MODE_BIT_INTERRUPT | QUEUE_MODE_BIT_UNINTERRUPTIBLE_BY_NEW_SPEECH;
+
+  /** Enumeration of queue-mode values. */
+  @IntDef({
+    QUEUE_MODE_INTERRUPT,
+    QUEUE_MODE_QUEUE,
+    QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH,
+    QUEUE_MODE_FLUSH_ALL,
+    QUEUE_MODE_CAN_IGNORE_INTERRUPTS,
+    QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS,
+    QUEUE_MODE_INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH
+  })
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface QueueMode {}
 
   // Speech item status codes.
   int STATUS_ERROR = 1;
@@ -64,11 +111,29 @@ public interface SpeechController {
   // be notified when speech stops as a result of the interruption.
   int STATUS_ERROR_DONT_NOTIFY_OBSERVER = 6;
   int STATUS_PAUSE = 7;
+
+  // Speech groups, for interrupting specific groups only, when
+  // FLAG_CLEAR_QUEUED_UTTERANCES_WITH_SAME_UTTERANCE_GROUP is set.
   int UTTERANCE_GROUP_DEFAULT = 0;
   int UTTERANCE_GROUP_TEXT_SELECTION = 1;
   int UTTERANCE_GROUP_SEEK_PROGRESS = 2;
   int UTTERANCE_GROUP_PROGRESS_BAR_PROGRESS = 3;
   int UTTERANCE_GROUP_SCREEN_MAGNIFICATION = 4;
+  int UTTERANCE_GROUP_CONTENT_CHANGE = 5;
+  int UTTERANCE_GROUP_CONTENT_HINTS = 6;
+
+  /** Enumeration of utterance-group values. */
+  @IntDef({
+    UTTERANCE_GROUP_DEFAULT,
+    UTTERANCE_GROUP_TEXT_SELECTION,
+    UTTERANCE_GROUP_SEEK_PROGRESS,
+    UTTERANCE_GROUP_PROGRESS_BAR_PROGRESS,
+    UTTERANCE_GROUP_SCREEN_MAGNIFICATION,
+    UTTERANCE_GROUP_CONTENT_CHANGE,
+    UTTERANCE_GROUP_CONTENT_HINTS
+  })
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface UtteranceGroup {}
 
   /**
    * Delegate that is registered in {@link SpeechController} to provide callbacks when processing
@@ -84,6 +149,9 @@ public interface SpeechController {
     boolean isPhoneCallActive();
 
     void onSpeakingForcedFeedback();
+
+    default void onTtsReady() {}
+    ;
   }
 
   /**
@@ -125,7 +193,9 @@ public interface SpeechController {
 
   /** Interface for a run method with a status, used to perform post-utterance action. */
   interface UtteranceCompleteRunnable {
-    /** @param status The status supplied. */
+    /**
+     * @param status The status supplied.
+     */
     void run(int status);
   }
 
@@ -149,9 +219,9 @@ public interface SpeechController {
   class SpeakOptions {
     public @Nullable Set<Integer> mEarcons = null;
     public @Nullable Set<Integer> mHaptics = null;
-    public int mQueueMode = QUEUE_MODE_QUEUE;
+    public int mQueueMode = QUEUE_MODE_BIT_DEFAULT;
     public int mFlags = 0;
-    public int mUtteranceGroup = UTTERANCE_GROUP_DEFAULT;
+    public @UtteranceGroup int mUtteranceGroup = UTTERANCE_GROUP_DEFAULT;
     public @Nullable Bundle mSpeechParams = null;
     public @Nullable Bundle mNonSpeechParams = null;
     public @Nullable UtteranceStartRunnable mStartingAction = null;
@@ -164,51 +234,61 @@ public interface SpeechController {
       return new SpeakOptions();
     }
 
+    @CanIgnoreReturnValue
     public SpeakOptions setEarcons(Set<Integer> earcons) {
       mEarcons = earcons;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public SpeakOptions setHaptics(Set<Integer> haptics) {
       mHaptics = haptics;
       return this;
     }
 
-    public SpeakOptions setQueueMode(int queueMode) {
+    @CanIgnoreReturnValue
+    public SpeakOptions setQueueMode(@QueueMode int queueMode) {
       mQueueMode = queueMode;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public SpeakOptions setFlags(int flags) {
       mFlags = flags;
       return this;
     }
 
-    public SpeakOptions setUtteranceGroup(int utteranceGroup) {
+    @CanIgnoreReturnValue
+    public SpeakOptions setUtteranceGroup(@UtteranceGroup int utteranceGroup) {
       mUtteranceGroup = utteranceGroup;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public SpeakOptions setSpeechParams(Bundle speechParams) {
       mSpeechParams = speechParams;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public SpeakOptions setNonSpeechParams(Bundle nonSpeechParams) {
       mNonSpeechParams = nonSpeechParams;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public SpeakOptions setStartingAction(UtteranceStartRunnable runnable) {
       mStartingAction = runnable;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public SpeakOptions setRangeStartCallback(UtteranceRangeStartCallback callback) {
       mRangeStartCallback = callback;
       return this;
     }
 
+    @CanIgnoreReturnValue
     public SpeakOptions setCompletedAction(@Nullable UtteranceCompleteRunnable runnable) {
       mCompletedAction = runnable;
       return this;
@@ -249,9 +329,71 @@ public interface SpeechController {
           mRangeStartCallback,
           mCompletedAction);
     }
+
+    @Override
+    public String toString() {
+      return StringBuilderUtils.joinFields(
+          optionalField("earcons", mEarcons),
+          optionalField("haptics", mHaptics),
+          optionalField("queueMode", queueModeBitToString(mQueueMode)),
+          optionalField("flags", FeedbackItem.flagsToString(mFlags)),
+          optionalField(
+              "utteranceGroup",
+              (mUtteranceGroup == UTTERANCE_GROUP_DEFAULT)
+                  ? null
+                  : utteranceGroupToString(mUtteranceGroup)),
+          optionalField("speechParams", mSpeechParams),
+          optionalField("nonSpeechParams", mNonSpeechParams));
+    }
+  }
+
+  public static boolean hasQueueModeFlagSet(int queueMode, int flag) {
+    if (flag == 0) {
+      return false;
+    }
+    return (queueMode & flag) == flag;
+  }
+
+  public static @NonNull String queueModeBitToString(int mode) {
+
+    StringBuilder buffer = new StringBuilder(128);
+    buffer.append(hasQueueModeFlagSet(mode, QUEUE_MODE_BIT_INTERRUPT) ? "INTERRUPT" : "QUEUE");
+    if (hasQueueModeFlagSet(mode, QUEUE_MODE_BIT_UNINTERRUPTIBLE_BY_NEW_SPEECH)) {
+      buffer.append("/UNINTERRUPTIBLE");
+    }
+    if (hasQueueModeFlagSet(mode, QUEUE_MODE_BIT_CAN_IGNORE_INTERRUPTS)) {
+      buffer.append("/CAN_IGNORE_INTERRUPTS");
+    }
+    if (hasQueueModeFlagSet(mode, QUEUE_MODE_BIT_FLUSH_ALL)) {
+      buffer.append("/FLUSH_ALL");
+    }
+    return buffer.toString();
+  }
+
+  public static @NonNull String utteranceGroupToString(@UtteranceGroup int group) {
+    switch (group) {
+      case UTTERANCE_GROUP_DEFAULT:
+        return "UTTERANCE_GROUP_DEFAULT";
+      case UTTERANCE_GROUP_TEXT_SELECTION:
+        return "UTTERANCE_GROUP_TEXT_SELECTION";
+      case UTTERANCE_GROUP_SEEK_PROGRESS:
+        return "UTTERANCE_GROUP_SEEK_PROGRESS";
+      case UTTERANCE_GROUP_PROGRESS_BAR_PROGRESS:
+        return "UTTERANCE_GROUP_PROGRESS_BAR_PROGRESS";
+      case UTTERANCE_GROUP_SCREEN_MAGNIFICATION:
+        return "UTTERANCE_GROUP_SCREEN_MAGNIFICATION";
+      case UTTERANCE_GROUP_CONTENT_CHANGE:
+        return "UTTERANCE_GROUP_CONTENT_CHANGE";
+      case UTTERANCE_GROUP_CONTENT_HINTS:
+        return "UTTERANCE_GROUP_CONTENT_HINTS";
+      default:
+        return "(unknown utterance group)";
+    }
   }
 
   void toggleVoiceFeedback();
+
+  boolean isMute();
 
   void setMute(boolean mute);
 
@@ -274,6 +416,7 @@ public interface SpeechController {
    *       <li>{@link #QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH}
    *       <li>{@link #QUEUE_MODE_CAN_IGNORE_INTERRUPTS}
    *       <li>{@link #QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS}
+   *       <li>{@link #QUEUE_MODE_INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH}
    *     </ul>
    *
    * @param flags Bit mask of speaking flags. Use {@code 0} for no flags, or a combination of the
@@ -392,7 +535,6 @@ public interface SpeechController {
       boolean callObserver,
       boolean interruptItemsThatCanIgnoreInterrupts);
 
-
   int peekNextUtteranceId();
 
   // TODO: Check if it can be defined as a private method.
@@ -407,8 +549,15 @@ public interface SpeechController {
    */
   void setUtteranceRangeStartCallback(int utteranceId, UtteranceRangeStartCallback callback);
 
-  // TODO: Check if it can be defined as a private method.
-  void addUtteranceCompleteAction(int index, UtteranceCompleteRunnable runnable);
+  /**
+   * Adds a new group-labeled action that will be run when the given utterance index completes.
+   *
+   * @param index The index of the utterance that should finish before this action is executed.
+   * @param utteranceGroup The group of the utterance.
+   * @param runnable The code to execute.
+   */
+  void addUtteranceCompleteAction(
+      int index, @UtteranceGroup int utteranceGroup, UtteranceCompleteRunnable runnable);
 
   /**
    * Sets whether the SpeechControllerImpl should inject utterance completed callbacks for advancing
@@ -416,6 +565,9 @@ public interface SpeechController {
    */
   void setShouldInjectAutoReadingCallbacks(
       boolean shouldInject, UtteranceCompleteRunnable nextItemCallback);
+
+  /** Clears {@link UtteranceCompleteRunnable}s which is belong to the hint group. */
+  void clearHintUtteranceCompleteAction();
 
   /**
    * Gets the {@link FailoverTextToSpeech} instance that is serving as a text-to-speech service.

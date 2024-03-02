@@ -21,7 +21,7 @@ import android.content.Context;
 import androidx.appcompat.app.AlertDialog;
 import com.google.android.accessibility.brailleime.R;
 import com.google.android.accessibility.utils.KeyboardUtils;
-import com.google.android.accessibility.utils.MaterialComponentUtils;
+import com.google.android.accessibility.utils.material.MaterialComponentUtils;
 
 /**
  * An error dialog which shows when the keyboard is raised while TalkBack is off.

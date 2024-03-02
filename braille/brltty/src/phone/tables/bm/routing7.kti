@@ -1,0 +1,39 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Baum displays which have routing keys and 7 display keys.
+
+include routing.kti
+
+bind Display5+!RoutingKey DESCCHAR
+
+bind Display3+!RoutingKey CLIP_NEW
+bind Display4+!RoutingKey CLIP_ADD
+bind Display6+!RoutingKey COPY_LINE
+bind Display7+!RoutingKey COPY_RECT
+
+bind Display5+Display3+!RoutingKey PRINDENT
+bind Display5+Display4+!RoutingKey NXINDENT
+
+bind Display5+Display6+!RoutingKey PRDIFCHAR
+bind Display5+Display7+!RoutingKey NXDIFCHAR
+
+bind Display1+!RoutingKey SETMARK
+bind Display2+!RoutingKey GOTOMARK
+bind Display1+Display2+!RoutingKey SETLEFT
+

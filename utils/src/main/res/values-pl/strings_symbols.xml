@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="symbol_apostrophe">Apostrof</string>
   <string name="symbol_ampersand">Ampersand</string>
   <string name="symbol_angle_bracket_left">Znak mniejszości</string>
@@ -36,6 +36,8 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Krzyżyk</string>
   <string name="symbol_pound_sterling">Znak waluty funt</string>
+  <string name="symbol_currency_peso">Znak peso</string>
+  <string name="symbol_currency_dong">Znak dong</string>
   <string name="symbol_question_mark">Pytajnik</string>
   <string name="symbol_quotation_mark">Cudzysłów</string>
   <string name="symbol_registered_trademark">Zastrzeżony znak towarowy</string>
@@ -107,7 +109,7 @@
   <string name="symbol_black_triangle_pointing_up">Czarny trójkąt skierowany w górę</string>
   <string name="symbol_black_triangle_pointing_down">Czarny trójkąt skierowany w dół</string>
   <string name="symbol_black_suit_of_diamonds">Czarne karo</string>
-  <string name="symbol_halfwidth_katakana_middle_dot">Kropka środkowa katakana na półfirecie</string>
+  <string name="symbol_halfwidth_katakana_middle_dot">Punkt środkowy katakana na półfirecie</string>
   <string name="symbol_black_smallsquare">Mały czarny kwadrat</string>
   <string name="symbol_left_angle_bracket">Podwójny nawias ostrokątny otwierający</string>
   <string name="symbol_right_angle_bracket">Podwójny nawias ostrokątny zamykający</string>
@@ -118,7 +120,7 @@
   <string name="symbol_full_width_exclamation_mark">Wykrzyknik o pełnej szerokości</string>
   <string name="symbol_full_width_ideographic_full_stop">Kropka ideograficzna</string>
   <string name="symbol_full_width_question_mark">Znak zapytania o pełnej szerokości</string>
-  <string name="symbol_middle_dot">Kropka środkowa</string>
+  <string name="symbol_middle_dot">Punkt środkowy</string>
   <string name="symbol_right_double_quotation_mark">Podwójny cudzysłów zamykający</string>
   <string name="symbol_ideographic_comma">Przecinek ideograficzny</string>
   <string name="symbol_full_width_colon">Dwukropek o pełnej szerokości</string>
@@ -137,4 +139,11 @@
   <string name="symbol_full_width_less_than_sign">Znak mniejszości o pełnej szerokości</string>
   <string name="symbol_full_width_greater_than_sign">Znak większości o pełnej szerokości</string>
   <string name="symbol_left_single_quotation_mark">Pojedynczy cudzysłów otwierający</string>
+  <string name="symbol_braille">punkt brajlowski %s</string>
+  <plurals name="dots">
+    <item quantity="one">punkt %s</item>
+    <item quantity="few">punkt %s</item>
+    <item quantity="many">punkt %s</item>
+    <item quantity="other">punkt %s</item>
+  </plurals>
 </resources>

@@ -1,4 +1,0 @@
-# Keep the names of fields that would be accessed from jni.
--keep class com.google.android.accessibility.braille.brltty.BrailleInputEvent {*;}
--keep class com.google.android.accessibility.braille.translate.TranslationResult {*;}
--keep class com.google.android.accessibility.braille.translate.TranslationResult$Builder {*;}

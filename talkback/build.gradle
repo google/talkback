@@ -3,9 +3,14 @@ apply from: "../shared.gradle"
 
 dependencies {
     implementation project(':proguard')
-    implementation project(':uiunderstanding')
     implementation project(':utils')
     implementation project(':brailleime')
     implementation project(':brailleinterfaces')
     implementation project(':brailledisplay')
+}
+
+android {
+    defaultConfig {
+        buildConfigField("String", "APPLICATION_ID", '"' + talkbackApplicationId + '"')
+    }
 }

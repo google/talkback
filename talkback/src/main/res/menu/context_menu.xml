@@ -53,4 +53,8 @@
       android:id="@+id/tts_settings"
       android:orderInCategory="23"
       android:title="@string/tts_preferences_title" />
+  <item
+      android:id="@+id/braille_display_settings"
+      android:orderInCategory="25"
+      android:title="@string/title_show_braille_display_settings" />
 </menu>

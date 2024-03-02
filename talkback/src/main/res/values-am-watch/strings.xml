@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="talkback_service_description">TalkBack በዋነኝነት ማየት ለተሳናቸው እና የማየት ችሎታቸው ዝቅተኛ ለሆኑ ሰዎች የሆነ የማያ ገጽ አንባቢ ነው። የቃል ግብረመልስን በመጠቀም ከመሣሪያው ጋር መስተጋብር መፍጠርን ያስችላል።</string>
+  <string name="talkback_service_description">TalkBack በዋነኝነት ማየት ለተሳናቸው እና የማየት ችሎታቸው ዝቅተኛ ለሆኑ ሰዎች የሆነ የማያ ገፅ አንባቢ ነው። የቃል ግብረመልስን በመጠቀም ከመሣሪያው ጋር መስተጋብር መፍጠርን ያስችላል።</string>
   <string name="welcome_to_talkback_text">ማያ ገጹን ሳይመለከቱ ሰዓትዎን እንዲጠቀሙ የቃል ግብረመልስ ያግኙ።</string>
+  <string name="summary_custom_action">ለአሁኑ ንጥል ብጁ እርምጃዎች ሲኖሩ ያሳያል።</string>
+  <string name="notification_title_talkback_gestures_changed">የTalkBack ምልክቶች ተዘምነዋል</string>
+  <string name="notification_message_talkback_gestures_changed">ለተጨማሪ ዝርዝሮች Talkbackን ይክፈቱ</string>
+  <string name="new_feature_in_talkback_title">ምን አዲስ ነገር አለ</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">እሺ</string>
+  <string name="scan_the_qr_code">የQR ኮዱን ይቃኙት</string>
+  <string name="alternate_privacy_policy">ወይም http://www.google.com/policies/privacy ይጎብኙ</string>
+  <string name="alternate_tos">ወይም https://www.google.com/mobile/toscountry ይጎብኙ</string>
 </resources>

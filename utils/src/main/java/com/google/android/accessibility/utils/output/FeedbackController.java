@@ -29,7 +29,6 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.SparseIntArray;
 import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -76,6 +75,8 @@ public class FeedbackController {
   /** Map from the resource IDs of loaded sounds to SoundPool sound IDs. */
   private final SparseIntArray mSoundIds = new SparseIntArray();
 
+  private final HapticPatternParser parser;
+
   /** The volume adjustment for sound feedback. */
   private float mVolumeAdjustment = 1.0f;
 
@@ -98,6 +99,7 @@ public class FeedbackController {
     mResources = context.getResources();
     mSoundPool = soundPool;
     mVibrator = vibrator;
+    parser = new HapticPatternParser(mVibrator);
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////
@@ -123,20 +125,15 @@ public class FeedbackController {
       return false;
     }
 
-    final long[] pattern = new long[patternArray.length];
-    for (int i = 0; i < patternArray.length; i++) {
-      pattern[i] = patternArray[i];
-    }
+    VibrationEffect effect = parser.parse(patternArray);
 
     long nanoTime = System.nanoTime();
     for (HapticFeedbackListener listener : mHapticFeedbackListeners) {
       listener.onHapticFeedbackStarting(nanoTime);
     }
-    if (FeatureSupport.supportVibrationEffect()) {
-      mVibrator.vibrate(VibrationEffect.createWaveform(pattern, -1));
-    } else {
-      mVibrator.vibrate(pattern, -1);
-    }
+
+    mVibrator.vibrate(effect);
+
     return true;
   }
 

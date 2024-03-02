@@ -267,6 +267,7 @@ sign \x00b6 45-1234 ¶ pilcrow
 # \x00b8 ¸   see Modifiers
 punctuation \x00bb 456-356 »
 punctuation \x00bf 45-56-236 ¿
+lowercase \x00df 46-2346 ß
 lowercase \x00e0 45-16-1 à
 lowercase \x00e1 45-34-1 á
 lowercase \x00e2 45-146-1 â
@@ -902,6 +903,7 @@ base uppercase \x1e82 \x1e83 Ẃẃ
 base uppercase \x1e84 \x1e85 Ẅẅ
 base uppercase \x1e8c \x1e8d Ẍẍ
 base uppercase \x1e90 \x1e91 Ẑẑ
+base uppercase \x1e9e \x00df ẞß
 base uppercase \x1ebc \x1ebd Ẽẽ
 base uppercase \x1ef2 \x1ef3 Ỳỳ
 base uppercase \x1ef8 \x1ef9 Ỹỹ

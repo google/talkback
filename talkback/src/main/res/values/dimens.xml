@@ -27,14 +27,29 @@
     <dimen name="button_bar_height">48dp</dimen>
     <dimen name="tutorial_button_max_width">150dp</dimen>
     <dimen name="search_text_font_size">30dp</dimen>
+    <dimen name="radio_button_min_height">48dp</dimen>
 
     <dimen name="dim_screen_bottom_offset">96dp</dimen>
+
+    <!-- for alertdialog -->
+    <dimen name="alertdialog_menuitem_divider_height">1dp</dimen>
+    <dimen name="alertdialog_padding_start">0dp</dimen>
+    <dimen name="alertdialog_padding_end">0dp</dimen>
+    <dimen name="alertdialog_padding_top">0dp</dimen>
+    <dimen name="alertdialog_padding_bottom">0dp</dimen>
+    <!-- end alertdialog -->
+
+    <!-- for wear alertdialog -->
+    <dimen name="wear_alertdialog_menuitem_height">52dp</dimen>
+    <dimen name="wear_alertdialog_menuitem_padding_start">14dp</dimen>
+    <!-- end wear alertdialog -->
 
     <!-- for customize menus settings -->
     <dimen name="customize_menus_settings_menuitem_margin_top">12dp</dimen>
     <dimen name="customize_menus_settings_menuitem_margin_bottom">12dp</dimen>
     <dimen name="customize_menus_settings_layout_margin_start_16">16dp</dimen>
     <dimen name="customize_menus_settings_layout_margin_start_24">24dp</dimen>
+    <dimen name="customize_menus_settings_layout_margin_start_48">48dp</dimen>
     <dimen name="customize_menus_settings_layout_margin_end_6">6dp</dimen>
     <!-- end customize menus settings -->
 
@@ -58,14 +73,17 @@
     <dimen name="tb4d_node_label_line">2dp</dimen>
 
     <!-- Training -->
+    <dimen name="training_container_padding_vertical">0dp</dimen>
     <dimen name="training_padding_start">24dp</dimen>
     <dimen name="training_padding_end">24dp</dimen>
     <dimen name="training_padding_top">36dp</dimen>
     <dimen name="training_padding_bottom">36dp</dimen>
+    <dimen name="training_title_padding_horizontal">0dp</dimen>
     <dimen name="training_button_text_padding_bottom">0dp</dimen>
     <dimen name="training_title_text_size">26sp</dimen>
     <dimen name="training_title_height">32sp</dimen>
     <dimen name="training_text_size">18sp</dimen>
+    <dimen name="training_text_small_size">16sp</dimen>
     <dimen name="training_text_height">24sp</dimen>
     <dimen name="training_subtext_size">14sp</dimen>
     <dimen name="training_subtext_height">20sp</dimen>
@@ -75,6 +93,7 @@
     <dimen name="training_button_margin_24dp">24dp</dimen>
     <dimen name="training_button_margin_8dp">8dp</dimen>
     <dimen name="training_button_margin_2dp">2dp</dimen>
+    <dimen name="training_list_item_margin">4dp</dimen>
     <dimen name="training_heading_size">24sp</dimen>
     <dimen name="training_heading_height">38sp</dimen>
     <dimen name="training_note_padding">16dp</dimen>
@@ -103,6 +122,35 @@
     <dimen name="training_edit_text_text_size">18sp</dimen>
     <dimen name="training_edit_text_text_height">26dp</dimen>
     <dimen name="training_button_padding">16dp</dimen>
+    <dimen name="training_tip_corner_radius">@dimen/google_material_corner_radius</dimen>
+    <dimen name="training_tip_title_margin">10dp</dimen>
+    <dimen name="training_tip_title_text_size">22sp</dimen>
+    <dimen name="training_tip_title_text_height">28sp</dimen>
+    <dimen name="training_tip_layout_side_margin">8dp</dimen>
+    <dimen name="training_icon_button_horizontal_margin">2dp</dimen>
+    <dimen name="training_banner_title_text_size">20sp</dimen>
+    <dimen name="training_banner_padding">20dp</dimen>
+    <dimen name="training_banner_button_radius">16dp</dimen>
+    <!-- TV Training -->
+    <dimen name="tv_training_left_column_width">340dp</dimen>
+    <dimen name="tv_training_right_column_width">268dp</dimen>
+    <dimen name="tv_training_page_margin_middle">92dp</dimen>
+    <dimen name="tv_training_page_margin_horizontal">130dp</dimen>
+    <dimen name="tv_training_page_margin_vertical">112dp</dimen>
+    <dimen name="tv_training_title_text_size">32sp</dimen>
+    <dimen name="tv_training_title_line_height">40sp</dimen>
+    <dimen name="tv_training_page_number_margin_top">0dp</dimen>
+    <dimen name="tv_training_page_number_text_size">14sp</dimen>
+    <dimen name="tv_training_page_number_line_height">20sp</dimen>
+    <dimen name="tv_training_text_margin_top">20dp</dimen>
+    <dimen name="tv_training_text_line_height">22sp</dimen>
+    <dimen name="tv_training_text_translation_y">-2.24sp</dimen>
+    <dimen name="tv_training_button_padding_horizontal">24dp</dimen>
+    <dimen name="tv_training_button_padding_vertical">18dp</dimen>
+    <dimen name="tv_training_button_margin">12dp</dimen>
+    <dimen name="tv_training_button_text_size">16sp</dimen>
+    <dimen name="tv_training_button_scale_default" format="float">1.0</dimen>
+    <dimen name="tv_training_button_scale_focused" format="float">1.075</dimen>
 
     <!-- Focus indicator -->
     <dimen name="accessibility_focus_highlight_stroke_width">4dp</dimen>

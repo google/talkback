@@ -23,7 +23,8 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static com.google.android.accessibility.talkback.Feedback.AdjustValue.Action.DECREASE_VALUE;
 import static com.google.android.accessibility.talkback.Feedback.AdjustVolume.Action.DECREASE_VOLUME;
 import static com.google.android.accessibility.talkback.Feedback.SpeechRate.Action.INCREASE_RATE;
-import static com.google.android.accessibility.utils.PreferencesActivity.FRAGMENT_NAME;
+import static com.google.android.accessibility.utils.output.SpeechController.UTTERANCE_GROUP_CONTENT_HINTS;
+import static com.google.android.accessibility.utils.preference.PreferencesActivity.FRAGMENT_NAME;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_FORWARD;
 
 import android.content.ActivityNotFoundException;
@@ -35,6 +36,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.android.talkback.TalkBackPreferencesActivity;
 import com.google.android.accessibility.talkback.Feedback.AdjustValue;
 import com.google.android.accessibility.talkback.Feedback.AdjustVolume;
+import com.google.android.accessibility.talkback.Feedback.BrailleDisplay;
 import com.google.android.accessibility.talkback.Feedback.ContinuousRead;
 import com.google.android.accessibility.talkback.Feedback.DeviceInfo;
 import com.google.android.accessibility.talkback.Feedback.DimScreen;
@@ -43,6 +45,8 @@ import com.google.android.accessibility.talkback.Feedback.Focus;
 import com.google.android.accessibility.talkback.Feedback.FocusDirection;
 import com.google.android.accessibility.talkback.Feedback.Gesture;
 import com.google.android.accessibility.talkback.Feedback.ImageCaption;
+import com.google.android.accessibility.talkback.Feedback.InterruptGroup;
+import com.google.android.accessibility.talkback.Feedback.InterruptLevel;
 import com.google.android.accessibility.talkback.Feedback.Label;
 import com.google.android.accessibility.talkback.Feedback.Language;
 import com.google.android.accessibility.talkback.Feedback.NodeAction;
@@ -63,6 +67,7 @@ import com.google.android.accessibility.talkback.Feedback.VoiceRecognition;
 import com.google.android.accessibility.talkback.Feedback.WebAction;
 import com.google.android.accessibility.talkback.TalkBackService.ServiceFlagRequester;
 import com.google.android.accessibility.talkback.actor.AutoScrollActor;
+import com.google.android.accessibility.talkback.actor.BrailleDisplayActor;
 import com.google.android.accessibility.talkback.actor.DimScreenActor;
 import com.google.android.accessibility.talkback.actor.DirectionNavigationActor;
 import com.google.android.accessibility.talkback.actor.FocusActor;
@@ -79,22 +84,28 @@ import com.google.android.accessibility.talkback.actor.SpeechRateActor;
 import com.google.android.accessibility.talkback.actor.SystemActionPerformer;
 import com.google.android.accessibility.talkback.actor.TalkBackUIActor;
 import com.google.android.accessibility.talkback.actor.TextEditActor;
+import com.google.android.accessibility.talkback.actor.TypoNavigator;
 import com.google.android.accessibility.talkback.actor.VolumeAdjustor;
 import com.google.android.accessibility.talkback.actor.search.SearchScreenNodeStrategy;
 import com.google.android.accessibility.talkback.actor.search.UniversalSearchActor;
 import com.google.android.accessibility.talkback.actor.voicecommands.SpeechRecognizerActor;
+import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
+import com.google.android.accessibility.talkback.compositor.WindowContentChangeAnnouncementFilter;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction;
-import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
+import com.google.android.accessibility.talkback.labeling.TalkBackLabelManager;
 import com.google.android.accessibility.talkback.preference.base.TutorialAndHelpFragment;
 import com.google.android.accessibility.talkback.training.TutorialInitiator;
 import com.google.android.accessibility.utils.AccessibilityNode;
+import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.output.FeedbackController;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.util.Objects;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Pipeline stage for feedback execution. REFERTO */
@@ -107,6 +118,7 @@ class Actors {
   // TODO: Add more actors for braille, UI-actions.
 
   private final Context context;
+  private final TalkBackAnalytics analytics;
   private final DimScreenActor dimmer;
   private final SpeechControllerImpl speaker;
   private final FullScreenReadActor continuousReader;
@@ -118,7 +130,7 @@ class Actors {
   private final DirectionNavigationActor directionNavigator;
   private final SearchScreenNodeStrategy searcher;
   private final TextEditActor editor;
-  private final CustomLabelManager labeler;
+  private final TalkBackLabelManager labeler;
   private final NodeActionPerformer nodeActionPerformer;
   private final SystemActionPerformer systemActionPerformer;
   private final PassThroughModeActor passThroughModeActor;
@@ -127,6 +139,7 @@ class Actors {
   private final TalkBackUIActor talkBackUIActor;
   private final SpeechRateActor speechRateActor;
   private final NumberAdjustor numberAdjustor;
+  private final TypoNavigator typoNavigator;
   private final VolumeAdjustor volumeAdjustor;
   private final ActorStateWritable actorState;
   private final SpeechRecognizerActor speechRecognizer;
@@ -134,12 +147,15 @@ class Actors {
   private final ImageCaptioner imageCaptioner;
   private final UniversalSearchActor universalSearchActor;
   private final ServiceFlagRequester serviceFlagRequester;
+  private final FormFactorUtils formFactorUtils;
+  private final BrailleDisplayActor brailleDisplayActor;
 
   //////////////////////////////////////////////////////////////////////////
   // Construction methods
 
   public Actors(
       Context context,
+      TalkBackAnalytics analytics,
       AccessibilityFocusMonitor accessibilityFocusMonitor,
       DimScreenActor dimmer,
       SpeechControllerImpl speaker,
@@ -152,7 +168,7 @@ class Actors {
       DirectionNavigationActor directionNavigator,
       SearchScreenNodeStrategy searchScreenNodeStrategy,
       TextEditActor editor,
-      CustomLabelManager labeler,
+      TalkBackLabelManager labeler,
       NodeActionPerformer nodeActionPerformer,
       SystemActionPerformer systemActionPerformer,
       LanguageActor languageSwitcher,
@@ -160,13 +176,16 @@ class Actors {
       TalkBackUIActor talkBackUIActor,
       SpeechRateActor speechRateActor,
       NumberAdjustor numberAdjustor,
+      TypoNavigator typoNavigator,
       VolumeAdjustor volumeAdjustor,
       SpeechRecognizerActor speechRecognizer,
       GestureReporter gestureReporter,
       ImageCaptioner imageCaptioner,
       UniversalSearchActor universalSearchActor,
-      ServiceFlagRequester serviceFlagRequester) {
+      ServiceFlagRequester serviceFlagRequester,
+      BrailleDisplayActor brailleDisplayActor) {
     this.context = context;
+    this.analytics = analytics;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
     this.dimmer = dimmer;
     this.speaker = speaker;
@@ -187,13 +206,16 @@ class Actors {
     this.talkBackUIActor = talkBackUIActor;
     this.speechRateActor = speechRateActor;
     this.numberAdjustor = numberAdjustor;
+    this.typoNavigator = typoNavigator;
     this.volumeAdjustor = volumeAdjustor;
     this.speechRecognizer = speechRecognizer;
     this.gestureReporter = gestureReporter;
     this.imageCaptioner = imageCaptioner;
     this.universalSearchActor = universalSearchActor;
     this.serviceFlagRequester = serviceFlagRequester;
+    this.brailleDisplayActor = brailleDisplayActor;
 
+    this.formFactorUtils = FormFactorUtils.getInstance();
     actorState =
         new ActorStateWritable(
             dimmer.state,
@@ -206,10 +228,11 @@ class Actors {
             languageSwitcher.state,
             speechRateActor.state,
             passThroughModeActor.state,
-            labeler.stateReader);
+            labeler.stateReader());
     // Focuser stores some actor-state in ActorState, because focuser does not use that state
     // internally, only for communication to interpeters.
     this.focuser.setActorState(actorState);
+    this.systemActionPerformer.setActorState(actorState);
     ActorState actorStateReadOnly = new ActorState(actorState);
     this.directionNavigator.setActorState(actorStateReadOnly);
     this.focuserWindowChange.setActorState(actorStateReadOnly);
@@ -220,6 +243,7 @@ class Actors {
 
   public void setPipelineEventReceiver(Pipeline.EventReceiver pipelineEventReceiver) {
     scroller.setPipelineEventReceiver(pipelineEventReceiver);
+    directionNavigator.setPipelineEventReceiver(pipelineEventReceiver);
   }
 
   public void setPipelineFeedbackReturner(Pipeline.FeedbackReturner pipelineFeedbackReturner) {
@@ -235,6 +259,7 @@ class Actors {
     }
     focuserTouch.setPipeline(pipelineFeedbackReturner);
     numberAdjustor.setPipeline(pipelineFeedbackReturner);
+    typoNavigator.setPipeline(pipelineFeedbackReturner);
     speechRecognizer.setPipeline(pipelineFeedbackReturner);
     imageCaptioner.setPipeline(pipelineFeedbackReturner);
     universalSearchActor.setPipeline(pipelineFeedbackReturner);
@@ -264,8 +289,7 @@ class Actors {
       switch (label.action()) {
         case SET:
           success &=
-              labeler.canAddLabel(label.node())
-                  && labeler.needsLabel(label.node())
+              labeler.stateReader().supportsLabel(label.node())
                   && labeler.setLabel(label.node(), label.text());
           break;
       }
@@ -311,7 +335,9 @@ class Actors {
               && (speech.hintSpeakOptions() != null)
               && (speech.hintSpeakOptions().mCompletedAction != null)) {
             speaker.addUtteranceCompleteAction(
-                speaker.peekNextUtteranceId(), speech.hintSpeakOptions().mCompletedAction);
+                speaker.peekNextUtteranceId(),
+                UTTERANCE_GROUP_CONTENT_HINTS,
+                speech.hintSpeakOptions().mCompletedAction);
           }
           if (speech.text() != null) {
             speaker.speak(speech.text(), eventId, speech.options());
@@ -343,6 +369,10 @@ class Actors {
           break;
         case UNSILENCE:
           speaker.setSilenceSpeech(false);
+          break;
+        case INVALIDATE_FREQUENT_CONTENT_CHANGE_CACHE:
+          WindowContentChangeAnnouncementFilter.invalidateRecordNode();
+          break;
       }
     }
 
@@ -381,7 +411,7 @@ class Actors {
       switch (triggerIntent.action()) {
         case TRIGGER_TUTORIAL:
           intent = new Intent(context, TalkBackPreferencesActivity.class);
-          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TOP);
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
           intent.putExtra(FRAGMENT_NAME, TutorialAndHelpFragment.class.getName());
           break;
         case TRIGGER_PRACTICE_GESTURE:
@@ -390,8 +420,14 @@ class Actors {
         case TRIGGER_ASSISTANT:
           // The intent to invoke assistant for watch is different from for phone.
           intent =
-              new Intent(FeatureSupport.isWatch(context) ? ACTION_ASSIST : ACTION_VOICE_COMMAND);
+              new Intent(formFactorUtils.isAndroidWear() ? ACTION_ASSIST : ACTION_VOICE_COMMAND);
           intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TOP);
+          break;
+        case TRIGGER_BRAILLE_DISPLAY_SETTINGS:
+          if (FeatureSupport.supportBrailleDisplay(context)) {
+            intent = new Intent().setComponent(Constants.BRAILLE_DISPLAY_SETTINGS);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+          }
           break;
       }
       try {
@@ -422,6 +458,7 @@ class Actors {
     // System action
     @Nullable SystemAction systemAction = part.systemAction();
     if (systemAction != null) {
+      int lastSystemAction = systemAction.systemActionId();
       success &= systemActionPerformer.performAction(systemAction.systemActionId());
     }
 
@@ -468,6 +505,13 @@ class Actors {
         case INSERT:
           success &= editor.insert(edit.node(), edit.text(), eventId);
           break;
+
+        case TYPO_CORRECTION:
+          success &=
+              editor.correctTypo(edit.node(), edit.text(), edit.spellingSuggestion(), eventId);
+          break;
+        case MOVE_CURSOR:
+          success &= editor.moveCursor(edit.node(), edit.cursorIndex(), eventId);
       }
     }
 
@@ -522,22 +566,28 @@ class Actors {
           if (focus.target() != null) {
             success &=
                 focuser.setAccessibilityFocus(
-                    focus.target(), focus.forceRefocus(), focus.focusActionInfo(), eventId);
+                    focus.target(),
+                    focus.forceRefocus(),
+                    Objects.requireNonNull(focus.focusActionInfo()),
+                    eventId);
           }
           break;
         case CLEAR:
           focuser.clearAccessibilityFocus(eventId);
           break;
         case CACHE:
-          success &= focuser.cacheNodeToRestoreFocus();
+          success &= focuser.cacheNodeToRestoreFocus(focus.target());
           break;
         case MUTE_NEXT_FOCUS:
           focuser.setMuteNextFocus();
           break;
-        case RESTORE_ON_NEXT_WINDOW:
-          focuser.overrideNextFocusRestorationForContextMenu();
+        case RENEW_ENSURE_FOCUS:
+          focuser.renewEnsureFocus();
           break;
-        case RESTORE:
+        case RESTORE_ON_NEXT_WINDOW:
+          focuser.overrideNextFocusRestorationForWindowTransition();
+          break;
+        case RESTORE_TO_CACHE:
           success &= focuser.restoreFocus(eventId);
           break;
         case CLEAR_CACHED:
@@ -548,11 +598,12 @@ class Actors {
           break;
         case INITIAL_FOCUS_FOLLOW_INPUT:
           success &=
-              focuserWindowChange.syncA11yFocusToInputFocusedEditText(focus.screenState(), eventId);
+              focuserWindowChange.syncAccessibilityFocusAndInputFocus(focus.screenState(), eventId);
           break;
         case INITIAL_FOCUS_FIRST_CONTENT:
           success &=
-              focuserWindowChange.focusOnFirstFocusableNonTitleNode(focus.screenState(), eventId);
+              focuserWindowChange.focusOnRequestInitialNodeOrFirstFocusableNonTitleNode(
+                  focus.screenState(), eventId);
           break;
         case FOCUS_FOR_TOUCH:
           success &=
@@ -643,6 +694,14 @@ class Actors {
       }
     }
 
+    // NavigateTypo
+    Feedback.NavigateTypo navigateTypo = part.navigateTypo();
+    if (navigateTypo != null) {
+      success &=
+          typoNavigator.navigate(
+              eventId, navigateTypo.isNext(), navigateTypo.useInputFocusIfEmpty());
+    }
+
     // VolumeValue
     @Nullable AdjustVolume adjustVolume = part.adjustVolume();
     if (adjustVolume != null) {
@@ -713,7 +772,14 @@ class Actors {
           break;
 
         case NAVIGATE:
-          if (direction.toWindow()) {
+          // In case when the user changes granularity linearly with gesture, or change setting with
+          // selector, we cannot confirm the change until the user performs a navigation action.
+          analytics.logPendingChanges();
+          if (direction.toContainer()) {
+            success &=
+                directionNavigator.nextContainer(
+                    direction.direction(), direction.inputMode(), eventId);
+          } else if (direction.toWindow()) {
             success &=
                 directionNavigator.navigateToNextOrPreviousWindow(
                     direction.direction(),
@@ -769,6 +835,11 @@ class Actors {
     @Nullable TalkBackUI talkBackUI = part.talkBackUI();
     if (talkBackUI != null) {
       switch (talkBackUI.action()) {
+        case SHOW_GESTURE_ACTION_UI:
+          success &=
+              talkBackUIActor.showQuickMenu(
+                  talkBackUI.type(), talkBackUI.message(), talkBackUI.showIcon());
+          break;
         case SHOW_SELECTOR_UI:
           success &=
               talkBackUIActor.showQuickMenu(
@@ -828,6 +899,8 @@ class Actors {
         case INITIALIZE_ICON_DETECTION:
           success &= imageCaptioner.initIconDetection();
           break;
+        case INITIALIZE_IMAGE_DESCRIPTION:
+          success &= imageCaptioner.initImageDescription();
       }
     }
 
@@ -836,7 +909,7 @@ class Actors {
     if (deviceInfo != null) {
       switch (deviceInfo.action()) {
         case CONFIG_CHANGED:
-          success &= talkBackUIActor.onConfigurationChanged();
+          success &= talkBackUIActor.onConfigurationChanged(deviceInfo.configuration());
           break;
       }
     }
@@ -891,6 +964,18 @@ class Actors {
       }
     }
 
+    // Perform braille display actions
+    BrailleDisplay brailleDisplay = part.brailleDisplay();
+    if (brailleDisplay != null) {
+      switch (brailleDisplay.action()) {
+        case TOGGLE_BRAILLE_DISPLAY_ON_OR_OFF:
+          brailleDisplayActor.switchBrailleDisplayOnOrOff();
+          break;
+        default:
+          // fall through
+      }
+    }
+
     return success;
   }
 
@@ -919,6 +1004,15 @@ class Actors {
 
   public void interruptSoundAndVibration() {
     soundAndVibration.interrupt();
+  }
+
+  public void clearHintUtteranceCompleteAction(
+      @InterruptGroup int group, @InterruptLevel int level) {
+    // interrupt-level=2: hints for the focus event
+    // interrupt-level=1: hints for the other (non-focus event) hints.
+    if (group == Feedback.HINT && level >= 2) {
+      speaker.clearHintUtteranceCompleteAction();
+    }
   }
 
   /**

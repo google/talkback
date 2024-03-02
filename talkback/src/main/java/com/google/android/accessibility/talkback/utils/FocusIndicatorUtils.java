@@ -21,81 +21,78 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Build;
-import android.view.accessibility.AccessibilityManager;
+
 import androidx.annotation.ColorInt;
+
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.FeatureSupport;
 
-/** Utils function for updating focus indicator stroke width and color. */
+/**
+ * Utils function for updating focus indicator stroke width and color.
+ */
 public class FocusIndicatorUtils {
 
-  /**
-   * Applies the focus appearance preference. It would set the preferences via {@link
-   * AccessibilityService}
-   *
-   * @param service The parent service.
-   * @param prefs Shared preferences from which to obtain the value
-   * @param res Resources from which to obtain the key and default value
-   */
-  public static void applyFocusAppearancePreference(
-      AccessibilityService service, SharedPreferences prefs, Resources res) {
-    if (FeatureSupport.supportCustomizingFocusIndicator()) {
-      int borderWidth = getTalkBackFocusStrokeWidth(prefs, res);
-      int borderColor = getTalkBackFocusColor(service, prefs, res);
-      setAccessibilityFocusAppearance(service, borderWidth, borderColor);
+    /**
+     * Applies the focus appearance preference. It would set the preferences via {@link
+     * AccessibilityService}
+     *
+     * @param service The parent service.
+     * @param prefs   Shared preferences from which to obtain the value
+     * @param res     Resources from which to obtain the key and default value
+     */
+    public static void applyFocusAppearancePreference(
+            AccessibilityService service, SharedPreferences prefs, Resources res) {
+        if (FeatureSupport.supportCustomizingFocusIndicator()) {
+            int borderWidth = getTalkBackFocusStrokeWidth(prefs, res);
+            int borderColor = getTalkBackFocusColor(service, prefs, res);
+            setAccessibilityFocusAppearance(service, borderWidth, borderColor);
+        }
     }
-  }
 
-  /**
-   * Updates the focus indicator stroke width and color.
-   *
-   * @param service The parent service.
-   * @param borderWidth the border width
-   * @param borderColor the color value
-   */
-  public static void setAccessibilityFocusAppearance(
-      AccessibilityService service, int borderWidth, int borderColor) {
-    // TODO: Uses the public API of SDK 31, AccessibilityService#setAccessibilityFocusAppearance
-
-    // INFO: TalkBack For Developers modification
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-      service.setAccessibilityFocusAppearance(borderWidth, borderColor);
+    /**
+     * Updates the focus indicator stroke width and color.
+     *
+     * @param service     The parent service.
+     * @param borderWidth the border width
+     * @param borderColor the color value
+     */
+    public static void setAccessibilityFocusAppearance(
+            AccessibilityService service, int borderWidth, int borderColor) {
+        // INFO: TalkBack For Developers modification
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            service.setAccessibilityFocusAppearance(borderWidth, borderColor);
+        }
+        // ------------------------------------------
     }
-    // ------------------------------------------
-  }
 
-  /**
-   * Gets the stroke width of TalkBack focus indicator settings.
-   *
-   * @param prefs Shared preferences from which to obtain the value
-   * @param res Resources from which to obtain the key and default value
-   */
-  public static int getTalkBackFocusStrokeWidth(SharedPreferences prefs, Resources res) {
-    boolean isThickBorder = prefs.getBoolean(res.getString(R.string.pref_thick_border_key), false);
-    int borderWidth =
-        isThickBorder
-            ? res.getDimensionPixelSize(R.dimen.accessibility_thick_focus_highlight_stroke_width)
-            : res.getDimensionPixelSize(R.dimen.accessibility_focus_highlight_stroke_width);
-    return borderWidth;
-  }
+    /**
+     * Gets the stroke width of TalkBack focus indicator settings.
+     *
+     * @param prefs Shared preferences from which to obtain the value
+     * @param res   Resources from which to obtain the key and default value
+     */
+    public static int getTalkBackFocusStrokeWidth(SharedPreferences prefs, Resources res) {
+        boolean isThickBorder = prefs.getBoolean(res.getString(R.string.pref_thick_border_key), false);
+        int borderWidth =
+                isThickBorder
+                        ? res.getDimensionPixelSize(R.dimen.accessibility_thick_focus_highlight_stroke_width)
+                        : res.getDimensionPixelSize(R.dimen.accessibility_focus_highlight_stroke_width);
+        return borderWidth;
+    }
 
-  /**
-   * Gets the color value of TalkBack focus indicator settings.
-   *
-   * @param context The context.
-   * @param prefs Shared preferences from which to obtain the value
-   * @param res Resources from which to obtain the key and default value
-   */
-  public static @ColorInt int getTalkBackFocusColor(
-      Context context, SharedPreferences prefs, Resources res) {
-    final AccessibilityManager accessibilityManager =
-        (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
-    int borderColor =
-        prefs.getInt(
-            res.getString(R.string.pref_border_color_key),
-            // TODO: To support this API, use SDK 31.
-            // accessibilityManager.getAccessibilityFocusColor());
-            res.getColor(R.color.accessibility_focus_highlight_color, null));
-    return borderColor;
-  }
+    /**
+     * Gets the color value of TalkBack focus indicator settings.
+     *
+     * @param context The context.
+     * @param prefs   Shared preferences from which to obtain the value
+     * @param res     Resources from which to obtain the key and default value
+     */
+    @ColorInt
+    public static int getTalkBackFocusColor(Context context, SharedPreferences prefs, Resources res) {
+        int borderColor =
+                prefs.getInt(
+                        res.getString(R.string.pref_border_color_key),
+                        res.getColor(R.color.accessibility_focus_highlight_color, null));
+        return borderColor;
+    }
 }

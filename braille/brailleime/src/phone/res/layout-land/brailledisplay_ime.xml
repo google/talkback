@@ -2,57 +2,65 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:contentDescription="@string/braille_keyboard_strip_summary"
+    android:contentDescription="@string/braille_ime_bd_mode_name"
     android:orientation="vertical">
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
+      android:layout_marginTop="@dimen/braille_display_keyboard_vertical_margin"
       android:layout_gravity="center"
       android:gravity="center"
       android:importantForAccessibility="no"
       android:text="@string/braille_ime_bd_mode_name"
-      android:textSize="25sp"
+      android:textSize="@dimen/braille_display_keyboard_title_text_size"
       android:textColor="?android:attr/textColorPrimaryInverse"/>
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginVertical="20dp"
-      android:layout_marginEnd="20dp"
-      android:orientation="horizontal">
+  <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:minHeight="@dimen/braille_display_keyboard_description_min_height"
+        android:layout_marginVertical="@dimen/braille_display_keyboard_vertical_margin"
+        android:layout_marginHorizontal="@dimen/braille_display_keyboard_horizontal_margin">
     <ImageView
         android:id="@+id/dots_background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:importantForAccessibility="no"
         android:src="@drawable/dots_untapped" />
-    <TextView
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:importantForAccessibility="no"
-        android:text="@string/braille_keyboard_strip_summary"
-        android:textColor="?android:attr/textColorPrimaryInverse"/>
-  </LinearLayout>
+        android:gravity="top">
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/braille_display_keyboard_horizontal_margin"
+          android:textSize="@dimen/braille_display_keyboard_description_text_size"
+          android:text="@string/braille_keyboard_strip_summary"
+          android:textColor="?android:attr/textColorPrimaryInverse"/>
+    </ScrollView>
+  </TableRow>
   <LinearLayout
-      android:layout_width="match_parent"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:gravity="end"
-      android:layout_marginEnd="20dp"
-      android:layout_marginBottom="10dp"
+      android:layout_gravity="end"
+      android:layout_marginHorizontal="@dimen/braille_display_keyboard_horizontal_margin"
+      android:layout_marginBottom="@dimen/braille_display_keyboard_vertical_margin"
       android:orientation="horizontal">
     <com.google.android.material.button.MaterialButton
         android:id="@+id/switch_to_touch_screen_keyboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
+        android:layout_weight="1"
         android:text="@string/braille_keyboard_strip_touch_screen_button" />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/switch_to_next_keyboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="@string/braille_keyboard_strip_next_keyboard_button" />
   </LinearLayout>
 </LinearLayout>

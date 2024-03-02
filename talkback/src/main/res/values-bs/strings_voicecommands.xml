@@ -95,7 +95,7 @@
   <string name="voice_commands_partial_result">Nije moguće prepoznati ovu komandu. Recite \"%1$s\" da dobijete listu svih komandi.</string>
   <string name="voice_commands_timeout">Recite \"%1$s\" da dobijete listu svih komandi.</string>
   <string name="voice_commands_many_requests">Pokušajte ponovo za koji trenutak</string>
-  <string name="voice_commands_echo_feedback_not_recognized">Govorni unos \"%1$s\" nije prepoznat kao glasovna komanda.</string>
+  <string name="voice_commands_echo_feedback_not_recognized">Glasovni unos \"%1$s\" nije prepoznat kao glasovna komanda.</string>
   <string name="voice_commands_label_saved">Oznaka je sačuvana</string>
   <string name="voice_commands_no_actions_feedback">Nema dostupnih radnji</string>
   <string name="voice_commands_no_next_heading_feedback">Nema sljedećeg naslova</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Da koristite glasovne komande, prevucite udesno, a zatim nagore. Recite \"Pomoć\" ili \"Šta mogu reći?\" bilo kada da dobijete listu komandi.</string>
   <string name="voice_commands_help_hint">Da dobijete najbolje rezultate, izgovorite tekst kako je tačno naveden na sljedećim ekranima.</string>
   <string name="voice_command_screen_locked_hint">Glasovne komande nisu dostupne kada je ekran zaključan. Da umjesto njih koristite meni TalkBacka, %1$s.</string>
+  <string name="voice_commands_during_setup_hint">Glasovne komande nisu dostupne tokom postavljanja.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Promjena načina čitanja sadržaja na trenutnom ekranu</string>
   <string name="voice_commands_help_next">Sljedeće [naslov]</string>
@@ -124,7 +125,7 @@
   <string name="voice_commands_help_find_text">Pronađi [sačuvaj]</string>
   <string name="voice_commands_help_find_text_description">Pronalazak prve stavke koja uključuje tekst \"sačuvaj\" na trenutnom ekranu</string>
   <string name="voice_commands_help_find_description">Ponavljanje komande \"pronađi\" radi prelaska na sljedeću stavku koja uključuje tekst \"sačuvaj\"</string>
-  <string name="voice_commands_help_screen_search_description">Unos termina za pretraživanje radi pronalaska tog teksta na ekranu</string>
+  <string name="voice_commands_help_screen_search_description">Unos pojma za pretraživanje radi pronalaska tog teksta na ekranu</string>
   <string name="voice_commands_help_text_editing_description">Unos, odabir i kopiranje teksta</string>
   <string name="voice_commands_help_type_text">Unesi [Uredu]</string>
   <string name="voice_commands_help_copy_description">Odaberite tekst prije kopiranja</string>

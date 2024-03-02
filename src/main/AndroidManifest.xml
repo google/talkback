@@ -8,4 +8,23 @@
   value when a build executes.
   -->
 
+  <!-- The <queries> element allows us to ask the package manager about the
+  installation status of external components we are interested in. This policy
+  change was introduced in Android 11. Move from /accessibility/talkback/AndroidManifest.xml
+  to /accessibility/AndroidManifest.xml because merger tool doesn't support
+  <queries> (b/231523982).-->
+  <queries>
+    <intent>
+      <action android:name="android.intent.action.TTS_SERVICE" />
+    </intent>
+    <intent>
+      <action
+          android:name="android.speech.RecognitionService" />
+    </intent>
+  </queries>
+
+  <application
+     android:name="com.google.android.accessibility.talkback.TalkBackApplication"
+     />
+
 </manifest>

@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.interpreter;
 
+import android.text.TextUtils;
 import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
@@ -26,14 +27,24 @@ import java.util.Objects;
 /** A helper class to get the active window and window titles on the current screen. */
 public final class ScreenState implements WindowsDelegate {
   private final AccessibilityWindowInfo activeWindow;
-  private WindowsDelegate windowsDelegate;
+  private final WindowsDelegate windowsDelegate;
   private long screenTransitionStartTime = 0;
+  private boolean interpretFirstTimeWhenWakeUp;
 
   public ScreenState(
       WindowsDelegate windowsDelegate, AccessibilityWindowInfo activeWindow, long eventTime) {
+    this(windowsDelegate, activeWindow, eventTime, false);
+  }
+
+  public ScreenState(
+      WindowsDelegate windowsDelegate,
+      AccessibilityWindowInfo activeWindow,
+      long eventTime,
+      boolean interpretFirstTimeWhenWakeUp) {
     this.windowsDelegate = windowsDelegate;
     this.activeWindow = activeWindow;
     this.screenTransitionStartTime = eventTime;
+    this.interpretFirstTimeWhenWakeUp = interpretFirstTimeWhenWakeUp;
   }
 
   /** Returns title of window with given window ID. */
@@ -42,10 +53,21 @@ public final class ScreenState implements WindowsDelegate {
     return windowsDelegate.getWindowTitle(windowId);
   }
 
+  @Override
+  public CharSequence getAccessibilityPaneTitle(int windowId) {
+    CharSequence accessibilityPaneTitle = windowsDelegate.getAccessibilityPaneTitle(windowId);
+    return TextUtils.isEmpty(accessibilityPaneTitle) ? "" : accessibilityPaneTitle;
+  }
+
   /** Returns whether is split screen mode. */
   @Override
   public boolean isSplitScreenMode(int displayId) {
     return windowsDelegate.isSplitScreenMode(displayId);
+  }
+
+  @Override
+  public boolean hasAccessibilityPane(int windowId) {
+    return windowsDelegate.hasAccessibilityPane(windowId);
   }
 
   /** Returns the current active window. */
@@ -57,6 +79,16 @@ public final class ScreenState implements WindowsDelegate {
   /** Returns the transition start time of the screen state. */
   public long getScreenTransitionStartTime() {
     return screenTransitionStartTime;
+  }
+
+  /** Returns {@code true} screen is interpreted as the first one after waking up. */
+  public boolean isInterpretFirstTimeWhenWakeUp() {
+    return interpretFirstTimeWhenWakeUp;
+  }
+
+  /** Reset the flag which indicates the first time interpretation from waking up to false. */
+  public void consumeInterpretFirstTimeWhenWakeUp() {
+    interpretFirstTimeWhenWakeUp = false;
   }
 
   @Override
@@ -73,19 +105,24 @@ public final class ScreenState implements WindowsDelegate {
       return false;
     }
 
-    return AccessibilityWindowInfoUtils.equals(activeWindow, otherScreen.activeWindow);
+    return ((ScreenState) other).interpretFirstTimeWhenWakeUp == interpretFirstTimeWhenWakeUp
+        && AccessibilityWindowInfoUtils.equals(activeWindow, otherScreen.activeWindow);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        (activeWindow == null ? 0 : activeWindow.hashCode()), screenTransitionStartTime);
+        (activeWindow == null ? 0 : activeWindow.hashCode()),
+        screenTransitionStartTime,
+        interpretFirstTimeWhenWakeUp);
   }
 
   @Override
   public String toString() {
     return StringBuilderUtils.joinFields(
         StringBuilderUtils.optionalSubObj("activeWindow", activeWindow),
-        StringBuilderUtils.optionalInt("screenTransitionStartTime", screenTransitionStartTime, 0));
+        StringBuilderUtils.optionalInt("screenTransitionStartTime", screenTransitionStartTime, 0),
+        StringBuilderUtils.optionalTag(
+            "interpretFirstTimeWhenWakeUp", interpretFirstTimeWhenWakeUp));
   }
 }

@@ -32,7 +32,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/dialog_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:paddingEnd="8dp"
             android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/dialog_second_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             android:visibility="gone"
             android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/dialog_third_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

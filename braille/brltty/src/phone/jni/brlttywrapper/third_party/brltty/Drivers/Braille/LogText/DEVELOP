@@ -1,0 +1,133 @@
+File: PROTOCOL
+by Hans Schou <blind@schou.dk>
+
+General description of LogText
+------------------------------
+http://www.dinf.org/tiresias/Equipment/Notetakers.htm
+Personal aid for braille users. Piezo-electric, 8 dot matrix, 32 character
+braille display with a braille keyboard. Also provided with a 32 character
+LCD text display. Available in two versions: two-hand version has a tilted
+keyboard for easy positioning of hands; one-hand keyboard is designed for
+operation by either the right or the left hand. Functions include reading,
+editing and storage of text and a clock. Text storage approximates 200
+typewritten pages. Data storage: 512KB RAM (with lithium battery backup) of
+which 328KB is for text storage, 56KB for working storage, 56KB for
+terminal buffer, 56KB for input/output buffer and 16KB for system. One
+standard parallel port and 2 RS232-E compatible ports. Power supply by
+mains adaptor 220/12V AC +/- 10%, 20VA or by built-in NiCad rechargeable
+batteries. Length: 380mm Width: 180mm Height: 65mm Weight: 2.7kg
+
+Techinal description
+--------------------
+The LogText is almost like a VT-100 terminal regarding functionality.
+It has an internal screen buffer of 80x25 characters and it is then
+only neccesary to update the internal screen when there is changes.
+The user can move around on the internal screen without communicating
+with the computer. The LogText do request updates of the specefic
+line but it is not neccesary to update a line if it has not changed.
+When the LogText is in cursor tracking mode and the user presses one
+of the arrow keys, the LogText will first request an update of the
+specefic line and then a request for update of the line on the computer
+screen which hold the cursor. A sequence could look like 0xff 0x03 0xff
+0x00 when in cursor tracking mode.
+
+Dot key strokes are send as plain ASCII. Pressing dot-1 will just send
+ASCII 'a' 0x61 and dot-17 will send ASCII 'A' 0x41. Cursor movement
+keys is escaped with 0x00 and the following character is similar to
+VT-100 cursor movement codes. An arrow up will send the sequence
+0x00 0x48. As 0x00 is used for escaping cursor movements and 0xff is
+used for requesting updates, these two codes can not be send from the
+LogText. This gives that the LogText can send 254 different charcaters.
+The translation table used is codepage XXX and can then produce six
+danish letters. The rest of the table is used for abbreviations.
+
+Data from the computer to LogText is send as a protocol without ACK.
+A full description of the computer to LogText protocol can be found
+in the protocol section.
+
+If the user does not press any keys there will be no communication
+from the LogText to the computer. The driver should detect any changes
+on the computer screen and send an update if the line the user is
+looking has changed. The computer will know what the currentline is
+by saving the last absolute line which was requested from the LogText.
+That is, if the user requested line 4 and is in cursor tracking mode
+the sequence would be 0xff 0x04 0xff 0x00. In the case the computer
+will know that the user is looking at line 4 and that the LogText
+should have an update if line 4 changes. It is not neccesary to update
+lines from the computer screen if the user is not looking at them.
+If the cursor moves an update should be send.
+
+If a wrong protocol package is send to Logtext it will go into an error
+mode and stop receiving.
+
+Communication
+-------------
+The RS-232 communication is fixed to 9600 baud n 8 1.
+
+Logtext protocol
+----------------
+
+1. Request from Logtext
+
+1.1. Update a line: <start><line>
+ start: start code 0xFF
+ 
+ line: line number to update
+   0x01 <= line 0x19
+
+ Example:
+  Update of line 4: 0xff 0x04
+
+1.2. Update cursor line: <start><0>
+ start: start code 0xFF
+
+ 0: code 0x00
+
+ The sequence is send at start up of the LogText and
+ when in cursor tracking mode.
+
+ Example:
+  Update current line: 0xff 0x00
+
+2. Answer from computer
+
+2.1. Protocol: <start><line><cursor><column><count><text>
+ start: start code 0xFF.
+
+ line: line number on screen.
+   0x01 <= line 0x19
+
+ cursor: cursor position on this line.
+   0x01 <= cursor <= 0x50
+ Special cursor == 0x00, no cursor on this line.
+
+ column: text starts from this column.
+   0x01 <= column <= 0x50
+
+ count: number of bytes in text.
+   0x00 <= count <= 0x50
+
+ text: ASCII characters. Any character except 0xFF.
+  It is not possible to turn on all dots (0xFF).
+
+ Example:
+   0xff 0x01 0x04 0x01 0x03 0x61 0x62 0x63
+   will display 'abc' at top left with the cursor at the end.
+
+2.2. Automatic cursor tracking.
+If the mode is currently in cursor tracking and the cursor moves
+to another line, the computer should send a new updated line to
+LogText. If the cursor moves within the same line the computer sends
+an update of the cursor position.
+
+
+Logtext manufactor
+------------------
+ Tactilog
+ Roskildevej 15
+ DK-7441 Bording
+ Denmark
+
+ Contact: Poul Erik Skov
+ Phone: +45 86 86 20 88
+ Fax: +45 86 86 21 88

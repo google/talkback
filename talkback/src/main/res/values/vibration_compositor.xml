@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--
+    NOTE: See utils/output/HapticPatternParser.java for the pattern
+           definition spec.
+
+       For quick reference, here are the primitive constant IDs:
+        'CLICK': 1,
+        'THUD': 2, // Note: Pixel A-series doesn't support THUD
+        'SPIN': 3, // Note: Pixel A-series doesn't support SPIN
+        'QUICK_RISE': 4,
+        'SLOW_RISE': 5,
+        'QUICK_FALL': 6,
+        'TICK': 7,
+    -->
+
     <!-- Vibration pattern for haptic feedback when view hovered. -->
     <integer-array name="view_hovered_pattern">
         <item>0</item>
@@ -9,12 +23,20 @@
         <item>10</item>
         <item>10</item>
         <item>10</item>
+        <item>-9999</item><!-- SENTINEL SEPARATOR -->
+        <item>7</item><!-- TICK -->
+        <item>100</item><!-- scale -->
+        <item>0</item><!-- delayMs -->
     </integer-array>
 
     <!-- Vibration pattern for haptic feedback when actionable view hovered or focused. -->
     <integer-array name="view_actionable_pattern">
         <item>0</item>
         <item>50</item>
+        <item>-9999</item><!-- SENTINEL SEPARATOR -->
+        <item>1</item><!-- CLICK -->
+        <item>255</item><!-- scale -->
+        <item>0</item><!-- delayMs -->
     </integer-array>
 
     <!-- Vibration pattern for haptic feedback when view focused or selected. -->
@@ -23,6 +45,10 @@
         <item>15</item>
         <item>10</item>
         <item>15</item>
+        <item>-9999</item><!-- SENTINEL SEPARATOR -->
+        <item>7</item><!-- TICK -->
+        <item>255</item><!-- scale -->
+        <item>0</item><!-- delayMs -->
     </integer-array>
 
     <!-- Vibration pattern for haptic feedback when view clicked. Matches system feedback. -->
@@ -31,6 +57,10 @@
         <item>10</item>
         <item>20</item>
         <item>30</item>
+        <item>-9999</item><!-- SENTINEL SEPARATOR -->
+        <item>1</item><!-- CLICK -->
+        <item>255</item><!-- scale -->
+        <item>0</item><!-- delayMs -->
     </integer-array>
 
     <!-- Vibration pattern for haptic feedback when view long clicked. Matches system feedback. -->
@@ -39,6 +69,10 @@
         <item>1</item>
         <item>20</item>
         <item>21</item>
+        <item>-9999</item><!-- SENTINEL SEPARATOR -->
+        <item>4</item><!-- QUICK_RISE -->
+        <item>255</item><!-- scale -->
+        <item>0</item><!-- delayMs -->
     </integer-array>
 
     <!-- Vibration pattern for haptic feedback when a notification appears. -->
@@ -49,6 +83,16 @@
         <item>20</item>
         <item>10</item>
         <item>40</item>
+        <item>-9999</item><!-- SENTINEL SEPARATOR -->
+        <item>7</item><!-- TICK -->
+        <item>255</item><!-- scale -->
+        <item>0</item><!-- delayMs -->
+        <item>1</item><!-- CLICK -->
+        <item>255</item><!-- scale -->
+        <item>50</item><!-- delayMs -->
+        <item>4</item><!-- RISE -->
+        <item>255</item><!-- scale -->
+        <item>50</item><!-- delayMs -->
     </integer-array>
 </resources>
 

@@ -20,6 +20,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.PointF;
 import android.util.Size;
+import androidx.annotation.StringRes;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,9 +48,8 @@ public class BrailleUserPreferencesTouchDots {
     String pointsString =
         sharedPreferences.getString(
             context.getString(
-                isTableTop
-                    ? R.string.pref_brailleime_calibration_points_phone_tabletop
-                    : R.string.pref_brailleime_calibration_points_phone_screenaway),
+                getPhoneCalibrationPreferenceKey(
+                    isTableTop, BrailleUserPreferences.isCurrentActiveInputCodeEightDot(context))),
             "");
     try {
       return pointsStringToPoints(orientation, screenSize, pointsString);
@@ -71,9 +71,9 @@ public class BrailleUserPreferencesTouchDots {
           .edit()
           .putString(
               context.getString(
-                  isTableTop
-                      ? R.string.pref_brailleime_calibration_points_phone_tabletop
-                      : R.string.pref_brailleime_calibration_points_phone_screenaway),
+                  getPhoneCalibrationPreferenceKey(
+                      isTableTop,
+                      BrailleUserPreferences.isCurrentActiveInputCodeEightDot(context))),
               generateLayoutPointsString(points, orientation, screenSize))
           .apply();
     } catch (JSONException e) {
@@ -87,9 +87,9 @@ public class BrailleUserPreferencesTouchDots {
       String pointsString =
           sharedPreferences.getString(
               context.getString(
-                  orientation == Configuration.ORIENTATION_PORTRAIT
-                      ? R.string.pref_brailleime_calibration_points_tablet_tabletop_portrait
-                      : R.string.pref_brailleime_calibration_points_tablet_tabletop_landscape),
+                  getTabletCalibrationPreferenceKey(
+                      orientation,
+                      BrailleUserPreferences.isCurrentActiveInputCodeEightDot(context))),
               "");
       List<PointF> points = new ArrayList<>();
       if (!pointsString.isEmpty()) {
@@ -113,13 +113,39 @@ public class BrailleUserPreferencesTouchDots {
           .edit()
           .putString(
               context.getString(
-                  orientation == Configuration.ORIENTATION_PORTRAIT
-                      ? R.string.pref_brailleime_calibration_points_tablet_tabletop_portrait
-                      : R.string.pref_brailleime_calibration_points_tablet_tabletop_landscape),
+                  getTabletCalibrationPreferenceKey(
+                      orientation,
+                      BrailleUserPreferences.isCurrentActiveInputCodeEightDot(context))),
               generateLayoutPointsString(points, orientation, screenSize))
           .apply();
     } catch (JSONException e) {
       throw new ParseException(e.getMessage(), -1);
+    }
+  }
+
+  @StringRes
+  private static int getTabletCalibrationPreferenceKey(int orientation, boolean eightDot) {
+    if (eightDot) {
+      return orientation == Configuration.ORIENTATION_PORTRAIT
+          ? R.string.pref_brailleime_calibration_points_tablet_eightDot_tabletop_portrait
+          : R.string.pref_brailleime_calibration_points_tablet_eightDot_tabletop_landscape;
+    } else {
+      return orientation == Configuration.ORIENTATION_PORTRAIT
+          ? R.string.pref_brailleime_calibration_points_tablet_tabletop_portrait
+          : R.string.pref_brailleime_calibration_points_tablet_tabletop_landscape;
+    }
+  }
+
+  @StringRes
+  private static int getPhoneCalibrationPreferenceKey(boolean tabletop, boolean eightDot) {
+    if (eightDot) {
+      return tabletop
+          ? R.string.pref_brailleime_calibration_points_phone_eightDot_tabletop
+          : R.string.pref_brailleime_calibration_points_phone_eightDot_screenaway;
+    } else {
+      return tabletop
+          ? R.string.pref_brailleime_calibration_points_phone_tabletop
+          : R.string.pref_brailleime_calibration_points_phone_screenaway;
     }
   }
 

@@ -19,8 +19,8 @@ package com.google.android.accessibility.talkback.menurules;
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.MENU_TYPE_GRANULARITY;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 import static com.google.android.accessibility.utils.input.CursorGranularity.DEFAULT;
+import static com.google.android.accessibility.utils.input.CursorGranularity.LINE;
 
-import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -38,6 +38,7 @@ import com.google.android.accessibility.talkback.contextmenu.ContextMenu;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem.DeferredType;
 import com.google.android.accessibility.talkback.selector.SelectorController;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
@@ -109,6 +110,10 @@ public class RuleGranularity extends NodeMenuRule {
         R.string.pref_show_navigation_menu_window_setting_key,
         R.string.granularity_window,
         R.bool.pref_show_navigation_menu_window_default),
+    CONTAINER(
+        R.string.pref_show_navigation_menu_container_setting_key,
+        R.string.granularity_container,
+        R.bool.pref_show_navigation_menu_container_default),
     DEFAULT_NAVIGATION(
         R.string.pref_show_navigation_menu_granularity_default_setting_key,
         R.string.granularity_default,
@@ -154,19 +159,17 @@ public class RuleGranularity extends NodeMenuRule {
   }
 
   @Override
-  public boolean accept(AccessibilityService service, AccessibilityNodeInfoCompat node) {
-    EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance for menu events.
-    return !CursorGranularityManager.getSupportedGranularities(service, node, eventId).isEmpty();
+  public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
+    return !CursorGranularityManager.getSupportedGranularities(node).isEmpty();
   }
 
   @Override
   public List<ContextMenuItem> getMenuItemsForNode(
-      AccessibilityService service, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
-    EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance for menu events.
+      Context context, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
     final CursorGranularity current = actorState.getDirectionNavigation().getGranularityAt(node);
     final List<ContextMenuItem> items = new ArrayList<>();
     final List<CursorGranularity> granularities =
-        CursorGranularityManager.getSupportedGranularities(service, node, eventId);
+        CursorGranularityManager.getSupportedGranularities(node);
     final boolean hasWebContent = WebInterfaceUtils.hasNavigableWebContent(node);
 
     // Don't populate the menu if only object is supported.
@@ -175,20 +178,20 @@ public class RuleGranularity extends NodeMenuRule {
     }
 
     final GranularityMenuItemClickListener clickListener =
-        new GranularityMenuItemClickListener(service, pipeline, node, hasWebContent, analytics);
+        new GranularityMenuItemClickListener(context, pipeline, node, hasWebContent, analytics);
 
     for (CursorGranularity granularity : granularities) {
-      if (!isShowItemByGranularity(service, granularity)) {
+      if (!isShowItemByGranularity(context, granularity, actorState)) {
         continue;
       }
 
       ContextMenuItem item =
           ContextMenu.createMenuItem(
-              service,
+              context,
               Menu.NONE,
               granularity.resourceId,
               Menu.NONE,
-              service.getString(granularity.resourceId));
+              context.getString(granularity.resourceId));
       item.setOnMenuItemClickListener(clickListener);
       item.setCheckable(true);
       item.setChecked(granularity.equals(current));
@@ -209,31 +212,31 @@ public class RuleGranularity extends NodeMenuRule {
       // Landmark granularity will be available for webviews only via Talkback menu and so it is
       // added separately from the granularities list.
       if (isShowItemByGranularity(
-          service,
+          context,
           R.string.pref_show_navigation_menu_landmarks_setting_key,
           R.bool.pref_show_navigation_menu_landmarks_default)) {
         ContextMenuItem landmark =
             ContextMenu.createMenuItem(
-                service,
+                context,
                 Menu.NONE,
                 CursorGranularity.WEB_LANDMARK.resourceId,
                 Menu.NONE,
-                service.getString(R.string.granularity_web_landmark));
+                context.getString(R.string.granularity_web_landmark));
         landmark.setOnMenuItemClickListener(clickListener);
         items.add(landmark);
       }
 
       if (isShowItemByGranularity(
-          service,
+          context,
           R.string.pref_show_navigation_menu_special_content_setting_key,
           R.bool.pref_show_navigation_menu_special_content_default)) {
         ContextMenuItem specialContent =
             ContextMenu.createMenuItem(
-                service,
+                context,
                 Menu.NONE,
                 R.id.pseudo_web_special_content,
                 Menu.NONE,
-                service.getString(R.string.granularity_pseudo_web_special_content));
+                context.getString(R.string.granularity_pseudo_web_special_content));
         specialContent.setOnMenuItemClickListener(clickListener);
         items.add(specialContent);
       }
@@ -329,13 +332,21 @@ public class RuleGranularity extends NodeMenuRule {
     }
   }
 
-  private static boolean isShowItemByGranularity(Context service, CursorGranularity granularity) {
+  private static boolean isShowItemByGranularity(
+      Context service, CursorGranularity granularity, ActorState actorState) {
     final Resources res = service.getResources();
     SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(service);
 
     GranularitySetting granularitySetting =
         GranularitySetting.getGranularityFromResId(granularity.resourceId);
     if (granularitySetting == null) {
+      return false;
+    }
+    // TODO: As the text selection for line granularity movement does not work,
+    // we mask off the LINE granularity temporarily.
+    if (granularity == LINE
+        && actorState.getDirectionNavigation().isSelectionModeActive()
+        && !FeatureSupport.supportInputConnectionByA11yService()) {
       return false;
     }
 

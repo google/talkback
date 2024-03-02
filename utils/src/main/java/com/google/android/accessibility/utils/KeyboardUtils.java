@@ -33,20 +33,26 @@ public class KeyboardUtils {
    * Returns true if either soft or hard keyboard is active.
    *
    * @param service Accessibility Service that is currently trying to get keyboard state.
-   * @return {@code true} if either soft or hard keyborad is active, else {@code false}.
+   * @return {@code true} if either soft or hard keyboard is active, else {@code false}.
    */
   // TODO: Move the logic of updating keyboard state into WindowTracker.
   public static boolean isKeyboardActive(AccessibilityService service) {
+    return isSoftKeyboardActive(service) || isHardKeyboardActive(service);
+  }
+
+  /** Returns {@code true} if soft keyboard is active. */
+  public static boolean isSoftKeyboardActive(AccessibilityService service) {
+    return AccessibilityServiceCompatUtils.isInputWindowOnScreen(service);
+  }
+
+  /** Returns {@code true} if hard keyboard is active. */
+  public static boolean isHardKeyboardActive(AccessibilityService service) {
     if (service == null) {
       return false;
     }
     Configuration config = service.getResources().getConfiguration();
 
-    boolean isSoftKeyboardActive = AccessibilityServiceCompatUtils.isInputWindowOnScreen(service);
-    boolean isHardKeyboardActive =
-        (config.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO);
-
-    return isSoftKeyboardActive || isHardKeyboardActive;
+    return config.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO;
   }
 
   /** Returns {@code true} if {@code componentName} is an enabled input method */

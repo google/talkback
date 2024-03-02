@@ -1,0 +1,47 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+title NBP B2G
+
+note Press Space while holding Backward to switch to navigation mode.
+note In navigation mode: Backward is F1, Forward is F4, Dots1-6 are display keys 1-6, Dot7 is F2, Dot8 is F3.
+note Press Space while holding Forward to switch to keyboard mode.
+note In keyboard mode: Backward is B9, Forward is B10, Space is B11.
+
+include d6.kti
+include routing6.kti
+
+bind F1 FWINLT
+bind F4 FWINRT
+
+bind B9 FWINLT
+bind B10 FWINRT
+
+assign space B11
+assign press Select
+include navpad.kti
+
+bind B9+RoutingKey SETLEFT
+bind B10+RoutingKey SWITCHVT
+
+bind B11+Up TOP
+bind B11+Down BOT
+bind B11+Left FWINLTSKIP
+bind B11+Right FWINRTSKIP
+bind B11+Select PASTE
+

@@ -2,4 +2,12 @@
 <resources>
   <string name="talkback_service_description">TalkBack คือโปรแกรมอ่านหน้าจอที่มีไว้สำหรับผู้ใช้ที่พิการทางสายตาและผู้ที่บกพร่องทางการมองเห็นเป็นหลัก โปรแกรมนี้ช่วยให้ผู้ใช้โต้ตอบกับอุปกรณ์ด้วยการอธิบายและอ่านออกเสียง</string>
   <string name="welcome_to_talkback_text">รับฟังการอธิบายและอ่านออกเสียงเพื่อให้คุณใช้นาฬิกาได้โดยไม่ต้องดูที่หน้าจอ</string>
+  <string name="summary_custom_action">แสดงเมื่อมีการดำเนินการที่กำหนดเองสำหรับรายการปัจจุบัน</string>
+  <string name="notification_title_talkback_gestures_changed">อัปเดตท่าทางสัมผัสของ TalkBack แล้ว</string>
+  <string name="notification_message_talkback_gestures_changed">เปิด TalkBack เพื่อดูรายละเอียดเพิ่มเติม</string>
+  <string name="new_feature_in_talkback_title">มีอะไรใหม่</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">ตกลง</string>
+  <string name="scan_the_qr_code">สแกนคิวอาร์โค้ด</string>
+  <string name="alternate_privacy_policy">หรือไปที่ http://www.google.com/policies/privacy</string>
+  <string name="alternate_tos">หรือไปที่ https://www.google.com/mobile/toscountry</string>
 </resources>

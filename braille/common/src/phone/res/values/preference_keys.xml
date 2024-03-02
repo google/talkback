@@ -3,6 +3,12 @@
   <!-- Braille common shared preference keys. -->
   <string name="pref_brailleime_translator_code" translatable="false">pref_brailleime_translator_code</string>
   <string name="pref_brailleime_translator_codes_preferred" translatable="false">pref_brailleime_translator_codes_preferred</string>
+  <string name="pref_braille_contracted_mode" translatable="false">pref_braille_contracted_mode</string>
+  <string name="pref_braille_preferred_languages_category_key" translatable="false">pref_braille_preferred_languages_category_key</string>
+  <string name="pref_braille_language_locales_category_key" translatable="false">pref_braille_language_locales_category_key</string>
+  <string name="pref_braille_preferred_locale_languages_category_key" translatable="false">pref_braille_preferred_locale_languages_category_key</string>
+  <string name="pref_braille_languages_category_key" translatable="false">pref_braille_languages_category_key</string>
+  <string name="pref_braille_add_language_preference_key" translatable="false">pref_braille_add_language_preference_key</string>
 
   <!-- Braille keyboard shared preference keys. -->
   <string name="pref_show_switch_input_code_gesture_tip" translatable="false">pref_show_switch_input_code_gesture_tip</string>
@@ -19,6 +25,10 @@
   <string name="pref_brailleime_calibration_points_phone_screenaway" translatable="false">pref_brailleime_calibration_points_phone_screenaway</string>
   <string name="pref_brailleime_calibration_points_tablet_tabletop_portrait" translatable="false">pref_brailleime_calibration_points_tablet_tabletop_portrait</string>
   <string name="pref_brailleime_calibration_points_tablet_tabletop_landscape" translatable="false">pref_brailleime_calibration_points_tablet_tabletop_landscape</string>
+  <string name="pref_brailleime_calibration_points_phone_eightDot_tabletop" translatable="false">pref_brailleime_calibration_points_phone_eightDot_tabletop</string>
+  <string name="pref_brailleime_calibration_points_phone_eightDot_screenaway" translatable="false">pref_brailleime_calibration_points_phone_eightDot_screenaway</string>
+  <string name="pref_brailleime_calibration_points_tablet_eightDot_tabletop_portrait" translatable="false">pref_brailleime_calibration_points_tablet_eightDot_tabletop_portrait</string>
+  <string name="pref_brailleime_calibration_points_tablet_eightDot_tabletop_landscape" translatable="false">pref_brailleime_calibration_points_tablet_eightDot_tabletop_landscape</string>
 
   <!-- Braille display shared preference keys -->
   <string name="pref_braille_overlay_key" translatable="false">overlay_enabled</string>
@@ -27,4 +37,12 @@
   <string name="pref_bd_output_code" translatable="false">pref_bd_output_code</string>
   <string name="pref_bd_show_switch_input_code_gesture_tip" translatable="false">pref_bd_show_switch_input_code_gesture_tip</string>
   <string name="pref_bd_show_switch_output_code_gesture_tip" translatable="false">pref_bd_show_switch_output_code_gesture_tip</string>
+  <string name="pref_bd_show_navigation_command_unavailable_tip" translatable="false">pref_bd_show_navigation_command_unavailable_tip</string>
+  <string name="pref_bd_show_usb_connect_dialog" translatable="false">pref_bd_show_usb_connect_dialog</string>
+  <string name="pref_bd_reverse_panning_buttons" translatable="false">pref_bd_reverse_panning_buttons</string>
+  <string name="pref_bd_timed_message_duration_fraction_key" translatable="false">pref_bd_timed_message_duration_fraction_key</string>
+  <string name="pref_bd_blinking_interval_key" translatable="false">pref_bd_blinking_interval_key</string>
+  <string name="pref_bd_switch_contracted_count_key" translatable="false">pref_bd_switch_contracted_count_key</string>
+  <string name="pref_bd_auto_scroll_duration_key" translatable="false">pref_bd_auto_scroll_duration_key</string>
+  <string name="pref_bd_auto_adjust_duration_enable_key" translatable="false">pref_bd_auto_adjust_duration_enable_key</string>
 </resources>

@@ -18,10 +18,12 @@ package com.google.android.accessibility.utils.traversal;
 
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.common.collect.Iterables;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Tree that represents Accessibility node hierarchy. It lets reorder the structure of the tree. */
@@ -29,33 +31,33 @@ public class WorkingTree {
 
   private static final String TAG = "WorkingTree";
 
-  private AccessibilityNodeInfoCompat mNode;
-  private @Nullable WorkingTree mParent;
-  private final List<WorkingTree> mChildren = new ArrayList<>();
+  private final AccessibilityNodeInfoCompat node;
+  private @Nullable WorkingTree parent;
+  private final List<WorkingTree> children = new ArrayList<>();
 
-  public WorkingTree(AccessibilityNodeInfoCompat node, @Nullable WorkingTree parent) {
-    mNode = node;
-    mParent = parent;
+  public WorkingTree(@NonNull AccessibilityNodeInfoCompat node, @Nullable WorkingTree parent) {
+    this.node = node;
+    this.parent = parent;
   }
 
-  public AccessibilityNodeInfoCompat getNode() {
-    return mNode;
+  public @NonNull AccessibilityNodeInfoCompat getNode() {
+    return node;
   }
 
   public @Nullable WorkingTree getParent() {
-    return mParent;
+    return parent;
   }
 
   public void setParent(@Nullable WorkingTree parent) {
-    mParent = parent;
+    this.parent = parent;
   }
 
   public void addChild(WorkingTree node) {
-    mChildren.add(node);
+    children.add(node);
   }
 
   public boolean removeChild(WorkingTree child) {
-    return mChildren.remove(child);
+    return children.remove(child);
   }
 
   /** Checks whether subTree is a descendant of this WorkingTree node. */
@@ -72,7 +74,7 @@ public class WorkingTree {
       AccessibilityNodeInfoCompat node = subTree.getNode();
 
       // If ancestor is this working tree node... target is descendant of this node.
-      if (mNode.equals(node)) {
+      if (this.node.equals(node)) {
         return true;
       }
 
@@ -98,18 +100,18 @@ public class WorkingTree {
   }
 
   public void swapChild(WorkingTree swappedChild, WorkingTree newChild) {
-    int position = mChildren.indexOf(swappedChild);
+    int position = children.indexOf(swappedChild);
     if (position < 0) {
       LogUtils.e(TAG, "WorkingTree IllegalStateException: swap child not found");
       return;
     }
 
-    mChildren.set(position, newChild);
+    children.set(position, newChild);
   }
 
   public @Nullable WorkingTree getNext() {
-    if (!mChildren.isEmpty()) {
-      return mChildren.get(0);
+    if (!children.isEmpty()) {
+      return children.get(0);
     }
 
     WorkingTree startNode = this;
@@ -131,7 +133,7 @@ public class WorkingTree {
       return null;
     }
 
-    int currentIndex = parent.mChildren.indexOf(this);
+    int currentIndex = parent.children.indexOf(this);
     if (currentIndex < 0) {
       LogUtils.e(TAG, "WorkingTree IllegalStateException: swap child not found");
       return null;
@@ -139,12 +141,12 @@ public class WorkingTree {
 
     currentIndex++;
 
-    if (currentIndex >= parent.mChildren.size()) {
+    if (currentIndex >= parent.children.size()) {
       // it was last child
       return null;
     }
 
-    return parent.mChildren.get(currentIndex);
+    return parent.children.get(currentIndex);
   }
 
   public @Nullable WorkingTree getPrevious() {
@@ -162,7 +164,7 @@ public class WorkingTree {
       return null;
     }
 
-    int currentIndex = parent.mChildren.indexOf(this);
+    int currentIndex = parent.children.indexOf(this);
     if (currentIndex < 0) {
       LogUtils.e(TAG, "WorkingTree IllegalStateException: swap child not found");
       return null;
@@ -175,13 +177,13 @@ public class WorkingTree {
       return null;
     }
 
-    return parent.mChildren.get(currentIndex);
+    return parent.children.get(currentIndex);
   }
 
   public WorkingTree getLastNode() {
     WorkingTree node = this;
-    while (!node.mChildren.isEmpty()) {
-      node = node.mChildren.get(node.mChildren.size() - 1);
+    while (!node.children.isEmpty()) {
+      node = Iterables.getLast(node.children);
     }
 
     return node;

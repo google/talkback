@@ -10,7 +10,7 @@
       Description: This is presented to the user on the accessibility settings view. [CHAR LIMIT=NONE]
     -->
     <string name="talkback_service_description">
-      When TalkBack is on, it provides spoken feedback so that you can use your device without looking at the screen. This can be helpful for people who are blind or have low vision.\n\nTalkback has braille support, and uses Bluetooth to help you connect with a braille display.\n\nTo navigate using TalkBack:\n•  Swipe right or left to move between items\n•  Double-tap to activate an item\n•  Drag two fingers to scroll\n\nTo turn off TalkBack:\n•  Tap the switch. You’ll see a green outline. Double-tap the switch.\n•  On the confirmation message, tap OK. Then double-tap OK.
+      When TalkBack is on, it provides spoken feedback so that you can use your device without looking at the screen. This can be helpful for people who are blind or have low vision.\n\nTo navigate using TalkBack:\n•  Swipe right or left to move between items\n•  Double-tap to activate an item\n•  Drag two fingers to scroll\n\nTo turn off TalkBack:\n•  Tap the switch. You’ll see an outline. Double-tap the switch.\n•  On the confirmation message, tap OK. Then double-tap OK.
     </string>
 
     <!-- TODO: Try to remove nbsp following li. -->
@@ -19,7 +19,7 @@
       Description: This is presented in html to the user on the accessibility settings view. [CHAR_LIMIT=NONE]
     -->
     <string name="talkback_service_html_description">
-      <![CDATA[When Talkback is on, it provides spoken feedback so that you can use your device without looking at the screen. Talkback is intended for situations or people who have difficulty seeing the screen.<br><br>Talkback has braille support, and uses Bluetooth to help you connect with a braille display.<br><br><b>How to use Talkback</b><br>• Swipe right or left to move between items<br>• Double-tap to activate an item<br>• Drag 2 fingers to scroll<br><br><b>How to turn off Talkback</b><br><br><b>Volume Keys:</b> Press &amp\; hold both volume keys for a few seconds.<br><br><b>Settings</b><br>• Tap the <b>Use Talkback</b> switch. You&apos\;ll see a green outline. Double-tap the switch.<br>• On the confirmation message, tap stop. Then double-tap Stop.]]>
+      <![CDATA[When TalkBack is on, it provides spoken feedback so that you can use your device without looking at the screen. TalkBack is intended for situations or people who have difficulty seeing the screen.<br><br><b>How to use TalkBack</b><br>• Swipe right or left to move between items<br>• Double-tap to activate an item<br>• Drag 2 fingers to scroll<br><b>How to turn off TalkBack</b><br>1. In Settings, tap <b>Use TalkBack</b>. There will be an outline. Double-tap it.<br>2. On the confirmation message, tap <b>Stop</b>. There will be an outline. Double-tap it.]]>
     </string>
 
     <!--
@@ -44,12 +44,12 @@
     -->
     <string name="language_options">Languages</string>
     <!--
-    Source: Title for the menu item of Talkback Menu that opens the dialog with TTS languages installed by the user.
+    Source: Title for the menu item of TalkBack Menu that opens the dialog with TTS languages installed by the user.
     Description: This is presented to the user. [CHAR LIMIT="70"]
     -->
     <string name="spoken_language">Spoken language</string>
     <!--
-    Source: Title for the menu item of Talkback Menu that presents actions which can be performed by the user.
+    Source: Title for the menu item of TalkBack Menu that presents actions which can be performed by the user.
     Description: This is presented to the user. [CHAR_LIMIT=70]
     -->
   <string name="actions">Actions</string>
@@ -80,8 +80,6 @@
     <string name="label_manager_no_packages_message">There are currently no custom labels\n\n<b>How to create a custom label</b>\nNavigate to an unlabeled image and add a label from the TalkBack menu</string>
     <!-- A label for the timestamp of when a custom label was stored or last modified. -->
     <string name="label_manager_timestamp_text">Last modified <xliff:g id="timestamp" example="1/1/11 11:11 AM">%1$s</xliff:g></string>
-    <!-- Label for search dialog. Argument is search text. This is shown on screen in a popup window. [CHAR_LIMIT=15]-->
-    <string name="search_dialog_label">Search: <xliff:g id="search_query">%1$s</xliff:g></string>
     <!-- Spoken when the search is canceled. -->
     <string name="search_mode_cancel">Search canceled.</string>
     <!--
@@ -117,12 +115,6 @@
   <string name="template_language_options_menu_item"><xliff:g id="language">%1$s</xliff:g> (<xliff:g id="country">%2$s</xliff:g>)</string>
 
     <!-- VALUES -->
-    <!--
-      Source: A value for announcing text deletion.
-      Description: This is spoken to the user. [CHAR LIMIT=NONE]
-    -->
-    <string name="value_text_removed">deleted</string>
-
     <!--
       Source: A value for announcing the vibrate ringer mode.
       Description: This is spoken to the user. [CHAR LIMIT=NONE]
@@ -232,6 +224,8 @@
 
   <!-- Reset keymap [CHAR LIMIT=57] -->
   <string name="Reset_gesture_settings_dialog_title">Reset gestures?</string>
+  <!-- Reset keymap [CHAR LIMIT=90] -->
+  <string name="Reset_gesture_settings_set_dialog_title">Reset gestures of current set?</string>
   <!-- Description what the reset gesture will do. [CHAR LIMIT=NONE] -->
   <string name="message_reset_gesture_settings_confirm_dialog">This will reset all gestures to their default actions.\n\nYou will lose any changes that you have made.</string>
 
@@ -262,15 +256,25 @@
     <string name="summary_pref_speak_element_ids">For unlabeled buttons</string>
 
     <!--
-      Source: Preference for speaking system window title when the focus changes due to window transition.
+      Source: Preference for speaking window title when the focus changes due to window transition.
       Description: The user can check or not check this. [CHAR LIMIT=40]
     -->
-    <string name="pref_speak_system_window_titles_title">Speak system windows</string>
+    <string name="pref_speak_system_window_titles_title">Speak window names</string>
     <!--
-      Source: Summary subtext for preference to speak system window titles.
-      Description: Explains that TalkBack will speak the system window title of a focused item. [CHAR LIMIT=NONE]
+      Source: Preference for limiting the text change rate.
+      Description: The user can check or not check this. [CHAR LIMIT=40]
     -->
-    <string name="pref_speak_system_window_titles_summary">When you switch to other system windows like the status bar, notifications, or volume controls</string>
+    <string name="pref_allow_frequent_content_change_announcement_title">Speak all progress updates</string>
+    <!--
+      Source: Summary subtext for the limit frequent content change announcement setting.
+      Description: Explains that decision of content change announcement frequency. [CHAR LIMIT=NONE]
+    -->
+    <string name="summary_pref_allow_frequent_content_change_announcement">Includes updates while downloading, following driving directions, and more. When turned off, you’ll still get less frequent updates.</string>
+    <!--
+      Source: Summary subtext for preference to speak window titles.
+      Description: Explains that TalkBack will speak the window title of a focused item. [CHAR LIMIT=NONE]
+    -->
+    <string name="pref_speak_system_window_titles_summary">Speak system and input windows, like when you switch to the status bar, notifications, or another keyboard</string>
 
     <!--
       Source: Preference for Explore by touch setting. This setting allows users to touch on-screen content to hear it spoken aloud.
@@ -295,7 +299,7 @@
     -->
     <string name="pref_punctuation_title">Speak punctuation and symbols</string>
     <!-- Label for the PreferenceScreen used to manage TalkBack's focus indicator. [CHAR LIMIT=40] -->
-    <string name="title_pref_category_manage_focus_indicator">Customize Focus Indicator</string>
+    <string name="title_pref_category_manage_focus_indicator">Customize focus</string>
     <!-- Label for the PreferenceScreen used to manage TalkBack's gesture mapping. [CHAR LIMIT=40] -->
     <string name="title_pref_category_manage_gestures">Customize gestures</string>
     <!-- Label for the button to launch an activity for managing TalkBack's custom view labels. [CHAR LIMIT=70] -->
@@ -310,13 +314,13 @@
     <string name="title_pref_category_navigation_menu">Edit navigation options</string>
     <!-- Label for the button to launch an activity for managing TalkBack's keyboard shortcuts. [CHAR LIMIT=40] -->
     <!--
-      Source: Summary subtext for talkback context menu setting.
-      Description: Explains how Talkback context menu is opened. [CHAR LIMIT=NONE]
+      Source: Summary subtext for TalkBack context menu setting.
+      Description: Explains how TalkBack context menu is opened. [CHAR LIMIT=NONE]
     -->
     <string name="pref_category_context_menu_summary">To use the TalkBack menu, tap the screen with 3 fingers. You can also swipe up then right, or swipe down then right.</string>
     <!--
-    Source: Summary subtext for talkback context menu setting.
-    Description: Explains how Talkback context menu is opened without multifinger support. [CHAR LIMIT=NONE]
+    Source: Summary subtext for TalkBack context menu setting.
+    Description: Explains how TalkBack context menu is opened without multifinger support. [CHAR LIMIT=NONE]
     -->
     <string name="pref_category_context_menu_summary_single_finger">To use the TalkBack menu, swipe down then right.</string>
     <!--
@@ -340,6 +344,8 @@
     <string name="title_pref_help_and_feedback">Help &#38; feedback</string>
     <!-- The label of a settings item that displays legal information about the licenses used in this app. [CHAR LIMIT=NONE] -->
     <string name="pref_item_licenses">Open Source Licenses</string>
+    <!-- Label for the button to show tutorial [CHAR LIMIT=40] -->
+    <string name="title_pref_tutorial">Tutorial</string>
     <!-- Label for the button to show help menu [CHAR LIMIT=40] -->
     <string name="title_pref_help">Help</string>
     <!-- Label for the button to show terms of service [CHAR LIMIT=40] -->
@@ -348,8 +354,10 @@
     <string name="title_pref_show_privacy_policy">Privacy policy</string>
     <!-- Category for assigning shortcuts to fingerprint sensor gestures. [CHAR LIMIT=40] -->
     <string name="title_pref_category_fingerprint_touch_shortcuts">Fingerprint gestures</string>
-    <!-- Category for helping page or feedback. [CHAR LIMIT=60] -->
+    <!-- Category for tutorial, helping page and feedback. [CHAR LIMIT=60] -->
     <string name="title_pref_category_tutorial_and_help">Tutorial and help</string>
+    <!-- Category for helping page or feedback. [CHAR LIMIT=60] -->
+    <string name="title_pref_category_help_no_tutorial">Help</string>
     <!-- Category for typing settings. [CHAR LIMIT=60] -->
     <string name="title_pref_category_typing">Typing and keyboard</string>
     <!-- Category for advanced settings. [CHAR LIMIT=60] -->
@@ -382,10 +390,38 @@
     <string name="pref_verbosity_preset_entry_low">Low</string>
     <!-- Verbosity preferences, preset settings category title. [CHAR LIMIT=40] -->
     <string name="pref_verbosity_category_preset_settings_title">Verbosity details</string>
-    <!-- Verbosity preferences, description settings category title. [CHAR LIMIT=40] -->
-    <string name="pref_verbosity_category_misc_settings_title">Miscellaneous</string>
     <!-- Verbosity preferences, announce selected preset. -->
     <string name="pref_verbosity_preset_change"><xliff:g id="preset_name" example="High">%1$s</xliff:g> verbosity is now active.</string>
+
+    <!-- Gesture set id. [CHAR LIMIT=40] -->
+    <string name="pref_gesture_set_entry_0">0</string>
+    <string name="pref_gesture_set_entry_1">1</string>
+
+    <!-- Keyboard key map changes items. -->
+    <!-- TalkBack keyboard shortcut keymap changes. The title for Activity and Notification to notify user there is another keymap support more shortcut actions worth to try. [CHAR LIMIT=60] -->
+    <string name="keycombo_keymap_changes_instruction_title">Update your TalkBack keymap</string>
+    <!-- TalkBack keyboard shortcut keymap changes. The content for Activity and Notification to notify user there is another keymap support more shortcut actions worth to try. [CHAR LIMIT=200] -->
+    <string name="keycombo_keymap_changes_activity_content"><![CDATA[To keep using keyboard shortcuts, go to Settings and switch from the classic keymap to the default keymap.
+      <br><br><b>What\'s different about the default keymap?</b>
+      <br><br><ul><li>There are more navigation and web navigation actions.</li>
+      <li>Some of the modifier keys are different.</li></ul>]]></string>
+    <!-- TalkBack keyboard shortcut keymap changes content append after keycombo_keymap_changes_activity_content with 2 newlines in the middle. Click it can open the web page to TalkBack keyboard help [CHAR LIMIT=100] -->
+    <string name="keycombo_keymap_changes_activity_content_learn_more">Learn more about keymaps</string>
+    <!-- TalkBack keyboard go to settings button. Click the button will open the TalkBack keyboard settings. [CHAR LIMIT=40] -->
+    <string name="keycombo_go_to_settings">Go to Settings</string>
+    <!-- TalkBack keyboard shortcut keymap changes notification content. [CHAR LIMIT=300] -->
+    <string name="keycombo_keymap_changes_notifications_content">TalkBack is getting ready to remove the classic keymap. To keep using keyboard shortcuts, switch to the default keymap.</string>
+    <!-- TalkBack keyboard shortcut keymap changes notification action button. Click the button will open the instruction activity. [CHAR LIMIT=40] -->
+    <string name="keycombo_keymap_changes_notifications_action">Learn more</string>
+    <!-- Keyboard update modifier keys. -->
+    <!-- TalkBack keyboard shortcut keymap update modifier keys. The title for dialog and notification to notify user had better to update the modifier keys. [CHAR LIMIT=60] -->
+    <string name="keycombo_update_modifier_key_warning_title">Update your TalkBack modifier key</string>
+    <!-- TalkBack keyboard shortcut keymap update modifier keys. The content for dialog and notification to notify user had better to update the modifier keys. [CHAR LIMIT=300] -->
+    <string name="keycombo_update_modifier_key_warning_content">To keep using TalkBack\'s keyboard shortcuts, update your modifier key from Search to Alt.\n\nIf you continue using the Search modifier key, some shortcuts will take different actions for this version of Android.</string>
+    <!-- The checkbox text of the dialog to reject showing the dialog again. [CHAR_LIMIT=30]-->
+    <string name="keycombo_update_modifier_keys_do_not_show_again_check_box">Do not show this again</string>
+    <!-- TalkBack keyboard shortcut keymap update modifier keys. The title for dialog and notification to notify user had better to update the modifier keys. [CHAR LIMIT=60] -->
+    <string name="keycombo_update_modifier_keys_warning_negative_button">Not now</string>
 
     <!-- Keyboard key combination assignment dialog items -->
     <!-- Keymap group name title [CHAR LIMIT=40] -->
@@ -462,6 +498,8 @@
     <string name="keycombo_menu_global_adjust_reading_settings_previous">Adjust reading control up</string>
     <!-- Keyboard key combination assignment for adjust reading control down action [CHAR LIMIT=80] -->
     <string name="keycombo_menu_global_adjust_reading_setting_next">Adjust reading control down</string>
+    <!-- Keyboard key combination assignment for hiding or showing screen [CHAR LIMIT=80] -->
+    <string name="keycombo_menu_global_hide_or_show_screen">Hide or show screen</string>
     <!-- Navigation actions group name title [CHAR LIMIT=40] -->
     <string name="keycombo_menu_category_granularity">Navigation</string>
     <!-- Keyboard key combination assignment for next navigation action [CHAR LIMIT=40] -->
@@ -476,18 +514,15 @@
     <string name="keycombo_menu_other_read_from_next_item">Read from next item</string>
     <!-- Keyboard key combination assignment for Start item search action [CHAR LIMIT=40] -->
     <string name="keycombo_menu_other_toggle_search">Search the screen for an item</string>
-    <!-- Keyboard key combination assignment for Show Talkback Menu action
-    Talkback menu actions are related to whole application [CHAR LIMIT=130] [BACKUP_MESSAGE_ID: 8053375494161376217] -->
-    <string name="keycombo_menu_other_talkback_context_menu">Show Talkback Menu</string>
+    <!-- Keyboard key combination assignment for Show TalkBack Menu action
+    TalkBack menu actions are related to whole application [CHAR LIMIT=130] [BACKUP_MESSAGE_ID: 8053375494161376217] -->
+    <string name="keycombo_menu_other_talkback_context_menu">Show TalkBack Menu</string>
     <!-- Keyboard key combination assignment for opening the list of custom actions [CHAR LIMIT=60] -->
     <string name="keycombo_menu_other_custom_actions">Show actions</string>
-  <!-- Keyboard key combination assignment for opening the list of TTS languages installed by the user. [CHAR LIMIT=60] -->
-  <string name="keycombo_menu_other_language_options">Show installed languages</string>
-    <!-- Keyboard key combination assignment for opening manage keyboard shortcuts of TalkBack
-         settings [CHAR LIMIT=60] -->
-    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts">Manage keyboard shortcuts</string>
-    <!-- Keyboard key combination assignment for opening TalkBack settings [CHAR LIMIT=60] -->
-    <string name="keycombo_menu_other_open_talkback_settings">Open TalkBack settings</string>
+    <!-- Keyboard key combination assignment for opening the list of TTS languages installed by the user. [CHAR LIMIT=60] -->
+    <string name="keycombo_menu_other_language_options">Show installed languages</string>
+    <!-- Keyboard key combination assignment for copying the last spoken phrase. [CHAR LIMIT=60] -->
+    <string name="keycombo_menu_other_copy_last_spoken_phrase">Copy last spoken phrase</string>
     <!-- Web navigation actions group name title [CHAR LIMIT=40] -->
     <string name="keycombo_menu_category_web">Web navigation actions</string>
     <!-- Keyboard key combination assignment for navigating to next button [CHAR LIMIT=40] -->
@@ -608,6 +643,8 @@
     <string name="keycombo_key_arrow_up">Arrow Up</string>
     <!-- String representation of arrow down key. e.g. Search + Arrow Down. -->
     <string name="keycombo_key_arrow_down">Arrow Down</string>
+    <!-- String representation of backspace key. e.g. Search + Backspace. -->
+    <string name="keycombo_key_backspace">Backspace</string>
 
     <!-- Dialog with this text is shown when key combination is chosen for some action that
     is already assigned to another action [CHAR LIMIT=40] -->
@@ -623,11 +660,18 @@
     <string name="title_pref_keyboard_echo">Keyboard echo</string>
     <!-- Label for preference that changes order of describing user-interface elements. -->
     <string name="pref_node_desc_order_title">Element description order</string>
+    <!-- Label for preference that changes the format of time feedback. [CHAR LIMIT=60] -->
+    <string name="pref_time_feedback_format_title">Time format</string>
     <!--
       Source: Summary subtext for the "Use pitch changes" setting.
       Description: Explains that feedback from the keyboard, e.g. when a user deletes an "A" and the phone speaks "A deleted", will be spoken in a higer pitched voice. [CHAR LIMIT=NONE]
     -->
     <string name="summary_pref_intonation">Speak deleted letters in a higher-pitched voice</string>
+    <!--
+      Source: Preference category for braille display feature.
+      Description: Contains preferences of braille display related settings. [CHAR LIMIT=35]
+    -->
+    <string name="title_pref_brailledisplay">Braille display</string>
     <!--
       Source: Preference category for braille IME feature.
       Description: Contains preferences of braille IME related settings. [CHAR LIMIT=35]
@@ -648,11 +692,6 @@
       Description: The user can check or not check this. [CHAR LIMIT=35]
      -->
     <string name="title_pref_use_audio_focus">Audio ducking</string>
-    <!--
-      Source: Description for the preference that causes TalkBack to decrease audio volume of other applications during speech output.
-      Description: Hint text for this checkable user preference. [CHAR LIMIT=80]
-     -->
-     <string name="summary_pref_use_audio_focus">Decrease other audio volume while speaking</string>
     <!--
       Source: Preference for changing the volume of sound feedback.
       Description: Contains a list of volume settings. [CHAR LIMIT=25]
@@ -699,6 +738,11 @@
       Description: This preference allows the user to show speech output on the screen.
     -->
     <string name="title_pref_tts_overlay">Display speech output</string>
+    <!--
+      Source: Preference title.
+      Description: This preference allows the user to activate the multiple gesture set feature.
+    -->
+    <string name="title_pref_multiple_gesture_set">Support multiple gesture sets</string>
     <!--
     Source: Preference title.
     Description: This preference allows the user to echo back recognized text speech.
@@ -749,27 +793,75 @@
 
     <!--
       Source: Preference title.
-      Description: This preference to download icon detection module and enable the feature. [CHAR_LIMIT=90]
+      Description: This preference to control automatic image captioning. [CHAR_LIMIT=NONE]
     -->
-    <string name="title_pref_icon_detection">Automatically describe icons</string>
+    <string name="title_pref_auto_image_captioning">Automatic descriptions</string>
+
+    <!--
+      Source: Preference title.
+      Description: This preference to download icon detection module and enable/disable the feature. [CHAR_LIMIT=NONE]
+    -->
+    <string name="title_pref_icon_detection">Describe icons</string>
 
     <!--
       Source: Summary subtext for the "Automatically describe icons" setting.
-      Description: Explains how icon detection works. [CHAR LIMIT=NONE]
+      Description: Explain that the icon detection library is downloading. [CHAR_LIMIT=NONE]
     -->
-    <string name="summary_pref_icon_detection">Hear descriptions when you focus on an unlabelled icon</string>
+    <string name="summary_pref_icon_detection_downloading">Downloading</string>
+
+    <!--
+      Source: Preference title.
+      Description: This preference to download image description module and enable/disable the feature. [CHAR_LIMIT=90]
+    -->
+    <string name="title_pref_image_description">Describe images</string>
+    <!--
+      Source: Preference title.
+      Description: This preference to enable/disable the recognize text in images. [CHAR_LIMIT=NONE]
+    -->
+    <string name="title_pref_text_recognition">Describe text in images</string>
+
+    <!--
+      Source: Summary subtext for the "Automatic descriptions" setting.
+      Description: Explains what kinds of image captioning TackBack provides. [CHAR LIMIT=NONE]
+    -->
+    <string name="summary_pref_auto_image_captioning">For icons, images and text in images</string>
+
+    <!--
+      Source: Summary subtext for the "Automatic descriptions" setting.
+      Description: Explains what kinds of image captioning TackBack provides. [CHAR LIMIT=NONE]
+    -->
+    <string name="summary_pref_auto_image_captioning_text_only">For text in images</string>
+
+
+    <!--
+      Source: Summary subtext for the "Automatic descriptions" setting.
+      Description: Explains what kinds of image captioning TackBack provides. [CHAR LIMIT=NONE]
+    -->
+    <string name="summary_pref_auto_image_captioning_no_icon">For images and text in images</string>
+
+    <!--
+      Source: Summary subtext for the "Automatic descriptions" setting.
+      Description: Explains what kinds of image captioning TackBack provides. [CHAR LIMIT=NONE]
+    -->
+    <string name="summary_pref_auto_image_captioning_no_image">For icons and text in images</string>
 
   <!--
-    Source: Summary subtext for the "Automatically describe icons" setting.
-    Description: Explain that the icon detection library is downloading. [CHAR_LIMIT=NONE]
+    Source: Summary subtext for "Describe icon" and "Describe images" settings.
+    Description: Explain that the module is downloading. [CHAR_LIMIT=NONE]
   -->
-  <string name="summary_pref_icon_detection_downloading">Downloading</string>
+  <string name="summary_pref_module_downloading">Downloading…</string>
 
   <!--
-    Source: Summary subtext for the "Automatically describe icons" setting.
-    Description: Explain that the icon detection library is uninstalling. [CHAR_LIMIT=NONE]
+    Source: Summary subtext for "Describe icon", "Describe images" and "Describe text in images" settings.
+    Description: Explain that the feature is enabled. [CHAR_LIMIT=NONE]
   -->
-  <string name="summary_pref_icon_detection_uninstalling">Uninstalling</string>
+  <string name="summary_pref_feature_enabled">On</string>
+
+  <!--
+    Source: Summary subtext for "Describe icon", "Describe images" and "Describe text in images" settings.
+    Description: Explain that the feature is disabled. [CHAR_LIMIT=NONE]
+  -->
+  <string name="summary_pref_feature_disabled">Off</string>
 
   <!--
     Source: A value for announcing screen has been dimmed.
@@ -789,7 +881,7 @@
     <!--
       Text that is temporary displayed on the screen for showing the screen from hidden mode. [CHAR_LIMIT=NONE]
     -->
-    <string name="screen_dimming_exit_instruction_line2">Do gesture <xliff:g id="gesture" example="Tap with 3 fingers">%1$s</xliff:g> to open TalkBack menu, highlight \"<xliff:g id="menu item" example="show screen">%2$s</xliff:g>\", then double-tap.</string>
+    <string name="screen_dimming_exit_instruction_line2">To change this, <xliff:g id="gesture" example="tap with 3 fingers">%1$s</xliff:g> to open the TalkBack menu, select \"<xliff:g id="menu item" example="show screen">%2$s</xliff:g>\", then double-tap.</string>
 
     <!-- Category for shortcuts related to basic navigation. [CHAR_LIMIT=40] -->
     <string name="shortcut_title_basic_navigation">Basic Navigation</string>
@@ -827,6 +919,10 @@
     <string name="shortcut_scroll_left">Scroll left</string>
     <!-- Label for the shortcut that tries to scroll current view right. [CHAR_LIMIT=40] -->
     <string name="shortcut_scroll_right">Scroll right</string>
+    <!-- Label for the shortcut that moves accessibility focus to an item in the next container. [CHAR_LIMIT=60] -->
+    <string name="shortcut_next_container">Next container</string>
+    <!-- Label for the shortcut that moves accessibility focus to an item in the previous container. [CHAR_LIMIT=60] -->
+    <string name="shortcut_prev_container">Previous container</string>
     <!-- Label for the shortcut that moves accessibility focus to the item on the next window. [CHAR_LIMIT=40] -->
     <string name="shortcut_next_window">Next window</string>
     <!-- Label for the shortcut that moves accessibility focus to the item on the previous window. [CHAR_LIMIT=40] -->
@@ -843,9 +939,7 @@
     <string name="shortcut_quick_settings">Quick Settings</string>
     <!-- Label for the shortcut that opens the custom action menu. [CHAR_LIMIT=40] -->
     <string name="shortcut_show_custom_actions">Show custom actions</string>
-    <!-- Label for the shortcut that opens the editing menu. [CHAR_LIMIT=40] -->
-    <string name="shortcut_editing">Show editing options</string>
-    <!-- Label for the shortcut that opens the talkback context breakout menu [CHAR_LIMIT=100] -->
+    <!-- Label for the shortcut that opens the TalkBack context breakout menu [CHAR_LIMIT=100] -->
     <string name="shortcut_talkback_breakout">Open TalkBack menu</string>
     <!-- Label for the shortcut that pauses all feedback from TalkBack. [CHAR_LIMIT=69] -->
     <string name="shortcut_pause_or_resume_feedback">Pause or resume speech</string>
@@ -871,7 +965,7 @@
     <string name="shortcut_first_in_screen">Focus on first item on screen</string>
     <!-- Label for the shortcut that will make a summary of the screen -->
     <string name="shortcut_summary">Summarize screen layout</string>
-    <!-- Label for the shortcut that will allow voice commands to invoke talkback actions. [CHAR_LIMIT=60] -->
+    <!-- Label for the shortcut that will allow voice commands to invoke TalkBack actions. [CHAR_LIMIT=60] -->
     <string name="shortcut_voice_commands">Start voice command</string>
     <!-- Label for the shortcut that will move focus to the last item on the screen -->
     <string name="shortcut_last_in_screen">Focus on last item on screen</string>
@@ -888,7 +982,7 @@
     -->
     <string name="shortcut_disable_dimming">Show screen</string>
     <!-- Label for the shortcut that performs click on focused item action. -->
-    <string name="shortcut_perform_click_action">Tap</string>
+    <string name="shortcut_perform_click_action">Activate</string>
     <!-- Label for the shortcut that performs long click on focused item action. [CHAR_LIMIT=60] -->
     <string name="shortcut_perform_long_click_action">Touch and hold</string>
     <!-- Title for dialog with general TalkBack actions and focused node actions [CHAR_LIMIT=40] -->
@@ -910,28 +1004,32 @@
   <string name="shortcut_selected_setting_next_action">Move navigation focus forward or adjust reading control down</string>
   <!--Label for the shortcut that performs the selected setting's previous action [CHAR_LIMIT=120]-->
   <string name="shortcut_selected_setting_previous_action">Move navigation focus backward or adjust reading control up</string>
-  <!--Label for the shortcut that activate the current action in the actions setting [CHAR_LIMIT=120]-->
-  <string name="shortcut_action_setting_activate_current_action">Activate the currently selected action</string>
   <!-- Label for the screen search result list. -->
   <string name="label_screen_search_result">Search result</string>
   <!-- Title for the screen search overlay. -->
   <string name="title_screen_search" translatable="false">@string/title_show_screen_search</string>
     <!-- Label for the shortcut that plays/pauses media [CHAR_LIMIT=61]-->
     <string name="shortcut_media_control">Play or pause media</string>
+    <!-- Label for the shortcut that turns up the volume. [CHAR_LIMIT=60]-->
+    <string name="shortcut_increase_volume">Increase volume</string>
+    <!-- Label for the shortcut that turns down the volume. [CHAR_LIMIT=60]-->
+    <string name="shortcut_decrease_volume">Decrease volume</string>
     <!-- Label for the shortcut that perform all apps action. [CHAR_LIMIT=25]-->
     <string name="shortcut_all_apps">All apps</string>
     <!-- Label for the shortcut that perform switch to braille keyboard action. [CHAR_LIMIT=40]-->
     <string name="shortcut_braille_keyboard">Switch to braille keyboard</string>
     <!-- Label for the shortcut that perform navigate to braille display settings action. [CHAR_LIMIT=40]-->
     <string name="shortcut_braille_display_settings">Navigate to braille display settings</string>
-    <!-- Label for the shortcut that launch Talkback tutorial action. [CHAR_LIMIT=40]-->
+    <!-- Label for the shortcut that launch TalkBack tutorial action. [CHAR_LIMIT=40]-->
     <string name="shortcut_tutorial">Open tutorial</string>
     <!-- Label for the shortcut that launch gesture practicing page. [CHAR_LIMIT=40]-->
     <string name="shortcut_practice_gestures">Practice gestures</string>
     <!-- Label for the shortcut that report gesture issue. [CHAR_LIMIT=60]-->
     <string name="shortcut_report_gesture">Report gesture issue</string>
+    <!-- Label for the shortcut that turn braille display on/off. [CHAR_LIMIT=60]-->
+    <string name="shortcut_toggle_braille_display">Turn braille display on or off</string>
 
-    <!-- Label for the talkback breakout menu when it contains no other items. [CHAR_LIMIT=100] -->
+    <!-- Label for the TalkBack breakout menu when it contains no other items. [CHAR_LIMIT=100] -->
     <string name="title_local_breakout_no_items">No menu items.</string>
     <!-- Label for the menu item to move to the next section within web content. [CHAR_LIMIT=40] -->
     <string name="title_web_breakout_next_section">Next section</string>
@@ -945,8 +1043,6 @@
     <string name="title_web_breakout_prev_list">Previous list</string>
     <!-- Label for the menu item to move to the previous control within web content. [CHAR_LIMIT=40] -->
     <string name="title_web_breakout_prev_control">Previous control</string>
-    <!-- [Deprecated] Label for the talkback breakout menu containing controls for navigating editable text content. [CHAR_LIMIT=70] -->
-    <string name="title_edittext_controls">Editing options</string>
     <!-- Label for the menu item to move the cursor to the beginning of editable text content. [CHAR_LIMIT=40] -->
     <string name="title_edittext_breakout_move_to_beginning">Move cursor to beginning</string>
     <!-- Label for the menu item to move the cursor to the end of editable text content. [CHAR_LIMIT=40] -->
@@ -955,7 +1051,11 @@
     <string name="title_edittext_breakout_start_selection_mode">Start or end selection mode</string>
     <!-- Label for the menu item to end text selection mode. [CHAR_LIMIT=40] -->
     <string name="title_edittext_breakout_end_selection_mode">End selection mode</string>
-    <!-- Label for the talkback breakout menu containing controls for navigating within a ViewPager control. [CHAR_LIMIT=70] -->
+    <!-- Label for the menu item to show spelling suggestions for misspelling words. [CHAR_LIMIT=60] -->
+    <string name="title_edittext_typo_suggestions">Spelling suggestions</string>
+    <!-- Label for the menu item to show the spelling suggestion for a misspelling word. [CHAR_LIMIT=60] -->
+    <string name="title_edittext_typo_suggestion"><xliff:g id="spelling_suggestion" example="Word(W O R D)">%1$s</xliff:g>, spelling suggestion</string>
+    <!-- Label for the TalkBack breakout menu containing controls for navigating within a ViewPager control. [CHAR_LIMIT=70] -->
     <string name="title_viewpager_controls">Page navigation</string>
     <!-- Label for the menu item to move to the next page within a ViewPager control. [CHAR_LIMIT=40] -->
     <string name="title_viewpager_breakout_next_page">Next page</string>
@@ -969,9 +1069,9 @@
     <string name="title_viewpager_breakout_page_left">Page left</string>
     <!-- Label for the menu item to move a page right within a ViewPager control. [CHAR_LIMIT=40] -->
     <string name="title_viewpager_breakout_page_right">Page right</string>
-    <!-- Label for the talkback breakout menu containing controls for managing user defined labels for unlabeled items [CHAR_LIMIT=40] -->
+    <!-- Label for the TalkBack breakout menu containing controls for managing user defined labels for unlabeled items [CHAR_LIMIT=40] -->
     <string name="title_labeling_controls">Labels</string>
-    <!-- Label for the talkback breakout menu settings containing controls for managing to show or hide label at talkback breakout menu [CHAR_LIMIT=130] -->
+    <!-- Label for the TalkBack breakout menu settings containing controls for managing to show or hide label at TalkBack breakout menu [CHAR_LIMIT=130] -->
     <string name="title_labeling_show_or_hide_controls">Add or edit labels</string>
     <!-- Label for the menu item that lets the user change the navigation granularity (ex. character, word). [CHAR_LIMIT=40] -->
     <string name="title_granularity">Navigation</string>
@@ -995,15 +1095,31 @@
     <string name="title_show_screen_search">Screen search</string>
     <!-- Label for the context menu containing voice commands. [CHAR_LIMIT=70] -->
     <string name="title_show_voice_commands">Voice commands</string>
-    <!-- Label for the context menu containing Talkback settings. [CHAR_LIMIT=70] -->
+    <!-- Label for the context menu containing TalkBack settings. [CHAR_LIMIT=70] -->
     <string name="talkback_show_talkback_settings">TalkBack settings</string>
+    <!-- Label for the context menu containing braille display settings. [CHAR_LIMIT=70] -->
+    <string name="title_show_braille_display_settings">Braille display settings</string>
 
     <!-- Label for the navigation menu containing other web navigation. [CHAR_LIMIT=100] -->
     <string name="title_other_web_navigation">Other web navigation</string>
     <!-- Label for the navigation menu containing default granularity. [CHAR_LIMIT=100] -->
     <string name="title_granularity_default">Default navigation</string>
 
-
+    <!--
+      Source: A TalkBack menu option that allows dismissing an element on the screen.
+      Description: This is presented to the user when an element supports a "dismiss" action. [CHAR LIMIT=NONE]
+    -->
+    <string name="title_action_dismiss">Dismiss</string>
+    <!--
+      Source: A TalkBack menu option that allows expanding an element on the screen.
+      Description: This is presented to the user when an element supports a "expand" action. [CHAR LIMIT=NONE]
+    -->
+    <string name="title_action_expand">Expand</string>
+    <!--
+      Source: A TalkBack menu option that allows collapsing an element on the screen.
+      Description: This is presented to the user when an element supports a "collapse" action. [CHAR LIMIT=NONE]
+    -->
+    <string name="title_action_collapse">Collapse</string>
 
     <!-- Contextual actions group name title [CHAR LIMIT=80] -->
     <string name="context_menu_category_contextual_actions">Actions for current item</string>
@@ -1016,8 +1132,6 @@
 
     <!-- Summary for the Context menu containing custom action. [CHAR_LIMIT=NONE] -->
     <string name="summary_custom_action">Shows when actions exist for the current item, including copy, paste, select, and more</string>
-    <!-- [Deprecated] Summary for the Context menu containing editing option. [CHAR_LIMIT=NONE] -->
-    <string name="summary_edittext_controls">Copy, paste, select, and more. Shows when you select a text box.</string>
     <!-- Summary for the Context menu containing links. [CHAR_LIMIT=NONE] -->
     <string name="summary_context_menu_links">Open links within a focused item</string>
     <!-- Summary for the Context menu containing page navigation. [CHAR_LIMIT=NONE] -->
@@ -1038,12 +1152,14 @@
     <string name="summary_repeat_last_spoken_phrase">Hear the last phrase that TalkBack said again</string>
     <!-- Summary for user to performs screen search keyword. [CHAR_LIMIT=NONE] -->
     <string name="summary_perform_screen_search">Enter a search term to find that text on the screen</string>
-    <!-- Summary for user to control talkback by voice. [CHAR_LIMIT=NONE] -->
+    <!-- Summary for user to control TalkBack by voice. [CHAR_LIMIT=NONE] -->
     <string name="summary_voice_commands">Control TalkBack with your voice</string>
     <!-- Summary for the context menu containing show or hide screen. [CHAR_LIMIT=NONE] -->
     <string name="summary_show_hide_screen">Hide the display so your screen is not visible to others in public places. After hiding your screen, return it to a normal state.</string>
     <!-- Summary for the activity that manages TalkBack settings. [CHAR_LIMIT=NONE] -->
     <string name="summary_talkback_preferences">Open TalkBack settings</string>
+  <!-- Summary for the activity that manages braille display settings. [CHAR_LIMIT=NONE] -->
+  <string name="summary_braile_display_preferences">Open braille display settings</string>
     <!-- Summary for the menu item that opens the dialog with system actions available on device from R. [CHAR_LIMIT=NONE] -->
     <string name="summary_system_actions">Go to all apps and Quick Settings</string>
     <!-- Summary for user to adjust Text to Speech settings. [CHAR_LIMIT=NONE] -->
@@ -1054,6 +1170,8 @@
     <string name="not_selectable">Not selectable</string>
     <!-- Summary for the navigation options menu or quick menu containing actions. [CHAR_LIMIT=190] -->
     <string name="summary_actions">Perform actions</string>
+    <!-- Summary for the navigation options menu or quick menu containing spell check. [CHAR_LIMIT=100] -->
+    <string name="summary_spell_check">Jump between misspelled words</string>
     <!-- Summary for the navigation options menu or quick menu containing characters. [CHAR_LIMIT=190] -->
     <string name="summary_characters">Read one character at a time</string>
     <!-- Summary for the navigation options menu or quick menu containing words. [CHAR_LIMIT=190] -->
@@ -1064,6 +1182,8 @@
     <string name="summary_paragraphs">Read one paragraph at a time</string>
     <!-- Summary for the navigation options menu containing windows. [CHAR_LIMIT=100] -->
     <string name="summary_windows">Jump to other windows, like volume controls or the navigation bar</string>
+    <!-- Summary for the navigation options menu containing containers. [CHAR_LIMIT=200] -->
+    <string name="summary_containers">Exit out of a container, like when you are in a list or grid</string>
     <!-- Summary for the navigation options menu or quick menu containing headings. [CHAR_LIMIT=100] -->
     <string name="summary_headings">Jump between headings</string>
     <!-- Summary for the navigation options menu or quick menu containing controls. [CHAR_LIMIT=NONE] -->
@@ -1100,6 +1220,8 @@
     <string name="summary_support_change_a11y_volume">Increase or decrease Accessibility volume</string>
     <!-- Summary for the menu item to provide captions for an image. [CHAR_LIMIT=150]-->
     <string name="summary_image_caption">Speak text and icons within a selected image</string>
+    <!-- Summary for the menu item to provide spelling suggestion for the misspelled word. [CHAR_LIMIT=NONE] -->
+    <string name="summary_typo_suggestions">Shows when the cursor is on a misspelled word</string>
 
     <!-- Label for the direction of the "swipe down" gesture. For instance, this is used in the tutorial to inform the user of how to perform a specific gesture. [CHAR_LIMIT=40] -->
     <string name="value_direction_down">down</string>
@@ -1213,13 +1335,6 @@
     <!-- Label for the preference that assigns an action to the "three-finger triple-tap and hold" gesture. [CHAR_LIMIT=90] -->
     <string name="title_pref_shortcut_3finger_3tap_hold">Triple-tap and hold with 3 fingers</string>
 
-    <!-- Text that appears in the SeekBar hint with 2 gestures (previous and next). [CHAR_LIMIT=NONE] -->
-    <string name="seekbar_hint_2gesture">\"<xliff:g id="gesture1" example="Swipe up">%1$s</xliff:g>\" or <xliff:g id="gesture2" example="Swipe down">%2$s</xliff:g>\" to adjust</string>
-
-    <!-- Text that appears in the SeekBar hint with 1 gesture (either previous or next). [CHAR_LIMIT=NONE] -->
-    <string name="seekbar_hint_1gesture">\"<xliff:g id="gesture1" example="Swipe up">%1$s</xliff:g>\" to adjust</string>
-
-
     <!-- The gesture name of cancelled gestures. [CHAR_LIMIT=60]-->
     <string name="gesture_name_unknown">Unknown gesture</string>
     <!-- The gesture name of pass through to system. [CHAR_LIMIT=100]-->
@@ -1249,19 +1364,15 @@
     <!-- Label for the prefernce that displays version code. [CHAR_LIMIT=99] -->
     <string name="title_pref_version_code">Version Code</string>
 
-    <!-- Label for preference specifying a volume that's the same as the system media volume. -->
-    <string name="value_volume_100_percent" formatted="false">Match media volume</string>
-    <!-- Label for preference specifying a volume that's 75% of the system media volume. -->
-    <string name="value_volume_75_percent" formatted="false" >75% of media volume</string>
-    <!-- Label for preference specifying a volume that's 50% of the system media volume. -->
-    <string name="value_volume_50_percent" formatted="false">50% of media volume</string>
-    <!-- Label for preference specifying a volume that's 25% of the system media volume. -->
-    <string name="value_volume_25_percent" formatted="false">25% of media volume</string>
+    <!-- Preference label for volume the same as the accessibility-stream volume. [CHAR_LIMIT=NONE] -->
+    <string name="value_volume_100_percent" formatted="false">Match speech volume</string>
+    <!-- Preference label for volume 75% of the accessibility-stream volume. [CHAR_LIMIT=NONE] -->
+    <string name="value_volume_75_percent" formatted="false">75% of speech volume</string>
+    <!-- Preference label for volume 50% of the accessibility-stream volume. [CHAR_LIMIT=NONE] -->
+    <string name="value_volume_50_percent" formatted="false">50% of speech volume</string>
+    <!-- Preference label for volume 25% of the accessibility-stream volume. [CHAR_LIMIT=NONE] -->
+    <string name="value_volume_25_percent" formatted="false">25% of speech volume</string>
 
-    <!-- Label for preference specifying that TalkBack resumes from a suspended state when the lock screen is shown. -->
-    <string name="value_resume_keyguard">When lock screen is shown</string>
-    <!-- Label for preference specifying that TalkBack resumes from a suspended state only when the user manually turns it back on. -->
-    <string name="value_resume_manual">From notification only</string>
     <!-- Label for typing mode user preference in which double-tap is needed to input any IME key. [CHAR LIMIT=NONE] -->
     <string name="value_type_confirmation_double_tap">Hold finger to select any key, then double-tap</string>
     <!-- Label for typing mode user preference in which lift-to-type applies, but only to "letter keys". The phrase "letter key" is mean to distinguishes keys such as A, B, or C, from non-letter keys, such as ENTER or NEXT_KEYBOARD. [CHAR LIMIT=NONE]-->
@@ -1314,6 +1425,11 @@
     <!-- Label for preference specifying that TalkBack should describe elements in order: name, type, state. -->
     <string name="pref_node_desc_order_entry_name_role_state_pos">Name, type, state</string>
 
+    <!-- Label for preference specifying that TalkBack should announce time in 12 hour format. [CHAR LIMIT=60] -->
+    <string name="pref_time_feedback_format_entries_12_hour">12 hour</string>
+    <!-- Label for preference specifying that TalkBack should announce time in 24 hour format. [CHAR LIMIT=60] -->
+    <string name="pref_time_feedback_format_entries_24_hour">24 hour</string>
+
     <!--
       Source: Title of a notification that TalkBack's gestures have been changed.
       Description: Displays a more detailed notification with information about gesture changes [CHAR_LIMIT=30]
@@ -1342,7 +1458,7 @@
     <string name="label_dialog_text">Enter the text to be used as a label for this element\nInternal view name: <xliff:g id="view_resource_name">%1$s</xliff:g></string>
     <!-- Hint text that appears in the edit box within the alert shown when a user adds or edits a custom label for an unlabeled view. [CHAR_LIMIT=80] -->
     <string name="label_dialog_edit_hint">Label text</string>
-    <!-- Text that appears in the label management menu item, that allow user to import custom labels to talkback -->
+    <!-- Text that appears in the label management menu item, that allow user to import custom labels to TalkBack -->
     <string name="label_import">Import custom labels</string>
     <string name="label_import_dialog_title">Import custom labels to TalkBack</string>
     <string name="label_import_dialog_message">Choose whether you want to override or skip existing labels in the case of conflict</string>
@@ -1375,12 +1491,23 @@
     <!-- Message for the alert shown when a user attempts to set option that turns the phone screen dark to provide provide privacy. [CHAR_LIMIT=NONE] -->
     <string name="dialog_message_dim_screen">This turns off the display to improve privacy so your screen is not visible to others when in public places</string>
 
-
     <!--
       Source: Description of a notification that some of TalkBack's built-in gestures have been changed.
       Description: Displays a more detailed notification with information about gesture changes [CHAR LIMIT=NONE]
      -->
     <string name="talkback_built_in_gesture_change_details">This version of TalkBack includes changes to the default accessibility gestures.\n\nThe up-then-down gesture will allow you to move to the first item on the screen, and the down-then-up gesture will move to the last item.\n\nThe reading granularity can now be changed by focusing an item, then selecting a granularity from the talkback context menu.\n\nYou can change the actions performed by these gestures in TalkBack Settings.</string>
+
+    <!--
+      Source: Description of a notification that some of TalkBack's built-in gestures have been removed.
+      Description: Displays a more detailed notification with information about gesture removes [CHAR LIMIT=NONE]
+     -->
+    <string name="default_action_changed_details">To pause and play media, you can now double tap and hold with two fingers.\n\nOther gestures have also changed.</string>
+
+    <!--
+      Source: The text of button in a notification that open on phone to learn more.
+      Description: Displays a text in the button of notification to inform the user to open the detail on phone. [CHAR LIMIT=NONE]
+     -->
+    <string name="talkback_built_in_gesture_open_url">Open on phone to learn more</string>
 
     <!--
       Source: Description of a notification that TalkBack's built-in swipe-up and swipe-down gestures have been changed in TalkBack 4.5.
@@ -1450,6 +1577,8 @@
     <!-- Spoken result when the user sets granularity fail.[CHAR_LIMIT=NONE] -->
     <string name="set_granularity_fail"><xliff:g name="granularity" example="heading">%1$s</xliff:g> failed</string>
 
+    <!--Spoken description of a container. [CHAR_LIMIT=NONE] -->
+    <string name="display_name_container">container</string>
     <!--Spoken description of a window. [CHAR_LIMIT=30] -->
     <string name="display_name_window">window</string>
     <!--Spoken description of a heading -->
@@ -1529,33 +1658,6 @@
      -->
     <string name="value_hint_tv_remote_mode_seek_control">Press arrow buttons to change value, or press select to finish.</string>
 
-    <!--
-      Arc: This is spoken to notify user that the window is android window. This is appended after
-      window title. e.g. Application A, Application window. [CHAR LIMIT=NONE]
-    -->
-    <string name="arc_android_window">Application window</string>
-  <!--
-    Arc: Hint to notify user that user is navigating with TalkBack. On Arc, both ChromeVox and
-    TalkBack are used for spoken feedback. [CHAR LIMIT=NONE]
-  -->
-  <string name="arc_talkback_activation_hint">TalkBack on</string>
-    <!--
-      Arc: Navigation hint. In arc, user can navigate with search key and arrow keys. This is spoken
-      when user has focused into android window. [CHAR LIMIT=NONE]
-    -->
-    <string name="arc_navigation_hint">Press search with arrows to navigate</string>
-    <!--
-      Arc: Hint to open manage keyboard shortcuts of TalkBack settings. User can open the settings
-      by keyboard shortcut to see the list of shortcuts. This is spoken when user has focused into
-      android window. [CHAR LIMIT=NONE]
-    -->
-    <string name="arc_open_manage_keyboard_shortcuts_hint">Press <xliff:g id="keyCombo" example="Search+K">%1$s</xliff:g> to see the list of shortcuts</string>
-    <!--
-      Arc: Hint to open TalkBack settings by using keyboard shortcut. This is spoken when focus has
-      moved into Android window. [CHAR LIMIT=NONE]
-    -->
-    <string name="arc_open_talkback_settings_hint">Press <xliff:g id="keyCombo" example="Search+0">%1$s</xliff:g> to open TalkBack settings</string>
-
   <!-- Value used to reset the user language preference to default [CHAR LIMIT=40] -->
   <string name="reset_user_language_preference">Default</string>
 
@@ -1596,6 +1698,28 @@
   -->
   <string name="title_pref_selector_adjustable_widget_slider">Adjust slider</string>
   <!--
+  Source: Finds the misspelled word is the current setting of quick menu.
+  Description: Notify user it's ready to find the previous/next misspelled word. [CHAR LIMIT=45]
+  -->
+  <string name="title_pref_selector_typo_granularity">Spell check</string>
+  <!--
+  Source: Indicates there is no any SpellSpan in the edit text.
+  Description: Notify user it's no typo. [CHAR LIMIT=60]
+  -->
+  <string name="hint_no_typo_found">No misspelled word is found.</string>
+  <!--
+  Source: Indicates there is no previous SpellSpan in the edit text.
+  Description: Notify user it's no typo. [CHAR LIMIT=60]
+  -->
+  <string name="hint_no_previous_typo_found">No previous misspelled word is found. <xliff:g id="current_typo" example="typoo">%1$s</xliff:g></string>
+
+  <!--
+  Source: Indicates there is no next SpellSpan in the edit text.
+  Description: Notify user it's no typo. [CHAR LIMIT=60]
+  -->
+  <string name="hint_no_next_typo_found">No next misspelled word is found. <xliff:g id="current_typo" example="typoo">%1$s</xliff:g></string>
+
+  <!--
   Source: Adjusting number picker is the current setting of quick menu.
   Description: Notify user it's ready to adjust value [CHAR LIMIT=45]
   -->
@@ -1633,10 +1757,6 @@
   -->
   <string name="template_text_copied">copied, <xliff:g id="text">%1$s</xliff:g></string>
 
-   <!-- Names of locations on screen, for use in layout summarization -->
-  <!-- Label for the button that will close the screen summary window and voice commnads "help" dialog -->
-    <string name="title_cancel_button">Close</string>
-
   <!-- Names of buttons used in screen search -->
   <!-- Label for the button that will close screen search window -->
   <string name="title_cancel_screen_search">Close search</string>
@@ -1651,7 +1771,7 @@
     <item quantity="one">1 match</item>
     <item quantity="other"><xliff:g id="match_count" example="2">%1$d</xliff:g> matches</item>
   </plurals>
-  <!-- String to speak to users. If no matches are found, talkBack should announce it. -->
+  <!-- String to speak to users. If no matches are found, TalkBack should announce it. -->
   <string name="msg_no_matches">No matches on this screen</string>
 
   <!-- Title for continuous reading mode tutorial read from top/next -->
@@ -1677,9 +1797,9 @@
   <!-- Used to hint user to type search term in EditText field [CHAR_LIMIT=NONE] -->
   <string name="hint_type_search_term">Search term</string>
 
-  <!-- Notification channel name of Talkback. [CHAR_LIMIT=40] -->
+  <!-- Notification channel name of TalkBack. [CHAR_LIMIT=40] -->
   <string name="talkback_notification_channel_name">TalkBack</string>
-  <!-- Notification channel description of Talkback. [CHAR_LIMIT=42] -->
+  <!-- Notification channel description of TalkBack. [CHAR_LIMIT=42] -->
   <string name="talkback_notification_channel_description">The Notification Channel of TalkBack</string>
 
   <!-- For selector summary. -->
@@ -1709,10 +1829,16 @@
   <string name="adjust_setting_hint"><xliff:g example="swipe up" id="adjust_setting_gesture">%1$s</xliff:g> to adjust the setting</string>
   <!-- Usage hint for how to read the screen (such as reading a single word at a time). This is spoken to the user. [CHAR_LIMIT=180] -->
   <string name="adjust_granularity_hint"><xliff:g example="swipe up" id="adjust_granularity_gesture">%1$s</xliff:g> to read by <xliff:g example="words" id="granularity">%2$s</xliff:g></string>
+  <!-- Usage hint for how to navigate typo . This is spoken to the user. [CHAR_LIMIT=180] -->
+  <string name="adjust_typo_hint"><xliff:g example="swipe up" id="adjust_granularity_gesture">%1$s</xliff:g> to start spell check</string>
   <!-- Usage hint for how to use the selected action. This is spoken to the user. [CHAR_LIMIT=150] -->
   <string name="use_action_hint">Double-tap to perform the action</string>
   <!-- Usage hint for how to assign gesture for the quick menu. This is spoken to the user. [CHAR_LIMIT=280] -->
   <string name="no_adjust_setting_gesture">To use this, go to TalkBack settings and add a gesture for \'<xliff:g example="selected setting next action">%1$s</xliff:g>\'</string>
+  <!-- Usage hint for how to assign gesture for the navigate typo. This is spoken to the user. [CHAR_LIMIT=280] -->
+  <string name="no_navigate_typo_gesture">To use this, go to TalkBack settings and add a gesture for spell check</string>
+  <!-- Usage hint for how to use the selected spelling suggestions. This is spoken to the user. [CHAR_LIMIT=NONE] -->
+  <string name="use_spelling_suggestion_hint">Double-tap to replace text</string>
 
   <!-- Announced when can't switching to braille keyboard . [CHAR_LIMIT=150] -->
   <string name="switch_to_braille_keyboard_failure_msg">Braille keyboard isn\'t turned on. Go to TalkBack settings, set up Braille keyboard, and try again.</string>
@@ -1730,10 +1856,22 @@
   <string name="training_next_button">Next</string>
   <!-- The text of close button [CHAR_LIMIT=15]-->
   <string name="training_close_button">Close</string>
+  <!-- The content description of close button [CHAR_LIMIT=45]-->
+  <string name="training_close_tutorial">Close tutorial</string>
   <!-- The text of finish button [CHAR_LIMIT=20]-->
   <string name="training_finish_button">Finish</string>
   <!-- The description of the navigate up button on the action bar. This is spoken to the user. [CHAR_LIMIT=NONE]-->
   <string name="training_navigate_up">Navigate up</string>
+  <!-- The title of an additional tip for how to use the device. [CHAR_LIMIT=NONE]-->
+  <string name="training_tip">Tip</string>
+
+  <!-- For training on TV -->
+  <string name="tv_training_overview_step_title">How TalkBack works</string>
+  <string name="tv_training_overview_step_summary">TalkBack is Google\'s screen reader. It reads aloud the text on the screen and gives you spoken feedback, so that you can use your device without looking at the screen.\n\nWith TalkBack on, a selected item on the screen is spoken aloud, sometimes with additional information or context added.\n\nPress Select to continue. The Select button is located at the center of the directional pad, which is the large, circular button at the top of your remote.</string>
+  <string name="tv_training_remote_step_title">Using your remote</string>
+  <string name="tv_training_remote_step_summary">Move around the screen using the circle-shaped directional button at the top of your remote. To select, press the center of the directional button at the top of your remote.\n\nIn the second row on the left, you have the back button. On the right you have the voice Assistant button.\n\nIn the third row on the left, you have the home button. On the right is the mute button.\n\nIn the fourth row on the left, you have the YouTube shortcut. On the right is the Netflix shortcut.\n\nIn the bottom row there are two small buttons. The left button is the power button. The right will open your TV’s input menu.\n\nThe volume buttons are located at the right side of the remote.\n\nPress Select to continue.</string>
+  <string name="tv_training_shortcut_step_title">TalkBack shortcut</string>
+  <string name="tv_training_shortcut_step_summary">To access the TalkBack shortcut, press the down and back buttons at the same time and hold them down for 3 seconds. This will either turn on or turn off TalkBack.\n\nYou can also access this shortcut within your TV settings.\n\nPress Select to continue.</string>
 
   <!-- For on-boarding. -->
   <!-- A item in settings page to introduce TalkBack new features. [CHAR_LIMIT=NONE]-->
@@ -1747,45 +1885,11 @@
   <!-- For welcome to the update TalkBack page in on-boarding. -->
   <!-- The page title of welcome to updated TalkBack. [CHAR_LIMIT=NONE]-->
   <string name="welcome_to_updated_talkback_title">Welcome to the updated TalkBack</string>
-  <!-- The content of welcome page for pre-Android-R devices. [CHAR_LIMIT=NONE]-->
-  <string name="welcome_to_updated_talkback_text_pre_r">You will get simpler menus, voice control, and more.\n\nYou will learn about key updates and changes in the next few screens. This will take about 3 minutes. \n\nYou can review this information in TalkBack settings at any time.</string>
-  <!-- The content of welcome page for Android-R and above devices. [CHAR_LIMIT=NONE]-->
-  <string name="welcome_to_updated_talkback_text">You will get new, easier gestures, simpler menus, voice control, and more.\n\nYou will learn about key updates and changes in the next few screens. This will take about 5 minutes.\n\nYou can review this information in TalkBack settings at any time.</string>
   <!-- For navigation and setting selector page in on-boarding. -->
   <!-- Navigation subtitle. The translation should be the same as "navigation" in jump_between_headings_text and jump_between_headings_text_pre_r.[CHAR_LIMIT=NONE]-->
   <string name="navigation_heading">Navigation</string>
   <!-- Setting selector subtitle. [CHAR_LIMIT=NONE]-->
   <string name="setting_selector_heading">Reading controls</string>
-  <!-- The text to introduce how to trigger setting selector for pre-Android-R devices. [CHAR_LIMIT=NONE]-->
-  <string name="setting_selector_text_pre_r">These shortcuts can help you quickly change settings, like switching your navigation from characters to words or changing TalkBack\'s speech rate.\n\nStep 1: Swipe down and then up to select the next reading control.\n\nStep 2: Swipe down to move the navigation focus forward or adjust a reading control down.</string>
-  <!-- The text to introduce how to trigger setting selector for Android-R or above devices. [CHAR_LIMIT=NONE]-->
-  <string name="setting_selector_text">These shortcuts can help you quickly change settings, like switching your navigation from characters to words or changing TalkBack\'s speech rate.\n\nStep 1: Swipe right with 3 fingers to select the next reading control.\n\nStep 2: Swipe down with 1 finger to move the navigation focus forward or adjust a reading control down.</string>
-  <!-- The text to try setting selector. [CHAR_LIMIT=NONE]-->
-  <string name="try_setting_selector_gesture">Try it now. Swipe right with 3 fingers.</string>
-  <!-- The text to try setting selector for Android-R or above devices. [CHAR_LIMIT=NONE]-->
-  <string name="try_setting_selector_gesture_pre_r">Try it now. Swipe down and then up.</string>
-  <!-- The text to introduce how to customize setting selector item. [CHAR_LIMIT=NONE]-->
-  <string name="customize_setting_selector_text">You can also reverse either of these gestures.\n\nSwipe left with 3 fingers to select the previous reading control.\n\nSwipe up with 1 finger to move the navigation focus backward or adjust a reading control up.\n\nYou can customize your reading controls in TalkBack settings.</string>
-  <!-- The text to introduce how to customize setting selector item for pre-Android-R devices. [CHAR_LIMIT=NONE]-->
-  <string name="customize_setting_selector_text_pre_r">You can also reverse either of these gestures.\n\nSwipe up and then down to select the previous reading control.\n\nSwipe up to move the navigation focus up or adjust a reading control up.\n\nYou can customize your reading controls in TalkBack settings.</string>
-  <!-- For more new gestures in on-boarding. -->
-  <!-- The title of new features page. [CHAR_LIMIT=NONE]-->
-  <string name="more_new_feature_title">More new features</string>
-  <!-- The text to introduce new context menu for pre-android-r devices. [CHAR_LIMIT=NONE]-->
-  <string name="more_new_feature_context_menu_text_pre_r">Global and local context menus, used to help you find settings and controls, are now united in a single TalkBack menu.\n\nYour existing gestures, such as swipe down and then right, will still take you to the new united menu.</string>
-  <!-- The text to introduce new context menu for android-r or above devices. [CHAR_LIMIT=NONE]-->
-  <string name="more_new_feature_context_menu_text">Global and local context menus, used to help you find settings and controls, are now united in a single TalkBack menu. You can open it by tapping with 3 fingers. Try it now.\n\nYour existing gestures will still take you to the new united menu: swipe down and then right.</string>
-  <!-- The text to introduce voice command. [CHAR_LIMIT=NONE]-->
-  <string name="more_new_feature_voice_command_text_with_actual_gesture">Now you can use your voice to control TalkBack quickly. To try it, <xliff:g example="swipe right then up">%1$s</xliff:g>.</string>
-  <!-- The text to introduce voice command. [CHAR_LIMIT=NONE]-->
-  <string name="more_new_feature_voice_command_default_text">Now you can use your voice to control TalkBack quickly. Go to TalkBack settings to set up a gesture for voice command.</string>
-  <!-- The text to introduce braille keyboard. [CHAR_LIMIT=NONE]-->
-  <string name="more_new_feature_braille_keyboard_text">TalkBack now includes a braille keyboard so you can type faster with braille. To try it, go to TalkBack settings.</string>
-  <!-- For new shortcut gestures page in on-boarding -->
-  <!-- The title of new shortcut gestures page. [CHAR_LIMIT=NONE]-->
-  <string name="new_shortcut_gesture_title">New gestures</string>
-  <!-- The text to introduce new shortcut gestures. [CHAR_LIMIT=NONE]-->
-  <string name="new_shortcut_gesture_text">New gestures have been added to make TalkBack faster and easier to use.\n\nOn this screen, you can try the new gestures.</string>
   <!-- The text to introduce how to pause or play media. [CHAR_LIMIT=NONE]-->
   <string name="new_shortcut_gesture_pause_or_play_media_text">To pause or play media in a video or music app, double-tap with 2 fingers. Try it now.</string>
   <!-- The text to introduce how to pause or play media. [CHAR_LIMIT=NONE]-->
@@ -1847,32 +1951,43 @@
   <string name="dump_node_tree_description">Node tree has been printed to logs.</string>
   <!-- The hint description provided to users to report gesture issues. [CHAR_LIMIT=NONE]-->
   <string name="report_gesture_description">Here are gestures performed recently, please report which gesture is wrong and what is expected.</string>
-  <!-- For New TalkBack 13.0 onboarding -->
-  <!-- The content of welcome to TalkBack 13.0 page. [CHAR_LIMIT=NONE]-->
-  <string name="update_welcome_13_0_text">You can now use TalkBack directly with a braille display. TalkBack can also describe icons and text in images.\n\nYou will learn about key updates and changes in the next few screens. This will take about 5 minutes.\n\nYou can review this information in TalkBack settings at any time.</string>
-  <!-- The content of welcome to TalkBack 13.0 page for pre-R devices. [CHAR_LIMIT=NONE]-->
-  <string name="update_welcome_13_0_text_pre_r">You can now use TalkBack directly with a braille display. \n\nYou will learn about key updates and changes in the next few screens. This will take about 5 minutes.\n\nYou can review this information in TalkBack settings at any time.</string>
-  <!-- The title of support for braille display page. [CHAR_LIMIT=NONE]-->
-  <string name="support_for_braille_displays_title">Support for braille displays</string>
-  <!-- The text to introduce braille displays. [CHAR_LIMIT=NONE]-->
-  <string name="support_for_braille_displays_text">You can use TalkBack with braille displays in English, Spanish, Arabic, and Polish.\n\nThis means you no longer need the BrailleBack app to use a braille display.\n\nTo get started, go to TalkBack settings and find braille display.</string>
-  <!-- The title of actions in reading controls page. [CHAR_LIMIT=NONE]-->
-  <string name="actions_in_reading_controls_title">Actions in reading controls</string>
-  <!-- The text to explain how to perform an action by the reading controls. [CHAR_LIMIT=NONE]-->
-  <string name="actions_in_reading_controls_text">You can now select actions in reading controls. The actions menu will include copy, paste, and other editing options.\n\nAfter you select an action, double-tap to activate.</string>
-  <!-- The title of try lookout and Talkback page. [CHAR_LIMIT=NONE]-->
-  <string name="try_lookout_and_talkback_title">Try Lookout and Talkback</string>
-  <!-- The text to introduce Lookout. [CHAR_LIMIT=NONE]-->
-  <string name="try_lookout_and_talkback_text">Lookout uses your camera to read text, find objects, explore the world, and more. Lookout is available in 23 languages.</string>
-  <!-- The text to link the Lookout at the Play store. [CHAR_LIMIT=NONE]-->
-  <string name="try_lookout_and_talkback_playstore_text"><u>Get Lookout from the Google Play Store.</u></string>
-
-  <!-- The title of describe icons page. [CHAR_LIMIT=NONE]-->
-  <string name="describe_icons_title">Describe icons</string>
-  <!-- The text to introduce the describe icons module. [CHAR_LIMIT=NONE]-->
-  <string name="describe_icons_text">TalkBack can recognize and describe icons on the screen. This can help identify unlabelled buttons in apps and more.\n\nYou can turn this on in TalkBack settings.</string>
-  <!-- The text of the TalkBack settings link. [CHAR_LIMIT=NONE]-->
-  <string name="describe_icons_link_text">Go to TalkBack settings</string>
+  <!-- For TalkBack 14.1 onboarding. -->
+  <!-- The text of the welcome to the updated TalkBack page. [CHAR_LIMIT=NONE]-->
+  <string name="update_welcome_text">You can now focus on an image to hear a description in English. You can also check spelling suggestions with a braille keyboard, have a braille display auto-scroll at a set speed, and more.\n\nYou will learn about key updates and changes in the next few screens. This will take about 5 minutes.\n\nYou can review this information in TalkBack settings at any time.</string>
+  <!-- The title of the describe images page. [CHAR_LIMIT=NONE]-->
+  <string name="describe_images_title">Image descriptions</string>
+  <!-- The text of the describe images page. The translation of "Describe image" has to be the same as title_image_caption. [CHAR_LIMIT=NONE]-->
+  <string name="describe_images_text">You can now hear descriptions of images and icons in English. \n\nWhen you focus on an image or icon, <xliff:g example="tap with 3 fingers" id="gesture">%1$s</xliff:g> to open the TalkBack menu and select \"Describe image\".\n\nTo use this feature, download the descriptions using the buttons below. You can also do this later in TalkBack settings.</string>
+  <!-- The text of the describe images page. The translation of "Describe image" has to be the same as title_image_caption. [CHAR_LIMIT=NONE]-->
+  <string name="describe_images_text_icon_exist">Along with icon descriptions, you can now hear descriptions of images in English. \n\nWhen you focus on an image or icon, <xliff:g example="tap with 3 fingers" id="gesture">%1$s</xliff:g> to open the TalkBack menu and select \"Describe image\".\n\nTo use this feature, download the descriptions using the button below. You can also do this later in TalkBack settings.</string>
+  <!-- The text of the describe images page. The translation of "Describe image" has to be the same as title_image_caption. [CHAR_LIMIT=NONE]-->
+  <string name="describe_images_text_icon_and_image_exist">Along with icon descriptions, you can now hear descriptions of images in English.\n\nWhen you focus on an image or icon, <xliff:g example="tap with 3 fingers" id="gesture">%1$s</xliff:g> to open the TalkBack menu and select \"Describe image\". </string>
+  <!-- The hint of the describe images page. [CHAR_LIMIT=NONE]-->
+  <string name="describe_images_gesture_hint">To customize the gesture that is used for image descriptions, go to TalkBack settings > Customize gestures.</string>
+  <!-- The text of button to go to download image descriptions. [CHAR_LIMIT=NONE]-->
+  <string name="download_image_descriptions_button">Download image descriptions</string>
+  <!-- The text of button to go to download icon descriptions. [CHAR_LIMIT=NONE]-->
+  <string name="download_icon_descriptions_button">Download icon descriptions</string>
+  <!-- The title of image descriptions download dialog. [CHAR_LIMIT=NONE]-->
+  <string name="image_descriptions_download_dialog_title">Download required to describe images</string>
+  <!-- The title of icon descriptions download dialog. [CHAR_LIMIT=NONE]-->
+  <string name="icon_descriptions_download_dialog_title">Download required to describe icons</string>
+  <!-- The title of the spell check for braille keyboard page. [CHAR_LIMIT=NONE]-->
+  <string name="spell_check_for_braille_keyboard_title">Spell check for braille keyboard</string>
+  <!-- The text of the spell check for braille keyboard page. [CHAR_LIMIT=NONE]-->
+  <string name="spell_check_for_braille_keyboard_text">You can use spell check with a braille keyboard to find misspelled words, hear spelling suggestions, and confirm changes.\n\nYou can learn more about how to use spell check in the tutorial.</string>
+  <!-- The text of the button to view in tutorial. [CHAR_LIMIT=NONE]-->
+  <string name="view_tutorial_button_text">View the tutorial</string>
+  <!-- The title of the auto-scroll for braille display page. [CHAR_LIMIT=NONE]-->
+  <string name="auto_scroll_for_braille_display_title">Auto-scroll for braille display</string>
+  <!-- The text of the auto-scroll for braille display page. [CHAR_LIMIT=NONE]-->
+  <string name="auto_scroll_for_braille_display_text">Your braille display can advance at a set speed so you can read without pressing any buttons. To turn auto-scroll on or off, press space and dots 1, 2, 4, 5, 6.\n\nYou can also increase how long text is displayed by pressing dot 4. To show text for a shorter amount of time, press dot 1.\n\nYou can customize the speed in TalkBack settings > Braille display > Auto-scroll.</string>
+  <!-- The title of the new braille shortcuts and languages page. [CHAR_LIMIT=NONE]-->
+  <string name="new_braille_shortcuts_and_languages_title">New braille shortcuts and languages</string>
+  <!-- The text of the new braille shortcuts and languages page. [CHAR_LIMIT=NONE]-->
+  <string name="new_braille_shortcuts_and_languages_text">To play or pause media with your braille display, use space and dots 7, 8. Or, you can double-tap with 2 fingers.\n\nMore braille languages are also available now.</string>
+  <!-- The link to learn more about braille languages. [CHAR_LIMIT=NONE]-->
+  <string name="learn_more_braille_languages">Learn more about braille languages</string>
 
   <!-- For tutorial. -->
   <!-- An item in settings page to explain how to use TalkBack. [CHAR_LIMIT=25]-->
@@ -1880,11 +1995,20 @@
   <!-- For welcome page in tutorial. -->
   <!-- The title of welcoming to use TalkBack. [CHAR_LIMIT=NONE]-->
   <string name="welcome_to_talkback_title">Welcome to TalkBack</string>
+  <!-- The title of TalkBack is on. [CHAR_LIMIT=NONE]-->
+  <string name="talkback_is_on">TalkBack is on</string>
+  <!-- The description of TalkBack is on. [CHAR_LIMIT=NONE]-->
+  <string name="talkback_turn_off_description">TalkBack reads content on your screen aloud and changes how navigation works on your device. To turn it off, tap “Turn off TalkBack” 2 times.</string>
+  <!-- The text of TalkBack exit button. [CHAR_LIMIT=NONE]-->
+  <string name="turn_off_talkback">Turn off TalkBack</string>
+  <!-- The text of TalkBack exit button that taps again to turn off TalkBack. [CHAR_LIMIT=NONE]-->
+  <string name="tap_again_to_turn_off">Tap again to turn off</string>
+
   <!--
   Source: The text of introducing TalkBack.
   Description: In RTL language, "right" and "left" should be translated reverse. [CHAR_LIMIT=NONE]
   -->
-  <string name="welcome_to_talkback_text">TalkBack is a screen reader intended for situations or people who have difficulty seeing the screen. It gives you spoken feedback so that you can use your device without looking at the screen.\n\nYou can turn TalkBack on or off by holding both volume keys for several seconds.\n\nWhen TalkBack is on, the focused item on the screen is spoken out loud.\n\nSwiping right will move to the next item, and swiping left will move to the previous item.\n\nSwipe right now to find the next button.</string>
+  <string name="welcome_to_talkback_text">TalkBack provides spoken feedback so that you can use your device without looking at the screen. TalkBack can be helpful for people who have difficulty seeing the screen. \n\nIf you want to quickly turn TalkBack on or off using your volume keys, you can set up a shortcut in TalkBack settings > TalkBack shortcut.\n\nWhen TalkBack is on, the focused item on the screen is spoken out loud.\n\nSwiping right will move to the next item, and swiping left will move to the previous item.\n\nSwipe right now to find the next button.</string>
   <!-- For touch explore page in tutorial. -->
   <!-- The title of exploring by touch page. [CHAR_LIMIT=NONE] -->
   <string name="explore_by_touch_title">Explore by touch</string>
@@ -1899,7 +2023,7 @@
   <!-- The title of gestures page. [CHAR_LIMIT=NONE]-->
   <string name="gestures_title">System actions</string>
   <!-- The text to introduce some useful gestures in TalkBack. [CHAR_LIMIT=NONE]-->
-  <string name="gestures_text">To perform any system action, add 1 finger to the system gesture.\n\nThis means when using TalkBack, you can go Home by swiping up with 2 fingers instead of 1.\n\nTrying these gestures now will close the tutorial. You may want to wait until you have completed the tutorial.</string>
+  <string name="gestures_text">To perform any system action, add 1 finger to the system gesture.\n\nThis means when using TalkBack, you can go Home by swiping up from the bottom with 2 fingers instead of 1.\n\nTrying these gestures now will close the tutorial. You may want to wait until you have completed the tutorial.</string>
   <!-- The text to explain how to go Home via gesture. [CHAR_LIMIT=NONE]-->
   <string name="gestures_home_text">To go Home, swipe up from the bottom of your screen with 2 fingers.</string>
   <!-- The text to explain how to go to the recent apps via gesture. [CHAR_LIMIT=NONE]-->
@@ -1951,10 +2075,15 @@
   <string name="voice_commands_link_text">Voice commands</string>
   <!-- The subtext of voice commands on the index page. [CHAR_LIMIT=NONE]-->
   <string name="voice_commands_link_subtext">Control TalkBack with your voice</string>
+  <!-- The text of additional tips on the index page, like making calls or sending messages. [CHAR_LIMIT=NONE]-->
+  <string name="additional_tips_link_text">Everyday tasks</string>
+  <!-- The subtext of additional tips on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="additional_tips_link_subtext">Learn how to make calls, send messages, and more</string>
   <!-- The text of practice gestures on the index page. [CHAR_LIMIT=NONE]-->
   <string name="practice_gestures_link_text">Practice gestures</string>
   <!-- The subtext of practice gestures on the index page. [CHAR_LIMIT=NONE]-->
   <string name="practice_gestures_link_subtext">Try different gestures to learn what they do</string>
+
   <!-- For text editing pages in tutorial. -->
   <!-- The title of using text boxes page. [CHAR_LIMIT=NONE]-->
   <string name="using_text_boxes_title">Using text boxes</string>
@@ -1994,6 +2123,7 @@
   <string name="cut_paste_text_pre_r">To cut or paste text, open the TalkBack menu and double-tap actions.\n\nTry to paste a word in the text box below.</string>
   <!-- The text in edit box to give a hint to the user. [CHAR_LIMIT=140]-->
   <string name="edit_box_hint_paste_text">Paste text here</string>
+
   <!-- For reading navigation pages in tutorial. -->
   <!-- The title of reading by character, word or paragraph page. [CHAR_LIMIT=NONE]-->
   <string name="read_by_character_title">Read by character, word, or paragraph</string>
@@ -2058,14 +2188,46 @@
   Description: In RTL language, "right" and "left" should be translated reverse. [CHAR_LIMIT=NONE]
   -->
   <string name="find_finish_button_text">Swipe right to find the finish button.</string>
+
   <!-- For voice commands pages in tutorial. -->
   <!-- The title of voice commands page. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_title">Voice commands</string>
   <!-- The description about how to use voice command. [CHAR_LIMIT=NONE]-->
   <string name="voice_commands_text">You can use your voice to control TalkBack quickly.\n\nFor example, say a command to change navigation, jump to the next heading, copy text, and more.\n\nTo try it now, swipe right and then up.</string>
+
+  <!-- For additional tips pages in tutorial. -->
+  <!-- The title of making calls page. [CHAR_LIMIT=NONE] -->
+  <string name="making_calls_title">Making calls</string>
+  <!-- The description of making a call. [CHAR_LIMIT=NONE]-->
+  <string name="making_calls_text">You can call a family member, friend, or business with the phone app on your home screen</string>
+  <!-- The tip about how to make a call. [CHAR_LIMIT=NONE]-->
+  <string name="making_calls_tips">You can also ask Google Assistant to call a number or the name of someone in your contacts</string>
+  <!-- The title of sending messages page. [CHAR_LIMIT=NONE] -->
+  <string name="sending_messages_title">Sending messages</string>
+  <!-- The description of sending messages. [CHAR_LIMIT=NONE]-->
+  <string name="sending_messages_text">To send a message, go to your home screen and find a messaging app</string>
+  <!-- The tip about how to send messages. [CHAR_LIMIT=NONE]-->
+  <string name="sending_message_tips">You can also ask Google Assistant to send a message to a contact or number</string>
+  <!-- The title of reading webpages and emails page. [CHAR_LIMIT=NONE] -->
+  <string name="reading_web_emails_title">Reading websites and emails</string>
+  <!-- The description of reading webpages and emails. [CHAR_LIMIT=NONE]-->
+  <string name="reading_web_emails_text">Reading mode makes long content easier to navigate, listen to, and read. You can change font size and contrast, have the text read aloud, and more.</string>
+  <!-- The button text for opening target app PlayStore page. [CHAR_LIMIT=NONE] -->
+  <string name="get_the_app_button">Get the app</string>
+  <!-- The tip about Reading Mode. [CHAR_LIMIT=NONE]-->
+  <string name="reading_web_emails_tips">After installing Reading mode:\n\n1. Go to Settings > Accessibility > Reading mode\n2. Turn on the shortcut\n3. Go to an app or website, and use the shortcut to open Reading mode</string>
+  <!-- The title of exploring items and text in the real world. [CHAR_LIMIT=NONE] -->
+  <string name="lookout_title">Exploring items and text around you</string>
+  <!-- The description of exploring items and text in the real world. [CHAR_LIMIT=NONE]-->
+  <string name="lookout_text">Lookout uses your camera to get details about objects, images, and text around you.  You can use it to read signs, sort mail, and more.</string>
+  <!-- The tip about Lookout app. [CHAR_LIMIT=NONE]-->
+  <string name="lookout_tips">Lookout has several modes, depending on the task you’re trying. For example, to scan a page of text, select documents mode.</string>
+
   <!-- For practice gestures pages in tutorial. -->
   <!-- The title of practicing gesture page. [CHAR_LIMIT=NONE]-->
   <string name="practice_gestures_title">Practice gestures</string>
+  <!-- The title of practicing gesture page. [CHAR_LIMIT=NONE]-->
+  <string name="pref_gesture_set_key_title">Gesture set</string>
   <!-- The description about how to try gestures. [CHAR_LIMIT=NONE]-->
   <string name="practice_gestures_text">Try any TalkBack gesture on this screen to hear what that gesture does.\n\nTap the screen with 2 fingers. Keep practicing by tapping once, twice, or three times with 2, 3, or 4 fingers.\n\nYou can also double-tap and hold with 2, 3, or 4 fingers.</string>
   <!-- The description about how to try gestures. [CHAR_LIMIT=NONE]-->
@@ -2081,18 +2243,38 @@
   <!-- The text is shown on the Toast when the view, like button or link, is clicked. The toast is to notify users that they activate a button or a link. [CHAR_LIMIT=NONE]-->
   <string name="activated_view">Activated <xliff:g example="button">%1$s</xliff:g></string>
   <!-- Alert dialog title for when the user starts the TalkBack tutorial but TalkBack is inactive. [CHAR_LIMIT=60] -->
-  <string name="talkback_inactive_title">TalkBack Disabled</string>
+  <string name="talkback_inactive_title">TalkBack is off</string>
   <!-- Alert message for when the user starts the TalkBack tutorial but TalkBack is inactive. [CHAR_LIMIT=NONE] -->
-  <string name="talkback_inactive_message">This tutorial requires TalkBack to be enabled. Please turn TalkBack on before launching the tutorial.</string>
+  <string name="talkback_inactive_message">To try the tutorial, first turn on TalkBack</string>
 
   <!-- Welcome page items for Wear. [CHAR_LIMIT=NONE] -->
-  <string name="watch_swipe_left_right_text">Swipe right or left to move between items</string>
+  <string name="wear_training_welcome_paragraph">When TalkBack is on, the focused item on the screen is spoken out loud.\n\nSwiping right moves to the next item. Swiping left moves to the previous item.\n\nSwipe right now until you find the next button.</string>
 
-  <!-- Welcome page items for Wear. [CHAR_LIMIT=NONE] -->
-  <string name="watch_double_tap_text">Double-tap to activate an item</string>
-
-  <!-- Welcome page items for Wear. [CHAR_LIMIT=NONE] -->
-  <string name="watch_2_finger_scroll_text">Drag 2 fingers to scroll</string>
+  <!-- Training page for wear-->
+  <!-- The title of Scroll page for Wear. [CHAR_LIMIT=30] -->
+  <string name="wear_training_scroll_title">Scroll</string>
+  <!-- The content of Scroll page for Wear. [CHAR_LIMIT=NONE] -->
+  <string name="wear_training_scroll_text">Swipe up or down with 2 fingers</string>
+  <!-- The title of Back to previous page page for Wear. [CHAR_LIMIT=60] -->
+  <string name="wear_training_go_back_title">Go back</string>
+  <!-- The content of Back to previous page page for Wear. [CHAR_LIMIT=NONE] -->
+  <string name="wear_training_go_back_text">When you want to go back, use two fingers to swipe right from the edge of the screen</string>
+  <!-- The toast text when a user perform go back gesture successfully in the tutorial. [CHAR_LIMIT=NONE] -->
+  <string name="wear_training_go_back_success_confirmation_overlay_message">Back gesture performed</string>
+  <!-- The title of Volume up page for Wear. [CHAR_LIMIT=90] -->
+  <string name="wear_training_volume_up_title">Turn up volume</string>
+  <!-- The content of Volume up page for Wear. [CHAR_LIMIT=150] -->
+  <string name="wear_training_volume_up_text">Swipe right and then up</string>
+  <!-- The title of Volume down page for Wear. [CHAR_LIMIT=90] -->
+  <string name="wear_training_volume_down_title">Turn down volume</string>
+  <!-- The content of Volume down page for Wear. [CHAR_LIMIT=150] -->
+  <string name="wear_training_volume_down_text">Swipe right and then down</string>
+    <!-- The title of End of tutorial page for Wear. [CHAR_LIMIT=90] -->
+  <string name="wear_training_open_talkback_menu_title">Open TalkBack menu</string>
+  <!-- The content of End of tutorial page for Wear. [CHAR_LIMIT=150] -->
+  <string name="wear_training_open_talkback_menu_text">To open settings and controls you may need often, swipe down and then right</string>
+  <!-- The title of End of tutorial page for Wear. [CHAR_LIMIT=180] -->
+  <string name="wear_training_end_tutorial_title">You\'re ready to start using TalkBack</string>
 
   <!-- TalkBack updated notification -->
   <!-- The title of notification to notify users TalkBack has been updated. [CHAR_LIMIT=120]-->
@@ -2100,7 +2282,9 @@
   <!-- The context of notification to notify users that TalkBack has been updated. [CHAR_LIMIT=150]-->
   <string name="talkback_updated_notification_content">Tap to find out more</string>
 
-    <!-- Warning message for RemoteIntent erro confirmation. [CHAR_LIMIT=NONE] -->
+  <!-- Message for successful state of confirmation overlay. [CHAR_LIMIT=120] -->
+  <string name="watch_remote_intent_success_confirmation_text">Opened on your phone</string>
+  <!-- Warning message for RemoteIntent error confirmation. [CHAR_LIMIT=NONE] -->
   <string name="watch_remote_intent_error_confirmation_text">Please check if the phone is connected.</string>
 
   <!-- Focus indicator -->
@@ -2130,87 +2314,148 @@
   <string name="title_pref_grey">Grey</string>
 
   <!-- For HaTS. -->
+  <!-- A item in settings page to take a survey. [CHAR_LIMIT=NONE]-->
+  <string name="survey_setting_title">Share your feedback</string>
   <!-- Announce when a survey is closed. [CHAR_LIMIT=NONE]-->
   <string name="survey_closed">Survey closed</string>
 
 
   <!-- For image caption. -->
   <!--
+  Source: The text, label or content which are recognized from an image.
+  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="detected_result">Detected: <xliff:g example="Text, this is an image.">%1$s</xliff:g></string>
+  <!-- The title of menu item to provide captions for an image. [CHAR_LIMIT=60] -->
+  <string name="title_image_caption">Describe image</string>
+  <!--
   Source: The text which is recognized from an image.
   Description: This is spoken to the user. [CHAR_LIMIT=NONE]
   -->
-  <string name="character_recognition_text">Detected: text \'<xliff:g example="recognized_text">%1$s</xliff:g>\'</string>
-  <!-- The title of menu item to provide captions for an image. [CHAR_LIMIT=60] -->
-  <string name="title_image_caption">Describe image</string>
+  <string name="detected_recognized_text">Text, \"<xliff:g example="this is an image.">%1$s</xliff:g>\". </string>
   <!--
   Source: The label of the icon which is recognized from an screenshot.
   Description: This is spoken to the user. [CHAR_LIMIT=NONE]
   -->
-  <string name="detected_icon_label">Detected: icon \'<xliff:g example="add">%1$s</xliff:g>\'</string>
+  <string name="detected_icon_label">Icon, \"<xliff:g example="add">%1$s</xliff:g>\". </string>
   <!--
-  Source: The icon label and text which is recognized from an image.
+  Source: The content description which is recognized from an image.
   Description: This is spoken to the user. [CHAR_LIMIT=NONE]
    -->
-  <string name="detected_image_label">Detected: icon \'<xliff:g example="add">%1$s</xliff:g>\', text\'<xliff:g example="recognized_text">%2$s</xliff:g>\'</string>
+  <string name="detected_image_description">Image, \"<xliff:g example="a person in a gym.">%1$s</xliff:g>\". </string>
+  <!--
+  Source: The content description which is recognized from an image with medium confidence.
+  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+   -->
+  <string name="medium_confidence_image_description"><xliff:g example="a person in a gym.">%1$s</xliff:g> Description accuracy: medium. </string>
+  <!--
+  Source: The content description which is recognized from an image with low confidence.
+  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+   -->
+  <string name="low_confidence_image_description"><xliff:g example="a person in a gym.">%1$s</xliff:g> Description accuracy: low. </string>
+
   <!--
   Source: Hint spoken when image caption on an image but there is no text.
   Description: This is spoken to the user. [CHAR_LIMIT=NONE]
   -->
   <string name="image_caption_no_result">Cannot describe image</string>
+  <!--
+  Source: Hint spoken when performing image caption when screen is hidden.
+  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="image_caption_with_hide_screen">Image descriptions are not available when the screen is hidden. Show your screen and try again.</string>
 
   <!-- The currently selected action in the actions setting in the selector is not supported by the currently focused node. [CHAR_LIMIT=70] -->
   <string name="action_not_supported">Action not supported. </string>
-  <!-- No action is selected in the actions setting in the selector. [CHAR_LIMIT=70] -->
-  <string name="no_action_selected">No action selected. </string>
   <!-- Hint spoken when no action is selected or the previously selected action is not supported by the currently focused node. [CHAR_LIMIT=100]  -->
   <string name="hint_select_action">Please select a supported action.</string>
   <!-- No actions available in the actions setting in the selector. [CHAR_LIMIT=70] -->
   <string name="no_action_available">No actions. </string>
   <!-- Actions setting is not enabled. [CHAR_LIMIT=100] -->
   <string name="actions_setting_not_enabled">Actions setting is not enabled. </string>
-  <!--
-  Source: Hint spoken when recognizing text on an image but there is no text.
-  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
-  -->
-  <string name="image_caption_no_text_found">No text found</string>
 
   <!-- The title of the dialog to confirm downloading the icon-detection module. [CHAR_LIMIT=NONE]-->
   <string name="confirm_download_icon_detection_title">Download required to describe icons</string>
-  <!-- The subtitle of the dialog to confirm downloading the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="confirm_download_icon_detection_subtitle_via_wifi">50 MB</string>
-  <!-- The subtitle of the dialog to confirm downloading the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="confirm_download_icon_detection_subtitle_via_mobile_data">50 MB using mobile data. Data charges may apply.</string>
+  <!-- The subtitle of the dialog to confirm downloading the module. [CHAR_LIMIT=NONE]-->
+  <string name="confirm_download_subtitle_via_wifi"><xliff:g example="50" id="size">%1$d</xliff:g> MB</string>
+  <!-- The subtitle of the dialog to confirm downloading the module. [CHAR_LIMIT=NONE]-->
+  <string name="confirm_download_subtitle_via_mobile_data"><xliff:g example="50" id="size">%1$d</xliff:g> MB using mobile data. Data charges may apply.</string>
   <!-- The message of the dialog to confirm downloading the icon-detection module. [CHAR_LIMIT=NONE]-->
   <string name="confirm_download_icon_detection_message_via_menu">TalkBack can recognize and describe icons on the screen. This can help identify unlabelled buttons in apps and more.\n\nYou can also download this later in TalkBack settings.</string>
   <!-- The message of the dialog to confirm downloading the icon-detection module. [CHAR_LIMIT=NONE]-->
   <string name="confirm_download_icon_detection_message_via_settings">You will automatically hear descriptions when you focus on an unlabelled icon</string>
+  <!-- The title of the dialog to confirm downloading the image-description module. [CHAR_LIMIT=NONE]-->
+  <string name="confirm_download_image_description_title">Download required to describe images</string>
+  <!-- The message of the dialog to confirm downloading the image-description module. [CHAR_LIMIT=NONE]-->
+  <string name="confirm_download_image_description_message_via_menu">TalkBack can recognize and describe images on the screen. This can help identify unlabelled buttons in apps and more.\n\nYou can also download this later in TalkBack settings.</string>
+  <!-- The message of the dialog to confirm downloading the image-description module. [CHAR_LIMIT=NONE]-->
+  <string name="confirm_download_image_description_message_via_settings">You will automatically hear descriptions when you focus on an unlabelled image</string>
   <!-- The checkbox text of the dialog to reject showing the dialog again. [CHAR_LIMIT=NONE]-->
-  <string name="confirm_download_icon_detection_checkbox_text">Do not show this again</string>
-  <!-- The button text of the dialog to confirm downloading the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="confirm_download_icon_detection_positive_button_text">Download</string>
-  <!-- The button text of the dialog to reject the download of the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="confirm_download_icon_detection_negative_button_text">Not now</string>
-  <!-- The hint of rejecting the download of the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="confirm_download_icon_detection_negative_button_hint">TalkBack can still describe text in images</string>
+  <string name="confirm_download_checkbox_text">Do not show this again</string>
+  <!-- The button text of the dialog to confirm downloading of a module. [CHAR_LIMIT=NONE]-->
+  <string name="confirm_download_positive_button_text">Download</string>
+  <!-- The button text of the dialog to reject the download of a module. [CHAR_LIMIT=NONE]-->
+  <string name="confirm_download_negative_button_text">Not now</string>
+  <!-- The hint of rejecting the download of the module. [CHAR_LIMIT=NONE]-->
+  <string name="confirm_download_negative_button_hint">TalkBack can still describe text in images</string>
   <!-- The hint to notify the icon-detection is downloading. [CHAR_LIMIT=NONE]-->
-  <string name="downloading_icon_detection_hint">Downloading icon descriptions…</string>
+  <string name="downloading_icon_detection_hint">Downloading icon descriptions</string>
   <!-- The hint to notify the icon-detection has been downloaded successfully. [CHAR_LIMIT=NONE]-->
-  <string name="download_icon_detection_successful_hint">Downloaded icon descriptions</string>
+  <string name="download_icon_detection_successful_hint">Icon descriptions downloaded</string>
   <!-- The hint to notify the failure of downloading the icon-detection module. [CHAR_LIMIT=NONE]-->
   <string name="download_icon_detection_failed_hint">Cannot download icon descriptions</string>
-  <!-- The hint to notify the icon-detection has been uninstalled successfully. [CHAR_LIMIT=NONE]-->
-  <string name="uninstall_icon_detection_successful_hint">Uninstalled icon descriptions</string>
-  <!-- The hint to notify the failure of uninstalling the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="uninstall_icon_detection_failed_hint">Cannot uninstall icon descriptions</string>
+  <!-- The hint to notify the image-description is downloading. [CHAR_LIMIT=NONE]-->
+  <string name="downloading_image_description_hint">Downloading image descriptions</string>
+  <!-- The hint to notify the image-description has been downloaded successfully. [CHAR_LIMIT=NONE]-->
+  <string name="download_image_description_successful_hint">Image descriptions downloaded</string>
+  <!-- The hint to notify the failure of downloading the image-description module. [CHAR_LIMIT=NONE]-->
+  <string name="download_image_description_failed_hint">Cannot download image descriptions</string>
+  <!-- The hint to notify the failure of downloading the module because storage error. [CHAR_LIMIT=NONE]-->
+  <string name="download_storage_error_hint">Storage is full. To download, free up <xliff:g example="50" id="size">%1$d</xliff:g> MB and try again.</string>
+  <!-- The hint to notify the failure of downloading because network error. [CHAR_LIMIT=NONE]-->
+  <string name="download_network_error_hint">Cannot download. Check your connection and try again.</string>
+  <!-- The title of the dialog to disable/enable of the icon-detection module. [CHAR_LIMIT=NONE]-->
+  <string name="switch_icon_detection_dialog_title">Automatically describe icons</string>
+  <!-- The message of the dialog to disable/enable of the icon-detection module. [CHAR_LIMIT=NONE]-->
+  <string name="switch_icon_detection_dialog_message">Hear descriptions when you focus on an unlabelled icon</string>
+  <!-- The title of the dialog to disable/enable of the image-description module. [CHAR_LIMIT=NONE]-->
+  <string name="switch_image_description_dialog_title">Automatically describe images</string>
+  <!-- The message of the dialog to disable/enable of the image-description module. [CHAR_LIMIT=NONE]-->
+  <string name="switch_image_description_dialog_message">Hear descriptions when you focus on an unlabelled images</string>
+  <!-- The title of the dialog to disable/enable of the text-recognition module. [CHAR_LIMIT=NONE]-->
+  <string name="switch_text_recognition_dialog_title">Automatically describe text in images</string>
+  <!-- The message of the dialog to disable/enable of the text-recognition module. [CHAR_LIMIT=NONE]-->
+  <string name="switch_text_recognition_dialog_message">Hear descriptions when you focus on an image that contains text</string>
+  <!-- The subtitle of the dialog to disable/enable of the icon-detection module. [CHAR_LIMIT=NONE]-->
+  <string name="switch_auto_image_caption_dialog_subtitle">Downloaded</string>
+  <!-- The subtext of the dialog to disable/enable of a module. [CHAR_LIMIT=NONE]-->
+  <string name="disable_auto_image_caption_dialog_subtext">You can still get descriptions for a selected image from the TalkBack menu</string>
+  <!-- The button text of the dialog to accept to enable/disable of a module. [CHAR_LIMIT=NONE]-->
+  <string name="switch_auto_image_caption_dialog_positive_button_text">OK</string>
+  <!-- The button text of the dialog to delete of a module. [CHAR_LIMIT=NONE]-->
+  <string name="switch_auto_image_caption_dialog_negative_button_text">Delete download</string>
   <!-- The title of the dialog to confirm the deletion of the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="uninstall_icon_detection_dialog_title">Automatically describe icons</string>
-  <!-- The subtitle of the dialog to confirm the deletion of the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="uninstall_icon_detection_dialog_subtitle">Downloaded</string>
-  <!-- The message of the dialog to confirm the deletion of the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="uninstall_icon_detection_dialog_message">You will automatically hear descriptions when you focus on an unlabelled icon</string>
-  <!-- The button text of the dialog to accept the deletion of the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="uninstall_icon_detection_dialog_positive_button_text">Delete download</string>
-  <!-- The button text of the dialog to reject the deletion of the icon-detection module. [CHAR_LIMIT=NONE]-->
-  <string name="uninstall_icon_detection_dialog_negative_button_text">Cancel</string>
+  <string name="delete_icon_detection_dialog_title">Delete icon descriptions?</string>
+  <!-- The title of the dialog to confirm the deletion of the image-description module. [CHAR_LIMIT=NONE]-->
+  <string name="delete_image_description_dialog_title">Delete image descriptions?</string>
+  <!-- The message of the dialog to confirm the deletion of a module. [CHAR_LIMIT=NONE]-->
+  <string name="delete_dialog_message">To get descriptions again later, you can download this feature from TalkBack settings</string>
+  <!-- The button text of the dialog to accept a module deletion. [CHAR_LIMIT=NONE]-->
+  <string name="delete_dialog_positive_button_text">Delete</string>
+  <!-- The button text of the dialog to reject a module deletion. [CHAR_LIMIT=NONE]-->
+  <string name="delete_dialog_negative_button_text">Cancel</string>
+  <!-- The hint of the icon-description module has been deleted. [CHAR_LIMIT=NONE]-->
+  <string name="delete_icon_description_hint">Icon descriptions deleted</string>
+  <!-- The hint of the image-description module has been deleted. [CHAR_LIMIT=NONE]-->
+  <string name="delete_image_description_hint">Image descriptions deleted</string>
 
+  <!-- The hint to notify the misspelling word is replace by the spelling suggestion which is selected by the user. This is spoken to the user. [CHAR_LIMIT=NONE]-->
+  <string name="text_replaced_feedback">Text replaced</string>
+
+  <string name="switch_gesture_set">Switch Gesture Set</string>
+  <!--
+  Source: The text which is recognized from an image.
+  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="switch_gesture_set_to">Switch to gesture set <xliff:g example="0">%1$d</xliff:g></string>
 </resources>

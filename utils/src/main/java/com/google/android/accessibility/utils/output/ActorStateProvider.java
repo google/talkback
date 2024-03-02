@@ -17,6 +17,8 @@
 package com.google.android.accessibility.utils.output;
 
 import com.google.errorprone.annotations.CheckReturnValue;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Provides actor-state data to event-interpreters. This default-implementation should be partially
@@ -31,5 +33,17 @@ public class ActorStateProvider {
    */
   public boolean resettingNodeCursor() {
     return false;
+  }
+
+  public @Nullable ScrollActionRecord scrollState() {
+    return null;
+  }
+
+  public @NonNull SelectionStateReader selectionState() {
+    return new SelectionStateReader() {};
+  }
+
+  public EditTextActionHistory.@NonNull Provider editHistory() {
+    return new EditTextActionHistory().provider;
   }
 }

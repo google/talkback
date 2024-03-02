@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_password_selected">Знаци %1$d до %2$d</string>
+  <string name="template_password_traversed">Знакот %1$d</string>
   <string name="untitled_window">без наслов</string>
   <string name="template_text_copied">копирано, %1$s</string>
   <string name="template_capital_letter">голема буква %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
   <string name="template_current_tts_engine">Се користи %1$s</string>
-  <string name="keycombo_assign_dialog_instruction">Притиснете комбинација на копчиња да поставите нова кратенка. Таа мора да го содржи барем копчето ALT или Control.</string>
-  <string name="keycombo_assign_dialog_default_keymap_instruction">Притиснете ја комбинацијата од копчиња со копчето модификатор %1$s за да поставите нова кратенка.</string>
-  <string name="keycombo_unassigned">Неназначено</string>
-  <string name="keycombo_key_modifier_shift">Копче Shift</string>
-  <string name="keycombo_key_modifier_alt">Копче Alt</string>
-  <string name="keycombo_key_modifier_ctrl">Копче Ctrl</string>
-  <string name="keycombo_key_modifier_meta">Пребарај</string>
-  <string name="keycombo_key_arrow_right">Стрелка надесно</string>
-  <string name="keycombo_key_arrow_left">Стрелка налево</string>
-  <string name="keycombo_key_arrow_up">Стрелка нагоре</string>
-  <string name="keycombo_key_arrow_down">Стрелка надолу</string>
   <string name="granularity_default">Стандардно</string>
   <string name="granularity_character">Знаци</string>
   <string name="granularity_word">Зборови</string>
   <string name="granularity_line">Редови</string>
   <string name="granularity_paragraph">Пасуси</string>
+  <string name="granularity_container">Контејнери</string>
   <string name="granularity_window">Прозорци</string>
   <string name="granularity_web_landmark">Обележја</string>
   <string name="granularity_web_heading">Наслови</string>
@@ -42,7 +34,7 @@
   <string name="url_dialog_table">%1$s (%2$s)</string>
   <string name="exit_scrim">Излези</string>
   <string name="show_keyboard_window">Се прикажува %1$s</string>
-  <string name="hide_keyboard_window">тастатурата е сокриена</string>
+  <string name="hide_keyboard_window">тастатурата е скриена</string>
   <string name="function_on">Говорните повратни информации се вклучени</string>
   <string name="function_off">Говорните повратни инфромации се исклучени</string>
 </resources>

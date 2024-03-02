@@ -22,11 +22,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.braille.common.BrailleCommonUtils;
 import com.google.android.accessibility.braille.common.ImeConnection;
 import com.google.android.accessibility.braille.common.R;
 import com.google.android.accessibility.braille.common.TalkBackSpeaker;
+import com.google.android.accessibility.braille.common.TalkBackSpeaker.AnnounceType;
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 import com.google.android.accessibility.braille.interfaces.BrailleDisplayForBrailleIme.ResultForDisplay.HoldingsInfo;
 import com.google.android.accessibility.braille.interfaces.BrailleWord;
@@ -113,10 +113,7 @@ public class EditBufferUeb2WithPartial implements EditBuffer {
   @Override
   public void deleteCharacterBackward(ImeConnection imeConnection) {
     if (holdings.isEmpty()) {
-      imeConnection.inputConnection.sendKeyEvent(
-          new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
-      imeConnection.inputConnection.sendKeyEvent(
-          new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
+      BrailleCommonUtils.performKeyAction(imeConnection.inputConnection, KeyEvent.KEYCODE_DEL);
       return;
     }
     if (holdingPosition <= 0) {
@@ -131,10 +128,8 @@ public class EditBufferUeb2WithPartial implements EditBuffer {
   @Override
   public void deleteCharacterForward(ImeConnection imeConnection) {
     if (holdings.isEmpty()) {
-      imeConnection.inputConnection.sendKeyEvent(
-          new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_FORWARD_DEL));
-      imeConnection.inputConnection.sendKeyEvent(
-          new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_FORWARD_DEL));
+      BrailleCommonUtils.performKeyAction(
+          imeConnection.inputConnection, KeyEvent.KEYCODE_FORWARD_DEL);
       return;
     }
     if (holdingPosition >= holdings.size()) {
@@ -174,59 +169,17 @@ public class EditBufferUeb2WithPartial implements EditBuffer {
   @Override
   public boolean moveCursorForward(ImeConnection imeConnection) {
     if (holdings.isEmpty()) {
-      return moveTextFieldCursor(
-          imeConnection, EditBufferUtils.getCursorPosition(imeConnection.inputConnection) + 1);
-    } else {
-      return moveHoldingsCursor(imeConnection, holdingPosition + 1);
+      return false;
     }
+    return moveHoldingsCursor(imeConnection, holdingPosition + 1);
   }
 
   @Override
   public boolean moveCursorBackward(ImeConnection imeConnection) {
     if (holdings.isEmpty()) {
-      return moveTextFieldCursor(
-          imeConnection, EditBufferUtils.getCursorPosition(imeConnection.inputConnection) - 1);
-    } else {
-      return moveHoldingsCursor(imeConnection, holdingPosition - 1);
+      return false;
     }
-  }
-
-  @Override
-  public boolean moveCursorForwardByWord(ImeConnection imeConnection) {
-    if (!holdings.isEmpty()) {
-      commit(imeConnection);
-    }
-    int newPos = EditBufferUtils.findWordBreakForwardIndex(imeConnection.inputConnection);
-    return moveHoldingsCursor(imeConnection, newPos);
-  }
-
-  @Override
-  public boolean moveCursorBackwardByWord(ImeConnection imeConnection) {
-    if (!holdings.isEmpty()) {
-      commit(imeConnection);
-    }
-    int newPos = EditBufferUtils.findWordBreakBackwardIndex(imeConnection.inputConnection);
-    return moveHoldingsCursor(imeConnection, newPos);
-  }
-
-  @Override
-  public boolean moveCursorForwardByLine(ImeConnection imeConnection) {
-    if (!holdings.isEmpty()) {
-      commit(imeConnection);
-    }
-    // TODO: Redefine move by line.
-    int newPos = EditBufferUtils.findParagraphBreakForwardIndex(imeConnection.inputConnection);
-    return moveTextFieldCursor(imeConnection, newPos);
-  }
-
-  @Override
-  public boolean moveCursorBackwardByLine(ImeConnection imeConnection) {
-    if (!holdings.isEmpty()) {
-      commit(imeConnection);
-    }
-    // TODO: Redefine move by line.
-    int newPos = EditBufferUtils.findParagraphBreakForwardIndex(imeConnection.inputConnection);
-    return moveTextFieldCursor(imeConnection, newPos);
+    return moveHoldingsCursor(imeConnection, holdingPosition - 1);
   }
 
   @Override
@@ -267,6 +220,20 @@ public class EditBufferUeb2WithPartial implements EditBuffer {
   }
 
   @Override
+  public boolean selectAllText(ImeConnection imeConnection) {
+    if (!holdings.isEmpty()) {
+      commit(imeConnection);
+    }
+    String textFieldText = EditBufferUtils.getTextFieldText(imeConnection.inputConnection);
+    boolean result = imeConnection.inputConnection.setSelection(0, textFieldText.length());
+    if (result) {
+      EditBufferUtils.speakSelectAll(context, talkBack, textFieldText);
+      return true;
+    }
+    return false;
+  }
+
+  @Override
   public String toString() {
     return holdings.toString();
   }
@@ -302,19 +269,11 @@ public class EditBufferUeb2WithPartial implements EditBuffer {
 
   private void speak(String text) {
     String speakText = SpeechCleanupUtils.cleanUp(context, text).toString();
-    talkBack.speakInterrupt(speakText);
+    talkBack.speak(speakText, AnnounceType.INTERRUPT);
   }
 
   private void speakDelete(String text) {
     String speakText = SpeechCleanupUtils.cleanUp(context, text).toString();
-    talkBack.speakInterrupt(context.getString(R.string.read_out_deleted, speakText));
-  }
-
-  /**
-   * For testing, returns true if the holdings matches the given list of {@link BrailleCharacter}.
-   */
-  @VisibleForTesting
-  boolean testing_holdingsMatches(BrailleWord expectedHoldings) {
-    return holdings.equals(expectedHoldings);
+    talkBack.speak(context.getString(R.string.read_out_deleted, speakText), AnnounceType.INTERRUPT);
   }
 }

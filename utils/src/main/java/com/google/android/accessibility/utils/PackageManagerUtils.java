@@ -29,10 +29,10 @@ public class PackageManagerUtils {
   private static final String TAG = "PackageManagerUtils";
 
   /** Invalid version code for a package. */
-  private static final int INVALID_VERSION_CODE = -1;
+  public static final int INVALID_VERSION_CODE = -1;
 
   /** talkback-package-name constants */
-  public static final String TALBACK_PACKAGE = BuildConfig.TALKBACK_APPLICATION_ID;
+  public static final String TALKBACK_PACKAGE = BuildConfig.TALKBACK_APPLICATION_ID;
 
   // INFO: TalkBack For Developers modification
   /** TalkBack service name constant */
@@ -46,11 +46,16 @@ public class PackageManagerUtils {
 
   private static final int MIN_GMSCORE_VERSION = 9200000; // Version should be at least V4.
 
+  /** Returns the package version code. */
+  public static long getVersionCode(Context context) {
+    return getVersionCodeCompat(context, context.getPackageName());
+  }
+
   /**
-   * @return The package version code or {@link #INVALID_VERSION_CODE} if the package does not
-   *     exist.
+   * Returns the package version code or {@link #INVALID_VERSION_CODE} if the package does not
+   * exist.
    */
-  public static long getVersionCode(Context context, CharSequence packageName) {
+  public static long getVersionCodeCompat(Context context, @Nullable CharSequence packageName) {
     if (TextUtils.isEmpty(packageName)) {
       return INVALID_VERSION_CODE;
     }
@@ -61,17 +66,17 @@ public class PackageManagerUtils {
       LogUtils.e(TAG, "Could not find package: %s", packageName);
       return INVALID_VERSION_CODE;
     }
-
-    return packageInfo.versionCode;
+    return FeatureSupport.supportLongVersionCode()
+        ? packageInfo.getLongVersionCode()
+        : packageInfo.versionCode;
   }
 
-  /** @return The package version name or <code>null</code> if the package does not exist. */
-  public static @Nullable String getVersionName(Context context) {
-    String packageName = context.getPackageName();
-    return (packageName == null) ? null : getVersionName(context, packageName);
+  /** Returns the package version name. */
+  public static String getVersionName(Context context) {
+    return getVersionName(context, context.getPackageName());
   }
 
-  public static @Nullable String getVersionName(Context context, CharSequence packageName) {
+  private static @Nullable String getVersionName(Context context, CharSequence packageName) {
     if (TextUtils.isEmpty(packageName)) {
       return null;
     }
@@ -86,20 +91,25 @@ public class PackageManagerUtils {
     return packageInfo.versionName;
   }
 
-  /** @return Whether the package is installed on the device. */
+  /** Returns whether the package is installed on the device. */
   @SuppressWarnings("BooleanMethodIsAlwaysInverted")
   public static boolean hasPackage(Context context, String packageName) {
     return (getPackageInfo(context, packageName) != null);
   }
 
+  /** Returns {@code true} if the platform has GMS core package */
+  public static boolean hasGmsCorePackage(Context context) {
+    return hasPackage(context, GMSCORE_PACKAGE_NAME);
+  }
+
   /** Returns {@code true} if the package is Talkback package */
   public static boolean isTalkBackPackage(@Nullable CharSequence packageName) {
-    return TextUtils.equals(packageName, TALBACK_PACKAGE);
+    return TextUtils.equals(packageName, TALKBACK_PACKAGE);
   }
 
   /** Returns {@code true} if the package supports help and feedback. */
   public static boolean supportsHelpAndFeedback(Context context) {
-    return getVersionCode(context, GMSCORE_PACKAGE_NAME) > MIN_GMSCORE_VERSION;
+    return getVersionCodeCompat(context, GMSCORE_PACKAGE_NAME) > MIN_GMSCORE_VERSION;
   }
 
   private static @Nullable PackageInfo getPackageInfo(Context context, CharSequence packageName) {

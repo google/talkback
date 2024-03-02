@@ -19,7 +19,7 @@
     android:layout_height="55dp"
     android:orientation="vertical" >
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/summaryListItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

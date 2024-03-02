@@ -89,6 +89,19 @@ public class SharedPreferencesUtils {
   }
 
   /**
+   * Stores the value of a String preference.
+   *
+   * @param prefs Shared preferences from which to obtain the value
+   * @param key the preference key
+   * @param value The value to store
+   */
+  public static void putStringPref(SharedPreferences prefs, String key, String value) {
+    final SharedPreferences.Editor editor = prefs.edit();
+    editor.putString(key, value);
+    editor.apply();
+  }
+
+  /**
    * Returns the value of an integer preference.
    *
    * @param prefs Shared preferences from which to obtain the value

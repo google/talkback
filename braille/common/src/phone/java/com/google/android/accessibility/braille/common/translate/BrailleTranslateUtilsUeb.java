@@ -16,8 +16,6 @@
 
 package com.google.android.accessibility.braille.common.translate;
 
-import static com.google.android.accessibility.braille.common.translate.BrailleTranslateUtils.NUMERIC;
-
 import android.content.res.Resources;
 import com.google.android.accessibility.braille.common.R;
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
@@ -25,7 +23,6 @@ import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 /** Utils for translation of UEB Braille. */
 public class BrailleTranslateUtilsUeb {
 
-  public static final BrailleCharacter CAPITALIZE = new BrailleCharacter(6);
   public static final BrailleCharacter LETTER_A = new BrailleCharacter(1);
   public static final BrailleCharacter LETTER_B = new BrailleCharacter(1, 2);
   public static final BrailleCharacter LETTER_C = new BrailleCharacter(1, 4);
@@ -36,12 +33,14 @@ public class BrailleTranslateUtilsUeb {
    * such an announcement is appropriate. This is useful for certain prefixes that do not have a
    * stand-alone translation, but are important enough that the user would appreciate an audial
    * description of it.
+   *
+   * <p>TODO: remove this method and place this logic into EditBuffer.
    */
   public static String getTextToSpeak(Resources resources, BrailleCharacter brailleCharacter) {
     String textToSpeak = "";
-    if (brailleCharacter.equals(CAPITALIZE)) {
+    if (brailleCharacter.equals(BrailleTranslateUtils.DOT6)) {
       textToSpeak = resources.getString(R.string.capitalize_announcement);
-    } else if (brailleCharacter.equals(NUMERIC)) {
+    } else if (brailleCharacter.equals(BrailleTranslateUtils.DOTS3456)) {
       textToSpeak = resources.getString(R.string.number_announcement);
     }
     return textToSpeak;

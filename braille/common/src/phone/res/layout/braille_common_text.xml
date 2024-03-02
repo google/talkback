@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/braille_common_text_marginTop"
+    android:focusable="true">
+  <TextView
+      android:id="@android:id/title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/braille_common_text_marginRight"
+      android:layout_marginBottom="@dimen/braille_common_text_marginBottom"
+      android:paddingStart="@dimen/braille_common_text_padding_start"
+      android:paddingEnd="@dimen/braille_common_text_padding_end"
+      android:fontFamily="@string/accessibility_font"
+      android:textColor="@color/settings_primary_text"
+      android:textSize="@dimen/braille_common_text_size"
+      android:lineSpacingExtra="@dimen/braille_common_text_line_spacing_extra"/>
+</LinearLayout>

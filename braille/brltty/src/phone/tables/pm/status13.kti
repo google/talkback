@@ -1,0 +1,51 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Papenmeier displays which have 13 status keys.
+note The keys to the left of the status cells are named Status.1 through Status.13.
+
+bind !Status.1 HELP
+bind !Status.2 LEARN
+bind !Status.3 CSRJMP_VERT
+bind !Status.4 INFO
+bind !Status.5 BACK
+
+assign toggleKeys Status.6
+assign toggleCommand CSRTRK
+include ../toggle.kti
+
+assign toggleKeys Status.7
+assign toggleCommand DISPMD
+include ../toggle.kti
+
+assign toggleKeys Status.8
+assign toggleCommand FREEZE
+include ../toggle.kti
+
+bind !Status.9 PREFMENU
+
+assign toggleKeys Status.10
+assign toggleCommand CSRVIS
+include ../toggle.kti
+
+assign toggleKeys Status.11
+assign toggleCommand ATTRVIS
+include ../toggle.kti
+
+bind !Status.12 TIME
+bind !Status.13 PASTE

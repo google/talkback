@@ -21,7 +21,7 @@ import android.content.Context;
 import androidx.appcompat.app.AlertDialog;
 import com.google.android.accessibility.brailleime.R;
 import com.google.android.accessibility.utils.KeyboardUtils;
-import com.google.android.accessibility.utils.MaterialComponentUtils;
+import com.google.android.accessibility.utils.material.MaterialComponentUtils;
 
 /** An error dialog which shows when the device supports too few touch points. */
 public class TooFewTouchPointsDialog extends ViewAttachedDialog {
@@ -52,7 +52,7 @@ public class TooFewTouchPointsDialog extends ViewAttachedDialog {
           (dialog, which) -> callback.onSwitchToNextIme());
     } else {
       dialogBuilder.setPositiveButton(
-          context.getString(R.string.done), (dialog, which) -> callback.onSwitchToNextIme());
+          context.getString(android.R.string.ok), (dialog, which) -> callback.onSwitchToNextIme());
     }
     dialogBuilder.setOnCancelListener(dialogInterface -> callback.onSwitchToNextIme());
     dialog = dialogBuilder.create();

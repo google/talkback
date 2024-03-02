@@ -1,4 +1,4 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
     style="?android:attr/preferenceCategoryStyle"
     android:id="@android:id/title"
     android:layout_width="match_parent"

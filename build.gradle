@@ -11,7 +11,7 @@ dependencies {
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
@@ -22,7 +22,7 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
 }
@@ -34,6 +34,7 @@ android {
         versionName talkbackVersionName + "-" + BUILD_TIMESTAMP + "-" + talkback4DevVersionName
         minSdkVersion 26
         targetSdkVersion 30
+        compileSdkVersion 33
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'
         multiDexEnabled true
     }

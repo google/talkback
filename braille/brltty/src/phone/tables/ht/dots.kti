@@ -1,0 +1,83 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# Key subtable for HandyTech braille dot keys
+
+#Overridden by BrailleBack.
+#bind B1 HOME
+#bind B2 TOP_LEFT
+#bind B3 BACK
+#bind B4 LNUP
+#bind B5 LNDN
+#bind B1+B4 PRPGRPH
+#bind B1+B5 NXPGRPH
+#bind B2+B4 PRPROMPT
+#bind B2+B5 NXPROMPT
+#bind B3+B4 PRSEARCH
+#bind B3+B5 NXSEARCH
+#bind B4+B5 LEARN
+#bind B6+B4 ATTRUP
+#bind B6+B5 ATTRDN
+#bind B7+B4 WINUP
+#bind B7+B5 WINDN
+#bind B8+B4 PRDIFLN
+#bind B8+B5 NXDIFLN
+#bind B8 HELP
+#bind B8+B1 CSRTRK
+#bind B8+B2 CSRVIS
+#bind B8+B3 ATTRVIS
+#bind B8+B6 FREEZE
+#bind B8+B7 TUNES
+#bind B7 SIXDOTS
+#bind B7+B1 PREFMENU
+#bind B7+B2 PREFLOAD
+#bind B7+B3 PREFSAVE
+#bind B7+B6 INFO
+#bind B6 DISPMD
+#bind B6+B1 SKPIDLNS
+#bind B6+B2 SKPBLNKWINS
+#bind B6+B3 SLIDEWIN
+
+#bind B2+B3+B5+B6 TIME
+
+bind B1+RoutingKey SETLEFT
+bind B2+RoutingKey DESCCHAR
+bind B3+RoutingKey CLIP_ADD
+bind B4+RoutingKey CLIP_NEW
+bind B5+RoutingKey COPY_RECT
+bind B6+RoutingKey COPY_LINE
+bind B7+RoutingKey SETMARK
+bind B8+RoutingKey GOTOMARK
+
+
+########################
+# BrailleBack Bindings #
+########################
+
+# Needs to match up with input.kti
+assign chord \{space}
+assign chord1 B4
+assign chord2 B3
+assign chord3 B2
+assign chord4 B5
+assign chord5 B6
+assign chord6 B7
+assign chord7 B1
+assign chord8 B8
+
+include ../android-chords-google.kti

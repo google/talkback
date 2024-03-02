@@ -18,7 +18,6 @@ package com.google.android.accessibility.talkback.menurules;
 
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.MENU_TYPE_LABELING;
 
-import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.view.Menu;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -51,8 +50,8 @@ class RuleUnlabeledNode extends NodeMenuRule {
   }
 
   @Override
-  public boolean accept(AccessibilityService service, AccessibilityNodeInfoCompat node) {
-    return actorState.getCustomLabel().supportsLabel(node);
+  public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
+    return actorState.getLabelManagerState().supportsLabel(node);
   }
 
   @Override
@@ -62,8 +61,8 @@ class RuleUnlabeledNode extends NodeMenuRule {
 
   @Override
   public List<ContextMenuItem> getMenuItemsForNode(
-      AccessibilityService service, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
-    final long viewLabelId = actorState.getCustomLabel().getLabelIdForViewId(node);
+      Context context, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
+    final long viewLabelId = actorState.getLabelManagerState().getLabelIdForNode(node);
     List<ContextMenuItem> menuList = new ArrayList<>();
     String resourceName = node.getViewIdResourceName();
     ContextMenuItem item;
@@ -71,15 +70,15 @@ class RuleUnlabeledNode extends NodeMenuRule {
     if (viewLabelId == Label.NO_ID) {
       item =
           ContextMenu.createMenuItem(
-              service,
+              context,
               Menu.NONE,
               R.id.labeling_breakout_add_label,
               Menu.NONE,
-              service.getString(R.string.label_dialog_title_add));
+              context.getString(R.string.label_dialog_title_add));
       item.setOnMenuItemClickListener(
           (menuItem) -> {
             LabelDialogManager.addLabel(
-                service, resourceName, /* needToRestoreFocus= */ true, pipeline);
+                context, resourceName, /* needToRestoreFocus= */ true, pipeline);
             analytics.onLocalContextMenuAction(MENU_TYPE_LABELING, item.getItemId());
             return true;
           });
@@ -87,15 +86,15 @@ class RuleUnlabeledNode extends NodeMenuRule {
     } else {
       item =
           ContextMenu.createMenuItem(
-              service,
+              context,
               Menu.NONE,
               R.id.labeling_breakout_edit_label,
               Menu.NONE,
-              service.getString(R.string.label_dialog_title_edit));
+              context.getString(R.string.label_dialog_title_edit));
       item.setOnMenuItemClickListener(
           (menuItem) -> {
             LabelDialogManager.editLabel(
-                service, viewLabelId, /* needToRestoreFocus= */ true, pipeline);
+                context, viewLabelId, /* needToRestoreFocus= */ true, pipeline);
             analytics.onLocalContextMenuAction(MENU_TYPE_LABELING, item.getItemId());
             return true;
           });

@@ -46,6 +46,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.braille.common.BrailleUtils;
+import com.google.android.accessibility.braille.common.Constants.BrailleType;
+import com.google.android.accessibility.braille.common.TalkBackSpeaker;
 import com.google.android.accessibility.braille.common.translate.BrailleLanguages.Code;
 import com.google.android.accessibility.braille.common.translate.BrailleTranslateUtils;
 import com.google.android.accessibility.braille.common.translate.BrailleTranslateUtilsUeb;
@@ -56,6 +58,7 @@ import com.google.android.accessibility.brailleime.BrailleIme.OrientationSensiti
 import com.google.android.accessibility.brailleime.BrailleImeLog;
 import com.google.android.accessibility.brailleime.BrailleImeVibrator;
 import com.google.android.accessibility.brailleime.BrailleImeVibrator.VibrationType;
+import com.google.android.accessibility.brailleime.BrailleInputOptions;
 import com.google.android.accessibility.brailleime.OrientationMonitor;
 import com.google.android.accessibility.brailleime.OrientationMonitor.Orientation;
 import com.google.android.accessibility.brailleime.R;
@@ -63,6 +66,7 @@ import com.google.android.accessibility.brailleime.Utils;
 import com.google.android.accessibility.brailleime.dialog.ContextMenuDialog;
 import com.google.android.accessibility.brailleime.input.BrailleInputPlane.DotTarget;
 import com.google.android.accessibility.brailleime.input.BrailleInputView;
+import com.google.android.accessibility.brailleime.input.BrailleInputView.CalibrationTriggeredType;
 import com.google.android.accessibility.brailleime.input.BrailleInputView.FingersPattern;
 import com.google.android.accessibility.brailleime.input.Swipe;
 import com.google.android.accessibility.brailleime.input.Swipe.Direction;
@@ -77,6 +81,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /** Views that displays the braille tutorial and there are several {@link State} in the tutorial. */
 public class TutorialView extends FrameLayout implements OrientationSensitive {
+
+  private static final int HIGHLIGHT_CHARACTER_ANIMATION_DURATION_MILLISECOND = 10;
 
   /** An interface of tutorial state machine. */
   public interface TutorialState {
@@ -139,7 +145,9 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
 
     default void onSwipeProduced(Swipe swipe) {}
 
-    default void onCalibration(FingersPattern fingersPattern) {}
+    default void onCalibration(CalibrationTriggeredType type, FingersPattern fingersPattern) {}
+
+    default void onTwoStepCalibrationRetry(boolean isFirstStep) {}
   }
 
   class Intro implements TutorialState {
@@ -163,19 +171,19 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
           .setOnClickListener(
               view -> {
                 tutorialCallback.onBrailleImeActivated();
-                switchNextState(nextState(), 0);
+                switchState(nextState(), 0);
               });
       findViewById(R.id.leave_keyboard_button)
           .setOnClickListener(
               view -> {
                 // For users who got in accidentally, switch to the next keyboard.
                 tutorialCallback.onSwitchToNextInputMethod();
-                switchNextState(State.NONE, /* delay= */ 0);
+                switchState(State.NONE, /* delay= */ 0);
               });
 
       // To make TalkBack focus on tutorial view. This is not a good solution, try to find better
       // one later.
-      TutorialView.this.postDelayed(
+      postDelayed(
           () ->
               findViewById(R.id.tutorial_title)
                   .performAccessibilityAction(ACTION_ACCESSIBILITY_FOCUS, new Bundle()),
@@ -237,7 +245,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       if (!actionCompleted) {
         actionCompleted = true;
         // onDoubleTap callback comes twice, delay 500ms to consume this event.
-        switchNextState(nextState(), /* delay= */ 500);
+        switchState(nextState(), /* delay= */ 500);
       }
     }
 
@@ -325,17 +333,18 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       if (!actionCompleted) {
         actionCompleted = true;
         tutorialCallback.unregisterOrientationChange();
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       }
     }
 
     private void startHighlightTextAnimation() {
       final TextView highlightTextView = findViewById(R.id.highlight_description);
-      CharSequence highlightText = ((TextView) findViewById(R.id.highlight_description)).getText();
+      CharSequence highlightText = highlightTextView.getText();
       final int highlightColor =
           getResources().getColor(R.color.text_highlight_color, /* theme= */ null);
       animator = ValueAnimator.ofInt(1, highlightText.length());
-      animator.setDuration(highlightText.length() * 10);
+      animator.setDuration(
+          (long) highlightText.length() * HIGHLIGHT_CHARACTER_ANIMATION_DURATION_MILLISECOND);
       animator.start();
       animator.addUpdateListener(
           animation -> {
@@ -375,6 +384,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
 
   class HoldSixFingers implements TutorialState {
     private boolean actionCompleted;
+    private FingersPattern fingersPattern;
 
     @Override
     public State getCurrentState() {
@@ -396,6 +406,17 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
 
     @Override
     public String audialAnnouncementRepeated() {
+      if (fingersPattern == FingersPattern.FIVE_FINGERS) {
+        return getResources()
+            .getString(
+                R.string.calibration_hold_left_or_right_three_finger_announcement,
+                getResources().getString(R.string.left_hand));
+      } else if (fingersPattern == FingersPattern.FIRST_THREE_FINGERS) {
+        return getResources()
+            .getString(
+                R.string.calibration_step2_hold_left_or_right_finger_announcement,
+                getResources().getString(R.string.right_hand));
+      }
       return getResources().getString(R.string.hold_six_fingers_inactive_announcement);
     }
 
@@ -405,7 +426,9 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     }
 
     @Override
-    public void onCalibration(FingersPattern fingersPattern) {
+    public void onCalibration(CalibrationTriggeredType type, FingersPattern fingersPattern) {
+      this.fingersPattern = fingersPattern;
+      // Only six-dot braille in the tutorial.
       if (fingersPattern.equals(FingersPattern.SIX_FINGERS)
           || fingersPattern.equals(FingersPattern.REMAINING_THREE_FINGERS)) {
         if (actionCompleted) {
@@ -417,24 +440,52 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
             getResources().getString(R.string.calibration_finish_announcement), BEEP_DELAY_MS);
         actionCompleted = true;
       } else if (fingersPattern.equals(FingersPattern.FIVE_FINGERS)) {
-        speakAnnouncement(
-            getResources().getString(R.string.calibration_step1_hold_left_finger_announcement),
-            /* delayMs= */ 0);
+        StringBuilder sb = new StringBuilder();
+        sb.append(
+                getResources()
+                    .getString(
+                        R.string.calibration_step1_hold_left_or_right_finger_announcement,
+                        getResources().getString(R.string.left_hand)))
+            .append(" ")
+            .append(
+                getResources()
+                    .getString(
+                        R.string.calibration_hold_left_or_right_three_finger_announcement,
+                        getResources().getString(R.string.left_hand)));
+        speakAnnouncement(sb.toString(), /* delayMs= */ 0);
       } else if (fingersPattern.equals(FingersPattern.FIRST_THREE_FINGERS)) {
-        speakAnnouncement(
-            getResources().getString(R.string.calibration_step2_hold_right_finger_announcement),
-            /* delayMs= */ 0);
-      } else if (fingersPattern.equals(FingersPattern.UNKNOWN)) {
-        speakAnnouncement(
-            getResources().getString(R.string.calibration_fail_announcement), /* delayMs= */ 0);
+        this.fingersPattern = FingersPattern.FIRST_THREE_FINGERS;
+        StringBuilder sb = new StringBuilder();
+        sb.append(
+                getResources()
+                    .getString(
+                        R.string.calibration_step2_hold_left_or_right_finger_announcement,
+                        getResources().getString(R.string.right_hand)))
+            .append(" ")
+            .append(
+                getResources()
+                    .getString(
+                        R.string.calibration_hold_left_or_right_three_finger_announcement,
+                        getResources().getString(R.string.right_hand)));
+        speakAnnouncement(sb.toString(), /* delayMs= */ 0);
       }
+    }
+
+    @Override
+    public void onTwoStepCalibrationRetry(boolean isFirstStep) {
+      String announcement =
+          getResources()
+              .getString(
+                  R.string.calibration_hold_left_or_right_three_finger_announcement,
+                  getResources().getString(R.string.left_hand));
+      speakAnnouncement(announcement, /* delayMs= */ 0);
     }
 
     @Override
     public void onUtteranceCompleted() {
       if (actionCompleted) {
         actionCompleted = false;
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       } else {
         speakAnnouncement(audialAnnouncementRepeated(), /* delayMs= */ 0);
       }
@@ -539,7 +590,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     public void onUtteranceCompleted() {
       if (actionCompleted) {
         actionCompleted = false;
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       } else {
         speakAnnouncement(audialAnnouncementRepeated(), /* delayMs= */ 0);
       }
@@ -682,7 +733,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     public void onUtteranceCompleted() {
       if (actionCompleted) {
         actionCompleted = false;
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       } else {
         speakAnnouncement(audialAnnouncementRepeated(), /* delayMs= */ 0);
       }
@@ -779,7 +830,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     public void onUtteranceCompleted() {
       if (actionCompleted) {
         actionCompleted = false;
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       } else {
         speakAnnouncement(audialAnnouncementRepeated(), /* delayMs= */ 0);
       }
@@ -873,7 +924,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     public void onUtteranceCompleted() {
       if (actionCompleted) {
         actionCompleted = false;
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       } else {
         speakAnnouncement(audialAnnouncementRepeated(), /* delayMs= */ 0);
       }
@@ -965,7 +1016,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     public void onUtteranceCompleted() {
       if (actionCompleted) {
         actionCompleted = false;
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       } else {
         speakAnnouncement(audialAnnouncementRepeated(), /* delayMs= */ 0);
       }
@@ -1056,7 +1107,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     public void onUtteranceCompleted() {
       if (actionCompleted) {
         actionCompleted = false;
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       } else {
         speakAnnouncement(audialAnnouncementRepeated(), /* delayMs= */ 0);
       }
@@ -1147,7 +1198,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     public void onUtteranceCompleted() {
       if (actionCompleted) {
         actionCompleted = false;
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       } else {
         speakAnnouncement(audialAnnouncementRepeated(), /* delayMs= */ 0);
       }
@@ -1241,7 +1292,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     public void onUtteranceCompleted() {
       if (actionCompleted) {
         actionCompleted = false;
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
       } else {
         speakAnnouncement(audialAnnouncementRepeated(), /* delayMs= */ 0);
       }
@@ -1346,13 +1397,13 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       int touchCount = swipe.getTouchCount();
       Direction direction = swipe.getDirection();
       if (direction == Direction.UP && touchCount == 3) {
-        switchNextState(nextState(), /* delay= */ 0);
+        switchState(nextState(), /* delay= */ 0);
         actionCompleted = true;
       } else if (direction == Direction.RIGHT && touchCount == 3) {
         // Braille keyboard view is forced to be in landscape. When device is portrait and user
         // swipes upward, for keyboard view, it's swipe rightward.
         if (OrientationMonitor.getInstance().getCurrentOrientation() == Orientation.PORTRAIT) {
-          switchNextState(nextState(), /* delay= */ 0);
+          switchState(nextState(), /* delay= */ 0);
           actionCompleted = true;
         }
       } else {
@@ -1422,7 +1473,10 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     void onBrailleImeInactivated();
 
     void onAudialAnnounce(
-        String announcement, int delayMs, UtteranceCompleteRunnable utteranceCompleteRunnable);
+        String announcement,
+        int delayMs,
+        TalkBackSpeaker.AnnounceType announceType,
+        UtteranceCompleteRunnable utteranceCompleteRunnable);
 
     void onPlaySound(int resId, int delayMs);
 
@@ -1488,7 +1542,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
   private final BrailleInputView inputView;
   private final DotBlockView dotBlockView;
   private DotsFlashingAnimationView dotsFlashingAnimationView;
-  private final TutorialAnimationView tutorialAnimationView;
+  private TutorialAnimationView tutorialAnimationView;
   private final GestureDetector gestureDetector;
   private final ContextMenuDialog contextMenuDialog;
 
@@ -1529,18 +1583,25 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     state = tutorialFinished;
 
     gestureDetector = new GestureDetector(context, doubleTapDetector);
-    inputView =
-        new BrailleInputView(context, inputPlaneCallback, screenSize, /* isTutorial= */ true);
+    BrailleInputOptions options =
+        BrailleInputOptions.builder()
+            .setTutorialMode(true)
+            .setBrailleType(BrailleType.SIX_DOT)
+            .build();
+    inputView = new BrailleInputView(context, inputPlaneCallback, screenSize, options);
     isTabletop = !BrailleUtils.isPhoneSizedDevice(context.getResources());
     inputView.setTableMode(isTabletop);
-    dotBlockView = new DotBlockView(context, orientation, isTabletop);
+    dotBlockView =
+        new DotBlockView(context, orientation, isTabletop, BrailleInputOptions.builder().build());
     tutorialAnimationView = new TutorialAnimationView(context, orientation, screenSize, isTabletop);
     contextMenuDialog = new ContextMenuDialog(context, contextMenuDialogCallback);
     contextMenuDialog.setTutorialMode(true);
 
     // Force use UEB grade 1 in tutorial to make sure the instructions are always correct.
-    Code code = Code.UEB_1;
-    translator = BrailleUserPreferences.readTranslatorFactory().create(context, code.name());
+    Code code = Code.UEB;
+    translator =
+        BrailleUserPreferences.readTranslatorFactory(context)
+            .create(context, code.name(), /* contractedMode= */ false);
   }
 
   @VisibleForTesting
@@ -1551,6 +1612,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
   @Override
   public void onOrientationChanged(int orientation, Size screenSize) {
     this.orientation = orientation;
+    tutorialAnimationView = new TutorialAnimationView(context, orientation, screenSize, isTabletop);
     inputView.onOrientationChanged(orientation, screenSize);
     dotBlockView.onOrientationChanged(orientation, screenSize);
     if (dotsFlashingAnimationView != null) {
@@ -1559,6 +1621,9 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       dotsFlashingAnimationView.onOrientationChanged(orientation, screenSize);
     }
     tutorialAnimationView.onOrientationChanged(orientation, screenSize);
+    if (contextMenuDialog.isShowing()) {
+      tutorialCallback.onBrailleImeInactivated();
+    }
     if (state.isActionCompleted()) {
       // Wait for utterance to complete, which will trigger next action.
       return;
@@ -1626,9 +1691,25 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     }
   }
 
-  public void switchNextState(State state, long delay) {
+  public void switchState(State state, long delay) {
+    TutorialState before = this.state;
     setTutorialState(state);
-    switchNextState(this.state, delay);
+    if (this.state.equals(before)) {
+      return;
+    }
+    switchState(this.state, delay);
+  }
+
+  private void switchState(TutorialState state, long delay) {
+    postDelayed(
+        () -> {
+          BrailleImeLog.logD(TAG, "Switch to " + state.getCurrentState().name());
+          handler.removeCallbacksAndMessages(/* token= */ null);
+          this.state = state;
+          numberOfInteractionsPerState = 0;
+          reloadView();
+        },
+        delay);
   }
 
   public void tearDown() {
@@ -1652,18 +1733,6 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     }
   }
 
-  private void switchNextState(TutorialState state, long delay) {
-    postDelayed(
-        () -> {
-          BrailleImeLog.logD(TAG, "Switch to " + state.getCurrentState().name());
-          handler.removeCallbacksAndMessages(/* token= */ null);
-          this.state = state;
-          numberOfInteractionsPerState = 0;
-          reloadView();
-        },
-        delay);
-  }
-
   private void reloadView() {
     removeAllViews();
     state.loadView();
@@ -1677,7 +1746,6 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     if (!allowExploration) {
       return;
     }
-
     if (numberOfInteractionsPerState >= FREE_INTERACTIONS_MAX) {
       speakAnnouncement(
           context.getString(
@@ -1685,7 +1753,10 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
           /* delayMs= */ 0);
     } else {
       tutorialCallback.onAudialAnnounce(
-          textToSpeak, delayMs, /* utteranceCompleteRunnable= */ null);
+          textToSpeak,
+          delayMs,
+          TalkBackSpeaker.AnnounceType.INTERRUPT,
+          /* utteranceCompleteRunnable= */ null);
       numberOfInteractionsPerState++;
     }
   }
@@ -1700,6 +1771,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     tutorialCallback.onAudialAnnounce(
         textToSpeak,
         delayMs,
+        TalkBackSpeaker.AnnounceType.INTERRUPT,
         status -> {
           // When incoming speech uses {@link SpeechController.QUEUE_MODE_INTERRUPT}, the
           // sequence is
@@ -1760,10 +1832,12 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
     Direction direction = swipe.getDirection();
     if (direction == Direction.UP && touchCount == 1) {
       // Move text cursor backward.
-      BrailleImeVibrator.getInstance(context).vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR);
+      BrailleImeVibrator.getInstance(context)
+          .vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR_OR_GRANULARITY);
     } else if (direction == Direction.DOWN && touchCount == 1) {
       // Move text cursor forward.
-      BrailleImeVibrator.getInstance(context).vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR);
+      BrailleImeVibrator.getInstance(context)
+          .vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR_OR_GRANULARITY);
     } else if (direction == Direction.DOWN && touchCount == 2) {
       // Close keyboard.
       BrailleImeVibrator.getInstance(context).vibrate(VibrationType.OTHER_GESTURES);
@@ -1775,13 +1849,15 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       BrailleImeVibrator.getInstance(context).vibrate(VibrationType.OTHER_GESTURES);
     } else if (direction == Direction.LEFT && touchCount == 1) {
       // Space.
-      BrailleImeVibrator.getInstance(context).vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR);
+      BrailleImeVibrator.getInstance(context)
+          .vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR_OR_GRANULARITY);
     } else if (direction == Direction.LEFT && touchCount == 2) {
       // Newline.
       BrailleImeVibrator.getInstance(context).vibrate(VibrationType.NEWLINE_OR_DELETE_WORD);
     } else if (direction == Direction.RIGHT && touchCount == 1) {
       // Delete.
-      BrailleImeVibrator.getInstance(context).vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR);
+      BrailleImeVibrator.getInstance(context)
+          .vibrate(VibrationType.SPACE_DELETE_OR_MOVE_CURSOR_OR_GRANULARITY);
     } else if (direction == Direction.RIGHT && touchCount == 2) {
       // Delete word.
       BrailleImeVibrator.getInstance(context).vibrate(VibrationType.NEWLINE_OR_DELETE_WORD);
@@ -1824,28 +1900,40 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
   private final BrailleInputView.Callback inputPlaneCallback =
       new BrailleInputView.Callback() {
         @Override
-        public void onSwipeProduced(Swipe swipe) {
+        public boolean onSwipeProduced(Swipe swipe) {
+          boolean result = false;
           if (swipe.getDirection() == Direction.UP && swipe.getTouchCount() == 3) {
             openContextMenu();
+            result = true;
           } else if (swipe.getDirection() == Direction.RIGHT && swipe.getTouchCount() == 3) {
             // Braille keyboard view is forced to be in landscape. When device is portrait and user
             // swipes upward, for keyboard view, it's swipe rightward.
             if (OrientationMonitor.getInstance().getCurrentOrientation() == Orientation.PORTRAIT) {
               openContextMenu();
+              result = true;
             }
           }
           vibrateForSwipeGestures(swipe);
           state.onSwipeProduced(swipe);
+          return result;
         }
 
         @Override
-        public boolean isHoldRecognized(int pointersHeldCount) {
+        public boolean onDotHoldAndDotSwipe(Swipe swipe, BrailleCharacter heldBrailleCharacter) {
+          return false;
+        }
+
+        @Override
+        public boolean isCalibrationHoldRecognized(
+            boolean inTwoStepCalibration, int pointersHeldCount) {
           // For calibration.
-          return pointersHeldCount >= 5 || pointersHeldCount == 3;
+          return pointersHeldCount >= 5 || (inTwoStepCalibration && pointersHeldCount == 3);
         }
 
         @Override
-        public void onHoldProduced(int pointersHeldCount) {}
+        public boolean onHoldProduced(int pointersHeldCount) {
+          return false;
+        }
 
         @Nullable
         @Override
@@ -1856,8 +1944,20 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
         }
 
         @Override
-        public void onCalibration(FingersPattern fingersPattern) {
-          state.onCalibration(fingersPattern);
+        public boolean onCalibration(CalibrationTriggeredType type, FingersPattern fingersPattern) {
+          state.onCalibration(type, fingersPattern);
+          return true;
+        }
+
+        @Override
+        public void onCalibrationFailed(CalibrationTriggeredType type) {
+          speakAnnouncement(
+              getResources().getString(R.string.calibration_fail_announcement), /* delayMs= */ 0);
+        }
+
+        @Override
+        public void onTwoStepCalibrationRetry(boolean isFirstStep) {
+          state.onTwoStepCalibrationRetry(isFirstStep);
         }
       };
 
@@ -1867,7 +1967,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
         public void onDialogHidden() {
           tutorialCallback.onBrailleImeActivated();
           if (state == contextMenuOpened) {
-            switchNextState(swipeUp3Fingers, /* delay= */ 0);
+            switchState(swipeUp3Fingers, /* delay= */ 0);
           } else {
             // Repeat audial announcement when back to tutorial.
             state.onUtteranceCompleted();
@@ -1882,7 +1982,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
         @Override
         public void onLaunchSettings() {
           tutorialCallback.onLaunchSettings();
-          switchNextState(tutorialFinished, /* delay= */ 0);
+          switchState(tutorialFinished, /* delay= */ 0);
           tutorialCallback.onTutorialFinished();
         }
 
@@ -1891,11 +1991,17 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
 
         @Override
         public void onTutorialClosed() {
-          switchNextState(tutorialFinished, /* delay= */ 0);
-          speakAnnouncement(
-              getResources().getString(R.string.finish_tutorial_announcement), /* delayMs= */ 0);
+          switchState(tutorialFinished, /* delay= */ 0);
+          tutorialCallback.onAudialAnnounce(
+              getResources().getString(R.string.finish_tutorial_announcement),
+              0,
+              TalkBackSpeaker.AnnounceType.INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH,
+              null);
           tutorialCallback.onTutorialFinished();
         }
+
+        @Override
+        public void onCalibration() {}
       };
 
   private final SimpleOnGestureListener doubleTapDetector =

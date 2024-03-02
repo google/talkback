@@ -15,17 +15,16 @@ public class NodeActionPerformer {
 
   private @Nullable NodeActionRecord actionRecord = null;
 
-  /** Creates node-action-record, with copy of node. Caller keeps ownership of actionedNode */
+  /** Creates node-action-record. */
   public static class NodeActionRecord {
     public final int actionId;
-    private AccessibilityNode targetNode;
+    private final AccessibilityNode targetNode;
     // SystemClock.uptimeMillis(), used to compare with AccessibilityEvent.getEventTime().
     public final long actionTime;
 
-    public NodeActionRecord(
-        @NonNull int actionId, @NonNull AccessibilityNode targetNode, long actionTime) {
+    public NodeActionRecord(int actionId, @NonNull AccessibilityNode targetNode, long actionTime) {
       this.actionId = actionId;
-      this.targetNode = targetNode.obtainCopy();
+      this.targetNode = targetNode;
       this.actionTime = actionTime;
     }
 

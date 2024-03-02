@@ -28,7 +28,7 @@ import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
-import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
+import com.google.android.accessibility.talkback.labeling.TalkBackLabelManager;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.FocusFinder;
@@ -37,6 +37,7 @@ import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Toggle search actions performer */
@@ -61,11 +62,20 @@ public class UniversalSearchActor {
    */
   private Configuration currentConfig;
 
+  /** Limited read only interface returning search state. */
+  public class State {
+    public boolean isUiVisible() {
+      return UniversalSearchActor.this.isUiVisible();
+    }
+  }
+
+  public State state = new State();
+
   public UniversalSearchActor(
       TalkBackService talkBackService,
       ScreenStateMonitor.State screenState,
       FocusFinder focusFinder,
-      CustomLabelManager labelManager) {
+      TalkBackLabelManager labelManager) {
     this.context = talkBackService;
     this.talkBackService = talkBackService;
     this.screenState = screenState;
@@ -104,6 +114,10 @@ public class UniversalSearchActor {
     }
   }
 
+  /**
+   * Called when {@link com.google.android.accessibility.utils.input.WindowEventInterpreter} has
+   * interpreted a window event.
+   */
   public void handleScreenState(EventId eventId) {
     if (!screenState.areMainWindowsStable()) {
       return;
@@ -219,11 +233,11 @@ public class UniversalSearchActor {
     return ((targetWindowLayer > -1) && (overlayWindowLayer > targetWindowLayer));
   }
 
-  public void onAutoScrolled(AccessibilityNode scrolledNode, EventId eventId) {
+  public void onAutoScrolled(@NonNull AccessibilityNode scrolledNode, EventId eventId) {
     searchScreenOverlay.onAutoScrolled(scrolledNode, eventId);
   }
 
-  public void onAutoScrollFailed(AccessibilityNode scrolledNode) {
+  public void onAutoScrollFailed(@NonNull AccessibilityNode scrolledNode) {
     searchScreenOverlay.onAutoScrollFailed(scrolledNode);
   }
 }

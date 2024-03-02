@@ -1,0 +1,63 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Baum displays which have 10 front keys.
+note The keys in the upper row on the front are named:
+note * Front1, Front3, Front5, Front7, Front9.
+note The keys in the lower row on the front are named:
+note * Front2, Front4, Front6, Front8, Front10.
+note The keys in the upper row on the back are named:
+note * Back1, Back3, Back5, Back7, Back9.
+note The keys in the lower row on the back are named:
+note * Back2, Back4, Back6, Back8, Back10.
+
+bind Front1 LNUP
+bind Front2 LNDN
+
+bind Front3 LNUP
+bind Front4 LNDN
+
+bind Front5 LNUP
+bind Front6 LNDN
+
+bind Front7 LNUP
+bind Front8 LNDN
+
+bind Front9 LNUP
+bind Front10 LNDN
+
+bind Front5+Front1 TOP_LEFT
+bind Front5+Front2 BOT_LEFT
+bind Front6+Front1 TOP
+bind Front6+Front2 BOT
+
+bind Front5+Front3 PRPROMPT
+bind Front5+Front4 NXPROMPT
+bind Front6+Front3 PRPGRPH
+bind Front6+Front4 NXPGRPH
+
+#bind Front5+Front7 LNUP
+#bind Front5+Front8 LNDN
+#bind Front6+Front7 LNUP
+#bind Front6+Front8 LNDN
+
+bind Front5+Front9 PRDIFLN
+bind Front5+Front10 NXDIFLN
+bind Front6+Front9 ATTRUP
+bind Front6+Front10 ATTRDN
+

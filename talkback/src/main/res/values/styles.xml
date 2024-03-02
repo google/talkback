@@ -102,4 +102,14 @@
     <item name="colorControlNormal">@color/training_text_color</item>
   </style>
 
+  <style name="TrainingActivityText">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">@dimen/training_padding_top</item>
+    <item name="fontFamily">@string/accessibility_font</item>
+    <item name="android:textColor">@color/training_text_color</item>
+    <item name="android:textSize">@dimen/training_text_size</item>
+    <item name="android:textColorLink">@color/training_link_text_color</item>
+    <item name="android:lineHeight">@dimen/training_text_height</item>
+  </style>
 </resources>

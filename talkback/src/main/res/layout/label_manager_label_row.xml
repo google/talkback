@@ -16,8 +16,9 @@
 -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -30,7 +31,7 @@
         android:layout_weight="1"
         android:orientation="vertical" >
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/label_text"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -39,11 +40,11 @@
             android:gravity="center_vertical"
             android:singleLine="true"
             android:textColor="@color/label_list_item_text_color"
-            android:fontFamily="@string/accessibility_font"
+            app:fontFamily="@string/accessibility_font"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/label_timestamp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -52,7 +53,7 @@
             android:gravity="center_vertical"
             android:singleLine="true"
             android:textColor="@color/label_list_item_text_color"
-            android:fontFamily="@string/accessibility_font"
+            app:fontFamily="@string/accessibility_font"
             android:textSize="14sp" />
 
     </LinearLayout>

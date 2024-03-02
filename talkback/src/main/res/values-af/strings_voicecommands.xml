@@ -21,8 +21,8 @@
   <string name="voice_commands_brighten_screen">verhelder skerm</string>
   <string name="voice_commands_restore_screen">herstel skerm</string>
   <string name="voice_commands_cancel_hide_screen">moenie skerm versteek nie</string>
-  <string name="voice_commands_all_apps">Alle programme</string>
-  <string name="voice_commands_apps">Programme</string>
+  <string name="voice_commands_all_apps">Alle apps</string>
+  <string name="voice_commands_apps">Apps</string>
   <string name="voice_commands_overview">Oorsig</string>
   <string name="voice_commands_recent_apps">Onlangse programme</string>
   <string name="voice_commands_recent">Onlangs</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Swiep regs en dan op om stemopdragte te gebruik. Sê enige tyd \"Help\" of \"What can I say?\" (wat kan ek sê) vir hierdie lys opdragte.</string>
   <string name="voice_commands_help_hint">Vir die beste resultate moet jy die presiese woorde sê wat op die volgende skerms gelys is.</string>
   <string name="voice_command_screen_locked_hint">Stemopdragte is nie beskikbaar terwyl die skerm gesluit is nie. %1$s om eerder die TalkBack-kieslys te gebruik.</string>
+  <string name="voice_commands_during_setup_hint">Stemopdragte is nie tydens opstelling beskikbaar nie.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Verander hoe jy inhoud op die huidige skerm lees</string>
   <string name="voice_commands_help_next">Volgende [opskrif]</string>

@@ -20,15 +20,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.ColorInt;
-import androidx.annotation.VisibleForTesting;
-import androidx.preference.CheckBoxPreference;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.utils.FocusIndicatorUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.preference.AccessibilitySuitePreferenceCategory;
+import com.google.android.accessibility.utils.preference.AccessibilitySuiteRadioButtonPreference;
 
 /**
  * Fragment used to display TalkBack focus indicator preferences. If TalkBackService is activated
@@ -36,28 +35,18 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils;
  * TalkBackService#reloadPreferences()}
  */
 public class FocusIndicatorPrefFragment extends TalkbackBaseFragment {
-
-  private PreferenceCategory colorPrefCategory;
+  private AccessibilitySuitePreferenceCategory colorPrefCategory;
   private SharedPreferences prefs;
 
-  // INFO: TalkBack For Developers modification
-  @Override
-  public CharSequence getTitle() {
-    return getString(R.string.title_pref_category_manage_focus_indicator);
-  }
-  // ------------------------------------------
-
   /** Preference items for focus indicator colors. */
-  @VisibleForTesting
   public enum FocusIndicatorPref {
-    // TODO: Customize the preference titles and color values.
     DEFAULT_COLOR(R.string.title_pref_default_color, R.color.accessibility_focus_highlight_color),
-    RED(R.string.title_pref_red, R.color.focus_indicator_red),
-    ORANGE(R.string.title_pref_orange, R.color.focus_indicator_orange),
-    YELLOW(R.string.title_pref_yellow, R.color.focus_indicator_yellow),
-    GREEN(R.string.title_pref_green, R.color.focus_indicator_green),
-    BLUE(R.string.title_pref_blue, R.color.focus_indicator_blue),
-    GREY(R.string.title_pref_grey, R.color.focus_indicator_grey);
+    RED(R.string.title_pref_red, R.color.google_red300),
+    ORANGE(R.string.title_pref_orange, R.color.google_orange300),
+    YELLOW(R.string.title_pref_yellow, R.color.google_dark_yellow300),
+    GREEN(R.string.title_pref_green, R.color.google_green300),
+    BLUE(R.string.title_pref_blue, R.color.google_blue300),
+    GREY(R.string.title_pref_grey, R.color.google_grey300);
 
     private final int titleId;
     private final int colorId;
@@ -78,6 +67,11 @@ public class FocusIndicatorPrefFragment extends TalkbackBaseFragment {
 
   public FocusIndicatorPrefFragment() {
     super(R.xml.focus_indicator_preferences);
+  }
+
+  @Override
+  public CharSequence getTitle() {
+    return getText(R.string.title_pref_category_manage_focus_indicator);
   }
 
   @Override
@@ -111,7 +105,9 @@ public class FocusIndicatorPrefFragment extends TalkbackBaseFragment {
   }
 
   private void initBorderColorPref() {
-    colorPrefCategory = findPreference(getString(R.string.pref_border_color_category_key));
+    colorPrefCategory =
+        (AccessibilitySuitePreferenceCategory)
+            findPreference(getString(R.string.pref_border_color_category_key));
     int focusIndicatorColor =
         FocusIndicatorUtils.getTalkBackFocusColor(getContext(), prefs, getResources());
     for (FocusIndicatorPref source : FocusIndicatorPref.values()) {
@@ -125,7 +121,8 @@ public class FocusIndicatorPrefFragment extends TalkbackBaseFragment {
   private void colorSelected(String selectedPref) {
     int count = colorPrefCategory.getPreferenceCount();
     for (int i = 0; i < count; i++) {
-      CheckBoxPreference pref = (CheckBoxPreference) colorPrefCategory.getPreference(i);
+      AccessibilitySuiteRadioButtonPreference pref =
+          (AccessibilitySuiteRadioButtonPreference) colorPrefCategory.getPreference(i);
       boolean shouldCheck = TextUtils.equals(selectedPref, pref.getTitle().toString());
       pref.setChecked(shouldCheck);
     }

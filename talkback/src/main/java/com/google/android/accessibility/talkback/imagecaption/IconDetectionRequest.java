@@ -16,9 +16,12 @@
 
 package com.google.android.accessibility.talkback.imagecaption;
 
+import static com.google.android.accessibility.utils.caption.ImageCaptionUtils.CaptionType.ICON_LABEL;
+
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.utils.caption.Result;
 import com.google.android.accessibility.utils.screenunderstanding.IconAnnotationsDetector;
 import java.util.Locale;
 
@@ -33,6 +36,7 @@ public class IconDetectionRequest extends CaptionRequest
   private final Locale locale;
 
   public IconDetectionRequest(
+      int requestId,
       @NonNull AccessibilityNodeInfoCompat node,
       @NonNull Bitmap screenCapture,
       @NonNull IconAnnotationsDetector iconAnnotationsDetector,
@@ -40,7 +44,7 @@ public class IconDetectionRequest extends CaptionRequest
       @NonNull OnFinishListener onFinishListener,
       @NonNull OnErrorListener onErrorListener,
       boolean isUserRequested) {
-    super(node, onFinishListener, onErrorListener, isUserRequested);
+    super(requestId, node, onFinishListener, onErrorListener, isUserRequested);
     this.screenCapture = screenCapture;
     this.iconAnnotationsDetector = iconAnnotationsDetector;
     this.locale = locale;
@@ -48,6 +52,7 @@ public class IconDetectionRequest extends CaptionRequest
 
   @Override
   public void perform() {
+    onCaptionStart();
     iconAnnotationsDetector.processScreenshotAsync(screenCapture, this);
     runTimeoutRunnable();
   }
@@ -60,6 +65,6 @@ public class IconDetectionRequest extends CaptionRequest
       return;
     }
 
-    onCaptionFinish(iconAnnotationsDetector.getIconLabel(locale, node));
+    onCaptionFinish(Result.create(ICON_LABEL, iconAnnotationsDetector.getIconLabel(locale, node)));
   }
 }

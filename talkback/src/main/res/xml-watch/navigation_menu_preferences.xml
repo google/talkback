@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_category_navigation_options_menu_key">
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_characters_default"
+        android:key="@string/pref_show_navigation_menu_characters_setting_key"
+        android:summary="@string/summary_characters"
+        android:title="@string/granularity_character" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_words_default"
+        android:key="@string/pref_show_navigation_menu_words_setting_key"
+        android:summary="@string/summary_words"
+        android:title="@string/granularity_word" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_lines_default"
+        android:key="@string/pref_show_navigation_menu_lines_setting_key"
+        android:summary="@string/summary_lines"
+        android:title="@string/granularity_line" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_paragraphs_default"
+        android:key="@string/pref_show_navigation_menu_paragraphs_setting_key"
+        android:summary="@string/summary_paragraphs"
+        android:title="@string/granularity_paragraph" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_headings_default"
+        android:key="@string/pref_show_navigation_menu_headings_setting_key"
+        android:summary="@string/summary_headings"
+        android:title="@string/granularity_web_heading" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_controls_default"
+        android:key="@string/pref_show_navigation_menu_controls_setting_key"
+        android:summary="@string/summary_controls"
+        android:title="@string/granularity_web_control" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_links_default"
+        android:key="@string/pref_show_navigation_menu_links_setting_key"
+        android:summary="@string/summary_links"
+        android:title="@string/granularity_web_link" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_landmarks_default"
+        android:key="@string/pref_show_navigation_menu_landmarks_setting_key"
+        android:summary="@string/summary_landmarks"
+        android:title="@string/granularity_web_landmark" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_special_content_default"
+        android:key="@string/pref_show_navigation_menu_special_content_setting_key"
+        android:summary="@string/summary_special_content"
+        android:title="@string/granularity_pseudo_web_special_content" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_other_web_navigation_default"
+        android:key="@string/pref_show_navigation_menu_other_web_navigation_setting_key"
+        android:summary="@string/summary_other_web_navigation"
+        android:title="@string/title_other_web_navigation" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_window_default"
+        android:key="@string/pref_show_navigation_menu_window_setting_key"
+        android:summary="@string/summary_windows"
+        android:title="@string/granularity_window" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_container_default"
+        android:key="@string/pref_show_navigation_menu_container_setting_key"
+        android:summary="@string/summary_containers"
+        android:title="@string/granularity_container" />
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_granularity_default"
+        android:key="@string/pref_show_navigation_menu_granularity_default_setting_key"
+        android:summary="@string/summary_granularity_default"
+        android:title="@string/title_granularity_default" />
+</PreferenceScreen>

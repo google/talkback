@@ -108,7 +108,9 @@ class FeedbackFragmentsIterator {
           TAG,
           "onFragmentRangeStarted ,  speak word = %s",
           AccessibilityNodeInfoUtils.subsequenceSafe(
-              currentFeedbackFragment.getText(), start, end));
+              currentFeedbackFragment == null ? null : currentFeedbackFragment.getText(),
+              start,
+              end));
     } else {
       LogUtils.d(
           TAG,

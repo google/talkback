@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2" xmlns:tools="http://schemas.android.com/tools" tools:ignore="InconsistentArrays">
+    <string name="pref_shortcut_up_and_right_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_left_and_up_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_left_and_down_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_right_and_up_default">@string/shortcut_value_increase_volume</string>
+    <string name="pref_shortcut_right_and_down_default">@string/shortcut_value_decrease_volume</string>
+    <string name="pref_shortcut_up_and_left_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_down_and_left_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_left_and_right_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_right_and_left_default">@string/shortcut_value_unassigned</string>
 
-    <string name="pref_shortcut_3finger_1tap_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_3finger_2tap_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_3finger_3tap_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_3finger_swipe_up_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_3finger_swipe_down_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_3finger_swipe_left_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_3finger_swipe_right_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_swipe_up_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_swipe_down_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_swipe_left_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_swipe_right_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_1tap_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_2tap_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_3tap_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_3finger_2tap_hold_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_2tap_hold_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_2finger_1tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_2finger_2tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_2finger_2tap_hold_default">@string/shortcut_value_media_control</string>
+    <string name="pref_shortcut_2finger_3tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_2finger_3tap_hold_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_1tap_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_2tap_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_3tap_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_1tap_hold_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_3tap_hold_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_swipe_up_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_swipe_down_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_swipe_left_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_swipe_right_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_4finger_swipe_up_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_4finger_swipe_down_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_4finger_swipe_left_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_4finger_swipe_right_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_4finger_1tap_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_4finger_2tap_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_4finger_3tap_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_3finger_2tap_hold_default">@string/shortcut_value_unsupported</string>
+    <string name="pref_shortcut_4finger_2tap_hold_default">@string/shortcut_value_unsupported</string>
 
     <!-- None of the strings here should be translated -->
     <!-- NOTE: When adding a preference here, it must also be added to the initialization in PreferenceDefaultsProxy.java -->
@@ -28,8 +44,6 @@
         <item>@string/shortcut_next</item>
         <item>@string/shortcut_first_in_screen</item>
         <item>@string/shortcut_last_in_screen</item>
-        <item>@string/shortcut_scroll_back</item>
-        <item>@string/shortcut_scroll_forward</item>
     </string-array>
 
     <!-- Shortcut preference value of basic navigation -->
@@ -40,8 +54,6 @@
         <item>@string/shortcut_value_next</item>
         <item>@string/shortcut_value_first_in_screen</item>
         <item>@string/shortcut_value_last_in_screen</item>
-        <item>@string/shortcut_value_scroll_back</item>
-        <item>@string/shortcut_value_scroll_forward</item>
     </string-array>
 
     <!-- Shortcut preference of system actions -->
@@ -94,26 +106,44 @@
 
     <!-- Shortcut preference of text editing -->
     <string-array name="shortcut_text_editing">
-        <item>@string/title_edittext_breakout_start_selection_mode</item>
         <item>@string/title_edittext_breakout_move_to_beginning</item>
         <item>@string/title_edittext_breakout_move_to_end</item>
-        <item>@android:string/selectAll</item>
-        <item>@android:string/copy</item>
-        <item>@android:string/cut</item>
-        <item>@android:string/paste</item>
-        <item>@string/title_copy_last_spoken_phrase</item>
     </string-array>
 
     <!-- Shortcut preference value of text editing -->
     <string-array name="shortcut_value_text_editing">
-        <item>@string/shortcut_value_start_selection_mode</item>
         <item>@string/shortcut_value_move_cursor_to_beginning</item>
         <item>@string/shortcut_value_move_cursor_to_end</item>
-        <item>@string/shortcut_value_select_all</item>
-        <item>@string/shortcut_value_copy</item>
-        <item>@string/shortcut_value_cut</item>
-        <item>@string/shortcut_value_paste</item>
-        <item>@string/shortcut_value_copy_last_spoken_phrase</item>
+    </string-array>
+
+    <!-- The list of the gestures which the platform supports. [CHAR_LIMIT=NONE] -->
+    <string-array name="service_detected_gesture_list">
+        <!-- Start with double tap. -->
+        <item>MAPPER_GESTURE_DOUBLE_TAP</item>
+        <item>MAPPER_GESTURE_DOUBLE_TAP_AND_HOLD</item>
+        <!-- One-direction swipes. -->
+        <item>MAPPER_GESTURE_SWIPE_RIGHT</item>
+        <item>MAPPER_GESTURE_SWIPE_LEFT</item>
+        <item>MAPPER_GESTURE_SWIPE_UP</item>
+        <item>MAPPER_GESTURE_SWIPE_DOWN</item>
+        <!-- Two-direction swipes. -->
+        <item>MAPPER_GESTURE_SWIPE_LEFT_AND_RIGHT</item>
+        <item>MAPPER_GESTURE_SWIPE_LEFT_AND_UP</item>
+        <item>MAPPER_GESTURE_SWIPE_LEFT_AND_DOWN</item>
+        <item>MAPPER_GESTURE_SWIPE_RIGHT_AND_UP</item>
+        <item>MAPPER_GESTURE_SWIPE_RIGHT_AND_DOWN</item>
+        <item>MAPPER_GESTURE_SWIPE_RIGHT_AND_LEFT</item>
+        <item>MAPPER_GESTURE_SWIPE_DOWN_AND_UP</item>
+        <item>MAPPER_GESTURE_SWIPE_DOWN_AND_LEFT</item>
+        <item>MAPPER_GESTURE_SWIPE_DOWN_AND_RIGHT</item>
+        <item>MAPPER_GESTURE_SWIPE_UP_AND_DOWN</item>
+        <item>MAPPER_GESTURE_SWIPE_UP_AND_LEFT</item>
+        <item>MAPPER_GESTURE_SWIPE_UP_AND_RIGHT</item>
+        <!--> Two-finger taps. -->
+        <item>MAPPER_GESTURE_2_FINGER_SINGLE_TAP</item>
+        <item>MAPPER_GESTURE_2_FINGER_DOUBLE_TAP</item>
+        <item>MAPPER_GESTURE_2_FINGER_DOUBLE_TAP_AND_HOLD</item>
+        <item>MAPPER_GESTURE_2_FINGER_TRIPLE_TAP</item>
     </string-array>
 
     <bool name="pref_show_context_menu_labeling_default">false</bool>
@@ -123,6 +153,7 @@
     <bool name="pref_show_context_menu_find_on_screen_default">false</bool>
     <bool name="pref_show_context_menu_language_default">false</bool>
     <bool name="pref_show_context_menu_tts_settings_default">false</bool>
+    <bool name="pref_show_context_menu_typo_suggestions_default">false</bool>
     <bool name="pref_show_context_menu_voice_commands_default">false</bool>
     <bool name="pref_show_context_menu_image_caption_default">false</bool>
     <bool name="pref_show_navigation_menu_controls_default">false</bool>
@@ -131,6 +162,7 @@
     <bool name="pref_show_navigation_menu_special_content_default">false</bool>
     <bool name="pref_show_navigation_menu_other_web_navigation_default">false</bool>
     <bool name="pref_show_navigation_menu_window_default">false</bool>
+    <bool name="pref_show_navigation_menu_container_default">false</bool>
 
     <bool name="pref_selector_actions_default">false</bool>
     <bool name="pref_selector_granularity_lines_default">false</bool>
@@ -138,6 +170,8 @@
     <bool name="pref_selector_granularity_controls_default">false</bool>
     <bool name="pref_selector_verbosity_default">false</bool>
     <bool name="pref_selector_granularity_links_default">false</bool>
-    <bool name="pref_selector_granularity_windows_default">false</bool>
+    <bool name="pref_selector_granularity_typo_default">false</bool>
 
+    <bool name="pref_speak_container_element_positions_default">false</bool>
+    <bool name="pref_vibration_default">false</bool>
 </resources>

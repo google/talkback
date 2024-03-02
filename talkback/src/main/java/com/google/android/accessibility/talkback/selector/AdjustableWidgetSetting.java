@@ -19,7 +19,7 @@ public class AdjustableWidgetSetting implements ContextualSetting {
   }
 
   @Override
-  public boolean shouldActivateSetting(Context context, AccessibilityNodeInfoCompat node) {
+  public boolean isNodeSupportSetting(Context context, AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return false;
     }

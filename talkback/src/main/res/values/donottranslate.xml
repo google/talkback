@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="InconsistentArrays">
     <!-- None of the strings here should be translated -->
     <!-- NOTE: When adding a preference here, it must also be added to the initialization in PreferenceDefaultsProxy.java -->
     <string name="pref_category_audio_key" translatable="false">pref_category_audio_key</string>
@@ -11,6 +13,7 @@
     <string name="pref_brailleime_key">pref_brailleime</string>
     <string name="pref_brailledisplay_key">pref_brailledisplay</string>
     <string name="pref_vibration_key">pref_vibration</string>
+    <string name="pref_talkback_prefer_locale_key">pref_talkback_prefer_locale</string>
     <string name="pref_soundback_key">pref_soundback</string>
     <string name="pref_use_audio_focus_key">pref_use_audio_focus</string>
     <string name="pref_category_developer_key">pref_category_developer</string>
@@ -21,9 +24,11 @@
     <string name="pref_keyboard_echo_on_screen_key" translatable="false">pref_keyboard_echo_on_screen</string>
     <string name="pref_keyboard_echo_physical_key" translatable="false">pref_keyboard_echo_physical</string>
     <string name="pref_node_desc_order_key">pref_node_desc_order_key</string>
+    <string name="pref_time_feedback_format_key">pref_time_feedback_format_key</string>
     <string name="pref_speak_element_ids_key">pref_element_ids_key</string>
     <string name="pref_diagnosis_mode_key">pref_diagnosis_mode</string>
     <string name="pref_tts_overlay_key">pref_tts_overlay</string>
+    <string name="pref_multiple_gesture_set_key">pref_multiple_gesture_set_key</string>
     <string name="pref_echo_recognized_text_speech_key">pref_echo_recognized_text_speech_key</string>
     <string name="pref_tree_debug_key">pref_tree_debug</string>
     <string name="pref_reduce_window_delay_key">pref_reduce_window_delay_key</string>
@@ -49,6 +54,7 @@
     <string name="pref_speak_container_element_positions_key">pref_speak_container_element_positions_key</string>
     <string name="pref_speak_roles_key">pref_speak_roles_key</string>
     <string name="pref_speak_system_window_titles_key">pref_speak_system_window_titles_key</string>
+    <string name="pref_allow_frequent_content_change_announcement_key">pref_allow_frequent_content_change_announcement_key</string>
     <string name="pref_verbose_scroll_announcement_key">pref_verbose_scroll_announcement_key</string>
     <string name="pref_explore_by_touch_key">pref_explore_by_touch</string>
     <string name="pref_explore_by_touch_reflect_key">pref_explore_by_touch_reflect</string>
@@ -57,6 +63,7 @@
     <string name="pref_shake_to_read_key">pref_shake_to_read</string> <!-- Deprecated by pref_shake_to_read_threshold_key -->
     <string name="pref_shake_to_read_threshold_key">pref_shake_to_read_threshold</string>
     <string name="pref_tutorial_key">pref_tutorial</string>
+    <string name="pref_help_key">pref_help</string>
     <string name="pref_manage_labels_key">pref_manage_labels</string>
     <string name="pref_manage_keyboard_shortcuts">pref_manage_keyboard_shortcuts</string>
     <string name="pref_play_store_key">pref_play_store</string>
@@ -67,6 +74,7 @@
     <string name="pref_category_braille_key" translatable="false">pref_category_braille_key</string>
     <string name="pref_category_general_key" translatable="false">pref_category_general_key</string>
     <string name="pref_speak_passwords_without_headphones">pref_speak_passwords_without_headphones</string>
+    <string name="pref_survey_setting_entry_point_key" translatable="false">pref_survey_setting_entry_point_key</string>
     <string name="pref_new_feature_in_talkback_entry_point_key" translatable="false">pref_new_feature_in_talkback_entry_point_key</string>
     <string name="pref_category_help_and_feedback_key" translatable="false">pref_category_help_and_feedback_key</string>
     <string name="pref_category_typing_key" translatable="false">pref_category_typing_key</string>
@@ -77,7 +85,14 @@
     <string name="pref_thick_border_key" translatable="false">pref_thick_border_key</string>
     <string name="pref_border_color_category_key" translatable="false">pref_border_color_category_key</string>
     <string name="pref_border_color_key" translatable="false">pref_border_color_key</string>
-    <string name="pref_icon_detection_key">pref_icon_detection</string>
+    <string name="pref_auto_image_captioning_key" translatable="false">pref_auto_image_captioning_key</string>
+    <string name="pref_icon_detection_key" translatable="false">pref_icon_detection_key</string>
+    <string name="pref_image_description_key" translatable="false">pref_image_description_key</string>
+    <string name="pref_text_recognition_key" translatable="false">pref_text_recognition_key</string>
+    <string name="pref_auto_icon_detection_key" translatable="false">pref_auto_icon_detection_key</string>
+    <string name="pref_auto_image_description_key" translatable="false">pref_auto_image_description_key</string>
+    <string name="pref_auto_text_recognition_key" translatable="false">pref_auto_text_recognition_key</string>
+
 
   <!-- Selector preferences -->
     <string name="pref_current_selector_setting_key">pref_current_selector_setting_key</string>
@@ -110,7 +125,9 @@
     <string name="pref_selector_granularity_links_key">pref_selector_granularity_links_key</string>
     <string name="pref_selector_granularity_controls_key">pref_selector_granularity_controls_key</string>
     <string name="pref_selector_granularity_landmarks_key">pref_selector_granularity_landmarks_key</string>
+    <string name="pref_selector_granularity_containers_key">pref_selector_granularity_containers_key</string>
     <string name="pref_selector_special_widget_key" translatable="false">pref_selector_special_widget_key</string>
+    <string name="pref_selector_granularity_typo_key" translatable="false">pref_selector_granularity_typo_key</string>
 
     <string name="pref_selector_category_settings_key">pref_selector_category_settings_key</string>
     <string name="pref_category_selector_settings_activation_key">pref_category_selector_settings_activation_key</string>
@@ -120,8 +137,13 @@
     <!-- Keyboard preferences -->
     <string name="pref_keymap_category_key">pref_keymap_category</string>
     <string name="pref_reset_keymap_key">pref_reset_keymap</string>
+    <string name="pref_navigation_actions_category_key">pref_navigation_actions_category_key</string>
+    <string name="pref_global_actions_category_key">pref_global_actions_category_key</string>
+    <string name="pref_navigation_category_key">pref_navigation_category_key</string>
+    <string name="pref_other_actions_category_key">pref_other_actions_category_key</string>
+    <string name="pref_web_navigation_actions_category_key">pref_web_navigation_actions_category_key</string>
 
-    <!-- Verbosity preferences, preset -->
+  <!-- Verbosity preferences, preset -->
     <string name="pref_verbosity_preset_key">pref_verbosity_preset_key</string>
     <string name="pref_verbosity_preset_value_high">pref_verbosity_preset_value_high</string>
     <string name="pref_verbosity_preset_value_custom">pref_verbosity_preset_value_custom</string>
@@ -138,9 +160,22 @@
         <item>@string/pref_verbosity_preset_value_low</item>
     </string-array>
 
+    <!-- Gesture set preferences -->
+    <string name="pref_gesture_set_key">pref_gesture_set_key</string>
+    <string name="pref_gesture_set_value_default">0</string>
+    <!-- Currently, we support 2 sets; in case to extended the set, we need to add both pref_gesture_set_entries & pref_gesture_set_values. -->
+    <string-array name="pref_gesture_set_entries">
+      <item>@string/pref_gesture_set_entry_0</item>
+      <item>@string/pref_gesture_set_entry_1</item>
+    </string-array>
+    <string-array name="pref_gesture_set_values">
+      <item>0</item>
+      <item>1</item>
+    </string-array>
+
+
     <!-- Verbosity preferences, preset options -->
     <string name="pref_verbosity_category_preset_settings_key">pref_verbosity_category_preset_settings_key</string>
-    <string name="pref_verbosity_category_misc_settings_key" translatable="false">pref_verbosity_category_misc_settings_key</string>
 
     <!-- Preference sub-activity links -->
     <string name="pref_verbosity_key">pref_verbosity_key</string>
@@ -256,6 +291,7 @@
   <string name="keycombo_shortcut_global_scroll_backward_reading_menu" translatable="false">keycombo_shortcut_global_scroll_backward_reading_menu</string>
   <string name="keycombo_shortcut_global_adjust_reading_settings_previous" translatable="false">keycombo_shortcut_global_adjust_reading_settings_previous</string>
   <string name="keycombo_shortcut_global_adjust_reading_setting_next" translatable="false">keycombo_shortcut_global_adjust_reading_setting_next</string>
+  <string name="keycombo_shortcut_global_hide_or_show_screen" translatable="false">keycombo_shortcut_global_hide_or_show_screen</string>
   <string name="keycombo_shortcut_granularity_increase">keycombo_shortcut_granularity_increase</string>
   <string name="keycombo_shortcut_granularity_decrease">keycombo_shortcut_granularity_decrease</string>
   <string name="keycombo_shortcut_other_read_from_top">keycombo_shortcut_other_read_from_top</string>
@@ -264,6 +300,7 @@
   <string name="keycombo_shortcut_other_talkback_context_menu">keycombo_shortcut_other_global_context_menu</string>
   <string name="keycombo_shortcut_other_custom_actions">keycombo_shortcut_other_custom_actions</string>
   <string name="keycombo_shortcut_other_language_options">keycombo_shortcut_other_language_options</string>
+  <string name="keycombo_shortcut_other_copy_last_spoken_phrase">keycombo_shortcut_other_copy_last_spoken_phrase</string>
   <string name="keycombo_shortcut_navigate_up">keycombo_shortcut_navigate_up</string>
   <string name="keycombo_shortcut_navigate_down">keycombo_shortcut_navigate_down</string>
   <string name="keycombo_shortcut_navigate_next_word">keycombo_shortcut_navigate_next_word</string>
@@ -311,7 +348,8 @@
   <string name="keycombo_shortcut_navigate_next_window">keycombo_shortcut_navigate_next_window</string>
   <string name="keycombo_shortcut_navigate_previous_window">keycombo_shortcut_navigate_previous_window</string>
   <string name="keycombo_shortcut_open_manage_keyboard_shortcuts">keycombo_shortcut_open_manage_keyboard_shortcuts</string>
-  <string name="keycombo_shortcut_open_talkback_settings">keycombo_shortcut_open_talkback_settings</string>
+  <string name="keycombo_update_modifier_keys_dialog_do_not_show_again" translatable="false">keycombo_update_modifier_keys_dialog_do_not_show_again</string>
+
 
   <!-- the shared preference key for log level configuration. -->
   <string name="pref_log_level_default" translatable="false">6</string>
@@ -455,6 +493,19 @@
     <string name="pref_node_desc_order_value_role_name_state_pos">pref_node_desc_order_value_role_name_state_pos</string>
     <string name="pref_node_desc_order_value_name_role_state_pos">pref_node_desc_order_value_name_role_state_pos</string>
 
+    <!-- Time feedback format -->
+    <string-array name="pref_time_feedback_format_entries">
+        <item>@string/pref_time_feedback_format_entries_12_hour</item>
+        <item>@string/pref_time_feedback_format_entries_24_hour</item>
+    </string-array>
+    <string-array name="pref_time_feedback_format_values">
+        <item>@string/pref_time_feedback_format_values_12_hour</item>
+        <item>@string/pref_time_feedback_format_values_24_hour</item>
+    </string-array>
+    <string name="pref_time_feedback_format_values_undefined">pref_time_feedback_format_values_undefined</string>
+    <string name="pref_time_feedback_format_values_12_hour">pref_time_feedback_format_values_12_hour</string>
+    <string name="pref_time_feedback_format_values_24_hour">pref_time_feedback_format_values_24_hour</string>
+
     <!-- Shake to read threshold preference entries. -->
     <string-array name="pref_shake_to_read_threshold_entries">
         <item>@string/value_shake_to_read_disabled</item>
@@ -578,6 +629,8 @@
         <item>@string/shortcut_next</item>
         <item>@string/shortcut_first_in_screen</item>
         <item>@string/shortcut_last_in_screen</item>
+        <item>@string/shortcut_prev_container</item>
+        <item>@string/shortcut_next_container</item>
         <item>@string/shortcut_previous_window</item>
         <item>@string/shortcut_next_window</item>
         <item>@string/shortcut_scroll_back</item>
@@ -592,6 +645,8 @@
         <item>@string/shortcut_value_next</item>
         <item>@string/shortcut_value_first_in_screen</item>
         <item>@string/shortcut_value_last_in_screen</item>
+        <item>@string/shortcut_value_prev_container</item>
+        <item>@string/shortcut_value_next_container</item>
         <item>@string/shortcut_value_previous_window</item>
         <item>@string/shortcut_value_next_window</item>
         <item>@string/shortcut_value_scroll_back</item>
@@ -678,39 +733,43 @@
 
     <!-- Title of navigation options menu items -->
     <string-array name="navigation_options_menu">
-        <item>@string/granularity_character</item>
-        <item>@string/granularity_word</item>
-        <item>@string/granularity_line</item>
-        <item>@string/granularity_paragraph</item>
-        <item>@string/granularity_window</item>
-        <item>@string/granularity_web_heading</item>
-        <item>@string/granularity_web_control</item>
-        <item>@string/granularity_web_link</item>
-        <item>@string/granularity_web_landmark</item>
-        <item>@string/granularity_pseudo_web_special_content</item>
-        <item>@string/title_other_web_navigation</item>
-        <item>@string/title_granularity_default</item>
+      <item>@string/granularity_character</item>
+      <item>@string/granularity_word</item>
+      <item>@string/granularity_line</item>
+      <item>@string/granularity_paragraph</item>
+      <item>@string/granularity_window</item>
+      <item>@string/granularity_web_heading</item>
+      <item>@string/granularity_web_control</item>
+      <item>@string/granularity_web_link</item>
+      <item>@string/granularity_web_landmark</item>
+      <item>@string/granularity_pseudo_web_special_content</item>
+      <item>@string/title_other_web_navigation</item>
+      <item>@string/title_granularity_default</item>
     </string-array>
 
-    <!-- Assignable shortcuts -->
-    <string name="shortcut_value_unassigned">UNASSIGNED</string>
-    <string name="shortcut_value_previous">PREVIOUS</string>
-    <string name="shortcut_value_next">NEXT</string>
-    <string name="shortcut_value_back">BACK</string>
-    <string name="shortcut_value_first_in_screen">FIRST_IN_SCREEN</string>
-    <string name="shortcut_value_summary">SUMMARY</string>
-    <string name="shortcut_value_voice_commands">VOICE_COMMANDS</string>
-    <string name="shortcut_value_last_in_screen">LAST_IN_SCREEN</string>
-    <string name="shortcut_value_next_granularity">NEXT_GRANULARITY</string>
-    <string name="shortcut_value_previous_granularity">PREVIOUS_GRANULARITY</string>
-    <string name="shortcut_value_previous_window">PREVIOUS_WINDOW</string>
-    <string name="shortcut_value_next_window">NEXT_WINDOW</string>
-    <string name="shortcut_value_scroll_back">SCROLL_BACK</string>
-    <string name="shortcut_value_scroll_forward">SCROLL_FORWARD</string>
-    <string name="shortcut_value_scroll_up">SCROLL_UP</string>
-    <string name="shortcut_value_scroll_down">SCROLL_DOWN</string>
-    <string name="shortcut_value_scroll_left">SCROLL_LEFT</string>
-    <string name="shortcut_value_scroll_right">SCROLL_RIGHT</string>
+  <!-- The shortcut of unsupported gestures -->
+  <string name="shortcut_value_unsupported">UNSUPPORTED</string>
+  <!-- Assignable shortcuts -->
+  <string name="shortcut_value_unassigned">UNASSIGNED</string>
+  <string name="shortcut_value_previous">PREVIOUS</string>
+  <string name="shortcut_value_next">NEXT</string>
+  <string name="shortcut_value_back">BACK</string>
+  <string name="shortcut_value_first_in_screen">FIRST_IN_SCREEN</string>
+  <string name="shortcut_value_summary">SUMMARY</string>
+  <string name="shortcut_value_voice_commands">VOICE_COMMANDS</string>
+  <string name="shortcut_value_last_in_screen">LAST_IN_SCREEN</string>
+  <string name="shortcut_value_next_granularity">NEXT_GRANULARITY</string>
+  <string name="shortcut_value_previous_granularity">PREVIOUS_GRANULARITY</string>
+  <string name="shortcut_value_prev_container">PREV_CONTAINER</string>
+  <string name="shortcut_value_next_container">NEXT_CONTAINER</string>
+  <string name="shortcut_value_previous_window">PREVIOUS_WINDOW</string>
+  <string name="shortcut_value_next_window">NEXT_WINDOW</string>
+  <string name="shortcut_value_scroll_back">SCROLL_BACK</string>
+  <string name="shortcut_value_scroll_forward">SCROLL_FORWARD</string>
+  <string name="shortcut_value_scroll_up">SCROLL_UP</string>
+  <string name="shortcut_value_scroll_down">SCROLL_DOWN</string>
+  <string name="shortcut_value_scroll_left">SCROLL_LEFT</string>
+  <string name="shortcut_value_scroll_right">SCROLL_RIGHT</string>
     <string name="shortcut_value_home">HOME</string>
     <string name="shortcut_value_overview">OVERVIEW</string>
     <string name="shortcut_value_notifications">NOTIFICATIONS</string>
@@ -732,8 +791,11 @@
     <string name="shortcut_value_selected_setting_next_action">SELECTED_SETTING_NEXT_ACTION</string>
     <string name="shortcut_value_selected_setting_previous_action">SELECTED_SETTING_PREVIOUS_ACTION</string>
     <string name="shortcut_value_action_setting_activate_current_action" translatable="false">ACTION_SETTING_ACTIVATE_CURRENT_ACTION</string>
+    <string name="shortcut_value_show_hide_screen">SHOW_HIDE SCREEN</string>
     <string name="shortcut_value_screen_search">SCREEN SEARCH</string>
     <string name="shortcut_value_media_control">MEDIA_CONTROL</string>
+    <string name="shortcut_value_increase_volume">INCREASE_VOLUME</string>
+    <string name="shortcut_value_decrease_volume">DECREASE_VOLUME</string>
     <string name="shortcut_value_pass_through_next_gesture">ENABLE_PASS_THROUGH</string>
     <string name="shortcut_value_a11y_button">ACCESSIBILITY_BUTTON</string>
     <string name="shortcut_value_a11y_button_long_press">ACCESSIBILITY_BUTTON_CHOOSER</string>
@@ -753,6 +815,10 @@
     <string name="shortcut_value_tutorial" translatable="false">TUTORIAL</string>
     <string name="shortcut_value_report_gesture" translatable="false">GESTURE_DEBUG</string>
     <string name="shortcut_value_practice_gestures" translatable="false">PRACTICE_GESTURES</string>
+    <string name="shortcut_value_split_typing" translatable="false">SPLIT_TYPE</string>
+    <string name="shortcut_value_toggle_braille_display" translatable="false">TOGGLE_BRAILLE_DISPLAY</string>
+    <string name="shortcut_value_describe_image" translatable="false">DESCRIBE_IMAGE</string>
+
 
   <!-- Array of selector gestures-->
     <string-array name="initial_selector_gestures" translatable="false">
@@ -796,6 +862,67 @@
       <item>3</item>
     </string-array>
 
+    <!-- The list of the gestures which the platform supports. [CHAR_LIMIT=NONE] -->
+    <string-array name="service_detected_gesture_list">
+      <!-- Start with double tap. -->
+      <item>MAPPER_GESTURE_DOUBLE_TAP</item>
+      <item>MAPPER_GESTURE_DOUBLE_TAP_AND_HOLD</item>
+      <!-- Second-finger tap. -->
+      <item>MAPPER_GESTURE_FAKED_SPLIT_TYPING</item>
+      <!-- One-direction swipes. -->
+      <item>MAPPER_GESTURE_SWIPE_RIGHT</item>
+      <item>MAPPER_GESTURE_SWIPE_LEFT</item>
+      <item>MAPPER_GESTURE_SWIPE_UP</item>
+      <item>MAPPER_GESTURE_SWIPE_DOWN</item>
+      <!-- Two-direction swipes. -->
+      <item>MAPPER_GESTURE_SWIPE_LEFT_AND_RIGHT</item>
+      <item>MAPPER_GESTURE_SWIPE_LEFT_AND_UP</item>
+      <item>MAPPER_GESTURE_SWIPE_LEFT_AND_DOWN</item>
+      <item>MAPPER_GESTURE_SWIPE_RIGHT_AND_UP</item>
+      <item>MAPPER_GESTURE_SWIPE_RIGHT_AND_DOWN</item>
+      <item>MAPPER_GESTURE_SWIPE_RIGHT_AND_LEFT</item>
+      <item>MAPPER_GESTURE_SWIPE_DOWN_AND_UP</item>
+      <item>MAPPER_GESTURE_SWIPE_DOWN_AND_LEFT</item>
+      <item>MAPPER_GESTURE_SWIPE_DOWN_AND_RIGHT</item>
+      <item>MAPPER_GESTURE_SWIPE_UP_AND_DOWN</item>
+      <item>MAPPER_GESTURE_SWIPE_UP_AND_LEFT</item>
+      <item>MAPPER_GESTURE_SWIPE_UP_AND_RIGHT</item>
+      <!--> Two-finger taps. -->
+      <item>MAPPER_GESTURE_2_FINGER_SINGLE_TAP</item>
+      <item>MAPPER_GESTURE_2_FINGER_DOUBLE_TAP</item>
+      <item>MAPPER_GESTURE_2_FINGER_DOUBLE_TAP_AND_HOLD</item>
+      <item>MAPPER_GESTURE_2_FINGER_TRIPLE_TAP</item>
+      <item>MAPPER_GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD</item>
+      <!-- Three-finger taps. -->
+      <item>MAPPER_GESTURE_3_FINGER_SINGLE_TAP</item>
+      <item>MAPPER_GESTURE_3_FINGER_DOUBLE_TAP</item>
+      <item>MAPPER_GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD</item>
+      <item>MAPPER_GESTURE_3_FINGER_DOUBLE_TAP_AND_HOLD</item>
+      <item>MAPPER_GESTURE_3_FINGER_TRIPLE_TAP</item>
+      <item>MAPPER_GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD</item>
+      <item>MAPPER_GESTURE_3_FINGER_TRIPLE_TAP</item>
+      <!-- Four-finger taps. -->
+      <item>MAPPER_GESTURE_4_FINGER_SINGLE_TAP</item>
+      <item>MAPPER_GESTURE_4_FINGER_DOUBLE_TAP</item>
+      <item>MAPPER_GESTURE_4_FINGER_DOUBLE_TAP_AND_HOLD</item>
+      <item>MAPPER_GESTURE_4_FINGER_TRIPLE_TAP</item>
+      <!-- Two-finger swipes. -->
+      <item>MAPPER_GESTURE_2_FINGER_SWIPE_DOWN</item>
+      <item>MAPPER_GESTURE_2_FINGER_SWIPE_LEFT</item>
+      <item>MAPPER_GESTURE_2_FINGER_SWIPE_RIGHT</item>
+      <item>MAPPER_GESTURE_2_FINGER_SWIPE_UP</item>
+      <!-- Three-finger swipes. -->
+      <item>MAPPER_GESTURE_3_FINGER_SWIPE_DOWN</item>
+      <item>MAPPER_GESTURE_3_FINGER_SWIPE_LEFT</item>
+      <item>MAPPER_GESTURE_3_FINGER_SWIPE_RIGHT</item>
+      <item>MAPPER_GESTURE_3_FINGER_SWIPE_UP</item>
+      <!-- Four-finger swipes. -->
+      <item>MAPPER_GESTURE_4_FINGER_SWIPE_DOWN</item>
+      <item>MAPPER_GESTURE_4_FINGER_SWIPE_LEFT</item>
+      <item>MAPPER_GESTURE_4_FINGER_SWIPE_RIGHT</item>
+      <item>MAPPER_GESTURE_4_FINGER_SWIPE_UP</item>
+    </string-array>
+
     <!-- Assignable actions to the up-then-down and down-then-up gestures -->
     <!-- Assignable action for jumping to the first or last item on-screen -->
     <string name="value_two_part_vertical_gestures_jump">JUMP</string>
@@ -812,16 +939,18 @@
     <bool name="pref_speak_passwords_without_headphones_default">true</bool>
     <bool name="pref_vibration_default">true</bool>
     <bool name="pref_soundback_default">true</bool>
-    <bool name="pref_use_audio_focus_default">false</bool>
+    <bool name="pref_use_audio_focus_default">true</bool>
     <string name="pref_soundback_volume_default">50</string>
     <bool name="pref_intonation_default">true</bool>
     <string name="pref_keyboard_echo_default" translatable="false">0</string>
     <string name="pref_capital_letters_default">1</string>
     <bool name="pref_punctuation_default">false</bool>
     <string name="pref_node_desc_order_default">pref_node_desc_order_value_state_name_role_pos</string>
+    <string name="pref_time_feedback_format_default">pref_time_feedback_format_values_undefined</string>
     <bool name="pref_speak_element_ids_default">false</bool>
     <bool name="pref_diagnosis_mode_default">false</bool>
     <bool name="pref_tts_overlay_default">true</bool>
+    <bool name="pref_multiple_gesture_set_default">false</bool>
     <bool name="pref_echo_recognized_text_default">false</bool>
     <bool name="pref_reduce_window_delay_default">true</bool>
     <bool name="pref_tree_debug_default">false</bool>
@@ -837,12 +966,15 @@
     <bool name="pref_speak_container_element_positions_default">true</bool>
     <bool name="pref_speak_roles_default">true</bool>
     <bool name="pref_speak_system_window_titles_default">true</bool>
+    <bool name="pref_allow_frequent_content_change_announcement_default">false</bool>
     <bool name="pref_explore_by_touch_default">true</bool>
     <bool name="pref_single_tap_default">false</bool>
     <bool name="pref_dim_when_talkback_enabled_default">false</bool>
     <bool name="pref_shake_to_read_default">false</bool>
     <string name="pref_shake_to_read_threshold_default">-1</string>
-    <bool name="pref_icon_detection_default">false</bool>
+    <bool name="pref_auto_icon_detection_default">false</bool>
+    <bool name="pref_auto_image_description_default">false</bool>
+    <bool name="pref_auto_text_recognition_default">true</bool>
 
     <!-- Selector preferences default values -->
     <string name="pref_selector_setting_default">@string/selector_granularity_characters</string>
@@ -850,7 +982,7 @@
     <string name="pref_selector_first_time_activation_key">pref_selector_first_time_activation_key</string>
 
     <bool name="pref_selector_speech_rate_default">true</bool>
-    <bool name="pref_selector_language_default">true</bool>
+    <bool name="pref_selector_language_default">false</bool>
     <bool name="pref_selector_verbosity_default">false</bool>
     <bool name="pref_selector_punctuation_default">false</bool>
     <bool name="pref_selector_granularity_default">false</bool>
@@ -864,11 +996,13 @@
     <bool name="pref_selector_granularity_paragraphs_default">true</bool>
     <bool name="pref_selector_granularity_characters_default">true</bool>
     <bool name="pref_selector_granularity_lines_default">true</bool>
-    <bool name="pref_selector_granularity_windows_default">true</bool>
+    <bool name="pref_selector_granularity_windows_default">false</bool>
     <bool name="pref_selector_granularity_links_default">true</bool>
     <bool name="pref_selector_granularity_controls_default">true</bool>
     <bool name="pref_selector_granularity_landmarks_default">false</bool>
+    <bool name="pref_selector_granularity_containers_default">false</bool>
     <bool name="pref_selector_special_widget_default">true</bool>
+    <bool name="pref_selector_granularity_typo_default">true</bool>
 
     <bool name="pref_show_context_menu_custom_action_default">true</bool>
     <bool name="pref_show_context_menu_editing_default">true</bool>
@@ -893,6 +1027,8 @@
     <bool name="pref_show_context_menu_system_action_default">false</bool>
     <bool name="pref_show_context_menu_tts_settings_default">true</bool>
     <bool name="pref_show_context_menu_image_caption_default">true</bool>
+    <bool name="pref_show_context_menu_typo_suggestions_default">true</bool>
+    <bool name="pref_show_context_menu_braille_display_settings_default">true</bool>
 
     <bool name="pref_show_navigation_menu_characters_default">true</bool>
     <bool name="pref_show_navigation_menu_words_default">true</bool>
@@ -906,6 +1042,9 @@
     <bool name="pref_show_navigation_menu_other_web_navigation_default">true</bool>
     <bool name="pref_show_navigation_menu_granularity_default">false</bool>
     <bool name="pref_show_navigation_menu_window_default">true</bool>
+    <bool name="pref_show_navigation_menu_container_default">true</bool>
+    <bool name="pref_thick_border_key_default">false</bool>
+    <bool name="pref_icon_detection_installed_default">false</bool>
 
     <string name="pref_shortcut_up_default">@string/shortcut_value_selected_setting_previous_action</string>
     <string name="pref_shortcut_left_default">@string/shortcut_value_previous</string>
@@ -943,8 +1082,8 @@
     <string name="pref_shortcut_3finger_swipe_right_default">@string/shortcut_value_select_next_setting</string>
     <string name="pref_shortcut_4finger_swipe_up_default">@string/shortcut_value_previous_window</string>
     <string name="pref_shortcut_4finger_swipe_down_default">@string/shortcut_value_next_window</string>
-    <string name="pref_shortcut_4finger_swipe_left_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_swipe_right_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_left_default">@string/shortcut_value_prev_container</string>
+    <string name="pref_shortcut_4finger_swipe_right_default">@string/shortcut_value_next_container</string>
     <string name="pref_shortcut_4finger_1tap_default">@string/shortcut_value_practice_gestures</string>
     <string name="pref_shortcut_4finger_2tap_default">@string/shortcut_value_tutorial</string>
     <string name="pref_shortcut_4finger_3tap_default">@string/shortcut_value_unassigned</string>
@@ -978,6 +1117,8 @@
     <item name="accessibility_tutorial_tag_touched" type="id"/>
 
     <string name="settings_manager_market_uri">market://details?id=com.marvin.preferences</string>
+    <string name="privacy_policy_url">http://www.google.com/policies/privacy/</string>
+    <string name="tos_url">http://www.google.com/mobile/toscountry</string>
 
     <!-- Intent ACTION for launching the gesture change notification activity -->
     <string name="action_gesture_change_notification">com.google.android.marvin.talkback.NOTIFY_GESTURE_CHANGE</string>
@@ -1048,6 +1189,8 @@
     <string name="pref_show_context_menu_system_action_setting_key" translatable="false">pref_system_action_menu_setting_key</string>
     <string name="pref_show_context_menu_tts_settings_setting_key" translatable="false">pref_tts_settings_menu_setting_key</string>
     <string name="pref_show_context_menu_image_caption_setting_key" translatable="false">pref_image_caption_menu_setting_key</string>
+    <string name="pref_show_context_menu_typo_suggestions_setting_key" translatable="false">pref_show_context_menu_typo_suggestions_setting_key</string>
+    <string name="pref_show_context_menu_braille_display_settings_setting_key" translatable="false">pref_braille_dispaly_settings_menu_setting_key</string>
 
     <!-- Navigation options Menu preferences -->
     <string name="pref_show_navigation_menu_characters_setting_key" translatable="false">pref_characters_navigation_menu_setting_key</string>
@@ -1062,6 +1205,7 @@
     <string name="pref_show_navigation_menu_other_web_navigation_setting_key" translatable="false">pref_other_web_navigation_navigation_menu_setting_key</string>
     <string name="pref_show_navigation_menu_granularity_default_setting_key" translatable="false">pref_show_navigation_menu_granularity_default_setting_key</string>
     <string name="pref_show_navigation_menu_window_setting_key" translatable="false">pref_window_navigation_menu_setting_key</string>
+    <string name="pref_show_navigation_menu_container_setting_key" translatable="false">pref_container_navigation_menu_setting_key</string>
 
     <!-- Selector settings -->
     <string name="selector_verbosity" translatable="false">VERBOSITY</string>
@@ -1083,16 +1227,22 @@
     <string name="selector_granularity_links">GRANULARITY_LINKS</string>
     <string name="selector_granularity_controls">GRANULARITY_CONTROLS</string>
     <string name="selector_granularity_landmarks">GRANULARITY_LANDMARKS</string>
+    <string name="selector_granularity_containers">GRANULARITY_CONTAINERS</string>
     <string name="selector_special_widget" translatable="false">ADJUSTABLE_WIDGET</string>
+    <string name="selector_granularity_typo" translatable="false">GRANULARITY_TYPO</string>
 
     <string name="pref_key_last_log_time_key">pref_key_last_log_time_key</string>
     <string name="pref_key_last_log_attempt_key">pref_key_last_log_attempt_key</string>
+    <string name="pref_key_service_activation_count_key">pref_key_service_activation_count_key</string>
     <string name="pref_key_selector_changed_key" translatable="false">pref_key_selector_changed_key</string>
 
     <string name="pref_update_talkback91_shown_key" translatable="false">pref_update_talkback91_shown_key</string>
     <string name="pref_update_multi_finger_gestures_shown_key" translatable="false">pref_update_multi_finger_gestures_shown_key</string>
     <string name="pref_update_welcome_12_2_shown_key" translatable="false">pref_update_welcome_12_2_shown_key</string>
     <string name="pref_update_welcome_13_0_shown_key" translatable="false">pref_update_welcome_13_0_shown_key</string>
+    <string name="pref_update_welcome_13_1_shown_key" translatable="false">pref_update_welcome_13_1_shown_key</string>
+    <string name="pref_update_welcome_14_0_shown_key" translatable="false">pref_update_welcome_14_0_shown_key</string>
+    <string name="pref_update_welcome_14_1_shown_key" translatable="false">pref_update_welcome_14_1_shown_key</string>
 
     <!-- Record the window animation scale before disabling animation. TalkBack will restore the value to animation before shut down. -->
     <string name="pref_previous_global_window_animation_scale_key" translatable="false">pref_previous_global_window_animation_scale_key</string>
@@ -1102,4 +1252,31 @@
 
     <string name="pref_icon_detection_download_dialog_shown_times">pref_icon_detection_download_dialog_shown_times</string>
     <string name="pref_icon_detection_download_dialog_do_no_show">pref_icon_detection_download_dialog_do_no_show</string>
+    <string name="pref_icon_detection_uninstalled">pref_icon_detection_uninstalled</string>
+    <string name="pref_icon_detection_installed">pref_icon_detection_installed</string>
+    <string name="pref_image_description_download_dialog_shown_times">pref_image_description_download_dialog_shown_times</string>
+    <string name="pref_image_description_download_dialog_do_no_show">pref_image_description_download_dialog_do_no_show</string>
+    <string name="pref_image_description_uninstalled">pref_image_description_uninstalled</string>
+    <string name="pref_image_description_installed">pref_image_description_installed</string>
+
+    <string name="pref_icon_detection_install_lib_success">pref_icon_detection_install_lib_success</string>
+    <string name="pref_icon_detection_install_lib_fail">pref_icon_detection_install_lib_fail</string>
+    <string name="pref_icon_detection_install_lib_request">pref_icon_detection_install_lib_request</string>
+    <string name="pref_icon_detection_install_lib_deny">pref_icon_detection_install_lib_deny</string>
+    <string name="pref_icon_detection_uninstalled_request">pref_icon_detection_uninstalled_request</string>
+    <string name="pref_icon_detection_uninstalled_deny">pref_icon_detection_uninstalled_deny</string>
+
+    <string name="pref_image_description_install_lib_success">pref_image_description_install_lib_success</string>
+    <string name="pref_image_description_install_lib_fail">pref_image_description_install_lib_fail</string>
+    <string name="pref_image_description_install_lib_request">pref_image_description_install_lib_request</string>
+    <string name="pref_image_description_install_lib_deny">pref_image_description_install_lib_deny</string>
+    <string name="pref_image_description_uninstalled_request">pref_image_description_uninstalled_request</string>
+    <string name="pref_image_description_uninstalled_deny">pref_image_description_uninstalled_deny</string>
+
+    <!-- TalkBack user usage. -->
+    <string name="talkback_enabled_count">talkback_enabled_count</string>
+    <string name="talkback_off_timestamp">talkback_off_timestamp</string>
+    <!-- TalkBack user has switched and navigated the training pages. -->
+    <string name="has_training_page_switched">has_training_page_switched</string>
+
 </resources>

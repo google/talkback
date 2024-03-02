@@ -1,0 +1,52 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for all FreedomScientific Focus displays.
+
+note This description is general because the key layout differs from model to model.
+
+note There is a routing key immediately behind each braille cell.
+note * Some models have a navrow key immediately behind each routing key.
+note * On others, a navrow key can be emulated by long-pressing the corresponding routing key.
+
+note There are two Nav controls - one at each end of the braille cells.
+note * Each has three actions: Up, Down, and Press.
+note * On newer models, each is a rocker combined with a button.
+note * On older models, each is a wheel that can be both rolled and pressed.
+
+note The keys on the front, from left to right, are:
+note * \{frontKeysLeft} - \{frontKeysRight}.
+
+note The left and right pan keys are short bars.
+note * On some models, each has a raised double-arrow.
+
+note The left and right selectors are round.
+note * On older models, they're known as GDF (General Display Function) keys.
+
+assign navKeyType Nav
+include common.kti
+include keyboard.kti
+include speech.kti
+
+bind NavrowKey DESCCHAR
+bind PanLeft+NavrowKey PRINDENT
+bind PanRight+NavrowKey NXINDENT
+bind LeftSelector+NavrowKey PRDIFCHAR
+bind RightSelector+NavrowKey NXDIFCHAR
+bind NavrowKey+!NavrowKey CLIP_APPEND
+

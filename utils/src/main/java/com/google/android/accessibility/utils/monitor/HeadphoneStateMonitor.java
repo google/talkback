@@ -152,6 +152,8 @@ public class HeadphoneStateMonitor {
   private static boolean isExternalDevice(AudioDeviceInfo device) {
     return device.isSink()
         && (device.getType() == AudioDeviceInfo.TYPE_BLUETOOTH_A2DP
+            || device.getType() == AudioDeviceInfo.TYPE_BLUETOOTH_SCO
+            || device.getType() == AudioDeviceInfo.TYPE_BLE_HEADSET
             || device.getType() == AudioDeviceInfo.TYPE_AUX_LINE
             || device.getType() == AudioDeviceInfo.TYPE_WIRED_HEADPHONES
             || device.getType() == AudioDeviceInfo.TYPE_WIRED_HEADSET

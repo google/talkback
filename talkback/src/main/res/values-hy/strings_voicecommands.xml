@@ -24,7 +24,7 @@
   <string name="voice_commands_all_apps">Բոլոր հավելվածները</string>
   <string name="voice_commands_apps">Հավելվածներ</string>
   <string name="voice_commands_overview">Ընդհանուր տեղեկություններ</string>
-  <string name="voice_commands_recent_apps">Վերջին օգտագործած հավելվածները</string>
+  <string name="voice_commands_recent_apps">Վերջին հավելվածներ</string>
   <string name="voice_commands_recent">Վերջինները</string>
   <string name="voice_commands_recents">Վերջինները</string>
   <string name="voice_commands_find">Գտնել</string>
@@ -106,6 +106,7 @@
   <string name="voice_commands_help_description">Ձայնային հրահանգներ օգտագործելու համար մատը սահեցրեք աջ, ապա վերև։ Այս հրահանգների ցանկը տեսնելու համար ցանկացած պահի ասեք «help» (օգնություն) կամ «what can I say?» (ի՞նչ կարող եմ ասել)։</string>
   <string name="voice_commands_help_hint">Որպեսզի հրահանգներն աշխատեն, արտասանեք դրանք այնպես, ինչպես նշված են հաջորդ էկրաններում։</string>
   <string name="voice_command_screen_locked_hint">Ձայնային հրահանգները հասանելի չեն, երբ էկրանը կողպված է։ Փոխարենը օգտագործեք TalkBack-ի ընտրացանկը՝ կատարելով «%1$s» ժեստը։</string>
+  <string name="voice_commands_during_setup_hint">Ձայնային հրահանգները հասանելի չեն կարգավորման ընթացքում։</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Ընթերցման պարամետրերի կարգավորում ընթացիկ էկրանին</string>
   <string name="voice_commands_help_next">Հաջորդ [վերնագիրը]</string>

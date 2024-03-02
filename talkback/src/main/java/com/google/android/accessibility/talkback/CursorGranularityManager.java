@@ -21,14 +21,12 @@ import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_BACKWARD;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_FORWARD;
 
-import android.accessibilityservice.AccessibilityService;
 import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.talkback.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPhoneticLetters;
+import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -42,6 +40,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Class to manage the navigation granularity for a given {@link AccessibilityNodeInfoCompat}. */
 public class CursorGranularityManager {
@@ -79,7 +79,7 @@ public class CursorGranularityManager {
    * The top-level node within which the user is navigating. This node's navigable children are
    * represented in {@link #navigableNodes}.
    */
-  @Nullable private AccessibilityNodeInfoCompat lockedNode;
+  private @Nullable AccessibilityNodeInfoCompat lockedNode;
 
   /** The index of the current node within {@link #navigableNodes}. */
   private int currentNodeIndex;
@@ -96,7 +96,7 @@ public class CursorGranularityManager {
   private boolean selectionModeActive;
 
   private final GlobalVariables globalVariables;
-  private final AccessibilityService service;
+  private final AccessibilityFocusMonitor accessibilityFocusMonitor;
 
   // Cursor cache associated with GranularityTraversal object must be cleared regularly using
   // GranularityTraversal#clearAllCursors().
@@ -107,17 +107,20 @@ public class CursorGranularityManager {
 
   public CursorGranularityManager(
       GlobalVariables globalVariables,
-      Compositor compositor,
-      AccessibilityService service,
+      AccessibilityFocusMonitor accessibilityFocusMonitor,
       ProcessorPhoneticLetters processorPhoneticLetters) {
     this.globalVariables = globalVariables;
-    granularityTraversal = new GranularityTraversal(compositor, processorPhoneticLetters);
-    this.service = service;
+    this.accessibilityFocusMonitor = accessibilityFocusMonitor;
+    granularityTraversal = new GranularityTraversal(processorPhoneticLetters);
   }
 
-  public void setPipeline(Pipeline.FeedbackReturner pipeline) {
-    granularityTraversal.setPipeline(pipeline);
+  public void setPipelineFeedbackReturner(Pipeline.FeedbackReturner pipeline) {
+    granularityTraversal.setPipelineFeedbackReturner(pipeline);
     this.pipeline = pipeline;
+  }
+
+  public void setPipelineEventReceiver(Pipeline.EventReceiver pipeline) {
+    granularityTraversal.setPipelineEventReceiver(pipeline);
   }
 
   public void setUserInterface(UserInterface userInterface) {
@@ -130,14 +133,20 @@ public class CursorGranularityManager {
   }
 
   /**
-   * Whether granular navigation is locked to {@code node}. If the currently requested granularity
-   * is {@link CursorGranularity#DEFAULT} or is native macro granularity this will always return
-   * {@code false}.
+   * Whether granular navigation is locked to {@code node}, or is locked to the editing node if
+   * {@code node} is on IME. If the currently requested granularity is {@link
+   * CursorGranularity#DEFAULT} or is native macro granularity this will always return {@code
+   * false}.
    *
    * @param node The node to check.
    * @return Whether navigation is locked to {@code node}.
    */
-  public boolean isLockedTo(AccessibilityNodeInfoCompat node) {
+  public boolean isLockedToNodeOrEditingNode(AccessibilityNodeInfoCompat node) {
+    AccessibilityNodeInfoCompat editingNode =
+        accessibilityFocusMonitor.getEditingNodeFromFocusedKeyboard(node);
+    if (editingNode != null) {
+      node = editingNode;
+    }
     // If the requested granularity is default or native macro, don't report as locked.
     return currentGranularity != CursorGranularity.DEFAULT
         && ((lockedNode != null) && lockedNode.equals(node))
@@ -167,7 +176,7 @@ public class CursorGranularityManager {
       return false;
     }
     if (supportedGranularities.isEmpty()) {
-      return getSupportedGranularities(service, node, eventId).contains(granularity);
+      return getSupportedGranularities(node).contains(granularity);
     }
 
     return (granularity == CursorGranularity.WEB_LANDMARK
@@ -229,12 +238,16 @@ public class CursorGranularityManager {
    * @param active {@code true} to activate selection mode, {@code false} to deactivate.
    */
   public void setSelectionModeActive(boolean active) {
-    selectionModeActive = active;
-    globalVariables.setSelectionModeActive(active);
-    userInterface.setSelectionMode(active);
+    if (isSelectionModeActive() != active) {
+      selectionModeActive = active;
+      globalVariables.setSelectionModeActive(active);
+      userInterface.setSelectionMode(active);
+    }
   }
 
-  /** @return {@code true} if selection mode is active, {@code false} otherwise. */
+  /**
+   * @return {@code true} if selection mode is active.
+   */
   public boolean isSelectionModeActive() {
     return selectionModeActive;
   }
@@ -302,18 +315,21 @@ public class CursorGranularityManager {
       setGranularityAt(node, currentGranularity, eventId);
     }
 
+    int unusedResult;
     // Try to automatically perform micro-granularity movement.
     if (direction == SEARCH_FOCUS_FORWARD) {
-      navigate(
-          AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY,
-          eventId,
-          /* isEditing= */ false);
+      unusedResult =
+          navigateInternal(
+              AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY,
+              eventId,
+              /* isEditing= */ false);
     } else if (direction == SEARCH_FOCUS_BACKWARD) {
       startFromLastNode();
-      navigate(
-          AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY,
-          eventId,
-          /* isEditing= */ false);
+      unusedResult =
+          navigateInternal(
+              AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY,
+              eventId,
+              /* isEditing= */ false);
     }
   }
 
@@ -329,7 +345,15 @@ public class CursorGranularityManager {
    * @return The result of navigation, which is always {@link #NOT_SUPPORTED} if there is no locked
    *     node or if the requested granularity is {@link CursorGranularity#DEFAULT}.
    */
-  public int navigate(int action, EventId eventId, boolean isEditing) {
+  public int navigate(int action, EventId eventId) {
+    boolean isEditing =
+        (lockedNode != null)
+            && (lockedNode.isEditable() || (Role.getRole(lockedNode) == Role.ROLE_EDIT_TEXT))
+            && lockedNode.isFocused();
+    return navigateInternal(action, eventId, isEditing);
+  }
+
+  private int navigateInternal(int action, EventId eventId, boolean isEditing) {
     LogUtils.d(TAG, "Navigate with action: " + AccessibilityNodeInfoUtils.actionToString(action));
     if (lockedNode == null) {
       return NOT_SUPPORTED;
@@ -373,6 +397,10 @@ public class CursorGranularityManager {
     while ((currentNodeIndex >= -1) && (currentNodeIndex <= count)) {
       if (currentNodeIndex == -1 || currentNodeIndex == count) {
         if (isEditing) {
+          // REFERTO: For editbox, to reach this point, it could be the
+          // granularity movement which is not supported by the framework. We need to restore the
+          // node index here, so that when user change granularity, it can operate properly.
+          currentNodeIndex -= increment;
           return HIT_EDGE;
         } else {
           currentNodeIndex += increment;
@@ -391,9 +419,15 @@ public class CursorGranularityManager {
 
       final AccessibilityNodeInfoCompat currentNode = navigableNodes.get(currentNodeIndex);
 
-      if (GranularityTraversal.shouldHandleGranularityTraversalInTalkback(currentNode, service)) {
+      if (GranularityTraversal.shouldHandleGranularityTraversalInTalkback(currentNode)) {
         if (granularityTraversal.traverseAtGranularity(
             currentNode, requestedGranularity.value, forward, eventId)) {
+          return SUCCESS;
+        }
+      } else if (requestedGranularity.value == AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_LINE
+          && GranularityTraversal.shouldHandleLineGranularityTraversalInTalkback(
+              currentNode, forward)) {
+        if (granularityTraversal.traverseAtLineGranularity(currentNode, forward, eventId)) {
           return SUCCESS;
         }
       } else if (pipeline.returnFeedback(
@@ -473,6 +507,14 @@ public class CursorGranularityManager {
    */
   private void setLockedNode(
       AccessibilityNodeInfoCompat node, boolean isMicroGranularity, EventId eventId) {
+    // If the node is on IME and there is an editing node on the active window. Instead of locking
+    // the node, TalkBack will lock the editing node to ensure cursor granularities work on the
+    // cursor position.
+    AccessibilityNodeInfoCompat editingNode =
+        accessibilityFocusMonitor.getEditingNodeFromFocusedKeyboard(node);
+    if (editingNode != null) {
+      node = editingNode;
+    }
     // Clear current state if text has changed even with the same node. Supported granularities
     // can be changed.
     if ((lockedNode != null)
@@ -484,7 +526,7 @@ public class CursorGranularityManager {
     }
 
     if (lockedNode == null && node != null) {
-      lockedNode = AccessibilityNodeInfoCompat.obtain(node);
+      lockedNode = node;
 
       if (shouldClearSelection(lockedNode, isMicroGranularity)) {
         // Always reset selection for the locked node, and reset selection for its non-focusable
@@ -493,15 +535,13 @@ public class CursorGranularityManager {
       }
 
       // Extract the navigable nodes and supported granularities.
-      final List<CursorGranularity> supported = supportedGranularities;
-      final int supportedMask =
-          extractNavigableNodes(lockedNode, navigableNodes, new HashSet<>(), eventId, service);
+      final int supportedMask = extractNavigableNodes(lockedNode, navigableNodes, new HashSet<>());
       final boolean hasWebContent = WebInterfaceUtils.hasNavigableWebContent(lockedNode);
 
       String[] supportedHtmlElements = WebInterfaceUtils.getSupportedHtmlElements(lockedNode);
 
       CursorGranularity.extractFromMask(
-          supportedMask, hasWebContent, supportedHtmlElements, supported);
+          supportedMask, hasWebContent, supportedHtmlElements, supportedGranularities);
     }
   }
 
@@ -532,14 +572,13 @@ public class CursorGranularityManager {
    * Populates a list with the set of {@link CursorGranularity}s supported by the specified root
    * node and its navigable children.
    *
-   * @param service The a11y service.
    * @param root The root node from which to extract granularities.
    * @return A list of supported granularities.
    */
-  public static List<CursorGranularity> getSupportedGranularities(
-      AccessibilityService service, AccessibilityNodeInfoCompat root, EventId eventId) {
+  public @NonNull static List<CursorGranularity> getSupportedGranularities(
+      @Nullable AccessibilityNodeInfoCompat root) {
     final List<CursorGranularity> supported = new ArrayList<>();
-    final int supportedMask = extractNavigableNodes(root, null, new HashSet<>(), eventId, service);
+    final int supportedMask = extractNavigableNodes(root, null, new HashSet<>());
     final boolean hasWebContent = WebInterfaceUtils.hasNavigableWebContent(root);
 
     String[] supportedHtmlElements = WebInterfaceUtils.getSupportedHtmlElements(root);
@@ -561,22 +600,19 @@ public class CursorGranularityManager {
    * @return The mask of supported all granularities supported by the root and child nodes.
    */
   private static int extractNavigableNodes(
-      AccessibilityNodeInfoCompat root,
+      @Nullable AccessibilityNodeInfoCompat root,
       @Nullable List<AccessibilityNodeInfoCompat> nodes,
-      Set<AccessibilityNodeInfoCompat> visitedNodes,
-      EventId eventId,
-      AccessibilityService service) {
+      @NonNull Set<AccessibilityNodeInfoCompat> visitedNodes) {
     int supportedGranularities = 0;
     if (root == null) {
       return supportedGranularities;
     }
 
-    AccessibilityNodeInfoCompat currentNode = root;
-    if (!visitedNodes.add(currentNode)) {
+    if (!visitedNodes.add(root)) {
       // Root already visited. Stop searching.
       return supportedGranularities;
     }
-    if (GranularityTraversal.shouldHandleGranularityTraversalInTalkback(root, service)) {
+    if (GranularityTraversal.shouldHandleGranularityTraversalInTalkback(root)) {
       LogUtils.d(TAG, "Adding granularities supported by Talkback managed granularity navigation");
       supportedGranularities |= GranularityTraversal.TALKBACK_SUPPORTED_GRANULARITIES;
       if (nodes != null) {
@@ -601,8 +637,7 @@ public class CursorGranularityManager {
       // TYPE_VIEW_ACCESSIBILITY_FOCUSED events. See named node "description_for_tree_nodes" in
       // compositor.json.
       if (FILTER_NON_FOCUSABLE_VISIBLE_NODE.accept(child)) {
-        supportedGranularities |=
-            extractNavigableNodes(child, nodes, visitedNodes, eventId, service);
+        supportedGranularities |= extractNavigableNodes(child, nodes, visitedNodes);
       }
     }
 
@@ -625,7 +660,7 @@ public class CursorGranularityManager {
     // Traverse whole subtree, resetting selection.
     AccessibilityNodeInfoUtils.processSubtree(
         root,
-        new Filter.NodeCompat(
+        Filter.node(
             (node) ->
                 FILTER_NON_FOCUSABLE_VISIBLE_NODE.accept(node)
                     && pipeline.returnFeedback(

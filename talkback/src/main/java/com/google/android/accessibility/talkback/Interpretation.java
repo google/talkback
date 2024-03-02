@@ -21,10 +21,13 @@ import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
 
 import android.graphics.Rect;
+import android.view.KeyEvent;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.talkback.compositor.EventInterpretation;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
+import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
+import com.google.android.accessibility.talkback.monitor.BatteryMonitor;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.input.CursorGranularity;
 import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollEventInterpretation;
@@ -52,6 +55,7 @@ public abstract class Interpretation {
       ACCESSIBILITY_FOCUSED,
       SUBTREE_CHANGED,
       ACCESSIBILITY_EVENT_IDLE,
+      SPELLING_SUGGESTION_HINT,
     }
 
     public final Value value;
@@ -106,8 +110,10 @@ public abstract class Interpretation {
     @Override
     public String toString() {
       return StringBuilderUtils.joinFields(
+          "Power{",
           StringBuilderUtils.optionalTag("connected", connected),
-          StringBuilderUtils.optionalInt("percent", percent, BatteryMonitor.UNKNOWN_LEVEL));
+          StringBuilderUtils.optionalInt("percent", percent, BatteryMonitor.UNKNOWN_LEVEL),
+          "}");
     }
   }
 
@@ -177,7 +183,7 @@ public abstract class Interpretation {
     @Override
     public String toString() {
       return StringBuilderUtils.joinFields(
-          "CompositorID= {",
+          "CompositorID{",
           StringBuilderUtils.optionalInt("value", value, EVENT_UNKNOWN),
           StringBuilderUtils.optionalSubObj("eventInterp", eventInterpretation),
           StringBuilderUtils.optionalSubObj("node", node),
@@ -185,20 +191,68 @@ public abstract class Interpretation {
     }
   }
 
-  /** Interpretation sub-type for key-combo events. */
-  @AutoValue
-  public abstract static class KeyCombo extends Interpretation {
-    public abstract int id();
+  /** Interpretation sub-type wrapping KeyEvent. */
+  public static class Key extends Interpretation {
+    public final @NonNull KeyEvent event;
 
-    public abstract @Nullable String text();
+    public Key(@NonNull KeyEvent event) {
+      this.event = event;
+    }
 
-    public static KeyCombo create(int id, @Nullable String text) {
-      return new AutoValue_Interpretation_KeyCombo(id, text);
+    @Override
+    public boolean equals(Object otherObject) {
+      @Nullable Key other = castOrNull(otherObject, Key.class);
+      return (other != null) && Objects.equals(this.event, other.event);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(event);
     }
 
     @Override
     public final String toString() {
-      return String.format("%d=%s", id(), text());
+      return event.toString();
+    }
+  }
+
+  /** Interpretation sub-type for event that may generate a hint. */
+  public static class HintableEvent extends Interpretation {
+    public final boolean forceFeedbackEvenIfAudioPlaybackActive;
+    public final boolean forceFeedbackEvenIfMicrophoneActive;
+
+    public HintableEvent(
+        boolean forceFeedbackEvenIfAudioPlaybackActive,
+        boolean forceFeedbackEvenIfMicrophoneActive) {
+      this.forceFeedbackEvenIfAudioPlaybackActive = forceFeedbackEvenIfAudioPlaybackActive;
+      this.forceFeedbackEvenIfMicrophoneActive = forceFeedbackEvenIfMicrophoneActive;
+    }
+
+    @Override
+    public boolean equals(Object otherObject) {
+      @Nullable HintableEvent other = castOrNull(otherObject, HintableEvent.class);
+      return (other != null)
+          && (this.forceFeedbackEvenIfAudioPlaybackActive
+              == other.forceFeedbackEvenIfAudioPlaybackActive)
+          && (this.forceFeedbackEvenIfMicrophoneActive
+              == other.forceFeedbackEvenIfMicrophoneActive);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(
+          forceFeedbackEvenIfAudioPlaybackActive, forceFeedbackEvenIfMicrophoneActive);
+    }
+
+    @Override
+    public String toString() {
+      return StringBuilderUtils.joinFields(
+          "HintableEvent{",
+          StringBuilderUtils.optionalTag(
+              "forceFeedbackEvenIfAudioPlaybackActive", forceFeedbackEvenIfAudioPlaybackActive),
+          StringBuilderUtils.optionalTag(
+              "forceFeedbackEvenIfMicrophoneActive", forceFeedbackEvenIfMicrophoneActive),
+          "}");
     }
   }
 
@@ -209,10 +263,8 @@ public abstract class Interpretation {
     @SearchDirection
     public abstract int direction();
 
-    /** Caller does not own returned node. */
     public abstract @Nullable AccessibilityNodeInfoCompat destination();
 
-    /** Caller retains ownership of destination, this class makes a copy. */
     public static DirectionNavigation create(
         @SearchDirection int direction, @Nullable AccessibilityNodeInfoCompat destination) {
       return new AutoValue_Interpretation_DirectionNavigation(direction, destination);
@@ -221,8 +273,10 @@ public abstract class Interpretation {
     @Override
     public final String toString() {
       return StringBuilderUtils.joinFields(
+          "DirectionNavigation{",
           StringBuilderUtils.optionalInt("direction", direction(), SEARCH_FOCUS_UNKNOWN),
-          ((destination() == null) ? null : "destination=" + toStringShort(destination())));
+          ((destination() == null) ? null : "destination=" + toStringShort(destination())),
+          "}");
     }
   }
 
@@ -263,7 +317,6 @@ public abstract class Interpretation {
 
     public abstract Action command();
 
-    /** Caller does not own returned node. */
     public abstract @Nullable AccessibilityNodeInfoCompat targetNode();
 
     public abstract @Nullable CursorGranularity granularity();
@@ -281,10 +334,12 @@ public abstract class Interpretation {
     @Override
     public final String toString() {
       return StringBuilderUtils.joinFields(
+          "VoiceCommand{",
           StringBuilderUtils.optionalField("command", command()),
           ((targetNode() == null) ? null : "targetNode=" + toStringShort(targetNode())),
           StringBuilderUtils.optionalField("granularity", granularity()),
-          StringBuilderUtils.optionalText("text", text()));
+          StringBuilderUtils.optionalText("text", text()),
+          "}");
     }
   }
 
@@ -293,12 +348,10 @@ public abstract class Interpretation {
 
     private AccessibilityNodeInfoCompat node;
 
-    /** Caller retains ownership of node, this class makes a copy. */
     public InputFocus(AccessibilityNodeInfoCompat node) {
       this.node = node;
     }
 
-    /** Caller does not own returned node. */
     public AccessibilityNodeInfoCompat getNode() {
       return node;
     }
@@ -322,7 +375,8 @@ public abstract class Interpretation {
 
     @Override
     public String toString() {
-      return StringBuilderUtils.optionalSubObj("node", node);
+      return StringBuilderUtils.joinFields(
+          "InputFocus{", StringBuilderUtils.optionalSubObj("node", node), "}");
     }
   }
 
@@ -330,25 +384,45 @@ public abstract class Interpretation {
   @AutoValue
   public abstract static class ManualScroll extends Interpretation {
 
+    public abstract @Nullable AccessibilityNodeInfoCompat currentFocusedNode();
+
     @TraversalStrategy.SearchDirection
     public abstract int direction();
 
     public abstract @Nullable ScreenState screenState();
 
-    public static ManualScroll create(int direction, @Nullable ScreenState screenState) {
-      return new AutoValue_Interpretation_ManualScroll(direction, screenState);
+    /**
+     * @return Builder for {@code ManualScroll}
+     */
+    public static Builder builder() {
+      return new AutoValue_Interpretation_ManualScroll.Builder();
     }
 
     @Override
     public final String toString() {
       return StringBuilderUtils.joinFields(
+          "ManualScroll{",
+          StringBuilderUtils.optionalSubObj("currentNode", currentFocusedNode()),
           StringBuilderUtils.optionalField(
               "direction", TraversalStrategyUtils.directionToString(direction())),
-          StringBuilderUtils.optionalSubObj("screenState", screenState()));
+          StringBuilderUtils.optionalSubObj("screenState", screenState()),
+          "}");
+    }
+
+    /** Builder for Interpretation sub-type for manual scroll */
+    @AutoValue.Builder
+    public abstract static class Builder {
+      public abstract Builder setCurrentFocusedNode(AccessibilityNodeInfoCompat currentFocusedNode);
+
+      public abstract Builder setDirection(int direction);
+
+      public abstract Builder setScreenState(ScreenState screenState);
+
+      public abstract ManualScroll build();
     }
   }
 
-  /** Interpretation sub-type for window events. */
+  /** Interpretation sub-type for window events filtered through talkback-focus logic. */
   @AutoValue
   public abstract static class WindowChange extends Interpretation {
 
@@ -375,14 +449,13 @@ public abstract class Interpretation {
       TOUCH_NOTHING,
       TOUCH_FOCUSED_NODE,
       TOUCH_UNFOCUSED_NODE,
+      TOUCH_ENTERED_UNFOCUSED_NODE,
     }
 
     public abstract Touch.Action action();
 
-    /** Caller does not own returned node. */
     public abstract @Nullable AccessibilityNodeInfoCompat target();
 
-    /** Caller retains ownership of target, this class makes a copy. */
     public static Touch create(Touch.Action action, @Nullable AccessibilityNodeInfoCompat target) {
       return new AutoValue_Interpretation_Touch(action, target);
     }
@@ -394,8 +467,10 @@ public abstract class Interpretation {
     @Override
     public final String toString() {
       return StringBuilderUtils.joinFields(
+          "Touch{",
           StringBuilderUtils.optionalField("action", action()),
-          ((target() == null) ? null : "target=" + toStringShort(target())));
+          ((target() == null) ? null : "target=" + toStringShort(target())),
+          "}");
     }
   }
 
@@ -403,16 +478,33 @@ public abstract class Interpretation {
   @AutoValue
   public abstract static class AccessibilityFocused extends Interpretation {
 
+    public abstract @Nullable FocusActionInfo focusActionInfo();
+
     public abstract boolean needsCaption();
 
-    public static AccessibilityFocused create(boolean needsCaption) {
-      return new AutoValue_Interpretation_AccessibilityFocused(needsCaption);
+    public static AccessibilityFocused create(
+        @Nullable FocusActionInfo focusActionInfo, boolean needsCaption) {
+      return new AutoValue_Interpretation_AccessibilityFocused(focusActionInfo, needsCaption);
     }
 
     @Override
     public final String toString() {
       return StringBuilderUtils.joinFields(
-          StringBuilderUtils.optionalTag("needsCaption", needsCaption()));
+          "AccessibilityFocused{",
+          StringBuilderUtils.optionalField("focusActionInfo=", focusActionInfo()),
+          StringBuilderUtils.optionalTag("needsCaption", needsCaption()),
+          "}");
+    }
+  }
+
+  /** Interpretation sub-type for touch explore event. */
+  @AutoValue
+  public abstract static class TouchInteraction extends Interpretation {
+
+    public abstract boolean interactionActive();
+
+    public static TouchInteraction create(boolean interactionActive) {
+      return new AutoValue_Interpretation_TouchInteraction(interactionActive);
     }
   }
 

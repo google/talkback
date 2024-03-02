@@ -24,7 +24,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.A11yAlertDialogWrapper;
+import com.google.android.accessibility.utils.material.A11yAlertDialogWrapper;
 
 public class LabelImportActivity extends Activity {
 

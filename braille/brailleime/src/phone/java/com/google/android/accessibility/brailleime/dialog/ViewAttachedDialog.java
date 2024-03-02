@@ -18,7 +18,6 @@ package com.google.android.accessibility.brailleime.dialog;
 
 import android.app.Dialog;
 import android.view.View;
-import com.google.android.accessibility.brailleime.Dialogs;
 
 /**
  * Abstract class that provides the basic functionality for a dialog which attached on specific

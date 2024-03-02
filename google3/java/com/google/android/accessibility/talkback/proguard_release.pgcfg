@@ -1,4 +1,0 @@
-# Preference fragments are referenced only in XML
--keep class com.google.android.accessibility.talkback.preference.** {
-  *;
-}

@@ -16,16 +16,16 @@
 
 package com.google.android.accessibility.braille.common.translate;
 
+import static com.google.android.accessibility.braille.common.translate.BrailleTranslateUtils.DOT6;
+import static com.google.android.accessibility.braille.common.translate.BrailleTranslateUtils.DOTS46;
+
 import android.content.Context;
-import android.content.res.Resources;
-import com.google.android.accessibility.braille.common.R;
 import com.google.android.accessibility.braille.common.TalkBackSpeaker;
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 import com.google.android.accessibility.braille.translate.BrailleTranslator;
-import java.util.Optional;
 
 /** An EditBuffer for French Braille Grade 1. */
-public class EditBufferFrench extends EditBufferCommon {
+public class EditBufferFrench extends EditBufferUnContracted {
 
   public EditBufferFrench(
       Context context, BrailleTranslator ueb1Translator, TalkBackSpeaker talkBack) {
@@ -33,13 +33,12 @@ public class EditBufferFrench extends EditBufferCommon {
   }
 
   @Override
-  protected Optional<String> getAppendBrailleTextToSpeak(
-      Resources resources, BrailleCharacter brailleCharacter) {
-    if (brailleCharacter.equals(BrailleTranslateUtilsFrench.CAPITALIZE)) {
-      return Optional.of(resources.getString(R.string.capitalize_announcement));
-    } else if (brailleCharacter.equals(BrailleTranslateUtilsFrench.NUMERIC)) {
-      return Optional.of(resources.getString(R.string.number_announcement));
-    }
-    return Optional.empty();
+  protected BrailleCharacter getCapitalize() {
+    return DOTS46;
+  }
+
+  @Override
+  protected BrailleCharacter getNumeric() {
+    return DOT6;
   }
 }

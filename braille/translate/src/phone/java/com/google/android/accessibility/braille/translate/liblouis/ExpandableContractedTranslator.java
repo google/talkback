@@ -46,8 +46,7 @@ public class ExpandableContractedTranslator implements BrailleTranslator {
   }
 
   @Override
-  public TranslationResult translate(
-      CharSequence wholeText, int cursorPosition, boolean computerBrailleAtCursor) {
+  public TranslationResult translate(CharSequence wholeText, int cursorPosition) {
     Iterable<String> words = Splitter.on(' ').split(wholeText);
     int lastSearchIndex = -1;
     for (String wordString : words) {
@@ -63,7 +62,7 @@ public class ExpandableContractedTranslator implements BrailleTranslator {
         return getTranslationResult(wholeText, startIndex, endIndex, cursorPosition);
       }
     }
-    return g2Translator.translate(wholeText, cursorPosition, /* computerBrailleAtCursor= */ false);
+    return g2Translator.translate(wholeText, cursorPosition);
   }
 
   private TranslationResult getTranslationResult(
@@ -72,14 +71,10 @@ public class ExpandableContractedTranslator implements BrailleTranslator {
     CharSequence expandableString = wholeText.subSequence(startIndex, endIndex);
     CharSequence afterWord = wholeText.subSequence(endIndex, wholeText.length());
     TranslationResult beforeWordResult =
-        g2Translator.translate(
-            beforeWord, /* cursorPosition= */ -1, /* computerBrailleAtCursor= */ false);
+        g2Translator.translate(beforeWord, /* cursorPosition= */ -1);
     TranslationResult expandableWordResult =
-        g1Translator.translate(
-            expandableString, /* cursorPosition= */ -1, /* computerBrailleAtCursor= */ false);
-    TranslationResult afterWordResult =
-        g2Translator.translate(
-            afterWord, /* cursorPosition= */ -1, /* computerBrailleAtCursor= */ false);
+        g1Translator.translate(expandableString, /* cursorPosition= */ -1);
+    TranslationResult afterWordResult = g2Translator.translate(afterWord, /* cursorPosition= */ -1);
     BrailleWord beforeWordWord = beforeWordResult.cells();
     BrailleWord expandableWord = expandableWordResult.cells();
     BrailleWord afterWordWord = afterWordResult.cells();

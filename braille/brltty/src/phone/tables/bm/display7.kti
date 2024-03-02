@@ -1,0 +1,66 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# This key subtable is for Baum displays which have 7 display keys.
+note The display keys are at both ends of the text cell area, just above it.
+note * The two at the left are named Display1 and Display2.
+note * The large key at the right is named Display5.
+note * The two immediately to its left are named Display3 and Display4.
+note * The two immediately to its right are named Display6 and Display7.
+
+bind Display5 RETURN
+bind Display3 LNUP
+bind Display4 LNDN
+bind Display6 FWINLT
+bind Display7 FWINRT
+
+bind Display1 TOP_LEFT
+bind Display2 BOT_LEFT
+
+bind Display5+Display3 PRDIFLN
+bind Display5+Display4 NXDIFLN
+bind Display5+Display6 ATTRUP
+bind Display5+Display7 ATTRDN
+
+bind Display2+Display5 FREEZE
+bind Display2+Display3 PRPROMPT
+bind Display2+Display4 NXPROMPT
+bind Display2+Display6 PRPGRPH
+bind Display2+Display7 NXPGRPH
+
+bind Display1+Display5 CSRTRK
+bind Display1+Display3 DISPMD
+bind Display1+Display4 SIXDOTS
+bind Display1+Display6 ATTRVIS
+bind Display1+Display7 CSRVIS
+
+bind Display1+Display2+Display5 AUTOSPEAK
+bind Display1+Display2+Display3 MUTE
+bind Display1+Display2+Display4 SAY_LINE
+bind Display1+Display2+Display6 SAY_ABOVE
+bind Display1+Display2+Display7 SAY_BELOW
+
+bind Display1+Display2 HELP
+bind Display3+Display4 LEARN
+bind Display6+Display7 PREFMENU
+bind Display3+Display6 PREFLOAD
+bind Display4+Display7 PREFSAVE
+
+bind Display5+Display3+Display6 CSRJMP_VERT
+bind Display5+Display4+Display7 PASTE
+

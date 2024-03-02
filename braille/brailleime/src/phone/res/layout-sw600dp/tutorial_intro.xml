@@ -2,10 +2,11 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UselessParent"
     android:background="@color/tutorial_background"
-    android:paddingStart="@dimen/tutorial_horizontal_padding"
-    android:paddingTop="@dimen/tutorial_vertical_padding"
-    android:paddingEnd="@dimen/tutorial_horizontal_padding">
+    android:paddingHorizontal="@dimen/tutorial_horizontal_padding"
+    android:paddingVertical="@dimen/tutorial_vertical_padding">
   <LinearLayout
       android:layout_width="@dimen/tutorial_width"
       android:layout_height="match_parent"
@@ -15,18 +16,19 @@
         android:id="@+id/tutorial_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="center_vertical"
         android:text="@string/braille_tutorial_title"
         android:textColor="@color/google_white"
         android:textSize="@dimen/tutorial_title_text_size"
+        android:paddingBottom="@dimen/tutorial_vertical_padding"
         android:textStyle="bold" />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tutorial_description_min_height"
-        android:layout_weight="2">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginVertical="@dimen/braille_display_keyboard_vertical_margin">
       <TextView
-          android:layout_width="wrap_content"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:lineSpacingExtra="@dimen/tutorial_description_line_space"
           android:scrollbars="vertical"
@@ -34,25 +36,18 @@
           android:textColor="@color/google_white"
           android:textSize="@dimen/tutorial_description_text_size" />
     </ScrollView>
-    <FrameLayout
+    <ImageView
+        android:id="@+id/tutorial_animation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-      <ImageView
-          android:id="@+id/tutorial_animation"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:adjustViewBounds="true"
-          android:scaleType="fitCenter"
-          android:layout_margin="@dimen/tutorial_animation_margin"
-          android:src="@drawable/intro_animation_tabletop"/>
-    </FrameLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:importantForAccessibility="no"
+        android:src="@drawable/intro_animation_tabletop" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
+        android:layout_gravity="bottom"
         android:orientation="vertical">
       <Button
           android:id="@+id/next_button"

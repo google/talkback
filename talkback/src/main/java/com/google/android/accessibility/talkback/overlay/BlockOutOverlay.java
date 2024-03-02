@@ -31,6 +31,7 @@ import android.view.WindowManager;
 import android.view.WindowManager.BadTokenException;
 import android.widget.FrameLayout;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 import com.google.android.accessibility.talkback.R;
@@ -53,7 +54,6 @@ public class BlockOutOverlay extends SimpleOverlay {
     highlightView.invalidate();
   }
 
-  /** Highlights multiple nodes */
   public class BlurOutHighlightView extends View {
     private final Paint blackPaint = new Paint();
     private final Paint cutPaint = new Paint();
@@ -74,11 +74,11 @@ public class BlockOutOverlay extends SimpleOverlay {
     }
 
     @Override
-    public void onDraw(Canvas canvas) {
+    public void onDraw(@NonNull Canvas canvas) {
       if (focusedNode != null) {
-        Rect nodeBounds = new Rect();
         focusedNode.getBoundsInScreen(nodeBounds);
-        blockOutExceptFocus(canvas, nodeBounds);
+        //blockOutExceptFocus(canvas, nodeBounds);
+        blockOutEntireScreen(canvas);
       }
     }
 
@@ -90,6 +90,14 @@ public class BlockOutOverlay extends SimpleOverlay {
 
       highlightView.setBackgroundColor(blackPaint.getColor());
       canvas.drawRect(rectInHighlightView, cutPaint);
+    }
+
+    private void blockOutEntireScreen(Canvas canvas) {
+      // Adjust location by overlay position on screen.
+      int[] overlayScreenXY = {0, 0};
+      highlightView.getLocationOnScreen(overlayScreenXY);
+      highlightView.setBackgroundColor(blackPaint.getColor());
+      canvas.drawRect(0,0,500,500, blackPaint);
     }
   }
 
@@ -130,4 +138,6 @@ public class BlockOutOverlay extends SimpleOverlay {
     highlightView.setVisibility(View.INVISIBLE);
     hide();
   }
+
+  private Rect nodeBounds = new Rect();
 }

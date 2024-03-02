@@ -18,7 +18,6 @@ package com.google.android.accessibility.brailleime;
 
 import android.app.Service;
 import android.content.Context;
-import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 
@@ -28,10 +27,10 @@ public class BrailleImeVibrator {
   /** Vibration type in braille keyboard. */
   public enum VibrationType {
     BRAILLE_COMMISSION(25, 120),
-    SPACE_DELETE_OR_MOVE_CURSOR(70, 150),
+    SPACE_DELETE_OR_MOVE_CURSOR_OR_GRANULARITY(70, 150),
     NEWLINE_OR_DELETE_WORD(120, 180),
-    OTHER_GESTURES(190, 210),
-    ;
+    HOLD(25, 200),
+    OTHER_GESTURES(190, 210);
 
     private final int duration;
     private final int amplitude;
@@ -74,11 +73,7 @@ public class BrailleImeVibrator {
     if (!enabled) {
       return;
     }
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-      vibrator.vibrate(
-          VibrationEffect.createOneShot(vibrationType.duration, vibrationType.amplitude));
-    } else {
-      vibrator.vibrate(vibrationType.duration);
-    }
+    vibrator.vibrate(
+        VibrationEffect.createOneShot(vibrationType.duration, vibrationType.amplitude));
   }
 }

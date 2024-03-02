@@ -198,8 +198,8 @@
   <string name="template_value"><xliff:g id="value">%1$s</xliff:g></string>
   <!-- Spoken description of a container, including the number of visible items. -->
   <plurals name="template_containers">
-      <item quantity="one"><xliff:g id="type" example="List">%1$s</xliff:g> showing <xliff:g id="count" example="1">%2$d</xliff:g> item.</item>
-      <item quantity="other"><xliff:g id="type" example="List">%1$s</xliff:g> showing <xliff:g id="count" example="3">%2$d</xliff:g> items.</item>
+      <item quantity="one"><xliff:g id="type" example="List">%1$s</xliff:g> showing <xliff:g id="count" example="1">%2$d</xliff:g> item</item>
+      <item quantity="other"><xliff:g id="type" example="List">%1$s</xliff:g> showing <xliff:g id="count" example="3">%2$d</xliff:g> items</item>
   </plurals>
   <!-- Utterance spoken when the edit field has error message on it. -->
   <string name="template_node_error_with_error_message"><xliff:g id="error">Error: </xliff:g>%1$s</string>
@@ -252,7 +252,7 @@
     Source: A value for announcing opening the activity options (shown on a press of the menu button).
     Description: This is spoken to the user. [CHAR LIMIT="NONE"]
   -->
-  <string name="value_options_menu_open">Options.</string>
+  <string name="value_options_menu_open">Options</string>
   <!-- Description spoken when all text is removed from a text box. -->
   <string name="value_text_cleared">Cleared text</string>
   <!-- Description spoken when maximum length reached from a text box -->
@@ -288,6 +288,11 @@
   -->
   <string name="value_disabled">disabled</string>
   <!--
+    Source: A value for announcing the enabled state of a control.
+    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+  -->
+  <string name="value_enabled">enabled</string>
+  <!--
     Source: A value for announcing the expanded state of a expandable/collapsible view.
     Description: This is spoken to the user. [CHAR LIMIT="NONE"]
   -->
@@ -314,79 +319,70 @@
   -->
   <string name="value_press_select">Press select</string>
   <!-- Hint spoken when the user pauses over an item that can be clicked. Populated with an action like "Tap" or "Double-tap". -->
-  <string name="template_hint_clickable"><xliff:g id="action" example="Tap">%1$s</xliff:g> to activate.</string>
+  <string name="template_hint_clickable"><xliff:g id="action" example="Tap">%1$s</xliff:g> to activate</string>
   <!-- Hint spoken when the user pauses over an item that can be clicked while they are navigating with keyboard. -->
-  <string name="template_hint_clickable_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to activate.</string>
+  <string name="template_hint_clickable_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to activate</string>
   <!-- Hint spoken when the user pauses over an item that can be long-clicked. Long-click can activate icon dragging, contextual menus, etc. Populated with an action like "Tap" or "Double-tap". -->
-  <string name="template_hint_long_clickable"><xliff:g id="action" example="Tap">%1$s</xliff:g> and hold to long press.</string>
+  <string name="template_hint_long_clickable"><xliff:g id="action" example="Tap">%1$s</xliff:g> and hold to long press</string>
   <!-- Hint spoken when the user pauses over an item that can be long-clicked while they are navigating with keyboard. -->
-  <string name="template_hint_long_clickable_keyboard">Press <xliff:g id="keyCombo" example="Alt+Shift+Enter">%1$s</xliff:g> to long press.</string>
+  <string name="template_hint_long_clickable_keyboard">Press <xliff:g id="keyCombo" example="Alt+Shift+Enter">%1$s</xliff:g> to long press</string>
   <!-- Hint spoken when the user pauses over a check box. Populated with an action like "Tap" or "Double-tap". -->
-  <string name="template_hint_checkable"><xliff:g id="action" example="Tap">%1$s</xliff:g> to toggle.</string>
+  <string name="template_hint_checkable"><xliff:g id="action" example="Tap">%1$s</xliff:g> to toggle</string>
   <!-- Hint spoken when the user pauses over a check box while they are navigating with keyboard. -->
-  <string name="template_hint_checkable_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to toggle.</string>
+  <string name="template_hint_checkable_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to toggle</string>
+  <!-- Hint spoken when the user pauses over an item that can be adjustable. [CHAR_LIMIT=60] -->
+  <string name="template_hint_adjustable_2gesture">\"<xliff:g example="Swipe up" id="gesture1">%1$s</xliff:g>\" or \"<xliff:g example="Swipe down" id="gesture2">%2$s</xliff:g>\" to adjust</string>
+  <!-- Hint spoken when the user pauses over an item that can be adjustable. [CHAR_LIMIT=60]-->
+  <string name="template_hint_adjustable_1gesture">\"<xliff:g example="Swipe up" id="gesture1">%1$s</xliff:g>\" to adjust</string>
   <!-- Hint spoken when the user pauses over an editable text area. Populated with an action like "Tap" or "Double-tap". [CHAR_LIMIT=40] -->
-  <string name="template_hint_edit_text"><xliff:g id="action" example="Tap">%1$s</xliff:g> to edit text.</string>
+  <string name="template_hint_edit_text"><xliff:g id="action" example="Tap">%1$s</xliff:g> to edit text</string>
   <!-- Hint spoken when the user pauses over an editable text area while they are navigating with keyboard. [CHAR_LIMIT=40] -->
-  <string name="template_hint_edit_text_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to edit text.</string>
+  <string name="template_hint_edit_text_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to edit text</string>
   <!-- Hint spoken when the user pauses over a drop-down list. Populated with an action like "Tap" or "Double-tap". -->
-  <string name="template_hint_spinner"><xliff:g id="action" example="Tap">%1$s</xliff:g> to change.</string>
+  <string name="template_hint_spinner"><xliff:g id="action" example="Tap">%1$s</xliff:g> to change</string>
   <!-- Hint spoken when the user pauses over a drop-down list while they are navigating with keyboard. -->
-  <string name="template_hint_spinner_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to change.</string>
+  <string name="template_hint_spinner_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to change</string>
+  <!-- Hint spoken when the user pauses over an item in a single-selection list. Populated with an action like "Tap" or "Double-tap".-->
+  <string name="template_hint_single_selection_item"><xliff:g id="action" example="Tap">%1$s</xliff:g> to select</string>
+  <!-- Hint spoken when the user pauses over an item in a single-selection list while they are navigating with keyboard.-->
+  <string name="template_hint_single_selection_item_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to select</string>
   <!-- Hint spoken when the user selects a view pager with multiple pages. -->
-  <string name="template_hint_pager">Swipe with two fingers to switch pages.</string>
+  <string name="template_hint_pager">Swipe with two fingers to switch pages</string>
   <!-- Hint spoken when the user selects a view pager with only one page. -->
-  <string name="template_hint_pager_single_page">No more pages.</string>
-  <!-- Hint spoken when the user selects a seek control -->
-  <string name="template_hint_seek_control">Use volume keys to adjust</string>
+  <string name="template_hint_pager_single_page">No more pages</string>
   <!-- Hint spoken when the user selects a seek control on an Android TV device. -->
-  <string name="template_hint_seek_control_tv"><xliff:g id="action" example="Press select">%1$s</xliff:g> to change.</string>
+  <string name="template_hint_seek_control_tv"><xliff:g id="action" example="Press select">%1$s</xliff:g> to change</string>
   <!-- Description of custom actions hint, these are actions apps make for this specific node -->
   <string name="template_hint_custom_actions">Actions: </string>
   <!--Hint spoken when the user pauses over an item that has actions with custom labels. -->
-  <string name="template_custom_hint_for_actions"><xliff:g id="action" example="Double-tap">%1$s</xliff:g> to <xliff:g id="hint" example="Expand">%2$s</xliff:g>.</string>
+  <string name="template_custom_hint_for_actions"><xliff:g id="action" example="Double-tap">%1$s</xliff:g> to <xliff:g id="hint" example="Expand">%2$s</xliff:g></string>
   <!-- Hint spoken when the user pauses over an item that has actions or long-clickable actions with custom labels while they are navigating with keyboard. -->
-  <string name="template_custom_hint_for_actions_keyboard">Press <xliff:g id="keyCombo" example="Alt + Enter">%1$s</xliff:g> to <xliff:g id="hint" example="Expand">%2$s</xliff:g>.</string>
+  <string name="template_custom_hint_for_actions_keyboard">Press <xliff:g id="keyCombo" example="Alt + Enter">%1$s</xliff:g> to <xliff:g id="hint" example="Expand">%2$s</xliff:g></string>
   <!--Hint spoken when the user pauses over an item that has long-clickable actions with custom labels. -->
-  <string name="template_custom_hint_for_long_clickable_actions"><xliff:g id="action" example="Double-tap">%1$s</xliff:g> and hold to <xliff:g id="hint" example="Expand">%2$s</xliff:g>.</string>
+  <string name="template_custom_hint_for_long_clickable_actions"><xliff:g id="action" example="Double-tap">%1$s</xliff:g> and hold to <xliff:g id="hint" example="Expand">%2$s</xliff:g></string>
   <!-- Hint spoken when the user pauses over an item that is scrollable (for Switch Access). Populated with the action "Press Select Switch". -->
-  <string name="template_sa_custom_hint_scrollable"><xliff:g id="action" example="Press select">%1$s</xliff:g> to scroll.</string>
+  <string name="template_sa_custom_hint_scrollable"><xliff:g id="action" example="Press select">%1$s</xliff:g> to scroll</string>
   <!-- Hint spoken when the user pauses over an item that is associated with multiple actions (for Switch Access). Populated with the action "Press Select Switch". -->
-  <string name="template_sa_custom_hint_for_multiple_actions"><xliff:g id="action" example="Press select">%1$s</xliff:g> for available actions.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions"><xliff:g id="action" example="Press select">%1$s</xliff:g> for available actions</string>
   <!-- Hint spoken when the user selects a seek control with Switch Access. -->
   <string name="template_sa_hint_seek_control">Press Select Switch to adjust</string>
   <!-- A message announcing that Caps Lock mode is on. -->
-  <string name="value_caps_lock_on">Caps Lock on.</string>
+  <string name="value_caps_lock_on">Caps Lock on</string>
   <!-- A message announcing that Caps Lock mode is off. -->
-  <string name="value_caps_lock_off">Caps Lock off.</string>
+  <string name="value_caps_lock_off">Caps Lock off</string>
   <!-- A message announcing that Num Lock mode is on. -->
-  <string name="value_num_lock_on">Num Lock on.</string>
+  <string name="value_num_lock_on">Num Lock on</string>
   <!-- A message announcing that Num Lock mode is off. -->
-  <string name="value_num_lock_off">Num Lock off.</string>
+  <string name="value_num_lock_off">Num Lock off</string>
   <!-- A message announcing that Scroll Lock mode is on. -->
-  <string name="value_scroll_lock_on">Scroll Lock on.</string>
+  <string name="value_scroll_lock_on">Scroll Lock on</string>
   <!-- A message announcing that Scroll Lock mode is off. -->
-  <string name="value_scroll_lock_off">Scroll Lock off.</string>
+  <string name="value_scroll_lock_off">Scroll Lock off</string>
   <!-- Announced when the device's screen changes to portrait orientation. -->
   <string name="orientation_portrait">Portrait</string>
   <!-- Announced when the device's screen changes to landscape orientation. -->
   <string name="orientation_landscape">Landscape</string>
 
-  <!--
-    Source: A TalkBack menu option that allows dismissing an element on the screen.
-    Description: This is presented to the user when an element supports a "dismiss" action. [CHAR LIMIT="NONE"]
-  -->
-  <string name="title_action_dismiss">Dismiss</string>
-  <!--
-    Source: A TalkBack menu option that allows expanding an element on the screen.
-    Description: This is presented to the user when an element supports a "expand" action. [CHAR LIMIT="NONE"]
-  -->
-  <string name="title_action_expand">Expand</string>
-  <!--
-    Source: A TalkBack menu option that allows collapsing an element on the screen.
-    Description: This is presented to the user when an element supports a "collapse" action. [CHAR LIMIT="NONE"]
-  -->
-  <string name="title_action_collapse">Collapse</string>
     <!--
     Source: A TalkBack menu option that allows dragging an element on the screen.
     Description: This is presented to the user when an element supports a "drag" action. [CHAR LIMIT=NONE]
@@ -701,10 +697,18 @@
   <string name="summaryOff_pref_speak_passwords_without_headphones">Passwords only spoken when using headphones</string>
 
   <!-- Hint spoken when the menu actions available in high verbosity.[CHAR_LIMIT=100] -->
-  <string name="template_hint_menu_type_high_verbosity"><xliff:g id="type" example="action">%1$s</xliff:g> available, use <xliff:g id="gesture" example="up-then-right">%2$s</xliff:g> to view.</string>
+  <string name="template_hint_menu_type_high_verbosity"><xliff:g id="type" example="action">%1$s</xliff:g> available, use <xliff:g id="gesture" example="up-then-right">%2$s</xliff:g> to view</string>
 
   <!-- Hint spoken when suggestions are available for a mis-spelled word or phrase. [CHAR_LIMIT=NONE] -->
-  <string name="hint_suggestion">Spelling suggestions available.</string>
+  <string name="hint_suggestion">Spelling suggestions available</string>
+  <!-- The hint to notify there are misspelled words in the edit field. This is spoken to the user. [CHAR_LIMIT=NONE]-->
+  <string name="typo_included">Spelling errors included</string>
+  <!-- The hint to notify the total number of typos are in the edit text and introduce how to use typo granularity. This is spoken to the user. [CHAR_LIMIT=NONE] -->
+  <string name="template_hint_edit_text_containing_typo"><xliff:g id="typo_count">%1$d</xliff:g> misspelled words. <xliff:g example="Swipe right" id="reading_menu_down_gesture">%2$s</xliff:g> and use spell check to view</string>
+  <!-- The hint to notify typo is added and introduce how to choose a spelling suggestion. This is spoken to the user. [CHAR_LIMIT=NONE] -->
+  <string name="template_hint_reading_menu_spelling_suggestion">Spelling suggestions available. <xliff:g example="Swipe right" id="reading_menu_down_gesture">%1$s</xliff:g> and use actions to view</string>
+  <!-- The hint to notify typo is added and introduce how to choose a spelling suggestion. This is spoken to the user. [CHAR_LIMIT=NONE] -->
+  <string name="template_hint_reading_menu_actions_for_spelling_suggestion">Spelling suggestions available. <xliff:g example="Swipe down" id="select_suggestions_gesture">%1$s</xliff:g> for details</string>
 
   <!--
     Source: string indicating that the user is focused in the window that has a name,

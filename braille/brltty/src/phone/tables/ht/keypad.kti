@@ -1,0 +1,104 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+# Key subtable for HandyTech keypad keys
+note The 16-key pad is arranged in four columns and four rows.
+note * The keys in the first (top) row are named: B9, One, Two, Three.
+note * The keys in the second row are named: B10, Four, Five, Six.
+note * The keys in the third row are named: B11, Seven, Eight, Nine.
+note * The keys in the fourth (bottom) row are named: B12, B13, Zero, B14.
+
+bind B9 SAY_ABOVE
+bind B10 SAY_LINE
+bind B11 SAY_BELOW
+bind B12 MUTE
+bind Zero SPKHOME
+bind B13 SWITCHVT_PREV
+bind B14 SWITCHVT_NEXT
+bind Eight MENU_PREV_ITEM
+bind Nine MENU_FIRST_ITEM
+bind Four MENU_PREV_SETTING
+bind Five PREFSAVE
+bind Six MENU_NEXT_SETTING
+bind One PREFMENU
+bind Two MENU_NEXT_ITEM
+bind Three MENU_LAST_ITEM
+
+bind Zero+Seven KEY_HOME
+bind Zero+Eight KEY_CURSOR_UP
+bind Zero+Nine KEY_PAGE_UP
+bind Zero+Four KEY_CURSOR_LEFT
+bind Zero+Six KEY_CURSOR_RIGHT
+bind Zero+One KEY_END
+bind Zero+Two KEY_CURSOR_DOWN
+bind Zero+Three KEY_PAGE_DOWN
+bind Zero+B13 KEY_INSERT
+bind Zero+B14 KEY_DELETE
+
+bind B9+One SETMARK+0
+bind B9+Two SETMARK+1
+bind B9+Three SETMARK+2
+bind B9+Four SETMARK+3
+bind B9+Five SETMARK+4
+bind B9+Six SETMARK+5
+bind B9+Seven SETMARK+6
+bind B9+Eight SETMARK+7
+bind B9+Nine SETMARK+8
+bind B9+Zero SETMARK+9
+bind B9+B13 SETMARK+10
+bind B9+B14 SETMARK+11
+
+bind B10+One GOTOMARK+0
+bind B10+Two GOTOMARK+1
+bind B10+Three GOTOMARK+2
+bind B10+Four GOTOMARK+3
+bind B10+Five GOTOMARK+4
+bind B10+Six GOTOMARK+5
+bind B10+Seven GOTOMARK+6
+bind B10+Eight GOTOMARK+7
+bind B10+Nine GOTOMARK+8
+bind B10+Zero GOTOMARK+9
+bind B10+B13 GOTOMARK+10
+bind B10+B14 GOTOMARK+11
+
+bind B11+One SWITCHVT+0
+bind B11+Two SWITCHVT+1
+bind B11+Three SWITCHVT+2
+bind B11+Four SWITCHVT+3
+bind B11+Five SWITCHVT+4
+bind B11+Six SWITCHVT+5
+bind B11+Seven SWITCHVT+6
+bind B11+Eight SWITCHVT+7
+bind B11+Nine SWITCHVT+8
+bind B11+Zero SWITCHVT+9
+bind B11+B13 SWITCHVT+10
+bind B11+B14 SWITCHVT+11
+
+bind B12+One KEY_FUNCTION+0
+bind B12+Two KEY_FUNCTION+1
+bind B12+Three KEY_FUNCTION+2
+bind B12+Four KEY_FUNCTION+3
+bind B12+Five KEY_FUNCTION+4
+bind B12+Six KEY_FUNCTION+5
+bind B12+Seven KEY_FUNCTION+6
+bind B12+Eight KEY_FUNCTION+7
+bind B12+Nine KEY_FUNCTION+8
+bind B12+Zero KEY_FUNCTION+9
+bind B12+B13 KEY_FUNCTION+10
+bind B12+B14 KEY_FUNCTION+11
+

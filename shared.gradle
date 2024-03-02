@@ -5,7 +5,7 @@ ext {
 }
 
 android {
-    compileSdkVersion 'android-33'
+    compileSdkVersion 34
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -26,6 +26,26 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        eachDependency {
+            // https://paste.googleplex.com/6584345232932864?raw
+            //
+            // 'androidx.wear:wear:1.2.0-rc01'
+            // 'androidx.wear:wear-remote-interactions:1.0.0'
+            //
+            // If the above actual dependencies are updated and these libraries
+            // update the version of org.jetbrains.kotlin:kotlin-stdlib, we
+            // should update useVersion("1.8.0") to the updated version. Or, we
+            // can remove these lines once these libraries don't conflict with
+            // each other anymore.
+            if ((requested.group == "org.jetbrains.kotlin") && (requested.name.startsWith("kotlin-stdlib"))) {
+                useVersion("1.8.0")
+            }
+        }
+    }
+}
+
 dependencies {
 
     // Google common
@@ -38,7 +58,7 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.2.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'androidx.collection:collection:1.1.0'
-    implementation 'androidx.core:core:1.6.0-alpha03'
+    implementation 'androidx.core:core:1.10.0-beta01'
     implementation 'androidx.fragment:fragment:1.4.0-alpha08'
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
     implementation 'androidx.preference:preference:1.1.1'
@@ -54,7 +74,10 @@ dependencies {
     implementation 'javax.annotation:javax.annotation-api:1.3.2'
 
     implementation 'androidx.wear:wear:1.2.0-rc01'
+    implementation 'androidx.wear:wear-remote-interactions:1.0.0'
     implementation 'com.google.android.support:wearable:2.8.1'
+
+    implementation 'com.google.zxing:core:3.5.1'
 
     // UI understanding
     implementation 'joda-time:joda-time:2.9.9'

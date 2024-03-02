@@ -23,7 +23,6 @@ import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.Acces
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.MENU_TYPE_VIEW_PAGER;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
-import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -64,7 +63,7 @@ public class RuleViewPager extends NodeMenuRule {
   }
 
   @Override
-  public boolean accept(AccessibilityService service, AccessibilityNodeInfoCompat node) {
+  public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
     AccessibilityNodeInfoCompat rootNode = AccessibilityNodeInfoUtils.getRoot(node);
     if (rootNode == null) {
       return false;
@@ -77,7 +76,7 @@ public class RuleViewPager extends NodeMenuRule {
 
   @Override
   public List<ContextMenuItem> getMenuItemsForNode(
-      AccessibilityService service, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
+      Context context, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
     final List<ContextMenuItem> items = new ArrayList<>();
     AccessibilityNodeInfoCompat pagerNode =
         AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(node, FILTER_PAGED);
@@ -89,12 +88,12 @@ public class RuleViewPager extends NodeMenuRule {
       return items;
     }
 
-    addPageActions(items, service, pagerNode);
+    addPageActions(items, context, pagerNode);
 
     // Check for scroll actions if no page items were added. A node with page actions shouldn't be
     // using scroll actions to navigate pages.
     if (items.isEmpty()) {
-      addScrollActions(items, service, pagerNode);
+      addScrollActions(items, context, pagerNode);
     }
 
     if (items.isEmpty()) {
@@ -112,13 +111,11 @@ public class RuleViewPager extends NodeMenuRule {
 
   /** Appends to items list. */
   private void addPageActions(
-      List<ContextMenuItem> items,
-      AccessibilityService service,
-      AccessibilityNodeInfoCompat pagerNode) {
+      List<ContextMenuItem> items, Context context, AccessibilityNodeInfoCompat pagerNode) {
 
     addMenuItemIfActionExists(
         items,
-        service,
+        context,
         R.id.viewpager_breakout_page_up,
         R.string.title_viewpager_breakout_page_up,
         ACTION_PAGE_UP.getId(),
@@ -126,7 +123,7 @@ public class RuleViewPager extends NodeMenuRule {
 
     addMenuItemIfActionExists(
         items,
-        service,
+        context,
         R.id.viewpager_breakout_page_down,
         R.string.title_viewpager_breakout_page_down,
         ACTION_PAGE_DOWN.getId(),
@@ -134,7 +131,7 @@ public class RuleViewPager extends NodeMenuRule {
 
     addMenuItemIfActionExists(
         items,
-        service,
+        context,
         R.id.viewpager_breakout_page_left,
         R.string.title_viewpager_breakout_page_left,
         ACTION_PAGE_LEFT.getId(),
@@ -142,7 +139,7 @@ public class RuleViewPager extends NodeMenuRule {
 
     addMenuItemIfActionExists(
         items,
-        service,
+        context,
         R.id.viewpager_breakout_page_right,
         R.string.title_viewpager_breakout_page_right,
         ACTION_PAGE_RIGHT.getId(),
@@ -151,13 +148,11 @@ public class RuleViewPager extends NodeMenuRule {
 
   /** Appends to items list. */
   private void addScrollActions(
-      List<ContextMenuItem> items,
-      AccessibilityService service,
-      AccessibilityNodeInfoCompat pagerNode) {
+      List<ContextMenuItem> items, Context context, AccessibilityNodeInfoCompat pagerNode) {
 
     addMenuItemIfActionExists(
         items,
-        service,
+        context,
         R.id.viewpager_breakout_prev_page,
         R.string.title_viewpager_breakout_prev_page,
         AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD,
@@ -165,7 +160,7 @@ public class RuleViewPager extends NodeMenuRule {
 
     addMenuItemIfActionExists(
         items,
-        service,
+        context,
         R.id.viewpager_breakout_next_page,
         R.string.title_viewpager_breakout_next_page,
         AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD,
@@ -175,7 +170,7 @@ public class RuleViewPager extends NodeMenuRule {
   /** Appends to items list. */
   private void addMenuItemIfActionExists(
       List<ContextMenuItem> items,
-      AccessibilityService service,
+      Context context,
       int valueResourceId,
       int titleResourceId,
       int nodeActionId,
@@ -183,7 +178,7 @@ public class RuleViewPager extends NodeMenuRule {
     if (AccessibilityNodeInfoUtils.supportsAction(pagerNode, nodeActionId)) {
       items.add(
           ContextMenu.createMenuItem(
-              service, Menu.NONE, valueResourceId, Menu.NONE, service.getString(titleResourceId)));
+              context, Menu.NONE, valueResourceId, Menu.NONE, context.getString(titleResourceId)));
     }
   }
 

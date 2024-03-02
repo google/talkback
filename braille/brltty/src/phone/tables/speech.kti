@@ -1,0 +1,57 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2023 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU Lesser General Public License, as published by the Free Software
+# Foundation; either version 2.1 of the License, or (at your option) any
+# later version. Please see the file LICENSE-LGPL for details.
+#
+# Web Page: http://brltty.app/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+bind \{speech}Dot1 AUTOSPEAK+on
+bind \{speech}Dot2 MUTE
+bind \{speech}Dot3 AUTOSPEAK+off
+bind \{speech}Dot7 SPEAK_CURR_LOCN
+
+bind \{speech}Dot4 SAY_ABOVE
+bind \{speech}Dot5 SAY_LINE
+bind \{speech}Dot6 SAY_BELOW
+bind \{speech}Dot8 SAY_ALL
+
+bind \{speech}Dot1+Dot4 SPEAK_PREV_LINE
+bind \{speech}Dot1+Dot5 SPEAK_CURR_LINE
+bind \{speech}Dot1+Dot6 SPEAK_NEXT_LINE
+bind \{speech}Dot1+Dot8 SPEAK_INDENT
+
+bind \{speech}Dot2+Dot4 SPEAK_PREV_WORD
+bind \{speech}Dot2+Dot5 SPEAK_CURR_WORD
+bind \{speech}Dot2+Dot6 SPEAK_NEXT_WORD
+bind \{speech}Dot2+Dot8 SPELL_CURR_WORD
+
+bind \{speech}Dot3+Dot4 SPEAK_PREV_CHAR
+bind \{speech}Dot3+Dot5 SPEAK_CURR_CHAR
+bind \{speech}Dot3+Dot6 SPEAK_NEXT_CHAR
+bind \{speech}Dot3+Dot8 DESC_CURR_CHAR
+
+bind \{speech}Dot7+Dot4 SPEAK_FRST_LINE
+bind \{speech}Dot7+Dot5 SPEAK_FRST_CHAR
+bind \{speech}Dot7+Dot6 SPEAK_LAST_CHAR
+bind \{speech}Dot7+Dot8 SPEAK_LAST_LINE
+
+bind \{speech}Space+Dot1 SAY_SOFTER
+bind \{speech}Space+Dot4 SAY_LOUDER
+bind \{speech}Space+Dot2 SAY_SLOWER
+bind \{speech}Space+Dot5 SAY_FASTER
+bind \{speech}Space+Dot3 SAY_LOWER
+bind \{speech}Space+Dot6 SAY_HIGHER
+bind \{speech}Space+Dot7 ROUTE_CURR_LOCN
+bind \{speech}Space+Dot8 RETURN
+

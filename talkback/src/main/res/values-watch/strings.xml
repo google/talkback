@@ -12,4 +12,33 @@
     Description: In RTL language, "right" and "left" should be translated reverse. [CHAR_LIMIT=NONE]
     -->
     <string name="welcome_to_talkback_text">Get spoken feedback so you can use your watch without looking at the screen.</string>
+
+    <!-- Summary for the Context menu containing custom action. [CHAR_LIMIT=NONE] -->
+    <string name="summary_custom_action">Shows when custom actions exist for the current item.</string>
+
+    <!--
+      Source: Title of a notification that TalkBack's gestures have been changed.
+      Description: Displays a more detailed notification with information about gesture changes [CHAR_LIMIT=30]
+    -->
+    <string name="notification_title_talkback_gestures_changed">TalkBack gestures updated</string>
+
+    <!--
+      Source: Description of a notification that TalkBack's gestures have been changed.
+      Description: Displays a more detailed notification with information about gesture changes [CHAR_LIMIT=70]
+    -->
+    <string name="notification_message_talkback_gestures_changed">Open Talkback for more details</string>
+
+    <!-- A item in settings page to introduce TalkBack new features. [CHAR_LIMIT=NONE]-->
+    <string name="new_feature_in_talkback_title">What\'s new</string>
+
+    <!-- The text of the button in the confirm dialog to reset the gesture. [CHAR_LIMIT=20]-->
+    <string name="reset_button_in_reset_gesture_settings_confirm_dialog">OK</string>
+
+    <!-- For the legal page. -->
+    <!-- The call to action in the legal page. [CHAR_LIMIT=80]-->
+    <string name="scan_the_qr_code">Scan the QR code</string>
+    <!-- The alternate description in the legal page. [CHAR_LIMIT=NONE]-->
+    <string name="alternate_privacy_policy">Or visit http://www.google.com/policies/privacy</string>
+    <!-- The alternate description in the terms of service. [CHAR_LIMIT=NONE]-->
+    <string name="alternate_tos">Or visit https://www.google.com/mobile/toscountry</string>
 </resources>

@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/dim_screen_text"
             style="?android:attr/textAppearanceMedium"
             android:layout_width="fill_parent"

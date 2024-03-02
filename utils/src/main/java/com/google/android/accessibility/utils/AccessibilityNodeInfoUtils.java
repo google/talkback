@@ -16,28 +16,35 @@
 
 package com.google.android.accessibility.utils;
 
+import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_TYPE_NONE;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_FAIL_ALL_FOCUS_TESTS;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_SPEAKABLE;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_VISIBLE;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_SAME_WINDOW_BOUNDS_CHILDREN;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.NONE;
 
+import android.content.Context;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.os.LocaleList;
 import android.os.Parcelable;
 import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ClickableSpan;
+import android.text.style.SuggestionSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
+import android.view.accessibility.AccessibilityNodeInfo.CollectionItemInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import android.widget.GridView;
 import android.widget.ListView;
-import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.RangeInfoCompat;
@@ -51,6 +58,7 @@ import com.google.android.libraries.accessibility.utils.url.SpannableUrl;
 import com.google.auto.value.AutoValue;
 import com.google.common.base.Function;
 import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableList;
 import com.google.errorprone.annotations.FormatMethod;
 import com.google.errorprone.annotations.FormatString;
 import java.util.ArrayDeque;
@@ -59,9 +67,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Pattern;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.checkerframework.checker.nullness.qual.PolyNull;
 
@@ -116,6 +127,8 @@ public class AccessibilityNodeInfoUtils {
 
   private static final String VIEW_ID_RESOURCE_NAME_PIN_ENTRY = "com.android.systemui:id/pinEntry";
 
+  @VisibleForTesting static final int THRESHOLD_HEIGHT_DP_FOR_SMALL_NODE = 32;
+
   /**
    * A wrapper over AccessibilityNodeInfoCompat constructor, so that we can add any desired error
    * checking and memory management.
@@ -133,7 +146,6 @@ public class AccessibilityNodeInfoUtils {
 
   private static final int SYSTEM_ACTION_MAX = 0x01FFFFFF;
 
-  public static final int WINDOW_TYPE_NONE = -1;
   public static final int WINDOW_TYPE_PICTURE_IN_PICTURE = 1000;
 
   /**
@@ -214,6 +226,34 @@ public class AccessibilityNodeInfoUtils {
       };
 
   /**
+   * Filter for focusable containers with a descendant that is an unfocusable heading. This filter
+   * aids navigation by headings granularity when the node that is semantically a heading isn't
+   * focusable (for instance, because its text is combined with the text of other nodes to create
+   * speakable text for a container in a list context).
+   */
+  public static final Filter<AccessibilityNodeInfoCompat>
+      FILTER_CONTAINER_WITH_UNFOCUSABLE_HEADING =
+          new Filter<AccessibilityNodeInfoCompat>() {
+            @Override
+            public boolean accept(AccessibilityNodeInfoCompat node) {
+              return searchFromBfs(
+                      node,
+                      FILTER_HEADING.and(
+                          new Filter<AccessibilityNodeInfoCompat>() {
+                            @Override
+                            public boolean accept(AccessibilityNodeInfoCompat childNode) {
+                              return childNode.getChildCount() == 0 && !shouldFocusNode(childNode);
+                            }
+                          }))
+                  != null;
+            }
+          };
+
+  /** Filter for scrollable grids. */
+  public static final Filter<AccessibilityNodeInfoCompat> FILTER_SCROLLABLE_GRID =
+      FILTER_SCROLLABLE.and(Filter.node((n) -> Role.getRole(n) == Role.ROLE_GRID));
+
+  /**
    * Filter that also checks for {@param node}'s non-focusable but visible children. Sometimes, a
    * node that passes the filter can be embedded in a parent and might be not focusable by itself.
    * In those cases it is important to focus the parent. Example would be for "Control" granularity,
@@ -237,6 +277,24 @@ public class AccessibilityNodeInfoUtils {
     };
   }
 
+  // TODO: Provides an overall experience of focusing on small nodes on both watch and
+  // phone devices.
+  /** Filters out nodes which are small and located on the top and bottom borders. */
+  public static Filter<AccessibilityNodeInfoCompat> getFilterExcludingSmallTopAndBottomBorderNode(
+      final Context context) {
+    // For a watch device, we don't want to put focus on the small border nodes. These nodes
+    // could be located at the middle of AdapterView and they could be distorted to fit in a
+    // round screen when they are near top or bottom borders.
+    final Point screenPxSize = DisplayUtils.getScreenPixelSizeWithoutWindowDecor(context);
+    return new Filter<AccessibilityNodeInfoCompat>() {
+      @Override
+      public boolean accept(AccessibilityNodeInfoCompat node) {
+        return !AccessibilityNodeInfoUtils.isSmallNodeInHeight(context, node)
+            || !AccessibilityNodeInfoUtils.isTopOrBottomBorderNode(screenPxSize, node);
+      }
+    };
+  }
+
   /** Filter to identify nodes which are not focusable but visible. */
   public static final Filter<AccessibilityNodeInfoCompat> FILTER_NON_FOCUSABLE_VISIBLE_NODE =
       new Filter<AccessibilityNodeInfoCompat>() {
@@ -245,6 +303,18 @@ public class AccessibilityNodeInfoUtils {
           return isVisible(node) && !isAccessibilityFocusable(node);
         }
       };
+
+  /** Filter to identify nodes which are not focusable and not visible but has text. */
+  public static final Filter<AccessibilityNodeInfoCompat>
+      FILTER_NON_FOCUSABLE_NON_VISIBLE_HAS_TEXT_NODE =
+          new Filter<AccessibilityNodeInfoCompat>() {
+            @Override
+            public boolean accept(AccessibilityNodeInfoCompat node) {
+              return !isVisible(node)
+                  && !isAccessibilityFocusable(node)
+                  && !TextUtils.isEmpty(AccessibilityNodeInfoUtils.getNodeText(node));
+            }
+          };
 
   /** Filter for controllable elements. */
   public static final Filter<AccessibilityNodeInfoCompat> FILTER_CONTROL =
@@ -263,7 +333,10 @@ public class AccessibilityNodeInfoUtils {
               || (role == Role.ROLE_TOGGLE_BUTTON)
               || (role == Role.ROLE_SWITCH)
               || (role == Role.ROLE_DROP_DOWN_LIST)
-              || (role == Role.ROLE_SEEK_CONTROL);
+              || (role == Role.ROLE_SEEK_CONTROL)
+              // The clickable view in a collection may not be a control, such as each setting item
+              // in the Settings page.
+              || (!nodeIsListOrGridItem(node) && (isClickable(node) || isLongClickable(node)));
         }
       };
 
@@ -285,26 +358,27 @@ public class AccessibilityNodeInfoUtils {
         }
       };
 
-  public static final Filter<AccessibilityNodeInfoCompat> FILTER_HAS_TEXT =
-      new Filter<AccessibilityNodeInfoCompat>() {
-        @Override
-        public boolean accept(AccessibilityNodeInfoCompat node) {
-          return !TextUtils.isEmpty(AccessibilityNodeInfoUtils.getText(node));
+  public static Filter<AccessibilityNodeInfoCompat> getFilterIllegalTitleNodeAncestor(
+      Context context) {
+    return new Filter<AccessibilityNodeInfoCompat>() {
+      @Override
+      public boolean accept(AccessibilityNodeInfoCompat node) {
+        if (isClickable(node) || isLongClickable(node)) {
+          return true;
         }
-      };
 
-  public static final Filter<AccessibilityNodeInfoCompat> FILTER_ILLEGAL_TITLE_NODE_ANCESTOR =
-      new Filter<AccessibilityNodeInfoCompat>() {
-        @Override
-        public boolean accept(AccessibilityNodeInfoCompat node) {
-          if (isClickable(node) || isLongClickable(node)) {
-            return true;
-          }
+        if (FeatureSupport.isWatch(context)) {
+          // A window title node can be a descendant of AdapterView in a watch device since the
+          // title node may be the first node in a AdapterView.
+          return false;
+        } else {
           @RoleName int role = Role.getRole(node);
           // A window title node should not be a descendant of AdapterView.
           return (role == Role.ROLE_LIST) || (role == Role.ROLE_GRID);
         }
-      };
+      }
+    };
+  }
 
   /**
    * Filter that defines which types of views should be auto-scrolled. Generally speaking, only
@@ -345,7 +419,7 @@ public class AccessibilityNodeInfoUtils {
       };
 
   public static final Filter<AccessibilityNodeInfoCompat> FILTER_COLLECTION =
-      new Filter.NodeCompat(
+      Filter.node(
           (node) -> {
             int role = Role.getRole(node);
             return (role == Role.ROLE_LIST)
@@ -508,6 +582,11 @@ public class AccessibilityNodeInfoUtils {
     return parsedResourceName[1].replace('_', ' '); // readable View ID text
   }
 
+  public static boolean isPage(@Nullable AccessibilityNodeInfoCompat node) {
+    @Nullable AccessibilityNodeInfoCompat parent = (node == null) ? null : node.getParent();
+    return (parent != null) && (Role.getRole(parent) == Role.ROLE_PAGER);
+  }
+
   public static @Nullable CharSequence getSelectedPageTitle(AccessibilityNodeInfoCompat viewPager) {
     if ((viewPager == null) || (Role.getRole(viewPager) != Role.ROLE_PAGER)) {
       return null;
@@ -662,13 +741,13 @@ public class AccessibilityNodeInfoUtils {
 
   public static boolean shouldFocusNode(
       final AccessibilityNodeInfoCompat node,
-      final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache) {
-    return shouldFocusNode(node, speakingNodeCache, true);
+      final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache) {
+    return shouldFocusNode(node, speakingNodesCache, true);
   }
 
   public static boolean shouldFocusNode(
       final AccessibilityNodeInfoCompat node,
-      final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache,
+      final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache,
       boolean checkChildren) {
     if (node == null) {
       LogUtils.v(TAG, "Don't focus, node=null");
@@ -737,11 +816,11 @@ public class AccessibilityNodeInfoUtils {
       visitedNodes.clear();
       // TODO: This may still result in focusing non-speaking nodes, but it
       // won't prevent unlabeled buttons from receiving focus.
-      if (!hasVisibleChildren(node)) {
+      if (!canKeepSearchChildren(node)) {
         logShouldFocusNode(
-            checkChildren, NONE, "Focus, is focusable and has no visible children: ", node);
+            checkChildren, NONE, "Focus, is focusable and cannot keep search children: ", node);
         return true;
-      } else if (isSpeakingNode(node, speakingNodeCache, visitedNodes)) {
+      } else if (isSpeakingNode(node, speakingNodesCache, visitedNodes)) {
         logShouldFocusNode(
             checkChildren, NONE, "Focus, is focusable and has something to speak: ", node);
         return true;
@@ -762,7 +841,7 @@ public class AccessibilityNodeInfoUtils {
         new Filter<AccessibilityNodeInfoCompat>() {
           @Override
           public boolean accept(AccessibilityNodeInfoCompat node) {
-            return shouldFocusNode(node, speakingNodeCache, false);
+            return shouldFocusNode(node, speakingNodesCache, false);
           }
         };
 
@@ -795,11 +874,11 @@ public class AccessibilityNodeInfoUtils {
     }
   }
 
-  public static boolean isPictureInPicture(AccessibilityNodeInfoCompat node) {
+  public static boolean isPictureInPicture(@NonNull AccessibilityNodeInfoCompat node) {
     return isPictureInPicture(node.unwrap());
   }
 
-  public static boolean isPictureInPicture(AccessibilityNodeInfo node) {
+  public static boolean isPictureInPicture(@Nullable AccessibilityNodeInfo node) {
     return node != null && AccessibilityWindowInfoUtils.isPictureInPicture(getWindow(node));
   }
 
@@ -809,7 +888,7 @@ public class AccessibilityNodeInfoUtils {
    * container node.
    */
   public static AccessibilityNodeInfoCompat findFocusFromHover(
-      AccessibilityNodeInfoCompat touched) {
+      @Nullable AccessibilityNodeInfoCompat touched) {
     return AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
         touched, FILTER_SHOULD_FOCUS_EXCEPT_WEB_VIEW);
   }
@@ -825,16 +904,16 @@ public class AccessibilityNodeInfoUtils {
    * #shouldFocusNode} and {@link #isAccessibilityFocusable}
    *
    * @param node the node to check
-   * @param speakingNodeCache the cache that holds the speaking results for visited nodes
+   * @param speakingNodesCache the cache that holds the speaking results for visited nodes
    * @param visitedNodes the set of nodes that have already been visited
    * @return {@code true} if the node can be spoken
    */
   private static boolean isSpeakingNode(
-      AccessibilityNodeInfoCompat node,
-      Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache,
-      Set<AccessibilityNodeInfoCompat> visitedNodes) {
-    if (speakingNodeCache != null && speakingNodeCache.containsKey(node)) {
-      return speakingNodeCache.get(node);
+      @NonNull AccessibilityNodeInfoCompat node,
+      @Nullable Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache,
+      @NonNull Set<AccessibilityNodeInfoCompat> visitedNodes) {
+    if (speakingNodesCache != null && speakingNodesCache.containsKey(node)) {
+      return speakingNodesCache.get(node);
     }
 
     boolean result = false;
@@ -847,15 +926,15 @@ public class AccessibilityNodeInfoUtils {
     } else if (node.isCheckable()) { // Special case for check boxes.
       LogUtils.v(TAG, "Speaking, is checkable");
       result = true;
-    } else if (hasNonActionableSpeakingChildren(node, speakingNodeCache, visitedNodes)) {
+    } else if (hasNonActionableSpeakingChildren(node, speakingNodesCache, visitedNodes)) {
       // Special case for containers with non-focusable content. In this case, the container should
       // speak its non-focusable yet speakable content.
       LogUtils.v(TAG, "Speaking, has non-actionable speaking children");
       result = true;
     }
 
-    if (speakingNodeCache != null) {
-      speakingNodeCache.put(node, result);
+    if (speakingNodesCache != null) {
+      speakingNodesCache.put(node, result);
     }
 
     return result;
@@ -868,14 +947,14 @@ public class AccessibilityNodeInfoUtils {
    * remaining for speaking ability.
    *
    * @param node the node to check
-   * @param speakingNodeCache the cache that holds the speaking results for visited nodes
+   * @param speakingNodesCache the cache that holds the speaking results for visited nodes
    * @param visitedNodes the set of nodes that have already been visited.
    * @return {@code true} if the node has children that are speaking
    */
   private static boolean hasNonActionableSpeakingChildren(
-      AccessibilityNodeInfoCompat node,
-      Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache,
-      Set<AccessibilityNodeInfoCompat> visitedNodes) {
+      @NonNull AccessibilityNodeInfoCompat node,
+      @Nullable Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache,
+      @NonNull Set<AccessibilityNodeInfoCompat> visitedNodes) {
     final int childCount = node.getChildCount();
 
     AccessibilityNodeInfoCompat child;
@@ -906,7 +985,7 @@ public class AccessibilityNodeInfoUtils {
 
       // Ignore top level scroll items that 1) are speaking and 2) have non-clickable parents. This
       // means that a scrollable container that is clickable should get focus before its children.
-      if ((isTopLevelScrollItem(child) && isSpeakingNode(child, speakingNodeCache, visitedNodes))
+      if ((isTopLevelScrollItem(child) && isSpeakingNode(child, speakingNodesCache, visitedNodes))
           && !(isClickable(node) || isLongClickable(node))) {
 
         LogUtils.v(TAG, "Child %d, %s is a top level scroll item, skipping it", i, printId(node));
@@ -914,7 +993,7 @@ public class AccessibilityNodeInfoUtils {
       }
 
       // Recursively check non-focusable child nodes.
-      if (isSpeakingNode(child, speakingNodeCache, visitedNodes)) {
+      if (isSpeakingNode(child, speakingNodesCache, visitedNodes)) {
         LogUtils.v(TAG, "Does have actionable speaking children (child %d, %s)", i, printId(node));
         return true;
       }
@@ -924,7 +1003,11 @@ public class AccessibilityNodeInfoUtils {
     return false;
   }
 
-  private static boolean hasVisibleChildren(AccessibilityNodeInfoCompat node) {
+  private static boolean canKeepSearchChildren(@NonNull AccessibilityNodeInfoCompat node) {
+    return hasVisibleChildren(node) || hasChildrenForWear(node);
+  }
+
+  private static boolean hasVisibleChildren(@NonNull AccessibilityNodeInfoCompat node) {
     int childCount = node.getChildCount();
     for (int i = 0; i < childCount; ++i) {
       AccessibilityNodeInfoCompat child = node.getChild(i);
@@ -936,7 +1019,14 @@ public class AccessibilityNodeInfoUtils {
     return false;
   }
 
-  public static int countVisibleChildren(AccessibilityNodeInfoCompat node) {
+  private static boolean hasChildrenForWear(@NonNull AccessibilityNodeInfoCompat node) {
+    int childCount = node.getChildCount();
+    // While scrolling on Wear, the children could be null even though the count is larger than 0.
+    // In this case, we don't want to put focus on this parent and will try to keep searching.
+    return FormFactorUtils.getInstance().isAndroidWear() && childCount > 0;
+  }
+
+  public static int countVisibleChildren(@Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return 0;
     }
@@ -966,7 +1056,7 @@ public class AccessibilityNodeInfoUtils {
    * @param node The node to examine.
    * @return {@code true} if node is actionable.
    */
-  public static boolean isActionableForAccessibility(AccessibilityNodeInfoCompat node) {
+  public static boolean isActionableForAccessibility(@Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return false;
     }
@@ -991,7 +1081,7 @@ public class AccessibilityNodeInfoUtils {
         AccessibilityNodeInfoCompat.ACTION_PREVIOUS_HTML_ELEMENT);
   }
 
-  public static boolean isSelfOrAncestorFocused(AccessibilityNodeInfoCompat node) {
+  public static boolean isSelfOrAncestorFocused(@Nullable AccessibilityNodeInfoCompat node) {
     return node != null
         && (node.isAccessibilityFocused()
             || hasMatchingAncestor(
@@ -1015,7 +1105,7 @@ public class AccessibilityNodeInfoUtils {
    * @param node The node to examine.
    * @return {@code true} if node is clickable.
    */
-  public static boolean isClickable(AccessibilityNodeInfoCompat node) {
+  public static boolean isClickable(@Nullable AccessibilityNodeInfoCompat node) {
     return node != null
         && (node.isClickable()
             || supportsAnyAction(node, AccessibilityNodeInfoCompat.ACTION_CLICK));
@@ -1033,7 +1123,7 @@ public class AccessibilityNodeInfoUtils {
    * @param node The node to examine.
    * @return {@code true} if node is long clickable.
    */
-  public static boolean isLongClickable(AccessibilityNodeInfoCompat node) {
+  public static boolean isLongClickable(@Nullable AccessibilityNodeInfoCompat node) {
     return node != null
         && (node.isLongClickable()
             || supportsAnyAction(node, AccessibilityNodeInfoCompat.ACTION_LONG_CLICK));
@@ -1064,8 +1154,8 @@ public class AccessibilityNodeInfoUtils {
    * @param node The node to examine.
    * @return {@code true} if node is expandable.
    */
-  public static boolean isExpandable(AccessibilityNodeInfoCompat node) {
-    return node != null && supportsAnyAction(node, AccessibilityNodeInfoCompat.ACTION_EXPAND);
+  public static boolean isExpandable(@Nullable AccessibilityNodeInfoCompat node) {
+    return supportsAnyAction(node, AccessibilityNodeInfoCompat.ACTION_EXPAND);
   }
 
   /**
@@ -1078,8 +1168,8 @@ public class AccessibilityNodeInfoUtils {
    * @param node The node to examine.
    * @return {@code true} if node is collapsible.
    */
-  public static boolean isCollapsible(AccessibilityNodeInfoCompat node) {
-    return node != null && supportsAnyAction(node, AccessibilityNodeInfoCompat.ACTION_COLLAPSE);
+  public static boolean isCollapsible(@Nullable AccessibilityNodeInfoCompat node) {
+    return supportsAnyAction(node, AccessibilityNodeInfoCompat.ACTION_COLLAPSE);
   }
 
   /**
@@ -1092,26 +1182,25 @@ public class AccessibilityNodeInfoUtils {
    * @param node The node to examine.
    * @return {@code true} if node is dismissible.
    */
-  public static boolean isDismissible(AccessibilityNodeInfoCompat node) {
-    return node != null && supportsAnyAction(node, AccessibilityNodeInfoCompat.ACTION_DISMISS);
+  public static boolean isDismissible(@Nullable AccessibilityNodeInfoCompat node) {
+    return supportsAnyAction(node, AccessibilityNodeInfoCompat.ACTION_DISMISS);
   }
 
-  /** Returns {@code true} if the node is on keyboard. Caller retains ownership of source node. */
-  public static boolean isKeyboard(AccessibilityNodeInfoCompat source) {
-    return isKeyboard(source.unwrap());
+  /** Returns {@code true} if the node is on keyboard. */
+  public static boolean isKeyboard(@Nullable AccessibilityNodeInfo source) {
+    return isKeyboard(AccessibilityNodeInfoUtils.toCompat(source));
   }
 
-  /** Returns {@code true} if the node is on keyboard. Caller retains ownership of source node. */
-  public static boolean isKeyboard(AccessibilityNodeInfo source) {
-
+  /** Returns {@code true} if the node is on keyboard. */
+  public static boolean isKeyboard(@Nullable AccessibilityNodeInfoCompat source) {
     if (source == null) {
       return false;
     }
-    AccessibilityWindowInfo window = getWindow(source);
+    AccessibilityWindowInfoCompat window = getWindow(source);
     if (window == null) {
       return false;
     }
-    return (window.getType() == AccessibilityWindowInfoCompat.TYPE_INPUT_METHOD);
+    return AccessibilityWindowInfoUtils.isImeWindow(window);
   }
 
   /**
@@ -1121,7 +1210,8 @@ public class AccessibilityNodeInfoUtils {
    * @return {@code true} if one of the node's ancestors is scrollable.
    */
   public static boolean hasMatchingAncestor(
-      @Nullable AccessibilityNodeInfoCompat node, Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
     return (node != null) && (getMatchingAncestor(node, filter) != null);
   }
 
@@ -1132,8 +1222,8 @@ public class AccessibilityNodeInfoUtils {
    * @return {@code true} if the node is a key from the Pin Password keyboard used to unlock the
    *     screen.
    */
-  // TODO: Find a better way to identify that its a key for PIN password.
-  public static boolean isPinKey(AccessibilityNodeInfoCompat node) {
+  // TODO: Find a better way to identify that it's a key for PIN password.
+  public static boolean isPinKey(@Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return false;
     }
@@ -1144,8 +1234,13 @@ public class AccessibilityNodeInfoUtils {
   }
 
   /** Returns whether the node is the Pin edit field at unlock screen. */
-  public static boolean isPinEntry(AccessibilityNodeInfo node) {
-    return (node != null) && VIEW_ID_RESOURCE_NAME_PIN_ENTRY.equals(node.getViewIdResourceName());
+  public static boolean isPinEntry(@Nullable AccessibilityNodeInfo node) {
+    return isPinEntry(AccessibilityNodeInfoUtils.toCompat(node));
+  }
+
+  public static boolean isPinEntry(@Nullable AccessibilityNodeInfoCompat node) {
+    return (node != null)
+        && Objects.equals(node.getViewIdResourceName(), VIEW_ID_RESOURCE_NAME_PIN_ENTRY);
   }
 
   /**
@@ -1156,13 +1251,15 @@ public class AccessibilityNodeInfoUtils {
    * @return {@code true} if the node or one of its ancestors matches the filter.
    */
   public static boolean isOrHasMatchingAncestor(
-      AccessibilityNodeInfoCompat node, Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
     return (node != null) && (getSelfOrMatchingAncestor(node, filter) != null);
   }
 
   /** Check whether a given node has any descendant matching a given filter. */
   public static boolean hasMatchingDescendant(
-      AccessibilityNodeInfoCompat node, Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
     return (node != null) && (getMatchingDescendant(node, filter) != null);
   }
 
@@ -1188,7 +1285,8 @@ public class AccessibilityNodeInfoUtils {
 
   /** Applies filter to ancestor nodes. */
   public static void processSelfAndAncestors(
-      @Nullable AccessibilityNodeInfoCompat node, Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
     if (node != null) {
       isOrHasMatchingAncestor(node, filter);
     }
@@ -1199,7 +1297,8 @@ public class AccessibilityNodeInfoUtils {
    * Returns {@code null} if no nodes match.
    */
   public static @Nullable AccessibilityNodeInfoCompat getSelfOrMatchingAncestor(
-      AccessibilityNodeInfoCompat node, Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
     if (node == null) {
       return null;
     }
@@ -1217,9 +1316,9 @@ public class AccessibilityNodeInfoUtils {
    * eligible match. Returns {@code null} if no nodes match.
    */
   public static @Nullable AccessibilityNodeInfoCompat getSelfOrMatchingAncestor(
-      AccessibilityNodeInfoCompat node,
-      AccessibilityNodeInfoCompat end,
-      Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @Nullable AccessibilityNodeInfoCompat end,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
     if (node == null) {
       return null;
     }
@@ -1234,7 +1333,8 @@ public class AccessibilityNodeInfoUtils {
    * Returns {@code null} if no nodes match.
    */
   public static @Nullable AccessibilityNodeInfoCompat getSelfOrMatchingDescendant(
-      AccessibilityNodeInfoCompat node, Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
     if (node == null) {
       return null;
     }
@@ -1246,11 +1346,12 @@ public class AccessibilityNodeInfoUtils {
 
   /** Processes subtree of root by {@code filter}. */
   public static void processSubtree(
-      AccessibilityNodeInfoCompat root, Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat root,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
 
     AccessibilityNodeInfoUtils.getSelfOrMatchingDescendant(
         root,
-        new Filter.NodeCompat(
+        Filter.node(
             (node) -> {
               filter.accept(node);
               return false; // Force search to traverse whole subtree.
@@ -1303,7 +1404,8 @@ public class AccessibilityNodeInfoUtils {
    * null} if no nodes match.
    */
   public static @Nullable AccessibilityNodeInfoCompat getMatchingAncestor(
-      AccessibilityNodeInfoCompat node, Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
     return getMatchingAncestor(node, null, filter);
   }
 
@@ -1313,9 +1415,9 @@ public class AccessibilityNodeInfoUtils {
    * end}. Returns {@code null} if no nodes match.
    */
   private static @Nullable AccessibilityNodeInfoCompat getMatchingAncestor(
-      AccessibilityNodeInfoCompat node,
-      AccessibilityNodeInfoCompat end,
-      Filter<AccessibilityNodeInfoCompat> filter) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @Nullable AccessibilityNodeInfoCompat end,
+      @NonNull Filter<AccessibilityNodeInfoCompat> filter) {
     if (node == null) {
       return null;
     }
@@ -1492,12 +1594,12 @@ public class AccessibilityNodeInfoUtils {
     // AccessibilityActions.
     return supportsAnyAction(
         node,
-        AccessibilityAction.ACTION_SCROLL_FORWARD,
-        AccessibilityAction.ACTION_SCROLL_BACKWARD,
-        AccessibilityAction.ACTION_SCROLL_DOWN,
-        AccessibilityAction.ACTION_SCROLL_UP,
-        AccessibilityAction.ACTION_SCROLL_RIGHT,
-        AccessibilityAction.ACTION_SCROLL_LEFT);
+        AccessibilityActionCompat.ACTION_SCROLL_FORWARD,
+        AccessibilityActionCompat.ACTION_SCROLL_BACKWARD,
+        AccessibilityActionCompat.ACTION_SCROLL_DOWN,
+        AccessibilityActionCompat.ACTION_SCROLL_UP,
+        AccessibilityActionCompat.ACTION_SCROLL_RIGHT,
+        AccessibilityActionCompat.ACTION_SCROLL_LEFT);
   }
 
   /**
@@ -1508,7 +1610,7 @@ public class AccessibilityNodeInfoUtils {
    * @param node The node to check.
    * @return {@code true} if the node has text.
    */
-  private static boolean hasText(AccessibilityNodeInfoCompat node) {
+  private static boolean hasText(@Nullable AccessibilityNodeInfoCompat node) {
     return node != null
         && node.getCollectionInfo() == null
         && (!TextUtils.isEmpty(AccessibilityNodeInfoUtils.getText(node))
@@ -1559,7 +1661,11 @@ public class AccessibilityNodeInfoUtils {
     }
 
     AccessibilityNodeInfoCompat parent = node.getParent();
-    if (parent == null) {
+    return isScrollItem(parent);
+  }
+
+  private static boolean isScrollItem(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
       // Not a child node of anything.
       return false;
     }
@@ -1568,17 +1674,16 @@ public class AccessibilityNodeInfoUtils {
     // the spinner itself rather than on the single visible item.
     // A spinner being scrollable is disingenuous since the scrollable list inside isn't exposed
     // without interaction.
-    // TODO: Remove this check?
-    if (Role.getRole(parent) == Role.ROLE_DROP_DOWN_LIST) {
+    if (Role.getRole(node) == Role.ROLE_DROP_DOWN_LIST) {
       return false;
     }
 
     // A node with a scrollable parent is a top level scroll item.
-    if (isScrollable(parent)) {
+    if (isScrollable(node)) {
       return true;
     }
 
-    @Role.RoleName int parentRole = Role.getRole(parent);
+    @Role.RoleName int parentRole = Role.getRole(node);
     // Note that ROLE_DROP_DOWN_LIST(Spinner) is not accepted.
     // RecyclerView is classified as a list or grid based on its CollectionInfo.
     // These parents may not be scrollable in some cases, like if the list is too short to be
@@ -1587,7 +1692,7 @@ public class AccessibilityNodeInfoUtils {
         || parentRole == Role.ROLE_GRID
         || parentRole == Role.ROLE_SCROLL_VIEW
         || parentRole == Role.ROLE_HORIZONTAL_SCROLL_VIEW
-        || nodeMatchesAnyClassByType(parent, CLASS_TOUCHWIZ_TWADAPTERVIEW);
+        || nodeMatchesAnyClassByType(node, CLASS_TOUCHWIZ_TWADAPTERVIEW);
   }
 
   public static boolean hasAncestor(
@@ -1608,7 +1713,8 @@ public class AccessibilityNodeInfoUtils {
   }
 
   public static boolean hasDescendant(
-      AccessibilityNodeInfoCompat node, final AccessibilityNodeInfoCompat targetDescendant) {
+      @Nullable AccessibilityNodeInfoCompat node,
+      @Nullable AccessibilityNodeInfoCompat targetDescendant) {
     if (node == null || targetDescendant == null) {
       return false;
     }
@@ -1676,21 +1782,6 @@ public class AccessibilityNodeInfoUtils {
   }
 
   /**
-   * Determines if the class of an {@link AccessibilityNodeInfoCompat} matches a given {@link Class}
-   * by package and name.
-   *
-   * @param node A sealed {@link AccessibilityNodeInfoCompat} dispatched by the accessibility
-   *     framework.
-   * @param referenceClassName A class name to match.
-   * @return {@code true} if the {@link AccessibilityNodeInfoCompat} matches the class name.
-   */
-  public static boolean nodeMatchesClassByName(
-      AccessibilityNodeInfoCompat node, CharSequence referenceClassName) {
-    return node != null
-        && ClassLoadingCache.checkInstanceOf(node.getClassName(), referenceClassName);
-  }
-
-  /**
    * Recycles the given nodes.
    *
    * @param nodes The nodes to recycle.
@@ -1723,15 +1814,15 @@ public class AccessibilityNodeInfoUtils {
    */
   // TODO: Use A11yActionCompat once AccessibilityActionCompat#equals is overridden
   public static boolean supportsAnyAction(
-      AccessibilityNodeInfoCompat node, AccessibilityAction... actions) {
+      AccessibilityNodeInfoCompat node, AccessibilityActionCompat... actions) {
     if (node == null) {
       return false;
     }
     // Unwrap the node and compare AccessibilityActions because AccessibilityActions, unlike
     // AccessibilityActionCompats, are static (so checks for equality work correctly).
-    final List<AccessibilityAction> supportedActions = node.unwrap().getActionList();
+    final List<AccessibilityActionCompat> supportedActions = node.getActionList();
 
-    for (AccessibilityAction action : actions) {
+    for (AccessibilityActionCompat action : actions) {
       if (supportedActions.contains(action)) {
         return true;
       }
@@ -1753,7 +1844,8 @@ public class AccessibilityNodeInfoUtils {
    * @return {@code true} if at least one action is supported.
    */
   // TODO: Remove this method once AccessibilityActionCompat#equals is overridden
-  public static boolean supportsAnyAction(AccessibilityNodeInfoCompat node, int... actions) {
+  public static boolean supportsAnyAction(
+      @Nullable AccessibilityNodeInfoCompat node, int... actions) {
     if (node != null) {
       final int supportedActions = node.getActions();
 
@@ -1771,7 +1863,7 @@ public class AccessibilityNodeInfoUtils {
    * Returns {@code true} if the node supports the specified action. This method supports actions
    * introduced in API level 21 and later. However, it does not support bitmasks.
    */
-  public static boolean supportsAction(AccessibilityNodeInfoCompat node, int action) {
+  public static boolean supportsAction(@NonNull AccessibilityNodeInfoCompat node, int action) {
     // New actions in >= API 21 won't appear in getActions() but in getActionList().
     // On Lollipop+ devices, pre-API 21 actions will also appear in getActionList().
     List<AccessibilityActionCompat> actions = node.getActionList();
@@ -1783,6 +1875,23 @@ public class AccessibilityNodeInfoUtils {
       }
     }
     return false;
+  }
+
+  /**
+   * Returns the action label on the node by given action ID, or an empty text if the node doesn't
+   * support the action.
+   */
+  public static @Nullable CharSequence getActionLabelById(
+      @NonNull AccessibilityNodeInfoCompat node, int action) {
+    List<AccessibilityActionCompat> actions = node.getActionList();
+    int size = actions.size();
+    for (int i = 0; i < size; ++i) {
+      AccessibilityActionCompat actionCompat = actions.get(i);
+      if (actionCompat.getId() == action) {
+        return actionCompat.getLabel();
+      }
+    }
+    return "";
   }
 
   /**
@@ -1845,6 +1954,7 @@ public class AccessibilityNodeInfoUtils {
   }
 
   /** Safely obtains a copy of node. */
+  @Deprecated
   public static @Nullable AccessibilityNodeInfoCompat obtain(AccessibilityNodeInfoCompat node) {
     return (node == null) ? null : AccessibilityNodeInfoCompat.obtain(node);
   }
@@ -1951,6 +2061,60 @@ public class AccessibilityNodeInfoUtils {
                 && Role.getRole(node) != Role.ROLE_WEB_VIEW));
   }
 
+  /**
+   * Checks whether the node's height is smaller than the threshold
+   *
+   * @param context the context
+   * @param node the node to check
+   * @return {@code true} if the node's height is smaller than the dp threshold.
+   */
+  public static boolean isSmallNodeInHeight(Context context, AccessibilityNodeInfoCompat node) {
+    final Rect nodeRect = new Rect();
+    node.getBoundsInScreen(nodeRect);
+
+    return nodeRect.height() < DisplayUtils.dpToPx(context, THRESHOLD_HEIGHT_DP_FOR_SMALL_NODE);
+  }
+
+  /**
+   * Checks whether the node is a top or bottom border node or not. Horizontal scrolling with a
+   * check of left or right border isn't yet supported in this method.
+   *
+   * @param screenPxSize the pixel size of a screen
+   * @param node the node to check
+   * @return {@code true} if the node is at top or bottom border.
+   */
+  public static boolean isTopOrBottomBorderNode(
+      Point screenPxSize, AccessibilityNodeInfoCompat node) {
+
+    final Rect nodeRect = new Rect();
+    node.getBoundsInScreen(nodeRect);
+
+    // check the screen's border
+    if (isTopOrBottomBorderNode(nodeRect, screenPxSize)) {
+      return true;
+    }
+
+    // check the scrollable container's border
+    final Rect parentRect = new Rect();
+    Filter<AccessibilityNodeInfoCompat> filter =
+        new Filter<AccessibilityNodeInfoCompat>() {
+          @Override
+          public boolean accept(AccessibilityNodeInfoCompat parent) {
+            if (isScrollItem(parent)) {
+              parent.getBoundsInScreen(parentRect);
+              return parentRect.top == nodeRect.top || parentRect.bottom == nodeRect.bottom;
+            }
+            return false;
+          }
+        };
+
+    return hasMatchingAncestor(node, filter);
+  }
+
+  private static boolean isTopOrBottomBorderNode(Rect nodeRect, Point screenPxSize) {
+    return nodeRect.top <= 0 || nodeRect.bottom >= screenPxSize.y;
+  }
+
   /** Determines whether the specified node has bounds identical to the bounds of its window. */
   private static boolean areBoundsIdenticalToWindow(AccessibilityNodeInfoCompat node) {
     if (node == null) {
@@ -1969,32 +2133,6 @@ public class AccessibilityNodeInfoUtils {
     node.getBoundsInScreen(nodeBounds);
 
     return windowBounds.equals(nodeBounds);
-  }
-
-  /** Returns the node to which the given node's window is anchored, if there is an anchor. */
-  public static @Nullable AccessibilityNodeInfoCompat getAnchor(
-      @Nullable AccessibilityNodeInfoCompat node) {
-
-    if (node == null) {
-      return null;
-    }
-
-    AccessibilityNodeInfo nativeNode = node.unwrap();
-    if (nativeNode == null) {
-      return null;
-    }
-
-    AccessibilityWindowInfo nativeWindow = getWindow(nativeNode);
-    if (nativeWindow == null) {
-      return null;
-    }
-
-    AccessibilityNodeInfo nativeAnchor = nativeWindow.getAnchor();
-    if (nativeAnchor == null) {
-      return null;
-    }
-
-    return AccessibilityNodeInfoUtils.toCompat(nativeAnchor);
   }
 
   /**
@@ -2018,7 +2156,7 @@ public class AccessibilityNodeInfoUtils {
 
   /** * Checks if node represents non-editable selectable text. */
   public static boolean isNonEditableSelectableText(AccessibilityNodeInfoCompat node) {
-    if (FeatureSupport.supportsIsTextSelectable()) {
+    if (node != null && FeatureSupport.supportsIsTextSelectable()) {
       return !node.isEditable() && node.unwrap().isTextSelectable();
     }
     return false;
@@ -2026,6 +2164,9 @@ public class AccessibilityNodeInfoUtils {
 
   /** * Checks if node represents selectable text. Editable text is selectable. */
   public static boolean isTextSelectable(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return false;
+    }
     boolean isEditable = Role.getRole(node) == Role.ROLE_EDIT_TEXT || node.isEditable();
     boolean isNonEditableSelectableText =
         AccessibilityNodeInfoUtils.isNonEditableSelectableText(node);
@@ -2214,12 +2355,10 @@ public class AccessibilityNodeInfoUtils {
     return actionName == null ? "(unhandled action:" + action + ")" : actionName;
   }
 
-  /** Caller keeps ownership of node. */
   public static String toStringShort(@Nullable AccessibilityNodeInfo node) {
     return toStringShort(toCompat(node));
   }
 
-  /** Caller keeps ownership of node. */
   public static String toStringShort(@Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return "null";
@@ -2238,7 +2377,8 @@ public class AccessibilityNodeInfoUtils {
                     // Logs for DEBUG build or user had opt-in
                     ? AccessibilityNodeInfoUtils.getText(node)
                     : "***"),
-        StringBuilderUtils.optionalText("description", node.getContentDescription()),
+        StringBuilderUtils.optionalText("state", node.getStateDescription()),
+        StringBuilderUtils.optionalText("content", node.getContentDescription()),
         StringBuilderUtils.optionalText("viewIdResName", node.getViewIdResourceName()),
         StringBuilderUtils.optionalText("hint", node.getHintText()),
         StringBuilderUtils.optionalTag("enabled", node.isEnabled()),
@@ -2260,7 +2400,7 @@ public class AccessibilityNodeInfoUtils {
         StringBuilderUtils.optionalTag("expandable", isExpandable(node)),
         StringBuilderUtils.optionalTag("dismissable", isDismissible(node)),
         StringBuilderUtils.optionalTag("pinKey", isPinKey(node)),
-        StringBuilderUtils.optionalTag("pinEntry", isPinEntry(node.unwrap())),
+        StringBuilderUtils.optionalTag("pinEntry", isPinEntry(node)),
         StringBuilderUtils.optionalTag("visible", node.isVisibleToUser()));
   }
 
@@ -2440,13 +2580,28 @@ public class AccessibilityNodeInfoUtils {
 
   /** Returns a collection root. */
   public static @Nullable AccessibilityNodeInfoCompat getCollectionRoot(
-      AccessibilityNodeInfoCompat node) {
+      @Nullable AccessibilityNodeInfoCompat node) {
     return AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(node, FILTER_COLLECTION);
   }
 
   /** Checks if given node is ListView or GirdView. */
   public static boolean nodeIsListOrGrid(@Nullable AccessibilityNodeInfoCompat node) {
     return nodeMatchesAnyClassName(node, CLASS_LISTVIEW, CLASS_GRIDVIEW);
+  }
+
+  /** Returns {@code true} if the parent of the {@code node} is a collection. */
+  public static boolean nodeIsListOrGridItem(@Nullable AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return false;
+    }
+
+    @Nullable AccessibilityNodeInfoCompat parent = node.getParent();
+    if (parent == null) {
+      return false;
+    }
+
+    @RoleName int role = Role.getRole(parent);
+    return role == Role.ROLE_LIST || role == Role.ROLE_GRID;
   }
 
   /** Returns true if the {@code node} is in a collection. */
@@ -2462,6 +2617,263 @@ public class AccessibilityNodeInfoUtils {
                 || (ancestor != null && ancestor.getCollectionInfo() != null);
           }
         });
+  }
+
+  public static @Nullable String geGridRowTitle(AccessibilityNodeInfoCompat node) {
+    if (FeatureSupport.supportGridTitle() && node.unwrap() != null) {
+      CollectionItemInfo itemInfo = node.unwrap().getCollectionItemInfo();
+      if (itemInfo != null) {
+        return itemInfo.getRowTitle();
+      }
+    }
+    return null;
+  }
+
+  public static @Nullable String geGridColumnTitle(AccessibilityNodeInfoCompat node) {
+    if (FeatureSupport.supportGridTitle() && node.unwrap() != null) {
+      CollectionItemInfo itemInfo = node.unwrap().getCollectionItemInfo();
+      if (itemInfo != null) {
+        return itemInfo.getColumnTitle();
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Returns true if the {@link
+   * androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat} associated
+   * with {@code node} is not null and reflects the presence of at least 1 row and 1 column.
+   */
+  public static boolean hasUsableCollectionInfo(AccessibilityNodeInfoCompat node) {
+    return node != null
+        && node.getCollectionInfo() != null
+        && node.getCollectionInfo().getRowCount() >= 1
+        && node.getCollectionInfo().getColumnCount() >= 1;
+  }
+
+  /**
+   * Returns true if the {@link
+   * androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat}
+   * associated with {@code node} is not null and contains legal collection row and column indices.
+   */
+  public static boolean hasUsableCollectionItemInfo(AccessibilityNodeInfoCompat node) {
+    return node != null
+        && node.getCollectionItemInfo() != null
+        && node.getCollectionItemInfo().getRowIndex() >= 0
+        && node.getCollectionItemInfo().getColumnIndex() >= 0;
+  }
+
+  /**
+   * Returns true if the {@link
+   * androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat}
+   * associated with {@code node} is not null, and it contains legal collection row and column
+   * indices, which fall within the row and column bounds of {@code parent}.
+   */
+  public static boolean hasUsableCollectionItemInfo(
+      AccessibilityNodeInfoCompat item, AccessibilityNodeInfoCompat collection) {
+    return hasUsableCollectionItemInfo(item)
+        && hasUsableCollectionInfo(collection)
+        && item.getCollectionItemInfo().getRowIndex() < collection.getCollectionInfo().getRowCount()
+        && item.getCollectionItemInfo().getColumnIndex()
+            < collection.getCollectionInfo().getColumnCount();
+  }
+
+  /**
+   * Returns the {@link Rect} of the node bounds in screen coordinates, and returns an empty Rect if
+   * the given node is null.
+   */
+  public static Rect getNodeBoundsInScreen(@Nullable AccessibilityNodeInfoCompat node) {
+    Rect nodeBounds = new Rect();
+    if (node != null) {
+      node.getBoundsInScreen(nodeBounds);
+    }
+    return nodeBounds;
+  }
+
+  /**
+   * Returns a list of {@link SpellingSuggestion} for all {@link SuggestionSpan}s at the cursor
+   * position in the given {@link AccessibilityNodeInfoCompat}.
+   *
+   * @param node The node to check
+   */
+  public static ImmutableList<SpellingSuggestion> getSpellingSuggestions(
+      AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return ImmutableList.of();
+    }
+
+    int start = node.getTextSelectionStart();
+    int end = node.getTextSelectionEnd();
+
+    if (start != end) {
+      LogUtils.v(TAG, "Spelling suggestion does not work when text is selected.");
+      return ImmutableList.of();
+    }
+
+    return getSpellingSuggestions(node, end);
+  }
+
+  /**
+   * Returns a list of {@link SpellingSuggestion} for all {@link SuggestionSpan}s at the cursor
+   * position in the given {@link AccessibilityNodeInfoCompat}.
+   *
+   * @param node the node to check
+   * @param cursorPosition index of the cursor position
+   */
+  public static ImmutableList<SpellingSuggestion> getSpellingSuggestions(
+      AccessibilityNodeInfoCompat node, int cursorPosition) {
+    ImmutableList<SuggestionSpan> spans = getSuggestionSpans(node);
+    if (spans.isEmpty()) {
+      return ImmutableList.of();
+    }
+
+    List<SpellingSuggestion> spellingSuggestions = new ArrayList<>();
+    CharSequence text = node.getText();
+    Spanned spannedText = (Spanned) text;
+
+    // Returns the suggestion if just a space or punctuation is between the typo and the cursor.
+    // For example: helllo,|
+    if (cursorPosition > 0) {
+      if (cursorPosition < text.length()) {
+        // Do not return the suggestion if a word is after the cursor. For example: helllo |world
+        if (!Character.isLetterOrDigit(text.charAt(cursorPosition - 1))
+            && !Character.isLetterOrDigit(text.charAt(cursorPosition))) {
+          cursorPosition--;
+        }
+      } else if (cursorPosition == text.length()) {
+        // It is unnecessary to check the character after the cursor because the cursor is at the
+        // end of the line. For example: helllo |
+        if (!Character.isLetterOrDigit(text.charAt(cursorPosition - 1))) {
+          cursorPosition--;
+        }
+      }
+    }
+
+    StringBuilder logMessage =
+        new StringBuilder(String.format(Locale.ENGLISH, "suggestion_spans text=[%s]", text));
+    // TODO: Uses stream to simplify it.
+    for (SuggestionSpan span : spans) {
+      int start = spannedText.getSpanStart(span);
+      int end = spannedText.getSpanEnd(span);
+      if (start <= cursorPosition && end >= cursorPosition) {
+        SpellingSuggestion spellingSuggestion =
+            SpellingSuggestion.create(start, end, text.subSequence(start, end), span);
+        // Ignore the span which has no suggestion to avoid announcing suggestions available but
+        // there is no suggestion that can be chosen.
+        if (span.getSuggestions().length > 0) {
+          spellingSuggestions.add(spellingSuggestion);
+        }
+
+        logMessage.append("\n");
+        logMessage.append(spellingSuggestion);
+      }
+    }
+
+    LogUtils.v(TAG, logMessage.toString());
+    return ImmutableList.copyOf(spellingSuggestions);
+  }
+
+  /** Returns the total number of typos which are in the edit field. */
+  public static int getTypoCount(AccessibilityNodeInfoCompat node) {
+    return getSuggestionSpans(node).size();
+  }
+
+  /**
+   * Returns {@code true} if the given {@link AccessibilityNodeInfoCompat} text includes misspelled
+   * words which have spelling suggestions.
+   */
+  public static boolean hasSpellingSuggestionsForTypos(AccessibilityNodeInfoCompat node) {
+    ImmutableList<SuggestionSpan> spans = getSuggestionSpans(node);
+    for (SuggestionSpan span : spans) {
+      if (span.getSuggestions().length > 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Returns {@link Locale} if the given {@link AccessibilityNodeInfoCompat} supports App Locale.
+   */
+  public static @Nullable Locale getLocalesByNode(AccessibilityNodeInfoCompat node) {
+    if (node == null || !FeatureSupport.supportAccessibilityAppLocale()) {
+      return null;
+    }
+    AccessibilityWindowInfoCompat windowInfoCompat = node.getWindow();
+    if (windowInfoCompat == null) {
+      return null;
+    }
+    AccessibilityWindowInfo windowInfo = windowInfoCompat.unwrap();
+    if (windowInfo == null) {
+      return null;
+    }
+    LocaleList localeList = windowInfo.getLocales();
+    Locale defaultLocal = Locale.getDefault();
+
+    int count = (localeList == null) ? 0 : localeList.size();
+    if (count == 0 || defaultLocal.equals(localeList.get(0))) {
+      // AccessibilityWindowInfo#getLocales may return the system default locale. When the 1st entry
+      // matches the default locale, we don't insert the locale which will invalidate the locale
+      // embedded within the content.
+      return null;
+    }
+    return localeList.get(0);
+  }
+
+  /** Returns whether the node has requested initial accessibility focus. */
+  public static boolean hasRequestInitialAccessibilityFocus(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return false;
+    }
+
+    boolean hasRequestInitialAccessibilityFocus = node.hasRequestInitialAccessibilityFocus();
+
+    // In the early version of AndroidX, the property was retrieved from the AccessibilityNodeInfo.
+    // See b/279108748 for details.
+    if (!hasRequestInitialAccessibilityFocus
+        && FeatureSupport.supportRequestInitialAccessibilityFocusNative()) {
+      AccessibilityNodeInfo unwrap = node.unwrap();
+      if (unwrap != null) {
+        hasRequestInitialAccessibilityFocus = unwrap.hasRequestInitialAccessibilityFocus();
+      }
+    }
+
+    return hasRequestInitialAccessibilityFocus;
+  }
+
+  /**
+   * Returns the rate update limitation (in milli-second) if the given {@link
+   * AccessibilityNodeInfoCompat} supports it.
+   */
+  public static long getMinDurationBetweenContentChangesMillis(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      LogUtils.w(TAG, "Failed to getMinDurationBetweenContentChangesMillis/node is null");
+      return 0L;
+    }
+    return node.getMinDurationBetweenContentChangesMillis();
+  }
+
+  /**
+   * Returns a list of {@link SuggestionSpan} in the given {@link AccessibilityNodeInfoCompat} text.
+   */
+  private static ImmutableList<SuggestionSpan> getSuggestionSpans(
+      AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return ImmutableList.of();
+    }
+
+    CharSequence text = node.getText();
+    if (TextUtils.isEmpty(text) || !(text instanceof Spanned)) {
+      return ImmutableList.of();
+    }
+
+    Spanned spannedText = (Spanned) text;
+    SuggestionSpan[] spans = spannedText.getSpans(0, text.length(), SuggestionSpan.class);
+    if (spans.length == 0) {
+      return ImmutableList.of();
+    }
+
+    return ImmutableList.copyOf(spans);
   }
 
   private static boolean nodeMatchesAnyClassName(
@@ -2536,7 +2948,39 @@ public class AccessibilityNodeInfoUtils {
     }
   }
 
-  private static CharSequence printId(AccessibilityNodeInfoCompat node) {
+  /** A wrapper of {@link SuggestionSpan}. */
+  @AutoValue
+  public abstract static class SpellingSuggestion {
+    public abstract int start();
+
+    public abstract int end();
+
+    public abstract CharSequence misspelledWord();
+
+    public abstract SuggestionSpan suggestionSpan();
+
+    public static SpellingSuggestion create(
+        int start, int end, CharSequence misspelledWord, SuggestionSpan suggestionSpan) {
+      return new AutoValue_AccessibilityNodeInfoUtils_SpellingSuggestion(
+          start, end, misspelledWord, suggestionSpan);
+    }
+
+    @NonNull
+    @Override
+    public final String toString() {
+      StringBuilder suggestionsString =
+          new StringBuilder()
+              .append(
+                  String.format(Locale.ENGLISH, "[%d-%d][%s]", start(), end(), misspelledWord()));
+      for (String suggestion : suggestionSpan().getSuggestions()) {
+        suggestionsString.append(String.format(Locale.ENGLISH, "[suggestion=%s]", suggestion));
+      }
+
+      return suggestionsString.toString();
+    }
+  }
+
+  private static String printId(AccessibilityNodeInfoCompat node) {
     return String.format("Node(id=%s class=%s)", node.hashCode(), node.getClassName());
   }
 }

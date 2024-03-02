@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="talkback_service_description">TalkBack हे दृष्टीहीन आणि कमी दृष्टी असलेल्या लोकांसाठी स्क्रीन रीडर आहे. हे वाचिक अभिप्राय वापरून डिव्हाइससह परस्परसंवादाची अनुमती देते.</string>
+  <string name="talkback_service_description">TalkBack हे दृष्टीहीन आणि कमी दृष्टी असलेल्या लोकांसाठी स्क्रीन रीडर आहे. हे वाचिक फीडबॅक वापरून डिव्हाइससह परस्परसंवादाची अनुमती देते.</string>
   <string name="welcome_to_talkback_text">वाचिक फीडबॅक मिळवा, जेणेकरून स्क्रीनकडे न पाहता तुम्हाला तुमचे वॉच वापरता येईल.</string>
+  <string name="summary_custom_action">सध्याच्या आयटमसाठी कस्टम कृती असल्यास दिसते.</string>
+  <string name="notification_title_talkback_gestures_changed">TalkBack जेश्चर अपडेट केले</string>
+  <string name="notification_message_talkback_gestures_changed">आणखी तपशिलांसाठी TalkBack उघडा</string>
+  <string name="new_feature_in_talkback_title">नवीन काय आहे</string>
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">ओके</string>
+  <string name="scan_the_qr_code">QR कोड स्कॅन करा</string>
+  <string name="alternate_privacy_policy">किंवा http://www.google.com/policies/privacy ला भेट द्या</string>
+  <string name="alternate_tos">किंवा https://www.google.com/mobile/toscountry ला भेट द्या</string>
 </resources>

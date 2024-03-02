@@ -17,23 +17,36 @@
 
 <resources>
 
+    <!-- for alertdialog -->
+    <dimen name="alertdialog_menuitem_divider_height">4dp</dimen>
+    <dimen name="alertdialog_padding_start">10dp</dimen>
+    <dimen name="alertdialog_padding_end">10dp</dimen>
+    <dimen name="alertdialog_padding_top">4dp</dimen>
+    <dimen name="alertdialog_padding_bottom">12dp</dimen>
+    <!-- end alertdialog -->
+
     <!-- Quick menu overlays -->
     <dimen name="quick_menu_overlay_text_size">18sp</dimen>
     <dimen name="quick_menu_overlay_margin">8dp</dimen>
     <dimen name="quick_menu_overlay_padding_top">6dp</dimen>
     <dimen name="quick_menu_overlay_padding_bottom">6dp</dimen>
+    <dimen name="dim_screen_bottom_offset">16dp</dimen>
     <dimen name="quick_menu_overlay_padding">8dp</dimen>
     <dimen name="quick_menu_overlay_padding_start">8dp</dimen>
     <dimen name="quick_menu_overlay_padding_end">8dp</dimen>
 
     <!-- Training -->
-    <dimen name="training_padding_start">24dp</dimen>
-    <dimen name="training_padding_end">24dp</dimen>
-    <dimen name="training_padding_top">20dp</dimen>
-    <dimen name="training_padding_bottom">18dp</dimen>
+    <dimen name="training_container_padding_vertical">20dp</dimen>
+    <dimen name="training_padding_start">10dp</dimen>
+    <dimen name="training_padding_end">10dp</dimen>
+    <dimen name="training_padding_top">12dp</dimen>
+    <dimen name="training_padding_bottom">12dp</dimen>
+    <dimen name="training_title_padding_horizontal">14dp</dimen>
+    <dimen name="training_list_item_padding">4dp</dimen>
+    <dimen name="training_list_item_corner_radius">26dp</dimen>
     <!-- This padding is used to avoid the button's text being cut in watch. -->
     <dimen name="training_button_text_padding_bottom">10dp</dimen>
-    <dimen name="training_title_text_size">13sp</dimen>
+    <dimen name="training_title_text_size">16sp</dimen>
     <dimen name="training_title_height">16sp</dimen>
     <dimen name="training_text_size">14sp</dimen>
     <dimen name="training_text_height">16sp</dimen>
@@ -43,6 +56,8 @@
     <dimen name="training_button_height">32dp</dimen>
     <dimen name="training_heading_size">12sp</dimen>
     <dimen name="training_heading_height">20sp</dimen>
+    <dimen name="training_icon_button_horizontal_margin">6dp</dimen>
+    <dimen name="training_list_margin_top">12dp</dimen>
 
     <!-- Labels -->
     <dimen name="label_dialog_padding">8dp</dimen>

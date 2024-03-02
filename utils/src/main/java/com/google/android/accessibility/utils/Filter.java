@@ -18,7 +18,9 @@ package com.google.android.accessibility.utils;
 
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.common.base.Predicate;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.util.LinkedList;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Filters objects of type T. */
@@ -61,8 +63,14 @@ public abstract class Filter<T> {
     return new FilterOr<T>(this, filter);
   }
 
-  /** Concise filter from a lambda: new Filter.NodeCompat((n) -> n.attribute() == X) */
-  public static class NodeCompat extends Filter<AccessibilityNodeInfoCompat> {
+  /** Concisely construct Filter.NodeCompat from a lambda. */
+  public static @NonNull Filter<AccessibilityNodeInfoCompat> node(
+      Predicate<AccessibilityNodeInfoCompat> predicate) {
+    return new NodeCompat(predicate);
+  }
+
+  /** Concise filter from a lambda. Example: Filter.node((n) -> n.attribute() == X) */
+  private static class NodeCompat extends Filter<AccessibilityNodeInfoCompat> {
     // TODO: Replace com.google.common.base.Predicate with import
     // java.util.function.Predicate when --config=android_java8_libs is no longer needed.
     private final Predicate<AccessibilityNodeInfoCompat> predicate;
@@ -96,6 +104,7 @@ public abstract class Filter<T> {
       return true;
     }
 
+    @CanIgnoreReturnValue
     @Override
     public FilterAnd<T> and(@Nullable Filter<T> filter) {
       if (filter != null) {
@@ -125,6 +134,7 @@ public abstract class Filter<T> {
       return false;
     }
 
+    @CanIgnoreReturnValue
     @Override
     public FilterOr<T> or(@Nullable Filter<T> filter) {
       if (filter != null) {

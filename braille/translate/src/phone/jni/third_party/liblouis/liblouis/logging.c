@@ -99,7 +99,7 @@ _lou_logMessage(logLevels level, const char *format, ...) {
 	if (level < logLevel) return;
 	if (logCallbackFunction != NULL) {
 #ifdef _WIN32
-		double f = 2.3;  // Needed to force VC++ runtime floating point support
+		double f = 2.3;	 // Needed to force VC++ runtime floating point support
 #endif
 		char *s;
 		size_t len;
@@ -117,8 +117,10 @@ _lou_logMessage(logLevels level, const char *format, ...) {
 	}
 }
 
+#define FILENAMESIZE 256
+
 static FILE *logFile = NULL;
-static char initialLogFileName[256] = "";
+static char initialLogFileName[FILENAMESIZE] = "";
 
 void EXPORT_CALL
 lou_logFile(const char *fileName) {
@@ -126,7 +128,7 @@ lou_logFile(const char *fileName) {
 		fclose(logFile);
 		logFile = NULL;
 	}
-	if (fileName == NULL || fileName[0] == 0) return;
+	if (fileName == NULL || fileName[0] == 0 || strlen(fileName) >= FILENAMESIZE) return;
 	if (initialLogFileName[0] == 0) strcpy(initialLogFileName, fileName);
 	logFile = fopen(fileName, "a");
 	if (logFile == NULL && initialLogFileName[0] != 0)

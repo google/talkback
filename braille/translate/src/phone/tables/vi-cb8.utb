@@ -1,0 +1,49 @@
+#-index-name: Vietnamese, computer
+#-display-name: Vietnamese computer braille
+#
+#+language: vi
+# FIXME: Consider changing type to literary. Strictly speaking this
+# isn't computer braille because there is no one-to-one mapping for
+# Vietnamese accented characters. Due to lack of a proper and official
+# recommendation for computer braille this is the generally accepted
+# way to do it.
+#+type: computer
+#+contraction: no
+#+dots: 8
+#+direction: forward
+#+system: vietnam
+#
+#-copyright: Sao Mai Center for the Blind <www.saomaicenter.org/en>
+#-license: LGPLv2.1
+#
+#  Copyright (C) 2023 by Sao Mai Center for the Blind <www.saomaicenter.org/en>
+#
+#  This file is part of liblouis.
+#
+#  liblouis is free software: you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as
+#  published by the Free Software Foundation, either version 2.1 of the
+#  License, or (at your option) any later version.
+#
+#  liblouis is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#  Lesser General Public License for more details.
+#
+#  You should have received a copy of the GNU Lesser General Public
+#  License along with liblouis. If not, see
+#  <http://www.gnu.org/licenses/>.
+#
+# Vietnam hasn't have any official computer Braille code, except a long time accepted approach as using same US ansi codes + Vietnamese letters with accents.
+# Letter with accent is translated one on one, instead of applying rule to move accent to correct position.
+#
+#-author: Dang Hoai Phúc <danghoaiphuc@gmail.com>
+#-maintainer: Dang Hoai Phuc <danghoaiphuc@gmail.com>
+#
+#-updated: 2023-1-17
+#
+# Vietnamese letters with accents are still based on definitions at <https://www.saomaicenter.org/en/blog/rules-and-guidelines-vietnamese-braille>
+
+include vi-lettersdef.uti
+include en-us-comp8-ext.utb
+
