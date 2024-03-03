@@ -16,11 +16,14 @@
 package com.google.android.accessibility.utils.preference;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.R;
+
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -28,86 +31,91 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * {@link BasePreferencesActivity} and provide common functions for a11y preference activity.
  */
 public abstract class PreferencesActivity extends BasePreferencesActivity {
-  // This variable is used as argument of Intent to identify which fragment should be created.
-  public static final String FRAGMENT_NAME = "FragmentName";
+    // This variable is used as argument of Intent to identify which fragment should be created.
+    public static final String FRAGMENT_NAME = "FragmentName";
 
-  /** Creates a PreferenceFragmentCompat when AccessibilityPreferencesActivity is called. */
-  protected abstract PreferenceFragmentCompat createPreferenceFragment();
+    /**
+     * Creates a PreferenceFragmentCompat when AccessibilityPreferencesActivity is called.
+     */
+    protected abstract PreferenceFragmentCompat createPreferenceFragment();
 
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-    prepareActionBar(/* icon= */ null);
+        prepareActionBar(/* icon= */ null);
 
-    if (supportHatsSurvey()) {
-      setContentView(R.layout.preference_with_survey);
+        if (supportHatsSurvey()) {
+            setContentView(R.layout.preference_with_survey);
+        }
+
+        // Creates UI for the preferenceFragment created by the child class of
+        // AccessibilityBasePreferencesActivity.
+        PreferenceFragmentCompat preferenceFragment = createPreferenceFragment();
+        if (preferenceFragment != null && savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(getContainerId(), preferenceFragment, getFragmentTag());
+            if (addRootFragmentToBackStack()) {
+                transaction.addToBackStack(/* name= */ null);
+            }
+            transaction.commit();
+        }
     }
 
-    // Creates UI for the preferenceFragment created by the child class of
-    // AccessibilityBasePreferencesActivity.
-    PreferenceFragmentCompat preferenceFragment = createPreferenceFragment();
-    if (preferenceFragment != null && savedInstanceState == null) {
-      FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-      transaction.replace(getContainerId(), preferenceFragment, getFragmentTag());
-      if (addRootFragmentToBackStack()) {
-        transaction.addToBackStack(/* name= */ null);
-      }
-      transaction.commit();
+    /**
+     * If action-bar "navigate up" button is pressed, end this sub-activity when there is no fragment
+     * in the stack. Otherwise, it will go to last fragment.
+     */
+    @Override
+    public boolean onNavigateUp() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
+            getSupportFragmentManager().popBackStackImmediate();
+        } else {
+            // Closes the activity if there is no fragment inside the stack. Otherwise the activity will
+            // has a blank screen since there is no any fragment.
+            finishAfterTransition();
+        }
+        return true;
     }
-  }
 
-  /**
-   * If action-bar "navigate up" button is pressed, end this sub-activity when there is no fragment
-   * in the stack. Otherwise, it will go to last fragment.
-   */
-  @Override
-  public boolean onNavigateUp() {
-    if (getSupportFragmentManager().getBackStackEntryCount() > 1) {
-      getSupportFragmentManager().popBackStackImmediate();
-    } else {
-      // Closes the activity if there is no fragment inside the stack. Otherwise the activity will
-      // has a blank screen since there is no any fragment.
-      finishAfterTransition();
+    // INFO: TalkBack For Developers modification
+    @Override
+    public boolean onSupportNavigateUp() {
+        return onNavigateUp();
     }
-    return true;
-  }
-  // INFO: TalkBack For Developers modification
-  @Override
-  public boolean onSupportNavigateUp() {
-    return onNavigateUp();
-  }
 
-  @Override
-  public void onBackPressed() {
-    onNavigateUp();
-  }
-  // ------------------------------------------
+    @Override
+    public void onBackPressed() {
+        onNavigateUp();
+    }
+    // ------------------------------------------
 
-  @Override
-  protected final int getContainerId() {
-    return supportHatsSurvey() ? R.id.preference_root : super.getContainerId();
-  }
+    @Override
+    protected final int getContainerId() {
+        return supportHatsSurvey() ? R.id.preference_root : super.getContainerId();
+    }
 
-  /**
-   * Finds preference from createPreferenceFragment() called only in onCreate(). gets non-updated
-   * preferences, because base class stores only 1 createPreferenceFragment() call.
-   */
-  public Preference findPreference(String key) {
-    return PreferenceSettingsUtils.findPreference(this, key);
-  }
+    /**
+     * Finds preference from createPreferenceFragment() called only in onCreate(). gets non-updated
+     * preferences, because base class stores only 1 createPreferenceFragment() call.
+     */
+    public Preference findPreference(String key) {
+        return PreferenceSettingsUtils.findPreference(this, key);
+    }
 
-  /** The implementation of the activity should supports HaTS survey layout or not. */
-  protected boolean supportHatsSurvey() {
-    return false;
-  }
+    /**
+     * The implementation of the activity should supports HaTS survey layout or not.
+     */
+    protected boolean supportHatsSurvey() {
+        return false;
+    }
 
-  /**
-   * Gets tag of the fragment(s) are to be used.
-   *
-   * @return tag of the fragment.
-   */
-  protected @Nullable String getFragmentTag() {
-    return null;
-  }
+    /**
+     * Gets tag of the fragment(s) are to be used.
+     *
+     * @return tag of the fragment.
+     */
+    protected @Nullable String getFragmentTag() {
+        return null;
+    }
 }

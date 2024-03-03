@@ -130,7 +130,7 @@ log
 
 
 if [[ "$GRADLE_TRACE" = true ]]; then
-  log "./gradlew dependencies"
+  log "${GRADLE_BINARY} dependencies"
   ${GRADLE_BINARY} dependencies
   log
 fi
