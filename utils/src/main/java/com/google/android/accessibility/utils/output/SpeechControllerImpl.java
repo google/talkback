@@ -1095,6 +1095,14 @@ public class SpeechControllerImpl implements SpeechController {
     if (!mFailoverTts.isReady()) {
       LogUtils.e(
           TAG, "TTS is not ready. Attempted to speak before TTS was initialized. Item: " + item);
+
+      // INFO: TalkBack For Developers modification
+      if (mTtsOverlay != null) {
+        for (FeedbackFragment fragment : item.getFragments()) {
+          mTtsOverlay.displayText(fragment.getText());
+        }
+      }
+      // ------------------------------------------
       return;
     }
 

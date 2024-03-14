@@ -8,10 +8,29 @@
 #-----------------------------------------------------------------------------
 DEVICE=""
 PIPELINE=false
-USAGE="./build.sh [-s | --device] SERIAL_NUMBER]"
+USAGE="./build.sh [-j | --java ] [JAVA_VERSION] [-s | --device] [SERIAL_NUMBER]"
+JAVA_VERSION="11.0.21"
+
+function log {
+  if [[ -n $1 ]]; then
+    echo "##### ${1}"
+  else echo
+  fi
+}
+
+if [[ -z $TALKBACK_JAVA_VERSION ]]; then
+  log "the environment variable TALKBACK_JAVA_VERSION is not set"
+else
+  log "TALKBACK_JAVA_VERSION: ${TALKBACK_JAVA_VERSION}"
+  JAVA_VERSION=$TALKBACK_JAVA_VERSION
+fi
+
+log "Using JAVA $JAVA_VERSION to build"
+
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -s|--device) DEVICE="$2"; shift ;;
+        -j|--java) JAVA_VERSION="$2"; shift ;;
         -p) PIPELINE=true; shift ;;
         -h|--help) echo $USAGE; exit 0 ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
@@ -22,14 +41,6 @@ done
 
 GRADLE_DOWNLOAD_VERSION=7.3.3
 GRADLE_TRACE=false   # change to true to enable verbose logging of gradlew
-
-
-function log {
-  if [[ -n $1 ]]; then
-    echo "##### ${1}"
-  else echo
-  fi
-}
 
 function fail_with_message  {
   echo
@@ -64,12 +75,12 @@ TEMP_DIR=~/tmp
 if [[ "$PIPELINE" = false ]]; then
   log "!! CURRENT JAVA_HOME: [$JAVA_HOME] !!"
   unset JAVA_HOME;
-  export JAVA_HOME=$(/usr/libexec/java_home -v"11.0.21");
+  export JAVA_HOME=$(/usr/libexec/java_home -v"${JAVA_VERSION}");
   log "!!     NEW JAVA_HOME: [$JAVA_HOME] !!"
 else
-  TEMP_DIR=$(mktemp -d)
-  mkdir $TEMP_DIR/opt
+  TEMP_DIR=$(mktemp -d)  
 fi
+mkdir -p $TEMP_DIR/opt
 #-----------------------------------------------------------------------------
 
 require_environment_variable ANDROID_SDK
@@ -94,7 +105,7 @@ log "javac -version:"; javac -version
 log
 
 GRADLE_ZIP_REMOTE_FILE=gradle-${GRADLE_DOWNLOAD_VERSION}-bin.zip
-GRADLE_ZIP_DEST_PATH=${TEMP_DIR}/${GRADLE_DOWNLOAD_VERSION}.zip
+GRADLE_ZIP_DEST_PATH=${TEMP_DIR}/gradle-${GRADLE_DOWNLOAD_VERSION}.zip
 GRADLE_UNZIP_HOSTING_FOLDER=${TEMP_DIR}/opt/gradle-${GRADLE_DOWNLOAD_VERSION}
 
 if [[ ! -f "$GRADLE_ZIP_DEST_PATH" ]]; then
@@ -113,6 +124,12 @@ if [ $? -eq 0 ]; then
 else
     log "!! UNZIP FAILED !!"
     log "unzip -n -d ${GRADLE_UNZIP_HOSTING_FOLDER} ${GRADLE_ZIP_DEST_PATH}"
+    if [ ! -f ${GRADLE_UNZIP_HOSTING_FOLDER} ]; then
+      log "[${GRADLE_UNZIP_HOSTING_FOLDER}] not found!"
+      log "Contents of [${TEMP_DIR}]:"
+      log $(ls ${TEMP_DIR})
+    fi
+
     log
     exit 1
 fi
@@ -152,7 +169,7 @@ if [[ $BUILD_EXIT_CODE -eq 0 ]]; then
   find . -name "*.apk"
   log
 
-  if [[ ! -z $DEVICE ]]; then
+  if [[ ! -z $DEVICE ]]; then    
     log "precaution: uninstalling from $DEVICE"
     adb -s "$DEVICE" uninstall com.android.talkback4d
     log "installing on $DEVICE"
