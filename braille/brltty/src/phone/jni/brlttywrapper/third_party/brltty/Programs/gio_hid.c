@@ -92,6 +92,12 @@ getHidReportSize (
   return hidGetReportSize(handle->device, identifier, size);
 }
 
+static HidItemsDescriptor *
+getHidDescriptor (GioHandle *handle
+) {
+  return hidGetItems(handle->device);
+}
+
 static ssize_t
 getHidReport (
   GioHandle *handle, HidReportIdentifier identifier,
@@ -159,6 +165,7 @@ static const GioHandleMethods gioHidMethods = {
   .monitorInput = monitorHidInput,
 
   .getHidReportSize = getHidReportSize,
+  .getHidDescriptor = getHidDescriptor,
   .getHidReport = getHidReport,
   .setHidReport = setHidReport,
   .getHidFeature = getHidFeature,

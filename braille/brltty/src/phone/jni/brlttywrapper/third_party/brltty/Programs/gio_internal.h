@@ -60,6 +60,10 @@ typedef ssize_t GioAskResourceMethod (
   void *buffer, uint16_t size, int timeout
 );
 
+typedef HidItemsDescriptor *GioGetHidDescriptorMethod(
+  GioHandle *handle
+);
+
 typedef int GioGetHidReportSizeMethod (
   GioHandle *handle, HidReportIdentifier identifier,
   HidReportSize *size, int timeout
@@ -103,6 +107,7 @@ typedef struct {
   GioAskResourceMethod *askResource;
 
   GioGetHidReportSizeMethod *getHidReportSize;
+  GioGetHidDescriptorMethod *getHidDescriptor;
   GioGetHidReportMethod *getHidReport;
   GioSetHidReportMethod *setHidReport;
   GioGetHidFeatureMethod *getHidFeature;
