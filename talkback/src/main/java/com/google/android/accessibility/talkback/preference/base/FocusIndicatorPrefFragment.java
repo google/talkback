@@ -41,12 +41,12 @@ public class FocusIndicatorPrefFragment extends TalkbackBaseFragment {
   /** Preference items for focus indicator colors. */
   public enum FocusIndicatorPref {
     DEFAULT_COLOR(R.string.title_pref_default_color, R.color.accessibility_focus_highlight_color),
-    RED(R.string.title_pref_red, R.color.google_red300),
-    ORANGE(R.string.title_pref_orange, R.color.google_orange300),
-    YELLOW(R.string.title_pref_yellow, R.color.google_dark_yellow300),
-    GREEN(R.string.title_pref_green, R.color.google_green300),
-    BLUE(R.string.title_pref_blue, R.color.google_blue300),
-    GREY(R.string.title_pref_grey, R.color.google_grey300);
+    RED(R.string.title_pref_red, com.google.android.accessibility.utils.R.color.google_red300),
+    ORANGE(R.string.title_pref_orange, com.google.android.accessibility.utils.R.color.google_orange300),
+    YELLOW(R.string.title_pref_yellow, com.google.android.accessibility.utils.R.color.google_dark_yellow300),
+    GREEN(R.string.title_pref_green, com.google.android.accessibility.utils.R.color.google_green300),
+    BLUE(R.string.title_pref_blue, com.google.android.accessibility.utils.R.color.google_blue300),
+    GREY(R.string.title_pref_grey, com.google.android.accessibility.utils.R.color.google_grey300);
 
     private final int titleId;
     private final int colorId;

@@ -10,3 +10,5 @@ dependencies {
     implementation project(':brailletranslate')
     implementation project(':braillecommon')
 }
+
+android.namespace 'com.google.android.accessibility.braille.brailledisplay'

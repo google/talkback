@@ -192,7 +192,7 @@ public abstract class BrailleInputPlane {
     dotNumberPaint = new Paint();
     dotNumberPaint.setTextAlign(Paint.Align.CENTER);
     dotNumberPaint.setTypeface(
-        Typeface.create(context.getString(R.string.accessibility_font), Typeface.NORMAL));
+        Typeface.create(context.getString(com.google.android.accessibility.utils.R.string.accessibility_font), Typeface.NORMAL));
     float scaleFactor =
         Utils.getResourcesFloat(resources, R.dimen.input_plane_dot_number_size_multiplier);
     dotNumberPaint.setTextSize(scaleFactor * dotRadius);

@@ -145,9 +145,9 @@ public class TouchInteractionMonitor
                 context.getResources().getStringArray(R.array.service_detected_gesture_list)));
     int touchSlop =
         ViewConfiguration.get(context).getScaledTouchSlop()
-            * context.getResources().getInteger(R.integer.config_slop_default_multiplier);
+            * context.getResources().getInteger(com.google.android.accessibility.utils.R.integer.config_slop_default_multiplier);
     int passthroughSlopMultiplier =
-        context.getResources().getInteger(R.integer.config_passthrough_slop_multiplier);
+        context.getResources().getInteger(com.google.android.accessibility.utils.R.integer.config_passthrough_slop_multiplier);
     passthroughTotalSlop = passthroughSlopMultiplier * touchSlop;
     requestTouchExplorationDelayed = new RequestTouchExplorationDelayed(determineUserIntentTimeout);
     DisplayMetrics metrics = context.getResources().getDisplayMetrics();
@@ -332,7 +332,7 @@ public class TouchInteractionMonitor
   }
 
   /**
-   * Computes {@link #mDraggingPointerId} if it is invalid. The pointer will be the finger closet to
+   * Computes {@link #draggingPointerId} if it is invalid. The pointer will be the finger closet to
    * an edge of the screen.
    */
   private void computeDraggingPointerIdIfNeeded(MotionEvent event) {

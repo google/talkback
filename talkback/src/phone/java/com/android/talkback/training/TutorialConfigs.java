@@ -190,19 +190,19 @@ final class TutorialConfigs {
   static final PageConfig.Builder READ_BY_CHARACTER =
       PageConfig.builder(PageId.PAGE_ID_READ_BY_CHARACTER, R.string.read_by_character_title)
           .addText(
-              R.string.read_by_character_text, ImmutableList.of(R.string.granularity_character));
+              R.string.read_by_character_text, ImmutableList.of(com.google.android.accessibility.utils.R.string.granularity_character));
 
   static final PageConfig.Builder READ_BY_CHARACTER_PRE_R =
       PageConfig.builder(PageId.PAGE_ID_READ_BY_CHARACTER_PRE_R, R.string.read_by_character_title)
           .addText(
               R.string.read_by_character_text_pre_r,
-              ImmutableList.of(R.string.granularity_character));
+              ImmutableList.of(com.google.android.accessibility.utils.R.string.granularity_character));
 
   static final PageConfig.Builder JUMP_BETWEEN_CONTROLS =
       PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_CONTROLS, R.string.jump_between_controls_title)
           .addText(
               R.string.jump_between_controls_text,
-              ImmutableList.of(R.string.granularity_native_control))
+              ImmutableList.of(com.google.android.accessibility.utils.R.string.granularity_native_control))
           .addButton(R.string.button_1)
           .addButton(R.string.button_2)
           .addButton(R.string.button_3)
@@ -213,7 +213,7 @@ final class TutorialConfigs {
               PageId.PAGE_ID_JUMP_BETWEEN_CONTROLS_PRE_R, R.string.jump_between_controls_title)
           .addText(
               R.string.jump_between_controls_text_pre_r,
-              ImmutableList.of(R.string.granularity_native_control))
+              ImmutableList.of(com.google.android.accessibility.utils.R.string.granularity_native_control))
           .addButton(R.string.button_1)
           .addButton(R.string.button_2)
           .addButton(R.string.button_3)
@@ -222,7 +222,7 @@ final class TutorialConfigs {
   static final PageConfig.Builder JUMP_BETWEEN_LINKS =
       PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_LINKS, R.string.jump_between_links_title)
           .addText(
-              R.string.jump_between_links_text, ImmutableList.of(R.string.granularity_native_link))
+              R.string.jump_between_links_text, ImmutableList.of(com.google.android.accessibility.utils.R.string.granularity_native_link))
           .addText(R.string.paragraph1_text)
           .addTextWithLink(R.string.link1_text)
           .addText(R.string.paragraph2_text)
@@ -237,7 +237,7 @@ final class TutorialConfigs {
       PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_LINKS_PRE_R, R.string.jump_between_links_title)
           .addText(
               R.string.jump_between_links_text_pre_r,
-              ImmutableList.of(R.string.granularity_native_link))
+              ImmutableList.of(com.google.android.accessibility.utils.R.string.granularity_native_link))
           .addText(R.string.paragraph1_text)
           .addTextWithLink(R.string.link1_text)
           .addText(R.string.paragraph2_text)
@@ -252,7 +252,7 @@ final class TutorialConfigs {
       PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_HEADINGS, R.string.jump_between_headings_title)
           .addText(
               R.string.jump_between_headings_text,
-              ImmutableList.of(R.string.granularity_native_heading))
+              ImmutableList.of(com.google.android.accessibility.utils.R.string.granularity_native_heading))
           .addDivider()
           .addHeading(R.string.content_heading)
           .addText(R.string.content_text)
@@ -265,7 +265,7 @@ final class TutorialConfigs {
               PageId.PAGE_ID_JUMP_BETWEEN_HEADINGS_PRE_R, R.string.jump_between_headings_title)
           .addText(
               R.string.jump_between_headings_text_pre_r,
-              ImmutableList.of(R.string.granularity_native_heading))
+              ImmutableList.of(com.google.android.accessibility.utils.R.string.granularity_native_heading))
           .addDivider()
           .addHeading(R.string.content_heading)
           .addText(R.string.content_text)

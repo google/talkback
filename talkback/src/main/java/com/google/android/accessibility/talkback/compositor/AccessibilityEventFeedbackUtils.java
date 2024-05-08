@@ -18,7 +18,6 @@ package com.google.android.accessibility.talkback.compositor;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.LocaleUtils;
@@ -110,9 +109,9 @@ public final class AccessibilityEventFeedbackUtils {
         return CompositorUtils.joinCharSequences(
             pageTitle,
             context.getString(
-                R.string.template_viewpager_index_count_short, fromIndex + 1, itemCount));
+                com.google.android.accessibility.utils.R.string.template_viewpager_index_count_short, fromIndex + 1, itemCount));
       } else {
-        return context.getString(R.string.template_viewpager_index_count, fromIndex + 1, itemCount);
+        return context.getString(com.google.android.accessibility.utils.R.string.template_viewpager_index_count, fromIndex + 1, itemCount);
       }
     }
     return "";

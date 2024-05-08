@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.google.android.accessibility.braille.brailledisplay">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <uses-sdk
-      android:minSdkVersion="26"
-      android:targetSdkVersion="31" />
+  <uses-sdk android:targetSdkVersion="31" />
+
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <!-- If you need access to FINE location, you must request both ACCESS_FINE_LOCATION and ACCESS_COARSE_LOCATION. -->
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"  android:maxSdkVersion="30" />

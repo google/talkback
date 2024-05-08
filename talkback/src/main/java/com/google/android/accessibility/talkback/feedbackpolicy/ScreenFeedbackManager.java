@@ -355,13 +355,13 @@ public class ScreenFeedbackManager
         logCompose(logDepth, "composeFeedback", "input method");
         String inputMethodFeedback;
         if (interpretation.getInputMethod().getId() == WINDOW_ID_NONE) {
-          inputMethodFeedback = allContext.getContext().getString(R.string.hide_keyboard_window);
+          inputMethodFeedback = allContext.getContext().getString(com.google.android.accessibility.utils.R.string.hide_keyboard_window);
         } else {
           inputMethodFeedback =
               allContext
                   .getContext()
                   .getString(
-                      R.string.show_keyboard_window,
+                      com.google.android.accessibility.utils.R.string.show_keyboard_window,
                       interpretation.getInputMethod().getTitleForFeedback());
         }
         feedback.addPart(
@@ -393,12 +393,12 @@ public class ScreenFeedbackManager
             if (interpretation.getHorizontalPlacement()) {
               if (allContext.getDeviceInfo().isScreenLayoutRTL()) {
 
-                feedbackTemplate = R.string.template_split_screen_mode_landscape_rtl;
+                feedbackTemplate = com.google.android.accessibility.utils.R.string.template_split_screen_mode_landscape_rtl;
               } else {
-                feedbackTemplate = R.string.template_split_screen_mode_landscape_ltr;
+                feedbackTemplate = com.google.android.accessibility.utils.R.string.template_split_screen_mode_landscape_ltr;
               }
             } else {
-              feedbackTemplate = R.string.template_split_screen_mode_portrait;
+              feedbackTemplate = com.google.android.accessibility.utils.R.string.template_split_screen_mode_portrait;
             }
 
             utterance =
@@ -425,7 +425,7 @@ public class ScreenFeedbackManager
             appendTemplate(
                 allContext.getContext(),
                 utterance,
-                R.string.template_overlay_window,
+                com.google.android.accessibility.utils.R.string.template_overlay_window,
                 picInPicWindowTitle,
                 logDepth + 1);
       }
