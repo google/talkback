@@ -18,8 +18,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.android.tools.build:gradle:8.4.0'
     }
 }
 
@@ -31,15 +30,14 @@ allprojects {
 }
 
 android {
-    buildToolsVersion '29.0.0'
+    namespace talkbackApplicationId
     defaultConfig {
         applicationId talkbackApplicationId
         versionName talkbackVersionName + "-" + BUILD_TIMESTAMP
-        minSdkVersion 26
-        targetSdkVersion 30
-        compileSdkVersion 33
+        minSdk 26
+        targetSdk 30
+        compileSdk 34
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'
-        multiDexEnabled true
     }
     packagingOptions {
         exclude 'LICENSE'

@@ -96,7 +96,7 @@ public class BrailleGradeActivity extends PreferencesActivity {
         new OnSharedPreferenceChangeListener() {
           @Override
           public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals(getString(R.string.pref_braille_contracted_mode))) {
+            if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_braille_contracted_mode))) {
               onModelChanged();
             }
           }

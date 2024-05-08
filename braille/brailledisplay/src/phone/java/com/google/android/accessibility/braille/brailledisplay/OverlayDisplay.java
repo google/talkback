@@ -256,7 +256,7 @@ public class OverlayDisplay implements OnBrailleCellClickListener {
       new OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-          if (context.getString(R.string.pref_braille_overlay_key).equals(key)) {
+          if (context.getString(com.google.android.accessibility.braille.common.R.string.pref_braille_overlay_key).equals(key)) {
             displayThreadHandler.reportPreferenceChange();
           }
         }

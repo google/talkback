@@ -5,17 +5,15 @@ ext {
 }
 
 android {
-    compileSdkVersion 34
+    compileSdk 34
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
-        vectorDrawables.useSupportLibrary = true
-        multiDexEnabled true
         minSdkVersion 26
     }
-    flavorDimensions "target"
+    flavorDimensions += "target"
     productFlavors {
         phone {
             dimension "target"
@@ -23,6 +21,9 @@ android {
         wear {
             dimension "target"
         }
+    }
+    buildFeatures {
+        buildConfig true
     }
 }
 

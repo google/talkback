@@ -100,7 +100,7 @@ public class BrailleKeyBindingUtils {
   private static String getDotsDescription(Resources resources, BrailleCharacter brailleCharacter) {
     String dotsString = changeToSentence(resources, brailleCharacter.toLocaleString().split(""));
     return resources.getQuantityString(
-        R.plurals.braille_dots, brailleCharacter.getOnCount(), dotsString);
+            com.google.android.accessibility.braille.common.R.plurals.braille_dots, brailleCharacter.getOnCount(), dotsString);
   }
 
   /** Compose words to a sentence. Example: "abcd" -> "a, b, c and d". */
@@ -109,7 +109,7 @@ public class BrailleKeyBindingUtils {
       StringBuilder sentence = new StringBuilder();
       sentence.append(words[0]);
       for (int i = 1; i < words.length - 1; i++) {
-        sentence.append(resources.getString(R.string.split_comma, words[i]));
+        sentence.append(resources.getString(com.google.android.accessibility.braille.common.R.string.split_comma, words[i]));
       }
       return resources.getString(R.string.bd_commands_delimiter, sentence, words[words.length - 1]);
     } else {
