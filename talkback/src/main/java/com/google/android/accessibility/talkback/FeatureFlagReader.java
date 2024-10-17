@@ -24,6 +24,10 @@ public final class FeatureFlagReader {
     return true;
   }
 
+  public static boolean handleStateChangeInMainThread(Context context) {
+    return false;
+  }
+
   public static boolean useMultipleGestureSet(Context context) {
     return false;
   }
@@ -40,16 +44,36 @@ public final class FeatureFlagReader {
     return 0;
   }
 
+  public static boolean enableAutomaticCaptioningForAllImages(Context context) {
+    return false;
+  }
+
+  public static boolean enableMdd(Context context) {
+    return false;
+  }
+
+  public static Object getImageCaptioningLibrariesManifestConfig(Context context) {
+    return null;
+  }
+
+  public static Object getIconDetectionLibraryManifestConfig(Context context) {
+    return null;
+  }
+
+  public static Object getGarconLibraryManifestConfig(Context context) {
+    return null;
+  }
+
   public static boolean allowFocusResting(Context context) {
     return false;
   }
 
   public static boolean allowAutomaticTurnOff(Context context) {
-    return false;
+    return true;
   }
 
   public static boolean supportShowExitBanner(Context context) {
-    return false;
+    return true;
   }
 
   public static boolean useGestureBrailleDisplayOnOff(Context context) {
@@ -69,6 +93,30 @@ public final class FeatureFlagReader {
   }
 
   public static boolean enableAggressiveChunking(Context context) {
+    return false;
+  }
+
+  public static boolean enableMediaControlHintForCall(Context context) {
+    return false;
+  }
+
+  public static boolean enableQuickNavigationToHunGesture(Context context) {
+    return false;
+  }
+
+  public static boolean supportRsbScrolling(Context context) {
+    return false;
+  }
+
+  public static boolean supportActiveSpellCheck(Context context) {
+    return true;
+  }
+
+  public static boolean enableShortAndLongDurationsForSpecificApps(Context context) {
+    return false;
+  }
+
+  public static boolean enableCachedTtsLocale(Context context) {
     return false;
   }
 

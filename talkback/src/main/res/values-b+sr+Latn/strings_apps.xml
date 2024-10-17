@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">Jačina zvuka strima %1$s podešena je na %2$d posto.</string>
   <string name="template_stream_muted_set">Zvuk je isključen za strim %1$s.</string>
+  <string name="hint_a11y_volume_control">Da biste promenili jačinu zvuka za pristupačnost, držite 1 prst na ekranu, pa pritiskajte dugme za pojačavanje ili smanjivanje zvuka.</string>
   <string name="value_stream_voice_call">Telefonski poziv</string>
   <string name="value_stream_system">Sistemski zvuk</string>
   <string name="value_stream_ring">Melodija zvona</string>

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">lesen</string>
-  <string name="voice_commands_read_from_next">Lies ab dem nächsten Element</string>
+  <string name="voice_commands_read_from_next">Ab dem Cursor lesen</string>
   <string name="voice_commands_edit_options">Optionen zum Bearbeiten</string>
-  <string name="voice_commands_text_editing">Textbearbeitung</string>
-  <string name="voice_commands_edit_text">Text bearbeiten</string>
-  <string name="voice_commands_editing_options">Bearbeitungsoptionen</string>
   <string name="voice_commands_edit">bearbeiten</string>
   <string name="voice_commands_what">was</string>
   <string name="voice_commands_say">sagen</string>
@@ -46,10 +43,9 @@
   <string name="voice_commands_label">Label</string>
   <string name="voice_commands_cannot_label_feedback">Label hinzufügen nicht möglich</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">Sprechgeschwindigkeit festlegen</string>
-  <string name="voice_commands_first">Erstes</string>
+  <string name="voice_commands_first">Erstes Element</string>
   <string name="voice_commands_top">Oben</string>
-  <string name="voice_commands_last">Letztes</string>
+  <string name="voice_commands_last">Letztes Element</string>
   <string name="voice_commands_bottom">Unten</string>
   <string name="voice_commands_type">Eingeben</string>
   <string name="voice_commands_input">Eingabe</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Sprechtempo erhöhen</string>
   <string name="voice_commands_slower">Langsamer</string>
   <string name="voice_commands_decrease_speech_rate">Sprechtempo verringern</string>
-  <string name="voice_commands_possible_options_title">Du kannst Folgendes sagen</string>
   <string name="voice_commands_no_action">Verknüpfung für Sprachbefehle nicht unterstützt</string>
   <string name="voice_commands_no_mic_permissions">Um diese Funktion zu verwenden, musst du den Zugriff auf das Mikrofon erlauben.</string>
   <string name="voice_commands_no_voice_recognition_ability">Diese Funktion ist auf deinem Gerät nicht verfügbar</string>
@@ -103,18 +98,18 @@
   <string name="voice_commands_no_next_control_feedback">Kein nächstes Steuerelement</string>
   <string name="voice_commands_no_next_landmark_feedback">Keine nächste Markierung</string>
   <string name="voice_commands_help_title">Sprachbefehle – Übersicht</string>
-  <string name="voice_commands_help_description">Streiche nach rechts und dann nach oben, um Sprachbefehle zu verwenden. Wenn du die Liste verfügbarer Sprachbefehle aufrufen möchtest, sag „Hilfe“ oder „Was kann ich sagen?“.</string>
+  <string name="voice_commands_help_description">Wische nach rechts und dann nach oben, um Sprachbefehle zu verwenden. Wenn du die Liste verfügbarer Sprachbefehle aufrufen möchtest, sag „%1$s“ oder „Was kann ich sagen?“.</string>
   <string name="voice_commands_help_hint">Damit du optimale Ergebnisse erzielst, sag die Worte exakt so, wie sie auf den folgenden Bildschirmen erscheinen.</string>
   <string name="voice_command_screen_locked_hint">Bei gesperrtem Bildschirm sind Sprachbefehle nicht verfügbar. Wenn du stattdessen das TalkBack-Menü verwenden möchtest, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Während der Einrichtung sind Sprachbefehle nicht verfügbar.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Ändere, wie du auf dem aktuell angezeigten Bildschirm Inhalte liest</string>
   <string name="voice_commands_help_next">Nächste [Überschrift]</string>
-  <string name="voice_commands_help_navigation">Leseeinheit [„Wort“]</string>
+  <string name="voice_commands_help_navigation">Leseeinheit [Wort]</string>
   <string name="voice_commands_help_speech_rate">Sprich [schneller]</string>
   <string name="voice_commands_help_verbosity">[Niedrige] Ausführlichkeit</string>
   <string name="voice_commands_help_next_description">Zur nächsten Überschrift, Liste, Markierung oder zum nächsten Steuerelement gehen</string>
-  <string name="voice_commands_help_navigation_description">Von einem Wort, einem Zeichen, einer Zeile, einem Absatz, einer Überschrift, einem Steuerelement und mehr zum/zur nächsten navigieren</string>
+  <string name="voice_commands_help_navigation_description">Von einem Wort, einem Zeichen, einer Zeile, einem Absatz, einer Überschrift, einem Steuerelement oder anderen Bezugspunkten zum/zur nächsten navigieren</string>
   <string name="voice_commands_help_speech_rate_description">Du kannst auch sagen „sprich langsamer“</string>
   <string name="voice_commands_help_verbosity_description">Zu „hoch“, „gering“ oder „benutzerdefiniert“ ändern</string>
   <string name="voice_commands_help_first_description">Zum ersten Element auf dem aktuellen Bildschirm gehen</string>
@@ -136,7 +131,7 @@
   <string name="voice_commands_help_overview_description">Kürzlich geöffnete Apps ansehen</string>
   <string name="voice_commands_help_assistant_description">Google Assistant öffnen</string>
   <string name="voice_commands_help_other_commands_title">Weitere Befehle</string>
-  <string name="voice_commands_help_other_commands_description">TalkBack-Einstellungen aufrufen, Display ausblenden, Aktionen sehen, benutzerdefinierte Label hinzufügen und mehr</string>
+  <string name="voice_commands_help_other_commands_description">TalkBack-Einstellungen aufrufen, Display ausblenden, Aktionen anzeigen, benutzerdefinierte Label hinzufügen und mehr</string>
   <string name="voice_commands_help_label">Füg ein Label für [Senden] hinzu</string>
   <string name="voice_commands_help_hide_screen_description">Display ausblenden, damit andere Personen an öffentlichen Orten deinen Bildschirm nicht sehen können</string>
   <string name="voice_commands_help_show_screen_description">Display nach dem Ausblenden auf Normalzustand zurücksetzen</string>

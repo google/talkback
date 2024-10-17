@@ -52,6 +52,7 @@ public final class NavigationTarget {
   private NavigationTarget() {}
 
   private static final int MASK_TARGET_HTML_ELEMENT = 1 << 16;
+  private static final int MASK_TARGET_HTML_MACRO_ELEMENT = 1 << 18;
   private static final int MASK_TARGET_NATIVE_MACRO_GRANULARITY = 1 << 20;
 
   public static final int TARGET_DEFAULT = 0;
@@ -60,15 +61,14 @@ public final class NavigationTarget {
   public static final int TARGET_HEADING = MASK_TARGET_NATIVE_MACRO_GRANULARITY + 1;
   public static final int TARGET_CONTROL = MASK_TARGET_NATIVE_MACRO_GRANULARITY + 2;
   public static final int TARGET_LINK = MASK_TARGET_NATIVE_MACRO_GRANULARITY + 3;
-  public static final int TARGET_CONTAINER = MASK_TARGET_NATIVE_MACRO_GRANULARITY + 4;
 
-  // Targets for web-granularity navigation and keycombo navigation on html elements.
-  public static final int TARGET_HTML_ELEMENT_LINK = MASK_TARGET_HTML_ELEMENT + 102;
-  public static final int TARGET_HTML_ELEMENT_LIST = MASK_TARGET_HTML_ELEMENT + 103;
-  public static final int TARGET_HTML_ELEMENT_CONTROL = MASK_TARGET_HTML_ELEMENT + 104;
-  public static final int TARGET_HTML_ELEMENT_HEADING = MASK_TARGET_HTML_ELEMENT + 105;
+  // Targets for web-macro-granularity navigation.
+  public static final int TARGET_HTML_ELEMENT_LINK = MASK_TARGET_HTML_MACRO_ELEMENT + 1;
+  public static final int TARGET_HTML_ELEMENT_CONTROL = MASK_TARGET_HTML_MACRO_ELEMENT + 2;
+  public static final int TARGET_HTML_ELEMENT_HEADING = MASK_TARGET_HTML_MACRO_ELEMENT + 3;
 
-  // Web element targets used by keycombo navigation only.
+  // Targets for other web granularity navigation.
+  public static final int TARGET_HTML_ELEMENT_LIST = MASK_TARGET_HTML_ELEMENT + 105;
   public static final int TARGET_HTML_ELEMENT_BUTTON = MASK_TARGET_HTML_ELEMENT + 106;
   public static final int TARGET_HTML_ELEMENT_CHECKBOX = MASK_TARGET_HTML_ELEMENT + 107;
   public static final int TARGET_HTML_ELEMENT_ARIA_LANDMARK = MASK_TARGET_HTML_ELEMENT + 108;
@@ -87,6 +87,8 @@ public final class NavigationTarget {
 
   // Target used to navigate to previous/next window with keyboard shortcuts.
   public static final int TARGET_WINDOW = 201;
+  public static final int TARGET_CONTAINER = 202;
+
   /** navigation target types. */
   @IntDef({
     TARGET_DEFAULT,
@@ -140,12 +142,54 @@ public final class NavigationTarget {
 
   /** Returns whether the target is html element. */
   public static boolean isHtmlTarget(@TargetType int type) {
-    return ((type & MASK_TARGET_HTML_ELEMENT) != 0);
+    return ((type & MASK_TARGET_HTML_ELEMENT) != 0) || isHtmlMacroGranularity(type);
+  }
+
+  /**
+   * Returns whether the target is macro granularity, including native marco and html macro types.
+   */
+  public static boolean isMacroGranularity(@TargetType int type) {
+    return isNaviteMacroGranularity(type)
+        || isHtmlMacroGranularity(type)
+        || type == TARGET_CONTAINER;
   }
 
   /** Returns whether the target is native macro granularity. */
-  public static boolean isMacroGranularity(@TargetType int type) {
+  public static boolean isNaviteMacroGranularity(@TargetType int type) {
     return ((type & MASK_TARGET_NATIVE_MACRO_GRANULARITY) != 0);
+  }
+
+  /** Returns whether the target is html macro granularity. */
+  public static boolean isHtmlMacroGranularity(@TargetType int type) {
+    return ((type & MASK_TARGET_HTML_MACRO_ELEMENT) != 0);
+  }
+
+  /** Converts html macro granularity to native macro granularity, leaves others as original. */
+  public static int convertToNativeMacroType(@TargetType int type) {
+    switch (type) {
+      case TARGET_HTML_ELEMENT_LINK:
+        return TARGET_LINK;
+      case TARGET_HTML_ELEMENT_CONTROL:
+        return TARGET_CONTROL;
+      case TARGET_HTML_ELEMENT_HEADING:
+        return TARGET_HEADING;
+      default:
+        return type;
+    }
+  }
+
+  /** Converts native macro granularity to html macro granularity, leaves others as original. */
+  public static int convertToHtmlMacroType(@TargetType int type) {
+    switch (type) {
+      case TARGET_LINK:
+        return TARGET_HTML_ELEMENT_LINK;
+      case TARGET_CONTROL:
+        return TARGET_HTML_ELEMENT_CONTROL;
+      case TARGET_HEADING:
+        return TARGET_HTML_ELEMENT_HEADING;
+      default:
+        return type;
+    }
   }
 
   /** Gets display name of HTML {@link TargetType}. Used to compose speaking feedback. */
@@ -207,9 +251,9 @@ public final class NavigationTarget {
     }
   }
 
-  /** Gets display name of Native Macro {@link TargetType}. Used to compose speaking feedback. */
+  /** Gets display name of Native {@link TargetType}. Used to compose speaking feedback. */
   @SuppressWarnings("SwitchIntDef") // Only some values handled.
-  public static String macroTargetToDisplayName(Context context, @TargetType int type) {
+  public static String nativeTargetToDisplayName(Context context, @TargetType int type) {
     switch (type) {
       case TARGET_HEADING:
         return context.getString(R.string.display_name_heading);
@@ -220,7 +264,7 @@ public final class NavigationTarget {
       case TARGET_CONTAINER:
         return context.getString(R.string.display_name_container);
       default:
-        LogUtils.e(TAG, "macroTargetToDisplayName() unhandled target type=" + type);
+        LogUtils.e(TAG, "nativeTargetToDisplayName() unhandled target type=" + type);
         return "(unknown)";
     }
   }
@@ -284,6 +328,7 @@ public final class NavigationTarget {
   public static Filter<AccessibilityNodeInfoCompat> createNodeFilter(
       @TargetType int target,
       @Nullable final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodesCache) {
+    target = NavigationTarget.convertToNativeMacroType(target);
     if (NavigationTarget.isHtmlTarget(target)) {
       LogUtils.w(TAG, "Cannot define node filter for html target.");
       return null;
@@ -310,6 +355,9 @@ public final class NavigationTarget {
         break;
       case TARGET_LINK:
         additionalCheckFilter = AccessibilityNodeInfoUtils.FILTER_LINK;
+        break;
+      case TARGET_CONTAINER:
+        additionalCheckFilter = AccessibilityNodeInfoUtils.FILTER_CONTAINER;
         break;
       default:
         // TARGET_DEFAULT:

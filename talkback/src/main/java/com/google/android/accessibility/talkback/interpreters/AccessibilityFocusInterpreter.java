@@ -50,7 +50,6 @@ import com.google.android.accessibility.utils.DisplayUtils;
 import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.caption.ImageCaptionUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirection;
@@ -109,6 +108,7 @@ public class AccessibilityFocusInterpreter
       // performClick(eventId);
     }
   }
+
   // TODO: Split-tap should be activated everywhere, not just IME.
   //  private void performClick(EventId eventId) {
   //    AccessibilityNodeInfoCompat currentA11yFocusedNode =
@@ -262,6 +262,7 @@ public class AccessibilityFocusInterpreter
   @Override
   public @Nullable AccessibilityFocusEventInterpretation interpret(AccessibilityEvent event) {
     FocusActionInfo info = actorState.getFocusHistory().getFocusActionInfoFromEvent(event);
+    boolean forceMuteFeedback = info != null && info.forceMuteFeedback;
 
     // For user interface interaction (such as quick menu to handle slider/number-picker) and image
     // caption.
@@ -269,8 +270,10 @@ public class AccessibilityFocusInterpreter
       AccessibilityNodeInfoCompat node = AccessibilityNodeInfoUtils.toCompat(event.getSource());
       // Skips caption if the view has already been labeled.
       boolean needsCaption =
-          ImageCaptioner.supportsImageCaption(context)
-              && ImageCaptionUtils.needImageCaption(context, node)
+          !forceMuteFeedback
+              && ImageCaptioner.supportsImageCaption(context)
+              && ImageCaptioner.needAutomaticCaptioning(
+                  context, node, actorState.getGeminiState().hasAiCore())
               && actorState.getLabelManagerState().getLabelIdForNode(node) == Label.NO_ID;
       pipelineInterpretations.input(
           Performance.getInstance().onEventReceived(event),

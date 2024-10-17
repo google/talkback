@@ -77,7 +77,7 @@ public class AutoPerformer extends Handler {
   }
 
   void start() {
-    BrailleImeLog.logD(TAG, "autoperform begin");
+    BrailleImeLog.d(TAG, "autoperform begin");
     File file = new File(context.getExternalFilesDir(null), "braillekeyboard_autoperform.txt");
     if (file.exists()) {
       try {
@@ -87,10 +87,10 @@ public class AutoPerformer extends Handler {
         fileReader.close();
         scheduleAutoPerform(props);
       } catch (IOException e) {
-        BrailleImeLog.logE(TAG, "autoperform read failure: " + e.getMessage());
+        BrailleImeLog.e(TAG, "autoperform read failure: " + e.getMessage());
       }
     } else {
-      BrailleImeLog.logD(TAG, "autoperform file not found at: " + file.getAbsolutePath());
+      BrailleImeLog.e(TAG, "autoperform file not found at: " + file.getAbsolutePath());
     }
   }
 

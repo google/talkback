@@ -36,7 +36,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class DirectionalTraversalStrategy implements TraversalStrategy {
 
   /** The root node within which to traverse. */
-  protected @Nullable AccessibilityNodeInfoCompat root;
+  private @Nullable AccessibilityNodeInfoCompat root;
 
   /** Instance for finding Accessibility/Input focus. */
   private final FocusFinder focusFinder;
@@ -48,7 +48,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
   private final Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
 
   /** A list of only focusable nodes. */
-  protected final List<AccessibilityNodeInfoCompat> focusableNodes = new ArrayList<>();
+  private final List<AccessibilityNodeInfoCompat> focusableNodes = new ArrayList<>();
 
   /** The set of focusable nodes that have focusable descendants. */
   private final Set<AccessibilityNodeInfoCompat> containerNodes = new HashSet<>();
@@ -153,7 +153,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    * @return Returns the best candidate to focus in the given direction or {@code null} if there is
    *     no such candidate.
    */
-  protected @Nullable AccessibilityNodeInfoCompat findFocusFromRect(
+  private @Nullable AccessibilityNodeInfoCompat findFocusFromRect(
       AccessibilityNodeInfoCompat focused, Rect focusedRect, int direction) {
     // Using roughly the same algorithm as
     // frameworks/base/core/java/android/view/FocusFinder.java#findNextFocusInAbsoluteDirection
@@ -263,7 +263,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    * Returns the bounding rect of the given node for directional navigation purposes. Any node that
    * is a container of a focusable node will be reduced to a strip at its very top edge.
    */
-  protected void getAssumedRectInScreen(AccessibilityNodeInfoCompat node, Rect assumedRect) {
+  private void getAssumedRectInScreen(AccessibilityNodeInfoCompat node, Rect assumedRect) {
     node.getBoundsInScreen(assumedRect);
     if (containerNodes.contains(node)) {
       assumedRect.set(assumedRect.left, assumedRect.top, assumedRect.right, assumedRect.top + 1);

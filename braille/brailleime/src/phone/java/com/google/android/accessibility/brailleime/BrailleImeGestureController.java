@@ -38,6 +38,8 @@ import static com.google.android.accessibility.brailleime.BrailleImeActions.PREV
 import static com.google.android.accessibility.brailleime.BrailleImeActions.PREVIOUS_LINE;
 import static com.google.android.accessibility.brailleime.BrailleImeActions.PREVIOUS_WORD;
 import static com.google.android.accessibility.brailleime.BrailleImeActions.SELECT_ALL;
+import static com.google.android.accessibility.brailleime.BrailleImeActions.SELECT_CURRENT_TO_END;
+import static com.google.android.accessibility.brailleime.BrailleImeActions.SELECT_CURRENT_TO_START;
 import static com.google.android.accessibility.brailleime.BrailleImeActions.SELECT_NEXT_CHARACTER;
 import static com.google.android.accessibility.brailleime.BrailleImeActions.SELECT_NEXT_LINE;
 import static com.google.android.accessibility.brailleime.BrailleImeActions.SELECT_NEXT_WORD;
@@ -63,7 +65,9 @@ import static com.google.android.accessibility.brailleime.BrailleImeGesture.HOLD
 import static com.google.android.accessibility.brailleime.BrailleImeGesture.HOLD_DOT3_SWIPE_UP_ONE_FINGER;
 import static com.google.android.accessibility.brailleime.BrailleImeGesture.HOLD_DOT3_SWIPE_UP_TWO_FINGERS;
 import static com.google.android.accessibility.brailleime.BrailleImeGesture.HOLD_DOTS12_SWIPE_DOWN_ONE_FINGER;
+import static com.google.android.accessibility.brailleime.BrailleImeGesture.HOLD_DOTS12_SWIPE_DOWN_TWO_FINGERS;
 import static com.google.android.accessibility.brailleime.BrailleImeGesture.HOLD_DOTS12_SWIPE_UP_ONE_FINGER;
+import static com.google.android.accessibility.brailleime.BrailleImeGesture.HOLD_DOTS12_SWIPE_UP_TWO_FINGERS;
 import static com.google.android.accessibility.brailleime.BrailleImeGesture.SWIPE_DOWN_ONE_FINGER;
 import static com.google.android.accessibility.brailleime.BrailleImeGesture.SWIPE_DOWN_THREE_FINGERS;
 import static com.google.android.accessibility.brailleime.BrailleImeGesture.SWIPE_DOWN_TWO_FINGERS;
@@ -79,6 +83,8 @@ import static com.google.android.accessibility.brailleime.BrailleImeGesture.SWIP
 
 import android.content.Context;
 import android.os.Handler;
+import com.google.android.accessibility.braille.common.BrailleCommonTalkBackSpeaker;
+import com.google.android.accessibility.braille.common.FeedbackManager;
 import com.google.android.accessibility.braille.common.ImeConnection;
 import com.google.android.accessibility.braille.common.translate.EditBuffer;
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
@@ -106,6 +112,7 @@ public class BrailleImeGestureController {
   private final Handler handler;
   private final Map<BrailleImeGesture, BrailleImeActions> gestureActionMap = new HashMap<>();
   private final Map<Gesture, BrailleImeGesture> gestureMap = new HashMap<>();
+  private final FeedbackManager feedbackManager;
   private EditBuffer editBuffer;
   private BrailleImeAnalytics brailleImeAnalytics;
 
@@ -129,13 +136,15 @@ public class BrailleImeGestureController {
       TypoHandler typoHandler,
       EditBuffer editBuffer,
       BrailleImeGestureController.Callback callback,
-      TalkBackForBrailleIme talkBackForBrailleIme) {
+      TalkBackForBrailleIme talkBackForBrailleIme,
+      FeedbackManager feedbackManager) {
     this.context = context;
     this.typoHandler = typoHandler;
     this.editBuffer = editBuffer;
     this.callback = callback;
     this.handler = new Handler();
     this.talkBackForBrailleIme = talkBackForBrailleIme;
+    this.feedbackManager = feedbackManager;
     brailleImeAnalytics = BrailleImeAnalytics.getInstance(context);
     createGestureMap();
     addDefaultGestureAction();
@@ -151,7 +160,7 @@ public class BrailleImeGestureController {
   public boolean performSwipeAction(Swipe swipe) {
     BrailleImeGesture brailleImeGesture = gestureMap.get(swipe);
     if (brailleImeGesture == null) {
-      BrailleImeLog.logD(TAG, "unknown swipe");
+      BrailleImeLog.d(TAG, "unknown swipe");
       return false;
     }
     return performAction(gestureActionMap.get(brailleImeGesture));
@@ -167,7 +176,7 @@ public class BrailleImeGestureController {
         gestureMap.get(
             new DotHoldSwipe(swipe.getDirection(), swipe.getTouchCount(), heldBrailleCharacter));
     if (brailleImeGesture == null) {
-      BrailleImeLog.logD(TAG, "unknown dot hold and swipe");
+      BrailleImeLog.d(TAG, "unknown dot hold and swipe");
       return false;
     }
     return performAction(gestureActionMap.get(brailleImeGesture));
@@ -248,6 +257,9 @@ public class BrailleImeGestureController {
 
   /** Performs action which needs {@link ImeConnection}. */
   private boolean performImeAction(BrailleImeActions action) {
+    if (!action.isAvailable(context)) {
+      return false;
+    }
     ImeConnection imeConnection = callback.getImeConnection();
     boolean result = true;
     switch (action) {
@@ -262,7 +274,12 @@ public class BrailleImeGestureController {
       case ADD_SPACE:
         if (talkBackForBrailleIme.isCurrentGranularityTypoCorrection()) {
           if (!typoHandler.previousSuggestion()) {
-            talkBackForBrailleIme.playSound(R.raw.complete, /* delayMs= */ 0);
+            BrailleCommonTalkBackSpeaker.getInstance()
+                .speak(
+                    context.getString(
+                        typoHandler.isGrammarMistake()
+                            ? R.string.no_grammar_suggestion_available_announcement
+                            : R.string.no_spelling_suggestion_available_announcement));
           }
         } else {
           editBuffer.appendSpace(imeConnection);
@@ -275,7 +292,7 @@ public class BrailleImeGestureController {
         if (talkBackForBrailleIme.isCurrentGranularityTypoCorrection()) {
           result = typoHandler.confirmSuggestion();
           if (!result) {
-            talkBackForBrailleIme.playSound(R.raw.complete, /* delayMs= */ 0);
+            feedbackManager.emitFeedback(FeedbackManager.Type.NAVIGATE_OUT_OF_BOUNDS);
           }
         } else {
           editBuffer.appendNewline(imeConnection);
@@ -286,7 +303,12 @@ public class BrailleImeGestureController {
       case DELETE_CHARACTER:
         if (talkBackForBrailleIme.isCurrentGranularityTypoCorrection()) {
           if (!typoHandler.nextSuggestion()) {
-            talkBackForBrailleIme.playSound(R.raw.complete, /* delayMs= */ 0);
+            BrailleCommonTalkBackSpeaker.getInstance()
+                .speak(
+                    context.getString(
+                        typoHandler.isGrammarMistake()
+                            ? R.string.no_grammar_suggestion_available_announcement
+                            : R.string.no_spelling_suggestion_available_announcement));
           }
         } else {
           editBuffer.deleteCharacterBackward(imeConnection);
@@ -299,7 +321,7 @@ public class BrailleImeGestureController {
         if (talkBackForBrailleIme.isCurrentGranularityTypoCorrection()) {
           result = typoHandler.undoConfirmSuggestion();
           if (!result) {
-            talkBackForBrailleIme.playSound(R.raw.complete, /* delayMs= */ 0);
+            feedbackManager.emitFeedback(FeedbackManager.Type.NAVIGATE_OUT_OF_BOUNDS);
           }
         } else {
           editBuffer.deleteWord(imeConnection);
@@ -421,6 +443,14 @@ public class BrailleImeGestureController {
         result = editBuffer.selectAllText(imeConnection);
         brailleImeAnalytics.logGestureActionSelectAllText();
         break;
+      case SELECT_CURRENT_TO_START:
+        result = selectText(imeConnection, ScreenReaderAction.SELECT_CURRENT_TO_START);
+        brailleImeAnalytics.logGestureActionSelectCursorToStart();
+        break;
+      case SELECT_CURRENT_TO_END:
+        result = selectText(imeConnection, ScreenReaderAction.SELECT_CURRENT_TO_END);
+        brailleImeAnalytics.logGestureActionSelectCursorToEnd();
+        break;
       default:
         return false;
     }
@@ -463,6 +493,8 @@ public class BrailleImeGestureController {
     gestureActionMap.put(HOLD_DOT1_SWIPE_DOWN_THREE_FINGERS, COPY);
     gestureActionMap.put(HOLD_DOT1_SWIPE_LEFT_THREE_FINGERS, PASTE);
     gestureActionMap.put(HOLD_DOT1_SWIPE_RIGHT_THREE_FINGERS, SELECT_ALL);
+    gestureActionMap.put(HOLD_DOTS12_SWIPE_UP_TWO_FINGERS, SELECT_CURRENT_TO_START);
+    gestureActionMap.put(HOLD_DOTS12_SWIPE_DOWN_TWO_FINGERS, SELECT_CURRENT_TO_END);
     gestureActionMap.put(HOLD_DOT2_SWIPE_UP_ONE_FINGER, PREVIOUS_WORD);
     gestureActionMap.put(HOLD_DOT2_SWIPE_DOWN_ONE_FINGER, NEXT_WORD);
     gestureActionMap.put(HOLD_DOT2_SWIPE_UP_TWO_FINGERS, SELECT_PREVIOUS_WORD);

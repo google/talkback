@@ -20,6 +20,7 @@ import android.accessibilityservice.AccessibilityService;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -127,5 +128,11 @@ public class KeyboardUtils {
       }
     }
     return new ArrayList<>();
+  }
+
+  /** Returns current input method. */
+  public static String getCurrentInputMethod(Context context) {
+    return Settings.Secure.getString(
+        context.getContentResolver(), Settings.Secure.DEFAULT_INPUT_METHOD);
   }
 }

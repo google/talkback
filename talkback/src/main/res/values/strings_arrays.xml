@@ -3,24 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="InconsistentArrays">
 
-  <!-- The texts are in scrollable list views for the tutorial scrolling page. [CHAR_LIMIT=NONE]-->
-  <string-array name="tutorial_scrolling_items">
+  <!-- The texts are titles in scrollable list views for the tutorial scrolling page. [CHAR_LIMIT=NONE]-->
+  <string-array name="tutorial_scrolling_item_titles" translatable="false">
     <!-- The first item. [CHAR_LIMIT=NONE]-->
-    <item>Item 1</item>
+    <item>@string/scrolling_item_text</item>
     <!-- The second item. [CHAR_LIMIT=NONE]-->
-    <item>Item 2</item>
+    <item>@string/scrolling_item_text</item>
     <!-- The third item. [CHAR_LIMIT=NONE]-->
-    <item>Item 3</item>
-    <!-- The fourth item. [CHAR_LIMIT=NONE]-->
-    <item>Item 4</item>
-    <!-- The fifth item. [CHAR_LIMIT=NONE]-->
-    <item>Item 5</item>
-    <!-- The sixth item. [CHAR_LIMIT=NONE]-->
-    <item>Item 6</item>
-    <!-- The seventh item. [CHAR_LIMIT=NONE]-->
-    <item>Item 7</item>
-    <!-- The eighth item. [CHAR_LIMIT=NONE]-->
-    <item>Item 8</item>
+    <item>@string/scrolling_item_text</item>
   </string-array>
-
 </resources>

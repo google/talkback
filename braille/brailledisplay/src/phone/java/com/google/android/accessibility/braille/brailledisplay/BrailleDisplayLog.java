@@ -16,45 +16,48 @@
 
 package com.google.android.accessibility.braille.brailledisplay;
 
+import com.google.android.accessibility.braille.common.BrailleLog;
 import com.google.android.accessibility.utils.BuildConfig;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Log handler which unifies logging under a single, BrailleDisplay-specific tag. */
-public class BrailleDisplayLog {
-  private static final String LOG_TAG = "BrailleDisplay";
+public final class BrailleDisplayLog {
   public static final boolean DEBUG = BuildConfig.DEBUG;
+  private static final String TAG = "BrailleDisplay";
+
+  /** Logs at Android "verbose" level. */
+  public static void v(String tag, String message) {
+    BrailleLog.v(TAG, tag, message);
+  }
+
+  /** Logs at Android "debug" level. */
+  public static void d(String tag, String message) {
+    BrailleLog.d(TAG, tag, message);
+  }
+
+  /** Logs at Android "information" level. */
+  public static void i(String tag, String message) {
+    BrailleLog.i(TAG, tag, message);
+  }
+
+  /** Logs at Android "warning" level. */
+  public static void w(String tag, String message) {
+    BrailleLog.w(TAG, tag, message);
+  }
+
+  /** Logs at Android "warning" level with {@code Throwable}. */
+  public static void w(String tag, String message, Throwable throwable) {
+    BrailleLog.w(TAG, tag, message, throwable);
+  }
+
+  /** Logs at Android "error" level with {@code Throwable}. */
+  public static void e(String tag, String message, Throwable throwable) {
+    BrailleLog.e(TAG, tag, message, throwable);
+  }
+
+  /** Logs at Android "error" level. */
+  public static void e(String tag, String message) {
+    BrailleLog.e(TAG, tag, message);
+  }
 
   private BrailleDisplayLog() {}
-
-  public static int getLogLevel() {
-    return LogUtils.getLogLevel();
-  }
-
-  public static void v(String tag, String message) {
-    LogUtils.v(LOG_TAG, "%s: %s", tag, message);
-  }
-
-  public static void d(String tag, String message) {
-    LogUtils.d(LOG_TAG, "%s: %s", tag, message);
-  }
-
-  public static void i(String tag, String message) {
-    LogUtils.i(LOG_TAG, "%s: %s", tag, message);
-  }
-
-  public static void w(String tag, String message) {
-    LogUtils.w(LOG_TAG, "%s: %s", tag, message);
-  }
-
-  public static void w(String tag, String message, Throwable throwable) {
-    LogUtils.w(LOG_TAG, throwable, "%s: %s", tag, message);
-  }
-
-  public static void e(String tag, String message, Throwable throwable) {
-    LogUtils.e(LOG_TAG, throwable, "%s: %s", tag, message);
-  }
-
-  public static void e(String tag, String message) {
-    LogUtils.e(LOG_TAG, (Throwable) null, "%s: %s", tag, message);
-  }
 }

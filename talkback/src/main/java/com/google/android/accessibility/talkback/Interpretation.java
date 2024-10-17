@@ -49,6 +49,7 @@ public abstract class Interpretation {
       SCROLL_CANCEL_TIMEOUT,
       CONTINUOUS_READ_CONTENT_FOCUSED,
       CONTINUOUS_READ_INTERRUPT,
+      CONTINUOUS_READ_IGNORE,
       STATE_CHANGE,
       PASS_THROUGH_INTERACTION_START,
       PASS_THROUGH_INTERACTION_END,
@@ -113,6 +114,51 @@ public abstract class Interpretation {
           "Power{",
           StringBuilderUtils.optionalTag("connected", connected),
           StringBuilderUtils.optionalInt("percent", percent, BatteryMonitor.UNKNOWN_LEVEL),
+          "}");
+    }
+  }
+
+  /** Interpretation sub-type for heads-up notification appearances and disappearances. */
+  public static final class HeadsUpNotificationChange extends Interpretation {
+    private @Nullable AccessibilityNodeInfoCompat headsUpNotification;
+
+    public HeadsUpNotificationChange(@Nullable AccessibilityNodeInfoCompat node) {
+      if (node != null) {
+        this.headsUpNotification = AccessibilityNodeInfoCompat.obtain(node);
+      }
+    }
+
+    /** Returns the node representing the heads-up notification. */
+    public AccessibilityNodeInfoCompat getHeadsUpNotification() {
+      return headsUpNotification;
+    }
+
+    /** Returns {@code true} if the guess is not null. Otherwise, this is a disappearance. */
+    public boolean isHeadsUpAppearance() {
+      return headsUpNotification != null;
+    }
+
+    @Override
+    public boolean equals(Object otherObject) {
+      @Nullable HeadsUpNotificationChange other =
+          castOrNull(otherObject, HeadsUpNotificationChange.class);
+
+      return (other != null)
+          && ((this.headsUpNotification == null && other.headsUpNotification == null)
+              || (this.headsUpNotification != null
+                  && this.headsUpNotification.equals(other.headsUpNotification)));
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(headsUpNotification);
+    }
+
+    @Override
+    public String toString() {
+      return StringBuilderUtils.joinFields(
+          "HeadsUpNotificationChange{",
+          StringBuilderUtils.optionalSubObj("node", headsUpNotification),
           "}");
     }
   }
@@ -300,7 +346,7 @@ public abstract class Interpretation {
       VOICE_COMMAND_REPEAT_SEARCH,
       VOICE_COMMAND_FIND,
       VOICE_COMMAND_START_AT_TOP,
-      VOICE_COMMAND_START_AT_NEXT,
+      VOICE_COMMAND_START_AT_CURSOR,
       VOICE_COMMAND_COPY_LAST_SPOKEN_UTTERANCE,
       VOICE_COMMAND_FIRST,
       VOICE_COMMAND_LAST,

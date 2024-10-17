@@ -114,14 +114,12 @@ public class FocusActionRecord {
   }
 
   /** Returns the stored unique id which is created in the FocusActionRecord constructor. */
-  @Nullable
-  public String getUniqueId() {
+  public @Nullable String getUniqueId() {
     return uniqueId;
   }
 
   /** Returns a copied instance of another FocusActionRecord. */
-  @Nullable
-  public static FocusActionRecord copy(FocusActionRecord record) {
+  public static @Nullable FocusActionRecord copy(FocusActionRecord record) {
     if (record == null) {
       return null;
     }
@@ -148,8 +146,7 @@ public class FocusActionRecord {
    * Returns the last focused node in {@code window} if it's still valid on screen with same unique
    * identifier, otherwise returns focusable node with the same position.
    */
-  @Nullable
-  public static AccessibilityNodeInfoCompat getFocusableNodeFromFocusRecord(
+  public static @Nullable AccessibilityNodeInfoCompat getFocusableNodeFromFocusRecord(
       @Nullable AccessibilityNodeInfoCompat root,
       @NonNull FocusFinder focusFinder,
       @NonNull FocusActionRecord focusActionRecord) {

@@ -28,8 +28,10 @@ import android.content.Context;
 import android.os.Build;
 import android.view.MotionEvent;
 import androidx.annotation.RequiresApi;
+import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.common.collect.ImmutableList;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,7 @@ public class GestureManifold implements GestureMatcher.StateChangeListener {
   public static final boolean ENABLE_MULTIPLE_GESTURE_SETS = false;
   public static final int GESTURE_TAP_HOLD_AND_2ND_FINGER_FORWARD_DOUBLE_TAP = -4;
   public static final int GESTURE_TAP_HOLD_AND_2ND_FINGER_BACKWARD_DOUBLE_TAP = -5;
+  public static final int GESTURE_TOUCH_EXPLORE = -6;
 
   private static final String LOG_TAG = "GestureManifold";
 
@@ -60,6 +63,7 @@ public class GestureManifold implements GestureMatcher.StateChangeListener {
   // A list of two-finger swipes, for easy adding and removal when turning on or off two-finger
   // passthrough.
   private final List<GestureMatcher> twoFingerSwipes = new ArrayList<>();
+  private boolean logMotionEvent = false;
 
   public GestureManifold(
       Context context, Listener listener, int displayId, ImmutableList<String> supportGestureList) {
@@ -109,6 +113,13 @@ public class GestureManifold implements GestureMatcher.StateChangeListener {
     }
   }
 
+  public void enableLogMotionEvent() {
+    logMotionEvent = true;
+    for (GestureMatcher gestureDetector : gestures) {
+      gestureDetector.enableLogMotionEvent();
+    }
+  }
+
   /**
    * Processes a motion event.
    *
@@ -116,12 +127,18 @@ public class GestureManifold implements GestureMatcher.StateChangeListener {
    * @return True if the event has been appropriately handled by the gesture manifold and related
    *     callback functions, false if it should be handled further by the calling function.
    */
-  public boolean onMotionEvent(MotionEvent event) {
+  @CanIgnoreReturnValue
+  public boolean onMotionEvent(EventId eventId, MotionEvent event) {
     for (GestureMatcher matcher : gestures) {
       if (matcher.getState() != GestureMatcher.STATE_GESTURE_CANCELED) {
-        LogUtils.v(LOG_TAG, matcher.toString());
-        matcher.onMotionEvent(event);
-        LogUtils.v(LOG_TAG, matcher.toString());
+        if (logMotionEvent) {
+          LogUtils.v(LOG_TAG, matcher.toString());
+        }
+        matcher.onMotionEvent(eventId, event);
+        if (logMotionEvent) {
+          LogUtils.v(LOG_TAG, matcher.toString());
+        }
+
         if (matcher.getState() == GestureMatcher.STATE_GESTURE_COMPLETED) {
           // Here we just return. The actual gesture dispatch is done in
           // onStateChanged().

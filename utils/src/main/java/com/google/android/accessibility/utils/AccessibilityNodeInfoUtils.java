@@ -16,12 +16,19 @@
 
 package com.google.android.accessibility.utils;
 
+import static android.text.InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS;
 import static com.google.android.accessibility.utils.AccessibilityWindowInfoUtils.WINDOW_TYPE_NONE;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_FAIL_ALL_FOCUS_TESTS;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_SPEAKABLE;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_VISIBLE;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_SAME_WINDOW_BOUNDS_CHILDREN;
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.NONE;
+import static com.google.android.accessibility.utils.Role.ROLE_GRID;
+import static com.google.android.accessibility.utils.Role.ROLE_HORIZONTAL_SCROLL_VIEW;
+import static com.google.android.accessibility.utils.Role.ROLE_LIST;
+import static com.google.android.accessibility.utils.Role.ROLE_PAGER;
+import static com.google.android.accessibility.utils.Role.ROLE_SCROLL_VIEW;
+import static com.google.android.accessibility.utils.Role.ROLE_WEB_VIEW;
 
 import android.content.Context;
 import android.graphics.Point;
@@ -30,6 +37,7 @@ import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.LocaleList;
 import android.os.Parcelable;
+import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -37,7 +45,6 @@ import android.text.style.ClickableSpan;
 import android.text.style.SuggestionSpan;
 import android.text.style.URLSpan;
 import android.util.Pair;
-import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import android.view.accessibility.AccessibilityNodeInfo.CollectionItemInfo;
@@ -59,6 +66,7 @@ import com.google.auto.value.AutoValue;
 import com.google.common.base.Function;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.google.errorprone.annotations.FormatMethod;
 import com.google.errorprone.annotations.FormatString;
 import java.util.ArrayDeque;
@@ -69,7 +77,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Pattern;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -119,13 +126,17 @@ public class AccessibilityNodeInfoUtils {
   private static final Pattern RESOURCE_NAME_SPLIT_PATTERN = Pattern.compile(":id/");
 
   /** Class used to find clickable-spans in text. */
-  public static final Class<?> TARGET_SPAN_CLASS = ClickableSpan.class;
+  public static final Class<? extends ClickableSpan> BASE_CLICKABLE_SPAN = ClickableSpan.class;
 
   // Used to identify keys from the pin password keyboard used to unlock the screen.
   private static final Pattern PIN_KEY_PATTERN =
       Pattern.compile("com.android.systemui:id/key\\d{0,9}");
 
   private static final String VIEW_ID_RESOURCE_NAME_PIN_ENTRY = "com.android.systemui:id/pinEntry";
+
+  @VisibleForTesting
+  static final String VIEW_ID_WEAR_UNREAD_NOTIFICATION_DOT =
+      "com.google.android.wearable.sysui:id/unread_dot";
 
   @VisibleForTesting static final int THRESHOLD_HEIGHT_DP_FOR_SMALL_NODE = 32;
 
@@ -222,6 +233,26 @@ public class AccessibilityNodeInfoUtils {
         @Override
         public boolean accept(AccessibilityNodeInfoCompat node) {
           return (node != null) && isHeading(node);
+        }
+      };
+
+  private static final ImmutableSet<Integer> CONTAINER_ROLES =
+      ImmutableSet.of(
+          ROLE_LIST,
+          ROLE_GRID,
+          ROLE_PAGER,
+          ROLE_SCROLL_VIEW,
+          ROLE_HORIZONTAL_SCROLL_VIEW,
+          ROLE_WEB_VIEW);
+
+  /** Filter for container. */
+  public static final Filter<AccessibilityNodeInfoCompat> FILTER_CONTAINER =
+      new Filter<AccessibilityNodeInfoCompat>() {
+        @Override
+        public boolean accept(AccessibilityNodeInfoCompat node) {
+          return node != null
+              && (CONTAINER_ROLES.contains(Role.getRole(node))
+                  || !TextUtils.isEmpty(node.getContainerTitle()));
         }
       };
 
@@ -345,8 +376,8 @@ public class AccessibilityNodeInfoUtils {
       new Filter<AccessibilityNodeInfoCompat>() {
         @Override
         public boolean accept(AccessibilityNodeInfoCompat node) {
-          return SpannableTraversalUtils.hasTargetSpanInNodeTreeDescription(
-              node, TARGET_SPAN_CLASS);
+          return SpannableTraversalUtils.hasTargetClickableSpanInNodeTree(
+              node, BASE_CLICKABLE_SPAN);
         }
       };
 
@@ -814,9 +845,9 @@ public class AccessibilityNodeInfoUtils {
     // Note: A special case exists for unlabeled buttons which otherwise wouldn't get focus.
     if (accessibilityFocusable) {
       visitedNodes.clear();
-      // TODO: This may still result in focusing non-speaking nodes, but it
-      // won't prevent unlabeled buttons from receiving focus.
-      if (!canKeepSearchChildren(node)) {
+      // For TalkBack labeling feature, but this may still result in focusing non-speaking nodes.
+      // We should try to narrow down the check to close to TalkBackLabelManager#needsLabel.
+      if (node.getChildCount() == 0) {
         logShouldFocusNode(
             checkChildren, NONE, "Focus, is focusable and cannot keep search children: ", node);
         return true;
@@ -944,7 +975,8 @@ public class AccessibilityNodeInfoUtils {
    * Returns whether a node has children that are not actionable/focusable but should be spoken.
    *
    * <p>This is done by ignoring any children nodes that are actionable/focusable, and checking the
-   * remaining for speaking ability.
+   * remaining for speaking ability. Also considers offscreen/invisible children which are
+   * non-actionable but which have speakable text.
    *
    * @param node the node to check
    * @param speakingNodesCache the cache that holds the speaking results for visited nodes
@@ -999,31 +1031,40 @@ public class AccessibilityNodeInfoUtils {
       }
     }
 
-    LogUtils.v(TAG, "Does not have non-actionable speaking children");
-    return false;
+    LogUtils.v(TAG, "Does not have non-actionable speaking children. Examining invisible children");
+    return hasInvisibleNonActionableSpeakingChildren(node, childCount);
   }
 
-  private static boolean canKeepSearchChildren(@NonNull AccessibilityNodeInfoCompat node) {
-    return hasVisibleChildren(node) || hasChildrenForWear(node);
-  }
+  private static boolean hasInvisibleNonActionableSpeakingChildren(
+      AccessibilityNodeInfoCompat node, int childCount) {
+    // We don't want the presence of invisible children to lead to focus being set on a scrollable
+    // parent that is capable of showing partially-visible data.
+    if (FILTER_AUTO_SCROLL.accept(node)) {
+      return false;
+    }
 
-  private static boolean hasVisibleChildren(@NonNull AccessibilityNodeInfoCompat node) {
-    int childCount = node.getChildCount();
-    for (int i = 0; i < childCount; ++i) {
-      AccessibilityNodeInfoCompat child = node.getChild(i);
-      if (child != null && child.isVisibleToUser()) {
+    // We look at invisible children and return true if an invisible child is non-actionable and
+    // has associated text. Without this check, a parent would be considered unfocusable, and this
+    // would cause ACTION_SHOW_ON_SCREEN to fail when the non-actionable/speakable child nodes of
+    // a container are offscreen.
+    AccessibilityNodeInfoCompat child;
+    for (int i = 0; i < childCount; i++) {
+      child = node.getChild(i);
+
+      if (child == null) {
+        LogUtils.v(TAG, "Child %d is null, skipping it", i);
+        continue;
+      }
+
+      if (!child.isVisibleToUser()
+          && hasText(child)
+          && !(child.isScreenReaderFocusable() || isActionableForAccessibility(child))) {
+        LogUtils.v(
+            TAG, "Non-actionable invisible node with text found (child %d, %s)", i, printId(node));
         return true;
       }
     }
-
     return false;
-  }
-
-  private static boolean hasChildrenForWear(@NonNull AccessibilityNodeInfoCompat node) {
-    int childCount = node.getChildCount();
-    // While scrolling on Wear, the children could be null even though the count is larger than 0.
-    // In this case, we don't want to put focus on this parent and will try to keep searching.
-    return FormFactorUtils.getInstance().isAndroidWear() && childCount > 0;
   }
 
   public static int countVisibleChildren(@Nullable AccessibilityNodeInfoCompat node) {
@@ -1233,6 +1274,19 @@ public class AccessibilityNodeInfoUtils {
         && PIN_KEY_PATTERN.matcher(viewIdResourceName).matches();
   }
 
+  // TODO: Discuss with framework owner to make unread notification context available
+  //  to the app side.
+  /**
+   * Checks whether the node is the unread notification dot on the wearable sysUI.
+   *
+   * @param node the node to check
+   * @return {@code true} if the node is the unread notification dot on the wearable sysUI.
+   */
+  public static boolean isWearUnreadNotificationDot(@Nullable AccessibilityNodeInfoCompat node) {
+    return (node != null)
+        && TextUtils.equals(node.getViewIdResourceName(), VIEW_ID_WEAR_UNREAD_NOTIFICATION_DOT);
+  }
+
   /** Returns whether the node is the Pin edit field at unlock screen. */
   public static boolean isPinEntry(@Nullable AccessibilityNodeInfo node) {
     return isPinEntry(AccessibilityNodeInfoUtils.toCompat(node));
@@ -1240,7 +1294,7 @@ public class AccessibilityNodeInfoUtils {
 
   public static boolean isPinEntry(@Nullable AccessibilityNodeInfoCompat node) {
     return (node != null)
-        && Objects.equals(node.getViewIdResourceName(), VIEW_ID_RESOURCE_NAME_PIN_ENTRY);
+        && TextUtils.equals(node.getViewIdResourceName(), VIEW_ID_RESOURCE_NAME_PIN_ENTRY);
   }
 
   /**
@@ -2198,24 +2252,21 @@ public class AccessibilityNodeInfoUtils {
   /**
    * Gets a list of the clickable elements within a node.
    *
-   * @param node The node to get the elements from
-   * @param clickableType What type of clickable thing to look for within the node
-   * @param clickableElementFn A function taking the visual string representation and the clickable
-   *     portion of the clickable element that produces the desired format that will be displayable
-   *     to the user
-   * @param <E> The displayable format representation of the clickable element
-   * @return A list of clickable elements. Empty if there are none.
+   * @param node the node to get the clickable elements from
+   * @param clickableType the type of clickable span that we look for within the node
+   * @param clickableElementFn a function taking the visual string representation and the clickable
+   *     portion of the clickable element to produces the desired format that will be displayable to
+   *     the user
+   * @param <E> the displayable format representation of the clickable element
+   * @return a list of clickable elements, empty if there is none
    */
   private static <E> List<E> getNodeClickableElements(
       AccessibilityNodeInfoCompat node,
       Class<? extends ClickableSpan> clickableType,
       Function<Pair<String, ClickableSpan>, E> clickableElementFn) {
     List<SpannableString> spannableStrings = new ArrayList<>();
-    SpannableTraversalUtils.collectSpannableStringsWithTargetSpanInNodeDescriptionTree(
-        node, // Root node of description tree
-        clickableType, // Target span class
-        spannableStrings // List to collect spannable strings
-        );
+    SpannableTraversalUtils.getSpannableStringsWithTargetClickableSpanInNodeTree(
+        node, clickableType, spannableStrings);
 
     List<E> clickables = new ArrayList<>(1);
     for (SpannableString spannable : spannableStrings) {
@@ -2692,13 +2743,27 @@ public class AccessibilityNodeInfoUtils {
 
   /**
    * Returns a list of {@link SpellingSuggestion} for all {@link SuggestionSpan}s at the cursor
-   * position in the given {@link AccessibilityNodeInfoCompat}.
+   * position in the given {@link AccessibilityNodeInfoCompat} if the input method for the node is
+   * able to display spelling suggestions.
    *
    * @param node The node to check
    */
   public static ImmutableList<SpellingSuggestion> getSpellingSuggestions(
-      AccessibilityNodeInfoCompat node) {
-    if (node == null) {
+      Context context, AccessibilityNodeInfoCompat node) {
+    return getSpellingSuggestions(context, node, /* activeSpellCheck= */ true);
+  }
+
+  /**
+   * Returns a list of {@link SpellingSuggestion} for all {@link SuggestionSpan}s at the cursor
+   * position in the given {@link AccessibilityNodeInfoCompat} if the input method for the node is
+   * able to display spelling suggestions.
+   *
+   * @param node The node to check
+   * @param activeSpellCheck Perform in service spell check or not
+   */
+  public static ImmutableList<SpellingSuggestion> getSpellingSuggestions(
+      Context context, AccessibilityNodeInfoCompat node, boolean activeSpellCheck) {
+    if (node == null || hasNoSuggestionsNeed(node.getInputType())) {
       return ImmutableList.of();
     }
 
@@ -2710,7 +2775,7 @@ public class AccessibilityNodeInfoUtils {
       return ImmutableList.of();
     }
 
-    return getSpellingSuggestions(node, end);
+    return getSpellingSuggestions(context, node, end, activeSpellCheck);
   }
 
   /**
@@ -2720,17 +2785,21 @@ public class AccessibilityNodeInfoUtils {
    * @param node the node to check
    * @param cursorPosition index of the cursor position
    */
-  public static ImmutableList<SpellingSuggestion> getSpellingSuggestions(
-      AccessibilityNodeInfoCompat node, int cursorPosition) {
-    ImmutableList<SuggestionSpan> spans = getSuggestionSpans(node);
-    if (spans.isEmpty()) {
+  // common_typos_disable
+  private static ImmutableList<SpellingSuggestion> getSpellingSuggestions(
+      Context context,
+      AccessibilityNodeInfoCompat node,
+      int cursorPosition,
+      boolean activeSpellCheck) {
+    @Nullable CharSequence text =
+        activeSpellCheck ? SpellChecker.getTextWithSuggestionSpans(context, node) : node.getText();
+    List<SpellingSuggestion> spellingSuggestions = new ArrayList<>();
+    if (TextUtils.isEmpty(text) || !(text instanceof Spannable)) {
+      LogUtils.v(TAG, "getSpellingSuggestions() text is null or not a Spannable");
       return ImmutableList.of();
     }
 
-    List<SpellingSuggestion> spellingSuggestions = new ArrayList<>();
-    CharSequence text = node.getText();
     Spanned spannedText = (Spanned) text;
-
     // Returns the suggestion if just a space or punctuation is between the typo and the cursor.
     // For example: helllo,|
     if (cursorPosition > 0) {
@@ -2749,8 +2818,15 @@ public class AccessibilityNodeInfoUtils {
       }
     }
 
+    SuggestionSpan[] spans = spannedText.getSpans(0, text.length(), SuggestionSpan.class);
     StringBuilder logMessage =
-        new StringBuilder(String.format(Locale.ENGLISH, "suggestion_spans text=[%s]", text));
+        new StringBuilder(
+            String.format(
+                Locale.ENGLISH,
+                "cursor=[%d] suggestion_spans text=[%s] spans=[%d]",
+                cursorPosition,
+                text,
+                spans.length));
     // TODO: Uses stream to simplify it.
     for (SuggestionSpan span : spans) {
       int start = spannedText.getSpanStart(span);
@@ -2762,6 +2838,8 @@ public class AccessibilityNodeInfoUtils {
         // there is no suggestion that can be chosen.
         if (span.getSuggestions().length > 0) {
           spellingSuggestions.add(spellingSuggestion);
+        } else {
+          LogUtils.v(TAG, "%s no suggestion", text.subSequence(start, end));
         }
 
         logMessage.append("\n");
@@ -2773,17 +2851,24 @@ public class AccessibilityNodeInfoUtils {
     return ImmutableList.copyOf(spellingSuggestions);
   }
 
-  /** Returns the total number of typos which are in the edit field. */
-  public static int getTypoCount(AccessibilityNodeInfoCompat node) {
-    return getSuggestionSpans(node).size();
+  /**
+   * Returns the total number of typos which are in the edit field.
+   *
+   * @return 0, there is no typo or the input method for the node won't display spelling
+   *     suggestions.
+   */
+  public static int getTypoCount(Context context, AccessibilityNodeInfoCompat node) {
+    return getSuggestionSpans(context, node).size();
   }
 
   /**
    * Returns {@code true} if the given {@link AccessibilityNodeInfoCompat} text includes misspelled
-   * words which have spelling suggestions.
+   * words which have spelling suggestions and the input method for the node is able to display
+   * spelling suggestions.
    */
-  public static boolean hasSpellingSuggestionsForTypos(AccessibilityNodeInfoCompat node) {
-    ImmutableList<SuggestionSpan> spans = getSuggestionSpans(node);
+  public static boolean hasSpellingSuggestionsForTypos(
+      Context context, AccessibilityNodeInfoCompat node) {
+    ImmutableList<SuggestionSpan> spans = getSuggestionSpans(context, node);
     for (SuggestionSpan span : spans) {
       if (span.getSuggestions().length > 0) {
         return true;
@@ -2854,26 +2939,50 @@ public class AccessibilityNodeInfoUtils {
   }
 
   /**
-   * Returns a list of {@link SuggestionSpan} in the given {@link AccessibilityNodeInfoCompat} text.
+   * Returns a list of {@link SuggestionSpan} in the given {@link AccessibilityNodeInfoCompat} text
+   * or an empty list if the input method for the node won't display spelling suggestions.
    */
   private static ImmutableList<SuggestionSpan> getSuggestionSpans(
-      AccessibilityNodeInfoCompat node) {
+      Context context, AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return ImmutableList.of();
     }
+    return getSuggestionSpans(context, node.getText(), node.getInputType());
+  }
 
-    CharSequence text = node.getText();
-    if (TextUtils.isEmpty(text) || !(text instanceof Spanned)) {
+  /**
+   * Returns a list of {@link SuggestionSpan} in the given text or an empty list if the input type
+   * is no suggestion.
+   */
+  public static ImmutableList<SuggestionSpan> getSuggestionSpans(
+      Context context, @Nullable CharSequence text, int inputType) {
+    if (TextUtils.isEmpty(text) || hasNoSuggestionsNeed(inputType)) {
       return ImmutableList.of();
     }
 
-    Spanned spannedText = (Spanned) text;
-    SuggestionSpan[] spans = spannedText.getSpans(0, text.length(), SuggestionSpan.class);
+    @Nullable CharSequence textWithSuggestionSpans =
+        SpellChecker.getTextWithSuggestionSpans(context, text);
+    if (TextUtils.isEmpty(textWithSuggestionSpans)
+        || !(textWithSuggestionSpans instanceof Spannable)) {
+      return ImmutableList.of();
+    }
+
+    Spanned spannedText = (Spanned) textWithSuggestionSpans;
+    SuggestionSpan[] spans =
+        spannedText.getSpans(0, textWithSuggestionSpans.length(), SuggestionSpan.class);
     if (spans.length == 0) {
       return ImmutableList.of();
     }
 
     return ImmutableList.copyOf(spans);
+  }
+
+  /**
+   * Returns {@code true}, if the input method for the {@code node} won't display spelling
+   * suggestions.
+   */
+  private static boolean hasNoSuggestionsNeed(int input) {
+    return input == TYPE_TEXT_FLAG_NO_SUGGESTIONS;
   }
 
   private static boolean nodeMatchesAnyClassName(
@@ -2965,9 +3074,8 @@ public class AccessibilityNodeInfoUtils {
           start, end, misspelledWord, suggestionSpan);
     }
 
-    @NonNull
     @Override
-    public final String toString() {
+    public final @NonNull String toString() {
       StringBuilder suggestionsString =
           new StringBuilder()
               .append(

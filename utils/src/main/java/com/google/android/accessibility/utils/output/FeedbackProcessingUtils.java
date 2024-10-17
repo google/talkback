@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.utils.output;
 
-import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.TARGET_SPAN_CLASS;
+import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.BASE_CLICKABLE_SPAN;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -35,6 +35,7 @@ import android.text.style.LocaleSpan;
 import android.text.style.TtsSpan;
 import android.text.style.URLSpan;
 import androidx.annotation.VisibleForTesting;
+import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
 import com.google.android.accessibility.utils.SpannableUtils;
@@ -117,8 +118,8 @@ public class FeedbackProcessingUtils {
       breakSentence(feedbackItem);
     }
     addFormattingCharacteristics(context, feedbackItem, usePunctuation, removeUnnecessarySpans);
-    if (usePunctuation && aggressiveChunking) {
-      aggressiveChunking(feedbackItem);
+    if (usePunctuation) {
+      aggressiveChunking(feedbackItem, aggressiveChunking);
     }
     splitLongText(feedbackItem);
 
@@ -243,7 +244,11 @@ public class FeedbackProcessingUtils {
    * </ul>
    */
   @TargetApi(Build.VERSION_CODES.Q)
-  private static void aggressiveChunking(FeedbackItem item) {
+  private static void aggressiveChunking(FeedbackItem item, boolean aggressiveChunking) {
+    if (!BuildVersionUtils.isAtLeastQ()) {
+      // This method uses API beyond platform P.
+      return;
+    }
     // Position to insert the split fragment is always [i+1].
     boolean chunked = false;
     for (int i = 0; i < item.getFragments().size(); ++i, chunked = false) {
@@ -264,6 +269,10 @@ public class FeedbackProcessingUtils {
         if (!splitFeasible(spanAndRanges, end)) {
           end = boundary.next();
           continue;
+        }
+        item.addFlag(FeedbackItem.FLAG_CHUNKING_APPLIED);
+        if (!aggressiveChunking) {
+          return;
         }
         splitChunk(item, fragment, spanAndRanges, startOfUnsplitText, end, i + 1);
         startOfUnsplitText = end;
@@ -388,7 +397,7 @@ public class FeedbackProcessingUtils {
       int next;
       boolean isFirstFragment = true;
       for (int begin = 0; begin < len; begin = next) {
-        next = nextSpanTransition(spannable, begin, len, LocaleSpan.class, TARGET_SPAN_CLASS);
+        next = nextSpanTransition(spannable, begin, len, LocaleSpan.class, BASE_CLICKABLE_SPAN);
         // TTS would not speak punctuation normally. However, when a punctuation appears alone, TTS
         // has to speak it in some form(b/233322397). Here we append the trailing punctuation to the
         // clickable span to avoid this.
@@ -426,9 +435,19 @@ public class FeedbackProcessingUtils {
         }
         boolean isIdentifier =
             SpannableUtils.isWrappedWithTargetSpan(
-                subString, SpannableUtils.IdentifierSpan.class, /* shouldTrim= */ true);
+                subString.subSequence(0, 1),
+                SpannableUtils.IdentifierSpan.class,
+                /* shouldTrim= */ false);
+
         if (isIdentifier) {
-          continue;
+          if (subString.length() == 1) {
+            continue;
+          } else {
+            // Usually the character immediately after the separator is a SPACE. We can skipped
+            // such leading space in such case.
+            subString =
+                subString.subSequence((subString.charAt(1) == ' ') ? 2 : 1, subString.length());
+          }
         }
         if (isFirstFragment) {
           // This is the first new fragment, so we should reuse the old fragment.
@@ -458,8 +477,9 @@ public class FeedbackProcessingUtils {
     for (ParcelableSpan span : spans) {
       // LocaleSpan will also be removed, since it will be handled by
       // FeedbackFragment#setLocale(Locale).
-      if (span instanceof TtsSpan) {
-        // TtsSpan is necessary for TTS.
+      if (span instanceof TtsSpan || span instanceof SpannableUtils.IdentifierSpan) {
+        // TtsSpan is necessary for TTS; Identifier will keep until the performance latency is
+        // determined.
       } else {
         spannable.removeSpan(span);
       }

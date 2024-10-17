@@ -21,21 +21,29 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 
 import android.os.Looper;
 import android.os.Message;
+import android.os.SystemClock;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import com.google.android.accessibility.talkback.Interpretation.ID;
 import com.google.android.accessibility.talkback.Pipeline.InterpretationReceiver;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
+import com.google.android.accessibility.talkback.utils.TalkbackFeatureSupport;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
-import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.Supplier;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
+import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollTimeout;
 import com.google.android.accessibility.utils.monitor.DisplayMonitor;
 import com.google.android.accessibility.utils.monitor.DisplayMonitor.DisplayStateChangedListener;
+import com.google.android.accessibility.utils.output.ScrollActionRecord;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Interprets subtree-change event, and sends interpretations to the pipeline. */
 public class SubtreeChangeEventInterpreter
     implements AccessibilityEventListener, DisplayStateChangedListener {
+
+  private static final String TAG = "SubtreeChangeEventInterpreter";
+
   /**
    * The delay of interpreting subtree changed events. System may send a series of subtree changed
    * events in a short time, so defer the interpretation until the screen is under a stabler state.
@@ -61,11 +69,10 @@ public class SubtreeChangeEventInterpreter
   // default display should be on.
   private boolean defaultDisplayOn = true;
   private final DisplayMonitor displayMonitor;
+  private Supplier<ScrollActionRecord> scrollActorState;
 
   /** Event types that are handled by SubtreeChangeEventInterpreter. */
   private final int maskEventType;
-
-  private final FormFactorUtils formFactorUtils;
 
   public SubtreeChangeEventInterpreter(
       ScreenStateMonitor.State state, DisplayMonitor displayMonitor) {
@@ -73,10 +80,8 @@ public class SubtreeChangeEventInterpreter
     screenState = state;
     this.displayMonitor = displayMonitor;
 
-    formFactorUtils = FormFactorUtils.getInstance();
-
     maskEventType =
-        formFactorUtils.isAndroidWear()
+        TalkbackFeatureSupport.supportMultipleAutoScroll()
             ? AccessibilityEvent.TYPE_VIEW_SCROLLED | AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED
             : AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED;
   }
@@ -91,6 +96,10 @@ public class SubtreeChangeEventInterpreter
 
   public void setPipeline(InterpretationReceiver pipeline) {
     subtreeChangedHandler.setPipeline(pipeline);
+  }
+
+  public void setActorState(Supplier<ScrollActionRecord> scrollActorState) {
+    this.scrollActorState = scrollActorState;
   }
 
   @Override
@@ -134,13 +143,16 @@ public class SubtreeChangeEventInterpreter
   }
 
   /**
-   * Extends the message delayed time to {@link #LONG_SUBTREE_CHANGED_DELAY_MS} for a wear device's
-   * {@link AccessibilityEvent#TYPE_VIEW_SCROLLED} event to check whether their is a subsequent
-   * scrolling action. Besides, if the delay time is extended, we don't change the delay time while
-   * receiving other events types.
+   * Extends the message delayed time to {@link #LONG_SUBTREE_CHANGED_DELAY_MS} for {@link
+   * AccessibilityEvent#TYPE_VIEW_SCROLLED} events from the device which supports multiple auto
+   * scroll to check whether there is a subsequent scrolling action. Besides, if the delay time is
+   * extended, we don't change the delay time while receiving other events types.
    */
   private void extendSubtreeChangedDelayMsIfNeeded(AccessibilityEvent event) {
-    if (formFactorUtils.isAndroidWear()
+    // TODO: Clean the ScrollActionRecord after we successfully handle it.
+    //  After it is fixed, we will extend subtreeChangedDelayMs only when the ScrollActionRecord
+    //  is not null.
+    if (TalkbackFeatureSupport.supportMultipleAutoScroll()
         && (event.getEventType() & AccessibilityEvent.TYPE_VIEW_SCROLLED) != 0) {
       subtreeChangedDelayMs = LONG_SUBTREE_CHANGED_DELAY_MS;
     }
@@ -177,6 +189,13 @@ public class SubtreeChangeEventInterpreter
       }
 
       if (msg.what == MSG_CHECK_ACCESSIBILITY_FOCUS) {
+
+        if (shouldKeepDelayMessage(parent.scrollActorState.get())) {
+          LogUtils.i(TAG, "Keep delaying because we have a new auto scroll action.");
+          sendEmptyMessageDelayed(MSG_CHECK_ACCESSIBILITY_FOCUS, parent.subtreeChangedDelayMs);
+          return;
+        }
+
         EventId eventId = EVENT_ID_UNTRACKED;
         if (msg.obj != null && msg.obj instanceof EventId) {
           eventId = (EventId) msg.obj;
@@ -188,6 +207,17 @@ public class SubtreeChangeEventInterpreter
 
     void setPipeline(InterpretationReceiver pipeline) {
       this.pipeline = pipeline;
+    }
+
+    private boolean shouldKeepDelayMessage(ScrollActionRecord scrollActionRecord) {
+      // TODO: Clean the ScrollActionRecord after we successfully handle it.
+      //  After it is fixed, this logic will be much more meaningful because scrollActionRecord will
+      //  be not null only when auto-scrolling is in progress. That's, we only keep delaying message
+      //  while auto-scrolling.
+      return TalkbackFeatureSupport.supportMultipleAutoScroll()
+          && scrollActionRecord != null
+          && SystemClock.uptimeMillis() - scrollActionRecord.autoScrolledTime
+              < ScrollTimeout.SCROLL_TIMEOUT_LONG.getTimeoutMillis();
     }
   }
 }

@@ -498,7 +498,7 @@ public class AccessibilityEventUtils {
         StringBuilderUtils.optionalSubObj("ParcelableData", event.getParcelableData()));
   }
 
-  private static String contentChangeTypesToString(int flags) {
+  public static String contentChangeTypesToString(int flags) {
     return flagsToString(flags, AccessibilityEventUtils::singleContentChangeTypeToString);
   }
 
@@ -544,6 +544,18 @@ public class AccessibilityEventUtils {
         return "CONTENT_CHANGE_TYPE_PANE_APPEARED";
       case AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_DISAPPEARED:
         return "CONTENT_CHANGE_TYPE_PANE_DISAPPEARED";
+      case AccessibilityEvent.CONTENT_CHANGE_TYPE_DRAG_STARTED:
+        return "CONTENT_CHANGE_TYPE_DRAG_STARTED";
+      case AccessibilityEvent.CONTENT_CHANGE_TYPE_DRAG_DROPPED:
+        return "CONTENT_CHANGE_TYPE_DRAG_DROPPED";
+      case AccessibilityEvent.CONTENT_CHANGE_TYPE_DRAG_CANCELLED:
+        return "CONTENT_CHANGE_TYPE_DRAG_CANCELLED";
+      case AccessibilityEvent.CONTENT_CHANGE_TYPE_CONTENT_INVALID:
+        return "CONTENT_CHANGE_TYPE_CONTENT_INVALID";
+      case AccessibilityEvent.CONTENT_CHANGE_TYPE_ERROR:
+        return "CONTENT_CHANGE_TYPE_ERROR";
+      case AccessibilityEvent.CONTENT_CHANGE_TYPE_ENABLED:
+        return "CONTENT_CHANGE_TYPE_ENABLED";
       default:
         return Integer.toHexString(type);
     }

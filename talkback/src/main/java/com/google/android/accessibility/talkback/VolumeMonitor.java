@@ -17,9 +17,9 @@
 package com.google.android.accessibility.talkback;
 
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
+import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_SOURCE_IS_VOLUME_CONTROL;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -28,16 +28,23 @@ import android.os.Message;
 import android.telephony.TelephonyManager;
 import android.util.SparseIntArray;
 import androidx.annotation.VisibleForTesting;
+import com.google.android.accessibility.talkback.Feedback.Speech;
+import com.google.android.accessibility.talkback.Feedback.Speech.Action;
 import com.google.android.accessibility.talkback.monitor.CallStateMonitor;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
+import com.google.android.accessibility.utils.broadcast.SameThreadBroadcastReceiver;
 import com.google.android.accessibility.utils.compat.media.AudioManagerCompatUtils;
+import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
+import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Listens for and responds to volume changes. */
-public class VolumeMonitor extends BroadcastReceiver {
+public class VolumeMonitor extends SameThreadBroadcastReceiver {
 
   private static final String TAG = "VolumeMonitor";
 
@@ -54,6 +61,9 @@ public class VolumeMonitor extends BroadcastReceiver {
     STREAM_NAMES.put(AudioManager.STREAM_ACCESSIBILITY, R.string.value_stream_accessibility);
   }
 
+  /** The number of times to speak the accessibility volume control hint. */
+  private static final int A11Y_VOLUME_CONTROL_HINT_TIMES = 3;
+
   /** Keep track of adjustments made by this class. */
   private final SparseIntArray selfAdjustments = new SparseIntArray(10);
 
@@ -68,6 +78,12 @@ public class VolumeMonitor extends BroadcastReceiver {
   /** The stream type currently being controlled. */
   private int currentStream = -1;
 
+  /**
+   * Performance optimization for checking whether we should hint how to control a11y volume as
+   * getA11yVolumeControlHintTimes() reads from storage and can be time consuming.
+   */
+  private boolean hintA11yVolumeControl = true;
+
   /** Creates and initializes a new volume monitor. */
   public VolumeMonitor(
       Pipeline.FeedbackReturner pipeline, Context context, CallStateMonitor callStateMonitor) {
@@ -80,6 +96,7 @@ public class VolumeMonitor extends BroadcastReceiver {
     // TODO: See if many objects use the same system services and get them once
     audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
     this.callStateMonitor = callStateMonitor;
+    this.hintA11yVolumeControl = FeatureSupport.hasAccessibilityAudioStream(context);
   }
 
   public IntentFilter getFilter() {
@@ -116,7 +133,14 @@ public class VolumeMonitor extends BroadcastReceiver {
 
     if (FeatureSupport.hasAccessibilityAudioStream(context)
         && streamType == AudioManager.STREAM_ACCESSIBILITY) {
-      cacheAccessibilityStreamVolume();
+      if (getCachedAccessibilityStreamVolume() != volume) {
+        cacheAccessibilityStreamVolume();
+        SharedPreferencesUtils.putIntPref(
+            SharedPreferencesUtils.getSharedPreferences(context),
+            context.getResources(),
+            R.string.pref_a11y_volume_key,
+            volume);
+      }
     }
 
     if (currentStream < 0) {
@@ -158,7 +182,65 @@ public class VolumeMonitor extends BroadcastReceiver {
       handler.post(() -> releaseControl());
       return;
     }
-    speakWithCompletion(text, utteranceCompleteRunnable, EVENT_ID_UNTRACKED);
+    speakWithCompletion(text, streamType, utteranceCompleteRunnable, EVENT_ID_UNTRACKED);
+  }
+
+  private void internalSpeakA11yVolumeControlHint() {
+    if (!hintA11yVolumeControl) {
+      return;
+    }
+
+    int a11yVolumeControlHintTimes = getA11yVolumeControlHintTimes();
+    if (a11yVolumeControlHintTimes >= A11Y_VOLUME_CONTROL_HINT_TIMES) {
+      hintA11yVolumeControl = false;
+      return;
+    }
+
+    if ((callStateMonitor != null)
+        && (callStateMonitor.getCurrentCallState() != TelephonyManager.CALL_STATE_IDLE)) {
+      // If the phone is busy, don't speak anything.
+      return;
+    }
+
+    increaseAndStoreA11yVolumeControlHintTimes(a11yVolumeControlHintTimes);
+    // Let's speak the hint even if audio playback is active because the hint is only spoken for
+    // 3 times, we don't want users to miss it.
+    Speech.Builder speechBuilder =
+        Speech.builder()
+            .setAction(Action.SPEAK)
+            // Set text to space string, otherwise the hint will not be spoken until next speak.
+            .setText(" ")
+            .setHintSpeakOptions(
+                SpeakOptions.create()
+                    .setFlags(
+                        FeedbackItem.FLAG_NO_HISTORY
+                            | FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE))
+            .setHint(context.getString(R.string.hint_a11y_volume_control));
+    Feedback.Part.Builder part = Feedback.Part.builder().setSpeech(speechBuilder.build());
+    pipeline.returnFeedback(EVENT_ID_UNTRACKED, part);
+  }
+
+  private int getA11yVolumeControlHintTimes() {
+    int times =
+        SharedPreferencesUtils.getSharedPreferences(context)
+            .getInt(
+                context.getResources().getString(R.string.pref_a11y_volume_control_hint_times), 0);
+    if (times >= A11Y_VOLUME_CONTROL_HINT_TIMES) {
+      hintA11yVolumeControl = false;
+    }
+    return times;
+  }
+
+  private void increaseAndStoreA11yVolumeControlHintTimes(int times) {
+    times++;
+    SharedPreferencesUtils.putIntPref(
+        SharedPreferencesUtils.getSharedPreferences(context),
+        context.getResources(),
+        R.string.pref_a11y_volume_control_hint_times,
+        times);
+    if (times >= A11Y_VOLUME_CONTROL_HINT_TIMES) {
+      hintA11yVolumeControl = false;
+    }
   }
 
   public void cacheAccessibilityStreamVolume() {
@@ -235,7 +317,7 @@ public class VolumeMonitor extends BroadcastReceiver {
         getAnnouncementForStreamType(R.string.template_stream_volume_set, streamType);
 
     EventId eventId = EVENT_ID_UNTRACKED; // Delayed feedback occurs after normal feedback.
-    speakWithCompletion(text, utteranceCompleteRunnable, eventId);
+    speakWithCompletion(text, streamType, utteranceCompleteRunnable, eventId);
   }
 
   /** Releases control of the stream. */
@@ -273,10 +355,14 @@ public class VolumeMonitor extends BroadcastReceiver {
    * should be quiet.
    *
    * @param text The text to speak.
+   * @param streamType The type of stream.
    * @param completedAction The action to run after speaking.
    */
   private void speakWithCompletion(
-      String text, SpeechController.UtteranceCompleteRunnable completedAction, EventId eventId) {
+      String text,
+      int streamType,
+      SpeechController.UtteranceCompleteRunnable completedAction,
+      EventId eventId) {
     if ((callStateMonitor != null)
         && (callStateMonitor.getCurrentCallState() != TelephonyManager.CALL_STATE_IDLE)) {
       // If the phone is busy, don't speak anything.
@@ -287,10 +373,31 @@ public class VolumeMonitor extends BroadcastReceiver {
     SpeechController.SpeakOptions speakOptions =
         SpeechController.SpeakOptions.create()
             .setQueueMode(SpeechController.QUEUE_MODE_QUEUE)
-            .setFlags(FLAG_SOURCE_IS_VOLUME_CONTROL)
+            .setFlags(
+                FLAG_SOURCE_IS_VOLUME_CONTROL | FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE)
             .setUtteranceGroup(SpeechController.UTTERANCE_GROUP_DEFAULT)
             .setCompletedAction(completedAction);
-    Feedback.Part.Builder part = Feedback.Part.builder().speech(text, speakOptions);
+    Speech.Builder speechBuilder =
+        Speech.builder().setAction(Action.SPEAK).setText(text).setOptions(speakOptions);
+
+    // Let's speak the hint even if audio playback is active because the hint is only spoken for
+    // 3 times, we don't want users to miss it.
+    if (hintA11yVolumeControl) {
+      int a11yVolumeControlHintTimes = getA11yVolumeControlHintTimes();
+      if ((a11yVolumeControlHintTimes < A11Y_VOLUME_CONTROL_HINT_TIMES)
+          && (streamType != SpeechController.DEFAULT_STREAM)) {
+        increaseAndStoreA11yVolumeControlHintTimes(a11yVolumeControlHintTimes);
+        speechBuilder
+            .setHintSpeakOptions(
+                SpeakOptions.create()
+                    .setFlags(
+                        FeedbackItem.FLAG_NO_HISTORY
+                            | FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE))
+            .setHint(context.getString(R.string.hint_a11y_volume_control));
+      }
+    }
+
+    Feedback.Part.Builder part = Feedback.Part.builder().setSpeech(speechBuilder.build());
     pipeline.returnFeedback(eventId, part);
   }
 
@@ -301,6 +408,11 @@ public class VolumeMonitor extends BroadcastReceiver {
    * @return The localized stream name.
    */
   private String getStreamName(int streamType) {
+    if (FormFactorUtils.getInstance().isAndroidTv()) {
+      // On TV, there is a single unified stream, therefore omit the stream name.
+      return "";
+    }
+
     final int resId = STREAM_NAMES.get(streamType);
     if (resId <= 0) {
       return "";
@@ -310,7 +422,7 @@ public class VolumeMonitor extends BroadcastReceiver {
   }
 
   @Override
-  public void onReceive(Context context, Intent intent) {
+  public void onReceiveIntent(Intent intent) {
     final String action = intent.getAction();
 
     if (AudioManagerCompatUtils.VOLUME_CHANGED_ACTION.equals(action)) {
@@ -354,7 +466,7 @@ public class VolumeMonitor extends BroadcastReceiver {
     final int currentVolume = audioManager.getStreamVolume(streamType) - minVolume;
 
     if (totalVolume != 0) {
-      int result = 100 * currentVolume / totalVolume;
+      int result = (int) Math.round(100f * currentVolume / totalVolume);
       if (result < 0) {
         result = 0;
       } else if (result > 100) {
@@ -386,6 +498,10 @@ public class VolumeMonitor extends BroadcastReceiver {
     return utteranceCompleteRunnable;
   }
 
+  public void onVolumeKeyPressed() {
+    handler.volumeButtonHintDelayed();
+  }
+
   /**
    * Handler class for the volume monitor. Transfers volume broadcasts to the service thread.
    * Maintains timeout actions, including volume control acquisition and release.
@@ -401,6 +517,7 @@ public class VolumeMonitor extends BroadcastReceiver {
     private static final int MSG_CONTROL = 2;
     private static final int MSG_RELEASE_CONTROL = 3;
     private static final int MSG_STREAM_MUTED = 4;
+    private static final int MSG_VOLUME_BUTTON_HINT = 5;
 
     public VolumeHandler(VolumeMonitor parent) {
       super(parent);
@@ -436,7 +553,13 @@ public class VolumeMonitor extends BroadcastReceiver {
             final int streamType = msg.arg1;
             final boolean mutedState = (boolean) msg.obj;
 
+            removeMessages(MSG_VOLUME_BUTTON_HINT);
             parent.internalOnStreamMuted(streamType, mutedState);
+            break;
+          }
+        case MSG_VOLUME_BUTTON_HINT:
+          {
+            parent.internalSpeakA11yVolumeControlHint();
             break;
           }
         default: // fall out
@@ -455,10 +578,19 @@ public class VolumeMonitor extends BroadcastReceiver {
       sendMessageDelayed(msg, RELEASE_CONTROL_TIMEOUT);
     }
 
+    public void volumeButtonHintDelayed() {
+      removeMessages(MSG_VOLUME_BUTTON_HINT);
+      final Message msg = obtainMessage(MSG_VOLUME_BUTTON_HINT);
+      sendMessageDelayed(msg, RELEASE_CONTROL_TIMEOUT);
+    }
+
     /** Clears the volume control release timeout. */
     public void clearReleaseControl() {
       removeMessages(MSG_CONTROL);
       removeMessages(MSG_RELEASE_CONTROL);
+      // When we announce the volume change, the a11y volume control hint will be in the volume
+      // value announcement.
+      removeMessages(MSG_VOLUME_BUTTON_HINT);
     }
 
     /**

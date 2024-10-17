@@ -22,14 +22,14 @@ import android.os.SystemClock;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
+import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
 import com.google.android.accessibility.talkback.Pipeline.SyntheticEvent;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.DelayHandler;
-import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Performance.EventIdAnd;
 import com.google.android.accessibility.utils.Supplier;
@@ -77,7 +77,8 @@ public class AutoScrollActor {
   // pipeline, with single delay-handler for all actors.
   private final DelayHandler<EventIdAnd<Boolean>> postDelayHandler;
 
-  private Pipeline.EventReceiver pipeline;
+  private Pipeline.EventReceiver pipelineReceiver;
+  private Pipeline.FeedbackReturner feedbackReturner;
 
   /**
    * Used as identifier at the next auto-scroll action. Each action is assigned with a unique
@@ -99,7 +100,11 @@ public class AutoScrollActor {
   @Nullable private ScrollActionRecord failedScrollActionRecord = null;
 
   public void setPipelineEventReceiver(Pipeline.EventReceiver pipeline) {
-    this.pipeline = pipeline;
+    this.pipelineReceiver = pipeline;
+  }
+
+  public void setPipeline(FeedbackReturner feedbackReturner) {
+    this.feedbackReturner = feedbackReturner;
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////
@@ -129,18 +134,29 @@ public class AutoScrollActor {
       int scrollAccessibilityAction,
       String scrollSource,
       ScrollTimeout scrollTimeout,
+      int autoScrollAttempt,
       EventId eventId) {
     if (node == null && nodeCompat == null) {
       return false;
     }
     long currentTime = SystemClock.uptimeMillis();
+
     boolean result =
-        ((node != null) && node.performAction(scrollAccessibilityAction, eventId))
-            || ((nodeCompat != null)
-                && PerformActionUtils.performAction(
-                    nodeCompat, scrollAccessibilityAction, eventId));
+        (node != null
+                && feedbackReturner.returnFeedback(
+                    eventId, Feedback.nodeAction(node, scrollAccessibilityAction)))
+            || (nodeCompat != null
+                && feedbackReturner.returnFeedback(
+                    eventId, Feedback.nodeAction(nodeCompat, scrollAccessibilityAction)));
     if (result) {
-      setScrollRecord(userAction, node, nodeCompat, scrollSource, currentTime, scrollTimeout);
+      setScrollRecord(
+          userAction,
+          node,
+          nodeCompat,
+          scrollSource,
+          currentTime,
+          scrollTimeout,
+          autoScrollAttempt);
     }
     LogUtils.d(
         TAG,
@@ -166,9 +182,17 @@ public class AutoScrollActor {
 
     long currentTime = SystemClock.uptimeMillis();
     boolean result =
-        PerformActionUtils.performAction(actionNodeCompat, ACTION_SHOW_ON_SCREEN.getId(), eventId);
+        feedbackReturner.returnFeedback(
+            eventId, Feedback.nodeAction(actionNodeCompat, ACTION_SHOW_ON_SCREEN.getId()));
     if (result) {
-      setScrollRecord(userAction, null, nodeCompat, scrollSource, currentTime, scrollTimeout);
+      setScrollRecord(
+          userAction,
+          /* node= */ null,
+          nodeCompat,
+          scrollSource,
+          currentTime,
+          scrollTimeout,
+          /* autoScrollAttempt= */ 0);
     }
     LogUtils.d(
         TAG,
@@ -189,8 +213,21 @@ public class AutoScrollActor {
       @Nullable AccessibilityNodeInfoCompat nodeCompat,
       String scrollSource,
       long currentTime,
-      ScrollTimeout scrollTimeout) {
-    final int scrollInstanceId = createScrollInstanceId();
+      ScrollTimeout scrollTimeout,
+      int autoScrollAttempt) {
+    int scrollInstanceId;
+    if (autoScrollAttempt > 0 && scrollActionRecord != null) {
+      scrollInstanceId = scrollActionRecord.scrollInstanceId;
+      LogUtils.i(
+          TAG,
+          "autoScrollAttempt=%d > 0 so keep scrollActionRecord=%d the same.",
+          autoScrollAttempt,
+          scrollInstanceId);
+    } else {
+      scrollInstanceId = createScrollInstanceId();
+      LogUtils.i(TAG, "new AutoScrollRecord with scrollActionRecord=%d", scrollInstanceId);
+    }
+
     setAutoScrollRecord(
         new ScrollActionRecord(
             scrollInstanceId, node, nodeCompat, userAction, currentTime, scrollSource));
@@ -217,11 +254,10 @@ public class AutoScrollActor {
     // Clear cached auto scroll record before invoking callback. REFERTO for detail.
     scrollActionRecord = null;
 
-    pipeline.input(SyntheticEvent.Type.SCROLL_TIMEOUT);
+    pipelineReceiver.input(SyntheticEvent.Type.SCROLL_TIMEOUT);
   }
 
-  @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-  public int createScrollInstanceId() {
+  private int createScrollInstanceId() {
     int scrollInstanceId = nextScrollInstanceId;
     nextScrollInstanceId++;
     if (nextScrollInstanceId < 0) {

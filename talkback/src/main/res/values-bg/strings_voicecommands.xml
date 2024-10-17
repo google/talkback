@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">четене</string>
-  <string name="voice_commands_read_from_next">Четене от следващия елемент</string>
+  <string name="voice_commands_read_from_next">Четене от курсора</string>
   <string name="voice_commands_edit_options">Опции за редактиране</string>
-  <string name="voice_commands_text_editing">Редакция на текст</string>
-  <string name="voice_commands_edit_text">Редактиране на текст</string>
-  <string name="voice_commands_editing_options">Опции за редакция</string>
   <string name="voice_commands_edit">редактиране</string>
   <string name="voice_commands_what">какво</string>
   <string name="voice_commands_say">кажете</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Етикет</string>
   <string name="voice_commands_cannot_label_feedback">Не може да се постави етикет</string>
   <string name="voice_commands_assistant">Асистент</string>
-  <string name="voice_commands_setting_speech_rate">Задаване на скорост на речта</string>
   <string name="voice_commands_first">Първи елемент</string>
   <string name="voice_commands_top">Начало</string>
   <string name="voice_commands_last">Последен елемент</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Увелич. на скоростта на говора</string>
   <string name="voice_commands_slower">По-бавна</string>
   <string name="voice_commands_decrease_speech_rate">забавяне на говора</string>
-  <string name="voice_commands_possible_options_title">Можете да кажете</string>
   <string name="voice_commands_no_action">Гласовият пряк път не се поддържа</string>
   <string name="voice_commands_no_mic_permissions">За да използвате тази функция, трябва да предоставите разрешение за използване на микрофона.</string>
   <string name="voice_commands_no_voice_recognition_ability">За съжаление, тази функция не е налице на устройството ви</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Няма следваща контрола</string>
   <string name="voice_commands_no_next_landmark_feedback">Няма следващо срещане</string>
   <string name="voice_commands_help_title">Общ преглед на гласовите команди</string>
-  <string name="voice_commands_help_description">За да използвате гласови команди, прекарайте пръст надясно и след това нагоре. Кажете „Help“ или „What can I say?“ по всяко време, за да видите този списък с команди.</string>
+  <string name="voice_commands_help_description">За да използвате гласови команди, прекарайте пръст надясно и след това нагоре. Кажете „%1$s“ или „Какво мога да кажа?“ по всяко време, за да видите този списък с команди.</string>
   <string name="voice_commands_help_hint">За най-добри резултати произнасяйте командите точно както са посочени на следващите екрани.</string>
   <string name="voice_command_screen_locked_hint">Гласовите команди не са налице, докато екранът е заключен. За да използвате менюто на TalkBack вместо това, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Гласовите команди не са налице по време на настройването.</string>

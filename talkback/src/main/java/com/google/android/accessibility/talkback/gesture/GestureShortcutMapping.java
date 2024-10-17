@@ -532,6 +532,8 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
   protected String actionReadingMenuUp;
   protected String actionReadingMenuDown;
   protected String actionShortcut;
+  protected String nextWindowShortcut;
+  protected String mediaControlShortcut;
 
   private final String actionGestureUnsupported;
 
@@ -541,11 +543,9 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
   private int currentGestureSet;
   private final SharedPreferences prefs;
   private int previousScreenLayout = 0;
-  private final List<HashMap<String, GestureCollector>> actionToGesture =
-      new ArrayList<HashMap<String, GestureCollector>>();
-  private final List<HashMap<Integer, String>> gestureIdToActionKey =
-      new ArrayList<HashMap<Integer, String>>();
-  private final HashMap<Integer, String> fingerprintGestureIdToActionKey = new HashMap<>();
+  private final List<HashMap<String, GestureCollector>> actionToGesture = new ArrayList<>();
+  private final List<HashMap<Integer, String>> gestureIdToActionKey = new ArrayList<>();
+  private HashMap<Integer, String> fingerprintGestureIdToActionKey = new HashMap<>();
 
   /** Reloads preferences whenever their values change. */
   private final OnSharedPreferenceChangeListener sharedPreferenceChangeListener =
@@ -581,6 +581,8 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         context.getString(R.string.shortcut_value_selected_setting_previous_action);
     actionReadingMenuDown = context.getString(R.string.shortcut_value_selected_setting_next_action);
     actionShortcut = context.getString(R.string.shortcut_value_show_custom_actions);
+    nextWindowShortcut = context.getString(R.string.shortcut_value_next_window);
+    mediaControlShortcut = context.getString(R.string.shortcut_value_media_control);
     prefs = SharedPreferencesUtils.getSharedPreferences(context);
     prefs.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
     loadGestureIdToActionKeyMap();
@@ -667,6 +669,18 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
   @Nullable
   public CharSequence actionsShortcut() {
     return getGestureFromActionKey(actionShortcut);
+  }
+
+  @Override
+  @Nullable
+  public CharSequence nextWindowShortcut() {
+    return getGestureFromActionKey(nextWindowShortcut);
+  }
+
+  @Override
+  @Nullable
+  public CharSequence mediaControlShortcut() {
+    return getGestureFromActionKey(mediaControlShortcut);
   }
 
   /**
@@ -807,15 +821,14 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
             + isMultiFingerOn
             + " isFingerprintOn : "
             + isFingerprintOn);
-    actionToGesture.clear();
-    gestureIdToActionKey.clear();
-    fingerprintGestureIdToActionKey.clear();
 
+    // We initialize the list in the first run and later only update its elements.
+    boolean isFirstRun = actionToGesture.isEmpty();
+
+    HashMap<Integer, String> newFingerPrintGestureIdToActionKey = new HashMap<>();
     for (int index = 0; index < NUMBER_OF_GESTURE_SET; index++) {
       HashMap<Integer, String> gestureIdToActionKeyMap = new HashMap<>();
       HashMap<String, GestureCollector> actionToGestureMap = new HashMap<>();
-      gestureIdToActionKey.add(gestureIdToActionKeyMap);
-      actionToGesture.add(actionToGestureMap);
       // Load TalkBack gestures.
       for (TalkBackGesture gesture : TalkBackGesture.values()) {
         // For some gestures, we have different behavior if the device is RTL. Skip the value of
@@ -861,7 +874,10 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
         // Load the mapping table of the gesture id to the action.
         if (gesture.gestureType == FINGERPRINT) {
           // Fingerprint gestures use another gesture id system.
-          fingerprintGestureIdToActionKey.put(gesture.gestureId, action);
+          newFingerPrintGestureIdToActionKey.put(
+              gesture.gestureId,
+              prefs.getString(
+                  context.getString(gesture.keyId), context.getString(gesture.defaultActionId)));
         } else {
           gestureIdToActionKeyMap.put(gesture.gestureId, action);
         }
@@ -872,7 +888,16 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
           GESTURE_FAKED_SPLIT_TYPING, context.getString(R.string.shortcut_value_split_typing));
       // Don't need to keep unassigned action in the map.
       actionToGestureMap.remove(actionUnassigned);
+
+      if (isFirstRun) {
+        gestureIdToActionKey.add(gestureIdToActionKeyMap);
+        actionToGesture.add(actionToGestureMap);
+      } else {
+        gestureIdToActionKey.set(index, gestureIdToActionKeyMap);
+        actionToGesture.set(index, actionToGestureMap);
+      }
     }
+    fingerprintGestureIdToActionKey = newFingerPrintGestureIdToActionKey;
   }
 
   private boolean skipGestureForRTL(TalkBackGesture gesture) {
@@ -901,6 +926,7 @@ public class GestureShortcutMapping implements GestureShortcutProvider {
       dumpLogger.log(
           "Gesture = %s, action = %s", getGestureString(context, entry.getKey()), entry.getValue());
     }
+    dumpLogger.log("");
   }
 
   /** Returns the corresponding action resource Id of action key. */

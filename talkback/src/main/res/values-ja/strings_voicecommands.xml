@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">読む</string>
-  <string name="voice_commands_read_from_next">次から読み上げ</string>
+  <string name="voice_commands_read_from_next">カーソルから読み上げる</string>
   <string name="voice_commands_edit_options">編集オプション</string>
-  <string name="voice_commands_text_editing">テキスト編集</string>
-  <string name="voice_commands_edit_text">テキストを編集</string>
-  <string name="voice_commands_editing_options">編集オプション</string>
   <string name="voice_commands_edit">編集</string>
   <string name="voice_commands_what">操作</string>
   <string name="voice_commands_say">音声コマンド</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ラベル</string>
   <string name="voice_commands_cannot_label_feedback">ラベルを作成できません</string>
   <string name="voice_commands_assistant">アシスタント</string>
-  <string name="voice_commands_setting_speech_rate">音声の速度を設定しています</string>
   <string name="voice_commands_first">最初</string>
   <string name="voice_commands_top">上</string>
   <string name="voice_commands_last">最後</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">読み上げ速度を上げる</string>
   <string name="voice_commands_slower">もっと遅く</string>
   <string name="voice_commands_decrease_speech_rate">読み上げ速度を下げる</string>
-  <string name="voice_commands_possible_options_title">使用可能な音声コマンド</string>
   <string name="voice_commands_no_action">音声ショートカットはサポートされていません</string>
   <string name="voice_commands_no_mic_permissions">この機能を使用するには、マイクを使用する権限を付与する必要があります。</string>
   <string name="voice_commands_no_voice_recognition_ability">この機能はお使いのデバイスではご利用いただけません</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">次のコントロールはありません</string>
   <string name="voice_commands_no_next_landmark_feedback">次のランドマークはありません</string>
   <string name="voice_commands_help_title">音声コマンドの概要</string>
-  <string name="voice_commands_help_description">音声コマンドを使用するには、右にスワイプしてから上にスワイプしてください。このコマンドリストは「ヘルプ」または「何と言えばいいですか」と言うことでいつでも確認できます。</string>
+  <string name="voice_commands_help_description">音声コマンドを使用するには、右にスワイプしてから上にスワイプしてください。このコマンドリストは「%1$s」または「何と言えばいいですか」と言うことでいつでも確認できます。</string>
   <string name="voice_commands_help_hint">次の画面に表示されるフレーズを正確に言うことをおすすめします。</string>
   <string name="voice_command_screen_locked_hint">画面がロックされている間は、音声コマンドは利用できません。代わりに TalkBack メニューを使用してください（%1$s）</string>
   <string name="voice_commands_during_setup_hint">セットアップ中は音声コマンドを使用できません。</string>

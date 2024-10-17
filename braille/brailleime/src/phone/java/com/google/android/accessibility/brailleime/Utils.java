@@ -22,7 +22,6 @@ import android.Manifest;
 import android.animation.ArgbEvaluator;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Paint;
@@ -32,7 +31,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.inputmethodservice.InputMethodService;
 import android.os.Build;
-import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -54,7 +52,6 @@ import androidx.annotation.ColorInt;
 import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.braille.common.ImeConnection;
-import java.util.Locale;
 import java.util.Optional;
 
 /** Static convenience methods for Braille Keyboard. */
@@ -214,20 +211,6 @@ public class Utils {
   }
 
   /**
-   * Attaches a Settings Highlight description {@link Bundle} with the given {@link Intent}.
-   *
-   * <p>Only works on Pixel devices; has no effect on other devices.
-   *
-   * <p>For more information, see
-   * https://docs.google.com/document/d/1LnnoitwKYd-dNxQ7HE9PRynBp_vLa2aT-s-3D4VD8u4
-   */
-  public static void attachSettingsHighlightBundle(Intent intent, ComponentName componentName) {
-    Bundle bundle = new Bundle();
-    bundle.putString(":settings:fragment_args_key", componentName.flattenToString());
-    intent.putExtra(":settings:show_fragment_args", bundle);
-  }
-
-  /**
    * Parses a string as int or returns {@code defValue} if the string is null or if parsing fails.
    */
   public static int parseIntWithDefault(String putativeIntegerString, int defValue) {
@@ -333,21 +316,6 @@ public class Utils {
     Resources resources = context.getResources();
     int resId = resources.getIdentifier("config_navBarInteractionMode", "integer", "android");
     return resId > 0 && resources.getInteger(resId) == NAV_BAR_MODE_GESTURAL;
-  }
-
-  /**
-   * Capitalize the first letter of a string. Supports Unicode.
-   *
-   * @param str The input {@link String} for which to capitalize the first letter
-   * @return The input {@link String} with the first letter capitalized
-   */
-  public static String capitalizeFirstLetter(String str) {
-    if (TextUtils.isEmpty(str)) {
-      return str;
-    }
-    return Character.isUpperCase(str.charAt(0))
-        ? str
-        : str.substring(0, 1).toUpperCase(Locale.getDefault()) + str.substring(1);
   }
 
   /** Returns the braille keyboard display name. */

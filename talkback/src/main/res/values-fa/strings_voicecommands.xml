@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">خواندن</string>
-  <string name="voice_commands_read_from_next">خواندن از نوشتار</string>
+  <string name="voice_commands_read_from_next">خواندن از مکان‌نما</string>
   <string name="voice_commands_edit_options">ویرایش گزینه‌ها</string>
-  <string name="voice_commands_text_editing">ویرایش نوشتار</string>
-  <string name="voice_commands_edit_text">ویرایش متن</string>
-  <string name="voice_commands_editing_options">گزینه‌های ویرایش</string>
   <string name="voice_commands_edit">ویرایش</string>
   <string name="voice_commands_what">چه چیزی</string>
   <string name="voice_commands_say">بازگو کردن</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">برچسب</string>
   <string name="voice_commands_cannot_label_feedback">برچسب زده نشد</string>
   <string name="voice_commands_assistant">دستیار</string>
-  <string name="voice_commands_setting_speech_rate">تنظیم سرعت گفتار</string>
   <string name="voice_commands_first">اول</string>
   <string name="voice_commands_top">بالا</string>
   <string name="voice_commands_last">آخر</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">سرعت گفتار را زیاد کن</string>
   <string name="voice_commands_slower">آهسته‌تر</string>
   <string name="voice_commands_decrease_speech_rate">کاهش سرعت گفتار</string>
-  <string name="voice_commands_possible_options_title">می‌توانید بگویید</string>
   <string name="voice_commands_no_action">میانبر گفتاری پشتیبانی نمی‌شود</string>
   <string name="voice_commands_no_mic_permissions">برای استفاده از این ویژگی، باید برای استفاده از میکروفون مجوز دهید.</string>
   <string name="voice_commands_no_voice_recognition_ability">متأسفیم! این ویژگی در دستگاهتان دردسترس نیست</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">کنترل دیگری وجود ندارد</string>
   <string name="voice_commands_no_next_landmark_feedback">نشانگر مکانی دیگری وجود ندارد</string>
   <string name="voice_commands_help_title">نمای کلی فرمان صوتی</string>
-  <string name="voice_commands_help_description">‏برای استفاده از فرمان‌های صوتی، تند به‌چپ و سپس بالا بکشید. هرزمان خواستید برای این فهرست فرمان‌ها، بگویید «help» (راهنمایی) یا «?what can I say» (چه‌چیزی می‌توانم بگویم؟).</string>
+  <string name="voice_commands_help_description">‏برای استفاده از فرمان‌های صوتی، تند به‌راست و سپس بالا بکشید. هرزمان خواستید برای این فهرست فرمان‌ها، بگویید «%1$s» یا «What can I say?‎» (چه چیزی می‌توانم بگویم؟).</string>
   <string name="voice_commands_help_hint">برای بهترین نتایج، عبارت دقیق فهرست‌شده در صفحه‌های بعدی را بگویید.</string>
   <string name="voice_command_screen_locked_hint">‏فرمان‌های صوتی هنگام قفل بودن صفحه دردسترس نیستند. درعوض برای استفاده از منوی TalkBack، %1$s.</string>
   <string name="voice_commands_during_setup_hint">درطول راه‌اندازی، فرمان‌های صوتی دردسترس نیستند</string>

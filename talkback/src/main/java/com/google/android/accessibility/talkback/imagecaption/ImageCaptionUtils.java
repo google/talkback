@@ -16,15 +16,44 @@
 
 package com.google.android.accessibility.talkback.imagecaption;
 
+import static com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.AutomaticImageCaptioningState.OFF;
+import static com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.AutomaticImageCaptioningState.ON_ALL_IMAGES;
+import static com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.AutomaticImageCaptioningState.ON_UNLABELLED_ONLY;
+
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.FeatureFlagReader;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.AutomaticImageCaptioningState;
+import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.FeatureSwitchDialogResources;
+import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.caption.Result;
 
 /** Utils class for Image Caption feature. */
 public class ImageCaptionUtils {
+
+  /** Returns the state of automatic image captioning features. */
+  public static AutomaticImageCaptioningState getAutomaticImageCaptioningState(
+      Context context,
+      SharedPreferences prefs,
+      FeatureSwitchDialogResources switchDialogResources) {
+    return SharedPreferencesUtils.getBooleanPref(
+            prefs,
+            context.getResources(),
+            switchDialogResources.switchKey,
+            switchDialogResources.switchDefaultValue)
+        ? (!FeatureFlagReader.enableAutomaticCaptioningForAllImages(context)
+                || SharedPreferencesUtils.getBooleanPref(
+                    prefs,
+                    context.getResources(),
+                    switchDialogResources.switchOnUnlabelledOnlyKey,
+                    switchDialogResources.switchOnUnlabelledOnlyDefaultValue))
+            ? ON_UNLABELLED_ONLY
+            : ON_ALL_IMAGES
+        : OFF;
+  }
 
   /**
    * Constructs the result text for manually triggered image caption. Returns empty string if all of
@@ -66,10 +95,7 @@ public class ImageCaptionUtils {
     if (!Result.isEmpty(iconLabelResult)) {
       stringBuilder.append(context.getString(R.string.detected_icon_label, iconLabelResult.text()));
     }
-    // Only append when the confidence is at least medium.
-    if (!Result.isEmpty(imageDescriptionResult)
-        && imageDescriptionResult.confidence()
-            >= FeatureFlagReader.getImageDescriptionLowQualityThreshold(context)) {
+    if (!Result.isEmpty(imageDescriptionResult)) {
       stringBuilder.append(constructImageDescriptionText(context, imageDescriptionResult));
     }
     if (!Result.isEmpty(ocrTextResult)) {

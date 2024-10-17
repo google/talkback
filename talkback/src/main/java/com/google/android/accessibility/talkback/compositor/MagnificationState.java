@@ -27,13 +27,15 @@ public abstract class MagnificationState {
    * The current magnification mode. It is nullable if the old platform doesn't support multiple
    * magnification mode.
    */
-  public abstract @Nullable Integer mode();
+  @Nullable
+  public abstract Integer mode();
 
   /** The current magnification scale. */
   public abstract float currentScale();
 
   /** The state for TalkBack to provide user feedback. */
-  public abstract @State int state();
+  @State
+  public abstract int state();
 
   public static MagnificationState.Builder builder() {
     return new AutoValue_MagnificationState.Builder()

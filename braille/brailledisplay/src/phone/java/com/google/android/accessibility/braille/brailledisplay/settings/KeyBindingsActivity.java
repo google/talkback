@@ -93,15 +93,11 @@ public class KeyBindingsActivity extends PreferencesActivity {
       BrailleDisplayProperties displayProperties =
           getActivity().getIntent().getParcelableExtra(PROPERTY_KEY);
       Preference preference = findPreference(getString(keyId));
-      preference.setOnPreferenceClickListener(
-          preference1 -> {
-            Intent intent = new Intent(getContext(), KeyBindingsCommandActivity.class);
-            intent.putExtra(KeyBindingsCommandActivity.TITLE_KEY, preference.getTitle());
-            intent.putExtra(KeyBindingsCommandActivity.TYPE_KEY, category.name());
-            intent.putExtra(PROPERTY_KEY, displayProperties);
-            getContext().startActivity(intent);
-            return true;
-          });
+      Intent intent = new Intent(getContext(), KeyBindingsCommandActivity.class);
+      intent.putExtra(KeyBindingsCommandActivity.TITLE_KEY, preference.getTitle());
+      intent.putExtra(KeyBindingsCommandActivity.TYPE_KEY, category);
+      intent.putExtra(PROPERTY_KEY, displayProperties);
+      preference.setIntent(intent);
     }
 
     private boolean isCategoryCommandSupported(

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">läs</string>
-  <string name="voice_commands_read_from_next">Läs från nästa</string>
+  <string name="voice_commands_read_from_next">Läs från markören</string>
   <string name="voice_commands_edit_options">Redigeringsalternativ</string>
-  <string name="voice_commands_text_editing">Textredigering</string>
-  <string name="voice_commands_edit_text">Redigera text</string>
-  <string name="voice_commands_editing_options">Redigeringsalternativ</string>
   <string name="voice_commands_edit">redigera</string>
   <string name="voice_commands_what">vilka</string>
   <string name="voice_commands_say">säg</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etikett</string>
   <string name="voice_commands_cannot_label_feedback">Det går inte att sätta etikett</string>
   <string name="voice_commands_assistant">Assistent</string>
-  <string name="voice_commands_setting_speech_rate">Ställa in talhastighet</string>
   <string name="voice_commands_first">Första</string>
   <string name="voice_commands_top">Högst upp</string>
   <string name="voice_commands_last">Sista</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Öka talhastigheten</string>
   <string name="voice_commands_slower">Långsammare</string>
   <string name="voice_commands_decrease_speech_rate">minska talhastigheten</string>
-  <string name="voice_commands_possible_options_title">Du kan säga</string>
   <string name="voice_commands_no_action">Röstgenvägen stöds inte</string>
   <string name="voice_commands_no_mic_permissions">Du måste ge funktionen behörighet att använda mikrofonen innan du kan använda den.</string>
   <string name="voice_commands_no_voice_recognition_ability">Funktionen är tyvärr inte tillgänglig än på din enhet</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Det finns inga fler kontroller</string>
   <string name="voice_commands_no_next_landmark_feedback">Det finns inga fler landmärken</string>
   <string name="voice_commands_help_title">Översikt över röstkommandon</string>
-  <string name="voice_commands_help_description">Svep till höger och sen uppåt för att använda röstkommandon. Du kan när som helst säga ”Hjälp” eller ”Vad kan jag säga?” för att se den här listan över kommandon.</string>
+  <string name="voice_commands_help_description">Svep till höger och sen uppåt för att använda röstkommandon. Du kan när som helst säga ”%1$s” eller ”Vad kan jag säga?” för att se den här listan över kommandon.</string>
   <string name="voice_commands_help_hint">Säg exakt som det står på följande skärmar för bästa resultat.</string>
   <string name="voice_command_screen_locked_hint">Röstkommandon är inte tillgängliga när skärmen är låst. %1$s om du vill använda TalkBack-menyn i stället.</string>
   <string name="voice_commands_during_setup_hint">Röstkommandon är inte tillgängliga under konfigurering.</string>
@@ -115,7 +110,7 @@
   <string name="voice_commands_help_verbosity">[Låg] detaljnivå</string>
   <string name="voice_commands_help_next_description">Fortsätt till nästa rubrik, kontroll, lista eller landmärke</string>
   <string name="voice_commands_help_navigation_description">Navigera efter ord, tecken, rader, stycken, rubriker, kontroller med mera</string>
-  <string name="voice_commands_help_speech_rate_description">Du kan också säga ”tala långsammare”</string>
+  <string name="voice_commands_help_speech_rate_description">Du kan också säga ”prata långsammare”</string>
   <string name="voice_commands_help_verbosity_description">Ändra till låg, hög eller anpassad</string>
   <string name="voice_commands_help_first_description">Gå till det första objektet på den aktuella skärmen</string>
   <string name="voice_commands_help_last_description">Gå till det sista objektet på den aktuella skärmen</string>

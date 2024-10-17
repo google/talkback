@@ -15,7 +15,7 @@
  */
 package com.google.android.accessibility.talkback.keyboard;
 
-import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_NEXT;
+import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_CURSOR;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_TOP;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.BRIGHTEN;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.DIM;
@@ -25,6 +25,9 @@ import static com.google.android.accessibility.talkback.Feedback.FocusDirection.
 import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.PREVIOUS_GRANULARITY;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.COPY_LAST;
 import static com.google.android.accessibility.talkback.Feedback.UniversalSearch.Action.TOGGLE_SEARCH;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CONTEXT;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CUSTOM_ACTION;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.LANGUAGE;
 import static com.google.android.accessibility.talkback.selector.SelectorController.Setting.ACTIONS;
 import static com.google.android.accessibility.utils.input.CursorGranularity.CHARACTER;
 import static com.google.android.accessibility.utils.input.CursorGranularity.DEFAULT;
@@ -456,17 +459,17 @@ public class KeyComboMapper {
       case READ_FROM_TOP:
         result = pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_TOP));
         break;
-      case READ_FROM_NEXT_ITEM:
-        result = pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_NEXT));
+      case READ_FROM_CURSOR_ITEM:
+        result = pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_CURSOR));
         break;
       case SHOW_GLOBAL_CONTEXT_MENU:
-        result = menuManager.showMenu(R.menu.context_menu, eventId);
+        result = menuManager.showMenu(CONTEXT, eventId);
         break;
       case SHOW_ACTIONS:
-        result = menuManager.showMenu(R.id.custom_action_menu, eventId);
+        result = menuManager.showMenu(CUSTOM_ACTION, eventId);
         break;
       case SHOW_LANGUAGES_AVAILABLE:
-        result = menuManager.showMenu(R.menu.language_menu, eventId);
+        result = menuManager.showMenu(LANGUAGE, eventId);
         break;
       case OPEN_MANAGE_KEYBOARD_SHORTCUTS:
         if (SettingsUtils.allowLinksOutOfSettings(context.getApplicationContext())) {

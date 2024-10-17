@@ -199,6 +199,12 @@ class PhoneAlertDialogWrapperBuilder implements A11yAlertDialogWrapper.Builder {
   }
 
   @Override
+  public A11yAlertDialogWrapper.Builder setDismissOnClick(boolean dismissOnClick) {
+    // Leaves this API to do nothing since only the wear version supports it.
+    return this;
+  }
+
+  @Override
   @NonNull
   public A11yAlertDialogWrapper create() {
     AlertDialog alertdialog = v7Builder.create();

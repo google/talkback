@@ -18,7 +18,7 @@ package com.google.android.accessibility.talkback.menurules;
 
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.MENU_ITEM_UNKNOWN;
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.MENU_TYPE_SPANNABLES;
-import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.TARGET_SPAN_CLASS;
+import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.BASE_CLICKABLE_SPAN;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -59,7 +59,7 @@ public class RuleSpannables extends NodeMenuRule {
 
   @Override
   public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
-    return SpannableTraversalUtils.hasTargetSpanInNodeTreeDescription(node, TARGET_SPAN_CLASS);
+    return SpannableTraversalUtils.hasTargetClickableSpanInNodeTree(node, BASE_CLICKABLE_SPAN);
   }
 
   @Override
@@ -69,18 +69,15 @@ public class RuleSpannables extends NodeMenuRule {
 
     // TODO: Refactor to provide a general menu-cleanup method.
     // TODO: When Robolectric copies extras bundle, add unit test.
-    SpannableTraversalUtils.collectSpannableStringsWithTargetSpanInNodeDescriptionTree(
-        node, // Root node of description tree
-        TARGET_SPAN_CLASS, // Target span class
-        spannableStrings // List of SpannableStrings collected
-        );
+    SpannableTraversalUtils.getSpannableStringsWithTargetClickableSpanInNodeTree(
+        node, BASE_CLICKABLE_SPAN, spannableStrings);
 
     final List<ContextMenuItem> result = new ArrayList<>();
     for (SpannableString spannable : spannableStrings) {
       if (spannable == null) {
         continue;
       }
-      final Object[] spans = spannable.getSpans(0, spannable.length(), TARGET_SPAN_CLASS);
+      final Object[] spans = spannable.getSpans(0, spannable.length(), BASE_CLICKABLE_SPAN);
       if ((spans == null) || (spans.length == 0)) {
         continue;
       }
@@ -142,7 +139,7 @@ public class RuleSpannables extends NodeMenuRule {
     // on the menu item will invoke ClickableSpans in the label text instead of calling
     // MenuItemClickListener. Thus we should remove ClickableSpans from label text.
     // Also apply this rule to pre-O in order to have consistent text appearance.
-    SpannableUtils.stripTargetSpanFromText(label, TARGET_SPAN_CLASS);
+    SpannableUtils.stripTargetSpanFromText(label, BASE_CLICKABLE_SPAN);
     final ContextMenuItem item =
         ContextMenu.createMenuItem(context, R.id.group_links, itemId, Menu.NONE, label);
     item.setOnMenuItemClickListener(
@@ -167,7 +164,7 @@ public class RuleSpannables extends NodeMenuRule {
       return null;
     }
 
-    SpannableUtils.stripTargetSpanFromText(label, TARGET_SPAN_CLASS);
+    SpannableUtils.stripTargetSpanFromText(label, BASE_CLICKABLE_SPAN);
     final ContextMenuItem item =
         ContextMenu.createMenuItem(context, R.id.group_links, itemId, Menu.NONE, label);
     item.setOnMenuItemClickListener(

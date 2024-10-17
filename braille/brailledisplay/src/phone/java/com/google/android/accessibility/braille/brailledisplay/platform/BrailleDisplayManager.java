@@ -20,6 +20,7 @@ import android.annotation.SuppressLint;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.os.PowerManager;
+import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
@@ -92,6 +93,17 @@ public class BrailleDisplayManager {
     }
   }
 
+  /** Sends an {@code KeyEvent} to this manager for processing. */
+  public boolean onKeyEvent(KeyEvent keyEvent) {
+    if (canSendRenderPackets()) {
+      if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_BUTTON_1) {
+        // Incorrectly sent by Humanware Brailliant BI20X on every dot-1 keystroke. Ignore for now.
+        return true;
+      }
+    }
+    return false;
+  }
+
   private boolean canSendPackets() {
     return connectedService && connectedToDisplay;
   }
@@ -138,13 +150,23 @@ public class BrailleDisplayManager {
         }
 
         @Override
-        public void onConnectStarted() {
-          controller.onConnectStarted();
+        public void onConnectHidStarted() {
+          controller.onConnectHidStarted();
+        }
+
+        @Override
+        public void onConnectRfcommStarted() {
+          controller.onConnectRfcommStarted();
         }
 
         @Override
         public void onConnectableDeviceSeenOrUpdated(ConnectableDevice device) {
           BrailleDisplayLog.d(TAG, "onConnectableDeviceSeenOrUpdated");
+        }
+
+        @Override
+        public void onConnectableDeviceDeleted(ConnectableDevice device) {
+          BrailleDisplayLog.d(TAG, "onConnectableDeviceDeleted");
         }
 
         @Override
@@ -162,8 +184,9 @@ public class BrailleDisplayManager {
         }
 
         @Override
-        public void onConnectFailed(@Nullable String deviceName) {
+        public void onConnectFailed(boolean manual, @Nullable String deviceName) {
           BrailleDisplayLog.d(TAG, "onConnectFailed deviceName:" + deviceName);
+          controller.onConnectFailed();
         }
       };
 

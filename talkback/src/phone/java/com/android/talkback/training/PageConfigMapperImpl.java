@@ -34,67 +34,43 @@ public final class PageConfigMapperImpl implements PageConfigMapper {
       case PAGE_ID_WELCOME_TO_UPDATED_TALKBACK_FOR_MULTIFINGER_GESTURES:
         return OnboardingConfigs.welcomeToUpdatedTalkBackForMultiFingerGestures.build();
       case PAGE_ID_WELCOME_TO_TALKBACK:
-        return TutorialConfigs.WELCOME_TO_TALKBACK_PAGE.build();
       case PAGE_ID_EXPLORE_BY_TOUCH:
-        return TutorialConfigs.EXPLORE_BY_TOUCH_PAGE.build();
       case PAGE_ID_SCROLLING:
-        return TutorialConfigs.SCROLLING_PAGE.build();
       case PAGE_ID_GESTURES_PAGE_FOR_GESTURE_NAVIGATION_USER:
-        return TutorialConfigs.GESTURES_PAGE_FOR_GESTURE_NAVIGATION_USER.build();
       case PAGE_ID_GESTURES_PAGE_FOR_3_BUTTON_NAVIGATION_USER:
-        return TutorialConfigs.GESTURES_PAGE_FOR_3_BUTTON_NAVIGATION_USER.build();
+      case PAGE_ID_ADJUSTING_VOLUME:
       case PAGE_ID_MENUS:
-        return TutorialConfigs.MENUS_PAGE.build();
       case PAGE_ID_MENUS_PRE_R:
-        return TutorialConfigs.MENUS_PAGE_PRE_R.build();
       case PAGE_ID_TUTORIAL_FINISHED:
-        return TutorialConfigs.TUTORIAL_FINISHED_PAGE.build();
       case PAGE_ID_TUTORIAL_INDEX:
-        return TutorialConfigs.TUTORIAL_INDEX_PAGE.build();
       case PAGE_ID_USING_TEXT_BOXES:
-        return TutorialConfigs.USING_TEXT_BOXES_PAGE.build();
       case PAGE_ID_TYPING_TEXT:
-        return TutorialConfigs.TYPING_TEXT_PAGE.build();
       case PAGE_ID_MOVING_CURSOR:
-        return TutorialConfigs.MOVING_CURSOR_PAGE.build();
       case PAGE_ID_SELECTING_TEXT:
-        return TutorialConfigs.SELECTING_TEXT_PAGE.build();
       case PAGE_ID_SELECTING_TEXT_PRE_R:
-        return TutorialConfigs.SELECTING_TEXT_PAGE_PRE_R.build();
       case PAGE_ID_COPY_CUT_PASTE:
-        return TutorialConfigs.COPY_CUT_PASTE_PAGE.build();
       case PAGE_ID_COPY_CUT_PASTE_PRE_R:
-        return TutorialConfigs.COPY_CUT_PASTE_PAGE_PRE_R.build();
+      case PAGE_ID_TYPO_CORRECTION:
+      case PAGE_ID_TYPO_CORRECTION_PRE_R:
+      case PAGE_ID_TYPO_CORRECTION_NOT_ENGLISH:
+      case PAGE_ID_TYPO_CORRECTION_NOT_ENGLISH_PRE_R:
       case PAGE_ID_READ_BY_CHARACTER:
-        return TutorialConfigs.READ_BY_CHARACTER.build();
       case PAGE_ID_READ_BY_CHARACTER_PRE_R:
-        return TutorialConfigs.READ_BY_CHARACTER_PRE_R.build();
       case PAGE_ID_JUMP_BETWEEN_CONTROLS:
-        return TutorialConfigs.JUMP_BETWEEN_CONTROLS.build();
       case PAGE_ID_JUMP_BETWEEN_CONTROLS_PRE_R:
-        return TutorialConfigs.JUMP_BETWEEN_CONTROLS_PRE_R.build();
       case PAGE_ID_JUMP_BETWEEN_LINKS:
-        return TutorialConfigs.JUMP_BETWEEN_LINKS.build();
       case PAGE_ID_JUMP_BETWEEN_LINKS_PRE_R:
-        return TutorialConfigs.JUMP_BETWEEN_LINKS_PRE_R.build();
       case PAGE_ID_JUMP_BETWEEN_HEADINGS:
-        return TutorialConfigs.JUMP_BETWEEN_HEADINGS.build();
       case PAGE_ID_JUMP_BETWEEN_HEADINGS_PRE_R:
-        return TutorialConfigs.JUMP_BETWEEN_HEADINGS_PRE_R.build();
       case PAGE_ID_VOICE_COMMANDS:
-        return TutorialConfigs.VOICE_COMMANDS.build();
       case PAGE_ID_PRACTICE_GESTURES:
-        return TutorialConfigs.PRACTICE_GESTURES.build();
       case PAGE_ID_PRACTICE_GESTURES_PRE_R:
-        return TutorialConfigs.PRACTICE_GESTURES_PRE_R.build();
       case PAGE_ID_ADDITIONAL_TIPS_MAKING_CALLS:
-        return TutorialConfigs.MAKING_CALLS.build();
       case PAGE_ID_ADDITIONAL_TIPS_SENDING_MESSAGES:
-        return TutorialConfigs.SENDING_MESSAGES.build();
       case PAGE_ID_ADDITIONAL_TIPS_READING_WEB_EMAILS:
-        return TutorialConfigs.READING_WEB_EMAILS.build();
       case PAGE_ID_ADDITIONAL_TIPS_LOOKOUT:
-        return TutorialConfigs.LOOKOUT.build();
+      case PAGE_ID_ADDITIONAL_TIPS_CHECKING_NOTIFICATIONS:
+        return TutorialConfigUtils.getInitialPageBuilder(pageId).build();
       case PAGE_ID_VOICE_COMMAND_OVERVIEW:
         return VoiceCommandAndHelpConfigs.VoiceCommandOverView.build();
       case PAGE_ID_VOICE_COMMAND_READING_CONTROLS:
@@ -109,14 +85,14 @@ public final class PageConfigMapperImpl implements PageConfigMapper {
         return VoiceCommandAndHelpConfigs.VoiceCommandOtherCommands.build();
       case PAGE_ID_UPDATE_WELCOME:
         return OnboardingConfigs.updateWelcome.build();
-      case PAGE_ID_DESCRIBE_IMAGES:
-        return OnboardingConfigs.describeImages.build();
-      case PAGE_ID_SPELL_CHECK_FOR_BRAILLE_KEYBOARD:
-        return OnboardingConfigs.spellCheckForBrailleKeyboard.build();
-      case PAGE_ID_AUTO_SCROLL_FOR_BRAILLE_DISPLAY:
-        return OnboardingConfigs.autoScrollForBrailleDisplay.build();
-      case PAGE_ID_NEW_BRAILLE_SHORTCUTS_AND_LANGUAGES:
-        return OnboardingConfigs.newBrailleShortcutsAndLanguages.build();
+      case PAGE_ID_DETAILED_IMAGE_DESCRIPTIONS:
+        return OnboardingConfigs.imageDescription.build();
+      case PAGE_ID_GOOGLE_DISABILITY_SUPPORT:
+        return OnboardingConfigs.googleDisabilitySupport.build();
+      case PAGE_ID_PUNCTUATION_AND_SYMBOLS:
+        return OnboardingConfigs.punctuationAndSymbols.build();
+      case PAGE_ID_NEW_BRAILLE_SHORTCUTS:
+        return OnboardingConfigs.newBrailleShortcuts.build();
       case PAGE_ID_TV_OVERVIEW:
       case PAGE_ID_TV_SHORTCUT:
       case PAGE_ID_TV_REMOTE:

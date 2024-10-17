@@ -32,6 +32,7 @@ import com.google.android.accessibility.talkback.CursorGranularityManager;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.Focus;
 import com.google.android.accessibility.talkback.Pipeline;
+import com.google.android.accessibility.talkback.actor.helper.FocusActorHelper;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
@@ -274,7 +275,6 @@ class FocusManagerInternal {
    *
    * @return true if accessibility focus is successfully found and assigned
    */
-  @Nullable
   private boolean requestA11yFocusFromLastFocusRecord(EventId eventId) {
     @Nullable FocusActionRecord record = history.getLastFocusActionRecord();
     if (record == null) {
@@ -344,8 +344,14 @@ class FocusManagerInternal {
     if (nodeToFocus == null) {
       return false;
     }
-    boolean firstTime = screenState.getStableScreenState().isInterpretFirstTimeWhenWakeUp();
-    boolean forceMuteFeedback = formFactorUtils.isAndroidWear() && firstTime;
+
+    ScreenState stableScreenState = screenState.getStableScreenState();
+    boolean firstTime =
+        stableScreenState != null && stableScreenState.isInterpretFirstTimeWhenWakeUp();
+    // Cell broadcast is an emergent announcement, so we don't mute it.
+    boolean forceMuteFeedback =
+        FocusActorHelper.shouldMuteFeedbackForFocusedNode(nodeToFocus, stableScreenState);
+
     FocusActionInfo focusActionInfo =
         FocusActionInfo.builder()
             .setForceMuteFeedback(forceMuteFeedback)

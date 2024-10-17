@@ -66,9 +66,9 @@ public enum TalkBackPhysicalKeyboardShortcut {
   READ_FROM_TOP(
       /* KeyboardShortcut.KEYBOARD_SHORTCUT_READ_FROM_TOP */ 19,
       R.string.keycombo_shortcut_other_read_from_top),
-  READ_FROM_NEXT_ITEM(
+  READ_FROM_CURSOR_ITEM(
       /* KeyboardShortcut.KEYBOARD_SHORTCUT_READ_FROM_NEXT_ITEM */ 20,
-      R.string.keycombo_shortcut_other_read_from_next_item),
+      R.string.keycombo_shortcut_other_read_from_cursor_item),
   SHOW_GLOBAL_CONTEXT_MENU(
       /* KeyboardShortcut.KEYBOARD_SHORTCUT_SHOW_GLOBAL_CONTEXT_MENU */ 21,
       R.string.keycombo_shortcut_other_talkback_context_menu),

@@ -6,9 +6,9 @@
   <string name="read_out_deleted">Izbrisano: %s</string>
   <string name="read_out_selected_text">Izabrani tekst: %s</string>
   <plurals name="braille_dots">
-    <item quantity="one">tačke %s</item>
+    <item quantity="one">tačka %s</item>
     <item quantity="few">tačke %s</item>
-    <item quantity="other">tačke %s</item>
+    <item quantity="other">tačaka %s</item>
   </plurals>
   <string name="remove_language_button_content_description">uklonite %s</string>
   <string name="split_comma">, %s</string>
@@ -19,12 +19,13 @@
   <string name="code_user_facing_name_arabic">arapski</string>
   <string name="code_user_facing_name_arabic_comp8">Arap. račun. Brajeva azbuka sa 8 tačaka</string>
   <string name="code_user_facing_name_bulgarian">bugarski</string>
+  <string name="code_user_facing_name_bulgarian_comp8">Bugarska računarska Brajeva azbuka sa 8 tačaka</string>
   <string name="code_user_facing_name_ca_catalan">katalonski</string>
   <string name="code_user_facing_name_catonese">kantonski</string>
-  <string name="code_user_facing_name_chinese_china_common">kineski (kina) standardni</string>
-  <string name="code_user_facing_name_chinese_china_current_with_tones">kineski (Kina) aktuelni sa zvukovima</string>
-  <string name="code_user_facing_name_chinese_china_current_without_tones">kineski (Kina) aktuelni bez zvukova</string>
-  <string name="code_user_facing_name_chinese_china_two_cells">kineski (Kina) sa dve ćelije</string>
+  <string name="code_user_facing_name_chinese_china_common">Standardni kineski (Kina)</string>
+  <string name="code_user_facing_name_chinese_china_current_with_tones">Savremeni kineski sa tonovima (Kina)</string>
+  <string name="code_user_facing_name_chinese_china_current_without_tones">Savremeni kineski bez tonova (Kina)</string>
+  <string name="code_user_facing_name_chinese_china_two_cells">kineski sa dve ćelije (Kina)</string>
   <string name="code_user_facing_name_chinese_taiwan">kineski (Tajvan)</string>
   <string name="code_user_facing_name_central_kurdish">centralni kurdski</string>
   <string name="code_user_facing_name_czech_comp8">Češ. račun. Brajeva azbuka sa 8 tačaka</string>
@@ -36,12 +37,10 @@
   <string name="code_user_facing_name_german_comp8">Nemač. račun. Brajeva azbuka sa 8 tačaka</string>
   <string name="code_user_facing_name_german">nemački</string>
   <string name="code_user_facing_name_greek">grčki</string>
-  <string name="code_user_facing_name_en_ca">Brajeva azbuka za engleski (Kanada)</string>
   <string name="code_user_facing_name_en_uk">Engleska Brajeva azbuka (Ujedinjeno Kraljevstvo)</string>
   <string name="code_user_facing_name_en_in">Brajeva azbuka za engleski (Indija)</string>
   <string name="code_user_facing_name_en_nabcc_comp8">računarski Brajev kôd za Severnu Ameriku</string>
   <string name="code_user_facing_name_en_comp6">računarska Brajeva azbuka od 6 tačaka za engleski</string>
-  <string name="code_user_facing_name_en_comp8">računarska Brajeva azbuka od 8 tačaka za engleski</string>
   <string name="code_user_facing_name_en_us_ebae">Engleska Brajeva azbuka (Sjedinjene Američke Države, američko izdanje)</string>
   <string name="code_user_facing_name_en_us">Engleska Brajeva azbuka (Sjedinjene Američke Države)</string>
   <string name="code_user_facing_name_polish">poljski</string>
@@ -79,13 +78,14 @@
   <string name="code_user_facing_name_dutch_comp8">Holan. račun. Brajeva azbuka sa 8 tačaka</string>
   <string name="code_user_facing_name_norwegian">norveški</string>
   <string name="code_user_facing_name_norwegian_8_no">norveška Brajeva od 8 tačaka (Norveška)</string>
+  <string name="code_user_facing_name_norwegian_comp8">Norveška računarska Brajeva azbuka sa 8 tačaka</string>
   <string name="code_user_facing_name_norwegian_8">Brajeva azbuka od 8 tačaka za norveški</string>
   <string name="code_user_facing_name_norwegian_8_with_6_fallback">Brajeva azbuka od 6 tačaka za norveški sa rezervnom opcijom od 8 tačaka</string>
   <string name="code_user_facing_name_nepali_indian">Brajeva azbuka za nepalski (Indija)</string>
   <string name="code_user_facing_name_portuguese">portugalski</string>
   <string name="code_user_facing_name_punjabi">pendžapski</string>
   <string name="code_user_facing_name_portuguese_comp8">računarska Brajeva azbuka od 8 tačaka za portugalski</string>
-  <string name="code_user_facing_name_romanian_no">Brajeva azbuka od 8 tačaka za rumunski</string>
+  <string name="code_user_facing_name_romanian_comp8">Rumunska računarska Brajeva azbuka sa 8 tačaka</string>
   <string name="code_user_facing_name_russian">ruski</string>
   <string name="code_user_facing_name_russian_detailed">ruski sa velikim i malim slovima</string>
   <string name="code_user_facing_name_russian_comp8">računarska Brajeva azbuka od 8 tačaka za ruski</string>
@@ -100,7 +100,7 @@
   <string name="code_user_facing_name_tamil">tamilski</string>
   <string name="code_user_facing_name_telugu_in">Brajeva azbuka za telugu (Indija)</string>
   <string name="code_user_facing_name_turkish">turski</string>
-  <string name="code_user_facing_name_turkish_8">Brajeva azbuka od 8 tačaka za turski</string>
+  <string name="code_user_facing_name_turkish_comp8">Turska računarska Brajeva azbuka sa 8 tačaka</string>
   <string name="code_user_facing_name_ukrainian">ukrajinski</string>
   <string name="code_user_facing_name_ukrainian_comp8">računarska Brajeva azbuka od 8 tačaka za ukrajinski</string>
   <string name="code_user_facing_name_urdu">urdu</string>

@@ -26,14 +26,19 @@ import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.WindowManager.BadTokenException;
 import android.view.WindowManager.LayoutParams;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Provides a simple full-screen overlay. Behaves like a {@link android.app.Dialog} but simpler. */
 public class SimpleOverlay {
+
+  private static final String LOG_TAG = "SimpleOverlay";
+
   private final Context context;
   private final WindowManager windowManager;
   private final ViewGroup contentView;
@@ -199,7 +204,12 @@ public class SimpleOverlay {
       windowManager.removeViewImmediate(contentView);
     }
 
-    windowManager.addView(contentView, params);
+    try {
+      windowManager.addView(contentView, params);
+    } catch (BadTokenException e) {
+      LogUtils.e(LOG_TAG, e, "BadTokenException is detected in %s.", getClass().getName());
+      return;
+    }
     isVisible = true;
 
     if (listener != null) {

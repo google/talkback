@@ -119,7 +119,9 @@ public class TreeNodesDescription {
     boolean shouldAppendChildNode = shouldAppendChildNode(event);
     CharSequence appendedTreeDescription =
         getAppendedTreeDescription(node, event, shouldAppendChildNode);
-    CharSequence labelDescription = getDescriptionFromLabelNode(node);
+    CharSequence labelDescription =
+        AccessibilityNodeFeedbackUtils.getDescriptionFromLabelNode(
+            node, context, imageContents, globalVariables);
 
     LogUtils.v(
         TAG,
@@ -142,16 +144,6 @@ public class TreeNodesDescription {
     boolean sourceIsLiveRegion =
         (srcNode != null) && (srcNode.getLiveRegion() != ACCESSIBILITY_LIVE_REGION_NONE);
     return (event.getEventType() == TYPE_WINDOW_CONTENT_CHANGED && sourceIsLiveRegion);
-  }
-
-  /** Returns the node description text from the label node. */
-  private CharSequence getDescriptionFromLabelNode(AccessibilityNodeInfoCompat node) {
-    AccessibilityNodeInfoCompat labelNode = node.getLabeledBy();
-    if (labelNode == null) {
-      return "";
-    }
-    return AccessibilityNodeFeedbackUtils.getNodeTextOrLabelOrIdDescription(
-        labelNode, context, imageContents, globalVariables);
   }
 
   /**

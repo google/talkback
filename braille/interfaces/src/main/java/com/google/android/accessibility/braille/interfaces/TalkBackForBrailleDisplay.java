@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.android.accessibility.braille.interfaces;
 
 import android.accessibilityservice.AccessibilityService;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer.ScreenReaderAction;
 import com.google.android.accessibility.utils.FocusFinder;
-import com.google.android.accessibility.utils.output.FeedbackController;
-import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /** Exposes some TalkBack behavior to BrailleDisplay. */
@@ -44,9 +43,6 @@ public interface TalkBackForBrailleDisplay {
   /** Creates {@link FocusFinder} instance. */
   FocusFinder createFocusFinder();
 
-  /** Gets TalkBack's feedback controller. */
-  FeedbackController getFeedBackController();
-
   /** Shows custom label dialog for the Accessibility node to add or edit a label. */
   boolean showLabelDialog(CustomLabelAction action, AccessibilityNodeInfoCompat node);
 
@@ -58,9 +54,6 @@ public interface TalkBackForBrailleDisplay {
 
   /** Returns whether a label can be added for this {@param AccessibilityNodeInfoCompat}. */
   boolean supportsLabel(AccessibilityNodeInfoCompat node);
-
-  /** TalkBack provides the ability to speak an announcement. */
-  void speak(CharSequence charSequence, int delayMs, SpeakOptions speakOptions);
 
   /** Returns keyboard status. */
   boolean isOnscreenKeyboardActive();
@@ -78,7 +71,10 @@ public interface TalkBackForBrailleDisplay {
     EDIT_LABEL
   }
 
-  /** Switch the input method to braille keyboard. */
+  /** Switches the input method to braille keyboard. */
   @CanIgnoreReturnValue
   boolean switchInputMethodToBrailleKeyboard();
+
+  /** Switches to next input method. */
+  boolean switchToNextInputMethod();
 }

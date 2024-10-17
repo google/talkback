@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">%1$s sauti imewekwa asilimia %2$d.</string>
   <string name="template_stream_muted_set">Sauti ya %1$s imezimwa.</string>
+  <string name="hint_a11y_volume_control">Ili ubadilishe kiwango cha sauti ya ufikivu, bonyeza na ushikilie skrini ukitumia kidole 1 kisha ubonyeze kitufe cha kuongeza au kupunguza sauti.</string>
   <string name="value_stream_voice_call">Simu</string>
   <string name="value_stream_system">Sauti ya mfumo</string>
   <string name="value_stream_ring">Mlio wa simu</string>

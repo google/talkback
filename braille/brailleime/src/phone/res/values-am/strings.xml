@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="braille_ime_service_name">የTalkBack ብሬይል ቁልፍ ሰሌዳ</string>
   <string name="braille_ime_bd_mode_name">የብሬይል ማሳያ ግብዓት</string>
   <string name="switch_to_screen_away_announcement">ማያ ገጽን ወደ ሌላ ማዞር ሁነታ</string>
@@ -86,9 +86,9 @@
   <string name="braille_keyboard_cursor_movement_summary">በቁምፊ፣ ቃል ወይም መስመር ያንቀሳቅሱ</string>
   <string name="braille_keyboard_text_selection_and_editing">የጽሑፍ ምርጫ ወይም አርትዖት</string>
   <string name="braille_keyboard_text_selection_and_editing_summary">ይምረጡ፣ ይቅዱ፣ ይቁረጡ፣ ይለጥፉ</string>
-  <string name="braille_keyboard_spell_check">ፊደል ማረም</string>
-  <string name="braille_keyboard_spell_check_summary">በተሳሳተ ፊደል የተፃፉ ቃላትን ያግኙ፣ የአስተያየት ጥቆማዎችን ይፈትሹ እና ለውጦችን ያረጋግጡ</string>
-  <string name="braille_keyboard_spell_check_description">ጽሁፍ በሚተይቡበት ወይም አርትዖት በሚያደርጉበት ጊዜ «ፊደል ማረም» የሚለውን እስኪሰሙ ድረስ ወደ ግራ ወይም ቀኝ ለማንሸራተት 3 ጣቶችን ይጠቀሙ</string>
+  <string name="braille_keyboard_spell_check">ማረም</string>
+  <string name="braille_keyboard_spell_check_summary">በጽሑፍ ሣጥን ውስጥ የፊደል አጻጻፍ እና ሰዋሰው ይፈትሹ</string>
+  <string name="braille_keyboard_spell_check_description">የፊደል አጻጻፍ እና የሰዋሰው ጥቆማዎችን ለመፈተሽ ማረም መጠቀም ይችላሉ። ጽሑፍ በሚተይቡበት ወይም በሚያርትዑበት ጊዜ፣ «አርም» የሚለውን እስኪሰሙ ድረስ ወደ ግራ ወይም ቀኝ ለማንሸራተት 3 ጣቶችን ይጠቀሙ።</string>
   <string name="bk_gesture_add_space">ክፍተት ለማከል በጣት ወደ ቀኝ ያንሸራትቱ</string>
   <string name="bk_gesture_delete">ለመሰረዝ በጣት ወደ ግራ ያንሸራትቱ</string>
   <string name="bk_gesture_new_line">አዲስ መስመር ለማስገባት በ2 ጣቶች ወደ ቀኝ ያንሸራትቱ</string>
@@ -113,8 +113,8 @@
   <string name="bk_gesture_move_to_next_line">ወደ ቀጣይ መስመር ይንቀሳቀሱ፦ ነጥብ 4ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ በሌላ ጣት ወደ ታች ያንሸራትቱ</string>
   <string name="bk_gesture_move_to_beginning">ወደ መጀመሪያ ይንቀሳቀሱ፦ ነጥብ 4 እና 5ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ በሌላ ጣት ወደ ላይ ያንሸራትቱ</string>
   <string name="bk_gesture_move_to_end">ወደ መጨረሻ ይንቀሳቀሱ፦ ነጥብ 4 እና 5ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ በሌላ ጣት ወደ ታች ያንሸራትቱ</string>
-  <string name="bk_gesture_switch_to_previous_granularity">ወደ ቀዳሚ አንኳርነት ይቀይሩ፦ በ3 ጣቶች ወደ ግራ ያንሸራትቱ</string>
-  <string name="bk_gesture_switch_to_next_granularity">ወደ ቀጣይ አንኳርነት ይቀይሩ፦ በ3 ጣቶች ወደ ቀኝ ያንሸራትቱ</string>
+  <string name="bk_gesture_switch_to_previous_granularity">ወደ ቀዳሚ ጥራጥሬነት ይቀይሩ፦ በ3 ጣቶች ወደ ግራ ያንሸራትቱ</string>
+  <string name="bk_gesture_switch_to_next_granularity">ወደ ቀጣይ ጥራጥሬነት ይቀይሩ፦ በ3 ጣቶች ወደ ቀኝ ያንሸራትቱ</string>
   <string name="bk_gesture_moveh_to_previous_item">ወደ ቀዳሚው ንጥል ያንቀሳቅሱ፦ ወደ ላይ ያንሸራትቱ</string>
   <string name="bk_gesture_move_to_next_item">ወደ ቀጣዩ ንጥል ያንቀሳቅሱ፦ ወደ ታች ያንሸራትቱ</string>
   <string name="bk_gesture_select_previous_character">ቀዳሚን ቁምፊ ይምረጡ፦ ነጥብ 6ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ በ2 ጣቶች ወደ ላይ ያንሸራትቱ</string>
@@ -124,15 +124,17 @@
   <string name="bk_gesture_select_previous_line">ቀዳሚን መስመር ይምረጡ፦ ነጥብ 4ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ በ2 ጣቶች ወደ ላይ ያንሸራትቱ</string>
   <string name="bk_gesture_select_next_line">ቀጣዩን ቃል ይምረጡ፦ ነጥብ 4ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ በ2 ጣቶች ወደ ታች ያንሸራትቱ</string>
   <string name="bk_gesture_select_all">ሁሉንም ይምረጡ፦ ነጥብ 4ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ በ3 ጣቶች ላይ ወደ ግራ ያንሸራትቱ</string>
+  <string name="bk_gesture_select_current_to_start">• አሁን ካለው ጠቋሚ እስከ መጀመሪያ ድረስ ይምረጡ፦ ነጥቦች 4 እና 5ን ይያዙ፣ ከዚያ በ2 ጣቶች ወደ የትኛውም ቦታ ወደላይ ያንሸራትቱ</string>
+  <string name="bk_gesture_select_current_to_end">• አሁን ካለው ጠቋሚ እስከ መጨረሻ ድረስ ይምረጡ፦ ነጥብ 4 እና 5ን ይያዙ፣ ከዚያ በ2 ጣቶች ወደ የትኛውም ቦታ ወደታች ያንሸራትቱ</string>
   <string name="bk_gesture_copy">ጽሁፍ ይቅዱ፦ ነጥብ 4ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ በ3 ጣቶች ወደ ታች ያንሸራትቱ</string>
   <string name="bk_gesture_cut">ጽሁፍ ይቁረጡ፦ ነጥብ 4ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ በ3 ጣቶች ወደ ላይ ያንሸራትቱ</string>
   <string name="bk_gesture_paste">ይለጥፉ፦ ነጥብ 4ን ይያዙ፣ ከዚያ ወደ ማንኛውም ቦታ ላይ በ3 ጣቶች ወደ ቀኝ ያንሸራትቱ</string>
-  <string name="bk_gesture_previous_misspelled_word">ወደ ቀዳሚው በተሳሳተ ፊደል ወደተፃፈው ቃል ያንቀሳቅሱ፦ ወደ ላይ ያንሸራትቱ</string>
-  <string name="bk_gesture_next_misspelled_word">ወደ ቀጣዩ በተሳሳተ ፊደል ወደተፃፈው ቃል ያንቀሳቅሱ፦ ወደ ታች ያንሸራትቱ</string>
-  <string name="bk_gesture_previous_suggestion">የቀደመውን የፊደል አጻጻፍ ጥቆማን ያዳምጡ፦ ወደ ግራ ያንሸራትቱ</string>
-  <string name="bk_gesture_next_suggestion">ቀጣዩን የፊደል አጻጻፍ ጥቆማን ያዳምጡ፦ ወደ ቀኝ ያንሸራትቱ</string>
-  <string name="bk_gesture_confirm_spelling_suggestion">የፊደል አጻጻፍ ጥቆማን ያረጋግጡ፦ በ2 ጣቶች ወደ ቀኝ ያንሸራትቱ</string>
-  <string name="bk_gesture_undo_spelling_suggestion">የፊደል አጻጻፍ ጥቆማን ይቀልብሱ፦ በ2 ጣቶች ወደ ግራ ያንሸራትቱ</string>
+  <string name="bk_gesture_previous_misspelled_word">• ወደ ቀዳሚው የጽሑፍ ስሕተት ይሂዱ፦ ወደላይ ያንሸራትቱ</string>
+  <string name="bk_gesture_next_misspelled_word">• ወደ ቀጣይ የጽሑፍ ስሕተት ይሂዱ፦ ወደታች ያንሸራትቱ</string>
+  <string name="bk_gesture_previous_suggestion">• ቀዳሚውን ጥቆማ ያዳምጡ፦ ወደ ግራ ያንሸራትቱ</string>
+  <string name="bk_gesture_next_suggestion">• ቀጣይ ጥቆማ ያዳምጡ፦ ወደ ቀኝ ያንሸራትቱ</string>
+  <string name="bk_gesture_confirm_spelling_suggestion">• የፊደል አጻጻፍ ጥቆማን ያረጋግጡ፦ በ2 ጣቶች ወደ ቀኝ ያንሸራትቱ</string>
+  <string name="bk_gesture_undo_spelling_suggestion">• የፊደል አጻጻፍ ጥቆማን ይቀልብሱ፦ በ2 ጣቶች ወደ ግራ ያንሸራትቱ</string>
   <string name="not_enough_touch_points_dialog_title">የእርስዎ መሣሪያ የብሬይል ቁልፍ ሰሌዳን አይደግፍም</string>
   <string name="not_enough_touch_points_dialog_message">የእርስዎ መሣሪያ በቂ የንክኪ ነጥቦችን አይደግፍም። ተጨማሪ መረጃ ለማግኜት የመሣሪያዎን አምራች ያነጋግሩ።</string>
   <string name="talkback_off_dialog_title">የብሬይል ቁልፍ ሰሌዳን ለመጠቀም TalkBackን ያብሩ</string>
@@ -195,4 +197,9 @@
   <string name="braille_keyboard_strip_summary">ወደ ስልክዎ ጽሑፍን ለመተየብ ሊጠቀሙበት የሚችሉት የውጭ ብሬይል ማሳያ ተገናኝቷል።\n\nእንዲሁም ወደ መነካት የሚችል ማያ ብሬይል ቁልፍ ሰሌዳ ወይም ወደሚቀጥለው የግቤት ስልት መቀየር ይችላሉ።</string>
   <string name="braille_keyboard_strip_touch_screen_button">ወደ የብሬይል መነካት የሚችል ማያ ቀይር</string>
   <string name="braille_keyboard_strip_next_keyboard_button">ወደ ቀጣዩ የግቤት ስልት ቀይር</string>
+  <string name="no_spelling_suggestion_available_announcement">ምንም የፊደል አጻጻፍ ጥቆማ የለም</string>
+  <string name="no_grammar_suggestion_available_announcement">ምንም የሰዋሰው ጥቆማ አይገኝም</string>
+  <string name="index_of_spelling_suggestion">የ %2$d %1$d</string>
+  <string name="grammar_suggestion">የስዋሰው ጥቆማ</string>
+  <string name="spelling_suggestion">የፊደል አጻጻፍ ጥቆማ።</string>
 </resources>

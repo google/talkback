@@ -16,7 +16,6 @@
 package com.google.android.accessibility.talkback.compositor.rule;
 
 import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_TYPE_NOTIFICATION_STATE_CHANGED;
-import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_QUEUE;
 import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH;
 
 import android.app.Notification;
@@ -28,8 +27,8 @@ import com.google.android.accessibility.talkback.compositor.Compositor.HandleEve
 import com.google.android.accessibility.talkback.compositor.CompositorUtils;
 import com.google.android.accessibility.talkback.compositor.EventFeedback;
 import com.google.android.accessibility.talkback.compositor.GlobalVariables;
-import com.google.android.accessibility.talkback.compositor.TalkBackFeedbackProvider;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -66,6 +65,9 @@ public final class EventTypeNotificationStateChangedFeedbackRule {
         eventOptions -> {
           int role = Role.getSourceRole(eventOptions.eventObject);
           boolean isToast = role == Role.ROLE_TOAST;
+          CharSequence notificationCategory =
+              getNotificationCategoryStateText(
+                  context, AccessibilityEventUtils.extractNotification(eventOptions.eventObject));
 
           CharSequence ttsOutput;
           if (isToast) {
@@ -75,14 +77,28 @@ public final class EventTypeNotificationStateChangedFeedbackRule {
             LogUtils.v(
                 TAG, " ttsOutputRule= eventContentDescriptionOrEventAggregateText, role=toast");
           } else {
-            CharSequence notificationCategory =
-                getNotificationCategoryStateText(
-                    context, AccessibilityEventUtils.extractNotification(eventOptions.eventObject));
             CharSequence notificationDetails =
                 getNotificationDetailsStateText(
                     AccessibilityEventUtils.extractNotification(eventOptions.eventObject));
             ttsOutput =
                 CompositorUtils.joinCharSequences(notificationCategory, notificationDetails);
+            // Add a hint on how to answer the call using the gesture shortcut to play or pause
+            // media.
+            if (notificationCategory
+                .toString()
+                .equals(context.getString(R.string.notification_category_call))) {
+              if (globalVariables.getEnableMediaControlHintForCall()
+                  && FeatureSupport.supportMediaControlHintForCall()
+                  && globalVariables.getUsageHintEnabled()) {
+                CharSequence gestureString =
+                    globalVariables.getGestureStringForMediaControlShortcut();
+                if (gestureString != null) {
+                  String hint = context.getString(R.string.template_hint_for_call, gestureString);
+                  ttsOutput = CompositorUtils.joinCharSequences(ttsOutput, hint);
+                }
+              }
+            }
+
             LogUtils.v(
                 TAG,
                 StringBuilderUtils.joinFields(
@@ -92,16 +108,19 @@ public final class EventTypeNotificationStateChangedFeedbackRule {
                     StringBuilderUtils.optionalText(", role", Role.roleToString(role))));
           }
 
-          int queueMode = isToast ? QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH : QUEUE_MODE_QUEUE;
-
+          boolean isToastOrCall =
+              isToast
+                  || notificationCategory
+                      .toString()
+                      .equals(context.getString(R.string.notification_category_call));
           return EventFeedback.builder()
               .setTtsOutput(Optional.of(ttsOutput))
-              .setQueueMode(queueMode)
+              .setQueueMode(QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH)
               .setTtsAddToHistory(true)
-              .setForceFeedbackEvenIfAudioPlaybackActive(isToast)
-              .setForceFeedbackEvenIfMicrophoneActive(isToast)
+              .setForceFeedbackEvenIfAudioPlaybackActive(isToastOrCall)
+              .setForceFeedbackEvenIfMicrophoneActive(isToastOrCall)
               .setForceFeedbackEvenIfSsbActive(false)
-              .setForceFeedbackEvenIfPhoneCallActive(isToast)
+              .setForceFeedbackEvenIfPhoneCallActive(isToastOrCall)
               .build();
         });
   }

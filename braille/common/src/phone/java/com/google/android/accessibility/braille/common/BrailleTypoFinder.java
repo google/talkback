@@ -1,8 +1,25 @@
+/*
+ * Copyright (C) 2023 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.google.android.accessibility.braille.common;
 
 import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_ACCESSIBILITY;
 import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_INPUT;
 
+import android.content.Context;
 import android.widget.EditText;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -22,6 +39,7 @@ public class BrailleTypoFinder {
   private AccessibilityNodeInfoCompat targetNode;
   private SpellingSuggestion spellingSuggestion;
   private String[] suggestionCandidates;
+  private int suggestionSpanFlag;
   private int index;
 
   public BrailleTypoFinder(FocusFinder focusFinder) {
@@ -35,7 +53,7 @@ public class BrailleTypoFinder {
    * @return true if there has typo correction candidate.
    */
   @CanIgnoreReturnValue
-  public boolean updateTypoCorrectionFrom(@FocusType int focusType) {
+  public boolean updateTypoCorrectionFrom(Context context, @FocusType int focusType) {
     clear();
     switch (focusType) {
       case FOCUS_ACCESSIBILITY:
@@ -43,11 +61,11 @@ public class BrailleTypoFinder {
         if (node != null
             && node.isFocused()
             && AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, EditText.class)) {
-          return obtainSuggestions(node);
+          return obtainSuggestions(context, node);
         }
         return false;
       case FOCUS_INPUT:
-        return obtainSuggestions(focusFinder.findFocusCompat(FOCUS_INPUT));
+        return obtainSuggestions(context, focusFinder.findFocusCompat(FOCUS_INPUT));
       default:
         return false;
     }
@@ -114,7 +132,7 @@ public class BrailleTypoFinder {
 
   /**
    * Gets the {@link AccessibilityNodeInfoCompat} found from called {@link
-   * BrailleTypoFinder#updateTypoCorrectionFrom(int)}.
+   * BrailleTypoFinder#updateTypoCorrectionFrom(Context, int)}.
    */
   public AccessibilityNodeInfoCompat getTargetNode() {
     return targetNode;
@@ -127,12 +145,17 @@ public class BrailleTypoFinder {
     return spellingSuggestion;
   }
 
-  private boolean obtainSuggestions(AccessibilityNodeInfoCompat node) {
+  /** Returns the SuggestionSpanFlag of current suggestion. */
+  public int getSuggestionSpanFlag() {
+    return suggestionSpanFlag;
+  }
+
+  private boolean obtainSuggestions(Context context, AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return false;
     }
     ImmutableList<SpellingSuggestion> spellingSuggestions =
-        AccessibilityNodeInfoUtils.getSpellingSuggestions(node);
+        AccessibilityNodeInfoUtils.getSpellingSuggestions(context, node);
     if (spellingSuggestions.isEmpty()) {
       return false;
     }
@@ -143,6 +166,7 @@ public class BrailleTypoFinder {
     targetNode = node;
     this.spellingSuggestion = spellingSuggestion;
     suggestionCandidates = spellingSuggestion.suggestionSpan().getSuggestions();
+    suggestionSpanFlag = spellingSuggestion.suggestionSpan().getFlags();
     return suggestionCandidates.length != 0;
   }
 

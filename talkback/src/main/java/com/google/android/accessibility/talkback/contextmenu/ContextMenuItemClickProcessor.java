@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.talkback.contextmenu;
 
-import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_NEXT;
+import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_CURSOR;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_TOP;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.BRIGHTEN;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.DIM;
@@ -100,7 +100,7 @@ public class ContextMenuItemClickProcessor {
     if (itemId == R.id.read_from_top) {
       pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_TOP));
     } else if (itemId == R.id.read_from_current) {
-      pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_NEXT));
+      pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_CURSOR));
     } else if (itemId == R.id.repeat_last_utterance) {
       pipeline.returnFeedback(
           eventId, Feedback.part().setSpeech(Feedback.Speech.create(REPEAT_SAVED)));

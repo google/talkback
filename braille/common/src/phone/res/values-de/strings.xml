@@ -18,6 +18,7 @@
   <string name="code_user_facing_name_arabic">Arabisch</string>
   <string name="code_user_facing_name_arabic_comp8">Arabische 8-Punkt-Computer-Braille</string>
   <string name="code_user_facing_name_bulgarian">Bulgarisch</string>
+  <string name="code_user_facing_name_bulgarian_comp8">Bulgarisch (8‑Punkt-Computer-Braille)</string>
   <string name="code_user_facing_name_ca_catalan">Katalanisch</string>
   <string name="code_user_facing_name_catonese">Kantonesisch</string>
   <string name="code_user_facing_name_chinese_china_common">Chinesisch (China): Allgemein</string>
@@ -35,12 +36,10 @@
   <string name="code_user_facing_name_german_comp8">Deutsche 8-Punkt-Computer-Braille</string>
   <string name="code_user_facing_name_german">Deutsch</string>
   <string name="code_user_facing_name_greek">Griechisch</string>
-  <string name="code_user_facing_name_en_ca">Englische Brailleschrift (Kanada)</string>
   <string name="code_user_facing_name_en_uk">Englische Brailleschrift (Vereinigtes Königreich)</string>
   <string name="code_user_facing_name_en_in">Englische Brailleschrift (Indien)</string>
   <string name="code_user_facing_name_en_nabcc_comp8">Nordamerikanische Computerbrailleschrift</string>
   <string name="code_user_facing_name_en_comp6">Englisch (Computerbraille mit 6 Punkten)</string>
-  <string name="code_user_facing_name_en_comp8">Englisch (Computerbraille mit 8 Punkten)</string>
   <string name="code_user_facing_name_en_us_ebae">English Braille (USA, American Edition)</string>
   <string name="code_user_facing_name_en_us">Englische Brailleschrift (USA)</string>
   <string name="code_user_facing_name_polish">Polnisch</string>
@@ -78,13 +77,14 @@
   <string name="code_user_facing_name_dutch_comp8">Niederländische 8-Punkt-Computer-Braille</string>
   <string name="code_user_facing_name_norwegian">Norwegisch</string>
   <string name="code_user_facing_name_norwegian_8_no">Norweg. (Braille mit 8 Punkten, Norw.)</string>
+  <string name="code_user_facing_name_norwegian_comp8">Norwegisch (8‑Punkt-Computer-Braille)</string>
   <string name="code_user_facing_name_norwegian_8">Norwegisch (Braille mit acht Punkten)</string>
   <string name="code_user_facing_name_norwegian_8_with_6_fallback">Norwegisch (Braille mit acht Punkten, Fallback mit sechs Punkten)</string>
   <string name="code_user_facing_name_nepali_indian">Nepalesische Brailleschrift (Indien)</string>
   <string name="code_user_facing_name_portuguese">Portugiesisch</string>
   <string name="code_user_facing_name_punjabi">Punjabi</string>
   <string name="code_user_facing_name_portuguese_comp8">Portugiesisch (Computerbraille mit acht Punkten)</string>
-  <string name="code_user_facing_name_romanian_no">Rumänisch (Braille mit acht Punkten)</string>
+  <string name="code_user_facing_name_romanian_comp8">Rumänisch (8‑Punkt-Computer-Braille)</string>
   <string name="code_user_facing_name_russian">Russisch</string>
   <string name="code_user_facing_name_russian_detailed">Russisch mit Angabe von Großbuchstaben</string>
   <string name="code_user_facing_name_russian_comp8">Russisch (Computerbraille mit acht Punkten)</string>
@@ -99,7 +99,7 @@
   <string name="code_user_facing_name_tamil">Tamil</string>
   <string name="code_user_facing_name_telugu_in">Telugu-Brailleschrift (Indien)</string>
   <string name="code_user_facing_name_turkish">Türkisch</string>
-  <string name="code_user_facing_name_turkish_8">Türkisch (Braille mit acht Punkten)</string>
+  <string name="code_user_facing_name_turkish_comp8">Türkisch (8‑Punkt-Computer-Braille)</string>
   <string name="code_user_facing_name_ukrainian">Ukrainisch</string>
   <string name="code_user_facing_name_ukrainian_comp8">Ukrainisch (Computerbraille mit acht Punkten)</string>
   <string name="code_user_facing_name_urdu">Urdu</string>

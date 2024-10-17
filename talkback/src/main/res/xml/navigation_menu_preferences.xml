@@ -50,18 +50,6 @@
         android:summary="@string/summary_landmarks"
         android:title="@string/granularity_web_landmark" />
     <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
-        android:defaultValue="@bool/pref_show_navigation_menu_special_content_default"
-        android:key="@string/pref_show_navigation_menu_special_content_setting_key"
-        android:layout="@layout/listitem_2texts"
-        android:summary="@string/summary_special_content"
-        android:title="@string/granularity_pseudo_web_special_content" />
-    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
-        android:defaultValue="@bool/pref_show_navigation_menu_other_web_navigation_default"
-        android:key="@string/pref_show_navigation_menu_other_web_navigation_setting_key"
-        android:layout="@layout/listitem_2texts"
-        android:summary="@string/summary_other_web_navigation"
-        android:title="@string/title_other_web_navigation" />
-    <com.google.android.accessibility.utils.preference.AccessibilitySuiteCheckBoxPreference
         android:defaultValue="@bool/pref_show_navigation_menu_window_default"
         android:key="@string/pref_show_navigation_menu_window_setting_key"
         android:layout="@layout/listitem_2texts"

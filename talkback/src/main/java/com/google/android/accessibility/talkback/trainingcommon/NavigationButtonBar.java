@@ -77,6 +77,7 @@ public class NavigationButtonBar extends LinearLayout {
       ImmutableList.of(BUTTON_TYPE_BACK, BUTTON_TYPE_NEXT, BUTTON_TYPE_EXIT);
 
   private final LinearLayout navigationBarLayout;
+
   /**
    * A list of buttons which will be shown on the navigation button bar.
    *
@@ -240,10 +241,10 @@ public class NavigationButtonBar extends LinearLayout {
             createButton(
                 getContext(),
                 buttonType,
-                isLastPage ? R.string.training_finish_button : R.string.training_close_button,
+                R.string.training_finish_button,
                 view -> navigationListener.onExit(),
                 buttonCount);
-        exitButton.setContentDescription(getContext().getString(R.string.training_close_tutorial));
+        exitButton.setContentDescription(getContext().getString(R.string.training_finish_tutorial));
         navigationBarLayout.addView(exitButton);
         return;
       case BUTTON_TYPE_FINISH:

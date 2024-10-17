@@ -7,12 +7,6 @@
     -->
     <string name="talkback_service_description">TalkBack is a screen reader primarily for people with blindness and low vision. It allows interaction with the device using spoken feedback.</string>
 
-    <!--
-    Srouce: The text of introducing TalkBack.
-    Description: In RTL language, "right" and "left" should be translated reverse. [CHAR_LIMIT=NONE]
-    -->
-    <string name="welcome_to_talkback_text">Get spoken feedback so you can use your watch without looking at the screen.</string>
-
     <!-- Summary for the Context menu containing custom action. [CHAR_LIMIT=NONE] -->
     <string name="summary_custom_action">Shows when custom actions exist for the current item.</string>
 
@@ -27,6 +21,9 @@
       Description: Displays a more detailed notification with information about gesture changes [CHAR_LIMIT=70]
     -->
     <string name="notification_message_talkback_gestures_changed">Open Talkback for more details</string>
+
+    <!-- The context of notification to notify users that TalkBack has been updated. [CHAR_LIMIT=120]-->
+    <string name="talkback_updated_notification_content">Open TalkBack for details</string>
 
     <!-- A item in settings page to introduce TalkBack new features. [CHAR_LIMIT=NONE]-->
     <string name="new_feature_in_talkback_title">What\'s new</string>

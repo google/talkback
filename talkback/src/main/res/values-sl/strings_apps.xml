@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">Glasnost vira %1$s je nastavljena na %2$d odstotkov.</string>
   <string name="template_stream_muted_set">%1$s – zvok je izklopljen.</string>
+  <string name="hint_a11y_volume_control">Če želite spremeniti glasnost za funkcije dostopnosti, z enim prstom pridržite zaslon in pritisnite gumb za povečanje ali zmanjšanje glasnosti.</string>
   <string name="value_stream_voice_call">Telefonski klic</string>
   <string name="value_stream_system">Sistemski zvok</string>
   <string name="value_stream_ring">Ton zvonjenja</string>

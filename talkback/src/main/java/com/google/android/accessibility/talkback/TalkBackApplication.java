@@ -33,6 +33,7 @@ public class TalkBackApplication extends SplitCompatApplication {
     super.onCreate();
 
     FormFactorUtils.initialize(this);
+    PackageNameProvider.initialize(this);
     TrainingActivityInterfaceInjector.initialize(
         new TrainingConfigMapperImpl(), new PageConfigMapperImpl());
   }

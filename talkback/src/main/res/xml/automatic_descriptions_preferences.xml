@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
+      android:key="@string/pref_category_automatic_description_summary_key"
+      android:summary="@string/title_pref_category_automatic_description_summary"
+      android:selectable="false" />
+
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
+      android:key="@string/pref_image_description_key"
+      android:title="@string/title_pref_image_description" />
+  <com.google.android.accessibility.utils.preference.AccessibilitySuiteSwitchPreference
+      android:defaultValue="@bool/pref_detailed_image_description_default"
+      android:key="@string/pref_detailed_image_description_key"
+      android:title="@string/title_pref_detailed_image_description" />
   <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
       android:key="@string/pref_icon_detection_key"
       android:title="@string/title_pref_icon_detection" />
   <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
-      android:key="@string/pref_image_description_key"
-      android:title="@string/title_pref_image_description" />
-  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
       android:key="@string/pref_text_recognition_key"
       android:title="@string/title_pref_text_recognition" />
+
 </PreferenceScreen>

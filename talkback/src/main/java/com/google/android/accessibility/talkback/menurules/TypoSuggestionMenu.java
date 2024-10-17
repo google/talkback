@@ -16,12 +16,16 @@
 
 package com.google.android.accessibility.talkback.menurules;
 
+import static android.text.style.SuggestionSpan.FLAG_GRAMMAR_ERROR;
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.TYPO_CORRECTION;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.content.Context;
+import android.text.BidiFormatter;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.TextDirectionHeuristics;
+import android.text.style.SuggestionSpan;
 import android.text.style.TtsSpan;
 import android.view.Menu;
 import androidx.annotation.Nullable;
@@ -41,7 +45,6 @@ import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.stream.IntStream;
 
 /** Rule for generating menu item related to typo suggestions. */
 public class TypoSuggestionMenu implements NodeMenu {
@@ -82,7 +85,7 @@ public class TypoSuggestionMenu implements NodeMenu {
     if (Role.getRole(editingNode) != Role.ROLE_EDIT_TEXT) {
       return false;
     }
-    return !AccessibilityNodeInfoUtils.getSpellingSuggestions(editingNode).isEmpty();
+    return !AccessibilityNodeInfoUtils.getSpellingSuggestions(context, editingNode).isEmpty();
   }
 
   @Override
@@ -91,26 +94,43 @@ public class TypoSuggestionMenu implements NodeMenu {
     List<ContextMenuItem> suggestionItems = new ArrayList<>();
 
     AccessibilityNodeInfoCompat editingNode = getEditingNode(node);
-    SpellingSuggestion targetSpellingSuggestion = getTargetSpellingSuggestion(editingNode);
+    SpellingSuggestion targetSpellingSuggestion = getTargetSpellingSuggestion(context, editingNode);
     if (targetSpellingSuggestion == null) {
       return suggestionItems;
     }
 
-    for (String suggestion : targetSpellingSuggestion.suggestionSpan().getSuggestions()) {
-      // The suggestion will be read out as a word, then characters will be read out verbatim.
-      Spannable readVerbatim =
-          new SpannableStringBuilder()
-              .append(suggestion, new TtsSpan.TextBuilder(suggestion + ",").build(), 0)
-              .append(" ", new TtsSpan.VerbatimBuilder(suggestion).build(), 0);
-      Spannable title =
-          formatTitle(context.getText(R.string.title_edittext_typo_suggestion), readVerbatim);
+    SuggestionSpan span = targetSpellingSuggestion.suggestionSpan();
+    boolean isTypo = (span.getFlags() & FLAG_GRAMMAR_ERROR) == 0;
+    String[] suggestions = span.getSuggestions();
+    int suggestionCount = suggestions.length;
+    for (int i = 0; i < suggestionCount; i++) {
+      String suggestion = suggestions[i];
+      // The spelling and grammar suggestion will be read out as a word, then characters will be
+      // read out verbatim.
+      SpannableStringBuilder title =
+          new SpannableStringBuilder(
+              context.getString(
+                  isTypo
+                      ? R.string.title_edittext_typo_suggestion
+                      : R.string.title_edittext_grammar_suggestion,
+                  suggestion));
+      title.append(
+          " ", new TtsSpan.VerbatimBuilder(suggestion).build(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+      title.append(
+          " ",
+          new TtsSpan.TextBuilder(
+                  context.getString(
+                      R.string.title_edittext_typo_suggestion_number, i + 1, suggestionCount))
+              .build(),
+          Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
       ContextMenuItem suggestionItem =
           ContextMenu.createMenuItem(
               context,
               /* groupId= */ Menu.NONE,
               /* itemId= */ R.id.typo_suggestions_menu,
               /* order= */ Menu.NONE,
-              title);
+              // Forces the text direction to the default locale direction.
+              BidiFormatter.getInstance().unicodeWrap(title, TextDirectionHeuristics.LOCALE));
       suggestionItem.setOnMenuItemClickListener(
           menuItem -> {
             LogUtils.v(
@@ -152,42 +172,9 @@ public class TypoSuggestionMenu implements NodeMenu {
     return editingNode == null ? node : editingNode;
   }
 
-  private static Spannable formatTitle(CharSequence format, CharSequence suggestion) {
-    // We can't use String.format() because the title contains TtsSpan. So manually format the text
-    // by replacing "%1$s" to the given spelling suggestion.
-    int start =
-        IntStream.range(0, format.length())
-            .filter(i -> format.charAt(i) == '%')
-            .findFirst()
-            .orElse(-1);
-    int end = -1;
-    if ((start >= 0) && (start + 3 < format.length())) {
-      if ((format.charAt(start + 1) == '1')
-          && (format.charAt(start + 2) == '$')
-          && (format.charAt(start + 3) == 's')) {
-        end = start + 3;
-      }
-    }
-
-    SpannableStringBuilder result = new SpannableStringBuilder();
-    if (start >= 0) {
-      // Prefix of the format.
-      result.append(format.subSequence(0, start));
-    }
-
-    result.append(suggestion);
-
-    if (end >= 0 && end < format.length()) {
-      // Suffix of the format.
-      result.append(format.subSequence(end + 1, format.length()));
-    }
-
-    return result;
-  }
-
   @Nullable
   private static SpellingSuggestion getTargetSpellingSuggestion(
-      @Nullable AccessibilityNodeInfoCompat node) {
+      Context context, @Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return null;
     }
@@ -199,7 +186,7 @@ public class TypoSuggestionMenu implements NodeMenu {
     }
 
     List<SpellingSuggestion> spellingSuggestions =
-        AccessibilityNodeInfoUtils.getSpellingSuggestions(node);
+        AccessibilityNodeInfoUtils.getSpellingSuggestions(context, node);
 
     return spellingSuggestions.isEmpty() ? null : spellingSuggestions.get(0);
   }

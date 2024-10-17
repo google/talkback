@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">पढ्नुहोस्</string>
-  <string name="voice_commands_read_from_next">अर्को वस्तुदेखि पढेर सुनाऊ</string>
+  <string name="voice_commands_read_from_next">कर्सरको पोजिसनबाट पढेर सुनाऊ</string>
   <string name="voice_commands_edit_options">सम्पादनसम्बन्धी विकल्पहरू</string>
-  <string name="voice_commands_text_editing">पाठ सम्पादन</string>
-  <string name="voice_commands_edit_text">पाठ सम्पादन गर</string>
-  <string name="voice_commands_editing_options">सम्पादनसम्बन्धी विकल्पहरू</string>
   <string name="voice_commands_edit">सम्पादन गर्नुहोस्</string>
   <string name="voice_commands_what">के</string>
   <string name="voice_commands_say">भन्नुहोस्</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">लेबल प्रदान गर्नुहोस्</string>
   <string name="voice_commands_cannot_label_feedback">लेबल राख्न सकिएन</string>
   <string name="voice_commands_assistant">सहायक</string>
-  <string name="voice_commands_setting_speech_rate">बोलीको दर सेट गरिँदै</string>
   <string name="voice_commands_first">पहिलो</string>
   <string name="voice_commands_top">सिरान</string>
   <string name="voice_commands_last">अन्तिम</string>
@@ -67,7 +63,7 @@
   <string name="voice_commands_notification">सूचना</string>
   <string name="voice_commands_notifications">सूचनाहरू</string>
   <string name="voice_commands_verbosity_parameter">बोलेर दिनु पर्ने जानकारीको मात्रा %s बनाऊ</string>
-  <string name="voice_commands_parameter_verbosity">बोलेर दिनु पर्ने जानकारीको मात्रा सेट गरी %s बनाऊ</string>
+  <string name="voice_commands_parameter_verbosity">%s भर्बोसिटी</string>
   <string name="voice_commands_change_verbosity_to_parameter">बोलेर दिनु पर्ने जानकारीको मात्रा बदलेर %s बनाऊ</string>
   <string name="voice_commands_navigation_by_parameter">%s का आधारमा नेभिगेट गर</string>
   <string name="voice_commands_parameter_navigation">%s अनुसार नेभिगेट गर</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">बोल्ने गति बढाऊ</string>
   <string name="voice_commands_slower">अझ ढिलो बोल</string>
   <string name="voice_commands_decrease_speech_rate">बोल्ने गति घटाऊ</string>
-  <string name="voice_commands_possible_options_title">तपाईं यसो भन्न सक्नुहुन्छ</string>
   <string name="voice_commands_no_action">आवाजको सर्टकट समर्थित छैन</string>
   <string name="voice_commands_no_mic_permissions">यो सुविधा प्रयोग गर्न, माइक्रोफोन प्रयोग गर्न तपाईंले अनिवार्य रूपमा माइक्रोफोनलाई अनुमति दिनु पर्छ।</string>
   <string name="voice_commands_no_voice_recognition_ability">माफ गर्नुहोस्! तपाईंका यन्त्रमा यो सुविधा उपलब्ध छैन</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">नियन्त्रण गर्ने अर्को विकल्प छैन</string>
   <string name="voice_commands_no_next_landmark_feedback">अर्को ल्यान्डमार्क छैन</string>
   <string name="voice_commands_help_title">बोलेर निर्देशन दिने सुविधाका बारेमा संक्षिप्त जानकारी</string>
-  <string name="voice_commands_help_description">बोलेर निर्देशन दिन दायाँ अनि माथितिर स्वाइप गर्नुहोस्। बोलेर दिन सकिने निर्देशनहरूको यो सूची हेर्न जुनसुक‍ै बेला \"मद्दत गर\" वा \"म के भन्न सक्छु?\" भन्नुहोस्।</string>
+  <string name="voice_commands_help_description">\"भ्याइस कमान्ड\" प्रयोग गर्न दायाँ अनि माथितिर स्वाइप गर्नुहोस्। बोलेर दिइने निर्देशनहरूको यो सूची हेर्न जुनसुकै बेला \"%1$s\" वा \"म के भन्न सक्छु?\" भन्नुहोस्।</string>
   <string name="voice_commands_help_hint">उत्कृष्ट परिणाम प्राप्त गर्न यसपछि देखाइने स्क्रिनहरूमा सूचीबद्ध गरिएका शब्दहरू जस्ताको तस्तै भन्नुहोस्।</string>
   <string name="voice_command_screen_locked_hint">स्क्रिन लक भएका बेला बोलेर दिइने निर्देशनहरूले काम गर्दैनन्। यसको साटो TalkBack मेनु प्रयोग गर्न %1$s।</string>
   <string name="voice_commands_during_setup_hint">सेटअप गर्ने बेला बोलेर निर्देशनहरू दिने सुविधा उपलब्ध हुँदैन।</string>
@@ -112,11 +107,11 @@
   <string name="voice_commands_help_next">अर्को [शीर्षक]</string>
   <string name="voice_commands_help_navigation">[शब्द] अनुसार नेभिगेट गर</string>
   <string name="voice_commands_help_speech_rate">[अझ छिटो] बोल</string>
-  <string name="voice_commands_help_verbosity">बोलेर दिनु पर्ने जानकारीको मात्रा सेट गरी [कम] बनाऊ</string>
+  <string name="voice_commands_help_verbosity">[कम] भर्बोसिटी</string>
   <string name="voice_commands_help_next_description">अर्को शीर्षक, नियन्त्रण गर्ने विकल्प, सूची वा ल्यान्डमार्कमा जानुहोस्</string>
   <string name="voice_commands_help_navigation_description">शब्द, वर्ण, हरफ, अनुच्छेद, शीर्षक, नियन्त्रण गर्ने विकल्प र अन्य कुराका आधारमा नेभिगेट गर्नुहोस्</string>
   <string name="voice_commands_help_speech_rate_description">तपाईं \"बिस्तारै बोल\" पनि भन्न सक्नुहुन्छ</string>
-  <string name="voice_commands_help_verbosity_description">बोलेर दिइने जानकारीको मात्रा उच्च, न्यून वा आफूले चाहे जति बनाउनुहोस्</string>
+  <string name="voice_commands_help_verbosity_description">भर्बोसिटी उच्च, न्यून वा आफूले चाहे जति बनाउनुहोस्</string>
   <string name="voice_commands_help_first_description">यो स्क्रिनमा भएको पहिलो वस्तुमा जानुहोस्</string>
   <string name="voice_commands_help_last_description">यो स्क्रिनमा भएको अन्तिम वस्तुमा जानुहोस्</string>
   <string name="voice_commands_help_languages_description">पाठ पढेर सुनाइने भाषा बदल्नुहोस् (टेक्स्ट-टू-स्पिच)</string>
@@ -131,7 +126,7 @@
   <string name="voice_commands_help_copy_description">कुनै टेक्स्ट कपी गर्नुअघि त्यसलाई चयन गर्नुहोस्</string>
   <string name="voice_commands_help_cut_description">कुनै टेक्स्ट कट गर्नुअघि त्यसलाई चयन गर्नुहोस्</string>
   <string name="voice_commands_help_delete_description">कुनै टेक्स्ट मेटाउनुअघि त्यसलाई चयन गर्नुहोस्</string>
-  <string name="voice_commands_help_device_navigation_title">यन्त्रमा गरिने नेभिगेसन</string>
+  <string name="voice_commands_help_device_navigation_title">डिभाइस नेभिगेसन</string>
   <string name="voice_commands_help_device_navigation_description">होम स्क्रिनमा जानुहोस्, अघिल्लो स्क्रिनमा फर्कनुहोस्, सूचनाहरू देखाउनुहोस् र अन्य कुरा गर्नुहोस्</string>
   <string name="voice_commands_help_overview_description">हालसालै चलाइएका एपहरू हेर्नुहोस्</string>
   <string name="voice_commands_help_assistant_description">Google सहायक खोल्नुहोस्</string>

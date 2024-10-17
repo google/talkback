@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2023 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.google.android.accessibility.braille.brailledisplay.controller;
 
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
@@ -28,6 +44,7 @@ import com.google.android.accessibility.braille.brailledisplay.controller.utils.
 import com.google.android.accessibility.braille.brailledisplay.controller.utils.BrailleKeyBindingUtils.SupportedCommand;
 import com.google.android.accessibility.braille.brltty.BrailleInputEvent;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
+import com.google.android.accessibility.braille.common.FeedbackManager;
 import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer.ScreenReaderAction;
 import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleDisplay.CustomLabelAction;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
@@ -144,12 +161,12 @@ public class EventManager implements EventConsumer {
       if (behaviorNavigation.panUp()) {
         return true;
       }
-      feedbackManager.emitFeedback(FeedbackManager.TYPE_NAVIGATE_OUT_OF_BOUNDS);
+      feedbackManager.emitFeedback(FeedbackManager.Type.NAVIGATE_OUT_OF_BOUNDS);
     } else if (shouldPanDown(command)) {
-      if (behaviorNavigation.panDown()) {
+      if (behaviorNavigation.panDownWhenAutoScrollDisabled()) {
         return true;
       }
-      feedbackManager.emitFeedback(FeedbackManager.TYPE_NAVIGATE_OUT_OF_BOUNDS);
+      feedbackManager.emitFeedback(FeedbackManager.Type.NAVIGATE_OUT_OF_BOUNDS);
     } else {
       if (handleAutoscrollCommands(command, event.getArgument())) {
         return true;
@@ -172,7 +189,7 @@ public class EventManager implements EventConsumer {
       if (currentConsumer.onMappedInputEvent(event)) {
         return true;
       }
-      feedbackManager.emitFeedback(FeedbackManager.TYPE_UNKNOWN_COMMAND);
+      feedbackManager.emitFeedback(FeedbackManager.Type.UNKNOWN_COMMAND);
     }
     return false;
   }
@@ -310,7 +327,7 @@ public class EventManager implements EventConsumer {
         behaviorIme.onFocusCleared();
       }
     } else {
-      feedbackManager.emitFeedback(FeedbackManager.TYPE_COMMAND_FAILED);
+      feedbackManager.emitFeedback(FeedbackManager.Type.COMMAND_FAILED);
     }
     return true;
   }
@@ -363,6 +380,9 @@ public class EventManager implements EventConsumer {
             !FeatureFlagReader.usePlayPauseMedia(context)
                 || behaviorScreenReader.performAction(ScreenReaderAction.PLAY_PAUSE_MEDIA);
         break;
+      case BrailleInputEvent.CMD_NEXT_INPUT_METHOD:
+        success = behaviorIme.switchToNextInputMethod();
+        break;
       default:
         return false;
     }
@@ -371,7 +391,7 @@ public class EventManager implements EventConsumer {
         behaviorIme.onFocusCleared();
       }
     } else {
-      feedbackManager.emitFeedback(FeedbackManager.TYPE_COMMAND_FAILED);
+      feedbackManager.emitFeedback(FeedbackManager.Type.COMMAND_FAILED);
     }
     // Always return true because we own these actions.
     return true;

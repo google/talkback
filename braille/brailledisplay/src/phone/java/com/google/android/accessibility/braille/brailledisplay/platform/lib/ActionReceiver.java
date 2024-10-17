@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.braille.brailledisplay.platform.lib;
 
-import static android.content.Context.RECEIVER_EXPORTED;
+import static androidx.core.content.ContextCompat.RECEIVER_EXPORTED;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -27,7 +27,8 @@ import androidx.core.content.ContextCompat;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /** A subclass of BroadcastReceiver that reduces the tedium of registering and unregistering. */
-public abstract class ActionReceiver<R extends ActionReceiver<R, C>, C> extends BroadcastReceiver {
+public abstract class ActionReceiver<R extends ActionReceiver<R, C>, C> extends BroadcastReceiver
+    implements Receiver<R> {
 
   private boolean registered;
   private C callback;
@@ -47,8 +48,9 @@ public abstract class ActionReceiver<R extends ActionReceiver<R, C>, C> extends 
 
   protected abstract String[] getActionsList();
 
-  @CanIgnoreReturnValue
   @SuppressWarnings("unchecked")
+  @CanIgnoreReturnValue
+  @Override
   public R registerSelf() {
     if (!registered) {
       IntentFilter filter = new IntentFilter();
@@ -61,6 +63,7 @@ public abstract class ActionReceiver<R extends ActionReceiver<R, C>, C> extends 
     return (R) this;
   }
 
+  @Override
   public void unregisterSelf() {
     if (registered) {
       context.unregisterReceiver(this);

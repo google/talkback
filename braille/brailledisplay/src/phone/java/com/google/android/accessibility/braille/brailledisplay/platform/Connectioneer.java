@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.braille.brailledisplay.platform;
 
+import static java.util.stream.Collectors.toCollection;
+
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
@@ -37,17 +39,20 @@ import com.google.android.accessibility.braille.brailledisplay.platform.connect.
 import com.google.android.accessibility.braille.brailledisplay.platform.connect.device.ConnectableDevice;
 import com.google.android.accessibility.braille.brailledisplay.platform.connect.usb.UsbAttachedReceiver;
 import com.google.android.accessibility.braille.brailledisplay.platform.lib.ScreenOnOffReceiver;
+import com.google.android.accessibility.braille.brailledisplay.platform.lib.SetupWizardFinishReceiver;
 import com.google.android.accessibility.braille.brltty.BrailleDisplayProperties;
+import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.common.collect.ImmutableSet;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 /**
  * Manages connectivity between a phone and a BT rfcomm-capable or usb-capable braille display, in
@@ -56,6 +61,7 @@ import java.util.stream.Collectors;
  */
 public class Connectioneer {
   private static final String TAG = "Connectioneer";
+
   /** Arguments needed to instantiate the singleton. */
   public static class CreationArguments {
     public final Context applicationContext;
@@ -76,6 +82,11 @@ public class Connectioneer {
       instance = new Connectioneer(arguments);
     }
     return instance;
+  }
+
+  @VisibleForTesting
+  public static void reset() {
+    instance = null;
   }
 
   private enum ConnectReason {
@@ -101,17 +112,21 @@ public class Connectioneer {
   private final Predicate<String> deviceNameFilter;
   private final ScreenOnOffReceiver screenOnOffReceiver;
   private final UsbAttachedReceiver usbAttachedReceiver;
+  private final SetupWizardFinishReceiver setupWizardFinishReceiver;
   private final ConnectManagerProxy connectManagerProxy;
-
+  private final ConnectManagerCallback connectManagerCallback;
   private BrailleDisplayProperties displayProperties;
   private boolean controllingServiceEnabled;
-  private ConnectManagerCallback connectManagerCallback;
+  // Store if user connects to a braille display via usb during SetupWizard.
+  private boolean usbConnected;
 
   private Connectioneer(CreationArguments arguments) {
     this.context = arguments.applicationContext;
     this.deviceNameFilter = arguments.deviceNameFilter;
     screenOnOffReceiver = new ScreenOnOffReceiver(context, screenOnOffReceiverCallback);
     usbAttachedReceiver = new UsbAttachedReceiver(context, usbAttachedReceiverCallback);
+    setupWizardFinishReceiver =
+        new SetupWizardFinishReceiver(context, setupWizardFinishReceiverCallback);
     connectManagerCallback = new ConnectManagerCallback();
     connectManagerProxy = new ConnectManagerProxy(context, connectManagerCallback);
     // We knowingly register this listener with no intention of deregistering it.  As this
@@ -129,15 +144,13 @@ public class Connectioneer {
   /** Informs that the controlling service has changed its enabled status. */
   public void onServiceEnabledChanged(boolean serviceEnabled) {
     this.controllingServiceEnabled = serviceEnabled;
-    figureEnablement(serviceEnabled, PersistentStorage.isConnectionEnabledByUser(context));
+    figureEnablement(serviceEnabled, PersistentStorage.isConnectionEnabled(context));
   }
 
   private boolean shouldUseUsbConnection() {
     UsbManager usbManager = (UsbManager) context.getSystemService(Context.USB_SERVICE);
     return usbManager.getDeviceList().values().stream()
-            .filter(device -> allowDevice(device.getProductName()))
-            .count()
-        > 0;
+        .anyMatch(device -> allowDevice(device.getProductName()));
   }
 
   private void figureEnablement(boolean serviceEnabled, boolean userSettingEnabled) {
@@ -158,13 +171,16 @@ public class Connectioneer {
     // enablement is true; we purposely do not burden ourselves with other concerns such as
     // bluetooth radio being on or permissions are granted.
     if (enable) {
+      PersistentStorage.syncRememberedDevice(context, connectManagerProxy.getBondedDevices());
       autoConnectIfPossibleToBondedDevice(ConnectReason.AUTO_CONNECT_BONDED_REMEMBERED_BD_ENABLED);
       screenOnOffReceiver.registerSelf();
       usbAttachedReceiver.registerSelf();
+      setupWizardFinishReceiver.registerSelf();
       connectManagerProxy.onStart();
     } else {
       screenOnOffReceiver.unregisterSelf();
       usbAttachedReceiver.unregisterSelf();
+      setupWizardFinishReceiver.unregisterSelf();
       connectManagerProxy.onStop();
       // Switch back to bt by default.
       connectManagerProxy.switchTo(ConnectType.BLUETOOTH);
@@ -191,8 +207,7 @@ public class Connectioneer {
   }
 
   private void autoConnectIfPossibleToBondedDevice(ConnectReason reason) {
-    Set<ConnectableDevice> bondedDevices = connectManagerProxy.getBondedDevices();
-    autoConnectIfPossible(bondedDevices, reason);
+    autoConnectIfPossible(connectManagerProxy.getBondedDevices(), reason);
   }
 
   @SuppressLint("DefaultLocale")
@@ -216,7 +231,7 @@ public class Connectioneer {
                       return PersistentStorage.getRememberedDevices(context).stream()
                           .anyMatch(
                               stringStringPair ->
-                                  stringStringPair.first.equals(connectableDevice.name()));
+                                  stringStringPair.second.equals(connectableDevice.address()));
                     }
                     // We don't remember usb devices. Connect the first one directly.
                     return true;
@@ -257,17 +272,19 @@ public class Connectioneer {
 
   private void submitConnectionRequest(ConnectableDevice device, ConnectReason reason) {
     BrailleDisplayLog.d(TAG, "submitConnectionRequest to " + device + ", reason:" + reason);
-    if (aspectConnection.isConnectedTo(device.name())
-        || aspectConnection.isConnectingTo(device.name())) {
+    if (aspectConnection.isConnectedTo(device.address())
+        || aspectConnection.isConnectingTo(device.address())) {
       BrailleDisplayLog.d(
           TAG,
           "submitConnectionRequest ignored because already connecting or connected to "
-              + device.name());
+              + device.name()
+              + ": "
+              + device.address());
       return;
     }
     connectManagerProxy.disconnect();
     aspectConnection.notifyConnectionStatusChanged(ConnectStatus.CONNECTING, device);
-    connectManagerProxy.connect(device);
+    connectManagerProxy.connect(device, reason == ConnectReason.USER_CHOSE_CONNECT_DEVICE);
   }
 
   private static class Aspect<A extends Aspect<A, L>, L> {
@@ -278,12 +295,14 @@ public class Connectioneer {
       this.connectioneer = connectioneer;
     }
 
+    @CanIgnoreReturnValue
     @SuppressWarnings("unchecked")
     public A attach(L callback) {
       listeners.add(callback);
       return (A) this;
     }
 
+    @CanIgnoreReturnValue
     @SuppressWarnings("unchecked")
     public A detach(L callback) {
       listeners.remove(callback);
@@ -336,23 +355,30 @@ public class Connectioneer {
         DISCONNECTED,
         CONNECTING
       }
+
       /** Callbacks when scanning changed. */
       void onScanningChanged();
 
       /** Callbacks when stored device list cleared. */
       void onDeviceListCleared();
 
-      /** Callbacks when starting a device connection. */
-      void onConnectStarted();
+      /** Callbacks when starting a HID device connection. */
+      void onConnectHidStarted();
+
+      /** Callbacks when starting a Rfcomm device connection. */
+      void onConnectRfcommStarted();
 
       /** Callbacks when connectable device seen or updated. */
       void onConnectableDeviceSeenOrUpdated(ConnectableDevice device);
+
+      /** Callbacks when connectable device deleted. */
+      void onConnectableDeviceDeleted(ConnectableDevice device);
 
       /** Callbacks when a device connection status changed. */
       void onConnectionStatusChanged(ConnectStatus status, ConnectableDevice device);
 
       /** Callbacks when a device connection failed. */
-      void onConnectFailed(@Nullable String deviceName);
+      void onConnectFailed(boolean manual, @Nullable String deviceName);
     }
 
     private void notifyScanningChanged() {
@@ -363,12 +389,20 @@ public class Connectioneer {
       notifyListeners(AspectConnection.Callback::onDeviceListCleared);
     }
 
-    private void notifyConnectableDeviceSeen(ConnectableDevice device) {
+    private void notifyConnectableDeviceSeenOrUpdated(ConnectableDevice device) {
       notifyListeners(callback -> callback.onConnectableDeviceSeenOrUpdated(device));
     }
 
-    private void notifyConnectStarted() {
-      notifyListeners(callback -> callback.onConnectStarted());
+    private void notifyConnectableDeviceDeleted(ConnectableDevice device) {
+      notifyListeners(callback -> callback.onConnectableDeviceDeleted(device));
+    }
+
+    private void notifyConnectHidStarted() {
+      notifyListeners(AspectConnection.Callback::onConnectHidStarted);
+    }
+
+    private void notifyConnectRfcommStarted() {
+      notifyListeners(AspectConnection.Callback::onConnectRfcommStarted);
     }
 
     private void notifyConnectionStatusChanged(
@@ -376,8 +410,8 @@ public class Connectioneer {
       notifyListeners(callback -> callback.onConnectionStatusChanged(status, device));
     }
 
-    private void notifyConnectFailed(@Nullable String deviceName) {
-      notifyListeners(callback -> callback.onConnectFailed(deviceName));
+    private void notifyConnectFailed(boolean manual, @Nullable String deviceName) {
+      notifyListeners(callback -> callback.onConnectFailed(manual, deviceName));
     }
 
     /** Informs that the user has requested a rescan. */
@@ -389,15 +423,17 @@ public class Connectioneer {
     /** Informs that the user has entered the Settings UI. */
     public void onSettingsEntered() {
       if (connectioneer.controllingServiceEnabled
-          && PersistentStorage.isConnectionEnabledByUser(connectioneer.context)) {
+          && PersistentStorage.isConnectionEnabled(connectioneer.context)) {
+        PersistentStorage.syncRememberedDevice(
+            connectioneer.context, connectioneer.connectManagerProxy.getBondedDevices());
         connectioneer.connectManagerProxy.startSearch(Reason.START_SETTINGS);
       }
     }
 
     /** Informs that the user has chosen to connect to a device. */
     public void onUserChoseConnectDevice(ConnectableDevice device) {
-      connectioneer.userDisconnectedDevices.remove(device.name());
-      connectioneer.userDeniedDevices.remove(device.name());
+      connectioneer.userDisconnectedDevices.remove(device.address());
+      connectioneer.userDeniedDevices.remove(device.address());
       connectioneer.submitConnectionRequest(device, ConnectReason.USER_CHOSE_CONNECT_DEVICE);
     }
 
@@ -405,6 +441,12 @@ public class Connectioneer {
     public void onUserChoseDisconnectFromDevice(String deviceAddress) {
       connectioneer.userDisconnectedDevices.add(deviceAddress);
       disconnectFromDevice(deviceAddress);
+    }
+
+    /** Informs that the user has chosen to forget a device. */
+    public void onUserChoseForgetDevice(ConnectableDevice device) {
+      connectioneer.connectManagerProxy.forget(device);
+      disconnectFromDevice(device.address());
     }
 
     /** Informs that displayer failed to start. */
@@ -429,10 +471,10 @@ public class Connectioneer {
     }
 
     /** Gets a copy list of currently visible devices. */
-    public Collection<ConnectableDevice> getScannedDevicesCopy() {
+    public List<ConnectableDevice> getScannedDevicesCopy() {
       return connectioneer.connectManagerProxy.getConnectableDevices().stream()
           .filter(device -> connectioneer.allowDevice(device.name()))
-          .collect(Collectors.toList());
+          .collect(toCollection(ArrayList::new));
     }
 
     /** Asks if connecting is in progress. */
@@ -445,12 +487,13 @@ public class Connectioneer {
       return connectioneer.connectManagerProxy.getCurrentlyConnectingDevice();
     }
 
-    /** Asks if the given device name is connecting-in-progress. */
-    public boolean isConnectingTo(String candidateName) {
+    /** Asks if the given device address is connecting-in-progress. */
+    public boolean isConnectingTo(String candidateAddress) {
       return getCurrentlyConnectingDevice()
           .filter(
               device ->
-                  connectioneer.allowDevice(device.name()) && device.name().equals(candidateName))
+                  connectioneer.allowDevice(device.name())
+                      && device.address().equals(candidateAddress))
           .isPresent();
     }
 
@@ -464,12 +507,13 @@ public class Connectioneer {
       return connectioneer.connectManagerProxy.getCurrentlyConnectedDevice();
     }
 
-    /** Asks if the given device name is currently connected. */
-    public boolean isConnectedTo(String candidateName) {
+    /** Asks if the given device address is currently connected. */
+    public boolean isConnectedTo(String candidateAddress) {
       return getCurrentlyConnectedDevice()
           .filter(
               device ->
-                  connectioneer.allowDevice(device.name()) && device.name().equals(candidateName))
+                  connectioneer.allowDevice(device.name())
+                      && device.address().equals(candidateAddress))
           .isPresent();
     }
 
@@ -508,7 +552,7 @@ public class Connectioneer {
     }
 
     private void notifyRead() {
-      notifyListeners(Callback::onRead);
+      notifyListeners(AspectTraffic.Callback::onRead);
     }
 
     /** Informs that the given outgoing message should be sent to the remote device. */
@@ -551,11 +595,11 @@ public class Connectioneer {
       new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-          if (PersistentStorage.PREF_CONNECTION_ENABLED.equals(key)) {
-            onUserSettingEnabledChanged(PersistentStorage.isConnectionEnabledByUser(context));
-          } else if (PersistentStorage.PREF_AUTO_CONNECT.equals(key)) {
+          if (Objects.equals(key, PersistentStorage.PREF_CONNECTION_ENABLED)) {
+            onUserSettingEnabledChanged(PersistentStorage.isConnectionEnabled(context));
+          } else if (Objects.equals(key, PersistentStorage.PREF_AUTO_CONNECT)) {
             // Don't callback when the braille display is disabled.
-            if (PersistentStorage.isConnectionEnabledByUser(context)) {
+            if (PersistentStorage.isConnectionEnabled(context)) {
               onAutoConnectChanged(PersistentStorage.isAutoConnect(context));
             }
           }
@@ -585,18 +629,25 @@ public class Connectioneer {
         @Override
         public void onUsbAttached(ConnectableDevice device) {
           BrailleDisplayLog.d(TAG, "onUsbAttached");
-          if (shouldUseUsbConnection()) {
-            if (isUsingUsbConnection()) {
-              // Refresh device list.
-              connectManagerProxy.startSearch(Reason.START_USB_ATTACH_DETACH);
-              if (!isConnectingOrConnected()) {
-                submitConnectionRequest(device, ConnectReason.AUTO_CONNECT_USB_PLUGGED);
-              }
-            } else {
-              connectManagerProxy.switchTo(ConnectType.USB);
-              connectManagerProxy.onStart();
+          if (!shouldUseUsbConnection()) {
+            return;
+          }
+          // If user plugs in a USB cable with a braille display during SetupWizard, change the
+          // default connection value to true.
+          usbConnected = true;
+          if (!SettingsUtils.allowLinksOutOfSettings(context)) {
+            PersistentStorage.setConnectionEnabled(context, true);
+          }
+          if (isUsingUsbConnection()) {
+            // Refresh device list.
+            connectManagerProxy.startSearch(Reason.START_USB_ATTACH_DETACH);
+            if (!isConnectingOrConnected()) {
               submitConnectionRequest(device, ConnectReason.AUTO_CONNECT_USB_PLUGGED);
             }
+          } else {
+            connectManagerProxy.switchTo(ConnectType.USB);
+            connectManagerProxy.onStart();
+            submitConnectionRequest(device, ConnectReason.AUTO_CONNECT_USB_PLUGGED);
           }
         }
 
@@ -625,6 +676,18 @@ public class Connectioneer {
         }
       };
 
+  private final SetupWizardFinishReceiver.Callback setupWizardFinishReceiverCallback =
+      new SetupWizardFinishReceiver.Callback() {
+        @Override
+        public void onFinished() {
+          BrailleDisplayLog.d(TAG, "onFinished");
+          if (!PersistentStorage.isConnectionEnabled(context) && !usbConnected) {
+            // Disable braille display settings if user never connects a braille display via USB.
+            figureEnablement(/* serviceEnabled= */ true, /* userSettingEnabled= */ false);
+          }
+        }
+      };
+
   private class ConnectManagerCallback implements ConnectManager.Callback {
     @Override
     public void onDeviceListCleared() {
@@ -633,13 +696,20 @@ public class Connectioneer {
     }
 
     @Override
-    public void onDeviceSeen(ConnectableDevice device) {
+    public void onDeviceSeenOrUpdated(ConnectableDevice device) {
       BrailleDisplayLog.d(TAG, "onDeviceSeen");
       if (allowDevice(device.name())) {
-        BrailleDisplayLog.d(TAG, "onDeviceSeen allow device seen: " + device.name());
+        BrailleDisplayLog.d(
+            TAG, "onDeviceSeen allow device seen: " + device.name() + ": " + device.address());
         autoConnectIfPossible(ImmutableSet.of(device), ConnectReason.AUTO_CONNECT_DEVICE_SEEN);
-        aspectConnection.notifyConnectableDeviceSeen(device);
+        aspectConnection.notifyConnectableDeviceSeenOrUpdated(device);
       }
+    }
+
+    @Override
+    public void onDeviceDeleted(ConnectableDevice device) {
+      PersistentStorage.deleteRememberedDevice(context, device.address());
+      aspectConnection.notifyConnectableDeviceDeleted(device);
     }
 
     @Override
@@ -669,8 +739,12 @@ public class Connectioneer {
     }
 
     @Override
-    public void onConnectStarted() {
-      aspectConnection.notifyConnectStarted();
+    public void onConnectStarted(ConnectManager.Callback.Type type) {
+      if (type == Type.HID) {
+        aspectConnection.notifyConnectHidStarted();
+      } else if (type == Type.RFCOMM) {
+        aspectConnection.notifyConnectRfcommStarted();
+      }
     }
 
     @Override
@@ -700,21 +774,21 @@ public class Connectioneer {
       // a failure will NOT be handled on the current tick (see the docs for
       // BtConnection.open()). Therefore, any code that follows the call to open() will
       // execute BEFORE any failure callback gets invoked, which is reasonable and consistent.
-      connection.open(mD2dConnectionCallback);
+      connection.open(d2dConnectionCallback);
 
       aspectConnection.notifyConnectionStatusChanged(
           ConnectStatus.CONNECTED, connection.getDevice());
     }
 
     @Override
-    public void onConnectFailure(ConnectableDevice device, Exception exception) {
+    public void onConnectFailure(ConnectableDevice device, boolean manual, Exception exception) {
       BrailleDisplayLog.d(TAG, "onConnectFailure: " + exception.getMessage());
       connectManagerProxy.disconnect();
-      aspectConnection.notifyConnectFailed(device == null ? null : device.name());
+      aspectConnection.notifyConnectFailed(manual, device == null ? null : device.name());
     }
   }
 
-  private final D2dConnection.Callback mD2dConnectionCallback =
+  private final D2dConnection.Callback d2dConnectionCallback =
       new D2dConnection.Callback() {
 
         @Override
@@ -744,12 +818,12 @@ public class Connectioneer {
       };
 
   @VisibleForTesting
-  ConnectManager.Callback testing_getConnectManagerCallback() {
+  public ConnectManager.Callback testing_getConnectManagerCallback() {
     return connectManagerCallback;
   }
 
   @VisibleForTesting
-  ConnectManagerProxy testing_getConnectManagerProxy() {
+  public ConnectManagerProxy testing_getConnectManagerProxy() {
     return connectManagerProxy;
   }
 }

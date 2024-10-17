@@ -30,6 +30,7 @@ import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.PrimesController;
 import com.google.android.accessibility.talkback.PrimesController.TimerAction;
+import com.google.android.accessibility.talkback.actor.helper.FocusActorHelper;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
@@ -198,7 +199,8 @@ public class FocusActorForScreenStateChange {
         FocusActionRecord.getFocusableNodeFromFocusRecord(root, focusFinder, lastFocusAction);
 
     boolean firstTime = screenState.isInterpretFirstTimeWhenWakeUp();
-    boolean forceMuteFeedback = formFactorUtils.isAndroidWear() && firstTime;
+    boolean forceMuteFeedback =
+        FocusActorHelper.shouldMuteFeedbackForFocusedNode(nodeToRestoreFocus, screenState);
     FocusActionInfo focusActionInfo =
         FOCUS_ACTION_INFO_RESTORED_BUILDER.setForceMuteFeedback(forceMuteFeedback).build();
 
@@ -253,7 +255,8 @@ public class FocusActorForScreenStateChange {
     long startTime = primesController.getTime();
 
     boolean firstTime = screenState.isInterpretFirstTimeWhenWakeUp();
-    boolean forceMuteFeedback = formFactorUtils.isAndroidWear() && firstTime;
+    boolean forceMuteFeedback =
+        FocusActorHelper.shouldMuteFeedbackForFocusedNode(nodeForSync, screenState);
     FocusActionInfo focusActionInfo =
         FOCUS_ACTION_INFO_SYNCED_INPUT_FOCUS_BUILDER
             .setForceMuteFeedback(forceMuteFeedback)
@@ -405,11 +408,13 @@ public class FocusActorForScreenStateChange {
           }.and(nodeFilter);
     }
 
-    boolean firstTime = screenState.isInterpretFirstTimeWhenWakeUp();
-    boolean forceMuteFeedback = formFactorUtils.isAndroidWear() && firstTime;
-
     // Finds focus from the requested node, then the first non-title node.
     AccessibilityNodeInfoCompat nodeToFocus = traversalStrategy.focusInitial(root);
+
+    boolean firstTime = screenState.isInterpretFirstTimeWhenWakeUp();
+    boolean forceMuteFeedback =
+        FocusActorHelper.shouldMuteFeedbackForFocusedNode(nodeToFocus, screenState);
+
     FocusActionInfo focusActionInfo =
         FOCUS_ACTION_INFO_REQUEST_INITIAL_NODE_BUILDER
             .setForceMuteFeedback(forceMuteFeedback)

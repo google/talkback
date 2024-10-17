@@ -15,11 +15,12 @@
  */
 package com.google.android.accessibility.talkback.preference.base;
 
-import static com.google.android.accessibility.talkback.NotificationActivity.HELP_WEB_URL;
 import static com.google.android.accessibility.talkback.preference.PreferencesActivityUtils.HELP_URL;
+import static com.google.android.accessibility.talkback.trainingcommon.TrainingUtils.GUP_SUPPORT_PORTAL_URL;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -34,6 +35,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
 import com.android.talkback.TalkBackPreferencesActivity.HatsRequesterViewModel;
 import com.google.android.accessibility.talkback.HatsSurveyRequester;
+import com.google.android.accessibility.talkback.HelpAndFeedbackUtils;
 import com.google.android.accessibility.talkback.NotificationActivity;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
@@ -45,9 +47,11 @@ import com.google.android.accessibility.talkback.trainingcommon.tv.VendorConfigR
 import com.google.android.accessibility.talkback.utils.RemoteIntentUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.FormFactorUtils;
+import com.google.android.accessibility.utils.NetworkUtils;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.SettingsUtils;
+import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
@@ -56,9 +60,10 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Fragment that holds the preference of Talkback settings. */
 public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
-
   private Context context;
   private final FormFactorUtils formFactorUtils = FormFactorUtils.getInstance();
+  private SharedPreferences prefs;
+  private SettingsMetricStore settingsMetricStore;
 
   private Optional<HatsSurveyRequester> hatsSurveyRequester;
 
@@ -83,6 +88,9 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
     if (context == null) {
       return;
     }
+
+    prefs = SharedPreferencesUtils.getSharedPreferences(context);
+    settingsMetricStore = new SettingsMetricStore(context);
 
     fixListSummaries(getPreferenceScreen());
 
@@ -129,12 +137,13 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
     }
 
     if (formFactorUtils.isAndroidTv()) {
-      Preference preference = findPreferenceByResId(R.string.pref_category_help_and_feedback_key);
+      Preference preference = findPreferenceByResId(R.string.pref_tutorial_and_help_key);
       if (preference != null) {
         preference.setTitle(
             TvTutorialInitiator.shouldShowTraining(VendorConfigReader.retrieveConfig(context))
-                ? R.string.title_pref_category_tutorial_and_help
+                ? R.string.title_pref_category_tutorial
                 : R.string.title_pref_category_help_no_tutorial);
+        preference.setFragment(TutorialAndHelpFragment.class.getName());
       }
     } else if (formFactorUtils.isAndroidWear()) {
       Preference prefTutorial = findPreferenceByResId(R.string.pref_tutorial_key);
@@ -145,32 +154,60 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
       if (prefHelp != null) {
         RemoteIntentUtils.assignWebIntentToPreference(this, prefHelp, HELP_URL);
       }
+    } else {
+      updateTutorialAndHelpPreferencesForPhoneOrTablet();
     }
 
-    if (ImageCaptioner.supportsImageCaption(context)) {
-      Preference prefAutoImageCaption =
-          findPreferenceByResId(R.string.pref_auto_image_captioning_key);
-      if (prefAutoImageCaption != null) {
-        if (ImageCaptioner.supportsIconDetection(context)) {
-          if (ImageCaptioner.supportsImageDescription(context)) {
-            prefAutoImageCaption.setSummary(R.string.summary_pref_auto_image_captioning);
-          } else {
-            // No image description.
-            prefAutoImageCaption.setSummary(R.string.summary_pref_auto_image_captioning_no_image);
-          }
-        } else {
-          if (ImageCaptioner.supportsImageDescription(context)) {
-            // No icon description.
-            prefAutoImageCaption.setSummary(R.string.summary_pref_auto_image_captioning_no_icon);
-          } else {
-            // No icon and image descriptions.
-            prefAutoImageCaption.setSummary(R.string.summary_pref_auto_image_captioning_text_only);
-          }
-        }
-      }
-    } else {
+    if (!ImageCaptioner.supportsImageCaption(context)) {
       removePreference(
           R.string.pref_category_controls_key, R.string.pref_auto_image_captioning_key);
+    }
+    updateGeminiPreferenceState();
+  }
+
+  private void updateGeminiPreferenceState() {
+    Preference geminiSupport = findPreferenceByResId(R.string.pref_gemini_settings_key);
+    if (geminiSupport != null) {
+      boolean hasOptIn =
+          SharedPreferencesUtils.getBooleanPref(
+              prefs,
+              context.getResources(),
+              R.string.pref_gemini_enabled_key,
+              R.bool.pref_gemini_opt_in_default);
+      geminiSupport.setSummary(
+          hasOptIn
+              ? R.string.summary_pref_gemini_support_enabled
+              : R.string.summary_pref_gemini_support_disabled);
+    } else {
+      removePreference(R.string.pref_category_controls_key, R.string.pref_gemini_settings_key);
+    }
+  }
+
+  private void updateTutorialAndHelpPreferencesForPhoneOrTablet() {
+    Preference preference = findPreferenceByResId(R.string.pref_tutorial_and_help_key);
+    if (preference != null) {
+      preference.setIntent(TutorialInitiator.createTutorialIntent(getActivity()));
+    }
+    preference = findPreferenceByResId(R.string.pref_help_and_feedback_key);
+    if (preference != null) {
+      preference.setOnPreferenceClickListener(
+          preference1 -> {
+            HelpAndFeedbackUtils.launchHelpAndFeedback(getActivity());
+            return true;
+          });
+    }
+    preference = findPreferenceByResId(R.string.pref_gup_key);
+    if (preference != null) {
+      preference.setOnPreferenceClickListener(
+          gUpPreference -> {
+            if (NetworkUtils.isNetworkConnected(context)) {
+              settingsMetricStore.onGupPreferenceClicked();
+            }
+            return false;
+          });
+      Intent intent = new Intent(Intent.ACTION_VIEW);
+      intent.setData(Uri.parse(GUP_SUPPORT_PORTAL_URL));
+      preference.setIntent(intent);
     }
   }
 
@@ -178,6 +215,7 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
   public void onResume() {
     super.onResume();
     updateSurveyOption();
+    updateGeminiPreferenceState();
   }
 
   @Override
@@ -283,13 +321,13 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
       newFeatureIntent =
           NotificationActivity.createStartIntent(
               context,
-              R.string.notification_title_talkback_gestures_changed,
-              R.string.default_action_changed_details,
+              R.string.wear_new_feature_page_title,
+              R.string.wear_new_feature_page_content,
               Integer.MIN_VALUE,
-              R.string.talkback_built_in_gesture_open_url,
-              HELP_WEB_URL);
+              R.string.wear_new_feature_page_button_content_description,
+              /* url= */ null);
     } else {
-      newFeatureIntent = OnboardingInitiator.createOnboardingIntent(context);
+      newFeatureIntent = OnboardingInitiator.createOnboardingIntentForSettings(context);
     }
     prefNewFeatures.setIntent(newFeatureIntent);
   }
@@ -317,7 +355,7 @@ public class TalkBackPreferenceFragment extends TalkbackBaseFragment {
         preference -> {
           hatsSurveyRequester.ifPresent(
               requester -> {
-                boolean nouse = requester.presentCachedSurvey();
+                boolean unused = requester.presentCachedSurvey();
               });
           prefSurvey.setVisible(false);
           return true;

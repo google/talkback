@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
   <LinearLayout
-      android:id="@+id/training_link"
+      android:id="@+id/training_chip"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="@dimen/training_link_margin_top"
@@ -15,7 +15,7 @@
       android:focusable="true">
 
     <ImageView
-        android:id="@+id/training_link_icon"
+        android:id="@+id/training_chip_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start|top" />
@@ -28,7 +28,7 @@
         android:orientation="vertical">
 
       <androidx.appcompat.widget.AppCompatTextView
-          android:id="@+id/training_link_text"
+          android:id="@+id/training_chip_text"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           app:fontFamily="@string/accessibility_font_medium"
@@ -37,7 +37,7 @@
           android:textSize="@dimen/training_text_size" />
 
       <androidx.appcompat.widget.AppCompatTextView
-          android:id="@+id/training_link_subtext"
+          android:id="@+id/training_chip_subtext"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="4dp"

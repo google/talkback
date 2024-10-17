@@ -25,7 +25,9 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.text.style.BulletSpan;
+import android.text.style.TtsSpan;
 import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +39,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.trainingcommon.PageConfig.PageContentPredicate;
+import com.google.android.accessibility.talkback.trainingcommon.PageConfig.PageAndContentPredicate;
 import com.google.android.accessibility.talkback.trainingcommon.TrainingIpcClient.ServiceData;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.auto.value.AutoValue;
@@ -62,6 +64,7 @@ public class Text extends PageContentConfig {
     final View view = inflater.inflate(R.layout.training_text, container, false);
     final TextView textView = view.findViewById(R.id.training_text);
     boolean isSubText = false;
+    boolean containLink = false;
     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
     for (Paragraph paragraph : paragraphs) {
       if (paragraph.subText()) {
@@ -72,6 +75,9 @@ public class Text extends PageContentConfig {
         spannableStringBuilder.append("\n\n");
       }
       spannableStringBuilder.append(getText(context, paragraph, data));
+      if (!containLink && paragraph.link()) {
+        containLink = true;
+      }
     }
 
     if (isSubText) {
@@ -83,6 +89,10 @@ public class Text extends PageContentConfig {
     }
 
     textView.setText(spannableStringBuilder);
+    textView.setElegantTextHeight(true);
+    if (containLink) {
+      textView.setMovementMethod(LinkMovementMethod.getInstance());
+    }
     return view;
   }
 
@@ -106,6 +116,12 @@ public class Text extends PageContentConfig {
 
     if (paragraph.bulletPoint()) {
       setBulletSpan(context, spannableString);
+    }
+
+    if (paragraph.textTtsSpanResId() != UNKNOWN_RESOURCE_ID) {
+      TtsSpan ttsSpan =
+          new TtsSpan.TextBuilder(context.getString(paragraph.textTtsSpanResId())).build();
+      spannableString.setSpan(ttsSpan, 0, text.length(), 0 /* no flag */);
     }
 
     return spannableString;
@@ -227,6 +243,9 @@ public class Text extends PageContentConfig {
     public abstract int textWithActualGestureResId();
 
     @StringRes
+    public abstract int textTtsSpanResId();
+
+    @StringRes
     public abstract int actionKey();
 
     @StringRes
@@ -257,6 +276,7 @@ public class Text extends PageContentConfig {
           .setTextString(null)
           .setTextArgResIds(ImmutableList.of())
           .setTextWithActualGestureResId(UNKNOWN_RESOURCE_ID)
+          .setTextTtsSpanResId(UNKNOWN_RESOURCE_ID)
           .setActionKey(UNKNOWN_RESOURCE_ID)
           .setDefaultGestureResId(UNKNOWN_RESOURCE_ID)
           .setBulletPoint(false)
@@ -277,6 +297,8 @@ public class Text extends PageContentConfig {
 
       public abstract Builder setTextWithActualGestureResId(
           @StringRes int textWithActualGestureResId);
+
+      public abstract Builder setTextTtsSpanResId(@StringRes int textTtsSpanResId);
 
       public abstract Builder setActionKey(@StringRes int actionKey);
 
@@ -300,16 +322,16 @@ public class Text extends PageContentConfig {
 
   /** The parameters to create a {@link Text} with actual gesture and predicate. */
   public static class TextWithActualGestureParameter {
-    public final @StringRes int textWithActualGestureResId;
+    @StringRes public final int textWithActualGestureResId;
     public final int actionKey;
-    public final @StringRes int defaultGestureResId;
-    public final @Nullable PageContentPredicate predicate;
+    @StringRes public final int defaultGestureResId;
+    public final @Nullable PageAndContentPredicate predicate;
 
     private TextWithActualGestureParameter(
         @StringRes int textWithActualGestureResId,
         int actionKey,
         @StringRes int defaultGestureResId,
-        @Nullable PageContentPredicate predicate) {
+        @Nullable PageAndContentPredicate predicate) {
       this.textWithActualGestureResId = textWithActualGestureResId;
       this.actionKey = actionKey;
       this.defaultGestureResId = defaultGestureResId;
@@ -320,7 +342,7 @@ public class Text extends PageContentConfig {
         @StringRes int textWithActualGestureResId,
         int actionKey,
         @StringRes int defaultGestureResId,
-        @Nullable PageContentPredicate predicate) {
+        @Nullable PageAndContentPredicate predicate) {
       return new TextWithActualGestureParameter(
           textWithActualGestureResId, actionKey, defaultGestureResId, predicate);
     }

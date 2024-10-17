@@ -598,7 +598,10 @@ initCommandTables(JNIEnv* env) {
       {"CMD_SELECT_PREVIOUS_LINE", CUSTOM_KEY + 54},
       {"CMD_SELECT_NEXT_LINE", CUSTOM_KEY + 55},
       {"CMD_TOGGLE_AUTO_SCROLL", CUSTOM_KEY + 56},
-      {"CMD_PLAY_PAUSE_MEDIA", CUSTOM_KEY + 57}};
+      {"CMD_PLAY_PAUSE_MEDIA", CUSTOM_KEY + 57},
+      {"CMD_NEXT_INPUT_METHOD", CUSTOM_KEY + 58},
+      {"CMD_SELECTION_SELECT_CURRENT_TO_START", CUSTOM_KEY + 59},
+      {"CMD_SELECTION_SELECT_CURRENT_TO_END", CUSTOM_KEY + 60}};
   unifiedCommandMap = createCommandMap(
       env, cls, unifiedCommands,
       sizeof(unifiedCommands) / sizeof(unifiedCommands[0]));

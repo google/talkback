@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">llegeix</string>
-  <string name="voice_commands_read_from_next">Llegeix a partir de l\'element següent</string>
+  <string name="voice_commands_read_from_next">Llegeix a partir del cursor</string>
   <string name="voice_commands_edit_options">Opcions d\'edició</string>
-  <string name="voice_commands_text_editing">Edició de text</string>
-  <string name="voice_commands_edit_text">Edita el text</string>
-  <string name="voice_commands_editing_options">Opcions d\'edició</string>
   <string name="voice_commands_edit">edita</string>
   <string name="voice_commands_what">què</string>
   <string name="voice_commands_say">digues</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etiqueta</string>
   <string name="voice_commands_cannot_label_feedback">No es pot etiquetar</string>
   <string name="voice_commands_assistant">Assistent</string>
-  <string name="voice_commands_setting_speech_rate">S\'està configurant la velocitat de parla</string>
   <string name="voice_commands_first">Primer</string>
   <string name="voice_commands_top">Començament</string>
   <string name="voice_commands_last">Últim</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Augmenta la velocitat de parla</string>
   <string name="voice_commands_slower">Més lent</string>
   <string name="voice_commands_decrease_speech_rate">redueix la velocitat de parla</string>
-  <string name="voice_commands_possible_options_title">Pots dir…</string>
   <string name="voice_commands_no_action">Aquesta drecera de veu no s\'admet</string>
   <string name="voice_commands_no_mic_permissions">Per fer servir aquesta funció, has de donar permís per utilitzar el micròfon.</string>
   <string name="voice_commands_no_voice_recognition_ability">Aquesta funció no està disponible al teu dispositiu</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">No hi ha cap més control</string>
   <string name="voice_commands_no_next_landmark_feedback">No hi ha cap més punt de referència</string>
   <string name="voice_commands_help_title">Visió general sobre les ordres de veu</string>
-  <string name="voice_commands_help_description">Per utilitzar ordres de veu, llisca cap a la dreta i cap amunt. Digues \"Ajuda\" o \"Què puc dir?\" en qualsevol moment per veure aquesta llista d\'ordres.</string>
+  <string name="voice_commands_help_description">Per utilitzar ordres de veu, llisca cap a la dreta i cap amunt. Digues \"%1$s\" o \"Què puc dir?\" en qualsevol moment per veure aquesta llista d\'ordres.</string>
   <string name="voice_commands_help_hint">Per obtenir els millors resultats, digues les paraules exactes que figuren a les pantalles següents.</string>
   <string name="voice_command_screen_locked_hint">Les ordres de veu no estan disponibles mentre la pantalla està bloquejada. Per utilitzar el menú de TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Les ordres de veu no estan disponibles durant la configuració.</string>

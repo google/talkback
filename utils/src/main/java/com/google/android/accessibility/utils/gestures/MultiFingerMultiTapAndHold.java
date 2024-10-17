@@ -18,6 +18,7 @@ package com.google.android.accessibility.utils.gestures;
 
 import android.content.Context;
 import android.view.MotionEvent;
+import com.google.android.accessibility.utils.Performance.EventId;
 
 /**
  * This class matches gestures of the form multi-finger multi-tap and hold. The number of fingers
@@ -35,20 +36,20 @@ class MultiFingerMultiTapAndHold extends MultiFingerMultiTap {
   }
 
   @Override
-  protected void onPointerDown(MotionEvent event) {
-    super.onPointerDown(event);
+  protected void onPointerDown(EventId eventId, MotionEvent event) {
+    super.onPointerDown(eventId, event);
     if (isTargetFingerCountReached && completedTapCount + 1 == mTargetTapCount) {
-      completeAfterLongPressTimeout(event);
+      completeAfterLongPressTimeout(eventId, event);
     }
   }
 
   @Override
-  protected void onUp(MotionEvent event) {
+  protected void onUp(EventId eventId, MotionEvent event) {
     if (completedTapCount + 1 == mTargetTapCount) {
       // Calling super.onUp  would complete the multi-tap version of this.
       cancelGesture(event);
     } else {
-      super.onUp(event);
+      super.onUp(eventId, event);
       cancelAfterDoubleTapTimeout(event);
     }
   }

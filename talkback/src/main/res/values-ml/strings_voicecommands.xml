@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">വായിക്കുക</string>
-  <string name="voice_commands_read_from_next">അടുത്തതിൽ നിന്ന് വായിക്കുക</string>
+  <string name="voice_commands_read_from_next">കഴ്‌സർ ഉള്ളയിടത്ത് നിന്ന് വായിക്കുക</string>
   <string name="voice_commands_edit_options">എഡിറ്റ് ചെയ്യാനുള്ള ഓപ്ഷനുകൾ</string>
-  <string name="voice_commands_text_editing">ടെക്‌സ്റ്റ് എഡിറ്റ് ചെയ്യൽ</string>
-  <string name="voice_commands_edit_text">ടെക്‌സ്റ്റ് എഡിറ്റ് ചെയ്യുക</string>
-  <string name="voice_commands_editing_options">എഡിറ്റ് ചെയ്യാനുള്ള ഓപ്‌ഷനുകൾ</string>
   <string name="voice_commands_edit">എഡിറ്റ് ചെയ്യുക</string>
   <string name="voice_commands_what">എന്ത്</string>
   <string name="voice_commands_say">പറയുക</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ലേബൽ</string>
   <string name="voice_commands_cannot_label_feedback">ലേബൽ ചെയ്യാനാകില്ല</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">സ്പീച്ച് റേറ്റ് സജ്ജീകരിക്കുന്നു</string>
   <string name="voice_commands_first">ആദ്യത്തെ</string>
   <string name="voice_commands_top">മുകളിൽ</string>
   <string name="voice_commands_last">അവസാനത്തെ</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">വായനയുടെ വേഗത കൂട്ടുക</string>
   <string name="voice_commands_slower">സാവധാനം</string>
   <string name="voice_commands_decrease_speech_rate">വായനയുടെ വേഗത കുറയ്ക്കുക</string>
-  <string name="voice_commands_possible_options_title">നിങ്ങൾക്ക് പറയാനാവും</string>
   <string name="voice_commands_no_action">ശബ്‌ദ കുറുക്കുവഴി പിന്തുണയ്‌ക്കുന്നില്ല</string>
   <string name="voice_commands_no_mic_permissions">ഈ ഫീച്ചർ ഉപയോഗിക്കാൻ, മൈക്രോഫോൺ ഉപയോഗിക്കുന്നതിനുള്ള അനുമതി നിങ്ങൾ നൽകേണ്ടതുണ്ട്.</string>
   <string name="voice_commands_no_voice_recognition_ability">ക്ഷമിക്കണം! ഈ ഫീച്ചർ നിങ്ങളുടെ ഉപകരണത്തിൽ ലഭ്യമല്ല</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">അടുത്ത നിയന്ത്രണമൊന്നുമില്ല</string>
   <string name="voice_commands_no_next_landmark_feedback">അടുത്ത ലാൻഡ്‌മാർക്ക് ഒന്നുമില്ല</string>
   <string name="voice_commands_help_title">ശബ്ദ കമാൻഡ് അവലോകനം</string>
-  <string name="voice_commands_help_description">ശബ്ദ കമാൻഡുകൾ ഉപയോഗിക്കാൻ, വലത്തേക്കും തുടർന്ന് മുകളിലേക്കും സ്വൈപ്പ് ചെയ്യുക. ശബ്‌ദ കമാൻഡുകളുകളുടെ ഈ ലിസ്റ്റ് ലഭിക്കുന്നതിന് ഏതുസമയത്തും \"സഹായിക്കൂ\" അല്ലെങ്കിൽ \"എനിക്കെന്താണ് പറയാനാകുക?\" എന്ന് പറയുക.</string>
+  <string name="voice_commands_help_description">ശബ്ദ കമാൻഡുകൾ ഉപയോഗിക്കാൻ, വലത്തേക്കും തുടർന്ന് മുകളിലേക്കും സ്വൈപ്പ് ചെയ്യുക. ശബ്‌ദ കമാൻഡുകളുടെ ഈ ലിസ്റ്റ് ലഭിക്കുന്നതിന് ഏതുസമയത്തും \"%1$s\" അല്ലെങ്കിൽ \"എനിക്കെന്താണ് പറയാനാകുക?\" എന്ന് പറയുക.</string>
   <string name="voice_commands_help_hint">മികച്ച ഫലങ്ങൾക്ക്, പിന്തുടരുന്ന സ്ക്രീനുകളിൽ ലിസ്റ്റ് ചെയ്തിരിക്കുന്ന കൃത്യമായ വാക്കുകൾ പറയുക.</string>
   <string name="voice_command_screen_locked_hint">സ്‌ക്രീൻ ലോക്ക് ചെയ്‌തിരിക്കുമ്പോൾ ശബ്‌ദ കമാൻഡുകൾ ലഭ്യമല്ല. പകരം TalkBack മെനു ഉപയോഗിക്കാൻ, %1$s</string>
   <string name="voice_commands_during_setup_hint">സജ്ജീകരിക്കുമ്പോൾ ശബ്‌ദ കമാൻഡുകൾ ലഭ്യമല്ല.</string>

@@ -21,7 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
-import com.google.android.accessibility.talkback.trainingcommon.PageConfig.PageContentPredicate;
+import com.google.android.accessibility.talkback.trainingcommon.PageConfig.PageAndContentPredicate;
 import com.google.android.accessibility.talkback.trainingcommon.TrainingIpcClient.ServiceData;
 
 // TODO Creates Contents and set text/condition by builder.
@@ -30,16 +30,16 @@ public abstract class PageContentConfig {
 
   public static final int UNKNOWN_RESOURCE_ID = -1;
 
-  @Nullable private PageContentPredicate predicate;
+  @Nullable private PageAndContentPredicate predicate;
 
   /** Shows this instead if the {@link #predicate} is not matched. */
   @Nullable private PageContentConfig substitute;
 
-  public void setShowingPredicate(PageContentPredicate predicate) {
+  public void setShowingPredicate(PageAndContentPredicate predicate) {
     setShowingPredicate(predicate, /* substitute= */ null);
   }
 
-  public void setShowingPredicate(PageContentPredicate predicate, PageContentConfig substitute) {
+  public void setShowingPredicate(PageAndContentPredicate predicate, PageContentConfig substitute) {
     this.predicate = predicate;
     this.substitute = substitute;
   }

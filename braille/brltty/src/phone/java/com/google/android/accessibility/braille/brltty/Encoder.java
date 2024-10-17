@@ -43,7 +43,7 @@ public interface Encoder {
    * <p>The implementation of this method is expected to block while it performs cross-device
    * handshaking, which will involve packets being sent back and forth.
    */
-  Optional<BrailleDisplayProperties> start(String name, String parameters);
+  Optional<BrailleDisplayProperties> start(String name, boolean useHid, String parameters);
 
   /** Stops this instance. */
   void stop();

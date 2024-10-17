@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.talkback.labeling;
 
-import static android.content.Context.RECEIVER_EXPORTED;
+import static androidx.core.content.ContextCompat.RECEIVER_EXPORTED;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -29,7 +29,6 @@ import android.content.pm.Signature;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Pair;
-import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;

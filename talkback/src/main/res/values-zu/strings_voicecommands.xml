@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">funda</string>
-  <string name="voice_commands_read_from_next">Funda kokulandelayo</string>
+  <string name="voice_commands_read_from_next">Funda kusuka ku-cursor</string>
   <string name="voice_commands_edit_options">Hlela izinketho</string>
-  <string name="voice_commands_text_editing">Ukuhlela umbhalo</string>
-  <string name="voice_commands_edit_text">Hlela umbhalo</string>
-  <string name="voice_commands_editing_options">Izinketho zokuhlela</string>
   <string name="voice_commands_edit">hlela</string>
   <string name="voice_commands_what">ini</string>
   <string name="voice_commands_say">ithi</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Ilebula</string>
   <string name="voice_commands_cannot_label_feedback">Ayikwazi ukulebula</string>
   <string name="voice_commands_assistant">Umsizi</string>
-  <string name="voice_commands_setting_speech_rate">Ilungiselela isilinganiso senkulumo</string>
   <string name="voice_commands_first">Igama</string>
   <string name="voice_commands_top">Phezulu</string>
   <string name="voice_commands_last">Ekugcineni</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Khuphula isigaba senkulumo</string>
   <string name="voice_commands_slower">Kunensa kakhulu</string>
   <string name="voice_commands_decrease_speech_rate">nciphisa isilinganiso senkulumo</string>
-  <string name="voice_commands_possible_options_title">Ungathi</string>
   <string name="voice_commands_no_action">Isinqamuleli sezwi asisekelwe</string>
   <string name="voice_commands_no_mic_permissions">Ukuze usebenzise lesi sici, kuzomele unikeze imvume ukuze usebenzise imakrofoni.</string>
   <string name="voice_commands_no_voice_recognition_ability">Uxolo! Lesi sici asitholakali kudivayisi yakho</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Akukho ukulawulwa okulandelayo</string>
   <string name="voice_commands_no_next_landmark_feedback">Asikho isici sokubonisa izwe esilandelayo</string>
   <string name="voice_commands_help_title">Ukubuka konke komyalo wezwi</string>
-  <string name="voice_commands_help_description">Ukuze usebenzise imiyalo yezwi, swayiphela ngakwesokudla bese phezulu. Ithi \"Usizo\" noma \"Ngingathini?\" noma nini ukuthola uhlu lwemiyalo.</string>
+  <string name="voice_commands_help_description">Ukuze usebenzise imiyalo yezwi, swayiphela ngakwesokudla bese phezulu. Ithi \"%1$s\" noma \"Ngingathini?\" noma nini ukuthola uhlu lwemiyalo.</string>
   <string name="voice_commands_help_hint">Ukuze uthole imiphumela engcono kakhulu, isho igama langempela eliboniswe kwizikrini ezilandelayo.</string>
   <string name="voice_command_screen_locked_hint">Imiyalo yezwi ayitholakali ngenkathi isikrini sikhiyiwe. Ukuze usebenzise imenyu ye-TalkBack kunalokho, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Imiyalo yezwi ayitholakali ngesikhathi sokusetha.</string>

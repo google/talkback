@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.talkback.utils;
 
-import static android.content.Context.RECEIVER_EXPORTED;
+import static androidx.core.content.ContextCompat.RECEIVER_EXPORTED;
 import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.ACTION_DONE;
 
 import android.Manifest.permission;

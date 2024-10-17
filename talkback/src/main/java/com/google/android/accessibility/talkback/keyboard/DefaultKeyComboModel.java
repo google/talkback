@@ -128,7 +128,7 @@ public class DefaultKeyComboModel implements KeyComboModel {
       return KeyComboManager.getKeyComboCode(KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_ENTER);
     }
 
-    if (key.equals(context.getString(R.string.keycombo_shortcut_other_read_from_next_item))) {
+    if (key.equals(context.getString(R.string.keycombo_shortcut_other_read_from_cursor_item))) {
       return KeyComboManager.getKeyComboCode(
           KeyEvent.META_CTRL_ON | KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_ENTER);
     }
@@ -468,7 +468,7 @@ public class DefaultKeyComboModel implements KeyComboModel {
     addKeyCombo(context.getString(R.string.keycombo_shortcut_perform_click));
     addKeyCombo(context.getString(R.string.keycombo_shortcut_perform_long_click));
     addKeyCombo(context.getString(R.string.keycombo_shortcut_other_read_from_top));
-    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_read_from_next_item));
+    addKeyCombo(context.getString(R.string.keycombo_shortcut_other_read_from_cursor_item));
     addKeyCombo(context.getString(R.string.keycombo_shortcut_other_talkback_context_menu));
     addKeyCombo(context.getString(R.string.keycombo_shortcut_other_custom_actions));
     addKeyCombo(context.getString(R.string.keycombo_shortcut_other_language_options));

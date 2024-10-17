@@ -16,6 +16,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Region;
 import android.view.WindowManager;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.braille.interfaces.BrailleImeForTalkBack;
 import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer;
 import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer.ScreenReaderAction;
@@ -26,30 +27,28 @@ import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.TalkBackService.ProximitySensorListener;
 import com.google.android.accessibility.talkback.actor.DimScreenActor;
-import com.google.android.accessibility.talkback.actor.DirectionNavigationActor;
 import com.google.android.accessibility.talkback.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.selector.SelectorController;
 import com.google.android.accessibility.talkback.selector.SelectorController.AnnounceType;
 import com.google.android.accessibility.talkback.selector.SelectorController.Setting;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
+import com.google.android.accessibility.utils.ArrayUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.KeyboardUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
-import com.google.android.accessibility.utils.input.CursorGranularity;
 import com.google.android.accessibility.utils.input.TextEventFilter.KeyboardEchoType;
-import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
-import com.google.common.collect.ImmutableSet;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Implements TalkBack functionalities exposed to BrailleIme. */
 public class TalkBackForBrailleImeImpl implements TalkBackForBrailleIme {
   private final Pipeline.FeedbackReturner feedbackReturner;
   private final TalkBackService service;
-  private final FocusFinder focusFinder;
   private final DimScreenActor dimScreenController;
-  private final DirectionNavigationActor.StateReader directionNavigationActorStateReader;
   private final ProximitySensorListener proximitySensorListener;
   private final TalkBackPrivateMethodProvider talkBackPrivateMethodProvider;
   private final ScreenReaderActionPerformer screenReaderActionPerformer;
@@ -59,13 +58,19 @@ public class TalkBackForBrailleImeImpl implements TalkBackForBrailleIme {
   /** A reference to the active Braille IME if any. */
   private @Nullable BrailleImeForTalkBack brailleImeForTalkBack;
 
-  private static final ImmutableSet<Setting> VALID_GRANULARITIES =
-      ImmutableSet.of(
-          GRANULARITY_CHARACTERS,
-          GRANULARITY_WORDS,
-          GRANULARITY_LINES,
-          GRANULARITY_PARAGRAPHS,
-          GRANULARITY_TYPO);
+  @VisibleForTesting
+  static final Setting[] VALID_CURSOR_GRANULARITIES =
+      new Setting[] {
+        GRANULARITY_CHARACTERS, GRANULARITY_WORDS, GRANULARITY_LINES, GRANULARITY_PARAGRAPHS
+      };
+
+  @VisibleForTesting
+  static final Setting[] VALID_NON_CURSOR_GRANULARITIES = new Setting[] {GRANULARITY_TYPO};
+
+  @VisibleForTesting
+  static final Set<Setting> VALID_GRANULARITIES =
+      Arrays.stream(ArrayUtils.concat(VALID_CURSOR_GRANULARITIES, VALID_NON_CURSOR_GRANULARITIES))
+          .collect(Collectors.toUnmodifiableSet());
 
   /** Provides functionality of private methods. */
   public interface TalkBackPrivateMethodProvider {
@@ -77,9 +82,7 @@ public class TalkBackForBrailleImeImpl implements TalkBackForBrailleIme {
   public TalkBackForBrailleImeImpl(
       TalkBackService service,
       Pipeline.FeedbackReturner feedbackReturner,
-      FocusFinder focusFinder,
       DimScreenActor dimScreenController,
-      DirectionNavigationActor.StateReader directionNavigationActorStateReader,
       ProximitySensorListener proximitySensorListener,
       TalkBackPrivateMethodProvider talkBackPrivateMethodProvider,
       ScreenReaderActionPerformer talkBackActionPerformer,
@@ -87,9 +90,7 @@ public class TalkBackForBrailleImeImpl implements TalkBackForBrailleIme {
     this.prefs = SharedPreferencesUtils.getSharedPreferences(service);
     this.feedbackReturner = feedbackReturner;
     this.service = service;
-    this.focusFinder = focusFinder;
     this.dimScreenController = dimScreenController;
-    this.directionNavigationActorStateReader = directionNavigationActorStateReader;
     this.proximitySensorListener = proximitySensorListener;
     this.talkBackPrivateMethodProvider = talkBackPrivateMethodProvider;
     this.screenReaderActionPerformer = talkBackActionPerformer;
@@ -159,23 +160,8 @@ public class TalkBackForBrailleImeImpl implements TalkBackForBrailleIme {
   }
 
   @Override
-  public void speak(CharSequence textToSpeak, int delayMs, SpeakOptions speakOptions) {
-    // TODO: For uses cases where the timer is meant to re-schedule text, we
-    // should create a centralized repeat-feedback feature, and have BrailleIme use that.
-    feedbackReturner.returnFeedback(
-        Performance.EVENT_ID_UNTRACKED,
-        Feedback.speech(textToSpeak, speakOptions).setDelayMs(delayMs));
-  }
-
-  @Override
   public void interruptSpeak() {
     service.interruptAllFeedback(false);
-  }
-
-  @Override
-  public void playSound(int resId, int delayMs) {
-    feedbackReturner.returnFeedback(
-        Performance.EVENT_ID_UNTRACKED, Feedback.sound(resId).setDelayMs(delayMs));
   }
 
   @Override
@@ -225,13 +211,13 @@ public class TalkBackForBrailleImeImpl implements TalkBackForBrailleIme {
   @Override
   public boolean shouldUseCharacterGranularity() {
     Setting granularity = SelectorController.getCurrentSetting(service);
-    return granularity == GRANULARITY_CHARACTERS || hasValidGranularityUnavailable();
+    return granularity == GRANULARITY_CHARACTERS || !isSwitchGranularityValid();
   }
 
   @Override
   public boolean isCurrentGranularityTypoCorrection() {
     return SelectorController.getCurrentSetting(service) == GRANULARITY_TYPO
-        && !hasValidGranularityUnavailable();
+        && isSwitchGranularityValid();
   }
 
   @Override
@@ -295,7 +281,7 @@ public class TalkBackForBrailleImeImpl implements TalkBackForBrailleIme {
   }
 
   private boolean switchGranularity(boolean isNext) {
-    if (hasValidGranularityUnavailable()) {
+    if (!isSwitchGranularityValid()) {
       return false;
     }
     Setting current = SelectorController.getCurrentSetting(service);
@@ -307,14 +293,21 @@ public class TalkBackForBrailleImeImpl implements TalkBackForBrailleIme {
     return true;
   }
 
-  private boolean hasValidGranularityUnavailable() {
-    for (Setting setting : VALID_GRANULARITIES) {
-      if (!selectorController.isSettingAvailable(setting)) {
-        feedbackReturner.returnFeedback(
-            Performance.EVENT_ID_UNTRACKED, Feedback.granularity(CursorGranularity.CHARACTER));
-        return true;
+  private boolean isSwitchGranularityValid() {
+    int validCursorGranularity = 0;
+    int validNonCursorGranularity = 0;
+    for (Setting setting : VALID_CURSOR_GRANULARITIES) {
+      if (selectorController.isSettingAvailable(setting)) {
+        validCursorGranularity++;
       }
     }
-    return false;
+    for (Setting setting : VALID_NON_CURSOR_GRANULARITIES) {
+      if (selectorController.isSettingAvailable(setting)) {
+        validNonCursorGranularity++;
+      }
+    }
+    // At least 2 available granularities and at least one cursor granularity to prevent stuck in
+    // some mode such as typo correction.
+    return validCursorGranularity >= 1 && (validNonCursorGranularity + validCursorGranularity) >= 2;
   }
 }

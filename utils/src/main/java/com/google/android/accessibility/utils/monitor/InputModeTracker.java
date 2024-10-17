@@ -20,6 +20,7 @@ import android.view.InputDevice;
 import android.view.KeyEvent;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
 
@@ -69,6 +70,14 @@ public class InputModeTracker implements ServiceKeyEventListener {
 
   @Override
   public boolean onKeyEvent(KeyEvent event, EventId eventId) {
+    // Wear device should ignore the input mode of the internal input device.
+    if (FormFactorUtils.getInstance().isAndroidWear()) {
+      InputDevice inputDevice = InputDevice.getDevice(event.getDeviceId());
+      if (inputDevice != null && !inputDevice.isExternal()) {
+        return false;
+      }
+    }
+
     // Talkback needs to differentiate between a separate physical Keyboard and numeric keypads
     // built into phones. Keyboard attached with the phones should not be treated as physical
     // keyboards.

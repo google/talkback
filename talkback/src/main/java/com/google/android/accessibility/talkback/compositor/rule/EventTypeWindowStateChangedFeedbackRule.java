@@ -77,7 +77,8 @@ public final class EventTypeWindowStateChangedFeedbackRule {
         TAG,
         StringBuilderUtils.joinFields(
             " ttsOutputRule= windowStateChangedState, ",
-            StringBuilderUtils.optionalText("role", Role.roleToString(role))));
+            StringBuilderUtils.optionalText("role", Role.roleToString(role)),
+            StringBuilderUtils.optionalText("ttsOutput", ttsOutput)));
 
     return EventFeedback.builder()
         .setTtsOutput(Optional.of(ttsOutput))

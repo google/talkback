@@ -350,6 +350,9 @@ public class A11yAlertDialogWrapper implements DialogInterface {
     /** See {@link AlertDialog.Builder#setView(View)} */
     A11yAlertDialogWrapper.Builder setView(View view);
 
+    /** Sets a dialog to dismiss when the action button is clicked. It is only effective on Wear. */
+    A11yAlertDialogWrapper.Builder setDismissOnClick(boolean dismissOnClick);
+
     /** See {@link AlertDialog.Builder#create()} */
     @NonNull
     A11yAlertDialogWrapper create();

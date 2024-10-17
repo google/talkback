@@ -170,9 +170,13 @@ public class TreeDebug {
     }
 
     @Nullable CharSequence nodeText = AccessibilityNodeInfoUtils.getText(node);
+    @Nullable String textWithSpansInfo = SpannableUtils.spansToStringForLogging(nodeText);
     if (nodeText != null) {
       sb.append(":TEXT{");
       sb.append(nodeText.toString().trim());
+      if (!TextUtils.isEmpty(textWithSpansInfo)) {
+        sb.append(textWithSpansInfo);
+      }
       sb.append("}");
     }
 
@@ -335,6 +339,22 @@ public class TreeDebug {
           }
         }
       }
+    }
+    if (node.getRangeInfo() != null) {
+      sb.append(":range");
+      sb.append("#max=");
+      sb.append(node.getRangeInfo().getMax());
+      sb.append(",min=");
+      sb.append(node.getRangeInfo().getMin());
+      sb.append(",current=");
+      sb.append(node.getRangeInfo().getCurrent());
+      sb.append(",type=");
+      sb.append(node.getRangeInfo().getType());
+    }
+
+    if (AccessibilityNodeInfoUtils.getViewIdText(node) != null) {
+      sb.append(":resourceId=");
+      sb.append(AccessibilityNodeInfoUtils.getViewIdText(node));
     }
 
     return sb.toString();

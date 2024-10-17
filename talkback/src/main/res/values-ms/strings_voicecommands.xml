@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">baca</string>
-  <string name="voice_commands_read_from_next">Baca daripada seterusnya</string>
+  <string name="voice_commands_read_from_next">Baca dari kursor</string>
   <string name="voice_commands_edit_options">Edit pilihan</string>
-  <string name="voice_commands_text_editing">Pengeditan teks</string>
-  <string name="voice_commands_edit_text">Edit teks</string>
-  <string name="voice_commands_editing_options">Pilihan pengeditan</string>
   <string name="voice_commands_edit">edit</string>
   <string name="voice_commands_what">apa</string>
   <string name="voice_commands_say">sebut</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Label</string>
   <string name="voice_commands_cannot_label_feedback">Tidak boleh memberikan label</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">Menetapkan kadar pertuturan</string>
   <string name="voice_commands_first">Pertama</string>
   <string name="voice_commands_top">Atas</string>
   <string name="voice_commands_last">Terakhir</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Tingkatkan kadar pertuturan</string>
   <string name="voice_commands_slower">Lebih perlahan</string>
   <string name="voice_commands_decrease_speech_rate">kurangkan kadar pertuturan</string>
-  <string name="voice_commands_possible_options_title">Anda boleh menyebut</string>
   <string name="voice_commands_no_action">Pintasan Voice tidak disokong</string>
   <string name="voice_commands_no_mic_permissions">Untuk menggunakan ciri ini, anda mesti memberikan kebenaran untuk menggunakan mikrofon.</string>
   <string name="voice_commands_no_voice_recognition_ability">Maaf! Ciri ini tidak tersedia pada peranti anda</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Tiada kawalan seterusnya</string>
   <string name="voice_commands_no_next_landmark_feedback">Tiada tanda tempat seterusnya</string>
   <string name="voice_commands_help_title">Ikhtisar perintah suara</string>
-  <string name="voice_commands_help_description">Untuk menggunakan perintah suara, leret ke kanan kemudian ke atas. Sebut \"Bantuan\" atau \"Apakah yang boleh saya katakan?\" pada bila-bila masa untuk senarai perintah ini.</string>
+  <string name="voice_commands_help_description">Untuk menggunakan perintah suara, leret ke kanan, kemudian leret ke atas. Sebut \"%1$s\" atau \"Apakah yang boleh saya katakan?\" pada bila-bila masa untuk mendapatkan senarai perintah ini.</string>
   <string name="voice_commands_help_hint">Untuk mendapatkan hasil terbaik, sebut ayat yang sama yang tersenarai pada skrin berikut.</string>
   <string name="voice_command_screen_locked_hint">Perintah suara tidak tersedia semasa skrin dikunci. Untuk menggunakan menu TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Perintah suara tidak tersedia semasa persediaan.</string>
@@ -117,8 +112,8 @@
   <string name="voice_commands_help_navigation_description">Navigasi mengikut perkataan, aksara, baris, perenggan, tajuk, kawalan dan banyak lagi</string>
   <string name="voice_commands_help_speech_rate_description">Anda juga boleh menyebut \"cakap lebih perlahan\"</string>
   <string name="voice_commands_help_verbosity_description">Tukar kepada rendah, tinggi atau tersuai</string>
-  <string name="voice_commands_help_first_description">Alih ke item pertama pada skrin semasa</string>
-  <string name="voice_commands_help_last_description">Alih ke item terakhir pada skrin semasa</string>
+  <string name="voice_commands_help_first_description">Pergi ke item pertama pada skrin semasa</string>
+  <string name="voice_commands_help_last_description">Pergi ke item terakhir pada skrin semasa</string>
   <string name="voice_commands_help_languages_description">Tukar bahasa pertuturan anda (teks ke pertuturan)</string>
   <string name="voice_commands_help_find_items_title">Cari item</string>
   <string name="voice_commands_help_find_items_description">Cari kandungan khusus pada skrin semasa</string>

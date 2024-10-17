@@ -17,12 +17,13 @@
 package com.google.android.accessibility.talkback.training;
 
 import static com.google.android.accessibility.talkback.trainingcommon.NavigationButtonBar.DEFAULT_BUTTONS;
-import static com.google.android.accessibility.talkback.trainingcommon.PageConfig.PageContentPredicate.SUPPORT_SYSTEM_ACTIONS;
+import static com.google.android.accessibility.talkback.trainingcommon.PageConfig.PageAndContentPredicate.SUPPORT_SYSTEM_ACTIONS;
 
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.trainingcommon.PageConfig;
 import com.google.android.accessibility.talkback.trainingcommon.PageConfig.PageId;
 import com.google.android.accessibility.talkback.trainingcommon.TrainingConfig;
+import com.google.common.collect.ImmutableList;
 
 /** The {@link PageConfig} and {@link TrainingConfig} of voice command and help page. */
 final class VoiceCommandAndHelpConfigs {
@@ -35,7 +36,8 @@ final class VoiceCommandAndHelpConfigs {
       PageConfig.builder(PageId.PAGE_ID_VOICE_COMMAND_OVERVIEW, R.string.voice_commands_help_title)
           .hidePageNumber()
           .setEndOfSection()
-          .addText(R.string.voice_commands_help_description)
+          .addText(
+              R.string.voice_commands_help_description, ImmutableList.of(R.string.title_pref_help))
           .addText(R.string.voice_commands_help_hint)
           .addLink(
               R.string.shortcut_title_reading_control,

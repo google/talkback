@@ -16,12 +16,18 @@
 
 package com.google.android.accessibility.talkback;
 
+import static android.media.AudioAttributes.USAGE_GAME;
+import static android.media.AudioAttributes.USAGE_MEDIA;
+
 import android.content.Context;
 import android.content.Intent;
-import android.media.AudioAttributes;
+import android.media.AudioPlaybackConfiguration;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.telephony.TelephonyManager;
 import androidx.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.monitor.CallStateMonitor;
 import com.google.android.accessibility.utils.monitor.AudioPlaybackMonitor;
 import com.google.android.accessibility.utils.monitor.HeadphoneStateMonitor;
@@ -40,16 +46,22 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
 
   private static final String TAG = "VoiceActionMonitor";
 
+  private static final int SSB = 0;
+  private static final int MEDIA_RECORDER = 1;
+  private static final int AUDIO_PLAYBACK = 2;
+  private static final int CALL_STATE = 3;
+
+  @VisibleForTesting
+  // The waiting time to ensure "Talkback on" is read out.
+  protected static final int WAITING_INITIAL_ANNOUNCEMENT_FINISHED_MS = 2000;
+
   private final TalkBackService service;
   private final MediaRecorderMonitor mediaRecorderMonitor;
   private final AudioPlaybackMonitor audioPlaybackMonitor;
   private final CallStateMonitor callStateMonitor;
   private final SpeechStateMonitor speechStateMonitor;
 
-  private static final int SSB = 0;
-  private static final int MEDIA_RECORDER = 1;
-  private static final int AUDIO_PLAYBACK = 2;
-  private static final int CALL_STATE = 3;
+  private boolean skipInterruption = true;
 
   /** Defines voice action sources that would interrupt TalkBack audio. */
   @IntDef({
@@ -71,19 +83,23 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
   private final AudioPlaybackMonitor.AudioPlaybackStateChangedListener
       audioPlaybackStateChangedListener =
           (configs) -> {
-            // No need to interrupt if only media and game playback are activated.
-            if ((configs.size() == 1
-                    && (configs.get(0).getAudioAttributes().getUsage()
-                            == AudioAttributes.USAGE_MEDIA
-                        || configs.get(0).getAudioAttributes().getUsage()
-                            == AudioAttributes.USAGE_GAME))
-                || (configs.size() == 2
-                    && configs.get(0).getAudioAttributes().getUsage() == AudioAttributes.USAGE_MEDIA
-                    && configs.get(1).getAudioAttributes().getUsage()
-                        == AudioAttributes.USAGE_GAME)) {
+            if (skipInterruption) {
               return;
             }
-            interruptTalkBackAudio(AUDIO_PLAYBACK);
+            // No need to interrupt if only media and game playback are activated.
+            for (AudioPlaybackConfiguration config : configs) {
+              int usage = config.getAudioAttributes().getUsage();
+              if (usage == USAGE_MEDIA || usage == USAGE_GAME) {
+                continue;
+              }
+
+              LogUtils.v(
+                  TAG,
+                  "AudioPlaybackStateChangedListener: interruptTalkBackAudio (config=%s)",
+                  config);
+              interruptTalkBackAudio(AUDIO_PLAYBACK);
+              break;
+            }
           };
 
   private final CallStateMonitor.CallStateChangedListener callStateChangedListener =
@@ -190,9 +206,33 @@ public class VoiceActionMonitor implements VoiceActionDelegate {
   }
 
   private void interruptTalkBackAudio(@VoiceActionSource int source) {
-    LogUtils.v(TAG, "Interrupt TalkBack audio. voice action source= %d", source);
+    LogUtils.v(
+        TAG, "Interrupt TalkBack audio. voice action source=%s", voiceActionSourceToString(source));
     service.interruptAllFeedback(false /* stopTtsSpeechCompletely */);
   }
 
+  public void onTtsReady() {
+    if (skipInterruption) {
+      Handler mainHandler = new Handler(Looper.getMainLooper());
+      mainHandler.postDelayed(
+          () -> skipInterruption = false, WAITING_INITIAL_ANNOUNCEMENT_FINISHED_MS);
+    }
+  }
+
   private void interruptOtherAudio() {}
+
+  @SuppressWarnings("MissingDefault") // This switch statement is exhaustive.
+  private static String voiceActionSourceToString(@VoiceActionSource int source) {
+    switch (source) {
+      case AUDIO_PLAYBACK:
+        return "AUDIO_PLAYBACK";
+      case CALL_STATE:
+        return "CALL_STATE";
+      case MEDIA_RECORDER:
+        return "MEDIA_RECORDER";
+      case SSB:
+        return "SSB";
+    }
+    return "UNKNOWN_VOICE_ACTION_SOURCE";
+  }
 }

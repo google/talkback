@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.android.accessibility.braille.common;
 
 import static java.lang.Math.min;
@@ -325,19 +326,23 @@ public class BrailleUserPreferences {
   }
 
   /** Reads calibration points for a tablet device. */
-  public static List<PointF> readCalibrationPointsTablet(Context context, int orientation)
-      throws ParseException {
+  public static List<PointF> readCalibrationPointsTablet(
+      Context context, boolean isTabletop, int orientation) throws ParseException {
     return BrailleUserPreferencesTouchDots.readLayoutPointsTablet(
-        context, getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME), orientation);
+        context,
+        getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME),
+        isTabletop,
+        orientation);
   }
 
   /** Writes calibration points for a tablet device. */
   public static void writeCalibrationPointsTablet(
-      Context context, int orientation, List<PointF> points, Size screenSize)
+      Context context, boolean isTabletop, int orientation, List<PointF> points, Size screenSize)
       throws ParseException {
     BrailleUserPreferencesTouchDots.writeLayoutPointsTablet(
         context,
         getSharedPreferences(context, BRAILLE_SHARED_PREFS_FILENAME),
+        isTabletop,
         orientation,
         points,
         screenSize);

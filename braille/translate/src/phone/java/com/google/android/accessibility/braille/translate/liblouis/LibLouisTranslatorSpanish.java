@@ -25,7 +25,7 @@ import java.util.Map;
 public class LibLouisTranslatorSpanish extends LibLouisTranslator {
 
   public LibLouisTranslatorSpanish(Context context) {
-    super(context, "es-g1.ctb");
+    super(context, "es.tbl");
     setupCommutativityReplacementMap();
   }
 

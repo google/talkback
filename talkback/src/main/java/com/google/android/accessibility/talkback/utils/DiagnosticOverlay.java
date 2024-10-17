@@ -8,14 +8,12 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.WindowManager.BadTokenException;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.widget.SimpleOverlay;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Overlay for displaying logs in developer mode */
 public class DiagnosticOverlay extends SimpleOverlay {
@@ -68,11 +66,7 @@ public class DiagnosticOverlay extends SimpleOverlay {
     }
     mHandler.removeMessages(MSG_CLEAR_TEXT);
 
-    try {
-      show();
-    } catch (BadTokenException e) {
-      LogUtils.e(LOG_TAG, e, "Caught WindowManager.BadTokenException while displaying text.");
-    }
+    show();
 
     final long displayTime = Math.max(4000, text.length() * 2000);
     mText.setText(text);

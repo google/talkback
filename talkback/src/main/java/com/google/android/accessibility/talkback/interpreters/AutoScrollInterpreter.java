@@ -75,7 +75,8 @@ public class AutoScrollInterpreter implements ScrollEventHandler {
   public void onScrollEvent(
       AccessibilityEvent event, ScrollEventInterpretation interpretation, EventId eventId) {
 
-    if ((autoScrollRecordId() == interpretation.scrollInstanceId)
+    if ((interpretation.scrollInstanceId != UNKNOWN_SCROLL_INSTANCE_ID)
+        && (autoScrollRecordId() == interpretation.scrollInstanceId)
         && (event.getEventType() == AccessibilityEvent.TYPE_VIEW_SCROLLED)) {
 
       // Cause AutoScrollActor.onScrollEvent() to cancel failure timeout.

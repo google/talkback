@@ -240,8 +240,7 @@ public final class NodePathDescription {
      */
     abstract double distance();
 
-    @Nullable
-    abstract AccessibilityNode node();
+    abstract @Nullable AccessibilityNode node();
 
     static Builder builder() {
       return new AutoValue_NodePathDescription_Match.Builder()

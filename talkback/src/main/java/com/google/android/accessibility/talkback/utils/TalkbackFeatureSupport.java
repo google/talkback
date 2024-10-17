@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.talkback.utils;
 
+import android.os.Build;
 import com.google.android.accessibility.utils.FormFactorUtils;
 
 /** Methods to check whether to support talkback features. */
@@ -30,5 +31,36 @@ public class TalkbackFeatureSupport {
   /** Returns {@code true} if devices support speech recognize feature. */
   public static boolean supportSpeechRecognize() {
     return !FormFactorUtils.getInstance().isAndroidWear();
+  }
+
+  /**
+   * Returns {@code true} if the device supports dynamic features.
+   *
+   * <p>Note: TalkBack dynamic features are icon description and image description that need the
+   * device downloads libraries dynamically.
+   *
+   * <p>Note: TalkBack would not support dynamic features on x86, ATV, auto and wear platform.
+   */
+  public static boolean supportDynamicFeatures() {
+    if (FormFactorUtils.getInstance().isAndroidTv()
+        || FormFactorUtils.getInstance().isAndroidAuto()
+        || FormFactorUtils.getInstance().isAndroidWear()) {
+      return false;
+    }
+    for (String abs : Build.SUPPORTED_32_BIT_ABIS) {
+      if (abs.contains("x86")) {
+        return false;
+      }
+    }
+    for (String abs : Build.SUPPORTED_64_BIT_ABIS) {
+      if (abs.contains("x86_64")) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public static boolean supportMultipleAutoScroll() {
+    return FormFactorUtils.getInstance().isAndroidWear();
   }
 }

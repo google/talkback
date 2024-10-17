@@ -84,7 +84,15 @@ public class MediaRecorderMonitor {
 
   public void onResumeInfrastructure() {
     if ((audioRecordingCallback != null) && (audioManager != null)) {
-      isRecording = false;
+      if (BuildVersionUtils.isAtLeastN()) {
+        List<AudioRecordingConfiguration> audioRecordingConfigurations =
+            audioManager.getActiveRecordingConfigurations();
+        isVoiceRecognitionActive = containsAudioSourceVoiceRecog(audioRecordingConfigurations);
+        isRecording = containsAudioSources(audioRecordingConfigurations);
+      } else {
+        isVoiceRecognitionActive = false;
+        isRecording = false;
+      }
       audioManager.registerAudioRecordingCallback(audioRecordingCallback, null);
     }
   }

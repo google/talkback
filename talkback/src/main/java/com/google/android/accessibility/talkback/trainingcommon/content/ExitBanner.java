@@ -23,8 +23,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.TalkBackMetricStore;
 import com.google.android.accessibility.talkback.trainingcommon.TrainingIpcClient.ServiceData;
+import com.google.android.accessibility.talkback.trainingcommon.TrainingMetricStore;
 
 /**
  * A {@link PageContentConfig}. It has a TalkBack exit banner UI that and a TalkBack-exit button for
@@ -39,7 +39,7 @@ public class ExitBanner extends PageContentConfig {
 
   private RequestDisableTalkBack requestDisableTalkBack;
 
-  private TalkBackMetricStore metricStore;
+  private TrainingMetricStore metricStore;
 
   private boolean firstTapPerformed;
 
@@ -75,7 +75,7 @@ public class ExitBanner extends PageContentConfig {
     requestDisableTalkBack = callback;
   }
 
-  public void setMetricStore(TalkBackMetricStore metricStore) {
+  public void setMetricStore(TrainingMetricStore metricStore) {
     this.metricStore = metricStore;
   }
 }

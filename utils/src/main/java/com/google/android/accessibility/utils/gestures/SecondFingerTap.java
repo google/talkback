@@ -16,11 +16,13 @@
 
 package com.google.android.accessibility.utils.gestures;
 
+import static android.util.Log.VERBOSE;
+
 import android.content.Context;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.android.accessibility.utils.Performance.EventId;
 
 /**
  * This class matches second-finger multi-tap gestures. A second-finger multi-tap gesture is where
@@ -61,12 +63,12 @@ class SecondFingerTap extends GestureMatcher {
   }
 
   @Override
-  protected void onDown(MotionEvent event) {
+  protected void onDown(EventId eventId, MotionEvent event) {
     firstDownTime = event.getEventTime();
   }
 
   @Override
-  protected void onPointerDown(MotionEvent event) {
+  protected void onPointerDown(EventId eventId, MotionEvent event) {
     long timeDelta = event.getEventTime() - firstDownTime;
     if (timeDelta < doubleTapTimeout) {
       cancelGesture(event);
@@ -74,7 +76,7 @@ class SecondFingerTap extends GestureMatcher {
     }
 
     if (event.getPointerCount() > 2) {
-      LogUtils.v(getGestureName(), "onPointerDown/getPointerCount=%d", event.getPointerCount());
+      gestureMotionEventLog(VERBOSE, "onPointerDown/getPointerCount=%d", event.getPointerCount());
       cancelGesture(event);
       return;
     }
@@ -89,33 +91,33 @@ class SecondFingerTap extends GestureMatcher {
   }
 
   @Override
-  protected void onPointerUp(MotionEvent event) {
-    LogUtils.v(getGestureName(), "onPointerUp/onPointerUp");
+  protected void onPointerUp(EventId eventId, MotionEvent event) {
+    gestureMotionEventLog(VERBOSE, "onPointerUp/onPointerUp");
     if (event.getPointerCount() > 2) {
-      LogUtils.v(getGestureName(), "onPointerUp/getPointerCount=%d", event.getPointerCount());
+      gestureMotionEventLog(VERBOSE, "onPointerUp/getPointerCount=%d", event.getPointerCount());
       cancelGesture(event);
       return;
     }
     if (getState() == STATE_GESTURE_STARTED || getState() == STATE_CLEAR) {
       currentTaps++;
-      LogUtils.v(getGestureName(), "onPointerUp/getState=%d", getState());
+      gestureMotionEventLog(VERBOSE, "onPointerUp/getState=%d", getState());
       if (currentTaps == targetTaps) {
-        LogUtils.v(getGestureName(), "onPointerUp/currentTaps=%d", currentTaps);
+        gestureMotionEventLog(VERBOSE, "onPointerUp/currentTaps=%d", currentTaps);
         // Done.
-        completeGesture(event);
+        completeGesture(eventId, event);
         restart();
         startGesture(event);
       }
     } else {
-      LogUtils.v(getGestureName(), "onPointerUp/currentTaps=%d", currentTaps);
+      gestureMotionEventLog(VERBOSE, "onPointerUp/currentTaps=%d", currentTaps);
       // Nonsensical event stream.
       cancelGesture(event);
     }
   }
 
   @Override
-  protected void onUp(MotionEvent event) {
-    LogUtils.v(getGestureName(), "onUp");
+  protected void onUp(EventId eventId, MotionEvent event) {
+    gestureMotionEventLog(VERBOSE, "onUp");
     // Cancel early when possible, or it will take precedence over two-finger double tap.
     cancelGesture(event);
   }

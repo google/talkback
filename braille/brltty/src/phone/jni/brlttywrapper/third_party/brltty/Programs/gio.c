@@ -28,6 +28,7 @@
 #include "io_generic.h"
 #include "gio_internal.h"
 #include "io_serial.h"
+#include "hid_types.h"
 
 const GioProperties *const gioProperties[] = {
   &gioProperties_serial,
@@ -66,6 +67,7 @@ gioInitializeDescriptor (GioDescriptor *descriptor) {
   descriptor->bluetooth.options.inputTimeout = 1000;
   descriptor->bluetooth.options.requestTimeout = 5000;
 
+  descriptor->hid.modelTable = NULL;
   gioInitializeOptions(&descriptor->hid.options);
 
   gioInitializeOptions(&descriptor->null.options);
@@ -485,6 +487,22 @@ gioAskResource (
   return method(endpoint->handle, recipient, type,
                 request, value, index, buffer, size,
                 endpoint->options.requestTimeout);
+}
+
+HidItemsDescriptor *
+gioGetHidDescriptorMethod (
+  GioEndpoint *endpoint) {
+  GioGetHidDescriptorMethod *method = endpoint->handleMethods->getHidDescriptor;
+
+  if (!method) {
+    logUnsupportedOperation("getHidDescriptor");
+    errno = ENOSYS;
+    return NULL;
+  }
+
+  return method(
+    endpoint->handle
+  );
 }
 
 int

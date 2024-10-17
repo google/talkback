@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">%1$s ပမာဏကို %2$d ရာခိုင်နှုန်း သတ်မှတ်ထား။</string>
   <string name="template_stream_muted_set">%1$s အသံ တိတ်ထားသည်။</string>
+  <string name="hint_a11y_volume_control">အများသုံးနိုင်မှု အသံအတိုးအကျယ်ကိုပြောင်းရန် ဖန်သားပြင်ပေါ် လက် ၁ ချောင်းဖြင့် ဖိထားပြီး အသံချဲ့ခလုတ် (သို့) အသံတိုးခလုတ်ကို နှိပ်ပါ။</string>
   <string name="value_stream_voice_call">ဖုန်း ခေါ်ဆိုမှု</string>
   <string name="value_stream_system">စနစ် အသံ</string>
   <string name="value_stream_ring">သံစဉ်</string>

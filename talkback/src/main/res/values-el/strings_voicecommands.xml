@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">ανάγνωση</string>
-  <string name="voice_commands_read_from_next">Ανάγνωση από το επόμενο στοιχείο</string>
+  <string name="voice_commands_read_from_next">Ανάγνωση από δείκτη</string>
   <string name="voice_commands_edit_options">Επεξεργασία επιλογών</string>
-  <string name="voice_commands_text_editing">Επεξεργασία κειμένου</string>
-  <string name="voice_commands_edit_text">Επεξεργασία κειμένου</string>
-  <string name="voice_commands_editing_options">Επιλογές επεξεργασίας</string>
   <string name="voice_commands_edit">επεξεργασία</string>
   <string name="voice_commands_what">τι</string>
   <string name="voice_commands_say">εκφώνηση</string>
@@ -46,8 +43,7 @@
   <string name="voice_commands_label">Ετικέτα</string>
   <string name="voice_commands_cannot_label_feedback">Αδυναμία προσθήκης ετικέτας</string>
   <string name="voice_commands_assistant">Βοηθός</string>
-  <string name="voice_commands_setting_speech_rate">Ρύθμιση ρυθμού ομιλίας</string>
-  <string name="voice_commands_first">Πρώτη</string>
+  <string name="voice_commands_first">Πρώτο</string>
   <string name="voice_commands_top">Επάνω</string>
   <string name="voice_commands_last">Τελευταίο</string>
   <string name="voice_commands_bottom">Κάτω</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Αύξηση ταχύτητας ομιλίας</string>
   <string name="voice_commands_slower">Πιο αργή</string>
   <string name="voice_commands_decrease_speech_rate">μείωση ρυθμού ομιλίας</string>
-  <string name="voice_commands_possible_options_title">Μπορείτε να πείτε</string>
   <string name="voice_commands_no_action">Η συντόμευση φωνητικής εντολής δεν υποστηρίζεται.</string>
   <string name="voice_commands_no_mic_permissions">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, θα πρέπει να παραχωρήσετε άδεια χρήσης του μικροφώνου.</string>
   <string name="voice_commands_no_voice_recognition_ability">Δυστυχώς, αυτή η λειτουργία δεν είναι διαθέσιμη σε αυτήν τη συσκευή</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Δεν υπάρχει επόμενο στοιχείο ελέγχου.</string>
   <string name="voice_commands_no_next_landmark_feedback">Δεν υπάρχει επόμενο ορόσημο.</string>
   <string name="voice_commands_help_title">Επισκόπηση φωνητικών εντολών</string>
-  <string name="voice_commands_help_description">Για να χρησιμοποιήσετε φωνητικές εντολές, σύρετε προς τα δεξιά και έπειτα προς τα πάνω. Πείτε \"Βοήθεια\" ή \"Τι μπορώ να πω\" ανά πάσα στιγμή για να δείτε μια λίστα με τις εντολές.</string>
+  <string name="voice_commands_help_description">Για να χρησιμοποιήσετε φωνητικές εντολές, σύρετε προς τα δεξιά και έπειτα προς τα πάνω. Πείτε \"%1$s\" ή \"Τι μπορώ να πω;\" ανά πάσα στιγμή για να δείτε μια λίστα με τις εντολές.</string>
   <string name="voice_commands_help_hint">Για καλύτερα αποτελέσματα, χρησιμοποιήστε την ακριβή διατύπωση που αναφέρεται στις παρακάτω οθόνες.</string>
   <string name="voice_command_screen_locked_hint">Οι φωνητικές εντολές δεν είναι διαθέσιμες όταν η οθόνη είναι κλειδωμένη. Για να χρησιμοποιήσετε εναλλακτικά το μενού του TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Οι φωνητικές εντολές δεν είναι διαθέσιμες κατά τη ρύθμιση.</string>

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">læs</string>
-  <string name="voice_commands_read_from_next">Læs fra næste</string>
+  <string name="voice_commands_read_from_next">Læs fra markør</string>
   <string name="voice_commands_edit_options">Valgmuligheder for redigering</string>
-  <string name="voice_commands_text_editing">Tekstredigering</string>
-  <string name="voice_commands_edit_text">Rediger tekst</string>
-  <string name="voice_commands_editing_options">Redigeringsmuligheder</string>
   <string name="voice_commands_edit">rediger</string>
   <string name="voice_commands_what">hvad</string>
   <string name="voice_commands_say">sig</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etiket</string>
   <string name="voice_commands_cannot_label_feedback">Kan ikke tilføje etiket</string>
   <string name="voice_commands_assistant">Assistent</string>
-  <string name="voice_commands_setting_speech_rate">Indstiller talehastighed</string>
   <string name="voice_commands_first">Første</string>
   <string name="voice_commands_top">Øverst</string>
   <string name="voice_commands_last">Sidste</string>
@@ -71,7 +67,7 @@
   <string name="voice_commands_change_verbosity_to_parameter">Skift til %s detaljering</string>
   <string name="voice_commands_navigation_by_parameter">Navigation baseret på %s</string>
   <string name="voice_commands_parameter_navigation">%snavigation</string>
-  <string name="voice_commands_parameter_granularity">%sgranularitet</string>
+  <string name="voice_commands_parameter_granularity">%sdetaljeniveau</string>
   <string name="voice_commands_read_by_parameter">Læs baseret på %s</string>
   <string name="voice_commands_back">Tilbage</string>
   <string name="voice_commands_go_back">Gå tilbage</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Øg talehastigheden</string>
   <string name="voice_commands_slower">Langsommere</string>
   <string name="voice_commands_decrease_speech_rate">sænk talehastigheden</string>
-  <string name="voice_commands_possible_options_title">Du kan sige</string>
   <string name="voice_commands_no_action">Talegenveje understøttes ikke</string>
   <string name="voice_commands_no_mic_permissions">Du skal give tilladelse til at bruge mikrofonen, hvis du vil bruge denne funktion.</string>
   <string name="voice_commands_no_voice_recognition_ability">Denne funktion er desværre ikke tilgængelig på din enhed</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Der er ikke flere styringselementer</string>
   <string name="voice_commands_no_next_landmark_feedback">Der er ikke flere pejlemærker</string>
   <string name="voice_commands_help_title">Oversigt over stemmekommandoer</string>
-  <string name="voice_commands_help_description">Du kan bruge stemmekommandoer ved at stryge mod højre og derefter opad. Sig \"Hjælp\" eller \"Hvad kan jeg sige?\" for at se denne liste over kommandoer.</string>
+  <string name="voice_commands_help_description">Du kan bruge stemmekommandoer ved at stryge mod højre og derefter opad. Sig \"%1$s\" eller \"Hvad kan jeg sige?\" for at se denne liste over kommandoer.</string>
   <string name="voice_commands_help_hint">Du får de bedste resultater ved at bruge de eksakte udtryk, der er angivet på følgende skærme.</string>
   <string name="voice_command_screen_locked_hint">Stemmekommandoer er ikke tilgængelige, mens skærmen er låst. %1$s for at bruge TalkBack-menuen i stedet.</string>
   <string name="voice_commands_during_setup_hint">Stemmekommandoer er ikke tilgængelige under konfigurationen.</string>

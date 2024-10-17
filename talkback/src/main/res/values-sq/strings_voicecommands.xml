@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">lexo</string>
-  <string name="voice_commands_read_from_next">Lexo nga artikulli tjetër</string>
+  <string name="voice_commands_read_from_next">Lexo nga kursori</string>
   <string name="voice_commands_edit_options">Opsionet e redaktimit</string>
-  <string name="voice_commands_text_editing">Redaktimi i tekstit</string>
-  <string name="voice_commands_edit_text">Redakto tekstin</string>
-  <string name="voice_commands_editing_options">Opsionet e redaktimit</string>
   <string name="voice_commands_edit">modifiko</string>
   <string name="voice_commands_what">çfarë</string>
   <string name="voice_commands_say">thuaj</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etiketo</string>
   <string name="voice_commands_cannot_label_feedback">Nuk mund të etiketohet</string>
   <string name="voice_commands_assistant">Asistenti</string>
-  <string name="voice_commands_setting_speech_rate">Caktimi i shpejtësisë së të folurit</string>
   <string name="voice_commands_first">I pari</string>
   <string name="voice_commands_top">Në krye</string>
   <string name="voice_commands_last">I fundit</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Rrit shpejtësinë e të folurit</string>
   <string name="voice_commands_slower">Më ngadalë</string>
   <string name="voice_commands_decrease_speech_rate">ul shpejtësinë e të folurit</string>
-  <string name="voice_commands_possible_options_title">Mund të thuash</string>
   <string name="voice_commands_no_action">Shkurtorja zanore nuk mbështetet</string>
   <string name="voice_commands_no_mic_permissions">Për të përdorur këtë funksion, duhet të japësh lejen për përdorimin e mikrofonit.</string>
   <string name="voice_commands_no_voice_recognition_ability">Na vjen keq! Ky funksion nuk ofrohet në pajisjen tënde</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Nuk ka asnjë kontroll tjetër</string>
   <string name="voice_commands_no_next_landmark_feedback">Nuk ka asnjë pikë tjetër referimi</string>
   <string name="voice_commands_help_title">Përmbledhja e komandave zanore</string>
-  <string name="voice_commands_help_description">Për të përdorur komandat zanore, rrëshqit shpejt djathtas dhe më pas lart. Thuaj \"Ndihmë\" ose \"Çfarë mund të them?\" në çdo kohë për këtë listë komandash.</string>
+  <string name="voice_commands_help_description">Për të përdorur komandat zanore, rrëshqit shpejt djathtas dhe më pas lart. Thuaj \"%1$s\" ose \"Çfarë mund të them?\" në çdo kohë për këtë listë komandash.</string>
   <string name="voice_commands_help_hint">Për rezultatet më të mira, thuaj me saktësi fjalët e listuara në ekranet vijuese.</string>
   <string name="voice_command_screen_locked_hint">Komandat zanore nuk ofrohen kur ekrani është i kyçur. Për të përdorur më mirë menynë TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Komandat zanore nuk ofrohen gjatë konfigurimit.</string>
@@ -119,7 +114,7 @@
   <string name="voice_commands_help_verbosity_description">Ndryshoje si të ulët, të lartë ose të personalizuar</string>
   <string name="voice_commands_help_first_description">Kalo tek artikulli i parë në ekranin aktual</string>
   <string name="voice_commands_help_last_description">Kalo tek artikulli i fundit në ekranin aktual</string>
-  <string name="voice_commands_help_languages_description">Ndrsyho gjuhën e të folurit (teksti-në-ligjërim)</string>
+  <string name="voice_commands_help_languages_description">Ndrysho gjuhën e të folurit (tekst në ligjërim)</string>
   <string name="voice_commands_help_find_items_title">Gjej artikujt</string>
   <string name="voice_commands_help_find_items_description">Gjej përmbajtje specifike në ekranin aktual</string>
   <string name="voice_commands_help_find_text">Gjej [ruajtjen]</string>

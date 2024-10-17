@@ -28,7 +28,6 @@ import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.CursorGranularityManager;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
-import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.UserInterface;
 import com.google.android.accessibility.talkback.actor.search.UniversalSearchActor;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
@@ -45,6 +44,7 @@ import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.WebInterfaceUtils;
 import com.google.android.accessibility.utils.WindowUtils;
 import com.google.android.accessibility.utils.input.CursorGranularity;
 import com.google.android.accessibility.utils.monitor.InputModeTracker;
@@ -54,7 +54,9 @@ import com.google.android.accessibility.utils.output.SelectionStateReader;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirection;
+import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirectionOrUnknown;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -83,8 +85,8 @@ public class DirectionNavigationActor {
       return DirectionNavigationActor.this.getCurrentGranularity();
     }
 
-    public boolean supportedGranularity(CursorGranularity granularity, EventId eventId) {
-      return DirectionNavigationActor.this.supportedGranularity(granularity, eventId);
+    public boolean hasNavigableWebContent() {
+      return DirectionNavigationActor.this.hasNavigableWebContent();
     }
   }
 
@@ -243,6 +245,7 @@ public class DirectionNavigationActor {
     // Navigate with character, word, line or paragraph granularity.
     if (isNavigatingWithMicroGranularity()) {
       final int result = navigateWithMicroGranularity(direction, eventId);
+      LogUtils.d(TAG, "navigate- navigateWithMicroGranularity result = %d", result);
       if (result == CursorGranularityManager.SUCCESS) {
         inputModeTracker.setInputMode(inputMode);
         analytics.onMoveWithGranularity(granularity);
@@ -499,6 +502,12 @@ public class DirectionNavigationActor {
     return success;
   }
 
+  public boolean updateStealNextWindowNavigation(
+      @Nullable AccessibilityNodeInfoCompat target, @SearchDirectionOrUnknown int searchDirection) {
+    focusProcessorForLogicalNavigation.updateStealNextWindowNavigation(target, searchDirection);
+    return true;
+  }
+
   /////////////////////////////////////////////////////////////////////////////////////////////////
   // Granularity related operations.
 
@@ -543,22 +552,20 @@ public class DirectionNavigationActor {
         cursorGranularityManager.setGranularityToDefault();
         return true;
       }
-
       return false;
     }
 
-    if (cursorGranularityManager.setGranularityAt(current, granularity, eventId)) {
-      granularityUpdatedAnnouncement(
-          service.getString(granularity.resourceId), isFromUser, eventId);
-      return true;
-    } else {
-      granularityUpdatedAnnouncement(
-          service.getString(
-              R.string.set_granularity_fail, service.getString(granularity.resourceId)),
-          isFromUser,
-          eventId);
-      return false;
-    }
+    boolean success = cursorGranularityManager.setGranularityAt(current, granularity, eventId);
+    String granularityString = service.getString(granularity.resourceId);
+    granularityUpdatedAnnouncement(granularityString, isFromUser, eventId);
+    LogUtils.v(
+        TAG,
+        "setGranularity success=%b: current=%s, granularity=%s, isFromUser=%b",
+        success,
+        current,
+        granularityString,
+        isFromUser);
+    return success;
   }
 
   // Usage: ProcessorVolumeStream, RuleGranularity, TalkBackService
@@ -570,16 +577,16 @@ public class DirectionNavigationActor {
     return CursorGranularity.DEFAULT;
   }
 
-  // Usage: GestureController, SelectorController
+  // Usage: GestureController
   public CursorGranularity getCurrentGranularity() {
     return cursorGranularityManager.getCurrentGranularity();
   }
 
   // Usage: SelectorController
-  public boolean supportedGranularity(CursorGranularity granularity, EventId eventId) {
+  public boolean hasNavigableWebContent() {
     AccessibilityNodeInfoCompat current =
         accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
-    return cursorGranularityManager.supportedGranularity(current, granularity, eventId);
+    return WebInterfaceUtils.hasNavigableWebContent(current);
   }
 
   /**

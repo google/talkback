@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.android.accessibility.braille.common;
 
 import android.content.Context;
@@ -82,12 +83,14 @@ public class BrailleUserPreferencesTouchDots {
   }
 
   public static List<PointF> readLayoutPointsTablet(
-      Context context, SharedPreferences sharedPreferences, int orientation) throws ParseException {
+      Context context, SharedPreferences sharedPreferences, boolean isTabletop, int orientation)
+      throws ParseException {
     try {
       String pointsString =
           sharedPreferences.getString(
               context.getString(
                   getTabletCalibrationPreferenceKey(
+                      isTabletop,
                       orientation,
                       BrailleUserPreferences.isCurrentActiveInputCodeEightDot(context))),
               "");
@@ -104,6 +107,7 @@ public class BrailleUserPreferencesTouchDots {
   public static void writeLayoutPointsTablet(
       Context context,
       SharedPreferences sharedPreferences,
+      boolean isTabletop,
       int orientation,
       List<PointF> points,
       Size screenSize)
@@ -114,6 +118,7 @@ public class BrailleUserPreferencesTouchDots {
           .putString(
               context.getString(
                   getTabletCalibrationPreferenceKey(
+                      isTabletop,
                       orientation,
                       BrailleUserPreferences.isCurrentActiveInputCodeEightDot(context))),
               generateLayoutPointsString(points, orientation, screenSize))
@@ -124,15 +129,28 @@ public class BrailleUserPreferencesTouchDots {
   }
 
   @StringRes
-  private static int getTabletCalibrationPreferenceKey(int orientation, boolean eightDot) {
+  private static int getTabletCalibrationPreferenceKey(
+      boolean isTabletop, int orientation, boolean eightDot) {
     if (eightDot) {
-      return orientation == Configuration.ORIENTATION_PORTRAIT
-          ? R.string.pref_brailleime_calibration_points_tablet_eightDot_tabletop_portrait
-          : R.string.pref_brailleime_calibration_points_tablet_eightDot_tabletop_landscape;
+      if (isTabletop) {
+        return orientation == Configuration.ORIENTATION_PORTRAIT
+            ? R.string.pref_brailleime_calibration_points_tablet_eightDot_tabletop_portrait
+            : R.string.pref_brailleime_calibration_points_tablet_eightDot_tabletop_landscape;
+      } else {
+        return orientation == Configuration.ORIENTATION_PORTRAIT
+            ? R.string.pref_brailleime_calibration_points_tablet_eightDot_screenaway_portrait
+            : R.string.pref_brailleime_calibration_points_tablet_eightDot_screenaway_landscape;
+      }
     } else {
-      return orientation == Configuration.ORIENTATION_PORTRAIT
-          ? R.string.pref_brailleime_calibration_points_tablet_tabletop_portrait
-          : R.string.pref_brailleime_calibration_points_tablet_tabletop_landscape;
+      if (isTabletop) {
+        return orientation == Configuration.ORIENTATION_PORTRAIT
+            ? R.string.pref_brailleime_calibration_points_tablet_tabletop_portrait
+            : R.string.pref_brailleime_calibration_points_tablet_tabletop_landscape;
+      } else {
+        return orientation == Configuration.ORIENTATION_PORTRAIT
+            ? R.string.pref_brailleime_calibration_points_tablet_screenaway_portrait
+            : R.string.pref_brailleime_calibration_points_tablet_screenaway_landscape;
+      }
     }
   }
 

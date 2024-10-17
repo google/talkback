@@ -195,8 +195,8 @@ public class FocusProcessorForTapAndTouchExploration {
 
     interpretationReceiver.input(eventId, null, Interpretation.TouchInteraction.create(true));
     if (actorState.getSpeechState().isSpeaking()) {
-      // We'll not refocus nor re-announce a node if TalkBack is currently speaking.
-      mayBeRefocusAction = false;
+      // We refocus and re-announce a node if TalkBack is currently speaking.
+      mayBeRefocusAction = true;
       interpretationReceiver.input(
           eventId, /* event= */ null, Interpretation.Touch.create(TOUCH_START));
     }

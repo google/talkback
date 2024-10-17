@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.talkback.training;
 
+import static com.google.android.accessibility.talkback.trainingcommon.TrainingConfig.TrainingId.TRAINING_ID_FIRST_RUN_AFTER_UPDATED_ON_BOARDING_TALKBACK;
 import static com.google.android.accessibility.talkback.trainingcommon.TrainingConfig.TrainingId.TRAINING_ID_ON_BOARDING_FOR_MULTIFINGER_GESTURES;
 import static com.google.android.accessibility.talkback.trainingcommon.TrainingConfig.TrainingId.TRAINING_ID_ON_BOARDING_TALKBACK;
-import static com.google.android.accessibility.talkback.trainingcommon.TrainingConfig.TrainingId.TRAINING_ID_ON_BOARDING_TALKBACK_WITHOUT_DESCRIBE_IMAGE;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -29,7 +29,6 @@ import android.content.SharedPreferences.Editor;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.actor.ImageCaptioner;
 import com.google.android.accessibility.talkback.trainingcommon.TrainingActivity;
 import com.google.android.accessibility.talkback.utils.NotificationUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -42,15 +41,18 @@ public class OnboardingInitiator {
   static final int NEW_GESTURE_NOTIFICATION_ID = 1;
 
   @StringRes @VisibleForTesting
-  public static final int NEW_FEATURE_SHOWN_KEY = R.string.pref_update_welcome_14_1_shown_key;
+  public static final int NEW_FEATURE_SHOWN_KEY = R.string.pref_update_welcome_15_0_shown_key;
 
   /** A list of legacy preferences for old onboardings. */
-  private static final int[] legacyKey = {
+  @VisibleForTesting
+  static final int[] legacyKey = {
     R.string.pref_update_talkback91_shown_key,
     R.string.pref_update_welcome_12_2_shown_key,
     R.string.pref_update_welcome_13_0_shown_key,
     R.string.pref_update_welcome_13_1_shown_key,
-    R.string.pref_update_welcome_14_0_shown_key
+    R.string.pref_update_welcome_14_0_shown_key,
+    R.string.pref_update_welcome_14_1_shown_key,
+    R.string.pref_update_welcome_14_2_shown_key
   };
 
   /** Sets onboarding preferences to true to ignore onboarding. */
@@ -135,20 +137,16 @@ public class OnboardingInitiator {
         .apply();
   }
 
-  /** Returns an intent to start onboarding. */
-  public static Intent createOnboardingIntent(Context context) {
-    return createOnboardingIntent(context, false);
+  /** Returns an intent to start onboarding for settings. */
+  public static Intent createOnboardingIntentForSettings(Context context) {
+    return TrainingActivity.createTrainingIntent(
+        context, TRAINING_ID_ON_BOARDING_TALKBACK, /* showExitBanner= */ false);
   }
 
   /** Returns an intent to start onboarding. */
   public static Intent createOnboardingIntent(Context context, boolean showExitBanner) {
     return TrainingActivity.createTrainingIntent(
-        context,
-        (ImageCaptioner.supportsImageDescription(context)
-                || ImageCaptioner.supportsIconDetection(context))
-            ? TRAINING_ID_ON_BOARDING_TALKBACK
-            : TRAINING_ID_ON_BOARDING_TALKBACK_WITHOUT_DESCRIBE_IMAGE,
-        showExitBanner);
+        context, TRAINING_ID_FIRST_RUN_AFTER_UPDATED_ON_BOARDING_TALKBACK, showExitBanner);
   }
 
   /** Sets the preference of showing new feature pages and removes legacy of preferences. */

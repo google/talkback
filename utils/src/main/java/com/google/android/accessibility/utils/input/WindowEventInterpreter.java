@@ -58,6 +58,7 @@ import com.google.android.accessibility.utils.ReadOnly;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.Role.RoleName;
 import com.google.android.accessibility.utils.SettingsUtils;
+import com.google.android.accessibility.utils.Statistics;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.WindowUtils;
@@ -315,7 +316,7 @@ public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChan
   private List<WindowEventHandler> listeners = new ArrayList<>();
   private final List<WindowEventHandler> priorityListeners = new ArrayList<>();
 
-  private final Performance.Statistics statisticsAboutDelay = new Performance.Statistics();
+  private final Statistics statisticsAboutDelay = new Statistics();
 
   // We use Boolean since we want to initialize it as null before onDisplayStateChanged is invoked.
   private @Nullable Boolean defaultDisplayOn = null;
@@ -336,9 +337,7 @@ public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChan
   public WindowEventInterpreter(AccessibilityService service, DisplayMonitor displayMonitor) {
     this.service = service;
     this.displayMonitor = displayMonitor;
-    boolean isArc = FeatureSupport.isArc();
-    isSplitScreenModeAvailable =
-        BuildVersionUtils.isAtLeastN() && !FeatureSupport.isTv(service) && !isArc;
+    isSplitScreenModeAvailable = BuildVersionUtils.isAtLeastN() && !FeatureSupport.isTv(service);
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////////////

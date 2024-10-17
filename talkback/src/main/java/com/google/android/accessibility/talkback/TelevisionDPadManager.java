@@ -17,9 +17,6 @@
 package com.google.android.accessibility.talkback;
 
 import android.accessibilityservice.AccessibilityService;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.controller.TelevisionNavigationController;
@@ -30,7 +27,7 @@ import com.google.android.accessibility.utils.Performance;
  * Manages the state whether TalkBack should consume DPad KeyEvents. This class only works on TV
  * devices, when {@link TelevisionNavigationController} is enabled, but will be deprecated.
  */
-public class TelevisionDPadManager extends BroadcastReceiver implements AccessibilityEventListener {
+public class TelevisionDPadManager implements AccessibilityEventListener {
 
   public TelevisionDPadManager(
       TelevisionNavigationController tvNavigationController, AccessibilityService service) {
@@ -38,9 +35,6 @@ public class TelevisionDPadManager extends BroadcastReceiver implements Accessib
       throw new IllegalArgumentException();
     }
   }
-
-  @Override
-  public void onReceive(Context context, Intent intent) {}
 
   @Override
   public int getEventTypes() {

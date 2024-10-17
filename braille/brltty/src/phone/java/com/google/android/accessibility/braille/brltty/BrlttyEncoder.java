@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2023 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.google.android.accessibility.braille.brltty;
 
 import android.content.Context;
@@ -9,6 +25,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.braille.translate.liblouis.TranslateUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.apps.common.proguard.UsedByNative;
+import com.google.common.collect.ImmutableMap;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,7 +48,8 @@ public class BrlttyEncoder implements Encoder {
 
     @Override
     public Predicate<String> getDeviceNameFilter() {
-      return deviceName -> SupportedDevicesHelper.getDeviceInfo(deviceName) != null;
+      return deviceName ->
+          SupportedDevicesHelper.getDeviceInfo(deviceName, /* useHid= */ false) != null;
     }
   }
 
@@ -47,7 +65,6 @@ public class BrlttyEncoder implements Encoder {
   private final Context context;
   private final File tablesDir;
   private FileState dataFileState = FileState.FILES_NOT_EXTRACTED;
-  private DeviceInfo deviceInfo;
 
   public BrlttyEncoder(Context context, Callback callback) {
     this.context = context;
@@ -62,28 +79,30 @@ public class BrlttyEncoder implements Encoder {
   }
 
   @Override
-  public Optional<BrailleDisplayProperties> start(String deviceName, String parameters) {
+  public Optional<BrailleDisplayProperties> start(
+      String deviceName, boolean useHid, String parameters) {
     ensureDataFiles();
     long momentStart = SystemClock.elapsedRealtime();
-    deviceInfo = SupportedDevicesHelper.getDeviceInfo(deviceName);
+    DeviceInfo deviceInfo = SupportedDevicesHelper.getDeviceInfo(deviceName, useHid);
     boolean result = initNative(context);
     if (!result) {
       Log.d(TAG, "init result failed");
       return Optional.empty();
     }
-    boolean success = startNative(deviceInfo.driverCode(), parameters, START_TIMEOUT_FACTOR);
+    final String driverCode = deviceInfo.driverCode();
+    boolean success = startNative(driverCode, parameters, START_TIMEOUT_FACTOR);
     long elapsed = SystemClock.elapsedRealtime() - momentStart;
-    Log.d(TAG, "brltty start took " + elapsed + " ms, driver: " + deviceInfo.driverCode());
+    Log.d(TAG, "brltty start took " + elapsed + " ms, driver: " + driverCode);
 
     if (success) {
-      BrailleKeyBinding[] keyBindings = getFilteredKeyMap();
+      BrailleKeyBinding[] keyBindings = getFilteredKeyMap(deviceInfo.friendlyKeyNames());
       return Optional.of(
           new BrailleDisplayProperties(
-              deviceInfo.driverCode(),
+              driverCode,
               getTextCellsNative(),
               getStatusCellsNative(),
               keyBindings,
-              getFriendlyKeyNames(keyBindings)));
+              getFriendlyKeyNames(keyBindings, deviceInfo.friendlyKeyNames())));
     } else {
       return Optional.empty();
     }
@@ -127,33 +146,33 @@ public class BrlttyEncoder implements Encoder {
     }
   }
 
-  private BrailleKeyBinding[] getFilteredKeyMap() {
+  private BrailleKeyBinding[] getFilteredKeyMap(ImmutableMap<String, Integer> friendlyKeyNames) {
     BrailleKeyBinding[] fullKeyMap = getKeyMapNative();
     List<BrailleKeyBinding> arrayList = new ArrayList<>();
     for (BrailleKeyBinding binding : fullKeyMap) {
-      if (hasAllFriendlyKeyNames(binding)) {
+      if (hasAllFriendlyKeyNames(binding, friendlyKeyNames)) {
         arrayList.add(binding);
       }
     }
     return arrayList.toArray(new BrailleKeyBinding[0]);
   }
 
-  private boolean hasAllFriendlyKeyNames(BrailleKeyBinding binding) {
-    Map<String, Integer> friendlyNames = deviceInfo.friendlyKeyNames();
+  private boolean hasAllFriendlyKeyNames(
+      BrailleKeyBinding binding, ImmutableMap<String, Integer> friendlyKeyNames) {
     for (String key : binding.getKeyNames()) {
-      if (!friendlyNames.containsKey(key)) {
+      if (!friendlyKeyNames.containsKey(key)) {
         return false;
       }
     }
     return true;
   }
 
-  private Map<String, String> getFriendlyKeyNames(BrailleKeyBinding[] bindings) {
+  private Map<String, String> getFriendlyKeyNames(
+      BrailleKeyBinding[] bindings, ImmutableMap<String, Integer> friendlyKeyNames) {
     Map<String, String> result = new HashMap<>();
-    Map<String, Integer> friendlyNames = deviceInfo.friendlyKeyNames();
     for (BrailleKeyBinding binding : bindings) {
       for (String key : binding.getKeyNames()) {
-        Integer resId = friendlyNames.get(key);
+        Integer resId = friendlyKeyNames.get(key);
         if (resId != null) {
           result.put(key, context.getString(resId));
         } else {

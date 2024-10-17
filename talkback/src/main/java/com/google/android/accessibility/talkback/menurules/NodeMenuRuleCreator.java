@@ -74,7 +74,7 @@ public class NodeMenuRuleCreator {
     ruleViewPager = new RuleViewPager(pipeline, analytics);
     ruleGranularity = new RuleGranularity(pipeline, actorState, analytics);
     ruleSpannables = new RuleSpannables(analytics);
-    ruleImageCaption = new RuleImageCaption(pipeline, analytics);
+    ruleImageCaption = new RuleImageCaption(pipeline, actorState, analytics);
   }
 
   /**

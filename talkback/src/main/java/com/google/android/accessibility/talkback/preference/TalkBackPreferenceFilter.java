@@ -24,6 +24,7 @@ import androidx.preference.PreferenceScreen;
 import com.google.android.accessibility.talkback.FeatureFlagReader;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.actor.ImageCaptioner;
+import com.google.android.accessibility.talkback.actor.gemini.GeminiConfiguration;
 import com.google.android.accessibility.talkback.trainingcommon.tv.TvTutorialInitiator;
 import com.google.android.accessibility.talkback.trainingcommon.tv.VendorConfigReader;
 import com.google.android.accessibility.utils.BuildConfig;
@@ -61,6 +62,8 @@ public class TalkBackPreferenceFilter {
     HIDDEN_ON_RELEASE_BUILD,
     HIDE_ICON_DETECTION,
     HIDE_MULTIPLE_GESTURE_SET,
+    HIDE_GEMINI_SETTINGS,
+    HIDE_SERVER_SIDE_GEMINI,
     HIDDEN
   })
   @Retention(RetentionPolicy.SOURCE)
@@ -106,12 +109,19 @@ public class TalkBackPreferenceFilter {
   private static final int HIDE_ICON_DETECTION = 0x200000;
 
   private static final int HIDE_MULTIPLE_GESTURE_SET = 0x400000;
+  private static final int HIDE_GEMINI_SETTINGS = 0x800000;
+  private static final int HIDE_SERVER_SIDE_GEMINI = 0x1000000;
+  public static final boolean DISABLE_FREQUENT_UPDATE_UI = true;
+  private static final int HIDE_FREQUENT_UPDATE_UI_FLAG =
+      (DISABLE_FREQUENT_UPDATE_UI ? HIDDEN : HIDDEN_ON_WATCH);
 
   /** List TalkBack preferences that do not appear on all devices. */
   enum TalkBackPreference {
     // Sound and vibration.
+    A11Y_VOLUME(R.string.pref_a11y_volume_key, HIDE_NO_ACCESSIBILITY_AUDIO_STREAM),
     AUDIO_DUCKING(R.string.pref_use_audio_focus_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH),
     VIBRATION_FEEDBACK(R.string.pref_vibration_key, HIDDEN_NO_VIBRATION),
+    SPEECH_FOOTER(R.string.pref_speech_footer_key, HIDE_NO_ACCESSIBILITY_AUDIO_STREAM),
     // Advanced settings.
     CUSTOM_LABELS(R.string.pref_manage_labels_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDDEN_SETUP),
     SINGLE_TAP_ACTIVATION(R.string.pref_single_tap_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH),
@@ -149,10 +159,6 @@ public class TalkBackPreferenceFilter {
         R.string.pref_show_navigation_menu_links_setting_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_TALKBACK_MENU_EDIT_NAVIGATION_LANDMARKS(
         R.string.pref_show_navigation_menu_landmarks_setting_key, HIDDEN_ON_WATCH),
-    CUSTOMIZE_TALKBACK_MENU_EDIT_NAVIGATION_SPECIAL_CONTENTS(
-        R.string.pref_show_navigation_menu_special_content_setting_key, HIDDEN_ON_WATCH),
-    CUSTOMIZE_TALKBACK_MENU_EDIT_NAVIGATION_OTHER_WEBS(
-        R.string.pref_show_navigation_menu_other_web_navigation_setting_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_TALKBACK_MENU_EDIT_NAVIGATION_WINDOWS(
         R.string.pref_show_navigation_menu_window_setting_key, HIDDEN_ON_WATCH),
     CUSTOMIZE_TALKBACK_MENU_SCREEN_SEARCH(
@@ -163,6 +169,10 @@ public class TalkBackPreferenceFilter {
         R.string.pref_show_context_menu_vibration_feedback_setting_key, HIDDEN_NO_VIBRATION),
     CUSTOMIZE_TALKBACK_MENU_IMAGE_CAPTION(
         R.string.pref_show_context_menu_image_caption_setting_key, HIDDEN_ON_WATCH),
+
+    CUSTOMIZE_TALKBACK_SERVER_SIDE_GEMINI(
+        R.string.pref_detailed_image_description_key,
+        HIDDEN_ON_WATCH | HIDDEN_ON_TV | HIDE_SERVER_SIDE_GEMINI),
 
     CUSTOMIZE_READING_MENU_NAVIGATION_LINKS(
         R.string.pref_selector_granularity_links_key, HIDDEN_ON_WATCH),
@@ -184,13 +194,14 @@ public class TalkBackPreferenceFilter {
     SPEAK_ELEMENT_TYPE(R.string.pref_speak_roles_key, HIDDEN_ON_WATCH),
     SPEAK_WINDOW_TITLES(R.string.pref_speak_system_window_titles_key, HIDDEN_ON_WATCH),
     LIMIT_FREQUENT_CONTENT_CHANGE_ANNOUNCEMENT(
-        R.string.pref_allow_frequent_content_change_announcement_key, HIDDEN_ON_WATCH),
+        R.string.pref_allow_frequent_content_change_announcement_key, HIDE_FREQUENT_UPDATE_UI_FLAG),
     SPEAK_PHONETIC_LETTERS(R.string.pref_phonetic_letters_key, HIDDEN_ON_WATCH),
     USE_PITCH_CHANGE(R.string.pref_intonation_key, HIDDEN_ON_WATCH),
     SPEAK_WHEN_SCREEN_OFF(R.string.pref_screenoff_key, HIDDEN_ON_WATCH),
     SPEAK_CAPITAL_LETTERS(R.string.pref_capital_letters_key, HIDDEN_ON_WATCH),
     SPEAK_ELEMENT_ID(R.string.pref_speak_element_ids_key, HIDDEN_ON_WATCH),
-    SPEAK_PUNCTUATION(R.string.pref_punctuation_key, HIDDEN_ON_WATCH),
+    SPEAK_PUNCTUATION_LEGACY(R.string.pref_punctuation_key, HIDDEN), // Temporarily hide the legacy
+    SPEAK_PUNCTUATION(R.string.pref_punctuation_verbosity, HIDDEN_ON_WATCH),
     CUSTOMIZE_GESTURE(R.string.pref_category_manage_gestures_key, HIDDEN_ON_TV),
     MULTIPLE_GESTURE_SET(
         R.string.pref_gesture_set_key, HIDDEN_ON_TV | HIDDEN_ON_WATCH | HIDE_MULTIPLE_GESTURE_SET),
@@ -211,6 +222,8 @@ public class TalkBackPreferenceFilter {
     CUSTOMIZE_FOCUS_INDICATOR(
         R.string.pref_category_manage_focus_indicator_key, SHOW_FOCUS_INDICATOR),
     AUTOMATIC_DESCRIPTIONS(R.string.pref_auto_image_captioning_key, HIDDEN_ON_TV),
+    GEMINI_SUPPORT(
+        R.string.pref_gemini_settings_key, HIDDEN_ON_WATCH | HIDDEN_ON_TV | HIDE_GEMINI_SETTINGS),
     ICON_DETECTION(R.string.pref_icon_detection_key, HIDDEN_ON_WATCH | HIDE_ICON_DETECTION);
 
     TalkBackPreference(int resId, int hideFlags) {
@@ -264,7 +277,7 @@ public class TalkBackPreferenceFilter {
             .filter(p -> TextUtils.equals(preference.getKey(), context.getString(p.resId)))
             .findFirst();
 
-    if (!pref.isPresent()) {
+    if (pref.isEmpty()) {
       // Doesn't hide the preference if it's not in TalkBackPreference. That means no situation
       // needs to hide the preference.
       return false;
@@ -352,6 +365,16 @@ public class TalkBackPreferenceFilter {
     if (hasFlag(pref.get(), HIDE_MULTIPLE_GESTURE_SET)
         && !(FeatureSupport.supportMultipleGestureSet()
             && FeatureFlagReader.useMultipleGestureSet(context))) {
+      return true;
+    }
+
+    if (hasFlag(pref.get(), HIDE_GEMINI_SETTINGS)
+        && !GeminiConfiguration.isGeminiVoiceCommandEnabled(context)) {
+      return true;
+    }
+
+    if (hasFlag(pref.get(), HIDE_SERVER_SIDE_GEMINI)
+        && !GeminiConfiguration.isServerSideGeminiImageCaptioningEnabled(context)) {
       return true;
     }
 

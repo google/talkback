@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.brailleime.input;
 
-import android.content.res.Configuration;
 import androidx.annotation.IntDef;
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
 import java.lang.annotation.Retention;
@@ -91,27 +90,10 @@ class BrailleInputPlaneResult {
     return result;
   }
 
-  static BrailleInputPlaneResult createSwipeForPhone(
-      Swipe swipe, int orientation, boolean isTableTopMode) {
-    Swipe reorientedSwipe =
-        (orientation == Configuration.ORIENTATION_PORTRAIT)
-            ? Swipe.createFromRotation90(swipe)
-            : new Swipe(swipe);
-    if (isTableTopMode) {
-      reorientedSwipe = Swipe.createFromMirror(reorientedSwipe);
-    }
-
+  static BrailleInputPlaneResult createSwipe(Swipe swipe) {
     BrailleInputPlaneResult result = new BrailleInputPlaneResult();
     result.type = TYPE_SWIPE;
-    result.swipe = reorientedSwipe;
-    return result;
-  }
-
-  static BrailleInputPlaneResult createSwipeForTablet(Swipe swipe) {
-    Swipe reorientedSwipe = Swipe.createFromMirror(swipe);
-    BrailleInputPlaneResult result = new BrailleInputPlaneResult();
-    result.type = TYPE_SWIPE;
-    result.swipe = reorientedSwipe;
+    result.swipe = swipe;
     return result;
   }
 

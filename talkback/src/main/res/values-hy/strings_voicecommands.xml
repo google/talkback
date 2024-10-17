@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">ընթերցել</string>
-  <string name="voice_commands_read_from_next">Ընթերցել հաջորդը</string>
+  <string name="voice_commands_read_from_next">Ընթերցել նշորդից</string>
   <string name="voice_commands_edit_options">Խմբագրման ընտրանքներ</string>
-  <string name="voice_commands_text_editing">Տեքստի խմբագրում</string>
-  <string name="voice_commands_edit_text">Խմբագրել տեքստը</string>
-  <string name="voice_commands_editing_options">Խմբագրման ընտրանքներ</string>
   <string name="voice_commands_edit">փոփոխել</string>
   <string name="voice_commands_what">ինչ</string>
   <string name="voice_commands_say">ասել</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Պիտակ</string>
   <string name="voice_commands_cannot_label_feedback">Չհաջողվեց կցել պիտակը</string>
   <string name="voice_commands_assistant">Օգնական</string>
-  <string name="voice_commands_setting_speech_rate">Կարգավորել խոսքի արագությունը</string>
   <string name="voice_commands_first">Առաջին տարր</string>
   <string name="voice_commands_top">Կենտրոնից վերև</string>
   <string name="voice_commands_last">Վերջին տարր</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Ավելացնել խոսքի արագությունը</string>
   <string name="voice_commands_slower">Ավելի դանդաղ</string>
   <string name="voice_commands_decrease_speech_rate">նվազեցնել խոսքի արագությունը</string>
-  <string name="voice_commands_possible_options_title">Դուք կարող եք ասել</string>
   <string name="voice_commands_no_action">Այս ձայնային հրահանգը չի աջակցվում</string>
   <string name="voice_commands_no_mic_permissions">Այս գործառույթն օգտագործելու համար պետք է խոսափողն օգտագործելու թույլտվություն տրամադրեք։</string>
   <string name="voice_commands_no_voice_recognition_ability">Տվյալ գործառույթը հասանելի չէ ձեր սարքում</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Հաջորդ կառավարման տարր չկա</string>
   <string name="voice_commands_no_next_landmark_feedback">Հաջորդ ուղենիշ չկա</string>
   <string name="voice_commands_help_title">Ձայնային հրահանգների համայնապատկեր</string>
-  <string name="voice_commands_help_description">Ձայնային հրահանգներ օգտագործելու համար մատը սահեցրեք աջ, ապա վերև։ Այս հրահանգների ցանկը տեսնելու համար ցանկացած պահի ասեք «help» (օգնություն) կամ «what can I say?» (ի՞նչ կարող եմ ասել)։</string>
+  <string name="voice_commands_help_description">Ձայնային հրահանգներ օգտագործելու համար մատը սահեցրեք աջ, ապա վերև։ Այս հրահանգների ցանկը տեսնելու համար ցանկացած պահի ասեք «%1$s» կամ «what can I say?» (ի՞նչ կարող եմ ասել)։</string>
   <string name="voice_commands_help_hint">Որպեսզի հրահանգներն աշխատեն, արտասանեք դրանք այնպես, ինչպես նշված են հաջորդ էկրաններում։</string>
   <string name="voice_command_screen_locked_hint">Ձայնային հրահանգները հասանելի չեն, երբ էկրանը կողպված է։ Փոխարենը օգտագործեք TalkBack-ի ընտրացանկը՝ կատարելով «%1$s» ժեստը։</string>
   <string name="voice_commands_during_setup_hint">Ձայնային հրահանգները հասանելի չեն կարգավորման ընթացքում։</string>

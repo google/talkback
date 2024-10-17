@@ -47,22 +47,22 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:minHeight="@dimen/radio_button_min_height"
-          android:text="@string/summary_pref_feature_enabled"
+          android:text="@string/title_pref_enable_auto_image_caption"
+          android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
+      <RadioButton
+          android:id="@+id/automatic_image_caption_switch_dialog_radiobutton_enabled_unlabelled_only"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="@dimen/radio_button_min_height"
+          android:text="@string/title_pref_enable_auto_image_caption_unlabelled_only"
           android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
       <RadioButton
           android:id="@+id/automatic_image_caption_switch_dialog_radiobutton_disabled"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:minHeight="@dimen/radio_button_min_height"
-          android:text="@string/summary_pref_feature_disabled"
+          android:text="@string/title_pref_disable_auto_image_caption"
           android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
-      <androidx.appcompat.widget.AppCompatTextView
-          android:id="@+id/automatic_image_caption_switch_dialog_radiobutton_disabled_subtext"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/disable_auto_image_caption_dialog_subtext"
-          android:textAppearance="@style/A11yAlertDialogSubtitleStyle"
-          android:visibility="gone" />
     </RadioGroup>
 
   </LinearLayout>

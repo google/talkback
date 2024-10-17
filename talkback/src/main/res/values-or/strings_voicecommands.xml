@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">ପଢ଼ାଯାଇଛି</string>
-  <string name="voice_commands_read_from_next">ପରବର୍ତ୍ତୀରୁ ପଢ଼ନ୍ତୁ</string>
+  <string name="voice_commands_read_from_next">କର୍ସରରୁ ପଢ଼ନ୍ତୁ</string>
   <string name="voice_commands_edit_options">ବିକଳ୍ପଗୁଡ଼ିକ ଏଡିଟ କରନ୍ତୁ</string>
-  <string name="voice_commands_text_editing">ଟେକ୍ସଟ ଏଡିଟିଂ</string>
-  <string name="voice_commands_edit_text">ଟେକ୍ସଟ ଏଡିଟ କରନ୍ତୁ</string>
-  <string name="voice_commands_editing_options">ଏଡିଟିଂ ବିକଳ୍ପଗୁଡ଼ିକ</string>
   <string name="voice_commands_edit">ଏଡିଟ</string>
   <string name="voice_commands_what">କଣ</string>
   <string name="voice_commands_say">କୁହନ୍ତୁ</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ଲେବଲ୍</string>
   <string name="voice_commands_cannot_label_feedback">ଲେବଲ୍ କରାଯାଇପାରିବ ନାହିଁ</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">ସ୍ପୀଚ୍ ରେଟ୍ ସେଟିଂ</string>
   <string name="voice_commands_first">ପ୍ରଥମ</string>
   <string name="voice_commands_top">ଶୀର୍ଷରେ</string>
   <string name="voice_commands_last">ଶେଷ</string>
@@ -56,7 +52,7 @@
   <string name="voice_commands_dictate">ଆଦେଶ ଦିଅନ୍ତୁ</string>
   <string name="voice_commands_write">ଲେଖନ୍ତୁ</string>
   <string name="voice_commands_Spell">ସ୍ପେଲ୍ କରନ୍ତୁ</string>
-  <string name="voice_commands_talkback_settings">TalkBack ସେଟିଂସ୍</string>
+  <string name="voice_commands_talkback_settings">TalkBack ସେଟିଂସ</string>
   <string name="voice_commands_talkback_setting">TalkBack ସେଟିଂ</string>
   <string name="voice_commands_screen_search">ସ୍କ୍ରିନ ସର୍ଚ୍ଚ</string>
   <string name="voice_commands_search_on_screen">ସ୍କ୍ରିନରେ ସର୍ଚ୍ଚ କରନ୍ତୁ</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">ସ୍ପିଚ୍ ରେଟ୍ ବଢ଼ାନ୍ତୁ</string>
   <string name="voice_commands_slower">ଆହୁରି ଧୀର</string>
   <string name="voice_commands_decrease_speech_rate">ସ୍ପିଚ୍ ରେଟ୍ କମ୍ କରନ୍ତୁ</string>
-  <string name="voice_commands_possible_options_title">ଆପଣ କହିପାରିବେ</string>
   <string name="voice_commands_no_action">ଭଏସ୍ ସର୍ଟକଟ୍ ସମର୍ଥିତ ନୁହେଁ</string>
   <string name="voice_commands_no_mic_permissions">ଏହି ବୈଶିଷ୍ଟ୍ୟ ବ୍ୟବହାର କରିବାକୁ, ଆପଣ ନିଶ୍ଚିତଭାବରେ ମାଇକ୍ରୋଫୋନ୍‍ ବ୍ୟବହାର କରିବାକୁ ଅନୁମତି ଅନୁମୋଦନ କରିବେ।</string>
   <string name="voice_commands_no_voice_recognition_ability">ଦୁଃଖିତ! ଏହି ଡିଭାଇସ୍‌ରେ ଏହି ବୈଶିଷ୍ଟ୍ୟ ଉପଲବ୍ଧ ନୁହେଁ</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">କୌଣସି ପରବର୍ତ୍ତୀ ନିୟନ୍ତ୍ରଣ ନାହିଁ</string>
   <string name="voice_commands_no_next_landmark_feedback">କୌଣସି ପରବର୍ତ୍ତୀ ଲ୍ୟାଣ୍ଡମାର୍କ ନାହିଁ</string>
   <string name="voice_commands_help_title">ଭଏସ୍ କମାଣ୍ଡ ଓଭରଭିଉ</string>
-  <string name="voice_commands_help_description">ଭଏସ୍ କମାଣ୍ଡଗୁଡ଼ିକୁ ବ୍ୟବହାର କରିବା ପାଇଁ, ପ୍ରଥମେ ଡାହାଣକୁ ତା\'ପରେ ଉପରକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ। ଏହି କମାଣ୍ଡଗୁଡ଼ିକର ତାଲିକା ପାଇଁ ଯେ କୌଣସି ସମୟରେ \"ସାହାଯ୍ୟ\" କିମ୍ବା \"ମୁଁ କ’ଣ କହିପାରିବି?\" କୁହନ୍ତୁ।</string>
+  <string name="voice_commands_help_description">ଭଏସ କମାଣ୍ଡଗୁଡ଼ିକୁ ବ୍ୟବହାର କରିବା ପାଇଁ, ପ୍ରଥମେ ଡାହାଣକୁ ତା\'ପରେ ଉପରକୁ ସ୍ୱାଇପ କରନ୍ତୁ। ଏହି କମାଣ୍ଡଗୁଡ଼ିକର ତାଲିକା ପାଇଁ ଯେ କୌଣସି ସମୟରେ \"%1$s\" କିମ୍ବା \"ମୁଁ କ’ଣ କହିପାରିବି?\" କୁହନ୍ତୁ।</string>
   <string name="voice_commands_help_hint">ସର୍ବୋତ୍ତମ ଫଳାଫଳଗୁଡ଼ିକ ପାଇଁ ନିମ୍ନ ସ୍କ୍ରିନରେ ତାଲିକାଭୁକ୍ତ ଶବ୍ଦଗୁଡ଼ିକ ସଠିକ୍ ଭାବରେ କୁହନ୍ତୁ।</string>
   <string name="voice_command_screen_locked_hint">ସ୍କ୍ରିନ୍ ଲକ୍ ଥିବା ସମୟରେ ଭଏସ୍ କମାଣ୍ଡଗୁଡ଼ିକ ଉପଲବ୍ଧ ନଥାଏ। ଏହା ପରିବର୍ତ୍ତେ TalkBack ମେନୁକୁ ବ୍ୟବହାର କରିବା ପାଇଁ, %1$s।</string>
   <string name="voice_commands_during_setup_hint">ସେଟଅପ ସମୟରେ ଭଏସ କମାଣ୍ଡଗୁଡ଼ିକ ଉପଲବ୍ଧ ନୁହେଁ।</string>
@@ -113,7 +108,7 @@
   <string name="voice_commands_help_navigation">[ଶବ୍ଦ] ନାଭିଗେସନ୍</string>
   <string name="voice_commands_help_speech_rate">କୁହନ୍ତୁ [ଅତି ଶୀଘ୍ର]</string>
   <string name="voice_commands_help_verbosity">[କମ୍] ଶବ୍ଦ ବହୁଳତା</string>
-  <string name="voice_commands_help_next_description">ପରବର୍ତ୍ତୀ ହେଡିଂ, ନିୟନ୍ତ୍ରଣ, ତାଲିକା ବା ଲ୍ୟାଣ୍ଡମାର୍କକୁ ଯାଆନ୍ତୁ</string>
+  <string name="voice_commands_help_next_description">ପରବର୍ତ୍ତୀ ହେଡିଂ, ନିୟନ୍ତ୍ରଣ, ତାଲିକା ବା ଲେଣ୍ଡମାର୍କକୁ ଯାଆନ୍ତୁ</string>
   <string name="voice_commands_help_navigation_description">ଶବ୍ଦ, ଅକ୍ଷର, ଧାଡ଼ି, ଅନୁଚ୍ଛେଦ, ହେଡିଂ, ନିୟନ୍ତ୍ରଣ ଏବଂ ଆହୁରି ଅନେକ କିଛି ଅନୁସାରେ ନାଭିଗେଟ୍ କରନ୍ତୁ</string>
   <string name="voice_commands_help_speech_rate_description">ଆପଣ \"ଧୀରେ କଥା କୁହନ୍ତୁ\" ମଧ୍ୟ କହିପାରିବେ</string>
   <string name="voice_commands_help_verbosity_description">କମ୍, ଉଚ୍ଚ ବା କଷ୍ଟମ୍ କରନ୍ତୁକୁ ବଦଳାନ୍ତୁ</string>

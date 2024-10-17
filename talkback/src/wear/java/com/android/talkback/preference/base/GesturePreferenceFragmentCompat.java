@@ -36,7 +36,6 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
@@ -128,8 +127,6 @@ public class GesturePreferenceFragmentCompat extends TalkbackBaseFragment {
   public View onCreateView(
       LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = super.onCreateView(inflater, container, savedInstanceState);
-    // Setting accessibility pane title can make TB try to find an initial focus again.
-    ViewCompat.setAccessibilityPaneTitle(view, getTitle());
     // Intentionally set it as a background color. Or, it will be a transparent background.
     view.setBackgroundColor(
         getResources()

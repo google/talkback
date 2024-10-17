@@ -18,6 +18,7 @@ package com.google.android.accessibility.utils.gestures;
 
 import android.content.Context;
 import android.view.MotionEvent;
+import com.google.android.accessibility.utils.Performance.EventId;
 
 /**
  * This class matches gestures of the form multi-tap and hold. The number of taps for each instance
@@ -33,17 +34,17 @@ public class MultiTapAndHold extends MultiTap {
   }
 
   @Override
-  protected void onDown(MotionEvent event) {
-    super.onDown(event);
+  protected void onDown(EventId eventId, MotionEvent event) {
+    super.onDown(eventId, event);
     if (currentTaps + 1 == targetTaps && getState() != STATE_GESTURE_CANCELED) {
       // We should check the detector state in advance because it may enter Cancel state in base
       // class (MultiTap).
-      completeAfterLongPressTimeout(event);
+      completeAfterLongPressTimeout(eventId, event);
     }
   }
 
   @Override
-  protected void onUp(MotionEvent event) {
+  protected void onUp(EventId eventId, MotionEvent event) {
     if (!isValidUpEvent(event)) {
       cancelGesture(event);
       return;

@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.android.accessibility.brailleime.input;
 
 import android.annotation.SuppressLint;
@@ -185,12 +186,12 @@ class MultitouchHandler {
       new Runnable() {
         @Override
         public void run() {
-          BrailleImeLog.logD(TAG, "tap or swipe task is running.");
+          BrailleImeLog.d(TAG, "tap or swipe task is running.");
           Optional<Swipe> swipe =
               createSwipe(
                   getLastRecentlyInactivatedPointsHistory(SystemClock.uptimeMillis()),
                   getRecentlyInactivatedPointsHistory(SystemClock.uptimeMillis()));
-          BrailleImeLog.logD(TAG, "swipe is present: " + swipe.isPresent());
+          BrailleImeLog.d(TAG, "swipe is present: " + swipe.isPresent());
           if (swipe.isPresent()) {
             multitouchResultListener.detect(
                 Optional.of(
@@ -213,7 +214,7 @@ class MultitouchHandler {
       new Runnable() {
         @Override
         public void run() {
-          BrailleImeLog.logD(TAG, "hold task is running.");
+          BrailleImeLog.d(TAG, "hold task is running.");
           if (holdRecognizer != null && holdRecognizer.isHoldRecognized(getActivePoints().size())) {
             for (MultitouchHandler.PointerWithHistory value : activePointers.values()) {
               value.isHoldInProgress = true;
@@ -229,7 +230,7 @@ class MultitouchHandler {
             isProcessed =
                 multitouchResultListener.detect(
                     Optional.of(MultitouchResult.createHold(getHeldPoints())));
-            BrailleImeLog.logD(TAG, "hold result: " + isProcessed);
+            BrailleImeLog.d(TAG, "hold result: " + isProcessed);
           }
         }
       };
@@ -238,12 +239,12 @@ class MultitouchHandler {
       new Runnable() {
         @Override
         public void run() {
-          BrailleImeLog.logD(TAG, "long hold task is running.");
+          BrailleImeLog.d(TAG, "long hold task is running.");
           if (holdRecognizer != null
               && holdRecognizer.isCalibrationHoldRecognized(getActivePoints().size())) {
             MultitouchResult result = MultitouchResult.createCalibrationHold(getActivePoints());
             isProcessed = multitouchResultListener.detect(Optional.of(result));
-            BrailleImeLog.logD(TAG, "long hold result: " + isProcessed);
+            BrailleImeLog.d(TAG, "long hold result: " + isProcessed);
           }
         }
       };
@@ -252,7 +253,7 @@ class MultitouchHandler {
       new Runnable() {
         @Override
         public void run() {
-          BrailleImeLog.logD(TAG, "hold and swipe is running.");
+          BrailleImeLog.d(TAG, "hold and swipe is running.");
           List<PointF> heldPoints = getHeldPoints();
           if (!heldPoints.isEmpty()) {
             if (heldPoints.size() == getActivePoints().size()) {
@@ -260,7 +261,7 @@ class MultitouchHandler {
                   createSwipe(
                       getLastRecentlyInactivatedPointsHistory(SystemClock.uptimeMillis()),
                       getRecentlyInactivatedPointsHistory(SystemClock.uptimeMillis()));
-              BrailleImeLog.logD(
+              BrailleImeLog.d(
                   TAG, "swipe is present: " + (swipe.isPresent() ? swipe.get() : false));
               if (swipe.isPresent()) {
                 MultitouchResult result =
@@ -269,7 +270,7 @@ class MultitouchHandler {
                         swipe.get(),
                         getRecentlyInactivatedInitialPoints(SystemClock.uptimeMillis()));
                 isProcessed = multitouchResultListener.detect(Optional.of(result));
-                BrailleImeLog.logD(TAG, "hold and swipe result: " + isProcessed);
+                BrailleImeLog.d(TAG, "hold and swipe result: " + isProcessed);
                 handler.removeCallbacksAndMessages(null);
               }
             }
@@ -355,7 +356,7 @@ class MultitouchHandler {
   private Optional<Swipe> createSwipe(
       Optional<PointerWithHistory> finalPointer,
       List<PointerWithHistory> recentlyInactivatedPoints) {
-    if (!finalPointer.isPresent()) {
+    if (finalPointer.isEmpty()) {
       return Optional.empty();
     }
     float xDiff = finalPointer.get().pointCurrent.x - finalPointer.get().pointInitial.x;
@@ -370,7 +371,7 @@ class MultitouchHandler {
       return Optional.empty();
     }
     Optional<Direction> optionalDirection = getDirection(xExcess, yExcess, xDiff, yDiff);
-    if (!optionalDirection.isPresent()) {
+    if (optionalDirection.isEmpty()) {
       return Optional.empty();
     }
     Direction direction = optionalDirection.get();
@@ -524,7 +525,7 @@ class MultitouchHandler {
             (float) Math.abs(displacementX() / pointerDurationInSeconds),
             (float) Math.abs(displacementY() / pointerDurationInSeconds));
       } catch (ArithmeticException exception) {
-        BrailleImeLog.logE(
+        BrailleImeLog.e(
             TAG, "Divided by zero: pointerDurationInSeconds = " + pointerDurationInSeconds);
         return new Speed(0, 0);
       }

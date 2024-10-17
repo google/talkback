@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.android.accessibility.braille.interfaces;
 
+import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 
 /** Exposes some BrailleDisplay behavior to TalkBack. */
@@ -25,6 +27,10 @@ public interface BrailleDisplayForTalkBack {
   void stop();
   /** Notifies receiving accessibility event. */
   void onAccessibilityEvent(AccessibilityEvent accessibilityEvent);
+
+  /** Notifies receiving key event. */
+  boolean onKeyEvent(KeyEvent keyEvent);
+
   /** Notifies receiving reading control changed with overlay shown event. */
   void onReadingControlChanged(CharSequence readingControlDescription);
   /** Switches braille display on or off. */

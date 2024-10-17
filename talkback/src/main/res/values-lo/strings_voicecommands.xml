@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">ອ່ານ</string>
-  <string name="voice_commands_read_from_next">ອ່ານຈາກຕໍ່ໄປ</string>
+  <string name="voice_commands_read_from_next">ອ່ານຈາກເຄີເຊີ</string>
   <string name="voice_commands_edit_options">ແກ້ໄຂຕົວເລືອກ</string>
-  <string name="voice_commands_text_editing">ການແກ້ໄຂຂໍ້ຄວາມ</string>
-  <string name="voice_commands_edit_text">ແກ້ໄຂຂໍ້ຄວາມ</string>
-  <string name="voice_commands_editing_options">ຕົວເລືອກການແກ້ໄຂ</string>
   <string name="voice_commands_edit">ແກ້ໄຂ</string>
   <string name="voice_commands_what">ແມ່ນຫຍັງ</string>
   <string name="voice_commands_say">ເວົ້າວ່າ</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ປ້າຍກຳກັບ</string>
   <string name="voice_commands_cannot_label_feedback">ບໍ່ສາມາດຕັ້ງປ້າຍກຳກັບໄດ້</string>
   <string name="voice_commands_assistant">ຜູ້ຊ່ວຍ</string>
-  <string name="voice_commands_setting_speech_rate">ຕັ້ງຄ່າອັດຕາການເວົ້າ</string>
   <string name="voice_commands_first">ທຳອິດ</string>
   <string name="voice_commands_top">ເທິງສຸດ</string>
   <string name="voice_commands_last">ສຸດທ້າຍ</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">ເພີ່ມຄວາມໄວການເວົ້າ</string>
   <string name="voice_commands_slower">ຊ້າລົງ</string>
   <string name="voice_commands_decrease_speech_rate">ຫຼຸດຄວາມໄວການເວົ້າ</string>
-  <string name="voice_commands_possible_options_title">​ທ່ານ​ສາ​ມາດ​ເວົ້າວ່າ</string>
   <string name="voice_commands_no_action">ບໍ່ຮອງຮັບທາງລັດສຽງ</string>
   <string name="voice_commands_no_mic_permissions">ເພື່ອໃຊ້ຄຳສັ່ງນີ້, ທ່ານຕ້ອງໃຫ້ສິດອະນຸຍາດໃຊ້ໄມໂຄຣໂຟນກ່ອນ.</string>
   <string name="voice_commands_no_voice_recognition_ability">ຂໍອະໄພ! ບໍ່ສາມາດໃຊ້ຄຸນສົມບັດນີ້ຢູ່ອຸປະກອນຂອງທ່ານໄດ້</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">ບໍ່ມີການຄວບຄຸມຕໍ່ໄປ</string>
   <string name="voice_commands_no_next_landmark_feedback">ບໍ່ມີແລນມາກຕໍ່ໄປ</string>
   <string name="voice_commands_help_title">ພາບຮວມຄຳສັ່ງສຽງ</string>
-  <string name="voice_commands_help_description">ເພື່ອໃຊ້ຄຳສັ່ງສຽງ, ໃຫ້ປັດຂວາແລ້ວປັດຂຶ້ນ. ໃຫ້ເວົ້າວ່າ \"ຊ່ວຍເຫຼືອ\" ຫຼື \"ຂ້ອຍເວົ້າຫຍັງໄດ້ແດ່?\" ຕອນໃດກໍໄດ້ເພື່ອເບິ່ງລາຍຊື່ຄຳສັ່ງຕ່າງໆ.</string>
+  <string name="voice_commands_help_description">ເພື່ອໃຊ້ຄຳສັ່ງສຽງ, ໃຫ້ປັດຂວາແລ້ວປັດຂຶ້ນ. ໃຫ້ເວົ້າວ່າ \"%1$s\" ຫຼື \"ຂ້ອຍເວົ້າຫຍັງໄດ້ແດ່?\" ໄດ້ທຸກເວລາເພື່ອເບິ່ງລາຍຊື່ຄຳສັ່ງຕ່າງໆ.</string>
   <string name="voice_commands_help_hint">ເພື່ອໃຫ້ໄດ້ຜົນດີທີ່ສຸດ, ໃຫ້ເວົ້າຄຳສັບກົງກັບທີ່ມີໃນລາຍຊື່ຢູ່ໜ້າຈໍຕໍ່ໄປນີ້.</string>
   <string name="voice_command_screen_locked_hint">ບໍ່ສາມາດໃຊ້ຄຳສັ່ງສຽງໄດ້ໃນເວລາທີ່ລັອກໜ້າຈໍໄວ້ຢູ່. ເພື່ອໃຊ້ເມນູ TalkBack ແທນ, %1$s.</string>
   <string name="voice_commands_during_setup_hint">ບໍ່ສາມາດໃຊ້ຄຳສັ່ງສຽງໃນລະຫວ່າງການຕັ້ງຄ່າໄດ້.</string>

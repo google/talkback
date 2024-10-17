@@ -3,12 +3,17 @@ package com.google.android.accessibility.talkback.braille;
 import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_BRAILLE_DISPLAY;
 
 import android.accessibilityservice.AccessibilityService;
+import android.content.ComponentName;
+import android.content.Context;
+import android.text.TextUtils;
 import android.view.accessibility.AccessibilityWindowInfo;
+import android.view.inputmethod.InputMethodInfo;
+import android.view.inputmethod.InputMethodManager;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer;
 import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer.ScreenReaderAction;
 import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleDisplay;
-import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.labeling.LabelDialogManager;
@@ -17,11 +22,9 @@ import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.KeyboardUtils;
-import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.labeling.Label;
-import com.google.android.accessibility.utils.output.FeedbackController;
-import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl;
+import java.util.List;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Implements TalkBack functionalities exposed to BrailleDisplay. */
@@ -77,11 +80,6 @@ public class TalkBackForBrailleDisplayImpl implements TalkBackForBrailleDisplay 
   }
 
   @Override
-  public FeedbackController getFeedBackController() {
-    return service.getFeedbackController();
-  }
-
-  @Override
   public boolean showLabelDialog(CustomLabelAction action, AccessibilityNodeInfoCompat node) {
     if (action == CustomLabelAction.ADD_LABEL) {
       return LabelDialogManager.addLabel(
@@ -119,13 +117,6 @@ public class TalkBackForBrailleDisplayImpl implements TalkBackForBrailleDisplay 
   }
 
   @Override
-  public void speak(CharSequence textToSpeak, int delayMs, SpeakOptions speakOptions) {
-    feedbackReturner.returnFeedback(
-        Performance.EVENT_ID_UNTRACKED,
-        Feedback.speech(textToSpeak, speakOptions).setDelayMs(delayMs));
-  }
-
-  @Override
   public boolean isOnscreenKeyboardActive() {
     return AccessibilityServiceCompatUtils.isInputWindowOnScreen(service);
   }
@@ -147,5 +138,40 @@ public class TalkBackForBrailleDisplayImpl implements TalkBackForBrailleDisplay 
                   service.getApplicationContext(), service.getPackageName()));
     }
     return false;
+  }
+
+  @Override
+  public boolean switchToNextInputMethod() {
+    if (FeatureSupport.supportSwitchToInputMethod()) {
+      String current = KeyboardUtils.getCurrentInputMethod(service);
+      String nextKeyboard = getNextKeyboard(current);
+      if (!TextUtils.isEmpty(nextKeyboard) && !TextUtils.equals(current, nextKeyboard)) {
+        return service.getSoftKeyboardController().switchToInputMethod(nextKeyboard);
+      }
+    }
+    return false;
+  }
+
+  @VisibleForTesting
+  String getNextKeyboard(String current) {
+    String nextKeyboard = null;
+    boolean next = false;
+    InputMethodManager inputMethodManager =
+        (InputMethodManager) service.getSystemService(Context.INPUT_METHOD_SERVICE);
+    List<InputMethodInfo> list = inputMethodManager.getEnabledInputMethodList();
+    for (InputMethodInfo inputMethodInfo : list) {
+      if (next) {
+        return inputMethodInfo.getId();
+      } else if (inputMethodInfo
+          .getPackageName()
+          .equals(ComponentName.unflattenFromString(current).getPackageName())) {
+        next = true;
+      }
+    }
+    if (next && TextUtils.isEmpty(nextKeyboard)) {
+      // First element is the next keyboard.
+      return list.get(0).getId();
+    }
+    return nextKeyboard;
   }
 }

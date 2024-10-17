@@ -97,7 +97,12 @@ public class LabelProviderClient {
         new Uri.Builder().scheme("content").authority(authority).path(PACKAGE_SUMMARY_PATH).build();
 
     final ContentResolver contentResolver = context.getContentResolver();
-    mClient = contentResolver.acquireContentProviderClient(mLabelsContentUri);
+    try {
+      mClient = contentResolver.acquireContentProviderClient(mLabelsContentUri);
+    } catch (SecurityException e) {
+      LogUtils.e(TAG, "Failed to open LabelProvider: %s", e);
+      mClient = null;
+    }
 
     if (mClient == null) {
       LogUtils.w(TAG, "Failed to acquire content provider client.");

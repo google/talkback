@@ -38,6 +38,7 @@ import com.google.android.accessibility.utils.output.ScrollActionRecord.UserActi
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirectionOrUnknown;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -53,7 +54,12 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public class ScrollEventInterpreter implements AccessibilityEventListener {
 
+  private static final String TAG = "ScrollEventInterpreter";
+
   private static final int SCROLL_NOISE_RANGE = 15;
+
+  // The record for the current scroll instance Id which we already have handled.
+  private int handledScrollInstanceId = -1;
 
   /** Contains interpreted information in addition to {@link AccessibilityEvent}. */
   public static class ScrollEventInterpretation {
@@ -207,13 +213,18 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
   // Outputs
   private final List<ScrollEventHandler> listeners = new ArrayList<>();
 
+  private final boolean supportMultipleAutoScroll;
+
   //////////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
   public ScrollEventInterpreter(
-      @Nullable AudioPlaybackMonitor audioPlaybackMonitor, @NonNull TouchMonitor touchMonitor) {
+      @Nullable AudioPlaybackMonitor audioPlaybackMonitor,
+      @NonNull TouchMonitor touchMonitor,
+      boolean supportMultipleAutoScroll) {
     this.audioPlaybackMonitor = audioPlaybackMonitor;
     this.touchMonitor = touchMonitor;
+    this.supportMultipleAutoScroll = supportMultipleAutoScroll;
   }
 
   public void setScrollActorState(Supplier<ScrollActionRecord> scrollActorState) {
@@ -248,6 +259,9 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
         // fall through
       case AccessibilityEvent.TYPE_VIEW_SCROLLED:
         ScrollEventInterpretation interpretation = interpret(event);
+        if (interpretation == null) {
+          return;
+        }
 
         if (interpretation.hasValidIndex && !interpretation.isDuplicateEvent) {
           cacheScrollPositionInfo(event);
@@ -268,6 +282,7 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
     }
   }
 
+  @Nullable
   private ScrollEventInterpretation interpret(AccessibilityEvent event) {
     AccessibilityNodeInfo sourceNode = event.getSource();
     if (sourceNode == null) {
@@ -290,7 +305,7 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
     @UserAction final int userAction;
     final int scrollInstanceId;
 
-    @Nullable ScrollActionRecord autoScrollRecord = isFromAutoScrollAction(event);
+    @Nullable ScrollActionRecord autoScrollRecord = getAutoScrollRecordIfAvailable(event);
     if (autoScrollRecord == null) {
       scrollInstanceId = SCROLL_INSTANCE_ID_UNDEFINED;
       // Note that TYPE_WINDOW_CONTENT_CHANGED events can also be interpreted as manual scroll
@@ -305,9 +320,16 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
           scrollDirection == TraversalStrategy.SEARCH_FOCUS_UNKNOWN
               ? ScrollActionRecord.ACTION_UNKNOWN
               : ScrollActionRecord.ACTION_MANUAL_SCROLL;
+      LogUtils.i(TAG, "Manual scrolling");
     } else {
       scrollInstanceId = autoScrollRecord.scrollInstanceId;
       userAction = autoScrollRecord.userAction;
+      if (handledScrollInstanceId < scrollInstanceId) {
+        // We record the current scroll instance Id so if we handle this Id again, it would mean
+        // that it is from the multiple scroll attempts trigger from the same scroll action.
+        handledScrollInstanceId = scrollInstanceId;
+      }
+      LogUtils.i(TAG, "Auto scrolling: autoScrollRecord=%s", autoScrollRecord);
     }
 
     final boolean hasValidIndex = hasValidIndex(event);
@@ -315,34 +337,67 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
     final boolean isMediaPlayerAutoScroll = isAutomaticMediaScrollEvent(event);
     final boolean isFromScrollable = isFromScrollable(event);
 
-    return new ScrollEventInterpretation(
-        userAction,
-        scrollDirection,
-        hasValidIndex,
-        isDuplicateEvent,
-        isFromScrollable,
-        isMediaPlayerAutoScroll,
-        scrollInstanceId);
+    ScrollEventInterpretation interpretation =
+        new ScrollEventInterpretation(
+            userAction,
+            scrollDirection,
+            hasValidIndex,
+            isDuplicateEvent,
+            isFromScrollable,
+            isMediaPlayerAutoScroll,
+            scrollInstanceId);
+    LogUtils.d(TAG, "interpret ScrollEventInterpretation=%s", interpretation);
+    return interpretation;
   }
 
   /** Returns AutoScrollRecord if the {@code event} is resulted from cached auto-scroll action. */
-  private @Nullable ScrollActionRecord isFromAutoScrollAction(AccessibilityEvent event) {
+  private @Nullable ScrollActionRecord getAutoScrollRecordIfAvailable(AccessibilityEvent event) {
     @Nullable ScrollActionRecord autoScrollRecord = scrollActorState.get();
     if (autoScrollRecord == null) {
       return null;
+    }
+
+    if (isFromAutoScrollAction(event, autoScrollRecord)) {
+      AccessibilityNodeInfoCompat node = AccessibilityEventUtils.sourceCompat(event);
+      return autoScrollRecord.scrolledNodeMatches(node) ? autoScrollRecord : null;
+    } else {
+      return null;
+    }
+  }
+
+  /** Checks whether the {@code event} is resulted from cached auto-scroll action. */
+  private boolean isFromAutoScrollAction(
+      AccessibilityEvent event, ScrollActionRecord autoScrollRecord) {
+
+    long timeDiff = event.getEventTime() - autoScrollRecord.autoScrolledTime;
+    LogUtils.v(TAG, "timeDiff=%d", timeDiff);
+
+    // TODO: Clean the ScrollActionRecord after we successfully handle it.
+    // The following code might have a bug that even though scrollInstanceId is the same, we might
+    // try to handle the event from previous auto-scroll when we are waiting for the event from
+    // auto-scroll, making we perform auto-scroll again. We can improve it by fixing the above bug.
+    if (supportMultipleAutoScroll
+        && handledScrollInstanceId == autoScrollRecord.scrollInstanceId
+        && (timeDiff <= ScrollTimeout.SCROLL_TIMEOUT_LONG.getTimeoutMillis())) {
+      // For Wear, we may perform auto-scroll multiple times to find a specific node (i.e. a
+      // heading). Sometimes, the timing of an a11y event from previous auto-scrolling action would
+      // be delayed after the timing of current auto-scroll action. So, we mitigate it by checking
+      // the same scroll instance Id given that it doesn't exceed time out.
+      // auto_scroll_attempt_1 - > event_scroll_1_1 ->  auto_scroll_attempt_2 -> event_scroll_1_2
+      // => event_scroll_1_2.getEventTime() < auto_scroll_attempt_2.autoScrolledTime
+      LogUtils.i(
+          TAG,
+          "This event is from the multiple scroll attempts triggered from the same scroll action."
+              + " (scrollInstanceId=%d)",
+          handledScrollInstanceId);
+      return true;
     }
 
     // Note that both TYPE_VIEW_SCROLLED and TYPE_WINDOW_CONTENT_CHANGED events could result from
     // auto-scroll action. And a single scroll action can trigger multiple scroll events, we'll keep
     // the autoScrollRecord until next auto scroll happened and use the time diff to distinguish if
     // the current scroll is from the same scroll action.
-    long timeDiff = event.getEventTime() - autoScrollRecord.autoScrolledTime;
-    if ((timeDiff < 0L) || (timeDiff > ScrollTimeout.SCROLL_TIMEOUT_LONG.getTimeoutMillis())) {
-      return null;
-    }
-
-    AccessibilityNodeInfoCompat node = AccessibilityEventUtils.sourceCompat(event);
-    return autoScrollRecord.scrolledNodeMatches(node) ? autoScrollRecord : null;
+    return (timeDiff >= 0L) && (timeDiff <= ScrollTimeout.SCROLL_TIMEOUT_LONG.getTimeoutMillis());
   }
 
   /**

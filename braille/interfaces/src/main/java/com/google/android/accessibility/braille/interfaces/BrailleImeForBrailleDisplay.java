@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.android.accessibility.braille.interfaces;
 
 /** Allows BrailleDisplay to signal to BrailleIme. */
@@ -81,6 +82,12 @@ public interface BrailleImeForBrailleDisplay {
   /** Tells BrailleIme to select all text. */
   boolean selectAllText();
 
+  /** Tells BrailleIme to select from current cursor to start of text field. */
+  boolean selectCurrentToStart();
+
+  /** Tells BrailleIme to select from current cursor to end of text field. */
+  boolean selectCurrentToEnd();
+
   /** Tells BrailleIme to select previous character. */
   boolean selectPreviousCharacter();
 
@@ -107,6 +114,9 @@ public interface BrailleImeForBrailleDisplay {
 
   /** Tells BrailleIme commit holdings to the editor and performs enter key action. */
   boolean commitHoldingsAndPerformEnterKeyAction();
+
+  /** Switches to next input method. */
+  boolean switchToNextInputMethod();
 
   /** Tells BrailleIme to hide itself. */
   void hideKeyboard();

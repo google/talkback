@@ -9,8 +9,8 @@ public interface IconAnnotationsDetector extends ScreenAnnotationsDetector {
 
   /**
    * If icons identified by screen understanding matches the specified {@code node}, returns the
-   * localized label of the matched icons. Returns {@code null} if no detected icon matches the
-   * specified {@code node}.
+   * localized label of the matched icons. Returns {@code null} if more than one or no detected icon
+   * matches the specified {@code node}.
    */
   @Nullable
   CharSequence getIconLabel(Locale locale, AccessibilityNodeInfoCompat node);

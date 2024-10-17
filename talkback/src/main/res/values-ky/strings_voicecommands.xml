@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">окуу</string>
-  <string name="voice_commands_read_from_next">Кийинкиден окуу</string>
+  <string name="voice_commands_read_from_next">Курсордон баштап окуу</string>
   <string name="voice_commands_edit_options">Параметрлерди түзөтүү</string>
-  <string name="voice_commands_text_editing">Текстти түзөтүү</string>
-  <string name="voice_commands_edit_text">Текстти түзөтүү</string>
-  <string name="voice_commands_editing_options">Түзөтүү параметрлери</string>
   <string name="voice_commands_edit">түзөтүү</string>
   <string name="voice_commands_what">кайсы</string>
   <string name="voice_commands_say">айтуу</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Энбелги кошуу</string>
   <string name="voice_commands_cannot_label_feedback">Энбелги кошууга болбойт</string>
   <string name="voice_commands_assistant">Жардамчы</string>
-  <string name="voice_commands_setting_speech_rate">Кеп ылдамдыгын жөндөө</string>
   <string name="voice_commands_first">Биринчи</string>
   <string name="voice_commands_top">Жогору жакта</string>
   <string name="voice_commands_last">Акыркы</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Кеп ылдамдыгын жогорулатуу</string>
   <string name="voice_commands_slower">Жайыраак</string>
   <string name="voice_commands_decrease_speech_rate">кеп ылдамдыгын төмөндөтүү</string>
-  <string name="voice_commands_possible_options_title">Төмөнкүдөй десеңиз болот:</string>
   <string name="voice_commands_no_action">Үн буйругу менен иштеген кыска жолдор колдоого алынбайт</string>
   <string name="voice_commands_no_mic_permissions">Бул функцияны колдонуу үчүн микрофонду пайдаланууга уруксат беришиңиз керек.</string>
   <string name="voice_commands_no_voice_recognition_ability">Кечиресиз! Бул функция түзмөгүңүздө иштебейт</string>
@@ -103,12 +98,12 @@
   <string name="voice_commands_no_next_control_feedback">Кийинки көзөмөлдөө жок</string>
   <string name="voice_commands_no_next_landmark_feedback">Кийинки белги жер жок</string>
   <string name="voice_commands_help_title">Үн буйругу жөнүндө жалпы маалымат</string>
-  <string name="voice_commands_help_description">Үй буйруктарын колдонуу үчүн экранды оңго жана өйдө сүрүңүз. Үй буйруктарынын тизмесин көрүү үчүн каалаган убакта \"Жардам\" же \"Эмне десем болот?\" деп айтыңыз.</string>
-  <string name="voice_commands_help_hint">Туура натыйжаларды алуу үчүн төмөнкү экрандарда тизмеленген сөздөрдү так айтыңыз.</string>
+  <string name="voice_commands_help_description">Үн буйруктарын колдонуу үчүн экранды оңго жана өйдө сүрүңүз. Үн буйруктарынын тизмесин көрүү үчүн каалаган убакта \"%1$s\" же \"Эмне десем болот?\" деп айтыңыз.</string>
+  <string name="voice_commands_help_hint">Буйруктар туура иштеши үчүн аларды төмөнкү экрандарда көрсөтүлгөндөй так айтыңыз.</string>
   <string name="voice_command_screen_locked_hint">Экран кулпуланып турганда үн буйруктары жеткиликсиз. Анын ордуна TalkBack менюсун колдонуу үчүн %1$s.</string>
   <string name="voice_commands_during_setup_hint">Тууралап жатканда үн буйруктары иштебейт.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
-  <string name="voice_commands_help_reading_controls_description">Учурдагы экранда көрсөтүлгөн мазмундун кантип окуларын өзгөртүңүз</string>
+  <string name="voice_commands_help_reading_controls_description">Учурда экрандагы нерселердин кантип окуларын өзгөртөсүз</string>
   <string name="voice_commands_help_next">Next [аталыш]</string>
   <string name="voice_commands_help_navigation">[Сөз] боюнча өтүү</string>
   <string name="voice_commands_help_speech_rate">[Тезирээк] сүйлөө</string>
@@ -121,7 +116,7 @@
   <string name="voice_commands_help_last_description">Ушул экрандагы акыркы элементке өтүү</string>
   <string name="voice_commands_help_languages_description">Кайсы тилде айтыла турганын өзгөртүңүз (кеп синтезатору)</string>
   <string name="voice_commands_help_find_items_title">Элементтерди табуу</string>
-  <string name="voice_commands_help_find_items_description">Учурдагы экранда белгилүү бир мазмунду табуу</string>
+  <string name="voice_commands_help_find_items_description">Учурдагы экранда керектүү нерселерди табасыз</string>
   <string name="voice_commands_help_find_text">[Сактоо] баскычын табуу</string>
   <string name="voice_commands_help_find_text_description">Учурдагы экранда \"сактоо\" деген сөз камтылган биринчи элементти табыңыз</string>
   <string name="voice_commands_help_find_description">\"Сактоо\" деген сөз камтылган кийинки нерсеге өтүү үчүн \"табуу\" деп кайталаңыз</string>

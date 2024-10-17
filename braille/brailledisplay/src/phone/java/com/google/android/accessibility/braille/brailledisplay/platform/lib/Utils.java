@@ -21,12 +21,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.accessibility.AccessibilityManager;
 import androidx.annotation.Nullable;
+import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import java.util.List;
 
 /** Some utilities for Braille Display. */
@@ -184,7 +184,7 @@ public class Utils {
             | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
     // Highlight TalkBack item in Accessibility Settings upon arriving there (Pixel only).
     if (component != null) {
-      Utils.attachSettingsHighlightBundle(intent, component);
+      PreferenceSettingsUtils.attachSettingsHighlightBundle(intent, component);
     }
     try {
       context.startActivity(intent);
@@ -192,12 +192,6 @@ public class Utils {
     } catch (Exception e) {
       return false;
     }
-  }
-
-  public static void attachSettingsHighlightBundle(Intent intent, ComponentName componentName) {
-    Bundle bundle = new Bundle();
-    bundle.putString(":settings:fragment_args_key", componentName.flattenToString());
-    intent.putExtra(":settings:show_fragment_args", bundle);
   }
 
   public static boolean launchLocationSettingsActivity(Context context) {

@@ -19,18 +19,16 @@ package com.google.android.accessibility.talkback.actor;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.content.Context;
-import android.speech.tts.TextToSpeech;
-import android.speech.tts.Voice;
 import android.text.TextUtils;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService.SpeechLanguage;
+import com.google.android.accessibility.utils.StringUtils;
 import com.google.android.accessibility.utils.monitor.ScreenMonitor;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -91,26 +89,12 @@ public class LanguageActor {
       return false;
     }
 
-    Set<Voice> voices = actorState.getSpeechState().getVoices();
-    if (voices == null) {
+    Set<Locale> languagesAvailable = actorState.getSpeechState().getLanguages();
+    if (languagesAvailable == null) {
       return false;
     }
-
-    // Using Set because there are many duplicate Voice in TextToSpeech.getVoices().
-    Set<Locale> languagesAvailable = new HashSet<>();
-
     // The item is "Reset" means using system language.
     languagesAvailable.add(null);
-
-    for (Voice voice : voices) {
-      Set<String> features = voice.getFeatures();
-      // Filtering the installed voices to add to the menu
-      if ((features != null)
-          && !features.contains(TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED)
-          && !voice.isNetworkConnectionRequired()) {
-        languagesAvailable.add(voice.getLocale());
-      }
-    }
 
     LogUtils.v(TAG, "Installed languages: " + languagesAvailable);
     if (languagesAvailable.size() >= 3) {
@@ -198,10 +182,12 @@ public class LanguageActor {
     }
     String country = locale.getDisplayCountry();
     if (TextUtils.isEmpty(country)) {
-      return locale.getDisplayLanguage();
+      return StringUtils.capitalizeFirstLetter(locale.getDisplayLanguage());
     } else {
       return context.getString(
-          R.string.template_language_options_menu_item, locale.getDisplayLanguage(), country);
+          R.string.template_language_options_menu_item,
+          StringUtils.capitalizeFirstLetter(locale.getDisplayLanguage()),
+          country);
     }
   }
 }

@@ -6,8 +6,8 @@
   <string name="read_out_deleted">%s ડિલીટ કર્યું</string>
   <string name="read_out_selected_text">પસંદ કરેલી ટેક્સ્ટ: %s</string>
   <plurals name="braille_dots">
-    <item quantity="one">ડોટ %s</item>
-    <item quantity="other">ડોટ %s</item>
+    <item quantity="one">ડૉટ %s</item>
+    <item quantity="other">ડૉટ %s</item>
   </plurals>
   <string name="remove_language_button_content_description">%s કાઢી નાખો</string>
   <string name="split_comma">, %s</string>
@@ -18,12 +18,13 @@
   <string name="code_user_facing_name_arabic">અરબી</string>
   <string name="code_user_facing_name_arabic_comp8">અરબી 8-ડોટ કમ્પ્યુટર બ્રેઇલ</string>
   <string name="code_user_facing_name_bulgarian">બલ્ગેરિયન</string>
+  <string name="code_user_facing_name_bulgarian_comp8">બલ્ગેરિયન 8-ડૉટ કમ્પ્યૂટર બ્રેઇલ</string>
   <string name="code_user_facing_name_ca_catalan">કતલાન</string>
   <string name="code_user_facing_name_catonese">કેન્ટોનીઝ</string>
-  <string name="code_user_facing_name_chinese_china_common">ચાઇનીઝ (ચીન) સામાન્ય</string>
-  <string name="code_user_facing_name_chinese_china_current_with_tones">ચાઇનીઝ (ચીન) હાલમાં ટોન સાથે છે</string>
-  <string name="code_user_facing_name_chinese_china_current_without_tones">ચાઇનીઝ (ચીન) હાલમાં ટોન વિના છે</string>
-  <string name="code_user_facing_name_chinese_china_two_cells">ચાઇનીઝ (ચીન) બે સેલ છે</string>
+  <string name="code_user_facing_name_chinese_china_common">સામાન્ય ચાઇનીઝ (ચીન)</string>
+  <string name="code_user_facing_name_chinese_china_current_with_tones">વર્તમાન ચાઇનીઝ, ટોન સાથે (ચીન)</string>
+  <string name="code_user_facing_name_chinese_china_current_without_tones">વર્તમાન ચાઇનીઝ, ટોન વિના (ચીન)</string>
+  <string name="code_user_facing_name_chinese_china_two_cells">ચાઇનીઝ બે સેલ (ચીન)</string>
   <string name="code_user_facing_name_chinese_taiwan">ચાઇનીઝ (તાઇવાન)</string>
   <string name="code_user_facing_name_central_kurdish">મધ્ય કુર્દિશ</string>
   <string name="code_user_facing_name_czech_comp8">ચેક 8-ડોટ કમ્પ્યુટર બ્રેઇલ</string>
@@ -35,12 +36,10 @@
   <string name="code_user_facing_name_german_comp8">જર્મન 8-ડોટ કમ્પ્યુટર બ્રેઇલ</string>
   <string name="code_user_facing_name_german">જર્મન</string>
   <string name="code_user_facing_name_greek">ગ્રીક</string>
-  <string name="code_user_facing_name_en_ca">અંગ્રેજી બ્રેઇલ (કેનેડા)</string>
   <string name="code_user_facing_name_en_uk">અંગ્રેજી બ્રેઇલ (યુનાઇટેડ કિંગડમ)</string>
   <string name="code_user_facing_name_en_in">અંગ્રેજી બ્રેઇલ (ભારત)</string>
   <string name="code_user_facing_name_en_nabcc_comp8">ઉત્તર અમેરિકી બ્રેઇલ કમ્પ્યુટર કોડ</string>
   <string name="code_user_facing_name_en_comp6">અંગ્રેજી 6-ડોટ કમ્પ્યુટર બ્રેઇલ</string>
-  <string name="code_user_facing_name_en_comp8">અંગ્રેજી 8-ડોટ કમ્પ્યુટર બ્રેઇલ</string>
   <string name="code_user_facing_name_en_us_ebae">અંગ્રેજી બ્રેઇલ (યુનાઇટેડ સ્ટેટ્સ, અમેરિકન આવૃત્તિ)</string>
   <string name="code_user_facing_name_en_us">અંગ્રેજી બ્રેઇલ (યુનાઇટેડ સ્ટેટ્સ)</string>
   <string name="code_user_facing_name_polish">પોલિશ</string>
@@ -78,13 +77,14 @@
   <string name="code_user_facing_name_dutch_comp8">ડચ 8-ડોટ કમ્પ્યુટર બ્રેઇલ</string>
   <string name="code_user_facing_name_norwegian">નૉર્વેજીયન</string>
   <string name="code_user_facing_name_norwegian_8_no">નોર્વેજીયન 8-ડોટ બ્રેઇલ (નોર્વે)</string>
+  <string name="code_user_facing_name_norwegian_comp8">નૉર્વેજિયન 8-ડૉટ કમ્પ્યૂટર બ્રેઇલ</string>
   <string name="code_user_facing_name_norwegian_8">નોર્વેજીયન 8-ડોટ બ્રેઇલ</string>
   <string name="code_user_facing_name_norwegian_8_with_6_fallback">6-ડોટ Fallback સાથે નોર્વેજીયન 8-ડોટ બ્રેઇલ</string>
   <string name="code_user_facing_name_nepali_indian">નેપાળી બ્રેઇલ (ભારત)</string>
   <string name="code_user_facing_name_portuguese">પોર્ટુગીઝ</string>
   <string name="code_user_facing_name_punjabi">પંજાબી</string>
   <string name="code_user_facing_name_portuguese_comp8">પોર્ટુગીઝ 8-ડોટ કમ્પ્યુટર બ્રેઇલ</string>
-  <string name="code_user_facing_name_romanian_no">રોમાનિયન 8-ડોટ બ્રેઇલ</string>
+  <string name="code_user_facing_name_romanian_comp8">રોમાનિયન 8-ડૉટ કમ્પ્યૂટર બ્રેઇલ</string>
   <string name="code_user_facing_name_russian">રશિયન</string>
   <string name="code_user_facing_name_russian_detailed">રશિયન બ્રેઇલ (કેપિટલ અક્ષરોમાં)</string>
   <string name="code_user_facing_name_russian_comp8">રશિયન 8-ડોટ કમ્પ્યુટર બ્રેઇલ</string>
@@ -99,7 +99,7 @@
   <string name="code_user_facing_name_tamil">તમિળ</string>
   <string name="code_user_facing_name_telugu_in">તેલુગુ બ્રેઇલ (ભારત)</string>
   <string name="code_user_facing_name_turkish">ટર્કીશ</string>
-  <string name="code_user_facing_name_turkish_8">તુર્કિશ 8-ડોટ બ્રેઇલ</string>
+  <string name="code_user_facing_name_turkish_comp8">ટર્કીશ 8-ડૉટ કમ્પ્યૂટર બ્રેઇલ</string>
   <string name="code_user_facing_name_ukrainian">યુક્રેનિયન</string>
   <string name="code_user_facing_name_ukrainian_comp8">યુક્રેનિયન 8-ડોટ કમ્પ્યુટર બ્રેઇલ</string>
   <string name="code_user_facing_name_urdu">ઉર્દુ</string>

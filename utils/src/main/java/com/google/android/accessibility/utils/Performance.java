@@ -20,18 +20,18 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 import static android.content.res.Configuration.ORIENTATION_UNDEFINED;
 
-import android.accessibilityservice.AccessibilityGestureEvent;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.ArrayMap;
 import android.util.SparseArray;
+import android.view.Display;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import com.google.android.accessibility.utils.performance.AccessibilityActionDetails;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
-import com.google.common.collect.EvictingQueue;
 import com.google.common.collect.ImmutableList;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -41,11 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Locale.Category;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Queue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.atomic.AtomicLong;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -79,6 +75,7 @@ public class Performance {
     STAGE_FEEDBACK_HEARD,
     STAGE_BETWEEN_FEEDBACK_QUEUED_AND_FEEDBACK_HEARD,
     STAGE_FEEDBACK_COMPOSED,
+    STAGE_ACTION_PERFORMED
   })
   public @interface StageId {}
 
@@ -89,6 +86,8 @@ public class Performance {
   public static final int STAGE_BETWEEN_FEEDBACK_QUEUED_AND_FEEDBACK_HEARD =
       4; // Time between speech is queued and heard.
   public static final int STAGE_FEEDBACK_COMPOSED = 5; // Time until speech is composed.
+  // Time until accessibility action is performed.
+  public static final int STAGE_ACTION_PERFORMED = 6;
   public static final ImmutableList<String> STAGE_NAMES =
       ImmutableList.of(
           "STAGE_FRAMEWORK",
@@ -96,7 +95,8 @@ public class Performance {
           "STAGE_FEEDBACK_QUEUED",
           "STAGE_FEEDBACK_HEARD",
           "STAGE_BETWEEN_FEEDBACK_QUEUED_AND_FEEDBACK_HEARD",
-          "STAGE_FEEDBACK_COMPOSED");
+          "STAGE_FEEDBACK_COMPOSED",
+          "STAGE_ACTION_PERFORMED");
 
   /**
    * Event types for which we want to measure latency.
@@ -119,7 +119,9 @@ public class Performance {
     EVENT_TYPE_VOLUME_KEY_COMBO,
     EVENT_TYPE_GESTURE,
     EVENT_TYPE_ROTATE,
-    EVENT_TYPE_FINGERPRINT_GESTURE
+    EVENT_TYPE_FINGERPRINT_GESTURE,
+    EVENT_TYPE_MOTION_EVENT_SOURCE,
+    EVENT_TYPE_GESTURE_DETECTION
   })
   public @interface EventTypeId {}
 
@@ -130,6 +132,8 @@ public class Performance {
   public static final int EVENT_TYPE_GESTURE = 4;
   public static final int EVENT_TYPE_ROTATE = 5;
   public static final int EVENT_TYPE_FINGERPRINT_GESTURE = 6;
+  public static final int EVENT_TYPE_MOTION_EVENT_SOURCE = 7;
+  public static final int EVENT_TYPE_GESTURE_DETECTION = 8;
   public static final ImmutableList<String> EVENT_TYPE_NAMES =
       ImmutableList.of(
           "EVENT_TYPE_ACCESSIBILITY",
@@ -138,7 +142,13 @@ public class Performance {
           "EVENT_TYPE_VOLUME_KEY_COMBO",
           "EVENT_TYPE_GESTURE",
           "EVENT_TYPE_ROTATE",
-          "EVENT_TYPE_FINGERPRINT_GESTURE");
+          "EVENT_TYPE_FINGERPRINT_GESTURE",
+          "EVENT_TYPE_MOTION_EVENT_SOURCE",
+          "EVENT_TYPE_GESTURE_DETECTION");
+
+  public static final int MOTION_EVENT_DIRECTION_UNDEFINED = 0;
+  public static final int MOTION_EVENT_DIRECTION_FORWARD = 1;
+  public static final int MOTION_EVENT_DIRECTION_BACKWARD = 2;
 
   public static final @Nullable EventId EVENT_ID_UNTRACKED = null;
 
@@ -177,7 +187,7 @@ public class Performance {
   protected final Object lockLabelToStats = new Object();
   protected Statistics allEventStats = new Statistics();
 
-  private final ArrayMap<LatencyTracker, Executor> latencyTrackers = new ArrayMap<>();
+  private final List<LatencyTracker> latencyTrackers = new ArrayList<>();
 
   private static final Performance instance = new Performance();
 
@@ -233,6 +243,18 @@ public class Performance {
     return eventId;
   }
 
+  public EventId onEventReceived(int motionEventSource) {
+    EventId eventId = toEventId(motionEventSource);
+    if (!trackEvents()) {
+      return eventId;
+    }
+
+    String[] labels = {"MotionEventSource-rotary_encoder"};
+
+    onEventReceived(eventId, labels);
+    return eventId;
+  }
+
   /**
    * Method to start tracking processing latency for a key event.
    *
@@ -257,6 +279,51 @@ public class Performance {
     } else if (KeyEvent.KEYCODE_VOLUME_UP <= keycode && keycode <= KeyEvent.KEYCODE_VOLUME_DOWN) {
       label = "KeyEvent-volume";
     }
+    String[] labels = {label};
+
+    onEventReceived(eventId, labels);
+    return eventId;
+  }
+
+  /**
+   * Method to start tracking processing latency for a gesture event. Uses event type as statistics
+   * segmentation label.
+   *
+   * @param displayId The display where user finger touched.
+   * @param event The MotionEvent which trigger the gesture detection acting. For some gesture
+   *     pattern, such as TouchExplore after Split-typing, the event could be null.
+   * @return An event id that can be used to track performance through later stages.
+   */
+  public EventId onGestureEventReceived(int displayId, @Nullable MotionEvent event) {
+    EventId eventId = toEventId(displayId, event);
+    String[] labels = {"GestureEvent-gesture_detection"};
+    if (!trackEvents()) {
+      return eventId;
+    }
+
+    onEventReceived(eventId, labels);
+    onGestureDetectionStarted(eventId, (event == null) ? getUptime() : event.getEventTime());
+    return eventId;
+  }
+
+  /**
+   * Method to start tracking processing latency for a gesture event. Uses event type as statistics
+   * segmentation label.
+   *
+   * @param gestureId A gesture just recognized by TalkBack
+   * @return An event id that can be used to track performance through later stages.
+   */
+  public EventId onGestureEventReceived(int gestureId) {
+    EventId eventId = new EventId(getUptime(), EVENT_TYPE_GESTURE, gestureId);
+    if (!trackEvents()) {
+      return eventId;
+    }
+
+    if (computeStatsEnabled) {
+      logGestureDetectionDuration(gestureId);
+    }
+    // Segment events based on gesture id.
+    String label = AccessibilityServiceCompatUtils.gestureIdToString(gestureId);
     String[] labels = {label};
 
     onEventReceived(eventId, labels);
@@ -311,28 +378,12 @@ public class Performance {
     return new EventId(event.getEventTime(), EVENT_TYPE_KEY, event.getKeyCode());
   }
 
-  /**
-   * Method to start tracking processing latency for a gesture event. Uses event type as statistics
-   * segmentation label.
-   *
-   * @param gestureId A gesture just recognized by TalkBack
-   * @return An event id that can be used to track performance through later stages.
-   */
-  public EventId onGestureEventReceived(int gestureId) {
-    EventId eventId = new EventId(getUptime(), EVENT_TYPE_GESTURE, gestureId);
-    if (!trackEvents()) {
-      return eventId;
-    }
+  public EventId toEventId(int motionEventSource) {
+    return new EventId(getUptime(), EVENT_TYPE_MOTION_EVENT_SOURCE, motionEventSource);
+  }
 
-    if (computeStatsEnabled) {
-      logGestureDetectionDuration(gestureId);
-    }
-    // Segment events based on gesture id.
-    String label = AccessibilityServiceCompatUtils.gestureIdToString(gestureId);
-    String[] labels = {label};
-
-    onEventReceived(eventId, labels);
-    return eventId;
+  public EventId toEventId(int displayId, MotionEvent motionEvent) {
+    return new EventId(getUptime(), EVENT_TYPE_GESTURE_DETECTION, 0, displayId);
   }
 
   private void logGestureDetectionDuration(int gestureId) {
@@ -416,7 +467,8 @@ public class Performance {
    * @param eventId Identity of an event just handled by TalkBack
    */
   public void onHandlerDone(@NonNull EventId eventId) {
-    if (!trackEvents()) {
+    // LatencyTracker doesn't need this data, so we could skip it for this case.
+    if (!computeStatsEnabled) {
       return;
     }
 
@@ -433,9 +485,6 @@ public class Performance {
     // Compute stage latency.
     long now = getTime();
     eventData.timeInlineHandled = now;
-    if (!computeStatsEnabled) {
-      return;
-    }
 
     long stageLatency = now - eventData.timeReceivedAtTalkback;
 
@@ -494,8 +543,15 @@ public class Performance {
    *
    * @param eventId Identity of an event handled by TalkBack
    * @param utteranceId Identity of a piece of spoken feedback, resulting from the event.
+   * @param flushTtsQueue Whether to flush the playback queue in TTS and interrupt current speaking
+   *     utterance.
+   * @param changeToSameLocale Whether to set TTS locale to the same one.
    */
-  public void onFeedbackQueued(@NonNull EventId eventId, @NonNull String utteranceId) {
+  public void onFeedbackQueued(
+      @NonNull EventId eventId,
+      @NonNull String utteranceId,
+      boolean flushTtsQueue,
+      boolean changeToSameLocale) {
     if (!trackEvents()) {
       return;
     }
@@ -512,7 +568,7 @@ public class Performance {
 
     // Compute stage latency.
     long now = getTime();
-    eventData.setFeedbackQueued(now, utteranceId);
+    eventData.setFeedbackQueued(now, utteranceId, flushTtsQueue, changeToSameLocale);
     indexRecentUtterance(utteranceId, eventId);
     if (!computeStatsEnabled) {
       return;
@@ -556,11 +612,13 @@ public class Performance {
     }
 
     // If speech is not already matched with this event...
-    if (eventData.getTimeFeedbackOutput() <= 0) {
+    // Somehow the utteranceId of eventData is null, so we check timeFeedbackQueued to avoid
+    // logging such metrics.
+    if (eventData.getTimeFeedbackOutput() <= 0 && eventData.getTimeFeedbackQueued() > 0) {
       // Compute stage latency.
       long now = getTime();
       eventData.setFeedbackOutput(now);
-      notifyLatencyTracker(eventData);
+      notifyLatencyTracker(latencyTracker -> latencyTracker.onFeedbackOutput(eventData));
       if (computeStatsEnabled) {
         long stageLatency = now - eventData.timeReceivedAtTalkback;
 
@@ -579,20 +637,17 @@ public class Performance {
             }
 
             // Track latency between stage queued and stage heard.
-            if (eventData.getTimeFeedbackQueued() > 0) {
-              long latency = now - eventData.getTimeFeedbackQueued();
-              if (latency > TTS_LATENCY_THRESHOLD_MS) {
-                LogUtils.d(
-                    TAG,
-                    "TTS latency of %s exceeds %s ms : %s",
-                    utteranceId,
-                    TTS_LATENCY_THRESHOLD_MS,
-                    latency);
-              }
-              stats =
-                  getOrCreateStatistics(label, STAGE_BETWEEN_FEEDBACK_QUEUED_AND_FEEDBACK_HEARD);
-              stats.increment(latency);
+            long latency = now - eventData.getTimeFeedbackQueued();
+            if (latency > TTS_LATENCY_THRESHOLD_MS) {
+              LogUtils.d(
+                  TAG,
+                  "TTS latency of %s exceeds %s ms : %s",
+                  utteranceId,
+                  TTS_LATENCY_THRESHOLD_MS,
+                  latency);
             }
+            stats = getOrCreateStatistics(label, STAGE_BETWEEN_FEEDBACK_QUEUED_AND_FEEDBACK_HEARD);
+            stats.increment(latency);
           }
         }
       }
@@ -605,14 +660,57 @@ public class Performance {
   }
 
   /**
+   * Tracks event latency between receiving event, and the {@link
+   * android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction} is performed audio
+   * feedback. We also track the latency between queueing first piece of spoken feedback and hearing
+   * audio feedback.
+   */
+  public void onAccessibilityActionPerformed(
+      @NonNull EventId eventId, int actionId, long actionStartUpTime, boolean success) {
+    if (!trackEvents()) {
+      return;
+    }
+
+    // If recent event not found... then labels are not available to increment statistics.
+    EventData eventData = getRecentEvent(eventId);
+    if (eventData == null) {
+      return;
+    }
+    // If the data is available collected for this event & stage... do not update.
+    if (eventData.actionDetails != null) {
+      return;
+    }
+
+    // Compute stage latency.
+    long now = getUptime();
+
+    eventData.actionDetails =
+        new AccessibilityActionDetails(actionId, now - actionStartUpTime, now, success);
+
+    notifyLatencyTracker(
+        latencyTracker -> latencyTracker.onAccessibilityActionPerformed(eventData));
+    if (!computeStatsEnabled) {
+      return;
+    }
+
+    long stageLatency = now - eventData.uptimeReceivedAtTalkback;
+    // Increment the stage latency statistics for each event label.
+    if (eventData.labels != null) {
+      for (String label : eventData.labels) {
+        Statistics stats = getOrCreateStatistics(label, STAGE_ACTION_PERFORMED);
+        stats.increment(stageLatency);
+      }
+    }
+  }
+
+  /**
    * Adds {@link LatencyTracker} to track the latency.
    *
    * @param latencyTracker The callback invoked when the latency is measured.
-   * @param executor Executor on which to run the callback.
    */
-  public void addLatencyTracker(LatencyTracker latencyTracker, Executor executor) {
+  public void addLatencyTracker(LatencyTracker latencyTracker) {
     synchronized (latencyTrackers) {
-      latencyTrackers.put(latencyTracker, executor);
+      latencyTrackers.add(latencyTracker);
     }
   }
 
@@ -627,17 +725,17 @@ public class Performance {
     }
   }
 
-  private void notifyLatencyTracker(EventData eventData) {
-    ArrayMap<LatencyTracker, Executor> trackers;
+  private void notifyLatencyTracker(Consumer<LatencyTracker> consumer) {
+    List<LatencyTracker> trackers;
     synchronized (latencyTrackers) {
       if (latencyTrackers.isEmpty()) {
         return;
       }
-      trackers = new ArrayMap<>(latencyTrackers);
+      trackers = Collections.unmodifiableList(latencyTrackers);
     }
 
-    for (Map.Entry<LatencyTracker, Executor> entry : trackers.entrySet()) {
-      entry.getValue().execute(() -> entry.getKey().onFeedbackOutput(eventData));
+    for (LatencyTracker tracker : trackers) {
+      tracker.getExecutor().execute(() -> consumer.accept(tracker));
     }
   }
 
@@ -967,7 +1065,11 @@ public class Performance {
 
   private static String floatToString(float value) {
     // If float is an integer... do not show fractional part of number.
-    return ((int) value == value) ? String.format("%d", (int) value) : String.format("%f", value);
+    return ((int) value == value) ? formatString("%d", (int) value) : formatString("%f", value);
+  }
+
+  private static String formatString(String format, Object... args) {
+    return String.format(Locale.getDefault(), format, args);
   }
 
   public void displayRecentEvents() {
@@ -1024,6 +1126,12 @@ public class Performance {
      */
     private final int eventSubtype;
 
+    private final int displayId;
+
+    public EventId(long time, @EventTypeId int type, int subtype) {
+      this(time, type, subtype, Display.DEFAULT_DISPLAY);
+    }
+
     /**
      * Create a small event identifier for tracking event through processing stages.
      *
@@ -1033,10 +1141,11 @@ public class Performance {
      *     AccessibilityGestureEvent#getGestureId()}.
      */
     @VisibleForTesting(otherwise = VisibleForTesting.PROTECTED)
-    public EventId(long time, @EventTypeId int type, int subtype) {
+    public EventId(long time, @EventTypeId int type, int subtype, int displayId) {
       eventTimeMs = time; // Event creation times use system uptime.
       eventType = type;
       eventSubtype = subtype;
+      this.displayId = displayId;
     }
 
     public long getEventTimeMs() {
@@ -1063,7 +1172,8 @@ public class Performance {
       EventId other = (EventId) otherObj;
       return this.eventTimeMs == other.eventTimeMs
           && this.eventType == other.eventType
-          && this.eventSubtype == other.eventSubtype;
+          && this.eventSubtype == other.eventSubtype
+          && this.displayId == other.displayId;
     }
 
     @Override
@@ -1100,7 +1210,11 @@ public class Performance {
               String.format(
                   Locale.getDefault(Category.FORMAT), "VOLUME_KEY_COMBO_%d", eventSubtype);
           break;
-
+        case EVENT_TYPE_MOTION_EVENT_SOURCE:
+          subtypeString =
+              String.format(
+                  Locale.getDefault(Category.FORMAT), "MOTION_EVENT_SOURCE_%d", eventSubtype);
+          break;
         default:
           subtypeString = Integer.toString(eventSubtype);
       }
@@ -1108,6 +1222,8 @@ public class Performance {
           + EVENT_TYPE_NAMES.get(eventType)
           + " subtype:"
           + subtypeString
+          + " displayId:"
+          + displayId
           + " time:"
           + eventTimeMs;
     }
@@ -1124,6 +1240,126 @@ public class Performance {
       default:
         return "ORIENTATION_" + orientation;
     }
+  }
+
+  /**
+   * Tracking the stage information of gesture detection. All time stamps are recorded based on
+   * milli-second/
+   */
+  public static final class GestureEventData {
+    int displayId = -1;
+    int gestureId = 0;
+    // The 1st event which causes the gesture detector's' state transition from idle to detecting.
+    long gestureDetectionStartedTime = -1;
+
+    /**
+     * The {@link MotionEvent#getEventTime()}. The event time of the last MotionEvent that
+     * contributed to the recognized gesture.
+     */
+    long lastMotionEventTime = -1;
+
+    /**
+     * The timestamp, in milliseconds, used to determine if a gesture should be considered complete.
+     * For hold gestures, this marks the start of a potential timeout period.
+     */
+    long gestureDecisionTime = -1;
+
+    /**
+     * After the last Motion Event arrives, the gesture detector holds a period of time until the
+     * gesture is correctly identified. For example, in the double-tap-and-hold gesture, the
+     * detector has to wait ViewConfiguration#getLongPressTimeout to make sure user held his
+     * finger(s) long enough.
+     */
+    long gestureDetectedTime = -1;
+
+    public int getDisplayId() {
+      return displayId;
+    }
+
+    public int getGestureId() {
+      return gestureId;
+    }
+
+    public long getGestureDetectionStartedTime() {
+      return gestureDetectionStartedTime;
+    }
+
+    public long getLastMotionEventTime() {
+      return lastMotionEventTime;
+    }
+
+    public long getGestureDecisionTime() {
+      return gestureDecisionTime;
+    }
+
+    public long getGestureDetectedTime() {
+      return gestureDetectedTime;
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder stringBuilder = new StringBuilder("GestureEventData {");
+      stringBuilder.append("\n\tdisplayId:").append(displayId);
+      stringBuilder.append("\n\tgestureId:").append(gestureId);
+      stringBuilder.append("\n\tgestureDetectionStartedTime:").append(gestureDetectionStartedTime);
+      stringBuilder.append("\n\tlastMotionEventTime:").append(lastMotionEventTime);
+      stringBuilder.append("\n\tgestureDecisionTime:").append(gestureDecisionTime);
+      stringBuilder.append("\n\tgestureDetectedTime:").append(gestureDetectedTime);
+      stringBuilder.append("\n}");
+      return stringBuilder.toString();
+    }
+  }
+
+  void onGestureDetectionStarted(EventId eventId, long gestureDetectionStartedTime) {
+    @Nullable EventData eventData = getRecentEvent(eventId);
+    if (eventData == null) {
+      return;
+    }
+    if (!trackEvents()) {
+      return;
+    }
+
+    GestureEventData gestureEventData = new GestureEventData();
+    gestureEventData.displayId = eventId.displayId;
+    gestureEventData.gestureDetectionStartedTime = gestureDetectionStartedTime;
+    eventData.gestureEventData = gestureEventData;
+  }
+
+  // Keep event-time and current time to compute latency of the framework->service transmission.
+  public void onGestureLastMotionEventTime(EventId eventId, long eventTime) {
+    @Nullable EventData eventData = getRecentEvent(eventId);
+    if (eventData == null) {
+      return;
+    }
+    if (!trackEvents()) {
+      return;
+    }
+    GestureEventData gestureEventData = eventData.gestureEventData;
+    gestureEventData.lastMotionEventTime = eventTime;
+    gestureEventData.gestureDecisionTime = getUptime();
+  }
+
+  // Keep gestureId and current time(as onGestureDetectedTime & compute
+  // targetGestureTimeout)
+  public void onGestureRecognized(EventId eventId, int gestureId) {
+    EventData eventData = getRecentEvent(eventId);
+    if (eventData == null) {
+      return;
+    }
+    if (!trackEvents()) {
+      return;
+    }
+    GestureEventData gestureEventData = eventData.gestureEventData;
+    gestureEventData.gestureId = gestureId;
+    gestureEventData.gestureDetectedTime = getUptime();
+    if (gestureEventData.lastMotionEventTime != -1 && gestureEventData.gestureDecisionTime != -1) {
+      notifyLatencyTracker(latencyTracker -> latencyTracker.onGestureRecognized(gestureEventData));
+    }
+    removeRecentEvent(eventId);
+  }
+
+  public void onGestureDetectionStopped(EventId eventId) {
+    removeRecentEvent(eventId);
   }
 
   /** Tracking the stage start times for an event. */
@@ -1143,9 +1379,14 @@ public class Performance {
 
     private long timeFeedbackComposed = -1;
 
+    private @Nullable AccessibilityActionDetails actionDetails;
+    private @Nullable GestureEventData gestureEventData;
+
     // Members set when feedback is queued.
     private long timeFeedbackQueued = -1;
     private String utteranceId; // Updates may come from TalkBack or TextToSpeech threads.
+    private boolean flushTtsQueue;
+    private boolean changeToSameLocale;
 
     private long timeFeedbackOutput = -1;
 
@@ -1166,9 +1407,15 @@ public class Performance {
     }
 
     // Synchronized because this method may be called from a separate audio handling thread.
-    synchronized void setFeedbackQueued(long timeFeedbackQueued, String utteranceId) {
+    synchronized void setFeedbackQueued(
+        long timeFeedbackQueued,
+        String utteranceId,
+        boolean flushTtsQueue,
+        boolean changeToSameLocale) {
       this.timeFeedbackQueued = timeFeedbackQueued;
       this.utteranceId = utteranceId;
+      this.flushTtsQueue = flushTtsQueue;
+      this.changeToSameLocale = changeToSameLocale;
     }
 
     // Synchronized because this method may be called from a separate audio handling thread.
@@ -1192,19 +1439,41 @@ public class Performance {
       return timeFeedbackOutput;
     }
 
+    public synchronized boolean getFlushTtsQueue() {
+      return flushTtsQueue;
+    }
+
+    public synchronized boolean getChangeToSameLocale() {
+      return changeToSameLocale;
+    }
+
+    public synchronized AccessibilityActionDetails getActionDetails() {
+      return actionDetails;
+    }
+
     @Override
     public String toString() {
       return " labels="
           + TextUtils.join(",", labels)
+          + " eventId="
+          + eventId
+          + " uptimeReceivedAtTalkback="
+          + uptimeReceivedAtTalkback
           + " timeReceivedAtTalkback="
           + timeReceivedAtTalkback
           + " mTimeFeedbackQueued="
+          + timeFeedbackComposed
+          + " timeFeedbackComposed="
           + timeFeedbackQueued
           + " mTimeFeedbackOutput="
           + timeFeedbackOutput
           + " timeInlineHandled="
           + timeInlineHandled
-          + String.format(" mUtteranceId=%s", utteranceId);
+          + " flushTtsQueue="
+          + flushTtsQueue
+          + String.format(" mUtteranceId=%s", utteranceId)
+          + " actionDetails="
+          + actionDetails;
     }
   }
 
@@ -1269,144 +1538,6 @@ public class Performance {
     @Override
     public String toString() {
       return label + "-" + STAGE_NAMES.get(stage);
-    }
-  }
-
-  /** General-purpose summary & distribution statistics for a group of values. */
-  public static class Statistics {
-    private static final int MAX_RAW_DATA_SIZE = 300;
-    protected long numMissing;
-    protected long count;
-    protected long sum;
-    protected long sumSquares;
-    private final Queue<Long> rawData;
-
-    /** Bin start value = 2^(index-1) , except index=0 holds bin start value=0. */
-    protected ArrayList<AtomicLong> histogram = new ArrayList<>();
-
-    public Statistics() {
-      rawData = EvictingQueue.create(MAX_RAW_DATA_SIZE);
-      clear();
-    }
-
-    public synchronized void clear() {
-      numMissing = 0;
-      count = 0;
-      sum = 0;
-      sumSquares = 0;
-      histogram.clear();
-      rawData.clear();
-    }
-
-    public synchronized void incrementNumMissing() {
-      ++numMissing;
-    }
-
-    public synchronized void increment(long value) {
-      // Increment summary statistics.
-      ++count;
-      sum += value;
-      sumSquares += value * value;
-
-      // Ensure histogram is big enough to hold this value.
-      int binIndex = valueToHistogramBin(value);
-      if (histogram.size() < binIndex + 1) {
-        histogram.ensureCapacity(binIndex + 1);
-        while (histogram.size() <= binIndex) {
-          histogram.add(new AtomicLong(0));
-        }
-      }
-      // Increment histogram count.
-      AtomicLong binCount = histogram.get(binIndex);
-      binCount.set(binCount.longValue() + 1);
-      rawData.add(value);
-    }
-
-    public long getNumMissing() {
-      return numMissing;
-    }
-
-    public long getCount() {
-      return count;
-    }
-
-    public long getMean() {
-      return (count <= 0) ? 0 : (sum / count);
-    }
-
-    /**
-     * Computes standard devication based on the mistaken assumption that values have gaussian
-     * distribution.
-     *
-     * @return Standard deviation of {@code increment(value)}
-     */
-    public double getStdDev() {
-      if (count <= 0) {
-        return 0;
-      }
-      double mean = (double) sum / (double) count;
-      double meanOfSquares = (double) sumSquares / (double) count;
-      double variance = meanOfSquares - (mean * mean);
-      return Math.sqrt(variance);
-    }
-
-    public long getMedianBinStart() {
-      if (count <= 0) {
-        return 0;
-      }
-      // For each histogram bin, in order...
-      long medianCount = count / 2;
-      long sumBins = 0;
-      for (int binIndex = 0; binIndex < histogram.size(); ++binIndex) {
-        // If bin contains mCount/2... return bin start.
-        sumBins += histogram.get(binIndex).longValue();
-        if (sumBins >= medianCount) {
-          return histogramBinToStartValue(binIndex);
-        }
-      }
-      return histogramBinToStartValue(histogram.size());
-    }
-
-    public int valueToHistogramBin(long value) {
-      return valueToPower(value) + 1;
-    }
-
-    public long histogramBinToStartValue(int index) {
-      return (index < 1) ? 0L : (1L << (index - 1));
-    }
-
-    /**
-     * Gets the percentile with the given rank.
-     *
-     * @param rank The rank, between 0 < rank <= 100.
-     * @return The percentile value otherwise -1 if {@code rawData} is invalid,
-     */
-    public long getPercentile(int rank) {
-      if (rawData == null || rawData.isEmpty()) {
-        return -1L;
-      }
-
-      List<Long> sortedData = new ArrayList<>(rawData);
-      Collections.sort(sortedData);
-      int index = ((rank * sortedData.size() + 99) / 100) - 1;
-
-      return sortedData.get(index);
-    }
-
-    /**
-     * Converts a positive value to the exponent of preceding 2^P. Returns the largest integer
-     * exponent "P" such that 2^P < value. Returns -1 for value <= 0.
-     */
-    public static int valueToPower(long value) {
-      if (value < 1) {
-        return -1;
-      }
-      // For each power that leaves a remainder... increment power.
-      long power = -1;
-      for (long remainder = value; remainder > 0; remainder >>= 1) {
-        ++power;
-      }
-      return (int) power;
     }
   }
 

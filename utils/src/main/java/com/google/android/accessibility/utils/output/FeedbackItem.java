@@ -94,6 +94,9 @@ public class FeedbackItem {
    */
   public static final int FLAG_SOURCE_IS_VOLUME_CONTROL = 0x2000;
 
+  /** Flag to indicate that the aggressive chunking is applied to the feedback item. */
+  public static final int FLAG_CHUNKING_APPLIED = 0x4000;
+
   /** Unique ID defining this generated feedback */
   private String mUtteranceId = "";
 
@@ -431,6 +434,8 @@ public class FeedbackItem {
         return "FLAG_FORCE_FEEDBACK";
       case FLAG_SOURCE_IS_VOLUME_CONTROL:
         return "FLAG_SOURCE_IS_VOLUME_CONTROL";
+      case FLAG_CHUNKING_APPLIED:
+        return "FLAG_CHUNKING_APPLIED";
       default:
         return null;
     }

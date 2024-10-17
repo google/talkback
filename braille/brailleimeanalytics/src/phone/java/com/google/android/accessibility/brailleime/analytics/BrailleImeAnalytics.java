@@ -176,6 +176,12 @@ public class BrailleImeAnalytics {
   public void logGestureActionSelectAllText() {}
 
   /** Stub implementation does nothing. */
+  public void logGestureActionSelectCursorToStart() {}
+
+  /** Stub implementation does nothing. */
+  public void logGestureActionSelectCursorToEnd() {}
+
+  /** Stub implementation does nothing. */
   public void logGestureActionCut() {}
 
   /** Stub implementation does nothing. */

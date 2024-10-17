@@ -31,14 +31,13 @@ import android.view.Display;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.StringRes;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
+import com.google.android.accessibility.talkback.FeatureFlagReader;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree;
 import com.google.android.accessibility.talkback.compositor.parsetree.ParseTree.VariableDelegate;
 import com.google.android.accessibility.talkback.compositor.roledescription.RoleDescriptionExtractor.DescriptionOrder;
 import com.google.android.accessibility.talkback.compositor.rule.InputTextFeedbackRules;
 import com.google.android.accessibility.talkback.compositor.rule.MagnificationStateChangedFeedbackRule;
-import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration;
 import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
 import com.google.android.accessibility.talkback.keyboard.KeyComboModel;
 import com.google.android.accessibility.talkback.selector.SelectorController;
@@ -48,6 +47,7 @@ import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.KeyboardUtils;
+import com.google.android.accessibility.utils.Logger;
 import com.google.android.accessibility.utils.TimedFlags;
 import com.google.android.accessibility.utils.input.WindowsDelegate;
 import com.google.android.accessibility.utils.monitor.CollectionState;
@@ -134,10 +134,10 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   private @Nullable KeyComboManager keyComboManager;
   private final CollectionState collectionState;
   private WindowsDelegate mWindowsDelegate;
-  public @Nullable SelectorController selectorController;
+  private @Nullable SelectorController selectorController;
 
   /** Stores the user preferred locale changed using language switcher. */
-  @Nullable private Locale userPreferredLocale;
+  private @Nullable Locale userPreferredLocale;
 
   private boolean mUseSingleTap = false;
 
@@ -175,6 +175,8 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   private boolean speakSystemWindowTitles = true;
   private boolean textChangeRateUnlimited = false;
   private final FormFactorUtils formFactorUtils;
+  private final boolean enableMediaControlHintForCall;
+  private final boolean enableShortAndLongDurationsForSpecificApps;
 
   public GlobalVariables(
       AccessibilityService service,
@@ -187,6 +189,9 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     this.collectionState = collectionState;
     this.gestureShortcutProvider = gestureShortcutProvider;
     formFactorUtils = FormFactorUtils.getInstance();
+    enableMediaControlHintForCall = FeatureFlagReader.enableMediaControlHintForCall(service);
+    enableShortAndLongDurationsForSpecificApps =
+        FeatureFlagReader.enableShortAndLongDurationsForSpecificApps(service);
   }
 
   public void setWindowsDelegate(WindowsDelegate delegate) {
@@ -337,6 +342,16 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
         currentDisplayId = AccessibilityEventUtils.getDisplayId(event);
       }
     }
+  }
+
+  /** Returns whether TalkBack should announce the media control hint to answer a call. */
+  public boolean getEnableMediaControlHintForCall() {
+    return enableMediaControlHintForCall;
+  }
+
+  /** Returns if short and long minimum durations for specific apps are enabled. */
+  public boolean getEnableShortAndLongDurationsForSpecificApps() {
+    return enableShortAndLongDurationsForSpecificApps;
   }
 
   /** Returns if TalkBack usage hint is enabled. */
@@ -547,7 +562,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     return mCurrentWindowId;
   }
 
-  /** Returns the gesture string for the node actions. */
+  /** Returns the gesture string for the node actions in TalkBack menu. */
   public CharSequence getGestureStringForNodeActions() {
     if (inputModeTracker.getInputMode() == INPUT_MODE_KEYBOARD) {
       @Nullable CharSequence keyCombo =
@@ -557,6 +572,35 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
       }
     }
     return gestureShortcutProvider != null ? gestureShortcutProvider.nodeMenuShortcut() : "";
+  }
+
+  /** Returns the gesture string for the node actions in reading control. */
+  public CharSequence getGestureStringForNodeActionsInReadingControl() {
+    if (inputModeTracker.getInputMode() == INPUT_MODE_KEYBOARD) {
+      @Nullable CharSequence keyCombo =
+          getKeyComboStringRepresentation(
+              R.string.keycombo_shortcut_global_adjust_reading_setting_next);
+      if (!TextUtils.isEmpty(keyCombo)) {
+        return keyCombo;
+      }
+    }
+
+    if (gestureShortcutProvider == null) {
+      return "";
+    }
+
+    CharSequence readingMenuUpShortcut = gestureShortcutProvider.readingMenuUpShortcut();
+    CharSequence readingMenuDownShortcut = gestureShortcutProvider.readingMenuDownShortcut();
+    return TextUtils.isEmpty(readingMenuUpShortcut)
+        ? (TextUtils.isEmpty(readingMenuDownShortcut)
+            ? ""
+            : Ascii.toLowerCase(readingMenuDownShortcut))
+        : (TextUtils.isEmpty(readingMenuDownShortcut)
+            ? Ascii.toLowerCase(readingMenuUpShortcut)
+            : mContext.getString(
+                R.string.gesture_1_or_2,
+                Ascii.toLowerCase(readingMenuUpShortcut),
+                Ascii.toLowerCase(readingMenuDownShortcut)));
   }
 
   /** Returns the global input mode. */
@@ -620,6 +664,16 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     return gestureShortcutProvider != null ? gestureShortcutProvider.actionsShortcut() : "";
   }
 
+  /** Returns the gesture string to get to the next window. */
+  public CharSequence getGestureForNextWindowShortcut() {
+    return gestureShortcutProvider != null ? gestureShortcutProvider.nextWindowShortcut() : "";
+  }
+
+  /** Returns the gesture string to play or pause media. */
+  public CharSequence getGestureStringForMediaControlShortcut() {
+    return gestureShortcutProvider != null ? gestureShortcutProvider.mediaControlShortcut() : "";
+  }
+
   public CharSequence getKeyComboStringRepresentation(@StringRes int stringRes) {
     return KeyComboManagerUtils.getKeyComboStringRepresentation(
         stringRes, keyComboManager, mContext);
@@ -642,14 +696,25 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
    *
    * <p>Note: The collection item description is for {@link ROLE_GRID} and {@link ROLE_LIST}.
    */
-  public CharSequence getCollectionItemTransitionDescription() {
+  public CharSequence getCollectionItemTransitionDescription(
+      @Nullable AccessibilityNodeInfoCompat focusedNode) {
     return CollectionStateFeedbackUtils.getCollectionItemTransitionDescription(
-        collectionState, mContext);
+        focusedNode, collectionState, mContext);
   }
 
   /** Returns if the reading menu has actions settings. */
   public boolean hasReadingMenuActionSettings() {
     return selectorController != null && selectorController.isSettingAvailable(Setting.ACTIONS);
+  }
+
+  public boolean isReadingMenuActionCurrentSettings(Context context) {
+    return SelectorController.getCurrentSetting(context) == Setting.ACTIONS;
+  }
+
+  public String getReadingMenuActionSettingsDescription() {
+    return selectorController == null
+        ? ""
+        : selectorController.getSelectorActionSettingsDescription();
   }
 
   /** Returns the current reading menu ordinal. */
@@ -746,7 +811,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
       case COLLECTION_TRANSITION:
         return getCollectionTransitionDescription();
       case COLLECTION_ITEM_TRANSITION:
-        return getCollectionItemTransitionDescription();
+        return getCollectionItemTransitionDescription(/* focusedNode= */ null);
 
       case KEY_COMBO_STRING_FOR_CLICK:
         return getKeyComboStringRepresentation(R.string.keycombo_shortcut_perform_click);
@@ -821,6 +886,43 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
 
     CharSequence title = mWindowsDelegate.getWindowTitle(windowId);
     return title != null ? title : EMPTY_STRING;
+  }
+
+  public void dump(Logger dumpLogger) {
+    dumpLogger.log(
+        new StringBuilder()
+            .append("Compositor state:\n ")
+            .append(String.format("inputMode=%s, ", getGlobalInputMode()))
+            .append(String.format("sayCapital=%s, ", getGlobalSayCapital()))
+            .append(String.format("speakCollectionInfo=%s, ", getSpeakCollectionInfo()))
+            .append(String.format("speakElementIds=%s, ", getSpeakElementIds()))
+            .append(String.format("speakRoles=%s, ", getSpeakRoles()))
+            .append(String.format("speakSysWindowTitles=%s, ", getSpeakSystemWindowTitles()))
+            .append(String.format("textChangeRateUnlimited=%s, ", getTextChangeRateUnlimited()))
+            .append(String.format("usageHintEnabled=%s, ", getUsageHintEnabled()))
+            .append(
+                String.format(
+                    "enableMediaControlHintForCall=%s, ", getEnableMediaControlHintForCall()))
+            .append(
+                String.format(
+                    "enableShortAndLongDurationsForSpecificApps=%s, ",
+                    getEnableShortAndLongDurationsForSpecificApps()))
+            .toString());
+
+    dumpLogger.log(collectionState.toString());
+    CollectionState.ListItemState listItemState = collectionState.getListItemState();
+    if (listItemState != null) {
+      dumpLogger.log(listItemState.toString());
+    }
+    CollectionState.PagerItemState pagerItemState = collectionState.getPagerItemState();
+    if (pagerItemState != null) {
+      dumpLogger.log(pagerItemState.toString());
+    }
+    CollectionState.TableItemState tableItemState = collectionState.getTableItemState();
+    if (tableItemState != null) {
+      dumpLogger.log(tableItemState.toString());
+    }
+    dumpLogger.log("");
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////////

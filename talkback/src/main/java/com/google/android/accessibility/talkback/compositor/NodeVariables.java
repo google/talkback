@@ -200,7 +200,9 @@ class NodeVariables implements ParseTree.VariableDelegate {
         return mNode.isCheckable();
       case NODE_ALLOW_WINDOW_CONTENT_CHANGE_ANNOUNCEMENT:
         return WindowContentChangeAnnouncementFilter.shouldAnnounce(
-            mNode, globalVariables.getTextChangeRateUnlimited());
+            mNode,
+            globalVariables.getTextChangeRateUnlimited(),
+            globalVariables.getEnableShortAndLongDurationsForSpecificApps());
       case NODE_CHECKED:
         return mNode.isChecked();
       case NODE_IS_VISIBLE:
@@ -258,7 +260,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
       case NODE_WINDOW_IS_IME:
         return AccessibilityNodeInfoUtils.isKeyboard(mNode);
       case NODE_HAS_SPELLING_SUGGESTIONS:
-        return !AccessibilityNodeInfoUtils.getSpellingSuggestions(mNode).isEmpty();
+        return !AccessibilityNodeInfoUtils.getSpellingSuggestions(mContext, mNode).isEmpty();
       default:
         return mParentVariables.getBoolean(variableId);
     }
@@ -272,7 +274,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
       case NODE_VISIBLE_CHILD_COUNT:
         return AccessibilityNodeInfoUtils.countVisibleChildren(mNode);
       case NODE_TYPO_COUNT:
-        return AccessibilityNodeInfoUtils.getTypoCount(mNode);
+        return AccessibilityNodeInfoUtils.getTypoCount(mContext, mNode);
       default:
         return mParentVariables.getInteger(variableId);
     }

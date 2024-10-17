@@ -2,21 +2,29 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:padding="@dimen/training_list_item_text_padding"
+    android:background="@drawable/training_list_item_background">
 
   <androidx.appcompat.widget.AppCompatTextView
-      android:id="@+id/training_list_item_text"
+      android:id="@+id/training_list_item_title"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:minHeight="@dimen/training_list_item_height"
-      android:layout_marginTop="@dimen/training_list_item_margin_top"
-      android:layout_marginBottom="@dimen/training_list_item_margin_bottom"
-      android:padding="@dimen/training_list_item_padding"
-      android:background="@drawable/training_list_item_background"
-      android:gravity="center_vertical"
+      android:gravity="center_horizontal"
       android:lineHeight="@dimen/training_list_item_text_height"
       android:textColor="@color/training_list_item_text_color"
-      android:textSize="@dimen/training_list_item_text_size"
-      android:focusable="true"/>
+      android:textSize="@dimen/training_list_item_text_size"/>
+  <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/training_list_item_summary"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_horizontal"
+      android:visibility="gone"
+      android:layout_marginTop="@dimen/training_list_item_summary_margin_top"
+      android:lineHeight="@dimen/training_list_item_text_height"
+      android:textColor="@color/training_list_item_text_color"
+      android:textSize="@dimen/training_list_item_text_size"/>
 
 </LinearLayout>

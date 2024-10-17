@@ -17,12 +17,15 @@ package com.google.android.accessibility.talkback.compositor;
 
 import android.content.Context;
 import android.text.TextUtils;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.monitor.CollectionState;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Provides the collection state description for compositor feedback. */
 public final class CollectionStateFeedbackUtils {
@@ -188,7 +191,9 @@ public final class CollectionStateFeedbackUtils {
    * <p>Note: The collection item description is for {@link ROLE_GRID} and {@link ROLE_LIST}.
    */
   public static CharSequence getCollectionItemTransitionDescription(
-      CollectionState collectionState, Context context) {
+      @Nullable AccessibilityNodeInfoCompat focusedNode,
+      CollectionState collectionState,
+      Context context) {
     boolean isRowTransition = getCollectionIsRowTransition(collectionState);
     boolean isColumnTransition = getCollectionIsColumnTransition(collectionState);
     if (isRowTransition || isColumnTransition) {
@@ -202,6 +207,8 @@ public final class CollectionStateFeedbackUtils {
             } else if (headingType == CollectionState.TYPE_ROW) {
               joinList.add(context.getString(R.string.row_heading_template));
             } else if (headingType == CollectionState.TYPE_INDETERMINATE) {
+              joinList.add(context.getString(R.string.heading_template));
+            } else if (focusedNode != null && AccessibilityNodeInfoUtils.isHeading(focusedNode)) {
               joinList.add(context.getString(R.string.heading_template));
             }
           }
@@ -240,6 +247,14 @@ public final class CollectionStateFeedbackUtils {
                       && TextUtils.isEmpty(getCollectionListItemRoleDescription(collectionState)))
                   ? context.getString(R.string.heading_template)
                   : "";
+          // A node within a collection item may be a heading. If this is the case and the
+          // collection item itself isn't a heading but the focused node is, we should append
+          // "heading".
+          if (!isHeading
+              && focusedNode != null
+              && AccessibilityNodeInfoUtils.isHeading(focusedNode)) {
+            headingTemplate = context.getString(R.string.heading_template);
+          }
           return CompositorUtils.joinCharSequences(
               headingTemplate, getCollectionListItemPositionDescription(collectionState, context));
       }

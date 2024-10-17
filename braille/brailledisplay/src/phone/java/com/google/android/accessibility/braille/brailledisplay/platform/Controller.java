@@ -25,8 +25,11 @@ import com.google.android.accessibility.braille.brltty.BrailleInputEvent;
  */
 public interface Controller {
 
-  /** Informs that starting a connection to a braille display. */
-  void onConnectStarted();
+  /** Informs that starting a HID connection to a braille display. */
+  void onConnectHidStarted();
+
+  /** Informs that starting a Rfcomm connection to a braille display. */
+  void onConnectRfcommStarted();
 
   /** Informs that a connection to the display was just established. */
   void onConnected();
@@ -36,6 +39,9 @@ public interface Controller {
 
   /** Informs that the connection has been dropped. */
   void onDisconnected();
+
+  /** Informs that the connection has failed. */
+  void onConnectFailed();
 
   /** Passes an accessibility event for consumption. */
   void onAccessibilityEvent(AccessibilityEvent accessibilityEvent);

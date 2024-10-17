@@ -21,7 +21,7 @@ import static com.google.android.accessibility.talkback.Feedback.AdjustVolume.Ac
 import static com.google.android.accessibility.talkback.Feedback.AdjustVolume.Action.INCREASE_VOLUME;
 import static com.google.android.accessibility.talkback.Feedback.AdjustVolume.StreamType.STREAM_TYPE_ACCESSIBILITY;
 import static com.google.android.accessibility.talkback.Feedback.BrailleDisplay.Action.TOGGLE_BRAILLE_DISPLAY_ON_OR_OFF;
-import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_NEXT;
+import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_CURSOR;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_TOP;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.BRIGHTEN;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.DIM;
@@ -53,6 +53,9 @@ import static com.google.android.accessibility.talkback.actor.SystemActionPerfor
 import static com.google.android.accessibility.talkback.actor.SystemActionPerformer.GLOBAL_ACTION_ACCESSIBILITY_BUTTON_CHOOSER;
 import static com.google.android.accessibility.talkback.actor.SystemActionPerformer.GLOBAL_ACTION_KEYCODE_HEADSETHOOK;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.GESTURE_ACTION_OVERLAY;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CONTEXT;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CUSTOM_ACTION;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.LANGUAGE;
 import static com.google.android.accessibility.talkback.trainingcommon.PageConfig.ANNOUNCE_REAL_ACTION;
 import static com.google.android.accessibility.talkback.trainingcommon.PageConfig.UNKNOWN_ANNOUNCEMENT;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
@@ -65,12 +68,10 @@ import static com.google.android.accessibility.utils.traversal.TraversalStrategy
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.FingerprintGestureController;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.TalkBackUI;
@@ -78,6 +79,7 @@ import com.google.android.accessibility.talkback.Feedback.TriggerIntent.Action;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.actor.gemini.GeminiFunctionUtils;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.contextmenu.ListMenuManager;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
@@ -264,6 +266,8 @@ public class GestureController {
           pipeline.returnFeedback(
               eventId, Feedback.systemAction(AccessibilityService.GLOBAL_ACTION_BACK));
     } else if (action.equals(service.getString(R.string.shortcut_value_home))) {
+      // Dismiss TalkBack menu
+      menuManager.dismissAll();
       result =
           pipeline.returnFeedback(
               eventId, Feedback.systemAction(AccessibilityService.GLOBAL_ACTION_HOME));
@@ -296,17 +300,17 @@ public class GestureController {
           pipeline.returnFeedback(
               eventId, Feedback.systemAction(GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS));
     } else if (action.equals(service.getString(R.string.shortcut_value_talkback_breakout))) {
-      result = menuManager.showMenu(R.menu.context_menu, eventId);
+      result = menuManager.showMenu(CONTEXT, eventId);
     } else if (action.equals(service.getString(R.string.shortcut_value_local_breakout))) {
-      result = menuManager.showMenu(R.menu.context_menu, eventId);
+      result = menuManager.showMenu(CONTEXT, eventId);
     } else if (action.equals(service.getString(R.string.shortcut_value_show_custom_actions))) {
-      result = menuManager.showMenu(R.id.custom_action_menu, eventId);
+      result = menuManager.showMenu(CUSTOM_ACTION, eventId);
     } else if (action.equals(service.getString(R.string.shortcut_value_editing))) {
       // Combines editing menu and custom action menu. If user set the gesture to editing menu, it
       // will launch custom action menu.
-      result = menuManager.showMenu(R.id.custom_action_menu, eventId);
+      result = menuManager.showMenu(CUSTOM_ACTION, eventId);
     } else if (action.equals(service.getString(R.string.shortcut_value_show_language_options))) {
-      result = menuManager.showMenu(R.menu.language_menu, eventId);
+      result = menuManager.showMenu(LANGUAGE, eventId);
     } else if (action.equals(service.getString(R.string.shortcut_value_previous_granularity))) {
       result = pipeline.returnFeedback(eventId, Feedback.focusDirection(PREVIOUS_GRANULARITY));
     } else if (action.equals(service.getString(R.string.shortcut_value_next_granularity))) {
@@ -326,7 +330,7 @@ public class GestureController {
     } else if (action.equals(service.getString(R.string.shortcut_value_read_from_top))) {
       result = pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_TOP));
     } else if (action.equals(service.getString(R.string.shortcut_value_read_from_current))) {
-      result = pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_NEXT));
+      result = pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_CURSOR));
     } else if (action.equals(service.getString(R.string.shortcut_value_print_node_tree))) {
       TreeDebug.logNodeTreesOnAllDisplays(service);
       pipeline.returnFeedback(
@@ -469,7 +473,9 @@ public class GestureController {
       if (node == null) {
         speak(service.getString(R.string.image_caption_no_result));
       } else {
-        result = pipeline.returnFeedback(eventId, Feedback.confirmDownloadAndPerformCaptions(node));
+        Feedback.Part.Builder feedback =
+            GeminiFunctionUtils.getPreferredImageDescriptionFeedback(service, actorState, node);
+        result = feedback != null && pipeline.returnFeedback(EVENT_ID_UNTRACKED, feedback);
       }
     }
 
@@ -477,9 +483,6 @@ public class GestureController {
       // Show failure hint if perform action fail.
       pipeline.returnFeedback(eventId, Feedback.sound(R.raw.complete));
     }
-    Intent intent = new Intent(GestureActionMonitor.ACTION_GESTURE_ACTION_PERFORMED);
-    intent.putExtra(GestureActionMonitor.EXTRA_SHORTCUT_GESTURE_ACTION, action);
-    LocalBroadcastManager.getInstance(service).sendBroadcast(intent);
   }
 
   public boolean isFingerprintGestureAssigned(int fingerprintGestureId) {

@@ -50,6 +50,9 @@
     <!-- Required for posting notifications, beginning in Android T. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <!-- Required for binding AICore service for on-device AI features. -->
+    <uses-permission android:name="com.google.android.apps.aicore.service.BIND_SERVICE"/>
+
     <!-- Hardware compatibility. -->
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -101,10 +104,18 @@
             android:theme="@style/TalkBackSettings"
             tools:ignore="ExportedActivity" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.accessibilityservice.SERVICE_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+
+        <!-- TalkBack subsettings Preferences -->
+        <activity
+            android:name="com.android.talkback.TalkBackPreferencesActivity$TalkBackSubSettings"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
+            android:exported="false"
+            android:label="@string/talkback_preferences_title"
+            android:theme="@style/TalkBackSettings">
         </activity>
 
         <!-- TalkBack permission request activity proxy -->
@@ -133,6 +144,19 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <action android:name="com.google.android.accessibility.talkback.training.START" />
             </intent-filter>
+        </activity>
+
+        <!-- Absolutely same with TrainingActivity for onboarding link to tutorial without breaking the singleTop launch mode.
+             To prevent slowdown of talkback event-handlers, arrange to run on a separate process. -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.trainingcommon.SecondaryTrainingActivity"
+            android:process=":Tutorial"
+            android:configChanges="keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout"
+            android:exported="true"
+            android:theme="@style/TrainingActivityTheme"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="ExportedActivity"
+            android:directBootAware="true">
         </activity>
 
         <activity android:name="com.google.android.accessibility.talkback.labeling.LabelImportActivity"

@@ -16,9 +16,9 @@
 package com.google.android.accessibility.utils.preference;
 
 import android.graphics.drawable.Drawable;
-import android.view.MenuItem;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import android.view.MenuItem;
 import com.google.android.accessibility.utils.FeatureSupport;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -82,7 +82,8 @@ public abstract class BasePreferencesActivity extends AppCompatActivity {
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     if (item.getItemId() == android.R.id.home) {
-        onBackPressed();
+      onBackPressed();
+      return true;
     }
     return super.onOptionsItemSelected(item);
   }

@@ -24,6 +24,14 @@ import static com.google.android.accessibility.talkback.PrimesController.TimerAc
 import static com.google.android.accessibility.talkback.PrimesController.TimerAction.IMAGE_CAPTION_IMAGE_PROCESS_BLOCK_OVERLAY;
 import static com.google.android.accessibility.talkback.PrimesController.TimerAction.IMAGE_CAPTION_OCR_FAILED;
 import static com.google.android.accessibility.talkback.PrimesController.TimerAction.IMAGE_CAPTION_OCR_SUCCEED;
+import static com.google.android.accessibility.talkback.PrimesController.TimerAction.LATENCY_BETWEEN_SCREENSHOT_CAPTURE_REQUEST;
+import static com.google.android.accessibility.talkback.actor.ImageCaptioner.CaptionNodeType.IMAGE;
+import static com.google.android.accessibility.talkback.actor.ImageCaptioner.CaptionNodeType.NONE;
+import static com.google.android.accessibility.talkback.actor.ImageCaptioner.CaptionNodeType.UNLABELLED_VIEW;
+import static com.google.android.accessibility.talkback.actor.gemini.GeminiFunctionUtils.GEMINI_REPEAT_OPT_IN_COUNT;
+import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.GEMINI_OPT_IN_CONSENT;
+import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.GEMINI_OPT_IN_DISSENT;
+import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.GEMINI_OPT_IN_SHOW_DIALOG;
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.IMAGE_CAPTION_EVENT_CANNOT_PERFORM_WHEN_SCREEN_HIDDEN;
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.IMAGE_CAPTION_EVENT_CAPTION_REQUEST;
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.IMAGE_CAPTION_EVENT_CAPTION_REQUEST_MANUAL;
@@ -45,19 +53,24 @@ import static com.google.android.accessibility.talkback.analytics.TalkBackAnalyt
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.IMAGE_CAPTION_EVENT_OCR_PERFORM_SUCCEED_EMPTY;
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.IMAGE_CAPTION_EVENT_SCREENSHOT_FAILED;
 import static com.google.android.accessibility.talkback.dynamicfeature.ModuleDownloadPrompter.Requester.MENU;
-import static com.google.android.accessibility.talkback.imagecaption.CaptionRequest.ERROR_INSUFFICIENT_STORAGE;
-import static com.google.android.accessibility.talkback.imagecaption.CaptionRequest.ERROR_NETWORK_ERROR;
 import static com.google.android.accessibility.talkback.imagecaption.CaptionRequest.INVALID_DURATION;
 import static com.google.android.accessibility.talkback.imagecaption.ImageCaptionUtils.constructCaptionTextForAuto;
 import static com.google.android.accessibility.talkback.imagecaption.ImageCaptionUtils.constructCaptionTextForManually;
+import static com.google.android.accessibility.talkback.imagecaption.ImageCaptionUtils.getAutomaticImageCaptioningState;
+import static com.google.android.accessibility.talkback.imagecaption.Request.ERROR_INSUFFICIENT_STORAGE;
+import static com.google.android.accessibility.talkback.imagecaption.Request.ERROR_NETWORK_ERROR;
+import static com.google.android.accessibility.talkback.utils.FocusIndicatorUtils.getTalkBackFocusStrokeWidth;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
+import static com.google.android.accessibility.utils.caption.ImageCaptionStorage.ENABLE_CACHE_MECHANISM;
 import static com.google.android.accessibility.utils.caption.ImageCaptionUtils.CaptionType.ICON_LABEL;
 import static com.google.android.accessibility.utils.caption.ImageCaptionUtils.CaptionType.IMAGE_DESCRIPTION;
 import static com.google.android.accessibility.utils.caption.ImageCaptionUtils.CaptionType.OCR;
+import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_NO_DEVICE_SLEEP;
 import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS;
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.graphics.Bitmap;
@@ -69,7 +82,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 import android.view.accessibility.AccessibilityWindowInfo;
-import androidx.annotation.BoolRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -78,12 +90,15 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.FeatureFlagReader;
 import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Feedback.TriggerIntent.Action;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.PrimesController;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.actor.gemini.GeminiOptInDialog;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.ImageCaptionLogKeys;
-import com.google.android.accessibility.talkback.dynamicfeature.FeatureDownloader;
+import com.google.android.accessibility.talkback.dynamicfeature.Downloader;
+import com.google.android.accessibility.talkback.dynamicfeature.DownloaderFactory;
 import com.google.android.accessibility.talkback.dynamicfeature.IconDetectionModuleDownloadPrompter;
 import com.google.android.accessibility.talkback.dynamicfeature.ImageDescriptionModuleDownloadPrompter;
 import com.google.android.accessibility.talkback.dynamicfeature.ModuleDownloadPrompter.DownloadStateListener;
@@ -91,24 +106,26 @@ import com.google.android.accessibility.talkback.dynamicfeature.ModuleDownloadPr
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.icondetection.IconAnnotationsDetectorFactory;
 import com.google.android.accessibility.talkback.imagecaption.CaptionRequest;
-import com.google.android.accessibility.talkback.imagecaption.CaptionRequest.ErrorCode;
 import com.google.android.accessibility.talkback.imagecaption.CharacterCaptionRequest;
 import com.google.android.accessibility.talkback.imagecaption.IconDetectionRequest;
+import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.AutomaticImageCaptioningState;
 import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.DownloadDialogResources;
 import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.DownloadStateListenerResources;
 import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.FeatureSwitchDialogResources;
 import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.ImageCaptionPreferenceKeys;
 import com.google.android.accessibility.talkback.imagecaption.ImageDescriptionRequest;
+import com.google.android.accessibility.talkback.imagecaption.Request;
+import com.google.android.accessibility.talkback.imagecaption.Request.ErrorCode;
 import com.google.android.accessibility.talkback.imagecaption.RequestList;
 import com.google.android.accessibility.talkback.imagecaption.ScreenshotCaptureRequest;
 import com.google.android.accessibility.talkback.imagedescription.ImageDescriptionProcessor;
 import com.google.android.accessibility.talkback.utils.SplitCompatUtils;
+import com.google.android.accessibility.talkback.utils.TalkbackFeatureSupport;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Filter;
-import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
@@ -121,8 +138,12 @@ import com.google.android.accessibility.utils.input.WindowEventInterpreter.Event
 import com.google.android.accessibility.utils.input.WindowEventInterpreter.WindowEventHandler;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.accessibility.utils.screenunderstanding.IconAnnotationsDetector;
+import com.google.android.libraries.accessibility.utils.bitmap.BitmapUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.auto.value.AutoValue;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
+import java.time.Duration;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -137,11 +158,31 @@ import java.util.concurrent.Future;
 public class ImageCaptioner extends Handler
     implements WindowEventHandler, OnSharedPreferenceChangeListener {
 
+  /** The type of the captioning node. */
+  enum CaptionNodeType {
+    /** The node doesn't need automatic image captioning. */
+    NONE,
+    /** The node needs automatic image captioning because it is an image. */
+    IMAGE,
+    /** The node needs automatic image captioning because it is unlabelled. */
+    UNLABELLED_VIEW
+  }
+
   private static final String TAG = "ImageCaptioner";
+  // Only the last taking screenshot request for the focused node will be performed to ensure the
+  // caption requests are able to be performed soon.
+  public static final int SCREENSHOT_REQUEST_CAPACITY = 1;
+  // Once the take-screenshot request is finished, a CaptionResult will be created and pending until
+  // all caption requests are finished. It’s difficult to cancel the caption requests which may be
+  // executing, so only take-screenshot requests are able to handle the cancellation (capacity = 1).
   public static final int CAPTION_REQUEST_CAPACITY = 10;
   private static boolean supportIconDetection = true;
-  private static final int MSG_RESULT_TIMEOUT = 0;
+  @VisibleForTesting static final int MSG_RESULT_TIMEOUT = 0;
   private static final long RESULT_MAX_WAITING_TIME_MS = 5000;
+
+  // Copy from AccessibilityService.ACCESSIBILITY_TAKE_SCREENSHOT_REQUEST_INTERVAL_TIMES_MS.
+  private static final Duration TAKE_SCREENSHOT_REQUEST_INTERVAL_TIMES =
+      FeatureSupport.supportTakeScreenshot3fps() ? Duration.ofMillis(333) : Duration.ofSeconds(1);
   private static final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
   private final AccessibilityService service;
@@ -169,18 +210,22 @@ public class ImageCaptioner extends Handler
    */
   private int requestId = 0;
 
-  private final RequestList<ScreenshotCaptureRequest> screenshotRequests =
-      new RequestList<>(CAPTION_REQUEST_CAPACITY);
+  private final RequestList<ScreenshotCaptureRequest> screenshotRequests;
   private final RequestList<CharacterCaptionRequest> characterCaptionRequests =
       new RequestList<>(CAPTION_REQUEST_CAPACITY);
   private final RequestList<IconDetectionRequest> iconDetectionRequests =
       new RequestList<>(CAPTION_REQUEST_CAPACITY);
   private final RequestList<ImageDescriptionRequest> imageDescriptionRequests =
       new RequestList<>(CAPTION_REQUEST_CAPACITY);
+  private GeminiOptInDialog geminiOptInDialog;
+  private GeminiOptInDialog geminiNanoOptInDialog;
+  private GeminiOptInDialog configImageDescriptionDialog;
+  private AccessibilityNodeInfoCompat nodeToBeDetailDescribed;
 
   @VisibleForTesting
   ImageCaptioner(
       AccessibilityService service,
+      RequestList<ScreenshotCaptureRequest> screenshotRequests,
       ImageCaptionStorage imageCaptionStorage,
       IconDetectionModuleDownloadPrompter iconDetectionModuleDownloadPrompter,
       ImageDescriptionModuleDownloadPrompter imageDescriptionModuleDownloadPrompter,
@@ -190,6 +235,7 @@ public class ImageCaptioner extends Handler
     super(Looper.myLooper());
     this.service = service;
     prefs = SharedPreferencesUtils.getSharedPreferences(service);
+    this.screenshotRequests = screenshotRequests;
     this.imageCaptionStorage = imageCaptionStorage;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
     this.captionResults = new HashMap<>();
@@ -209,17 +255,19 @@ public class ImageCaptioner extends Handler
     super(Looper.myLooper());
     this.service = service;
     prefs = SharedPreferencesUtils.getSharedPreferences(service);
+    screenshotRequests =
+        new RequestList<>(SCREENSHOT_REQUEST_CAPACITY, TAKE_SCREENSHOT_REQUEST_INTERVAL_TIMES);
     this.imageCaptionStorage = imageCaptionStorage;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
     this.captionResults = new HashMap<>();
     this.analytics = analytics;
     this.primesController = primesController;
-    FeatureDownloader featureDownloader = FeatureDownloader.getInstance(service);
-    featureDownloader.updateAllInstallStatuses();
+    Downloader downloader = DownloaderFactory.create(service);
+    downloader.updateAllDownloadStatus();
     iconDetectionModuleDownloadPrompter =
-        new IconDetectionModuleDownloadPrompter(service, featureDownloader);
+        new IconDetectionModuleDownloadPrompter(service, downloader);
     imageDescriptionModuleDownloadPrompter =
-        new ImageDescriptionModuleDownloadPrompter(service, featureDownloader);
+        new ImageDescriptionModuleDownloadPrompter(service, downloader);
     initialize();
   }
 
@@ -241,25 +289,170 @@ public class ImageCaptioner extends Handler
     if (!initImageDescription()) {
       LogUtils.v(TAG, "Image description is not initialized in ImageCaptioner()");
     }
+    geminiOptInDialog =
+        new GeminiOptInDialog(
+            service,
+            R.string.title_gemini_opt_in_dialog,
+            false,
+            R.string.dialog_message_detailed_ai_promotion,
+            R.string.positive_button_gemini_opt_in_dialog,
+            R.string.negative_button_gemini_opt_in_dialog) {
+          @Override
+          public void handleDialogClick(int buttonClicked) {
+            switch (buttonClicked) {
+              case DialogInterface.BUTTON_POSITIVE:
+                prefs
+                    .edit()
+                    .putBoolean(
+                        context.getString(R.string.pref_detailed_image_description_key), true)
+                    .apply();
+                analytics.onGeminiOptInEvent(GEMINI_OPT_IN_CONSENT);
+                break;
+              case DialogInterface.BUTTON_NEGATIVE:
+                prefs
+                    .edit()
+                    .putBoolean(
+                        context.getString(R.string.pref_detailed_image_description_key), false)
+                    .apply();
+                analytics.onGeminiOptInEvent(GEMINI_OPT_IN_DISSENT);
+
+                int optInCount =
+                    prefs.getInt(
+                        context.getString(R.string.pref_gemini_repeat_opt_in_count_key), 0);
+                if (optInCount < GEMINI_REPEAT_OPT_IN_COUNT) {
+                  SharedPreferencesUtils.putIntPref(
+                      prefs,
+                      context.getResources(),
+                      R.string.pref_gemini_repeat_opt_in_count_key,
+                      ++optInCount);
+                }
+                break;
+              default: // fall out
+            }
+          }
+
+          @Override
+          public void handleDialogDismiss() {
+            if (nodeToBeDetailDescribed == null) {
+              return;
+            }
+            if (SharedPreferencesUtils.getBooleanPref(
+                prefs,
+                context.getResources(),
+                R.string.pref_detailed_image_description_key,
+                R.bool.pref_detailed_image_description_default)) {
+              // The opt-in key is enabled which implies user click positive button. So the
+              // "Describe image" will go with detailed image description. Otherwise, it will go
+              // with original basic image description.
+              pipeline.returnFeedback(
+                  EVENT_ID_UNTRACKED,
+                  Feedback.performDetailedImageCaption(nodeToBeDetailDescribed));
+            }
+          }
+        };
+    geminiNanoOptInDialog =
+        new GeminiOptInDialog(
+            service,
+            R.string.title_on_device_gemini_opt_in_dialog,
+            true,
+            R.string.dialog_message_on_device_detailed_ai_promotion,
+            R.string.positive_button_gemini_nano_opt_in_dialog,
+            /* negativeButtonResId= */ -1) {
+          @Override
+          public void handleDialogClick(int buttonClicked) {
+            switch (buttonClicked) {
+              case DialogInterface.BUTTON_POSITIVE:
+                prefs
+                    .edit()
+                    .putBoolean(
+                        context.getString(R.string.pref_auto_on_devices_image_description_key),
+                        true)
+                    .apply();
+                break;
+              case DialogInterface.BUTTON_NEGATIVE:
+                prefs
+                    .edit()
+                    .putBoolean(
+                        context.getString(R.string.pref_auto_on_devices_image_description_key),
+                        false)
+                    .apply();
+                break;
+              default:
+            }
+          }
+
+          @Override
+          public void handleDialogDismiss() {
+            if (nodeToBeDetailDescribed == null) {
+              return;
+            }
+            if (SharedPreferencesUtils.getBooleanPref(
+                prefs,
+                context.getResources(),
+                R.string.pref_auto_on_devices_image_description_key,
+                R.bool.pref_auto_on_device_image_description_default)) {
+              pipeline.returnFeedback(
+                  EVENT_ID_UNTRACKED,
+                  Feedback.performDetailedOnDeviceImageCaption(nodeToBeDetailDescribed));
+            }
+          }
+        };
+    configImageDescriptionDialog =
+        new GeminiOptInDialog(
+            service,
+            R.string.dialog_title_turn_on_image_description,
+            false,
+            -1,
+            R.string.positive_button_turn_on_image_descriptions_dialog,
+            R.string.delete_dialog_negative_button_text) {
+          @Override
+          public void handleDialogClick(int buttonClicked) {
+            switch (buttonClicked) {
+              case DialogInterface.BUTTON_POSITIVE:
+                pipeline.returnFeedback(
+                    EVENT_ID_UNTRACKED,
+                    Feedback.triggerIntent(Action.TRIGGER_IMAGE_DESCRIPTIONS_SETTINGS));
+                break;
+              case DialogInterface.BUTTON_NEGATIVE:
+                break;
+              default:
+            }
+          }
+
+          @Override
+          public void handleDialogDismiss() {}
+        };
   }
 
   public static boolean supportsImageCaption(Context context) {
     return FeatureSupport.canTakeScreenShotByAccessibilityService()
-        && !FormFactorUtils.getInstance().isAndroidWear();
+        && TalkbackFeatureSupport.supportDynamicFeatures();
+  }
+
+  /**
+   * Checks if the node needs automatic image captioning depending on the settings in Automatic
+   * Image Description Settings page.
+   */
+  public static boolean needAutomaticCaptioning(
+      Context context, AccessibilityNodeInfoCompat node, boolean hasAiCore) {
+    SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
+    CaptionNodeType captionNodeType = getCaptionNodeType(context, node, /* needSizeCheck= */ false);
+    return needAutomaticIconDetection(context, prefs, captionNodeType)
+        || needAutomaticImageDescription(
+            context, prefs, getCaptionNodeType(context, node, /* needSizeCheck= */ true), hasAiCore)
+        || needAutomaticTextRecognition(context, prefs, captionNodeType);
   }
 
   public static boolean supportsIconDetection(Context context) {
     return FeatureSupport.canTakeScreenShotByAccessibilityService()
-        && !FormFactorUtils.getInstance().isAndroidWear()
-        && !FormFactorUtils.getInstance().isAndroidTv()
+        && TalkbackFeatureSupport.supportDynamicFeatures()
         && ImageCaptioner.isSupportIconDetection();
   }
 
   public static boolean supportsImageDescription(Context context) {
     return FeatureSupport.canTakeScreenShotByAccessibilityService()
+        && TalkbackFeatureSupport.supportDynamicFeatures()
         && FeatureFlagReader.enableImageDescription(context)
-        && !FormFactorUtils.getInstance().isAndroidWear()
-        && !FormFactorUtils.getInstance().isAndroidTv()
         && ImageDescriptionProcessor.isSupportImageDescription();
   }
 
@@ -403,7 +596,7 @@ public class ImageCaptioner extends Handler
     }
   }
 
-  private boolean descriptionLibraryReady() {
+  public boolean descriptionLibraryReady() {
     return supportsImageDescription(service)
         && imageDescriptionModuleDownloadPrompter.isModuleAvailable()
         && !imageDescriptionModuleDownloadPrompter.isUninstalled();
@@ -585,6 +778,38 @@ public class ImageCaptioner extends Handler
   }
 
   /**
+   * Shows the Gemini opt-in dialog.
+   *
+   * @param node The focused node which is the potential target to be detailed described.
+   */
+  public boolean geminiOptInForManualTrigger(AccessibilityNodeInfoCompat node) {
+    nodeToBeDetailDescribed = node;
+    geminiOptInDialog.showDialog();
+    analytics.onGeminiOptInEvent(GEMINI_OPT_IN_SHOW_DIALOG);
+
+    return true;
+  }
+
+  /**
+   * Shows the Gemini On-device opt-in dialog.
+   *
+   * @param node The focused node which is the potential target to be detailed described.
+   */
+  public boolean geminiOnDeviceOptInForManualTrigger(AccessibilityNodeInfoCompat node) {
+    nodeToBeDetailDescribed = node;
+    geminiNanoOptInDialog.showDialog();
+    // analytics.onGeminiOptInEvent(GEMINI_OPT_IN_SHOW_DIALOG);
+
+    return true;
+  }
+
+  public boolean geminiConfigDetailedImageDescriptionTrigger(AccessibilityNodeInfoCompat node) {
+    configImageDescriptionDialog.showDialog();
+
+    return true;
+  }
+
+  /**
    * Creates a {@link CaptionRequest} to perform corresponding image caption or reads out the result
    * if it exists in the cache.
    */
@@ -611,13 +836,6 @@ public class ImageCaptioner extends Handler
         // compositor.
         return true;
       }
-
-      // All automatic descriptions are disabled.
-      if (isAutomaticIconDetectionDisabled()
-          && isAutomaticImageDescriptionDisabled()
-          && isAutomaticTextRecognitionDisabled()) {
-        return true;
-      }
     }
 
     if (iconAnnotationsDetector != null) {
@@ -628,8 +846,117 @@ public class ImageCaptioner extends Handler
 
     screenshotRequests.addRequest(
         new ScreenshotCaptureRequest(
-            service, node, this::handleScreenshotCaptureResponse, isUserRequested));
+            service,
+            node,
+            this::onScreenshotCapturePending,
+            this::handleScreenshotCaptureResponse,
+            isUserRequested));
     return true;
+  }
+
+  /** Performs image captioning on the given {@link AccessibilityNodeInfoCompat} by Gemini. */
+  public boolean captionWithGemini(AccessibilityNodeInfoCompat node) {
+    if (!canTakeScreenshot()) {
+      return false;
+    }
+
+    ScreenshotCaptureRequest screenshotCaptureRequest =
+        new ScreenshotCaptureRequest(
+            service,
+            node,
+            this::onScreenshotCapturePending,
+            (focusedNode, screenCapture, isUserRequested) -> {
+              processImageCaptioningWithGemini(
+                  focusedNode, screenCapture, isUserRequested, /* isToAiCore= */ false);
+            },
+            true);
+    screenshotRequests.addRequest(screenshotCaptureRequest);
+    return true;
+  }
+
+  /** Performs image captioning on the given {@link AccessibilityNodeInfoCompat} by Gemini Nano. */
+  public boolean captionWithOnDeviceGemini(AccessibilityNodeInfoCompat node) {
+    if (!canTakeScreenshot()) {
+      return false;
+    }
+
+    ScreenshotCaptureRequest screenshotCaptureRequest =
+        new ScreenshotCaptureRequest(
+            service,
+            node,
+            this::onScreenshotCapturePending,
+            (focusedNode, screenCapture, isUserRequested) -> {
+              processImageCaptioningWithGemini(
+                  focusedNode, screenCapture, isUserRequested, /* isToAiCore= */ true);
+            },
+            true);
+    screenshotRequests.addRequest(screenshotCaptureRequest);
+    return true;
+  }
+
+  private void processImageCaptioningWithGemini(
+      AccessibilityNodeInfoCompat focusedNode,
+      Bitmap screenCapture,
+      boolean isUserRequested,
+      boolean isToAiCore) {
+    if (screenCapture == null) {
+      handleScreenshotCaptureFailure(isUserRequested);
+      return;
+    }
+    requestId++;
+    ProcessedScreens screens =
+        processImageForNodeCaption(
+            focusedNode, screenCapture, getTalkBackFocusStrokeWidth(prefs, service.getResources()));
+    CaptionResult captionResult =
+        new CaptionResult(
+            AccessibilityNode.takeOwnership(focusedNode),
+            isUserRequested,
+            /* isImageDescriptionFromAiCore= */ true);
+    captionResults.put(requestId, captionResult);
+    // For Bitmap recycle.
+    captionResult.addUsedScreenshot(screens.croppedScreenCapture());
+    captionResult.addUsedScreenshot(screens.blockedScreenCapture());
+
+    CaptionNodeType captionNodeType =
+        getCaptionNodeType(service, focusedNode, /* needSizeCheck= */ false);
+    // Text recognition (only for auto-captioning)
+    if (isUserRequested || !needAutomaticTextRecognition(service, prefs, captionNodeType)) {
+      // No need to perform  text recognition.
+      captionResult.setOcrText(null);
+    } else {
+      analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_OCR_PERFORM);
+      addCaptionRequest(
+          requestId, focusedNode, screens.croppedScreenCapture(), /* isUserRequested= */ false);
+    }
+
+    // Icon detection (only for auto-captioning)
+    if (iconAnnotationsDetector == null
+        || isUserRequested
+        || !needAutomaticIconDetection(service, prefs, captionNodeType)) {
+      // No need to perform icon detection
+      captionResult.setIconLabel(null);
+    } else {
+      analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_ICON_DETECT_PERFORM);
+      addIconDetectionRequest(
+          requestId, focusedNode, screens.blockedScreenCapture(), /* isUserRequested= */ false);
+    }
+
+    // Image description with Gemini
+    if (isToAiCore) {
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.geminiOnDeviceImageCaptioning(
+              requestId, screens.croppedScreenCapture(), isUserRequested));
+    } else {
+      pipeline.returnFeedback(
+          EVENT_ID_UNTRACKED,
+          Feedback.geminiRequest(
+              requestId,
+              service.getResources().getString(R.string.image_caption_with_gemini_prefix),
+              screens.croppedScreenCapture()));
+    }
+
+    screenshotRequests.performNextRequest();
   }
 
   /**
@@ -708,10 +1035,20 @@ public class ImageCaptioner extends Handler
         || !actorState.getDimScreen().isDimmingEnabled();
   }
 
-  /** Blocks out views and system windows which overlap with the given view. */
+  /**
+   * Blocks out views and system windows which overlap with the given view.
+   *
+   * @return {@code null} if no view overlaps with the node view.
+   */
   @VisibleForTesting
+  @Nullable
   Bitmap blockOverlaps(
       AccessibilityNodeInfoCompat root, AccessibilityNodeInfoCompat node, Bitmap screenshot) {
+    if (root == null || node == null) {
+      LogUtils.w(TAG, "Can't perform blockOverlaps; the caller may need to reuse screenshot");
+      return null;
+    }
+
     // Gets all ancestors.
     Set<AccessibilityNodeInfoCompat> selfAndAncestors = new HashSet<>();
     selfAndAncestors.add(node);
@@ -733,7 +1070,13 @@ public class ImageCaptioner extends Handler
                 Rect bounds = new Rect();
                 info.getBoundsInScreen(bounds);
                 if (nodeBounds.contains(bounds) && !selfAndAncestors.contains(info)) {
-                  return AccessibilityNodeInfoUtils.isFocusable(info);
+                  if (((nodeBounds.width() - bounds.width()) > nodeBounds.width() / 10)
+                      && ((nodeBounds.height() - bounds.height()) > nodeBounds.height() / 10)) {
+                    // b/348281762. If views within the container(image for captioning)
+                    // completely(or highly) overlap, the blacken effect is applied to the parent
+                    // rectangle only when it maintains at least 19%(1-0.9x0.9) visibility.
+                    return AccessibilityNodeInfoUtils.isFocusable(info);
+                  }
                 }
                 return false;
               }
@@ -770,12 +1113,15 @@ public class ImageCaptioner extends Handler
       }
     }
 
-    if (isBlockedOut) {
-      screenshot = Bitmap.createBitmap(width, height, Config.ARGB_8888);
-      screenshot.setPixels(pixels, /* offset= */ 0, width, /* x= */ 0, /* y= */ 0, width, height);
+    if (!isBlockedOut) {
+      return null;
     }
 
-    return screenshot;
+    Bitmap blockedScreenshot = Bitmap.createBitmap(width, height, Config.ARGB_8888);
+    blockedScreenshot.setPixels(
+        pixels, /* offset= */ 0, width, /* x= */ 0, /* y= */ 0, width, height);
+
+    return blockedScreenshot;
   }
 
   /** Makes the given node in the screenshot become black. */
@@ -802,9 +1148,9 @@ public class ImageCaptioner extends Handler
     for (int row = bounds.top; row < bounds.bottom; row++) {
       for (int column = bounds.left; column < bounds.right; column++) {
         int index = row * width + column;
-        if (index >= size) {
+        if (index >= size || index < 0) {
           LogUtils.e(TAG, "blacken - invalid index");
-          continue;
+          return;
         }
         screenshotPixels[index] = Color.BLACK;
       }
@@ -815,44 +1161,59 @@ public class ImageCaptioner extends Handler
   void handleScreenshotCaptureResponse(
       AccessibilityNodeInfoCompat node, @Nullable Bitmap screenCapture, boolean isUserRequested) {
     if (screenCapture == null) {
-      analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_SCREENSHOT_FAILED);
-      // TODO: Retry taking screenshot if the error code is
-      // AccessibilityService.ERROR_TAKE_SCREENSHOT_INTERVAL_TIME_SHORT
-      LogUtils.v(TAG, "onScreenCaptureFinish() taking screenshot is failed.");
-      screenshotRequests.performNextRequest();
+      handleScreenshotCaptureFailure(isUserRequested);
       return;
     }
 
     LogUtils.v(TAG, "onScreenCaptureFinish() taking screenshot is successful.");
+
+    // Image captioning with Gemini(auto-triggered).
+    if (actorState.getGeminiState().hasAiCore()) {
+      if (!isUserRequested) {
+        LogUtils.v(TAG, "onScreenCaptureFinish(): auto-caption with Gemini");
+        processImageCaptioningWithGemini(
+            node, screenCapture, /* isUserRequested= */ false, /* isToAiCore= */ true);
+        return;
+      } else {
+        LogUtils.w(TAG, "Shouldn't trigger manual image description with AiCore here.");
+      }
+    }
+
     requestId++;
 
-    @Nullable AccessibilityNodeInfoCompat root = AccessibilityNodeInfoUtils.getRoot(node);
-    if (root != null) {
-      long startTime = SystemClock.uptimeMillis();
-      screenCapture = blockOverlaps(root, node, screenCapture);
-      primesController.recordDuration(
-          IMAGE_CAPTION_IMAGE_PROCESS_BLOCK_OVERLAY, startTime, SystemClock.uptimeMillis());
-    }
+    ProcessedScreens screens =
+        processImageForNodeCaption(
+            node, screenCapture, getTalkBackFocusStrokeWidth(prefs, service.getResources()));
 
     CaptionResult captionResult =
         new CaptionResult(AccessibilityNode.takeOwnership(node), isUserRequested);
     captionResults.put(requestId, captionResult);
+    // For Bitmap recycle.
+    captionResult.addUsedScreenshot(screens.blockedScreenCapture());
+    if (!screens.croppedScreenCapture().equals(screens.blockedScreenCapture())) {
+      captionResult.addUsedScreenshot(screens.croppedScreenCapture());
+    }
     sendResultTimeoutMessage();
 
+    CaptionNodeType captionNodeType = getCaptionNodeType(service, node, /* needSizeCheck= */ false);
+    boolean hasCaptionRequest = false;
     // Icon detection.
     if (iconAnnotationsDetector == null
-        || (!isUserRequested && isAutomaticIconDetectionDisabled())) {
+        || (!isUserRequested && !needAutomaticIconDetection(service, prefs, captionNodeType))) {
       // Not support icon detection or automatic icon description is disabled.
       captionResult.setIconLabel(null);
     } else {
-
       // If the label for the matched icon is available in English, there is no need to process
       // the screenshot to detect icons. And it is possible that the label for the matched icon is
       // available in English but not available in current speech language.
-      CharSequence iconLabel = iconAnnotationsDetector.getIconLabel(Locale.ENGLISH, node);
+      CharSequence iconLabel =
+          ENABLE_CACHE_MECHANISM
+              ? iconAnnotationsDetector.getIconLabel(Locale.ENGLISH, node)
+              : null;
       if (iconLabel == null) {
         analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_ICON_DETECT_PERFORM);
-        addIconDetectionRequest(requestId, node, screenCapture, isUserRequested);
+        addIconDetectionRequest(requestId, node, screens.blockedScreenCapture(), isUserRequested);
+        hasCaptionRequest = true;
       } else {
         analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_IMAGE_CAPTION_CACHE_HIT);
         LogUtils.v(TAG, "handleScreenshotCaptureResponse(): Icon label exists. icon=%s", iconLabel);
@@ -861,29 +1222,65 @@ public class ImageCaptioner extends Handler
     }
 
     // Text recognition.
-    if (!isUserRequested && isAutomaticTextRecognitionDisabled()) {
+    if (!isUserRequested && !needAutomaticTextRecognition(service, prefs, captionNodeType)) {
       // Automatic text recognition is disabled.
       captionResult.setOcrText(null);
     } else {
       analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_OCR_PERFORM);
-      addCaptionRequest(requestId, node, screenCapture, isUserRequested);
+      addCaptionRequest(requestId, node, screens.croppedScreenCapture(), isUserRequested);
+      hasCaptionRequest = true;
     }
 
-    // Image description.
+    // Image description with Garcon.
     if (imageDescriptionProcessor == null) {
       // Image description isn't supported or ready.
       captionResult.setImageDescription(null);
       if (isImageDescriptionProcessorInitializing) {
         LogUtils.v(TAG, "Image description process is initializing...");
       }
-    } else if (!isUserRequested && isAutomaticImageDescriptionDisabled()) {
+    } else if (!isUserRequested
+        && !needAutomaticImageDescription(
+            service,
+            prefs,
+            getCaptionNodeType(service, node, /* needSizeCheck= */ true),
+            /* hasAiCore= */ false)) {
       // Automatic image description is disabled.
       captionResult.setImageDescription(null);
     } else {
       analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_IMAGE_DESCRIBE_PERFORM);
-      addImageDescriptionRequest(requestId, node, screenCapture, isUserRequested);
+      addImageDescriptionRequest(requestId, node, screens.croppedScreenCapture(), isUserRequested);
+      hasCaptionRequest = true;
     }
 
+    if (hasCaptionRequest) {
+      return;
+    }
+
+    LogUtils.v(TAG, "No caption request for the screenshot. Perform the next screenshot request.");
+    screenshotRequests.performNextRequest();
+  }
+
+  private void handleScreenshotCaptureFailure(boolean isUserRequested) {
+    analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_SCREENSHOT_FAILED);
+    LogUtils.e(TAG, "onScreenCaptureFinish() taking screenshot has failed.");
+
+    if (isUserRequested) {
+      returnFeedback(R.string.gemini_screenshot_unavailable);
+    }
+
+    screenshotRequests.performNextRequest();
+  }
+
+  @VisibleForTesting
+  void onScreenshotCapturePending(boolean scheduled, Duration intervalTime) {
+    primesController.recordDuration(
+        LATENCY_BETWEEN_SCREENSHOT_CAPTURE_REQUEST, intervalTime.toMillis());
+    if (scheduled) {
+      return;
+    }
+
+    analytics.onImageCaptionEvent(
+        TalkBackAnalytics.IMAGE_CAPTION_EVENT_SCHEDULE_SCREENSHOT_CAPTURE_FAILURE);
     screenshotRequests.performNextRequest();
   }
 
@@ -922,7 +1319,7 @@ public class ImageCaptioner extends Handler
                     IMAGE_CAPTION_OCR_FAILED, errorRequest.getDurationMillis());
               }
               analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_OCR_PERFORM_FAIL);
-              LogUtils.v(TAG, "onError(), error= %s", CaptionRequest.errorName(errorCode));
+              LogUtils.v(TAG, "onError(), error= %s", Request.errorName(errorCode));
               characterCaptionRequests.performNextRequest();
               handleResult(
                   errorRequest.getRequestId(),
@@ -965,7 +1362,7 @@ public class ImageCaptioner extends Handler
                     IMAGE_CAPTION_ICON_LABEL_FAILED, errorRequest.getDurationMillis());
               }
               analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_ICON_DETECT_FAIL);
-              LogUtils.v(TAG, "onError(), error=%s", CaptionRequest.errorName(errorCode));
+              LogUtils.v(TAG, "onError(), error=%s", Request.errorName(errorCode));
               iconDetectionRequests.performNextRequest();
               handleResult(
                   errorRequest.getRequestId(),
@@ -1012,7 +1409,7 @@ public class ImageCaptioner extends Handler
                     IMAGE_CAPTION_IMAGE_DESCRIPTION_FAILED, errorRequest.getDurationMillis());
               }
               analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_IMAGE_DESCRIBE_FAIL);
-              LogUtils.v(TAG, "onError(), error=%s", CaptionRequest.errorName(errorCode));
+              LogUtils.v(TAG, "onError(), error=%s", Request.errorName(errorCode));
               imageDescriptionRequests.performNextRequest();
               handleResult(
                   errorRequest.getRequestId(),
@@ -1023,26 +1420,66 @@ public class ImageCaptioner extends Handler
             isUserRequested));
   }
 
-  private boolean isAutomaticIconDetectionDisabled() {
-    return !getBooleanPref(
-        FeatureSwitchDialogResources.ICON_DETECTION.switchKey,
-        FeatureSwitchDialogResources.ICON_DETECTION.switchDefaultValue);
+  /** Returns why the node needs automatic image captioning. */
+  private static CaptionNodeType getCaptionNodeType(
+      Context context, AccessibilityNodeInfoCompat node, boolean needSizeCheck) {
+    return ImageCaptionUtils.needImageCaptionForUnlabelledView(context, node)
+        ? UNLABELLED_VIEW
+        : FeatureFlagReader.enableAutomaticCaptioningForAllImages(context)
+                && ImageCaptionUtils.needImageCaption(
+                    context,
+                    node,
+                    /* enableAutomaticImageCaptionForAllImages= */ true,
+                    needSizeCheck)
+            ? IMAGE
+            : NONE;
   }
 
-  private boolean isAutomaticImageDescriptionDisabled() {
-    return !getBooleanPref(
-        FeatureSwitchDialogResources.IMAGE_DESCRIPTION.switchKey,
-        FeatureSwitchDialogResources.IMAGE_DESCRIPTION.switchDefaultValue);
+  private static boolean needAutomaticIconDetection(
+      Context context, SharedPreferences prefs, CaptionNodeType captionNodeType) {
+    return needAutomaticImageCaptioning(
+        context, prefs, FeatureSwitchDialogResources.ICON_DETECTION, captionNodeType);
   }
 
-  private boolean isAutomaticTextRecognitionDisabled() {
-    return !getBooleanPref(
-        FeatureSwitchDialogResources.TEXT_RECOGNITION.switchKey,
-        FeatureSwitchDialogResources.TEXT_RECOGNITION.switchDefaultValue);
+  private static boolean needAutomaticImageDescription(
+      Context context,
+      SharedPreferences prefs,
+      CaptionNodeType captionNodeType,
+      boolean hasAiCore) {
+    return hasAiCore
+        ? needAutomaticImageCaptioning(
+            context,
+            prefs,
+            FeatureSwitchDialogResources.IMAGE_DESCRIPTION_AICORE_OPT_IN,
+            captionNodeType)
+        : needAutomaticImageCaptioning(
+            context, prefs, FeatureSwitchDialogResources.IMAGE_DESCRIPTION, captionNodeType);
   }
 
-  private boolean getBooleanPref(int key, @BoolRes int defaultValue) {
-    return SharedPreferencesUtils.getBooleanPref(prefs, service.getResources(), key, defaultValue);
+  private static boolean needAutomaticTextRecognition(
+      Context context, SharedPreferences prefs, CaptionNodeType captionNodeType) {
+    return needAutomaticImageCaptioning(
+        context, prefs, FeatureSwitchDialogResources.TEXT_RECOGNITION, captionNodeType);
+  }
+
+  private static boolean needAutomaticImageCaptioning(
+      Context context,
+      SharedPreferences prefs,
+      FeatureSwitchDialogResources switchDialogResources,
+      CaptionNodeType captionNodeType) {
+    AutomaticImageCaptioningState state =
+        getAutomaticImageCaptioningState(context, prefs, switchDialogResources);
+    switch (state) {
+      case OFF:
+        return false;
+      case ON_ALL_IMAGES:
+        return captionNodeType != NONE;
+      case ON_UNLABELLED_ONLY:
+        return captionNodeType == UNLABELLED_VIEW;
+      default:
+        LogUtils.e(TAG, "Invalid automatic image captioning state [%s]", state);
+        return true;
+    }
   }
 
   private void putBooleanPref(int key, boolean defaultValue) {
@@ -1083,16 +1520,21 @@ public class ImageCaptioner extends Handler
     return screenshotRequests.getWaitingRequestSize();
   }
 
-  private void handleResult(
-      int id, AccessibilityNode node, Result result, boolean isUserRequested) {
+  @VisibleForTesting
+  void handleResult(int id, AccessibilityNode node, Result result, boolean isUserRequested) {
     @Nullable
     AccessibilityNode focusedNode =
         AccessibilityNode.takeOwnership(
             accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false));
 
     @Nullable CaptionResult captionResult = captionResults.get(id);
-    if (isUserRequested || node.equals(focusedNode)) {
-      if (captionResult == null) {
+    boolean sameNodeWithCurrentFocus = node != null ? node.equals(focusedNode) : false;
+    boolean needFeedbackToUser =
+        isUserRequested
+            || (sameNodeWithCurrentFocus && screenshotRequests.getWaitingRequestSize() < 1);
+
+    if (captionResult == null) {
+      if (needFeedbackToUser) {
         // There is no generate runnable for the request, so announcing the result directly.
         switch (result.type()) {
           case OCR:
@@ -1113,37 +1555,84 @@ public class ImageCaptioner extends Handler
             returnCaptionResult(
                 /* ocrTextResult= */ null, /* iconLabelResult= */ null, result, isUserRequested);
             break;
-        }
-      } else {
-        switch (result.type()) {
-          case OCR:
-            captionResult.setOcrText(result);
+          default:
             break;
-          case ICON_LABEL:
-            captionResult.setIconLabel(result);
-            break;
-          case IMAGE_DESCRIPTION:
-            captionResult.setImageDescription(result);
-        }
-        if (captionResult.isFinished()) {
-          returnCaptionResult(captionResult);
-          captionResults.remove(id);
-          removeMessages(MSG_RESULT_TIMEOUT);
         }
       }
+      screenshotRequests.performNextRequest();
     } else {
-      if (iconAnnotationsDetector != null) {
-        analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_ICON_DETECT_ABORT);
+      switch (result.type()) {
+        case OCR:
+          captionResult.setOcrText(result);
+          if (!needFeedbackToUser) {
+            analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_OCR_ABORT);
+          }
+          break;
+        case ICON_LABEL:
+          captionResult.setIconLabel(result);
+          if (!needFeedbackToUser && iconAnnotationsDetector != null) {
+            analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_ICON_DETECT_ABORT);
+          }
+          break;
+        case IMAGE_DESCRIPTION:
+          captionResult.setImageDescription(result);
+          if (!needFeedbackToUser && imageDescriptionProcessor != null) {
+            analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_IMAGE_DESCRIBE_ABORT);
+          }
+          break;
+        default:
+          break;
       }
-      if (imageDescriptionProcessor != null) {
-        analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_IMAGE_DESCRIBE_ABORT);
-      }
-      analytics.onImageCaptionEvent(IMAGE_CAPTION_EVENT_OCR_ABORT);
-      captionResults.remove(id);
-      if (captionResults.isEmpty()) {
+      if (captionResult.isFinished()) {
+        if (needFeedbackToUser) {
+          returnCaptionResult(captionResult);
+        }
+        screenshotRequests.performNextRequest();
+        captionResult.recycleAndClearScreenshots();
+        captionResults.remove(id);
         removeMessages(MSG_RESULT_TIMEOUT);
       }
     }
+
+    if (captionResults.isEmpty()) {
+      removeMessages(MSG_RESULT_TIMEOUT);
+    }
+
+    if (captionResult == null) {
+      LogUtils.v(TAG, "captionRequest is null");
+    } else {
+      LogUtils.v(
+          TAG,
+          "captionRequest finish=%b isUserRequested=%b, focused=%b",
+          captionResult.isFinished(),
+          isUserRequested,
+          node.equals(focusedNode));
+    }
+  }
+
+  /** Handles the image caption result from Gemini. */
+  public boolean handleResultFromGemini(
+      int requestId, String text, boolean isSuccess, boolean manualTrigger) {
+    LogUtils.d(
+        TAG,
+        "handleResultFromGemini, id = %d, isSuccess= %s, manualTrigger= %s",
+        requestId,
+        isSuccess,
+        manualTrigger);
+    @Nullable CaptionResult captionResult = captionResults.get(requestId);
+    AccessibilityNode targetNode = captionResult != null ? captionResult.node : null;
+    if (!isSuccess && !manualTrigger) {
+      // Ignore the error result for auto-captioning.
+      handleResult(
+          requestId,
+          targetNode,
+          Result.create(IMAGE_DESCRIPTION, ""),
+          /* isUserRequested= */ false);
+      return true;
+    }
+
+    handleResult(requestId, targetNode, Result.create(IMAGE_DESCRIPTION, text), manualTrigger);
+    return true;
   }
 
   private void returnCaptionResult(CaptionResult captionResult) {
@@ -1186,7 +1675,9 @@ public class ImageCaptioner extends Handler
   }
 
   private void returnFeedback(CharSequence text) {
-    pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.speech(text));
+    pipeline.returnFeedback(
+        EVENT_ID_UNTRACKED,
+        Feedback.speech(text, SpeakOptions.create().setFlags(FLAG_NO_DEVICE_SLEEP)));
   }
 
   /** Sends a message to handle results timeout. */
@@ -1215,7 +1706,77 @@ public class ImageCaptioner extends Handler
           returnCaptionResult(captionResult);
         }
       }
+      LogUtils.w(TAG, "Caption request is timeout.");
+      screenshotRequests.clear();
+      characterCaptionRequests.clear();
+      iconDetectionRequests.clear();
+      imageDescriptionRequests.clear();
+      captionResults.forEach((key, value) -> value.recycleAndClearScreenshots());
       captionResults.clear();
+    }
+  }
+
+  private ProcessedScreens processImageForNodeCaption(
+      AccessibilityNodeInfoCompat node, Bitmap screenCapture, int focusStrokeWidth) {
+    @Nullable AccessibilityNodeInfoCompat root = AccessibilityNodeInfoUtils.getRoot(node);
+    Bitmap blockedScreenCapture;
+
+    long startTime = SystemClock.uptimeMillis();
+    blockedScreenCapture = blockOverlaps(root, node, screenCapture);
+    primesController.recordDuration(
+        IMAGE_CAPTION_IMAGE_PROCESS_BLOCK_OVERLAY, startTime, SystemClock.uptimeMillis());
+    if (blockedScreenCapture == null) {
+      blockedScreenCapture = screenCapture;
+    } else {
+      if (!screenCapture.isRecycled()) {
+        screenCapture.recycle();
+      }
+    }
+
+    Bitmap croppedScreenCapture =
+        cropImageWithNodeBounds(node, blockedScreenCapture, focusStrokeWidth);
+
+    return ProcessedScreens.create(blockedScreenCapture, croppedScreenCapture);
+  }
+
+  private static Bitmap cropImageWithNodeBounds(
+      AccessibilityNodeInfoCompat node, Bitmap image, int focusStrokeWidth) {
+    if (node == null) {
+      return image;
+    }
+
+    Rect nodeBounds = new Rect();
+    node.getBoundsInScreen(nodeBounds);
+    // The bounds are moved inward to make the focus border exclude from the cropped image.
+    nodeBounds.inset(focusStrokeWidth, focusStrokeWidth);
+    Bitmap croppedImage = null;
+
+    if (nodeBounds.height() <= image.getHeight() || nodeBounds.width() <= image.getWidth()) {
+      try {
+        croppedImage = BitmapUtils.cropBitmap(image, nodeBounds);
+      } catch (IllegalArgumentException e) {
+        LogUtils.w(TAG, e.getMessage() == null ? "Fail to crop screenshot." : e.getMessage());
+      }
+    }
+
+    if (croppedImage == null) {
+      croppedImage = image.copy(Config.ARGB_8888, /* isMutable= */ image.isMutable());
+    }
+
+    return croppedImage;
+  }
+
+  /** Stores the processed screens. */
+  @AutoValue
+  abstract static class ProcessedScreens {
+    abstract Bitmap blockedScreenCapture();
+
+    abstract Bitmap croppedScreenCapture();
+
+    private static ProcessedScreens create(
+        Bitmap blockedScreenCapture, Bitmap croppedScreenCapture) {
+      return new AutoValue_ImageCaptioner_ProcessedScreens(
+          blockedScreenCapture, croppedScreenCapture);
     }
   }
 
@@ -1229,10 +1790,36 @@ public class ImageCaptioner extends Handler
     @Nullable private Result iconLabelResult;
     private boolean isImageDescriptionFinished;
     @Nullable private Result imageDescriptionResult;
+    private final List<Bitmap> screenshots = new ArrayList<>();
+    private boolean isImageDescriptionFromAiCore;
 
     private CaptionResult(AccessibilityNode node, boolean isUserRequest) {
+      this(node, isUserRequest, /* isImageDescriptionFromAiCore= */ false);
+    }
+
+    private CaptionResult(
+        AccessibilityNode node, boolean isUserRequest, boolean isImageDescriptionFromAiCore) {
       this.node = node;
       this.isUserRequest = isUserRequest;
+      this.isImageDescriptionFromAiCore = isImageDescriptionFromAiCore;
+    }
+
+    /**
+     * The screenshot uses to caption will be recycled in {@link #recycleAndClearScreenshots()} when
+     * the request is finished.
+     */
+    public void addUsedScreenshot(Bitmap screenshot) {
+      screenshots.add(screenshot);
+    }
+
+    public void recycleAndClearScreenshots() {
+      screenshots.forEach(
+          screenshot -> {
+            if (!screenshot.isRecycled()) {
+              screenshot.recycle();
+            }
+          });
+      screenshots.clear();
     }
 
     private void setOcrText(Result ocrTextResult) {
@@ -1364,9 +1951,12 @@ public class ImageCaptioner extends Handler
             Feedback.speech(
                 text,
                 SpeakOptions.create()
-                    .setQueueMode(QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS)));
+                    .setQueueMode(QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS)
+                    .setFlags(FLAG_NO_DEVICE_SLEEP)));
       } else {
-        pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.speech(text));
+        pipeline.returnFeedback(
+            EVENT_ID_UNTRACKED,
+            Feedback.speech(text, SpeakOptions.create().setFlags(FLAG_NO_DEVICE_SLEEP)));
       }
     }
   }

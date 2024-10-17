@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textDirection="locale"
+    android:scrollbarStyle="outsideOverlay"
+    android:theme="@style/A11yAlertDialogCustomViewTheme"
+    android:gravity="top">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:gravity="top|center_horizontal"
+        android:id="@+id/ai_descriptiog_promotion_dialog_summary"
+        android:text="@string/powered_by_gemini"
+        android:textAppearance="@style/A11yAlertDialogSubtitleStyle"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/ai_descriptiog_promotion_dialog_message"
+        android:text="@string/dialog_message_turn_on_image_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:textAppearance="@style/A11yAlertDialogContentTextStyle"/>
+
+  </LinearLayout>
+
+</ScrollView>

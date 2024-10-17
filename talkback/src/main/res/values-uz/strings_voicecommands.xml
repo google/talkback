@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">o‘qish</string>
-  <string name="voice_commands_read_from_next">Keyingi elementni oʻqish</string>
+  <string name="voice_commands_read_from_next">Kursor joylashgan joydan oʻqish</string>
   <string name="voice_commands_edit_options">Tahrirlash parametrlari</string>
-  <string name="voice_commands_text_editing">Matn tahrirlash</string>
-  <string name="voice_commands_edit_text">Matnni tahrirlash</string>
-  <string name="voice_commands_editing_options">Tahrirlash parametrlari</string>
   <string name="voice_commands_edit">tahrirlash</string>
   <string name="voice_commands_what">nima</string>
   <string name="voice_commands_say">aytish</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Yorliqlash</string>
   <string name="voice_commands_cannot_label_feedback">Yorliq belgilanmadi</string>
   <string name="voice_commands_assistant">Assistent</string>
-  <string name="voice_commands_setting_speech_rate">Nutq tezligi sozlamasi</string>
   <string name="voice_commands_first">Birinchisi</string>
   <string name="voice_commands_top">Yuqori</string>
   <string name="voice_commands_last">Oxirgisi</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Nutq tezligini oshirish</string>
   <string name="voice_commands_slower">Sekinroq</string>
   <string name="voice_commands_decrease_speech_rate">nutq tezligini sekinlatish</string>
-  <string name="voice_commands_possible_options_title">Mavjud buyruqlar</string>
   <string name="voice_commands_no_action">Tezkor ovozli buyruq ishlamaydi</string>
   <string name="voice_commands_no_mic_permissions">Bu funksiya ishlashi uchun ilovaga mikrofondan foydalanish ruxsati zarur.</string>
   <string name="voice_commands_no_voice_recognition_ability">Bu funksiya qurilmangizda ishlamaydi</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Keyingi boshqaruv elementi mavjud emas</string>
   <string name="voice_commands_no_next_landmark_feedback">Keyingi belgi mavjud emas</string>
   <string name="voice_commands_help_title">Ovozli buyruqlar bilan tanishish</string>
-  <string name="voice_commands_help_description">Ovozli buyruqlardan foydalanish uchun avval oʻngga, keyin tepaga suring. Buyruqlar roʻyxatini istalgan vaqtida ochish uchun “Yordam“ yoki “Nima deyishim mumkin?” deng</string>
+  <string name="voice_commands_help_description">Ovozli buyruqlardan foydalanish uchun avval oʻngga, keyin tepaga suring. Buyruqlar roʻyxatini istalgan vaqtida ochish uchun “%1$s“ yoki “Nima deyishim mumkin?” deng</string>
   <string name="voice_commands_help_hint">Buyruqlar bajarilish uchun quyidagi ekranda koʻrsatilganidek talaffuz qiling.</string>
   <string name="voice_command_screen_locked_hint">Ovozli buyruqlar qulflangan ekranda ishlamaydi. Oʻrniga TalkBack menyusidan foydalanish uchun %1$s.</string>
   <string name="voice_commands_during_setup_hint">Ovozli buyruqlar sozlash paytida ishlamaydi.</string>

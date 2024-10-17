@@ -43,7 +43,8 @@ public final class EarconFeedbackUtils {
    * TYPE_WINDOW_CONTENT_CHANGED} and {@link TYPE_VIEW_SELECTED} usually inform that progress bar
    * changes.
    */
-  public static @RawRes int getProgressBarChangeEarcon(
+  @RawRes
+  public static int getProgressBarChangeEarcon(
       AccessibilityEvent event, AccessibilityNodeInfoCompat srcNode, Locale preferredLocale) {
     int eventType = event.getEventType();
     if (srcNode == null

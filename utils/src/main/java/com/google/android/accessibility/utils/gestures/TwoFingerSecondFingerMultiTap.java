@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.utils.gestures;
 
+import static android.util.Log.VERBOSE;
 import static android.view.MotionEvent.INVALID_POINTER_ID;
 
 import android.content.Context;
@@ -24,7 +25,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import androidx.annotation.IntDef;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.android.accessibility.utils.Performance.EventId;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Arrays;
@@ -38,7 +39,6 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
   @IntDef({ROTATE_DIRECTION_DONT_CARE, ROTATE_DIRECTION_FORWARD, ROTATE_DIRECTION_BACKWARD})
   @interface RotateDirection {}
 
-  private static final String LOG_TAG = "TwoFingerSecondFingerMultiTap";
   public static final int ROTATE_DIRECTION_DONT_CARE = 0;
   public static final int ROTATE_DIRECTION_FORWARD = 1;
   public static final int ROTATE_DIRECTION_BACKWARD = 2;
@@ -103,7 +103,7 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
   }
 
   @Override
-  protected void onDown(MotionEvent event) {
+  protected void onDown(EventId eventId, MotionEvent event) {
     lastDownTime = event.getEventTime();
     if (pointerIds[0] != INVALID_POINTER_ID) {
       // Inconsistent event stream.
@@ -115,14 +115,14 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
       final float x = event.getX(0);
       final float y = event.getY(0);
       if (x < 0f || y < 0f) {
-        LogUtils.w(LOG_TAG, "MotionEvent position's incorrect.");
+        gestureMotionEventLog(VERBOSE, "MotionEvent position's incorrect.");
         cancelGesture(event);
         return;
       }
       bases[0].x = x;
       bases[0].y = y;
     } else {
-      LogUtils.w(LOG_TAG, "MotionEvent comes out of sync.");
+      gestureMotionEventLog(VERBOSE, "MotionEvent comes out of sync.");
       // This event doesn't make sense in the middle of a gesture.
       cancelGesture(event);
       return;
@@ -130,19 +130,19 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
   }
 
   @Override
-  protected void onUp(MotionEvent event) {
+  protected void onUp(EventId eventId, MotionEvent event) {
     // Because this is a multi-finger gesture, we must have received ACTION_POINTER_UP before this
     // so we calculate timeDelta relative to lastUpTime.
     if (completedTapCount != targetTapCount) {
-      LogUtils.w(LOG_TAG, "The expected tap count does not reach.");
+      gestureMotionEventLog(VERBOSE, "The expected tap count does not reach.");
       cancelGesture(event);
       return;
     }
-    completeGesture(event);
+    completeGesture(eventId, event);
   }
 
   @Override
-  protected void onMove(MotionEvent event) {
+  protected void onMove(EventId eventId, MotionEvent event) {
     if (Float.isNaN(bases[0].x) && Float.isNaN(bases[0].y)) {
       return;
     }
@@ -156,26 +156,26 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
                   event.getY(i) - bases[event.getPointerId(i)].y);
       if (delta > ((completedTapCount + 1) * touchSlop)) {
         // Outside the touch slop
-        LogUtils.w(LOG_TAG, "MotionEvent positions move Excessively.");
+        gestureMotionEventLog(VERBOSE, "MotionEvent positions move Excessively.");
         cancelGesture(event);
         return;
       }
     }
     if (currentFingerCount > targetFingerCount) {
-      LogUtils.w(LOG_TAG, "Too many fingers involved.");
+      gestureMotionEventLog(VERBOSE, "Too many fingers involved.");
       cancelGesture(event);
       return;
     }
   }
 
   @Override
-  protected void onPointerDown(MotionEvent event) {
+  protected void onPointerDown(EventId eventId, MotionEvent event) {
     if (Float.isNaN(bases[0].x) && Float.isNaN(bases[0].y)) {
       return;
     }
     long timeDelta = event.getEventTime() - lastUpTime;
     if (timeDelta > tapTimeout) {
-      LogUtils.w(LOG_TAG, "The 2nd finger taps occur too slow.");
+      gestureMotionEventLog(VERBOSE, "The 2nd finger taps occur too slow.");
       cancelGesture(event);
       return;
     }
@@ -184,13 +184,13 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
     // Accept down only before target number of fingers are down
     // or the finger count is not more than target.
     if (currentFingerCount > targetFingerCount) {
-      LogUtils.w(LOG_TAG, "Too many fingers involved.");
+      gestureMotionEventLog(VERBOSE, "Too many fingers involved.");
       cancelGesture(event);
       return;
     }
     completedTapCount++;
     if ((completedTapCount > 1) && (event.getActionIndex() != tappingIndex)) {
-      LogUtils.w(LOG_TAG, "The tapping finger is not persistent.");
+      gestureMotionEventLog(VERBOSE, "The tapping finger is not persistent.");
       cancelGesture(event);
       return;
     }
@@ -201,7 +201,7 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
         isTargetFingerCountReached = true;
       }
     } else {
-      LogUtils.w(LOG_TAG, "MotionEvent state's out of sync.");
+      gestureMotionEventLog(VERBOSE, "MotionEvent state's out of sync.");
       cancelGesture(event);
       return;
     }
@@ -213,7 +213,7 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
   }
 
   @Override
-  protected void onPointerUp(MotionEvent event) {
+  protected void onPointerUp(EventId eventId, MotionEvent event) {
     // Accept up only after target number of fingers are down.
     if (Float.isNaN(bases[0].x) && Float.isNaN(bases[0].y)) {
       return;
@@ -228,14 +228,14 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
       switch (rotateDirection) {
         case ROTATE_DIRECTION_FORWARD:
           if (deltaX <= 0) {
-            LogUtils.w(LOG_TAG, "Rotating direction mismatches.");
+            gestureMotionEventLog(VERBOSE, "Rotating direction mismatches.");
             cancelGesture(event);
             return;
           }
           break;
         case ROTATE_DIRECTION_BACKWARD:
           if (deltaX >= 0) {
-            LogUtils.w(LOG_TAG, "Rotating direction mismatches.");
+            gestureMotionEventLog(VERBOSE, "Rotating direction mismatches.");
             cancelGesture(event);
             return;
           }
@@ -248,7 +248,7 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
         startGesture(event);
       }
     } else if (tappingIndex != event.getActionIndex()) {
-      LogUtils.w(LOG_TAG, "The tapping finger is not persistent.");
+      gestureMotionEventLog(VERBOSE, "The tapping finger is not persistent.");
       cancelGesture(event);
       return;
     }
@@ -260,18 +260,18 @@ public class TwoFingerSecondFingerMultiTap extends GestureMatcher {
       // lastDownTime.
       long timeDelta = event.getEventTime() - lastDownTime;
       if (timeDelta > tapTimeout) {
-        LogUtils.w(LOG_TAG, "The tapping finger holds too long time.");
+        gestureMotionEventLog(VERBOSE, "The tapping finger holds too long time.");
         cancelGesture(event);
         return;
       }
     } else {
-      LogUtils.w(LOG_TAG, "MotionEvent state's out of sync.");
+      gestureMotionEventLog(VERBOSE, "MotionEvent state's out of sync.");
       cancelGesture(event);
       return;
     }
     lastUpTime = event.getEventTime();
     if (completedTapCount == targetTapCount) {
-      completeAfterDoubleTapTimeout(event);
+      completeAfterDoubleTapTimeout(eventId, event);
     }
   }
 

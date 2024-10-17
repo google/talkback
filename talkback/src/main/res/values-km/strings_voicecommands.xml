@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">អាន</string>
-  <string name="voice_commands_read_from_next">អានពីធាតុបន្ទាប់</string>
+  <string name="voice_commands_read_from_next">អានពីទស្សន៍ទ្រនិច</string>
   <string name="voice_commands_edit_options">ជម្រើស​កែ</string>
-  <string name="voice_commands_text_editing">ការកែ​អត្ថបទ</string>
-  <string name="voice_commands_edit_text">កែអត្ថបទ</string>
-  <string name="voice_commands_editing_options">ជម្រើស​កែ</string>
   <string name="voice_commands_edit">កែសម្រួល</string>
   <string name="voice_commands_what">អ្វី</string>
   <string name="voice_commands_say">និយាយ</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ស្លាក</string>
   <string name="voice_commands_cannot_label_feedback">មិនអាច​ដាក់ស្លាក​បានទេ</string>
   <string name="voice_commands_assistant">ជំនួយការ</string>
-  <string name="voice_commands_setting_speech_rate">កំណត់អត្រា​នៃ​ការនិយាយ</string>
   <string name="voice_commands_first">ដំបូង</string>
   <string name="voice_commands_top">ខាងលើ</string>
   <string name="voice_commands_last">ចុងក្រោយ</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">បង្កើនល្បឿន​នៃការនិយាយ</string>
   <string name="voice_commands_slower">យឺត​ជាង</string>
   <string name="voice_commands_decrease_speech_rate">បន្ថយល្បឿននៃការនិយាយ</string>
-  <string name="voice_commands_possible_options_title">អ្នក​អាច​និយាយ</string>
   <string name="voice_commands_no_action">មិនអាចប្រើ​ផ្លូវកាត់​ជា​សំឡេង​បានទេ</string>
   <string name="voice_commands_no_mic_permissions">ដើម្បី​ប្រើ​មុខងារ​នេះ អ្នកត្រូវ​ផ្ដល់ការ​អនុញ្ញាត​ឱ្យប្រើ​មីក្រូហ្វូន។</string>
   <string name="voice_commands_no_voice_recognition_ability">សូម​អភ័យទោស! មុខងារ​នេះ​មិនមាន​នៅលើ​ឧបករណ៍​របស់អ្នក​ទេ</string>
@@ -102,9 +97,9 @@
   <string name="voice_commands_no_next_link_feedback">គ្មានតំណបន្ទាប់ទេ</string>
   <string name="voice_commands_no_next_control_feedback">គ្មានការបញ្ជាបន្ទាប់ទេ</string>
   <string name="voice_commands_no_next_landmark_feedback">គ្មានទីតាំងសម្គាល់បន្ទាប់ទេ</string>
-  <string name="voice_commands_help_title">ទិដ្ឋភាព​រួមនៃការបញ្ជាដោយសំឡេង</string>
-  <string name="voice_commands_help_description">ដើម្បីប្រើការបញ្ជាដោយសំឡេង សូមអូសទៅស្ដាំ រួចអូសឡើងលើ។ សូមនិយាយថា \"ជួយ\" ឬ \"តើខ្ញុំអាចនិយាយថាម៉េច?\" នៅពេលណាក៏បានដើម្បីឱ្យបង្ហាញបញ្ជីនៃការបញ្ជានេះ។</string>
-  <string name="voice_commands_help_hint">ដើម្បីទទួលបានលទ្ធផលល្អបំផុត សូមនិយាយឱ្យដូចគ្នាបេះបិទនឹងពាក្យដែលមាននៅលើអេក្រង់បន្ទាប់។</string>
+  <string name="voice_commands_help_title">ទិដ្ឋភាព​រួមនៃឃ្លាបញ្ជាដោយសំឡេង</string>
+  <string name="voice_commands_help_description">ដើម្បីប្រើឃ្លាបញ្ជាដោយសំឡេង សូមអូសទៅស្ដាំ រួចអូសឡើងលើ។ និយាយថា \"%1$s\" ឬ \"តើខ្ញុំអាចនិយាយថាម៉េច?\" នៅពេលណាក៏បានដើម្បីឱ្យបង្ហាញបញ្ជីនៃឃ្លាបញ្ជានេះ។</string>
+  <string name="voice_commands_help_hint">ដើម្បីទទួលបានលទ្ធផលល្អបំផុត សូមនិយាយឱ្យដូចគ្នាបេះបិទនឹងពាក្យដែលមាននៅលើអេក្រង់ខាងក្រោម។</string>
   <string name="voice_command_screen_locked_hint">មិនអាចប្រើការបញ្ជាដោយសំឡេងបានទេ នៅពេលអេក្រង់ជាប់សោ។ ដើម្បីប្រើ​ម៉ឺនុយ​មុខងារ TalkBack ជំនួសវិញ សូម%1$s។</string>
   <string name="voice_commands_during_setup_hint">មិនអាចប្រើឃ្លាបញ្ជាដោយសំឡេងបានទេ នៅពេលរៀបចំ។</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
@@ -135,8 +130,8 @@
   <string name="voice_commands_help_device_navigation_description">ចូលទៅកាន់អេក្រង់ដើម ថយក្រោយ បង្ហាញការជូនដំណឹង និងអ្វីៗជាច្រើនទៀត</string>
   <string name="voice_commands_help_overview_description">មើលកម្មវិធីថ្មីៗរបស់អ្នក</string>
   <string name="voice_commands_help_assistant_description">បើក Google ជំនួយការ</string>
-  <string name="voice_commands_help_other_commands_title">ការបញ្ជាផ្សេងទៀត</string>
-  <string name="voice_commands_help_other_commands_description">ចូលទៅកាន់ការកំណត់មុខងារតបវិញ លាក់អេក្រង់ មើលសកម្មភាព បញ្ចូលស្លាក​ផ្ទាល់​ខ្លួន និងអ្វីៗជាច្រើនទៀត</string>
+  <string name="voice_commands_help_other_commands_title">ឃ្លាបញ្ជាផ្សេងទៀត</string>
+  <string name="voice_commands_help_other_commands_description">ចូលទៅកាន់ការកំណត់ TalkBack, លាក់អេក្រង់, មើលសកម្មភាព, បញ្ចូលស្លាក​ផ្ទាល់​ខ្លួន និងអ្វីៗជាច្រើនទៀត</string>
   <string name="voice_commands_help_label">ដាក់ស្លាក [ដាក់បញ្ជូន]</string>
   <string name="voice_commands_help_hide_screen_description">លាក់ផ្ទាំងអេក្រង់ ដើម្បីកុំឱ្យអ្នកដទៃ​មើលឃើញអេក្រង់​របស់អ្នកនៅទីសាធារណៈ</string>
   <string name="voice_commands_help_show_screen_description">បន្ទាប់ពីលាក់​អេក្រង់របស់អ្នកហើយ សូមប្ដូរវាទៅ​ស្ថានភាពធម្មតាវិញ</string>

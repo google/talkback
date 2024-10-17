@@ -99,6 +99,12 @@ public class BrailleInputEvent implements Parcelable {
   /** Keyboard command: Paste the content of the clipboard at the current insertion point. */
   public static final int CMD_SELECTION_PASTE = 45;
 
+  /** Keyboard command: Select from current cursor to the start of text field. */
+  public static final int CMD_SELECTION_SELECT_CURRENT_TO_START = 46;
+
+  /** Keyboard command: Select from current cursor to the end of text field. */
+  public static final int CMD_SELECTION_SELECT_CURRENT_TO_END = 47;
+
   /**
    * Keyboard command: Primary routing key pressed, typically used to move the insertion point or
    * click/tap on the item under the key. The argument is the zero-based position, relative to the
@@ -141,6 +147,9 @@ public class BrailleInputEvent implements Parcelable {
   /** Keyboard command: Select next line. */
   public static final int CMD_SELECT_NEXT_LINE = 82;
 
+  /** Keyboard command: Next input method. */
+  public static final int CMD_NEXT_INPUT_METHOD = 83;
+
   // Global navigation keys.
 
   /** Keyboard command: Back button. */
@@ -155,7 +164,6 @@ public class BrailleInputEvent implements Parcelable {
   public static final int CMD_QUICK_SETTINGS = 94;
   /** Keyboard command: All apps. */
   public static final int CMD_ALL_APPS = 95;
-
   /** Keyboard command: Play or pause media. */
   public static final int CMD_PLAY_PAUSE_MEDIA = 134;
 
@@ -236,12 +244,14 @@ public class BrailleInputEvent implements Parcelable {
 
   /** This command doesn't have an argument. */
   public static final int ARGUMENT_NONE = 0;
+
   /**
-   * The lower order bits of the arguemnt to this command represent braille dots. Dot 1 is
+   * The lower order bits of the argument to this command represent braille dots. Dot 1 is
    * represented by the rightmost bit and so on until dot 8, which is represented by bit 7, counted
    * from the right.
    */
   public static final int ARGUMENT_DOTS = 1;
+
   /** The argument represents a 0-based position on the display counted from the leftmost cell. */
   public static final int ARGUMENT_POSITION = 2;
 
@@ -253,6 +263,12 @@ public class BrailleInputEvent implements Parcelable {
     this.command = command;
     this.argument = argument;
     this.eventTime = eventTime;
+  }
+
+  private BrailleInputEvent(Parcel in) {
+    command = in.readInt();
+    argument = in.readInt();
+    eventTime = in.readLong();
   }
 
   /** Returns the keyboard command that this event represents. */
@@ -328,11 +344,5 @@ public class BrailleInputEvent implements Parcelable {
     out.writeInt(command);
     out.writeInt(argument);
     out.writeLong(eventTime);
-  }
-
-  private BrailleInputEvent(Parcel in) {
-    command = in.readInt();
-    argument = in.readInt();
-    eventTime = in.readLong();
   }
 }

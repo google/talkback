@@ -37,6 +37,8 @@ public class LibLouis implements TranslatorFactory {
         return new LibLouisTranslator(context, "ar-ar-comp8.utb");
       case "BULGARIAN":
         return new LibLouisTranslator(context, "bg.utb");
+      case "BULGARIAN_COMP8":
+        return new LibLouisTranslator(context, "bg.tbl");
       case "CANTONESE":
         return new LibLouisTranslator(context, "zh_HK.tbl");
       case "CHINESE_TAIWAN":
@@ -56,7 +58,7 @@ public class LibLouis implements TranslatorFactory {
       case "CROATIAN_COMP8":
         return new LibLouisTranslator(context, "hr-comp8.tbl");
       case "CZECH":
-        return new LibLouisTranslator(context, "cs-g1.ctb");
+        return new LibLouisTranslator(context, "cs.tbl");
       case "CZECH_COMP8":
         return new LibLouisTranslator(context, "cs-comp8.utb");
       case "DANISH":
@@ -68,9 +70,9 @@ public class LibLouis implements TranslatorFactory {
       case "DUTCH_COMP8":
         return new LibLouisTranslator(context, "nl-comp8.utb");
       case "DUTCH_NL":
-        return new LibLouisTranslator(context, "nl-NL-g0.utb");
+        return new LibLouisTranslator(context, "nl.tbl");
       case "EN_UK":
-        return getBrailleTranslator(context, contractedMode, "en-gb-g1.utb", "en-GB-g2.ctb");
+        return getBrailleTranslator(context, contractedMode, "en-gb-g1.utb", "en_GB.tbl");
       case "EN_IN":
         return new LibLouisTranslator(context, "en-in-g1.ctb");
       case "EN_NABCC":
@@ -83,7 +85,7 @@ public class LibLouis implements TranslatorFactory {
             new LibLouisTranslatorUeb1(context),
             new LibLouisTranslatorUeb2(context));
       case "EN_US_EBAE":
-        return getBrailleTranslator(context, contractedMode, "en-us-g1.ctb", "en-us-g2.ctb");
+        return getBrailleTranslator(context, contractedMode, "en-us-g1.ctb", "en_US.tbl");
       case "ESTONIAN":
         return new LibLouisTranslator(context, "et-g0.utb");
       case "FINNISH":
@@ -114,7 +116,7 @@ public class LibLouis implements TranslatorFactory {
       case "HINDI":
         return new LibLouisTranslator(context, "hi.tbl");
       case "HUNGARIAN":
-        return getBrailleTranslator(context, contractedMode, "hu-hu-g1.ctb", "hu-hu-g2.ctb");
+        return getBrailleTranslator(context, contractedMode, "hu.tbl", "hu-hu-g2.ctb");
       case "HUNGARIAN_COMP8":
         return new LibLouisTranslator(context, "hu-hu-comp8.ctb");
       case "ICELANDIC":
@@ -136,7 +138,7 @@ public class LibLouis implements TranslatorFactory {
       case "KOREAN_2006":
         return getBrailleTranslator(context, contractedMode, "ko-2006-g1.ctb", "ko-2006-g2.ctb");
       case "KURDISH":
-        return new LibLouisTranslator(context, "ckb-g1.ctb");
+        return new LibLouisTranslator(context, "ckb.tbl");
       case "LITHUANIAN":
         return new LibLouisTranslator(context, "lt-6dot.tbl");
       case "LITHUANIAN_8":
@@ -159,6 +161,8 @@ public class LibLouis implements TranslatorFactory {
         return new LibLouisTranslator(context, "no-no-8dot-fallback-6dot-g0.utb");
       case "NORWEGIAN_8_NO":
         return new LibLouisTranslator(context, "no-no-generic.ctb");
+      case "NORWEGIAN_COMP8":
+        return new LibLouisTranslator(context, "no-no-comp8.ctb");
       case "POLISH":
         return new LibLouisTranslatorPolish(context);
       case "POLISH_COMP8":
@@ -169,18 +173,18 @@ public class LibLouis implements TranslatorFactory {
         return new LibLouisTranslator(context, "pt-pt-comp8.ctb");
       case "PUNJABI":
         return new LibLouisTranslator(context, "pa.tbl");
-      case "ROMANIAN_8":
+      case "ROMANIAN_COMP8":
         return new LibLouisTranslator(context, "ro.tbl");
       case "RUSSIAN":
-        return new LibLouisTranslator(context, "ru-litbrl.ctb");
+        return new LibLouisTranslator(context, "ru-ru-g1.ctb");
       case "RUSSIAN_COMP8":
         return new LibLouisTranslator(context, "ru.ctb");
       case "RUSSIAN_DETAILED":
         return new LibLouisTranslator(context, "ru-litbrl-detailed.utb");
       case "SERBIAN":
-        return new LibLouisTranslator(context, "sr-g1.ctb");
+        return new LibLouisTranslator(context, "sr.tbl");
       case "SINDHI_IN":
-        return new LibLouisTranslator(context, "si-in-g1.utb");
+        return new LibLouisTranslator(context, "sd.tbl");
       case "SINHALA":
         return new LibLouisTranslator(context, "sin.utb");
       case "SLOVAK":
@@ -193,7 +197,7 @@ public class LibLouis implements TranslatorFactory {
       case "SPANISH_COMP8":
         return new LibLouisTranslator(context, "Es-Es-G0.utb");
       case "SWEDEN":
-        return new LibLouisTranslator(context, "sv-g1.ctb");
+        return getBrailleTranslator(context, contractedMode, "sv-g0.utb", "sv-g2.ctb");
       case "SWEDEN_8":
         return new LibLouisTranslator(context, "se-se.ctb");
       case "SWEDISH_COMP8_1989":
@@ -203,11 +207,11 @@ public class LibLouis implements TranslatorFactory {
       case "TAMIL":
         return new LibLouisTranslator(context, "ta-ta-g1.ctb");
       case "TELUGU_IN":
-        return new LibLouisTranslator(context, "te-in-g1.utb");
-      case "TURKISH_8":
-        return new LibLouisTranslator(context, "tr.ctb");
+        return new LibLouisTranslator(context, "te.tbl");
+      case "TURKISH_COMP8":
+        return new LibLouisTranslator(context, "tr.tbl");
       case "TURKISH":
-        return getBrailleTranslator(context, contractedMode, "tr-g1.ctb", "tr-g2.ctb");
+        return getBrailleTranslator(context, contractedMode, "tr-g1.ctb", "tr-g2.tbl");
       case "UKRAINIAN":
         return new LibLouisTranslator(context, "uk.utb");
       case "UKRAINIAN_COMP8":

@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.talkback.monitor;
 
-import static android.content.Context.RECEIVER_EXPORTED;
+import static androidx.core.content.ContextCompat.RECEIVER_EXPORTED;
 import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.ACTION_DONE;
 import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.GRANT_RESULTS;
 import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.PERMISSIONS;
@@ -37,13 +37,14 @@ import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.permission.PermissionUtils;
 import com.google.android.accessibility.talkback.training.OnboardingInitiator;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.broadcast.SameThreadBroadcastReceiver;
 import com.google.android.accessibility.utils.monitor.ScreenMonitor;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 /** {@link BroadcastReceiver} for detecting incoming calls. */
-public class CallStateMonitor extends BroadcastReceiver {
+public class CallStateMonitor extends SameThreadBroadcastReceiver {
 
   private static final String TAG = "CallStateMonitor";
 
@@ -96,7 +97,7 @@ public class CallStateMonitor extends BroadcastReceiver {
   }
 
   @Override
-  public void onReceive(Context context, Intent intent) {
+  public void onReceiveIntent(Intent intent) {
     if (!TalkBackService.isServiceActive()) {
       LogUtils.w(TAG, "Service not initialized during " + "broadcast.");
       return;

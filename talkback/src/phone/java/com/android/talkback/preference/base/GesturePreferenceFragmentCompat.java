@@ -213,7 +213,8 @@ public class GesturePreferenceFragmentCompat extends PreferenceDialogFragmentCom
   }
 
   @Override
-  public @NonNull Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+  @NonNull
+  public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
     Dialog dialog = super.onCreateDialog(savedInstanceState);
     dialog.setOnShowListener(
         (dialogInterface) -> {

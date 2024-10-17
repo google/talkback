@@ -239,7 +239,7 @@ public class IpcService extends Service {
     void onRequestDownloadLibrary(CaptionType captionType);
   }
 
-  @Nullable private static IpcClientCallback sClientCallback;
+  private static @Nullable IpcClientCallback sClientCallback;
 
   @MainThread
   public static void setClientCallback(IpcClientCallback clientCallback) {

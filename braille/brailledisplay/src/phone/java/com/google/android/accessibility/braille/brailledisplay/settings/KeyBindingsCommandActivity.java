@@ -1,11 +1,29 @@
+/*
+ * Copyright (C) 2023 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.google.android.accessibility.braille.brailledisplay.settings;
 
 import static com.google.android.accessibility.braille.brailledisplay.settings.KeyBindingsActivity.PROPERTY_KEY;
 import static com.google.android.accessibility.braille.common.BrailleUserPreferences.BRAILLE_SHARED_PREFS_FILENAME;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
@@ -17,6 +35,7 @@ import com.google.android.accessibility.braille.brailledisplay.BrailleDisplayLog
 import com.google.android.accessibility.braille.brailledisplay.R;
 import com.google.android.accessibility.braille.brailledisplay.controller.utils.BrailleKeyBindingUtils;
 import com.google.android.accessibility.braille.brailledisplay.controller.utils.BrailleKeyBindingUtils.SupportedCommand;
+import com.google.android.accessibility.braille.brailledisplay.controller.utils.BrailleKeyBindingUtils.SupportedCommand.Category;
 import com.google.android.accessibility.braille.brailledisplay.controller.utils.BrailleKeyBindingUtils.SupportedCommand.Subcategory;
 import com.google.android.accessibility.braille.brailledisplay.platform.Connectioneer;
 import com.google.android.accessibility.braille.brailledisplay.platform.Connectioneer.AspectConnection;
@@ -27,12 +46,11 @@ import com.google.android.accessibility.braille.brltty.BrailleKeyBinding;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.preference.PreferencesActivity;
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.Objects;
 
 /** Shows key bindings for the currently connected Braille display by selected the category. */
 public class KeyBindingsCommandActivity extends PreferencesActivity {
   private static final String TAG = "KeyBindingCommandActivity";
-
   public static final String TITLE_KEY = "title";
   public static final String TYPE_KEY = "type";
 
@@ -48,8 +66,9 @@ public class KeyBindingsCommandActivity extends PreferencesActivity {
 
   /** Fragment that holds the braille elements preference. */
   public static class KeyBindingsCommandFragment extends PreferenceFragmentCompat {
-    private String supportedCommandTypeName;
+    private Category supportedCommandCategory;
     private Connectioneer connectioneer;
+    private Preference descriptionPreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,58 +98,68 @@ public class KeyBindingsCommandActivity extends PreferencesActivity {
     public void onCreatePreferences(Bundle bundle, String rootKey) {
       getPreferenceManager().setSharedPreferencesName(BRAILLE_SHARED_PREFS_FILENAME);
       PreferenceSettingsUtils.addPreferencesFromResource(this, R.xml.key_bindings_command);
-      getActivity().setTitle(getActivity().getIntent().getStringExtra(TITLE_KEY));
-      supportedCommandTypeName = getActivity().getIntent().getStringExtra(TYPE_KEY);
-      refresh(getActivity().getIntent().getParcelableExtra(PROPERTY_KEY));
+      Intent intent = getActivity().getIntent();
+      if (intent.getExtras() == null) {
+        return;
+      }
+      getActivity().setTitle(intent.getStringExtra(TITLE_KEY));
+      supportedCommandCategory = (Category) intent.getSerializableExtra(TYPE_KEY);
+      String description = supportedCommandCategory.getDescription(getResources());
+      descriptionPreference =
+          findPreference(getString(R.string.pref_key_bd_keybindings_editing_description));
+      if (TextUtils.isEmpty(description)) {
+        getPreferenceScreen().removePreference(descriptionPreference);
+      } else {
+        descriptionPreference.setSummary(description);
+      }
+
+      refresh(intent.getParcelableExtra(PROPERTY_KEY));
     }
 
     private void refresh(BrailleDisplayProperties props) {
-      PreferenceScreen preferenceScreen = getPreferenceScreen();
-      preferenceScreen.removeAll();
+      for (int i = getPreferenceScreen().getPreferenceCount() - 1; i >= 0; i--) {
+        Preference preference = getPreferenceScreen().getPreference(i);
+        if (!Objects.equals(preference.getKey(), descriptionPreference.getKey())) {
+          getPreferenceScreen().removePreference(preference);
+        }
+      }
+      for (SupportedCommand supportedCommand :
+          BrailleKeyBindingUtils.getSupportedCommands(getContext())) {
+        if (supportedCommand.getCategory().equals(supportedCommandCategory)) {
+          String keys = getKeyDescription(supportedCommand, props);
+          if (TextUtils.isEmpty(keys)) {
+            continue;
+          }
+          addPreference(
+              getPreferenceScreen(),
+              supportedCommand.getSubcategory(),
+              createPreference(supportedCommand.getCommandDescription(getResources()), keys));
+        }
+      }
+    }
 
-      // Use default KeyBindings when display properties is null.
+    private String getKeyDescription(SupportedCommand command, BrailleDisplayProperties props) {
       if (props == null) {
         BrailleDisplayLog.v(TAG, "no property");
-        for (SupportedCommand supportedCommand :
-            BrailleKeyBindingUtils.getSupportedCommands(getContext())) {
-          if (supportedCommand.getCategory().name().equals(supportedCommandTypeName)) {
-            addPreference(
-                preferenceScreen,
-                supportedCommand.getSubcategory(),
-                createPreference(
-                    supportedCommand.getCommandDescription(getResources()),
-                    supportedCommand.getKeyDescription(getResources())));
-          }
-        }
+        // Use default KeyBindings when display properties is null.
+        return command.getKeyDescription(getResources());
       } else {
         ArrayList<BrailleKeyBinding> sortedBindings =
             BrailleKeyBindingUtils.getSortedBindingsForDisplay(props);
-        Map<String, String> friendlyKeyNames = props.getFriendlyKeyNames();
-        for (SupportedCommand supportedCommand :
-            BrailleKeyBindingUtils.getSupportedCommands(getContext())) {
-          if (supportedCommand.getCategory().name().equals(supportedCommandTypeName)) {
-            BrailleKeyBinding binding =
-                BrailleKeyBindingUtils.getBrailleKeyBindingForCommand(
-                    supportedCommand.getCommand(), sortedBindings);
-            if (binding == null) {
-              // No supported binding for this display. That's normal.
-              continue;
-            }
-            String keys =
-                BrailleKeyBindingUtils.getFriendlyKeyNamesForCommand(
-                    binding, friendlyKeyNames, getContext());
-            addPreference(
-                preferenceScreen,
-                supportedCommand.getSubcategory(),
-                createPreference(supportedCommand.getCommandDescription(getResources()), keys));
-          }
+        BrailleKeyBinding binding =
+            BrailleKeyBindingUtils.getBrailleKeyBindingForCommand(
+                command.getCommand(), sortedBindings);
+        if (binding == null) {
+          // No supported binding for this display. That's normal.
+          return "";
         }
+        return BrailleKeyBindingUtils.getFriendlyKeyNamesForCommand(
+            binding, props.getFriendlyKeyNames(), getContext());
       }
     }
 
     private void addPreference(
         PreferenceScreen preferenceScreen, Subcategory subcategory, Preference preference) {
-      String title = getSubcategoryTitle(subcategory);
       if (subcategory == Subcategory.UNDEFINED) {
         preferenceScreen.addPreference(preference);
       } else {
@@ -140,34 +169,9 @@ public class KeyBindingsCommandActivity extends PreferencesActivity {
           preferenceCategory = new PreferenceCategory(getContext());
           preferenceScreen.addPreference(preferenceCategory);
           preferenceCategory.setKey(subcategory.name());
-          preferenceCategory.setTitle(title);
+          preferenceCategory.setTitle(subcategory.getTitle(getResources()));
         }
         preferenceCategory.addPreference(preference);
-      }
-    }
-
-    private String getSubcategoryTitle(Subcategory subcategory) {
-      switch (subcategory) {
-        case BASIC:
-          return getString(R.string.bd_cmd_subcategory_title_basic);
-        case WINDOW:
-          return getString(R.string.bd_cmd_subcategory_title_window);
-        case PLACE_ON_PAGE:
-          return getString(R.string.bd_cmd_subcategory_title_place_on_page);
-        case WEB_CONTENT:
-          return getString(R.string.bd_cmd_subcategory_title_web_content);
-        case READING_CONTROLS:
-          return getString(R.string.bd_cmd_subcategory_title_reading_controls);
-        case AUTO_SCROLL:
-          return getString(R.string.bd_cmd_subcategory_title_auto_scroll);
-        case MOVE_CURSOR:
-          return getString(R.string.bd_cmd_subcategory_title_move_cursor);
-        case SELECT:
-          return getString(R.string.bd_cmd_subcategory_title_select);
-        case EDIT:
-          return getString(R.string.bd_cmd_subcategory_title_edit);
-        default:
-          return "";
       }
     }
 
@@ -214,10 +218,16 @@ public class KeyBindingsCommandActivity extends PreferencesActivity {
           public void onDeviceListCleared() {}
 
           @Override
-          public void onConnectStarted() {}
+          public void onConnectHidStarted() {}
+
+          @Override
+          public void onConnectRfcommStarted() {}
 
           @Override
           public void onConnectableDeviceSeenOrUpdated(ConnectableDevice device) {}
+
+          @Override
+          public void onConnectableDeviceDeleted(ConnectableDevice device) {}
 
           @Override
           public void onConnectionStatusChanged(ConnectStatus status, ConnectableDevice device) {
@@ -227,7 +237,7 @@ public class KeyBindingsCommandActivity extends PreferencesActivity {
           }
 
           @Override
-          public void onConnectFailed(@Nullable String deviceName) {}
+          public void onConnectFailed(boolean manual, @Nullable String deviceName) {}
         };
   }
 }

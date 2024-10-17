@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">ปรับระดับเสียงของ %1$s เป็น %2$d เปอร์เซ็นต์</string>
   <string name="template_stream_muted_set">ปิดเสียง%1$sอยู่</string>
+  <string name="hint_a11y_volume_control">หากต้องการเปลี่ยนระดับเสียงการช่วยเหลือพิเศษ ให้ใช้ 1 นิ้วกดหน้าจอค้างไว้ แล้วกดปุ่มเพิ่มหรือลดระดับเสียง</string>
   <string name="value_stream_voice_call">การโทร</string>
   <string name="value_stream_system">เสียงของระบบ</string>
   <string name="value_stream_ring">เสียงเรียกเข้า</string>

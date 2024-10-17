@@ -19,6 +19,8 @@ package com.google.android.accessibility.utils.output;
 import static android.text.Spanned.SPAN_INCLUSIVE_EXCLUSIVE;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_SOURCE_IS_VOLUME_CONTROL;
+import static com.google.android.accessibility.utils.output.SpeechCleanupUtils.ALL;
+import static com.google.android.accessibility.utils.output.SpeechCleanupUtils.MOST;
 import static java.lang.Math.min;
 
 import android.annotation.SuppressLint;
@@ -33,6 +35,7 @@ import android.media.AudioRecordingConfiguration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.Engine;
 import android.speech.tts.Voice;
 import android.text.SpannableStringBuilder;
@@ -46,6 +49,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.Logger;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
@@ -53,6 +57,8 @@ import com.google.android.accessibility.utils.SpannableUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.braille.BrailleUnicode;
 import com.google.android.accessibility.utils.output.FailoverTextToSpeech.SpeechParam;
+import com.google.android.accessibility.utils.output.FailoverTextToSpeech.UtteranceInfoCombo;
+import com.google.android.accessibility.utils.output.SpeechCleanupUtils.PunctuationVerbosity;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -100,6 +106,7 @@ public class SpeechControllerImpl implements SpeechController {
    * speaking item; these items will always be considered.)
    */
   private static final int SKIP_DUPLICATES_DELAY = 1000;
+
   /**
    * Assume the time between the Touch explore interaction start event & Pause gesture event is no
    * greater than this value (milli-second).
@@ -128,8 +135,10 @@ public class SpeechControllerImpl implements SpeechController {
 
   /** The list of items to be spoken. */
   private ArrayList<FeedbackItem> feedbackQueue = new ArrayList<>();
+
   /** The list for stopping or resuming voice feedback. */
   private ArrayList<FeedbackItem> savedFeedbackQueue;
+
   /** Keep the feedbackSavedTime to correlate it to the Pause gesture */
   private long feedbackSavedTime;
 
@@ -164,6 +173,7 @@ public class SpeechControllerImpl implements SpeechController {
 
   /** An iterator of fragments currently being processed */
   private @Nullable FeedbackFragmentsIterator currentFragmentIterator = null;
+
   /** An iterator for stopping or resuming voice feedback. */
   private @Nullable FeedbackFragmentsIterator savedFragmentIterator = null;
 
@@ -196,6 +206,8 @@ public class SpeechControllerImpl implements SpeechController {
 
   /** Whether reading punctuation can change. */
   private boolean mUsePunctuation = false;
+
+  private int punctuationVerbosity;
 
   /** The feedback of capital letter (default is "Cap") */
   @CapitalLetterHandlingMethod private int capLetterFeedback = CAPITAL_LETTERS_TYPE_SPEAK_CAP;
@@ -251,12 +263,13 @@ public class SpeechControllerImpl implements SpeechController {
       Context context,
       Delegate delegate,
       FeedbackController feedbackController,
-      boolean removeUnnecessarySpans) {
+      boolean removeUnnecessarySpans,
+      boolean cacheTtsLocale) {
     this(
         context,
         delegate,
         feedbackController,
-        new FailoverTextToSpeech(context),
+        new FailoverTextToSpeech(context, cacheTtsLocale),
         removeUnnecessarySpans);
   }
 
@@ -277,7 +290,7 @@ public class SpeechControllerImpl implements SpeechController {
         new FailoverTextToSpeech.FailoverTtsListener() {
           @Override
           public void onBeforeUtteranceRequested(
-              String utteranceId, CharSequence text, @Nullable Locale locale) {
+              String utteranceId, UtteranceInfoCombo utteranceInfoCombo) {
             // Do nothing.
           }
 
@@ -352,6 +365,13 @@ public class SpeechControllerImpl implements SpeechController {
     mUsePunctuation = usePunctuation;
   }
 
+  public void setPunctuationVerbosity(@PunctuationVerbosity int punctuationVerbosity) {
+    this.punctuationVerbosity = punctuationVerbosity;
+    // TalkBack handles speaking punctuation if Speak punctuation verbosity preference is All or
+    // Most except Some.
+    mUsePunctuation = punctuationVerbosity == ALL || punctuationVerbosity == MOST;
+  }
+
   public void setCapLetterFeedback(@CapitalLetterHandlingMethod int capLetterFeedback) {
     this.capLetterFeedback = capLetterFeedback;
   }
@@ -362,6 +382,10 @@ public class SpeechControllerImpl implements SpeechController {
 
   public void setSpeechRate(float speechRate) {
     mSpeechRate = speechRate;
+  }
+
+  public float getSpeechRate() {
+    return mSpeechRate;
   }
 
   public void setSpeechVolume(float speechVolume) {
@@ -398,6 +422,10 @@ public class SpeechControllerImpl implements SpeechController {
 
     public @Nullable Set<Voice> getVoices() {
       return SpeechControllerImpl.this.getVoices();
+    }
+
+    public @Nullable Set<Locale> getLanguages() {
+      return SpeechControllerImpl.this.getLanguages();
     }
   }
 
@@ -464,6 +492,28 @@ public class SpeechControllerImpl implements SpeechController {
       e.printStackTrace();
       return null;
     }
+  }
+
+  private @Nullable Set<Locale> getLanguages() {
+    Set<Voice> voices = getVoices();
+    if (voices == null) {
+      return null;
+    }
+
+    // Using Set because there are many duplicate Voice in TextToSpeech.getVoices().
+    Set<Locale> languagesAvailable = new HashSet<>();
+
+    for (Voice voice : voices) {
+      Set<String> features = voice.getFeatures();
+      // Filtering the installed voices to add to the menu
+      if ((features != null)
+          && !features.contains(TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED)
+          && !voice.isNetworkConnectionRequired()) {
+        languagesAvailable.add(voice.getLocale());
+      }
+    }
+
+    return languagesAvailable;
   }
 
   /** Repeats the last spoken utterance. */
@@ -914,7 +964,8 @@ public class SpeechControllerImpl implements SpeechController {
       // not conflict with existing exception list, then add a tts span with the punctuation name.
       for (int i = 0; i < sourceText.length(); i++) {
         char ch = sourceText.charAt(i);
-        @Nullable String cleanValue = SpeechCleanupUtils.characterToName(configurationContext, ch);
+        @Nullable String cleanValue =
+            SpeechCleanupUtils.characterToName(configurationContext, ch, punctuationVerbosity);
         if (cleanValue != null) {
           /* Don't use java.util.stream.Stream in accessibility/utils until it's supported.
           int x = i;
@@ -1080,6 +1131,8 @@ public class SpeechControllerImpl implements SpeechController {
       }
 
       if (mCurrentFeedbackItem != null && filter.accept(mCurrentFeedbackItem)) {
+        // Always flush if current item interrupted.
+        item.setFlushGlobalTtsQueue(true);
         notifyItemInterrupted(mCurrentFeedbackItem);
         currentFeedbackInterrupted = true;
       }
@@ -1356,6 +1409,7 @@ public class SpeechControllerImpl implements SpeechController {
       // Clear all current and queued utterances.
       clearCurrentAndQueuedUtterances(notifyObserver);
     }
+    LogUtils.v(TAG, "interrupt, stopTtsSpeechCompletely=" + stopTtsSpeechCompletely);
 
     clearUtteranceRangeStartCallbacks();
     // Clear and post all remaining completion actions.
@@ -1380,6 +1434,20 @@ public class SpeechControllerImpl implements SpeechController {
   }
 
   @Override
+  public boolean isContinuousReadingPaused() {
+    return (requestPause
+        && savedFeedbackItem != null
+        && savedFeedbackItem.hasFlag(FeedbackItem.FLAG_ADVANCE_CONTINUOUS_READING));
+  }
+
+  @Override
+  public void ignorePause() {
+    if (savedFeedbackQueue != null && requestPause) {
+      resetSavedFeedbackInfo();
+    }
+  }
+
+  @Override
   public void pause() {
     long delta = SystemClock.uptimeMillis() - feedbackSavedTime;
     // The savedFeedbackQueue was copied for the last interrupted speech content. If the delta
@@ -1398,6 +1466,7 @@ public class SpeechControllerImpl implements SpeechController {
       loadSavedFeedbackInfo();
       resetSavedFeedbackInfo();
       handleSpeechStarting();
+      resumeNextItemInternal();
       processNextFragmentInternal();
     }
     requestPause = false;
@@ -1553,8 +1622,25 @@ public class SpeechControllerImpl implements SpeechController {
     processNextFragmentInternal();
   }
 
+  // Resumes the speech for continuous reading.
+  private void resumeNextItemInternal() {
+    FeedbackItem item = mCurrentFeedbackItem;
+    if (item == null
+        || !mInjectFullScreenReadCallbacks
+        || !item.hasFlag(FeedbackItem.FLAG_ADVANCE_CONTINUOUS_READING)) {
+      return;
+    }
+    final int utteranceGroup = item.getUtteranceGroup();
+    final String utteranceId = item.getUtteranceId();
+    final int utteranceIndex =
+        Integer.parseInt(utteranceId.substring(UTTERANCE_ID_PREFIX.length()));
+    addUtteranceCompleteAction(utteranceIndex, utteranceGroup, mFullScreenReadNextCallback);
+  }
+
   private boolean processNextFragmentInternal() {
-    if (currentFragmentIterator == null || !currentFragmentIterator.hasNext()) {
+    // Use local variable because currentFragmentIterator could be null by race condition.
+    FeedbackFragmentsIterator iterator = currentFragmentIterator;
+    if (iterator == null) {
       return false;
     }
     // Use local variable because mCurrentFeedbackItem could be null by race condition.
@@ -1567,7 +1653,11 @@ public class SpeechControllerImpl implements SpeechController {
       return false;
     }
 
-    FeedbackFragment fragment = currentFragmentIterator.next();
+    FeedbackFragment fragment = iterator.next();
+    if (fragment == null) {
+      return false;
+    }
+
     EventId eventId = feedbackItem.getEventId();
     playEarconsFromFragment(fragment, eventId);
     playHapticsFromFragment(fragment, eventId);
@@ -1586,6 +1676,11 @@ public class SpeechControllerImpl implements SpeechController {
     params.put(Engine.KEY_PARAM_UTTERANCE_ID, feedbackItem.getUtteranceId());
     params.put(Engine.KEY_PARAM_STREAM, String.valueOf(DEFAULT_STREAM));
     params.put(Engine.KEY_PARAM_VOLUME, String.valueOf(mSpeechVolume));
+    HashMap<String, Integer> customFlags = new HashMap<>();
+
+    if (feedbackItem.hasFlag(FeedbackItem.FLAG_CHUNKING_APPLIED)) {
+      customFlags.put(FailoverTextToSpeech.AGGRESSIVE_CHUNK, FailoverTextToSpeech.VALUE_ON);
+    }
 
     float pitch =
         mSpeechPitch * (mUseIntonation ? parseFloatParam(params, SpeechParam.PITCH, 1) : 1);
@@ -1615,7 +1710,9 @@ public class SpeechControllerImpl implements SpeechController {
           break;
         case CAPITAL_LETTERS_TYPE_SOUND_FEEDBACK:
           // TODO: The raw resource of sound feedback is required for capital letter.
-          mFeedbackController.playAuditory(R.raw.window_state, eventId);
+          if (mFeedbackController != null) {
+            mFeedbackController.playAuditory(R.raw.window_state, eventId);
+          }
           break;
         default: // fall out
       }
@@ -1624,9 +1721,11 @@ public class SpeechControllerImpl implements SpeechController {
     final String logText = (text == null) ? null : String.format("\"%s\"", text.toString());
     LogUtils.v(
         TAG,
-        "Speaking fragment text %s with spans %s for event %s",
+        "Speaking fragment text=%s, utteranceId=%s, spans=%s, locale=%s, event=%s",
         logText,
+        feedbackItem.getUtteranceId(),
         SpannableUtils.spansToStringForLogging(text),
+        locale,
         eventId);
 
     if (text != null && feedbackItem.hasFlag(FeedbackItem.FLAG_FORCE_FEEDBACK)) {
@@ -1643,6 +1742,7 @@ public class SpeechControllerImpl implements SpeechController {
         pitch,
         rate,
         params,
+        customFlags,
         DEFAULT_STREAM,
         mSpeechVolume,
         preventDeviceSleep,
@@ -1650,7 +1750,11 @@ public class SpeechControllerImpl implements SpeechController {
         eventId);
 
     if (mTtsOverlay != null) {
-      mTtsOverlay.displayText(text);
+      if (eventId != null) {
+        mTtsOverlay.displayText(text, eventId.getEventSubtype());
+      } else {
+        mTtsOverlay.displayText(text);
+      }
     }
 
     return true;
@@ -2106,6 +2210,18 @@ public class SpeechControllerImpl implements SpeechController {
     currentFragmentIterator = new FeedbackFragmentsIterator(nextItem.getFragments().iterator());
     speakNextItemInternal(nextItem);
     return true;
+  }
+
+  public void dump(Logger dumpLogger) {
+    dumpLogger.log("Speech Controller");
+    dumpLanguages(dumpLogger);
+    dumpLogger.log("");
+  }
+
+  // Dump supported languages from TTS voices.
+  private void dumpLanguages(Logger dumpLogger) {
+    dumpLogger.log(" supported languages=%s", getLanguages());
+    getFailoverTts().dump(dumpLogger);
   }
 
   /**

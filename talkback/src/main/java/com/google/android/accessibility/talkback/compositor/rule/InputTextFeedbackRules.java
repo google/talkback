@@ -15,6 +15,7 @@
  */
 package com.google.android.accessibility.talkback.compositor.rule;
 
+import static android.text.InputType.TYPE_NULL;
 import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_TYPE_INPUT_TEXT_ADD;
 import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_TYPE_INPUT_TEXT_CLEAR;
 import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_TYPE_INPUT_TEXT_REMOVE;
@@ -29,6 +30,7 @@ import static com.google.android.accessibility.utils.output.SpeechController.QUE
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.text.style.SuggestionSpan;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.compositor.AccessibilityInterpretationFeedbackUtils;
@@ -38,10 +40,12 @@ import com.google.android.accessibility.talkback.compositor.CompositorUtils;
 import com.google.android.accessibility.talkback.compositor.EventFeedback;
 import com.google.android.accessibility.talkback.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.compositor.TalkBackFeedbackProvider;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.input.TextEventInterpretation;
 import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.common.collect.ImmutableList;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
@@ -174,26 +178,48 @@ public final class InputTextFeedbackRules {
 
   private static EventFeedback inputTextAdd(
       HandleEventOptions eventOptions, Context context, GlobalVariables globalVariables) {
+    StringBuilder logString = new StringBuilder();
     TextEventInterpretation textEventInterpretation =
         AccessibilityInterpretationFeedbackUtils.safeTextInterpretation(
             eventOptions.eventInterpretation);
     CharSequence initialWord = getCleanupString(textEventInterpretation.getInitialWord(), context);
+    CharSequence interpretationAddedText =
+        getCleanupString(textEventInterpretation.getAddedText(), context);
+    boolean isPasteAction = textEventInterpretation.getIsPasteAction();
     boolean isInitialWordEmpty = TextUtils.isEmpty(initialWord);
 
+    logString
+        .append(String.format(" isPasteAction=%b ", isPasteAction))
+        .append(String.format(", isInitialWordEmpty=%b ", isInitialWordEmpty));
+
     CharSequence changedText;
-    if (!isInitialWordEmpty) {
-      changedText = initialWord;
-    } else {
-      boolean isPasteAction = textEventInterpretation.getIsPasteAction();
-      CharSequence interpretationAddedText =
-          getCleanupString(textEventInterpretation.getAddedText(), context);
+    if (isPasteAction) {
       CharSequence addedText =
           globalVariables.getGlobalSayCapital()
               ? CompositorUtils.prependCapital(interpretationAddedText, context)
               : interpretationAddedText;
+      StringBuilder pastedText =
+          new StringBuilder(context.getString(R.string.template_text_pasted, addedText));
+      ImmutableList<SuggestionSpan> suggestionSpans =
+          AccessibilityNodeInfoUtils.getSuggestionSpans(
+              context,
+              addedText,
+              eventOptions.sourceNode == null ? TYPE_NULL : eventOptions.sourceNode.getInputType());
+      if (!suggestionSpans.isEmpty()) {
+        pastedText.append(
+            context.getString(
+                R.string.template_hint_edit_text_containing_typo,
+                suggestionSpans.size(),
+                globalVariables.getGestureStringForReadingMenuNextSetting()));
+      }
+      changedText = pastedText;
+    } else if (!isInitialWordEmpty) {
+      changedText = initialWord;
+    } else {
       changedText =
-          isPasteAction ? context.getString(R.string.template_text_pasted, addedText) : addedText;
-      LogUtils.v(TAG, " isPasteAction=%b ", isPasteAction);
+          globalVariables.getGlobalSayCapital()
+              ? CompositorUtils.prependCapital(interpretationAddedText, context)
+              : interpretationAddedText;
     }
     CharSequence notifyMaxLengthReachedState =
         AccessibilityNodeFeedbackUtils.notifyMaxLengthReachedStateText(
@@ -205,15 +231,19 @@ public final class InputTextFeedbackRules {
         joinCharSequences(changedText, notifyMaxLengthReachedState, notifyErrorState);
 
     // Check whether to hint for WORD echoing when it's not empty.
-    int queueMode = isInitialWordEmpty ? QUEUE_MODE_INTERRUPT : QUEUE_MODE_INTERRUPTIBLE_IF_LONG;
+    int queueMode =
+        (isPasteAction || isInitialWordEmpty)
+            ? QUEUE_MODE_INTERRUPT
+            : QUEUE_MODE_INTERRUPTIBLE_IF_LONG;
 
     LogUtils.v(
         TAG,
-        joinFields(
-            " ttsOutputRule= ",
-            optionalText("changedText", changedText),
-            optionalText("notifyMaxLengthReachedState", notifyMaxLengthReachedState),
-            optionalText("notifyErrorState", notifyErrorState)));
+        logString
+            .append("\n    ttsOutputRule= ")
+            .append(String.format("changedText=%s", changedText))
+            .append(String.format(", notifyMaxLengthReachedState=%s", notifyMaxLengthReachedState))
+            .append(String.format(", notifyErrorState=%s", notifyErrorState))
+            .toString());
 
     return EventFeedback.builder()
         .setTtsOutput(Optional.of(ttsOutput))

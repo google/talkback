@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">lire</string>
-  <string name="voice_commands_read_from_next">Lire à partir de l\'élément suivant</string>
+  <string name="voice_commands_read_from_next">Lire à partir du curseur</string>
   <string name="voice_commands_edit_options">Modifier les options</string>
-  <string name="voice_commands_text_editing">Modification du texte</string>
-  <string name="voice_commands_edit_text">Modifier le texte</string>
-  <string name="voice_commands_editing_options">Options de modification</string>
   <string name="voice_commands_edit">modifier</string>
   <string name="voice_commands_what">quoi</string>
   <string name="voice_commands_say">dites</string>
@@ -21,10 +18,10 @@
   <string name="voice_commands_brighten_screen">augmenter la luminosité</string>
   <string name="voice_commands_restore_screen">restaurer l\'écran</string>
   <string name="voice_commands_cancel_hide_screen">annuler masquer l\'écran</string>
-  <string name="voice_commands_all_apps">Toutes les applications</string>
-  <string name="voice_commands_apps">Applications</string>
+  <string name="voice_commands_all_apps">Toutes les applis</string>
+  <string name="voice_commands_apps">Applis</string>
   <string name="voice_commands_overview">Aperçu</string>
-  <string name="voice_commands_recent_apps">Applications récentes</string>
+  <string name="voice_commands_recent_apps">Applis récentes</string>
   <string name="voice_commands_recent">Récent</string>
   <string name="voice_commands_recents">Récents</string>
   <string name="voice_commands_find">Rechercher</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Étiqueter</string>
   <string name="voice_commands_cannot_label_feedback">Impossible d\'étiqueter</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">Régler la vitesse de la voix</string>
   <string name="voice_commands_first">Premier élément</string>
   <string name="voice_commands_top">Premier élément</string>
   <string name="voice_commands_last">Dernier élément</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Accélérer la lecture</string>
   <string name="voice_commands_slower">Plus lentement</string>
   <string name="voice_commands_decrease_speech_rate">ralentir la lecture</string>
-  <string name="voice_commands_possible_options_title">Vous pouvez dire</string>
   <string name="voice_commands_no_action">Le raccourci vocal n\'est pas pris en charge</string>
   <string name="voice_commands_no_mic_permissions">Pour utiliser cette fonctionnalité, vous devez autoriser l\'utilisation du micro.</string>
   <string name="voice_commands_no_voice_recognition_ability">Désolés! Cette fonctionnalité n\'est pas proposée sur votre appareil</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Aucune commande suivante</string>
   <string name="voice_commands_no_next_landmark_feedback">Aucun point de repère suivant</string>
   <string name="voice_commands_help_title">Aperçu des commandes vocales</string>
-  <string name="voice_commands_help_description">Pour utiliser les commandes vocales, balayez l\'écran vers la droite, puis vers le haut. Dites « Aide » ou « Qu\'est-ce que je peux dire? » en tout temps pour afficher cette liste des commandes.</string>
+  <string name="voice_commands_help_description">Pour utiliser les commandes vocales, balayez l\'écran vers la droite, puis vers le haut. Dites « %1$s » ou « Que puis-je dire? » en tout temps pour afficher cette liste des commandes.</string>
   <string name="voice_commands_help_hint">Pour obtenir des résultats optimaux, utilisez la formulation exacte indiquée aux écrans suivants.</string>
   <string name="voice_command_screen_locked_hint">Les commandes vocales ne sont pas accessibles tandis que l\'écran est verrouillé. Utilisez plutôt le menu TalkBack en faisant ce geste : %1$s.</string>
   <string name="voice_commands_during_setup_hint">Les commandes vocales ne sont pas accessibles pendant la configuration.</string>
@@ -133,7 +128,7 @@
   <string name="voice_commands_help_delete_description">Vous devez sélectionner du texte à supprimer</string>
   <string name="voice_commands_help_device_navigation_title">Navigation sur l\'appareil</string>
   <string name="voice_commands_help_device_navigation_description">Accédez à l\'écran d\'accueil, revenez en arrière, affichez les notifications et plus encore</string>
-  <string name="voice_commands_help_overview_description">Affichez les applications récemment utilisées</string>
+  <string name="voice_commands_help_overview_description">Affichez les applis récemment utilisées</string>
   <string name="voice_commands_help_assistant_description">Ouvrez l\'Assistant Google</string>
   <string name="voice_commands_help_other_commands_title">Autres commandes</string>
   <string name="voice_commands_help_other_commands_description">Accédez aux paramètres de TalkBack, masquez l\'écran, affichez les actions, ajoutez des étiquettes personnalisées et plus encore</string>

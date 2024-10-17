@@ -24,14 +24,14 @@ import java.util.Map;
 
 /** Properties retrieved from the remote braille display. */
 public class BrailleDisplayProperties implements Parcelable {
-  private final String deviceName;
+  private final String driverCode;
   private final int numTextCells;
   private final int numStatusCells;
   private final BrailleKeyBinding[] keyBindings;
   private final Map<String, String> friendlyKeyNames;
 
   public BrailleDisplayProperties(
-      String name,
+      String driverCode,
       int numTextCells,
       int numStatusCells,
       BrailleKeyBinding[] keyBindings,
@@ -40,11 +40,11 @@ public class BrailleDisplayProperties implements Parcelable {
     this.numStatusCells = numStatusCells;
     this.keyBindings = keyBindings;
     this.friendlyKeyNames = friendlyKeyNames;
-    deviceName = name;
+    this.driverCode = driverCode;
   }
 
   private BrailleDisplayProperties(Parcel in) {
-    deviceName = in.readString();
+    driverCode = in.readString();
     numTextCells = in.readInt();
     numStatusCells = in.readInt();
     keyBindings = in.createTypedArray(BrailleKeyBinding.CREATOR);
@@ -85,16 +85,16 @@ public class BrailleDisplayProperties implements Parcelable {
   }
 
   /** Returns the name of the display. */
-  public String getDeviceName() {
-    return deviceName;
+  public String getDriverCode() {
+    return driverCode;
   }
 
   @Override
   public String toString() {
     return String.format(
         "BrailleDisplayProperties [numTextCells: %d, numStatusCells: %d, "
-            + "keyBindings: %d], deviceName: %s",
-        numTextCells, numStatusCells, keyBindings.length, deviceName);
+            + "keyBindings: %d], driverCode: %s",
+        numTextCells, numStatusCells, keyBindings.length, driverCode);
   }
 
   // For Parcelable support.
@@ -119,7 +119,7 @@ public class BrailleDisplayProperties implements Parcelable {
 
   @Override
   public void writeToParcel(Parcel out, int flags) {
-    out.writeString(deviceName);
+    out.writeString(driverCode);
     out.writeInt(numTextCells);
     out.writeInt(numStatusCells);
     out.writeTypedArray(keyBindings, flags);

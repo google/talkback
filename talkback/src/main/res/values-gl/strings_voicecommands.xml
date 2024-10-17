@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">ler</string>
-  <string name="voice_commands_read_from_next">Le a partir do seguinte elemento</string>
+  <string name="voice_commands_read_from_next">Ler desde o cursor</string>
   <string name="voice_commands_edit_options">Opcións de edición</string>
-  <string name="voice_commands_text_editing">Edición de texto</string>
-  <string name="voice_commands_edit_text">Editar texto</string>
-  <string name="voice_commands_editing_options">Opcións de edición</string>
   <string name="voice_commands_edit">editar</string>
   <string name="voice_commands_what">que?</string>
   <string name="voice_commands_say">di</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etiquetar</string>
   <string name="voice_commands_cannot_label_feedback">Non se puido etiquetar</string>
   <string name="voice_commands_assistant">Asistente</string>
-  <string name="voice_commands_setting_speech_rate">Configurando velocidade da fala</string>
   <string name="voice_commands_first">Primeiro</string>
   <string name="voice_commands_top">Primeiro elemento</string>
   <string name="voice_commands_last">Último</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Aumenta a velocidade da fala</string>
   <string name="voice_commands_slower">Máis lento</string>
   <string name="voice_commands_decrease_speech_rate">diminúe a velocidade da fala</string>
-  <string name="voice_commands_possible_options_title">Podes dicir</string>
   <string name="voice_commands_no_action">Non se admite o atallo de voz</string>
   <string name="voice_commands_no_mic_permissions">Para utilizar esta función debes conceder permiso de uso do micrófono.</string>
   <string name="voice_commands_no_voice_recognition_ability">Esta función non está dispoñible no teu dispositivo</string>
@@ -103,14 +98,14 @@
   <string name="voice_commands_no_next_control_feedback">Non hai ningún control posterior</string>
   <string name="voice_commands_no_next_landmark_feedback">Non hai ningún punto de referencia posterior</string>
   <string name="voice_commands_help_title">Vista xeral dos comandos de voz</string>
-  <string name="voice_commands_help_description">Para utilizar os comandos de voz, pasa o dedo cara á dereita e logo cara arriba. Cando queiras acceder a esta lista de comandos, di \"Axuda\" ou \"Que podo dicir?\".</string>
+  <string name="voice_commands_help_description">Para utilizar os comandos de voz, pasa o dedo cara á dereita e logo cara arriba. Cando queiras acceder a esta lista de comandos, di \"%1$s\" ou \"Que podo dicir?\".</string>
   <string name="voice_commands_help_hint">Para obter os mellores resultados, di as palabras exactas que aparecen nas seguintes pantallas.</string>
   <string name="voice_command_screen_locked_hint">Os comandos de voz non están dispoñibles coa pantalla bloqueada. Para usar no seu lugar o menú de TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Os comandos de voz non están dispoñibles durante a configuración.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Cambia o modo de ler contido nesta pantalla</string>
   <string name="voice_commands_help_next">Seguinte [cabeceira]</string>
-  <string name="voice_commands_help_navigation">Navegación [palabra]</string>
+  <string name="voice_commands_help_navigation">Navegación por [palabra]</string>
   <string name="voice_commands_help_speech_rate">Fala [máis rápido]</string>
   <string name="voice_commands_help_verbosity">Verbosidade [baixa]</string>
   <string name="voice_commands_help_next_description">Salta ao seguinte título, control, lista ou punto de referencia</string>

@@ -120,9 +120,18 @@ class TextToSpeechUtils {
   }
 
   /**
-   * Parses a comma separated list of engine locale preferences. The list is of the form {@code
-   * "engine_name_1:locale_1,engine_name_2:locale2"} and so on and so forth. Returns null if the
-   * list is empty, malformed or if there is no engine specific preference in the list.
+   * Parses a comma-separated list of engine-specific locale preferences.
+   *
+   * <p>The list format is: `engine_name_1:locale_1,engine_name_2:locale_2,...`.
+   *
+   * <p>This method searches the list for an entry matching the given `engineName`. If found, it
+   * returns the associated locale string after replacing underscores with hyphens (to match IETF
+   * language tag format). Otherwise, it returns null.
+   *
+   * @param prefValue The comma-separated list of preferences.
+   * @param engineName The engine name to search for.
+   * @return The preferred locale for the given engine (in IETF format), or null if not found, the
+   *     list is empty, or malformed.
    */
   private static @Nullable String parseEnginePrefFromList(String prefValue, String engineName) {
     if (TextUtils.isEmpty(prefValue) || TextUtils.isEmpty(engineName)) {
@@ -135,7 +144,8 @@ class TextToSpeechUtils {
       final int delimiter = value.indexOf(':');
       if (delimiter > 0) {
         if (engineName.equals(value.substring(0, delimiter))) {
-          return value.substring(delimiter + 1);
+          String locale = value.substring(delimiter + 1);
+          return TextUtils.isEmpty(locale) ? null : locale.replace('_', '-');
         }
       }
     }

@@ -16,12 +16,13 @@
 
 package com.google.android.accessibility.talkback.controller;
 
-import static android.content.Context.RECEIVER_EXPORTED;
+import static androidx.core.content.ContextCompat.RECEIVER_EXPORTED;
 import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD;
 import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.CLICK_ANCESTOR;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.LONG_CLICK_CURRENT;
-import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.TARGET_SPAN_CLASS;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.LINKS;
+import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.BASE_CLICKABLE_SPAN;
 import static com.google.android.accessibility.utils.input.CursorGranularity.DEFAULT;
 import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_TV_REMOTE;
 import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_DOWN;
@@ -362,7 +363,7 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
           // Seek control, center key toggles seek control input mode instead of clicking.
           setMode(MODE_SEEK_CONTROL, eventId);
         } else if (shouldOpenLinkMenu(focusedNode)) {
-          listMenuManager.showMenu(R.id.links_menu, eventId);
+          listMenuManager.showMenu(LINKS, eventId);
           listMenuTriggerNode = focusedNode;
         } else {
           pipeline.returnFeedback(eventId, Feedback.focus(CLICK_ANCESTOR));
@@ -386,7 +387,7 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
     return (node != null)
         && !shouldTriggerClick(node)
         && !WebInterfaceUtils.supportsWebActions(node)
-        && SpannableTraversalUtils.hasTargetSpanInNodeTreeDescription(node, TARGET_SPAN_CLASS);
+        && SpannableTraversalUtils.hasTargetClickableSpanInNodeTree(node, BASE_CLICKABLE_SPAN);
   }
 
   /** Closes the link menu if the links refer to a node no longer on screen. */

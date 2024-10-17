@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">تم ضبط مستوى صوت %1$s على %2$d بالمئة.</string>
   <string name="template_stream_muted_set">تم كتم صوت %1$s.</string>
+  <string name="hint_a11y_volume_control">لتغيير مستوى صوت \"تسهيل الاستخدام\"، انقر مع الاستمرار بإصبع واحد على الشاشة، ثم اضغط على مفتاح رفع الصوت أو خفضه.</string>
   <string name="value_stream_voice_call">مكالمة هاتفية</string>
   <string name="value_stream_system">صوت النظام</string>
   <string name="value_stream_ring">نغمة الرنين</string>

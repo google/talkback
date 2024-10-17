@@ -20,6 +20,10 @@ import static com.google.android.accessibility.talkback.Feedback.Focus.Action.CA
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.MUTE_NEXT_FOCUS;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.RESTORE_ON_NEXT_WINDOW;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SAVE_LAST;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CONTEXT;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CUSTOM_ACTION;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.LANGUAGE;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.LINKS;
 import static com.google.android.accessibility.talkback.eventprocessor.EventState.EVENT_SKIP_FOCUS_SYNC_FROM_VIEW_FOCUSED;
 
 import android.os.Handler;
@@ -53,6 +57,7 @@ import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.input.WindowEventInterpreter.EventInterpretation;
 import com.google.android.accessibility.utils.input.WindowEventInterpreter.WindowEventHandler;
 import com.google.android.accessibility.utils.material.A11yAlertDialogWrapper;
@@ -61,14 +66,16 @@ import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.accessibility.utils.widget.DialogUtils;
 import com.google.android.accessibility.utils.widget.NonScrollableListView;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.common.collect.ImmutableList;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.util.ArrayList;
 import java.util.List;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
- * Controls list-style context menus. Uses {@link MenuTransformer} to configure menus.
+ * Controls list-style context menus.
  *
  * <p>Some context menu actions need to restore focus from last active window, for instance, "Read
  * from next", and some would be reset with {@link AccessibilityEvent#TYPE_WINDOWS_CHANGED}, for
@@ -78,6 +85,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * state changes.
  */
 public class ListMenuManager implements WindowEventHandler, AccessibilityEventListener {
+  private static final String TAG = "ListMenuManager";
+
   /** Event types that are handled by ListMenuManager. */
   private static final int MASK_EVENTS_HANDLED_BY_LIST_MENU_MANAGER =
       AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
@@ -94,12 +103,19 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
   private final ContextMenuItemClickProcessor menuClickProcessor;
   private @Nullable DeferredAction deferredAction;
   private @Nullable A11yAlertDialogWrapper currentDialog;
-  private MenuTransformer menuTransformer;
   private MenuActionInterceptor menuActionInterceptor;
   private long lastMenuDismissUptimeMs;
   private AccessibilityNodeInfoCompat currentNode;
   private ContextMenu contextMenu;
   private final FormFactorUtils formFactorUtils;
+
+  /** Id to identify the menu content. */
+  public enum MenuId {
+    CONTEXT,
+    CUSTOM_ACTION,
+    LANGUAGE,
+    LINKS,
+  }
 
   public ListMenuManager(
       TalkBackService service,
@@ -118,11 +134,13 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
     menuClickProcessor = new ContextMenuItemClickProcessor(service, pipeline);
   }
 
-  public boolean showMenu(int menuId, EventId eventId) {
+  @CanIgnoreReturnValue
+  public boolean showMenu(MenuId menuId, EventId eventId) {
     return showMenu(menuId, eventId, INVALID_RES_ID);
   }
 
-  public boolean showMenu(int menuId, EventId eventId, int failureStringResId) {
+  @CanIgnoreReturnValue
+  public boolean showMenu(MenuId menuId, EventId eventId, int failureStringResId) {
     /*
      * We get the last utterance at the time of menu creation.
      * The utterances produced by the user navigating the menu will go into the history.
@@ -145,7 +163,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
             CharSequence[] subMenuItems = getItemsFromMenu(subMenu);
             showDialogMenu(subMenu.getTitle(), subMenuItems, subMenu, eventId);
 
-            if (menuId == R.menu.context_menu) {
+            if (menuId == CONTEXT) {
               for (int i = 0; i < subMenu.size(); i++) {
                 if (menuClickProcessor.isItemSupported(subMenu.getItem(i))) {
                   subMenu
@@ -165,9 +183,6 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
     currentNode = accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
 
     prepareMenu(contextMenu, menuId);
-    if (menuTransformer != null) {
-      menuTransformer.transformMenu(contextMenu, menuId);
-    }
 
     if (contextMenu.size() == 0) {
       String text =
@@ -187,37 +202,46 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
                           | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE)));
       return false;
     }
-    if (menuId == R.menu.context_menu) {
+    if (menuId == CONTEXT) {
       analytics.onGlobalContextMenuOpen(/* isListStyle= */ true);
     }
     showDialogMenu(contextMenu.getTitle(), getItemsFromMenu(contextMenu), contextMenu, eventId);
+    if (menuId == CONTEXT && !SettingsUtils.allowLinksOutOfSettings(service)) {
+      String titleContentDescription =
+          service.getString(R.string.talkback_menu_title_content_description);
+      if (formFactorUtils.isAndroidTv()) {
+        new Handler(Looper.getMainLooper())
+            .post(() -> attachContentDescriptionOnTitle(currentDialog, titleContentDescription));
+      } else {
+        attachContentDescriptionOnTitle(currentDialog, titleContentDescription);
+      }
+    }
     return true;
   }
 
-  private void prepareMenu(ContextMenu menu, int menuId) {
-    if (menuId == R.menu.context_menu) {
+  private void prepareMenu(ContextMenu menu, MenuId menuId) {
+    if (menuId == CONTEXT) {
       TalkbackMenuProcessor talkbackMenuProcessor =
           new TalkbackMenuProcessor(
               service, actorState, pipeline, nodeMenuRuleProcessor, currentNode);
-
       talkbackMenuProcessor.prepareMenu(menu);
       menu.setTitle(service.getString(R.string.talkback_menu_title));
-    } else if (menuId == R.id.custom_action_menu) {
+    } else if (menuId == CUSTOM_ACTION) {
       final AccessibilityNodeInfoCompat currentNode =
           accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
       if (currentNode == null) {
         return;
       }
-      nodeMenuRuleProcessor.prepareRuleMenuForNode(menu, currentNode, menuId);
+      nodeMenuRuleProcessor.prepareRuleMenuForNode(menu, currentNode, R.id.custom_action_menu);
 
       menu.setTitle(service.getString(R.string.title_custom_action));
-    } else if (menuId == R.menu.language_menu) {
+    } else if (menuId == LANGUAGE) {
       // Menu for language switcher
       LanguageMenuProcessor.prepareLanguageMenu(service, pipeline, actorState, menu);
       menu.setTitle(service.getString(R.string.language_options));
-    } else if (menuId == R.id.links_menu) {
+    } else if (menuId == LINKS) {
       // Menu for spannables
-      nodeMenuRuleProcessor.prepareRuleMenuForNode(menu, currentNode, menuId);
+      nodeMenuRuleProcessor.prepareRuleMenuForNode(menu, currentNode, R.id.links_menu);
       menu.setTitle(service.getString(R.string.links));
     }
   }
@@ -325,6 +349,20 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
     alert.show();
     currentDialog = alert;
     menuShown++;
+  }
+
+  private void attachContentDescriptionOnTitle(
+      A11yAlertDialogWrapper dialog, String contentDescription) {
+    int titleId =
+        service.getResources().getIdentifier("alertTitle", "id", service.getPackageName());
+    if (titleId > 0) {
+      TextView dialogTitle = dialog.getDialog().findViewById(titleId);
+      if (dialogTitle != null) {
+        dialogTitle.setContentDescription(contentDescription);
+      }
+    } else {
+      LogUtils.w(TAG, "Cannot find the title TextView to add contentDescription.");
+    }
   }
 
   private View prepareCustomView(CharSequence[] items, ListMenuClickListener listener) {
@@ -498,10 +536,6 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
 
   public void onGesture(int gesture) {}
 
-  public void setMenuTransformer(MenuTransformer transformer) {
-    menuTransformer = transformer;
-  }
-
   public void setMenuActionInterceptor(MenuActionInterceptor actionInterceptor) {
     menuActionInterceptor = actionInterceptor;
   }
@@ -510,8 +544,10 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
   @VisibleForTesting
   static class DeferredAction {
     final int actionId;
+
     /** The {@link MenuItem} action needs to be deferred. */
     final ContextMenuItem menuItem;
+
     /** The deferred type of this action. */
     final DeferredType type;
 

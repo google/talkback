@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="dont_show_again">यो फेरि नदेखाइयोस्</string>
+  <string name="dont_show_again">यो फेरि नदेखाउनुहोस्</string>
   <string name="number_announcement">नम्बर</string>
   <string name="capitalize_announcement">क्याप</string>
   <string name="read_out_deleted">%s मेटाइयो</string>
@@ -18,12 +18,13 @@
   <string name="code_user_facing_name_arabic">अरबी</string>
   <string name="code_user_facing_name_arabic_comp8">८ वटा डट प्रयोग गरिने अरबी कम्प्युटर ब्रेल</string>
   <string name="code_user_facing_name_bulgarian">बुल्गेरियाली</string>
+  <string name="code_user_facing_name_bulgarian_comp8">८ वटा डट प्रयोग गरिने बुल्गेरियाली कम्प्युटर ब्रेल</string>
   <string name="code_user_facing_name_ca_catalan">क्याटालन</string>
   <string name="code_user_facing_name_catonese">क्यान्टोनिज</string>
-  <string name="code_user_facing_name_chinese_china_common">सामान्य चिनियाँ (चीन) ब्रेल</string>
-  <string name="code_user_facing_name_chinese_china_current_with_tones">हाल टोनहरू समावेश भएको चिनियाँ (चीन) ब्रेल</string>
-  <string name="code_user_facing_name_chinese_china_current_without_tones">हाल टोनहरू समावेश नभएको चिनियाँ (चीन) ब्रेल</string>
-  <string name="code_user_facing_name_chinese_china_two_cells">दुई वटा सेल भएको चिनियाँ (चीन) ब्रेल</string>
+  <string name="code_user_facing_name_chinese_china_common">सामान्य चिनियाँ (चीन)</string>
+  <string name="code_user_facing_name_chinese_china_current_with_tones">हाल टोनहरू समावेश भएको चिनियाँ (चीन)</string>
+  <string name="code_user_facing_name_chinese_china_current_without_tones">हाल टोनहरू समावेश नभएको चिनियाँ (चीन)</string>
+  <string name="code_user_facing_name_chinese_china_two_cells">दुई वटा सेल भएको चिनियाँ (चीन)</string>
   <string name="code_user_facing_name_chinese_taiwan">चिनियाँ (ताइवान)</string>
   <string name="code_user_facing_name_central_kurdish">केन्द्रीय कुर्दी</string>
   <string name="code_user_facing_name_czech_comp8">८ वटा डट प्रयोग गरिने चेक कम्प्युटर ब्रेल</string>
@@ -35,12 +36,10 @@
   <string name="code_user_facing_name_german_comp8">८ वटा डट प्रयोग गरिने जर्मन कम्प्युटर ब्रेल</string>
   <string name="code_user_facing_name_german">जर्मन</string>
   <string name="code_user_facing_name_greek">ग्रिक</string>
-  <string name="code_user_facing_name_en_ca">अङ्ग्रेजी ब्रेल (क्यानाडा)</string>
   <string name="code_user_facing_name_en_uk">अङ्ग्रेजी ब्रेल (संयुक्त अधिराज्य)</string>
   <string name="code_user_facing_name_en_in">अङ्ग्रेजी ब्रेल (भारत)</string>
   <string name="code_user_facing_name_en_nabcc_comp8">उत्तरी अमेरिकी ब्रेल कम्प्युटर कोड</string>
   <string name="code_user_facing_name_en_comp6">६ वटा डट प्रयोग गरिने अङ्ग्रेजी कम्प्युटर ब्रेल</string>
-  <string name="code_user_facing_name_en_comp8">८ वटा डट प्रयोग गरिने अङ्ग्रेजी कम्प्युटर ब्रेल</string>
   <string name="code_user_facing_name_en_us_ebae">अङ्ग्रेजी ब्रेल (संयुक्त राज्य अमेरिका, अमेरिकी संस्करण)</string>
   <string name="code_user_facing_name_en_us">अङ्ग्रेजी ब्रेल (संयुक्त राज्य अमेरिका)</string>
   <string name="code_user_facing_name_polish">पोलिस</string>
@@ -78,13 +77,14 @@
   <string name="code_user_facing_name_dutch_comp8">८ वटा डट प्रयोग गरिने डच कम्प्युटर ब्रेल</string>
   <string name="code_user_facing_name_norwegian">नर्वेली</string>
   <string name="code_user_facing_name_norwegian_8_no">८ वटा डट प्रयोग गरिने नर्वेली ब्रेल (नर्वे)</string>
+  <string name="code_user_facing_name_norwegian_comp8">८ वटा डट प्रयोग गरिने नर्वेली कम्प्युटर ब्रेल</string>
   <string name="code_user_facing_name_norwegian_8">८ वटा डट प्रयोग गरिने नर्वेली ब्रेल</string>
   <string name="code_user_facing_name_norwegian_8_with_6_fallback">६ वटा डट प्रयोग गरिने फलब्याकसहितको ८ वटा डट प्रयोग गरिने नर्वेली ब्रेल</string>
   <string name="code_user_facing_name_nepali_indian">नेपाली ब्रेल (भारत)</string>
   <string name="code_user_facing_name_portuguese">पोर्तुगाली</string>
   <string name="code_user_facing_name_punjabi">पञ्जाबी</string>
   <string name="code_user_facing_name_portuguese_comp8">८ वटा डट प्रयोग गरिने पोर्तुगाली कम्प्युटर ब्रेल</string>
-  <string name="code_user_facing_name_romanian_no">८ वटा डट प्रयोग गरिने रोमानियाली ब्रेल</string>
+  <string name="code_user_facing_name_romanian_comp8">८ वटा डट प्रयोग गरिने रोमानियाली कम्प्युटर ब्रेल</string>
   <string name="code_user_facing_name_russian">रुसी</string>
   <string name="code_user_facing_name_russian_detailed">ठुला वर्ण प्रयोग गरिने रुसी ब्रेल</string>
   <string name="code_user_facing_name_russian_comp8">८ वटा डट प्रयोग गरिने रुसी कम्प्युटर ब्रेल</string>
@@ -99,7 +99,7 @@
   <string name="code_user_facing_name_tamil">तमिल</string>
   <string name="code_user_facing_name_telugu_in">तेलुगू ब्रेल (भारत)</string>
   <string name="code_user_facing_name_turkish">तुर्किस</string>
-  <string name="code_user_facing_name_turkish_8">८ वटा डट प्रयोग गरिने तुर्किस ब्रेल</string>
+  <string name="code_user_facing_name_turkish_comp8">८ वटा डट प्रयोग गरिने तुर्किस कम्प्युटर ब्रेल</string>
   <string name="code_user_facing_name_ukrainian">युक्रेनियाली</string>
   <string name="code_user_facing_name_ukrainian_comp8">८ वटा डट प्रयोग गरिने युक्रेनियाली कम्प्युटर ब्रेल</string>
   <string name="code_user_facing_name_urdu">उर्दू</string>

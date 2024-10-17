@@ -30,11 +30,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
-import com.google.android.accessibility.brailleime.BrailleImeUtils;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.trainingcommon.TrainingFragment;
 import com.google.android.accessibility.talkback.trainingcommon.TrainingIpcClient.ServiceData;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.errorprone.annotations.Immutable;
 import java.util.function.Consumer;
 
@@ -49,9 +47,7 @@ public class PageButton extends PageContentConfig {
   @Immutable
   public enum PageButtonAction implements ButtonOnClickListener {
     OPEN_READING_MODE_PAGE(PageButton::openReadingModePage),
-    OPEN_LOOKOUT_PAGE(PageButton::openLookoutPage),
-    BRAILLE_TUTORIAL(PageButton::openBrailleTutorialForSpellCheck);
-
+    OPEN_LOOKOUT_PAGE(PageButton::openLookoutPage);
     private final ButtonOnClickListener onClickListener;
 
     PageButtonAction(ButtonOnClickListener onClickListener) {
@@ -147,15 +143,6 @@ public class PageButton extends PageContentConfig {
   private static void openLookoutPage(Context context) {
     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LOOKOUT_PLAYSTORE_URL));
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    context.startActivity(intent);
-  }
-
-  private static void openBrailleTutorialForSpellCheck(Context context) {
-    Intent intent = BrailleImeUtils.getStartSpellCheckGestureCommandActivityIntent(context);
-    if (intent == null) {
-      LogUtils.e(TAG, "No intent to view braille tutorial for Spell Check.");
-      return;
-    }
     context.startActivity(intent);
   }
 

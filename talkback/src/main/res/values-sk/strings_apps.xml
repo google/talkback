@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">%1$s: hlasitosť je nastavená na %2$d percent.</string>
   <string name="template_stream_muted_set">Hlasitosť streamu %1$s je vypnutá.</string>
+  <string name="hint_a11y_volume_control">Ak chcete zmeniť hlasitosť dostupnosti, pridržte jeden prst na obrazovke a stlačte kláves na zvýšenie alebo zníženie hlasitosti.</string>
   <string name="value_stream_voice_call">Telefonický hovor</string>
   <string name="value_stream_system">Systémové zvuky</string>
   <string name="value_stream_ring">Tón zvonenia</string>

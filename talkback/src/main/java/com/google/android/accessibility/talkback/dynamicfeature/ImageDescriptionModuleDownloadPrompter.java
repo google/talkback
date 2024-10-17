@@ -39,11 +39,10 @@ public class ImageDescriptionModuleDownloadPrompter extends ModuleDownloadPrompt
    * Creates a {@link ModuleDownloadPrompter} to handle the process of image description download
    * and uninstallation.
    */
-  public ImageDescriptionModuleDownloadPrompter(
-      Context context, FeatureDownloader featureDownloader) {
+  public ImageDescriptionModuleDownloadPrompter(Context context, Downloader downloader) {
     super(
         context,
-        featureDownloader,
+        downloader,
         IMAGE_DESCRIPTION,
         ImageCaptionPreferenceKeys.IMAGE_DESCRIPTION,
         DownloadDialogResources.IMAGE_DESCRIPTION,

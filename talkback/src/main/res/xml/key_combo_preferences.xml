@@ -86,8 +86,8 @@
             android:key="@string/keycombo_shortcut_other_read_from_top"
             android:title="@string/keycombo_menu_other_read_from_top"/>
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
-            android:key="@string/keycombo_shortcut_other_read_from_next_item"
-            android:title="@string/keycombo_menu_other_read_from_next_item"/>
+            android:key="@string/keycombo_shortcut_other_read_from_cursor_item"
+            android:title="@string/keycombo_menu_other_read_from_cursor_item"/>
         <com.google.android.accessibility.talkback.preference.base.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_other_toggle_search"
             android:title="@string/keycombo_menu_other_toggle_search"/>

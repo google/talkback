@@ -292,9 +292,16 @@ public class AccessibilityNodeFeedbackUtils {
                 : AccessibilityNodeInfoUtils.getLocalesByNode(node));
     CharSequence nodeTextOrLabelId =
         getNodeTextOrLabelOrIdDescription(node, context, imageContents, globalVariables);
+    // To accommodate apps (like Chrome) which don't set the text, hint text and isShowingHintText
+    // properly, use getNodeHint instead of getHintDescription below.
+    CharSequence nodeHintText = getNodeHint(node);
+    CharSequence nodeDescriptionFromLabelNode =
+        getDescriptionFromLabelNode(node, context, imageContents, globalVariables);
     if (TextUtils.isEmpty(nodeDescription)
         && TextUtils.isEmpty(nodeStateDescription)
-        && TextUtils.isEmpty(nodeTextOrLabelId)) {
+        && TextUtils.isEmpty(nodeTextOrLabelId)
+        && TextUtils.isEmpty(nodeHintText)
+        && TextUtils.isEmpty(nodeDescriptionFromLabelNode)) {
       LogUtils.v(TAG, " getUnlabelledNodeDescription return Unlabelled because no text info");
       return context.getString(R.string.value_unlabelled);
     }
@@ -380,6 +387,20 @@ public class AccessibilityNodeFeedbackUtils {
     return imageContents == null ? "" : imageContents.getLabel(node);
   }
 
+  /** Returns the node description text from the label node. */
+  public static CharSequence getDescriptionFromLabelNode(
+      AccessibilityNodeInfoCompat node,
+      Context context,
+      ImageContents imageContents,
+      GlobalVariables globalVariables) {
+    AccessibilityNodeInfoCompat labelNode = node.getLabeledBy();
+    if (labelNode == null) {
+      return "";
+    }
+    return AccessibilityNodeFeedbackUtils.getNodeTextOrLabelOrIdDescription(
+        labelNode, context, imageContents, globalVariables);
+  }
+
   /** Returns the node disabled state if the node should announce the disabled state. */
   public static CharSequence getDisabledStateText(
       AccessibilityNodeInfoCompat node, Context context) {
@@ -459,25 +480,77 @@ public class AccessibilityNodeFeedbackUtils {
         : getNodeHint(node);
   }
 
-  /** Returns hint text for node actions that is in high verbosity. */
+  /**
+   * Returns hint text for node actions that is in high verbosity.
+   *
+   * <p>Note: There are four cases of hint for the "Actions" item if it is available in the TalkBack
+   * menu,
+   *
+   * <ul>
+   *   <li>1. Custom-Action gesture is assigned. e.g. "Tap with 2 fingers" is configured to show
+   *       custom action -> "Actions available, use tap with 2 fingers to view"
+   *   <li>2. "Actions" item for EditText. The current setting may be reset to Character or
+   *       Proofread later, so always use the menu shortcut as the hint of "Actions" item. e.g. "Tap
+   *       with 3 fingers" is configured to open TalkBack menu -> "Actions available, use tap with 3
+   *       fingers to view"
+   *   <li>3. "Actions" item is available in the reading control and the current settings is
+   *       "Actions". e.g. "Swipe up" and "Swipe down" are configured to select reading control ->
+   *       "Actions available, swipe up or swipe down and double-tap to activate"
+   *   <li>4. Otherwise, e.g. "Tap with 3 fingers" is configured to open TalkBack menu -> "Actions
+   *       available, use tap with 3 fingers to view"
+   * </ul>
+   */
   public static CharSequence getHintForNodeActions(
       AccessibilityNodeInfoCompat node, Context context, GlobalVariables globalVariables) {
     int role = Role.getRole(node);
     NodeMenuProvider nodeMenuProvider = globalVariables.getNodeMenuProvider();
     if (nodeMenuProvider != null && role != Role.ROLE_TEXT_ENTRY_KEY) {
       List<String> menuTypeList = nodeMenuProvider.getSelfNodeMenuActionTypes(node);
-      if (!menuTypeList.isEmpty()) {
+      String actionMenuItemName = nodeMenuProvider.getActionMenuName();
+      StringBuilder hint = new StringBuilder();
+      if (!TextUtils.isEmpty(actionMenuItemName) && menuTypeList.contains(actionMenuItemName)) {
         CharSequence hintArgument = globalVariables.getGestureStringForActionShortcut();
-        if (TextUtils.isEmpty(hintArgument)) {
-          // If Custom-Action is not a configured gesture shortcut, fallback to the original
-          // Node-Actions shortcut.
-          hintArgument = globalVariables.getGestureStringForNodeActions();
+        if (!TextUtils.isEmpty(hintArgument)) {
+          // Custom-Action is a configured gesture shortcut.
+          hint.append(
+                  context.getString(
+                      R.string.template_hint_menu_type_high_verbosity,
+                      actionMenuItemName,
+                      hintArgument))
+              .append(CompositorUtils.getSeparator());
+          // Actions item hint exists, so it's unnecessary to generate another hint for it.
+          menuTypeList.remove(actionMenuItemName);
+        } else if (globalVariables.isReadingMenuActionCurrentSettings(context)
+            && globalVariables.hasReadingMenuActionSettings()
+            // The current settings is not fixed and maybe be reset to default action (Character or
+            // Proofread) later, so always providing menu shortcut for the hint of "Actions" item.
+            && role != Role.ROLE_EDIT_TEXT) {
+          hintArgument = globalVariables.getGestureStringForNodeActionsInReadingControl();
+          if (!TextUtils.isEmpty(hintArgument)) {
+            String actionDescription = globalVariables.getReadingMenuActionSettingsDescription();
+            if (!TextUtils.isEmpty(actionDescription)) {
+              hint.append(
+                      context.getString(
+                          R.string.template_hint_for_reading_control_actions_in_high_verbosity,
+                          actionDescription,
+                          hintArgument))
+                  .append(CompositorUtils.getSeparator());
+              // Actions item hint exists, so it's unnecessary to generate another hint for it.
+              menuTypeList.remove(actionMenuItemName);
+            }
+          }
         }
-        return context.getString(
-            R.string.template_hint_menu_type_high_verbosity,
-            Joiner.on(",").join(menuTypeList),
-            hintArgument);
       }
+
+      // Gets a hint for node actions in the TalkBack menu.
+      if (!menuTypeList.isEmpty()) {
+        hint.append(
+            context.getString(
+                R.string.template_hint_menu_type_high_verbosity,
+                Joiner.on(CompositorUtils.getSeparator()).join(menuTypeList),
+                globalVariables.getGestureStringForNodeActions()));
+      }
+      return hint;
     }
     return "";
   }
@@ -536,7 +609,8 @@ public class AccessibilityNodeFeedbackUtils {
         : "";
   }
 
-  private static @NonNull CharSequence prepareSpans(
+  @NonNull
+  private static CharSequence prepareSpans(
       @Nullable CharSequence text,
       AccessibilityNodeInfoCompat node,
       Context context,

@@ -18,7 +18,6 @@ package com.google.android.accessibility.utils.ocr;
 
 import static java.util.Comparator.comparing;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Handler;
@@ -57,6 +56,7 @@ public class OcrController {
   public static final String WORD_SEPARATOR = " ";
   public static final String PARAGRAPH_SEPARATOR = "\n";
   private static final long DELAY_PARSER_OCR_RESULT_MS = 50;
+
   /** Maximal waiting time of OCR results. */
   private static final long OCR_RESULT_MAX_WAITING_TIME_MS = 5000;
 
@@ -70,20 +70,29 @@ public class OcrController {
   private static final String TAG = "OcrController";
 
   private final OcrListener ocrListener;
+  private final boolean needCropScreenshot;
   private final Handler handler;
   // TextRecognizer (MlKitContext) may not be ready when the device just boots completely, so this
   // recognizer can't be initialized in the constructor.
   @Nullable private TextRecognizer recognizer;
 
-  public OcrController(Context context, OcrListener ocrListener) {
-    this(new Handler(Looper.getMainLooper()), ocrListener, /* recognizer= */ null);
+  public OcrController(OcrListener ocrListener, boolean needCropScreenshot) {
+    this(
+        new Handler(Looper.getMainLooper()),
+        ocrListener,
+        needCropScreenshot,
+        /* recognizer= */ null);
   }
 
   public OcrController(
-      Handler handler, OcrListener ocrListener, @Nullable TextRecognizer recognizer) {
+      Handler handler,
+      OcrListener ocrListener,
+      boolean needCropScreenshot,
+      @Nullable TextRecognizer recognizer) {
     this.ocrListener = ocrListener;
     this.handler = handler;
     this.recognizer = recognizer;
+    this.needCropScreenshot = needCropScreenshot;
   }
 
   /**
@@ -125,7 +134,14 @@ public class OcrController {
 
     new Thread(
             new OcrRunnable(
-                handler, ocrListener, recognizer, image, ocrInfos, selectionBounds, filter))
+                handler,
+                ocrListener,
+                recognizer,
+                image,
+                needCropScreenshot,
+                ocrInfos,
+                selectionBounds,
+                filter))
         .start();
   }
 
@@ -258,12 +274,14 @@ public class OcrController {
     private final List<OcrInfo> ocrInfos;
     @Nullable private final Rect selectionBounds;
     private final Filter<AccessibilityNodeInfoCompat> filter;
+    private final boolean needCropScreenshot;
 
     public OcrRunnable(
         Handler handler,
         OcrListener ocrListener,
         TextRecognizer recognizer,
         Bitmap screenshot,
+        boolean needCropScreenshot,
         List<OcrInfo> ocrInfos,
         @Nullable Rect selectionBounds,
         Filter<AccessibilityNodeInfoCompat> filter) {
@@ -271,6 +289,7 @@ public class OcrController {
       this.ocrListener = ocrListener;
       this.recognizer = recognizer;
       this.screenshot = screenshot;
+      this.needCropScreenshot = needCropScreenshot;
       this.ocrInfos = ocrInfos;
       this.selectionBounds = selectionBounds;
       this.filter = filter;
@@ -296,7 +315,8 @@ public class OcrController {
 
           Bitmap croppedBitmap;
           try {
-            croppedBitmap = BitmapUtils.cropBitmap(screenshot, nodeBounds);
+            croppedBitmap =
+                needCropScreenshot ? BitmapUtils.cropBitmap(screenshot, nodeBounds) : screenshot;
           } catch (IllegalArgumentException e) {
             LogUtils.w(TAG, e.getMessage() == null ? "Fail to crop screenshot." : e.getMessage());
             continue;

@@ -17,6 +17,8 @@
 package com.google.android.accessibility.utils;
 
 import com.google.android.accessibility.utils.Performance.EventData;
+import com.google.android.accessibility.utils.Performance.GestureEventData;
+import java.util.concurrent.Executor;
 
 /** Interface to track various latencies. */
 public interface LatencyTracker {
@@ -26,4 +28,22 @@ public interface LatencyTracker {
    * <p>This method is invoked when the feedback is heard by the user.
    */
   void onFeedbackOutput(EventData eventData);
+
+  /**
+   * Tracks the latency of processing the event from user input or framework.
+   *
+   * <p>This method is invoked when {@link
+   * android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction} is performed.
+   */
+  default void onAccessibilityActionPerformed(EventData eventData) {}
+
+  /**
+   * Tracks the latency of gesture detection. In general, it tracks all the way from the 1st action
+   * down to the gesture completes; for Split-typing gesture, the 1st action down event would be
+   * immediately follows the previous onGestureRecognized callback.
+   */
+  default void onGestureRecognized(GestureEventData gestureEventData) {}
+
+  /** Gets the executor on which to run the callback. */
+  Executor getExecutor();
 }

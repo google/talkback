@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">preberi</string>
-  <string name="voice_commands_read_from_next">Beri od naslednjega elementa</string>
+  <string name="voice_commands_read_from_next">Branje od položaja kazalca</string>
   <string name="voice_commands_edit_options">Možnosti urejanja</string>
-  <string name="voice_commands_text_editing">Urejanje besedila</string>
-  <string name="voice_commands_edit_text">Uredi besedilo</string>
-  <string name="voice_commands_editing_options">Možnosti za urejanje</string>
   <string name="voice_commands_edit">uredi</string>
   <string name="voice_commands_what">kaj</string>
   <string name="voice_commands_say">izgovori</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Dodaj oznako</string>
   <string name="voice_commands_cannot_label_feedback">Oznake ni mogoče dodati</string>
   <string name="voice_commands_assistant">Pomočnik</string>
-  <string name="voice_commands_setting_speech_rate">Nastavljanje hitrosti govora</string>
   <string name="voice_commands_first">Prvi</string>
   <string name="voice_commands_top">Vrh</string>
   <string name="voice_commands_last">Zadnji</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Povečaj hitrost govora</string>
   <string name="voice_commands_slower">Počasneje</string>
   <string name="voice_commands_decrease_speech_rate">zmanjšaj hitrost govora</string>
-  <string name="voice_commands_possible_options_title">Izgovorite lahko</string>
   <string name="voice_commands_no_action">Glasovna bližnjica ni podprta</string>
   <string name="voice_commands_no_mic_permissions">Če želite uporabljati to funkcijo, morate odobriti dovoljenje za uporabo mikrofona.</string>
   <string name="voice_commands_no_voice_recognition_ability">Ta funkcija žal ni na voljo v vaši napravi</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Ni naslednjega kontrolnika</string>
   <string name="voice_commands_no_next_landmark_feedback">Ni naslednjega mejnika</string>
   <string name="voice_commands_help_title">Pregled glasovnih ukazov</string>
-  <string name="voice_commands_help_description">Če želite uporabljati glasovne ukaze, povlecite v desno in nato navzgor. Ta seznam ukazov lahko kadar koli prikažete tako, da izgovorite »Help« (Pomoč) ali »What can I say?« (Kaj lahko rečem?).</string>
+  <string name="voice_commands_help_description">Če želite uporabljati glasovne ukaze, povlecite v desno in nato navzgor. Ta seznam ukazov lahko kadar koli prikažete tako, da izgovorite »%1$s« ali »What can I say?« (Kaj lahko rečem?).</string>
   <string name="voice_commands_help_hint">Za najboljše rezultate izgovorite besede točno tako, kot so navedene na naslednjih zaslonih.</string>
   <string name="voice_command_screen_locked_hint">Glasovni ukazi niso na voljo, ko je zaslon zaklenjen. Če želite namesto tega uporabiti meni funkcije TalkBack, izvedite potezo »%1$s«.</string>
   <string name="voice_commands_during_setup_hint">Glasovni ukazi niso na voljo med nastavitvijo.</string>
@@ -115,7 +110,7 @@
   <string name="voice_commands_help_verbosity">[Nizka] raven podrobnosti</string>
   <string name="voice_commands_help_next_description">Pomik na naslednji naslov, kontrolnik, seznam ali mejnik</string>
   <string name="voice_commands_help_navigation_description">Pomikanje po besedah, znakih, vrsticah, odstavkih, naslovih, kontrolnikih in drugem</string>
-  <string name="voice_commands_help_speech_rate_description">Izgovorite lahko tudi »speak slower« (govori počasneje)</string>
+  <string name="voice_commands_help_speech_rate_description">Izgovorite lahko tudi »govori počasneje«</string>
   <string name="voice_commands_help_verbosity_description">Sprememba na »nizko«, »visoko« ali »po meri«</string>
   <string name="voice_commands_help_first_description">Pomik na prvi element na trenutnem zaslonu</string>
   <string name="voice_commands_help_last_description">Pomik na zadnji element na trenutnem zaslonu</string>

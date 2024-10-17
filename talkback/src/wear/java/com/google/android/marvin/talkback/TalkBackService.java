@@ -11,6 +11,12 @@ import android.support.wearable.input.WearableButtons;
 import android.support.wearable.input.WearableButtons.ButtonInfo;
 import android.util.Pair;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import com.google.android.accessibility.talkback.FeatureFlagReader;
+import com.google.android.accessibility.talkback.MotionEventController;
+import com.google.android.accessibility.talkback.Pipeline;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -21,6 +27,9 @@ public class TalkBackService extends com.google.android.accessibility.talkback.T
   private static final int NUM_STEM_BUTTONS_REQUIRED = 3;
   private static final boolean SUPPORT_VOLUME_CHANGE_BY_WEAR_KEY = false;
   private @Nullable Pair<Integer, Integer> volumeButtons;
+
+  // A controller to intercept and handle motion events if needed.
+  private @Nullable MotionEventController motionEventController;
 
   @Override
   public void onCreate() {
@@ -34,6 +43,26 @@ public class TalkBackService extends com.google.android.accessibility.talkback.T
   protected void onServiceConnected() {
     checkAudioOutput();
     super.onServiceConnected();
+  }
+
+  @Override
+  protected void onPipelineInitialized(Pipeline pipeline) {
+    if (FeatureFlagReader.supportRsbScrolling(this)
+        && FeatureSupport.supportMotionEventSources()
+        && FeatureSupport.supportsRotaryEncoder()) {
+      motionEventController =
+          new MotionEventController(this, pipeline.getFeedbackReturner(), getFeedbackController());
+      addEventListener(motionEventController);
+    }
+  }
+
+  @Override
+  protected void shutdownInfrastructure() {
+    super.shutdownInfrastructure();
+    if (motionEventController != null) {
+      motionEventController.shutdown();
+      motionEventController = null;
+    }
   }
 
   /** Check whether the device has a audio output available */
@@ -72,6 +101,14 @@ public class TalkBackService extends com.google.android.accessibility.talkback.T
       }
     }
     return super.onKeyEventInternal(keyEvent);
+  }
+
+  @Override
+  public void onMotionEvent(@NonNull MotionEvent event) {
+    super.onMotionEvent(event);
+    if (motionEventController != null) {
+      motionEventController.onMotionEvent(event);
+    }
   }
 
   /** Return volume up and down buttons */

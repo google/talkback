@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">читання</string>
-  <string name="voice_commands_read_from_next">Читати з наступного</string>
+  <string name="voice_commands_read_from_next">Читати від курсора</string>
   <string name="voice_commands_edit_options">Параметри редагування</string>
-  <string name="voice_commands_text_editing">Редагування тексту</string>
-  <string name="voice_commands_edit_text">Редагувати текст</string>
-  <string name="voice_commands_editing_options">Параметри редагування</string>
   <string name="voice_commands_edit">змінити</string>
   <string name="voice_commands_what">що</string>
   <string name="voice_commands_say">казати</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Мітка</string>
   <string name="voice_commands_cannot_label_feedback">Не вдалося призначити мітку</string>
   <string name="voice_commands_assistant">Асистент</string>
-  <string name="voice_commands_setting_speech_rate">Налаштування темпу мовлення</string>
   <string name="voice_commands_first">Перший</string>
   <string name="voice_commands_top">Угорі</string>
   <string name="voice_commands_last">Останній</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Підвищити темп мовлення</string>
   <string name="voice_commands_slower">Повільніше</string>
   <string name="voice_commands_decrease_speech_rate">знизити швидкість мовлення</string>
-  <string name="voice_commands_possible_options_title">Можна сказати…</string>
   <string name="voice_commands_no_action">Голосова команда не підтримується</string>
   <string name="voice_commands_no_mic_permissions">Щоб скористатися цією функцією, потрібно надати дозвіл на використання мікрофона.</string>
   <string name="voice_commands_no_voice_recognition_ability">Ця функція недоступна на вашому пристрої</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Немає наступного елемента керування</string>
   <string name="voice_commands_no_next_landmark_feedback">Немає наступного орієнтира</string>
   <string name="voice_commands_help_title">Огляд голосових команд</string>
-  <string name="voice_commands_help_description">Щоб активувати голосові команди, проведіть по екрану праворуч, а потім угору. Щоб переглянути цей список команд, промовте будь-коли \"Допомога\" або \"Що можна сказати\".</string>
+  <string name="voice_commands_help_description">Щоб використовувати голосові команди, проведіть пальцем по екрану вправо, а потім угору. Щоб переглянути цей список команд, промовте будь-коли \"%1$s\" або \"Що можна сказати?\".</string>
   <string name="voice_commands_help_hint">Щоб отримати найкращі результати, промовте точну фразу з наведених на екранах нижче.</string>
   <string name="voice_command_screen_locked_hint">Голосові команди недоступні, коли екран заблоковано. Щоб скористатися натомість меню TalkBack, виконайте таку дію: %1$s.</string>
   <string name="voice_commands_during_setup_hint">Голосові команди недоступні під час налаштування.</string>
@@ -115,7 +110,7 @@
   <string name="voice_commands_help_verbosity">[Низька] деталізація</string>
   <string name="voice_commands_help_next_description">Перейти до наступного заголовка, елемента керування, списку чи орієнтира</string>
   <string name="voice_commands_help_navigation_description">Навігація за словами, символами, рядками, абзацами, заголовками, елементами керування тощо</string>
-  <string name="voice_commands_help_speech_rate_description">Ви також можете сказати \"говорити повільніше\".</string>
+  <string name="voice_commands_help_speech_rate_description">Ви також можете сказати \"говорити повільніше\"</string>
   <string name="voice_commands_help_verbosity_description">Змінити на низьку, високу або спеціальну деталізацію</string>
   <string name="voice_commands_help_first_description">Перейти до першого елемента на цьому екрані</string>
   <string name="voice_commands_help_last_description">Перейти до останнього елемента на цьому екрані</string>

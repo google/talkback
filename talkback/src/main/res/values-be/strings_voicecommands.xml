@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">чытаць</string>
-  <string name="voice_commands_read_from_next">Чытаць з наступнага элемента</string>
+  <string name="voice_commands_read_from_next">Агучыць з месца, дзе знаходзіцца курсор</string>
   <string name="voice_commands_edit_options">Змяніць параметры</string>
-  <string name="voice_commands_text_editing">Рэдагаванне тэксту</string>
-  <string name="voice_commands_edit_text">Рэдагаваць тэкст</string>
-  <string name="voice_commands_editing_options">Змяненне параметраў</string>
   <string name="voice_commands_edit">рэдагаваць</string>
   <string name="voice_commands_what">што</string>
   <string name="voice_commands_say">сказаць</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Дадаць метку</string>
   <string name="voice_commands_cannot_label_feedback">Не ўдалося дадаць метку</string>
   <string name="voice_commands_assistant">Памочнік</string>
-  <string name="voice_commands_setting_speech_rate">Наладжваецца хуткасць маўлення</string>
   <string name="voice_commands_first">Першы</string>
   <string name="voice_commands_top">Уверсе</string>
   <string name="voice_commands_last">Апошні</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Павяліч хуткасць маўлення</string>
   <string name="voice_commands_slower">Павольней</string>
   <string name="voice_commands_decrease_speech_rate">паменшыць хуткасць маўлення</string>
-  <string name="voice_commands_possible_options_title">Можаце гаварыць</string>
   <string name="voice_commands_no_action">Галасавы ярлык не падтрымліваецца</string>
   <string name="voice_commands_no_mic_permissions">Каб выкарыстоўваць гэту функцыю, дазвольце карыстанне мікрафонам.</string>
   <string name="voice_commands_no_voice_recognition_ability">На жаль, гэта функцыя недаступная на гэтай прыладзе</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Няма наступнага элемента кіравання</string>
   <string name="voice_commands_no_next_landmark_feedback">Няма наступнага арыенціра</string>
   <string name="voice_commands_help_title">Агляд галасавой каманды</string>
-  <string name="voice_commands_help_description">Каб выкарыстоўваць галасавыя каманды, правядзіце пальцам управа, затым уверх. Для паказу гэтага спіса каманд скажыце \"Даведка\" ці \"Што сказаць?\".</string>
+  <string name="voice_commands_help_description">Каб выкарыстоўваць галасавыя каманды, правядзіце пальцам управа, затым уверх. Для паказу гэтага спіса каманд скажыце: \"%1$s\" або \"Што сказаць?\"</string>
   <string name="voice_commands_help_hint">Каб дасягнуць найлепшых вынікаў, вымаўляйце словы так, як паказана на наступных экранах.</string>
   <string name="voice_command_screen_locked_hint">Пры заблакіраваным экране галасавыя каманды недаступныя. Каб замест іх скарыстайць меню TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">У час наладжвання галасавыя каманды недаступныя.</string>
@@ -111,7 +106,7 @@
   <string name="voice_commands_help_reading_controls_description">Змяніць чытанне змесціва на цяперашнім экране</string>
   <string name="voice_commands_help_next">Наступны [загаловак]</string>
   <string name="voice_commands_help_navigation">[Паслоўная] навігацыя</string>
-  <string name="voice_commands_help_speech_rate">[Павяліч] хуткасць маўлення</string>
+  <string name="voice_commands_help_speech_rate">[Павялічыць] хуткасць маўлення</string>
   <string name="voice_commands_help_verbosity">[Нізкая] дэталізацыя</string>
   <string name="voice_commands_help_next_description">Перайсці да наступнага загалоўка, элемента кіравання ці арыенціра</string>
   <string name="voice_commands_help_navigation_description">Навігацыя па словах, сімвалах, радках, абзацах, загалоўках, элементах кіравання і гэтак далей</string>

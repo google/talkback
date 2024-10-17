@@ -37,8 +37,22 @@
     <string translatable="false" name="key_JoystickCenter">JoystickCenter</string>
     <!-- Key name for the left panning key on a braille display. -->
     <string translatable="false" name="key_pan_left">PanLeft</string>
-    <!-- Key name for the right panning key on a freedom scientific focus braille display. -->
+    <!-- Key name for the right panning key on a braille display. -->
     <string translatable="false" name="key_pan_right">PanRight</string>
+    <!-- Key name for the D-pad up key on a braille display. -->
+    <string translatable="false" name="key_dpad_up">DPadUp</string>
+    <!-- Key name for the D-pad down key on a braille display. -->
+    <string translatable="false" name="key_dpad_down">DPadDown</string>
+    <!-- Key name for the D-pad left key on a braille display. -->
+    <string translatable="false" name="key_dpad_left">DPadLeft</string>
+    <!-- Key name for the D-pad right key on a braille display. -->
+    <string translatable="false" name="key_dpad_right">DPadRight</string>
+    <!-- Key name for the D-pad center key on a braille display. -->
+    <string translatable="false" name="key_dpad_center">DPadCenter</string>
+    <!-- Key name for the rocker up key on a braille display. -->
+    <string translatable="false" name="key_rocker_up">RockerUp</string>
+    <!-- Key name for the rocker down key on a braille display. -->
+    <string translatable="false" name="key_rocker_down">RockerDown</string>
     <!-- Name of a numbered function key on a braille display. -->
     <string translatable="false" name="key_F1">F1</string>
     <!-- Name of a numbered function key on a braille display. -->

@@ -106,14 +106,13 @@
     <dimen name="training_page_number_height">24sp</dimen>
     <dimen name="training_list_margin_top">32dp</dimen>
     <dimen name="training_list_item_padding">16dp</dimen>
-    <dimen name="training_list_item_margin_top">8dp</dimen>
-    <dimen name="training_list_item_margin_bottom">8dp</dimen>
+    <dimen name="training_list_item_text_padding">32dp</dimen>
     <dimen name="training_list_item_margin_start">8dp</dimen>
     <dimen name="training_list_item_stroke_width">1dp</dimen>
     <dimen name="training_list_item_corner_radius">4dp</dimen>
-    <dimen name="training_list_item_height">64dp</dimen>
     <dimen name="training_list_item_text_size">18sp</dimen>
     <dimen name="training_list_item_text_height">26dp</dimen>
+    <dimen name="training_list_item_summary_margin_top">12dp</dimen>
     <dimen name="training_text_with_number_margin_top">16dp</dimen>
     <dimen name="training_link_padding">16dp</dimen>
     <dimen name="training_link_margin_top">24dp</dimen>
@@ -160,4 +159,6 @@
     <dimen name="label_manager_button_height">56dp</dimen>
     <dimen name="label_dialog_padding">24dp</dimen>
 
+    <!-- Talkback keyboard -->
+    <dimen name="two_target_min_width">72dp</dimen>
 </resources>

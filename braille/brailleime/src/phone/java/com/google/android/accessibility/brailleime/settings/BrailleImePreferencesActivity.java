@@ -320,7 +320,7 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
               android.R.string.cancel, (dialogInterface, i) -> dialogInterface.dismiss());
     }
     AlertDialog dialog = builder.create();
-    if (supportEnableIme()) {
+    if (!isImeEnabled() && supportEnableIme()) {
       dialog.setOnShowListener(
           dialogInterface ->
               dialog

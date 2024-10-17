@@ -81,6 +81,16 @@ public final class FeatureFlagReader {
     return true;
   }
 
+  /** Whether to use contracted {@link BrailleLanguages.Code#SWEDEN} Sweden Braille. */
+  public static boolean useSwedenContracted(Context context) {
+    return true;
+  }
+
+  /** Whether to use contracted {@link BrailleLanguages.Code#DANISH_8} Danish 8-dot Braille. */
+  public static boolean useDanish8DotContracted(Context context) {
+    return true;
+  }
+
   /** Whether to use {@link BrailleLanguages.Code#KOREAN} Korean Braille. */
   public static boolean useKorean(Context context) {
     return false;
@@ -88,14 +98,14 @@ public final class FeatureFlagReader {
 
   /** Whether to use {@link BrailleLanguages.Code#CANTONESE} Cantonese Braille. */
   public static boolean useCantonese(Context context) {
-    return false;
+    return true;
   }
 
   /**
    * Whether to use {@link BrailleLanguages.Code#CHINESE_CHINA_COMMON} Chinese China Common Braille.
    */
   public static boolean useChineseChinaCommon(Context context) {
-    return false;
+    return true;
   }
 
   /**
@@ -103,7 +113,7 @@ public final class FeatureFlagReader {
    * Current with tones Braille.
    */
   public static boolean useChineseChinaCurrentWithTones(Context context) {
-    return false;
+    return true;
   }
 
   /**
@@ -111,7 +121,7 @@ public final class FeatureFlagReader {
    * Current without tones Braille.
    */
   public static boolean useChineseChinaCurrentWithoutTones(Context context) {
-    return false;
+    return true;
   }
 
   /**
@@ -119,17 +129,31 @@ public final class FeatureFlagReader {
    * Braille.
    */
   public static boolean useChineseChinaTwoCells(Context context) {
-    return false;
+    return true;
   }
 
   /** Whether to use {@link BrailleLanguages.Code#CHINESE_TAIWAN} Chinese Taiwan Braille. */
   public static boolean useChineseTaiwan(Context context) {
-    return false;
+    return true;
   }
 
   /** Whether to use {@link BrailleLanguages.Code#JAPANESE} Japanese Braille. */
   public static boolean useJapanese(Context context) {
-    return false;
+    return true;
+  }
+
+  /**
+   * Whether to use {@link BrailleLanguages.Code#NORWEGIAN_COMP8} Norwegian 8-dot Computer Braille.
+   */
+  public static boolean useNorwegian8DotComputer(Context context) {
+    return true;
+  }
+
+  /**
+   * Whether to use {@link BrailleLanguages.Code#BULGARIAN_COMP8} Bulgarian 8-dot Computer Braille.
+   */
+  public static boolean useBulgarian8DotComputer(Context context) {
+    return true;
   }
 
   /** Whether to replace emojis with their meanings. */

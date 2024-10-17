@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
 
 /**
@@ -68,7 +69,7 @@ public class MultiTap extends GestureMatcher {
   }
 
   @Override
-  protected void onDown(MotionEvent event) {
+  protected void onDown(EventId eventId, MotionEvent event) {
     long time = event.getEventTime();
     long timeDelta = time - lastUpTime;
     if (timeDelta > doubleTapTimeout) {
@@ -96,7 +97,7 @@ public class MultiTap extends GestureMatcher {
   }
 
   @Override
-  protected void onUp(MotionEvent event) {
+  protected void onUp(EventId eventId, MotionEvent event) {
     if (!isValidUpEvent(event)) {
       cancelGesture(event);
       return;
@@ -105,7 +106,7 @@ public class MultiTap extends GestureMatcher {
       currentTaps++;
       if (currentTaps == targetTaps) {
         // Done.
-        completeGesture(event);
+        completeGesture(eventId, event);
         return;
       }
       // Needs more taps.
@@ -116,19 +117,19 @@ public class MultiTap extends GestureMatcher {
   }
 
   @Override
-  protected void onMove(MotionEvent event) {
+  protected void onMove(EventId eventId, MotionEvent event) {
     if (!isInsideSlop(event, touchSlop)) {
       cancelGesture(event);
     }
   }
 
   @Override
-  protected void onPointerDown(MotionEvent event) {
+  protected void onPointerDown(EventId eventId, MotionEvent event) {
     cancelGesture(event);
   }
 
   @Override
-  protected void onPointerUp(MotionEvent event) {
+  protected void onPointerUp(EventId eventId, MotionEvent event) {
     cancelGesture(event);
   }
 

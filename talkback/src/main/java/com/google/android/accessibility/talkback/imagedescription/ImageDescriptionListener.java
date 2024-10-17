@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.talkback.imagedescription;
 
-import com.google.android.accessibility.talkback.imagecaption.CaptionRequest.ErrorCode;
+import com.google.android.accessibility.talkback.imagecaption.Request.ErrorCode;
 
 /** Listener callback interface for performing image description. */
 public interface ImageDescriptionListener {

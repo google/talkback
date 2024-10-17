@@ -19,10 +19,10 @@ package com.google.android.accessibility.talkback.dynamicfeature;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.talkback.imagecaption.CaptionRequest.ErrorCode;
 import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.DownloadDialogResources;
 import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.ImageCaptionPreferenceKeys;
 import com.google.android.accessibility.talkback.imagecaption.ImageCaptionConstants.UninstallDialogResources;
+import com.google.android.accessibility.talkback.imagecaption.Request.ErrorCode;
 import com.google.android.accessibility.utils.caption.ImageCaptionUtils.CaptionType;
 
 /** Shows a confirmation dialog to guide users through the download of a module dynamically. */
@@ -67,7 +67,7 @@ public abstract class ModuleDownloadPrompter {
 
   public ModuleDownloadPrompter(
       Context context,
-      FeatureDownloader featureDownloader,
+      Downloader downloader,
       CaptionType captionType,
       ImageCaptionPreferenceKeys preferenceKeys,
       DownloadDialogResources downloadDialogResources,

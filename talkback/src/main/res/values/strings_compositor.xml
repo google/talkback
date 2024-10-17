@@ -10,27 +10,6 @@
     [CHAR_LIMIT=10000]
   -->
   <string name="talkback_disabled">TalkBack off</string>
-  <!-- SWITCH ACCESS-->
-  <!--
-    Source: A notification that the Spoken Feedback of Switch Access is turned on.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
-  -->
-  <string name="spokenfeedback_on">Spoken Feedback on</string>
-  <!--
-    Source: A notification that the Spoken Feedback of Switch Access is suspended.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
-  -->
-  <string name="spokenfeedback_suspended">Spoken Feedback suspended</string>
-  <!--
-    Source: A notification that the Spoken Feedback of Switch Access is resumed.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
-  -->
-  <string name="spokenfeedback_resumed">Spoken Feedback resumed</string>
-  <!--
-    Source: A notification that the Spoken Feedback of Switch Access is turned off.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
-  -->
-  <string name="spokenfeedback_disabled">Spoken Feedback off</string>
   <!-- NOTIFICATIONS -->
   <!--
     Source: A notification that a cursor has reached to the beginning of the field.
@@ -307,8 +286,6 @@
   <string name="value_double_tap">Double-tap</string>
   <!-- Description of the single-tap action. Used to populate "Tap to activate" hint. -->
   <string name="value_single_tap">Tap</string>
-  <!-- Description of the selection action (for Switch Access). Used to populate "Press Select Switch to activate" hint. -->
-  <string name="value_switch_press">Press Select Switch</string>
   <!--
     Description of the action to press select on a TV remote. Used to populate "Press select to
     activate" hint. The terminology for the key should match the wording used for the center
@@ -352,20 +329,12 @@
   <string name="template_hint_pager_single_page">No more pages</string>
   <!-- Hint spoken when the user selects a seek control on an Android TV device. -->
   <string name="template_hint_seek_control_tv"><xliff:g id="action" example="Press select">%1$s</xliff:g> to change</string>
-  <!-- Description of custom actions hint, these are actions apps make for this specific node -->
-  <string name="template_hint_custom_actions">Actions: </string>
   <!--Hint spoken when the user pauses over an item that has actions with custom labels. -->
   <string name="template_custom_hint_for_actions"><xliff:g id="action" example="Double-tap">%1$s</xliff:g> to <xliff:g id="hint" example="Expand">%2$s</xliff:g></string>
   <!-- Hint spoken when the user pauses over an item that has actions or long-clickable actions with custom labels while they are navigating with keyboard. -->
   <string name="template_custom_hint_for_actions_keyboard">Press <xliff:g id="keyCombo" example="Alt + Enter">%1$s</xliff:g> to <xliff:g id="hint" example="Expand">%2$s</xliff:g></string>
   <!--Hint spoken when the user pauses over an item that has long-clickable actions with custom labels. -->
   <string name="template_custom_hint_for_long_clickable_actions"><xliff:g id="action" example="Double-tap">%1$s</xliff:g> and hold to <xliff:g id="hint" example="Expand">%2$s</xliff:g></string>
-  <!-- Hint spoken when the user pauses over an item that is scrollable (for Switch Access). Populated with the action "Press Select Switch". -->
-  <string name="template_sa_custom_hint_scrollable"><xliff:g id="action" example="Press select">%1$s</xliff:g> to scroll</string>
-  <!-- Hint spoken when the user pauses over an item that is associated with multiple actions (for Switch Access). Populated with the action "Press Select Switch". -->
-  <string name="template_sa_custom_hint_for_multiple_actions"><xliff:g id="action" example="Press select">%1$s</xliff:g> for available actions</string>
-  <!-- Hint spoken when the user selects a seek control with Switch Access. -->
-  <string name="template_sa_hint_seek_control">Press Select Switch to adjust</string>
   <!-- A message announcing that Caps Lock mode is on. -->
   <string name="value_caps_lock_on">Caps Lock on</string>
   <!-- A message announcing that Caps Lock mode is off. -->
@@ -695,20 +664,21 @@
     Description: Explains that the passwords will only be spoken when using headphones. [CHAR+LIMIT="NONE"]
   -->
   <string name="summaryOff_pref_speak_passwords_without_headphones">Passwords only spoken when using headphones</string>
-
-  <!-- Hint spoken when the menu actions available in high verbosity.[CHAR_LIMIT=100] -->
+  <!-- Hint spoken when the menu item available in high verbosity.[CHAR_LIMIT=100] -->
   <string name="template_hint_menu_type_high_verbosity"><xliff:g id="type" example="action">%1$s</xliff:g> available, use <xliff:g id="gesture" example="up-then-right">%2$s</xliff:g> to view</string>
+  <!-- Hint spoken when the reading control actions is available in high verbosity.[CHAR_LIMIT=NONE] -->
+  <string name="template_hint_for_reading_control_actions_in_high_verbosity"><xliff:g id="type" example="action">%1$s</xliff:g> available, <xliff:g id="gesture" example="up-then-right">%2$s</xliff:g> and double-tap to activate</string>
 
   <!-- Hint spoken when suggestions are available for a mis-spelled word or phrase. [CHAR_LIMIT=NONE] -->
-  <string name="hint_suggestion">Spelling suggestions available</string>
-  <!-- The hint to notify there are misspelled words in the edit field. This is spoken to the user. [CHAR_LIMIT=NONE]-->
-  <string name="typo_included">Spelling errors included</string>
-  <!-- The hint to notify the total number of typos are in the edit text and introduce how to use typo granularity. This is spoken to the user. [CHAR_LIMIT=NONE] -->
-  <string name="template_hint_edit_text_containing_typo"><xliff:g id="typo_count">%1$d</xliff:g> misspelled words. <xliff:g example="Swipe right" id="reading_menu_down_gesture">%2$s</xliff:g> and use spell check to view</string>
+  <string name="hint_suggestion">Proofreading is available</string>
+  <!-- The hint to notify the total number of typos are in the edit text and introduce how to use typo granularity. This is spoken to the user.[CHAR_LIMIT=NONE] -->
+  <string name="template_hint_edit_text_containing_typo">Proofreading is available. <xliff:g id="typo_count">%1$d</xliff:g> misspelled words. <xliff:g example="Swipe right" id="reading_menu_down_gesture">%2$s</xliff:g> and use \"Proofread\" to view</string>
   <!-- The hint to notify typo is added and introduce how to choose a spelling suggestion. This is spoken to the user. [CHAR_LIMIT=NONE] -->
-  <string name="template_hint_reading_menu_spelling_suggestion">Spelling suggestions available. <xliff:g example="Swipe right" id="reading_menu_down_gesture">%1$s</xliff:g> and use actions to view</string>
+  <string name="template_hint_reading_menu_spelling_suggestion">Proofreading is available. <xliff:g example="Swipe right" id="reading_menu_down_gesture">%1$s</xliff:g> and use actions to view</string>
   <!-- The hint to notify typo is added and introduce how to choose a spelling suggestion. This is spoken to the user. [CHAR_LIMIT=NONE] -->
-  <string name="template_hint_reading_menu_actions_for_spelling_suggestion">Spelling suggestions available. <xliff:g example="Swipe down" id="select_suggestions_gesture">%1$s</xliff:g> for details</string>
+  <string name="template_hint_reading_menu_actions_for_spelling_suggestion">Proofreading is available. <xliff:g example="Swipe down" id="select_suggestions_gesture">%1$s</xliff:g> for details</string>
+    <!-- Hint spoken when a call is made in high verbosity.[CHAR_LIMIT=100] -->
+  <string name="template_hint_for_call"><xliff:g example="Swipe down" id="gesture">%1$s</xliff:g> to answer</string>
 
   <!--
     Source: string indicating that the user is focused in the window that has a name,
@@ -716,17 +686,6 @@
   -->
   <string name="in_window_with_name">Window <xliff:g id="window_title">%1$s</xliff:g></string>
 
-  <!--
-  Source: The description of the icon which is recognized from an screenshot.
-  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
-  -->
-  <string name="detected_icon_description"><xliff:g example="add">%1$s</xliff:g>, detected icon</string>
-
-  <!--
-  Source: The description of the text which is recognized from an image.
-  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
-  -->
-  <string name="ocr_text_description"><xliff:g example="recognized_text">%1$s</xliff:g>, text</string>
   <!--
     Source: String for notifying the user a drag has started.
     Description: This is spoken to the user. [CHAR_LIMIT=NONE]

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">leer</string>
-  <string name="voice_commands_read_from_next">Leer desde el siguiente</string>
+  <string name="voice_commands_read_from_next">Lee a partir del cursor</string>
   <string name="voice_commands_edit_options">Opciones de edición</string>
-  <string name="voice_commands_text_editing">Edición de texto</string>
-  <string name="voice_commands_edit_text">Editar texto</string>
-  <string name="voice_commands_editing_options">Opciones de edición</string>
   <string name="voice_commands_edit">editar</string>
   <string name="voice_commands_what">qué</string>
   <string name="voice_commands_say">decir</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etiqueta</string>
   <string name="voice_commands_cannot_label_feedback">No se puede etiquetar</string>
   <string name="voice_commands_assistant">Asistente</string>
-  <string name="voice_commands_setting_speech_rate">Configurar velocidad de la voz</string>
   <string name="voice_commands_first">Primero</string>
   <string name="voice_commands_top">Ir al principio</string>
   <string name="voice_commands_last">Último</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Aumentar velocidad de la voz</string>
   <string name="voice_commands_slower">Más lento</string>
   <string name="voice_commands_decrease_speech_rate">disminuir velocidad de la voz</string>
-  <string name="voice_commands_possible_options_title">Puedes decir</string>
   <string name="voice_commands_no_action">No se admiten ajustes de voz</string>
   <string name="voice_commands_no_mic_permissions">Si quieres usar esta función, debes dar permiso para usar el micrófono</string>
   <string name="voice_commands_no_voice_recognition_ability">Esta función no está disponible en tu dispositivo</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">No hay ningún control más adelante</string>
   <string name="voice_commands_no_next_landmark_feedback">No hay ningún punto de referencia más adelante</string>
   <string name="voice_commands_help_title">Introducción a los comandos de voz</string>
-  <string name="voice_commands_help_description">Para usar comandos de voz, desliza el dedo primero hacia la derecha y después hacia arriba. Di \"Ayuda\" o \"¿Qué puedo decir?\" si quieres que aparezca la lista de comandos.</string>
+  <string name="voice_commands_help_description">Para usar comandos de voz, desliza primero hacia la derecha y después hacia arriba. Di \"%1$s\" o \"¿Qué puedo decir?\" si quieres que aparezca la lista de comandos.</string>
   <string name="voice_commands_help_hint">Para conseguir un mejor resultado, di las palabras exactas que aparecen en las siguientes pantallas.</string>
   <string name="voice_command_screen_locked_hint">Los comandos de voz no están disponibles cuando la pantalla está bloqueada. Para usar el menú de TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Los comandos de voz no están disponibles durante la configuración.</string>

@@ -34,6 +34,7 @@ import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.material.A11yAlertDialogWrapper;
 import com.google.android.accessibility.utils.widget.DialogUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /**
  * This is a base class to handle show, dismiss and click events from dialogs. If the context is
@@ -46,6 +47,7 @@ public abstract class BaseDialog {
 
   protected final Context context;
   private final int dialogTitleResId;
+  @Nullable private String dialogTitle;
   @Nullable private A11yAlertDialogWrapper dialog;
   @Nullable private FeedbackReturner pipeline;
   private boolean isSoftInputMode = false;
@@ -89,6 +91,11 @@ public abstract class BaseDialog {
 
   ////////////////////////////////////////////////////////////////////////////
   // Optional setter for dialog
+
+  /** Sets the dialog title to the given text. */
+  public void setTitle(String title) {
+    dialogTitle = title;
+  }
 
   /**
    * Enables the button on the dialog.
@@ -149,9 +156,11 @@ public abstract class BaseDialog {
     this.pipeline = pipeline;
   }
 
+  @CanIgnoreReturnValue
   /** Sets cancel Button on the dialog depending on the boolean value. */
-  public void setIncludeNegativeButton(boolean includeNegativeButton) {
+  public BaseDialog setIncludeNegativeButton(boolean includeNegativeButton) {
     this.includeNegativeButton = includeNegativeButton;
+    return this;
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -175,10 +184,16 @@ public abstract class BaseDialog {
     A11yAlertDialogWrapper.Builder dialogBuilder =
         A11yAlertDialogWrapper.materialDialogBuilder(
                 new ContextThemeWrapper(context, R.style.A11yAlertDialogCustomViewTheme))
-            .setTitle(dialogTitleResId)
             .setPositiveButton(positiveButtonStringRes, onClickListener)
             .setOnDismissListener(onDismissListener)
             .setCancelable(true);
+
+    if (!TextUtils.isEmpty(dialogTitle)) {
+      dialogBuilder = dialogBuilder.setTitle(dialogTitle);
+    } else {
+      dialogBuilder = dialogBuilder.setTitle(dialogTitleResId);
+    }
+
     if (includeNegativeButton) {
       dialogBuilder = dialogBuilder.setNegativeButton(negativeButtonStringRes, onClickListener);
     }

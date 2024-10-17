@@ -29,7 +29,7 @@ public class MyPackageReplacedReceiver extends BroadcastReceiver {
 
   @Override
   public void onReceive(Context context, Intent intent) {
-    BrailleImeLog.logD(TAG, "MY_PACKAGE_REPLACED received.");
+    BrailleImeLog.d(TAG, "MY_PACKAGE_REPLACED received.");
     if (AccessibilityServiceCompatUtils.isAccessibilityServiceEnabled(
             context, context.getPackageName())
         || !BrailleUserPreferences.shouldLaunchTutorial(context)) {

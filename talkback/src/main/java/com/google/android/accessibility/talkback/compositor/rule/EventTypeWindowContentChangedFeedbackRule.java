@@ -29,6 +29,7 @@ import static android.view.accessibility.AccessibilityEvent.CONTENT_CHANGE_TYPE_
 import static com.google.android.accessibility.talkback.compositor.Compositor.EVENT_TYPE_WINDOW_CONTENT_CHANGED;
 import static com.google.android.accessibility.talkback.compositor.TalkBackFeedbackProvider.EMPTY_FEEDBACK;
 import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_INTERRUPT;
+import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH;
 import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_QUEUE;
 import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH;
 import static com.google.android.accessibility.utils.output.SpeechController.UTTERANCE_GROUP_CONTENT_CHANGE;
@@ -47,10 +48,10 @@ import com.google.android.accessibility.talkback.compositor.Compositor.HandleEve
 import com.google.android.accessibility.talkback.compositor.EarconFeedbackUtils;
 import com.google.android.accessibility.talkback.compositor.EventFeedback;
 import com.google.android.accessibility.talkback.compositor.GlobalVariables;
-import com.google.android.accessibility.talkback.compositor.TalkBackFeedbackProvider;
 import com.google.android.accessibility.talkback.compositor.WindowContentChangeAnnouncementFilter;
 import com.google.android.accessibility.talkback.compositor.roledescription.RoleDescriptionExtractor;
 import com.google.android.accessibility.talkback.compositor.roledescription.TreeNodesDescription;
+import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -113,33 +114,34 @@ public final class EventTypeWindowContentChangedFeedbackRule {
     int nodeId = node.hashCode();
     int nodeRole = Role.getRole(node);
     int nodeLiveRegion = node.getLiveRegion();
-    boolean nodeNotFrequentAnnounced =
-        WindowContentChangeAnnouncementFilter.shouldAnnounce(
-            node, globalVariables.getTextChangeRateUnlimited());
 
     CharSequence ttsOutput;
     if (nodeLiveRegion != ACCESSIBILITY_LIVE_REGION_NONE) {
-      ttsOutput =
-          nodeNotFrequentAnnounced
-              ? treeNodesDescription.aggregateNodeTreeDescription(node, event)
-              : "";
+      ttsOutput = treeNodesDescription.aggregateNodeTreeDescription(node, event);
     } else {
       ttsOutput =
           computeWindowContentChangedStateText(
-              node,
-              event,
-              context,
-              roleDescriptionExtractor,
-              nodeNotFrequentAnnounced,
-              preferredLocale);
+              node, event, context, roleDescriptionExtractor, preferredLocale);
     }
 
+    boolean nodeNotFrequentAnnounced = true;
+    if (!TextUtils.isEmpty(ttsOutput)) {
+      nodeNotFrequentAnnounced =
+          WindowContentChangeAnnouncementFilter.shouldAnnounce(
+              node,
+              globalVariables.getTextChangeRateUnlimited(),
+              globalVariables.getEnableShortAndLongDurationsForSpecificApps());
+      if (!nodeNotFrequentAnnounced) {
+        ttsOutput = "";
+      }
+    }
     boolean forcedFeedback = true;
     // List the event type that shouldn't be announced when microphone or SSB is active.
     if (TextUtils.isEmpty(ttsOutput)
-        || event.getContentChangeTypes() == CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION
-        || event.getContentChangeTypes() == CONTENT_CHANGE_TYPE_TEXT
-        || (event.getContentChangeTypes() == CONTENT_CHANGE_TYPE_STATE_DESCRIPTION
+        || ((event.getContentChangeTypes()
+                & (CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION | CONTENT_CHANGE_TYPE_TEXT))
+            != 0)
+        || ((event.getContentChangeTypes() & CONTENT_CHANGE_TYPE_STATE_DESCRIPTION) != 0
             && Role.getRole(node) == Role.ROLE_PROGRESS_BAR)) {
       forcedFeedback = false;
     }
@@ -171,39 +173,80 @@ public final class EventTypeWindowContentChangedFeedbackRule {
         .build();
   }
 
+  private static int getContentChangeType(int contentChangeTypes) {
+    if ((contentChangeTypes & AccessibilityEvent.CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION) != 0) {
+      return CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION;
+    }
+    if ((contentChangeTypes & AccessibilityEvent.CONTENT_CHANGE_TYPE_TEXT) != 0) {
+      return CONTENT_CHANGE_TYPE_TEXT;
+    }
+    if ((contentChangeTypes & AccessibilityEvent.CONTENT_CHANGE_TYPE_STATE_DESCRIPTION) != 0) {
+      return CONTENT_CHANGE_TYPE_STATE_DESCRIPTION;
+    }
+    if ((contentChangeTypes & AccessibilityEvent.CONTENT_CHANGE_TYPE_DRAG_STARTED) != 0) {
+      return CONTENT_CHANGE_TYPE_DRAG_STARTED;
+    }
+
+    if ((contentChangeTypes & AccessibilityEvent.CONTENT_CHANGE_TYPE_DRAG_DROPPED) != 0) {
+      return CONTENT_CHANGE_TYPE_DRAG_DROPPED;
+    }
+
+    if ((contentChangeTypes & AccessibilityEvent.CONTENT_CHANGE_TYPE_DRAG_CANCELLED) != 0) {
+      return CONTENT_CHANGE_TYPE_DRAG_CANCELLED;
+    }
+    if (contentChangeTypes == AccessibilityEvent.CONTENT_CHANGE_TYPE_UNDEFINED) {
+      return CONTENT_CHANGE_TYPE_UNDEFINED;
+    }
+    if ((contentChangeTypes & AccessibilityEvent.CONTENT_CHANGE_TYPE_ERROR) != 0) {
+      return CONTENT_CHANGE_TYPE_ERROR;
+    }
+    if ((contentChangeTypes & AccessibilityEvent.CONTENT_CHANGE_TYPE_ENABLED) != 0) {
+      return CONTENT_CHANGE_TYPE_ENABLED;
+    }
+
+    return -1;
+  }
+
   private static CharSequence computeWindowContentChangedStateText(
       AccessibilityNodeInfoCompat node,
       AccessibilityEvent event,
       Context context,
       RoleDescriptionExtractor roleDescriptionExtractor,
-      boolean nodeNotFrequentAnnounced,
       Locale preferredLocale) {
     int nodeRole = Role.getRole(node);
-    int contentChangeType = event.getContentChangeTypes();
+    int contentChangeType = getContentChangeType(event.getContentChangeTypes());
     boolean isSelfOrAncestorFocused = AccessibilityNodeInfoUtils.isSelfOrAncestorFocused(node);
 
     LogUtils.v(
         TAG,
         "  computeWindowContentChangedStateText: %s",
         new StringBuilder()
-            .append(String.format("  contentChangeType=%s", contentChangeType))
+            .append(
+                String.format(
+                    "  eventContentChangeTypes=%s",
+                    AccessibilityEventUtils.contentChangeTypesToString(
+                        event.getContentChangeTypes())))
+            .append(
+                String.format(
+                    "  contentChangeType=%s",
+                    (contentChangeType != -1)
+                        ? AccessibilityEventUtils.contentChangeTypesToString(contentChangeType)
+                        : AccessibilityEventUtils.contentChangeTypesToString(
+                            event.getContentChangeTypes())))
             .append(String.format(", isSelfOrAncestorFocused=%s", isSelfOrAncestorFocused))
-            .append(String.format(", nodeNotFrequentAnnounced=%s", nodeNotFrequentAnnounced))
             .toString());
 
     switch (contentChangeType) {
       case CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION:
-        return (isSelfOrAncestorFocused && nodeNotFrequentAnnounced)
+        return (isSelfOrAncestorFocused)
             ? AccessibilityEventFeedbackUtils.getEventContentDescription(event, preferredLocale)
             : "";
       case CONTENT_CHANGE_TYPE_TEXT:
-        return isSelfOrAncestorFocused
-                && nodeNotFrequentAnnounced
-                && nodeRole != Role.ROLE_EDIT_TEXT
+        return isSelfOrAncestorFocused && nodeRole != Role.ROLE_EDIT_TEXT
             ? AccessibilityNodeFeedbackUtils.getNodeText(node, context, preferredLocale)
             : "";
       case CONTENT_CHANGE_TYPE_STATE_DESCRIPTION:
-        if (!isSelfOrAncestorFocused || !nodeNotFrequentAnnounced) {
+        if (!isSelfOrAncestorFocused) {
           return "";
         }
         if (nodeRole == Role.ROLE_SEEK_CONTROL) {
@@ -253,7 +296,9 @@ public final class EventTypeWindowContentChangedFeedbackRule {
             ? QUEUE_MODE_INTERRUPT
             : QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH;
       case Role.ROLE_SEEK_CONTROL:
-        return QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH;
+        return nodeLiveRegion == ACCESSIBILITY_LIVE_REGION_ASSERTIVE
+            ? QUEUE_MODE_INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH
+            : QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH;
       default:
         return nodeLiveRegion == ACCESSIBILITY_LIVE_REGION_ASSERTIVE
             ? QUEUE_MODE_INTERRUPT

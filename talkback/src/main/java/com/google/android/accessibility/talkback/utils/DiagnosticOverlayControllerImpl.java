@@ -27,14 +27,13 @@ public class DiagnosticOverlayControllerImpl implements DiagnosticOverlayControl
   private @Nullable DiagnosticOverlay diagnosticOverlay;
   private @Nullable HighlightOverlay highlightOverlay;
 
-  @NonNull
-  private static HashMap<Integer, AccessibilityNodeInfoCompat> traversedIdToNode = new HashMap<>();
-
-  @NonNull
-  private static HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> unfocusedIdToNode =
+  private static @NonNull HashMap<Integer, AccessibilityNodeInfoCompat> traversedIdToNode =
       new HashMap<>();
 
-  @NonNull private static HashSet<AccessibilityNode> refocusNodePath = new HashSet<>();
+  private static @NonNull HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>>
+      unfocusedIdToNode = new HashMap<>();
+
+  private static @NonNull HashSet<AccessibilityNode> refocusNodePath = new HashSet<>();
 
   private static boolean collectNodes;
 

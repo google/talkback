@@ -20,7 +20,6 @@ import static com.google.android.accessibility.utils.StringBuilderUtils.optional
 
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import androidx.annotation.IntDef;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -33,6 +32,7 @@ import java.util.Set;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+/** Interface for controlling speech output. */
 public interface SpeechController {
   /** Default stream for speech output. */
   int DEFAULT_STREAM =
@@ -221,7 +221,7 @@ public interface SpeechController {
     public @Nullable Set<Integer> mHaptics = null;
     public int mQueueMode = QUEUE_MODE_BIT_DEFAULT;
     public int mFlags = 0;
-    public @UtteranceGroup int mUtteranceGroup = UTTERANCE_GROUP_DEFAULT;
+    @UtteranceGroup public int mUtteranceGroup = UTTERANCE_GROUP_DEFAULT;
     public @Nullable Bundle mSpeechParams = null;
     public @Nullable Bundle mNonSpeechParams = null;
     public @Nullable UtteranceStartRunnable mStartingAction = null;
@@ -599,4 +599,13 @@ public interface SpeechController {
    * Observer#onSpeechStarting()} will be called if it works successfully.
    */
   void resume();
+
+  /** Return true if there is some paused speech recorded for the continuous reading. */
+  boolean isContinuousReadingPaused();
+
+  /**
+   * When the paused speech is not valid for some reason, such as the focus changed during the pause
+   * state in CRM, using the method to perform the paused speech clearance.
+   */
+  void ignorePause();
 }

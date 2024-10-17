@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">ਪੜ੍ਹੋ</string>
-  <string name="voice_commands_read_from_next">ਅਗਲੀ ਆਈਟਮ ਤੋਂ ਪੜ੍ਹੋ</string>
+  <string name="voice_commands_read_from_next">ਕਰਸਰ ਵਿੱਚੋਂ ਪੜ੍ਹੋ</string>
   <string name="voice_commands_edit_options">ਸੰਪਾਦਨ ਵਿਕਲਪ</string>
-  <string name="voice_commands_text_editing">ਲਿਖਤ ਸੰਪਾਦਨ</string>
-  <string name="voice_commands_edit_text">ਸੰਪਾਦਨ ਲਿਖਤ</string>
-  <string name="voice_commands_editing_options">ਸੰਪਾਦਨ ਵਿਕਲਪ</string>
   <string name="voice_commands_edit">ਸੰਪਾਦਨ ਕਰੋ</string>
   <string name="voice_commands_what">ਕੀ</string>
   <string name="voice_commands_say">ਕਹੋ</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ਲੇਬਲ</string>
   <string name="voice_commands_cannot_label_feedback">ਲੇਬਲਬੱਧ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">ਬੋਲਣ ਦੀ ਗਤੀ ਸੈੱਟ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
   <string name="voice_commands_first">ਪਹਿਲਾ</string>
   <string name="voice_commands_top">ਸਿਖਰ \'ਤੇ</string>
   <string name="voice_commands_last">ਆਖਰੀ</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">ਬੋਲਣ ਦੀ ਗਤੀ ਵਧਾਓ</string>
   <string name="voice_commands_slower">ਬਹੁਤ ਹੌਲੀ</string>
   <string name="voice_commands_decrease_speech_rate">ਬੋਲਣ ਦੀ ਗਤੀ ਘਟਾਓ</string>
-  <string name="voice_commands_possible_options_title">ਤੁਸੀਂ ਇਹ ਕਹਿ ਸਕਦੇ ਹੋ:</string>
   <string name="voice_commands_no_action">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ</string>
   <string name="voice_commands_no_mic_permissions">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਵਰਤਣ ਲਈ, ਤੁਹਾਡੇ ਵੱਲੋਂ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਨੂੰ ਵਰਤਣ ਲਈ ਇਜਾਜ਼ਤ ਦੇਣਾ ਲਾਜ਼ਮੀ ਹੈ।</string>
   <string name="voice_commands_no_voice_recognition_ability">ਮਾਫ਼ ਕਰਨਾ! ਇਹ ਵਿਸ਼ੇਸ਼ਤਾ ਤੁਹਾਡੇ ਡੀਵਾਈਸ \'ਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">ਕੋਈ ਅਗਲਾ ਕੰਟਰੋਲ ਨਹੀਂ</string>
   <string name="voice_commands_no_next_landmark_feedback">ਕੋਈ ਅਗਲਾ ਭੂਮੀ ਚਿੰਨ੍ਹ ਨਹੀਂ</string>
   <string name="voice_commands_help_title">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ ਦੀ ਰੂਪ-ਰੇਖਾ</string>
-  <string name="voice_commands_help_description">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਸੱਜੇ ਪਾਸੇ ਫਿਰ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਆਦੇਸ਼ਾਂ ਦੀ ਇਸ ਸੂਚੀ ਲਈ \"ਮਦਦ\" ਜਾਂ \"ਮੈਂ ਕੀ ਕਹਾਂ?\" ਕਹੋ।</string>
+  <string name="voice_commands_help_description">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਸੱਜੇ ਪਾਸੇ ਫਿਰ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਆਦੇਸ਼ਾਂ ਦੀ ਇਸ ਸੂਚੀ ਲਈ ਕਿਸੇ ਵੀ ਵੇਲੇ \"%1$s\" ਜਾਂ \"ਮੈਂ ਕੀ ਕਹਾਂ?\" ਕਹੋ।</string>
   <string name="voice_commands_help_hint">ਬਿਹਤਰ ਨਤੀਜਿਆਂ ਲਈ, ਅੱਗੇ ਦਿੱਤੀਆਂ ਸਕ੍ਰੀਨਾਂ \'ਤੇ ਸੂਚੀਬੱਧ ਸ਼ਬਦ ਨੂੰ ਸਹੀ ਢੰਗ ਨਾਲ ਬੋਲੋ।</string>
   <string name="voice_command_screen_locked_hint">ਸਕ੍ਰੀਨ ਲਾਕ ਹੋਣ \'ਤੇ ਅਵਾਜ਼ੀ ਆਦੇਸ਼ ਉਪਲਬਧ ਨਹੀਂ ਹੁੰਦੇ ਹਨ। ਇਸਦੀ ਬਜਾਏ, %1$s ਦੀ ਮਦਦ ਨਾਲ TalkBack ਮੀਨੂ ਵਰਤੋ।</string>
   <string name="voice_commands_during_setup_hint">ਸੈੱਟਅੱਪ ਦੌਰਾਨ ਅਵਾਜ਼ੀ ਆਦੇਸ਼ ਉਪਲਬਧ ਨਹੀਂ ਹੁੰਦੇ।</string>

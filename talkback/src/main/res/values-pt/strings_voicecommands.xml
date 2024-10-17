@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">ler</string>
-  <string name="voice_commands_read_from_next">Ler a partir do próximo</string>
+  <string name="voice_commands_read_from_next">Ler texto a partir do cursor</string>
   <string name="voice_commands_edit_options">Editar opções</string>
-  <string name="voice_commands_text_editing">Edição de texto</string>
-  <string name="voice_commands_edit_text">Editar texto</string>
-  <string name="voice_commands_editing_options">Opções de edição</string>
   <string name="voice_commands_edit">editar</string>
   <string name="voice_commands_what">o que</string>
   <string name="voice_commands_say">dizer</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Marcador</string>
   <string name="voice_commands_cannot_label_feedback">Não é possível adicionar marcador</string>
   <string name="voice_commands_assistant">Assistente</string>
-  <string name="voice_commands_setting_speech_rate">Configuração de velocidade da fala</string>
   <string name="voice_commands_first">Primeiro</string>
   <string name="voice_commands_top">Início</string>
   <string name="voice_commands_last">Último</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Aumentar velocidade da fala</string>
   <string name="voice_commands_slower">Mais devagar</string>
   <string name="voice_commands_decrease_speech_rate">diminuir velocidade da fala</string>
-  <string name="voice_commands_possible_options_title">Você pode dizer</string>
   <string name="voice_commands_no_action">Atalho de voz indisponível</string>
   <string name="voice_commands_no_mic_permissions">Para usar esse recurso, é necessário conceder permissão para usar o microfone.</string>
   <string name="voice_commands_no_voice_recognition_ability">Este recurso não está disponível no seu dispositivo</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Nenhum controle a seguir</string>
   <string name="voice_commands_no_next_landmark_feedback">Nenhum ponto de referência a seguir</string>
   <string name="voice_commands_help_title">Visão geral dos comandos de voz</string>
-  <string name="voice_commands_help_description">Para usar comandos de voz, deslize para a direita e depois para cima. Diga \"Ajuda\" ou \"O que posso dizer?\" a qualquer momento para ver a lista de comandos.</string>
+  <string name="voice_commands_help_description">Para usar comandos de voz, deslize para a direita e depois para cima. Diga \"%1$s\" ou \"O que posso dizer?\" a qualquer momento para ver a lista de comandos.</string>
   <string name="voice_commands_help_hint">Para ter resultados melhores, diga as palavras exatas listadas nas próximas telas.</string>
   <string name="voice_command_screen_locked_hint">Os comandos de voz ficam indisponíveis quando a tela está bloqueada. Para usar o menu do TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Os comandos de voz não estão disponíveis durante a configuração.</string>
@@ -126,7 +121,7 @@
   <string name="voice_commands_help_find_text_description">Encontre o primeiro item que inclui o texto \"salvar\" na tela atual</string>
   <string name="voice_commands_help_find_description">Repita \"encontrar\" para ir até o próximo item que inclui o texto \"salvar\"</string>
   <string name="voice_commands_help_screen_search_description">Insira um termo de pesquisa para encontrar o texto correspondente na tela</string>
-  <string name="voice_commands_help_text_editing_description">Digite, selecione e copie texto</string>
+  <string name="voice_commands_help_text_editing_description">Digitar, selecionar e copiar texto</string>
   <string name="voice_commands_help_type_text">Digite [OK]</string>
   <string name="voice_commands_help_copy_description">Selecione o texto antes de copiar</string>
   <string name="voice_commands_help_cut_description">Selecione o texto antes de recortar</string>

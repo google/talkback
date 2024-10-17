@@ -8,6 +8,7 @@
       android:id="@+id/training_text_list"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:divider="@color/training_background_color"
       android:layout_marginTop="@dimen/training_list_margin_top"/>
 
 </LinearLayout>

@@ -115,7 +115,7 @@ public class ClassicKeyComboModel implements KeyComboModel {
     addCombo(context.getString(R.string.keycombo_shortcut_granularity_increase));
     addCombo(context.getString(R.string.keycombo_shortcut_granularity_decrease));
     addCombo(context.getString(R.string.keycombo_shortcut_other_read_from_top));
-    addCombo(context.getString(R.string.keycombo_shortcut_other_read_from_next_item));
+    addCombo(context.getString(R.string.keycombo_shortcut_other_read_from_cursor_item));
     addCombo(context.getString(R.string.keycombo_shortcut_other_toggle_search));
     addCombo(context.getString(R.string.keycombo_shortcut_other_talkback_context_menu));
     addCombo(context.getString(R.string.keycombo_shortcut_other_custom_actions));

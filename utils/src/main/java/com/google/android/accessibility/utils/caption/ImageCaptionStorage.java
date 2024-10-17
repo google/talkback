@@ -34,6 +34,7 @@ public class ImageCaptionStorage {
 
   private static final String TAG = "ImageCaptionStorage";
   private static final int RESULT_CAPACITY = 500;
+  public static final boolean ENABLE_CACHE_MECHANISM = false;
 
   private final LimitedCapacityCache imageNodes;
   private @MonotonicNonNull IconAnnotationsDetector iconAnnotationsDetector;
@@ -65,7 +66,7 @@ public class ImageCaptionStorage {
   /** Retrieves the localized label of the detected icon which matches the specified node. */
   @Nullable
   public CharSequence getDetectedIconLabel(Locale locale, AccessibilityNodeInfoCompat node) {
-    return (iconAnnotationsDetector == null)
+    return (iconAnnotationsDetector == null || !ENABLE_CACHE_MECHANISM)
         ? null
         : iconAnnotationsDetector.getIconLabel(locale, node);
   }
@@ -147,6 +148,10 @@ public class ImageCaptionStorage {
 
   /** Checks if node has a resource name with a package name and is not in the collection. */
   public static boolean isStorable(AccessibilityNode node) {
+    if (!ENABLE_CACHE_MECHANISM) {
+      return false;
+    }
+
     @Nullable final ViewResourceName viewResourceName = node.getPackageNameAndViewId();
     return viewResourceName != null
         // The resource ID of most elements in a collection are the same, so they can't be stored.

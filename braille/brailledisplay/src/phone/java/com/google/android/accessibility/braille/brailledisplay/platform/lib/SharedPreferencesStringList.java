@@ -58,10 +58,11 @@ public class SharedPreferencesStringList {
   }
 
   /** Removes the value associated with the given key, if present; otherwise does nothing. */
-  public static void remove(SharedPreferences sharedPrefs, String prefKey, String deviceName) {
+  public static void remove(
+      SharedPreferences sharedPrefs, String prefKey, String deviceInfoString) {
     TreeMap<Integer, String> treeMap = readTreeMap(sharedPrefs, prefKey);
     for (Iterator<Integer> iter = treeMap.navigableKeySet().iterator(); iter.hasNext(); ) {
-      if (deviceName.equals(treeMap.get(iter.next()))) {
+      if (deviceInfoString.equals(treeMap.get(iter.next()))) {
         iter.remove();
       }
     }

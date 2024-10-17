@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.talkback.actor;
 
+import static android.text.style.SuggestionSpan.FLAG_GRAMMAR_ERROR;
+
 import android.content.Context;
 import android.text.Spannable;
 import android.text.Spanned;
@@ -27,6 +29,7 @@ import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.SpellChecker;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
@@ -62,22 +65,22 @@ public class TypoNavigator {
   public boolean navigate(EventId eventId, boolean isNext, boolean useInputFocusIfEmpty) {
     boolean result = false;
     CharSequence currentSpanned = null;
-    @Nullable AccessibilityNodeInfoCompat node;
-    node =
+    @Nullable AccessibilityNodeInfoCompat node =
         accessibilityFocusMonitor.getNodeForEditingActions(
             accessibilityFocusMonitor.getAccessibilityFocus(useInputFocusIfEmpty));
     if (node == null) {
       feedbackNoTypo(eventId);
       return false;
     }
-    CharSequence text = node.getText();
+
+    @Nullable CharSequence text = SpellChecker.getTextWithSuggestionSpans(context, node);
     if (TextUtils.isEmpty(text)) {
       feedbackNoTypo(eventId);
       return false;
     }
     if (text instanceof Spannable) {
       int cursorPosition = node.getTextSelectionStart();
-      Spanned spanned = (Spanned) node.getText();
+      Spanned spanned = (Spanned) text;
       SuggestionSpan[] spansAfterCursor =
           spanned.getSpans(cursorPosition, spanned.length(), SuggestionSpan.class);
       SuggestionSpan[] spansBeforeCursor =
@@ -91,27 +94,21 @@ public class TypoNavigator {
       }
       SuggestionSpan[] spans = isNext ? spansAfterCursor : spansBeforeCursor;
       if (spans != null) {
-        int recordIndex = isNext ? Integer.MAX_VALUE : -1;
         SuggestionSpan targetSpan = null;
-        for (SuggestionSpan span : spans) {
-          int start = spanned.getSpanStart(span);
+        for (int i = 0; i < spans.length; i++) {
+          // isNext checks from start to end, otherwise, end to start.
+          int index = isNext ? i : spans.length - 1 - i;
+          int start = spanned.getSpanStart(spans[index]);
           if (start == -1) {
             continue;
           }
-          if (isNext) {
-            if (cursorPosition < start && start < recordIndex) {
-              recordIndex = start;
-              targetSpan = span;
-            }
-          } else {
-            if (cursorPosition > start && start > recordIndex) {
-              recordIndex = start;
-              targetSpan = span;
-            }
+          if ((isNext && cursorPosition < start) || (!isNext && cursorPosition > start)) {
+            targetSpan = spans[index];
+            break;
           }
         }
         if (targetSpan != null) {
-          result = feedbackTypo(node, eventId, targetSpan);
+          result = feedbackTypo(node, spanned, eventId, targetSpan);
         }
         if (!result) {
           SuggestionSpan[] currentSpans =
@@ -149,21 +146,48 @@ public class TypoNavigator {
     pipeline.returnFeedback(eventId, getSpeechFeedbackBuilder(announcement, R.raw.complete));
   }
 
+  /** Feedbacks for a typo and moves the cursor to the typo. */
   private boolean feedbackTypo(
-      AccessibilityNodeInfoCompat node, EventId eventId, SuggestionSpan targetSpan) {
-    Spanned spanned = (Spanned) node.getText();
-    int cursor = spanned.getSpanStart(targetSpan);
-    int end = spanned.getSpanEnd(targetSpan);
+      AccessibilityNodeInfoCompat node,
+      Spanned textWithSuggestionSpans,
+      EventId eventId,
+      SuggestionSpan targetSpan) {
+    int cursor = textWithSuggestionSpans.getSpanStart(targetSpan);
+    int end = textWithSuggestionSpans.getSpanEnd(targetSpan);
     if (cursor != Integer.MAX_VALUE && cursor != -1 && end != -1) {
       boolean result =
           (cursor == node.getTextSelectionStart()) || editor.moveCursor(node, cursor, eventId);
       if (result) {
         pipeline.returnFeedback(
-            eventId, getSpeechFeedbackBuilder(spanned.subSequence(cursor, end), R.raw.typo));
+            eventId,
+            getSpeechFeedbackBuilder(textWithSuggestionSpans.subSequence(cursor, end), R.raw.typo));
+        if (targetSpan.getSuggestions().length == 0) {
+          pipeline.returnFeedback(
+              eventId,
+              getSpeechFeedbackBuilder(
+                  context.getString(
+                      (targetSpan.getFlags() & FLAG_GRAMMAR_ERROR) == 0
+                          ? R.string.hint_no_spelling_suggestion
+                          : R.string.hint_no_grammar_suggestion)));
+        }
       }
       return result;
     }
     return false;
+  }
+
+  private Feedback.Part.Builder getSpeechFeedbackBuilder(CharSequence speech) {
+    return Feedback.speech(
+        speech,
+        SpeakOptions.create()
+            .setQueueMode(SpeechController.QUEUE_MODE_INTERRUPT_AND_UNINTERRUPTIBLE_BY_NEW_SPEECH)
+            .setFlags(
+                FeedbackItem.FLAG_NO_HISTORY
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_AUDIO_PLAYBACK_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_MICROPHONE_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_SSB_ACTIVE
+                    | FeedbackItem.FLAG_FORCE_FEEDBACK_EVEN_IF_PHONE_CALL_ACTIVE
+                    | FeedbackItem.FLAG_SKIP_DUPLICATE));
   }
 
   private Feedback.Part.Builder getSpeechFeedbackBuilder(CharSequence speech, int soundRes) {

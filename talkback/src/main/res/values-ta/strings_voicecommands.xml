@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">வாசி</string>
-  <string name="voice_commands_read_from_next">அடுத்ததிலிருந்து வாசி</string>
+  <string name="voice_commands_read_from_next">கர்சர் இருக்குமிடத்திலிருந்து வாசி</string>
   <string name="voice_commands_edit_options">திருத்துதல் விருப்பங்கள்</string>
-  <string name="voice_commands_text_editing">உரையைத் திருத்துதல்</string>
-  <string name="voice_commands_edit_text">உரையைத் திருத்து</string>
-  <string name="voice_commands_editing_options">திருத்துதல் விருப்பங்கள்</string>
   <string name="voice_commands_edit">திருத்து</string>
   <string name="voice_commands_what">என்ன</string>
   <string name="voice_commands_say">சொல்</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">லேபிள்</string>
   <string name="voice_commands_cannot_label_feedback">லேபிளிட முடியாது</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">பேச்சு வீதம் அமைப்பு</string>
   <string name="voice_commands_first">முதல்</string>
   <string name="voice_commands_top">முதலாவது</string>
   <string name="voice_commands_last">கடைசி</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">பேச்சு வேகத்தை அதிகரி</string>
   <string name="voice_commands_slower">மெதுவாக்கு</string>
   <string name="voice_commands_decrease_speech_rate">பேச்சு வேகத்தைக் குறை</string>
-  <string name="voice_commands_possible_options_title">இவ்வாறு சொல்லலாம்</string>
   <string name="voice_commands_no_action">குரல் ஷார்ட்கட் ஆதரிக்கப்படவில்லை</string>
   <string name="voice_commands_no_mic_permissions">இந்த அம்சத்தைப் பயன்படுத்த, மைக்ரோஃபோனை உபயோகிப்பதற்கான அனுமதியை வழங்க வேண்டும்.</string>
   <string name="voice_commands_no_voice_recognition_ability">உங்கள் சாதனத்தில் இந்த அம்சம் இல்லை</string>
@@ -103,16 +98,16 @@
   <string name="voice_commands_no_next_control_feedback">அடுத்த கட்டுப்பாடு இல்லை</string>
   <string name="voice_commands_no_next_landmark_feedback">அடுத்த இட அடையாளம் இல்லை</string>
   <string name="voice_commands_help_title">குரல் கட்டளைக்கான மேலோட்டப் பார்வை</string>
-  <string name="voice_commands_help_description">குரல் கட்டளைகளைப் பயன்படுத்த, வலதுபுறமாக ஸ்வைப் செய்து பிறகு மேல் நோக்கி ஸ்வைப் செய்யவும். எப்போது வேண்டுமானாலும் கட்டளைகளின் பட்டியலைக் காண, \"உதவி\" என்றோ \"நான் என்ன சொல்வது?\" என்றோ சொல்லவும்.</string>
+  <string name="voice_commands_help_description">குரல் கட்டளைகளைப் பயன்படுத்த, வலதுபுறமாக ஸ்வைப் செய்து பிறகு மேல்நோக்கி ஸ்வைப் செய்யவும். எப்போது வேண்டுமானாலும் இந்தக் கட்டளைகள் பட்டியலைப் பார்க்க, \"%1$s\" என்றோ \"நான் என்ன சொல்வது?\" என்றோ சொல்லவும்.</string>
   <string name="voice_commands_help_hint">மிகச் சரியான பதில்களுக்கு, பின்வரும் திரைகளில் பட்டியலிடப்பட்டுள்ள வார்த்தைகளைச் சொல்லுங்கள்.</string>
   <string name="voice_command_screen_locked_hint">திரை பூட்டப்பட்டிருக்கும்போது குரல் கட்டளைகளைப் பயன்படுத்த முடியாது. அதற்குப் பதிலாக TalkBack மெனுவைப் பயன்படுத்த %1$s.</string>
   <string name="voice_commands_during_setup_hint">அமைவின்போது குரல் கட்டளைகளைப் பயன்படுத்த முடியாது.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">தற்போதுள்ள திரையில் எப்படி உள்ளடக்கத்தை வாசிப்பீர்கள் என்பதை மாற்றும்</string>
-  <string name="voice_commands_help_next">அடுத்த [தலைப்பிற்குச்] செல்லும்</string>
-  <string name="voice_commands_help_navigation">[சொல்] மூலம் வழிசெலுத்தும்</string>
-  <string name="voice_commands_help_speech_rate">[வேகமாகப்] பேசும்</string>
-  <string name="voice_commands_help_verbosity">மிகைச்சொற்களைக் [குறைக்கும்]</string>
+  <string name="voice_commands_help_next">அடுத்த [தலைப்பு]</string>
+  <string name="voice_commands_help_navigation">[வார்த்தை] வழிசெலுத்தல்</string>
+  <string name="voice_commands_help_speech_rate">[வேகமாக] பேசு</string>
+  <string name="voice_commands_help_verbosity">மிகைச்சொற்களைக் [குறை]</string>
   <string name="voice_commands_help_next_description">அடுத்த தலைப்பு, கட்டளை, பட்டியல் அல்லது இட அடையாளத்திற்குச் செல்லும்</string>
   <string name="voice_commands_help_navigation_description">சொற்கள், எழுத்துகள், வரிகள், பத்திகள், தலைப்புகள், கட்டுப்பாடுகள் போன்ற பலவற்றின் மூலம் வழிசெலுத்தும்</string>
   <string name="voice_commands_help_speech_rate_description">\"மெதுவாகப் பேசு\" என்றும் சொல்லலாம்</string>

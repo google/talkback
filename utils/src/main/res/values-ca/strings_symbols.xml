@@ -31,7 +31,7 @@
   <string name="symbol_paragraph_mark">Marca de paràgraf</string>
   <string name="symbol_parenthesis_left">Parèntesi d\'obertura</string>
   <string name="symbol_parenthesis_right">Parèntesi de tancament</string>
-  <string name="symbol_percent">Percentatge</string>
+  <string name="symbol_percent">Per cent</string>
   <string name="symbol_period">Punt</string>
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Coixinet</string>
@@ -141,7 +141,7 @@
   <string name="symbol_left_single_quotation_mark">Cometa simple d\'obertura</string>
   <string name="symbol_braille">braille %s</string>
   <plurals name="dots">
-    <item quantity="one">punt %s</item>
-    <item quantity="other">punts %s</item>
+    <item quantity="one">el punt %s</item>
+    <item quantity="other">els punts %s</item>
   </plurals>
 </resources>

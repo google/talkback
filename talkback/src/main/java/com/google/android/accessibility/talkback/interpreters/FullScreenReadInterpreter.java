@@ -20,6 +20,7 @@ import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBIL
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_CLICKED;
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_SELECTED;
 import static com.google.android.accessibility.talkback.Interpretation.ID.Value.CONTINUOUS_READ_CONTENT_FOCUSED;
+import static com.google.android.accessibility.talkback.Interpretation.ID.Value.CONTINUOUS_READ_IGNORE;
 import static com.google.android.accessibility.talkback.Interpretation.ID.Value.CONTINUOUS_READ_INTERRUPT;
 
 import android.view.accessibility.AccessibilityEvent;
@@ -71,11 +72,15 @@ public class FullScreenReadInterpreter implements AccessibilityEventListener {
   @Override
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
 
-    if (event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUSED
-        && actorState.getContinuousRead().isWaitingForContentFocus()) {
-      continuousReadStartTime = event.getEventTime();
-      // Focused a content-window node, ready to start reading.
-      pipeline.input(eventId, event, new Interpretation.ID(CONTINUOUS_READ_CONTENT_FOCUSED));
+    if (event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
+      if (actorState.getContinuousRead().isWaitingForContentFocus()) {
+        continuousReadStartTime = event.getEventTime();
+        // Focused a content-window node, ready to start reading.
+        pipeline.input(eventId, event, new Interpretation.ID(CONTINUOUS_READ_CONTENT_FOCUSED));
+      } else {
+        // Drop any paused record of last CRM.
+        pipeline.input(eventId, event, new Interpretation.ID(CONTINUOUS_READ_IGNORE));
+      }
     }
 
     if (actorState.getContinuousRead().isActive()) {

@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2023 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.google.android.accessibility.brailleime;
 
 import static androidx.core.content.res.ResourcesCompat.ID_NULL;
@@ -61,6 +77,10 @@ public enum BrailleImeActions {
   SELECT_PREVIOUS_LINE(TEXT_SELECTION_AND_EDITING, LINE, R.string.bk_gesture_select_previous_line),
   SELECT_NEXT_LINE(TEXT_SELECTION_AND_EDITING, LINE, R.string.bk_gesture_select_next_line),
   SELECT_ALL(TEXT_SELECTION_AND_EDITING, EDITING, R.string.bk_gesture_select_all),
+  SELECT_CURRENT_TO_START(
+      TEXT_SELECTION_AND_EDITING, EDITING, R.string.bk_gesture_select_current_to_start),
+  SELECT_CURRENT_TO_END(
+      TEXT_SELECTION_AND_EDITING, EDITING, R.string.bk_gesture_select_current_to_end),
   COPY(TEXT_SELECTION_AND_EDITING, EDITING, R.string.bk_gesture_copy),
   CUT(TEXT_SELECTION_AND_EDITING, EDITING, R.string.bk_gesture_cut),
   PASTE(TEXT_SELECTION_AND_EDITING, EDITING, R.string.bk_gesture_paste),
@@ -205,5 +225,13 @@ public enum BrailleImeActions {
   /** Gets the icon of the action. */
   public Drawable getIconRes(Context resources) {
     return resources.getDrawable(iconRes);
+  }
+
+  /** Returns if the action is available. */
+  public boolean isAvailable(Context context) {
+    if (this == SELECT_CURRENT_TO_START || this == SELECT_CURRENT_TO_END) {
+      return FeatureFlagReader.useSelectCurrentToStartOrEnd(context);
+    }
+    return true;
   }
 }

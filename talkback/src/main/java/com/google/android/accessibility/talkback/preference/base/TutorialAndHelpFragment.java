@@ -42,10 +42,10 @@ public class TutorialAndHelpFragment extends TalkbackBaseFragment {
     if (FormFactorUtils.getInstance().isAndroidTv()) {
       return getString(
           TvTutorialInitiator.shouldShowTraining(VendorConfigReader.retrieveConfig(getActivity()))
-              ? R.string.title_pref_category_tutorial_and_help
+              ? R.string.title_pref_category_tutorial
               : R.string.title_pref_category_help_no_tutorial);
     }
-    return getText(R.string.title_pref_category_tutorial_and_help);
+    return getText(R.string.title_pref_category_tutorial);
   }
 
   @Override

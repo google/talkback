@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">čitaj</string>
-  <string name="voice_commands_read_from_next">Čitaj od sledeće stavke</string>
+  <string name="voice_commands_read_from_next">Čitaj od kursora</string>
   <string name="voice_commands_edit_options">Opcije izmene</string>
-  <string name="voice_commands_text_editing">Uređivanje teksta</string>
-  <string name="voice_commands_edit_text">Uredi tekst</string>
-  <string name="voice_commands_editing_options">Opcije izmene</string>
   <string name="voice_commands_edit">izmeni</string>
   <string name="voice_commands_what">šta</string>
   <string name="voice_commands_say">recite</string>
@@ -46,10 +43,9 @@
   <string name="voice_commands_label">Označi</string>
   <string name="voice_commands_cannot_label_feedback">Označavanje nije uspelo</string>
   <string name="voice_commands_assistant">Pomoćnik</string>
-  <string name="voice_commands_setting_speech_rate">Podešava se brzina govora</string>
-  <string name="voice_commands_first">Prva</string>
+  <string name="voice_commands_first">Prvo</string>
   <string name="voice_commands_top">Vrh</string>
-  <string name="voice_commands_last">Poslednja</string>
+  <string name="voice_commands_last">Poslednje</string>
   <string name="voice_commands_bottom">Dno</string>
   <string name="voice_commands_type">Tip</string>
   <string name="voice_commands_input">Unos</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Povećaj brzinu govora</string>
   <string name="voice_commands_slower">Sporije</string>
   <string name="voice_commands_decrease_speech_rate">smanji brzinu govora</string>
-  <string name="voice_commands_possible_options_title">Možete da kažete</string>
   <string name="voice_commands_no_action">Glasovna prečica nije podržana</string>
   <string name="voice_commands_no_mic_permissions">Da biste koristili ovu funkciju, morate da dodelite dozvolu za korišćenje mikrofona.</string>
   <string name="voice_commands_no_voice_recognition_ability">Žao nam je! Ova funkcija nije dostupna na uređaju</string>
@@ -103,14 +98,14 @@
   <string name="voice_commands_no_next_control_feedback">Nema sledeće kontrole</string>
   <string name="voice_commands_no_next_landmark_feedback">Nema sledećeg orijentira</string>
   <string name="voice_commands_help_title">Pregled glasovnih komandi</string>
-  <string name="voice_commands_help_description">Da biste koristili glasovne komande, prevucite udesno, pa nagore. Recite „Pomoć“ ili „Šta mogu da kažem“ u bilo kom trenutku da biste videli ovu listu komandi.</string>
+  <string name="voice_commands_help_description">Da biste koristili glasovne komande, prevucite udesno, pa nagore. Recite %1$s ili „Šta mogu da kažem?“ u bilo kom trenutku da biste videli ovu listu komandi.</string>
   <string name="voice_commands_help_hint">Za najbolje rezultate tačno izgovorite reči prikazane na sledećim ekranima.</string>
   <string name="voice_command_screen_locked_hint">Glasovne komande nisu dostupne dok je ekran zaključan. Da biste koristili TalkBack meni, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Glasovne komande nisu dostupne tokom podešavanja.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Promenite način na koji čitate sadržaj na trenutnom ekranu</string>
   <string name="voice_commands_help_next">Sledeće [naslov]</string>
-  <string name="voice_commands_help_navigation">Kretanje: [reč]</string>
+  <string name="voice_commands_help_navigation">Kretanje [reč]</string>
   <string name="voice_commands_help_speech_rate">Govori [brže]</string>
   <string name="voice_commands_help_verbosity">[Niska] opširnost govora</string>
   <string name="voice_commands_help_next_description">Idite na sledeće zaglavlje, kontrolu, listu ili orijentir</string>
@@ -132,7 +127,7 @@
   <string name="voice_commands_help_cut_description">Izaberite tekst pre sečenja</string>
   <string name="voice_commands_help_delete_description">Izaberite tekst pre brisanja</string>
   <string name="voice_commands_help_device_navigation_title">Navigacija na uređaju</string>
-  <string name="voice_commands_help_device_navigation_description">Idite na početni ekran, vratite se, pregledajte obaveštenja i drugo</string>
+  <string name="voice_commands_help_device_navigation_description">Idite na početni ekran, idite nazad, pregledajte obaveštenja i drugo</string>
   <string name="voice_commands_help_overview_description">Pogledajte nedavne aplikacije</string>
   <string name="voice_commands_help_assistant_description">Otvorite Google pomoćnik</string>
   <string name="voice_commands_help_other_commands_title">Druge komande</string>

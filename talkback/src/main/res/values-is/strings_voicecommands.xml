@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">lesa</string>
-  <string name="voice_commands_read_from_next">Read from next</string>
+  <string name="voice_commands_read_from_next">Lesa frá bendli</string>
   <string name="voice_commands_edit_options">Edit options</string>
-  <string name="voice_commands_text_editing">Text editing</string>
-  <string name="voice_commands_edit_text">Edit text</string>
-  <string name="voice_commands_editing_options">Editing options</string>
   <string name="voice_commands_edit">breyta</string>
   <string name="voice_commands_what">hvað</string>
   <string name="voice_commands_say">segja</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Merkja</string>
   <string name="voice_commands_cannot_label_feedback">Cannot label</string>
   <string name="voice_commands_assistant">Hjálpari</string>
-  <string name="voice_commands_setting_speech_rate">Talhraði stilltur</string>
   <string name="voice_commands_first">Fyrsta</string>
   <string name="voice_commands_top">Top</string>
   <string name="voice_commands_last">Síðasta</string>
@@ -56,7 +52,7 @@
   <string name="voice_commands_dictate">Lesa upp</string>
   <string name="voice_commands_write">Write</string>
   <string name="voice_commands_Spell">Spell</string>
-  <string name="voice_commands_talkback_settings">TalkBack stillingar</string>
+  <string name="voice_commands_talkback_settings">TalkBack-stillingar</string>
   <string name="voice_commands_talkback_setting">TalkBack stilling</string>
   <string name="voice_commands_screen_search">Screen search</string>
   <string name="voice_commands_search_on_screen">Search on screen</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Increase speech rate</string>
   <string name="voice_commands_slower">Slower</string>
   <string name="voice_commands_decrease_speech_rate">decrease speech rate</string>
-  <string name="voice_commands_possible_options_title">Þú getur sagt</string>
   <string name="voice_commands_no_action">Talflýtileið er ekki studd</string>
   <string name="voice_commands_no_mic_permissions">Þú þarft að veita leyfi fyrir notkun hljóðnemans til að nota þennan eiginleika.</string>
   <string name="voice_commands_no_voice_recognition_ability">Því miður er þessi eiginleiki ekki í boði í tækinu þínu</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Engin næsta stýring</string>
   <string name="voice_commands_no_next_landmark_feedback">Ekkert næsta kennileiti</string>
   <string name="voice_commands_help_title">Yfirlit raddskipana</string>
-  <string name="voice_commands_help_description">Strjúktu til hægri og svo upp til að nota raddskipanir. Segðu: „Help“ eða „What can I say?“ hvenær sem er til að opna listann yfir skipanir.</string>
+  <string name="voice_commands_help_description">Strjúktu til hægri og svo upp til að nota raddskipanir. Segðu: „%1$s“ eða „What can I say?“ hvenær sem er til að opna listann yfir skipanir.</string>
   <string name="voice_commands_help_hint">Til að árangurinn verði sem bestur skaltu segja orðrétt það sem birtist á eftirfarandi skjáum.</string>
   <string name="voice_command_screen_locked_hint">Ekki er hægt að nota raddskipanir þegar skjárinn er læstur. %1$s til að nota valmynd TalkBack.</string>
   <string name="voice_commands_during_setup_hint">Ekki er hægt að nota raddskipanir þegar uppsetning er í gangi.</string>

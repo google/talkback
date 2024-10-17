@@ -19,5 +19,5 @@
       android:layout_height="wrap_content"
       android:theme="@style/CheckBoxTheme"
       android:minHeight="48dp"
-      android:text="@string/keycombo_update_modifier_keys_do_not_show_again_check_box" />
+      android:text="@string/do_not_show_again_check_box" />
 </LinearLayout>

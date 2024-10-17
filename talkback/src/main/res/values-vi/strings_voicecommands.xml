@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">đọc</string>
-  <string name="voice_commands_read_from_next">Đọc từ mục tiếp theo</string>
+  <string name="voice_commands_read_from_next">Đọc từ con trỏ</string>
   <string name="voice_commands_edit_options">Chỉnh sửa tùy chọn</string>
-  <string name="voice_commands_text_editing">Chỉnh sửa văn bản</string>
-  <string name="voice_commands_edit_text">Chỉnh sửa văn bản</string>
-  <string name="voice_commands_editing_options">Tùy chọn chỉnh sửa</string>
   <string name="voice_commands_edit">chỉnh sửa</string>
   <string name="voice_commands_what">cái gì</string>
   <string name="voice_commands_say">nói đi</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Gắn nhãn</string>
   <string name="voice_commands_cannot_label_feedback">Không gắn nhãn được</string>
   <string name="voice_commands_assistant">Trợ lý</string>
-  <string name="voice_commands_setting_speech_rate">Đặt tốc độ lời nói</string>
   <string name="voice_commands_first">Đầu tiên</string>
   <string name="voice_commands_top">Trên cùng</string>
   <string name="voice_commands_last">Cuối cùng</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Tăng tốc độ lời nói</string>
   <string name="voice_commands_slower">Chậm hơn</string>
   <string name="voice_commands_decrease_speech_rate">giảm tốc độ lời nói</string>
-  <string name="voice_commands_possible_options_title">Bạn có thể nói</string>
   <string name="voice_commands_no_action">Không hỗ trợ khẩu lệnh tắt</string>
   <string name="voice_commands_no_mic_permissions">Để sử dụng tính năng này, bạn phải cấp quyền sử dụng micrô.</string>
   <string name="voice_commands_no_voice_recognition_ability">Rất tiếc! Tính năng này không có trên thiết bị của bạn</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Không có tùy chọn điều khiển tiếp theo</string>
   <string name="voice_commands_no_next_landmark_feedback">Không có mốc tiếp theo</string>
   <string name="voice_commands_help_title">Tổng quan về lệnh thoại</string>
-  <string name="voice_commands_help_description">Để dùng các lệnh thoại, hãy vuốt sang phải rồi vuốt lên. Hãy nói \"Trợ giúp\" hoặc \"Tôi có thể nói gì?\" bất cứ lúc nào để xem danh sách các lệnh này.</string>
+  <string name="voice_commands_help_description">Để dùng các lệnh thoại, hãy vuốt sang phải rồi vuốt lên. Hãy nói \"%1$s\" hoặc \"Tôi có thể nói gì?\" bất cứ lúc nào để xem danh sách lệnh này.</string>
   <string name="voice_commands_help_hint">Để có kết quả tốt nhất, hãy nói chính xác từ được liệt kê trên các màn hình sau.</string>
   <string name="voice_command_screen_locked_hint">Bạn không thể dùng các lệnh thoại khi màn hình bị khóa. Để dùng trình đơn TalkBack, hãy %1$s.</string>
   <string name="voice_commands_during_setup_hint">Lệnh thoại không có sẵn trong khi thiết lập.</string>
@@ -113,10 +108,10 @@
   <string name="voice_commands_help_navigation">Di chuyển theo [từ]</string>
   <string name="voice_commands_help_speech_rate">Nói [nhanh hơn]</string>
   <string name="voice_commands_help_verbosity">Độ chi tiết [thấp]</string>
-  <string name="voice_commands_help_next_description">Chuyển đến tiêu đề, tùy chọn điều khiển, danh sách hoặc mốc tiếp theo</string>
-  <string name="voice_commands_help_navigation_description">Di chuyển theo từ, ký tự, dòng, đoạn, tiêu đề, các thành phần điều khiển và nhiều tùy chọn khác</string>
+  <string name="voice_commands_help_next_description">Chuyển đến tiêu đề, tuỳ chọn điều khiển, danh sách hoặc mốc tiếp theo</string>
+  <string name="voice_commands_help_navigation_description">Di chuyển theo từ, ký tự, dòng, đoạn, tiêu đề, các thành phần điều khiển và nhiều tuỳ chọn khác</string>
   <string name="voice_commands_help_speech_rate_description">Bạn cũng có thể nói \"nói chậm hơn\"</string>
-  <string name="voice_commands_help_verbosity_description">Thay đổi thành thấp, cao hoặc tùy chỉnh</string>
+  <string name="voice_commands_help_verbosity_description">Thay đổi thành thấp, cao hoặc tuỳ chỉnh</string>
   <string name="voice_commands_help_first_description">Chuyển đến mục đầu tiên trên màn hình hiện tại</string>
   <string name="voice_commands_help_last_description">Chuyển đến mục cuối cùng trên màn hình hiện tại</string>
   <string name="voice_commands_help_languages_description">Thay đổi ngôn ngữ nói (chuyển văn bản sang lời nói)</string>
@@ -136,7 +131,7 @@
   <string name="voice_commands_help_overview_description">Xem các ứng dụng gần đây</string>
   <string name="voice_commands_help_assistant_description">Mở Trợ lý Google</string>
   <string name="voice_commands_help_other_commands_title">Các lệnh khác</string>
-  <string name="voice_commands_help_other_commands_description">Chuyển đến phần cài đặt của TalkBack, ẩn màn hình, xem các thao tác, thêm nhãn tùy chỉnh và các lệnh khác</string>
+  <string name="voice_commands_help_other_commands_description">Chuyển đến phần cài đặt của TalkBack, ẩn màn hình, xem các thao tác, thêm nhãn tuỳ chỉnh và các lệnh khác</string>
   <string name="voice_commands_help_label">Gắn nhãn [gửi]</string>
   <string name="voice_commands_help_hide_screen_description">Ẩn màn hình để người khác không thấy được màn hình của bạn ở nơi công cộng</string>
   <string name="voice_commands_help_show_screen_description">Sau khi ẩn, hãy đưa màn hình về trạng thái bình thường</string>

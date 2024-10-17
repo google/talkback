@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">කියවූ</string>
-  <string name="voice_commands_read_from_next">ඊළඟ සිට කියවන්න</string>
+  <string name="voice_commands_read_from_next">කර්සරයෙන් කියවන්න</string>
   <string name="voice_commands_edit_options">සංස්කරණ විකල්ප</string>
-  <string name="voice_commands_text_editing">පෙළ සංස්කරණය</string>
-  <string name="voice_commands_edit_text">පෙළ සංස්කරණය කරන්න</string>
-  <string name="voice_commands_editing_options">සංස්කරණ විකල්ප</string>
   <string name="voice_commands_edit">සංස්කරණය</string>
   <string name="voice_commands_what">කුමක්ද</string>
   <string name="voice_commands_say">කියන්න</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ලේබලය</string>
   <string name="voice_commands_cannot_label_feedback">ලේබල් කිරීමට නොහැකිය</string>
   <string name="voice_commands_assistant">සහායක</string>
-  <string name="voice_commands_setting_speech_rate">කථන ශීඝ්‍රතාව සැකසීම</string>
   <string name="voice_commands_first">පළමු</string>
   <string name="voice_commands_top">ඉහළට යන්න</string>
   <string name="voice_commands_last">අවසාන</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">කථන ශීඝ්‍රතාව වැඩි කරන්න</string>
   <string name="voice_commands_slower">මන්දගාමි කරන්න</string>
   <string name="voice_commands_decrease_speech_rate">කථන ශීඝ්‍රතාව අඩු කරන්න</string>
-  <string name="voice_commands_possible_options_title">ඔබට කිව හැකිය</string>
   <string name="voice_commands_no_action">හඬ කෙටි මග සහාය නොදක්වයි</string>
   <string name="voice_commands_no_mic_permissions">මෙම විශේෂාංගය භාවිතා කිරීම සඳහා, ඔබ මයික්‍රෆෝනය භාවිතා කිරීමට අවසර දිය යුතුය.</string>
   <string name="voice_commands_no_voice_recognition_ability">කනගාටුයි! ඔබගේ උපාංගයේ මෙම විශේෂාංගය ලබා ගත නොහැකිය</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">ඊලඟ පාලනය නැත</string>
   <string name="voice_commands_no_next_landmark_feedback">ඊළඟ බිම් සලකුණ නැත</string>
   <string name="voice_commands_help_title">කටහඬ විධාන දළ විශ්ලේෂණය</string>
-  <string name="voice_commands_help_description">කටහඬ විධාන භාවිත කිරීමට, දකුණට අනතුරුව ඉහළට ස්වයිප් කරන්න. ඕනෑම අවස්ථාවක මෙම විධාන ලැයිස්තුව සඳහා \"Help\" හෝ \"What can I say?\" කියන්න.</string>
+  <string name="voice_commands_help_description">හඬ විධාන භාවිත කිරීමට, දකුණට සහ පසුව ඉහළට ස්වයිප් කරන්න. ඕනෑම අවස්ථාවක මෙම විධාන ලැයිස්තුව සඳහා \"%1$s\" හෝ \"මම කුමක් කිව හැකිද?\" කියන්න.</string>
   <string name="voice_commands_help_hint">හොඳම ප්‍රතිඵල සඳහා, පහත දැක්වෙන තිරවල ලැයිස්තුගත කර ඇති නිශ්චිත වචන කියන්න</string>
   <string name="voice_command_screen_locked_hint">තිරය අගුලු දමා ඇති අතරතුර කටහඬ විධාන ලබා ගත නොහැකිය. ඒ වෙනුවට TalkBack මෙනුව භාවිත කිරීමට, %1$s.</string>
   <string name="voice_commands_during_setup_hint">සැකසීමේදී හඬ විධාන නොලැබේ.</string>

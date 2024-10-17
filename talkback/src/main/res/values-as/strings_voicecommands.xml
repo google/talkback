@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">পঢ়ক</string>
-  <string name="voice_commands_read_from_next">পৰৱৰ্তীৰ পৰা পঢ়ক</string>
+  <string name="voice_commands_read_from_next">কাৰ্ছৰডাল থকা ঠাইৰ পৰা পঢ়ক</string>
   <string name="voice_commands_edit_options">সম্পাদনাৰ বিকল্প</string>
-  <string name="voice_commands_text_editing">পাঠ সম্পাদনা</string>
-  <string name="voice_commands_edit_text">পাঠ সম্পাদনা কৰক</string>
-  <string name="voice_commands_editing_options">সম্পাদনা কৰাৰ বিকল্পসমূহ</string>
   <string name="voice_commands_edit">সম্পাদনা কৰক</string>
   <string name="voice_commands_what">কি</string>
   <string name="voice_commands_say">কওক</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">লেবেল</string>
   <string name="voice_commands_cannot_label_feedback">লেবেল যোগ দিব নোৱাৰি</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">কথা কোৱাৰ হাৰ ছেট কৰি থকা হৈছে</string>
   <string name="voice_commands_first">প্ৰথম</string>
   <string name="voice_commands_top">একেবাৰে ওপৰৰ</string>
   <string name="voice_commands_last">অন্তিম বস্তু</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">কথা কোৱাৰ হাৰ বৃদ্ধি কৰক</string>
   <string name="voice_commands_slower">লেহেমীয়া কৰক</string>
   <string name="voice_commands_decrease_speech_rate">কথা কোৱাৰ হাৰ হ্ৰাস কৰক</string>
-  <string name="voice_commands_possible_options_title">আপুনি ক’ব পাৰে</string>
   <string name="voice_commands_no_action">কণ্ঠধ্বনিৰ শ্বৰ্টকাট সমৰ্থিত নহয়</string>
   <string name="voice_commands_no_mic_permissions">এই সুবিধাটো ব্যৱহাৰ কৰিবলৈ আপুনি মাইক্ৰ’ফ’ন ব্যৱহাৰ কৰাৰ অনুমতি দিবই লাগিব।</string>
   <string name="voice_commands_no_voice_recognition_ability">দুঃখিত! এই ডিভাইচটোত এই সুবিধাটো নাই।</string>
@@ -103,10 +98,10 @@
   <string name="voice_commands_no_next_control_feedback">কোনো পৰৱৰ্তী নিয়ন্ত্ৰণ নাই</string>
   <string name="voice_commands_no_next_landmark_feedback">কোনো পৰৱৰ্তী লেণ্ডমাৰ্ক নাই</string>
   <string name="voice_commands_help_title">কণ্ঠস্বৰৰ নিৰ্দেশৰ ৰূপৰেখা</string>
-  <string name="voice_commands_help_description">কণ্ঠস্বৰৰ নিৰ্দেশ ব্যৱহাৰ কৰিবলৈ প্ৰথমে সোঁফালে তাৰ পাছত ওপৰলৈ ছোৱাইপ কৰক। আটাইবোৰ নিৰ্দেশৰ সূচীৰ বাবে যিকোনো সময়তে \"সহায়\" অথবা \"মই কি ক’ব পাৰোঁ?\" বুলি কওক।</string>
+  <string name="voice_commands_help_description">কণ্ঠস্বৰৰ নিৰ্দেশ ব্যৱহাৰ কৰিবলৈ প্ৰথমে সোঁফালে তাৰ পাছত ওপৰলৈ ছোৱাইপ কৰক। আটাইবোৰ নিৰ্দেশৰ সূচীৰ বাবে যিকোনো সময়তে \"%1$s\" বা \"মই কি ক’ব পাৰোঁ?\" বুলি কওক।</string>
   <string name="voice_commands_help_hint">শ্ৰেষ্ঠ ফলাফলৰ বাবে তলৰ স্ক্ৰীনসমূহত সূচীবদ্ধ কৰি থোৱা শব্দবোৰ ঠিক যেনেকৈ আছে তেনেকৈ কওক।</string>
   <string name="voice_command_screen_locked_hint">স্ক্ৰীনখন লক হৈ থাকোঁতে কণ্ঠস্বৰৰ নিৰ্দেশ উপলব্ধ নহয়। ইয়াৰ সলনি TalkBackৰ মেনুখন ব্যৱহাৰ কৰিবলৈ, %1$s।</string>
-  <string name="voice_commands_during_setup_hint">ছেটআপৰ সময়ত কণ্ঠস্বৰৰ নিৰ্দেশ উপলব্ধ নহয়।</string>
+  <string name="voice_commands_during_setup_hint">ছেটআপৰ সময়ত ভইচ নিৰ্দেশ উপলব্ধ নহয়।</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">বৰ্তমানৰ স্ক্ৰীনখনত আপুনি সমল কেনেকৈ পঢ়ে সেয়া সলনি কৰক</string>
   <string name="voice_commands_help_next">পৰৱৰ্তী [শিৰোনাম]</string>

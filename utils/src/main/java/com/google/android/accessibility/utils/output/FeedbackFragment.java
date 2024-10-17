@@ -85,7 +85,7 @@ public class FeedbackFragment {
    * FailoverTextToSpeech.FailoverTtsListener#onUtteranceRangeStarted(String, int, int)} we save the
    * start index here.
    */
-  public int fragmentStartIndex = 0;
+  volatile int fragmentStartIndex = 0;
 
   public FeedbackFragment(CharSequence text, @Nullable Bundle speechParams) {
     this(text, null, null, speechParams, null);

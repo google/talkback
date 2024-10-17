@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2023 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.google.android.accessibility.brailleime.input;
 
 import android.content.Context;
@@ -40,7 +56,7 @@ public class BrailleInputPlanePhone extends BrailleInputPlane {
       return BrailleUserPreferences.readCalibrationPointsPhone(
           context, isTableTopMode, orientation, screenSize);
     } catch (ParseException e) {
-      BrailleImeLog.logE(TAG, "Read saved dots failed.", e);
+      BrailleImeLog.e(TAG, "Read saved dots failed.", e);
       return new ArrayList<>();
     }
   }
@@ -51,7 +67,7 @@ public class BrailleInputPlanePhone extends BrailleInputPlane {
       BrailleUserPreferences.writeCalibrationPointsPhone(
           context, isTableTopMode, orientation, centerPoints, screenSize);
     } catch (ParseException e) {
-      BrailleImeLog.logE(TAG, "Write points failed.");
+      BrailleImeLog.e(TAG, "Write points failed.");
     }
   }
 
@@ -120,15 +136,14 @@ public class BrailleInputPlanePhone extends BrailleInputPlane {
 
   @Override
   BrailleInputPlaneResult createSwipe(Swipe swipe) {
-    return BrailleInputPlaneResult.createSwipeForPhone(swipe, orientation, isTableTopMode);
+    return BrailleInputPlaneResult.createSwipe(getReorientedSwipe(swipe));
   }
 
   @Override
   BrailleInputPlaneResult createDotHoldAndSwipe(
       Swipe swipe, BrailleCharacter heldBrailleCharacter) {
-    BrailleInputPlaneResult result =
-        BrailleInputPlaneResult.createSwipeForPhone(swipe, orientation, isTableTopMode);
-    return BrailleInputPlaneResult.createDotHoldAndDotSwipe(result.swipe, heldBrailleCharacter);
+    return BrailleInputPlaneResult.createDotHoldAndDotSwipe(
+        getReorientedSwipe(swipe), heldBrailleCharacter);
   }
 
   @Override
@@ -169,5 +184,16 @@ public class BrailleInputPlanePhone extends BrailleInputPlane {
       return new Size(/* width= */ screenSize.getHeight(), /* height= */ screenSize.getWidth());
     }
     return screenSize;
+  }
+
+  private Swipe getReorientedSwipe(Swipe swipe) {
+    Swipe reorientedSwipe =
+        (orientation == Configuration.ORIENTATION_PORTRAIT)
+            ? Swipe.createFromRotation90(swipe)
+            : new Swipe(swipe);
+    if (isTableTopMode) {
+      reorientedSwipe = Swipe.createFromMirror(reorientedSwipe);
+    }
+    return reorientedSwipe;
   }
 }

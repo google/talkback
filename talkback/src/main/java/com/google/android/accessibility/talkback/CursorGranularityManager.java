@@ -142,14 +142,23 @@ public class CursorGranularityManager {
    * @return Whether navigation is locked to {@code node}.
    */
   public boolean isLockedToNodeOrEditingNode(AccessibilityNodeInfoCompat node) {
+    if (lockedNode == null) {
+      LogUtils.e(TAG, "isLockedToNodeOrEditingNode- lockedNode is null ");
+      return false;
+    }
     AccessibilityNodeInfoCompat editingNode =
         accessibilityFocusMonitor.getEditingNodeFromFocusedKeyboard(node);
     if (editingNode != null) {
       node = editingNode;
     }
+    if (node == null) {
+      LogUtils.d(TAG, "isLockedToNodeOrEditingNode- node to check  is null ");
+      return false;
+    }
+
     // If the requested granularity is default or native macro, don't report as locked.
     return currentGranularity != CursorGranularity.DEFAULT
-        && ((lockedNode != null) && lockedNode.equals(node))
+        && lockedNode.equals(node)
         && !currentGranularity.isNativeMacroGranularity();
   }
 
@@ -542,6 +551,14 @@ public class CursorGranularityManager {
 
       CursorGranularity.extractFromMask(
           supportedMask, hasWebContent, supportedHtmlElements, supportedGranularities);
+      LogUtils.d(
+          TAG,
+          "setLockedNode: lockedNode=%s, supportedGranularities=%s",
+          lockedNode,
+          supportedGranularities);
+    } else {
+      LogUtils.d(
+          TAG, "setLockedNode - reuse lock node or the lock node is null, lockNode=%s", lockedNode);
     }
   }
 
@@ -575,7 +592,7 @@ public class CursorGranularityManager {
    * @param root The root node from which to extract granularities.
    * @return A list of supported granularities.
    */
-  public @NonNull static List<CursorGranularity> getSupportedGranularities(
+  public static @NonNull List<CursorGranularity> getSupportedGranularities(
       @Nullable AccessibilityNodeInfoCompat root) {
     final List<CursorGranularity> supported = new ArrayList<>();
     final int supportedMask = extractNavigableNodes(root, null, new HashSet<>());

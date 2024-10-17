@@ -70,7 +70,6 @@ import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.braille.brailledisplay.BrailleDisplayImeUnavailableActivity;
 import com.google.android.accessibility.braille.brailledisplay.BrailleDisplayLog;
-import com.google.android.accessibility.braille.brailledisplay.BrailleDisplayTalkBackSpeaker;
 import com.google.android.accessibility.braille.brailledisplay.R;
 import com.google.android.accessibility.braille.brailledisplay.analytics.BrailleDisplayAnalytics;
 import com.google.android.accessibility.braille.brailledisplay.controller.BdController.BehaviorDisplayer;
@@ -83,8 +82,10 @@ import com.google.android.accessibility.braille.brailledisplay.platform.Persiste
 import com.google.android.accessibility.braille.brailledisplay.settings.BrailleDisplaySettingsActivity;
 import com.google.android.accessibility.braille.brailledisplay.settings.KeyBindingsActivity;
 import com.google.android.accessibility.braille.brltty.BrailleInputEvent;
+import com.google.android.accessibility.braille.common.BrailleCommonTalkBackSpeaker;
 import com.google.android.accessibility.braille.common.BrailleCommonUtils;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
+import com.google.android.accessibility.braille.common.FeedbackManager;
 import com.google.android.accessibility.braille.common.TalkBackSpeaker.AnnounceType;
 import com.google.android.accessibility.braille.common.translate.BrailleLanguages.Code;
 import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer.ScreenReaderAction;
@@ -143,26 +144,26 @@ class DefaultConsumer implements EventConsumer {
   private boolean linePrevious() {
     return feedbackManager.emitOnFailure(
         behaviorScreenReaderAction.performAction(ScreenReaderAction.PREVIOUS_LINE),
-        FeedbackManager.TYPE_NAVIGATE_OUT_OF_BOUNDS);
+        FeedbackManager.Type.NAVIGATE_OUT_OF_BOUNDS);
   }
 
   /** Moves accessibility focus to the first focusable node of the next 'line'. */
   private boolean lineNext() {
     return feedbackManager.emitOnFailure(
         behaviorScreenReaderAction.performAction(ScreenReaderAction.NEXT_LINE),
-        FeedbackManager.TYPE_NAVIGATE_OUT_OF_BOUNDS);
+        FeedbackManager.Type.NAVIGATE_OUT_OF_BOUNDS);
   }
 
   private boolean itemPrevious() {
     return feedbackManager.emitOnFailure(
         behaviorScreenReaderAction.performAction(ScreenReaderAction.PREVIOUS_ITEM),
-        FeedbackManager.TYPE_NAVIGATE_OUT_OF_BOUNDS);
+        FeedbackManager.Type.NAVIGATE_OUT_OF_BOUNDS);
   }
 
   private boolean itemNext() {
     return feedbackManager.emitOnFailure(
         behaviorScreenReaderAction.performAction(ScreenReaderAction.NEXT_ITEM),
-        FeedbackManager.TYPE_NAVIGATE_OUT_OF_BOUNDS);
+        FeedbackManager.Type.NAVIGATE_OUT_OF_BOUNDS);
   }
 
   @CanIgnoreReturnValue
@@ -190,7 +191,7 @@ class DefaultConsumer implements EventConsumer {
       case CMD_ACTIVATE_CURRENT:
         return feedbackManager.emitOnFailure(
             behaviorScreenReaderAction.performAction(ScreenReaderAction.CLICK_CURRENT),
-            FeedbackManager.TYPE_COMMAND_FAILED);
+            FeedbackManager.Type.COMMAND_FAILED);
       case CMD_ROUTE:
         Optional<ClickableSpan[]> clickableSpans =
             cellsContentConsumer.getClickableSpans(event.getArgument());
@@ -204,7 +205,7 @@ class DefaultConsumer implements EventConsumer {
         boolean result =
             feedbackManager.emitOnFailure(
                 behaviorScreenReaderAction.performAction(ScreenReaderAction.CLICK_NODE, node),
-                FeedbackManager.TYPE_COMMAND_FAILED);
+                FeedbackManager.Type.COMMAND_FAILED);
         int index = cellsContentConsumer.getTextIndexInWhole(event.getArgument());
         if (node != null
             && AccessibilityNodeInfoUtils.isTextSelectable(node)
@@ -282,7 +283,7 @@ class DefaultConsumer implements EventConsumer {
           loggingHandler.sendMessageDelayed(
               loggingHandler.obtainMessage(OUTPUT), LOG_LANGUAGE_CHANGE_DELAY_MS);
           BrailleUserPreferences.writeSwitchContactedCount(context);
-          BrailleDisplayTalkBackSpeaker.getInstance()
+          BrailleCommonTalkBackSpeaker.getInstance()
               .speak(
                   getSwitchLanguageAnnounceText(
                       context.getString(
@@ -303,7 +304,7 @@ class DefaultConsumer implements EventConsumer {
           loggingHandler.sendMessageDelayed(
               loggingHandler.obtainMessage(INPUT), LOG_LANGUAGE_CHANGE_DELAY_MS);
           BrailleUserPreferences.writeSwitchContactedCount(context);
-          BrailleDisplayTalkBackSpeaker.getInstance()
+          BrailleCommonTalkBackSpeaker.getInstance()
               .speak(
                   getSwitchLanguageAnnounceText(
                       context.getString(
@@ -332,7 +333,7 @@ class DefaultConsumer implements EventConsumer {
                 newContractedMode
                     ? R.string.bd_switch_to_contracted
                     : R.string.bd_switch_to_uncontracted);
-        BrailleDisplayTalkBackSpeaker.getInstance().speak(feedback, AnnounceType.INTERRUPT);
+        BrailleCommonTalkBackSpeaker.getInstance().speak(feedback, AnnounceType.INTERRUPT);
         displayTimedMessage(feedback);
         return true;
       case CMD_HELP:
@@ -348,8 +349,7 @@ class DefaultConsumer implements EventConsumer {
                   .setMessage(R.string.bd_turn_off_bd_confirm_dialog_message)
                   .setPositiveButton(
                       R.string.bd_turn_off_bd_confirm_dialog_positive_button,
-                      (dialog1, which) ->
-                          PersistentStorage.setConnectionEnabledByUser(context, false))
+                      (dialog1, which) -> PersistentStorage.setConnectionEnabled(context, false))
                   .setNegativeButton(android.R.string.cancel, null)
                   .create();
           turnOffBdDialog

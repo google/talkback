@@ -79,14 +79,9 @@ public class Displayer {
     mainHandler = new Handler(Looper.getMainLooper(), new MainHandlerCallback());
   }
 
-  /** Returns a device provider. */
-  public DeviceProvider<?> getDeviceProvider() {
-    if (device instanceof ConnectableBluetoothDevice) {
-      return new DeviceProvider<>(((ConnectableBluetoothDevice) device).bluetoothDevice());
-    } else if (device instanceof ConnectableUsbDevice) {
-      return new DeviceProvider<>(((ConnectableUsbDevice) device).usbDevice());
-    }
-    throw new IllegalArgumentException();
+  /** Returns a {@link ConnectableDevice}. */
+  public ConnectableDevice getConnectableDevice() {
+    return device;
   }
 
   public String getDeviceAddress() {
@@ -123,7 +118,7 @@ public class Displayer {
     // It is permitted to send a message to the bg queue even if onLooperPrepared has not been
     // run.
     ParameterProvider brlttyDevice =
-        parameterProviderFactory.getParameterProvider(getDeviceProvider());
+        parameterProviderFactory.getParameterProvider(device.useHid(), getDeviceProvider());
     bgHandler.obtainMessage(MessageBg.START.what(), brlttyDevice.getParameters()).sendToTarget();
   }
 
@@ -188,6 +183,15 @@ public class Displayer {
     return false;
   }
 
+  private DeviceProvider<?> getDeviceProvider() {
+    if (device instanceof ConnectableBluetoothDevice) {
+      return new DeviceProvider<>(((ConnectableBluetoothDevice) device).bluetoothDevice());
+    } else if (device instanceof ConnectableUsbDevice) {
+      return new DeviceProvider<>(((ConnectableUsbDevice) device).usbDevice());
+    }
+    throw new IllegalArgumentException();
+  }
+
   private class MainHandlerCallback implements Handler.Callback {
     @Override
     public boolean handleMessage(Message message) {
@@ -245,7 +249,8 @@ public class Displayer {
           return;
         }
         Optional<BrailleDisplayProperties> brailleDisplayProperties =
-            displayer.encoder.start(displayer.device.name(), (String) message.obj);
+            displayer.encoder.start(
+                displayer.device.name(), displayer.device.useHid(), (String) message.obj);
         if (brailleDisplayProperties.isPresent()) {
           displayer.isDisplayReady.getAndSet(true);
           displayer

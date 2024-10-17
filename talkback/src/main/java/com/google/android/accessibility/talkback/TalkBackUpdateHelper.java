@@ -20,6 +20,7 @@ import static com.google.android.accessibility.talkback.NotificationActivity.HEL
 import static com.google.android.accessibility.talkback.TalkBackService.PREF_HAS_TRAINING_FINISHED;
 import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.PERMISSIONS;
 import static com.google.android.accessibility.talkback.preference.PreferencesActivityUtils.GESTURE_CHANGE_NOTIFICATION_ID;
+import static com.google.android.accessibility.talkback.preference.TalkBackPreferenceFilter.DISABLE_FREQUENT_UPDATE_UI;
 import static com.google.android.accessibility.utils.PackageManagerUtils.TALKBACK_PACKAGE;
 import static java.util.Arrays.stream;
 
@@ -40,6 +41,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import com.google.android.accessibility.talkback.actor.FullScreenReadDialog;
 import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
 import com.google.android.accessibility.talkback.preference.GestureChangeNotificationActivity;
 import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
@@ -57,10 +59,14 @@ import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Replace versionCode with versionName in TalkBackUpdateHelper.
 /** Class provides Talkback update information */
 public class TalkBackUpdateHelper {
   private static final String TAG = TalkBackUpdateHelper.class.getSimpleName();
   public static final String PREF_APP_VERSION = "app_version";
+
+  /** The undefined previous version indicating that a user haven't upgraded TalkBack yet. */
+  public static final int VERSION_CODE_UNKNOWN = -1;
 
   /** Time in milliseconds after initialization to delay the posting of TalkBack notifications. */
   private static final int NOTIFICATION_DELAY = 5000;
@@ -91,7 +97,7 @@ public class TalkBackUpdateHelper {
 
     showPendingNotifications();
 
-    final int previousVersion = sharedPreferences.getInt(PREF_APP_VERSION, -1);
+    final int previousVersion = sharedPreferences.getInt(PREF_APP_VERSION, VERSION_CODE_UNKNOWN);
 
     final PackageManager pm = service.getPackageManager();
     final int currentVersion;
@@ -133,35 +139,35 @@ public class TalkBackUpdateHelper {
     // Revision 97 moved granularity selection into a local context menu, so
     // the up-then-down and down-then-up gestures were remapped to help
     // users navigate past groups of things, like web content and lists.
-    if ((previousVersion != -1) && (previousVersion < 97)) {
+    if ((previousVersion != VERSION_CODE_UNKNOWN) && (previousVersion < 97)) {
       notifyUserOfBuiltInGestureChanges();
     }
 
     // TalkBack 4.5 changes the default up and down gestures to prev/next navigation setting.
-    if ((previousVersion != -1) && previousVersion < 40500000) {
+    if ((previousVersion != VERSION_CODE_UNKNOWN) && previousVersion < 40500000) {
       notifyUserOfBuiltInGestureChanges45();
     }
 
     // TalkBack 5.2 adds verbosity presets.
-    if ((previousVersion != -1) && previousVersion < 50200000) {
+    if ((previousVersion != VERSION_CODE_UNKNOWN) && previousVersion < 50200000) {
       copyVerbosityActivePrefsToPresetCustom(editor);
     }
 
     // TalkBack 6.2 changes dump event settings.
-    if ((previousVersion != -1) && (previousVersion < 60200000)) {
+    if ((previousVersion != VERSION_CODE_UNKNOWN) && (previousVersion < 60200000)) {
       remapDumpEventPref();
     }
 
     // TalkBack 8.1 remaps legacy pref values for revision 97 and the version is based on the
     // current config from cl/260661171.
-    if ((previousVersion != -1) && (previousVersion < 60103761)) {
+    if ((previousVersion != VERSION_CODE_UNKNOWN) && (previousVersion < 60103761)) {
       remapUpDownGestures();
       notifyUserThatSideTapShortcutsRemoved();
     }
 
     // TalkBack 9.1 assigns more gestures for selector and reassigns the default values of selector
     // items.
-    if (previousVersion != -1 && previousVersion < 60111894) {
+    if (previousVersion != VERSION_CODE_UNKNOWN && previousVersion < 60111894) {
       SelectorController.resetSelectorPreferences(service);
     }
 
@@ -238,31 +244,56 @@ public class TalkBackUpdateHelper {
             service.getResources(),
             R.string.pref_shortcut_2finger_3tap_hold_key,
             service.getString(R.string.pref_shortcut_2finger_3tap_hold_default));
-        notifyGestureChange(
-            R.string.default_action_changed_details,
-            BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID,
-            R.string.talkback_built_in_gesture_open_url,
-            HELP_WEB_URL);
+
+        if (previousVersion != VERSION_CODE_UNKNOWN) {
+          notifyGestureChange(
+              R.string.default_action_changed_details,
+              BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID,
+              R.string.talkback_built_in_gesture_open_url,
+              HELP_WEB_URL);
+        }
       }
 
       // Check upgrade from 14.0.0.559398617 wear
-      if (previousVersion != -1 && previousVersion < 60133190) {
+      if (previousVersion != VERSION_CODE_UNKNOWN && previousVersion < 60133190) {
         // It represents that it is a user from old version. We regard it as that they already
         // finished the tutorial by default.
         sharedPreferences.edit().putBoolean(PREF_HAS_TRAINING_FINISHED, true).apply();
       }
     }
 
-    // TODO: If update user is real TalkBack user, the update user won't see tutorial.
-    if (previousVersion != -1) {
-      sharedPreferences.edit().putBoolean(PREF_HAS_TRAINING_FINISHED, true).apply();
+    // Show the continuous reading dialog again after talkback 14.2 because it includes new
+    // information on volume control.
+    // TODO: b/315045023 - Use constants for version code in TalkBackUpdateHelper.
+    if (previousVersion != VERSION_CODE_UNKNOWN && previousVersion < 60134318) {
+      FullScreenReadDialog.removeLegacyShowDialogPreference(service);
     }
 
-    if ((previousVersion != -1)
-        && !OnboardingInitiator.hasOnboardingForNewFeaturesBeenShown(
-            SharedPreferencesUtils.getSharedPreferences(service), service)) {
-      notifyTalkBackUpdated();
+    // TODO: If update user is real TalkBack user, the update user won't see tutorial.
+    // Hide "Speak all progress updates" when updating to 15.0
+    if (previousVersion != VERSION_CODE_UNKNOWN) {
+      sharedPreferences.edit().putBoolean(PREF_HAS_TRAINING_FINISHED, true).apply();
+      if (DISABLE_FREQUENT_UPDATE_UI) {
+        sharedPreferences
+            .edit()
+            .remove(service.getString(R.string.pref_allow_frequent_content_change_announcement_key))
+            .apply();
+      }
+      // Set speak punctuation verbosity All if the legacy preference was enabled.
+      final boolean speakPunctuationLegacy =
+          sharedPreferences.getBoolean(service.getString(R.string.pref_punctuation_key), false);
+      if (speakPunctuationLegacy) {
+        String[] punctuationValues =
+            service.getResources().getStringArray(R.array.pref_punctuation_values);
+        sharedPreferences
+            .edit()
+            .putString(service.getString(R.string.pref_punctuation_verbosity), punctuationValues[0])
+            .putBoolean(service.getString(R.string.pref_punctuation_key), false)
+            .apply();
+      }
     }
+
+    notifyTalkBackUpdatedIfNeeded(previousVersion);
 
     // Update key combo model.
     KeyComboManager keyComboManager = service.getKeyComboManager();
@@ -289,6 +320,7 @@ public class TalkBackUpdateHelper {
   public void flushPendingNotification() {
     notificationRunnablePendingList.forEach(
         runnable -> handler.postDelayed(runnable, NOTIFICATION_DELAY));
+    notificationRunnablePendingList.clear();
   }
 
   /**
@@ -700,8 +732,23 @@ public class TalkBackUpdateHelper {
   /**
    * Posts a notification to notify TalkBack has been updated, and redirects to the onboarding page.
    */
-  private void notifyTalkBackUpdated() {
-    if (formFactorUtils.isAndroidTv() || formFactorUtils.isAndroidWear()) {
+  private void notifyTalkBackUpdatedIfNeeded(int previousVersion) {
+    if (formFactorUtils.isAndroidTv()) {
+      return;
+    }
+
+    if (formFactorUtils.isAndroidWear()) {
+      notifyTalkBackUpdatedOnWearIfNeeded(previousVersion);
+      return;
+    }
+
+    notifyTalkBackUpdatedDefaultIfNeeded(previousVersion);
+  }
+
+  private void notifyTalkBackUpdatedDefaultIfNeeded(int previousVersion) {
+    if (previousVersion == VERSION_CODE_UNKNOWN
+        || OnboardingInitiator.hasOnboardingForNewFeaturesBeenShown(
+            SharedPreferencesUtils.getSharedPreferences(service), service)) {
       return;
     }
 
@@ -716,6 +763,41 @@ public class TalkBackUpdateHelper {
                 /* requestCode= */ 0,
                 OnboardingInitiator.createOnboardingIntent(service, /* showExitBanner= */ true),
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE),
+            /* autoCancel= */ true),
+        TALKBACK_UPDATED_NOTIFICATION_ID);
+  }
+
+  // TODO: Replace this version code after we release wear 14.1.
+  private static final int VERSION_CODE_WEAR_14_1 = Integer.MAX_VALUE;
+
+  private void notifyTalkBackUpdatedOnWearIfNeeded(int previousVersion) {
+    if (previousVersion == VERSION_CODE_UNKNOWN || previousVersion >= VERSION_CODE_WEAR_14_1) {
+      return;
+    }
+
+    Intent intent =
+        NotificationActivity.createStartIntent(
+            service,
+            R.string.wear_new_feature_page_title,
+            R.string.wear_new_feature_page_content,
+            Integer.MIN_VALUE,
+            R.string.wear_new_feature_page_button_content_description,
+            /* url= */ null);
+
+    PendingIntent pendingIntent =
+        PendingIntent.getActivity(
+            service,
+            /* requestCode= */ 0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+    addNotificationToPendingList(
+        NotificationUtils.createNotification(
+            service,
+            service.getString(R.string.talkback_updated_notification_title),
+            service.getString(R.string.talkback_updated_notification_title),
+            service.getString(R.string.talkback_updated_notification_content),
+            pendingIntent,
             /* autoCancel= */ true),
         TALKBACK_UPDATED_NOTIFICATION_ID);
   }

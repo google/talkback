@@ -58,12 +58,16 @@ public class TalkBackExitController implements AccessibilityEventListener, Scree
     boolean isTrainingRecentActive();
   }
 
-  /** TalkBack mis-triggering recovery type. See TalkBackMistriggeringRecoveryEnums. */
+  /**
+   * TalkBack mis-triggering recovery type. See TalkBackMistriggeringRecoveryEnums. And the enum
+   * ordinal should match the proto enums.
+   */
   public enum TalkBackMistriggeringRecoveryType {
     TYPE_UNSPECIFIED,
     TYPE_TALKBACK_EXIT_BANNER,
     TYPE_AUTOMATIC_TURNOFF_LOCKSCREEN,
     TYPE_AUTOMATIC_TURNOFF_SHUTDOWN,
+    TYPE_ACCESSIBILITY_SHORTCUT,
   }
 
   private TrainingState trainingState;

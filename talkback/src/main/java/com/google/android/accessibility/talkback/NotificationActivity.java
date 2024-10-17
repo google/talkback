@@ -146,9 +146,17 @@ public class NotificationActivity extends FragmentActivity {
                 NotificationActivity.this.getApplicationContext(),
                 window.getDecorView(),
                 success -> dialog.dismiss());
+          } else {
+            dialog.dismiss();
           }
         };
 
+    int positiveButtonIconId =
+        TextUtils.isEmpty(url)
+            ? com.google.android.accessibility.utils.R.drawable.ic_button_check
+            : R.drawable.ic_open_in_phone;
+
+    // TODO: Test setDismissOnClick on Wear apk.
     a11yAlertDialogWrapper =
         A11yAlertDialogWrapper.materialDialogBuilder(this, getSupportFragmentManager())
             .setTitle(dialogTitle)
@@ -159,7 +167,8 @@ public class NotificationActivity extends FragmentActivity {
             // the wear version.
             .setOnDismissListener((dialog) -> finish())
             // Sets the icon of the button for the wear only.
-            .setPositiveButtonIconId(R.drawable.ic_open_in_phone)
+            .setPositiveButtonIconId(positiveButtonIconId)
+            .setDismissOnClick(false)
             .create();
     a11yAlertDialogWrapper.show();
   }

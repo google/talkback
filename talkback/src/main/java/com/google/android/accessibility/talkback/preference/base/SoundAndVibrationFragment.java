@@ -15,17 +15,25 @@
  */
 package com.google.android.accessibility.talkback.preference.base;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.media.AudioManager;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
 import android.text.TextUtils;
+import android.widget.SeekBar;
+import androidx.core.view.ViewCompat;
 import androidx.preference.Preference;
 import androidx.preference.TwoStatePreference;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.actor.SpeechRateActor;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.ServiceStateListener;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import java.util.Objects;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Fragment to display sound and vibration settings. */
@@ -63,6 +71,10 @@ public class SoundAndVibrationFragment extends TalkbackBaseFragment {
             updateTwoStatePreferenceStatus(
                 activity, R.string.pref_vibration_key, R.bool.pref_vibration_default);
           }
+        } else if (TextUtils.equals(key, getString(R.string.pref_a11y_volume_key))) {
+          updateVolumePreferenceValue();
+        } else if (TextUtils.equals(key, getString(R.string.pref_speech_rate_seekbar_key_int))) {
+          updateSpeechRatePreference();
         }
       };
 
@@ -70,6 +82,61 @@ public class SoundAndVibrationFragment extends TalkbackBaseFragment {
   public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     super.onCreatePreferences(savedInstanceState, rootKey);
     prefs = SharedPreferencesUtils.getSharedPreferences(getContext());
+    
+    @Nullable Preference preference =
+        PreferenceSettingsUtils.findPreference(
+            Objects.requireNonNull(getActivity()),
+            getActivity().getString(R.string.pref_a11y_volume_key));
+    if (preference instanceof AccessibilitySeekBarPreference) {
+      AccessibilitySeekBarPreference seekBarPref = (AccessibilitySeekBarPreference) preference;
+      AudioManager audioManager =
+          (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+      seekBarPref.setMax(audioManager.getStreamMaxVolume(AudioManager.STREAM_ACCESSIBILITY));
+      seekBarPref.setMin(audioManager.getStreamMinVolume(AudioManager.STREAM_ACCESSIBILITY));
+      seekBarPref.setValue(audioManager.getStreamVolume(AudioManager.STREAM_ACCESSIBILITY));
+      seekBarPref.setOnPreferenceChangeListener(
+          (preference1, newValue) -> {
+            audioManager.setStreamVolume(AudioManager.STREAM_ACCESSIBILITY, (Integer) newValue, 0);
+            return true;
+          });
+      setEnabled(
+          Objects.requireNonNull(getContext()),
+          R.string.pref_a11y_volume_key,
+          TalkBackService.getServiceState() == ServiceStateListener.SERVICE_STATE_ACTIVE);
+    }
+
+    preference =
+        PreferenceSettingsUtils.findPreference(
+            Objects.requireNonNull(getActivity()),
+            getActivity().getString(R.string.pref_speech_rate_seekbar_key_int));
+    if (preference instanceof SpeechRatePreference) {
+      SpeechRatePreference ratePref = (SpeechRatePreference) preference;
+      ratePref.setMax((int) (SpeechRateActor.RATE_MAXIMUM * 100));
+      ratePref.setMin((int) (SpeechRateActor.RATE_MINIMUM * 100));
+      int speechRate =
+          (int)
+              (SharedPreferencesUtils.getFloatFromStringPref(
+                      SharedPreferencesUtils.getSharedPreferences(getActivity()),
+                      getActivity().getResources(),
+                      R.string.pref_speech_rate_key,
+                      R.string.pref_speech_rate_default)
+                  * 100);
+      ratePref.setValue(speechRate);
+      ratePref.setOnPreferenceChangeListener(
+          (preference1, newValue) -> {
+            prefs
+                .edit()
+                .putString(
+                    getActivity().getString(R.string.pref_speech_rate_key),
+                    Float.toString(((Integer) newValue).floatValue() / 100))
+                .apply();
+            return true;
+          });
+      setEnabled(
+          Objects.requireNonNull(getContext()),
+          R.string.pref_speech_rate_seekbar_key_int,
+          TalkBackService.getServiceState() == ServiceStateListener.SERVICE_STATE_ACTIVE);
+    }
   }
 
   @Override
@@ -77,6 +144,7 @@ public class SoundAndVibrationFragment extends TalkbackBaseFragment {
     super.onResume();
     FragmentActivity activity = this.getActivity();
     prefs.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
+
     updateTwoStatePreferenceStatus(
         activity, R.string.pref_use_audio_focus_key, R.bool.pref_use_audio_focus_default);
     updateTwoStatePreferenceStatus(
@@ -85,12 +153,66 @@ public class SoundAndVibrationFragment extends TalkbackBaseFragment {
       updateTwoStatePreferenceStatus(
           activity, R.string.pref_vibration_key, R.bool.pref_vibration_default);
     }
+
+    updateVolumePreferenceValue();
+    setEnabled(
+        Objects.requireNonNull(getContext()),
+        R.string.pref_a11y_volume_key,
+        TalkBackService.getServiceState() == ServiceStateListener.SERVICE_STATE_ACTIVE);
+
+    updateSpeechRatePreference();
+    setEnabled(
+        Objects.requireNonNull(getContext()),
+        R.string.pref_speech_rate_seekbar_key_int,
+        TalkBackService.getServiceState() == ServiceStateListener.SERVICE_STATE_ACTIVE);
   }
 
   @Override
   public void onPause() {
     super.onPause();
     prefs.unregisterOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
+  }
+
+  /**
+   * Updates the value of preference after accessibility volume or while the activity is visible.
+   */
+  private void updateVolumePreferenceValue() {
+    @Nullable Preference preference =
+        PreferenceSettingsUtils.findPreference(
+            Objects.requireNonNull(getActivity()),
+            getActivity().getString(R.string.pref_a11y_volume_key));
+    if (preference instanceof AccessibilitySeekBarPreference) {
+      int volume =
+          SharedPreferencesUtils.getIntPref(
+              SharedPreferencesUtils.getSharedPreferences(getActivity().getApplicationContext()),
+              getActivity().getResources(),
+              R.string.pref_a11y_volume_key,
+              R.integer.pef_default_a11y_volume);
+      ((AccessibilitySeekBarPreference) preference).setValue(volume);
+    }
+  }
+
+  private void updateSpeechRatePreference() {
+    @Nullable Preference preference =
+        PreferenceSettingsUtils.findPreference(
+            Objects.requireNonNull(getActivity()),
+            getActivity().getString(R.string.pref_speech_rate_seekbar_key_int));
+    if (preference instanceof SpeechRatePreference) {
+      int speechRate =
+          SharedPreferencesUtils.getIntPref(
+              SharedPreferencesUtils.getSharedPreferences(getActivity().getApplicationContext()),
+              getActivity().getResources(),
+              R.string.pref_speech_rate_seekbar_key_int,
+              R.integer.pref_speech_rate_default_int);
+      ((SpeechRatePreference) preference).setValue(speechRate);
+
+      SeekBar seekBar = ((SpeechRatePreference) preference).getSeekBar();
+      if (seekBar != null) {
+        ViewCompat.setStateDescription(
+            seekBar,
+            getActivity().getString(R.string.template_percent, String.valueOf(speechRate)));
+      }
+    }
   }
 
   /**

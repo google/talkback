@@ -27,6 +27,7 @@ import static com.google.android.accessibility.utils.traversal.TraversalStrategy
 
 import android.accessibilityservice.AccessibilityGestureEvent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.os.Bundle;
@@ -35,7 +36,6 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.Feedback.AdjustVolume.StreamType;
 import com.google.android.accessibility.talkback.Feedback.Scroll.Action;
 import com.google.android.accessibility.talkback.actor.TalkBackUIActor;
-import com.google.android.accessibility.talkback.eventprocessor.ProcessorCursorState;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget.TargetType;
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
@@ -46,7 +46,6 @@ import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.Spellin
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.StringBuilderUtils;
-import com.google.android.accessibility.utils.WebInterfaceUtils;
 import com.google.android.accessibility.utils.input.CursorGranularity;
 import com.google.android.accessibility.utils.input.ScrollEventInterpreter.ScrollTimeout;
 import com.google.android.accessibility.utils.monitor.InputModeTracker.InputMode;
@@ -90,8 +89,6 @@ public abstract class Feedback {
   public static final int DEFAULT = -1;
   public static final int HINT = 0;
   public static final int GESTURE_VIBRATION = 1;
-  /** Use for speech of cursor state at {@link ProcessorCursorState} */
-  public static final int CURSOR_STATE = 2;
 
   /** Interrupt levels. Level 1 is default. Level -1 does not interrupt at all. */
   public @interface InterruptLevel {}
@@ -249,25 +246,6 @@ public abstract class Feedback {
     return webAction(target, action, args, updateFocusHistory);
   }
 
-  /**
-   * <p>Navigates Exit Special Web Content when enabled is false. Or Enter Special Web Content when
-   * enabled is true. This has same function with {@code
-   * WebInterfaceUtils.setSpecialContentModeEnabled}
-   */
-  public static Part.Builder navigateSpecialWeb(
-      AccessibilityNodeInfoCompat target, boolean enabled, boolean updateFocusHistory) {
-    int action =
-        (enabled)
-            ? AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY
-            : AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY;
-    Bundle args = new Bundle();
-
-    args.putInt(
-        AccessibilityNodeInfoCompat.ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT,
-        WebInterfaceUtils.ACTION_TOGGLE_SPECIAL_CONTENT);
-    return webAction(target, action, args, updateFocusHistory);
-  }
-
   public static Part.Builder webAction(
       AccessibilityNodeInfoCompat node,
       int action,
@@ -317,7 +295,8 @@ public abstract class Feedback {
       @UserAction int userAction,
       int nodeAction,
       @Nullable String source,
-      ScrollTimeout scrollTimeout) {
+      ScrollTimeout scrollTimeout,
+      int autoScrollAttempt) {
     return Part.builder()
         .setScroll(
             Scroll.builder()
@@ -327,6 +306,7 @@ public abstract class Feedback {
                 .setNodeAction(nodeAction)
                 .setSource(source)
                 .setTimeout(scrollTimeout)
+                .setAutoScrollAttempt(autoScrollAttempt)
                 .build());
   }
 
@@ -372,6 +352,18 @@ public abstract class Feedback {
 
   public static Focus.Builder repeatSearch() {
     return Focus.builder().setAction(Focus.Action.SEARCH_AGAIN);
+  }
+
+  /**
+   * Builder for setting a target that should be focused when a user performs next window navigation
+   */
+  public static Focus.Builder stealNextWindowNavigation(
+      @Nullable AccessibilityNodeInfoCompat stealNextWindowTarget,
+      @SearchDirectionOrUnknown int direction) {
+    return Focus.builder()
+        .setAction(Focus.Action.STEAL_NEXT_WINDOW_NAVIGATION)
+        .setStealNextWindowTarget(stealNextWindowTarget)
+        .setStealNextWindowTargetDirection(direction);
   }
 
   public static Part.Builder focusDirection(FocusDirection.Action action) {
@@ -525,6 +517,64 @@ public abstract class Feedback {
                 .build());
   }
 
+  public static Part.Builder performDetailedImageCaption(AccessibilityNodeInfoCompat node) {
+    return Part.builder()
+        .setImageCaption(
+            ImageCaption.builder()
+                .setAction(ImageCaption.Action.PERFORM_CAPTION_WITH_GEMINI)
+                .setTarget(node)
+                .build());
+  }
+
+  public static Part.Builder performDetailedOnDeviceImageCaption(AccessibilityNodeInfoCompat node) {
+    return Part.builder()
+        .setImageCaption(
+            ImageCaption.builder()
+                .setAction(ImageCaption.Action.PERFORM_CAPTION_WITH_ON_DEVICE_GEMINI)
+                .setTarget(node)
+                .build());
+  }
+
+  public static Part.Builder responseImageCaptionResult(
+      int requestId, String text, boolean isSuccess, boolean manualTrigger) {
+    return Part.builder()
+        .setImageCaptionResult(
+            ImageCaptionResult.builder()
+                .setRequestId(requestId)
+                .setText(text)
+                .setIsSuccess(isSuccess)
+                .setUserRequested(manualTrigger)
+                .build());
+  }
+
+  public static Part.Builder performGeminiOptIn(AccessibilityNodeInfoCompat node) {
+    return Part.builder()
+        .setImageCaption(
+            ImageCaption.builder()
+                .setAction(ImageCaption.Action.DETAILED_DESCRIPTION_OPT_IN)
+                .setTarget(node)
+                .build());
+  }
+
+  public static Part.Builder performOnDeviceGeminiOptIn(AccessibilityNodeInfoCompat node) {
+    return Part.builder()
+        .setImageCaption(
+            ImageCaption.builder()
+                .setAction(ImageCaption.Action.ON_DEVICE_DETAILED_DESCRIPTION_OPT_IN)
+                .setTarget(node)
+                .build());
+  }
+
+  public static Part.Builder performPopDetailedImageDescriptionSettings(
+      AccessibilityNodeInfoCompat node) {
+    return Part.builder()
+        .setImageCaption(
+            ImageCaption.builder()
+                .setAction(ImageCaption.Action.CONFIG_DETAILED_IMAGE_DESCRIPTIONS_SETTINGS)
+                .setTarget(node)
+                .build());
+  }
+
   public static Part.Builder confirmDownloadAndPerformCaptions(AccessibilityNodeInfoCompat node) {
     return Part.builder()
         .setImageCaption(
@@ -570,6 +620,29 @@ public abstract class Feedback {
             UniversalSearch.builder()
                 .setAction(UniversalSearch.Action.RENEW_OVERLAY)
                 .setConfig(config)
+                .build());
+  }
+
+  public static Part.Builder geminiRequest(int requestId, String text, Bitmap image) {
+    return Part.builder()
+        .setGeminiRequest(
+            GeminiRequest.builder()
+                .setAction(GeminiRequest.Action.REQUEST)
+                .setRequestId(requestId)
+                .setText(text)
+                .setImage(image)
+                .build());
+  }
+
+  public static Part.Builder geminiOnDeviceImageCaptioning(
+      int requestId, Bitmap image, boolean manualTrigger) {
+    return Part.builder()
+        .setGeminiRequest(
+            GeminiRequest.builder()
+                .setManualTrigger(manualTrigger)
+                .setAction(GeminiRequest.Action.REQUEST_ON_DEVICE_IMAGE_CAPTIONING)
+                .setRequestId(requestId)
+                .setImage(image)
                 .build());
   }
 
@@ -666,11 +739,15 @@ public abstract class Feedback {
 
     public abstract @Nullable ImageCaption imageCaption();
 
+    public abstract @Nullable ImageCaptionResult imageCaptionResult();
+
     public abstract @Nullable DeviceInfo deviceInfo();
 
     public abstract @Nullable UiChange uiChange();
 
     public abstract @Nullable UniversalSearch universalSearch();
+
+    public abstract @Nullable GeminiRequest geminiRequest();
 
     public abstract @Nullable ServiceFlag serviceFlag();
 
@@ -778,11 +855,15 @@ public abstract class Feedback {
 
       public abstract Builder setImageCaption(ImageCaption imageCaption);
 
+      public abstract Builder setImageCaptionResult(ImageCaptionResult imageCaptionResult);
+
       public abstract Builder setDeviceInfo(DeviceInfo deviceInfo);
 
       public abstract Builder setUiChange(UiChange uiChange);
 
       public abstract Builder setUniversalSearch(UniversalSearch universalSearch);
+
+      public abstract Builder setGeminiRequest(GeminiRequest geminiRequest);
 
       public abstract Builder setServiceFlag(ServiceFlag serviceFlag);
 
@@ -825,6 +906,7 @@ public abstract class Feedback {
               StringBuilderUtils.optionalSubObj("showToast", showToast()),
               StringBuilderUtils.optionalSubObj("gesture", gesture()),
               StringBuilderUtils.optionalSubObj("imageCaption", imageCaption()),
+              StringBuilderUtils.optionalSubObj("imageCaptionResult", imageCaptionResult()),
               StringBuilderUtils.optionalSubObj("deviceInfo", deviceInfo()),
               StringBuilderUtils.optionalSubObj("uiChange", uiChange()),
               StringBuilderUtils.optionalSubObj("speechRate", speechRate()),
@@ -832,6 +914,7 @@ public abstract class Feedback {
               StringBuilderUtils.optionalSubObj("navigateTypo", navigateTypo()),
               StringBuilderUtils.optionalSubObj("adjustVolume", adjustVolume()),
               StringBuilderUtils.optionalSubObj("universalSearch", universalSearch()),
+              StringBuilderUtils.optionalSubObj("geminiRequest", geminiRequest()),
               StringBuilderUtils.optionalSubObj("serviceFlag", serviceFlag()),
               StringBuilderUtils.optionalSubObj("brailleDisplay", brailleDisplay()));
     }
@@ -1014,9 +1097,10 @@ public abstract class Feedback {
     /** Types of exclusive continuous-reading actions. */
     public enum Action {
       START_AT_TOP,
-      START_AT_NEXT,
+      START_AT_CURSOR,
       READ_FOCUSED_CONTENT,
       INTERRUPT,
+      IGNORE,
     }
 
     public static ContinuousRead create(ContinuousRead.Action action) {
@@ -1071,6 +1155,7 @@ public abstract class Feedback {
       TRIGGER_PRACTICE_GESTURE,
       TRIGGER_ASSISTANT,
       TRIGGER_BRAILLE_DISPLAY_SETTINGS,
+      TRIGGER_IMAGE_DESCRIPTIONS_SETTINGS,
     }
 
     public static TriggerIntent create(TriggerIntent.Action action) {
@@ -1163,6 +1248,7 @@ public abstract class Feedback {
       public abstract EditText build();
     }
   }
+
   /** Inner data-structure for performing a global action. */
   @AutoValue
   public abstract static class SystemAction {
@@ -1294,9 +1380,13 @@ public abstract class Feedback {
 
     public abstract ScrollTimeout timeout();
 
+    public abstract int autoScrollAttempt();
+
     public static Scroll.Builder builder() {
       // By default, use timeout short.
-      return new AutoValue_Feedback_Scroll.Builder().setTimeout(ScrollTimeout.SCROLL_TIMEOUT_SHORT);
+      return new AutoValue_Feedback_Scroll.Builder()
+          .setTimeout(ScrollTimeout.SCROLL_TIMEOUT_SHORT)
+          .setAutoScrollAttempt(0);
     }
 
     /** Builder for Scroll feedback data */
@@ -1318,6 +1408,8 @@ public abstract class Feedback {
       public abstract Scroll.Builder setSource(@Nullable String source);
 
       public abstract Scroll.Builder setTimeout(ScrollTimeout timeout);
+
+      public abstract Scroll.Builder setAutoScrollAttempt(int autoScrollAttempt);
 
       public abstract Scroll build();
     }
@@ -1351,7 +1443,8 @@ public abstract class Feedback {
       SEARCH_FROM_TOP, // Requires searchKeyword.
       SEARCH_AGAIN,
       ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN,
-      RENEW_ENSURE_FOCUS;
+      RENEW_ENSURE_FOCUS,
+      STEAL_NEXT_WINDOW_NAVIGATION;
     }
 
     public abstract @Nullable AccessibilityNodeInfoCompat start();
@@ -1370,10 +1463,15 @@ public abstract class Feedback {
 
     public abstract @Nullable ScreenState screenState();
 
+    public abstract @Nullable AccessibilityNodeInfoCompat stealNextWindowTarget();
+
+    public abstract @SearchDirectionOrUnknown int stealNextWindowTargetDirection();
+
     public static Builder builder() {
       return new AutoValue_Feedback_Focus.Builder()
           // Set default values that are not null.
-          .setForceRefocus(false);
+          .setForceRefocus(false)
+          .setStealNextWindowTargetDirection(SEARCH_FOCUS_UNKNOWN);
     }
 
     /** Builder for Focus feedback data */
@@ -1395,6 +1493,12 @@ public abstract class Feedback {
 
       public abstract Builder setScreenState(@Nullable ScreenState screenState);
 
+      public abstract Builder setStealNextWindowTarget(
+          @Nullable AccessibilityNodeInfoCompat stealNextWindowTarget);
+
+      public abstract Builder setStealNextWindowTargetDirection(
+          @SearchDirectionOrUnknown int stealNextWindowTargetDirection);
+
       public abstract Focus build();
     }
 
@@ -1408,7 +1512,13 @@ public abstract class Feedback {
           StringBuilderUtils.optionalSubObj("navigationAction", navigationAction()),
           StringBuilderUtils.optionalText("searchKeyword", searchKeyword()),
           StringBuilderUtils.optionalTag("forceRefocus", forceRefocus()),
-          StringBuilderUtils.optionalSubObj("screenState", screenState()));
+          StringBuilderUtils.optionalSubObj("screenState", screenState()),
+          StringBuilderUtils.optionalSubObj(
+              "stealNextWindowTarget", toStringShort(stealNextWindowTarget())),
+          StringBuilderUtils.optionalInt(
+              "stealNextWindowTargetDirection",
+              stealNextWindowTargetDirection(),
+              SEARCH_FOCUS_UNKNOWN));
     }
   }
 
@@ -1742,12 +1852,16 @@ public abstract class Feedback {
       CONFIRM_DOWNLOAD_AND_PERFORM_CAPTIONS,
       INITIALIZE_ICON_DETECTION,
       INITIALIZE_IMAGE_DESCRIPTION,
+      PERFORM_CAPTION_WITH_GEMINI,
+      DETAILED_DESCRIPTION_OPT_IN,
+      PERFORM_CAPTION_WITH_ON_DEVICE_GEMINI,
+      ON_DEVICE_DETAILED_DESCRIPTION_OPT_IN,
+      CONFIG_DETAILED_IMAGE_DESCRIPTIONS_SETTINGS,
     }
 
     public abstract ImageCaption.Action action();
 
-    @Nullable
-    public abstract AccessibilityNodeInfoCompat target();
+    public abstract @Nullable AccessibilityNodeInfoCompat target();
 
     /** Return true, if the image-caption triggers by users. */
     public abstract boolean userRequested();
@@ -1767,6 +1881,40 @@ public abstract class Feedback {
       public abstract Builder setUserRequested(boolean isUserRequested);
 
       public abstract ImageCaption build();
+    }
+  }
+
+  /** Inner data-structure for image caption result. */
+  @AutoValue
+  public abstract static class ImageCaptionResult {
+    public abstract int requestId();
+
+    /** Returns the text result, maybe an error message if {@link #isSuccess()} returns false */
+    public abstract String text();
+
+    /** Returns {@code true}, if the image captioning is successful. */
+    public abstract boolean isSuccess();
+
+    /** Return {@code true}, if the image-caption triggers by users. */
+    public abstract boolean userRequested();
+
+    public static ImageCaptionResult.Builder builder() {
+      return new AutoValue_Feedback_ImageCaptionResult.Builder();
+    }
+
+    /** Builder for ImageCaptionResult feedback data. */
+    @AutoValue.Builder
+    public abstract static class Builder {
+
+      public abstract Builder setRequestId(int id);
+
+      public abstract Builder setText(String text);
+
+      public abstract Builder setIsSuccess(boolean isSuccess);
+
+      public abstract Builder setUserRequested(boolean isUserRequested);
+
+      public abstract ImageCaptionResult build();
     }
   }
 
@@ -1826,6 +1974,7 @@ public abstract class Feedback {
     public static UniversalSearch.Builder builder() {
       return new AutoValue_Feedback_UniversalSearch.Builder();
     }
+
     /** Builder for UniversalSearch feedback data. */
     @AutoValue.Builder
     public abstract static class Builder {
@@ -1835,6 +1984,49 @@ public abstract class Feedback {
       public abstract Builder setConfig(@Nullable Configuration config);
 
       public abstract UniversalSearch build();
+    }
+  }
+
+  /** Inner data-structure for Gemini requests. */
+  @AutoValue
+  public abstract static class GeminiRequest {
+
+    /** Types of exclusive GeminiRequest actions. */
+    public enum Action {
+      REQUEST,
+      REQUEST_ON_DEVICE_IMAGE_CAPTIONING
+    }
+
+    public abstract Action action();
+
+    public abstract int requestId();
+
+    @Nullable
+    public abstract String text();
+
+    public abstract Bitmap image();
+
+    public abstract boolean manualTrigger();
+
+    public static GeminiRequest.Builder builder() {
+      return new AutoValue_Feedback_GeminiRequest.Builder().setRequestId(-1).setManualTrigger(true);
+    }
+
+    /** Builder for GeminiRequest feedback data. */
+    @AutoValue.Builder
+    public abstract static class Builder {
+
+      public abstract Builder setAction(Action action);
+
+      public abstract Builder setRequestId(int requestId);
+
+      public abstract Builder setText(String text);
+
+      public abstract Builder setImage(Bitmap image);
+
+      public abstract Builder setManualTrigger(boolean manualTrigger);
+
+      public abstract GeminiRequest build();
     }
   }
 
@@ -1879,8 +2071,6 @@ public abstract class Feedback {
         return "HINT";
       case GESTURE_VIBRATION:
         return "GESTURE_VIBRATION";
-      case CURSOR_STATE:
-        return "CURSOR_STATE";
       default:
         return "(unknown)";
     }

@@ -6,30 +6,15 @@
     -->
     <string name="voice_commands_read">read</string>
     <!--
-     Source: Possible user requests from voice commands to read from next.
-     Description: Looks for keyword "read from next item" or "read from next" to see if user has asked to read from next. [CHAR LIMIT=40]
+     Source: Possible user requests from voice commands to read from current.
+     Description: Looks for keyword "read from cursor position" or "read from cursor" to see if user has asked to read from cursor. [CHAR LIMIT=40]
     -->
-    <string name="voice_commands_read_from_next">Read from next</string>
+    <string name="voice_commands_read_from_next">Read from cursor</string>
     <!--
     Source: Possible user requests from voice commands to show edit menu.
     Description: Show edit options menu. [CHAR LIMIT=40]
     -->
     <string name="voice_commands_edit_options">Edit options</string>
-    <!--
-    Source: Possible user requests from voice commands to show edit menu.
-    Description: Show edit options menu. [CHAR LIMIT=40]
-    -->
-    <string name="voice_commands_text_editing">Text editing</string>
-    <!--
-    Source: Possible user requests from voice commands to show edit menu.
-    Description: Show edit options menu. [CHAR LIMIT=40]
-    -->
-    <string name="voice_commands_edit_text">Edit text</string>
-    <!--
-    Source: Possible user requests from voice commands to show edit menu.
-    Description: Show edit options menu. [CHAR LIMIT=40]
-    -->
-    <string name="voice_commands_editing_options">Editing options</string>
     <!--
       Source: Possible user requests from voice commands to edit.
       Description: Looks for keyword "edit" to see if user has asked to edit. [CHAR LIMIT=40]
@@ -179,8 +164,6 @@
   <string name="voice_commands_cannot_label_feedback">Cannot label</string>
   <!-- Voice-shortcut command word to start the google-assistant. [CHAR_LIMIT=30] -->
   <string name="voice_commands_assistant">Assistant</string>
-  <!-- Voice-shortcut command word to set speech-rate. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_setting_speech_rate">Setting speech rate</string>
   <!-- Voice-shortcut command word to move focus to the first item on the screen. [CHAR_LIMIT=20] -->
   <string name="voice_commands_first">First</string>
   <!-- Voice-shortcut command word to move focus to the first item on the screen. [CHAR_LIMIT=20] -->
@@ -263,10 +246,10 @@
   <string name="voice_commands_decrease_speech_rate">decrease speech rate</string>
   <!-- Voice-shortcut command word that is homophone of high and hi.  [CHAR_LIMIT=30] -->
   <string name="voice_commands_homophone_high_and_hi" translatable="false">Hi</string>
+  <!-- Voice-shortcut command word to start Gemini.  [CHAR_LIMIT=30] -->
+  <string name="voice_commands_gemini" translatable="false">Gemini</string>
 
 
-    <!-- Dialog title that explains to user the options available when using voice commands. [CHAR_LIMIT=60]-->
-    <string name="voice_commands_possible_options_title">You can say</string>
     <!-- Dialog message that explains to user the requested action is not supported yet. [CHAR_LIMIT=100] -->
     <string name="voice_commands_no_action">Voice shortcut not supported</string>
     <!-- Dialog message that explains to user that they do not have mic permissions on. [CHAR_LIMIT=100] -->
@@ -299,7 +282,7 @@
   <!-- The page title of voice command overview. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_help_title">Voice command overview</string>
   <!-- The description of voice command overview. [CHAR_LIMIT=NONE] -->
-  <string name="voice_commands_help_description">To use voice commands, swipe right then up. Say \"Help\" or \"What can I say?\" anytime for this list of commands.</string>
+  <string name="voice_commands_help_description">To use voice commands, swipe right then up. Say \"<xliff:g example="Help">%1$s</xliff:g>\" or \"What can I say?\" anytime for this list of commands.</string>
   <!-- The hint of triggering voice command. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_help_hint">For best results, say the exact wording listed on the following screens.</string>
   <!-- The hint of triggering voice command in lock screen mode. [CHAR_LIMIT=NONE] -->

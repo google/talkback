@@ -131,7 +131,7 @@ public abstract class BrailleInputPlane {
       new MultitouchResultListener() {
         @Override
         public boolean detect(Optional<MultitouchResult> touchResultOptional) {
-          BrailleImeLog.logD(
+          BrailleImeLog.d(
               TAG,
               "detect: "
                   + (touchResultOptional.isPresent() ? touchResultOptional.get().type : false));

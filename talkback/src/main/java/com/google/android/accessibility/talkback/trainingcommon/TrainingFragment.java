@@ -36,12 +36,12 @@ import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.TalkBackMetricStore;
+import com.google.android.accessibility.talkback.trainingcommon.PageConfig.IdleAnnouncementConfig;
 import com.google.android.accessibility.talkback.trainingcommon.PageConfig.PageId;
 import com.google.android.accessibility.talkback.trainingcommon.TrainingIpcClient.ServiceData;
-import com.google.android.accessibility.talkback.trainingcommon.content.ClickableContent;
-import com.google.android.accessibility.talkback.trainingcommon.content.ClickableContent.LinkHandler;
 import com.google.android.accessibility.talkback.trainingcommon.content.ExitBanner;
+import com.google.android.accessibility.talkback.trainingcommon.content.Link;
+import com.google.android.accessibility.talkback.trainingcommon.content.Link.LinkHandler;
 import com.google.android.accessibility.talkback.trainingcommon.content.PageButton;
 import com.google.android.accessibility.talkback.trainingcommon.content.PageContentConfig;
 import com.google.android.accessibility.talkback.trainingcommon.content.PageNumber;
@@ -72,7 +72,8 @@ public class TrainingFragment extends Fragment {
   // We only have supplier if this page has navigation bar and it is belong to some form factors.
   @Nullable private Function<Context, NavigationButtonBar> navigationButtonBarSupplier;
 
-  private TalkBackMetricStore metricStore;
+  private TrainingMetricStore metricStore;
+  @Nullable private RepeatedAnnouncingHandler repeatedAnnouncingHandler;
 
   private final FormFactorUtils formFactorUtils = FormFactorUtils.getInstance();
 
@@ -81,7 +82,7 @@ public class TrainingFragment extends Fragment {
     this.navigationButtonBarSupplier = navigationButtonBarSupplier;
   }
 
-  void setMetricStore(TalkBackMetricStore metricStore) {
+  void setMetricStore(TrainingMetricStore metricStore) {
     this.metricStore = metricStore;
   }
 
@@ -135,6 +136,16 @@ public class TrainingFragment extends Fragment {
     if (page.isOnlyOneFocus() && pageBannerLayout != null && pageBannerLayout.getChildCount() > 0) {
       setTrainingPageInitialFocus(view.findViewById(R.id.training_page_scroll));
     }
+    if (page.getIdleAnnouncementConfig() != null) {
+      IdleAnnouncementConfig config = page.getIdleAnnouncementConfig();
+      repeatedAnnouncingHandler =
+          new RepeatedAnnouncingHandler(
+              getContext(),
+              getContext().getString(config.announcement()),
+              config.initialDelay(),
+              config.repeatedDelay());
+      LogUtils.v(TAG, "Idle announcement prepared.");
+    }
 
     if (formFactorUtils.isAndroidWear()) {
       // Setting a pane title for fragment will trigger TYPE_WINDOW_STATE_CHANGED. It will drop an
@@ -164,6 +175,24 @@ public class TrainingFragment extends Fragment {
       pageLayout.requestFocus();
     }
     return view;
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+    if (repeatedAnnouncingHandler != null) {
+      LogUtils.v(TAG, "Idle announcement registered.");
+      repeatedAnnouncingHandler.start();
+    }
+  }
+
+  @Override
+  public void onPause() {
+    super.onPause();
+    if (repeatedAnnouncingHandler != null) {
+      LogUtils.v(TAG, "Idle announcement unregistered.");
+      repeatedAnnouncingHandler.stop();
+    }
   }
 
   public void setLinkHandler(LinkHandler linkHandler) {
@@ -247,8 +276,8 @@ public class TrainingFragment extends Fragment {
       }
 
       // For the navigation contents, like Link and button.
-      if (content instanceof ClickableContent) {
-        ((ClickableContent) content).setLinkHandler(linkHandler);
+      if (content instanceof Link) {
+        ((Link) content).setLinkHandler(linkHandler);
       }
       addView(content.createView(inflater, container, getContext(), data));
     } else {

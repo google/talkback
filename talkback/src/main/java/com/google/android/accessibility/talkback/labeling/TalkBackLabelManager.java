@@ -60,7 +60,10 @@ public abstract class TalkBackLabelManager implements LabelManager, Accessibilit
 
     // Spoken words can come from accessibility event text or content description, like the focus is
     // on ViewGroup that includes several non-focusable views.
-    if (Role.getRole(node) == Role.ROLE_VIEW_GROUP && hasFocusedEventText) {
+    if (hasFocusedEventText
+        && (Role.getRole(node) == Role.ROLE_VIEW_GROUP
+            || Role.getRole(node) == Role.ROLE_SCROLL_VIEW
+            || Role.getRole(node) == Role.ROLE_HORIZONTAL_SCROLL_VIEW)) {
       return false;
     }
 

@@ -18,6 +18,7 @@
   <string name="code_user_facing_name_arabic">ਅਰਬੀ</string>
   <string name="code_user_facing_name_arabic_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਅਰਬੀ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_bulgarian">ਬੁਲਗੇਰੀਆਈ</string>
+  <string name="code_user_facing_name_bulgarian_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਬੁਲਗਾਰੀਆਈ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_ca_catalan">ਕਾਤਾਲਾਨ</string>
   <string name="code_user_facing_name_catonese">ਕੈਂਟੋਨੀਜ਼</string>
   <string name="code_user_facing_name_chinese_china_common">ਆਮ ਚੀਨੀ (ਚੀਨ)</string>
@@ -35,12 +36,10 @@
   <string name="code_user_facing_name_german_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਜਰਮਨ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_german">ਜਰਮਨ</string>
   <string name="code_user_facing_name_greek">ਯੂਨਾਨੀ</string>
-  <string name="code_user_facing_name_en_ca">ਅੰਗਰੇਜ਼ੀ ਬਰੇਲ ਲਿਪੀ (ਕੈਨੇਡਾ)</string>
   <string name="code_user_facing_name_en_uk">ਅੰਗਰੇਜ਼ੀ ਬਰੇਲ (ਯੂਨਾਈਟਡ ਕਿੰਗਡਮ)</string>
   <string name="code_user_facing_name_en_in">ਅੰਗਰੇਜ਼ੀ ਬਰੇਲ ਲਿਪੀ (ਭਾਰਤ)</string>
   <string name="code_user_facing_name_en_nabcc_comp8">ਉੱਤਰੀ ਅਮਰੀਕੀ ਬਰੇਲ ਲਿਪੀ ਕੰਪਿਊਟਰ ਕੋਡ</string>
   <string name="code_user_facing_name_en_comp6">6-ਬਿੰਦੂਆਂ ਵਾਲੀ ਅੰਗਰੇਜ਼ੀ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
-  <string name="code_user_facing_name_en_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਅੰਗਰੇਜ਼ੀ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_en_us_ebae">ਅੰਗਰੇਜ਼ੀ ਬਰੇਲ (ਸੰਯੁਕਤ ਰਾਜ, ਅਮਰੀਕੀ ਸੰਸਕਰਨ)</string>
   <string name="code_user_facing_name_en_us">ਅੰਗਰੇਜ਼ੀ ਬਰੇਲ (ਸੰਯੁਕਤ ਰਾਜ)</string>
   <string name="code_user_facing_name_polish">ਪੋਲਿਸ਼</string>
@@ -78,13 +77,14 @@
   <string name="code_user_facing_name_dutch_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਡੱਚ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_norwegian">ਨਾਰਵੇਜੀਆਈ</string>
   <string name="code_user_facing_name_norwegian_8_no">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਨੌਰਵੇਜੀਆਈ ਬਰੇਲ ਲਿਪੀ (ਨਾਰਵੇ)</string>
+  <string name="code_user_facing_name_norwegian_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਨਾਰਵੇਜੀਆਈ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_norwegian_8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਨੌਰਵੇਜੀਆਈ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_norwegian_8_with_6_fallback">6-ਬਿੰਦੂਆਂ ਵਾਲੇ ਫਾਲਬੈਕ ਨਾਲ 8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਨੌਰਵੇਜੀਆਈ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_nepali_indian">ਨੇਪਾਲੀ ਬਰੇਲ ਲਿਪੀ (ਭਾਰਤ)</string>
   <string name="code_user_facing_name_portuguese">ਪੁਰਤਗਾਲੀ</string>
   <string name="code_user_facing_name_punjabi">ਪੰਜਾਬੀ</string>
   <string name="code_user_facing_name_portuguese_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਪੁਰਤਗਾਲੀ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
-  <string name="code_user_facing_name_romanian_no">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਰੋਮਾਨੀਆਈ ਬਰੇਲ ਲਿਪੀ</string>
+  <string name="code_user_facing_name_romanian_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਰੋਮਾਨੀਆਈ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_russian">ਰੂਸੀ</string>
   <string name="code_user_facing_name_russian_detailed">ਵੱਡੇ ਅੱਖਰਾਂ ਵਾਲੀ ਰੂਸੀ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_russian_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਰੂਸੀ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
@@ -99,7 +99,7 @@
   <string name="code_user_facing_name_tamil">ਤਮਿਲ</string>
   <string name="code_user_facing_name_telugu_in">ਤੇਲਗੂ ਬਰੇਲ ਲਿਪੀ (ਭਾਰਤ)</string>
   <string name="code_user_facing_name_turkish">ਤੁਰਕੀ</string>
-  <string name="code_user_facing_name_turkish_8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਤੁਰਕੀ ਬਰੇਲ ਲਿਪੀ</string>
+  <string name="code_user_facing_name_turkish_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਤੁਰਕੀ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_ukrainian">ਯੂਕਰੇਨੀ</string>
   <string name="code_user_facing_name_ukrainian_comp8">8-ਬਿੰਦੂਆਂ ਵਾਲੀ ਯੂਕਰੇਨੀ ਕੰਪਿਊਟਰ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_urdu">ਉਰਦੂ</string>

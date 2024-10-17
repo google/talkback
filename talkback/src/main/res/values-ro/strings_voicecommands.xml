@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">citește</string>
-  <string name="voice_commands_read_from_next">Citește de la elementul următor</string>
+  <string name="voice_commands_read_from_next">Citește începând de la cursor</string>
   <string name="voice_commands_edit_options">Opțiuni de editare</string>
-  <string name="voice_commands_text_editing">Editarea textului</string>
-  <string name="voice_commands_edit_text">Editează textul</string>
-  <string name="voice_commands_editing_options">Opțiuni de modificare</string>
   <string name="voice_commands_edit">editează</string>
   <string name="voice_commands_what">ce</string>
   <string name="voice_commands_say">rostește</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etichetă</string>
   <string name="voice_commands_cannot_label_feedback">Nu se poate eticheta</string>
   <string name="voice_commands_assistant">Asistent</string>
-  <string name="voice_commands_setting_speech_rate">Setează ritmul vorbirii</string>
   <string name="voice_commands_first">Primul</string>
   <string name="voice_commands_top">Sus</string>
   <string name="voice_commands_last">Ultimul</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Accelerează ritmul vorbirii</string>
   <string name="voice_commands_slower">Mai lent</string>
   <string name="voice_commands_decrease_speech_rate">încetinește ritmul vorbirii</string>
-  <string name="voice_commands_possible_options_title">Poți să spui</string>
   <string name="voice_commands_no_action">Comanda rapidă vocală nu este acceptată</string>
   <string name="voice_commands_no_mic_permissions">Pentru a folosi această funcție, trebuie să acorzi permisiunea de a folosi microfonul.</string>
   <string name="voice_commands_no_voice_recognition_ability">Această funcție nu este disponibilă pe dispozitivul tău</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Nu există o comandă următoare</string>
   <string name="voice_commands_no_next_landmark_feedback">Nu există un reper următor</string>
   <string name="voice_commands_help_title">Prezentare generală a comenzilor vocale</string>
-  <string name="voice_commands_help_description">Pentru a folosi comenzi vocale, glisează spre dreapta, apoi în sus. Rostește oricând „Ajutor” sau „Ce pot spune?” pentru lista comenzilor.</string>
+  <string name="voice_commands_help_description">Pentru a folosi comenzi vocale, glisează spre dreapta, apoi în sus. Rostește oricând „%1$s” sau „Ce pot spune?” pentru lista comenzilor.</string>
   <string name="voice_commands_help_hint">Pentru rezultate optime, folosește exact cuvintele de pe ecranele următoare.</string>
   <string name="voice_command_screen_locked_hint">Comenzile vocale nu sunt disponibile când ecranul este blocat. Pentru a folosi meniul TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Comenzile vocale nu sunt disponibile în timpul configurării.</string>

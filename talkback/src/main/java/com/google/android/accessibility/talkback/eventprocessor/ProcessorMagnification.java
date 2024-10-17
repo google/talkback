@@ -72,8 +72,8 @@ public class ProcessorMagnification implements AccessibilityEventListener {
   /** Magnification bounds for testing. */
   private Rect testMagBounds = null;
 
-  @Nullable @VisibleForTesting
-  public final OnMagnificationChangedListener onMagnificationChangedListener;
+  @VisibleForTesting
+  public final @Nullable OnMagnificationChangedListener onMagnificationChangedListener;
 
   private float lastScale = 1.0f;
   private int lastMode = MagnificationConfig.MAGNIFICATION_MODE_DEFAULT;

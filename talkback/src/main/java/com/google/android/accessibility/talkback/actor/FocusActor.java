@@ -16,6 +16,9 @@
 
 package com.google.android.accessibility.talkback.actor;
 
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK;
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_LONG_CLICK;
+
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.GestureDescription;
 import android.accessibilityservice.GestureDescription.StrokeDescription;
@@ -28,6 +31,7 @@ import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import com.google.android.accessibility.talkback.ActorStateWritable;
+import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.TalkBackService.GestureDetectionState;
 import com.google.android.accessibility.talkback.WebActor;
@@ -63,6 +67,7 @@ public class FocusActor {
 
   private final WebActor webActor;
   private final GestureDetectionState gestureDetectionState;
+  private Pipeline.FeedbackReturner pipeline;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Construction
@@ -90,6 +95,7 @@ public class FocusActor {
   }
 
   public void setPipeline(Pipeline.FeedbackReturner pipeline) {
+    this.pipeline = pipeline;
     focusManagerInternal.setPipeline(pipeline);
     webActor.setPipeline(pipeline);
   }
@@ -108,12 +114,12 @@ public class FocusActor {
   }
 
   public boolean clickNode(AccessibilityNodeInfoCompat node, EventId eventId) {
-    if (node == null) {
+    if (node == null || pipeline == null) {
       return false;
     }
 
     if (PerformActionUtils.isNodeSupportAction(node, AccessibilityNodeInfoCompat.ACTION_CLICK)
-        && performActionOnNode(AccessibilityNodeInfoCompat.ACTION_CLICK, node, eventId)) {
+        && pipeline.returnFeedback(eventId, Feedback.nodeAction(node, ACTION_CLICK.getId()))) {
       return true;
     }
     if (FeatureSupport.supportGestureDetection() && gestureDetectionState.gestureDetector()) {
@@ -136,25 +142,22 @@ public class FocusActor {
   }
 
   public boolean longClickNode(AccessibilityNodeInfoCompat node, EventId eventId) {
-    if (node == null) {
+    if (node == null || pipeline == null) {
       return false;
     }
-    return performActionOnNode(AccessibilityNodeInfoCompat.ACTION_LONG_CLICK, node, eventId);
+    return pipeline.returnFeedback(eventId, Feedback.nodeAction(node, ACTION_LONG_CLICK.getId()));
   }
 
   public boolean clickCurrentHierarchical(@Nullable EventId eventId) {
-    AccessibilityNodeInfoCompat currentFocus = null;
-    AccessibilityNodeInfoCompat nodeToClick = null;
-    currentFocus =
+    AccessibilityNodeInfoCompat currentFocus =
         accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
     if (currentFocus == null) {
       return false;
     }
-    nodeToClick =
+    AccessibilityNodeInfoCompat nodeToClick =
         AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
             currentFocus, AccessibilityNodeInfoUtils.FILTER_CLICKABLE);
-    return PerformActionUtils.performAction(
-        nodeToClick, AccessibilityNodeInfoCompat.ACTION_CLICK, eventId);
+    return pipeline.returnFeedback(eventId, Feedback.nodeAction(nodeToClick, ACTION_CLICK.getId()));
   }
 
   public void clearAccessibilityFocus(EventId eventId) {
@@ -275,11 +278,6 @@ public class FocusActor {
    */
   public boolean ensureAccessibilityFocusOnScreen(EventId eventId) {
     return focusManagerInternal.ensureAccessibilityFocusOnScreen(eventId);
-  }
-
-  private boolean performActionOnNode(
-      int action, AccessibilityNodeInfoCompat node, EventId eventId) {
-    return (node != null) && PerformActionUtils.performAction(node, action, eventId);
   }
 
   /** Simulates a click on the center of a view. */

@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2023 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.google.android.accessibility.braille.brltty;
 
 import androidx.annotation.Nullable;
@@ -12,18 +28,30 @@ import java.util.regex.Pattern;
 /** Helper class maps device name patterns to device-related data. */
 public class SupportedDevicesHelper {
   public static final List<SupportedDevice> supportedDevices;
+  private static final String HID_STUB_DEVICE_NAME = "HID";
 
   private SupportedDevicesHelper() {}
 
   @Nullable
-  public static DeviceInfo getDeviceInfo(String deviceName) {
+  public static DeviceInfo getDeviceInfo(String deviceName, boolean useHid) {
     for (SupportedDevice supportedDevice : supportedDevices) {
-      DeviceInfo deviceInfo = supportedDevice.match(deviceName);
+      DeviceInfo deviceInfo = supportedDevice.match(useHid ? HID_STUB_DEVICE_NAME : deviceName);
       if (deviceInfo != null) {
         return deviceInfo;
       }
     }
     return null;
+  }
+
+  /** Returns truncated device name. */
+  public static String getTruncatedName(String deviceName) {
+    for (SupportedDevice supportedDevice : supportedDevices) {
+      DeviceInfo deviceInfo = supportedDevice.match(deviceName);
+      if (deviceInfo != null) {
+        return deviceInfo.modelName();
+      }
+    }
+    return "";
   }
 
   private interface SupportedDevice {
@@ -54,6 +82,7 @@ public class SupportedDevicesHelper {
         if (nameRegex.matcher(deviceName).lookingAt()) {
           return DeviceInfo.builder()
               .setDriverCode(driverCode)
+              .setModelName(nameRegex.toString())
               .setFriendlyKeyNames(friendlyKeyNames)
               .setConnectSecurely(connectSecurely)
               .build();
@@ -481,7 +510,7 @@ public class SupportedDevicesHelper {
                 .add("LeftButton", R.string.key_skntk_PanLeft)
                 .add("RightButton", R.string.key_skntk_PanRight)
                 .build(),
-            Pattern.compile("TSM")));
+            Pattern.compile("TSM|seika")));
 
     // Seika Braille Display. No Braille keys on this display.
     l.add(
@@ -501,6 +530,28 @@ public class SupportedDevicesHelper {
                 .routing()
                 .build(),
             Pattern.compile("TS5")));
+
+    // HID devices
+    // The keys match the key set in
+    // //depot/google3/third_party/brltty/Drivers/Braille/HID/brldefs-hid.h;rcl=626237007;l=16
+    l.add(
+        new NameRegexSupportedDevice(
+            "hid",
+            /* connectSecurely= */ true,
+            new KeyNameMapBuilder()
+                .dots8()
+                .add("Space", R.string.key_Space)
+                .add("PanLeft", R.string.key_pan_left)
+                .add("PanRight", R.string.key_pan_right)
+                .add("DPadUp", R.string.key_dpad_up)
+                .add("DPadDown", R.string.key_dpad_down)
+                .add("DPadLeft", R.string.key_dpad_left)
+                .add("DPadRight", R.string.key_dpad_right)
+                .add("DPadCenter", R.string.key_dpad_center)
+                .add("RockerUp", R.string.key_rocker_up)
+                .add("RockerDown", R.string.key_rocker_down)
+                .build(),
+            Pattern.compile(HID_STUB_DEVICE_NAME)));
 
     supportedDevices = Collections.unmodifiableList(l);
   }

@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceDialogFragmentCompat;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.SwitchPreference;
 import com.google.android.accessibility.talkback.R;
@@ -65,6 +66,20 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
     updatePreferences();
   }
 
+  @Override
+  public void onDisplayPreferenceDialog(Preference preference) {
+    // Only PunctuationListPreference customizes the preference dialog.
+    if (preference instanceof PunctuationListPreference) {
+      PreferenceDialogFragmentCompat dialogFragment =
+          PunctuationListPreference.CustomListPreferenceDialogFragment.newInstance(
+              preference.getKey());
+      dialogFragment.setTargetFragment(this, 0);
+      dialogFragment.show(getParentFragmentManager(), "dialog_preference");
+    } else {
+      super.onDisplayPreferenceDialog(preference);
+    }
+  }
+
   private void buildMap() {
     switchPreferenceKeyValueMap =
         ImmutableMap.<String, Boolean>builder()
@@ -99,6 +114,10 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
             .put(
                 getString(R.string.pref_speak_element_ids_key),
                 getResources().getBoolean(R.bool.pref_speak_element_ids_default))
+            // TODO Speak punctuation and symbols Change to ListPreference
+            // Consider reorder the Verbosity settings discuss the design with Aki
+            // Verbosity preset levels for Speak punctuation and symbols and Speak element type
+            // b/297956957  b/328144817
             .put(
                 getString(R.string.pref_punctuation_key),
                 getResources().getBoolean(R.bool.pref_punctuation_default))
@@ -114,6 +133,9 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
                 R.string.pref_keyboard_echo_default)
             .put(
                 getString(R.string.pref_capital_letters_key), R.string.pref_capital_letters_default)
+            .put(
+                getString(R.string.pref_punctuation_verbosity),
+                R.string.pref_punctuation_verbosity_default)
             .buildOrThrow();
   }
 
@@ -275,6 +297,7 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
             // will then deduplicate the announcement event so only one is spoken.
             announceVerbosityChange(newValueString);
           } else if (TextUtils.equals(key, getString(R.string.pref_punctuation_key))) {
+            // TODO: remove legacy code.
             SwitchPreference preference =
                 (SwitchPreference) findPreference(R.string.pref_punctuation_key);
             boolean punctuationOn =
@@ -284,6 +307,16 @@ public class VerbosityPrefFragment extends TalkbackBaseFragment {
 
             if (preference != null) {
               preference.setChecked(punctuationOn);
+            }
+          } else if (TextUtils.equals(key, getString(R.string.pref_punctuation_verbosity))) {
+            ListPreference preference =
+                (ListPreference) findPreference(R.string.pref_punctuation_verbosity);
+            String newValueString =
+                preferences.getString(
+                    getString(R.string.pref_punctuation_verbosity),
+                    getString(R.string.pref_punctuation_verbosity_default));
+            if (preference != null) {
+              preference.setValue(newValueString);
             }
           }
         }

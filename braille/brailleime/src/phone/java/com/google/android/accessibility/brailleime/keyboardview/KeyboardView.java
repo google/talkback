@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2023 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.google.android.accessibility.brailleime.keyboardview;
 
 import android.content.Context;
@@ -26,6 +42,7 @@ import com.google.android.accessibility.brailleime.tutorial.TutorialView;
 import com.google.android.accessibility.brailleime.tutorial.TutorialView.TutorialCallback;
 import com.google.android.accessibility.brailleime.tutorial.TutorialView.TutorialState.State;
 import com.google.common.annotations.VisibleForTesting;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -258,6 +275,7 @@ public abstract class KeyboardView {
 
   /** Tear down keyboard view. */
   public void tearDown() {
+    removeAllViews();
     tearDownInternal();
     if (viewContainer != null && viewContainer.getChildCount() == 0) {
       viewContainer = null;
@@ -270,17 +288,15 @@ public abstract class KeyboardView {
     }
   }
 
-  /** Removes braille input view and tutorial view in keyboard view. */
-  public void removeBrailleInputViewAndTutorialView() {
-    removeBrailleInputView();
-    removeTutorialView();
-  }
-
   /** Removes all views in keyboard view. */
-  public void removeAllViews() {
-    removeStripView();
-    removeBrailleInputView();
-    removeTutorialView();
+  @VisibleForTesting
+  void removeAllViews() {
+    if (viewContainer != null) {
+      viewContainer.removeAllViews();
+    }
+    stripView = null;
+    brailleInputView = null;
+    tutorialView = null;
   }
 
   /** Calibrates input view. */
@@ -289,28 +305,6 @@ public abstract class KeyboardView {
       return;
     }
     brailleInputView.calibrateByTwoSteps();
-  }
-
-  private void removeTutorialView() {
-    if (viewContainer != null && tutorialView != null) {
-      viewContainer.removeView(tutorialView);
-      tutorialView.tearDown();
-      tutorialView = null;
-    }
-  }
-
-  private void removeBrailleInputView() {
-    if (viewContainer != null && brailleInputView != null) {
-      viewContainer.removeView(brailleInputView);
-      brailleInputView = null;
-    }
-  }
-
-  private void removeStripView() {
-    if (viewContainer != null && stripView != null) {
-      viewContainer.removeView(stripView);
-      stripView = null;
-    }
   }
 
   /** Returns ime region size on the screen. */
@@ -338,7 +332,7 @@ public abstract class KeyboardView {
   }
 
   private void runWhenViewContainerIsReady(Runnable runnable) {
-    if (isViewContainerShown() || "robolectric".equals(Build.FINGERPRINT)) {
+    if (isViewContainerShown() || Objects.equals(Build.FINGERPRINT, "robolectric")) {
       runnable.run();
       return;
     }
@@ -357,7 +351,7 @@ public abstract class KeyboardView {
   }
 
   private void runWhenImeInputViewIsReady(Runnable runnable) {
-    if (isImeInputViewShown() || "robolectric".equals(Build.FINGERPRINT)) {
+    if (isImeInputViewShown() || Objects.equals(Build.FINGERPRINT, "robolectric")) {
       runnable.run();
       return;
     }
@@ -404,7 +398,7 @@ public abstract class KeyboardView {
   }
 
   private boolean isStripViewAttached() {
-    return stripView != null && viewContainer.isAttachedToWindow();
+    return stripView != null && viewContainer != null && viewContainer.isAttachedToWindow();
   }
 
   /** Creates and returns the ImeInputView. */
@@ -429,7 +423,7 @@ public abstract class KeyboardView {
 
   /** Signals that a orientation change has occurred. */
   public void onOrientationChanged(int orientation) {
-    BrailleImeLog.logD(TAG, "onOrientationChanged");
+    BrailleImeLog.d(TAG, "onOrientationChanged");
     if (brailleInputView != null) {
       brailleInputView.onOrientationChanged(orientation, getScreenSize());
     }

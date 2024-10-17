@@ -7,7 +7,7 @@
   <string name="read_out_selected_text">منتخب شدہ ٹیکسٹ: %s</string>
   <plurals name="braille_dots">
     <item quantity="one">%s ڈاٹ</item>
-    <item quantity="other">%s نقطے</item>
+    <item quantity="other">%s ڈاٹ</item>
   </plurals>
   <string name="remove_language_button_content_description">%s کو ہٹائیں</string>
   <string name="split_comma">، %s</string>
@@ -18,12 +18,13 @@
   <string name="code_user_facing_name_arabic">عربی</string>
   <string name="code_user_facing_name_arabic_comp8">8 نقطے والا عربی کمپیوٹر بریل</string>
   <string name="code_user_facing_name_bulgarian">بلغاریائی</string>
+  <string name="code_user_facing_name_bulgarian_comp8">8 نقطے والا بلغاریائی کمپیوٹر بریل</string>
   <string name="code_user_facing_name_ca_catalan">کیٹیلان</string>
   <string name="code_user_facing_name_catonese">کینٹونیز</string>
-  <string name="code_user_facing_name_chinese_china_common">چینی (چین) عام</string>
-  <string name="code_user_facing_name_chinese_china_current_with_tones">چینی (چین) موجودہ ٹونز کے ساتھ</string>
-  <string name="code_user_facing_name_chinese_china_current_without_tones">چینی (چین) موجودہ ٹونز کے بغیر</string>
-  <string name="code_user_facing_name_chinese_china_two_cells">چینی (چین) دو سیلز</string>
+  <string name="code_user_facing_name_chinese_china_common">چینی روایت (چین)</string>
+  <string name="code_user_facing_name_chinese_china_current_with_tones">ٹونز کے ساتھ چینی کرنٹ (چین)</string>
+  <string name="code_user_facing_name_chinese_china_current_without_tones">ٹونز کے بغیر چینی کرنٹ (چین)</string>
+  <string name="code_user_facing_name_chinese_china_two_cells">چینی دو سیلز (چین)</string>
   <string name="code_user_facing_name_chinese_taiwan">چینی (تائیوان)</string>
   <string name="code_user_facing_name_central_kurdish">وسطی کرد</string>
   <string name="code_user_facing_name_czech_comp8">8 نقطے والا چیک کمپیوٹر بریل</string>
@@ -35,12 +36,10 @@
   <string name="code_user_facing_name_german_comp8">8 نقطے والا جرمن کمپیوٹر بریل</string>
   <string name="code_user_facing_name_german">جرمن</string>
   <string name="code_user_facing_name_greek">يونانی</string>
-  <string name="code_user_facing_name_en_ca">انگریزی بریل (کینیڈا)</string>
   <string name="code_user_facing_name_en_uk">انگریزی بریل (برطانیہ)</string>
   <string name="code_user_facing_name_en_in">انگریزی بریل (ہندوستان)</string>
   <string name="code_user_facing_name_en_nabcc_comp8">شمالی امریکہ کا بریل کمپیوٹر کوڈ</string>
   <string name="code_user_facing_name_en_comp6">6 نقطے والا انگریزی کمپیوٹر بریل</string>
-  <string name="code_user_facing_name_en_comp8">8 نقطے والا انگریزی کمپیوٹر بریل</string>
   <string name="code_user_facing_name_en_us_ebae">انگریزی بریل (ریاستہائے متحدہ، امریکی ایڈیشن)</string>
   <string name="code_user_facing_name_en_us">انگریزی بریل (ریاستہائے متحدہ)</string>
   <string name="code_user_facing_name_polish">پولش</string>
@@ -78,13 +77,14 @@
   <string name="code_user_facing_name_dutch_comp8">8 نقطے والا ڈچ کمپیوٹر بریل</string>
   <string name="code_user_facing_name_norwegian">نارویجین</string>
   <string name="code_user_facing_name_norwegian_8_no">8 نقطے والا نارویجین بریل (ناروے)</string>
+  <string name="code_user_facing_name_norwegian_comp8">8 نقطے والا نارویجین کمپیوٹر بریل</string>
   <string name="code_user_facing_name_norwegian_8">8 نقطے والا نارویجین بریل</string>
   <string name="code_user_facing_name_norwegian_8_with_6_fallback">6 نقطوں کے فال بیک کے ساتھ 8 نقطے والا نارویجین بریل</string>
   <string name="code_user_facing_name_nepali_indian">نیپالی بریل (ہندوستان)</string>
   <string name="code_user_facing_name_portuguese">پرتگالی</string>
   <string name="code_user_facing_name_punjabi">پنجابی</string>
   <string name="code_user_facing_name_portuguese_comp8">8 نقطے والا پرتگالی کمپیوٹر بریل</string>
-  <string name="code_user_facing_name_romanian_no">8 نقطے والا رومانیائی بریل</string>
+  <string name="code_user_facing_name_romanian_comp8">8 نقطے والا رومانوی کمپیوٹر بریل</string>
   <string name="code_user_facing_name_russian">روسی</string>
   <string name="code_user_facing_name_russian_detailed">کیپٹلز کے اشارے والا روسی</string>
   <string name="code_user_facing_name_russian_comp8">8 نقطے والا روسی کمپیوٹر بریل</string>
@@ -99,7 +99,7 @@
   <string name="code_user_facing_name_tamil">تمل</string>
   <string name="code_user_facing_name_telugu_in">تیلگو بریل (ہندوستان)</string>
   <string name="code_user_facing_name_turkish">ترکی</string>
-  <string name="code_user_facing_name_turkish_8">8 نقطے والا ترکی بریل</string>
+  <string name="code_user_facing_name_turkish_comp8">8 نقطے والا ترک کمپیوٹر بریل</string>
   <string name="code_user_facing_name_ukrainian">يُوکرينی</string>
   <string name="code_user_facing_name_ukrainian_comp8">8 نقطے والا یوکرائنی کمپیوٹر بریل</string>
   <string name="code_user_facing_name_urdu">اردو</string>

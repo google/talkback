@@ -44,7 +44,7 @@ import com.google.android.accessibility.utils.material.MaterialComponentUtils;
  * combo assigned key setting. KeyAlreadyInUseDialog is for warning users that the input key
  * combination is already in use.
  */
-public class KeyboardShortcutDialogPreference extends Preference
+public class KeyboardShortcutDialogPreference extends TwoTargetIconPreference
     implements DialogInterface.OnKeyListener, ServiceKeyEventListener {
 
   private static final int KEY_EVENT_SOURCE_ACTIVITY = 0;

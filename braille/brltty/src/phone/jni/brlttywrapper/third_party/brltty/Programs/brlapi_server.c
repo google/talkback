@@ -58,13 +58,6 @@ Samuel Thibault <samuel.thibault@ens-lyon.org>"
 #include <netinet/tcp.h>
 #include <arpa/inet.h>
 #include <netdb.h>
-
-#ifdef __ANDROID__
-#ifndef PAGE_SIZE
-#include <asm/page.h>
-#endif /* PAGE_SIZE */
-#endif /* __ANDROID__ */
-
 #include <pthread.h>
 
 #ifdef HAVE_SYS_SELECT_H

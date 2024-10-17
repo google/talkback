@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.talkback;
 
+import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.IGNORE;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.INTERRUPT;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.READ_FOCUSED_CONTENT;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN;
@@ -63,6 +64,7 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
+import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirection;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirectionOrUnknown;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
@@ -134,6 +136,8 @@ public final class Mappers {
             return Feedback.create(eventId, Feedback.continuousRead(READ_FOCUSED_CONTENT).build());
           case CONTINUOUS_READ_INTERRUPT:
             return Feedback.create(eventId, Feedback.continuousRead(INTERRUPT).build());
+          case CONTINUOUS_READ_IGNORE:
+            return Feedback.create(eventId, Feedback.continuousRead(IGNORE).build());
           case SCROLL_CANCEL_TIMEOUT:
             return Feedback.create(eventId, Feedback.scrollCancelTimeout().build());
           case STATE_CHANGE:
@@ -312,6 +316,23 @@ public final class Mappers {
                       Feedback.Sound.create(R.raw.scroll_tone, rate, volume, minSeparationMillisec))
                   .build());
       return feedback;
+    } else if (interpretation instanceof Interpretation.HeadsUpNotificationChange) {
+      Interpretation.HeadsUpNotificationChange headsUpInterpretation =
+          (Interpretation.HeadsUpNotificationChange) interpretation;
+      boolean isHeadsUpAppearance = headsUpInterpretation.isHeadsUpAppearance();
+      return Feedback.create(
+          eventId,
+          Feedback.part()
+              .setFocus(
+                  Feedback.stealNextWindowNavigation(
+                          isHeadsUpAppearance
+                              ? headsUpInterpretation.getHeadsUpNotification()
+                              : null,
+                          isHeadsUpAppearance
+                              ? TraversalStrategy.SEARCH_FOCUS_FORWARD
+                              : TraversalStrategy.SEARCH_FOCUS_UNKNOWN)
+                      .build())
+              .build());
     }
 
     return null;

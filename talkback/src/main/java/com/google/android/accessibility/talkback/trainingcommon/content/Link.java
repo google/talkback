@@ -17,65 +17,51 @@
 package com.google.android.accessibility.talkback.trainingcommon.content;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.View.OnClickListener;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.trainingcommon.TrainingIpcClient.ServiceData;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** Includes two multiline texts and an icon. Links to some pages when view is clicked. */
-public class Link extends ClickableContent {
+public class Link extends ClickableChip {
 
   private static final String TAG = "Link";
-  @StringRes private final int textResId;
-  @StringRes private final int subtextResId;
-  @DrawableRes private final int srcResId;
-  @StringRes private final int firstPageInSectionNameResId;
+
+  /** Handles the clickable link action. */
+  public interface LinkHandler {
+    /**
+     * Links to the first page in a section and goes back to the current page after finishing
+     * reading the last page in the section.
+     */
+    void handle(@StringRes int... firstPageCandidatesInSectionNameResIds);
+  }
+
+  @Nullable private transient LinkHandler linkHandler;
+  @StringRes private final int[] firstPageCandidatesInSectionNameResIds;
 
   public Link(
       @StringRes int textResId,
       @StringRes int subtextResId,
       @DrawableRes int srcResId,
-      int firstPageInSectionNameResId) {
-    this.textResId = textResId;
-    this.subtextResId = subtextResId;
-    this.srcResId = srcResId;
-    this.firstPageInSectionNameResId = firstPageInSectionNameResId;
+      int[] firstPageCandidatesInSectionNameResIds) {
+    super(textResId, subtextResId, srcResId, null);
+    this.firstPageCandidatesInSectionNameResIds = firstPageCandidatesInSectionNameResIds;
   }
 
   @Override
-  public View createView(
-      LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
-    final View view =
-        inflater.inflate(R.layout.training_link, container, /* attachToRoot= */ false);
-    final ImageView icon = view.findViewById(R.id.training_link_icon);
-    final TextView text = view.findViewById(R.id.training_link_text);
-    final TextView subtext = view.findViewById(R.id.training_link_subtext);
-    if (srcResId != UNKNOWN_RESOURCE_ID) {
-      icon.setImageResource(srcResId);
-    }
-    text.setText(textResId);
-    if (subtextResId != UNKNOWN_RESOURCE_ID) {
-      subtext.setText(subtextResId);
-    } else {
-      subtext.setVisibility(View.GONE);
-    }
+  protected OnClickListener createOnClickListener(Context context, ServiceData data) {
+    return clickedView -> {
+      if (linkHandler == null) {
+        LogUtils.e(TAG, "No linkHandler. Invoking setLinkHandler() before using it.");
+      } else {
+        linkHandler.handle(firstPageCandidatesInSectionNameResIds);
+      }
+    };
+  }
 
-    // Jumps to the start page when the view is clicked.
-    final LinearLayout linkedView = view.findViewById(R.id.training_link);
-    linkedView.setOnClickListener(
-        clickedView -> {
-          if (linkHandler == null) {
-            LogUtils.e(TAG, "No linkHandler. Invoking setLinkHandler() before using it.");
-          }
-          linkHandler.handle(firstPageInSectionNameResId);
-        });
-    return view;
+  public void setLinkHandler(LinkHandler linkHandler) {
+    this.linkHandler = linkHandler;
   }
 }

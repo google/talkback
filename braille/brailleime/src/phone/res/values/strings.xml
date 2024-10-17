@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- User-facing name of the Soft Braille IME. [CHAR_LIMIT=50] -->
   <string name="braille_ime_service_name">TalkBack braille keyboard</string>
   <!-- User-facing name of the Soft Braille IME when connecting to a braille display. [CHAR_LIMIT=60] -->
@@ -180,11 +180,11 @@
   <!-- Braille keyboard gestures, summary of text selection and editing. [CHAR_LIMIT=100] -->
   <string name="braille_keyboard_text_selection_and_editing_summary">Select, copy, cut, paste</string>
   <!-- Braille keyboard gestures, title of spell check. [CHAR_LIMIT=50] -->
-  <string name="braille_keyboard_spell_check">Spell check</string>
+  <string name="braille_keyboard_spell_check">Proofreading</string>
   <!-- Braille keyboard gestures, summary of spell check. [CHAR_LIMIT=100] -->
-  <string name="braille_keyboard_spell_check_summary">Find misspelled words, check suggestions, and confirm changes</string>
-  <!-- Braille keyboard gestures, title of spell check description. [CHAR_LIMIT=200] -->
-  <string name="braille_keyboard_spell_check_description">When you’re typing or editing text, use 3 fingers to swipe left or right until you hear \"spell check\"</string>
+  <string name="braille_keyboard_spell_check_summary">Check the spelling and grammar within a text box</string>
+  <!-- Braille keyboard gestures, title of spell check description. [CHAR_LIMIT=400] -->
+  <string name="braille_keyboard_spell_check_description">You can use proofreading to check for spelling and grammar suggestions. When you’re typing or editing text, use 3 fingers to swipe left or right until you hear \"Proofread\".</string>
 
   <!-- Basic controls, gesture of adding space. [CHAR_LIMIT=NONE] -->
   <string name="bk_gesture_add_space">To add a space, swipe right</string>
@@ -221,62 +221,66 @@
   <string name="bk_pref_category_title_editing">Editing</string>
 
   <!-- Cursor movement, gesture of moving to the previous character. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_move_to_previous_character">Move to previous character: Hold dot 6, then swipe up anywhere with another finger</string>
+  <string name="bk_gesture_move_to_previous_character">• Move to previous character: Hold dot 6, then swipe up anywhere with another finger</string>
   <!-- Cursor movement, gesture of moving to the next character. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_move_to_next_character">Move to next character: Hold dot 6, then swipe down anywhere with another finger</string>
+  <string name="bk_gesture_move_to_next_character">• Move to next character: Hold dot 6, then swipe down anywhere with another finger</string>
   <!-- Cursor movement, gesture of moving to the previous word. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_move_to_previous_word">Move to previous word: Hold dot 5, then swipe up anywhere with another finger</string>
+  <string name="bk_gesture_move_to_previous_word">• Move to previous word: Hold dot 5, then swipe up anywhere with another finger</string>
   <!-- Cursor movement, gesture of moving to the next word. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_move_to_next_word">Move to next word: Hold dot 5, then swipe down anywhere with another finger</string>
+  <string name="bk_gesture_move_to_next_word">• Move to next word: Hold dot 5, then swipe down anywhere with another finger</string>
   <!-- Cursor movement, gesture of moving to the previous line. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_move_to_previous_line">Move to previous line: Hold dot 4, then swipe up anywhere with another finger</string>
+  <string name="bk_gesture_move_to_previous_line">• Move to previous line: Hold dot 4, then swipe up anywhere with another finger</string>
   <!-- Cursor movement, gesture of moving to the next line. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_move_to_next_line">Move to next line: Hold dot 4, then swipe down anywhere with another finger</string>
+  <string name="bk_gesture_move_to_next_line">• Move to next line: Hold dot 4, then swipe down anywhere with another finger</string>
   <!-- Cursor movement, gesture of moving to the beginning. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_move_to_beginning">Move to beginning: Hold dots 4 and 5, then swipe up anywhere with another finger</string>
+  <string name="bk_gesture_move_to_beginning">• Move to beginning: Hold dots 4 and 5, then swipe up anywhere with another finger</string>
   <!-- Cursor movement, gesture of moving to the end. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_move_to_end">Move to end: Hold dots 4 and 5, then swipe down anywhere with another finger</string>
+  <string name="bk_gesture_move_to_end">• Move to end: Hold dots 4 and 5, then swipe down anywhere with another finger</string>
   <!-- Cursor movement, gesture of switching to the previous granularity. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_switch_to_previous_granularity">Switch to previous granularity: Swipe left with 3 fingers</string>
+  <string name="bk_gesture_switch_to_previous_granularity">• Switch to previous granularity: Swipe left with 3 fingers</string>
   <!-- Cursor movement, gesture of switching to the next granularity. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_switch_to_next_granularity">Switch to next granularity: Swipe right with 3 fingers</string>
+  <string name="bk_gesture_switch_to_next_granularity">• Switch to next granularity: Swipe right with 3 fingers</string>
   <!-- Cursor movement, gesture of moving to previous item. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_moveh_to_previous_item">Move to previous item: Swipe up</string>
+  <string name="bk_gesture_moveh_to_previous_item">• Move to previous item: Swipe up</string>
   <!-- Cursor movement, gesture of moving to next item. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_move_to_next_item">Move to next item: Swipe down</string>
+  <string name="bk_gesture_move_to_next_item">• Move to next item: Swipe down</string>
 
   <!-- Text selection and editing, gesture of selecting the previous character. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_select_previous_character">Select previous character: Hold dot 6, then swipe up anywhere with 2 fingers</string>
+  <string name="bk_gesture_select_previous_character">• Select previous character: Hold dot 6, then swipe up anywhere with 2 fingers</string>
   <!-- Text selection and editing, gesture of selecting the next character. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_select_next_character">Select next character: Hold dot 6, then swipe down anywhere with 2 fingers</string>
+  <string name="bk_gesture_select_next_character">• Select next character: Hold dot 6, then swipe down anywhere with 2 fingers</string>
   <!-- Text selection and editing, gesture of selecting the previous word. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_select_previous_word">Select previous word: Hold dot 5, then swipe up anywhere with 2 fingers</string>
+  <string name="bk_gesture_select_previous_word">• Select previous word: Hold dot 5, then swipe up anywhere with 2 fingers</string>
   <!-- Text selection and editing, gesture of selecting the next word. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_select_next_word">Select next word: Hold dot 5, then swipe down anywhere with 2 fingers</string>
+  <string name="bk_gesture_select_next_word">• Select next word: Hold dot 5, then swipe down anywhere with 2 fingers</string>
   <!-- Text selection and editing, gesture of selecting the previous line. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_select_previous_line">Select previous line: Hold dot 4, then swipe up anywhere with 2 fingers</string>
+  <string name="bk_gesture_select_previous_line">• Select previous line: Hold dot 4, then swipe up anywhere with 2 fingers</string>
   <!-- Text selection and editing, gesture of selecting the next line. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_select_next_line">Select next line: Hold dot 4, then swipe down anywhere with 2 fingers</string>
+  <string name="bk_gesture_select_next_line">• Select next line: Hold dot 4, then swipe down anywhere with 2 fingers</string>
   <!-- Text selection and editing, gesture of selecting all. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_select_all">Select all: Hold dot 4, then swipe left anywhere with 3 fingers</string>
+  <string name="bk_gesture_select_all">• Select all: Hold dot 4, then swipe left anywhere with 3 fingers</string>
+  <!-- Text selection and editing, gesture of selecting from current cursor to the start of text field. [CHAR_LIMIT=NONE] -->
+  <string name="bk_gesture_select_current_to_start">• Select from current cursor to the beginning: Hold dot 4 and 5, then swipe up anywhere with 2 fingers</string>
+  <!-- Text selection and editing, gesture of selecting from current cursor to the end. [CHAR_LIMIT=NONE] -->
+  <string name="bk_gesture_select_current_to_end">• Select from current cursor to the end: Hold dot 4 and 5, then swipe down anywhere with 2 fingers</string>
   <!-- Text selection and editing, gesture of copy. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_copy">Copy text: Hold dot 4, then swipe down anywhere with 3 fingers</string>
+  <string name="bk_gesture_copy">• Copy text: Hold dot 4, then swipe down anywhere with 3 fingers</string>
   <!-- Text selection and editing, gesture of cut. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_cut">Cut text: Hold dot 4, then swipe up anywhere with 3 fingers</string>
+  <string name="bk_gesture_cut">• Cut text: Hold dot 4, then swipe up anywhere with 3 fingers</string>
   <!-- Text selection and editing, gesture of paste. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_paste">Paste: Hold dot 4, then swipe right anywhere with 3 fingers</string>
+  <string name="bk_gesture_paste">• Paste: Hold dot 4, then swipe right anywhere with 3 fingers</string>
   <!-- Spell check gesture of previous misspelled word. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_previous_misspelled_word">Move to previous misspelled word: Swipe up</string>
+  <string name="bk_gesture_previous_misspelled_word">• Move to previous typo: Swipe up</string>
   <!-- Spell check gesture of next misspelled word. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_next_misspelled_word">Move to next misspelled word: Swipe down</string>
+  <string name="bk_gesture_next_misspelled_word">• Move to next typo: Swipe down</string>
   <!-- Spell check gesture of hear previous spelling suggestion. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_previous_suggestion">Hear previous spelling suggestion: Swipe left</string>
+  <string name="bk_gesture_previous_suggestion">• Hear previous suggestion: Swipe left</string>
   <!-- Spell check gesture of hear next spelling suggestion. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_next_suggestion">Hear next spelling suggestion: Swipe right</string>
+  <string name="bk_gesture_next_suggestion">• Hear next suggestion: Swipe right</string>
   <!-- Spell check gesture of confirm spelling suggestion. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_confirm_spelling_suggestion">Confirm spelling suggestion: Swipe right with 2 fingers</string>
+  <string name="bk_gesture_confirm_spelling_suggestion">• Confirm suggestion: Swipe right with 2 fingers</string>
   <!-- Spell check gesture of undo spelling suggestion. [CHAR_LIMIT=NONE] -->
-  <string name="bk_gesture_undo_spelling_suggestion">Undo spelling suggestion: Swipe left with 2 fingers</string>
+  <string name="bk_gesture_undo_spelling_suggestion">• Undo suggestion: Swipe left with 2 fingers</string>
 
   <!-- Not enough touch points dialog -->
   <!-- Not enough touch points dialog: title. [CHAR_LIMIT=100] -->
@@ -411,4 +415,16 @@
   <string name="braille_keyboard_strip_touch_screen_button">Switch to braille touchscreen</string>
   <!-- Braille display strip button: switch to next keyboard. [CHAR_LIMIT=100] -->
   <string name="braille_keyboard_strip_next_keyboard_button">Switch to next input method</string>
+
+  <!-- Spell check -->
+  <!-- Announced when no spell suggestion available. [CHAR_LIMIT=100] -->
+  <string name="no_spelling_suggestion_available_announcement">No spelling suggestion available</string>
+  <!-- Announced when no grammar suggestion available. [CHAR_LIMIT=100] -->
+  <string name="no_grammar_suggestion_available_announcement">No grammar suggestion available</string>
+  <!-- Index of spelling suggestion. [CHAR_LIMIT=50] -->
+  <string name="index_of_spelling_suggestion"><xliff:g id="suggestionIndex">%1$d</xliff:g> of <xliff:g id="suggestionListSize">%2$d</xliff:g></string>
+  <!-- Announced when current suggestion is a grammar suggestion. [CHAR_LIMIT=100] -->
+  <string name="grammar_suggestion">Grammar suggestion</string>
+  <!-- Announced when current suggestion is a spelling suggestion. [CHAR_LIMIT=100] -->
+  <string name="spelling_suggestion">Spelling suggestion</string>
 </resources>

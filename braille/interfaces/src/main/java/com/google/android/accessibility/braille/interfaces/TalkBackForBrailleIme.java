@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.google.android.accessibility.braille.interfaces;
 
 import android.graphics.Region;
 import android.view.WindowManager;
 import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer.ScreenReaderAction;
 import com.google.android.accessibility.utils.FocusFinder;
-import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 
 /** Exposes some TalkBack behavior to BrailleIme. */
@@ -66,14 +66,8 @@ public interface TalkBackForBrailleIme {
   /** TalkBack provides its active/suspended/inactive status to BrailleIme. */
   ServiceStatus getServiceStatus();
 
-  /** TalkBack provides the ability to speak an announcement via queue mode. */
-  void speak(CharSequence charSequence, int delayMs, SpeakOptions speakOptions);
-
   /** TalkBack provides the ability to interrupt all of the queuing announcement. */
   void interruptSpeak();
-
-  /** TalkBack provides the ability to play sound. */
-  void playSound(int resId, int delayMs);
 
   /** Disables proximity sensor to silence speech. */
   void disableSilenceOnProximity();

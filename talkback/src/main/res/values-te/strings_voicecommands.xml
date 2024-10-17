@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">చదువు</string>
-  <string name="voice_commands_read_from_next">తర్వాతి నుండి చదువు</string>
+  <string name="voice_commands_read_from_next">కర్సర్ నుండి చదవండి</string>
   <string name="voice_commands_edit_options">ఎడిట్ ఆప్షన్‌లు</string>
-  <string name="voice_commands_text_editing">టెక్స్ట్‌ను ఎడిట్ చేయడం</string>
-  <string name="voice_commands_edit_text">టెక్స్ట్‌ను ఎడిట్ చేయండి</string>
-  <string name="voice_commands_editing_options">ఎడిటింగ్ ఆప్షన్‌లు</string>
   <string name="voice_commands_edit">ఎడిట్ చేయండి</string>
   <string name="voice_commands_what">ఏమిటి</string>
   <string name="voice_commands_say">చెప్పు</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">లేబుల్</string>
   <string name="voice_commands_cannot_label_feedback">లేబుల్ చేయడం సాధ్యం కాదు</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">ప్రసంగ రేట్‌ను సెట్ చేయడం</string>
   <string name="voice_commands_first">మొదటిది</string>
   <string name="voice_commands_top">పైన</string>
   <string name="voice_commands_last">చివరిది</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">స్పీచ్ రేట్‌ను పెంచు</string>
   <string name="voice_commands_slower">తగ్గించు</string>
   <string name="voice_commands_decrease_speech_rate">స్పీచ్ రేట్‌ను తగ్గించు</string>
-  <string name="voice_commands_possible_options_title">మీరు ఇవి చెప్పవచ్చు</string>
   <string name="voice_commands_no_action">వాయిస్ షార్ట్‌కట్‌ సపోర్ట్ అవ్వదు</string>
   <string name="voice_commands_no_mic_permissions">ఈ ఫీచర్ ఉపయోగించడానికి, మీరు మైక్రోఫోన్‌ ఉపయోగించడానికి అనుమతినివ్వాలి.</string>
   <string name="voice_commands_no_voice_recognition_ability">క్షమించండి! మీ పరికరంలో ఈ ఫీచర్ అందుబాటులో లేదు</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">తర్వాతి కంట్రోల్ అందుబాటులో లేదు</string>
   <string name="voice_commands_no_next_landmark_feedback">తర్వాతి ల్యాండ్‌మార్క్ అందుబాటులో లేదు</string>
   <string name="voice_commands_help_title">వాయిస్ కమాండ్ ఓవర్‌వ్యూ</string>
-  <string name="voice_commands_help_description">వాయిస్ కమాండ్‌లను ఉపయోగించడానికి, కుడి వైపునకు, ఆపై పైకి స్వైప్ చేయండి. కమాండ్‌ల లిస్ట్ కోసం, ఎప్పుడైనా \"సహాయం\" లేదా \"నేను ఏమి చెప్పగలను?\" అని చెప్పండి.</string>
+  <string name="voice_commands_help_description">వాయిస్ కమాండ్‌లను ఉపయోగించడానికి, కుడి వైపునకు, ఆపై పైకి స్వైప్ చేయండి. కమాండ్‌ల లిస్ట్ కోసం, ఎప్పుడైనా \"%1$s\" లేదా \"నేను ఏమి చెప్పగలను?\" అని చెప్పండి.</string>
   <string name="voice_commands_help_hint">ఉత్తమ ఫలితాల కోసం, కింది స్క్రీన్‌లలో లిస్ట్ అయిన ఖచ్చితమైన పదాలను చెప్పండి.</string>
   <string name="voice_command_screen_locked_hint">స్క్రీన్ లాక్ చేసి ఉన్నప్పుడు వాయిస్ కమాండ్‌లు అందుబాటులో ఉండవు. టాక్‌బ్యాక్ మెనూను ఉపయోగించడానికి బదులుగా %1$s.</string>
   <string name="voice_commands_during_setup_hint">సెటప్ జరిగే సమయంలో వాయిస్ కమాండ్‌లు అందుబాటులో ఉండవు.</string>

@@ -27,6 +27,7 @@
     <SwitchPreference
         android:defaultValue="@bool/pref_speak_container_element_positions_default"
         android:key="@string/pref_speak_container_element_positions_key"
+        android:summary="@string/summary_speak_container_element_positions"
         android:title="@string/pref_speak_container_element_positions_title" />
 
     <!-- Scroll announcement verbosity -->
@@ -117,6 +118,14 @@
   <SwitchPreference
       android:defaultValue="@bool/pref_punctuation_default"
       android:key="@string/pref_punctuation_key"
+      android:visibility="invisible"
+      android:title="@string/title_pref_punctuation" />
+  <com.google.android.accessibility.talkback.preference.base.PunctuationListPreference
+      android:defaultValue="@string/pref_punctuation_verbosity_default"
+      android:entries="@array/pref_punctuation_entries"
+      android:entryValues="@array/pref_punctuation_values"
+      android:key="@string/pref_punctuation_verbosity"
+      android:summary="%s"
       android:title="@string/title_pref_punctuation" />
 
 </PreferenceScreen>

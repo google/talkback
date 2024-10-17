@@ -172,4 +172,10 @@ public class NodeMenuRuleProcessor implements NodeMenuProvider {
 
     return menuTypes;
   }
+
+  @Override
+  public String getActionMenuName() {
+    NodeMenuRule actionMenuRule = menuItemCreator.getMenuRule(MenuRules.RULE_CUSTOM_ACTION);
+    return actionMenuRule == null ? "" : actionMenuRule.getUserFriendlyMenuName(service).toString();
+  }
 }

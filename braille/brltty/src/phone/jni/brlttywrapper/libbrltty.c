@@ -24,34 +24,28 @@
 #include "third_party/brltty/Headers/prologue.h"  // NOLINT Must include first
 
 #include "libbrltty.h"
+#include <stdlib.h>
+#include <string.h>
 #include "third_party/brltty/Programs/core.h"
-#include "third_party/brltty/Programs/api_control.h"
 #include "third_party/brltty/Programs/scr.h"
 #include "third_party/brltty/Headers/async_wait.h"
 #include "third_party/brltty/Headers/brl_cmds.h"
-#include "third_party/brltty/Headers/cmd.h"
+#include "third_party/brltty/Headers/brl_types.h"
 #include "third_party/brltty/Headers/file.h"
 #include "third_party/brltty/Headers/ktb.h"
 #include "third_party/brltty/Headers/ktb_types.h"
 #include "third_party/brltty/Headers/log.h"
 #include "third_party/brltty/Headers/parse.h"
-#include "third_party/brltty/Headers/brl_utils.h"
 #include "third_party/brltty/Programs/cmd_queue.h"
+#include "third_party/brltty/Programs/defaults.h"
 #include "third_party/brltty/Headers/prefs.h"
 #include "third_party/brltty/Headers/queue.h"
-#include "third_party/brltty/Headers/timing.h"
 #include "third_party/brltty/Programs/brl.h"
 #include "third_party/brltty/Programs/cmd_queue.h"
 #include "third_party/brltty/Headers/parse.h"
 #include "third_party/brltty/config.h"
 #include "third_party/brltty/Programs/ktb_internal.h" // NOLINT Must precede ktb_inspect.h
 #include "third_party/brltty/Programs/ktb_inspect.h"
-#include "third_party/brltty/Programs/update.h"
-
-// textStart and textCount are taken from Programs/brltty.c. We declare them
-// here so we don't have to include the entire brltty.c file.
-unsigned int textStart = 0;
-unsigned int textCount;
 
 /*
  * The global variable 'braille' is the driver struct with vtable etc.  It is
@@ -82,8 +76,13 @@ static char** driverParameters = NULL;
  */
 static Queue *commandQueue = NULL;
 
-static int
-createEmptyDriverParameters (void);
+static const PreferenceSettings prefSettings = {
+             .autoreleaseTime = DEFAULT_AUTORELEASE_TIME,
+             .autorepeatInterval = 30, // 30 centiseconds = 300 ms
+             .autorepeatEnabled = 1,
+             .autorepeatPanning =  DEFAULT_AUTOREPEAT_PANNING,
+             .longPressTime = DEFAULT_LONG_PRESS_TIME
+         };
 
 static void
 freeDriverParameters(void);
@@ -108,6 +107,8 @@ brltty_initialize (const char* driverCode, const char* brailleDevice,
                    const char* tablesDir) {
   int ret = 0;
   systemLogLevel = LOG_DEBUG;
+
+  setPreferences(&prefSettings);
 
   logMessage(LOG_DEBUG, "Loading braille driver %s", driverCode);
   setNoScreen();
@@ -149,8 +150,6 @@ brltty_initialize (const char* driverCode, const char* brailleDevice,
     goto destructBraille;
   }
 
-  textCount = brltty_getTextCells();
-
   // TODO: Should set bufferResized to catch buffer size changes if we want to
   // signal those to the screen reader, which is probably useful.
   logMessage(LOG_DEBUG, "Allocating braille buffer");
@@ -165,6 +164,14 @@ brltty_initialize (const char* driverCode, const char* brailleDevice,
   brltty_handleCommand, NULL /* destroy handler */, NULL /* data */);
 
   commandQueue = newQueue(NULL, NULL);
+
+  setAutorepeatProperties(&brailleDisplay, prefs.autorepeatEnabled,
+                          PREFS2MSECS(prefs.longPressTime),
+                          PREFS2MSECS(prefs.autorepeatInterval));
+
+  if (brailleDisplay.keyTable) {
+    setKeyAutoreleaseTime(brailleDisplay.keyTable, prefs.autoreleaseTime);
+  }
 
   logMessage(LOG_NOTICE, "Successfully initialized braille driver "
              "%s on device %s", driverCode, brailleDevice);
@@ -296,35 +303,6 @@ brltty_getTextCells(void) {
 int
 brltty_getStatusCells(void) {
   return brailleDisplay.statusRows * brailleDisplay.statusColumns;
-}
-
-/*
- * Creates an array of empty strings, storing a pointer to the array in
- * the global variable driverParameters.  The size of the array
- * corresponds to the number of parameters expected by the current
- * driver.
- */
-static int
-createEmptyDriverParameters (void) {
-  const char *const *parameterNames = braille->parameters;
-  int count = 0;
-  int i;
-  if (!parameterNames) {
-    static const char *const noNames[] = {NULL};
-    parameterNames = noNames;
-  }
-
-  while (parameterNames[count] != NULL) {
-    ++count;
-  }
-  if (!(driverParameters = malloc((count + 1) * sizeof(*driverParameters)))) {
-    logMessage(LOG_ERR, "insufficient memory.");
-    return 0;
-  }
-  for (i = 0; i < count; ++i) {
-    driverParameters[i] = "";
-  }
-  return 1;
 }
 
 static void

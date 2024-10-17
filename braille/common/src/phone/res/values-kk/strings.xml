@@ -6,8 +6,8 @@
   <string name="read_out_deleted">%s жойылды.</string>
   <string name="read_out_selected_text">Таңдалған мәтін: %s</string>
   <plurals name="braille_dots">
-    <item quantity="one">%s нүкте</item>
-    <item quantity="other">%s нүкте</item>
+    <item quantity="one">%s нүктесі</item>
+    <item quantity="other">%s нүктелері</item>
   </plurals>
   <string name="remove_language_button_content_description">%s өшіру</string>
   <string name="split_comma">, %s</string>
@@ -18,11 +18,12 @@
   <string name="code_user_facing_name_arabic">Араб</string>
   <string name="code_user_facing_name_arabic_comp8">Араб (8 нүктелі компьютерлік Брайль қарпі)</string>
   <string name="code_user_facing_name_bulgarian">Болгар</string>
+  <string name="code_user_facing_name_bulgarian_comp8">Болгар (8 нүктелі компьютерлік Брайль қарпі)</string>
   <string name="code_user_facing_name_ca_catalan">Каталан</string>
   <string name="code_user_facing_name_catonese">Кантон</string>
   <string name="code_user_facing_name_chinese_china_common">Жалпы қолданылатын қытай тілі (Қытай)</string>
-  <string name="code_user_facing_name_chinese_china_current_with_tones">Тондар қолданылатын қазіргі қытай тілі (Қытай)</string>
-  <string name="code_user_facing_name_chinese_china_current_without_tones">Тондар қолданылмайтын қазіргі қытай тілі (Қытай)</string>
+  <string name="code_user_facing_name_chinese_china_current_with_tones">Үндер қолданылатын қазіргі қытай тілі (Қытай)</string>
+  <string name="code_user_facing_name_chinese_china_current_without_tones">Үндер қолданылмайтын қазіргі қытай тілі (Қытай)</string>
   <string name="code_user_facing_name_chinese_china_two_cells">Екі ұяшықты қытай тілі (Қытай)</string>
   <string name="code_user_facing_name_chinese_taiwan">Қытай (Тайвань)</string>
   <string name="code_user_facing_name_central_kurdish">Орталық күрд</string>
@@ -35,12 +36,10 @@
   <string name="code_user_facing_name_german_comp8">Неміс (8 нүктелі компьютерлік Брайль қарпі)</string>
   <string name="code_user_facing_name_german">Неміс</string>
   <string name="code_user_facing_name_greek">Грек</string>
-  <string name="code_user_facing_name_en_ca">Ағылшын (Канада, Брайль қарпі)</string>
   <string name="code_user_facing_name_en_uk">Ағылшын тіліндегі Брайль қарпі (Біріккен Корольдік)</string>
   <string name="code_user_facing_name_en_in">Ағылшын (Үндістан, Брайль қарпі)</string>
   <string name="code_user_facing_name_en_nabcc_comp8">Солтүстік Америкалық компьютерлік Брайль коды</string>
   <string name="code_user_facing_name_en_comp6">Ағылшын (6 нүктелік компьютерлік Брайль қарпі)</string>
-  <string name="code_user_facing_name_en_comp8">Ағылшын (8 нүктелік компьютерлік Брайль қарпі)</string>
   <string name="code_user_facing_name_en_us_ebae">Ағылшын тіліндегі Брайль қарпі (АҚШ, америкалық нұсқа)</string>
   <string name="code_user_facing_name_en_us">Ағылшын тіліндегі Брайль қарпі (АҚШ)</string>
   <string name="code_user_facing_name_polish">Поляк</string>
@@ -78,13 +77,14 @@
   <string name="code_user_facing_name_dutch_comp8">Нидерланд (8 нүктелі компьютерлік Брайль қарпі)</string>
   <string name="code_user_facing_name_norwegian">Норвег тілі</string>
   <string name="code_user_facing_name_norwegian_8_no">Норвег (Норвегия, 8 нүктелік Брайль)</string>
+  <string name="code_user_facing_name_norwegian_comp8">Норвег (8 нүктелі компьютерлік Брайль қарпі)</string>
   <string name="code_user_facing_name_norwegian_8">Норвег (8 нүктелік Брайль қарпі)</string>
   <string name="code_user_facing_name_norwegian_8_with_6_fallback">Норвег (6 нүктелік резерві бар 8 нүктелік Брайль қарпі)</string>
   <string name="code_user_facing_name_nepali_indian">Непал (Үндістан, Брайль қарпі)</string>
   <string name="code_user_facing_name_portuguese">Португал</string>
   <string name="code_user_facing_name_punjabi">Пенджаб</string>
   <string name="code_user_facing_name_portuguese_comp8">Португал (8 нүктелік компьютерлік Брайль қарпі)</string>
-  <string name="code_user_facing_name_romanian_no">Румын (8 нүктелік Брайль қарпі)</string>
+  <string name="code_user_facing_name_romanian_comp8">Румын (8 нүктелі компьютерлік Брайль қарпі)</string>
   <string name="code_user_facing_name_russian">Орыс</string>
   <string name="code_user_facing_name_russian_detailed">Орыс (бас әріптер көрсетілген)</string>
   <string name="code_user_facing_name_russian_comp8">Орыс (8 нүктелік компьютерлік Брайль қарпі)</string>
@@ -99,7 +99,7 @@
   <string name="code_user_facing_name_tamil">Тамил</string>
   <string name="code_user_facing_name_telugu_in">Телугу (Үндістан, Брайль қарпі)</string>
   <string name="code_user_facing_name_turkish">Түрік</string>
-  <string name="code_user_facing_name_turkish_8">Түрік (8 нүктелік Брайль қарпі)</string>
+  <string name="code_user_facing_name_turkish_comp8">Түрік (8 нүктелі компьютерлік Брайль қарпі)</string>
   <string name="code_user_facing_name_ukrainian">Украин</string>
   <string name="code_user_facing_name_ukrainian_comp8">Украин (8 нүктелік компьютерлік Брайль қарпі)</string>
   <string name="code_user_facing_name_urdu">Урду</string>

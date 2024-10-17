@@ -107,7 +107,6 @@ public class WearQRCodeFragment extends Fragment {
     targetFragmentView.setImportantForAccessibility(targetFragmentViewOriginalA11yMode);
     // To support Wear rotary input.
     targetFragmentView.requestFocus();
-    // TODO
     requireActivity().getSupportFragmentManager().popBackStackImmediate();
   }
 

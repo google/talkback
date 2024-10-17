@@ -20,7 +20,9 @@ import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_ACCESSIBILI
 import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_INPUT;
 
 import android.accessibilityservice.AccessibilityService;
+import android.view.accessibility.AccessibilityWindowInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionRecord;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -28,11 +30,16 @@ import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.ClassLoadingCache;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Role;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Monitors the current accessibility-focus location, for both event-interpreters and actors. */
 public class AccessibilityFocusMonitor {
+
+  private static final String TAG = "AccessibilityFocusMonitor";
+
   public static final Filter<AccessibilityNodeInfoCompat> NUMBER_PICKER_FILTER_FOR_ADJUST =
       Filter.node(
           (node) ->
@@ -42,6 +49,14 @@ public class AccessibilityFocusMonitor {
   private final AccessibilityService service;
   private final FocusFinder focusFinder;
   private final AccessibilityFocusActionHistory.Reader history;
+
+  private static final Filter<AccessibilityNodeInfoCompat> FILTER_VISIBLE_EDIT_TEXT_ROLE =
+      new Filter<AccessibilityNodeInfoCompat>() {
+        @Override
+        public boolean accept(AccessibilityNodeInfoCompat node) {
+          return node.isVisibleToUser() && Role.getRole(node) == Role.ROLE_EDIT_TEXT;
+        }
+      };
 
   public AccessibilityFocusMonitor(
       AccessibilityService service,
@@ -104,6 +119,8 @@ public class AccessibilityFocusMonitor {
       if (inputFocusedNode.isFocused() && (!requireEditable || isEditable)) {
         return inputFocusedNode;
       }
+    } else {
+      LogUtils.w(TAG, "getAccessibilityFocus, inputFocusedNode is null");
     }
 
     // If we can't find the focused node but the keyboard is showing, return the last editable.
@@ -120,8 +137,11 @@ public class AccessibilityFocusMonitor {
       // connected to bluetooth keyboard?
       if (AccessibilityServiceCompatUtils.isInputWindowOnScreen(service)) {
         return lastFocusedEditFieldInHistory;
+      } else {
+        LogUtils.d(TAG, "getAccessibilityFocus, no ime window on the screen");
       }
     }
+    LogUtils.e(TAG, "getAccessibilityFocus, couldn't fallback from lastFocusedEditFieldInHistory");
     return null;
   }
 
@@ -151,15 +171,36 @@ public class AccessibilityFocusMonitor {
    */
   public @Nullable AccessibilityNodeInfoCompat getEditingNodeFromFocusedKeyboard(
       AccessibilityNodeInfoCompat accessibilityFocusNode) {
+
+    if (FormFactorUtils.getInstance().isAndroidWear()) {
+      // The editing node in the IME window has higher order than the one in the app window because
+      // the IME window might fully cover the app window on WearOS. So, the editing node would be
+      // visible in the IME window, rather than the app window.
+      AccessibilityWindowInfoCompat focusNodeWindowInfo =
+          AccessibilityNodeInfoUtils.getWindow(accessibilityFocusNode);
+      if (focusNodeWindowInfo != null
+          && focusNodeWindowInfo.getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD) {
+        AccessibilityNodeInfoCompat editingNodeOnIme =
+            AccessibilityNodeInfoUtils.getSelfOrMatchingDescendant(
+                focusNodeWindowInfo.getRoot(), FILTER_VISIBLE_EDIT_TEXT_ROLE);
+        if (editingNodeOnIme != null) {
+          LogUtils.d(TAG, "Get the editing node from IME on Wear. node=%s", editingNodeOnIme);
+          return editingNodeOnIme;
+        }
+      }
+    }
+
     if (AccessibilityNodeInfoUtils.isSelfOrAncestorFocused(accessibilityFocusNode)
         && AccessibilityNodeInfoUtils.isKeyboard(accessibilityFocusNode)) {
       AccessibilityNodeInfoCompat inputFocus = getInputFocus();
       if (inputFocus != null
           && inputFocus.isVisibleToUser()
           && Role.getRole(inputFocus) == Role.ROLE_EDIT_TEXT) {
+        LogUtils.d(TAG, "Get the editing node from input focus. node=%s", inputFocus);
         return inputFocus;
       }
     }
+    LogUtils.d(TAG, "Failed to get the editing node.");
     return null;
   }
 

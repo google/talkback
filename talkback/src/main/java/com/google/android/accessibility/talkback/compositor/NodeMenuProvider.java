@@ -29,4 +29,7 @@ public interface NodeMenuProvider {
    * @param node The target node to find supported menu action types
    */
   List<String> getSelfNodeMenuActionTypes(AccessibilityNodeInfoCompat node);
+
+  /** Returns the title of the action item shown in menu. */
+  String getActionMenuName();
 }

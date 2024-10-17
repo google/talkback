@@ -108,6 +108,16 @@ class EditorConsumer implements EventConsumer {
         }
         // Avoids to announce the unknown command feedback.
         return true;
+      case BrailleInputEvent.CMD_SELECTION_SELECT_CURRENT_TO_START:
+        if (FeatureFlagReader.useSelectCurrentToStartOrEnd(context)) {
+          return behaviorIme.selectCurrentToStart();
+        }
+        return true;
+      case BrailleInputEvent.CMD_SELECTION_SELECT_CURRENT_TO_END:
+        if (FeatureFlagReader.useSelectCurrentToStartOrEnd(context)) {
+          return behaviorIme.selectCurrentToEnd();
+        }
+        return true;
       case BrailleInputEvent.CMD_SELECT_PREVIOUS_CHARACTER:
         if (FeatureFlagReader.useSelectPreviousNextCharacterWordLine(context)) {
           return behaviorIme.selectPreviousCharacter();

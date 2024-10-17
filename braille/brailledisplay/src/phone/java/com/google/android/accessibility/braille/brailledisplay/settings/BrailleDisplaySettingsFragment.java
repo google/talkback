@@ -16,13 +16,14 @@
 
 package com.google.android.accessibility.braille.brailledisplay.settings;
 
-import static android.view.View.VISIBLE;
+import static android.widget.Toast.LENGTH_LONG;
 import static com.google.android.accessibility.braille.common.BrailleUserPreferences.BRAILLE_SHARED_PREFS_FILENAME;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -34,7 +35,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Pair;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts.RequestMultiplePermissions;
@@ -44,9 +44,7 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceClickListener;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceViewHolder;
 import androidx.preference.SwitchPreference;
-import com.google.android.accessibility.braille.brailledisplay.BrailleDisplayTalkBackSpeaker;
 import com.google.android.accessibility.braille.brailledisplay.R;
 import com.google.android.accessibility.braille.brailledisplay.analytics.BrailleDisplayAnalytics;
 import com.google.android.accessibility.braille.brailledisplay.controller.TranslatorManager;
@@ -59,6 +57,7 @@ import com.google.android.accessibility.braille.brailledisplay.platform.connect.
 import com.google.android.accessibility.braille.brailledisplay.platform.lib.Utils;
 import com.google.android.accessibility.braille.brailledisplay.settings.ConnectionDeviceActionButtonView.ActionButton;
 import com.google.android.accessibility.braille.brltty.BrailleDisplayProperties;
+import com.google.android.accessibility.braille.common.BrailleCommonTalkBackSpeaker;
 import com.google.android.accessibility.braille.common.BraillePreferenceUtils;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.braille.common.settings.BrailleLanguagesActivity;
@@ -68,7 +67,6 @@ import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.material.MaterialComponentUtils;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
@@ -84,7 +82,6 @@ import java.util.stream.Collectors;
 public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
   private static final BrailleCharacter SHORTCUT_SWITCH_INPUT_CODE = new BrailleCharacter("2478");
   private static final BrailleCharacter SHORTCUT_SWITCH_OUTPUT_CODE = new BrailleCharacter("13578");
-
   private Connectioneer connectioneer;
   private Connectioneer.AspectEnablement aspectEnablement;
   private Connectioneer.AspectConnection aspectConnection;
@@ -109,6 +106,7 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
 
   private TranslatorManager translatorManager;
   private boolean systemPermissionDialogIsShowable = false;
+  private boolean scanning = false;
   private final Set<ConnectableDevice> scannedDevicesCache = new HashSet<>();
 
   public BrailleDisplaySettingsFragment(
@@ -131,7 +129,7 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
     enablerSwitch = findPreference(getString(R.string.pref_key_bd_enabler));
     enablerSwitch.setOnPreferenceChangeListener(
         (preference, newValue) -> {
-          PersistentStorage.setConnectionEnabledByUser(getContext(), (Boolean) newValue);
+          PersistentStorage.setConnectionEnabled(getContext(), (Boolean) newValue);
           onModelChanged();
           return false;
         });
@@ -322,30 +320,37 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
   private void onModelChanged() {
     boolean isServiceEnabled = aspectEnablement.isServiceEnabled();
     boolean isConnectionPossible =
-        isServiceEnabled && PersistentStorage.isConnectionEnabledByUser(getContext());
+        isServiceEnabled && PersistentStorage.isConnectionEnabled(getContext());
 
     // Banner preference.
     constructBannerPreference(bannerMessagePreference, isServiceEnabled);
 
     // Main switch
     enablerSwitch.setEnabled(isServiceEnabled);
-    enablerSwitch.setChecked(PersistentStorage.isConnectionEnabledByUser(getContext()));
+    enablerSwitch.setChecked(PersistentStorage.isConnectionEnabled(getContext()));
 
     // Rescan
-    boolean scanning = false;
+    boolean currentScanning = false;
     String scanPreferenceSummary = "";
     if (isConnectionPossible) {
-      scanning = aspectConnection.isScanning();
+      currentScanning = aspectConnection.isScanning();
     }
     scanPreference.setEnabled(
-        aspectConnection.isBluetoothOn() && isConnectionPossible && !scanning);
+        aspectConnection.isBluetoothOn() && isConnectionPossible && !currentScanning);
     scanPreference.setVisible(!connectioneer.aspectConnection.useUsbConnection());
     scanPreference.setTitle(
-        scanning
+        currentScanning
             ? R.string.bd_preference_scan_activated_title
             : R.string.bd_preference_scan_inactivated_title);
     scanPreference.setSummary(scanPreferenceSummary);
-    connectionPreferenceCategory.setProgressActive(scanning);
+    connectionPreferenceCategory.setProgressActive(currentScanning);
+    if (!currentScanning && scanning) {
+      // Show toast when no devices found during the scanning cycle.
+      if (scannedDevicesCache.isEmpty() && !aspectConnection.isConnectingOrConnected()) {
+        Toast.makeText(getContext(), getString(R.string.bd_no_devices_found), LENGTH_LONG).show();
+      }
+    }
+    scanning = currentScanning;
 
     // Device list
     if (isConnectionPossible) {
@@ -365,6 +370,7 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
           int index = listIterator.nextIndex();
           ConnectibleDeviceInfo rowDevice = listIterator.next();
           DevicePreference devicePreference = new DevicePreference(getContext(), index, rowDevice);
+          devicePreference.setKey(rowDevice.deviceAddress);
           connectionPreferenceCategory.addPreference(devicePreference);
         }
       }
@@ -453,7 +459,7 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
 
     List<Pair<String, String>> rememberedDevices =
         PersistentStorage.getRememberedDevices(getContext());
-    Collection<ConnectableDevice> scannedDevices = aspectConnection.getScannedDevicesCopy();
+    List<ConnectableDevice> scannedDevices = aspectConnection.getScannedDevicesCopy();
 
     for (Pair<String, String> rememberedDevice : rememberedDevices) {
       // Search for a scanned device that matches the rememberedDevice.  If found, add to the top
@@ -467,18 +473,21 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
               .findFirst();
       if (twinOptional.isPresent()) {
         ConnectableDevice twinDevice = twinOptional.get();
-        rowDevices.add(createInRangeDevice(twinDevice, true));
+        rowDevices.add(createInRangeDevice(twinDevice, /* isRemembered= */ true));
         scannedDevices.remove(twinDevice);
       } else if (!connectioneer.aspectConnection.useUsbConnection()) {
-        rowDevices.add(
-            createOutOfRangeRememberedDevice(rememberedDevice.first, rememberedDevice.second));
+        ConnectibleDeviceInfo info =
+            createOutOfRangeRememberedDevice(rememberedDevice.first, rememberedDevice.second);
+        if (info != null) {
+          rowDevices.add(info);
+        }
       }
     }
 
     // Now dump the remaining scanned devices into the list we are building.
     rowDevices.addAll(
         scannedDevices.stream()
-            .map(device -> createInRangeDevice(device, false))
+            .map(device -> createInRangeDevice(device, /* isRemembered= */ false))
             .collect(Collectors.toList()));
 
     // Variable isStructurePreserved is true if the newly built list of DeviceInfo has the same
@@ -487,27 +496,32 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
     boolean isStructurePreserved =
         getDevicePreferenceList().stream()
             .map(pref -> pref.rowDevice)
-            .map(r -> r.deviceName)
             .collect(Collectors.toList())
-            .equals(rowDevices.stream().map(r1 -> r1.deviceName).collect(Collectors.toList()));
+            .equals(rowDevices.stream().collect(Collectors.toList()));
 
     return new Pair<>(rowDevices, isStructurePreserved);
   }
 
   private ConnectibleDeviceInfo createInRangeDevice(
       ConnectableDevice device, boolean isRemembered) {
-    boolean isConnecting = aspectConnection.isConnectingTo(device.name());
-    boolean isConnected = aspectConnection.isConnectedTo(device.name());
+    boolean isConnecting = aspectConnection.isConnectingTo(device.address());
+    boolean isConnected = aspectConnection.isConnectedTo(device.address());
     return new ConnectibleDeviceInfo(
         device.name(), device.address(), isRemembered, isConnecting, isConnected, device);
   }
 
-  private ConnectibleDeviceInfo createOutOfRangeRememberedDevice(
+  private @Nullable ConnectibleDeviceInfo createOutOfRangeRememberedDevice(
       String deviceName, String deviceAddress) {
-    boolean isConnecting = aspectConnection.isConnectingTo(deviceName);
-    boolean isConnected = aspectConnection.isConnectedTo(deviceName);
-    return new ConnectibleDeviceInfo(
-        deviceName, deviceAddress, true, isConnecting, isConnected, null);
+    boolean isConnecting = aspectConnection.isConnectingTo(deviceAddress);
+    boolean isConnected = aspectConnection.isConnectedTo(deviceAddress);
+    Set<BluetoothDevice> devices = BluetoothAdapter.getDefaultAdapter().getBondedDevices();
+    for (BluetoothDevice device : devices) {
+      if (device.getAddress().equals(deviceAddress)) {
+        return new ConnectibleDeviceInfo(
+            deviceName, deviceAddress, true, isConnecting, isConnected, null);
+      }
+    }
+    return null;
   }
 
   private List<DevicePreference> getDevicePreferenceList() {
@@ -528,14 +542,8 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
   }
 
   private class DevicePreference extends Preference {
-
     private final int index;
     private ConnectibleDeviceInfo rowDevice;
-
-    private boolean viewsAreBound;
-
-    private TextView titleTextView;
-    private TextView summaryTextView;
     private AlertDialog deviceDetailDialog;
 
     public DevicePreference(Context context, int index, ConnectibleDeviceInfo rowDevice) {
@@ -546,18 +554,8 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
     }
 
     @Override
-    public void onBindViewHolder(final PreferenceViewHolder view) {
-      super.onBindViewHolder(view);
-
-      // TODO: view.itemView.setContentDescription(mContentDescription)
-
-      titleTextView = (TextView) view.findViewById(android.R.id.title);
-      titleTextView.setVisibility(VISIBLE);
-
-      summaryTextView = (TextView) view.findViewById(android.R.id.summary);
-      summaryTextView.setVisibility(VISIBLE);
-
-      viewsAreBound = true;
+    public void onAttached() {
+      super.onAttached();
       updateViewsInternal();
     }
 
@@ -570,6 +568,12 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
               .setView(new ConnectionDeviceActionButtonView(getContext(), createActionButtons()))
               .create();
       deviceDetailDialog.show();
+    }
+
+    @Override
+    public void onPrepareForRemoval() {
+      super.onPrepareForRemoval();
+      dismissConnectionDeviceDetailDialog();
     }
 
     private List<ActionButton> createActionButtons() {
@@ -596,7 +600,7 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
             new ActionButton(
                 getString(R.string.bd_preference_device_item_button_forget),
                 v -> {
-                  onUserSelectedForgetDevice(rowDevice.deviceName, rowDevice.deviceAddress);
+                  onUserSelectedForgetDevice(rowDevice.device);
                   dismissConnectionDeviceDetailDialog();
                 }));
       }
@@ -614,20 +618,20 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
     }
 
     private void updateViewsInternal() {
-      titleTextView.setText(rowDevice.deviceName);
+      setTitle(rowDevice.deviceName);
       boolean enabled = true;
       if (rowDevice.isConnected) {
-        summaryTextView.setText(R.string.bd_preference_device_item_summary_connected);
+        setSummary(R.string.bd_preference_device_item_summary_connected);
       } else if (rowDevice.isConnecting) {
-        summaryTextView.setText(R.string.bd_preference_device_item_summary_connecting);
+        setSummary(R.string.bd_preference_device_item_summary_connecting);
       } else if (rowDevice.hasConnectableDevice()) {
         if (rowDevice.isRemembered) {
-          summaryTextView.setText(R.string.bd_preference_device_item_summary_saved_and_available);
+          setSummary(R.string.bd_preference_device_item_summary_saved_and_available);
         } else {
-          summaryTextView.setText(R.string.bd_preference_device_item_summary_available);
+          setSummary(R.string.bd_preference_device_item_summary_available);
         }
       } else {
-        summaryTextView.setText(R.string.bd_preference_device_item_summary_saved_out_of_range);
+        setSummary(R.string.bd_preference_device_item_summary_saved_out_of_range);
         enabled = rowDevice.isRemembered;
       }
       setEnabled(enabled);
@@ -635,19 +639,11 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
 
     private void updateViews(ConnectibleDeviceInfo rowDevice) {
       this.rowDevice = rowDevice;
-      if (!viewsAreBound) {
-        return;
-      }
       updateViewsInternal();
-      notifyChanged();
     }
 
-    private boolean isConnectingOrConnected() {
-      return aspectConnection.isConnectingOrConnected();
-    }
-
-    private void onUserSelectedConnectDevice(ConnectableDevice btDevice) {
-      aspectConnection.onUserChoseConnectDevice(btDevice);
+    private void onUserSelectedConnectDevice(ConnectableDevice device) {
+      aspectConnection.onUserChoseConnectDevice(device);
       onModelChanged();
     }
 
@@ -656,9 +652,9 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
       onModelChanged();
     }
 
-    private void onUserSelectedForgetDevice(String deviceName, String deviceAddress) {
-      PersistentStorage.deleteRememberedDevice(getContext(), new Pair<>(deviceName, deviceAddress));
-      aspectConnection.onUserChoseDisconnectFromDevice(deviceAddress);
+    private void onUserSelectedForgetDevice(ConnectableDevice device) {
+      PersistentStorage.deleteRememberedDevice(getContext(), device.address());
+      aspectConnection.onUserChoseForgetDevice(device);
       onModelChanged();
     }
   }
@@ -700,6 +696,25 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
                 : R.string.bd_preference_braille_uncontracted));
   }
 
+  private void showTroubleshootingDialog(String deviceName) {
+    MaterialComponentUtils.alertDialogBuilder(getContext())
+        .setTitle(
+            TextUtils.isEmpty(deviceName)
+                ? getContext().getString(R.string.bd_bt_connect_fail_dialog_title_without_name)
+                : getContext()
+                    .getString(R.string.bd_bt_connect_fail_dialog_title_with_name, deviceName))
+        .setMessage(R.string.bd_bt_connect_fail_dialog_message)
+        .setPositiveButton(
+            R.string.bd_bt_connect_fail_positive_button, (dialog, which) -> launchHelpCenter())
+        .setNegativeButton(R.string.bd_bt_connect_fail_negative_button, null)
+        .create()
+        .show();
+  }
+
+  private void launchHelpCenter() {
+    // Open Help Center page.
+  }
+
   private final ActivityResultLauncher<String[]> requestPermissionLauncher =
       registerForActivityResult(
           new RequestMultiplePermissions(),
@@ -736,17 +751,18 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
         }
 
         @Override
-        public void onConnectStarted() {}
+        public void onConnectHidStarted() {}
+
+        @Override
+        public void onConnectRfcommStarted() {}
 
         @Override
         public void onConnectableDeviceSeenOrUpdated(ConnectableDevice device) {
           // Inform the user of a newly seen device, if it is not remembered.
           if (!scannedDevicesCache.contains(device)
               && !PersistentStorage.getRememberedDevices(getContext()).stream()
-                  .map(d -> d.first)
-                  .collect(Collectors.toList())
-                  .contains(device.name())) {
-            BrailleDisplayTalkBackSpeaker.getInstance()
+                  .anyMatch(pair -> pair.second.equals(device.address()))) {
+            BrailleCommonTalkBackSpeaker.getInstance()
                 .speak(getString(R.string.bd_new_device_found_announcement));
           }
           // Cache scanned devices for finding new added device next time.
@@ -756,17 +772,22 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
         }
 
         @Override
+        public void onConnectableDeviceDeleted(ConnectableDevice device) {
+          onModelChanged();
+        }
+
+        @Override
         public void onConnectionStatusChanged(ConnectStatus status, ConnectableDevice device) {
           onModelChanged();
         }
 
         @Override
-        public void onConnectFailed(@Nullable String deviceName) {
-          String message =
-              deviceName == null
-                  ? getString(R.string.bd_bt_connection_failed_message)
-                  : getString(R.string.bd_bt_connection_with_device_failed_message, deviceName);
-          Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+        public void onConnectFailed(boolean manual, @Nullable String deviceName) {
+          onModelChanged();
+          if (!manual) {
+            return;
+          }
+          showTroubleshootingDialog(deviceName);
         }
       };
 
@@ -813,7 +834,7 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
                 .logAutoConnectSetting(PersistentStorage.isAutoConnect(getContext()));
           } else if (key.equals(getString(R.string.pref_key_bd_enabler))) {
             BrailleDisplayAnalytics.getInstance(getContext())
-                .logEnablerSetting(PersistentStorage.isConnectionEnabledByUser(getContext()));
+                .logEnablerSetting(PersistentStorage.isConnectionEnabled(getContext()));
           } else if (key.equals(getString(R.string.pref_braille_contracted_mode))) {
             updateBrailleGradeSummary();
           }

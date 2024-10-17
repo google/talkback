@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">Nustatytas %1$s garsumas – %2$d proc.</string>
   <string name="template_stream_muted_set">%1$s: garsas nutildytas.</string>
+  <string name="hint_a11y_volume_control">Jei norite pakeisti pritaikomumo garsumą, laikykite vieną pirštą ant ekrano, tada paspauskite garsumo padidinimo arba sumažinimo mygtuką.</string>
   <string name="value_stream_voice_call">Telefono skambutis</string>
   <string name="value_stream_system">Sistemos garsas</string>
   <string name="value_stream_ring">Skambėjimo tonas</string>

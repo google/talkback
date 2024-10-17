@@ -16,23 +16,44 @@
 
 package com.google.android.accessibility.brailleime;
 
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.android.accessibility.braille.common.BrailleLog;
 
 /** Log handler which unifies logging under a single, BrailleIme-specific tag. */
 public class BrailleImeLog {
-  private static final String LOG_TAG = "BrailleIme";
+  private static final String TAG = "BrailleIme";
 
-  private BrailleImeLog() {}
-
-  public static void logD(String tag, String message) {
-    LogUtils.d(LOG_TAG, "%s: %s", tag, message);
+  /** Logs at Android "verbose" level. */
+  public static void v(String tag, String message) {
+    BrailleLog.v(TAG, tag, message);
   }
 
-  public static void logE(String tag, String message, Throwable throwable) {
-    LogUtils.e(LOG_TAG, throwable, "%s: %s", tag, message);
+  /** Logs at Android "debug" level. Logs a */
+  public static void d(String tag, String message) {
+    BrailleLog.d(TAG, tag, message);
   }
 
-  public static void logE(String tag, String message) {
-    LogUtils.e(LOG_TAG, (Throwable) null, "%s: %s", tag, message);
+  /** Logs at Android "information" level. */
+  public static void i(String tag, String message) {
+    BrailleLog.i(TAG, tag, message);
+  }
+
+  /** Logs at Android "warning" level. */
+  public static void w(String tag, String message) {
+    BrailleLog.w(TAG, tag, message);
+  }
+
+  /** Logs at Android "warning" level with {@code Throwable}. */
+  public static void w(String tag, String message, Throwable throwable) {
+    BrailleLog.w(TAG, tag, message, throwable);
+  }
+
+  /** Logs at Android "error" level with {@code Throwable}. */
+  public static void e(String tag, String message, Throwable throwable) {
+    BrailleLog.e(TAG, tag, message, throwable);
+  }
+
+  /** Logs at Android "error" level. */
+  public static void e(String tag, String message) {
+    BrailleLog.e(TAG, tag, message);
   }
 }

@@ -694,17 +694,33 @@ public class TextEventInterpreter {
     if (!isWhiteSpace(lastChar) && !isPunctuation(lastChar)) {
       return false;
     }
-    fromIndex = fromIndex + addedText.length() - 1;
 
-    final int breakIndex = getPrecedingWhitespaceOrPunctuation(text, fromIndex);
-    final CharSequence word = text.subSequence(breakIndex, fromIndex);
+    final int newToIndex = fromIndex + addedText.length() - 1;
+    final int newFromIndex = getPrecedingWhitespaceOrPunctuation(text, newToIndex);
+    // Echo the last char even if it is a punctuation symbol.
+    final CharSequence word = text.subSequence(newFromIndex, newToIndex + 1);
 
     // Did the user just type a word?
     if (TextUtils.getTrimmedLength(word) == 0) {
       return false;
     }
+    if (word.length() == 2) {
+      // Prevent one-character-word-echo feedback verbosity.
+      // For example, input ' ', 'a', '@', it doesn't need any echo like 'a@'.
+      CharSequence charSequence = text.subSequence(text.length() - 2, text.length());
+      if (TextUtils.equals(charSequence, word)) {
+        return false;
+      }
+    }
 
-    interpretation.setInitialWord(word);
+    String charName = SpeechCleanupUtils.characterToName(mContext, lastChar);
+    if (charName == null) {
+      interpretation.setInitialWord(word);
+    } else {
+      // Announce character name(punctuation and symbol) for the last character.
+      String echoWord = text.subSequence(newFromIndex, newToIndex) + " " + charName;
+      interpretation.setInitialWord(echoWord);
+    }
     return true;
   }
 
@@ -722,11 +738,11 @@ public class TextEventInterpreter {
   }
 
   /** Returns index of first whitespace or punctuation preceding fromIndex. */
-  private static int getPrecedingWhitespaceOrPunctuation(CharSequence text, int fromIndex) {
-    if (fromIndex > text.length()) {
-      fromIndex = text.length();
+  private static int getPrecedingWhitespaceOrPunctuation(CharSequence text, int toIndex) {
+    if (toIndex > text.length()) {
+      toIndex = text.length();
     }
-    for (int i = (fromIndex - 1); i > 0; i--) {
+    for (int i = (toIndex - 1); i > 0; i--) {
       if (isWhiteSpace(text.charAt(i))) {
         return i + 1;
       }

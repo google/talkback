@@ -107,12 +107,20 @@
   <string name="bd_switch_input_code_gesture_tip_dialog_message">To change your typing language, press %s at the same time</string>
   <!-- Dialog message for change typing language while typing. %s is the dot numbers of keystroke, it is "dots 2 4 6 7 8" now. [CHAR_LIMIT=300] -->
   <string name="bd_switch_output_code_gesture_tip_dialog_message">To change your reading language, press %s at the same time</string>
-  <!-- Represents a dot number. %s is a number within 1 to 8. [CHAR_LIMIT=5] -->
-  <string name="bd_dot_number">dot%d</string>
-  <!-- Don’t show this again checkbox. [CHAR_LIMIT=30] -->
-  <string name="bd_dont_show_again">Don’t show this again</string>
   <!-- Advanced settings title. Displays an activity that shows advanced settings preferences. [CHAR_LIMIT=40] -->
   <string name="bd_preference_key_advanced_settings_title">Advanced settings</string>
+
+  <!-- Dialog for bluetooth connection failed -->
+  <!-- Dialog title for bluetooth connection failed. [CHAR_LIMIT=100] -->
+  <string name="bd_bt_connect_fail_dialog_title_with_name">Can\'t connect to %s</string>
+  <!-- Dialog title for bluetooth connection failed. [CHAR_LIMIT=100] -->
+  <string name="bd_bt_connect_fail_dialog_title_without_name">Can\'t connect to device</string>
+  <!-- Dialog message for bluetooth connection failed. [CHAR_LIMIT=400] -->
+  <string name="bd_bt_connect_fail_dialog_message">Make sure this braille display is turned on and nearby.\n\nIf it still won\'t connect, double-tap \"Learn more\" for other troubleshooting suggestions.</string>
+  <!-- Positive button for bluetooth connection failed dialog. [CHAR_LIMIT=45] -->
+  <string name="bd_bt_connect_fail_positive_button">Learn more</string>
+  <!-- Negative button for bluetooth connection failed dialog. [CHAR_LIMIT=45] -->
+  <string name="bd_bt_connect_fail_negative_button">Cancel</string>
 
   <!-- Preferred braille grade page -->
   <!-- Radio button for the contracted braille preference. [CHAR_LIMIT=45] -->
@@ -121,39 +129,37 @@
   <string name="bd_preference_braille_uncontracted">Uncontracted braille</string>
   <!-- Braille grade tips. [CHAR_LIMIT=400] -->
   <string name="bd_braille_grade_tips">To quickly switch between contracted and uncontracted using a braille display, press space and dots 1, 2, 4, 5.\n\nThis command works if you’re using a language with both braille grades.</string>
-  <!-- Link for learn more about braille keystrokes. [CHAR_LIMIT=100] -->
-  <string name="bd_preference_learn_braille_keystrokes">Learn more about braille keystrokes</string>
 
-  <!-- Braille commands category page -->
-  <!-- Braille commands preference title. Displays an activity that shows the user key bindings for their device. [CHAR_LIMIT=40] -->
-  <string name="bd_preference_key_bindings_title">Braille commands</string>
-  <!-- Braille commands preference summary. Displays an activity that shows the user key bindings for their device. [CHAR_LIMIT=80] -->
+  <!-- Braille display commands category page -->
+  <!-- Braille display commands preference title. Displays an activity that shows the user key bindings for their device. [CHAR_LIMIT=40] -->
+  <string name="bd_preference_key_bindings_title">Braille display commands</string>
+  <!-- Braille display commands preference summary. Displays an activity that shows the user key bindings for their device. [CHAR_LIMIT=80] -->
   <string name="bd_preference_key_bindings_summary">Learn key commands for your braille display</string>
-  <!-- Instructions displayed in the braille command activity. Explains how to use key bindings with a Braille display. [CHAR LIMIT=250]-->
+  <!-- Instructions displayed in the braille display command activity. Explains how to use key bindings with a Braille display. [CHAR LIMIT=250]-->
   <string name="bd_commands_bindings_instructions">Use navigation keys to move the focus on the screen. Use the braille keys to enter text in a text box.\n\nBelow are all the commands supported by your device.</string>
-  <!-- Braille command preference: Title of basic controls. [CHAR LIMIT=30] -->
+  <!-- Braille display command preference: Title of basic controls. [CHAR LIMIT=30] -->
   <string name="bd_commands_bindings_category_basic_controls_title">Basic controls</string>
-  <!-- Braille command preference: Summary of basic controls. [CHAR LIMIT=40] -->
+  <!-- Braille display command preference: Summary of basic controls. [CHAR LIMIT=40] -->
   <string name="bd_commands_bindings_category_basic_controls_summary">Pan and activate</string>
-  <!-- Braille command preference: Title of navigation. [CHAR LIMIT=30] -->
+  <!-- Braille display command preference: Title of navigation. [CHAR LIMIT=30] -->
   <string name="bd_commands_bindings_category_navigation_title">Navigation</string>
-  <!-- Braille command preference: Summary of navigation. [CHAR LIMIT=40] -->
+  <!-- Braille display command preference: Summary of navigation. [CHAR LIMIT=40] -->
   <string name="bd_commands_bindings_category_navigation_summary">Moving between items</string>
-  <!-- Braille command preference: Title of system actions. [CHAR LIMIT=30] -->
+  <!-- Braille display command preference: Title of system actions. [CHAR LIMIT=30] -->
   <string name="bd_commands_bindings_category_system_actions_title">System actions</string>
-  <!-- Braille command preference: Summary of system actions. [CHAR LIMIT=60] -->
+  <!-- Braille display command preference: Summary of system actions. [CHAR LIMIT=60] -->
   <string name="bd_commands_bindings_category_system_actions_summary">Back, home, notifications and more</string>
-  <!-- Braille command preference: Title of talkBack features. [CHAR LIMIT=30] -->
+  <!-- Braille display command preference: Title of talkBack features. [CHAR LIMIT=30] -->
   <string name="bd_commands_bindings_category_talkback_features_title">TalkBack features</string>
-  <!-- Braille command preference: Summary of talkBack features. [CHAR LIMIT=40] -->
+  <!-- Braille display command preference: Summary of talkBack features. [CHAR LIMIT=40] -->
   <string name="bd_commands_bindings_category_talkback_features_summary">Talkback menus and settings</string>
-  <!-- Braille command preference: Title of braille settings. [CHAR LIMIT=30] -->
+  <!-- Braille display command preference: Title of braille settings. [CHAR LIMIT=30] -->
   <string name="bd_commands_bindings_category_braille_settings_title">Braille settings</string>
-  <!-- Braille command preference: Summary of braille settings. [CHAR LIMIT=60] -->
+  <!-- Braille display command preference: Summary of braille settings. [CHAR LIMIT=60] -->
   <string name="bd_commands_bindings_category_braille_settings_summary">Braille language and settings</string>
-  <!-- Braille command preference: Title of editing. [CHAR LIMIT=30] -->
+  <!-- Braille display command preference: Title of editing. [CHAR LIMIT=30] -->
   <string name="bd_commands_bindings_category_text_editing_title">Text editing</string>
-  <!-- Braille command preference: Summary of editing. [CHAR LIMIT=40] -->
+  <!-- Braille display command preference: Summary of editing. [CHAR LIMIT=40] -->
   <string name="bd_commands_bindings_category_text_editing_summary">Move cursor and delete text</string>
 
   <!-- Braille elements -->
@@ -207,7 +213,7 @@
   <!-- LINT.ThenChange(:element_expanded) -->
   <!-- Braille elements representation for collaped. [CHAR LIMIT=100] -->
   <string name="bd_braille_elements_collapsed">• + represents collapsed</string>
-    <!-- Braille elements representation for new line. [CHAR LIMIT=100] -->
+  <!-- Braille elements representation for new line. [CHAR LIMIT=100] -->
   <string name="bd_braille_elements_new_line">• ⠫⠇ represents a new line</string>
 
   <!-- Auto scroll -->
@@ -239,6 +245,8 @@
   <!-- Devices -->
   <!-- Announcement for found valid braille display device [CHAR_LIMIT=50] -->
   <string name="bd_new_device_found_announcement">1 device found</string>
+  <!-- Toast content for no devices found in the previous scanning. [CHAR_LIMIT=50] -->
+  <string name="bd_no_devices_found">No devices found. Try again.</string>
   <!-- Connection device action button: disconnect. [CHAR_LIMIT=20] -->
   <string name="bd_preference_device_item_button_disconnect">Disconnect</string>
   <!-- Connection device action button: connect. [CHAR_LIMIT=20] -->
@@ -264,10 +272,6 @@
   <string name="bd_preference_auto_connect_summary">Allow saved braille displays to connect when nearby</string>
   <!-- Label for the reverse panning buttons preference title. Reverse the functionalities for both panning buttons. [CHAR_LIMIT=60] -->
   <string name="bd_preference_reverse_panning_buttons_title">Reverse pan up and pan down buttons</string>
-  <!-- Label for the braille wrap words preference title. Switches between enabling and disabling wrap words functionality. [CHAR_LIMIT=45] -->
-  <string name="bd_preference_word_wrapping_title">Wrap words</string>
-  <!-- Label for the braille wrap words preference summary.[CHAR_LIMIT=100] -->
-  <string name="bd_preference_word_wrapping_summary">If a word doesn’t fit, it moves to the next line</string>
   <!-- Label for the on-screen overlay checkbox preference. [CHAR_LIMIT=45] -->
   <string name="bd_preference_braille_overlay_title">Show braille output on screen</string>
   <!-- Label for the timed message duration preference. [CHAR_LIMIT=45] -->
@@ -341,7 +345,7 @@
   <!-- Shown in the braille commands activity. Delimited space and dot in key combination description. [CHAR_LIMIT=20] -->
   <string name="bd_commands_delimiter">%1$s and %2$s</string>
   <!-- Shown in the braille commands activity. Template for key combination description [CHAR_LIMIT=80] -->
-  <string name="bd_commands_description_template">• %1$s: %2$s.</string>
+  <string name="bd_commands_description_template">• %1$s: %2$s</string>
   <!-- Basic controls -->
   <!-- Braille input command: Pan down. [CHAR_LIMIT=30]-->
   <string name="bd_cmd_nav_pan_down">Pan down</string>
@@ -349,8 +353,6 @@
   <string name="bd_cmd_nav_pan_up">Pan up</string>
   <!-- Braille input command: Activate item under the routing key. [CHAR_LIMIT=100]-->
   <string name="bd_cmd_route">Activate with routing key</string>
-  <!-- Braille input command: Touch and hold the item under the routing key. [CHAR_LIMIT=100]-->
-  <string name="bd_cmd_touch_and_hold_route">Touch and hold with routing key</string>
   <!-- Braille input command: Activate current item. [CHAR_LIMIT=100]-->
   <string name="bd_cmd_activate_current">Activate current item</string>
   <!-- Braille input command: Touch and hold current item. [CHAR_LIMIT=100]-->
@@ -388,18 +390,18 @@
   <string name="bd_cmd_nav_top">Top of page or beginning of text</string>
   <!-- Braille input command: Navigate to the bottom of the page or end of text. [CHAR_LIMIT=100]-->
   <string name="bd_cmd_nav_bottom">Bottom of page or end of text</string>
-  <!-- Braille input command: Navigate to next heading in web content. [CHAR_LIMIT=100]-->
-  <string name="bd_cmd_heading_next">Next heading in web content</string>
-  <!-- Braille input command: Navigate to previous heading in web content. [CHAR_LIMIT=100]-->
-  <string name="bd_cmd_heading_previous">Previous heading in web content</string>
-  <!-- Braille input command: Navigate to next control in web content. [CHAR_LIMIT=150]-->
-  <string name="bd_cmd_control_next">Next control in web content</string>
-  <!-- Braille input command:Navigate to previous control in web content. [CHAR_LIMIT=150]-->
-  <string name="bd_cmd_control_previous">Previous control in web content</string>
-  <!-- Braille input command: Navigate to next link in web content. [CHAR_LIMIT=100]-->
-  <string name="bd_cmd_list_next">Next link in web content</string>
-  <!-- Braille input command: Navigate to previous link in web content. [CHAR_LIMIT=100]-->
-  <string name="bd_cmd_list_previous">Previous link in web content</string>
+  <!-- Braille input command: Navigate to next heading. [CHAR_LIMIT=100]-->
+  <string name="bd_cmd_heading_next">Next heading</string>
+  <!-- Braille input command: Navigate to previous heading. [CHAR_LIMIT=100]-->
+  <string name="bd_cmd_heading_previous">Previous heading</string>
+  <!-- Braille input command: Navigate to next control. [CHAR_LIMIT=150]-->
+  <string name="bd_cmd_control_next">Next control</string>
+  <!-- Braille input command:Navigate to previous control. [CHAR_LIMIT=150]-->
+  <string name="bd_cmd_control_previous">Previous control</string>
+  <!-- Braille input command: Navigate to next link. [CHAR_LIMIT=100]-->
+  <string name="bd_cmd_list_next">Next link</string>
+  <!-- Braille input command: Navigate to previous link. [CHAR_LIMIT=100]-->
+  <string name="bd_cmd_list_previous">Previous link</string>
   <!-- Braille input command: Switch to next reading control. [CHAR_LIMIT=100]-->
   <string name="bd_cmd_next_reading_control">Next reading control</string>
   <!-- Braille input command: Switch to previous reading control. [CHAR_LIMIT=100]-->
@@ -451,9 +453,15 @@
   <string name="bd_cmd_turn_off_braille_display">Turn off braille display</string>
   <!-- Braille input command: Play or pause media. [CHAR_LIMIT=100] -->
   <string name="bd_cmd_play_pause_media">Play or pause media</string>
+  <!-- Braille input command: Switch to next keyboard. [CHAR_LIMIT=100] -->
+  <string name="bd_cmd_switch_to_next_input_method">Switch to next keyboard</string>
   <!-- Text editing -->
   <!-- Braille input command: Select all the text when editing text. [CHAR_LIMIT=100]-->
   <string name="bd_cmd_select_all">Select all text</string>
+  <!-- Braille input command: Select all the text when editing text. [CHAR_LIMIT=100]-->
+  <string name="bd_cmd_select_cursor_to_start">Select from cursor to beginning of text box</string>
+  <!-- Braille input command: Select all the text when editing text. [CHAR_LIMIT=100]-->
+  <string name="bd_cmd_select_cursor_to_end">Select from cursor to end of text box</string>
   <!-- Braille input command: Select previous character when editing text. [CHAR_LIMIT=100]-->
   <string name="bd_cmd_select_previous_character">Select previous character</string>
   <!-- Braille input command: Select next character when editing text. [CHAR_LIMIT=100]-->
@@ -498,6 +506,10 @@
   <string name="bd_cmd_subcategory_title_select">Select</string>
   <!-- Title of preference category: Edit [CHAR_LIMIT=50] -->
   <string name="bd_cmd_subcategory_title_edit">Edit</string>
+  <!-- Title of preference category: Switch keyboard [CHAR_LIMIT=50] -->
+  <string name="bd_cmd_subcategory_title_switch_keyboard">Switch keyboard</string>
+  <!-- Description of category Edit. [CHAR_LIMIT=200] -->
+  <string name="bd_cmd_subcategory_editing_description">These commands are only available while editing text</string>
 
   <!-- Turn off braille display confirm dialog -->
   <!-- Title of the dialog that asks the user to confirm that they wish to turn off the braille display feature dialog. [CHAR_LIMIT=100] -->

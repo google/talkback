@@ -6,8 +6,8 @@
   <string name="read_out_deleted">S\'ha suprimit %s</string>
   <string name="read_out_selected_text">Text seleccionat: %s</string>
   <plurals name="braille_dots">
-    <item quantity="one">punt %s</item>
-    <item quantity="other">punts %s</item>
+    <item quantity="one">el punt %s</item>
+    <item quantity="other">els punts %s</item>
   </plurals>
   <string name="remove_language_button_content_description">suprimeix %s</string>
   <string name="split_comma">, %s</string>
@@ -18,6 +18,7 @@
   <string name="code_user_facing_name_arabic">Àrab</string>
   <string name="code_user_facing_name_arabic_comp8">Braille àrab de 8 punts computeritzat</string>
   <string name="code_user_facing_name_bulgarian">Búlgar</string>
+  <string name="code_user_facing_name_bulgarian_comp8">Braille búlgar de 8 punts computeritzat</string>
   <string name="code_user_facing_name_ca_catalan">Català</string>
   <string name="code_user_facing_name_catonese">Cantonès</string>
   <string name="code_user_facing_name_chinese_china_common">Xinès comú (Xina)</string>
@@ -35,12 +36,10 @@
   <string name="code_user_facing_name_german_comp8">Braille alemany de 8 punts computeritzat</string>
   <string name="code_user_facing_name_german">Alemany</string>
   <string name="code_user_facing_name_greek">Grec</string>
-  <string name="code_user_facing_name_en_ca">Braille anglès (Canadà)</string>
   <string name="code_user_facing_name_en_uk">Braille anglès (Regne Unit)</string>
   <string name="code_user_facing_name_en_in">Braille anglès (Índia)</string>
   <string name="code_user_facing_name_en_nabcc_comp8">Braille nord-americà de codi computeritzat</string>
   <string name="code_user_facing_name_en_comp6">Braille anglès de 6 punts computeritzat</string>
-  <string name="code_user_facing_name_en_comp8">Braille anglès de 8 punts computeritzat</string>
   <string name="code_user_facing_name_en_us_ebae">Braille anglès (EUA, edició americana)</string>
   <string name="code_user_facing_name_en_us">Braille anglès (EUA)</string>
   <string name="code_user_facing_name_polish">Polonès</string>
@@ -78,13 +77,14 @@
   <string name="code_user_facing_name_dutch_comp8">Braille neerlandès 8 punts computeritzat</string>
   <string name="code_user_facing_name_norwegian">Noruec</string>
   <string name="code_user_facing_name_norwegian_8_no">Braille noruec de 8 punts (Noruega)</string>
+  <string name="code_user_facing_name_norwegian_comp8">Braille noruec de 8 punts computeritzat</string>
   <string name="code_user_facing_name_norwegian_8">Braille noruec de 8 punts</string>
   <string name="code_user_facing_name_norwegian_8_with_6_fallback">Braille noruec de 8 punts amb l\'alternativa de 6 punts</string>
   <string name="code_user_facing_name_nepali_indian">Braille nepalès (Índia)</string>
   <string name="code_user_facing_name_portuguese">Portuguès</string>
   <string name="code_user_facing_name_punjabi">Panjabi</string>
   <string name="code_user_facing_name_portuguese_comp8">Braille portuguès de 8 punts computeritzat</string>
-  <string name="code_user_facing_name_romanian_no">Braille romanès de 8 punts</string>
+  <string name="code_user_facing_name_romanian_comp8">Braille romanès de 8 punts computeritzat</string>
   <string name="code_user_facing_name_russian">Rus</string>
   <string name="code_user_facing_name_russian_detailed">Rus amb indicació de majúscules</string>
   <string name="code_user_facing_name_russian_comp8">Braille rus de 8 punts computeritzat</string>
@@ -99,7 +99,7 @@
   <string name="code_user_facing_name_tamil">Tàmil</string>
   <string name="code_user_facing_name_telugu_in">Braille telugu (Índia)</string>
   <string name="code_user_facing_name_turkish">Turc</string>
-  <string name="code_user_facing_name_turkish_8">Braille turc de 8 punts</string>
+  <string name="code_user_facing_name_turkish_comp8">Braille turc de 8 punts computeritzat</string>
   <string name="code_user_facing_name_ukrainian">Ucraïnès</string>
   <string name="code_user_facing_name_ukrainian_comp8">Braille ucraïnès de 8 punts computeritzat</string>
   <string name="code_user_facing_name_urdu">Urdú</string>

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">ಓದಿ</string>
-  <string name="voice_commands_read_from_next">ಮುಂದಿನದರಿಂದ ಓದಿ</string>
+  <string name="voice_commands_read_from_next">ಕರ್ಸರ್‌ನಿಂದ ಓದಿ</string>
   <string name="voice_commands_edit_options">ಎಡಿಟ್ ಆಯ್ಕೆಗಳು</string>
-  <string name="voice_commands_text_editing">ಪಠ್ಯ ಎಡಿಟ್ ಮಾಡುವಿಕೆ</string>
-  <string name="voice_commands_edit_text">ಪಠ್ಯ ಎಡಿಟ್ ಮಾಡಿ</string>
-  <string name="voice_commands_editing_options">ಎಡಿಟಿಂಗ್ ಆಯ್ಕೆಗಳು</string>
   <string name="voice_commands_edit">ಎಡಿಟ್ ಮಾಡಿ</string>
   <string name="voice_commands_what">ಏನು</string>
   <string name="voice_commands_say">ಹೇಳಿ</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ಲೇಬಲ್</string>
   <string name="voice_commands_cannot_label_feedback">ಲೇಬಲ್ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">ಧ್ವನಿಯ ಪ್ರಮಾಣವನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ</string>
   <string name="voice_commands_first">ಮೊದಲನೆಯದು</string>
   <string name="voice_commands_top">ಮೇಲ್ಭಾಗ</string>
   <string name="voice_commands_last">ಕೊನೆಯದು</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">ಧ್ವನಿಯ ಪ್ರಮಾಣವನ್ನು ಹೆಚ್ಚಿಸಿ</string>
   <string name="voice_commands_slower">ಇನ್ನಷ್ಟು ನಿಧಾನ</string>
   <string name="voice_commands_decrease_speech_rate">ಧ್ವನಿಯ ಪ್ರಮಾಣವನ್ನು ಕಡಿಮೆ ಮಾಡಿ</string>
-  <string name="voice_commands_possible_options_title">ನೀವು ಹೀಗೆ ಹೇಳಬಹುದು</string>
   <string name="voice_commands_no_action">ಧ್ವನಿ ಶಾರ್ಟ್‌ಕಟ್ ಬೆಂಬಲಿತವಾಗಿಲ್ಲ</string>
   <string name="voice_commands_no_mic_permissions">ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಬಳಸುವುದಕ್ಕಾಗಿ, ಮೈಕ್ರೋಫೋನ್ ಉಪಯೋಗಿಸಲು ನೀವು ಅನುಮತಿ ನೀಡಬೇಕು.</string>
   <string name="voice_commands_no_voice_recognition_ability">ಕ್ಷಮಿಸಿ! ಈ ವೈಶಿಷ್ಟ್ಯವು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ</string>
@@ -96,14 +91,14 @@
   <string name="voice_commands_timeout">ಎಲ್ಲಾ ಕಮಾಂಡ್‌ಗಳ ಪಟ್ಟಿಗಾಗಿ \"%1$s\" ಎಂದು ಹೇಳಿ.</string>
   <string name="voice_commands_many_requests">ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" ಅನ್ನು ಧ್ವನಿ ಆಜ್ಞೆಯಾಗಿ ಗುರುತಿಸಿಲ್ಲ.</string>
-  <string name="voice_commands_label_saved">ಲೇಬಲ್ ಉಳಿಸಲಾಗಿದೆ</string>
+  <string name="voice_commands_label_saved">ಲೇಬಲ್ ಸೇವ್ ಮಾಡಲಾಗಿದೆ</string>
   <string name="voice_commands_no_actions_feedback">ಯಾವುದೇ ಕ್ರಿಯೆಗಳು ಲಭ್ಯವಿಲ್ಲ</string>
   <string name="voice_commands_no_next_heading_feedback">ಮುಂದಿನ ಶಿರೋನಾಮೆಯಿಲ್ಲ</string>
   <string name="voice_commands_no_next_link_feedback">ಮುಂದಿನ ಲಿಂಕ್ ಇಲ್ಲ</string>
   <string name="voice_commands_no_next_control_feedback">ಮುಂದಿನ ನಿಯಂತ್ರಣವಿಲ್ಲ</string>
   <string name="voice_commands_no_next_landmark_feedback">ಮುಂದಿನ ಲ್ಯಾಂಡ್‌ಮಾರ್ಕ್‌ ಇಲ್ಲ</string>
   <string name="voice_commands_help_title">ಧ್ವನಿ ಕಮಾಂಡ್ ಅವಲೋಕನ</string>
-  <string name="voice_commands_help_description">ಧ್ವನಿ ಕಮಾಂಡ್‌ಗಳನ್ನು ಬಳಸಲು, ಬಲಕ್ಕೆ, ನಂತರ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ಕಮಾಂಡ್‌ಗಳ ಈ ಪಟ್ಟಿಗಾಗಿ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ \"ಸಹಾಯ\" ಅಥವಾ \"ನಾನು ಏನು ಹೇಳಲಿ?\" ಎಂದು ಹೇಳಿ.</string>
+  <string name="voice_commands_help_description">ಧ್ವನಿ ಆಜ್ಞೆಗಳನ್ನು ಬಳಸಲು, ಬಲಕ್ಕೆ, ನಂತರ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ಈ ಆಜ್ಞೆಗಳ ಪಟ್ಟಿಗೆ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ \"%1$s\" ಅಥವಾ \"ನಾನು ಏನು ಹೇಳಬಲ್ಲೆ?\" ಎಂದು ಹೇಳಿ.</string>
   <string name="voice_commands_help_hint">ಅತ್ಯುತ್ತಮ ಫಲಿತಾಂಶಗಳಿಗಾಗಿ, ಮುಂದಿನ ಸ್ಕ್ರೀನ್‌ಗಳಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡಿರುವ ನಿಖರವಾದ ಪದವನ್ನು ಹೇಳಿ.</string>
   <string name="voice_command_screen_locked_hint">ಸ್ಕ್ರೀನ್ ಲಾಕ್ ಆಗಿದ್ದಾಗ ಧ್ವನಿ ಆಜ್ಞೆಗಳು ಲಭ್ಯವಿರುವುದಿಲ್ಲ. ಅದರ ಬದಲು TalkBack ಮೆನುವನ್ನು ಬಳಸಲು, %1$s.</string>
   <string name="voice_commands_during_setup_hint">ಸೆಟಪ್ ಸಮಯದಲ್ಲಿ ಧ್ವನಿ ಆಜ್ಞೆಗಳು ಲಭ್ಯವಿರುವುದಿಲ್ಲ.</string>

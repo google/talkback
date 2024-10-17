@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2023 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package com.google.android.accessibility.braille.brailledisplay.controller;
 
 import static com.google.android.accessibility.braille.brltty.BrailleInputEvent.CMD_NAV_PAN_DOWN;
@@ -17,7 +33,6 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.braille.brailledisplay.BrailleDisplay.BrailleImeProvider;
 import com.google.android.accessibility.braille.brailledisplay.BrailleDisplayLog;
-import com.google.android.accessibility.braille.brailledisplay.BrailleDisplayTalkBackSpeaker;
 import com.google.android.accessibility.braille.brailledisplay.OverlayDisplay;
 import com.google.android.accessibility.braille.brailledisplay.R;
 import com.google.android.accessibility.braille.brailledisplay.analytics.BrailleDisplayAnalytics;
@@ -26,10 +41,15 @@ import com.google.android.accessibility.braille.brailledisplay.controller.CellsC
 import com.google.android.accessibility.braille.brailledisplay.platform.Controller;
 import com.google.android.accessibility.braille.brailledisplay.platform.Displayer;
 import com.google.android.accessibility.braille.brailledisplay.platform.PersistentStorage;
+import com.google.android.accessibility.braille.brailledisplay.platform.connect.device.ConnectableBluetoothDevice;
+import com.google.android.accessibility.braille.brailledisplay.platform.connect.device.ConnectableDevice;
 import com.google.android.accessibility.braille.brltty.BrailleDisplayProperties;
 import com.google.android.accessibility.braille.brltty.BrailleInputEvent;
+import com.google.android.accessibility.braille.brltty.SupportedDevicesHelper;
+import com.google.android.accessibility.braille.common.BrailleCommonTalkBackSpeaker;
 import com.google.android.accessibility.braille.common.BraillePreferenceUtils;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
+import com.google.android.accessibility.braille.common.FeedbackManager;
 import com.google.android.accessibility.braille.common.TalkBackSpeaker.AnnounceType;
 import com.google.android.accessibility.braille.common.translate.BrailleLanguages.Code;
 import com.google.android.accessibility.braille.interfaces.BrailleCharacter;
@@ -37,6 +57,7 @@ import com.google.android.accessibility.braille.interfaces.BrailleDisplayForBrai
 import com.google.android.accessibility.braille.interfaces.BrailleDisplayForBrailleIme.ResultForDisplay;
 import com.google.android.accessibility.braille.interfaces.BrailleImeForBrailleDisplay;
 import com.google.android.accessibility.braille.interfaces.ScreenReaderActionPerformer.ScreenReaderAction;
+import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleCommon;
 import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleDisplay;
 import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleDisplay.CustomLabelAction;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -63,16 +84,17 @@ public class BdController implements Controller {
   private CellsContentManager cellsContentManager;
   private Displayer displayer;
   private BehaviorIme behaviorIme;
-  private AlertDialog brailleCommandNotificationDialog;
+  private AlertDialog someBrailleCommandUnavailableDialog;
 
   public BdController(
       Context context,
       TalkBackForBrailleDisplay talkBackForBrailleDisplay,
+      TalkBackForBrailleCommon talkBackForBrailleCommon,
       BrailleImeProvider brailleImeProvider) {
     this.context = context;
     this.talkBackForBrailleDisplay = talkBackForBrailleDisplay;
     this.brailleImeProvider = brailleImeProvider;
-    feedbackManager = new FeedbackManager(talkBackForBrailleDisplay.getFeedBackController());
+    feedbackManager = new FeedbackManager(talkBackForBrailleCommon.getFeedBackController());
     translatorManager = new TranslatorManager(context);
     cellsContentManager =
         new CellsContentManager(
@@ -100,8 +122,13 @@ public class BdController implements Controller {
   }
 
   @Override
-  public void onConnectStarted() {
-    BrailleDisplayAnalytics.getInstance(context).logStartToEstablishBluetoothConnection();
+  public void onConnectHidStarted() {
+    BrailleDisplayAnalytics.getInstance(context).logStartToEstablishHidConnection();
+  }
+
+  @Override
+  public void onConnectRfcommStarted() {
+    BrailleDisplayAnalytics.getInstance(context).logStartToEstablishRfcommConnection();
   }
 
   @Override
@@ -113,7 +140,7 @@ public class BdController implements Controller {
   @Override
   public void onDisplayerReady(Displayer displayer) {
     BrailleDisplayLog.v(TAG, "onDisplayerReady");
-    feedbackManager.emitFeedback(FeedbackManager.TYPE_DISPLAY_CONNECTED);
+    feedbackManager.emitFeedback(FeedbackManager.Type.DISPLAY_CONNECTED);
     talkBackForBrailleDisplay.switchInputMethodToBrailleKeyboard();
     this.displayer = displayer;
     overlayDisplay.start(displayer.getDeviceProperties().getNumTextCells());
@@ -151,7 +178,7 @@ public class BdController implements Controller {
     if (shouldResumeBrailleDisplay(brailleInputEvent)) {
       BrailleDisplayAnalytics.getInstance(context).logChangeTypingMode(/* toPhysical= */ true);
       suspended.set(false);
-      BrailleDisplayTalkBackSpeaker.getInstance()
+      BrailleCommonTalkBackSpeaker.getInstance()
           .speak(
               context.getString(R.string.bd_switch_to_braille_hardware_message),
               ANNOUNCE_DELAY_MS,
@@ -167,7 +194,10 @@ public class BdController implements Controller {
   @Override
   public void onDisconnected() {
     BrailleDisplayLog.v(TAG, "onDisconnected");
-    feedbackManager.emitFeedback(FeedbackManager.TYPE_DISPLAY_DISCONNECTED);
+    feedbackManager.emitFeedback(FeedbackManager.Type.DISPLAY_DISCONNECTED);
+    if (isSomeBrailleCommandUnavailableDialogShowing()) {
+      someBrailleCommandUnavailableDialog.dismiss();
+    }
     eventManager.onDeactivate();
     overlayDisplay.shutdown();
     cellsContentManager.shutdown();
@@ -176,6 +206,11 @@ public class BdController implements Controller {
     if (isBrailleKeyboardActivated()) {
       getBrailleImeForBrailleDisplay().onBrailleDisplayDisconnected();
     }
+  }
+
+  @Override
+  public void onConnectFailed() {
+    BrailleDisplayAnalytics.getInstance(context).logConnectionReset();
   }
 
   @Override
@@ -201,12 +236,12 @@ public class BdController implements Controller {
 
   /** Switches braille display on or off. */
   public void switchBrailleDisplayOnOrOff() {
-    boolean isEnable = !PersistentStorage.isConnectionEnabledByUser(context);
-    PersistentStorage.setConnectionEnabledByUser(context, isEnable);
+    boolean isEnable = !PersistentStorage.isConnectionEnabled(context);
+    PersistentStorage.setConnectionEnabled(context, isEnable);
     String feedback =
         context.getString(
             isEnable ? R.string.bd_turn_braille_display_on : R.string.bd_turn_braille_display_off);
-    BrailleDisplayTalkBackSpeaker.getInstance().speak(feedback, AnnounceType.INTERRUPT);
+    BrailleCommonTalkBackSpeaker.getInstance().speak(feedback, AnnounceType.INTERRUPT);
   }
 
   private BrailleImeForBrailleDisplay getBrailleImeForBrailleDisplay() {
@@ -219,14 +254,18 @@ public class BdController implements Controller {
     boolean inputContracted = inputCode.isSupportsContracted(context) && contracted;
     Code outputCode = BrailleUserPreferences.readCurrentActiveOutputCodeAndCorrect(context);
     boolean outputContracted = outputCode.isSupportsContracted(context) && contracted;
+
+    ConnectableDevice device = displayer.getConnectableDevice();
     BrailleDisplayAnalytics.getInstance(context)
         .logStartedEvent(
-            displayer.getDeviceProperties().getDeviceName(),
+            displayer.getDeviceProperties().getDriverCode(),
+            SupportedDevicesHelper.getTruncatedName(device.name()),
             inputCode,
             outputCode,
             inputContracted,
             outputContracted,
-            displayer.getDeviceProvider());
+            device.useHid(),
+            device instanceof ConnectableBluetoothDevice);
   }
 
   private void updateDisplay(ResultForDisplay result) {
@@ -259,8 +298,9 @@ public class BdController implements Controller {
         && getBrailleImeForBrailleDisplay().isBrailleKeyboardActivated();
   }
 
-  private boolean isBrailleCommandNotificationDialogShowing() {
-    return brailleCommandNotificationDialog != null && brailleCommandNotificationDialog.isShowing();
+  private boolean isSomeBrailleCommandUnavailableDialogShowing() {
+    return someBrailleCommandUnavailableDialog != null
+        && someBrailleCommandUnavailableDialog.isShowing();
   }
 
   /** Returns true if a field suitable for modal editing is focused. */
@@ -286,18 +326,9 @@ public class BdController implements Controller {
         && suspended.get();
   }
 
-  private boolean handlePanUp() {
-    if (cellsContentManager.panUp()) {
-      return true;
-    }
-    return talkBackForBrailleDisplay.performAction(ScreenReaderAction.PREVIOUS_ITEM);
-  }
-
-  private boolean handlePanDown() {
-    if (cellsContentManager.panDown()) {
-      return true;
-    }
-    return talkBackForBrailleDisplay.performAction(ScreenReaderAction.NEXT_ITEM);
+  /** Whether any keyboard is onscreen. */
+  public boolean isOnscreenKeyboardActive() {
+    return talkBackForBrailleDisplay.isOnscreenKeyboardActive();
   }
 
   private boolean isDisplayerReady() {
@@ -309,8 +340,8 @@ public class BdController implements Controller {
         @Override
         public void onImeVisibilityChanged(boolean visible) {
           if (visible && BrailleUserPreferences.readShowNavigationCommandUnavailableTip(context)) {
-            if (!isBrailleCommandNotificationDialogShowing()) {
-              brailleCommandNotificationDialog =
+            if (!isSomeBrailleCommandUnavailableDialogShowing()) {
+              someBrailleCommandUnavailableDialog =
                   BraillePreferenceUtils.createTipAlertDialog(
                       talkBackForBrailleDisplay.getAccessibilityService(),
                       context.getString(
@@ -318,21 +349,21 @@ public class BdController implements Controller {
                       context.getString(
                           R.string.bd_notify_navigation_commands_unavailable_dialog_message),
                       BrailleUserPreferences::writeShowNavigationCommandUnavailableTip);
-              brailleCommandNotificationDialog
+              someBrailleCommandUnavailableDialog
                   .getWindow()
                   .setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);
               if (VERSION.SDK_INT >= VERSION_CODES.P) {
-                brailleCommandNotificationDialog.show();
+                someBrailleCommandUnavailableDialog.show();
               } else {
                 // Directly shows dialog will make Chrome hold the invalid InputConnection in
                 // Android <= O lead cannot edit on the Chrome editor. post the action is the
                 // workaround for fixing the bug without ag/3372490.
-                new Handler().post(() -> brailleCommandNotificationDialog.show());
+                new Handler().post(() -> someBrailleCommandUnavailableDialog.show());
               }
             }
           } else {
-            if (isBrailleCommandNotificationDialogShowing()) {
-              brailleCommandNotificationDialog.dismiss();
+            if (isSomeBrailleCommandUnavailableDialogShowing()) {
+              someBrailleCommandUnavailableDialog.dismiss();
             }
           }
         }
@@ -417,9 +448,9 @@ public class BdController implements Controller {
       return BdController.this.isBrailleKeyboardActivated() && isModalFieldFocused();
     }
 
-    /** Whether any keyboard is onscreen. */
+    /** Returns Whether keyboard is on screen . */
     public boolean isOnscreenKeyboardActive() {
-      return talkBackForBrailleDisplay.isOnscreenKeyboardActive();
+      return BdController.this.isOnscreenKeyboardActive();
     }
 
     /** Returns on-screen keyboard name. */
@@ -447,7 +478,7 @@ public class BdController implements Controller {
       byte dotsInByte = (byte) (dots & 0xff);
       return feedbackManager.emitOnFailure(
           getBrailleImeForBrailleDisplay().sendBrailleDots(new BrailleCharacter(dotsInByte)),
-          FeedbackManager.TYPE_COMMAND_FAILED);
+          FeedbackManager.Type.COMMAND_FAILED);
     }
 
     public boolean moveCursorForward() {
@@ -528,6 +559,18 @@ public class BdController implements Controller {
       return getBrailleImeForBrailleDisplay().selectAllText();
     }
 
+    /**
+     * Selects the text from current cursor position to the start of text field when editing text.
+     */
+    public boolean selectCurrentToStart() {
+      return getBrailleImeForBrailleDisplay().selectCurrentToStart();
+    }
+
+    /** Selects the text from current cursor position to the ned of text field when editing text. */
+    public boolean selectCurrentToEnd() {
+      return getBrailleImeForBrailleDisplay().selectCurrentToEnd();
+    }
+
     /** Selects the previous character from the cursor when editing text. */
     public boolean selectPreviousCharacter() {
       return getBrailleImeForBrailleDisplay().selectPreviousCharacter();
@@ -558,6 +601,21 @@ public class BdController implements Controller {
       return getBrailleImeForBrailleDisplay().selectNextLine();
     }
 
+    /** Switches to next input method. */
+    public boolean switchToNextInputMethod() {
+      if (isSomeBrailleCommandUnavailableDialogShowing()) {
+        someBrailleCommandUnavailableDialog.dismiss();
+      }
+      if (isBrailleKeyboardActivated()) {
+        // Don't call the other one because we still need to well-handle holding.
+        return getBrailleImeForBrailleDisplay().switchToNextInputMethod();
+      } else if (isOnscreenKeyboardActive()) {
+        // Don't switch keyboards when closed. It's the system norm.
+        return talkBackForBrailleDisplay.switchToNextInputMethod();
+      }
+      return false;
+    }
+
     /** Tells BrailleIme to update the result on a braille display. */
     public void triggerUpdateDisplay() {
       getBrailleImeForBrailleDisplay().updateResultForDisplay();
@@ -570,7 +628,9 @@ public class BdController implements Controller {
 
     /** Notifies accessibility focus cleared. */
     public void onFocusCleared() {
-      getBrailleImeForBrailleDisplay().commitHoldings();
+      if (isBrailleKeyboardActivated()) {
+        getBrailleImeForBrailleDisplay().commitHoldings();
+      }
     }
   }
 
@@ -618,12 +678,36 @@ public class BdController implements Controller {
 
   /** Behavior for modes: navigation. */
   public class BehaviorNavigation {
+    /** Pans up to previous line. */
     public boolean panUp() {
       return handlePanUp();
     }
 
-    public boolean panDown() {
-      return handlePanDown();
+    /** Pans down to next line when auto scroll is enabled. */
+    public boolean panDownWhenAutoScrollEnabled() {
+      return handlePanDown(/* isAutoScrollEnable= */ true);
+    }
+
+    /** Pans down to next line when auto scroll is disabled. */
+    public boolean panDownWhenAutoScrollDisabled() {
+      return handlePanDown(/* isAutoScrollEnable= */ false);
+    }
+
+    private boolean handlePanUp() {
+      if (cellsContentManager.panUp()) {
+        return true;
+      }
+      return talkBackForBrailleDisplay.performAction(ScreenReaderAction.PREVIOUS_ITEM);
+    }
+
+    private boolean handlePanDown(boolean isAutoScrollEnable) {
+      if (cellsContentManager.panDown()) {
+        return true;
+      }
+      if (isAutoScrollEnable && isOnscreenKeyboardActive()) {
+        return false;
+      }
+      return talkBackForBrailleDisplay.performAction(ScreenReaderAction.NEXT_ITEM);
     }
   }
 

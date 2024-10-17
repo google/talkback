@@ -39,10 +39,10 @@ public class IconDetectionModuleDownloadPrompter extends ModuleDownloadPrompter 
    * Creates a {@link ModuleDownloadPrompter} to handle the process of icon detection download and
    * uninstallation.
    */
-  public IconDetectionModuleDownloadPrompter(Context context, FeatureDownloader featureDownloader) {
+  public IconDetectionModuleDownloadPrompter(Context context, Downloader downloader) {
     super(
         context,
-        featureDownloader,
+        downloader,
         ICON_LABEL,
         ImageCaptionPreferenceKeys.ICON_DETECTION,
         DownloadDialogResources.ICON_DETECTION,

@@ -324,13 +324,17 @@ public class SelectorController implements UserInputEventListener {
     public static @Nullable Granularity getSupportedGranularity(
         ActorState actorState, Setting setting) {
       List<Granularity> granularities = Granularity.getFromSetting(setting);
+      if (granularities.size() == 1) {
+        return granularities.get(0);
+      }
+
+      boolean isWeb = actorState.getDirectionNavigation().hasNavigableWebContent();
       for (Granularity granularity : granularities) {
-        if (actorState
-            .getDirectionNavigation()
-            .supportedGranularity(granularity.cursorGranularity, EVENT_ID_UNTRACKED)) {
+        if (isValid(granularity, isWeb)) {
           return granularity;
         }
       }
+
       return null;
     }
 
@@ -344,6 +348,19 @@ public class SelectorController implements UserInputEventListener {
       }
       return null;
     }
+
+    static boolean isValid(Granularity granularity, boolean isWebContent) {
+      if (granularity.granularityType == GRANULARITY_FOR_ALL_NODE) {
+        return true;
+      }
+
+      if ((granularity.granularityType == GRANULARITY_FOR_NATIVE_NODE && !isWebContent)
+          || (granularity.granularityType == GRANULARITY_FOR_WEB_NODE && isWebContent)) {
+        return true;
+      }
+
+      return false;
+    }
   }
 
   private final Context context;
@@ -354,19 +371,19 @@ public class SelectorController implements UserInputEventListener {
   private final TalkBackAnalytics analytics;
   private final SharedPreferences prefs;
   private final GestureShortcutMapping gestureMapping;
-  private final @NonNull Compositor.TextComposer compositor;
+  @NonNull private final Compositor.TextComposer compositor;
   private final FormFactorUtils formFactorUtils;
 
   /**
    * Keeps gestures to announce the usage hint for how to select setting (change quick menu item).
    */
-  private List<String> selectSettingGestures;
+  private @Nullable String cachedSelectSettingGestureNames;
 
   /**
    * Keeps gestures to announce the usage hint for how to adjust selected setting (change quick menu
    * item action).
    */
-  private List<String> adjustSelectedSettingGestures;
+  private @Nullable String cachedAdjustSelectedSettingGestureNames;
 
   // Flattening granularities into the quick menu for all devices from TalkBack 9.1.
   // This index of GRANULARITY_XXX is used in granularity voice command array.
@@ -410,8 +427,8 @@ public class SelectorController implements UserInputEventListener {
       (prefs, key) -> {
         // Clears selector gestures but doesn't update them now because GestureShortcutMapping
         // hasn't finished reloading yet.
-        selectSettingGestures = null;
-        adjustSelectedSettingGestures = null;
+        cachedSelectSettingGestureNames = null;
+        cachedAdjustSelectedSettingGestureNames = null;
       };
 
   private Setting settingToRestore;
@@ -552,6 +569,11 @@ public class SelectorController implements UserInputEventListener {
     }
   }
 
+  /** Returns the action description of the ACTIONS setting. */
+  public String getSelectorActionSettingsDescription() {
+    return context.getString(R.string.title_pref_selector_actions);
+  }
+
   /** Retrieves the {@link Setting} action description and hint in a {@link DescriptionAndHint}. */
   public DescriptionAndHint getSettingActionDescriptionAndHint(Setting setting, EventId eventId) {
     String actionDescription = null;
@@ -592,7 +614,7 @@ public class SelectorController implements UserInputEventListener {
       case ACTIONS:
         // Reset currentActionId to the default action.
         resetActionMenuToDefault();
-        actionDescription = context.getString(R.string.title_pref_selector_actions);
+        actionDescription = getSelectorActionSettingsDescription();
         hint = getAdjustSelectedSettingGestures();
         break;
       case GRANULARITY_HEADINGS:
@@ -989,28 +1011,12 @@ public class SelectorController implements UserInputEventListener {
       case GRANULARITY_LINES:
         // TODO: As the text selection for line granularity movement does not work,
         // we mask off the LINE granularity temporarily.
-        if (actorState.getDirectionNavigation().isSelectionModeActive()
-            && !FeatureSupport.supportInputConnectionByA11yService()) {
-          return false;
-        }
-        // fall-through
-      case GRANULARITY_HEADINGS:
-      case GRANULARITY_WORDS:
-      case GRANULARITY_PARAGRAPHS:
-      case GRANULARITY_CHARACTERS:
-      case GRANULARITY_LINKS:
-      case GRANULARITY_CONTROLS:
-      case GRANULARITY_LANDMARKS:
-      case GRANULARITY_WINDOWS:
-      case GRANULARITY_CONTAINERS:
-      case GRANULARITY_DEFAULT:
-        {
-          return Granularity.getSupportedGranularity(actorState, setting) != null;
-        }
+        return FeatureSupport.supportInputConnectionByA11yService()
+            || !actorState.getDirectionNavigation().isSelectionModeActive();
       case ADJUSTABLE_WIDGET:
         {
           Optional<ContextualSetting> adjustableWidget = findContextualSetting(ADJUSTABLE_WIDGET);
-          if (!adjustableWidget.isPresent()) {
+          if (adjustableWidget.isEmpty()) {
             return false;
           }
 
@@ -1022,7 +1028,7 @@ public class SelectorController implements UserInputEventListener {
         }
       case GRANULARITY_TYPO:
         Optional<ContextualSetting> typoGranularity = findContextualSetting(GRANULARITY_TYPO);
-        if (!typoGranularity.isPresent()) {
+        if (typoGranularity.isEmpty()) {
           return false;
         }
         return typoGranularity.get().isNodeSupportSetting(context, node);
@@ -1086,31 +1092,40 @@ public class SelectorController implements UserInputEventListener {
    * Returns the usage hint when adjusting the selected setting, like "three-finger swipe left or
    * three-finger swipe right to select a different setting."
    */
+  @NonNull
   private String getSelectSettingGestures() {
-    if (selectSettingGestures == null) {
-      selectSettingGestures =
+    String selectSettingGestureNames = getSelectSettingGestureNames();
+    if (selectSettingGestureNames.isEmpty()) {
+      // There is no gesture to select setting.
+      return context.getString(
+          R.string.no_adjust_setting_gesture,
+          Ascii.toLowerCase(context.getString(R.string.shortcut_select_next_setting)));
+    }
+    return context.getString(R.string.select_setting_hint, selectSettingGestureNames);
+  }
+
+  @NonNull
+  private String getSelectSettingGestureNames() {
+    String selectSettingGestureNames = cachedSelectSettingGestureNames;
+    if (selectSettingGestureNames == null) {
+      List<String> rawNames =
           gestureMapping.getGestureTextsFromActionKeys(
               context.getString(R.string.shortcut_value_select_previous_setting),
               context.getString(R.string.shortcut_value_select_next_setting));
-    }
-    CharSequence gestureNames;
-    switch (selectSettingGestures.size()) {
-      case 0:
-        // There is no gesture to select setting.
-        return context.getString(
-            R.string.no_adjust_setting_gesture,
-            Ascii.toLowerCase(context.getString(R.string.shortcut_select_next_setting)));
-      case 1:
-        gestureNames = Ascii.toLowerCase(selectSettingGestures.get(0));
-        return context.getString(R.string.select_setting_hint, gestureNames);
-      default:
-        gestureNames =
+      if (rawNames.isEmpty()) {
+        selectSettingGestureNames = "";
+      } else if (rawNames.size() == 1) {
+        selectSettingGestureNames = Ascii.toLowerCase(rawNames.get(0));
+      } else {
+        selectSettingGestureNames =
             context.getString(
                 R.string.gesture_1_or_2,
-                Ascii.toLowerCase(selectSettingGestures.get(0)),
-                Ascii.toLowerCase(selectSettingGestures.get(1)));
-        return context.getString(R.string.select_setting_hint, gestureNames);
+                Ascii.toLowerCase(rawNames.get(0)),
+                Ascii.toLowerCase(rawNames.get(1)));
+      }
+      cachedSelectSettingGestureNames = selectSettingGestureNames;
     }
+    return selectSettingGestureNames;
   }
 
   /**
@@ -1118,30 +1133,14 @@ public class SelectorController implements UserInputEventListener {
    * setting."
    */
   private String getAdjustSelectedSettingGestures() {
-    if (adjustSelectedSettingGestures == null) {
-      adjustSelectedSettingGestures =
-          gestureMapping.getGestureTextsFromActionKeys(
-              context.getString(R.string.shortcut_value_selected_setting_previous_action),
-              context.getString(R.string.shortcut_value_selected_setting_next_action));
+    String adjustSelectedSettingsGestureNames = getAdjustSelectedSettingGestureNames();
+    if (adjustSelectedSettingsGestureNames.isEmpty()) {
+      // There is no gesture to adjust setting.
+      return context.getString(
+          R.string.no_adjust_setting_gesture,
+          Ascii.toLowerCase(context.getString(R.string.shortcut_selected_setting_next_action)));
     }
-    CharSequence gestureNames;
-    switch (adjustSelectedSettingGestures.size()) {
-      case 0:
-        // There is no gesture to adjust setting.
-        return context.getString(
-            R.string.no_adjust_setting_gesture,
-            Ascii.toLowerCase(context.getString(R.string.shortcut_selected_setting_next_action)));
-      case 1:
-        gestureNames = Ascii.toLowerCase(adjustSelectedSettingGestures.get(0));
-        return context.getString(R.string.adjust_setting_hint, gestureNames);
-      default:
-        gestureNames =
-            context.getString(
-                R.string.gesture_1_or_2,
-                Ascii.toLowerCase(adjustSelectedSettingGestures.get(0)),
-                Ascii.toLowerCase(adjustSelectedSettingGestures.get(1)));
-        return context.getString(R.string.adjust_setting_hint, gestureNames);
-    }
+    return context.getString(R.string.adjust_setting_hint, adjustSelectedSettingsGestureNames);
   }
 
   /**
@@ -1149,28 +1148,12 @@ public class SelectorController implements UserInputEventListener {
    * spell check"
    */
   private String getNavigateTypoGestures() {
-    if (adjustSelectedSettingGestures == null) {
-      adjustSelectedSettingGestures =
-          gestureMapping.getGestureTextsFromActionKeys(
-              context.getString(R.string.shortcut_value_selected_setting_previous_action),
-              context.getString(R.string.shortcut_value_selected_setting_next_action));
+    String adjustSelectedSettingsGestureNames = getAdjustSelectedSettingGestureNames();
+    if (adjustSelectedSettingsGestureNames.isEmpty()) {
+      // There is no gesture to navigate typo.
+      return context.getString(R.string.no_navigate_typo_gesture);
     }
-    CharSequence gestureNames;
-    switch (adjustSelectedSettingGestures.size()) {
-      case 0:
-        // There is no gesture to navigate typo.
-        return context.getString(R.string.no_navigate_typo_gesture);
-      case 1:
-        gestureNames = Ascii.toLowerCase(adjustSelectedSettingGestures.get(0));
-        return context.getString(R.string.adjust_typo_hint, gestureNames);
-      default:
-        gestureNames =
-            context.getString(
-                R.string.gesture_1_or_2,
-                Ascii.toLowerCase(adjustSelectedSettingGestures.get(0)),
-                Ascii.toLowerCase(adjustSelectedSettingGestures.get(1)));
-        return context.getString(R.string.adjust_typo_hint, gestureNames);
-    }
+    return context.getString(R.string.adjust_typo_hint, adjustSelectedSettingsGestureNames);
   }
 
   /**
@@ -1186,32 +1169,41 @@ public class SelectorController implements UserInputEventListener {
   }
 
   private String getAdjustSelectedGranularityGestures(String cursorGranularity) {
-    if (adjustSelectedSettingGestures == null) {
-      adjustSelectedSettingGestures =
+    String adjustSelectedSettingsGestureNames = getAdjustSelectedSettingGestureNames();
+    if (adjustSelectedSettingsGestureNames.isEmpty()) {
+      // There is no gesture to read by selected granularity.
+      return context.getString(
+          R.string.no_adjust_setting_gesture,
+          Ascii.toLowerCase(context.getString(R.string.shortcut_selected_setting_next_action)));
+    }
+    return context.getString(
+        R.string.adjust_granularity_hint,
+        adjustSelectedSettingsGestureNames,
+        Ascii.toLowerCase(cursorGranularity));
+  }
+
+  @NonNull
+  private String getAdjustSelectedSettingGestureNames() {
+    String adjustSelectedSettingGestureNames = cachedAdjustSelectedSettingGestureNames;
+    if (adjustSelectedSettingGestureNames == null) {
+      List<String> rawNames =
           gestureMapping.getGestureTextsFromActionKeys(
               context.getString(R.string.shortcut_value_selected_setting_previous_action),
               context.getString(R.string.shortcut_value_selected_setting_next_action));
-    }
-    CharSequence gestureNames;
-    switch (adjustSelectedSettingGestures.size()) {
-      case 0:
-        // There is no gesture to read by selected granularity.
-        return context.getString(
-            R.string.no_adjust_setting_gesture,
-            Ascii.toLowerCase(context.getString(R.string.shortcut_selected_setting_next_action)));
-      case 1:
-        gestureNames = Ascii.toLowerCase(adjustSelectedSettingGestures.get(0));
-        return context.getString(
-            R.string.adjust_granularity_hint, gestureNames, Ascii.toLowerCase(cursorGranularity));
-      default:
-        gestureNames =
+      if (rawNames.isEmpty()) {
+        adjustSelectedSettingGestureNames = "";
+      } else if (rawNames.size() == 1) {
+        adjustSelectedSettingGestureNames = Ascii.toLowerCase(rawNames.get(0));
+      } else {
+        adjustSelectedSettingGestureNames =
             context.getString(
                 R.string.gesture_1_or_2,
-                Ascii.toLowerCase(adjustSelectedSettingGestures.get(0)),
-                Ascii.toLowerCase(adjustSelectedSettingGestures.get(1)));
-        return context.getString(
-            R.string.adjust_granularity_hint, gestureNames, Ascii.toLowerCase(cursorGranularity));
+                Ascii.toLowerCase(rawNames.get(0)),
+                Ascii.toLowerCase(rawNames.get(1)));
+      }
+      cachedSelectSettingGestureNames = adjustSelectedSettingGestureNames;
     }
+    return adjustSelectedSettingGestureNames;
   }
 
   /** Change the value of the selected setting or scroll forward/backard of the seeker. */
@@ -1240,7 +1232,8 @@ public class SelectorController implements UserInputEventListener {
         changeVerbosity(eventId, isNext);
         return;
       case PUNCTUATION:
-        switchOnOrOffPunctuation(eventId);
+        // switchOnOrOffPunctuation(eventId);
+        switchSpeakPunctuationVerbosity(eventId);
         return;
       case HIDE_SCREEN:
         showOrHideScreen(eventId);
@@ -1282,10 +1275,7 @@ public class SelectorController implements UserInputEventListener {
               accessibilityFocusMonitor.getAccessibilityFocus(false);
           boolean hasNavigableWebContent = WebInterfaceUtils.hasNavigableWebContent(node);
           for (Granularity granularity : granularities) {
-            if ((granularity.granularityType == GRANULARITY_FOR_NATIVE_NODE
-                    && hasNavigableWebContent)
-                || (granularity.granularityType == GRANULARITY_FOR_WEB_NODE
-                    && !hasNavigableWebContent)) {
+            if (!Granularity.isValid(granularity, hasNavigableWebContent)) {
               continue;
             }
             moveAtGranularity(eventId, granularity, isNext);
@@ -1511,6 +1501,34 @@ public class SelectorController implements UserInputEventListener {
         getSelectSettingGestures());
     showQuickMenuActionOverlay(
         eventId, context.getString(!punctuationOn ? R.string.value_on : R.string.value_off));
+  }
+
+  private void switchSpeakPunctuationVerbosity(EventId eventId) {
+    Resources res = context.getResources();
+    int punctuationLevel =
+        Integer.parseInt(
+            SharedPreferencesUtils.getStringPref(
+                prefs,
+                res,
+                R.string.pref_punctuation_verbosity,
+                R.string.pref_punctuation_verbosity_default));
+    analytics.onManuallyChangeSetting(
+        res.getString(R.string.pref_use_audio_focus_key),
+        TalkBackAnalytics.TYPE_SELECTOR, /* isPending */
+        true);
+    punctuationLevel++;
+    punctuationLevel %= 3;
+    String[] punctuationValues =
+        context.getResources().getStringArray(R.array.pref_punctuation_values);
+    String[] punctuationEntries =
+        context.getResources().getStringArray(R.array.pref_punctuation_entries);
+    SharedPreferencesUtils.putStringPref(
+        prefs, res, R.string.pref_punctuation_verbosity, punctuationValues[punctuationLevel]);
+    announceSetting(
+        eventId,
+        context.getString(R.string.punctuation_state, punctuationEntries[punctuationLevel]),
+        getSelectSettingGestures());
+    showQuickMenuActionOverlay(eventId, punctuationEntries[punctuationLevel]);
   }
 
   /** Validate the verbosity index and set verbosity string if necessary */

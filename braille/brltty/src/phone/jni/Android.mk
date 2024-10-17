@@ -61,8 +61,7 @@ LOCAL_SRC_FILES:= \
 	BrlttyWrapper.c \
 	libbrltty.c \
 	bluetooth_android.c \
-	usb_android.c \
-	prefs.c
+	usb_android.c
 LOCAL_WHOLE_STATIC_LIBRARIES := libbrltty
 
 include $(BUILD_SHARED_LIBRARY)

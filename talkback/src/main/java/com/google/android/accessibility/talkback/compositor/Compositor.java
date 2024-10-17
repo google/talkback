@@ -144,6 +144,7 @@ public class Compositor {
   public static final int EVENT_SCROLL_POSITION = BASE_EVENT_ID + 13;
   public static final int EVENT_INPUT_DESCRIBE_NODE = BASE_EVENT_ID + 14;
   public static final int EVENT_MAGNIFICATION_CHANGED = BASE_EVENT_ID + 15;
+  public static final int EVENT_HEADS_UP_NOTIFICATION_APPEARED = BASE_EVENT_ID + 16;
 
   public static final int BASE_TEXT_EVENT_ID = BASE_EVENT_ID + 100;
   public static final int EVENT_TYPE_INPUT_TEXT_CLEAR = TextEventInterpretation.TEXT_CLEAR;
@@ -302,7 +303,7 @@ public class Compositor {
 
   /** Limited-scope interface to map an event to text for announcement. */
   public interface TextComposer {
-    @Nullable String parseTTSText(
+    @Nullable CharSequence parseTTSText(
         @Nullable AccessibilityNodeInfoCompat source,
         int event,
         EventInterpretation eventInterpretation);
@@ -548,22 +549,16 @@ public class Compositor {
     }
   }
 
-  public @Nullable String parseTTSText(
+  public @Nullable CharSequence parseTTSText(
       @Nullable AccessibilityNodeInfoCompat source,
       int event,
       EventInterpretation eventInterpretation) {
     EventFeedback eventFeedback =
         getEventFeedback(
             event, new HandleEventOptions().source(source).interpretation(eventInterpretation));
-    CharSequence ttsText =
-        (eventFeedback != null && eventFeedback.ttsOutput().isPresent())
-            ? eventFeedback.ttsOutput().get()
-            : null;
-
-    if (ttsText == null) {
-      return null;
-    }
-    return ttsText.toString();
+    return (eventFeedback != null && eventFeedback.ttsOutput().isPresent())
+        ? eventFeedback.ttsOutput().get()
+        : null;
   }
 
   /**

@@ -24,11 +24,12 @@ import android.util.Pair;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
-import com.google.android.accessibility.talkback.TalkBackMetricStore;
 import com.google.android.accessibility.talkback.trainingcommon.NavigationButtonBar.NavigationListener;
+import com.google.android.accessibility.talkback.trainingcommon.TrainingIpcClient.ServiceData;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.common.collect.ImmutableList;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
@@ -54,19 +55,22 @@ public class PageController {
 
   private final TrainingConfig training;
   private final OnPageChangeCallback onPageChangeCallback;
+  private final ServiceData serviceData;
   private int currentPageNumber = UNKNOWN_PAGE_NUMBER;
   @Nullable private SectionInfo sectionInfo;
 
   private NavigationListener navigationListener;
 
-  private final TalkBackMetricStore metricStore;
+  private final TrainingMetricStore metricStore;
 
   public PageController(
       TrainingConfig training,
       OnPageChangeCallback onPageChangeCallback,
-      TalkBackMetricStore metricStore) {
+      ServiceData serviceData,
+      TrainingMetricStore metricStore) {
     this.training = training;
     this.onPageChangeCallback = onPageChangeCallback;
+    this.serviceData = serviceData;
     this.metricStore = metricStore;
   }
 
@@ -87,8 +91,19 @@ public class PageController {
               + ", sectionInfo="
               + sectionInfo);
     }
-
+    if (currentPageNumber != UNKNOWN_PAGE_NUMBER) {
+      // Before switched, getCurrentPageConfig() gets the previous PageConfig.
+      PageConfig pageConfig = getCurrentPageConfig();
+      if (pageConfig != null) {
+        metricStore.onTrainingPageLeft(pageConfig.getPageId());
+      }
+    }
     currentPageNumber = targetPageNumber;
+    // After switched, getCurrentPageConfig() gets the next PageConfig.
+    PageConfig pageConfig = getCurrentPageConfig();
+    if (pageConfig != null) {
+      metricStore.onTrainingPageEntered(pageConfig.getPageId());
+    }
     onPageChangeCallback.onPageSwitched(
         currentPageNumber, getShownPageNumber(), createNavigationBarSupplier());
   }
@@ -133,25 +148,39 @@ public class PageController {
    * Goes to the beginning page in a section and goes back to the current page after finishing
    * reading the last page in the section.
    */
-  public void handleLink(@StringRes int firstPageInSectionNameResId) {
-    int firstPageNumberInSection = findPageNumberByName(firstPageInSectionNameResId);
-    if (firstPageNumberInSection < 0) {
-      LogUtils.e(TAG, "Invalid section info. firstPageNumberInSection=" + firstPageNumberInSection);
+  public void handleLink(@StringRes int... firstPageCandidatesInSectionNameResIds) {
+    ImmutableList<PageConfig> pages = training.getPages();
+    int firstAvailablePageNumberInSection = -1;
+    for (int pageResId : firstPageCandidatesInSectionNameResIds) {
+      int checkingPageNumberInSection = findPageNumberByName(pageResId);
+      if (checkingPageNumberInSection >= 0) {
+        PageConfig pageConfig = pages.get(checkingPageNumberInSection);
+        if (pageConfig.showingPredicate().test(serviceData)) {
+          firstAvailablePageNumberInSection = checkingPageNumberInSection;
+          break;
+        }
+      }
+    }
+    if (firstAvailablePageNumberInSection < 0) {
+      LogUtils.e(
+          TAG,
+          "Invalid section info. firstPageCandidatesInSectionNameResIds= "
+              + Arrays.toString(firstPageCandidatesInSectionNameResIds));
       return;
     }
 
     // Gets a total number of pages in the section.
-    List<PageConfig> pages = training.getPages();
     int totalNumber = 0;
-    for (int i = firstPageNumberInSection; i < pages.size(); i++) {
+    for (int i = firstAvailablePageNumberInSection; i < pages.size(); i++) {
       totalNumber++;
       if (pages.get(i).isEndOfSection()) {
         break;
       }
     }
 
-    sectionInfo = new SectionInfo(currentPageNumber, firstPageNumberInSection, totalNumber);
-    switchPage(firstPageNumberInSection);
+    sectionInfo =
+        new SectionInfo(currentPageNumber, firstAvailablePageNumberInSection, totalNumber);
+    switchPage(firstAvailablePageNumberInSection);
   }
 
   /** Goes back to the previous page. Returns false if there is no previous page. */
@@ -247,12 +276,10 @@ public class PageController {
     return null;
   }
 
-  /**
-   * Returns true if the current page is the first page. Always returns false for the page in a
-   * section.
-   */
+  /** Returns true if the current page is the first page or the first page of the section. */
   public boolean isFirstPage() {
-    return sectionInfo == null && currentPageNumber == 0;
+    return (sectionInfo == null && currentPageNumber == 0)
+        || (sectionInfo != null && sectionInfo.firstPageNumber == currentPageNumber);
   }
 
   /** Returns true if the current page is the last page. */

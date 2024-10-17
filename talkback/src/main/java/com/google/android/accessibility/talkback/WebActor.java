@@ -94,7 +94,10 @@ public class WebActor {
 
     String htmlElementType = NavigationTarget.targetTypeToHtmlElement(navigationAction.targetType);
     if (htmlElementType == null) {
-      LogUtils.w(LOG_TAG, "Cannot navigate to HTML target: invalid targetType.");
+      LogUtils.w(
+          LOG_TAG,
+          "Cannot navigate to HTML target: invalid targetType=%d.",
+          navigationAction.targetType);
       return false;
     }
 

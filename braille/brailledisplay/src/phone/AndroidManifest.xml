@@ -53,12 +53,8 @@
 
     <activity
         android:name="com.google.android.accessibility.braille.brailledisplay.settings.KeyBindingsCommandActivity"
-        android:exported="true"
+        android:exported="false"
         android:theme="@style/BrailleSettingsTheme" >
-      <intent-filter>
-        <action android:name=".KeyBindingsCommandActivity" />
-        <category android:name="android.intent.category.DEFAULT" />
-      </intent-filter>
     </activity>
 
     <activity

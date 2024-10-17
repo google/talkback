@@ -40,6 +40,7 @@ import com.google.android.accessibility.talkback.compositor.rule.EventTypeViewLo
 import com.google.android.accessibility.talkback.compositor.rule.EventTypeViewSelectedFeedbackRule;
 import com.google.android.accessibility.talkback.compositor.rule.EventTypeWindowContentChangedFeedbackRule;
 import com.google.android.accessibility.talkback.compositor.rule.EventTypeWindowStateChangedFeedbackRule;
+import com.google.android.accessibility.talkback.compositor.rule.HeadsUpNotificationAppearedFeedbackRule;
 import com.google.android.accessibility.talkback.compositor.rule.HintFeedbackRule;
 import com.google.android.accessibility.talkback.compositor.rule.InputDescribeNodeFeedbackRule;
 import com.google.android.accessibility.talkback.compositor.rule.InputTextFeedbackRules;
@@ -163,6 +164,8 @@ public class TalkBackFeedbackProvider implements EventFeedbackProvider {
             : new AccessibilityFocusHint(context, globalVariables);
     HintFeedbackRule.addFeedbackRule(
         feedbackRules, context, accessibilityFocusHint, globalVariables);
+    HeadsUpNotificationAppearedFeedbackRule.addFeedbackRule(
+        feedbackRules, context, globalVariables);
   }
 
   private boolean requestRefreshSourceNode(int event, AccessibilityNodeInfoCompat node) {

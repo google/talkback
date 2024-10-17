@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">читать</string>
-  <string name="voice_commands_read_from_next">Читать со следующего</string>
+  <string name="voice_commands_read_from_next">Озвучить, начиная с места курсора</string>
   <string name="voice_commands_edit_options">Средства редактирования</string>
-  <string name="voice_commands_text_editing">Редактирование текста</string>
-  <string name="voice_commands_edit_text">Редактировать текст</string>
-  <string name="voice_commands_editing_options">Средства редактирования</string>
   <string name="voice_commands_edit">изменить</string>
   <string name="voice_commands_what">что</string>
   <string name="voice_commands_say">сказать</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Добавить ярлык</string>
   <string name="voice_commands_cannot_label_feedback">Не удалось назначить ярлык.</string>
   <string name="voice_commands_assistant">Ассистент</string>
-  <string name="voice_commands_setting_speech_rate">Настроить скорость речи</string>
   <string name="voice_commands_first">Первый элемент</string>
   <string name="voice_commands_top">Вверх</string>
   <string name="voice_commands_last">Последний элемент</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Увеличить скорость речи</string>
   <string name="voice_commands_slower">Медленнее</string>
   <string name="voice_commands_decrease_speech_rate">Снизить скорость речи</string>
-  <string name="voice_commands_possible_options_title">Возможные команды</string>
   <string name="voice_commands_no_action">Эта быстрая голосовая команда не поддерживается.</string>
   <string name="voice_commands_no_mic_permissions">Чтобы использовать эту функцию, предоставьте приложению доступ к микрофону.</string>
   <string name="voice_commands_no_voice_recognition_ability">Эта функция недоступна для вашего устройства.</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Следующего элемента управления нет</string>
   <string name="voice_commands_no_next_landmark_feedback">Следующей метки нет</string>
   <string name="voice_commands_help_title">Обзор голосовых команд</string>
-  <string name="voice_commands_help_description">Чтобы использовать голосовые команды, смахните вправо и вверх. Для доступа к списку команд скажите \"Справка\" или \"Что я могу сказать?\".</string>
+  <string name="voice_commands_help_description">Чтобы использовать голосовые команды, проведите по экрану вправо, а затем вверх. Для доступа к списку команд скажите \"%1$s\" или \"Что можно сказать?\".</string>
   <string name="voice_commands_help_hint">Чтобы команды работали, произносите их так, как указано на последующих экранах.</string>
   <string name="voice_command_screen_locked_hint">Когда экран заблокирован, голосовые команды недоступны. Чтобы использовать меню TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Во время настройки голосовые команды недоступны.</string>
@@ -111,7 +106,7 @@
   <string name="voice_commands_help_reading_controls_description">Настройка параметров чтения на текущем экране.</string>
   <string name="voice_commands_help_next">Следующий [заголовок]</string>
   <string name="voice_commands_help_navigation">Навигация [по словам]</string>
-  <string name="voice_commands_help_speech_rate">[Увеличить] скорость речи</string>
+  <string name="voice_commands_help_speech_rate">Говори [быстрее]</string>
   <string name="voice_commands_help_verbosity">[Низкая] детализация</string>
   <string name="voice_commands_help_next_description">Переход к следующему заголовку, элементу управления, списку или метке.</string>
   <string name="voice_commands_help_navigation_description">Навигация по словам, символам, строкам, абзацам, заголовкам, элементам управления и т. д.</string>

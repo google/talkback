@@ -25,10 +25,12 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.TextUtils;
+import android.text.style.ClickableSpan;
 import android.text.style.LocaleSpan;
 import android.text.style.TtsSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
+import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayDeque;
@@ -38,6 +40,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Utility methods for working with spannable objects. */
 public final class SpannableUtils {
+
+  private static final String TAG = "SpannableUtils";
 
   /** Identifies separators attached in spoken feedback. */
   public static class IdentifierSpan {}
@@ -169,30 +173,38 @@ public final class SpannableUtils {
   }
 
   /**
-   * Retrieves SpannableString containing the target span in the accessibility node. The content
-   * description and text of the node is checked in order.
+   * Retrieves SpannableString containing the target type of ClickableSpan in the accessibility
+   * node.
    *
-   * @param node The AccessibilityNodeInfoCompat where the text comes from.
-   * @param spanClass Class of target span.
-   * @return SpannableString with at least 1 target span. null if no target span found in the node.
+   * <p><b>Note: Only ClickableSpan in text, not in content description, can be passed to
+   * accessibility service.</b>
+   *
+   * <p><b>Note: {@code targetClickableSpanClass} should be able to be parcelable and transmitted by
+   * IPC which depends on the implementation of {@link AccessibilityNodeInfo#setText(CharSequence)}
+   * in the framework side.</b>
+   *
+   * @param node the AccessibilityNodeInfoCompat where the text comes from
+   * @param targetClickableSpanClass the class of target ClickableSpan.
+   * @return SpannableString with at least 1 target ClickableSpan, null if no target ClickableSpan
+   *     found in the node
    */
-  public static <T> @Nullable SpannableString getStringWithTargetSpan(
-      AccessibilityNodeInfoCompat node, Class<T> spanClass) {
+  public static @Nullable SpannableString getSpannableStringWithTargetClickableSpan(
+      AccessibilityNodeInfoCompat node, Class<? extends ClickableSpan> targetClickableSpanClass) {
 
-    CharSequence text = node.getContentDescription();
+    CharSequence text = AccessibilityNodeInfoUtils.getText(node);
     if (isEmptyOrNotSpannableStringType(text)) {
-      text = AccessibilityNodeInfoUtils.getText(node);
-      if (isEmptyOrNotSpannableStringType(text)) {
-        return null;
-      }
-    }
-
-    SpannableString spannable = SpannableString.valueOf(text);
-    T[] spans = spannable.getSpans(0, spannable.length(), spanClass);
-    if (spans == null || spans.length == 0) {
+      LogUtils.v(TAG, "text(%s) isEmptyOrNotSpannableStringType", text);
       return null;
     }
 
+    SpannableString spannable = SpannableString.valueOf(text);
+    ClickableSpan[] spans = spannable.getSpans(0, spannable.length(), targetClickableSpanClass);
+    if (spans == null || spans.length == 0) {
+      LogUtils.v(TAG, "text(%s) has null or empty ClickableSpan[]", text);
+      return null;
+    }
+
+    LogUtils.v(TAG, "text(%s) has SpannableString(%s)", text, spannable);
     return spannable;
   }
 

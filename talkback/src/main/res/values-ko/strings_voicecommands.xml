@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">읽기</string>
-  <string name="voice_commands_read_from_next">다음 항목부터 읽기</string>
+  <string name="voice_commands_read_from_next">커서 위치부터 읽기</string>
   <string name="voice_commands_edit_options">옵션 수정</string>
-  <string name="voice_commands_text_editing">텍스트 편집</string>
-  <string name="voice_commands_edit_text">텍스트 편집</string>
-  <string name="voice_commands_editing_options">편집 옵션</string>
   <string name="voice_commands_edit">수정</string>
   <string name="voice_commands_what">어떤</string>
   <string name="voice_commands_say">명령어</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">라벨</string>
   <string name="voice_commands_cannot_label_feedback">라벨을 지정할 수 없음</string>
   <string name="voice_commands_assistant">어시스턴트</string>
-  <string name="voice_commands_setting_speech_rate">말하는 속도 설정</string>
   <string name="voice_commands_first">첫번째</string>
   <string name="voice_commands_top">상단</string>
   <string name="voice_commands_last">마지막</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">읽기 속도 높이기</string>
   <string name="voice_commands_slower">더 느리게</string>
   <string name="voice_commands_decrease_speech_rate">읽기 속도 낮추기</string>
-  <string name="voice_commands_possible_options_title">사용할 수 있는 명령어</string>
   <string name="voice_commands_no_action">음성 단축키는 지원되지 않습니다.</string>
   <string name="voice_commands_no_mic_permissions">이 기능을 사용하려면 마이크 사용 권한을 부여해야 합니다.</string>
   <string name="voice_commands_no_voice_recognition_ability">죄송합니다. 이 기능은 이 기기에서 사용할 수 없습니다.</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">다음 컨트롤이 없음</string>
   <string name="voice_commands_no_next_landmark_feedback">다음 랜드마크가 없음</string>
   <string name="voice_commands_help_title">음성 명령 개요</string>
-  <string name="voice_commands_help_description">음성 명령을 사용하려면 오른쪽으로 스와이프한 후 위로 스와이프하세요. 음성 명령 목록을 보려면 언제든지 \"도와줘\" 또는 \"뭐라고 말해야 해?\"라고 말하세요.</string>
+  <string name="voice_commands_help_description">음성 명령을 사용하려면 오른쪽으로 스와이프한 후 위로 스와이프하세요. 음성 명령 목록을 보려면 언제든지 \"%1$s\" 또는 \"뭐라고 말해야 해?\"라고 말하세요.</string>
   <string name="voice_commands_help_hint">다음 화면에 표시된 말을 그대로 따라 하는 것이 가장 효과가 좋습니다.</string>
   <string name="voice_command_screen_locked_hint">화면이 잠겨 있을 때는 음성 명령을 사용할 수 없습니다. 대신 TalkBack 메뉴를 사용하려면 %1$s하세요.</string>
   <string name="voice_commands_during_setup_hint">설정 중에는 음성 명령을 사용할 수 없습니다.</string>

@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.utils.gestures;
 
+import static android.util.Log.VERBOSE;
 import static com.google.android.accessibility.utils.gestures.GestureUtils.MM_PER_CM;
 
 import android.content.Context;
@@ -25,8 +26,8 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 
 /**
@@ -124,7 +125,7 @@ class Swipe extends GestureMatcher {
   }
 
   @Override
-  protected void onDown(MotionEvent event) {
+  protected void onDown(EventId eventId, MotionEvent event) {
     if (Float.isNaN(baseX) && Float.isNaN(baseY)) {
       baseX = event.getX();
       baseY = event.getY();
@@ -136,7 +137,7 @@ class Swipe extends GestureMatcher {
   }
 
   @Override
-  protected void onMove(MotionEvent event) {
+  protected void onMove(EventId eventId, MotionEvent event) {
     final float x = event.getX();
     final float y = event.getY();
     final long time = event.getEventTime();
@@ -144,8 +145,8 @@ class Swipe extends GestureMatcher {
     final float dY = Math.abs(y - previousGestureY);
     final double moveDelta = Math.hypot(Math.abs(x - baseX), Math.abs(y - baseY));
     final long timeDelta = time - baseTime;
-    LogUtils.v(
-        getGestureName(),
+    gestureMotionEventLog(
+        VERBOSE,
         "moveDelta: %g,  mGestureDetectionThreshold: %g",
         moveDelta,
         gestureDetectionThresholdPixels);
@@ -191,7 +192,7 @@ class Swipe extends GestureMatcher {
   }
 
   @Override
-  protected void onUp(MotionEvent event) {
+  protected void onUp(EventId eventId, MotionEvent event) {
     switch (getState()) {
       case STATE_GESTURE_STARTED:
         break;
@@ -215,16 +216,16 @@ class Swipe extends GestureMatcher {
     if (dX >= minPixelsBetweenSamplesX || dY >= minPixelsBetweenSamplesY) {
       strokeBuffer.add(new PointF(x, y));
     }
-    recognizeGesture(event);
+    recognizeGesture(eventId, event);
   }
 
   @Override
-  protected void onPointerDown(MotionEvent event) {
+  protected void onPointerDown(EventId eventId, MotionEvent event) {
     cancelGesture(event);
   }
 
   @Override
-  protected void onPointerUp(MotionEvent event) {
+  protected void onPointerUp(EventId eventId, MotionEvent event) {
     cancelGesture(event);
   }
 
@@ -234,7 +235,7 @@ class Swipe extends GestureMatcher {
    *
    * @param event The raw motion event to pass to the listener callbacks.
    */
-  private void recognizeGesture(MotionEvent event) {
+  private void recognizeGesture(EventId eventId, MotionEvent event) {
     if (strokeBuffer.size() < 2) {
       cancelGesture(event);
       return;
@@ -304,9 +305,9 @@ class Swipe extends GestureMatcher {
     }
 
     path.add(next);
-    LogUtils.v(getGestureName(), "path = %s", path.toString());
+    gestureMotionEventLog(VERBOSE, "path = %s", path.toString());
     // Classify line segments, and call Listener callbacks.
-    recognizeGesturePath(event, path);
+    recognizeGesturePath(eventId, event, path);
   }
 
   /**
@@ -316,7 +317,7 @@ class Swipe extends GestureMatcher {
    * @param event The raw motion event to pass to the listener's onGestureCanceled method.
    * @param path A sequence of motion line segments derived from motion points in mStrokeBuffer.
    */
-  private void recognizeGesturePath(MotionEvent event, ArrayList<PointF> path) {
+  private void recognizeGesturePath(EventId eventId, MotionEvent event, ArrayList<PointF> path) {
     if (path.size() != directions.length + 1) {
       cancelGesture(event);
       return;
@@ -329,8 +330,8 @@ class Swipe extends GestureMatcher {
       float dY = end.y - start.y;
       int direction = toDirection(dX, dY);
       if (direction != directions[i]) {
-        LogUtils.v(
-            getGestureName(),
+        gestureMotionEventLog(
+            VERBOSE,
             "Found direction %s  when expecting %s",
             directionToString(direction),
             directionToString(directions[i]));
@@ -338,8 +339,8 @@ class Swipe extends GestureMatcher {
         return;
       }
     }
-    LogUtils.v(getGestureName(), "Completed.");
-    completeGesture(event);
+    gestureMotionEventLog(VERBOSE, "Completed.");
+    completeGesture(eventId, event);
   }
 
   private static int toDirection(float dX, float dY) {

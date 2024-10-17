@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">წაკითხვა</string>
-  <string name="voice_commands_read_from_next">წაკითხვა შემდეგიდან</string>
+  <string name="voice_commands_read_from_next">კურსორიდან წაკითხვა</string>
   <string name="voice_commands_edit_options">რედაქტირების ვარიანტები</string>
-  <string name="voice_commands_text_editing">ტექსტის რედაქტირება</string>
-  <string name="voice_commands_edit_text">ტექსტის რედაქტირება</string>
-  <string name="voice_commands_editing_options">რედაქტირების ვარიანტები</string>
   <string name="voice_commands_edit">რედაქტირება</string>
   <string name="voice_commands_what">რა</string>
   <string name="voice_commands_say">თქმა</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ლეიბლი</string>
   <string name="voice_commands_cannot_label_feedback">ლეიბლის მიმაგრება შეუძლებელია</string>
   <string name="voice_commands_assistant">ასისტენტი</string>
-  <string name="voice_commands_setting_speech_rate">მეტყველების ტემპის დაყენება</string>
   <string name="voice_commands_first">პირველი</string>
   <string name="voice_commands_top">ზემოთ</string>
   <string name="voice_commands_last">ბოლო</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">მეტყველების ტემპის გაზრდა</string>
   <string name="voice_commands_slower">უფრო ნელა</string>
   <string name="voice_commands_decrease_speech_rate">მეტყველების ტემპის შემცირება</string>
-  <string name="voice_commands_possible_options_title">შეგიძლიათ თქვათ</string>
   <string name="voice_commands_no_action">ხმოვანი მალსახმობი მხარდაუჭერელია</string>
   <string name="voice_commands_no_mic_permissions">ამ ფუნქციით სარგებლობისთვის საჭიროა მიკროფონის გამოყენების ნებართვის მინიჭება.</string>
   <string name="voice_commands_no_voice_recognition_ability">სამწუხაროდ, ეს ფუნქცია მიუწვდომელია თქვენს მოწყობილობაზე</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">მართვის შემდეგი საშუალება არ არის</string>
   <string name="voice_commands_no_next_landmark_feedback">შემდეგი ორიენტირი არ არის</string>
   <string name="voice_commands_help_title">ხმოვანი ბრძანების გადახედვა</string>
-  <string name="voice_commands_help_description">ხმოვანი ბრძანებების გამოსაყენებლად ჯერ გადაფურცლეთ მარჯვნივ, შემდეგ კი ზევით. თქვით „დამეხმარე“ ან „რისი თქმა შემიძლია“ ნებისმიერ დროს, რათა მიიღოთ ბრძანებათა ეს სია.</string>
+  <string name="voice_commands_help_description">ხმოვანი ბრძანებების გამოსაყენებლად გადაფურცლეთ მარჯვნივ, შემდეგ კი - ზევით. ბრძანებათა ამ სიის მისაღებად ნებისმიერ დროს თქვით „%1$s“ ან „რისი თქმა შემიძლია?“.</string>
   <string name="voice_commands_help_hint">საუკეთესო შედეგების მისაღებად, ზუსტად თქვით ის, რაც მითითებულია მომდევნო ეკრანებზე.</string>
   <string name="voice_command_screen_locked_hint">ხმოვანი ბრძანებები არ არის ხელმისაწვდომი ჩაკეტილ ეკრანზე. მის ნაცვლად TalkBack მენიუს გამოსაყენებლად %1$s.</string>
   <string name="voice_commands_during_setup_hint">ხმოვანი ბრძანებები მიუწვდომელია დაყენების დროს.</string>

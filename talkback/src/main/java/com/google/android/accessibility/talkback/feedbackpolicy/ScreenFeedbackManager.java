@@ -34,11 +34,12 @@ import com.google.android.accessibility.talkback.compositor.Compositor;
 import com.google.android.accessibility.talkback.eventprocessor.EventState;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorAccessibilityHints;
 import com.google.android.accessibility.talkback.gesture.GestureShortcutMapping;
-import com.google.android.accessibility.talkback.keyboard.KeyComboManager;
-import com.google.android.accessibility.talkback.keyboard.KeyComboModel;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -59,7 +60,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import org.checkerframework.checker.initialization.qual.UnderInitialization;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -89,7 +89,6 @@ public class ScreenFeedbackManager
   private static final int MASK_EVENTS_HANDLED_BY_SCREEN_FEEDBACK_MANAGER =
       AccessibilityEvent.TYPE_WINDOWS_CHANGED | AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED;
 
-  private final AllContext allContext; // Wrapper around various context and preference data.
   private final WindowEventInterpreter interpreter;
   private boolean listeningToInterpreter = false;
   protected FeedbackComposer feedbackComposer;
@@ -97,49 +96,22 @@ public class ScreenFeedbackManager
   // Context used by this class.
   protected final AccessibilityService service;
   private final Compositor.@NonNull TextComposer compositor;
-  private final boolean isScreenOrientationLandscape;
 
-  private final @NonNull KeyComboManager keyComboManager;
   private final Pipeline.FeedbackReturner pipeline;
 
   public ScreenFeedbackManager(
       AccessibilityService service,
       @NonNull WindowEventInterpreter windowEventInterpreter,
       Compositor.@NonNull TextComposer compositor,
-      @NonNull KeyComboManager keyComboManager,
       FocusFinder focusFinder,
       GestureShortcutMapping gestureShortcutMapping,
-      Pipeline.FeedbackReturner pipeline,
-      boolean screenOrientationLandscape) {
+      Pipeline.FeedbackReturner pipeline) {
     this.interpreter = windowEventInterpreter;
-    allContext = getAllContext(service, createPreferences());
-    feedbackComposer = new FeedbackComposer(focusFinder, gestureShortcutMapping);
+    feedbackComposer = new FeedbackComposer(service, focusFinder, gestureShortcutMapping);
 
     this.service = service;
     this.compositor = compositor;
-    this.keyComboManager = keyComboManager;
     this.pipeline = pipeline;
-    isScreenOrientationLandscape = screenOrientationLandscape;
-  }
-
-  private @Nullable UserPreferences createPreferences() {
-    return new UserPreferences() {
-      @Override
-      public @Nullable String keyComboResIdToString(int keyComboId) {
-        KeyComboModel keyComboModel = keyComboManager.getKeyComboModel();
-        long keyComboCode = keyComboModel.getKeyComboCodeForKey(service.getString(keyComboId));
-        if (keyComboCode != KeyComboModel.KEY_COMBO_CODE_UNASSIGNED) {
-          long keyComboCodeWithModifier =
-              KeyComboManager.getKeyComboCode(
-                  KeyComboManager.getModifier(keyComboCode) | keyComboModel.getTriggerModifier(),
-                  KeyComboManager.getKeyCode(keyComboCode));
-          String keyCombo =
-              keyComboManager.getKeyComboStringRepresentation(keyComboCodeWithModifier);
-          return keyCombo;
-        }
-        return null;
-      }
-    };
   }
 
   @Override
@@ -178,8 +150,7 @@ public class ScreenFeedbackManager
       boolean sourceIsVolumeControl) {
     if ((hint != null)) {
       pipeline.returnFeedback(
-          eventId,
-          ProcessorAccessibilityHints.screenEventToHint(hint, allContext.getContext(), compositor));
+          eventId, ProcessorAccessibilityHints.screenEventToHint(hint, service, compositor));
     }
 
     int flags =
@@ -208,23 +179,6 @@ public class ScreenFeedbackManager
             .vibration(com.google.android.accessibility.utils.R.array.window_state_pattern));
   }
 
-  /**
-   * Returns the context data for feedback generation.
-   *
-   * @param context The context from which information about the screen will be retrieved.
-   * @param preferences The {@link UserPreferences} object which contains user preferences related
-   *     to the current accessibility service.
-   * @return The {@link AllContext} object which contains the context data for feedback generation.
-   */
-  protected AllContext getAllContext(
-      @UnderInitialization ScreenFeedbackManager this,
-      Context context,
-      @Nullable UserPreferences preferences) {
-    DeviceInfo deviceInfo = new DeviceInfo();
-    AllContext allContext = new AllContext(deviceInfo, context, preferences);
-    return allContext;
-  }
-
   @Override
   public void handle(
       WindowEventInterpreter.EventInterpretation interpretation, @Nullable EventId eventId) {
@@ -238,8 +192,7 @@ public class ScreenFeedbackManager
     }
 
     // Generate feedback from interpreted event.
-    Feedback feedback =
-        feedbackComposer.composeFeedback(allContext, interpretation, /* logDepth= */ 0);
+    Feedback feedback = feedbackComposer.composeFeedback(interpretation, /* logDepth= */ 0);
     LogUtils.v(TAG, "feedback=%s", feedback);
 
     if (!feedback.isEmpty()) {
@@ -303,15 +256,8 @@ public class ScreenFeedbackManager
       }
     }
 
-    boolean shouldSkipWakeUpOnWear =
-        FormFactorUtils.getInstance().isAndroidWear()
-            && interpretation.isInterpretFirstTimeWhenWakeUp();
-
-    // We will skip the interpretation from wake up experience and only speak if windows are stable
-    // and the event allows announcement.
-    return interpretation.areWindowsStable()
-        && interpretation.isAllowAnnounce()
-        && !shouldSkipWakeUpOnWear;
+    // Only speak if windows are stable and the event allows announcement.
+    return interpretation.areWindowsStable() && interpretation.isAllowAnnounce();
   }
 
   /** Inner class used for speech feedback generation. */
@@ -319,32 +265,43 @@ public class ScreenFeedbackManager
   @VisibleForTesting
   static class FeedbackComposer {
 
-    private @Nullable FocusFinder focusFinder;
-    private @Nullable GestureShortcutMapping gestureShortcutMapping;
+    private final AccessibilityService service;
+    private final @Nullable FocusFinder focusFinder;
+    private final @Nullable GestureShortcutMapping gestureShortcutMapping;
 
     public FeedbackComposer(
+        AccessibilityService service,
         @Nullable FocusFinder focusFinder,
         @Nullable GestureShortcutMapping gestureShortcutMapping) {
+      this.service = service;
       this.focusFinder = focusFinder;
       this.gestureShortcutMapping = gestureShortcutMapping;
     }
 
     /** Compose speech feedback for fully interpreted window event, statelessly. */
     public Feedback composeFeedback(
-        AllContext allContext,
-        WindowEventInterpreter.EventInterpretation interpretation,
-        final int logDepth) {
+        WindowEventInterpreter.EventInterpretation interpretation, final int logDepth) {
 
       logCompose(logDepth, "composeFeedback", "interpretation=%s", interpretation);
 
       Feedback feedback = new Feedback();
+
+      if (isWakeUpForWear(interpretation)) {
+        // Only announce unread notification feedback on wake up experience for wear and have early
+        // return to avoid unwanted window title announcement.
+        FeedbackPart part = getFeedbackPartUnreadNotificationOnWakeUpIfNecessary();
+        if (part != null) {
+          feedback.addPart(part);
+        }
+        return feedback;
+      }
+
       // Compose feedback for announcement.
       Announcement announcement = interpretation.getAnnouncement();
       if (announcement != null) {
         logCompose(logDepth, "composeFeedback", "announcement");
         feedback.addPart(
             new FeedbackPart(announcement.text())
-                .earcon(true)
                 .forceFeedbackEvenIfAudioPlaybackActive(!announcement.isFromVolumeControlPanel())
                 .forceFeedbackEvenIfMicrophoneActive(!announcement.isFromVolumeControlPanel())
                 .forceFeedbackEvenIfSsbActive(announcement.isFromInputMethodEditor()));
@@ -355,18 +312,15 @@ public class ScreenFeedbackManager
         logCompose(logDepth, "composeFeedback", "input method");
         String inputMethodFeedback;
         if (interpretation.getInputMethod().getId() == WINDOW_ID_NONE) {
-          inputMethodFeedback = allContext.getContext().getString(R.string.hide_keyboard_window);
+          inputMethodFeedback = service.getString(R.string.hide_keyboard_window);
         } else {
           inputMethodFeedback =
-              allContext
-                  .getContext()
-                  .getString(
-                      R.string.show_keyboard_window,
-                      interpretation.getInputMethod().getTitleForFeedback());
+              service.getString(
+                  R.string.show_keyboard_window,
+                  interpretation.getInputMethod().getTitleForFeedback());
         }
         feedback.addPart(
             new FeedbackPart(inputMethodFeedback)
-                .earcon(true)
                 .forceFeedbackEvenIfAudioPlaybackActive(true)
                 .forceFeedbackEvenIfMicrophoneActive(true));
       }
@@ -391,8 +345,7 @@ public class ScreenFeedbackManager
             logCompose(logDepth, "composeFeedback", "split-screen/multi-panel mode");
             int feedbackTemplate;
             if (interpretation.getHorizontalPlacement()) {
-              if (allContext.getDeviceInfo().isScreenLayoutRTL()) {
-
+              if (WindowUtils.isScreenLayoutRTL(service)) {
                 feedbackTemplate = R.string.template_split_screen_mode_landscape_rtl;
               } else {
                 feedbackTemplate = R.string.template_split_screen_mode_landscape_ltr;
@@ -402,12 +355,10 @@ public class ScreenFeedbackManager
             }
 
             utterance =
-                allContext
-                    .getContext()
-                    .getString(
-                        feedbackTemplate,
-                        interpretation.getWindowA().getTitleForFeedback(),
-                        interpretation.getWindowB().getTitleForFeedback());
+                service.getString(
+                    feedbackTemplate,
+                    interpretation.getWindowA().getTitleForFeedback(),
+                    interpretation.getWindowB().getTitleForFeedback());
           }
         }
       }
@@ -423,7 +374,7 @@ public class ScreenFeedbackManager
         }
         utterance =
             appendTemplate(
-                allContext.getContext(),
+                service,
                 utterance,
                 R.string.template_overlay_window,
                 picInPicWindowTitle,
@@ -431,19 +382,45 @@ public class ScreenFeedbackManager
       }
 
       // Custom the feedback if the composer needs.
-      feedback = customizeFeedback(allContext, feedback, interpretation, logDepth);
+      feedback = customizeFeedback(service, feedback, interpretation, logDepth);
 
       // Return feedback.
       if (!TextUtils.isEmpty(utterance)) {
         feedback.addPart(
             new FeedbackPart(utterance)
                 .hint(hint)
-                .clearQueue(true)
                 .forceFeedbackEvenIfAudioPlaybackActive(true)
                 .forceFeedbackEvenIfMicrophoneActive(true));
       }
       feedback.setReadOnly();
       return feedback;
+    }
+
+    private boolean isWakeUpForWear(WindowEventInterpreter.EventInterpretation interpretation) {
+      return FormFactorUtils.getInstance().isAndroidWear()
+          && interpretation.isInterpretFirstTimeWhenWakeUp();
+    }
+
+    private @Nullable FeedbackPart getFeedbackPartUnreadNotificationOnWakeUpIfNecessary() {
+      for (AccessibilityWindowInfo window : AccessibilityServiceCompatUtils.getWindows(service)) {
+        AccessibilityNodeInfoCompat root = AccessibilityNodeInfoUtils.toCompat(window.getRoot());
+        AccessibilityNodeInfoCompat unreadNode =
+            AccessibilityNodeInfoUtils.getSelfOrMatchingDescendant(
+                root,
+                new Filter<AccessibilityNodeInfoCompat>() {
+                  @Override
+                  public boolean accept(AccessibilityNodeInfoCompat node) {
+                    return AccessibilityNodeInfoUtils.isWearUnreadNotificationDot(node);
+                  }
+                });
+
+        if (unreadNode != null) {
+          return new FeedbackPart(unreadNode.getContentDescription())
+              .forceFeedbackEvenIfAudioPlaybackActive(true)
+              .forceFeedbackEvenIfMicrophoneActive(true);
+        }
+      }
+      return null;
     }
 
     private CharSequence appendTemplate(
@@ -460,7 +437,7 @@ public class ScreenFeedbackManager
     }
 
     private Feedback customizeFeedback(
-        AllContext allContext,
+        Context context,
         Feedback feedback,
         WindowEventInterpreter.EventInterpretation interpretation,
         final int logDepth) {
@@ -475,9 +452,7 @@ public class ScreenFeedbackManager
       if (interpretation.getAnchorNodeRole() == Role.ROLE_EDIT_TEXT) {
         logCompose(logDepth, "customComposeFeedback", "auto-complete suggestions");
         AccessibilityNodeInfoCompat focus =
-            focusFinder == null
-                ? null
-                : focusFinder.findFocusCompat(AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
+            focusFinder.findFocusCompat(AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
         if (focus == null) {
           return feedback;
         }
@@ -486,85 +461,31 @@ public class ScreenFeedbackManager
             && AccessibilityWindowInfoUtils.getAnchoredWindow(focus) != null)) {
           gesture =
               gestureShortcutMapping.getGestureFromActionKey(
-                  allContext.getContext().getString(R.string.shortcut_value_next));
+                  context.getString(R.string.shortcut_value_next));
         } else if (focus.getWindow().getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD) {
           gesture =
               gestureShortcutMapping.getGestureFromActionKey(
-                  allContext.getContext().getString(R.string.shortcut_value_previous_window));
+                  context.getString(R.string.shortcut_value_previous_window));
         } else {
           return feedback;
         }
         String utterance =
             (FeatureSupport.isMultiFingerGestureSupported() && gesture != null)
-                ? allContext
-                    .getContext()
-                    .getString(R.string.suggestions_window_available_with_gesture, gesture)
-                : allContext.getContext().getString(R.string.suggestions_window_available);
+                ? context.getString(R.string.suggestions_window_available_with_gesture, gesture)
+                : context.getString(R.string.suggestions_window_available);
         feedback.addPart(
             new FeedbackPart(utterance)
-                .earcon(true)
                 .forceFeedbackEvenIfAudioPlaybackActive(true)
                 .forceFeedbackEvenIfMicrophoneActive(true));
       }
       return feedback;
     }
-
-  }
-
-  // /////////////////////////////////////////////////////////////////////////////////////
-  // Inner classes for feedback generation context
-
-  /** Wrapper around various context data for feedback generation. */
-  public static class AllContext {
-    private final DeviceInfo deviceInfo;
-    private final Context context;
-    private final @Nullable UserPreferences preferences;
-
-    public AllContext(
-        DeviceInfo deviceInfoArg, Context contextArg, @Nullable UserPreferences preferencesArg) {
-      deviceInfo = deviceInfoArg;
-      context = contextArg;
-      preferences = preferencesArg;
-    }
-
-    public DeviceInfo getDeviceInfo() {
-      return deviceInfo;
-    }
-
-    public Context getContext() {
-      return context;
-    }
-
-    public @Nullable UserPreferences getUserPreferences() {
-      return preferences;
-    }
-  }
-
-  /** A source of data about the device running talkback. */
-  protected class DeviceInfo {
-    public boolean isSplitScreenModeAvailable() {
-      return getInterpreter().isSplitScreenModeAvailable();
-    }
-
-    public boolean isScreenOrientationLandscape() {
-      return isScreenOrientationLandscape;
-    }
-
-    public boolean isScreenLayoutRTL() {
-      return WindowUtils.isScreenLayoutRTL(service);
-    }
-  };
-
-  /** Read-only interface to user preferences. */
-  public interface UserPreferences {
-    @Nullable
-    String keyComboResIdToString(int keyComboId);
   }
 
   // /////////////////////////////////////////////////////////////////////////////////////
   // Inner class: speech output
 
-  /** Data container specifying speech, earcons, feedback timing, etc. */
+  /** Data container specifying speech, feedback timing, etc. */
   protected static class Feedback extends ReadOnly {
     private final List<FeedbackPart> parts = new ArrayList<>();
 
@@ -585,7 +506,7 @@ public class ScreenFeedbackManager
     public String toString() {
       StringBuilder strings = new StringBuilder();
       for (FeedbackPart part : parts) {
-        strings.append("[" + part + "] ");
+        strings.append("[").append(part).append("] ");
       }
       return strings.toString();
     }
@@ -595,8 +516,7 @@ public class ScreenFeedbackManager
   protected static class FeedbackPart {
     private final CharSequence speech;
     private @Nullable CharSequence hint;
-    private boolean playEarcon = false;
-    private boolean clearQueue = false;
+
     // Follows REFERTO.
     private boolean forceFeedbackEvenIfAudioPlaybackActive = false;
     private boolean forceFeedbackEvenIfMicrophoneActive = false;
@@ -609,18 +529,6 @@ public class ScreenFeedbackManager
     @CanIgnoreReturnValue
     public FeedbackPart hint(@Nullable CharSequence hint) {
       this.hint = hint;
-      return this;
-    }
-
-    @CanIgnoreReturnValue
-    public FeedbackPart earcon(boolean playEarcon) {
-      this.playEarcon = playEarcon;
-      return this;
-    }
-
-    @CanIgnoreReturnValue
-    public FeedbackPart clearQueue(boolean clear) {
-      clearQueue = clear;
       return this;
     }
 
@@ -650,14 +558,6 @@ public class ScreenFeedbackManager
       return hint;
     }
 
-    public boolean getPlayEarcon() {
-      return playEarcon;
-    }
-
-    public boolean getClearQueue() {
-      return clearQueue;
-    }
-
     public boolean getForceFeedbackEvenIfAudioPlaybackActive() {
       return forceFeedbackEvenIfAudioPlaybackActive;
     }
@@ -675,8 +575,6 @@ public class ScreenFeedbackManager
       return StringBuilderUtils.joinFields(
           formatString(speech).toString(),
           (hint == null ? "" : " hint:" + formatString(hint)),
-          StringBuilderUtils.optionalTag(" PlayEarcon", playEarcon),
-          StringBuilderUtils.optionalTag(" ClearQueue", clearQueue),
           StringBuilderUtils.optionalTag(
               "forceFeedbackEvenIfAudioPlaybackActive", forceFeedbackEvenIfAudioPlaybackActive),
           StringBuilderUtils.optionalTag(

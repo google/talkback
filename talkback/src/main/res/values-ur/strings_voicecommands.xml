@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">پڑھیں</string>
-  <string name="voice_commands_read_from_next">اگلے سے پڑھیں</string>
+  <string name="voice_commands_read_from_next">کرسر سے پڑھیں</string>
   <string name="voice_commands_edit_options">اختیارات میں ترمیم کریں</string>
-  <string name="voice_commands_text_editing">ٹیکسٹ میں ترمیم کرنا</string>
-  <string name="voice_commands_edit_text">ٹیکسٹ میں ترمیم کریں</string>
-  <string name="voice_commands_editing_options">ترمیم کرنے کے اختیارات</string>
   <string name="voice_commands_edit">ترمیم کریں</string>
   <string name="voice_commands_what">کیا</string>
   <string name="voice_commands_say">کہیں</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">لیبل</string>
   <string name="voice_commands_cannot_label_feedback">لیبل نہیں لگا سکتے</string>
   <string name="voice_commands_assistant">اسسٹنٹ</string>
-  <string name="voice_commands_setting_speech_rate">اسپیچ کی شرح سیٹ ہو رہی ہے</string>
   <string name="voice_commands_first">پہلا</string>
   <string name="voice_commands_top">سر فہرست</string>
   <string name="voice_commands_last">آخری</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">اسپیچ کی شرح بڑھائیں</string>
   <string name="voice_commands_slower">آہستہ</string>
   <string name="voice_commands_decrease_speech_rate">اسپیچ کی شرح کم کریں</string>
-  <string name="voice_commands_possible_options_title">آپ کہہ سکتے ہیں</string>
   <string name="voice_commands_no_action">صوتی شارٹ کٹ تعاون یافتہ نہیں ہے</string>
   <string name="voice_commands_no_mic_permissions">اس خصوصیت کو استعمال کرنے کے لیے، آپ کو مائیکروفون استعمال کرنے کی اجازت دینا ضروری ہے۔</string>
   <string name="voice_commands_no_voice_recognition_ability">معذرت! یہ خصوصیت آپ کے آلہ پر دستیاب نہیں ہے</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">کوئی اگلا کنٹرول نہیں ہے</string>
   <string name="voice_commands_no_next_landmark_feedback">کوئی اگلا نمایاں مقام نہیں</string>
   <string name="voice_commands_help_title">صوتی کمانڈ کا مجموعی جائزہ</string>
-  <string name="voice_commands_help_description">صوتی کمانڈز کو استعمال کرنے کے لیے، دائیں پھر اوپر سوائپ کریں۔ کمانڈز کی اس فہرست کے لیے \"مدد\" یا \"میں کیا بول سکتا ہوں؟\" کسی بھی وقت کہیں۔</string>
+  <string name="voice_commands_help_description">صوتی کمانڈز استعمال کرنے کیلئے، پہلے دائیں اور پھر اوپر سوائپ کریں۔ کمانڈز کی اس فہرست کیلئے، کسی بھی وقت \"%1$s\" یا \"میں کیا بول سکتا ہوں؟\" کہیں۔</string>
   <string name="voice_commands_help_hint">بہترین نتائج کے لیے درج ذیل اسکرینز پر دیئے گئے عین مطابق الفاظ بولیں۔</string>
   <string name="voice_command_screen_locked_hint">‏اسکرین کے مقفل ہونے کے دوران صوتی کمانڈز دستیاب نہیں ہوتے ہیں۔ اس لئے TalkBack مینیو کے استعمال کے بجائے، %1$s۔</string>
   <string name="voice_commands_during_setup_hint">سیٹ اپ کے دوران صوتی کمانڈز دستیاب نہیں ہوتی ہیں۔</string>

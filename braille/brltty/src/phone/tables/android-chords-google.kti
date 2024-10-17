@@ -122,6 +122,10 @@ bind \{chord}+\{chord6}+\{chord8} KEY_FUNCTION+151
 bind \{chord}+\{chord2}+\{chord8} KEY_FUNCTION+152
 # Select next word
 bind \{chord}+\{chord5}+\{chord8} KEY_FUNCTION+153
+# Select current to start
+bind \{chord}+\{chord1}+\{chord2}+\{chord3}+\{chord7}+\{chord8} KEY_FUNCTION+159
+# Select current to end
+bind \{chord}+\{chord4}+\{chord5}+\{chord6}+\{chord7}+\{chord8} KEY_FUNCTION+160
 
 # TODO: As the text selection for line granularity movement does not work,
 # we mask off the action of selecting text by line.
@@ -133,3 +137,5 @@ bind \{chord}+\{chord5}+\{chord8} KEY_FUNCTION+153
 bind \{chord}+\{chord1}+\{chord2}+\{chord4}+\{chord5}+\{chord6} KEY_FUNCTION+156
 # Play or pause media
 bind \{chord}+\{chord7}+\{chord8} KEY_FUNCTION+157
+# Switch to next input method
+bind \{chord}+\{chord1}+\{chord3}+\{chord8} KEY_FUNCTION+158

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">ንባብ</string>
-  <string name="voice_commands_read_from_next">ከቀጣዩ ያንብቡ</string>
+  <string name="voice_commands_read_from_next">ከጠቋሚ አንብብ</string>
   <string name="voice_commands_edit_options">የአርትዕ ማድረጊያ አማራጮች</string>
-  <string name="voice_commands_text_editing">የጽሑፍ አርትዖት</string>
-  <string name="voice_commands_edit_text">ጽሁፍ ያርትዑ</string>
-  <string name="voice_commands_editing_options">የአርትዖት አማራጮች</string>
   <string name="voice_commands_edit">አርትዕ ያድርጉ</string>
   <string name="voice_commands_what">ምን</string>
   <string name="voice_commands_say">ይበሉ</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">መሰየሚያ</string>
   <string name="voice_commands_cannot_label_feedback">መሰየሚያን መስጠት አይቻልም</string>
   <string name="voice_commands_assistant">ረዳት</string>
-  <string name="voice_commands_setting_speech_rate">የንግግር ፍጥነትን በማቀናበር ላይ</string>
   <string name="voice_commands_first">መጀመሪያ</string>
   <string name="voice_commands_top">ከላይ</string>
   <string name="voice_commands_last">መጨረሻ</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">የንግግር ፍጥነትን ይጨምሩ</string>
   <string name="voice_commands_slower">ዝግ ያለ</string>
   <string name="voice_commands_decrease_speech_rate">የንግግር ፍጥነትን ይቀንሱ</string>
-  <string name="voice_commands_possible_options_title">እንዲህ ማለት ይችላሉ</string>
   <string name="voice_commands_no_action">የድምጽ አቋራጭ አይደገፍም</string>
   <string name="voice_commands_no_mic_permissions">ይህን ባህሪ ለመጠቀም፣ ማይክራፎኑን ለመጠቀም ፈቃድ መስጠት አለብዎት</string>
   <string name="voice_commands_no_voice_recognition_ability">ይቅርታ! ይህ ባህሪ በእርስዎ መሣሪያ ላይ አይገኝም</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">ምንም ቀጣይ መቆጣጠሪያ የለም</string>
   <string name="voice_commands_no_next_landmark_feedback">ምንም ቀጣይ የመሬት ምልክት የለም</string>
   <string name="voice_commands_help_title">የየድምጽ ትዕዛዝ አጠቃላይ ዕይታ</string>
-  <string name="voice_commands_help_description">የድምጽ ትዕዛዞችን ለመጠቀም፣ ወደ ቀኝ ከዚያ ወደ ላይ ያንሸራትቱ። ለዚህ የትዕዛዞች ዝርዝር «እገዛ» ወይም «ምን ማለት እችላለሁ» በማንኛውም ጊዜ ይበሉ።</string>
+  <string name="voice_commands_help_description">የድምፅ ትዕዛዞችን ለመጠቀም፣ ወደ ቀኝ ከዚያ ወደ ላይ ያንሸራትቱ። ለዚህ የትዕዛዞች ዝርዝር «%1$s» ወይም «ምን ማለት እችላለሁ» በማንኛውም ጊዜ ይበሉ።</string>
   <string name="voice_commands_help_hint">ለተሻሉ ውጤቶች በሚቀጥሉት ማያ ገጾች ላይ የተዘረዘሩትን ትክክለኛ ቃላት ይበሉ።</string>
   <string name="voice_command_screen_locked_hint">ማያ ገጹ በሚቆለፍበት ጊዜ የድምጽ ትዕዛዞች አይገኙም። በምትኩ የTalkBack ምናሌን ለመጠቀም %1$s።</string>
   <string name="voice_commands_during_setup_hint">በውቅረት ጊዜ የድምፅ ትዕዛዞች አይገኙም።</string>

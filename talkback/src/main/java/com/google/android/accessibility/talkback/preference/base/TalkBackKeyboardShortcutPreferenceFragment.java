@@ -21,9 +21,11 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import com.google.android.accessibility.talkback.R;
@@ -70,11 +72,13 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
         if (TextUtils.equals(key, getString(R.string.pref_select_keymap_key))) {
           keymap = getKeymap();
           // Refreshes key combo model after keymap changes.
-          KeyComboManager keyComboManager = getKeyComboManager();
-          keyComboManager.refreshKeyComboModel();
+          getKeyComboManager().refreshKeyComboModel();
           updateFragment();
         } else if (TextUtils.equals(
             key, getString(R.string.pref_default_keymap_trigger_modifier_key))) {
+          // Refreshes key combo model after modifier changes because the model cannot refresh
+          // modifier by itself.
+          getKeyComboManager().refreshKeyComboModel();
           updateFragment();
         }
       };
@@ -179,14 +183,15 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
 
           // Show alert dialog.
           A11yAlertDialogWrapper dialog =
-              A11yAlertDialogWrapper.alertDialogBuilder(getActivity())
+              A11yAlertDialogWrapper.materialDialogBuilder(getContext())
                   .setTitle(R.string.keycombo_menu_alert_title_trigger_modifier)
                   .setMessage(
                       getString(
                           R.string.keycombo_menu_alert_message_trigger_modifier,
                           newTriggerModifier))
                   .setPositiveButton(
-                      android.R.string.ok, chooseTriggerModifierConfirmDialogPositive)
+                      R.string.keycombo_menu_alert_button_trigger_modifier,
+                      chooseTriggerModifierConfirmDialogPositive)
                   .setNegativeButton(
                       android.R.string.cancel,
                       (DialogInterface dialogInterface, int i) -> triggerModifierToBeSet = null)
@@ -288,6 +293,15 @@ public class TalkBackKeyboardShortcutPreferenceFragment extends TalkbackBaseFrag
     TalkBackPreferenceFilter talkBackPreferenceFilter =
         new TalkBackPreferenceFilter(getActivity().getApplicationContext());
     talkBackPreferenceFilter.filterPreferences(getPreferenceScreen());
+
+    ListPreference modifier =
+        (ListPreference)
+            findPreference(getString(R.string.pref_default_keymap_trigger_modifier_key));
+    if (modifier != null
+        && getKeyComboManager().getKeyComboModel().getTriggerModifier() != KeyEvent.META_META_ON) {
+      PreferenceCategory category = findPreference(getString(R.string.pref_keymap_category_key));
+      category.removePreference(modifier);
+    }
 
     resetKeymapPreference = findPreference(getString(R.string.pref_reset_keymap_key));
     resetKeymapPreference.setOnPreferenceClickListener(resetKeymapPreferenceClickListener);

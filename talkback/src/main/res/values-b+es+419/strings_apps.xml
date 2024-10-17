@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">Volumen de %1$s establecido al %2$d por ciento</string>
   <string name="template_stream_muted_set">Se silenció el volumen de %1$s.</string>
+  <string name="hint_a11y_volume_control">Para cambiar el volumen de accesibilidad, mantén 1 dedo sobre la pantalla y presiona las teclas para subir o bajar el volumen.</string>
   <string name="value_stream_voice_call">Llamada telefónica</string>
   <string name="value_stream_system">Sonido del sistema</string>
   <string name="value_stream_ring">Tono de llamada</string>

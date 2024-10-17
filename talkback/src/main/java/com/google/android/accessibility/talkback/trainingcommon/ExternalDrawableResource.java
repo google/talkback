@@ -31,5 +31,6 @@ public abstract class ExternalDrawableResource {
 
   public abstract String packageName();
 
-  public abstract @DrawableRes int resourceId();
+  @DrawableRes
+  public abstract int resourceId();
 }

@@ -4,6 +4,8 @@ import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_ACCESSIBILI
 import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_INPUT;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.INTERRUPT;
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.COPY;
+import static com.google.android.accessibility.talkback.Feedback.EditText.Action.CURSOR_TO_BEGINNING;
+import static com.google.android.accessibility.talkback.Feedback.EditText.Action.CURSOR_TO_END;
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.CUT;
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.PASTE;
 import static com.google.android.accessibility.talkback.Feedback.EditText.Action.TYPO_CORRECTION;
@@ -15,6 +17,7 @@ import static com.google.android.accessibility.talkback.Feedback.FocusDirection.
 import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.PREVIOUS_PAGE;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.TOGGLE_VOICE_FEEDBACK;
 import static com.google.android.accessibility.talkback.Feedback.UniversalSearch.Action.TOGGLE_SEARCH;
+import static com.google.android.accessibility.talkback.contextmenu.ListMenuManager.MenuId.CONTEXT;
 import static com.google.android.accessibility.talkback.selector.SelectorController.Setting.ACTIONS;
 import static com.google.android.accessibility.talkback.selector.SelectorController.Setting.CHANGE_ACCESSIBILITY_VOLUME;
 import static com.google.android.accessibility.talkback.selector.SelectorController.Setting.SCROLLING_SEQUENTIAL;
@@ -45,7 +48,6 @@ import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.EditText.Action;
 import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
-import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.actor.SystemActionPerformer;
 import com.google.android.accessibility.talkback.contextmenu.ListMenuManager;
 import com.google.android.accessibility.talkback.selector.SelectorController;
@@ -54,6 +56,7 @@ import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.Spellin
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.input.CursorGranularity;
+import java.util.function.Predicate;
 
 /** Helper that handles the screen reader actions come from braille display or braille keyboard. */
 public final class BrailleHelper implements ScreenReaderActionPerformer {
@@ -232,7 +235,7 @@ public final class BrailleHelper implements ScreenReaderActionPerformer {
         return feedbackReturner.returnFeedback(
             Performance.EVENT_ID_UNTRACKED, Feedback.speech(TOGGLE_VOICE_FEEDBACK));
       case OPEN_TALKBACK_MENU:
-        return menuManager.showMenu(R.menu.context_menu, EVENT_ID_UNTRACKED);
+        return menuManager.showMenu(CONTEXT, EVENT_ID_UNTRACKED);
       case STOP_READING:
         return feedbackReturner.returnFeedback(
             EVENT_ID_UNTRACKED, Feedback.continuousRead(INTERRUPT));
@@ -243,17 +246,21 @@ public final class BrailleHelper implements ScreenReaderActionPerformer {
       case PASTE:
         return performEditAction(PASTE);
       case SELECT_PREVIOUS_CHARACTER:
-        return performSelectedAction(SEARCH_FOCUS_BACKWARD, CHARACTER, inputMode);
+        return performSelectedFocusAction(SEARCH_FOCUS_BACKWARD, CHARACTER, inputMode);
       case SELECT_NEXT_CHARACTER:
-        return performSelectedAction(SEARCH_FOCUS_FORWARD, CHARACTER, inputMode);
+        return performSelectedFocusAction(SEARCH_FOCUS_FORWARD, CHARACTER, inputMode);
       case SELECT_PREVIOUS_WORD:
-        return performSelectedAction(SEARCH_FOCUS_BACKWARD, WORD, inputMode);
+        return performSelectedFocusAction(SEARCH_FOCUS_BACKWARD, WORD, inputMode);
       case SELECT_NEXT_WORD:
-        return performSelectedAction(SEARCH_FOCUS_FORWARD, WORD, inputMode);
+        return performSelectedFocusAction(SEARCH_FOCUS_FORWARD, WORD, inputMode);
       case SELECT_PREVIOUS_LINE:
-        return performSelectedAction(SEARCH_FOCUS_BACKWARD, LINE, inputMode);
+        return performSelectedFocusAction(SEARCH_FOCUS_BACKWARD, LINE, inputMode);
       case SELECT_NEXT_LINE:
-        return performSelectedAction(SEARCH_FOCUS_FORWARD, LINE, inputMode);
+        return performSelectedFocusAction(SEARCH_FOCUS_FORWARD, LINE, inputMode);
+      case SELECT_CURRENT_TO_START:
+        return performSelectedEditAction(CURSOR_TO_BEGINNING);
+      case SELECT_CURRENT_TO_END:
+        return performSelectedEditAction(CURSOR_TO_END);
       case TYPO_CORRECT:
         return feedbackReturner.returnFeedback(
             Feedback.create(
@@ -272,6 +279,10 @@ public final class BrailleHelper implements ScreenReaderActionPerformer {
   }
 
   private boolean performGlobalAction(int globalAction) {
+    if (globalAction != AccessibilityService.GLOBAL_ACTION_BACK) {
+      // Dismiss TalkBack menu. BACK key will dismiss TalkBack menu so exclude it.
+      menuManager.dismissAll();
+    }
     return feedbackReturner.returnFeedback(
         Performance.EVENT_ID_UNTRACKED, Feedback.systemAction(globalAction));
   }
@@ -325,11 +336,20 @@ public final class BrailleHelper implements ScreenReaderActionPerformer {
     return focusedNode != null && focusedNode.isEditable();
   }
 
-  private boolean performSelectedAction(
+  private boolean performSelectedFocusAction(
       int focusAction, CursorGranularity granularity, int inputMode) {
+    return performSelectedAction(
+        unused -> performGranularityFocusAction(focusAction, granularity, inputMode));
+  }
+
+  private boolean performSelectedEditAction(Action action) {
+    return performSelectedAction(unused -> performEditAction(action));
+  }
+
+  private boolean performSelectedAction(Predicate<Void> selectedAction) {
     boolean result;
     if (actorState.getDirectionNavigation().isSelectionModeActive()) {
-      result = performGranularityFocusAction(focusAction, granularity, inputMode);
+      result = selectedAction.test(null);
     } else {
       setSelectionModeOn();
 
@@ -338,8 +358,7 @@ public final class BrailleHelper implements ScreenReaderActionPerformer {
       if (!actorState.getDirectionNavigation().isSelectionModeActive()) {
         setSelectionModeOn();
       }
-
-      result = performGranularityFocusAction(focusAction, granularity, inputMode);
+      result = selectedAction.test(null);
       feedbackReturner.returnFeedback(Performance.EVENT_ID_UNTRACKED, Feedback.selectionModeOff());
     }
     return result;

@@ -79,8 +79,8 @@ public class VerbosityPreferences {
   }
 
   /** Reads echo type of physical keyboard. */
-  public static @KeyboardEchoType int readPhysicalKeyboardEcho(
-      SharedPreferences prefs, Resources resources) {
+  @KeyboardEchoType
+  public static int readPhysicalKeyboardEcho(SharedPreferences prefs, Resources resources) {
     return Integer.parseInt(
         VerbosityPreferences.getPreferenceValueString(
             prefs,
@@ -90,8 +90,8 @@ public class VerbosityPreferences {
   }
 
   /** Reads echo type of on-screen keyboard. */
-  public static @KeyboardEchoType int readOnScreenKeyboardEcho(
-      SharedPreferences prefs, Resources resources) {
+  @KeyboardEchoType
+  public static int readOnScreenKeyboardEcho(SharedPreferences prefs, Resources resources) {
     return Integer.parseInt(
         VerbosityPreferences.getPreferenceValueString(
             prefs,

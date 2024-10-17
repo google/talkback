@@ -20,14 +20,12 @@ import static com.google.android.accessibility.utils.caption.ImageCaptionUtils.C
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Rect;
 import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.imagedescription.ImageDescriptionInfo;
 import com.google.android.accessibility.talkback.imagedescription.ImageDescriptionListener;
 import com.google.android.accessibility.talkback.imagedescription.ImageDescriptionProcessor;
 import com.google.android.accessibility.utils.caption.Result;
-import com.google.android.libraries.accessibility.utils.bitmap.BitmapUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** A {@link CaptionRequest} to describe the contents of an image on the screenshot. */
@@ -50,17 +48,7 @@ public class ImageDescriptionRequest extends CaptionRequest implements ImageDesc
     super(requestId, node, onFinishListener, onErrorListener, isUserRequested);
     this.context = context;
     this.imageDescriptionProcessor = imageDescriptionProcessor;
-
-    Rect nodeBounds = new Rect();
-    node.getBoundsInScreen(nodeBounds);
-    Bitmap croppedBitmap = null;
-    try {
-      croppedBitmap = BitmapUtils.cropBitmap(screenCapture, nodeBounds);
-    } catch (IllegalArgumentException e) {
-      LogUtils.w(TAG, e.getMessage() == null ? "Fail to crop screenshot." : e.getMessage());
-    }
-
-    this.screenCapture = (croppedBitmap == null) ? screenCapture : croppedBitmap;
+    this.screenCapture = screenCapture;
   }
 
   @Override

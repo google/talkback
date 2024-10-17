@@ -61,6 +61,8 @@ import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_UP
 import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_UP_AND_DOWN;
 import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_UP_AND_LEFT;
 import static android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_UP_AND_RIGHT;
+import static android.util.Log.ERROR;
+import static android.util.Log.VERBOSE;
 
 import android.os.Build;
 import android.os.Handler;
@@ -69,9 +71,13 @@ import android.view.ViewConfiguration;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import com.google.android.accessibility.utils.Performance;
+import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * This class describes a common base for gesture matchers. A gesture matcher checks a series of
@@ -175,11 +181,17 @@ public abstract class GestureMatcher {
   // Convenience functions for tapTimeout and doubleTapTimeout are already defined here.
   protected final DelayedTransition delayedTransition;
 
+  protected boolean logMotionEvent = false;
+
   protected GestureMatcher(int gestureId, Handler handler, StateChangeListener listener) {
     this.gestureId = gestureId;
     this.handler = handler;
     delayedTransition = new DelayedTransition();
     this.listener = listener;
+  }
+
+  public void enableLogMotionEvent() {
+    logMotionEvent = true;
   }
 
   /**
@@ -236,7 +248,8 @@ public abstract class GestureMatcher {
   }
 
   /** Indicates this gesture is completed. */
-  protected final void completeGesture(MotionEvent event) {
+  protected final void completeGesture(EventId eventId, MotionEvent event) {
+    Performance.getInstance().onGestureLastMotionEventTime(eventId, event.getEventTime());
     setState(STATE_GESTURE_COMPLETED, event);
   }
 
@@ -254,25 +267,26 @@ public abstract class GestureMatcher {
    * @param event the event as passed in from the event stream.
    * @return the state of this matcher.
    */
-  public final int onMotionEvent(MotionEvent event) {
+  @CanIgnoreReturnValue
+  public final int onMotionEvent(EventId eventId, MotionEvent event) {
     if (state == STATE_GESTURE_CANCELED || state == STATE_GESTURE_COMPLETED) {
       return state;
     }
     switch (event.getActionMasked()) {
       case MotionEvent.ACTION_DOWN:
-        onDown(event);
+        onDown(eventId, event);
         break;
       case MotionEvent.ACTION_POINTER_DOWN:
-        onPointerDown(event);
+        onPointerDown(eventId, event);
         break;
       case MotionEvent.ACTION_MOVE:
-        onMove(event);
+        onMove(eventId, event);
         break;
       case MotionEvent.ACTION_POINTER_UP:
-        onPointerUp(event);
+        onPointerUp(eventId, event);
         break;
       case MotionEvent.ACTION_UP:
-        onUp(event);
+        onUp(eventId, event);
         break;
       default:
         // Cancel because of invalid event.
@@ -286,7 +300,7 @@ public abstract class GestureMatcher {
    * Matchers override this method to respond to ACTION_DOWN events. ACTION_DOWN events indicate the
    * first finger has touched the screen. If not overridden the default response is to do nothing.
    */
-  protected void onDown(MotionEvent event) {}
+  protected void onDown(EventId eventId, MotionEvent event) {}
 
   /**
    * Matchers override this method to respond to ACTION_POINTER_DOWN events. ACTION_POINTER_DOWN
@@ -295,7 +309,7 @@ public abstract class GestureMatcher {
    *
    * @param event the event as passed in from the event stream.
    */
-  protected void onPointerDown(MotionEvent event) {}
+  protected void onPointerDown(EventId eventId, MotionEvent event) {}
 
   /**
    * Matchers override this method to respond to ACTION_MOVE events. ACTION_MOVE indicates that one
@@ -303,7 +317,7 @@ public abstract class GestureMatcher {
    *
    * @param event the event as passed in from the event stream.
    */
-  protected void onMove(MotionEvent event) {}
+  protected void onMove(EventId eventId, MotionEvent event) {}
 
   /**
    * Matchers override this method to respond to ACTION_POINTER_UP events. ACTION_POINTER_UP
@@ -312,7 +326,7 @@ public abstract class GestureMatcher {
    *
    * @param event the event as passed in from the event stream.
    */
-  protected void onPointerUp(MotionEvent event) {}
+  protected void onPointerUp(EventId eventId, MotionEvent event) {}
 
   /**
    * Matchers override this method to respond to ACTION_UP events. ACTION_UP indicates that there
@@ -321,10 +335,10 @@ public abstract class GestureMatcher {
    *
    * @param event the event as passed in from the event stream.
    */
-  protected void onUp(MotionEvent event) {}
+  protected void onUp(EventId eventId, MotionEvent event) {}
 
   /** Cancels this matcher after the tap timeout. Any pending state transitions are removed. */
-  protected void cancelAfterTapTimeout(MotionEvent event) {
+  protected void cancelAfterTapTimeout(EventId eventId, MotionEvent event) {
     cancelAfter(ViewConfiguration.getTapTimeout(), event);
   }
 
@@ -351,16 +365,16 @@ public abstract class GestureMatcher {
    * Signals that this gesture has been completed after the tap timeout has expired. Used to ensure
    * that there is no conflict with another gesture or for gestures that explicitly require a hold.
    */
-  protected final void completeAfterLongPressTimeout(MotionEvent event) {
-    completeAfter(ViewConfiguration.getLongPressTimeout(), event);
+  protected final void completeAfterLongPressTimeout(EventId eventId, MotionEvent event) {
+    completeAfter(ViewConfiguration.getLongPressTimeout(), eventId, event);
   }
 
   /**
    * Signals that this gesture has been completed after the tap timeout has expired. Used to ensure
    * that there is no conflict with another gesture or for gestures that explicitly require a hold.
    */
-  protected final void completeAfterTapTimeout(MotionEvent event) {
-    completeAfter(ViewConfiguration.getTapTimeout(), event);
+  protected final void completeAfterTapTimeout(EventId eventId, MotionEvent event) {
+    completeAfter(ViewConfiguration.getTapTimeout(), eventId, event);
   }
 
   /**
@@ -368,8 +382,9 @@ public abstract class GestureMatcher {
    * ensure that there is no conflict with another gesture or for gestures that explicitly require a
    * hold.
    */
-  protected final void completeAfter(long timeout, MotionEvent event) {
+  protected final void completeAfter(long timeout, EventId eventId, MotionEvent event) {
     delayedTransition.cancel();
+    Performance.getInstance().onGestureLastMotionEventTime(eventId, event.getEventTime());
     delayedTransition.post(STATE_GESTURE_COMPLETED, timeout, event);
   }
 
@@ -378,8 +393,23 @@ public abstract class GestureMatcher {
    * ensure that there is no conflict with another gesture or for gestures that explicitly require a
    * hold.
    */
-  protected final void completeAfterDoubleTapTimeout(MotionEvent event) {
-    completeAfter(ViewConfiguration.getDoubleTapTimeout(), event);
+  protected final void completeAfterDoubleTapTimeout(EventId eventId, MotionEvent event) {
+    completeAfter(ViewConfiguration.getDoubleTapTimeout(), eventId, event);
+  }
+
+  void gestureMotionEventLog(int logLevel, String format, @Nullable Object... args) {
+    if (logMotionEvent) {
+      switch (logLevel) {
+        case ERROR:
+          LogUtils.e(getGestureName(), format, args);
+          break;
+        case VERBOSE:
+          // fall-through
+        default:
+          LogUtils.v(getGestureName(), format, args);
+          break;
+      }
+    }
   }
 
   static String getStateSymbolicName(@State int state) {

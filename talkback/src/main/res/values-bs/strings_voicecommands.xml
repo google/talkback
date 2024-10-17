@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">čitaj</string>
-  <string name="voice_commands_read_from_next">Čitaj od sljedeće stavke</string>
+  <string name="voice_commands_read_from_next">Čitaj od kursora</string>
   <string name="voice_commands_edit_options">Opcije uređivanja</string>
-  <string name="voice_commands_text_editing">Uređivanje teksta</string>
-  <string name="voice_commands_edit_text">Uredi tekst</string>
-  <string name="voice_commands_editing_options">Opcije uređivanja</string>
   <string name="voice_commands_edit">uredi</string>
   <string name="voice_commands_what">šta</string>
   <string name="voice_commands_say">reci</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Označi</string>
   <string name="voice_commands_cannot_label_feedback">Nije moguće označiti</string>
   <string name="voice_commands_assistant">Asistent</string>
-  <string name="voice_commands_setting_speech_rate">Postavljanje brzine govora</string>
   <string name="voice_commands_first">Prvo</string>
   <string name="voice_commands_top">Početak</string>
   <string name="voice_commands_last">Posljednje</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Povećaj brzinu govora</string>
   <string name="voice_commands_slower">Sporije</string>
   <string name="voice_commands_decrease_speech_rate">smanji brzinu govora</string>
-  <string name="voice_commands_possible_options_title">Možete reći</string>
   <string name="voice_commands_no_action">Glasovna prečica nije podržana</string>
   <string name="voice_commands_no_mic_permissions">Da biste koristili ovu funkciju morate odobriti korištenje mikrofona.</string>
   <string name="voice_commands_no_voice_recognition_ability">Žao mi je! Ova funkcija nije dostupna na vašem uređaju</string>
@@ -102,8 +97,8 @@
   <string name="voice_commands_no_next_link_feedback">Nema sljedećeg linka</string>
   <string name="voice_commands_no_next_control_feedback">Nema sljedeće kontrole</string>
   <string name="voice_commands_no_next_landmark_feedback">Nema sljedećeg obilježja</string>
-  <string name="voice_commands_help_title">Pregled glasovnе komande</string>
-  <string name="voice_commands_help_description">Da koristite glasovne komande, prevucite udesno, a zatim nagore. Recite \"Pomoć\" ili \"Šta mogu reći?\" bilo kada da dobijete listu komandi.</string>
+  <string name="voice_commands_help_title">Pregled glasovnih komandi</string>
+  <string name="voice_commands_help_description">Da koristite glasovne komande, prevucite udesno, a zatim nagore. Recite \"%1$s\" ili \"Šta mogu reći?\" bilo kada da dobijete listu komandi.</string>
   <string name="voice_commands_help_hint">Da dobijete najbolje rezultate, izgovorite tekst kako je tačno naveden na sljedećim ekranima.</string>
   <string name="voice_command_screen_locked_hint">Glasovne komande nisu dostupne kada je ekran zaključan. Da umjesto njih koristite meni TalkBacka, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Glasovne komande nisu dostupne tokom postavljanja.</string>

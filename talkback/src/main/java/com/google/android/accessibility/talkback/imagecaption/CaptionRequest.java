@@ -16,19 +16,14 @@
 
 package com.google.android.accessibility.talkback.imagecaption;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.google.android.accessibility.talkback.imagecaption.RequestList.Request;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.caption.Result;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.time.Duration;
-import java.time.Instant;
 
 /**
  * An image caption action. Subclass should implement how to perform image caption and define a
@@ -39,7 +34,7 @@ import java.time.Instant;
  * the request is completed. Otherwise, The request will be cancelled if it isn't finished within
  * {@link CaptionRequest#CAPTION_TIMEOUT_MS}.
  */
-public abstract class CaptionRequest implements Request {
+public abstract class CaptionRequest extends Request {
 
   /** A listener to be invoked when the image caption is finished. */
   public interface OnFinishListener {
@@ -68,38 +63,8 @@ public abstract class CaptionRequest implements Request {
         boolean isUserRequested);
   }
 
-  /** The reasons of image captions. */
-  @IntDef({
-    ERROR_UNKNOWN,
-    ERROR_TIMEOUT,
-    ERROR_NETWORK_ERROR,
-    ERROR_INSUFFICIENT_STORAGE,
-    ERROR_TEXT_RECOGNITION_NO_RESULT,
-    ERROR_ICON_DETECTION_NO_RESULT,
-    ERROR_IMAGE_DESCRIPTION_NO_RESULT,
-    ERROR_IMAGE_DESCRIPTION_FAILURE,
-    ERROR_IMAGE_DESCRIPTION_INITIALIZATION_FAILURE,
-  })
-  public @interface ErrorCode {}
-
-  public static final int ERROR_UNKNOWN = 100;
-  public static final int ERROR_TIMEOUT = 101;
-  public static final int ERROR_NETWORK_ERROR = 102;
-  public static final int ERROR_INSUFFICIENT_STORAGE = 103;
-  // For text recognition.
-  public static final int ERROR_TEXT_RECOGNITION_NO_RESULT = 200;
-  // For icon detection.
-  public static final int ERROR_ICON_DETECTION_NO_RESULT = 300;
-  // For image description.
-  public static final int ERROR_IMAGE_DESCRIPTION_NO_RESULT = 400;
-  public static final int ERROR_IMAGE_DESCRIPTION_FAILURE = 401;
-  public static final int ERROR_IMAGE_DESCRIPTION_INITIALIZATION_FAILURE = 402;
-
   /** Maximal caption request execution time. */
-  public static final int CAPTION_TIMEOUT_MS = 10000;
-
-  /** Represents the duration is invalid. */
-  public static final int INVALID_DURATION = -1;
+  public static final Duration CAPTION_TIMEOUT_MS = Duration.ofMillis(10000);
 
   private static final String TAG = "CaptionRequest";
 
@@ -110,12 +75,8 @@ public abstract class CaptionRequest implements Request {
 
   @NonNull private final OnFinishListener onFinishListener;
   @NonNull private final OnErrorListener onErrorListener;
-  private final Handler handler;
-  private final Runnable timeoutRunnable;
 
   private final boolean isUserRequested;
-  @Nullable private Instant startTimestamp;
-  @Nullable private Instant endTimestamp;
 
   protected CaptionRequest(
       int requestId,
@@ -123,29 +84,16 @@ public abstract class CaptionRequest implements Request {
       @NonNull OnFinishListener onFinishListener,
       @NonNull OnErrorListener onErrorListener,
       boolean isUserRequested) {
+    super(/* onPendingListener= */ null, CAPTION_TIMEOUT_MS);
     this.requestId = requestId;
     this.node = AccessibilityNodeInfoCompat.obtain(node);
     this.onFinishListener = onFinishListener;
     this.onErrorListener = onErrorListener;
     this.isUserRequested = isUserRequested;
-    handler = new Handler(Looper.myLooper());
-    timeoutRunnable =
-        () -> {
-          LogUtils.e(TAG, "CaptionRequest timeout is reached. " + this);
-          onErrorListener.onError(
-              this, AccessibilityNode.takeOwnership(node), ERROR_TIMEOUT, isUserRequested);
-        };
   }
 
   public int getRequestId() {
     return requestId;
-  }
-
-  public long getDurationMillis() {
-    if (startTimestamp == null || endTimestamp == null) {
-      return INVALID_DURATION;
-    }
-    return Duration.between(startTimestamp, endTimestamp).toMillis();
   }
 
   /** Performs the image caption. */
@@ -156,44 +104,11 @@ public abstract class CaptionRequest implements Request {
     return isUserRequested;
   }
 
-  protected void runTimeoutRunnable() {
-    handler.postDelayed(timeoutRunnable, CAPTION_TIMEOUT_MS);
-  }
-
-  protected void stopTimeoutRunnable() {
-    handler.removeCallbacks(timeoutRunnable);
-  }
-
   @Override
   public String toString() {
     return getClass().getSimpleName()
         + "= "
         + StringBuilderUtils.joinFields(StringBuilderUtils.optionalSubObj("node", node));
-  }
-
-  public static String errorName(@ErrorCode int errorCode) {
-    switch (errorCode) {
-      case ERROR_UNKNOWN:
-        return "ERROR_UNKNOWN";
-      case ERROR_TIMEOUT:
-        return "ERROR_TIMEOUT";
-      case ERROR_NETWORK_ERROR:
-        return "ERROR_NETWORK_ERROR";
-      case ERROR_INSUFFICIENT_STORAGE:
-        return "ERROR_INSUFFICIENT_STORAGE";
-      case ERROR_TEXT_RECOGNITION_NO_RESULT:
-        return "ERROR_TEXT_RECOGNITION_NO_RESULT";
-      case ERROR_ICON_DETECTION_NO_RESULT:
-        return "ERROR_ICON_DETECTION_NO_RESULT";
-      case ERROR_IMAGE_DESCRIPTION_NO_RESULT:
-        return "ERROR_IMAGE_DESCRIPTION_NO_RESULT";
-      case ERROR_IMAGE_DESCRIPTION_FAILURE:
-        return "ERROR_IMAGE_DESCRIPTION_FAILURE";
-      case ERROR_IMAGE_DESCRIPTION_INITIALIZATION_FAILURE:
-        return "ERROR_IMAGE_DESCRIPTION_INITIALIZATION_FAILURE";
-      default:
-        return "";
-    }
   }
 
   protected void onCaptionStart() {
@@ -215,6 +130,7 @@ public abstract class CaptionRequest implements Request {
         this, AccessibilityNode.takeOwnership(node), result, isUserRequested);
   }
 
+  @Override
   protected void onError(@ErrorCode int errorCode) {
     setEndTimestamp();
     stopTimeoutRunnable();
@@ -226,15 +142,5 @@ public abstract class CaptionRequest implements Request {
                 StringBuilderUtils.optionalText("error", errorName(errorCode))));
     onErrorListener.onError(
         this, AccessibilityNode.takeOwnership(node), errorCode, isUserRequested);
-  }
-
-  /** Sets the time at which the caption request started to perform. */
-  private void setStartTimestamp() {
-    startTimestamp = Instant.now();
-  }
-
-  /** Sets the time at which the caption request is done. */
-  private void setEndTimestamp() {
-    endTimestamp = Instant.now();
   }
 }

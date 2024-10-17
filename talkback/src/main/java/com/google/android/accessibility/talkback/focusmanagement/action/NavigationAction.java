@@ -19,6 +19,7 @@ package com.google.android.accessibility.talkback.focusmanagement.action;
 import static com.google.android.accessibility.utils.monitor.InputModeTracker.INPUT_MODE_UNKNOWN;
 
 import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget;
 import com.google.android.accessibility.talkback.focusmanagement.NavigationTarget.TargetType;
 import com.google.android.accessibility.utils.input.CursorGranularity;
@@ -64,10 +65,12 @@ public class NavigationAction {
   public @interface ActionType {}
 
   @ActionType public final int actionType;
+
   /** Defines what to be focused for {@link #DIRECTIONAL_NAVIGATION} actions. */
   @TargetType public final int targetType;
 
   @InputMode public final int inputMode;
+
   /** Defines direction for {@link #DIRECTIONAL_NAVIGATION} actions. */
   @SearchDirectionOrUnknown public final int searchDirection;
 
@@ -78,6 +81,8 @@ public class NavigationAction {
   public final int autoScrollAttempt;
   public final int prevScrollDeltaSumX;
   public final int prevScrollDeltaSumY;
+
+  public final AccessibilityNodeInfoCompat fallbackTarget;
 
   private NavigationAction(Builder builder) {
     actionType = builder.actionType;
@@ -91,6 +96,7 @@ public class NavigationAction {
     autoScrollAttempt = builder.autoScrollAttempt;
     prevScrollDeltaSumX = builder.prevScrollDeltaSumX;
     prevScrollDeltaSumY = builder.prevScrollDeltaSumY;
+    fallbackTarget = builder.fallbackTarget;
   }
 
   @Override
@@ -106,7 +112,8 @@ public class NavigationAction {
         originalNavigationGranularity,
         autoScrollAttempt,
         prevScrollDeltaSumX,
-        prevScrollDeltaSumY);
+        prevScrollDeltaSumY,
+        fallbackTarget);
   }
 
   @Override
@@ -125,7 +132,8 @@ public class NavigationAction {
         && this.originalNavigationGranularity == other.originalNavigationGranularity
         && this.autoScrollAttempt == other.autoScrollAttempt
         && this.prevScrollDeltaSumX == other.prevScrollDeltaSumX
-        && this.prevScrollDeltaSumY == other.prevScrollDeltaSumY;
+        && this.prevScrollDeltaSumY == other.prevScrollDeltaSumY
+        && this.fallbackTarget == other.fallbackTarget;
   }
 
   @Override
@@ -144,6 +152,7 @@ public class NavigationAction {
     sb.append(", autoScrollAttempt=").append(autoScrollAttempt);
     sb.append(", prevScrollDeltaSumX=").append(prevScrollDeltaSumX);
     sb.append(", prevScrollDeltaSumY=").append(prevScrollDeltaSumY);
+    sb.append(", fallbackTarget=").append(fallbackTarget);
     sb.append('}');
     return sb.toString();
   }
@@ -187,6 +196,8 @@ public class NavigationAction {
     private int prevScrollDeltaSumX = 0;
     private int prevScrollDeltaSumY = 0;
 
+    private AccessibilityNodeInfoCompat fallbackTarget = null;
+
     public static Builder copy(NavigationAction action) {
       Builder builder = new Builder();
       builder.actionType = action.actionType;
@@ -200,6 +211,7 @@ public class NavigationAction {
       builder.autoScrollAttempt = action.autoScrollAttempt;
       builder.prevScrollDeltaSumX = action.prevScrollDeltaSumX;
       builder.prevScrollDeltaSumY = action.prevScrollDeltaSumY;
+      builder.fallbackTarget = action.fallbackTarget;
       return builder;
     }
 
@@ -271,6 +283,12 @@ public class NavigationAction {
     @CanIgnoreReturnValue
     public Builder setPrevScrollDeltaSumY(int prevScrollDeltaSumY) {
       this.prevScrollDeltaSumY = prevScrollDeltaSumY;
+      return this;
+    }
+
+    @CanIgnoreReturnValue
+    public Builder setFallbackTarget(AccessibilityNodeInfoCompat fallbackTarget) {
+      this.fallbackTarget = fallbackTarget;
       return this;
     }
   }

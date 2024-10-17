@@ -10,7 +10,7 @@
     <item quantity="other">ចំណុចលេខ %s</item>
   </plurals>
   <string name="remove_language_button_content_description">ដកភាសា%sចេញ</string>
-  <string name="split_comma">%s</string>
+  <string name="split_comma">, %s</string>
   <string name="new_line_not_supported">មិនអាចប្រើបន្ទាត់ថ្មីសម្រាប់ប្រអប់អក្សរនេះទេ</string>
   <string name="code_user_facing_name_ueb1">អក្សរស្ទាប​សម្រាប់ភាសា​អង់គ្លេស​ទូទៅ</string>
   <string name="code_user_facing_name_spanish">អេស្ប៉ាញ</string>
@@ -18,12 +18,13 @@
   <string name="code_user_facing_name_arabic">អារ៉ាប់</string>
   <string name="code_user_facing_name_arabic_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចជាភាសាអារ៉ាប់</string>
   <string name="code_user_facing_name_bulgarian">ប៊ុលហ្ការី</string>
+  <string name="code_user_facing_name_bulgarian_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចនៃភាសាប៊ុលហ្ការី</string>
   <string name="code_user_facing_name_ca_catalan">​កាតាឡាន</string>
   <string name="code_user_facing_name_catonese">កាតាំង</string>
-  <string name="code_user_facing_name_chinese_china_common">ចិន (ចិន) ទូទៅ</string>
-  <string name="code_user_facing_name_chinese_china_current_with_tones">ចិន (ចិន) បច្ចុប្បន្នរួមជាមួយសំឡេង</string>
-  <string name="code_user_facing_name_chinese_china_current_without_tones">ចិន (ចិន) បច្ចុប្បន្នមិនមានសំឡេង</string>
-  <string name="code_user_facing_name_chinese_china_two_cells">ចិន (ចិន) ពីរក្រឡា</string>
+  <string name="code_user_facing_name_chinese_china_common">ចិនទូទៅ (ចិន)</string>
+  <string name="code_user_facing_name_chinese_china_current_with_tones">ចិនបច្ចុប្បន្នមានសំឡេង (ចិន)</string>
+  <string name="code_user_facing_name_chinese_china_current_without_tones">ចិនបច្ចុប្បន្នមិនមានសំឡេង (ចិន)</string>
+  <string name="code_user_facing_name_chinese_china_two_cells">ចិនពីរក្រឡា (ចិន)</string>
   <string name="code_user_facing_name_chinese_taiwan">ចិន (តៃវ៉ាន់)</string>
   <string name="code_user_facing_name_central_kurdish">ឃឺដកណ្ដាល</string>
   <string name="code_user_facing_name_czech_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចជាភាសាឆែក</string>
@@ -35,12 +36,10 @@
   <string name="code_user_facing_name_german_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចជាភាសាអាល្លឺម៉ង់</string>
   <string name="code_user_facing_name_german">អាល្លឺម៉ង់</string>
   <string name="code_user_facing_name_greek">ក្រិក</string>
-  <string name="code_user_facing_name_en_ca">អក្សរស្ទាបសម្រាប់ភាសាអង់គ្លេស (កាណាដា)</string>
   <string name="code_user_facing_name_en_uk">អក្សរស្ទាបសម្រាប់ភាសាអង់គ្លេស (ចក្រភពអង់គ្លេស)</string>
   <string name="code_user_facing_name_en_in">អក្សរស្ទាបសម្រាប់ភាសាអង់គ្លេស (ឥណ្ឌា)</string>
   <string name="code_user_facing_name_en_nabcc_comp8">កូដកុំព្យូទ័រនៃអក្សរស្ទាបសម្រាប់ភាសាតំបន់អាមេរិកខាងជើង</string>
   <string name="code_user_facing_name_en_comp6">អក្សរស្ទាបកុំព្យូទ័រ 6 ចំណុចសម្រាប់ភាសាអង់គ្លេស</string>
-  <string name="code_user_facing_name_en_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចសម្រាប់ភាសាអង់គ្លេស</string>
   <string name="code_user_facing_name_en_us_ebae">អក្សរស្ទាបសម្រាប់ភាសាអង់គ្លេស (សហរដ្ឋ, បែបអាមេរិក)</string>
   <string name="code_user_facing_name_en_us">អក្សរស្ទាបជាភាសាអង់គ្លេស (សហរដ្ឋអាមេរិក)</string>
   <string name="code_user_facing_name_polish">ប៉ូឡូញ</string>
@@ -78,13 +77,14 @@
   <string name="code_user_facing_name_dutch_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចជាភាសាហូឡង់</string>
   <string name="code_user_facing_name_norwegian">ណ័រវេស</string>
   <string name="code_user_facing_name_norwegian_8_no">អក្សរស្ទាប 8 ចំណុចសម្រាប់ភាសាន័រវែស (ន័រវែស)</string>
+  <string name="code_user_facing_name_norwegian_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចនៃភាសាណ័រវេស</string>
   <string name="code_user_facing_name_norwegian_8">អក្សរស្ទាប 8 ចំណុចសម្រាប់ភាសាន័រវែស</string>
   <string name="code_user_facing_name_norwegian_8_with_6_fallback">អក្សរស្ទាប 8 ចំណុចសម្រាប់ភាសាន័រវែសដែលមានជម្រើសជំនួស 6 ចំណុច</string>
   <string name="code_user_facing_name_nepali_indian">អក្សរស្ទាបសម្រាប់ភាសានេប៉ាល់ (ឥណ្ឌា)</string>
   <string name="code_user_facing_name_portuguese">ព័រទុយហ្កាល់</string>
   <string name="code_user_facing_name_punjabi">ពុនចាប៊ី</string>
   <string name="code_user_facing_name_portuguese_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចសម្រាប់ភាសាព័រទុយហ្កាល់</string>
-  <string name="code_user_facing_name_romanian_no">អក្សរស្ទាប 8 ចំណុចសម្រាប់ភាសារូម៉ានី</string>
+  <string name="code_user_facing_name_romanian_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចនៃភាសារូម៉ានី</string>
   <string name="code_user_facing_name_russian">រុស្ស៊ី</string>
   <string name="code_user_facing_name_russian_detailed">ភាសារុស្ស៊ីដែលមានសូចនាករពុម្ពអក្សរធំ</string>
   <string name="code_user_facing_name_russian_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចសម្រាប់ភាសារុស្ស៊ី</string>
@@ -99,7 +99,7 @@
   <string name="code_user_facing_name_tamil">តាមិល</string>
   <string name="code_user_facing_name_telugu_in">អក្សរស្ទាបសម្រាប់ភាសាតេលូហ្គូ (ឥណ្ឌា)</string>
   <string name="code_user_facing_name_turkish">តួកគី</string>
-  <string name="code_user_facing_name_turkish_8">អក្សរស្ទាប 8 ចំណុចសម្រាប់ភាសាតួកគី</string>
+  <string name="code_user_facing_name_turkish_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចនៃភាសាតួកគី</string>
   <string name="code_user_facing_name_ukrainian">អ៊ុយក្រែន</string>
   <string name="code_user_facing_name_ukrainian_comp8">អក្សរស្ទាបកុំព្យូទ័រ 8 ចំណុចសម្រាប់ភាសាអ៊ុយក្រែន</string>
   <string name="code_user_facing_name_urdu">អឺរឌូ</string>

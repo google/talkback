@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">%1$s 볼륨의 %2$d퍼센트로 설정되었습니다.</string>
   <string name="template_stream_muted_set">%1$s 볼륨이 음소거되었습니다.</string>
+  <string name="hint_a11y_volume_control">접근성 볼륨을 조절하려면 한 손가락을 화면에 올려놓은 상태에서 볼륨 업 버튼 또는 볼륨 다운 버튼을 누릅니다.</string>
   <string name="value_stream_voice_call">전화 통화</string>
   <string name="value_stream_system">시스템 사운드</string>
   <string name="value_stream_ring">벨소리</string>

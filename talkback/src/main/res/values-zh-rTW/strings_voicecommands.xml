@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">朗讀</string>
-  <string name="voice_commands_read_from_next">從下一個項目開始朗讀</string>
+  <string name="voice_commands_read_from_next">從游標位置開始朗讀</string>
   <string name="voice_commands_edit_options">編輯選項</string>
-  <string name="voice_commands_text_editing">文字編輯</string>
-  <string name="voice_commands_edit_text">編輯文字</string>
-  <string name="voice_commands_editing_options">編輯選項</string>
   <string name="voice_commands_edit">編輯</string>
   <string name="voice_commands_what">什麼</string>
   <string name="voice_commands_say">說</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">加上標籤</string>
   <string name="voice_commands_cannot_label_feedback">無法加上標籤</string>
   <string name="voice_commands_assistant">Google 助理</string>
-  <string name="voice_commands_setting_speech_rate">設定語音速率</string>
   <string name="voice_commands_first">第一個</string>
   <string name="voice_commands_top">第一項</string>
   <string name="voice_commands_last">最後一個</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">提升語音速率</string>
   <string name="voice_commands_slower">慢一點</string>
   <string name="voice_commands_decrease_speech_rate">降低語音速率</string>
-  <string name="voice_commands_possible_options_title">你可以說</string>
   <string name="voice_commands_no_action">系統不支援這個語音捷徑</string>
   <string name="voice_commands_no_mic_permissions">如要使用這項功能，你必須授予麥克風使用權限。</string>
   <string name="voice_commands_no_voice_recognition_ability">很抱歉，你的裝置不支援這項功能</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">沒有下一個控制項</string>
   <string name="voice_commands_no_next_landmark_feedback">沒有下一個位置標記</string>
   <string name="voice_commands_help_title">語音指令總覽</string>
-  <string name="voice_commands_help_description">如要使用語音指令，請先向右再向上滑動。想查看這份指令清單時，只要說出「我需要協助」或「我可以使用哪些語音指令」即可。</string>
+  <string name="voice_commands_help_description">如要使用語音指令，請先向右再向上滑動。想查看這份指令清單時，只要說出「%1$s」或「我還可以下達哪些指令」即可。</string>
   <string name="voice_commands_help_hint">為了獲得最佳效果，請確實說出後續畫面列出的文字內容。</string>
   <string name="voice_command_screen_locked_hint">螢幕鎖定時無法使用語音指令。如要改用 TalkBack 選單，請%1$s。</string>
   <string name="voice_commands_during_setup_hint">設定期間無法使用語音指令。</string>

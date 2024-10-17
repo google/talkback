@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.braille.brailledisplay.platform;
 
-import androidx.annotation.Nullable;
 import com.google.android.accessibility.braille.brailledisplay.platform.connect.device.ConnectableDevice;
 import java.util.Objects;
 
@@ -28,7 +27,7 @@ public class ConnectibleDeviceInfo {
   public final boolean isRemembered;
   public final boolean isConnecting;
   public final boolean isConnected;
-  @Nullable public final ConnectableDevice device;
+  public final ConnectableDevice device;
 
   public ConnectibleDeviceInfo(
       String deviceName,
@@ -36,13 +35,13 @@ public class ConnectibleDeviceInfo {
       boolean isRemembered,
       boolean isConnecting,
       boolean isConnected,
-      @Nullable ConnectableDevice btDevice) {
+      ConnectableDevice device) {
     this.deviceName = deviceName;
     this.deviceAddress = deviceAddress;
     this.isRemembered = isRemembered;
     this.isConnecting = isConnecting;
     this.isConnected = isConnected;
-    this.device = btDevice;
+    this.device = device;
   }
 
   public boolean hasConnectableDevice() {

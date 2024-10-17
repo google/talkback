@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">les</string>
-  <string name="voice_commands_read_from_next">Les fra neste</string>
+  <string name="voice_commands_read_from_next">Les fra markøren</string>
   <string name="voice_commands_edit_options">Redigeringsalternativer</string>
-  <string name="voice_commands_text_editing">Tekstbehandling</string>
-  <string name="voice_commands_edit_text">Rediger tekst</string>
-  <string name="voice_commands_editing_options">Redigeringsalternativer</string>
   <string name="voice_commands_edit">endre</string>
   <string name="voice_commands_what">hva</string>
   <string name="voice_commands_say">si</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Sett på en etikett</string>
   <string name="voice_commands_cannot_label_feedback">Kan ikke sette på en etikett</string>
   <string name="voice_commands_assistant">Assistent</string>
-  <string name="voice_commands_setting_speech_rate">Angi talehastighet</string>
   <string name="voice_commands_first">Første</string>
   <string name="voice_commands_top">Øverst</string>
   <string name="voice_commands_last">Siste</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Øk talehastigheten</string>
   <string name="voice_commands_slower">Saktere</string>
   <string name="voice_commands_decrease_speech_rate">senk talehastigheten</string>
-  <string name="voice_commands_possible_options_title">Du kan si</string>
   <string name="voice_commands_no_action">Talesnarveien støttes ikke</string>
   <string name="voice_commands_no_mic_permissions">For å bruke denne funksjonen må du gi tillatelse til å bruke mikrofonen.</string>
   <string name="voice_commands_no_voice_recognition_ability">Beklager, men denne funksjonen er ikke tilgjengelig på enheten din</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Det finnes ingen flere kontroller</string>
   <string name="voice_commands_no_next_landmark_feedback">Det finnes ingen flere landemerker</string>
   <string name="voice_commands_help_title">Oversikt over talekommandoer</string>
-  <string name="voice_commands_help_description">For å bruke talekommandoer, sveip til høyre og så opp. Si «Hjelp» eller «Hva kan jeg si?» når som helst for å åpne denne listen over kommandoer.</string>
+  <string name="voice_commands_help_description">For å bruke talekommandoer, sveip til høyre og så opp. Si «%1$s» eller «Hva kan jeg si?» når som helst for å åpne denne listen over kommandoer.</string>
   <string name="voice_commands_help_hint">Du får best resultat ved å si den nøyaktige ordlyden som er oppført på de neste skjermene.</string>
   <string name="voice_command_screen_locked_hint">Talekommandoer er ikke tilgjengelige når skjermen er låst. For å bruke TalkBack-menyen i stedet, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Talekommandoer er ikke tilgjengelige under konfigureringen.</string>

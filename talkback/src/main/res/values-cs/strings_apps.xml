@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">%1$s: Hlasitost byla nastavena na %2$d procent.</string>
   <string name="template_stream_muted_set">%1$s – zvuk ztlumen.</string>
+  <string name="hint_a11y_volume_control">Pokud chcete změnit hlasitost zvuků pro usnadnění přístupu, podržte jeden prst na obrazovce a stiskněte tlačítko pro zvýšení nebo snížení hlasitosti.</string>
   <string name="value_stream_voice_call">Telefonní hovor</string>
   <string name="value_stream_system">Systémové zvuky</string>
   <string name="value_stream_ring">Vyzvánění</string>

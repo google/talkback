@@ -91,6 +91,11 @@ public class ScreenshotCapture {
             Bitmap bitmap;
             try (HardwareBuffer hardwareBuffer = screenshot.getHardwareBuffer()) {
               bitmap = Bitmap.wrapHardwareBuffer(hardwareBuffer, screenshot.getColorSpace());
+            } catch (IllegalArgumentException e) {
+              LogUtils.e(TAG, "Taken screenshot could not be converted to Bitmap, %s", e);
+              listener.onScreenCaptureFinished(
+                  /* screenCapture= */ null, /* isFormatSupported= */ false);
+              return;
             }
 
             if (bitmap != null) {

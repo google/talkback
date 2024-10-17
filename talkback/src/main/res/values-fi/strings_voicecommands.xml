@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">lue</string>
-  <string name="voice_commands_read_from_next">Lue seuraavasta</string>
+  <string name="voice_commands_read_from_next">Aloita lukeminen kohdistimen kohdalta</string>
   <string name="voice_commands_edit_options">Muokkaa asetuksia</string>
-  <string name="voice_commands_text_editing">Tekstin muokkaaminen</string>
-  <string name="voice_commands_edit_text">Muokkaa tekstiä</string>
-  <string name="voice_commands_editing_options">Muokkausasetukset</string>
   <string name="voice_commands_edit">muokkaa</string>
   <string name="voice_commands_what">mikä</string>
   <string name="voice_commands_say">sano</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Tunniste</string>
   <string name="voice_commands_cannot_label_feedback">Tunnistetta ei voi lisätä</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">Puheen nopeuden asetus</string>
   <string name="voice_commands_first">Ensimmäinen</string>
   <string name="voice_commands_top">Alkuun</string>
   <string name="voice_commands_last">Viimeinen</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Lisää puhenopeutta</string>
   <string name="voice_commands_slower">Hitaammin</string>
   <string name="voice_commands_decrease_speech_rate">vähennä puhenopeutta</string>
-  <string name="voice_commands_possible_options_title">Voit sanoa</string>
   <string name="voice_commands_no_action">Äänikomentoa ei tueta</string>
   <string name="voice_commands_no_mic_permissions">Myönnä mikrofonin käyttöoikeus tämän ominaisuuden käyttöä varten.</string>
   <string name="voice_commands_no_voice_recognition_ability">Ominaisuus ei ole käytettävissä tällä laitteella.</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Ei seuraavia asetuksia</string>
   <string name="voice_commands_no_next_landmark_feedback">Ei seuraavia osioita</string>
   <string name="voice_commands_help_title">Äänikomentojen yleiskatsaus</string>
-  <string name="voice_commands_help_description">Jos haluat käyttää äänikomentoja, pyyhkäise oikealle ja sitten ylös. Näet nämä komennot milloin tahansa sanomalla \"Ohje\" tai \"Mitä voin sanoa?\".</string>
+  <string name="voice_commands_help_description">Jos haluat käyttää äänikomentoja, pyyhkäise oikealle ja sitten ylös. Näet nämä komennot milloin tahansa sanomalla \"%1$s\" tai \"Mitä voin sanoa?\".</string>
   <string name="voice_commands_help_hint">Ominaisuus toimii parhaiten, kun käytät tarkalleen seuraavissa näkymissä olevia sanamuotoja.</string>
   <string name="voice_command_screen_locked_hint">Äänikomennot eivät ole käytettävissä, kun näyttö on lukittuna. Voit käyttää sen sijaan TalkBack-valikkoa tällä eleellä: %1$s.</string>
   <string name="voice_commands_during_setup_hint">Äänikomennot eivät ole käytettävissä käyttöönoton aikana.</string>

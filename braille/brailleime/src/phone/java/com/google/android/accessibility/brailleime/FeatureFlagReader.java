@@ -10,5 +10,10 @@ public final class FeatureFlagReader {
     return true;
   }
 
+  /** Whether to enable select current from current cursor to start or end. */
+  public static boolean useSelectCurrentToStartOrEnd(Context context) {
+    return true;
+  }
+
   private FeatureFlagReader() {}
 }

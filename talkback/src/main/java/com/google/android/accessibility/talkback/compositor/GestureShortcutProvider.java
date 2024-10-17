@@ -46,4 +46,15 @@ public interface GestureShortcutProvider {
   /** Returns shortcut name to select the supported custom actions. */
   @Nullable
   CharSequence actionsShortcut();
+
+  /** Returns shortcut name to navigate to the next window. */
+  @Nullable
+  CharSequence nextWindowShortcut();
+
+  /**
+   * Returns shortcut name to play or pause media. Specifically, this can be used to control phone
+   * calls.
+   */
+  @Nullable
+  CharSequence mediaControlShortcut();
 }

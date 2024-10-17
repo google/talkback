@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">oku</string>
-  <string name="voice_commands_read_from_next">Sonrakinden başlayarak oku</string>
+  <string name="voice_commands_read_from_next">İmleçten oku</string>
   <string name="voice_commands_edit_options">Düzenleme seçenekleri</string>
-  <string name="voice_commands_text_editing">Metin düzenleme</string>
-  <string name="voice_commands_edit_text">Metin düzenleme</string>
-  <string name="voice_commands_editing_options">Düzenleme seçenekleri</string>
   <string name="voice_commands_edit">düzenle</string>
   <string name="voice_commands_what">ne</string>
   <string name="voice_commands_say">söyle</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etiket</string>
   <string name="voice_commands_cannot_label_feedback">Etiket eklenemiyor</string>
   <string name="voice_commands_assistant">Asistan</string>
-  <string name="voice_commands_setting_speech_rate">Konuşma hızı ayarlanıyor</string>
   <string name="voice_commands_first">İlk</string>
   <string name="voice_commands_top">Üste</string>
   <string name="voice_commands_last">Sonuncu</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Konuşma hızını artır</string>
   <string name="voice_commands_slower">Daha yavaş</string>
   <string name="voice_commands_decrease_speech_rate">konuşma hızını düşür</string>
-  <string name="voice_commands_possible_options_title">Şunları söyleyebilirsiniz:</string>
   <string name="voice_commands_no_action">Sesli kısayol desteklenmiyor</string>
   <string name="voice_commands_no_mic_permissions">Bu özelliği kullanmak için mikrofonu kullanma izni vermeniz gerekir.</string>
   <string name="voice_commands_no_voice_recognition_ability">Maalesef, bu özellik cihazınızda kullanılamıyor</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Sonraki kontrol yok</string>
   <string name="voice_commands_no_next_landmark_feedback">Sonraki önemli nokta yok</string>
   <string name="voice_commands_help_title">Sesli komutlara genel bakış</string>
-  <string name="voice_commands_help_description">Sesli komutları kullanmak için parmağınızı önce sağa sonra yukarı kaydırın. İstediğiniz zaman \"Yardım\" ya da \"Neler söyleyebilirim?\" diyerek bu komut listesine ulaşabilirsiniz.</string>
+  <string name="voice_commands_help_description">Sesli komutları kullanmak için parmağınızı önce sağa sonra yukarı kaydırın. İstediğiniz zaman \"%1$s\" ya da \"Neler söyleyebilirim?\" diyerek bu komut listesine ulaşabilirsiniz.</string>
   <string name="voice_commands_help_hint">En iyi sonuçlar için aşağıdaki ekranlarda listelenen kelimeleri bire bir söyleyin.</string>
   <string name="voice_command_screen_locked_hint">Ekran kilitliyken sesli komutlar kullanılamaz. Bunun yerine TalkBack menüsünü kullanmak için %1$s.</string>
   <string name="voice_commands_during_setup_hint">Kurulum sırasında sesli komutlar kullanılamaz.</string>

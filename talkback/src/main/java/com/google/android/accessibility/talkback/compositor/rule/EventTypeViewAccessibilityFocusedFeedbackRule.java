@@ -28,6 +28,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.compositor.AccessibilityEventFeedbackUtils;
@@ -38,10 +39,10 @@ import com.google.android.accessibility.talkback.compositor.Compositor.HandleEve
 import com.google.android.accessibility.talkback.compositor.CompositorUtils;
 import com.google.android.accessibility.talkback.compositor.EventFeedback;
 import com.google.android.accessibility.talkback.compositor.GlobalVariables;
-import com.google.android.accessibility.talkback.compositor.TalkBackFeedbackProvider;
 import com.google.android.accessibility.talkback.compositor.roledescription.TreeNodesDescription;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPhoneticLetters;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.ImageContents;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
@@ -61,6 +62,8 @@ import java.util.function.Function;
 public final class EventTypeViewAccessibilityFocusedFeedbackRule {
 
   private static final String TAG = "EventTypeViewAccessibilityFocusedFeedbackRule";
+
+  @VisibleForTesting public static CharSequence currentContainerTitle = "";
 
   /**
    * Adds the feedback rules to the provided event feedback rules map, {@code eventFeedbackRules}.
@@ -157,7 +160,7 @@ public final class EventTypeViewAccessibilityFocusedFeedbackRule {
    *   The feedback text is composed of below elements:
    *   <li>1. Unlabelled description or Node tree description or Event description,
    *   <li>2. Collection item transition or Node role/heading description,
-   *   <li>3. Collection transition,
+   *   <li>3. Collection transition, or Container transition,
    *   <li>4. Window transition,
    * </ul>
    */
@@ -213,7 +216,7 @@ public final class EventTypeViewAccessibilityFocusedFeedbackRule {
         .append(String.format("\n Verbosity speakCollectionInfo=%s", speakCollectionInfo))
         .append(String.format(", speakRoles=%s", speakRoles));
     CharSequence collectionItemTransition =
-        speakCollectionInfo ? globalVariables.getCollectionItemTransitionDescription() : "";
+        speakCollectionInfo ? globalVariables.getCollectionItemTransitionDescription(node) : "";
     if (!TextUtils.isEmpty(collectionItemTransition)) {
       outputJoinList.add(collectionItemTransition);
       logString.append(
@@ -236,11 +239,19 @@ public final class EventTypeViewAccessibilityFocusedFeedbackRule {
     }
 
     // Prepare collection transition state if the collection transition happened for feedback.
-    CharSequence collectionTransition =
-        speakCollectionInfo ? globalVariables.getCollectionTransitionDescription() : "";
-    if (!TextUtils.isEmpty(collectionTransition)) {
-      outputJoinList.add(collectionTransition);
-      logString.append(String.format("\n    collectionTransition={%s}", collectionTransition));
+    if (speakCollectionInfo) {
+      CharSequence collectionTransition = globalVariables.getCollectionTransitionDescription();
+      if (!TextUtils.isEmpty(collectionTransition)) {
+        outputJoinList.add(collectionTransition);
+        logString.append(String.format("\n    collectionTransition={%s}", collectionTransition));
+      } else {
+        // Prepare container transition state for feedback.
+        CharSequence containerTransition = containerTransitionState(node, context);
+        if (!TextUtils.isEmpty(containerTransition)) {
+          outputJoinList.add(containerTransition);
+          logString.append(String.format("\n    containerTransition={%s}", containerTransition));
+        }
+      }
     }
 
     // Prepare window transition state if the window transition happened for feedback.
@@ -312,6 +323,26 @@ public final class EventTypeViewAccessibilityFocusedFeedbackRule {
 
     LogUtils.v(TAG, "windowTransitionState: %s", logString.toString());
     return windowTransitionState;
+  }
+
+  /** Returns the container transition state text if the container transition happened. */
+  private static CharSequence containerTransitionState(
+      AccessibilityNodeInfoCompat node, Context context) {
+    CharSequence lastContainerTitle = currentContainerTitle;
+    // Get container title from self or ancestor node.
+    AccessibilityNodeInfoCompat containerNode =
+        AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(
+            node, Filter.node((n) -> (n != null) && !TextUtils.isEmpty(n.getContainerTitle())));
+    currentContainerTitle = containerNode == null ? "" : containerNode.getContainerTitle();
+    if (TextUtils.equals(lastContainerTitle, currentContainerTitle)) {
+      return "";
+    }
+    if (!TextUtils.isEmpty(currentContainerTitle)) {
+      return context.getString(R.string.in_collection_role_description, currentContainerTitle);
+    } else if (!TextUtils.isEmpty(lastContainerTitle)) {
+      return context.getString(R.string.out_of_role_description, lastContainerTitle);
+    }
+    return "";
   }
 
   private static int queueMode(boolean isInitialFocus) {

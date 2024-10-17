@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.braille.common.translate;
 
+import static com.google.common.collect.ImmutableList.toImmutableList;
+
 import android.content.Context;
 import androidx.annotation.StringRes;
 import androidx.core.content.res.ResourcesCompat;
@@ -28,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * Holds the list of supported {@link Code} and provides an {@link EditBuffer} for given {@link
@@ -90,7 +91,7 @@ public class BrailleLanguages {
   public static final Locale LOCALE_UK = Locale.forLanguageTag("uk");
   public static final Locale LOCALE_UR = Locale.forLanguageTag("ur");
   public static final Locale LOCALE_VI = Locale.forLanguageTag("vi");
-  public static final Locale LOCALE_ZH_YUE = Locale.forLanguageTag("zh-yue");
+  public static final Locale LOCALE_YUE = Locale.forLanguageTag("yue");
   public static final Locale LOCALE_ZH_CN = Locale.SIMPLIFIED_CHINESE;
   public static final Locale LOCALE_ZH_TW = Locale.TRADITIONAL_CHINESE;
 
@@ -139,12 +140,10 @@ public class BrailleLanguages {
     List<Code> localeLanguageCodes =
         BrailleLanguages.getAvailableCodes(context).stream()
             .filter(code -> code.getLocale().getLanguage().equals(systemLocale.getLanguage()))
-            .collect(Collectors.toList());
+            .collect(toImmutableList());
     Optional<Code> firstLocaleCountryCode =
         localeLanguageCodes.stream()
             .filter(code -> code.getLocale().getCountry().equals(systemLocale.getCountry()))
-            .collect(Collectors.toList())
-            .stream()
             .findFirst();
     if (firstLocaleCountryCode.isPresent()) {
       return firstLocaleCountryCode.get();
@@ -203,8 +202,13 @@ public class BrailleLanguages {
         return new EditBufferBulgarian(context, translator, talkBack);
       }
     },
+    BULGARIAN_COMP8(
+        LOCALE_BG,
+        R.string.code_user_facing_name_bulgarian_comp8,
+        /* supportedContracted= */ false,
+        /* eightDot= */ true),
     CANTONESE(
-        LOCALE_ZH_YUE,
+        LOCALE_YUE,
         R.string.code_user_facing_name_catonese,
         /* supportedContracted= */ false,
         /* eightDot= */ false),
@@ -296,8 +300,20 @@ public class BrailleLanguages {
     DANISH_8(
         LOCALE_DA,
         R.string.code_user_facing_name_danish_eight,
-        /* supportedContracted= */ false,
-        /* eightDot= */ true),
+        /* supportedContracted= */ true,
+        /* eightDot= */ true) {
+      @Override
+      EditBuffer createEditBuffer(
+          Context context,
+          TalkBackSpeaker talkBack,
+          BrailleTranslator translator,
+          boolean contractedMode) {
+        if (contractedMode) {
+          return new EditBufferDanish2(context, translator, talkBack);
+        }
+        return new EditBufferDanish(context, translator, talkBack);
+      }
+    },
     DANISH_COMP8(
         LOCALE_DA,
         R.string.code_user_facing_name_danish_comp8,
@@ -595,6 +611,8 @@ public class BrailleLanguages {
         return new EditBufferKorean(context, translator, talkBack);
       }
     },
+    // There are 3 kinds of Kurdish, each of them has different locale. It should be central Kurdish
+    // but since it has been released, keep it as it.
     KURDISH(
         LOCALE_CKB,
         R.string.code_user_facing_name_central_kurdish,
@@ -675,6 +693,11 @@ public class BrailleLanguages {
         R.string.code_user_facing_name_norwegian_8_no,
         /* supportedContracted= */ false,
         /* eightDot= */ true),
+    NORWEGIAN_COMP8(
+        LOCALE_NO,
+        R.string.code_user_facing_name_norwegian_comp8,
+        /* supportedContracted= */ false,
+        /* eightDot= */ true),
     NORWEGIAN_8(
         LOCALE_NO,
         R.string.code_user_facing_name_norwegian_8,
@@ -731,15 +754,15 @@ public class BrailleLanguages {
         R.string.code_user_facing_name_punjabi,
         /* supportedContracted= */ false,
         /* eightDot= */ false),
-    ROMANIAN_8(
+    ROMANIAN_COMP8(
         LOCALE_RO,
-        R.string.code_user_facing_name_romanian_no,
+        R.string.code_user_facing_name_romanian_comp8,
         /* supportedContracted= */ false,
         /* eightDot= */ true),
     RUSSIAN(
         LOCALE_RU,
         R.string.code_user_facing_name_russian,
-        /* supportedContracted= */ false,
+        /* supportedContracted= */ false, // Contracted.
         /* eightDot= */ false) {
       @Override
       EditBuffer createEditBuffer(
@@ -823,8 +846,20 @@ public class BrailleLanguages {
     SWEDEN(
         LOCALE_SV,
         R.string.code_user_facing_name_sweden,
-        /* supportedContracted= */ false,
-        /* eightDot= */ false),
+        /* supportedContracted= */ true,
+        /* eightDot= */ false) {
+      @Override
+      EditBuffer createEditBuffer(
+          Context context,
+          TalkBackSpeaker talkBack,
+          BrailleTranslator translator,
+          boolean contractedMode) {
+        if (contractedMode) {
+          return new EditBufferSwedish2(context, translator, talkBack);
+        }
+        return new EditBufferUnContracted(context, translator, talkBack);
+      }
+    },
     SWEDEN_8(
         LOCALE_SE,
         R.string.code_user_facing_name_sweden_8,
@@ -867,9 +902,9 @@ public class BrailleLanguages {
         return new EditBufferUnContracted(context, translator, talkBack);
       }
     },
-    TURKISH_8(
+    TURKISH_COMP8(
         LOCALE_TR,
-        R.string.code_user_facing_name_turkish_8,
+        R.string.code_user_facing_name_turkish_comp8,
         /* supportedContracted= */ false,
         /* eightDot= */ true),
     UKRAINIAN(
@@ -912,7 +947,7 @@ public class BrailleLanguages {
     VIETNAMESE(
         LOCALE_VI,
         R.string.code_user_facing_name_vietnamese,
-        /* supportedContracted= */ false,
+        /* supportedContracted= */ true,
         /* eightDot= */ false) {
       @Override
       EditBuffer createEditBuffer(
@@ -1007,6 +1042,10 @@ public class BrailleLanguages {
           return FeatureFlagReader.useChineseChinaTwoCells(context);
         } else if (this == CHINESE_TAIWAN) {
           return FeatureFlagReader.useChineseTaiwan(context);
+        } else if (this == NORWEGIAN_COMP8) {
+          return FeatureFlagReader.useNorwegian8DotComputer(context);
+        } else if (this == BULGARIAN_COMP8) {
+          return FeatureFlagReader.useBulgarian8DotComputer(context);
         }
         return true;
       }
@@ -1056,6 +1095,10 @@ public class BrailleLanguages {
           return FeatureFlagReader.useTurkishContracted(context);
         case URDU:
           return FeatureFlagReader.useUrduContracted(context);
+        case SWEDEN:
+          return FeatureFlagReader.useSwedenContracted(context);
+        case DANISH_8:
+          return FeatureFlagReader.useDanish8DotContracted(context);
         default:
           // fall through
       }

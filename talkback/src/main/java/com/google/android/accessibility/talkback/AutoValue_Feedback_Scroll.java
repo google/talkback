@@ -46,6 +46,8 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
 
   private final ScrollTimeout timeout;
 
+  private final int autoScrollAttempt;
+
   private AutoValue_Feedback_Scroll(
       Feedback.Scroll.Action action,
       @Nullable AccessibilityNode node,
@@ -54,7 +56,8 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
       int userAction,
       int nodeAction,
       @Nullable String source,
-      ScrollTimeout timeout) {
+      ScrollTimeout timeout,
+      int autoScrollAttempt) {
     this.action = action;
     this.node = node;
     this.nodeCompat = nodeCompat;
@@ -63,6 +66,7 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
     this.nodeAction = nodeAction;
     this.source = source;
     this.timeout = timeout;
+    this.autoScrollAttempt = autoScrollAttempt;
   }
 
   @Override
@@ -107,6 +111,11 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
   }
 
   @Override
+  public int autoScrollAttempt() {
+    return autoScrollAttempt;
+  }
+
+  @Override
   public String toString() {
     return "Scroll{"
         + "action="
@@ -132,6 +141,8 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
         + ", "
         + "timeout="
         + timeout
+        + "autoScrollAttempt="
+        + autoScrollAttempt
         + "}";
   }
 
@@ -189,6 +200,7 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
     private Integer nodeAction;
     private @Nullable String source;
     private ScrollTimeout timeout;
+    private Integer autoScrollAttempt;
 
     Builder() {
     }
@@ -239,6 +251,12 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
     }
 
     @Override
+    public Scroll.Builder setAutoScrollAttempt(int autoScrollAttempt) {
+      this.autoScrollAttempt = autoScrollAttempt;
+      return this;
+    }
+
+    @Override
     public Feedback.Scroll build() {
       String missing = "";
       if (this.action == null) {
@@ -253,6 +271,9 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
       if (this.timeout == null) {
         missing += " timeout";
       }
+      if (this.autoScrollAttempt == null) {
+        missing += " autoScrollAttempt";
+      }
       if (!missing.isEmpty()) {
         throw new IllegalStateException("Missing required properties:" + missing);
       }
@@ -264,7 +285,8 @@ final class AutoValue_Feedback_Scroll extends Feedback.Scroll {
           this.userAction,
           this.nodeAction,
           this.source,
-          this.timeout);
+          this.timeout,
+          this.autoScrollAttempt);
     }
   }
 

@@ -18,9 +18,15 @@ package com.google.android.accessibility.talkback.imagecaption;
 
 import static java.lang.Math.max;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.annotation.NonNull;
-import com.google.android.accessibility.talkback.imagecaption.RequestList.Request;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayDeque;
 
 /**
@@ -30,18 +36,35 @@ import java.util.ArrayDeque;
  */
 public class RequestList<T extends Request> {
 
-  /** An image caption action. */
-  public interface Request {
-    /** Starts the action. */
-    void perform();
-  }
-
-  private static final String TAG = "RequestListForCaption";
+  private static final String TAG = "RequestsForCaption";
+  @VisibleForTesting static final int MSG_RETRY_TO_PERFORM = 1;
   private final SynchronizedArrayDeque<T> requests = new SynchronizedArrayDeque<>();
   private final int capacity;
 
+  /** The interval time of performing requests. */
+  private final Duration minIntervalTime;
+
+  private final Handler handler =
+      new Handler(Looper.myLooper()) {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+          super.handleMessage(msg);
+          if (msg.what == MSG_RETRY_TO_PERFORM) {
+            LogUtils.v(TAG, "Retry to perform request");
+            performNextRequest(/* shouldRemoveFinishedRequest= */ false);
+          }
+        }
+      };
+
+  private Instant lastRequestExecutionTime = Instant.EPOCH;
+
   public RequestList(int capacity) {
+    this(capacity, /* minIntervalTime= */ Duration.ZERO);
+  }
+
+  public RequestList(int capacity, Duration minIntervalTime) {
     this.capacity = capacity;
+    this.minIntervalTime = minIntervalTime;
   }
 
   /**
@@ -58,39 +81,84 @@ public class RequestList<T extends Request> {
           requests.size() - 1,
           request.getClass().getSimpleName());
     } else {
-      T firstRequest = requests.getFirst();
-      firstRequest.perform();
+      performNextRequest(/* shouldRemoveFinishedRequest= */ false);
     }
   }
 
   /**
-   * Performs the next request. If there are too many requests waiting to be executed in the list,
-   * discards the older requests.
+   * Removed the finished request and performs the first pending request.
+   *
+   * <p>Discards the older requests if there are too many requests waiting to be executed.
    */
   public void performNextRequest() {
+    performNextRequest(/* shouldRemoveFinishedRequest= */ true);
+  }
+
+  /**
+   * Performs the first pending request or waits until the take-screenshot function is ready.
+   *
+   * <p>Discards the older requests if there are too many requests waiting to be executed.
+   *
+   * @param shouldRemoveFinishedRequest {@code true} if the first request that is finished should be
+   *     removed
+   */
+  private void performNextRequest(boolean shouldRemoveFinishedRequest) {
     if (requests.isEmpty()) {
       return;
     }
 
-    T finishedRequest = requests.removeFirst();
+    if (shouldRemoveFinishedRequest) {
+      // Updates lastRequestExecutionTime by the end timestamp which is more accurate than start
+      // timestamp.
+      T finishedRequest = requests.removeFirst();
+      @Nullable Instant finishedRequestEndTimestamp = finishedRequest.getEndTimestamp();
+      if (finishedRequestEndTimestamp != null) {
+        lastRequestExecutionTime = finishedRequestEndTimestamp;
+      }
+      if (requests.isEmpty()) {
+        return;
+      }
+    }
 
     while (requests.size() > capacity) {
       T request = requests.removeFirst();
+      LogUtils.v(TAG, "cancel %s size=%d ", request.getClass().getSimpleName(), requests.size());
     }
 
-    if (!requests.isEmpty()) {
+    Duration intervalTime = Duration.between(lastRequestExecutionTime, Instant.now());
+    long waitingTime = minIntervalTime.minus(intervalTime).toMillis();
+    if (waitingTime > 0) {
+      LogUtils.v(TAG, "waiting... %d ms", waitingTime);
+      Message message = new Message();
+      message.what = MSG_RETRY_TO_PERFORM;
       T request = requests.getFirst();
-      request.perform();
+      if (handler.sendMessageDelayed(message, waitingTime)) {
+        request.onPending(true, intervalTime);
+      } else {
+        LogUtils.e(TAG, "Fail to send message to the handler.");
+        request.onPending(false, intervalTime);
+      }
+      return;
     }
+
+    T request = requests.getFirst();
+    lastRequestExecutionTime = Instant.now();
+    request.perform();
+    LogUtils.v(TAG, "perform %s", request.getClass().getSimpleName());
   }
 
   public int getWaitingRequestSize() {
     return max(0, requests.size() - 1);
   }
 
+  @VisibleForTesting
+  Handler getHandler() {
+    return handler;
+  }
+
   public void clear() {
     while (!requests.isEmpty()) {
-      T request = requests.removeFirst();
+      T unused = requests.removeFirst();
     }
   }
 

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">lire</string>
-  <string name="voice_commands_read_from_next">Lire à partir du prochain élément</string>
+  <string name="voice_commands_read_from_next">Lire à partir du curseur</string>
   <string name="voice_commands_edit_options">Options de modification</string>
-  <string name="voice_commands_text_editing">Modification de texte</string>
-  <string name="voice_commands_edit_text">Modifier du texte</string>
-  <string name="voice_commands_editing_options">Options de modification</string>
   <string name="voice_commands_edit">modifier</string>
   <string name="voice_commands_what">quoi</string>
   <string name="voice_commands_say">dire</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Libellé</string>
   <string name="voice_commands_cannot_label_feedback">Impossible d\'ajouter libellé</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">Paramétrer la cadence</string>
   <string name="voice_commands_first">Premier élément</string>
   <string name="voice_commands_top">Haut</string>
   <string name="voice_commands_last">Dernier élément</string>
@@ -66,12 +62,12 @@
   <string name="voice_commands_paste">@android:string/paste</string>
   <string name="voice_commands_notification">Notification</string>
   <string name="voice_commands_notifications">Notifications</string>
-  <string name="voice_commands_verbosity_parameter">Niveau de verbosité %s</string>
-  <string name="voice_commands_parameter_verbosity">Niveau de verbosité %s</string>
-  <string name="voice_commands_change_verbosity_to_parameter">Régler niveau de verbosité sur %s</string>
+  <string name="voice_commands_verbosity_parameter">Niveau de détail %s</string>
+  <string name="voice_commands_parameter_verbosity">Niveau de détail %s</string>
+  <string name="voice_commands_change_verbosity_to_parameter">Régler le niveau de détail sur %s</string>
   <string name="voice_commands_navigation_by_parameter">Navigation par %s</string>
   <string name="voice_commands_parameter_navigation">Navigation par %s</string>
-  <string name="voice_commands_parameter_granularity">Granularité par %s</string>
+  <string name="voice_commands_parameter_granularity">Niveau de précision par %s</string>
   <string name="voice_commands_read_by_parameter">Lire par %s</string>
   <string name="voice_commands_back">Retour</string>
   <string name="voice_commands_go_back">Revenir en arrière</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Augmenter la cadence</string>
   <string name="voice_commands_slower">Moins vite</string>
   <string name="voice_commands_decrease_speech_rate">réduire la cadence</string>
-  <string name="voice_commands_possible_options_title">Vous pouvez dire</string>
   <string name="voice_commands_no_action">Raccourci vocal non compatible</string>
   <string name="voice_commands_no_mic_permissions">Pour utiliser cette fonctionnalité, vous devez autoriser l\'utilisation du micro.</string>
   <string name="voice_commands_no_voice_recognition_ability">Cette fonctionnalité n\'est malheureusement pas disponible sur votre appareil</string>
@@ -103,8 +98,8 @@
   <string name="voice_commands_no_next_control_feedback">Aucune commande suivante</string>
   <string name="voice_commands_no_next_landmark_feedback">Aucun point de repère suivant</string>
   <string name="voice_commands_help_title">Présentation des commandes vocales</string>
-  <string name="voice_commands_help_description">Pour utiliser les commandes vocales, balayez l\'écran vers la droite, puis vers le haut. Pour afficher cette liste de commandes, dites \"Aide\" ou \"Que puis-je dire\" à tout moment.</string>
-  <string name="voice_commands_help_hint">Pour des résultats optimaux, utilisez la même formulation que sur les écrans suivants.</string>
+  <string name="voice_commands_help_description">Pour utiliser les commandes vocales, balayez l\'écran vers la droite, puis vers le haut. Pour afficher cette liste de commandes, dites \"%1$s\" ou \"Que puis-je dire\".</string>
+  <string name="voice_commands_help_hint">Pour de meilleurs résultats, utilisez la même formulation que sur les écrans suivants.</string>
   <string name="voice_command_screen_locked_hint">Les commandes vocales ne sont pas disponibles lorsque l\'écran est verrouillé. Pour utiliser le menu TalkBack à la place, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Les commandes vocales ne sont pas disponibles pendant la configuration.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
@@ -112,10 +107,10 @@
   <string name="voice_commands_help_next">[Titre] suivant</string>
   <string name="voice_commands_help_navigation">Navigation par [mot]</string>
   <string name="voice_commands_help_speech_rate">Parler [plus vite]</string>
-  <string name="voice_commands_help_verbosity">Niveau de verbosité [faible]</string>
+  <string name="voice_commands_help_verbosity">Niveau de détail [faible]</string>
   <string name="voice_commands_help_next_description">Accéder à l\'élément suivant (titre, commande, liste ou point de repère)</string>
   <string name="voice_commands_help_navigation_description">Naviguer par mots, caractères, lignes, paragraphes, titres, commandes, etc.</string>
-  <string name="voice_commands_help_speech_rate_description">Vous pouvez également dire \"parle moins vite\"</string>
+  <string name="voice_commands_help_speech_rate_description">Vous pouvez également demander de \"parler moins vite\"</string>
   <string name="voice_commands_help_verbosity_description">Définir sur un niveau faible, élevé ou personnalisé</string>
   <string name="voice_commands_help_first_description">Accéder au premier élément de l\'écran actuel</string>
   <string name="voice_commands_help_last_description">Accéder au dernier élément de l\'écran actuel</string>

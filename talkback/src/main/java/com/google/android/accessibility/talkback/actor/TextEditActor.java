@@ -473,7 +473,8 @@ public class TextEditActor {
                 suggestion,
                 currentText.subSequence(end, currentText.length()));
     Bundle arguments = new Bundle();
-    arguments.putCharSequence(ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, textReplaced);
+    // Key ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE expects String.
+    arguments.putCharSequence(ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, textReplaced.toString());
     editTextActionHistory.beforeSetText();
     boolean result = PerformActionUtils.performAction(node, ACTION_SET_TEXT, arguments, eventId);
     editTextActionHistory.afterSetText();

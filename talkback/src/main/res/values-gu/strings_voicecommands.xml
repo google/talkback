@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">વાંચો</string>
-  <string name="voice_commands_read_from_next">આગલી આઇટમમાંથી વાંચો</string>
+  <string name="voice_commands_read_from_next">કર્સરમાંથી વાંચો</string>
   <string name="voice_commands_edit_options">ફેરફારના વિકલ્પો</string>
-  <string name="voice_commands_text_editing">ટેક્સ્ટ એડિટિંગ</string>
-  <string name="voice_commands_edit_text">ટેક્સ્ટમાં ફેરફાર કરો</string>
-  <string name="voice_commands_editing_options">ફેરફારના વિકલ્પો</string>
   <string name="voice_commands_edit">ફેરફાર કરો</string>
   <string name="voice_commands_what">શું</string>
   <string name="voice_commands_say">કહો</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">લેબલ કરો</string>
   <string name="voice_commands_cannot_label_feedback">લેબલ કરી શકતાં નથી</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">બોલવાની ઝડપને સેટ કરી રહ્યાં છીએ</string>
   <string name="voice_commands_first">પહેલી</string>
   <string name="voice_commands_top">ઉપર</string>
   <string name="voice_commands_last">છેલ્લી</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">બોલવાની ઝડપ વધારો</string>
   <string name="voice_commands_slower">ઝડપ ધીમી કરો</string>
   <string name="voice_commands_decrease_speech_rate">બોલવાની ઝડપ ધીમી કરો</string>
-  <string name="voice_commands_possible_options_title">તમે કહી શકો છો</string>
   <string name="voice_commands_no_action">વૉઇસ શૉર્ટકટની સુવિધા નથી</string>
   <string name="voice_commands_no_mic_permissions">આ સુવિધાનો ઉપયોગ કરવા માટે, તમારે માઇક્રોફોનનો ઉપયોગ કરવાની પરવાનગી આપવી જરૂરી છે.</string>
   <string name="voice_commands_no_voice_recognition_ability">માફ કરશો! આ સુવિધા તમારા ડિવાઇસ પર ઉપલબ્ધ નથી</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">કોઈ આગલું નિયંત્રણ નથી</string>
   <string name="voice_commands_no_next_landmark_feedback">કોઈ આગલું લૅન્ડમાર્ક નથી</string>
   <string name="voice_commands_help_title">વૉઇસ આદેશનો ઓવરવ્યૂ</string>
-  <string name="voice_commands_help_description">વૉઇસ આદેશોનો ઉપયોગ કરવા માટે, જમણે પછી ઉપર સ્વાઇપ કરો. આદેશોની આ સૂચિ માટે, \"સહાય કરો\" અથવા \"હું શું કહી શકું છું?\" એમ કહો.</string>
+  <string name="voice_commands_help_description">વૉઇસ આદેશોનો ઉપયોગ કરવા માટે, જમણે પછી ઉપર સ્વાઇપ કરો. આદેશોની આ સૂચિ માટે, કોઈપણ સમયે \"%1$s\" અથવા \"હું શું કહી શકું છું?\" એમ કહો.</string>
   <string name="voice_commands_help_hint">શ્રેષ્ઠ પરિણામો માટે, આગલી સ્ક્રીન પર સૂચિબદ્ધ કરવામાં આવેલા બરાબર તે જ શબ્દો કહો.</string>
   <string name="voice_command_screen_locked_hint">સ્ક્રીન જ્યારે લૉક હોય, ત્યારે વૉઇસ આદેશ ઉપલબ્ધ હોતા નથી. તો તેને બદલે TalkBack મેનૂનો ઉપયોગ કરવા માટે, %1$s.</string>
   <string name="voice_commands_during_setup_hint">સેટઅપ કરતી વખતે વૉઇસ આદેશો ઉપલબ્ધ હોતા નથી.</string>

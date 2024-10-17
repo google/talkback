@@ -129,6 +129,7 @@ public class BrailleDisplayImeUnavailableActivity extends Activity {
                 R.string.bd_ime_disabled_dialog_title_positive,
                 (dialog, which) -> {
                   final Intent intent = new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS);
+                  intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                   startActivity(intent);
                   finish();
                 })

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">olvasás</string>
-  <string name="voice_commands_read_from_next">Olvasás a következőtől</string>
+  <string name="voice_commands_read_from_next">Olvasás a kurzortól</string>
   <string name="voice_commands_edit_options">Szerkesztési beállítások</string>
-  <string name="voice_commands_text_editing">Szövegszerkesztés</string>
-  <string name="voice_commands_edit_text">Szöveg szerkesztése</string>
-  <string name="voice_commands_editing_options">Szerkesztési lehetőségek</string>
   <string name="voice_commands_edit">szerkesztés</string>
   <string name="voice_commands_what">mi</string>
   <string name="voice_commands_say">kimondás</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Címkézés</string>
   <string name="voice_commands_cannot_label_feedback">Nem lehetséges a címkézés</string>
   <string name="voice_commands_assistant">Segéd</string>
-  <string name="voice_commands_setting_speech_rate">Beszéd sebességének beállítása</string>
   <string name="voice_commands_first">Első</string>
   <string name="voice_commands_top">Legfelső</string>
   <string name="voice_commands_last">Utolsó</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Beszédsebesség növelése</string>
   <string name="voice_commands_slower">Lassabb</string>
   <string name="voice_commands_decrease_speech_rate">beszédsebesség csökkentése</string>
-  <string name="voice_commands_possible_options_title">A következőket mondhatja</string>
   <string name="voice_commands_no_action">A hangparancs nem támogatott</string>
   <string name="voice_commands_no_mic_permissions">A funkció használatához engedélyt kell adnia a mikrofon használatához.</string>
   <string name="voice_commands_no_voice_recognition_ability">Sajnos ez a funkció nem áll rendelkezésre az eszközön</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Nincs következő vezérlő</string>
   <string name="voice_commands_no_next_landmark_feedback">Nincs következő határjel</string>
   <string name="voice_commands_help_title">Hangalapú utasítások áttekintése</string>
-  <string name="voice_commands_help_description">Hangalapú utasítások használatához csúsztasson jobbra, majd felfelé. Mondja azt bármikor, hogy „Help” (Súgó) vagy „What can I say?” (Miket mondhatok?) a parancsok listájának meghallgatásához.</string>
+  <string name="voice_commands_help_description">Hangalapú utasítások használatához csúsztasson jobbra, majd felfelé. Mondja azt bármikor, hogy „%1$s” vagy „What can I say?” (Miket mondhatok?) a parancsok listájának meghallgatásához.</string>
   <string name="voice_commands_help_hint">A legjobb eredmények érdekében pontosan a következő képernyőkön látható megfogalmazásokat használja.</string>
   <string name="voice_command_screen_locked_hint">A hangalapú utasítások nem állnak rendelkezése, ha a képernyő zárolva van. Ha helyette a TalkBack menüt használná, %1$s.</string>
   <string name="voice_commands_during_setup_hint">A hangalapú utasítások nem állnak rendelkezése a beállítás során.</string>

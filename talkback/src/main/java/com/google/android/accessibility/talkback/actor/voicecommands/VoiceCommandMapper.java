@@ -16,7 +16,7 @@
 package com.google.android.accessibility.talkback.actor.voicecommands;
 
 import static android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS;
-import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_NEXT;
+import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_CURSOR;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.START_AT_TOP;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.BRIGHTEN;
 import static com.google.android.accessibility.talkback.Feedback.DimScreen.Action.DIM;
@@ -135,8 +135,8 @@ public class VoiceCommandMapper {
       case VOICE_COMMAND_START_AT_TOP:
         return toFeedback(eventId, START_AT_TOP);
 
-      case VOICE_COMMAND_START_AT_NEXT:
-        return toFeedback(eventId, START_AT_NEXT);
+      case VOICE_COMMAND_START_AT_CURSOR:
+        return toFeedback(eventId, START_AT_CURSOR);
 
       case VOICE_COMMAND_COPY_LAST_SPOKEN_UTTERANCE:
         return toFeedback(eventId, COPY_SAVED);

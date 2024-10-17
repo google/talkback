@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">อ่าน</string>
-  <string name="voice_commands_read_from_next">อ่านจากรายการถัดไป</string>
+  <string name="voice_commands_read_from_next">อ่านจากเคอร์เซอร์</string>
   <string name="voice_commands_edit_options">ตัวเลือกการแก้ไข</string>
-  <string name="voice_commands_text_editing">การแก้ไขข้อความ</string>
-  <string name="voice_commands_edit_text">แก้ไขข้อความ</string>
-  <string name="voice_commands_editing_options">ตัวเลือกในการแก้ไข</string>
   <string name="voice_commands_edit">แก้ไข</string>
   <string name="voice_commands_what">อะไร</string>
   <string name="voice_commands_say">พูด</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">ติดป้ายกำกับ</string>
   <string name="voice_commands_cannot_label_feedback">ติดป้ายกำกับไม่ได้</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">ตั้งค่าความเร็วของคำพูด</string>
   <string name="voice_commands_first">แรก</string>
   <string name="voice_commands_top">บนสุด</string>
   <string name="voice_commands_last">สุดท้าย</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">เพิ่มความเร็วในการพูด</string>
   <string name="voice_commands_slower">ช้าลง</string>
   <string name="voice_commands_decrease_speech_rate">ลดความเร็วในการพูด</string>
-  <string name="voice_commands_possible_options_title">คุณอาจพูดว่า</string>
   <string name="voice_commands_no_action">ไม่รองรับทางลัดเสียง</string>
   <string name="voice_commands_no_mic_permissions">หากต้องการใช้ฟีเจอร์นี้ คุณต้องให้สิทธิ์ในการใช้ไมโครโฟน</string>
   <string name="voice_commands_no_voice_recognition_ability">ขออภัย ฟีเจอร์นี้ใช้ไม่ได้ในอุปกรณ์ของคุณ</string>
@@ -103,8 +98,8 @@
   <string name="voice_commands_no_next_control_feedback">ไม่มีการควบคุมถัดไป</string>
   <string name="voice_commands_no_next_landmark_feedback">ไม่มีจุดสังเกตถัดไป</string>
   <string name="voice_commands_help_title">ภาพรวมคำสั่งเสียง</string>
-  <string name="voice_commands_help_description">หากต้องการใช้คำสั่งเสียง ให้เลื่อนไปทางขวาแล้วขึ้น พูดว่า \"ความช่วยเหลือ\" หรือ \"ฉันพูดอะไรได้บ้าง\" ได้ทุกเมื่อสำหรับรายการคำสั่งนี้</string>
-  <string name="voice_commands_help_hint">พูดข้อความตามที่ระบุในหน้าจอต่อไปนี้เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด</string>
+  <string name="voice_commands_help_description">หากต้องการใช้คำสั่งเสียง ให้เลื่อนไปทางขวาแล้วขึ้น พูดว่า \"%1$s\" หรือ \"ฉันพูดอะไรได้บ้าง\" ได้ทุกเมื่อสำหรับรายการคำสั่งนี้</string>
+  <string name="voice_commands_help_hint">พูดข้อความให้ตรงตามที่ระบุบนหน้าจอต่อไปนี้เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด</string>
   <string name="voice_command_screen_locked_hint">ใช้คำสั่งเสียงขณะหน้าจอล็อกอยู่ไม่ได้ หากต้องการใช้เมนู TalkBack แทน ให้%1$s</string>
   <string name="voice_commands_during_setup_hint">ใช้คำสั่งเสียงขณะตั้งค่าไม่ได้</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>

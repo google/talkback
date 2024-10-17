@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">baca</string>
-  <string name="voice_commands_read_from_next">Baca dari item berikutnya</string>
+  <string name="voice_commands_read_from_next">Baca dari kursor</string>
   <string name="voice_commands_edit_options">Opsi edit</string>
-  <string name="voice_commands_text_editing">Pengeditan teks</string>
-  <string name="voice_commands_edit_text">Edit teks</string>
-  <string name="voice_commands_editing_options">Opsi pengeditan</string>
   <string name="voice_commands_edit">edit</string>
   <string name="voice_commands_what">apa</string>
   <string name="voice_commands_say">ucapkan</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Label</string>
   <string name="voice_commands_cannot_label_feedback">Tidak dapat memberi label</string>
   <string name="voice_commands_assistant">Asisten</string>
-  <string name="voice_commands_setting_speech_rate">Menyetel laju bicara</string>
   <string name="voice_commands_first">Pertama</string>
   <string name="voice_commands_top">Atas</string>
   <string name="voice_commands_last">Terakhir</string>
@@ -84,10 +80,9 @@
   <string name="voice_commands_nevermind">Tidak jadi</string>
   <string name="voice_commands_shut_up">Diam</string>
   <string name="voice_commands_faster">Lebih cepat</string>
-  <string name="voice_commands_increase_speech_rate">Tambah kecepatan ucapan</string>
+  <string name="voice_commands_increase_speech_rate">Tambah kecepatan bicara</string>
   <string name="voice_commands_slower">Lebih lambat</string>
-  <string name="voice_commands_decrease_speech_rate">kurangi kecepatan ucapan</string>
-  <string name="voice_commands_possible_options_title">Anda dapat mengucapkan</string>
+  <string name="voice_commands_decrease_speech_rate">kurangi kecepatan bicara</string>
   <string name="voice_commands_no_action">Pintasan suara tidak didukung</string>
   <string name="voice_commands_no_mic_permissions">Untuk menggunakan fitur ini, Anda harus memberikan izin untuk menggunakan mikrofon.</string>
   <string name="voice_commands_no_voice_recognition_ability">Maaf! Fitur ini tidak tersedia di perangkat Anda</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Tidak ada kontrol berikutnya</string>
   <string name="voice_commands_no_next_landmark_feedback">Tidak ada penanda berikutnya</string>
   <string name="voice_commands_help_title">Ringkasan perintah suara</string>
-  <string name="voice_commands_help_description">Untuk menggunakan perintah suara, geser ke kanan lalu ke atas. Ucapkan \"Bantuan\" atau \"Apa yang bisa saya ucapkan?\" kapan saja untuk melihat daftar perintah ini.</string>
+  <string name="voice_commands_help_description">Untuk menggunakan perintah suara, geser ke kanan lalu ke atas. Ucapkan \"%1$s\" atau \"Apa yang bisa saya ucapkan?\" kapan saja untuk melihat daftar perintah ini.</string>
   <string name="voice_commands_help_hint">Untuk hasil terbaik, ucapkan kata yang sama persis dengan yang tercantum di daftar pada layar berikut.</string>
   <string name="voice_command_screen_locked_hint">Perintah suara tidak tersedia saat layar dikunci. Untuk menggunakan menu TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Perintah suara tidak tersedia selama penyiapan.</string>

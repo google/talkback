@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">קריאה</string>
-  <string name="voice_commands_read_from_next">הקראה מהפריט הבא</string>
+  <string name="voice_commands_read_from_next">הקראה ממיקום הסמן</string>
   <string name="voice_commands_edit_options">אפשרויות עריכה</string>
-  <string name="voice_commands_text_editing">עריכת טקסט</string>
-  <string name="voice_commands_edit_text">עריכת טקסט</string>
-  <string name="voice_commands_editing_options">אפשרויות עריכה</string>
   <string name="voice_commands_edit">עריכה</string>
   <string name="voice_commands_what">מה</string>
   <string name="voice_commands_say">אמירה</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">תווית</string>
   <string name="voice_commands_cannot_label_feedback">לא ניתן להוסיף תווית</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">הגדרת קצב הדיבור</string>
   <string name="voice_commands_first">ראשון</string>
   <string name="voice_commands_top">למעלה</string>
   <string name="voice_commands_last">אחרון</string>
@@ -58,7 +54,7 @@
   <string name="voice_commands_Spell">איות</string>
   <string name="voice_commands_talkback_settings">‏הגדרות TalkBack</string>
   <string name="voice_commands_talkback_setting">‏הגדרת TalkBack</string>
-  <string name="voice_commands_screen_search">חיפוש מהמסך</string>
+  <string name="voice_commands_screen_search">חיפוש במסך</string>
   <string name="voice_commands_search_on_screen">חיפוש במסך</string>
   <string name="voice_commands_copy">@android:string/copy</string>
   <string name="voice_commands_cut">@android:string/cut</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">הגברת קצב הדיבור</string>
   <string name="voice_commands_slower">איטי יותר</string>
   <string name="voice_commands_decrease_speech_rate">האטת קצב הדיבור</string>
-  <string name="voice_commands_possible_options_title">אפשר לומר</string>
   <string name="voice_commands_no_action">קיצור הדרך לפקודה הקולית אינו נתמך</string>
   <string name="voice_commands_no_mic_permissions">כדי להשתמש בתכונה הזאת, יש להעניק הרשאת שימוש במיקרופון.</string>
   <string name="voice_commands_no_voice_recognition_ability">מצטערים! התכונה הזו לא נתמכת במכשיר הזה</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">אין עוד פקדים</string>
   <string name="voice_commands_no_next_landmark_feedback">אין עוד ציוני דרך</string>
   <string name="voice_commands_help_title">סקירה כללית של הפקודות הקוליות</string>
-  <string name="voice_commands_help_description">‏כדי להשתמש בפקודות קוליות, יש להחליק שמאלה ואז למעלה. בכל שלב אפשר לומר \"Help\" או \"What can I say?‎\" לקבלת הרשימה של כל הפקודות.</string>
+  <string name="voice_commands_help_description">‏כדי להשתמש בפקודות קוליות, צריך להחליק שמאלה ואז למעלה. בכל שלב אפשר לומר \"%1$s\" או \"What can I say?‎\" (מה אפשר לומר?) לקבלת הרשימה של כל הפקודות.</string>
   <string name="voice_commands_help_hint">כדי לקבל את התוצאות הטובות ביותר, יש לומר בדיוק את הניסוח שרשום במסכים הבאים.</string>
   <string name="voice_command_screen_locked_hint">‏הפקודות הקוליות לא זמינות כשהמסך נעול. כדי להשתמש בתפריט של TalkBack במקום זאת, מבצעים %1$s.</string>
   <string name="voice_commands_during_setup_hint">הפקודות הקוליות לא זמינות במהלך ההגדרה.</string>
@@ -113,7 +108,7 @@
   <string name="voice_commands_help_navigation">ניווט לפי [מילה]</string>
   <string name="voice_commands_help_speech_rate">דיבור [מהיר יותר]</string>
   <string name="voice_commands_help_verbosity">דרגת מלל [נמוכה]</string>
-  <string name="voice_commands_help_next_description">לכותרת, לפקד, לרשימה או לציון הדרך הבאים</string>
+  <string name="voice_commands_help_next_description">לעבור אל הכותרת, הפקד, הרשימה או ציון הדרך הבאים</string>
   <string name="voice_commands_help_navigation_description">ניווט באמצעות מילים, תווים, שורות, פסקאות, כותרות, פקדים ועוד</string>
   <string name="voice_commands_help_speech_rate_description">‏אפשר גם לומר \"speak slower\"</string>
   <string name="voice_commands_help_verbosity_description">שינוי לדרגה נמוכה, גבוהה או מותאמת אישית</string>

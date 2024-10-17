@@ -25,6 +25,7 @@ import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.WindowManager.BadTokenException;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.google.android.accessibility.utils.R;
@@ -38,6 +39,8 @@ import com.google.android.libraries.accessibility.widgets.simple.SimpleOverlay;
  * AccessibilityMenuService.
  */
 public class TextToSpeechOverlay extends SimpleOverlay {
+  public static final int DEFAULT_BACKGROUND_COLOR = 0xAA000000; // Transparent black.
+  public static final int TYPE_ANNOUNCEMENT_BACKGROUND_COLOR = 0xFFC90808; // Dark red.
 
   private static final String LOG_TAG = "TextToSpeechOverlay";
   private static final int DISPLAY_MS = 2000;
@@ -68,7 +71,7 @@ public class TextToSpeechOverlay extends SimpleOverlay {
         context.getResources().getDimensionPixelSize(R.dimen.tts_overlay_text_bottom_margin);
 
     text = new TextView(context);
-    text.setBackgroundColor(0xAA000000);
+    text.setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
     text.setTextColor(Color.WHITE);
     text.setPadding(padding, padding, padding, padding);
     text.setGravity(Gravity.CENTER);
@@ -84,13 +87,23 @@ public class TextToSpeechOverlay extends SimpleOverlay {
   }
 
   public void displayText(CharSequence text) {
+    displayText(text, /* eventType= */ -1);
+  }
+
+  public void displayText(CharSequence text, int eventType) {
     if (TextUtils.isEmpty(text)) {
       handler.sendEmptyMessage(MSG_CLEAR_TEXT);
       return;
     }
+
+    final int backgroundColor =
+        eventType == AccessibilityEvent.TYPE_ANNOUNCEMENT
+            ? TYPE_ANNOUNCEMENT_BACKGROUND_COLOR
+            : DEFAULT_BACKGROUND_COLOR;
     final long displayTimeMs = Math.max(DISPLAY_MS, text.length() * 100);
     handler.removeMessages(MSG_CLEAR_TEXT);
-    handler.sendMessage(Message.obtain(handler, MSG_SET_TEXT, text.toString().trim()));
+    handler.sendMessage(
+        Message.obtain(handler, MSG_SET_TEXT, backgroundColor, -1, text.toString().trim()));
     handler.sendEmptyMessageDelayed(MSG_CLEAR_TEXT, displayTimeMs);
   }
 
@@ -108,6 +121,7 @@ public class TextToSpeechOverlay extends SimpleOverlay {
           } catch (BadTokenException e) {
             LogUtils.e(LOG_TAG, e, "Caught WindowManager.BadTokenException while displaying text.");
           }
+          parent.text.setBackgroundColor(msg.arg1);
           parent.text.setText((CharSequence) msg.obj);
           break;
         case MSG_CLEAR_TEXT:

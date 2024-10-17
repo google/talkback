@@ -18,8 +18,6 @@ package com.google.android.accessibility.talkback.monitor;
 
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
@@ -27,10 +25,11 @@ import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.Pipeline.InterpretationReceiver;
+import com.google.android.accessibility.utils.broadcast.SameThreadBroadcastReceiver;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 /** Monitor battery charging status changes. Start charging Stop changing */
-public class BatteryMonitor extends BroadcastReceiver {
+public class BatteryMonitor extends SameThreadBroadcastReceiver {
   private Pipeline.InterpretationReceiver pipeline;
 
   public static final int UNKNOWN_LEVEL = -1;
@@ -54,7 +53,7 @@ public class BatteryMonitor extends BroadcastReceiver {
   }
 
   @Override
-  public void onReceive(Context context, Intent intent) {
+  public void onReceiveIntent(Intent intent) {
     final String action = intent.getAction();
     if (action == null) {
       return;

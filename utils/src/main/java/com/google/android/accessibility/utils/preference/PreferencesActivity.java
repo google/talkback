@@ -30,6 +30,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public abstract class PreferencesActivity extends BasePreferencesActivity {
   // This variable is used as argument of Intent to identify which fragment should be created.
   public static final String FRAGMENT_NAME = "FragmentName";
+  public static final String FRAGMENT_ARGS = "FragmentArgs";
 
   /** Creates a PreferenceFragmentCompat when AccessibilityPreferencesActivity is called. */
   protected abstract PreferenceFragmentCompat createPreferenceFragment();

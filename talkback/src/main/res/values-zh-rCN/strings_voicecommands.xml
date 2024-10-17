@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">朗读</string>
-  <string name="voice_commands_read_from_next">从下一项开始朗读</string>
+  <string name="voice_commands_read_from_next">从光标处开始朗读</string>
   <string name="voice_commands_edit_options">编辑选项</string>
-  <string name="voice_commands_text_editing">文字编辑</string>
-  <string name="voice_commands_edit_text">编辑文字</string>
-  <string name="voice_commands_editing_options">编辑选项</string>
   <string name="voice_commands_edit">修改</string>
   <string name="voice_commands_what">什么</string>
   <string name="voice_commands_say">说</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">标签</string>
   <string name="voice_commands_cannot_label_feedback">无法加标签</string>
   <string name="voice_commands_assistant">Google 助理</string>
-  <string name="voice_commands_setting_speech_rate">设置语速</string>
   <string name="voice_commands_first">第一项</string>
   <string name="voice_commands_top">将焦点移至第一项</string>
   <string name="voice_commands_last">最后一项</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">加快语速</string>
   <string name="voice_commands_slower">慢一点</string>
   <string name="voice_commands_decrease_speech_rate">放慢语速</string>
-  <string name="voice_commands_possible_options_title">您可以说</string>
   <string name="voice_commands_no_action">不支持语音快捷方式</string>
   <string name="voice_commands_no_mic_permissions">要使用此功能，您必须先授予麦克风使用权限。</string>
   <string name="voice_commands_no_voice_recognition_ability">抱歉！您的设备不支持此功能</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">没有下一个控件</string>
   <string name="voice_commands_no_next_landmark_feedback">没有下一个位置标记</string>
   <string name="voice_commands_help_title">语音指令概览</string>
-  <string name="voice_commands_help_description">如要使用语音指令，请先向右再向上滑动。您随时可以说“帮助”或“我可以说什么？”来查看此指令列表。</string>
+  <string name="voice_commands_help_description">若要使用语音指令，请先向右再向上滑动。您随时可以说“%1$s”或“我可以说什么？”来查看此指令列表。</string>
   <string name="voice_commands_help_hint">为了获得最佳的结果，请准确说出以下屏幕上列出的文字。</string>
   <string name="voice_command_screen_locked_hint">屏幕处于锁定状态时，无法使用语音指令。如需改用 TalkBack 菜单，请%1$s。</string>
   <string name="voice_commands_during_setup_hint">在进行设置时，无法使用语音指令。</string>

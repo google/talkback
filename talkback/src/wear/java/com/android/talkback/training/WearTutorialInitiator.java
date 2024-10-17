@@ -81,7 +81,7 @@ public final class WearTutorialInitiator {
       PageConfig.builder(PageId.PAGE_ID_WATCH_SCROLLING, R.string.wear_training_scroll_title)
           .hidePageNumber()
           .addText(R.string.wear_training_scroll_text)
-          .addList(R.array.tutorial_scrolling_items);
+          .addList(R.array.tutorial_scrolling_item_titles);
 
   public static final PageConfig.Builder GO_BACK_WATCH_PAGE =
       PageConfig.builder(PageId.PAGE_ID_WATCH_GO_BACK, R.string.wear_training_go_back_title)

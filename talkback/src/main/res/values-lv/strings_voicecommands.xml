@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">read</string>
-  <string name="voice_commands_read_from_next">Lasīt no nākamā</string>
+  <string name="voice_commands_read_from_next">Lasīt, sākot ar kursoru</string>
   <string name="voice_commands_edit_options">Rediģēšanas opcijas</string>
-  <string name="voice_commands_text_editing">Teksta rediģēšana</string>
-  <string name="voice_commands_edit_text">Rediģēt tekstu</string>
-  <string name="voice_commands_editing_options">Rediģēšanas opcijas</string>
   <string name="voice_commands_edit">edit</string>
   <string name="voice_commands_what">what</string>
   <string name="voice_commands_say">say</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Iezīme</string>
   <string name="voice_commands_cannot_label_feedback">Nevar pievienot iezīmi</string>
   <string name="voice_commands_assistant">Asistents</string>
-  <string name="voice_commands_setting_speech_rate">Runas ātruma iestatīšana</string>
   <string name="voice_commands_first">Pirmais</string>
   <string name="voice_commands_top">Augšdaļā</string>
   <string name="voice_commands_last">Pēdējais</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Palielināt runas ātrumu</string>
   <string name="voice_commands_slower">Lēnāk</string>
   <string name="voice_commands_decrease_speech_rate">samazināt runas ātrumu</string>
-  <string name="voice_commands_possible_options_title">Pieejamās balss komandas</string>
   <string name="voice_commands_no_action">Ātrā balss komanda netiek atbalstīta.</string>
   <string name="voice_commands_no_mic_permissions">Lai izmantotu šo funkciju, jums jāsniedz atļauja izmantot mikrofonu.</string>
   <string name="voice_commands_no_voice_recognition_ability">Diemžēl šī funkcija jūsu ierīcē nav pieejama.</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Nav nākamās vadīklas</string>
   <string name="voice_commands_no_next_landmark_feedback">Nav nākamā orientiera</string>
   <string name="voice_commands_help_title">Balss komandu kopsavilkums</string>
-  <string name="voice_commands_help_description">Lai izmantotu balss komandas, velciet pa labi un pēc tam — augšup. Lai iegūtu šo komandu sarakstu, jebkurā laikā sakiet “Palīdzība” vai “Ko varu pateikt?”.</string>
+  <string name="voice_commands_help_description">Lai izmantotu balss komandas, velciet pa labi un pēc tam — augšup. Lai iegūtu šo komandu sarakstu, jebkurā laikā sakiet “%1$s” vai “What can I say?” (Ko varu pateikt?).</string>
   <string name="voice_commands_help_hint">Lai gūtu vislabākos rezultātus, izrunājiet precīzas komandas, kas norādītas nākamajos ekrānos.</string>
   <string name="voice_command_screen_locked_hint">Kad ekrāns ir bloķēts, balss komandas nav pieejamas. Lai to vietā izmantotu TalkBack izvēlni, lietojiet šādu žestu: %1$s.</string>
   <string name="voice_commands_during_setup_hint">Iestatīšanas laikā balss komandas nav pieejamas.</string>

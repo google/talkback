@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">irakurri</string>
-  <string name="voice_commands_read_from_next">Irakurri hurrengotik hasita</string>
+  <string name="voice_commands_read_from_next">Irakurri kurtsoretik aurrera</string>
   <string name="voice_commands_edit_options">Editatzeko aukerak</string>
-  <string name="voice_commands_text_editing">Testuak editatzea</string>
-  <string name="voice_commands_edit_text">Editatu testua</string>
-  <string name="voice_commands_editing_options">Editatzeko aukerak</string>
   <string name="voice_commands_edit">editatu</string>
   <string name="voice_commands_what">zer</string>
   <string name="voice_commands_say">esan</string>
@@ -25,7 +22,7 @@
   <string name="voice_commands_apps">Aplikazioak</string>
   <string name="voice_commands_overview">Informazio orokorra</string>
   <string name="voice_commands_recent_apps">Azkenaldiko aplikazioak</string>
-  <string name="voice_commands_recent">Azkena</string>
+  <string name="voice_commands_recent">Azkenaldikoa</string>
   <string name="voice_commands_recents">Azkenaldikoak</string>
   <string name="voice_commands_find">Bilatu</string>
   <string name="voice_commands_search">Bilatu</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etiketatu</string>
   <string name="voice_commands_cannot_label_feedback">Ezin da etiketatu</string>
   <string name="voice_commands_assistant">Laguntzailea</string>
-  <string name="voice_commands_setting_speech_rate">Ezarri hizketaren abiadura</string>
   <string name="voice_commands_first">Lehena</string>
   <string name="voice_commands_top">Lehenengoa</string>
   <string name="voice_commands_last">Azkena</string>
@@ -75,7 +71,7 @@
   <string name="voice_commands_read_by_parameter">Irakurri honen arabera: %s</string>
   <string name="voice_commands_back">Atzera</string>
   <string name="voice_commands_go_back">Egin atzera</string>
-  <string name="voice_commands_home">Hasierako pantaila</string>
+  <string name="voice_commands_home">Orri nagusia</string>
   <string name="voice_commands_desktop">Mahaigaina</string>
   <string name="voice_commands_stop">Gelditu</string>
   <string name="voice_commands_quit">Irten</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Bizkortu hizketa</string>
   <string name="voice_commands_slower">Motelago</string>
   <string name="voice_commands_decrease_speech_rate">moteldu hizketa</string>
-  <string name="voice_commands_possible_options_title">Hau esan dezakezu</string>
   <string name="voice_commands_no_action">Ez da onartzen ahozko lasterbide hori</string>
   <string name="voice_commands_no_mic_permissions">Eginbide hau erabiltzeko, mikrofonoa erabiltzeko baimena eman behar duzu.</string>
   <string name="voice_commands_no_voice_recognition_ability">Eginbidea ez dago erabilgarri gailu honetan</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Ez dago kontrolatzeko beste aukerarik honen ondoren</string>
   <string name="voice_commands_no_next_landmark_feedback">Ez dago beste mugarririk honen ondoren</string>
   <string name="voice_commands_help_title">Ahozko aginduei buruzko informazio orokorra</string>
-  <string name="voice_commands_help_description">Ahozko aginduak erabiltzeko, pasatu hatza eskuinera eta, gero, gora. Aginduen zerrenda ikusteko, esan \"laguntza\" edo \"zer esan dezaket?\".</string>
+  <string name="voice_commands_help_description">Ahozko aginduak erabiltzeko, pasatu hatza eskuinera eta, gero, gora. Aginduen zerrenda ikusteko, esan \"%1$s\" edo \"zer esan dezaket?\".</string>
   <string name="voice_commands_help_hint">Emaitza hobeak lortzeko, esan hurrengo pantailetan ageri diren hitz zehatzak.</string>
   <string name="voice_command_screen_locked_hint">Hemendik aurrera, pantaila blokeatuta dagoenean ere erabili ahal izango dituzu ahozko aginduak. Bestela, TalkBack-en menua erabiltzeko, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Ahozko aginduak ezin dira konfigurazio-prozesuan erabili.</string>
@@ -115,7 +110,7 @@
   <string name="voice_commands_help_verbosity">Adierazgarritasun [txikia]</string>
   <string name="voice_commands_help_next_description">Joan hurrengo goiburura, kontrolatzeko aukerara, zerrendara edo mugarrira</string>
   <string name="voice_commands_help_navigation_description">Nabigatu hauen arabera: hitzak, karaktereak, lerroak, paragrafoak, goiburuak, kontrolatzeko aukerak, etab.</string>
-  <string name="voice_commands_help_speech_rate_description">\"Hitz egin astiroago\" esan dezakezu ere</string>
+  <string name="voice_commands_help_speech_rate_description">\"Hitz egin astiroago\" ere esan dezakezu</string>
   <string name="voice_commands_help_verbosity_description">Aldatu maila txikira, handira edo pertsonalizatura</string>
   <string name="voice_commands_help_first_description">Joan oraingo pantailako lehenengo elementura</string>
   <string name="voice_commands_help_last_description">Joan oraingo pantailako azkeneko elementura</string>
@@ -132,7 +127,7 @@
   <string name="voice_commands_help_cut_description">Hautatu testu bat ebakitzen hasi aurretik</string>
   <string name="voice_commands_help_delete_description">Hautatu testu bat ezabatzen hasi aurretik</string>
   <string name="voice_commands_help_device_navigation_title">Gailuan nabigatzea</string>
-  <string name="voice_commands_help_device_navigation_description">Joan hasierako pantailara, egin atzera, erakutsi jakinarazpenak, etab.</string>
+  <string name="voice_commands_help_device_navigation_description">Joan orri nagusira, egin atzera, erakutsi jakinarazpenak, etab.</string>
   <string name="voice_commands_help_overview_description">Ikusi azkenaldiko aplikazioak</string>
   <string name="voice_commands_help_assistant_description">Ireki Google-ren Laguntzailea</string>
   <string name="voice_commands_help_other_commands_title">Beste agindu batzuk</string>

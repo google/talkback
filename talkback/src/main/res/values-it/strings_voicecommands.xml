@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">lettura</string>
-  <string name="voice_commands_read_from_next">Leggi dall\'elemento successivo</string>
+  <string name="voice_commands_read_from_next">Leggi dal cursore</string>
   <string name="voice_commands_edit_options">Modifica opzioni</string>
-  <string name="voice_commands_text_editing">Modifica del testo</string>
-  <string name="voice_commands_edit_text">Modifica il testo</string>
-  <string name="voice_commands_editing_options">Opzioni di modifica</string>
   <string name="voice_commands_edit">modifica</string>
   <string name="voice_commands_what">che cosa</string>
   <string name="voice_commands_say">dì</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etichetta</string>
   <string name="voice_commands_cannot_label_feedback">Impossibile etichettare</string>
   <string name="voice_commands_assistant">Assistente</string>
-  <string name="voice_commands_setting_speech_rate">Impostazione Velocità voce</string>
   <string name="voice_commands_first">Primo</string>
   <string name="voice_commands_top">Torna all\'inizio</string>
   <string name="voice_commands_last">Ultimo</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Aumenta la velocità della voce</string>
   <string name="voice_commands_slower">Più lenta</string>
   <string name="voice_commands_decrease_speech_rate">diminuisci velocità della voce</string>
-  <string name="voice_commands_possible_options_title">Prova a dire</string>
   <string name="voice_commands_no_action">Scorciatoia vocale non supportata</string>
   <string name="voice_commands_no_mic_permissions">Per poter utilizzare questa funzionalità devi concedere l\'autorizzazione a usare il microfono.</string>
   <string name="voice_commands_no_voice_recognition_ability">Questa funzionalità non è disponibile sul tuo dispositivo</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Nessun controllo successivo</string>
   <string name="voice_commands_no_next_landmark_feedback">Nessun punto di riferimento successivo</string>
   <string name="voice_commands_help_title">Panoramica dei comandi vocali</string>
-  <string name="voice_commands_help_description">Per usare i comandi vocali, scorri verso destra e verso l\'alto. Per consultare in qualsiasi momento l\'elenco di comandi vocali disponibili, di\' \"Guida\" o \"Cosa posso dire\".</string>
+  <string name="voice_commands_help_description">Per usare i comandi vocali, scorri verso destra e poi verso l\'alto. Per consultare in qualsiasi momento l\'elenco di comandi vocali disponibili, di\' \"%1$s\" o \"Cosa posso dire\".</string>
   <string name="voice_commands_help_hint">Per ottenere risultati migliori, di\' le parole esatte elencate nelle schermate seguenti.</string>
   <string name="voice_command_screen_locked_hint">I comandi vocali non sono disponibili con lo schermo bloccato. Per usare il menu TalkBack, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Durante la configurazione i comandi vocali non sono disponibili.</string>
@@ -116,7 +111,7 @@
   <string name="voice_commands_help_next_description">Vai a intestazione, elenco di controllo o punto di riferimento successivo</string>
   <string name="voice_commands_help_navigation_description">Naviga per parole, caratteri, righe, paragrafi, intestazioni, controlli e altro</string>
   <string name="voice_commands_help_speech_rate_description">Puoi anche dire \"parla più lentamente\"</string>
-  <string name="voice_commands_help_verbosity_description">Scegli lenta, veloce o personalizzata</string>
+  <string name="voice_commands_help_verbosity_description">Scegli quantità bassa, alta o personalizzata</string>
   <string name="voice_commands_help_first_description">Passa al primo elemento sulla schermata corrente</string>
   <string name="voice_commands_help_last_description">Passa all\'ultimo elemento sulla schermata corrente</string>
   <string name="voice_commands_help_languages_description">Cambia la lingua parlata (sintesi vocale)</string>
@@ -132,11 +127,11 @@
   <string name="voice_commands_help_cut_description">Seleziona il testo prima di tagliare</string>
   <string name="voice_commands_help_delete_description">Seleziona il testo prima di eliminare</string>
   <string name="voice_commands_help_device_navigation_title">Navigazione sul dispositivo</string>
-  <string name="voice_commands_help_device_navigation_description">Va alla Home page, torna indietro, mostra le notifiche e altro</string>
+  <string name="voice_commands_help_device_navigation_description">Vai alla Home page, torna indietro, mostra le notifiche e altro</string>
   <string name="voice_commands_help_overview_description">Visualizza le app utilizzate di recente</string>
   <string name="voice_commands_help_assistant_description">Apre l\'Assistente Google</string>
   <string name="voice_commands_help_other_commands_title">Altri comandi</string>
-  <string name="voice_commands_help_other_commands_description">Va alle impostazioni di TalkBack, nasconde lo schermo, visualizza le azioni, aggiunge etichette personalizzate e altro</string>
+  <string name="voice_commands_help_other_commands_description">Vai alle impostazioni di TalkBack, nascondi lo schermo, visualizza le azioni, aggiungi etichette personalizzate e altro</string>
   <string name="voice_commands_help_label">Etichetta [invia]</string>
   <string name="voice_commands_help_hide_screen_description">Nascondi il display in modo che lo schermo non sia visibile ad altre persone in luoghi pubblici</string>
   <string name="voice_commands_help_show_screen_description">Dopo aver nascosto lo schermo, lo riporta allo stato normale</string>

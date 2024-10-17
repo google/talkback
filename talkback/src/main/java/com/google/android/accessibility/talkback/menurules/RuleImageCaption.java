@@ -23,10 +23,12 @@ import android.content.Context;
 import android.view.Menu;
 import android.view.MenuItem;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.actor.ImageCaptioner;
+import com.google.android.accessibility.talkback.actor.gemini.GeminiFunctionUtils;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
 import com.google.android.accessibility.talkback.contextmenu.AbstractOnContextMenuItemClickListener;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenu;
@@ -37,15 +39,17 @@ import java.util.List;
 
 /** Performs image captions from menu. */
 public class RuleImageCaption extends NodeMenuRule {
-
   private final Pipeline.FeedbackReturner pipeline;
+  private final ActorState actorState;
   private final TalkBackAnalytics analytics;
 
-  public RuleImageCaption(Pipeline.FeedbackReturner pipeline, TalkBackAnalytics analytics) {
+  public RuleImageCaption(
+      Pipeline.FeedbackReturner pipeline, ActorState actorState, TalkBackAnalytics analytics) {
     super(
         R.string.pref_show_context_menu_image_caption_setting_key,
         R.bool.pref_show_context_menu_image_caption_default);
     this.pipeline = pipeline;
+    this.actorState = actorState;
     this.analytics = analytics;
   }
 
@@ -60,9 +64,6 @@ public class RuleImageCaption extends NodeMenuRule {
       Context context, AccessibilityNodeInfoCompat node, boolean includeAncestors) {
     List<ContextMenuItem> items = new ArrayList<>();
 
-    final ImageCaptionMenuItemOnClickListener menuItemOnClickListener =
-        new ImageCaptionMenuItemOnClickListener(node, pipeline, analytics);
-
     ContextMenuItem item =
         ContextMenu.createMenuItem(
             context,
@@ -70,7 +71,11 @@ public class RuleImageCaption extends NodeMenuRule {
             R.id.image_caption_menu,
             ORDER_IMAGE_CAPTION,
             context.getString(R.string.title_image_caption));
+
+    final ImageCaptionMenuItemOnClickListener menuItemOnClickListener =
+        new ImageCaptionMenuItemOnClickListener(context, actorState, node, pipeline, analytics);
     item.setOnMenuItemClickListener(menuItemOnClickListener);
+
     item.setSkipRefocusEvents(true);
     item.setSkipWindowEvents(true);
     item.setDeferredType(DeferredType.WINDOWS_STABLE);
@@ -91,18 +96,25 @@ public class RuleImageCaption extends NodeMenuRule {
 
   private static class ImageCaptionMenuItemOnClickListener
       extends AbstractOnContextMenuItemClickListener {
+    private final Context context;
+    private final ActorState actorState;
 
-    public ImageCaptionMenuItemOnClickListener(
+    private ImageCaptionMenuItemOnClickListener(
+        Context context,
+        ActorState actorState,
         AccessibilityNodeInfoCompat node,
         Pipeline.FeedbackReturner pipeline,
         TalkBackAnalytics analytics) {
       super(node, pipeline, analytics);
+      this.context = context;
+      this.actorState = actorState;
     }
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-      pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.confirmDownloadAndPerformCaptions(node));
-      return true;
+      Feedback.Part.Builder feedback =
+          GeminiFunctionUtils.getPreferredImageDescriptionFeedback(context, actorState, node);
+      return feedback != null && pipeline.returnFeedback(EVENT_ID_UNTRACKED, feedback);
     }
   }
 }

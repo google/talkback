@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">lezen</string>
-  <string name="voice_commands_read_from_next">Vanaf volgende lezen</string>
+  <string name="voice_commands_read_from_next">Lezen vanaf cursor</string>
   <string name="voice_commands_edit_options">Opties voor bewerken</string>
-  <string name="voice_commands_text_editing">Tekstverwerking</string>
-  <string name="voice_commands_edit_text">Tekst bewerken</string>
-  <string name="voice_commands_editing_options">Bewerkingsopties</string>
   <string name="voice_commands_edit">bewerken</string>
   <string name="voice_commands_what">wat</string>
   <string name="voice_commands_say">zeggen</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Label</string>
   <string name="voice_commands_cannot_label_feedback">Label toevoegen niet mogelijk</string>
   <string name="voice_commands_assistant">Assistent</string>
-  <string name="voice_commands_setting_speech_rate">Spreeksnelheid instellen</string>
   <string name="voice_commands_first">Eerste</string>
   <string name="voice_commands_top">Boven</string>
   <string name="voice_commands_last">Laatste</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Spraaksnelheid verhogen</string>
   <string name="voice_commands_slower">Langzamer</string>
   <string name="voice_commands_decrease_speech_rate">spraaksnelheid verlagen</string>
-  <string name="voice_commands_possible_options_title">Je kunt zeggen</string>
   <string name="voice_commands_no_action">Spraakopdracht niet ondersteund</string>
   <string name="voice_commands_no_mic_permissions">Je moet toegangsrechten geven tot de microfoon om deze functie te kunnen gebruiken.</string>
   <string name="voice_commands_no_voice_recognition_ability">Deze functie is niet beschikbaar op je apparaat</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Geen volgend bedieningselement</string>
   <string name="voice_commands_no_next_landmark_feedback">Geen volgend herkenningspunt</string>
   <string name="voice_commands_help_title">Overzicht van spraakopdrachten</string>
-  <string name="voice_commands_help_description">Swipe naar rechts en daarna omhoog om spraakopdrachten te gebruiken. Zeg \'Help\' of \'Wat kan ik zeggen?\' om deze lijst met spraakopdrachten te openen.</string>
+  <string name="voice_commands_help_description">Swipe naar rechts en daarna omhoog om spraakopdrachten te gebruiken. Zeg \'%1$s\' of \'Wat kan ik zeggen?\' om deze lijst met spraakopdrachten te openen.</string>
   <string name="voice_commands_help_hint">Zeg voor de beste resultaten de exacte tekst op de volgende schermen.</string>
   <string name="voice_command_screen_locked_hint">Spraakopdrachten zijn niet beschikbaar als het scherm vergrendeld is. Als je in plaats daarvan het TalkBack-menu wilt gebruiken, moet je %1$s.</string>
   <string name="voice_commands_during_setup_hint">Spraakopdrachten zijn niet beschikbaar tijdens het instellen.</string>
@@ -120,7 +115,7 @@
   <string name="voice_commands_help_first_description">Ga naar het eerste item op het huidige scherm</string>
   <string name="voice_commands_help_last_description">Ga naar het laatste item op het huidige scherm</string>
   <string name="voice_commands_help_languages_description">Wijzig je spreektaal (tekst-naar-spraak)</string>
-  <string name="voice_commands_help_find_items_title">Zoek naar items</string>
+  <string name="voice_commands_help_find_items_title">Zoeken naar items</string>
   <string name="voice_commands_help_find_items_description">Zoek naar specifieke content op het huidige scherm</string>
   <string name="voice_commands_help_find_text">[Opslaan] vinden</string>
   <string name="voice_commands_help_find_text_description">Zoek het eerste item met de tekst \'opslaan\' op het huidige scherm</string>

@@ -17,6 +17,13 @@ etc) after changes have been made.
     <string name="template_stream_muted_set"><xliff:g id="stream_name">%1$s</xliff:g> volume muted.</string>
 
     <!--
+      Source: A hint on how to control talkback volume after the user presses volume button
+      or after any volume stream other than accessibility volume changes.
+      Description: This is spoken to the user as a hint. [CHAR_LIMIT=NONE]
+    -->
+    <string name="hint_a11y_volume_control">To change the accessibility volume, hold 1 finger on the screen and press the volume up or volume down key.</string>
+
+    <!--
       Source: A value for announcing the "voice call" volume stream.
       Description: This is spoken to the user. [CHAR_LIMIT=NONE]
     -->

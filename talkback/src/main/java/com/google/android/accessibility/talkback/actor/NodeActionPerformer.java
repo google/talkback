@@ -4,7 +4,9 @@ import android.os.SystemClock;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.google.android.accessibility.talkback.Feedback.NodeAction;
 import com.google.android.accessibility.utils.AccessibilityNode;
+import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -50,11 +52,14 @@ public class NodeActionPerformer {
   // Methods
 
   public boolean performAction(@NonNull NodeAction nodeAction, @Nullable EventId eventId) {
+    LogUtils.d(TAG, "perform Action, nodeAction = %s", nodeAction);
     AccessibilityNode nodeActionTarget = nodeAction.target();
     boolean success = true;
     if (nodeActionTarget != null) {
       long time = SystemClock.uptimeMillis();
       success = nodeActionTarget.performAction(nodeAction.actionId(), nodeAction.args(), eventId);
+      Performance.getInstance()
+          .onAccessibilityActionPerformed(eventId, nodeAction.actionId(), time, success);
       if (success) {
         setNodeActionRecord(new NodeActionRecord(nodeAction.actionId(), nodeActionTarget, time));
       }

@@ -38,11 +38,6 @@ public interface TraversalStrategy {
   public static final int SEARCH_FOCUS_UP = 5;
   public static final int SEARCH_FOCUS_DOWN = 6;
 
-  /** Spatial direction to search for an item to focus. */
-  @IntDef({SEARCH_FOCUS_LEFT, SEARCH_FOCUS_RIGHT, SEARCH_FOCUS_UP, SEARCH_FOCUS_DOWN})
-  @Retention(RetentionPolicy.SOURCE)
-  public @interface SpatialSearchDirection {}
-
   /** Direction to search for an item to focus. */
   @IntDef({
     SEARCH_FOCUS_FORWARD,

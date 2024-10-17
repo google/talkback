@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">Straumes %1$s skaļums ir iestatīts uz %2$d procentiem.</string>
   <string name="template_stream_muted_set">%1$s: skaņa ir izslēgta.</string>
+  <string name="hint_a11y_volume_control">Lai mainītu pieejamības skaļumu, turiet vienu pirkstu uz ekrāna un nospiediet skaļuma palielināšanas vai samazināšanas pogu.</string>
   <string name="value_stream_voice_call">Tālruņa zvans</string>
   <string name="value_stream_system">Sistēmas skaņa</string>
   <string name="value_stream_ring">Zvana signāls</string>

@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.braille.brailledisplay.controller.utils;
 
+import static androidx.core.content.res.ResourcesCompat.ID_NULL;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
@@ -23,6 +25,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import com.google.android.accessibility.braille.brailledisplay.FeatureFlagReader;
 import com.google.android.accessibility.braille.brailledisplay.R;
+import com.google.android.accessibility.braille.brailledisplay.controller.utils.BrailleKeyBindingUtils.SupportedCommand.Category;
 import com.google.android.accessibility.braille.brailledisplay.controller.utils.BrailleKeyBindingUtils.SupportedCommand.KeyDescriptor;
 import com.google.android.accessibility.braille.brailledisplay.controller.utils.BrailleKeyBindingUtils.SupportedCommand.Subcategory;
 import com.google.android.accessibility.braille.brltty.BrailleDisplayProperties;
@@ -108,10 +111,10 @@ public class BrailleKeyBindingUtils {
     if (words.length > 1) {
       StringBuilder sentence = new StringBuilder();
       sentence.append(words[0]);
-      for (int i = 1; i < words.length - 1; i++) {
+      for (int i = 1; i < words.length; i++) {
         sentence.append(resources.getString(R.string.split_comma, words[i]));
       }
-      return resources.getString(R.string.bd_commands_delimiter, sentence, words[words.length - 1]);
+      return sentence.toString();
     } else {
       return TextUtils.join("", words);
     }
@@ -323,48 +326,6 @@ public class BrailleKeyBindingUtils {
                   .build()));
       commands.add(
           new SupportedCommand(
-              BrailleInputEvent.CMD_HEADING_PREVIOUS,
-              R.string.bd_cmd_heading_previous,
-              SupportedCommand.Category.NAVIGATION,
-              Subcategory.WEB_CONTENT,
-              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 2, 5, 7)).build()));
-      commands.add(
-          new SupportedCommand(
-              BrailleInputEvent.CMD_HEADING_NEXT,
-              R.string.bd_cmd_heading_next,
-              SupportedCommand.Category.NAVIGATION,
-              Subcategory.WEB_CONTENT,
-              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 2, 5, 8)).build()));
-      commands.add(
-          new SupportedCommand(
-              BrailleInputEvent.CMD_CONTROL_PREVIOUS,
-              R.string.bd_cmd_control_previous,
-              SupportedCommand.Category.NAVIGATION,
-              Subcategory.WEB_CONTENT,
-              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 4, 7)).build()));
-      commands.add(
-          new SupportedCommand(
-              BrailleInputEvent.CMD_CONTROL_NEXT,
-              R.string.bd_cmd_control_next,
-              SupportedCommand.Category.NAVIGATION,
-              Subcategory.WEB_CONTENT,
-              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 4, 8)).build()));
-      commands.add(
-          new SupportedCommand(
-              BrailleInputEvent.CMD_LINK_PREVIOUS,
-              R.string.bd_cmd_list_previous,
-              SupportedCommand.Category.NAVIGATION,
-              Subcategory.WEB_CONTENT,
-              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 2, 3, 7)).build()));
-      commands.add(
-          new SupportedCommand(
-              BrailleInputEvent.CMD_LINK_NEXT,
-              R.string.bd_cmd_list_next,
-              SupportedCommand.Category.NAVIGATION,
-              Subcategory.WEB_CONTENT,
-              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 2, 3, 8)).build()));
-      commands.add(
-          new SupportedCommand(
               BrailleInputEvent.CMD_PREVIOUS_READING_CONTROL,
               R.string.bd_cmd_previous_reading_control,
               SupportedCommand.Category.NAVIGATION,
@@ -377,6 +338,48 @@ public class BrailleKeyBindingUtils {
               SupportedCommand.Category.NAVIGATION,
               Subcategory.READING_CONTROLS,
               KeyDescriptor.builder().setDots(new BrailleCharacter(5, 6, 8)).build()));
+      commands.add(
+          new SupportedCommand(
+              BrailleInputEvent.CMD_HEADING_PREVIOUS,
+              R.string.bd_cmd_heading_previous,
+              SupportedCommand.Category.NAVIGATION,
+              Subcategory.READING_CONTROLS,
+              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 2, 5, 7)).build()));
+      commands.add(
+          new SupportedCommand(
+              BrailleInputEvent.CMD_HEADING_NEXT,
+              R.string.bd_cmd_heading_next,
+              SupportedCommand.Category.NAVIGATION,
+              Subcategory.READING_CONTROLS,
+              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 2, 5, 8)).build()));
+      commands.add(
+          new SupportedCommand(
+              BrailleInputEvent.CMD_CONTROL_PREVIOUS,
+              R.string.bd_cmd_control_previous,
+              SupportedCommand.Category.NAVIGATION,
+              Subcategory.READING_CONTROLS,
+              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 4, 7)).build()));
+      commands.add(
+          new SupportedCommand(
+              BrailleInputEvent.CMD_CONTROL_NEXT,
+              R.string.bd_cmd_control_next,
+              SupportedCommand.Category.NAVIGATION,
+              Subcategory.READING_CONTROLS,
+              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 4, 8)).build()));
+      commands.add(
+          new SupportedCommand(
+              BrailleInputEvent.CMD_LINK_PREVIOUS,
+              R.string.bd_cmd_list_previous,
+              SupportedCommand.Category.NAVIGATION,
+              Subcategory.READING_CONTROLS,
+              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 2, 3, 7)).build()));
+      commands.add(
+          new SupportedCommand(
+              BrailleInputEvent.CMD_LINK_NEXT,
+              R.string.bd_cmd_list_next,
+              SupportedCommand.Category.NAVIGATION,
+              Subcategory.READING_CONTROLS,
+              KeyDescriptor.builder().setDots(new BrailleCharacter(1, 2, 3, 8)).build()));
       commands.add(
           new SupportedCommand(
               BrailleInputEvent.CMD_GLOBAL_BACK,
@@ -430,18 +433,6 @@ public class BrailleKeyBindingUtils {
                     .setDots(new BrailleCharacter(1, 2, 3, 4))
                     .build()));
       }
-      if (FeatureSupport.supportGetSystemActions(context)
-          && FeatureFlagReader.usePlayPauseMedia(context)) {
-        commands.add(
-            new SupportedCommand(
-                BrailleInputEvent.CMD_PLAY_PAUSE_MEDIA,
-                R.string.bd_cmd_play_pause_media,
-                SupportedCommand.Category.SYSTEM_ACTIONS,
-                KeyDescriptor.builder()
-                    .setSpace(true)
-                    .setDots(new BrailleCharacter(7, 8))
-                    .build()));
-      }
       commands.add(
           new SupportedCommand(
               BrailleInputEvent.CMD_TOGGLE_SCREEN_SEARCH,
@@ -484,6 +475,18 @@ public class BrailleKeyBindingUtils {
               R.string.bd_cmd_talkback_settings,
               SupportedCommand.Category.TALKBACK_FEATURES,
               KeyDescriptor.builder().setDots(new BrailleCharacter(2, 3, 4, 5, 7, 8)).build()));
+      if (FeatureSupport.supportGetSystemActions(context)
+          && FeatureFlagReader.usePlayPauseMedia(context)) {
+        commands.add(
+            new SupportedCommand(
+                BrailleInputEvent.CMD_PLAY_PAUSE_MEDIA,
+                R.string.bd_cmd_play_pause_media,
+                Category.TALKBACK_FEATURES,
+                KeyDescriptor.builder()
+                    .setSpace(true)
+                    .setDots(new BrailleCharacter(7, 8))
+                    .build()));
+      }
       commands.add(
           new SupportedCommand(
               BrailleInputEvent.CMD_SWITCH_TO_NEXT_INPUT_LANGUAGE,
@@ -524,6 +527,16 @@ public class BrailleKeyBindingUtils {
               SupportedCommand.Category.BRAILLE_SETTINGS,
               KeyDescriptor.builder()
                   .setDots(new BrailleCharacter(1, 2, 3, 4, 5, 6, 7, 8))
+                  .build()));
+      commands.add(
+          new SupportedCommand(
+              BrailleInputEvent.CMD_NEXT_INPUT_METHOD,
+              R.string.bd_cmd_switch_to_next_input_method,
+              SupportedCommand.Category.EDITING,
+              Subcategory.SWITCH_KEYBOARD,
+              KeyDescriptor.builder()
+                  .setSpace(true)
+                  .setDots(new BrailleCharacter(1, 3, 8))
                   .build()));
       commands.add(
           new SupportedCommand(
@@ -577,6 +590,28 @@ public class BrailleKeyBindingUtils {
                 KeyDescriptor.builder()
                     .setSpace(true)
                     .setDots(new BrailleCharacter(1, 2, 3, 4, 5, 6, 8))
+                    .build()));
+      }
+      if (FeatureFlagReader.useSelectCurrentToStartOrEnd(context)) {
+        commands.add(
+            new SupportedCommand(
+                BrailleInputEvent.CMD_SELECTION_SELECT_CURRENT_TO_START,
+                R.string.bd_cmd_select_cursor_to_start,
+                SupportedCommand.Category.EDITING,
+                Subcategory.SELECT,
+                KeyDescriptor.builder()
+                    .setSpace(true)
+                    .setDots(new BrailleCharacter(1, 2, 3, 7, 8))
+                    .build()));
+        commands.add(
+            new SupportedCommand(
+                BrailleInputEvent.CMD_SELECTION_SELECT_CURRENT_TO_END,
+                R.string.bd_cmd_select_cursor_to_end,
+                SupportedCommand.Category.EDITING,
+                Subcategory.SELECT,
+                KeyDescriptor.builder()
+                    .setSpace(true)
+                    .setDots(new BrailleCharacter(4, 5, 6, 7, 8))
                     .build()));
       }
       if (FeatureFlagReader.useSelectPreviousNextCharacterWordLine(context)) {
@@ -732,21 +767,48 @@ public class BrailleKeyBindingUtils {
       SYSTEM_ACTIONS,
       TALKBACK_FEATURES,
       BRAILLE_SETTINGS,
-      EDITING,
+      EDITING(R.string.bd_cmd_subcategory_editing_description);
+
+      @StringRes private final int descriptionRes;
+
+      Category() {
+        this(ID_NULL);
+      }
+
+      Category(@StringRes int descriptionRes) {
+        this.descriptionRes = descriptionRes;
+      }
+
+      /** Gets the description of the {@link Category}. */
+      public String getDescription(Resources resources) {
+        return descriptionRes == ID_NULL ? "" : resources.getString(descriptionRes);
+      }
     }
 
     /** Subcategory of command. */
     public enum Subcategory {
-      UNDEFINED,
-      BASIC,
-      WINDOW,
-      PLACE_ON_PAGE,
-      WEB_CONTENT,
-      READING_CONTROLS,
-      AUTO_SCROLL,
-      MOVE_CURSOR,
-      SELECT,
-      EDIT
+      UNDEFINED(ID_NULL),
+      BASIC(R.string.bd_cmd_subcategory_title_basic),
+      WINDOW(R.string.bd_cmd_subcategory_title_window),
+      PLACE_ON_PAGE(R.string.bd_cmd_subcategory_title_place_on_page),
+      WEB_CONTENT(R.string.bd_cmd_subcategory_title_web_content),
+      READING_CONTROLS(R.string.bd_cmd_subcategory_title_reading_controls),
+      AUTO_SCROLL(R.string.bd_cmd_subcategory_title_auto_scroll),
+      MOVE_CURSOR(R.string.bd_cmd_subcategory_title_move_cursor),
+      SELECT(R.string.bd_cmd_subcategory_title_select),
+      EDIT(R.string.bd_cmd_subcategory_title_edit),
+      SWITCH_KEYBOARD(R.string.bd_cmd_subcategory_title_switch_keyboard);
+
+      @StringRes private final int titleRes;
+
+      Subcategory(@StringRes int titleRes) {
+        this.titleRes = titleRes;
+      }
+
+      /** Gets the title of the {@link Subcategory}. */
+      public String getTitle(Resources resources) {
+        return titleRes == ID_NULL ? "" : resources.getString(titleRes);
+      }
     }
 
     private final int command;

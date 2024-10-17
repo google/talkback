@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">loe</string>
-  <string name="voice_commands_read_from_next">Loe järgmisest</string>
+  <string name="voice_commands_read_from_next">Loe kursorist</string>
   <string name="voice_commands_edit_options">Valikute muutmine</string>
-  <string name="voice_commands_text_editing">Teksti muutmine</string>
-  <string name="voice_commands_edit_text">Muuda teksti</string>
-  <string name="voice_commands_editing_options">Muutmisvalikud</string>
   <string name="voice_commands_edit">muuda</string>
   <string name="voice_commands_what">mis</string>
   <string name="voice_commands_say">ütle</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Silt</string>
   <string name="voice_commands_cannot_label_feedback">Ei saa sildistada</string>
   <string name="voice_commands_assistant">Assistent</string>
-  <string name="voice_commands_setting_speech_rate">Kõne kiiruse seade</string>
   <string name="voice_commands_first">Esimene</string>
   <string name="voice_commands_top">Üles</string>
   <string name="voice_commands_last">Viimane</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Suurenda kõne kiirust</string>
   <string name="voice_commands_slower">Aeglasemalt</string>
   <string name="voice_commands_decrease_speech_rate">vähenda kõne kiirust</string>
-  <string name="voice_commands_possible_options_title">Võite öelda</string>
   <string name="voice_commands_no_action">Häälotseteed ei toetata</string>
   <string name="voice_commands_no_mic_permissions">Selle funktsiooni kasutamiseks peate andma loa mikrofoni kasutamiseks.</string>
   <string name="voice_commands_no_voice_recognition_ability">Kahjuks pole see funktsioon teie seadmes saadaval</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Järgmist juhtelementi ei ole</string>
   <string name="voice_commands_no_next_landmark_feedback">Järgmist orientiiri ei ole</string>
   <string name="voice_commands_help_title">Häälkäskluste ülevaade</string>
-  <string name="voice_commands_help_description">Häälkäskluste kasutamiseks pühkige paremale ja siis üles. Käskluste loendi nägemiseks öelge mis tahes ajal „Abi” või „Mida saan öelda?”.</string>
+  <string name="voice_commands_help_description">Häälkäskluste kasutamiseks pühkige paremale ja siis üles. Käskluste loendi nägemiseks öelge mis tahes ajal „%1$s“ või „Mida saan öelda?“.</string>
   <string name="voice_commands_help_hint">Parimate tulemuste saamiseks öelge täpselt see sõna, mis on kirjas järgmistel ekraanikuvadel.</string>
   <string name="voice_command_screen_locked_hint">Häälkäsklused ei ole saadaval, kui ekraan on lukustatud. Selle asemel TalkBacki menüü kasutamiseks %1$s.</string>
   <string name="voice_commands_during_setup_hint">Häälkäsklused ei ole seadistamise ajal saadaval.</string>
@@ -116,7 +111,7 @@
   <string name="voice_commands_help_next_description">Järgmise pealkirja, juhtelemendi, loendi või orientiiri juurde liikumine</string>
   <string name="voice_commands_help_navigation_description">Sõna, tähemärgi, rea, lõigu, pealkirja, juhtelemendi ja muu põhjal navigeerimine</string>
   <string name="voice_commands_help_speech_rate_description">Võite ka öelda „Räägi aeglasemalt”</string>
-  <string name="voice_commands_help_verbosity_description">Tehke valik Mada, Kõrge või Kohandatud</string>
+  <string name="voice_commands_help_verbosity_description">Tehke valik Madal, Kõrge või Kohandatud</string>
   <string name="voice_commands_help_first_description">Praegusel ekraanikuval esimese üksuse juurde liikumine</string>
   <string name="voice_commands_help_last_description">Praegusel ekraanikuval viimase üksuse juurde liikumine</string>
   <string name="voice_commands_help_languages_description">Kõneldava keele (kõnesüntees) muutmine</string>
@@ -136,7 +131,7 @@
   <string name="voice_commands_help_overview_description">Hiljutiste rakenduste nägemine</string>
   <string name="voice_commands_help_assistant_description">Google\'i assistendi avamine</string>
   <string name="voice_commands_help_other_commands_title">Muud käsud</string>
-  <string name="voice_commands_help_other_commands_description">TalkBacki seadete avamine, ekraanikuvade peitmine, toimingute nögemine, kohandatud siltide lisamine ja muud</string>
+  <string name="voice_commands_help_other_commands_description">TalkBacki seadete avamine, ekraanikuvade peitmine, toimingute nägemine, kohandatud siltide lisamine ja muud</string>
   <string name="voice_commands_help_label">Silt [Esita]</string>
   <string name="voice_commands_help_hide_screen_description">Ekraanikuva peitmine, et see poleks avalikes kohtades teistele nähtav</string>
   <string name="voice_commands_help_show_screen_description">Pärast ekraanikuva peitmist tavaolekusse naasmine</string>

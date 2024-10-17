@@ -16,7 +16,9 @@
 
 package com.google.android.accessibility.talkback.trainingcommon;
 
+import static com.google.android.accessibility.talkback.trainingcommon.PageConfig.PageAndContentPredicate.ALWAYS_SHOW;
 import static com.google.android.accessibility.talkback.trainingcommon.content.PageContentConfig.UNKNOWN_RESOURCE_ID;
+import static com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants.TALKBACK_SERVICE;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.FingerprintGestureController;
@@ -35,7 +37,9 @@ import com.google.android.accessibility.talkback.trainingcommon.content.Divider;
 import com.google.android.accessibility.talkback.trainingcommon.content.EditTextBox;
 import com.google.android.accessibility.talkback.trainingcommon.content.ExitBanner;
 import com.google.android.accessibility.talkback.trainingcommon.content.Heading;
+import com.google.android.accessibility.talkback.trainingcommon.content.Image;
 import com.google.android.accessibility.talkback.trainingcommon.content.Link;
+import com.google.android.accessibility.talkback.trainingcommon.content.LinkCondition;
 import com.google.android.accessibility.talkback.trainingcommon.content.Note;
 import com.google.android.accessibility.talkback.trainingcommon.content.PageButton;
 import com.google.android.accessibility.talkback.trainingcommon.content.PageButton.ButtonOnClickListener;
@@ -47,6 +51,9 @@ import com.google.android.accessibility.talkback.trainingcommon.content.TextList
 import com.google.android.accessibility.talkback.trainingcommon.content.TextWithIcon;
 import com.google.android.accessibility.talkback.trainingcommon.content.TextWithNumber;
 import com.google.android.accessibility.talkback.trainingcommon.content.Tip;
+import com.google.android.accessibility.talkback.trainingcommon.content.WholeScreenText;
+import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
+import com.google.android.accessibility.utils.Consumer;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
@@ -78,11 +85,17 @@ import java.util.function.Predicate;
  */
 @AutoValue
 public abstract class PageConfig {
-
   /**
-   * Defines predicates that are evaluated whether the content needs to be shown on the Page or not.
+   * Defines predicates that are evaluated whether the page or page content needs to be shown,
+   * execute, or not.
    */
-  public enum PageContentPredicate {
+  public enum PageAndContentPredicate {
+    ALWAYS_SHOW(serviceData -> true),
+    ALWAYS_NOT_SHOW(serviceData -> false),
+    TALKBACK_ON(
+        serviceData ->
+            AccessibilityServiceCompatUtils.isAccessibilityServiceEnabled(
+                serviceData.getContext(), TALKBACK_SERVICE.flattenToShortString())),
     GESTURE_CHANGED(ServiceData::isAnyGestureChanged),
     ACCESSIBILITY_SERVICE_TOGGLE_VIA_SHORTCUT(
         (data) ->
@@ -99,14 +112,15 @@ public abstract class PageConfig {
     ICON_DETECTION_AND_IMAGE_DESCRIPTION_UNAVAILABLE(
         (data) -> data.isIconDetectionUnavailable() && data.isImageDescriptionUnavailable()),
     ICON_DETECTION_AVAILABLE_BUT_IMAGE_DESCRIPTION_UNAVAILABLE(
-        (data) -> !data.isIconDetectionUnavailable() && data.isImageDescriptionUnavailable());
+        (data) -> !data.isIconDetectionUnavailable() && data.isImageDescriptionUnavailable()),
+    ;
 
     @Immutable
     private interface ImmutablePredicate extends Predicate<ServiceData> {}
 
     private final ImmutablePredicate predicate;
 
-    PageContentPredicate(ImmutablePredicate predicate) {
+    PageAndContentPredicate(ImmutablePredicate predicate) {
       this.predicate = predicate;
     }
 
@@ -116,6 +130,7 @@ public abstract class PageConfig {
   }
 
   /** Unique identifiers for training pages. */
+  // LINT.IfChange(training_page)
   public enum PageId {
     PAGE_ID_UNKNOWN,
     PAGE_ID_FINISHED,
@@ -127,6 +142,7 @@ public abstract class PageConfig {
     PAGE_ID_SCROLLING,
     PAGE_ID_GESTURES_PAGE_FOR_GESTURE_NAVIGATION_USER,
     PAGE_ID_GESTURES_PAGE_FOR_3_BUTTON_NAVIGATION_USER,
+    PAGE_ID_ADJUSTING_VOLUME,
     PAGE_ID_MENUS,
     PAGE_ID_MENUS_PRE_R,
     PAGE_ID_TUTORIAL_FINISHED,
@@ -138,6 +154,10 @@ public abstract class PageConfig {
     PAGE_ID_SELECTING_TEXT_PRE_R,
     PAGE_ID_COPY_CUT_PASTE,
     PAGE_ID_COPY_CUT_PASTE_PRE_R,
+    PAGE_ID_TYPO_CORRECTION,
+    PAGE_ID_TYPO_CORRECTION_PRE_R,
+    PAGE_ID_TYPO_CORRECTION_NOT_ENGLISH,
+    PAGE_ID_TYPO_CORRECTION_NOT_ENGLISH_PRE_R,
     PAGE_ID_READ_BY_CHARACTER,
     PAGE_ID_READ_BY_CHARACTER_PRE_R,
     PAGE_ID_JUMP_BETWEEN_CONTROLS,
@@ -160,12 +180,13 @@ public abstract class PageConfig {
     PAGE_ID_ADDITIONAL_TIPS_SENDING_MESSAGES,
     PAGE_ID_ADDITIONAL_TIPS_READING_WEB_EMAILS,
     PAGE_ID_ADDITIONAL_TIPS_LOOKOUT,
-    // For TB 14.1.
+    PAGE_ID_ADDITIONAL_TIPS_CHECKING_NOTIFICATIONS,
+    // For TB 15.0.
     PAGE_ID_UPDATE_WELCOME,
-    PAGE_ID_DESCRIBE_IMAGES,
-    PAGE_ID_SPELL_CHECK_FOR_BRAILLE_KEYBOARD,
-    PAGE_ID_AUTO_SCROLL_FOR_BRAILLE_DISPLAY,
-    PAGE_ID_NEW_BRAILLE_SHORTCUTS_AND_LANGUAGES,
+    PAGE_ID_DETAILED_IMAGE_DESCRIPTIONS,
+    PAGE_ID_GOOGLE_DISABILITY_SUPPORT,
+    PAGE_ID_PUNCTUATION_AND_SYMBOLS,
+    PAGE_ID_NEW_BRAILLE_SHORTCUTS,
     // For Watch.
     PAGE_ID_WELCOME_TO_TALKBACK_WATCH,
     PAGE_ID_WATCH_SCROLLING,
@@ -180,6 +201,9 @@ public abstract class PageConfig {
     PAGE_ID_TV_SHORTCUT,
     PAGE_ID_TV_VENDOR,
   }
+
+  // LINT.ThenChange(//depot/google3/java/com/google/android/accessibility/talkback/overlay/google/analytics/ClearcutAnalyticsHelper.java:training_page,
+  // //depot/google3/java/com/google/android/accessibility/talkback/overlay/google/analytics/proto/training_enums.proto:training_page)
 
   /**
    * Setting accessibility services which are toggled via the accessibility button or shortcut
@@ -253,6 +277,9 @@ public abstract class PageConfig {
    */
   public abstract boolean isOnlyOneFocus();
 
+  /** Returns a predicate tells caller this page should be shown or not. */
+  public abstract PageAndContentPredicate showingPredicate();
+
   /** Returns false if there is no button on this page. Default is true. */
   public abstract boolean hasNavigationButtonBar();
 
@@ -268,6 +295,10 @@ public abstract class PageConfig {
    */
   @Nullable
   public abstract TrainingSwipeDismissListener getSwipeDismissListener();
+
+  /** Returns {@link IdleAnnouncementConfig} for setup idle announcements. */
+  @Nullable
+  public abstract IdleAnnouncementConfig getIdleAnnouncementConfig();
 
   /** Returns the extra dp value for the title's top margin. */
   public abstract int getExtraTitleMarginTop();
@@ -289,10 +320,12 @@ public abstract class PageConfig {
       ImmutableMap<Integer, Integer> gestures,
       ImmutableMap<Integer, Integer> fingerprintGestures,
       boolean isOnlyOneFocus,
+      PageAndContentPredicate showingPredicate,
       boolean hasNavigationButtonBar,
       boolean showPageNumber,
       boolean isEndOfSection,
       @Nullable TrainingSwipeDismissListener swipeDismissListener,
+      @Nullable IdleAnnouncementConfig idleAnnouncementConfig,
       int extraTitleMarginTop,
       int extraNavigationButtonMarginTop,
       boolean clearTitleHorizontalMargin) {
@@ -307,10 +340,12 @@ public abstract class PageConfig {
         gestures,
         fingerprintGestures,
         isOnlyOneFocus,
+        showingPredicate,
         hasNavigationButtonBar,
         showPageNumber,
         isEndOfSection,
         swipeDismissListener,
+        idleAnnouncementConfig,
         extraTitleMarginTop,
         extraNavigationButtonMarginTop,
         clearTitleHorizontalMargin);
@@ -369,10 +404,12 @@ public abstract class PageConfig {
     @Nullable private ExternalDrawableResource image;
     private int vendorPageIndex = UNKNOWN_PAGE_INDEX;
     private boolean isOnlyOneFocus;
+    private PageAndContentPredicate showingPredicate;
     private boolean hasNavigationButtonBar = true;
     private boolean showPageNumber = true;
     private boolean isEndOfSection = false;
     @Nullable private TrainingSwipeDismissListener swipeDismissListener;
+    @Nullable private IdleAnnouncementConfig idleAnnouncementConfig;
 
     private int extraTitleMarginTop;
     private int extraNavigationButtonMarginTop;
@@ -414,6 +451,13 @@ public abstract class PageConfig {
     @CanIgnoreReturnValue
     public Builder setOnlyOneFocus(boolean isOnlyOneFocus) {
       this.isOnlyOneFocus = isOnlyOneFocus;
+      return this;
+    }
+
+    /** Sets the {@link PageAndContentPredicate} to tell client the page should be shown or not. */
+    @CanIgnoreReturnValue
+    public Builder setShowingPredicate(PageAndContentPredicate pageAndContentPredicate) {
+      this.showingPredicate = pageAndContentPredicate;
       return this;
     }
 
@@ -465,6 +509,15 @@ public abstract class PageConfig {
       return this;
     }
 
+    /** Sets the idle announcement with initial delay and repeated delay time intervals. */
+    @CanIgnoreReturnValue
+    public Builder setIdleAnnouncement(
+        @StringRes int announcementResId, int initialDelay, int repeatedDelay) {
+      idleAnnouncementConfig =
+          IdleAnnouncementConfig.build(announcementResId, initialDelay, repeatedDelay);
+      return this;
+    }
+
     /** Adds one or multiple lines text to the page. */
     @CanIgnoreReturnValue
     public Builder addText(@StringRes int textResId) {
@@ -481,7 +534,7 @@ public abstract class PageConfig {
 
     /** Adds one or multiple lines text to the page. */
     @CanIgnoreReturnValue
-    public Builder addText(@StringRes int textResId, PageContentPredicate predicate) {
+    public Builder addText(@StringRes int textResId, PageAndContentPredicate predicate) {
       Text text = new Text(Paragraph.builder(textResId).build());
       text.setShowingPredicate(predicate);
       this.contents.add(text);
@@ -493,6 +546,24 @@ public abstract class PageConfig {
     public Builder addText(@StringRes int textResId, ImmutableList<Integer> textArgResIds) {
       this.contents.add(
           new Text(Paragraph.builder(textResId).setTextArgResIds(textArgResIds).build()));
+      return this;
+    }
+
+    /**
+     * Adds one or multiple lines text to the page, the page has at least a whole training page
+     * height.
+     */
+    @CanIgnoreReturnValue
+    public Builder addWholeScreenText(@StringRes int textResId) {
+      this.contents.add(new WholeScreenText(Paragraph.builder(textResId).build()));
+      return this;
+    }
+
+    /** Adds text with TTS span text. */
+    @CanIgnoreReturnValue
+    public Builder addTextWithTtsSpan(@StringRes int textResId, @StringRes int textTtsSpan) {
+      this.contents.add(
+          new Text(Paragraph.builder(textResId).setTextTtsSpanResId(textTtsSpan).build()));
       return this;
     }
 
@@ -524,9 +595,10 @@ public abstract class PageConfig {
       return this;
     }
 
+    // TODO : Remove the line break between the two bullets.
     /** Adds a text with a bullet point with a predicate. */
     @CanIgnoreReturnValue
-    public Builder addTextWithBullet(@StringRes int textResId, PageContentPredicate predicate) {
+    public Builder addTextWithBullet(@StringRes int textResId, PageAndContentPredicate predicate) {
       Text text = new Text(Paragraph.builder(textResId).setBulletPoint(true).build());
       text.setShowingPredicate(predicate);
       this.contents.add(text);
@@ -537,6 +609,14 @@ public abstract class PageConfig {
     @CanIgnoreReturnValue
     public Builder addTextWithBullet(@StringRes int textResId) {
       this.contents.add(new Text(Paragraph.builder(textResId).setBulletPoint(true).build()));
+      return this;
+    }
+
+    /** Adds a text with a bullet point and can customize it is a sub-text or not. */
+    @CanIgnoreReturnValue
+    public Builder addTextWithBullet(@StringRes int textResId, boolean subText) {
+      this.contents.add(
+          new Text(Paragraph.builder(textResId).setBulletPoint(true).setSubText(subText).build()));
       return this;
     }
 
@@ -584,7 +664,7 @@ public abstract class PageConfig {
     /** Adds icon and description to the page with a predicate. */
     @CanIgnoreReturnValue
     public Builder addTextWithIcon(
-        @StringRes int textResId, @DrawableRes int srcResId, PageContentPredicate predicate) {
+        @StringRes int textResId, @DrawableRes int srcResId, PageAndContentPredicate predicate) {
       TextWithIcon textWithIcon = new TextWithIcon(textResId, srcResId);
       textWithIcon.setShowingPredicate(predicate);
       this.contents.add(textWithIcon);
@@ -615,7 +695,7 @@ public abstract class PageConfig {
 
     /** Adds a note to the page. */
     @CanIgnoreReturnValue
-    public Builder addNote(@StringRes int textResId, PageContentPredicate predicate) {
+    public Builder addNote(@StringRes int textResId, PageAndContentPredicate predicate) {
       Note note = new Note(textResId);
       note.setShowingPredicate(predicate);
       this.contents.add(note);
@@ -624,14 +704,21 @@ public abstract class PageConfig {
 
     /** Adds a list to the page. */
     @CanIgnoreReturnValue
-    public Builder addList(@ArrayRes int textsResId) {
-      contents.add(new TextList(textsResId));
+    public Builder addList(@ArrayRes int titlesResId) {
+      contents.add(new TextList(titlesResId));
+      return this;
+    }
+
+    /** Adds a list to the page with titles and summaries. */
+    @CanIgnoreReturnValue
+    public Builder addList(@ArrayRes int titlesResId, @ArrayRes int summariesResId) {
+      contents.add(new TextList(titlesResId, summariesResId));
       return this;
     }
 
     /**
-     * Adds a link to the page. The activity will link to the first page when the link is clicked,
-     * then it'll go back to the current page when finishing reading the last page.
+     * Adds a link chip to the page. The activity will link to the first page when the link is
+     * clicked, then it'll go back to the current page when finishing reading the last page.
      *
      * @param firstPageInSectionNameResId The resource id of page name for the first page in a
      *     section. This page will be shown when user clicking the link
@@ -642,7 +729,51 @@ public abstract class PageConfig {
         @StringRes int subtextResId,
         @DrawableRes int srcResId,
         @StringRes int firstPageInSectionNameResId) {
-      contents.add(new Link(textResId, subtextResId, srcResId, firstPageInSectionNameResId));
+      contents.add(
+          new Link(textResId, subtextResId, srcResId, new int[] {firstPageInSectionNameResId}));
+      return this;
+    }
+
+    /**
+     * Adds a link to the page. The activity will link to the first page when the link is clicked,
+     * then it'll go back to the current page when finishing reading the last page.
+     *
+     * @param firstPageCandidatesInSectionNameResIds The resource ids of a batch of page names for
+     *     examining which page should be the first page in a section. The examination consider the
+     *     page's visibility based on {@link PageConfig#showingPredicate()} This page will be shown
+     *     when user clicking the link.
+     */
+    @CanIgnoreReturnValue
+    public Builder addLink(
+        @StringRes int textResId,
+        @StringRes int subtextResId,
+        @DrawableRes int srcResId,
+        @StringRes int... firstPageCandidatesInSectionNameResIds) {
+      contents.add(
+          new Link(textResId, subtextResId, srcResId, firstPageCandidatesInSectionNameResIds));
+      return this;
+    }
+
+    /**
+     * Adds a link to the page. The activity will link to the first page when the link is clicked if
+     * the condition is fulfilled, otherwise execute the condition failed consumer.
+     */
+    @CanIgnoreReturnValue
+    public Builder addLinkCondition(
+        @StringRes int textResId,
+        @StringRes int subtextResId,
+        @DrawableRes int srcResId,
+        PageAndContentPredicate condition,
+        Consumer<Context> conditionFailedConsumer,
+        @StringRes int... firstPageCandidatesInSectionNameResIds) {
+      contents.add(
+          new LinkCondition(
+              textResId,
+              subtextResId,
+              srcResId,
+              condition,
+              conditionFailedConsumer,
+              firstPageCandidatesInSectionNameResIds));
       return this;
     }
 
@@ -670,7 +801,7 @@ public abstract class PageConfig {
     /** Adds a button to the page. A message will be sent to TalkBack when the button is clicked. */
     @CanIgnoreReturnValue
     public Builder addButton(
-        @StringRes int textResId, Message message, PageContentPredicate predicate) {
+        @StringRes int textResId, Message message, PageAndContentPredicate predicate) {
       PageButton button = new PageButton(textResId);
       button.setMessage(message);
       button.setShowingPredicate(predicate);
@@ -691,7 +822,7 @@ public abstract class PageConfig {
 
     /** Adds a TalkBack-exit banner to the page. */
     @CanIgnoreReturnValue
-    public PageConfig.Builder addExitBanner(PageContentPredicate predicate) {
+    public PageConfig.Builder addExitBanner(PageAndContentPredicate predicate) {
       ExitBanner exitBanner = new ExitBanner();
       exitBanner.setShowingPredicate(predicate);
       this.contents.add(exitBanner);
@@ -713,6 +844,18 @@ public abstract class PageConfig {
       return this;
     }
 
+    @CanIgnoreReturnValue
+    public Builder addSubTextWithLink(@StringRes int textResId, String urlLink) {
+      this.contents.add(
+          new Text(
+              Paragraph.builder(textResId)
+                  .setLink(true)
+                  .setUrlLink(urlLink)
+                  .setSubText(true)
+                  .build()));
+      return this;
+    }
+
     /** Adds a divider to the page. */
     @CanIgnoreReturnValue
     public Builder addDivider() {
@@ -725,6 +868,21 @@ public abstract class PageConfig {
     public Builder addTip(@StringRes int textResId) {
       Tip tip = new Tip(textResId);
       this.contents.add(tip);
+      return this;
+    }
+
+    @CanIgnoreReturnValue
+    public Builder addTipWithTtsSpan(@StringRes int textResId, @StringRes int textTtsSpan) {
+      Tip tip = new Tip(textResId, textTtsSpan);
+      this.contents.add(tip);
+      return this;
+    }
+
+    /** Adds an image to the page. */
+    @CanIgnoreReturnValue
+    public Builder addImage(
+        @DrawableRes int drawableResId, @StringRes int contentDescriptionResId) {
+      this.contents.add(new Image(drawableResId, contentDescriptionResId));
       return this;
     }
 
@@ -848,10 +1006,12 @@ public abstract class PageConfig {
           ImmutableMap.copyOf(this.captureGestureIdToAnnouncements),
           ImmutableMap.copyOf(this.captureFingerprintGestureIdToAnnouncements),
           isOnlyOneFocus,
+          (showingPredicate != null) ? showingPredicate : ALWAYS_SHOW,
           hasNavigationButtonBar,
           showPageNumber,
           isEndOfSection,
           swipeDismissListener,
+          idleAnnouncementConfig,
           extraTitleMarginTop,
           extraNavigationButtonMarginTop,
           clearTitleHorizontalMargin);
@@ -871,5 +1031,23 @@ public abstract class PageConfig {
             ACCESSIBILITY_BUTTON_MODE,
             /* def= */ ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR)
         == ACCESSIBILITY_BUTTON_MODE_FLOATING_MENU;
+  }
+
+  /** Configs of the idle announcement. */
+  @AutoValue
+  public abstract static class IdleAnnouncementConfig {
+
+    static IdleAnnouncementConfig build(
+        @StringRes int announcementResId, int initialDelay, int repeatedDelay) {
+      return new AutoValue_PageConfig_IdleAnnouncementConfig(
+          announcementResId, initialDelay, repeatedDelay);
+    }
+
+    @StringRes
+    public abstract int announcement();
+
+    public abstract int initialDelay();
+
+    public abstract int repeatedDelay();
   }
 }

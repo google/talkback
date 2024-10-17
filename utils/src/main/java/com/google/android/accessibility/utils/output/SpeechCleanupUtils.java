@@ -20,9 +20,13 @@ import android.content.Context;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
-import android.util.SparseIntArray;
+import androidx.annotation.IntDef;
+import androidx.core.util.Pair;
 import com.google.android.accessibility.utils.R;
 import com.google.android.accessibility.utils.SpannableUtils;
+import com.google.common.collect.ImmutableMap;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -41,161 +45,191 @@ public class SpeechCleanupUtils {
   private static final Pattern CONSECUTIVE_CHARACTER_PATTERN =
       Pattern.compile(CONSECUTIVE_CHARACTER_REGEX);
 
-  /** Map containing string to speech conversions. */
-  private static final SparseIntArray UNICODE_MAP = new SparseIntArray();
+  /** Speak punctuation verbosity levels. */
+  @IntDef({ALL, MOST, SOME})
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface PunctuationVerbosity {}
 
-  static {
-    UNICODE_MAP.put('&', R.string.symbol_ampersand);
-    UNICODE_MAP.put('<', R.string.symbol_angle_bracket_left);
-    UNICODE_MAP.put('>', R.string.symbol_angle_bracket_right);
-    UNICODE_MAP.put('\'', R.string.symbol_apostrophe);
-    UNICODE_MAP.put('*', R.string.symbol_asterisk);
-    UNICODE_MAP.put('@', R.string.symbol_at_sign);
-    UNICODE_MAP.put('\\', R.string.symbol_backslash);
-    UNICODE_MAP.put('\u2022', R.string.symbol_bullet);
-    UNICODE_MAP.put('^', R.string.symbol_caret);
-    UNICODE_MAP.put('¢', R.string.symbol_cent);
-    UNICODE_MAP.put(':', R.string.symbol_colon);
-    UNICODE_MAP.put(',', R.string.symbol_comma);
-    UNICODE_MAP.put('©', R.string.symbol_copyright);
-    UNICODE_MAP.put('{', R.string.symbol_curly_bracket_left);
-    UNICODE_MAP.put('}', R.string.symbol_curly_bracket_right);
-    UNICODE_MAP.put('°', R.string.symbol_degree);
-    UNICODE_MAP.put('\u00F7', R.string.symbol_division);
-    UNICODE_MAP.put('$', R.string.symbol_dollar_sign);
-    UNICODE_MAP.put('…', R.string.symbol_ellipsis);
-    UNICODE_MAP.put('\u2014', R.string.symbol_em_dash);
-    UNICODE_MAP.put('\u2013', R.string.symbol_en_dash);
-    UNICODE_MAP.put('€', R.string.symbol_euro);
-    UNICODE_MAP.put('!', R.string.symbol_exclamation_mark);
-    UNICODE_MAP.put('`', R.string.symbol_grave_accent);
-    UNICODE_MAP.put('-', R.string.symbol_hyphen_minus);
-    UNICODE_MAP.put('„', R.string.symbol_low_double_quote);
-    UNICODE_MAP.put('\u00D7', R.string.symbol_multiplication);
-    UNICODE_MAP.put('\n', R.string.symbol_new_line);
-    UNICODE_MAP.put('¶', R.string.symbol_paragraph_mark);
-    UNICODE_MAP.put('(', R.string.symbol_parenthesis_left);
-    UNICODE_MAP.put(')', R.string.symbol_parenthesis_right);
-    UNICODE_MAP.put('%', R.string.symbol_percent);
-    UNICODE_MAP.put('.', R.string.symbol_period);
-    UNICODE_MAP.put('π', R.string.symbol_pi);
-    UNICODE_MAP.put('#', R.string.symbol_pound);
-    UNICODE_MAP.put('£', R.string.symbol_pound_sterling);
-    UNICODE_MAP.put('\u20b1', R.string.symbol_currency_peso);
-    UNICODE_MAP.put('\u20AB', R.string.symbol_currency_dong);
-    UNICODE_MAP.put('?', R.string.symbol_question_mark);
-    UNICODE_MAP.put('"', R.string.symbol_quotation_mark);
-    UNICODE_MAP.put('®', R.string.symbol_registered_trademark);
-    UNICODE_MAP.put(';', R.string.symbol_semicolon);
-    UNICODE_MAP.put('/', R.string.symbol_slash);
-    UNICODE_MAP.put(' ', R.string.symbol_space);
-    UNICODE_MAP.put('\u00a0', R.string.symbol_space);
-    UNICODE_MAP.put('[', R.string.symbol_square_bracket_left);
-    UNICODE_MAP.put(']', R.string.symbol_square_bracket_right);
-    UNICODE_MAP.put('√', R.string.symbol_square_root);
-    UNICODE_MAP.put('™', R.string.symbol_trademark);
-    UNICODE_MAP.put('_', R.string.symbol_underscore);
-    UNICODE_MAP.put('|', R.string.symbol_vertical_bar);
-    UNICODE_MAP.put('\u00a5', R.string.symbol_yen);
-    UNICODE_MAP.put('\u00ac', R.string.symbol_not_sign);
-    UNICODE_MAP.put('\u00a6', R.string.symbol_broken_bar);
-    UNICODE_MAP.put('\u00b5', R.string.symbol_micro_sign);
-    UNICODE_MAP.put('\u2248', R.string.symbol_almost_equals);
-    UNICODE_MAP.put('\u2260', R.string.symbol_not_equals);
-    UNICODE_MAP.put('\u00a4', R.string.symbol_currency_sign);
-    UNICODE_MAP.put('\u00a7', R.string.symbol_section_sign);
-    UNICODE_MAP.put('\u2191', R.string.symbol_upwards_arrow);
-    UNICODE_MAP.put('\u2190', R.string.symbol_leftwards_arrow);
-    UNICODE_MAP.put('\u20B9', R.string.symbol_rupee);
-    UNICODE_MAP.put('\u2665', R.string.symbol_black_heart);
-    UNICODE_MAP.put('~', R.string.symbol_tilde);
-    UNICODE_MAP.put('=', R.string.symbol_equal);
-    UNICODE_MAP.put('\uffe6', R.string.symbol_won);
-    UNICODE_MAP.put('\u203b', R.string.symbol_reference);
-    UNICODE_MAP.put('\u2606', R.string.symbol_white_star);
-    UNICODE_MAP.put('\u2605', R.string.symbol_black_star);
-    UNICODE_MAP.put('\u2661', R.string.symbol_white_heart);
-    UNICODE_MAP.put('\u25cb', R.string.symbol_white_circle);
-    UNICODE_MAP.put('\u25cf', R.string.symbol_black_circle);
-    UNICODE_MAP.put('\u2299', R.string.symbol_solar);
-    UNICODE_MAP.put('\u25ce', R.string.symbol_bullseye);
-    UNICODE_MAP.put('\u2667', R.string.symbol_white_club_suit);
-    UNICODE_MAP.put('\u2664', R.string.symbol_white_spade_suit);
-    UNICODE_MAP.put('\u261c', R.string.symbol_white_left_pointing_index);
-    UNICODE_MAP.put('\u261e', R.string.symbol_white_right_pointing_index);
-    UNICODE_MAP.put('\u25d0', R.string.symbol_circle_left_half_black);
-    UNICODE_MAP.put('\u25d1', R.string.symbol_circle_right_half_black);
-    UNICODE_MAP.put('\u25a1', R.string.symbol_white_square);
-    UNICODE_MAP.put('\u25a0', R.string.symbol_black_square);
-    UNICODE_MAP.put('\u25b3', R.string.symbol_white_up_pointing_triangle);
-    UNICODE_MAP.put('\u25bd', R.string.symbol_white_down_pointing_triangle);
-    UNICODE_MAP.put('\u25c1', R.string.symbol_white_left_pointing_triangle);
-    UNICODE_MAP.put('\u25b7', R.string.symbol_white_right_pointing_triangle);
-    UNICODE_MAP.put('\u25c7', R.string.symbol_white_diamond);
-    UNICODE_MAP.put('\u2669', R.string.symbol_quarter_note);
-    UNICODE_MAP.put('\u266a', R.string.symbol_eighth_note);
-    UNICODE_MAP.put('\u266c', R.string.symbol_beamed_sixteenth_note);
-    UNICODE_MAP.put('\u2640', R.string.symbol_female);
-    UNICODE_MAP.put('\u2642', R.string.symbol_male);
-    UNICODE_MAP.put('\u3010', R.string.symbol_left_black_lenticular_bracket);
-    UNICODE_MAP.put('\u3011', R.string.symbol_right_black_lenticular_bracket);
-    UNICODE_MAP.put('\u300c', R.string.symbol_left_corner_bracket);
-    UNICODE_MAP.put('\u300d', R.string.symbol_right_corner_bracket);
-    UNICODE_MAP.put('\u2192', R.string.symbol_rightwards_arrow);
-    UNICODE_MAP.put('\u2193', R.string.symbol_downwards_arrow);
-    UNICODE_MAP.put('\u00b1', R.string.symbol_plus_minus_sign);
-    UNICODE_MAP.put('\u2113', R.string.symbol_liter);
-    UNICODE_MAP.put('\u2103', R.string.symbol_celsius_degree);
-    UNICODE_MAP.put('\u2109', R.string.symbol_fahrenheit_degree);
-    UNICODE_MAP.put('\u00a2', R.string.symbol_cent);
-    UNICODE_MAP.put('\u2252', R.string.symbol_approximately_equals);
-    UNICODE_MAP.put('\u222b', R.string.symbol_integral);
-    UNICODE_MAP.put('\u27e8', R.string.symbol_mathematical_left_angle_bracket);
-    UNICODE_MAP.put('\u27e9', R.string.symbol_mathematical_right_angle_bracket);
-    UNICODE_MAP.put('\u3012', R.string.symbol_postal_mark);
-    UNICODE_MAP.put('\u25b2', R.string.symbol_black_triangle_pointing_up);
-    UNICODE_MAP.put('\u25bC', R.string.symbol_black_triangle_pointing_down);
-    UNICODE_MAP.put('\u25c6', R.string.symbol_black_suit_of_diamonds);
-    UNICODE_MAP.put('\uff65', R.string.symbol_halfwidth_katakana_middle_dot);
-    UNICODE_MAP.put('\u25aa', R.string.symbol_black_smallsquare);
-    UNICODE_MAP.put('\u300a', R.string.symbol_left_angle_bracket);
-    UNICODE_MAP.put('\u300b', R.string.symbol_right_angle_bracket);
-    UNICODE_MAP.put('\u00a1', R.string.symbol_inverted_exclamation_mark);
-    UNICODE_MAP.put('\u00bf', R.string.symbol_inverted_question_mark);
-    UNICODE_MAP.put('\u20a9', R.string.symbol_won_sign);
-    UNICODE_MAP.put('\uff0c', R.string.symbol_full_width_comma);
-    UNICODE_MAP.put('\uff01', R.string.symbol_full_width_exclamation_mark);
-    UNICODE_MAP.put('\u3002', R.string.symbol_full_width_ideographic_full_stop);
-    UNICODE_MAP.put('\uff1f', R.string.symbol_full_width_question_mark);
-    UNICODE_MAP.put('\u00b7', R.string.symbol_middle_dot);
-    UNICODE_MAP.put('\u201d', R.string.symbol_right_double_quotation_mark);
-    UNICODE_MAP.put('\u3001', R.string.symbol_ideographic_comma);
-    UNICODE_MAP.put('\uff1a', R.string.symbol_full_width_colon);
-    UNICODE_MAP.put('\uff1b', R.string.symbol_full_width_semicolon);
-    UNICODE_MAP.put('\uff06', R.string.symbol_full_width_ampersand);
-    UNICODE_MAP.put('\uff3e', R.string.symbol_full_width_circumflex);
-    UNICODE_MAP.put('\uff5e', R.string.symbol_full_width_tilde);
-    UNICODE_MAP.put('\u201c', R.string.symbol_left_double_quotation_mark);
-    UNICODE_MAP.put('\uff08', R.string.symbol_full_width_left_parenthesis);
-    UNICODE_MAP.put('\uff09', R.string.symbol_full_width_right_parenthesis);
-    UNICODE_MAP.put('\uff0a', R.string.symbol_full_width_asterisk);
-    UNICODE_MAP.put('\uff3f', R.string.symbol_full_width_underscore);
-    UNICODE_MAP.put('\u2019', R.string.symbol_right_single_quotation_mark);
-    UNICODE_MAP.put('\uff5b', R.string.symbol_full_width_left_curly_bracket);
-    UNICODE_MAP.put('\uff5d', R.string.symbol_full_width_right_curly_bracket);
-    UNICODE_MAP.put('\uff1c', R.string.symbol_full_width_less_than_sign);
-    UNICODE_MAP.put('\uff1e', R.string.symbol_full_width_greater_than_sign);
-    UNICODE_MAP.put('\u2018', R.string.symbol_left_single_quotation_mark);
-    // Arabic diacritical marks.
-    UNICODE_MAP.put('\u064e', R.string.symbol_fatha);
-    UNICODE_MAP.put('\u0650', R.string.symbol_kasra);
-    UNICODE_MAP.put('\u064f', R.string.symbol_damma);
-    UNICODE_MAP.put('\u064b', R.string.symbol_fathatan);
-    UNICODE_MAP.put('\u064d', R.string.symbol_kasratan);
-    UNICODE_MAP.put('\u064c', R.string.symbol_dammatan);
-    UNICODE_MAP.put('\u0651', R.string.symbol_shadda);
-    UNICODE_MAP.put('\u0652', R.string.symbol_sukun);
-  }
+  /**
+   * Verbosity level of the punctuation and symbol that the user always hear. If the level is lower
+   * than TalkBack verbosity preference, the punctuation and symbol will not be announced.
+   */
+  public static final int ALL = 0;
+
+  /**
+   * Verbosity level of the punctuation and symbol that user usually hears. If the level is lower
+   * than TalkBack verbosity preference, the punctuation and symbol will not be announced.
+   */
+  public static final int MOST = 1;
+
+  /**
+   * Verbosity level of the punctuation and symbol that user sometimes hears. If the level is lower
+   * than TalkBack verbosity preference, the punctuation and symbol will not be announced.
+   *
+   * <p>Note: TalkBack speak punctuation verbosity preference in Some level will let TTS engine
+   * handle speaking punctuation in SOME level.
+   */
+  public static final int SOME = 2;
+
+  /**
+   * Map containing string to speech conversions and the verbosity level of symbol and punctuation .
+   */
+  private static final ImmutableMap<Character, Pair<Integer, Integer>>
+      TALKBACK_PUNCTUATION_AND_SYMBOL =
+          ImmutableMap.<Character, Pair<Integer, Integer>>builder()
+              .put('&', new Pair<>(R.string.symbol_ampersand, MOST))
+              .put('<', new Pair<>(R.string.symbol_angle_bracket_left, MOST))
+              .put('>', new Pair<>(R.string.symbol_angle_bracket_right, MOST))
+              .put('\'', new Pair<>(R.string.symbol_apostrophe, ALL))
+              .put('*', new Pair<>(R.string.symbol_asterisk, MOST))
+              .put('@', new Pair<>(R.string.symbol_at_sign, MOST))
+              .put('\\', new Pair<>(R.string.symbol_backslash, MOST))
+              .put('•', new Pair<>(R.string.symbol_bullet, MOST))
+              .put('^', new Pair<>(R.string.symbol_caret, MOST))
+              .put('¢', new Pair<>(R.string.symbol_cent, ALL))
+              .put(':', new Pair<>(R.string.symbol_colon, MOST))
+              .put(',', new Pair<>(R.string.symbol_comma, ALL))
+              .put('©', new Pair<>(R.string.symbol_copyright, MOST))
+              .put('{', new Pair<>(R.string.symbol_curly_bracket_left, MOST))
+              .put('}', new Pair<>(R.string.symbol_curly_bracket_right, MOST))
+              .put('°', new Pair<>(R.string.symbol_degree, MOST))
+              .put('÷', new Pair<>(R.string.symbol_division, MOST))
+              .put('…', new Pair<>(R.string.symbol_ellipsis, ALL))
+              .put('—', new Pair<>(R.string.symbol_em_dash, MOST))
+              .put('–', new Pair<>(R.string.symbol_en_dash, MOST))
+              .put('!', new Pair<>(R.string.symbol_exclamation_mark, ALL))
+              .put('`', new Pair<>(R.string.symbol_grave_accent, MOST))
+              .put('-', new Pair<>(R.string.symbol_hyphen_minus, ALL))
+              .put('„', new Pair<>(R.string.symbol_low_double_quote, MOST))
+              .put('×', new Pair<>(R.string.symbol_multiplication, MOST))
+              .put('\n', new Pair<>(R.string.symbol_new_line, ALL))
+              .put('¶', new Pair<>(R.string.symbol_paragraph_mark, MOST))
+              .put('(', new Pair<>(R.string.symbol_parenthesis_left, MOST))
+              .put(')', new Pair<>(R.string.symbol_parenthesis_right, MOST))
+              .put('%', new Pair<>(R.string.symbol_percent, MOST))
+              .put('.', new Pair<>(R.string.symbol_period, ALL))
+              .put('π', new Pair<>(R.string.symbol_pi, MOST))
+              .put('#', new Pair<>(R.string.symbol_pound, ALL))
+              // Currency
+              .put('$', new Pair<>(R.string.symbol_dollar_sign, ALL))
+              .put('€', new Pair<>(R.string.symbol_euro, ALL))
+              .put('£', new Pair<>(R.string.symbol_pound_sterling, ALL))
+              .put('¥', new Pair<>(R.string.symbol_yen, ALL))
+              .put('₱', new Pair<>(R.string.symbol_currency_peso, ALL))
+              .put('₹', new Pair<>(R.string.symbol_rupee, MOST))
+              .put('₫', new Pair<>(R.string.symbol_currency_dong, ALL))
+              .put('¤', new Pair<>(R.string.symbol_currency_sign, ALL))
+              .put('?', new Pair<>(R.string.symbol_question_mark, ALL))
+              .put('"', new Pair<>(R.string.symbol_quotation_mark, MOST))
+              .put('®', new Pair<>(R.string.symbol_registered_trademark, MOST))
+              .put(';', new Pair<>(R.string.symbol_semicolon, MOST))
+              .put('/', new Pair<>(R.string.symbol_slash, MOST))
+              .put(' ', new Pair<>(R.string.symbol_space, ALL))
+              .put('\u00a0', new Pair<>(R.string.symbol_space, ALL))
+              .put('[', new Pair<>(R.string.symbol_square_bracket_left, MOST))
+              .put(']', new Pair<>(R.string.symbol_square_bracket_right, MOST))
+              .put('√', new Pair<>(R.string.symbol_square_root, MOST))
+              .put('™', new Pair<>(R.string.symbol_trademark, MOST))
+              .put('_', new Pair<>(R.string.symbol_underscore, MOST))
+              .put('|', new Pair<>(R.string.symbol_vertical_bar, MOST))
+              .put('¬', new Pair<>(R.string.symbol_not_sign, MOST))
+              .put('¦', new Pair<>(R.string.symbol_broken_bar, MOST))
+              .put('µ', new Pair<>(R.string.symbol_micro_sign, MOST))
+              .put('≈', new Pair<>(R.string.symbol_almost_equals, MOST))
+              .put('≠', new Pair<>(R.string.symbol_not_equals, MOST))
+              .put('§', new Pair<>(R.string.symbol_section_sign, MOST))
+              .put('↑', new Pair<>(R.string.symbol_upwards_arrow, MOST))
+              .put('←', new Pair<>(R.string.symbol_leftwards_arrow, MOST))
+              .put('→', new Pair<>(R.string.symbol_rightwards_arrow, MOST))
+              .put('↓', new Pair<>(R.string.symbol_downwards_arrow, MOST))
+              .put('♥', new Pair<>(R.string.symbol_black_heart, MOST))
+              .put('~', new Pair<>(R.string.symbol_tilde, MOST))
+              .put('=', new Pair<>(R.string.symbol_equal, MOST))
+              .put('￦', new Pair<>(R.string.symbol_won, MOST))
+              .put('₩', new Pair<>(R.string.symbol_won_sign, MOST))
+              .put('※', new Pair<>(R.string.symbol_reference, MOST))
+              .put('☆', new Pair<>(R.string.symbol_white_star, MOST))
+              .put('★', new Pair<>(R.string.symbol_black_star, MOST))
+              .put('♡', new Pair<>(R.string.symbol_white_heart, MOST))
+              .put('○', new Pair<>(R.string.symbol_white_circle, MOST))
+              .put('●', new Pair<>(R.string.symbol_black_circle, MOST))
+              .put('⊙', new Pair<>(R.string.symbol_solar, MOST))
+              .put('◎', new Pair<>(R.string.symbol_bullseye, MOST))
+              .put('♧', new Pair<>(R.string.symbol_white_club_suit, MOST))
+              .put('♤', new Pair<>(R.string.symbol_white_spade_suit, MOST))
+              .put('☜', new Pair<>(R.string.symbol_white_left_pointing_index, MOST))
+              .put('☞', new Pair<>(R.string.symbol_white_right_pointing_index, MOST))
+              .put('◐', new Pair<>(R.string.symbol_circle_left_half_black, MOST))
+              .put('◑', new Pair<>(R.string.symbol_circle_right_half_black, MOST))
+              .put('□', new Pair<>(R.string.symbol_white_square, MOST))
+              .put('■', new Pair<>(R.string.symbol_black_square, MOST))
+              .put('△', new Pair<>(R.string.symbol_white_up_pointing_triangle, MOST))
+              .put('▽', new Pair<>(R.string.symbol_white_down_pointing_triangle, MOST))
+              .put('◁', new Pair<>(R.string.symbol_white_left_pointing_triangle, MOST))
+              .put('▷', new Pair<>(R.string.symbol_white_right_pointing_triangle, MOST))
+              .put('◇', new Pair<>(R.string.symbol_white_diamond, MOST))
+              .put('♩', new Pair<>(R.string.symbol_quarter_note, MOST))
+              .put('♪', new Pair<>(R.string.symbol_eighth_note, MOST))
+              .put('♬', new Pair<>(R.string.symbol_beamed_sixteenth_note, MOST))
+              .put('♀', new Pair<>(R.string.symbol_female, MOST))
+              .put('♂', new Pair<>(R.string.symbol_male, MOST))
+              .put('【', new Pair<>(R.string.symbol_left_black_lenticular_bracket, MOST))
+              .put('】', new Pair<>(R.string.symbol_right_black_lenticular_bracket, MOST))
+              .put('「', new Pair<>(R.string.symbol_left_corner_bracket, MOST))
+              .put('」', new Pair<>(R.string.symbol_right_corner_bracket, MOST))
+              .put('±', new Pair<>(R.string.symbol_plus_minus_sign, MOST))
+              .put('ℓ', new Pair<>(R.string.symbol_liter, MOST))
+              .put('℃', new Pair<>(R.string.symbol_celsius_degree, MOST))
+              .put('℉', new Pair<>(R.string.symbol_fahrenheit_degree, MOST))
+              .put('≒', new Pair<>(R.string.symbol_approximately_equals, MOST))
+              .put('∫', new Pair<>(R.string.symbol_integral, MOST))
+              .put('⟨', new Pair<>(R.string.symbol_mathematical_left_angle_bracket, MOST))
+              .put('⟩', new Pair<>(R.string.symbol_mathematical_right_angle_bracket, MOST))
+              .put('〒', new Pair<>(R.string.symbol_postal_mark, MOST))
+              .put('▲', new Pair<>(R.string.symbol_black_triangle_pointing_up, MOST))
+              .put('▼', new Pair<>(R.string.symbol_black_triangle_pointing_down, MOST))
+              .put('♦', new Pair<>(R.string.symbol_black_suit_of_diamonds, MOST))
+              .put('◆', new Pair<>(R.string.symbol_black_suit_of_diamonds, MOST))
+              .put('･', new Pair<>(R.string.symbol_halfwidth_katakana_middle_dot, MOST))
+              .put('▪', new Pair<>(R.string.symbol_black_smallsquare, MOST))
+              .put('《', new Pair<>(R.string.symbol_left_angle_bracket, MOST))
+              .put('》', new Pair<>(R.string.symbol_right_angle_bracket, MOST))
+              .put('¡', new Pair<>(R.string.symbol_inverted_exclamation_mark, MOST))
+              .put('¿', new Pair<>(R.string.symbol_inverted_question_mark, ALL))
+              // Full-width
+              .put('，', new Pair<>(R.string.symbol_full_width_comma, ALL))
+              .put('！', new Pair<>(R.string.symbol_full_width_exclamation_mark, ALL))
+              .put('。', new Pair<>(R.string.symbol_full_width_ideographic_full_stop, MOST))
+              .put('？', new Pair<>(R.string.symbol_full_width_question_mark, ALL))
+              .put('·', new Pair<>(R.string.symbol_middle_dot, MOST))
+              .put('”', new Pair<>(R.string.symbol_right_double_quotation_mark, MOST))
+              .put('、', new Pair<>(R.string.symbol_ideographic_comma, ALL))
+              .put('：', new Pair<>(R.string.symbol_full_width_colon, MOST))
+              .put('；', new Pair<>(R.string.symbol_full_width_semicolon, MOST))
+              .put('＆', new Pair<>(R.string.symbol_full_width_ampersand, MOST))
+              .put('＾', new Pair<>(R.string.symbol_full_width_circumflex, MOST))
+              .put('～', new Pair<>(R.string.symbol_full_width_tilde, MOST))
+              .put('“', new Pair<>(R.string.symbol_left_double_quotation_mark, MOST))
+              .put('（', new Pair<>(R.string.symbol_full_width_left_parenthesis, MOST))
+              .put('）', new Pair<>(R.string.symbol_full_width_right_parenthesis, MOST))
+              .put('＊', new Pair<>(R.string.symbol_full_width_asterisk, MOST))
+              .put('＿', new Pair<>(R.string.symbol_full_width_underscore, MOST))
+              .put('’', new Pair<>(R.string.symbol_right_single_quotation_mark, MOST))
+              .put('｛', new Pair<>(R.string.symbol_full_width_left_curly_bracket, MOST))
+              .put('｝', new Pair<>(R.string.symbol_full_width_right_curly_bracket, MOST))
+              .put('＜', new Pair<>(R.string.symbol_full_width_less_than_sign, MOST))
+              .put('＞', new Pair<>(R.string.symbol_full_width_greater_than_sign, MOST))
+              .put('‘', new Pair<>(R.string.symbol_left_single_quotation_mark, MOST))
+              // Arabic diacritical marks.
+              .put('\u064e', new Pair<>(R.string.symbol_fatha, MOST))
+              .put('\u0650', new Pair<>(R.string.symbol_kasra, MOST))
+              .put('\u064f', new Pair<>(R.string.symbol_damma, MOST))
+              .put('\u064b', new Pair<>(R.string.symbol_fathatan, MOST))
+              .put('\u064d', new Pair<>(R.string.symbol_kasratan, MOST))
+              .put('\u064c', new Pair<>(R.string.symbol_dammatan, MOST))
+              .put('\u0651', new Pair<>(R.string.symbol_shadda, MOST))
+              .put('\u0652', new Pair<>(R.string.symbol_sukun, MOST))
+              .buildOrThrow();
 
   /**
    * Cleans up text for speech. Converts symbols to their spoken equivalents.
@@ -290,18 +324,41 @@ public class SpeechCleanupUtils {
 
   /** Returns the "clean" value for the specified character. */
   public static String getCleanValueFor(Context context, char key) {
-    final int resId = UNICODE_MAP.get(key);
+    Pair<Integer, Integer> pair = TALKBACK_PUNCTUATION_AND_SYMBOL.get(key);
+    if (pair != null) {
+      final int resId = pair.first;
 
-    if (resId != 0) {
-      return context.getString(resId);
+      if (resId != 0) {
+        return context.getString(resId);
+      }
     }
-
     return Character.toString(key);
   }
 
   /** Returns the "clean" value for the specified character as punctuation. */
   public static @Nullable String characterToName(Context context, char key) {
-    final int resId = UNICODE_MAP.get(key);
+    return characterToName(context, key, ALL);
+  }
+
+  /**
+   * Returns the "clean" value for the specified character as punctuation.
+   *
+   * @param context the parent context
+   * @param key the character to be transformed
+   * @param punctuationVerbosity the verbosity of user preference
+   * @return the character name defined in this utils
+   */
+  public static @Nullable String characterToName(
+      Context context, char key, int punctuationVerbosity) {
+    Pair<Integer, Integer> pair = TALKBACK_PUNCTUATION_AND_SYMBOL.get(key);
+    if (pair == null) {
+      return null;
+    } else if (key != ' ') {
+      if (pair.second < punctuationVerbosity) {
+        return null;
+      }
+    }
+    final int resId = pair.first;
 
     if (resId != 0 && key != ' ') {
       return context.getString(resId);

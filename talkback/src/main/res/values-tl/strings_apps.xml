@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">Nakatakda ang volume ng %1$s sa %2$d (na) porsyento.</string>
   <string name="template_stream_muted_set">Na-mute ang volume ng %1$s.</string>
+  <string name="hint_a11y_volume_control">Para baguhin ang volume ng accessibility, pindutin nang matagal ang screen gamit ang 1 daliri at pindutin ang key na pataas na volume o pababang volume.</string>
   <string name="value_stream_voice_call">Tawag sa telepono</string>
   <string name="value_stream_system">Tunog ng system</string>
   <string name="value_stream_ring">Ring tone</string>

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">magbasa</string>
-  <string name="voice_commands_read_from_next">Magbasa mula sa susunod</string>
+  <string name="voice_commands_read_from_next">Magbasa mula sa cursor</string>
   <string name="voice_commands_edit_options">Mga opsyon sa pag-edit</string>
-  <string name="voice_commands_text_editing">Pag-edit ng text</string>
-  <string name="voice_commands_edit_text">Mag-edit ng text</string>
-  <string name="voice_commands_editing_options">Mga opsyon sa pag-edit</string>
   <string name="voice_commands_edit">i-edit</string>
   <string name="voice_commands_what">ano</string>
   <string name="voice_commands_say">sasabihin</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Label</string>
   <string name="voice_commands_cannot_label_feedback">Hindi puwedeng lagyan ng label</string>
   <string name="voice_commands_assistant">Assistant</string>
-  <string name="voice_commands_setting_speech_rate">Itinatakda ang rate ng pagsasalita</string>
   <string name="voice_commands_first">Una</string>
   <string name="voice_commands_top">Itaas</string>
   <string name="voice_commands_last">Huli</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Pabilisin ang pagsasalita</string>
   <string name="voice_commands_slower">Mas Mabagal</string>
   <string name="voice_commands_decrease_speech_rate">pabagalin ang rate ng pagsasalita</string>
-  <string name="voice_commands_possible_options_title">Maaari mong sabihing</string>
   <string name="voice_commands_no_action">Hindi sinusuportahan ang shortcut gamit ang boses</string>
   <string name="voice_commands_no_mic_permissions">Para magamit ang feature na ito, dapat kang magbigay ng pahintulot na gamitin ang mikropono.</string>
   <string name="voice_commands_no_voice_recognition_ability">Paumahin! Hindi available ang feature na ito sa iyong device</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Walang susunod na kontrol</string>
   <string name="voice_commands_no_next_landmark_feedback">Walang susunod na landmark</string>
   <string name="voice_commands_help_title">Pangkalahatang-ideya ng command gamit ang boses</string>
-  <string name="voice_commands_help_description">Para gamitin ang mga command gamit ang boses, mag-swipe pakanan at pagkatapos ay pataas. Sabihin ang \"Tulong\" o \"Ano ang puwede kong sabihin?\" anumang oras para sa listahan ng mga command na ito.</string>
+  <string name="voice_commands_help_description">Para gamitin ang mga command gamit ang boses, mag-swipe pakanan at pagkatapos ay pataas. Sabihin ang \"%1$s\" o \"Ano ang puwede kong sabihin?\" kahit kailan para sa listahan ng mga command na ito.</string>
   <string name="voice_commands_help_hint">Para sa pinakamahuhusay na resulta, sabihin ang eksaktong salitang nakalista sa mga sumusunod na screen.</string>
   <string name="voice_command_screen_locked_hint">Hindi available ang mga command gamit ang boses habang naka-lock ang screen. Para menu ng TalkBack na lang ang gamitin, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Hindi available ang mga command gamit ang boses sa panahon ng pag-set up.</string>

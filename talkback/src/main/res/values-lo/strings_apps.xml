@@ -2,6 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="template_stream_volume_set">%1$s ລະ​ດັບ​ສຽງ​ຕັ້ງ​ເປັນ %2$d ເປີ​ເຊັນ.</string>
   <string name="template_stream_muted_set">%1$s ປິດສຽງຢູ່.</string>
+  <string name="hint_a11y_volume_control">ເພື່ອປ່ຽນລະດັບສຽງການຊ່ວຍເຂົ້າເຖິງ, ໃຫ້ໃຊ້ 1 ນິ້ວກົດໜ້າຈໍຄ້າງໄວ້ ແລ້ວກົດປຸ່ມເພີ່ມສຽງຂຶ້ນ ຫຼື ຫຼຸດສຽງລົງ.</string>
   <string name="value_stream_voice_call">ໂທລະສັບ</string>
   <string name="value_stream_system">ສຽງລະບົບ</string>
   <string name="value_stream_ring">ຣິງໂທນ</string>

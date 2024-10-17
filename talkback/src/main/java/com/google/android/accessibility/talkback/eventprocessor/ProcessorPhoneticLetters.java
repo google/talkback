@@ -88,10 +88,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
           | AccessibilityEvent.TYPE_TOUCH_INTERACTION_END
           |
           // Do not cancel phonetic letter feedback for TYPE_WINDOWS_CHANGED event.
-          // ProcessorCursorState introduces an overlay on EditText. When we open a
-          // keyboard and long press a key, the overlay is hidden and trigger a
-          // TYPE_WINDOWS_CHANGED event, which might interrupt the phonetic letter
-          // feedback. In other use cases, windows change are fired with other types of
+          // In other use cases, windows change are fired with other types of
           // events (e.g. TYPE_WINDOW_STATE_CHANGED, touch interaction on screen, etc.).
           // We could add TYPE_WINDOWS_CHANGED here as an exemption.
           AccessibilityEvent.TYPE_WINDOWS_CHANGED);

@@ -348,8 +348,8 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
           && speakUsageHints(context)) {
         final CharSequence hintTTSOutput = part.speech().hint();
         final int hintFlags = part.speech().hintSpeakOptions().mFlags;
-        final @InterruptGroup int hintInterruptGroup = part.speech().hintInterruptGroup();
-        final @InterruptLevel int hintInterruptLevel = part.speech().hintInterruptLevel();
+        @InterruptGroup final int hintInterruptGroup = part.speech().hintInterruptGroup();
+        @InterruptLevel final int hintInterruptLevel = part.speech().hintInterruptLevel();
         part.speech()
             .hintSpeakOptions()
             .setCompletedAction(
@@ -545,11 +545,14 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
   public void onUnbind(
       float finalAnnouncementVolume, UtteranceCompleteRunnable disableTalkBackCompleteAction) {
     cancelAllDelays();
+    // Prepares for the last speech EVENT_SPOKEN_FEEDBACK_DISABLED.
+    actors.prepareForOnUnbind(finalAnnouncementVolume);
     compositor.handleEventWithCompletionHandler(
         Compositor.EVENT_SPOKEN_FEEDBACK_DISABLED,
         Performance.EVENT_ID_UNTRACKED,
         disableTalkBackCompleteAction);
-    actors.onUnbind(finalAnnouncementVolume);
+    // Mute and should not generate any speech after it.
+    actors.onUnbind();
   }
 
   public void interruptAllFeedback(boolean stopTtsSpeechCompletely) {
@@ -573,6 +576,10 @@ public class Pipeline implements AccessibilityEventListener, AccessibilityEventI
 
   public void setUsePunctuation(boolean use) {
     actors.setUsePunctuation(use);
+  }
+
+  public void setPunctuationVerbosity(int verbosity) {
+    actors.setPunctuationVerbosity(verbosity);
   }
 
   public void setSpeechPitch(float pitch) {

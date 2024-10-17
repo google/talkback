@@ -22,7 +22,6 @@ import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCU
 import static com.google.android.accessibility.utils.DiagnosticOverlayUtils.FOCUS_FAIL_SAME_WINDOW_BOUNDS_CHILDREN;
 
 import android.content.Context;
-import android.graphics.BlendMode;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -32,14 +31,14 @@ import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.WindowManager.BadTokenException;
 import android.widget.FrameLayout;
+import androidx.core.graphics.BlendModeCompat;
+import androidx.core.graphics.PaintCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.DiagnosticOverlayUtils.DiagnosticType;
 import com.google.android.accessibility.utils.widget.SimpleOverlay;
-import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -67,18 +66,18 @@ public class HighlightOverlay extends SimpleOverlay {
     public MultipleHighlightView(Context context) {
       super(context);
 
-      /** Use {@link BlendMode#DST_OUT for clickable highlight if larger screen focusability
+      /** Use {@link BlendModeCompat#DST_OUT for clickable highlight if larger screen focusability
        * can be filtered out*/
       refocusPaint.setColor(Color.GREEN);
-      refocusPaint.setBlendMode(BlendMode.COLOR);
+      PaintCompat.setBlendMode(refocusPaint, BlendModeCompat.COLOR);
 
       skippedNodePaint.setStyle(Style.FILL);
-      skippedNodePaint.setBlendMode(BlendMode.OVERLAY);
+      PaintCompat.setBlendMode(skippedNodePaint, BlendModeCompat.OVERLAY);
       // Paint requires one to draw same rectangle twice for different colored borders - once
       // w/ fill and once w/ stroke
       borderPaint.setColor(Color.BLACK);
       borderPaint.setStyle(Style.STROKE);
-      borderPaint.setBlendMode(BlendMode.DARKEN);
+      PaintCompat.setBlendMode(borderPaint, BlendModeCompat.DARKEN);
       borderPaint.setStrokeWidth(
           context.getResources().getDimensionPixelSize(R.dimen.highlight_overlay_border));
     }
@@ -161,12 +160,7 @@ public class HighlightOverlay extends SimpleOverlay {
       HashMap<Integer, ArrayList<AccessibilityNodeInfoCompat>> skippedNodes,
       HashSet<AccessibilityNode> refocusNodePath) {
     highlightView.setVisibility(View.VISIBLE);
-    try {
-      show();
-    } catch (BadTokenException e) {
-      LogUtils.e(
-          "Highlight Overlay", e, "Caught WindowManager.BadTokenException while displaying text.");
-    }
+    show();
     this.skippedNodes = skippedNodes;
     this.refocusNodePath = refocusNodePath;
     this.focusedNode = focusedNode;

@@ -22,7 +22,17 @@ public final class FeatureFlagReader {
 
   /** Whether to use play/pause media. */
   public static boolean usePlayPauseMedia(Context context) {
+    return true;
+  }
+
+  /** Whether braille display hid protocol supported. */
+  public static boolean isBdHidSupported(Context context) {
     return false;
+  }
+
+  /** Whether to enable select current from current cursor to start or end. */
+  public static boolean useSelectCurrentToStartOrEnd(Context context) {
+    return true;
   }
 
   private FeatureFlagReader() {}

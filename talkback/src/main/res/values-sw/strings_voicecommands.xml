@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">kusoma</string>
-  <string name="voice_commands_read_from_next">Soma kuanzia kipengee kinachofuata</string>
+  <string name="voice_commands_read_from_next">Soma kuanzia mahali kiteuzi kilipo</string>
   <string name="voice_commands_edit_options">Chaguo za kubadilisha</string>
-  <string name="voice_commands_text_editing">Kubadilisha maandishi</string>
-  <string name="voice_commands_edit_text">Badilisha maandishi</string>
-  <string name="voice_commands_editing_options">Chaguo za kubadilisha</string>
   <string name="voice_commands_edit">badilisha</string>
   <string name="voice_commands_what">nini</string>
   <string name="voice_commands_say">tamka</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Lebo</string>
   <string name="voice_commands_cannot_label_feedback">Imeshindwa kuweka lebo</string>
   <string name="voice_commands_assistant">Mratibu</string>
-  <string name="voice_commands_setting_speech_rate">Kuweka mipangilio ya kasi ya kutamka</string>
   <string name="voice_commands_first">Kwanza</string>
   <string name="voice_commands_top">Juu</string>
   <string name="voice_commands_last">Mwisho</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Ongeza kasi ya kutamka</string>
   <string name="voice_commands_slower">Polepole</string>
   <string name="voice_commands_decrease_speech_rate">punguza kasi ya kutamka</string>
-  <string name="voice_commands_possible_options_title">Unaweza kusema</string>
   <string name="voice_commands_no_action">Njia ya mkato ya kutamka haitumiki</string>
   <string name="voice_commands_no_mic_permissions">Ili kutumia kipengele hiki, sharti utoe ruhusa ya kutumia maikrofoni.</string>
   <string name="voice_commands_no_voice_recognition_ability">Samahani! Kipengele hiki hakipatikani kwenye kifaa chako</string>
@@ -102,17 +97,17 @@
   <string name="voice_commands_no_next_link_feedback">Hakuna kiungo kinachofuata</string>
   <string name="voice_commands_no_next_control_feedback">Hakuna kidhibiti kinachofuata</string>
   <string name="voice_commands_no_next_landmark_feedback">Hakuna alama muhimu inayofuata</string>
-  <string name="voice_commands_help_title">Muhtasari wa amri ya sauti</string>
-  <string name="voice_commands_help_description">Ili utumie amri za sauti, telezesha kidole kulia kisha juu. Tamka \"Usaidizi\" au \"Ninaweza kusema nini?\" wakati wowote ili upate orodha hii ya amri.</string>
+  <string name="voice_commands_help_title">Muhtasari wa amri za sauti</string>
+  <string name="voice_commands_help_description">Ili utumie amri za sauti, telezesha kidole kulia kisha juu. Tamka \"%1$s\" au \"Ninaweza kusema nini?\" wakati wowote ili upate orodha hii ya amri.</string>
   <string name="voice_commands_help_hint">Kwa matokeo bora, tamka maneno kamili yaliyoorodheshwa kwenye skrini zinazofuata.</string>
   <string name="voice_command_screen_locked_hint">Amri za sauti hazipatikani wakati skrini imefungwa. Ili utumie menyu ya TalkBack badala yake, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Amri za sauti hazipatikani wakati wa kuweka mipangilio.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Badilisha jinsi unavyosoma maudhui kwenye skrini ya sasa</string>
-  <string name="voice_commands_help_next">Inayofuata [heading]</string>
-  <string name="voice_commands_help_navigation">[Word] usogezaji</string>
-  <string name="voice_commands_help_speech_rate">Zungumza [faster]</string>
-  <string name="voice_commands_help_verbosity">[Low] kipima maneno</string>
+  <string name="voice_commands_help_next">Inayofuata [mada]</string>
+  <string name="voice_commands_help_navigation">[Neno] usogezaji</string>
+  <string name="voice_commands_help_speech_rate">Zungumza [haraka zaidi]</string>
+  <string name="voice_commands_help_verbosity">[Chini] kipima maneno</string>
   <string name="voice_commands_help_next_description">Nenda kwenye kichwa, kidhibiti, orodha au alama muhimu inayofuata</string>
   <string name="voice_commands_help_navigation_description">Sogeza kulingana na maneno, herufi, mistari, aya, vichwa, vidhibiti na zaidi</string>
   <string name="voice_commands_help_speech_rate_description">Unaweza pia kutamka \"zungumza polepole\"</string>

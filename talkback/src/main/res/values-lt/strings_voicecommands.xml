@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">skaityti</string>
-  <string name="voice_commands_read_from_next">Skaityti nuo kito</string>
+  <string name="voice_commands_read_from_next">Skaityti nuo žymeklio</string>
   <string name="voice_commands_edit_options">Redagavimo parinktys</string>
-  <string name="voice_commands_text_editing">Teksto redagavimas</string>
-  <string name="voice_commands_edit_text">Redaguoti tekstą</string>
-  <string name="voice_commands_editing_options">Redagavimo parinktys</string>
   <string name="voice_commands_edit">redaguoti</string>
   <string name="voice_commands_what">kas</string>
   <string name="voice_commands_say">ištarti</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etiketė</string>
   <string name="voice_commands_cannot_label_feedback">Nepavyksta pažymėti</string>
   <string name="voice_commands_assistant">Padėjėjas</string>
-  <string name="voice_commands_setting_speech_rate">Kalbėjimo spartos nustatymas</string>
   <string name="voice_commands_first">Pirmas</string>
   <string name="voice_commands_top">Viršuje</string>
   <string name="voice_commands_last">Paskutinis</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Padidinti kalbėjimo spartą</string>
   <string name="voice_commands_slower">Lėčiau</string>
   <string name="voice_commands_decrease_speech_rate">sumažinti kalbėjimo spartą</string>
-  <string name="voice_commands_possible_options_title">Galite pasakyti</string>
   <string name="voice_commands_no_action">Šaukiniai balsu nepalaikomi</string>
   <string name="voice_commands_no_mic_permissions">Norėdami pasinaudoti šia funkcija, turite suteikti leidimą naudoti mikrofoną.</string>
   <string name="voice_commands_no_voice_recognition_ability">Deja, ši funkcija jūsų įrenginyje nepasiekiama</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Nėra kito valdiklio</string>
   <string name="voice_commands_no_next_landmark_feedback">Nėra kito orientyro</string>
   <string name="voice_commands_help_title">Komandos balsu apžvalga</string>
-  <string name="voice_commands_help_description">Norėdami naudoti komandas balsu, perbraukite dešinėn, o tada – į viršų. Kad būtų pateiktas šis komandų sąrašas, bet kuriuo metu pasakykite „help“ (pagalba) arba „what can I say“ (ką galiu pasakyti).</string>
+  <string name="voice_commands_help_description">Norėdami naudoti komandas balsu, perbraukite dešinėn, o tada – į viršų. Kad būtų pateiktas šis komandų sąrašas, bet kuriuo metu pasakykite „%1$s“ (pagalba) arba „what can I say“ (ką galiu pasakyti).</string>
   <string name="voice_commands_help_hint">Kad pasiektumėte geriausių rezultatų, tiksliai ištarkite žodžius, išvardytus tolesniuose ekranuose.</string>
   <string name="voice_command_screen_locked_hint">Komandos balsu nepasiekiamos, kai ekranas užrakintas. Norėdami vietoj to naudoti „TalkBack“ meniu, %1$s.</string>
   <string name="voice_commands_during_setup_hint">Komandos balsu nepasiekiamos vykdant sąrankos procesą.</string>

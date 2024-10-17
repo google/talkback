@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">oxunmuş</string>
-  <string name="voice_commands_read_from_next">Növbətidən oxuyun</string>
+  <string name="voice_commands_read_from_next">Kursorun olduğu yerdən oxuyun</string>
   <string name="voice_commands_edit_options">Redaktə seçimləri</string>
-  <string name="voice_commands_text_editing">Mətn redaktəsi</string>
-  <string name="voice_commands_edit_text">Mətni redaktə edin</string>
-  <string name="voice_commands_editing_options">Redaktə seçimləri</string>
   <string name="voice_commands_edit">düzəliş edin</string>
   <string name="voice_commands_what">nə</string>
   <string name="voice_commands_say">deyin</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Etiket</string>
   <string name="voice_commands_cannot_label_feedback">Etiketləmək mümkün deyil</string>
   <string name="voice_commands_assistant">Assistent</string>
-  <string name="voice_commands_setting_speech_rate">Nitq sürətini ayarlayın</string>
   <string name="voice_commands_first">Birinci</string>
   <string name="voice_commands_top">Üst</string>
   <string name="voice_commands_last">Sonuncu</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Nitq sürətini artırın</string>
   <string name="voice_commands_slower">Daha yavaş</string>
   <string name="voice_commands_decrease_speech_rate">nitq sürətini azaldın</string>
-  <string name="voice_commands_possible_options_title">Deyə bilərsiniz</string>
   <string name="voice_commands_no_action">Səs qısayolu dəstəklənmir</string>
   <string name="voice_commands_no_mic_permissions">Bu funksiyadan istifadə etmək üçün mikrofondan istifadə icazəniz ollmalıdır.</string>
   <string name="voice_commands_no_voice_recognition_ability">Təəssüf edirik! Bu funksiya cihazınızda dəstəklənmir</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Növbəti nizamlayıcı yoxdur</string>
   <string name="voice_commands_no_next_landmark_feedback">Növbəti orientir yoxdur</string>
   <string name="voice_commands_help_title">Səs əmri icmalı</string>
-  <string name="voice_commands_help_description">Səs əmrlərindən istifadə etmək üçün sağa, sonra yuxarı sürüşdürün. Bu əmrlərin siyahısı üçün istənilən vaxt \"Yardım\" və ya \"Nə deyə bilərəm?\" deyin.</string>
+  <string name="voice_commands_help_description">Səs əmrlərindən istifadə etmək üçün sağa, sonra yuxarı çəkin. Bu əmrlərin siyahısı üçün istənilən vaxt \"%1$s\" və ya \"Nə deyə bilərəm?\" deyin.</string>
   <string name="voice_commands_help_hint">Nəticələrin yaxşı olması üçün aşağıdakı ekranlarda verilmiş sözləri dəqiqliklə deyin.</string>
   <string name="voice_command_screen_locked_hint">Ekran kilidli olduqda səsli əmrlər əlçatan olmur. TalkBack menyusunu istifadə etmək üçün %1$s.</string>
   <string name="voice_commands_during_setup_hint">Ayarlama zaman; səsli əmrlər əlçatan olmur.</string>

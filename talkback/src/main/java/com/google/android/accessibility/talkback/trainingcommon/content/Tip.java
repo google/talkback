@@ -17,6 +17,8 @@
 package com.google.android.accessibility.talkback.trainingcommon.content;
 
 import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.TtsSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +31,15 @@ import com.google.android.accessibility.talkback.trainingcommon.TrainingIpcClien
 public class Tip extends PageContentConfig {
 
   @StringRes private final int textResId;
+  @StringRes private final int textTtsSpanResId;
 
   public Tip(@StringRes int textResId) {
+    this(textResId, UNKNOWN_RESOURCE_ID);
+  }
+
+  public Tip(@StringRes int textResId, @StringRes int textTtsSpanResId) {
     this.textResId = textResId;
+    this.textTtsSpanResId = textTtsSpanResId;
   }
 
   @Override
@@ -39,7 +47,16 @@ public class Tip extends PageContentConfig {
       LayoutInflater inflater, ViewGroup container, Context context, ServiceData data) {
     final View view = inflater.inflate(R.layout.training_tip, container, false);
     final TextView tip = view.findViewById(R.id.training_tip_text);
-    tip.setText(textResId);
+
+    String text = context.getString(textResId);
+    SpannableString spannableString = new SpannableString(text);
+    if (textTtsSpanResId != UNKNOWN_RESOURCE_ID) {
+      String ttsSpanText = context.getString(textTtsSpanResId);
+      TtsSpan ttsSpan = new TtsSpan.TextBuilder(ttsSpanText).build();
+      spannableString.setSpan(ttsSpan, 0, text.length(), 0 /* no flag */);
+    }
+    tip.setText(spannableString);
+
     return view;
   }
 }

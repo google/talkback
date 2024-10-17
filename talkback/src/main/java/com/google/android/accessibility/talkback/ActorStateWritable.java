@@ -26,6 +26,7 @@ import com.google.android.accessibility.talkback.actor.LanguageActor;
 import com.google.android.accessibility.talkback.actor.NodeActionPerformer;
 import com.google.android.accessibility.talkback.actor.PassThroughModeActor;
 import com.google.android.accessibility.talkback.actor.SpeechRateActor;
+import com.google.android.accessibility.talkback.actor.gemini.GeminiActor;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.labeling.LabelManager;
@@ -107,6 +108,9 @@ public class ActorStateWritable {
   /** Read-only on-demand data-puller for CustomLabelManager state data. */
   public final LabelManager.State labelerState;
 
+  /** Read-only on-demand data-reader for Gemini state data. */
+  public final GeminiActor.State geminiState;
+
   //////////////////////////////////////////////////////////////////////////
   // Construction methods
 
@@ -121,7 +125,8 @@ public class ActorStateWritable {
       LanguageActor.State languageState,
       SpeechRateActor.State speechRateState,
       PassThroughModeActor.State passThroughModeState,
-      LabelManager.State labelerState) {
+      LabelManager.State labelerState,
+      GeminiActor.State geminiState) {
     this.dimScreen = dimScreen;
     this.speechState = speechState;
     this.continuousRead = continuousRead;
@@ -133,6 +138,7 @@ public class ActorStateWritable {
     this.speechRateState = speechRateState;
     this.passThroughModeState = passThroughModeState;
     this.labelerState = labelerState;
+    this.geminiState = geminiState;
   }
 
   //////////////////////////////////////////////////////////////////////////
@@ -198,6 +204,8 @@ public class ActorStateWritable {
         StringBuilderUtils.optionalInt(
             "speechRatePercent", speechRateState.getSpeechRatePercentage(), 100),
         StringBuilderUtils.optionalTag(
-            "passThroughModeState", passThroughModeState.isPassThroughModeActive()));
+            "passThroughModeState", passThroughModeState.isPassThroughModeActive()),
+        StringBuilderUtils.optionalTag("hasAiCore", geminiState.hasAiCore()),
+        StringBuilderUtils.optionalTag("isAiFeatureAvailable", geminiState.isAiFeatureAvailable()));
   }
 }

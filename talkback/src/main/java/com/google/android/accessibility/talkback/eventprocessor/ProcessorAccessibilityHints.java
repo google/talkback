@@ -248,7 +248,7 @@ public class ProcessorAccessibilityHints {
     @Nullable HintEventInterpretation hintInterp = eventInterp.getHint();
     int hintType = hintInterp.getHintType();
     if (hintType != HINT_TYPE_NONE) {
-      String hintTTSOutput =
+      CharSequence hintTTSOutput =
           compositor.parseTTSText(
               hintInfo.getPendingHintSource(), eventInterp.getEvent(), eventInterp);
       if (TextUtils.isEmpty(hintTTSOutput)) {

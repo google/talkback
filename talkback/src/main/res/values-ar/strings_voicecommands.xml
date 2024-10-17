@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">قراءة</string>
-  <string name="voice_commands_read_from_next">القراءة من العنصر التالي</string>
+  <string name="voice_commands_read_from_next">القراءة من موضع المؤشر</string>
   <string name="voice_commands_edit_options">خيارات التعديل</string>
-  <string name="voice_commands_text_editing">تعديل النصوص</string>
-  <string name="voice_commands_edit_text">تعديل النص</string>
-  <string name="voice_commands_editing_options">خيارات التعديل</string>
   <string name="voice_commands_edit">تعديل</string>
   <string name="voice_commands_what">ماذا</string>
   <string name="voice_commands_say">يُرجى قول</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">تصنيف</string>
   <string name="voice_commands_cannot_label_feedback">لا يمكن تصنيف المحتوى.</string>
   <string name="voice_commands_assistant">‏مساعد Google</string>
-  <string name="voice_commands_setting_speech_rate">ضبط معدّل الكلام</string>
   <string name="voice_commands_first">الأول</string>
   <string name="voice_commands_top">الأعلى</string>
   <string name="voice_commands_last">الأخير</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">زيادة سرعة الكلام</string>
   <string name="voice_commands_slower">أبطأ</string>
   <string name="voice_commands_decrease_speech_rate">خفض سرعة الكلام</string>
-  <string name="voice_commands_possible_options_title">يمكنك قول</string>
   <string name="voice_commands_no_action">الاختصارات الصوتية غير متوافقة.</string>
   <string name="voice_commands_no_mic_permissions">لاستخدام هذه الميزة، يجب عليك منح الإذن باستخدام الميكروفون.</string>
   <string name="voice_commands_no_voice_recognition_ability">عذرًا، هذه الميزة غير متاحة على جهازك.</string>
@@ -103,14 +98,14 @@
   <string name="voice_commands_no_next_control_feedback">ليس هناك عنصر تحكّم تالٍ.</string>
   <string name="voice_commands_no_next_landmark_feedback">ليس هناك مَعلم تالٍ.</string>
   <string name="voice_commands_help_title">نظرة عامة على الطلب الصوتي</string>
-  <string name="voice_commands_help_description">لاستخدام الطلبات الصوتية، يُرجى التمرير سريعًا لليسار ثم للأعلى. وما عليك سوى قول \"مساعدة\" أو \"ما الذي يمكنني قوله؟\" في أي وقت للاطّلاع على قائمة الطلبات هذه.</string>
+  <string name="voice_commands_help_description">لاستخدام الطلبات الصوتية، يُرجى التمرير سريعًا لليسار ثم للأعلى. وما عليك سوى قول \"%1$s\" أو \"ما الذي يمكنني قوله؟\" في أي وقت للاطّلاع على قائمة الطلبات هذه.</string>
   <string name="voice_commands_help_hint">للحصول على أفضل النتائج، ننصحك بقول العبارات كما ترد بالضبط في الشاشات التالية.</string>
   <string name="voice_command_screen_locked_hint">‏لا تتوفّر الطلبات الصوتية عندما تكون الشاشة مقفلة. لاستخدام قائمة Talkback بدلاً من ذلك، عليك %1$s.</string>
   <string name="voice_commands_during_setup_hint">لا تتوفّر الطلبات الصوتية أثناء ضبط الإعدادات.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">تغيير كيفية قراءة المحتوى في الشاشة الحالية</string>
   <string name="voice_commands_help_next">[العنوان] التالي</string>
-  <string name="voice_commands_help_navigation">تنقُّل على مستوى [الكلمة]</string>
+  <string name="voice_commands_help_navigation">التنقُّل [على مستوى الكلمة]</string>
   <string name="voice_commands_help_speech_rate">التحدّث [أسرع]</string>
   <string name="voice_commands_help_verbosity">مستوى الإسهاب [منخفض]</string>
   <string name="voice_commands_help_next_description">الانتقال إلى العنوان أو عنصر التحكّم أو القائمة أو المَعلم التاليين</string>

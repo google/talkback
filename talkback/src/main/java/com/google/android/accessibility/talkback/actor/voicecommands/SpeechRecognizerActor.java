@@ -15,11 +15,11 @@
  */
 package com.google.android.accessibility.talkback.actor.voicecommands;
 
-import static android.content.Context.RECEIVER_EXPORTED;
 import static android.speech.SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS;
 import static android.speech.SpeechRecognizer.ERROR_NO_MATCH;
 import static android.speech.SpeechRecognizer.ERROR_RECOGNIZER_BUSY;
 import static android.speech.SpeechRecognizer.ERROR_SPEECH_TIMEOUT;
+import static androidx.core.content.ContextCompat.RECEIVER_EXPORTED;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SILENCE;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.UNSILENCE;
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.VOICE_COMMAND_ATTEMPT;

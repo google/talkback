@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
+import android.text.Layout;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +49,7 @@ import com.google.android.accessibility.talkback.preference.base.TalkBackKeyboar
 import com.google.android.accessibility.talkback.selector.SelectorController;
 import com.google.android.accessibility.talkback.utils.NotificationUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
+import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
@@ -194,6 +196,8 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
 
   /** Terminates instances to prevent leakage. */
   public void shutdown() {
+    dismissUpdateModifierKeysDialog();
+    notificationManager.cancel(KEYMAP_CHANGES_NOTIFICATION_ID);
     sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
   }
 
@@ -561,7 +565,8 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
   private boolean shouldShowKeymapChangesNotification() {
     return hardwareKeyboardStatus == HARDKEYBOARDHIDDEN_NO
         && keyComboModel != null
-        && keyComboModel instanceof ClassicKeyComboModel;
+        && keyComboModel instanceof ClassicKeyComboModel
+        && !FormFactorUtils.getInstance().isAndroidTv();
   }
 
   private void updateKeymapChangesNotificationVisibility() {
@@ -609,58 +614,58 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
   }
 
   private void showOrHideUpdateModifierKeysDialog() {
-    if (!BuildVersionUtils.isAtLeastU()) {
+    if (!BuildVersionUtils.isAtLeastU()
+        || keyComboModel.getTriggerModifier() != KeyEvent.META_META_ON
+        || FormFactorUtils.getInstance().isAndroidTv()) {
+      return;
+    }
+    if (hardwareKeyboardStatus != HARDKEYBOARDHIDDEN_NO) {
+      dismissUpdateModifierKeysDialog();
       return;
     }
     boolean shouldShowDialogAgain =
         !sharedPreferences.getBoolean(
             context.getString(R.string.keycombo_update_modifier_keys_dialog_do_not_show_again),
             false);
-    if (hardwareKeyboardStatus == HARDKEYBOARDHIDDEN_NO && shouldShowDialogAgain) {
-      if (updateModifierKeysDialog == null) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        final View root =
-            inflater.inflate(R.layout.do_not_show_again_checkbox_dialog, /* root= */ null);
-        CheckBox doNotShowAgainCheckBox = root.findViewById(R.id.dont_show_again);
-        doNotShowAgainCheckBox.setOnCheckedChangeListener(
-            (buttonView, isChecked) ->
-                sharedPreferences
-                    .edit()
-                    .putBoolean(
-                        context.getString(
-                            R.string.keycombo_update_modifier_keys_dialog_do_not_show_again),
-                        isChecked)
-                    .apply());
-        TextView contentTextView = root.findViewById(R.id.dialog_content);
-        contentTextView.setText(
-            context.getString(R.string.keycombo_update_modifier_key_warning_content));
-        updateModifierKeysDialog =
-            A11yAlertDialogWrapper.materialDialogBuilder(context)
-                .setView(root)
-                .setTitle(R.string.keycombo_update_modifier_key_warning_title)
-                .setPositiveButton(
-                    R.string.keycombo_go_to_settings,
-                    (dialog, which) -> {
-                      Intent intent = new Intent(context, TalkBackPreferencesActivity.class);
-                      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                      intent.putExtra(
-                          FRAGMENT_NAME,
-                          TalkBackKeyboardShortcutPreferenceFragment.class.getName());
-                      context.startActivity(intent);
-                    })
-                .setNegativeButton(
-                    R.string.keycombo_update_modifier_keys_warning_negative_button, null)
-                .create();
-        DialogUtils.setWindowTypeToDialog(updateModifierKeysDialog.getWindow());
-      }
-      if (!updateModifierKeysDialog.isShowing()) {
-        updateModifierKeysDialog.show();
-      }
-    } else {
-      if (updateModifierKeysDialog != null && updateModifierKeysDialog.isShowing()) {
-        updateModifierKeysDialog.dismiss();
-      }
+    if (!shouldShowDialogAgain
+        || (updateModifierKeysDialog != null && updateModifierKeysDialog.isShowing())) {
+      return;
     }
+    LayoutInflater inflater = LayoutInflater.from(context);
+    final View root =
+        inflater.inflate(R.layout.do_not_show_again_checkbox_dialog, /* root= */ null);
+    CheckBox doNotShowAgainCheckBox = root.findViewById(R.id.dont_show_again);
+    doNotShowAgainCheckBox.setOnCheckedChangeListener(
+        (buttonView, isChecked) ->
+            sharedPreferences
+                .edit()
+                .putBoolean(
+                    context.getString(
+                        R.string.keycombo_update_modifier_keys_dialog_do_not_show_again),
+                    isChecked)
+                .apply());
+    TextView contentTextView = root.findViewById(R.id.dialog_content);
+    contentTextView.setText(context.getString(R.string.keycombo_warning_dialog_message));
+    updateModifierKeysDialog =
+        A11yAlertDialogWrapper.materialDialogBuilder(context)
+            .setView(root)
+            .setTitle(R.string.keycombo_update_modifier_key_warning_title)
+            .setPositiveButton(
+                R.string.keycombo_go_to_settings,
+                (dialog, which) -> {
+                  Intent intent = new Intent(context, TalkBackPreferencesActivity.class);
+                  intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                  intent.putExtra(
+                      FRAGMENT_NAME, TalkBackKeyboardShortcutPreferenceFragment.class.getName());
+                  context.startActivity(intent);
+                })
+            .setNegativeButton(R.string.keycombo_update_modifier_keys_warning_negative_button, null)
+            .create();
+    DialogUtils.setWindowTypeToDialog(updateModifierKeysDialog.getWindow());
+    updateModifierKeysDialog.show();
+    // Starting from Android Q, the default value of hyphenation was changed from normal to none.
+    TextView textView = updateModifierKeysDialog.getDialog().findViewById(R.id.alertTitle);
+    textView.setHyphenationFrequency(Layout.HYPHENATION_FREQUENCY_NORMAL);
   }
 
   /**
@@ -695,6 +700,12 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     }
 
     return !passed;
+  }
+
+  private void dismissUpdateModifierKeysDialog() {
+    if (updateModifierKeysDialog != null && updateModifierKeysDialog.isShowing()) {
+      updateModifierKeysDialog.dismiss();
+    }
   }
 
   private final OnSharedPreferenceChangeListener onSharedPreferenceChangeListener =

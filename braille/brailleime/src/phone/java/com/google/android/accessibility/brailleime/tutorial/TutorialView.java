@@ -47,6 +47,7 @@ import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.braille.common.BrailleUtils;
 import com.google.android.accessibility.braille.common.Constants.BrailleType;
+import com.google.android.accessibility.braille.common.FeedbackManager;
 import com.google.android.accessibility.braille.common.TalkBackSpeaker;
 import com.google.android.accessibility.braille.common.translate.BrailleLanguages.Code;
 import com.google.android.accessibility.braille.common.translate.BrailleTranslateUtils;
@@ -280,7 +281,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
           public void onOrientationChanged(OrientationMonitor.Orientation orientation) {
             if (orientation == OrientationMonitor.Orientation.LANDSCAPE
                 || orientation == OrientationMonitor.Orientation.REVERSE_LANDSCAPE) {
-              tutorialCallback.onPlaySound(R.raw.volume_beep);
+              tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
               BrailleImeVibrator.getInstance(context).vibrate(OTHER_GESTURES);
               // Save the state only because TutorialView will recreate if orientation is changed.
               TutorialView.this.state = rotateOrientation;
@@ -434,7 +435,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
         if (actionCompleted) {
           return;
         }
-        tutorialCallback.onPlaySound(R.raw.volume_beep);
+        tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
         // Wait a second for playing sound and then speak the post-action announcement.
         speakAnnouncement(
             getResources().getString(R.string.calibration_finish_announcement), BEEP_DELAY_MS);
@@ -606,7 +607,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       if (brailleCharacter.toByte() == 0b01) {
         tutorialAnimationView.startActionResultAnimation(
             Ascii.toUpperCase(translator.translateToPrint(new BrailleWord(brailleCharacter))));
-        tutorialCallback.onPlaySound(R.raw.volume_beep);
+        tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
         // Wait a second for playing sound and then speak the post-action announcement.
         String textToSpeak = translator.translateToPrint(new BrailleWord(brailleCharacter));
         speakAnnouncement(textToSpeak, BEEP_DELAY_MS);
@@ -755,7 +756,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
 
       if (remainLetters.contains(character)) {
         tutorialAnimationView.startActionResultAnimation(result);
-        tutorialCallback.onPlaySound(R.raw.volume_beep);
+        tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
         // Wait a second for playing sound and then speak the post-action announcement.
         String textToSpeak = translator.translateToPrint(new BrailleWord(brailleCharacter));
         speakAnnouncement(textToSpeak, BEEP_DELAY_MS);
@@ -858,7 +859,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       if (direction == Direction.RIGHT && touchCount == 1) {
         tutorialAnimationView.stopSwipeAnimation();
         tutorialAnimationView.startActionResultAnimation(resultText());
-        tutorialCallback.onPlaySound(R.raw.volume_beep);
+        tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
         // Wait a second for playing sound and then speak the post-action announcement.
         speakAnnouncement(
             getResources().getString(R.string.swipe_left_action_result_announcement),
@@ -952,7 +953,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       if (direction == Direction.LEFT && touchCount == 1) {
         tutorialAnimationView.stopSwipeAnimation();
         tutorialAnimationView.startActionResultAnimation(resultText());
-        tutorialCallback.onPlaySound(R.raw.volume_beep);
+        tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
         // Wait a second for playing sound and then speak the post-action announcement.
         speakAnnouncement(getResources().getString(R.string.result_swipe_right), BEEP_DELAY_MS);
         actionCompleted = true;
@@ -1043,7 +1044,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       if (direction == Direction.UP && touchCount == 1) {
         tutorialAnimationView.stopSwipeAnimation();
         tutorialAnimationView.startActionResultAnimation(resultText());
-        tutorialCallback.onPlaySound(R.raw.volume_beep);
+        tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
         // Wait a second for playing sound and then speak the post-action announcement.
         speakAnnouncement(getResources().getString(R.string.result_swipe_up), BEEP_DELAY_MS);
         actionCompleted = true;
@@ -1134,7 +1135,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       if (direction == Direction.DOWN && touchCount == 1) {
         tutorialAnimationView.stopSwipeAnimation();
         tutorialAnimationView.startActionResultAnimation(resultText());
-        tutorialCallback.onPlaySound(R.raw.volume_beep);
+        tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
         // Wait a second for playing sound and then speak the post-action announcement.
         speakAnnouncement(getResources().getString(R.string.result_swipe_down), BEEP_DELAY_MS);
         actionCompleted = true;
@@ -1226,7 +1227,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       if (direction == Direction.DOWN && touchCount == 2) {
         tutorialAnimationView.stopSwipeAnimation();
         tutorialAnimationView.startActionResultAnimation(resultText());
-        tutorialCallback.onPlaySound(R.raw.volume_beep);
+        tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
         // Wait a second for playing sound and then speak the post-action announcement.
         speakAnnouncement(
             getResources().getString(R.string.swipe_down_2_fingers_completed_announcement),
@@ -1319,7 +1320,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
       if (direction == Direction.DOWN && touchCount == 3) {
         tutorialAnimationView.stopSwipeAnimation();
         tutorialAnimationView.startActionResultAnimation(resultText());
-        tutorialCallback.onPlaySound(R.raw.volume_beep);
+        tutorialCallback.onPlaySound(FeedbackManager.Type.BEEP);
         // Wait a second for playing sound and then speak the post-action announcement.
         speakAnnouncement(
             getResources().getString(R.string.swipe_down_3_fingers_completed_announcement),
@@ -1478,11 +1479,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
         TalkBackSpeaker.AnnounceType announceType,
         UtteranceCompleteRunnable utteranceCompleteRunnable);
 
-    void onPlaySound(int resId, int delayMs);
-
-    default void onPlaySound(int resId) {
-      onPlaySound(resId, 0);
-    }
+    void onPlaySound(FeedbackManager.Type type);
 
     void onSwitchToNextInputMethod();
 
@@ -1703,7 +1700,7 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
   private void switchState(TutorialState state, long delay) {
     postDelayed(
         () -> {
-          BrailleImeLog.logD(TAG, "Switch to " + state.getCurrentState().name());
+          BrailleImeLog.d(TAG, "Switch to " + state.getCurrentState().name());
           handler.removeCallbacksAndMessages(/* token= */ null);
           this.state = state;
           numberOfInteractionsPerState = 0;
@@ -1712,7 +1709,9 @@ public class TutorialView extends FrameLayout implements OrientationSensitive {
         delay);
   }
 
-  public void tearDown() {
+  @Override
+  public void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
     isStopped = true;
     handler.removeCallbacksAndMessages(/* token= */ null);
     contextMenuDialog.dismiss();

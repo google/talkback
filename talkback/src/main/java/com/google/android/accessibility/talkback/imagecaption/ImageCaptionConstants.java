@@ -16,8 +16,11 @@
 
 package com.google.android.accessibility.talkback.imagecaption;
 
+import androidx.annotation.IntDef;
 import androidx.annotation.StringRes;
 import com.google.android.accessibility.talkback.R;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
 /** A class containing string resources and preference keys of image captioning. */
 public final class ImageCaptionConstants {
@@ -25,32 +28,43 @@ public final class ImageCaptionConstants {
   private static final int ICON_DETECTION_SIZE_MB = 50;
   private static final int IMAGE_DESCRIPTION_SIZE_MB = 110;
 
+  /** For Describe image, there are two different types says basic & detailed description. */
+  @IntDef({TYPE_BASIC_DESCRIPTION, TYPE_DETAILED_DESCRIPTION})
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface ImageDescriptionType {}
+
+  public static final int TYPE_BASIC_DESCRIPTION = 0;
+  public static final int TYPE_DETAILED_DESCRIPTION = 1;
+
+  /** The state of automatic image captioning features. */
+  public enum AutomaticImageCaptioningState {
+    /** Image captioning won't perform automatically. */
+    OFF,
+    /** Image captioning will perform automatically for all images. */
+    ON_ALL_IMAGES,
+    /** Image captioning will perform automatically for unlabelled images. */
+    ON_UNLABELLED_ONLY;
+  }
+
   /** An enum containing string resources of the download dialog. */
   public enum DownloadDialogResources {
     ICON_DETECTION(
         R.string.confirm_download_icon_detection_title,
-        R.string.confirm_download_icon_detection_message_via_menu,
-        R.string.confirm_download_icon_detection_message_via_settings,
+        R.string.confirm_download_icon_detection_message,
         ICON_DETECTION_SIZE_MB),
     IMAGE_DESCRIPTION(
         R.string.confirm_download_image_description_title,
-        R.string.confirm_download_image_description_message_via_menu,
-        R.string.confirm_download_image_description_message_via_settings,
+        R.string.confirm_download_image_description_message,
         IMAGE_DESCRIPTION_SIZE_MB);
 
     @StringRes public final int downloadTitleRes;
-    @StringRes public final int downloadMessageForMenuRes;
-    @StringRes public final int downloadMessageForSettingsRes;
+    @StringRes public final int downloadMessageRes;
     public final int moduleSizeInMb;
 
     DownloadDialogResources(
-        @StringRes int downloadTitleRes,
-        @StringRes int downloadMessageForMenuRes,
-        @StringRes int downloadMessageForSettingsRes,
-        int moduleSizeInMb) {
+        @StringRes int downloadTitleRes, @StringRes int downloadMessageRes, int moduleSizeInMb) {
       this.downloadTitleRes = downloadTitleRes;
-      this.downloadMessageForMenuRes = downloadMessageForMenuRes;
-      this.downloadMessageForSettingsRes = downloadMessageForSettingsRes;
+      this.downloadMessageRes = downloadMessageRes;
       this.moduleSizeInMb = moduleSizeInMb;
     }
   }
@@ -77,29 +91,91 @@ public final class ImageCaptionConstants {
         R.string.switch_icon_detection_dialog_title,
         R.string.switch_icon_detection_dialog_message,
         R.string.pref_auto_icon_detection_key,
-        R.bool.pref_auto_icon_detection_default),
+        R.bool.pref_auto_icon_detection_default,
+        R.string.pref_auto_icon_detection_unlabelled_only_key,
+        R.bool.pref_auto_icon_detection_unlabelled_only_default),
+
     IMAGE_DESCRIPTION(
-        R.string.switch_image_description_dialog_title,
+        R.string.title_pref_image_description,
         R.string.switch_image_description_dialog_message,
         R.string.pref_auto_image_description_key,
-        R.bool.pref_auto_image_description_default),
+        R.bool.pref_auto_image_description_default,
+        R.string.pref_auto_image_description_unlabelled_only_key,
+        R.bool.pref_auto_image_description_unlabelled_only_default),
     TEXT_RECOGNITION(
-        R.string.switch_text_recognition_dialog_title,
+        R.string.title_pref_text_recognition,
         R.string.switch_text_recognition_dialog_message,
         R.string.pref_auto_text_recognition_key,
-        R.bool.pref_auto_text_recognition_default);
+        R.bool.pref_auto_text_recognition_default,
+        R.string.pref_auto_text_recognition_unlabelled_only_key,
+        R.bool.pref_auto_text_recognition_unlabelled_only_default),
+
+    IMAGE_DESCRIPTION_AICORE_OPT_IN(
+        R.string.title_pref_image_description,
+        R.string.dialog_message_on_device_ai_description,
+        R.string.pref_auto_on_devices_image_description_key,
+        R.bool.pref_auto_on_device_image_description_default,
+        R.string.pref_auto_on_device_image_description_unlabelled_only_key,
+        R.bool.pref_auto_on_device_image_description_unlabelled_only_default,
+        TYPE_DETAILED_DESCRIPTION),
+
+    IMAGE_DESCRIPTION_AICORE_SCOPE(
+        R.string.title_pref_image_description,
+        R.string.switch_image_description_dialog_message,
+        R.string.pref_auto_on_devices_image_description_key,
+        R.bool.pref_auto_on_device_image_description_default,
+        R.string.pref_auto_on_device_image_description_unlabelled_only_key,
+        R.bool.pref_auto_on_device_image_description_unlabelled_only_default),
+
+    DETAILED_IMAGE_DESCRIPTION(
+        R.string.title_pref_detailed_image_description,
+        R.string.dialog_message_detailed_ai_description,
+        R.string.pref_detailed_image_description_key,
+        R.bool.pref_detailed_image_description_default,
+        -1,
+        -1,
+        TYPE_DETAILED_DESCRIPTION);
 
     @StringRes public final int titleRes;
     @StringRes public final int messageRes;
     public final int switchKey;
     public final int switchDefaultValue;
+    public final int switchOnUnlabelledOnlyKey;
+    public final int switchOnUnlabelledOnlyDefaultValue;
+    @ImageDescriptionType public final int descriptionType;
 
     FeatureSwitchDialogResources(
-        @StringRes int titleRes, @StringRes int messageRes, int switchKey, int switchDefaultValue) {
+        @StringRes int titleRes,
+        @StringRes int messageRes,
+        int switchKey,
+        int switchDefaultValue,
+        int switchOnUnlabelledOnlyKey,
+        int switchOnUnlabelledOnlyDefaultValue) {
+      this(
+          titleRes,
+          messageRes,
+          switchKey,
+          switchDefaultValue,
+          switchOnUnlabelledOnlyKey,
+          switchOnUnlabelledOnlyDefaultValue,
+          TYPE_BASIC_DESCRIPTION);
+    }
+
+    FeatureSwitchDialogResources(
+        @StringRes int titleRes,
+        @StringRes int messageRes,
+        int switchKey,
+        int switchDefaultValue,
+        int switchOnUnlabelledOnlyKey,
+        int switchOnUnlabelledOnlyDefaultValue,
+        @ImageDescriptionType int descriptionType) {
       this.titleRes = titleRes;
       this.messageRes = messageRes;
       this.switchKey = switchKey;
       this.switchDefaultValue = switchDefaultValue;
+      this.switchOnUnlabelledOnlyKey = switchOnUnlabelledOnlyKey;
+      this.switchOnUnlabelledOnlyDefaultValue = switchOnUnlabelledOnlyDefaultValue;
+      this.descriptionType = descriptionType;
     }
   }
 
@@ -135,36 +211,61 @@ public final class ImageCaptionConstants {
         R.string.pref_icon_detection_download_dialog_do_no_show,
         R.string.pref_icon_detection_installed,
         R.string.pref_icon_detection_uninstalled,
-        R.string.pref_auto_icon_detection_key),
+        R.string.pref_auto_icon_detection_key,
+        R.string.pref_auto_icon_detection_unlabelled_only_key,
+        R.bool.pref_auto_icon_detection_unlabelled_only_default),
     IMAGE_DESCRIPTION(
         R.string.pref_image_description_download_dialog_shown_times,
         R.string.pref_image_description_download_dialog_do_no_show,
         R.string.pref_image_description_installed,
         R.string.pref_image_description_uninstalled,
-        R.string.pref_auto_image_description_key);
+        R.string.pref_auto_image_description_key,
+        R.string.pref_auto_image_description_unlabelled_only_key,
+        R.bool.pref_auto_image_description_unlabelled_only_default);
 
     /** A preference key to record how many times the download dialog has been shown. */
     public final int downloadShownTimesKey;
+
     /** A preference key to record whether TalkBack can show the download dialog again. */
     public final int doNotShowKey;
+
     /** A preference key to record whether user has installed the module. */
     public final int installedKey;
+
     /** A preference key to record whether user has uninstalled the module. */
     public final int uninstalledKey;
+
+    // TODO: b/325531956 - creates a new constant for switch keys and default values.
     /** A preference key to record whether the automatic image caption feature is enabled. */
     public final int switchKey;
+
+    /**
+     * A preference key to record whether the automatic image caption feature is for unlabelled
+     * images only.
+     */
+    public final int switchOnUnlabelledOnlyKey;
+
+    /**
+     * A default value of the preference key to record whether the automatic image caption feature
+     * is for unlabelled images only.
+     */
+    public final int switchOnUnlabelledOnlyDefaultValue;
 
     ImageCaptionPreferenceKeys(
         int downloadShownTimesKey,
         int doNotShowKey,
         int installedKey,
         int uninstalledKey,
-        int switchKey) {
+        int switchKey,
+        int switchOnUnlabelledOnlyKey,
+        int switchOnUnlabelledOnlyDefaultValue) {
       this.downloadShownTimesKey = downloadShownTimesKey;
       this.doNotShowKey = doNotShowKey;
       this.installedKey = installedKey;
       this.uninstalledKey = uninstalledKey;
       this.switchKey = switchKey;
+      this.switchOnUnlabelledOnlyKey = switchOnUnlabelledOnlyKey;
+      this.switchOnUnlabelledOnlyDefaultValue = switchOnUnlabelledOnlyDefaultValue;
     }
   }
 

@@ -13,13 +13,16 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+
 package com.google.android.accessibility.braille.brailledisplay;
 
 import android.accessibilityservice.AccessibilityService;
+import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.braille.interfaces.BrailleDisplayForBrailleIme;
 import com.google.android.accessibility.braille.interfaces.BrailleDisplayForTalkBack;
 import com.google.android.accessibility.braille.interfaces.BrailleImeForBrailleDisplay;
+import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleCommon;
 import com.google.android.accessibility.braille.interfaces.TalkBackForBrailleDisplay;
 
 /** Stub class for the build that doesn't include Braille display. */
@@ -33,6 +36,7 @@ public class BrailleDisplay implements BrailleDisplayForTalkBack, BrailleDisplay
   public BrailleDisplay(
       AccessibilityService accessibilityService,
       TalkBackForBrailleDisplay talkBackForBrailleDisplay,
+      TalkBackForBrailleCommon talkBackForBrailleCommon,
       BrailleImeProvider brailleImeProvider) {}
 
   @Override
@@ -43,6 +47,11 @@ public class BrailleDisplay implements BrailleDisplayForTalkBack, BrailleDisplay
 
   @Override
   public void onAccessibilityEvent(AccessibilityEvent accessibilityEvent) {}
+
+  @Override
+  public boolean onKeyEvent(KeyEvent keyEvent) {
+    return false;
+  }
 
   @Override
   public void onReadingControlChanged(CharSequence readingControlDescription) {}

@@ -98,7 +98,7 @@ public class NodeRoleHint {
     joinList.add(longClickableHint.getHint(node));
 
     // Prepare typo hint.
-    int typoCount = AccessibilityNodeInfoUtils.getTypoCount(node);
+    int typoCount = AccessibilityNodeInfoUtils.getTypoCount(context, node);
     if (typoCount > 0 && TalkbackFeatureSupport.supportTextSuggestion()) {
       joinList.add(
           context.getString(

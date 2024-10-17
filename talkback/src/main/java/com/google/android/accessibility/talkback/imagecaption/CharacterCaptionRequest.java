@@ -51,7 +51,7 @@ public class CharacterCaptionRequest extends CaptionRequest implements OcrListen
       @NonNull OnErrorListener onErrorListener,
       boolean isUserRequested) {
     super(requestId, node, onFinishListener, onErrorListener, isUserRequested);
-    ocrController = new OcrController(service, this);
+    ocrController = new OcrController(this, /* needCropScreenshot= */ false);
     this.screenCapture = screenCapture;
   }
 

@@ -2,14 +2,21 @@
 ###
 ### The following environment variables must be set before executing this script
 ###   ANDROID_SDK           # path to local copy of Android SDK
-###   ANDROID_NDK           # path to local copy of Android NDK
 ###   JAVA_HOME             # path to local copy of Java SDK.
+
+### Environment variables:
+#   ANDROID_SDK=~/Android/Sdk
+#   ANDROID_NDK=~/Android/Sdk/ndk
+# The latest JDK,
+#   JAVA_HOME=/usr/local/buildtools/java/jdk
+# JDK 17, work for current build,
+#   JAVA_HOME=/google/data/ro/projects/java-platform/linux-amd64/jdk-17-latest/bin
 
 # For help in getting the correct version numbers of gradle, the gradle plugin,
 # and Java, see the following:
 # https://developer.android.com/build/releases/gradle-plugin#updating-gradle
 # https://docs.gradle.org/current/userguide/compatibility.html
-GRADLE_DOWNLOAD_VERSION=7.3.3
+GRADLE_DOWNLOAD_VERSION=7.6.4
 GRADLE_TRACE=false   # change to true to enable verbose logging of gradle
 
 
@@ -29,7 +36,6 @@ function fail_with_message  {
 function require_environment_variable() {
   if [[ -z ${!1+set} ]]; then
     fail_with_message "the environment variable $1 is not set"
-    exit 1
   else
     log "${1}: ${!1}"
   fi
@@ -38,7 +44,6 @@ function require_environment_variable() {
 function require_folder_exists() {
   if [[ ! -d "${1}" ]]; then
     fail_with_message "the folder at ${1} does not exist"
-    exit 1
   else
     log "ls ${1}"; ls "${1}"
   fi
@@ -52,8 +57,6 @@ log
 
 require_environment_variable ANDROID_SDK
 require_folder_exists "${ANDROID_SDK}"
-require_environment_variable ANDROID_NDK
-require_folder_exists "${ANDROID_NDK}"
 require_environment_variable JAVA_HOME
 require_folder_exists "${JAVA_HOME}"
 log
@@ -61,7 +64,6 @@ log
 
 log "Write local.properties file"
 echo "sdk.dir=${ANDROID_SDK}" > local.properties
-echo "ndk.dir=${ANDROID_NDK}" >> local.properties
 log "cat local.properties"; cat local.properties
 log
 
@@ -82,11 +84,6 @@ GRADLE_BINARY=${GRADLE_UNZIP_HOSTING_FOLDER}/gradle-${GRADLE_DOWNLOAD_VERSION}/b
 log "\${GRADLE_BINARY} = ${GRADLE_BINARY}"
 log "\${GRADLE_BINARY} -version"
 ${GRADLE_BINARY} -version
-log
-
-
-log "find gradle"
-find gradle
 log
 
 

@@ -43,8 +43,10 @@ import com.google.android.accessibility.talkback.Feedback.DimScreen;
 import com.google.android.accessibility.talkback.Feedback.EditText;
 import com.google.android.accessibility.talkback.Feedback.Focus;
 import com.google.android.accessibility.talkback.Feedback.FocusDirection;
+import com.google.android.accessibility.talkback.Feedback.GeminiRequest;
 import com.google.android.accessibility.talkback.Feedback.Gesture;
 import com.google.android.accessibility.talkback.Feedback.ImageCaption;
+import com.google.android.accessibility.talkback.Feedback.ImageCaptionResult;
 import com.google.android.accessibility.talkback.Feedback.InterruptGroup;
 import com.google.android.accessibility.talkback.Feedback.InterruptLevel;
 import com.google.android.accessibility.talkback.Feedback.Label;
@@ -86,6 +88,7 @@ import com.google.android.accessibility.talkback.actor.TalkBackUIActor;
 import com.google.android.accessibility.talkback.actor.TextEditActor;
 import com.google.android.accessibility.talkback.actor.TypoNavigator;
 import com.google.android.accessibility.talkback.actor.VolumeAdjustor;
+import com.google.android.accessibility.talkback.actor.gemini.GeminiActor;
 import com.google.android.accessibility.talkback.actor.search.SearchScreenNodeStrategy;
 import com.google.android.accessibility.talkback.actor.search.UniversalSearchActor;
 import com.google.android.accessibility.talkback.actor.voicecommands.SpeechRecognizerActor;
@@ -94,7 +97,7 @@ import com.google.android.accessibility.talkback.compositor.WindowContentChangeA
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction;
 import com.google.android.accessibility.talkback.labeling.TalkBackLabelManager;
-import com.google.android.accessibility.talkback.preference.base.TutorialAndHelpFragment;
+import com.google.android.accessibility.talkback.preference.base.AutomaticDescriptionsFragment;
 import com.google.android.accessibility.talkback.training.TutorialInitiator;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants;
@@ -103,6 +106,7 @@ import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.output.FeedbackController;
+import com.google.android.accessibility.utils.output.SpeechCleanupUtils.PunctuationVerbosity;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Objects;
@@ -146,6 +150,7 @@ class Actors {
   private final GestureReporter gestureReporter;
   private final ImageCaptioner imageCaptioner;
   private final UniversalSearchActor universalSearchActor;
+  private final GeminiActor geminiActor;
   private final ServiceFlagRequester serviceFlagRequester;
   private final FormFactorUtils formFactorUtils;
   private final BrailleDisplayActor brailleDisplayActor;
@@ -182,6 +187,7 @@ class Actors {
       GestureReporter gestureReporter,
       ImageCaptioner imageCaptioner,
       UniversalSearchActor universalSearchActor,
+      GeminiActor geminiActor,
       ServiceFlagRequester serviceFlagRequester,
       BrailleDisplayActor brailleDisplayActor) {
     this.context = context;
@@ -212,6 +218,7 @@ class Actors {
     this.gestureReporter = gestureReporter;
     this.imageCaptioner = imageCaptioner;
     this.universalSearchActor = universalSearchActor;
+    this.geminiActor = geminiActor;
     this.serviceFlagRequester = serviceFlagRequester;
     this.brailleDisplayActor = brailleDisplayActor;
 
@@ -228,7 +235,8 @@ class Actors {
             languageSwitcher.state,
             speechRateActor.state,
             passThroughModeActor.state,
-            labeler.stateReader());
+            labeler.stateReader(),
+            geminiActor.state);
     // Focuser stores some actor-state in ActorState, because focuser does not use that state
     // internally, only for communication to interpeters.
     this.focuser.setActorState(actorState);
@@ -247,6 +255,7 @@ class Actors {
   }
 
   public void setPipelineFeedbackReturner(Pipeline.FeedbackReturner pipelineFeedbackReturner) {
+    scroller.setPipeline(pipelineFeedbackReturner);
     dimmer.setPipeline(pipelineFeedbackReturner);
     continuousReader.setPipeline(pipelineFeedbackReturner);
     directionNavigator.setPipeline(pipelineFeedbackReturner);
@@ -263,6 +272,7 @@ class Actors {
     speechRecognizer.setPipeline(pipelineFeedbackReturner);
     imageCaptioner.setPipeline(pipelineFeedbackReturner);
     universalSearchActor.setPipeline(pipelineFeedbackReturner);
+    geminiActor.setPipeline(pipelineFeedbackReturner);
   }
 
   public void setUserInterface(UserInterface userInterface) {
@@ -302,14 +312,17 @@ class Actors {
         case START_AT_TOP:
           continuousReader.startReadingFromBeginning(eventId);
           break;
-        case START_AT_NEXT:
-          continuousReader.startReadingFromNextNode(eventId);
+        case START_AT_CURSOR:
+          continuousReader.startReadingFromFocusedNode(eventId);
           break;
         case READ_FOCUSED_CONTENT:
           continuousReader.readFocusedContent(eventId);
           break;
         case INTERRUPT:
           continuousReader.interrupt();
+          break;
+        case IGNORE:
+          continuousReader.ignore();
           break;
       }
     }
@@ -359,6 +372,7 @@ class Actors {
           speaker.spellSavedUtterance();
           break;
         case PAUSE_OR_RESUME:
+          continuousReader.pauseOrResumeContinuousReadingState();
           speaker.pauseOrResumeUtterance();
           break;
         case TOGGLE_VOICE_FEEDBACK:
@@ -410,9 +424,7 @@ class Actors {
       Intent intent = null;
       switch (triggerIntent.action()) {
         case TRIGGER_TUTORIAL:
-          intent = new Intent(context, TalkBackPreferencesActivity.class);
-          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-          intent.putExtra(FRAGMENT_NAME, TutorialAndHelpFragment.class.getName());
+          intent = TutorialInitiator.createTutorialIntent(context);
           break;
         case TRIGGER_PRACTICE_GESTURE:
           intent = TutorialInitiator.createPracticeGesturesIntent(context);
@@ -428,6 +440,11 @@ class Actors {
             intent = new Intent().setComponent(Constants.BRAILLE_DISPLAY_SETTINGS);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
           }
+          break;
+        case TRIGGER_IMAGE_DESCRIPTIONS_SETTINGS:
+          intent = new Intent(context, TalkBackPreferencesActivity.class);
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+          intent.putExtra(FRAGMENT_NAME, AutomaticDescriptionsFragment.class.getName());
           break;
       }
       try {
@@ -535,6 +552,7 @@ class Actors {
                   scroll.nodeAction(),
                   scroll.source(),
                   scroll.timeout(),
+                  scroll.autoScrollAttempt(),
                   eventId);
           break;
 
@@ -638,6 +656,11 @@ class Actors {
           break;
         case ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN:
           success &= focuser.ensureAccessibilityFocusOnScreen(eventId);
+          break;
+        case STEAL_NEXT_WINDOW_NAVIGATION:
+          success &=
+              directionNavigator.updateStealNextWindowNavigation(
+                  focus.stealNextWindowTarget(), focus.stealNextWindowTargetDirection());
           break;
       }
     }
@@ -893,6 +916,9 @@ class Actors {
               imageCaptioner.caption(
                   imageCaption.target(), /* isUserRequested= */ imageCaption.userRequested());
           break;
+        case PERFORM_CAPTION_WITH_GEMINI:
+          success &= imageCaptioner.captionWithGemini(imageCaption.target());
+          break;
         case CONFIRM_DOWNLOAD_AND_PERFORM_CAPTIONS:
           success &= imageCaptioner.confirmDownloadAndPerformCaption(imageCaption.target());
           break;
@@ -901,7 +927,32 @@ class Actors {
           break;
         case INITIALIZE_IMAGE_DESCRIPTION:
           success &= imageCaptioner.initImageDescription();
+          break;
+        case DETAILED_DESCRIPTION_OPT_IN:
+          success &= imageCaptioner.geminiOptInForManualTrigger(imageCaption.target());
+          break;
+        case PERFORM_CAPTION_WITH_ON_DEVICE_GEMINI:
+          success &= imageCaptioner.captionWithOnDeviceGemini(imageCaption.target());
+          break;
+        case ON_DEVICE_DETAILED_DESCRIPTION_OPT_IN:
+          success &= imageCaptioner.geminiOnDeviceOptInForManualTrigger(imageCaption.target());
+          break;
+        case CONFIG_DETAILED_IMAGE_DESCRIPTIONS_SETTINGS:
+          success &=
+              imageCaptioner.geminiConfigDetailedImageDescriptionTrigger(imageCaption.target());
+          break;
       }
+    }
+
+    // Image Caption Result
+    @Nullable ImageCaptionResult imageCaptionResult = part.imageCaptionResult();
+    if (imageCaptionResult != null) {
+      success &=
+          imageCaptioner.handleResultFromGemini(
+              imageCaptionResult.requestId(),
+              imageCaptionResult.text(),
+              imageCaptionResult.isSuccess(),
+              imageCaptionResult.userRequested());
     }
 
     // Device info
@@ -951,6 +1002,21 @@ class Actors {
       }
     }
 
+    // Gemini request
+    @Nullable GeminiRequest geminiRequest = part.geminiRequest();
+    if (geminiRequest != null) {
+      switch (geminiRequest.action()) {
+        case REQUEST:
+          geminiActor.requestOnlineGeminiCommand(
+              geminiRequest.requestId(), geminiRequest.text(), geminiRequest.image());
+          break;
+        case REQUEST_ON_DEVICE_IMAGE_CAPTIONING:
+          geminiActor.requestAiCoreImageCaptioning(
+              geminiRequest.requestId(), geminiRequest.image(), geminiRequest.manualTrigger());
+          break;
+      }
+    }
+
     // Change service flags
     @Nullable ServiceFlag serviceFlag = part.serviceFlag();
     if (serviceFlag != null) {
@@ -986,15 +1052,19 @@ class Actors {
     speaker.updateTtsEngine(quiet);
   }
 
-  public void onUnbind(float finalAnnouncementVolume) {
+  public void prepareForOnUnbind(float finalAnnouncementVolume) {
     // Main thread will be waiting during the TTS announcement, thus in this special case we should
     // not handle TTS callback in main thread.
     speaker.setHandleTtsCallbackInMainThread(false);
     // TalkBack is not allowed to display overlay at this state.
     speaker.setOverlayEnabled(false);
     speaker.setSpeechVolume(finalAnnouncementVolume);
+  }
+
+  public void onUnbind() {
     speaker.setMute(true);
     soundAndVibration.shutdown();
+    geminiActor.onUnbind();
   }
 
   public void interruptAllFeedback(boolean stopTtsSpeechCompletely) {
@@ -1055,6 +1125,10 @@ class Actors {
 
   public void setUsePunctuation(boolean use) {
     speaker.setUsePunctuation(use);
+  }
+
+  public void setPunctuationVerbosity(@PunctuationVerbosity int verbosity) {
+    speaker.setPunctuationVerbosity(verbosity);
   }
 
   public void setSpeechPitch(float pitch) {

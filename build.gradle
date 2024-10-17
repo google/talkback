@@ -13,13 +13,21 @@ dependencies {
 }
 
 buildscript {
+    ext.kotlin_version = "1.8.0"
     repositories {
         mavenCentral()
         google()
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'com.android.tools.build:gradle:4.2.2'
+        // Here we set the version of the Android Gradle Plugin used by this
+        // script. It is best to use as new a version as possible, but beware
+        // that each version of the Gradle Plugin requires that the version of
+        // Gradle (used to drive the build) be a certain version or above. The
+        // correspondence is tracked here:
+        // https://developer.android.com/build/releases/gradle-plugin#updating-gradle
+        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -31,13 +39,11 @@ allprojects {
 }
 
 android {
-    buildToolsVersion '29.0.0'
     defaultConfig {
         applicationId talkbackApplicationId
         versionName talkbackVersionName + "-" + BUILD_TIMESTAMP
         minSdkVersion 26
         targetSdkVersion 30
-        compileSdkVersion 33
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'
         multiDexEnabled true
     }

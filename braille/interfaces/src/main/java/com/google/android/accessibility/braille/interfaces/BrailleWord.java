@@ -233,7 +233,7 @@ public class BrailleWord {
   /**
    * Tokenizes a word into subwords, where subword boundaries are defined by the {@code delimiters}.
    *
-   * <p>The resulting list of words includes delimeters, as well as non-delimeters, and no non-empty
+   * <p>The resulting list of words includes delimiters, as well as non-delimiters, and no non-empty
    * subwords are discarded by the tokenization.
    */
   public List<BrailleWord> tokenize(Collection<BrailleCharacter> delimiters) {

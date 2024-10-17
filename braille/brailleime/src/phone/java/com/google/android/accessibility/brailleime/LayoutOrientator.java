@@ -76,7 +76,7 @@ public class LayoutOrientator {
               Utils.adjustAccelOrientation(
                   Utils.getDisplayRotationDegrees(context), sensorEvent.values);
           boolean isFlat = Utils.isFlat(sensorEventValues);
-          boolean firstChangedEvent = !autoModeLayout.isPresent();
+          boolean firstChangedEvent = autoModeLayout.isEmpty();
           TouchDots newLayout = isFlat ? TouchDots.TABLETOP : TouchDots.SCREEN_AWAY;
           boolean shouldChange = firstChangedEvent || (autoModeLayout.get() != newLayout);
           autoModeLayout = Optional.of(newLayout);

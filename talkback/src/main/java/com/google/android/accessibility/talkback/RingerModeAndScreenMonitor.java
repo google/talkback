@@ -16,11 +16,10 @@
 
 package com.google.android.accessibility.talkback;
 
-import static android.content.Context.RECEIVER_EXPORTED;
+import static androidx.core.content.ContextCompat.RECEIVER_EXPORTED;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -34,7 +33,6 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
-import android.view.Display;
 import androidx.annotation.IntDef;
 import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.talkback.TalkBackService.ProximitySensorListener;
@@ -44,6 +42,7 @@ import com.google.android.accessibility.talkback.monitor.CallStateMonitor;
 import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.StringBuilderUtils;
+import com.google.android.accessibility.utils.broadcast.SameThreadBroadcastReceiver;
 import com.google.android.accessibility.utils.monitor.DisplayMonitor;
 import com.google.android.accessibility.utils.monitor.DisplayMonitor.DisplayStateChangedListener;
 import com.google.android.accessibility.utils.output.FeedbackController;
@@ -65,7 +64,7 @@ import java.util.concurrent.Executors;
 // with listener interfaces. This will remove the need to hold dependencies
 // and call into other classes.
 /** {@link BroadcastReceiver} for receiving updates for our context - device state */
-public class RingerModeAndScreenMonitor extends BroadcastReceiver
+public class RingerModeAndScreenMonitor extends SameThreadBroadcastReceiver
     implements DisplayStateChangedListener {
 
   private static final String TAG = "RingerModeAndScreenMon";
@@ -195,7 +194,7 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver
   }
 
   @Override
-  public void onReceive(Context context, Intent intent) {
+  public void onReceiveIntent(Intent intent) {
     if (!TalkBackService.isServiceActive()) {
       return;
     }

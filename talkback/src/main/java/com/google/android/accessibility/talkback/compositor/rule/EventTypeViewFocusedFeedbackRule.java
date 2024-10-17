@@ -74,9 +74,13 @@ public final class EventTypeViewFocusedFeedbackRule {
 
   private static CharSequence getTtsOutput(
       HandleEventOptions eventOptions, GlobalVariables globalVariables) {
-    if (FormFactorUtils.getInstance().isAndroidTv()) {
+    if (FormFactorUtils.getInstance().isAndroidTv()
+        || FormFactorUtils.getInstance().isAndroidWear()) {
       // On TV, we will always sync accessibility-focus to input-focus, so it is sufficient to
       // speak on TYPE_VIEW_ACCESSIBILITY_FOCUSED.
+      //
+      // On wear, input-focus is on the scrollable view because it has the side button to scroll it.
+      // We could skip the announcement.
       return "";
     }
     return AccessibilityEventFeedbackUtils.getEventContentDescriptionOrEventAggregateText(

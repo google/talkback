@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@drawable/training_list_item_background">
   <androidx.appcompat.widget.AppCompatTextView
-      android:id="@+id/training_list_item_text"
+      android:id="@+id/training_list_item_title"
       android:layout_width="match_parent"
       android:layout_height="@dimen/wear_alertdialog_menuitem_height"
       android:textAppearance="?android:attr/textAppearanceListItemSmall"

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="voice_commands_read">унших</string>
-  <string name="voice_commands_read_from_next">Дараагийн зүйлээс унших</string>
+  <string name="voice_commands_read_from_next">Курсороос унших</string>
   <string name="voice_commands_edit_options">Засах сонголтууд</string>
-  <string name="voice_commands_text_editing">Текст засварлах</string>
-  <string name="voice_commands_edit_text">Текст засах</string>
-  <string name="voice_commands_editing_options">Засварлах сонголтууд</string>
   <string name="voice_commands_edit">засах</string>
   <string name="voice_commands_what">юу</string>
   <string name="voice_commands_say">хэлэх</string>
@@ -46,7 +43,6 @@
   <string name="voice_commands_label">Шошго</string>
   <string name="voice_commands_cannot_label_feedback">Шошголох боломжгүй</string>
   <string name="voice_commands_assistant">Туслах</string>
-  <string name="voice_commands_setting_speech_rate">Ярианы хурдыг тохируулах</string>
   <string name="voice_commands_first">Эхний</string>
   <string name="voice_commands_top">Дээр</string>
   <string name="voice_commands_last">Сүүлийн</string>
@@ -87,7 +83,6 @@
   <string name="voice_commands_increase_speech_rate">Ярианы хурдыг нэмэх</string>
   <string name="voice_commands_slower">Удаан</string>
   <string name="voice_commands_decrease_speech_rate">ярианы хурдыг багасгах</string>
-  <string name="voice_commands_possible_options_title">Та хэлэх боломжтой</string>
   <string name="voice_commands_no_action">Товчилсон дуут тушаалыг дэмждэггүй</string>
   <string name="voice_commands_no_mic_permissions">Та энэ онцлогийг ашиглахын тулд микрофон ашиглах зөвшөөрөл хүсэх ёстой.</string>
   <string name="voice_commands_no_voice_recognition_ability">Уучлаарай! Таны төхөөрөмжид энэ онцлог боломжгүй байна</string>
@@ -103,7 +98,7 @@
   <string name="voice_commands_no_next_control_feedback">Дараагийн хяналт байхгүй байна</string>
   <string name="voice_commands_no_next_landmark_feedback">Дараагийн газрын тэмдэглэгээ байхгүй байна</string>
   <string name="voice_commands_help_title">Дуут тушаалын тойм</string>
-  <string name="voice_commands_help_description">Дуут тушаалыг ашиглахын тулд баруун, дараа нь дээш шударна уу. Энэ тушаалын жагсаалтыг харахын тулд хүссэн үедээ \"Тусламж\" эсвэл \"Би юу хэлж болох вэ?\" гэж хэлнэ үү.</string>
+  <string name="voice_commands_help_description">Дуут тушаалыг ашиглахын тулд баруун, дараа нь дээш шударна уу. Энэ тушаалын жагсаалтыг харахын тулд хүссэн үедээ \"%1$s\" эсвэл \"Би юу хэлж болох вэ?\" гэж хэлнэ үү.</string>
   <string name="voice_commands_help_hint">Хамгийн сайн үр дүнд хүрэхийн тулд дараах дэлгэц дээр жагсаасан үгнүүдийг яг байгаагаар нь хэлнэ үү.</string>
   <string name="voice_command_screen_locked_hint">Дэлгэц түгжээтэй үед дуут тушаалыг ашиглах боломжгүй. Оронд нь TalkBack цэсийг ашиглахын тулд %1$s.</string>
   <string name="voice_commands_during_setup_hint">Тохируулгын үеэр дуут тушаалууд боломжгүй.</string>
