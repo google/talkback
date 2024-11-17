@@ -74,6 +74,19 @@ public abstract class PreferencesActivity extends BasePreferencesActivity {
     return true;
   }
 
+  // INFO: TalkBack For Developers modification
+  //       Bug fix for the open source build
+  @Override
+  public boolean onSupportNavigateUp() {
+    return onNavigateUp();
+  }
+
+  @Override
+  public void onBackPressed() {
+    onNavigateUp();
+  }
+  // ------------------------------------------
+
   @Override
   protected final int getContainerId() {
     return supportHatsSurvey() ? R.id.preference_root : super.getContainerId();

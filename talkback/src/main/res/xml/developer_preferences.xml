@@ -53,4 +53,8 @@
       android:key="@string/pref_dump_a11y_event_key"
       android:title="@string/title_pref_dump_a11y_event"
       android:fragment="com.google.android.accessibility.talkback.preference.base.TalkBackDumpAccessibilityEventFragment" />
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreference
+      android:defaultValue="@bool/pref_tb4d_overlay_block_default"
+      android:key="@string/pref_tb4d_block_overlay_key"
+      android:title="@string/title_pref_tb4d_block_overlay"/>
 </PreferenceScreen>

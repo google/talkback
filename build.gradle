@@ -41,7 +41,7 @@ allprojects {
 android {
     defaultConfig {
         applicationId talkbackApplicationId
-        versionName talkbackVersionName + "-" + BUILD_TIMESTAMP
+        versionName talkbackVersionName + "-" + BUILD_TIMESTAMP + "-" + talkback4DevVersionName
         minSdkVersion 26
         targetSdkVersion 30
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'

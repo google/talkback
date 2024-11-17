@@ -50,4 +50,11 @@
   <color name="a11y_wear_material_color_surface_variant">@android:color/system_neutral1_800</color>
   <color name="a11y_wear_material_color_background">@color/google_black</color>
   <color name="a11y_wear_material_color_on_background_wear">@color/google_white</color>
+
+  <!-- INFO: TalkBack For Developers modification-->
+  <!-- Toast colours -->
+  <color name="toast_back_color">@color/google_grey200</color>
+  <color name="toast_border_color_end">@color/google_grey200</color>
+  <color name="toast_border_color_start">#00de7a</color>
+  <color name="toast_border_color_center">@color/google_white</color>
 </resources>

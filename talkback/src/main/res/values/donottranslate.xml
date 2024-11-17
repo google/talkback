@@ -970,7 +970,7 @@
     <string name="pref_time_feedback_format_default">pref_time_feedback_format_values_undefined</string>
     <bool name="pref_speak_element_ids_default">false</bool>
     <bool name="pref_diagnosis_mode_default">false</bool>
-    <bool name="pref_tts_overlay_default">false</bool>
+    <bool name="pref_tts_overlay_default">true</bool>
     <bool name="pref_multiple_gesture_set_default">false</bool>
     <bool name="pref_echo_recognized_text_default">false</bool>
     <bool name="pref_reduce_window_delay_default">true</bool>
@@ -1308,4 +1308,6 @@
     <string name="pref_has_performed_restore_key">pref_has_performed_restore_key</string>
     <bool name="pref_has_performed_restore_default">false</bool>
 
+    <string name="pref_tb4d_block_overlay_key" translatable="false">pref_tb4d_block_overlay_key_reflect</string>
+    <bool name="pref_tb4d_overlay_block_default">false</bool>
 </resources>

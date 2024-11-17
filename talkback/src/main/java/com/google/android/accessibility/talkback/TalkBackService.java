@@ -121,6 +121,7 @@ import com.google.android.accessibility.talkback.actor.search.UniversalSearchAct
 import com.google.android.accessibility.talkback.actor.search.UniversalSearchManager;
 import com.google.android.accessibility.talkback.actor.voicecommands.SpeechRecognizerActor;
 import com.google.android.accessibility.talkback.actor.voicecommands.VoiceCommandProcessor;
+import com.google.android.accessibility.talkback.adb.AdbReceiver;
 import com.google.android.accessibility.talkback.braille.BrailleHelper;
 import com.google.android.accessibility.talkback.braille.TalkBackForBrailleCommonImpl;
 import com.google.android.accessibility.talkback.braille.TalkBackForBrailleDisplayImpl;
@@ -176,6 +177,7 @@ import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor
 import com.google.android.accessibility.talkback.monitor.BatteryMonitor;
 import com.google.android.accessibility.talkback.monitor.CallStateMonitor;
 import com.google.android.accessibility.talkback.monitor.InputMethodMonitor;
+import com.google.android.accessibility.talkback.overlay.DevInfoOverlayController;
 import com.google.android.accessibility.talkback.preference.PreferencesActivityUtils;
 import com.google.android.accessibility.talkback.selector.SelectorController;
 import com.google.android.accessibility.talkback.selector.SelectorController.SelectorEventNotifier;
@@ -517,6 +519,9 @@ public class TalkBackService extends AccessibilityService
   /** Controller for diagnostic overlay (developer mode). */
   private DiagnosticOverlayControllerImpl diagnosticOverlayController;
 
+  /** Controller for dev info overlay (developer mode + talkback 4 developers). */
+  private DevInfoOverlayController devInfoOverlayController;
+
   /** Staged pipeline for separating interpreters, feedback-mappers, and actors. */
   private Pipeline pipeline;
 
@@ -797,6 +802,9 @@ public class TalkBackService extends AccessibilityService
 
   @Override
   public void onDestroy() {
+    // INFO: TalkBack For Developers modification
+    AdbReceiver.unregisterAdbReceiver(this);
+    // ------------------------------------------
     if (eventLatencyLogger != null) {
       eventLatencyLogger.destroy();
     }
@@ -1340,6 +1348,9 @@ public class TalkBackService extends AccessibilityService
   @Override
   protected void onServiceConnected() {
     LogUtils.v(TAG, "System bound to service.");
+    // INFO: TalkBack For Developers modification
+    AdbReceiver.registerAdbReceiver(this);
+    // ------------------------------------------
     primesController = new PrimesController();
     primesController.initialize(getApplication());
     primesController.startTimer(TimerAction.START_UP);
@@ -1532,6 +1543,7 @@ public class TalkBackService extends AccessibilityService
     }
     speechStateMonitor = new SpeechStateMonitor();
     diagnosticOverlayController = new DiagnosticOverlayControllerImpl(this);
+    devInfoOverlayController = new DevInfoOverlayController(this);
 
     gestureShortcutMapping = new GestureShortcutMapping(this);
 
@@ -1745,6 +1757,7 @@ public class TalkBackService extends AccessibilityService
             proximitySensorListener,
             speechController,
             diagnosticOverlayController,
+            devInfoOverlayController,
             compositor,
             userInterface);
     onPipelineInitialized(pipeline);
@@ -2575,6 +2588,12 @@ public class TalkBackService extends AccessibilityService
         PreferencesActivityUtils.getDiagnosticPref(
             prefs, res, R.string.pref_log_overlay_key, R.bool.pref_log_overlay_default);
     diagnosticOverlayController.setLogOverlayEnabled(logOverlayEnabled);
+
+    boolean blockOutEnabled = getBooleanPref(R.string.pref_tb4d_block_overlay_key, R.bool.pref_tb4d_overlay_block_default);
+    devInfoOverlayController.setOverlayEnabled(blockOutEnabled);
+    if (blockOutEnabled && logOverlayEnabled) {
+      diagnosticOverlayController.setLogOverlayEnabled(false);
+    }
 
     accessibilityEventProcessor.setSpeakWhenScreenOff(
         VerbosityPreferences.getPreferenceValueBool(
@@ -3451,4 +3470,18 @@ public class TalkBackService extends AccessibilityService
       Performance.getInstance().clearAllStatsAndRecords(dumpLogger);
     }
   }
+
+  // INFO: TalkBack For Developers modification
+  public void performGesture(String gestureString) {
+    Performance perf = Performance.getInstance();
+    EventId eventId = perf.onEventReceived(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_UNKNOWN));
+    gestureController.performAction(gestureString, eventId);
+  }
+
+  public void moveAtGranularity(SelectorController.Granularity granularity, boolean isNext) {
+    Performance perf = Performance.getInstance();
+    EventId eventId = perf.onEventReceived(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_UNKNOWN));
+    selectorController.moveAtGranularity(eventId, granularity, isNext);
+  }
+  // ------------------------------------------
 }

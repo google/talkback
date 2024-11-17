@@ -36,7 +36,7 @@ public class PackageManagerUtils {
 
   /** TalkBack service name constant */
   public static final String TALKBACK_SERVICE_NAME =
-      "com.google.android.marvin.talkback.TalkBackService";
+          "com.developer.talkback.TalkBackDevService"; // INFO: TalkBack For Developers modification
 
   /** gmscore-package-name constants */
   private static final String GMSCORE_PACKAGE_NAME = "com.google.android.gms";

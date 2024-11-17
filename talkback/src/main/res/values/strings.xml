@@ -3,14 +3,14 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!--The human-readable name of this service. Do not translate. -->
-    <string name="talkback_title" translatable="false">TalkBack_TfP</string>
+    <string name="talkback_title" translatable="false">TalkBack for Developers</string>
 
     <!--
       Source: A brief description of TalkBack.
       Description: This is presented to the user on the accessibility settings view. [CHAR LIMIT=NONE]
     -->
     <string name="talkback_service_description">
-      When TalkBack is on, it provides spoken feedback so that you can use your device without looking at the screen. This can be helpful for people who are blind or have low vision.\n\nTo navigate using TalkBack:\n•  Swipe right or left to move between items\n•  Double-tap to activate an item\n•  Drag two fingers to scroll\n\nTo turn off TalkBack:\n•  Tap the switch. You’ll see an outline. Double-tap the switch.\n•  On the confirmation message, tap OK. Then double-tap OK.
+      TalkBack for Developers is a custom fork of Google\'s TalkBack that allows for controlling TalkBack with Android Debug Bridge commands\n\nWhen TalkBack is on, it provides spoken feedback so that you can use your device without looking at the screen. This can be helpful for people who are blind or have low vision.\n\nTo navigate using TalkBack:\n•  Swipe right or left to move between items\n•  Double-tap to activate an item\n•  Drag two fingers to scroll\n\nTo turn off TalkBack:\n•  Tap the switch. You’ll see an outline. Double-tap the switch.\n•  On the confirmation message, tap OK. Then double-tap OK.
     </string>
 
     <!-- TODO: Try to remove nbsp following li. -->
@@ -2845,4 +2845,9 @@ Description: Explain that the feature is enabled for all images. [CHAR_LIMIT=NON
     Description: The pattern looks like "TalkBack > Settings > Customize menus > Customize reading controls"; the term "TalkBack" does not need to translate. [CHAR LIMIT=NONE]
   -->
   <string name="search_summary_3_levels">TalkBack > Settings <xliff:g id="level2_title" example="Customize menus">> %1$s</xliff:g> > <xliff:g id="level3_title" example="Customize reading control">%2$s</xliff:g></string>
+  <!--
+      Source: Preference title.
+      Description: This preference allows the user blur everything except the focused component.
+    -->
+  <string name="title_pref_tb4d_block_overlay">Block out overlay</string>
 </resources>

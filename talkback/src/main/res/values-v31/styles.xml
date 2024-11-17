@@ -17,9 +17,28 @@
 
 <resources>
 
+  <!-- INFO: TalkBack For Developers modification -->
+  <!--The basic theme for service-->
+  <style name="TalkbackBaseTheme" parent="Theme.AppCompat.DayNight" >
+    <item name="selector_background_color">@color/quick_menu_overlay_background_color</item>
+    <item name="selector_background_stroke_color">@color/quick_menu_overlay_stroke_color</item>
+    <item name="selector_icon_color">@color/quick_menu_overlay_finger_swipe_icon_color</item>
+    <item name="selector_icon_stroke_color">@color/quick_menu_overlay_finger_swipe_icon_stroke_color</item>
+  </style>
+
   <!--The theme is for preference settings-->
-  <style name="TalkBackSettings" parent="Theme.MaterialComponents.Light.Bridge">
+  <style name="TalkBackSettings" parent="Theme.MaterialComponents.DayNight.Bridge" >
     <item name="colorAccent">@color/colorAccent</item>
+    <item name="actionBarTheme">@style/SettingsActionBar</item>
+  </style>
+
+  <style name="SettingsActionBar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <item name="android:textColorPrimary">@color/actionBarTextColorPrimary</item>
+    <item name="android:background">@color/settings_bg_color</item>
+  </style>
+
+  <style name="DialogStyle" parent="Theme.AppCompat.DayNight.Dialog">
+    <item name="android:windowNoTitle">true</item>
   </style>
 
 </resources>

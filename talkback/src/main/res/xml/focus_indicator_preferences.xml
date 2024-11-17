@@ -7,25 +7,25 @@
       android:title="@string/title_pref_thick_border"
       android:persistent="true" />
 
-  <PreferenceCategory
+  <com.google.android.accessibility.utils.preference.AccessibilitySuitePreferenceCategory
       android:key="@string/pref_border_color_category_key"
       android:title="@string/title_pref_category_border_color">
     <!-- For open-source, replace "CheckBoxPreference" with "com.android.settingslib.widget.RadioButtonPreference". -->
-    <CheckBoxPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteRadioButtonPreference
       android:title="@string/title_pref_default_color" />
-    <CheckBoxPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteRadioButtonPreference
         android:title="@string/title_pref_red" />
-    <CheckBoxPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteRadioButtonPreference
         android:title="@string/title_pref_orange" />
-    <CheckBoxPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteRadioButtonPreference
         android:title="@string/title_pref_yellow" />
-    <CheckBoxPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteRadioButtonPreference
         android:title="@string/title_pref_green" />
-    <CheckBoxPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteRadioButtonPreference
         android:title="@string/title_pref_blue" />
-    <CheckBoxPreference
+    <com.google.android.accessibility.utils.preference.AccessibilitySuiteRadioButtonPreference
         android:title="@string/title_pref_grey" />
-  </PreferenceCategory>
+  </com.google.android.accessibility.utils.preference.AccessibilitySuitePreferenceCategory>
 
 
 </PreferenceScreen>
