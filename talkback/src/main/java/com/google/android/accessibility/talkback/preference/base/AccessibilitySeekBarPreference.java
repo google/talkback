@@ -45,8 +45,8 @@ public class AccessibilitySeekBarPreference extends SeekBarPreference {
     super.onBindViewHolder(holder);
 
     // Make talkback UI consistent with SeekBarPreference in system settings.
-    final TextView titleView = (TextView) holder.findViewById(android.R.id.title);
-    final SeekBar seekbar = (SeekBar) holder.findViewById(R.id.seekbar);
+    final TextView titleView = (TextView) holder.findViewById(androidx.preference.R.id.title);
+    final SeekBar seekbar = (SeekBar) holder.findViewById(androidx.preference.R.id.seekbar);
     if (titleView != null && seekbar != null) {
       final CharSequence title = getTitle();
       if (!TextUtils.isEmpty(title)) {

@@ -312,11 +312,11 @@ public class ScreenFeedbackManager
         logCompose(logDepth, "composeFeedback", "input method");
         String inputMethodFeedback;
         if (interpretation.getInputMethod().getId() == WINDOW_ID_NONE) {
-          inputMethodFeedback = service.getString(R.string.hide_keyboard_window);
+          inputMethodFeedback = service.getString(com.google.android.accessibility.utils.R.string.hide_keyboard_window);
         } else {
           inputMethodFeedback =
               service.getString(
-                  R.string.show_keyboard_window,
+                  com.google.android.accessibility.utils.R.string.show_keyboard_window,
                   interpretation.getInputMethod().getTitleForFeedback());
         }
         feedback.addPart(
@@ -346,12 +346,12 @@ public class ScreenFeedbackManager
             int feedbackTemplate;
             if (interpretation.getHorizontalPlacement()) {
               if (WindowUtils.isScreenLayoutRTL(service)) {
-                feedbackTemplate = R.string.template_split_screen_mode_landscape_rtl;
+                feedbackTemplate = com.google.android.accessibility.utils.R.string.template_split_screen_mode_landscape_rtl;
               } else {
-                feedbackTemplate = R.string.template_split_screen_mode_landscape_ltr;
+                feedbackTemplate = com.google.android.accessibility.utils.R.string.template_split_screen_mode_landscape_ltr;
               }
             } else {
-              feedbackTemplate = R.string.template_split_screen_mode_portrait;
+              feedbackTemplate = com.google.android.accessibility.utils.R.string.template_split_screen_mode_portrait;
             }
 
             utterance =
@@ -376,7 +376,7 @@ public class ScreenFeedbackManager
             appendTemplate(
                 service,
                 utterance,
-                R.string.template_overlay_window,
+                com.google.android.accessibility.utils.R.string.template_overlay_window,
                 picInPicWindowTitle,
                 logDepth + 1);
       }

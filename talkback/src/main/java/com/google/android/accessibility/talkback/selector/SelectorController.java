@@ -214,7 +214,7 @@ public class SelectorController implements UserInputEventListener {
         R.bool.pref_selector_granularity_containers_default),
     GRANULARITY_DEFAULT(
         R.string.pref_selector_granularity_key,
-        R.string.granularity_default,
+        com.google.android.accessibility.utils.R.string.granularity_default,
         R.bool.pref_show_navigation_menu_granularity_default),
     ADJUSTABLE_WIDGET(
         R.string.pref_selector_special_widget_key,
@@ -501,25 +501,25 @@ public class SelectorController implements UserInputEventListener {
 
   /** Gets the Setting for by granularity resources ID. */
   public static @Nullable Setting getSettingByGranularityId(@IdRes int granularity) {
-    if (granularity == R.string.granularity_character) {
+    if (granularity == com.google.android.accessibility.utils.R.string.granularity_character) {
       return Setting.GRANULARITY_CHARACTERS;
-    } else if (granularity == R.string.granularity_word) {
+    } else if (granularity == com.google.android.accessibility.utils.R.string.granularity_word) {
       return Setting.GRANULARITY_WORDS;
-    } else if (granularity == R.string.granularity_line) {
+    } else if (granularity == com.google.android.accessibility.utils.R.string.granularity_line) {
       return Setting.GRANULARITY_LINES;
-    } else if (granularity == R.string.granularity_paragraph) {
+    } else if (granularity == com.google.android.accessibility.utils.R.string.granularity_paragraph) {
       return Setting.GRANULARITY_PARAGRAPHS;
-    } else if (granularity == R.string.granularity_web_heading) {
+    } else if (granularity == com.google.android.accessibility.utils.R.string.granularity_web_heading) {
       return Setting.GRANULARITY_HEADINGS;
-    } else if (granularity == R.string.granularity_web_control) {
+    } else if (granularity == com.google.android.accessibility.utils.R.string.granularity_web_control) {
       return Setting.GRANULARITY_CONTROLS;
-    } else if (granularity == R.string.granularity_web_landmark) {
+    } else if (granularity == com.google.android.accessibility.utils.R.string.granularity_web_landmark) {
       return Setting.GRANULARITY_LANDMARKS;
-    } else if (granularity == R.string.granularity_window) {
+    } else if (granularity == com.google.android.accessibility.utils.R.string.granularity_window) {
       return Setting.GRANULARITY_WINDOWS;
-    } else if (granularity == R.string.granularity_container) {
+    } else if (granularity == com.google.android.accessibility.utils.R.string.granularity_container) {
       return Setting.GRANULARITY_CONTAINERS;
-    } else if (granularity == R.string.granularity_default) {
+    } else if (granularity == com.google.android.accessibility.utils.R.string.granularity_default) {
       return Setting.GRANULARITY_DEFAULT;
     }
     return null;

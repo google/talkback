@@ -20,7 +20,6 @@ import static com.google.android.accessibility.utils.output.SpeechController.QUE
 
 import android.content.Context;
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.compositor.AccessibilityEventFeedbackUtils;
 import com.google.android.accessibility.talkback.compositor.Compositor.HandleEventOptions;
 import com.google.android.accessibility.talkback.compositor.EventFeedback;
@@ -95,10 +94,10 @@ public class ScrollPositionFeedbackRule {
             StringBuilderUtils.optionalInt("itemCount", itemCount, -1)));
     if (fromIndex >= 0 && itemCount > 0) {
       if (fromIndex == toIndex || toIndex < 0 || (toIndex + 1) > itemCount) {
-        return context.getString(R.string.template_scroll_from_count, fromIndex + 1, itemCount);
+        return context.getString(com.google.android.accessibility.utils.R.string.template_scroll_from_count, fromIndex + 1, itemCount);
       } else {
         return context.getString(
-            R.string.template_scroll_from_to_count, fromIndex + 1, toIndex + 1, itemCount);
+            com.google.android.accessibility.utils.R.string.template_scroll_from_to_count, fromIndex + 1, toIndex + 1, itemCount);
       }
     }
     return "";

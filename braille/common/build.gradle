@@ -7,3 +7,5 @@ dependencies {
     implementation project(':proguard')
     implementation project(':utils')
 }
+
+android.namespace 'com.google.android.accessibility.braille.common'

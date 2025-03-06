@@ -37,7 +37,7 @@ public final class CollectionStateFeedbackUtils {
   /**
    * Returns the collection role description when it is transitioned to a node inside a collection.
    *
-   * @see {@link CollectionState.NAVIGATE_ENTER}, {@link CollectionState.NAVIGATE_EXIT}
+   * @see {@link CollectionState#NAVIGATE_ENTER}, {@link CollectionState#NAVIGATE_EXIT}
    * @param collectionState contextual collection state during user interaction
    * @param context the parent context
    * @return collectionTransitionDescription the collection transition description text
@@ -188,7 +188,7 @@ public final class CollectionStateFeedbackUtils {
   /**
    * Returns the collection item description when the collection is transitioned.
    *
-   * <p>Note: The collection item description is for {@link ROLE_GRID} and {@link ROLE_LIST}.
+   * <p>Note: The collection item description is for {@link Role#ROLE_GRID} and {@link Role#ROLE_LIST}.
    */
   public static CharSequence getCollectionItemTransitionDescription(
       @Nullable AccessibilityNodeInfoCompat focusedNode,
@@ -490,7 +490,7 @@ public final class CollectionStateFeedbackUtils {
         getCollectionLevel(collectionState, context),
         tableItemRowIndex >= 0
             ? context.getString(
-                R.string.template_viewpager_index_count,
+                com.google.android.accessibility.utils.R.string.template_viewpager_index_count,
                 tableItemRowIndex + 1,
                 collectionState.getCollectionRowCount())
             : null);
@@ -508,7 +508,7 @@ public final class CollectionStateFeedbackUtils {
         getCollectionLevel(collectionState, context),
         tableItemColumnIndex >= 0
             ? context.getString(
-                R.string.template_viewpager_index_count,
+                com.google.android.accessibility.utils.R.string.template_viewpager_index_count,
                 tableItemColumnIndex + 1,
                 collectionState.getCollectionColumnCount())
             : null);

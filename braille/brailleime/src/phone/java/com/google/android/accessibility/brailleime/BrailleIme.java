@@ -785,7 +785,7 @@ public class BrailleIme extends InputMethodService {
                 this,
                 brailleDisplayConnectedAndNotSuspended
                     ? R.color.braille_keyboard_background
-                    : R.color.google_transparent));
+                    : com.google.android.accessibility.utils.R.color.google_transparent));
   }
 
   private boolean isEightDotsBraille() {
@@ -1484,7 +1484,7 @@ public class BrailleIme extends InputMethodService {
       new OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-          if (key.equals(getString(R.string.pref_brailleime_translator_code))) {
+          if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_translator_code))) {
             Code newCode =
                 BrailleUserPreferences.readCurrentActiveInputCodeAndCorrect(BrailleIme.this);
             if (!brailleDisplayConnectedAndNotSuspended) {
@@ -1501,7 +1501,7 @@ public class BrailleIme extends InputMethodService {
               keyboardView.refreshInputView();
             }
             refreshEditBufferAndBrailleDisplay();
-          } else if (key.equals(getString(R.string.pref_braille_contracted_mode))) {
+          } else if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_braille_contracted_mode))) {
             boolean contractedMode = BrailleUserPreferences.readContractedMode(BrailleIme.this);
             if (BrailleUserPreferences.readCurrentActiveInputCodeAndCorrect(BrailleIme.this)
                 .isSupportsContracted(BrailleIme.this)) {

@@ -56,9 +56,9 @@ public class AdvancedSettingsActivity extends PreferencesActivity {
       PreferenceSettingsUtils.addPreferencesFromResource(
           this, R.xml.bd_advanced_settings_preferences);
       timedMessageDurationPreference =
-          findPreference(getString(R.string.pref_bd_timed_message_duration_fraction_key));
+          findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_bd_timed_message_duration_fraction_key));
       blinkingIntervalPreference =
-          findPreference(getString(R.string.pref_bd_blinking_interval_key));
+          findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_bd_blinking_interval_key));
       getPreferenceManager()
           .getSharedPreferences()
           .registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
@@ -109,14 +109,14 @@ public class AdvancedSettingsActivity extends PreferencesActivity {
 
     private final OnSharedPreferenceChangeListener onSharedPreferenceChangeListener =
         (sharedPreferences, key) -> {
-          if (key.equals(getString(R.string.pref_bd_blinking_interval_key))) {
+          if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_bd_blinking_interval_key))) {
             BrailleDisplayAnalytics.getInstance(getContext())
                 .logBlinkRate(BrailleUserPreferences.readBlinkingIntervalMs(getContext()));
-          } else if (key.equals(getString(R.string.pref_bd_reverse_panning_buttons))) {
+          } else if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_bd_reverse_panning_buttons))) {
             BrailleDisplayAnalytics.getInstance(getContext())
                 .logReversePanningKey(
                     BrailleUserPreferences.readReversePanningButtons(getContext()));
-          } else if (key.equals(getString(R.string.pref_bd_timed_message_duration_fraction_key))) {
+          } else if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_bd_timed_message_duration_fraction_key))) {
             int durationMs =
                 Math.round(
                     Float.parseFloat(

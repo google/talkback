@@ -9,7 +9,15 @@ dependencies {
 }
 
 android {
+    namespace 'com.google.android.accessibility.utils'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         buildConfigField("String", "TALKBACK_APPLICATION_ID", '"' + talkbackApplicationId + '"')
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }

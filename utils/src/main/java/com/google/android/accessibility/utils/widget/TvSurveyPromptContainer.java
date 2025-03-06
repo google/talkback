@@ -68,7 +68,7 @@ public class TvSurveyPromptContainer extends FrameLayout {
                   .findViewById(R.id.preference_root)
                   .setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_AUTO);
               getRootView()
-                  .findViewById(R.id.action_bar_container)
+                  .findViewById(androidx.appcompat.R.id.action_bar_container)
                   .setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_AUTO);
             }
           }
@@ -91,7 +91,7 @@ public class TvSurveyPromptContainer extends FrameLayout {
           .findViewById(R.id.preference_root)
           .setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
       getRootView()
-          .findViewById(R.id.action_bar_container)
+          .findViewById(androidx.appcompat.R.id.action_bar_container)
           .setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
     }
     return hasSetFocus;

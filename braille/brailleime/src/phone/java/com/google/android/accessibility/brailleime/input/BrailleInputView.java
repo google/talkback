@@ -502,7 +502,7 @@ public class BrailleInputView extends View
       textPaint.setTextSize(resources.getDimensionPixelSize(R.dimen.input_view_caption_text_size));
       textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
       textPaint.setTypeface(
-          Typeface.create(getContext().getString(R.string.accessibility_font), Typeface.NORMAL));
+          Typeface.create(getContext().getString(com.google.android.accessibility.utils.R.string.accessibility_font), Typeface.NORMAL));
       captionBottomMarginInPixels =
           resources.getDimensionPixelOffset(R.dimen.input_view_caption_bottom_margin);
     }

@@ -74,7 +74,7 @@ public class AccessibilityNodeFeedbackUtils {
         && !globalVariables.shouldSpeakPasswords()
         && (AccessibilityNodeInfoUtils.isKeyboard(node)
             || AccessibilityNodeInfoUtils.isPinKey(node))) {
-      return context.getString(R.string.symbol_bullet);
+      return context.getString(com.google.android.accessibility.utils.R.string.symbol_bullet);
     }
 
     CharSequence contentDescription =

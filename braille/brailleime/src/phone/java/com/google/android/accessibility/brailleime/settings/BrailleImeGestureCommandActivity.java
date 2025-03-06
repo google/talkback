@@ -88,10 +88,10 @@ public class BrailleImeGestureCommandActivity extends PreferencesActivity {
           Preference preference = new Preference(getContext());
           preference.setTitle(action.getDescriptionRes(getResources()));
           if (action.hasIcon()) {
-            preference.setLayoutResource(R.layout.braille_common_text_with_icon);
+            preference.setLayoutResource(com.google.android.accessibility.braille.common.R.layout.braille_common_text_with_icon);
             preference.setIcon(action.getIconRes(getContext()));
           } else {
-            preference.setLayoutResource(R.layout.braille_common_text);
+            preference.setLayoutResource(com.google.android.accessibility.braille.common.R.layout.braille_common_text);
           }
           preference.setSelectable(false);
           if (preferenceCategory != null) {

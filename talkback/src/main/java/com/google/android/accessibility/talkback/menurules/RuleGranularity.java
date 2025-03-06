@@ -56,59 +56,59 @@ public class RuleGranularity extends NodeMenuRule {
   enum GranularitySetting {
     CHARACTERS(
         R.string.pref_show_navigation_menu_characters_setting_key,
-        R.string.granularity_character,
+        com.google.android.accessibility.utils.R.string.granularity_character,
         R.bool.pref_show_navigation_menu_characters_default),
     WORDS(
         R.string.pref_show_navigation_menu_words_setting_key,
-        R.string.granularity_word,
+        com.google.android.accessibility.utils.R.string.granularity_word,
         R.bool.pref_show_navigation_menu_words_default),
     LINES(
         R.string.pref_show_navigation_menu_lines_setting_key,
-        R.string.granularity_line,
+        com.google.android.accessibility.utils.R.string.granularity_line,
         R.bool.pref_show_navigation_menu_lines_default),
     PARAGRAPHS(
         R.string.pref_show_navigation_menu_paragraphs_setting_key,
-        R.string.granularity_paragraph,
+        com.google.android.accessibility.utils.R.string.granularity_paragraph,
         R.bool.pref_show_navigation_menu_paragraphs_default),
     HEADINGS(
         R.string.pref_show_navigation_menu_headings_setting_key,
-        R.string.granularity_native_heading,
+        com.google.android.accessibility.utils.R.string.granularity_native_heading,
         R.bool.pref_show_navigation_menu_headings_default),
     CONTROLS(
         R.string.pref_show_navigation_menu_controls_setting_key,
-        R.string.granularity_native_control,
+        com.google.android.accessibility.utils.R.string.granularity_native_control,
         R.bool.pref_show_navigation_menu_controls_default),
     LINKS(
         R.string.pref_show_navigation_menu_links_setting_key,
-        R.string.granularity_native_link,
+        com.google.android.accessibility.utils.R.string.granularity_native_link,
         R.bool.pref_show_navigation_menu_links_default),
     WEB_HEADINGS(
         R.string.pref_show_navigation_menu_headings_setting_key,
-        R.string.granularity_web_heading,
+        com.google.android.accessibility.utils.R.string.granularity_web_heading,
         R.bool.pref_show_navigation_menu_headings_default),
     WEB_CONTROLS(
         R.string.pref_show_navigation_menu_controls_setting_key,
-        R.string.granularity_web_control,
+        com.google.android.accessibility.utils.R.string.granularity_web_control,
         R.bool.pref_show_navigation_menu_controls_default),
     WEB_LINKS(
         R.string.pref_show_navigation_menu_links_setting_key,
-        R.string.granularity_web_link,
+        com.google.android.accessibility.utils.R.string.granularity_web_link,
         R.bool.pref_show_navigation_menu_links_default),
     WEB_LANDMARKS(
         R.string.pref_show_navigation_menu_landmarks_setting_key,
-        R.string.granularity_web_landmark,
+        com.google.android.accessibility.utils.R.string.granularity_web_landmark,
         R.bool.pref_show_navigation_menu_landmarks_default),
     WINDOW(
         R.string.pref_show_navigation_menu_window_setting_key,
-        R.string.granularity_window,
+        com.google.android.accessibility.utils.R.string.granularity_window,
         R.bool.pref_show_navigation_menu_window_default),
     CONTAINER(
         R.string.pref_show_navigation_menu_container_setting_key,
-        R.string.granularity_container,
+        com.google.android.accessibility.utils.R.string.granularity_container,
         R.bool.pref_show_navigation_menu_container_default),
     DEFAULT_NAVIGATION(
         R.string.pref_show_navigation_menu_granularity_default_setting_key,
-        R.string.granularity_default,
+        com.google.android.accessibility.utils.R.string.granularity_default,
         R.bool.pref_show_navigation_menu_granularity_default);
 
     /** The preference key in the granularity settings. */

@@ -308,7 +308,7 @@ public final class EventTypeViewAccessibilityFocusedFeedbackRule {
       if (windowType == WINDOW_TYPE_PICTURE_IN_PICTURE) {
         logString.append(", hasWindowTransition for PIP window");
         windowTransitionState =
-            context.getString(R.string.template_overlay_window, currentWindowTitle);
+            context.getString(com.google.android.accessibility.utils.R.string.template_overlay_window, currentWindowTitle);
       } else if (speakSystemWindowTitles
           || (windowType != TYPE_SYSTEM && windowType != TYPE_INPUT_METHOD)) {
         logString.append(", hasWindowTransition for speakWindowTitles");

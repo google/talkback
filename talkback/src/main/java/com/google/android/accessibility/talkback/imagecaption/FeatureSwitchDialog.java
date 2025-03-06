@@ -144,7 +144,7 @@ public class FeatureSwitchDialog extends BaseDialog {
       int spanIndexStart = rawText.indexOf(subText);
       if (spanIndexStart >= 0) {
         text.setSpan(
-            new TextAppearanceSpan(context, R.style.A11yAlertDialogSubtitleStyle),
+            new TextAppearanceSpan(context, com.google.android.accessibility.utils.R.style.A11yAlertDialogSubtitleStyle),
             spanIndexStart,
             rawText.length(),
             0);

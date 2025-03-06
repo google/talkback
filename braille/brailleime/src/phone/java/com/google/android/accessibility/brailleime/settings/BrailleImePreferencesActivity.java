@@ -123,7 +123,7 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
       getPreferenceManager()
           .setSharedPreferencesName(BrailleUserPreferences.BRAILLE_SHARED_PREFS_FILENAME);
       PreferenceSettingsUtils.addPreferencesFromResource(this, R.xml.brailleime_preferences);
-      brailleGradePreference = findPreference(getString(R.string.pref_braille_contracted_mode));
+      brailleGradePreference = findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_braille_contracted_mode));
 
       getPreferenceManager()
           .getSharedPreferences()
@@ -163,7 +163,7 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
       {
         // Typing codes preference.
         Preference typingCodesPref =
-            findPreference(getString(R.string.pref_brailleime_translator_codes_preferred));
+            findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_translator_codes_preferred));
         typingCodesPref.setIntent(new Intent(getContext(), BrailleLanguagesActivity.class));
         BraillePreferenceUtils.setupPreferredCodePreference(
             getContext(),
@@ -177,7 +177,7 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
       {
         // Preferred input codes preference.
         ListPreference preferredInputCodePref =
-            findPreference(getString(R.string.pref_brailleime_translator_code));
+            findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_translator_code));
         if (preferredInputCodePref != null) {
           BraillePreferenceUtils.setupLanguageListPreference(
               getContext(),
@@ -204,7 +204,7 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
       {
         // Accumulate mode preference.
         SwitchPreference accumulateModePref =
-            findPreference(getString(R.string.pref_brailleime_accumulate_mode));
+            findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_accumulate_mode));
         accumulateModePref.setChecked(BrailleUserPreferences.readAccumulateMode(getContext()));
         accumulateModePref.setOnPreferenceClickListener(
             preference -> {
@@ -218,7 +218,7 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
       {
         // Reverse dots mode preference.
         SwitchPreference reverseDotsModePref =
-            findPreference(getString(R.string.pref_brailleime_reverse_dots_mode));
+            findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_reverse_dots_mode));
         reverseDotsModePref.setChecked(BrailleUserPreferences.readReverseDotsMode(getContext()));
         reverseDotsModePref.setOnPreferenceClickListener(
             preference -> {
@@ -232,7 +232,7 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
       {
         // Layout settings preference.
         ListPreference layoutModePref =
-            findPreference(getString(R.string.pref_brailleime_layout_mode));
+            findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_layout_mode));
         if (layoutModePref != null) {
             layoutModePref.setEntryValues(
                 Arrays.stream(TouchDots.values()).map(Enum::name).toArray(CharSequence[]::new));
@@ -279,7 +279,7 @@ public class BrailleImePreferencesActivity extends PreferencesActivity {
         new OnSharedPreferenceChangeListener() {
           @Override
           public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals(getString(R.string.pref_braille_contracted_mode))) {
+            if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_braille_contracted_mode))) {
               updateBrailleGradeSummary();
             }
           }

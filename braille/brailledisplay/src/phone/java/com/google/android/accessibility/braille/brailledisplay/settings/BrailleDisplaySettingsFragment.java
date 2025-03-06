@@ -149,13 +149,13 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
         findPreference(getString(R.string.pref_key_bd_connection_category));
 
     preferredCodesPreference =
-        findPreference(getString(R.string.pref_brailleime_translator_codes_preferred));
+        findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_translator_codes_preferred));
     preferredCodesPreference.setIntent(new Intent(getContext(), BrailleLanguagesActivity.class));
 
-    currentActiveOutputCodePreference = findPreference(getString(R.string.pref_bd_output_code));
+    currentActiveOutputCodePreference = findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_bd_output_code));
     currentActiveInputCodePreference =
-        findPreference(getString(R.string.pref_brailleime_translator_code));
-    brailleGradePreference = findPreference(getString(R.string.pref_braille_contracted_mode));
+        findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_translator_code));
+    brailleGradePreference = findPreference(getString(com.google.android.accessibility.braille.common.R.string.pref_braille_contracted_mode));
     brailleGradePreference.setIntent(new Intent(getContext(), BrailleGradeActivity.class));
 
     keyBindingsPreference = findPreference(getString(R.string.pref_key_bindings_key));
@@ -819,12 +819,12 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
       new OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-          if (key.equals(getString(R.string.pref_bd_output_code))) {
+          if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_bd_output_code))) {
             BrailleDisplayAnalytics.getInstance(getContext())
                 .logBrailleOutputCodeSetting(
                     BrailleUserPreferences.readCurrentActiveOutputCodeAndCorrect(getContext()),
                     BrailleUserPreferences.readContractedMode(getContext()));
-          } else if (key.equals(getString(R.string.pref_brailleime_translator_code))) {
+          } else if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_translator_code))) {
             BrailleDisplayAnalytics.getInstance(getContext())
                 .logBrailleInputCodeSetting(
                     BrailleUserPreferences.readCurrentActiveInputCodeAndCorrect(getContext()),
@@ -835,7 +835,7 @@ public class BrailleDisplaySettingsFragment extends PreferenceFragmentCompat {
           } else if (key.equals(getString(R.string.pref_key_bd_enabler))) {
             BrailleDisplayAnalytics.getInstance(getContext())
                 .logEnablerSetting(PersistentStorage.isConnectionEnabled(getContext()));
-          } else if (key.equals(getString(R.string.pref_braille_contracted_mode))) {
+          } else if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_braille_contracted_mode))) {
             updateBrailleGradeSummary();
           }
         }

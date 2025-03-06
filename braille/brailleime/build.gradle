@@ -8,3 +8,5 @@ dependencies {
     implementation project(':brailleimeanalytics')
     implementation project(':brailletranslate')
 }
+
+android.namespace 'com.google.android.accessibility.brailleime'

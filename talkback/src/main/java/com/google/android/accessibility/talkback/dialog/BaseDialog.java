@@ -28,7 +28,6 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
-import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.utils.FormFactorUtils;
 import com.google.android.accessibility.utils.material.A11yAlertDialogWrapper;
@@ -183,7 +182,8 @@ public abstract class BaseDialog {
 
     A11yAlertDialogWrapper.Builder dialogBuilder =
         A11yAlertDialogWrapper.materialDialogBuilder(
-                new ContextThemeWrapper(context, R.style.A11yAlertDialogCustomViewTheme))
+                new ContextThemeWrapper(context, com.google.android.accessibility.utils.R.style.A11yAlertDialogCustomViewTheme))
+            .setTitle(dialogTitleResId)
             .setPositiveButton(positiveButtonStringRes, onClickListener)
             .setOnDismissListener(onDismissListener)
             .setCancelable(true);

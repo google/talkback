@@ -233,15 +233,15 @@ public class VoiceCommandProcessor {
   // This sequence of granularity mode should always aligns with
   // SelectorController.SELECTOR_SETTINGS
   private static final int[] granularityModeArray = {
-    R.string.granularity_character,
-    R.string.granularity_word,
-    R.string.granularity_line,
-    R.string.granularity_paragraph,
-    R.string.granularity_web_heading, // headings
-    R.string.granularity_web_control, // controls
-    R.string.granularity_web_landmark, // landmarks
-    R.string.granularity_window,
-    R.string.granularity_default
+    com.google.android.accessibility.utils.R.string.granularity_character,
+    com.google.android.accessibility.utils.R.string.granularity_word,
+    com.google.android.accessibility.utils.R.string.granularity_line,
+    com.google.android.accessibility.utils.R.string.granularity_paragraph,
+    com.google.android.accessibility.utils.R.string.granularity_web_heading, // headings
+    com.google.android.accessibility.utils.R.string.granularity_web_control, // controls
+    com.google.android.accessibility.utils.R.string.granularity_web_landmark, // landmarks
+    com.google.android.accessibility.utils. R.string.granularity_window,
+    com.google.android.accessibility.utils. R.string.granularity_default
   };
 
   private static final int[] findCommandResArray = {

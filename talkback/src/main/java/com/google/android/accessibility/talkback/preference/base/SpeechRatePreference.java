@@ -32,7 +32,7 @@ public class SpeechRatePreference extends AccessibilitySeekBarPreference {
   @Override
   public void onBindViewHolder(@NonNull PreferenceViewHolder holder) {
     super.onBindViewHolder(holder);
-    seekBar = (SeekBar) holder.findViewById(R.id.seekbar);
+    seekBar = (SeekBar) holder.findViewById(androidx.preference.R.id.seekbar);
 
     if (seekBar == null) {
       return;

@@ -193,9 +193,9 @@ public class TouchInteractionMonitor
                 context.getResources().getStringArray(R.array.service_detected_gesture_list)));
     int touchSlop =
         ViewConfiguration.get(context).getScaledTouchSlop()
-            * context.getResources().getInteger(R.integer.config_slop_default_multiplier);
+            * context.getResources().getInteger(com.google.android.accessibility.utils.R.integer.config_slop_default_multiplier);
     int passthroughSlopMultiplier =
-        context.getResources().getInteger(R.integer.config_passthrough_slop_multiplier);
+        context.getResources().getInteger(com.google.android.accessibility.utils.R.integer.config_passthrough_slop_multiplier);
     passthroughTotalSlop = passthroughSlopMultiplier * touchSlop;
     requestTouchExplorationDelayed = new RequestTouchExplorationDelayed(determineUserIntentTimeout);
     DisplayMetrics metrics = context.getResources().getDisplayMetrics();

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.talkback"
-    >
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
   <!-- Strings with the format ${foo}, such as ${applicationId}, are called
   placeholders, and they get replaced by the build system with the appropriate

@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply from: "../../shared.gradle"
 
 android {
+    namespace 'com.google.android.accessibility.braille.brltty'
     ndkVersion "21.4.7075529"
     externalNativeBuild {
         ndkBuild {
@@ -19,8 +20,8 @@ dependencies {
 }
 
 task createBrlttyKeyTablesZip(type: Zip){
-    archiveName="keytables.zip"
-    destinationDir = file('src/phone/res/raw/')
+    archiveFileName="keytables.zip"
+    destinationDirectory = file('src/phone/res/raw/')
     from fileTree('./src/phone/tables/')
 }
 

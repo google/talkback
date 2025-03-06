@@ -386,7 +386,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
     if (view instanceof ListView) {
       ArrayAdapter<CharSequence> listAdapter =
           new ArrayAdapter<>(
-              new ContextThemeWrapper(service, R.style.A11yAlertDialogCustomViewTheme),
+              new ContextThemeWrapper(service, com.google.android.accessibility.utils.R.style.A11yAlertDialogCustomViewTheme),
               R.layout.list_item_simple_framelayout,
               android.R.id.text1,
               items);
@@ -401,7 +401,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
       ((RecyclerView) view).setLayoutManager(new LinearLayoutManager(view.getContext()));
     }
 
-    view.getContext().setTheme(R.style.A11yAlertDialogCustomViewTheme);
+    view.getContext().setTheme(com.google.android.accessibility.utils.R.style.A11yAlertDialogCustomViewTheme);
     if (formFactorUtils.isAndroidWear()) {
       // Support Wear rotary input
       view.requestFocus();

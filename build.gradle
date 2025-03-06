@@ -26,7 +26,7 @@ buildscript {
         // Gradle (used to drive the build) be a certain version or above. The
         // correspondence is tracked here:
         // https://developer.android.com/build/releases/gradle-plugin#updating-gradle
-        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath 'com.android.tools.build:gradle:8.4.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -39,13 +39,14 @@ allprojects {
 }
 
 android {
+    namespace talkbackApplicationId
+    compileSdk 34
     defaultConfig {
         applicationId talkbackApplicationId
         versionName talkbackVersionName + "-" + BUILD_TIMESTAMP
-        minSdkVersion 26
-        targetSdkVersion 30
+        minSdk 26
+        targetSdk 30
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'
-        multiDexEnabled true
     }
     packagingOptions {
         exclude 'LICENSE'

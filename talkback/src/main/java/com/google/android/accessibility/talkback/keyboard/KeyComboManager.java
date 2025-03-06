@@ -664,7 +664,7 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     DialogUtils.setWindowTypeToDialog(updateModifierKeysDialog.getWindow());
     updateModifierKeysDialog.show();
     // Starting from Android Q, the default value of hyphenation was changed from normal to none.
-    TextView textView = updateModifierKeysDialog.getDialog().findViewById(R.id.alertTitle);
+    TextView textView = updateModifierKeysDialog.getDialog().findViewById(androidx.appcompat.R.id.alertTitle);
     textView.setHyphenationFrequency(Layout.HYPHENATION_FREQUENCY_NORMAL);
   }
 

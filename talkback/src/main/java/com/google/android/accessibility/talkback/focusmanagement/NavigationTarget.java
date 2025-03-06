@@ -196,7 +196,7 @@ public final class NavigationTarget {
   public static String htmlTargetToDisplayName(Context context, @TargetType int type) {
     switch (type) {
       case TARGET_DEFAULT:
-        return context.getString(R.string.granularity_default);
+        return context.getString(com.google.android.accessibility.utils.R.string.granularity_default);
       case TARGET_HEADING:
         return context.getString(R.string.display_name_heading);
       case TARGET_CONTROL:

@@ -75,7 +75,7 @@ public final class InputTextPasswordFeedbackRules {
 
   private static EventFeedback inputTextPasswordAdd(
       HandleEventOptions eventOptions, Context context) {
-    String symbolBullet = context.getString(R.string.symbol_bullet);
+    String symbolBullet = context.getString(com.google.android.accessibility.utils.R.string.symbol_bullet);
     CharSequence notifyMaxLengthReachedState =
         AccessibilityNodeFeedbackUtils.notifyMaxLengthReachedStateText(
             eventOptions.sourceNode, context);
@@ -111,7 +111,7 @@ public final class InputTextPasswordFeedbackRules {
       HandleEventOptions eventOptions, Context context) {
     String textRemovedState =
         context.getString(
-            R.string.template_text_removed, context.getString(R.string.symbol_bullet));
+            R.string.template_text_removed, context.getString(com.google.android.accessibility.utils.R.string.symbol_bullet));
     CharSequence notifyErrorState =
         AccessibilityNodeFeedbackUtils.notifyErrorStateText(eventOptions.sourceNode, context);
     CharSequence ttsOutput = CompositorUtils.joinCharSequences(textRemovedState, notifyErrorState);

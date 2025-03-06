@@ -297,7 +297,7 @@ public class NavigationButtonBar extends LinearLayout {
       }
       button.setText(text);
       button.setTypeface(
-          Typeface.create(context.getString(R.string.accessibility_font), Typeface.NORMAL));
+          Typeface.create(context.getString(com.google.android.accessibility.utils.R.string.accessibility_font), Typeface.NORMAL));
       button.setTextSize(
           TypedValue.COMPLEX_UNIT_PX,
           context.getResources().getDimensionPixelSize(R.dimen.training_button_text_size));

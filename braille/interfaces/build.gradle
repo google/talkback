@@ -4,3 +4,5 @@ apply from: "../../shared.gradle"
 dependencies {
     implementation project(':utils')
 }
+
+android.namespace 'com.google.android.accessibility.braille.interfaces'

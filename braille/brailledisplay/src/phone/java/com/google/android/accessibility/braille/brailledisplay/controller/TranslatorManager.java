@@ -20,7 +20,6 @@ import static com.google.android.accessibility.braille.common.BrailleUserPrefere
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.google.android.accessibility.braille.brailledisplay.R;
 import com.google.android.accessibility.braille.common.BrailleUserPreferences;
 import com.google.android.accessibility.braille.common.translate.BrailleLanguages.Code;
 import com.google.android.accessibility.braille.translate.BrailleTranslator;
@@ -118,11 +117,11 @@ public class TranslatorManager implements SharedPreferences.OnSharedPreferenceCh
 
   @Override
   public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-    if (context.getString(R.string.pref_bd_output_code).equals(key)) {
+    if (context.getString(com.google.android.accessibility.braille.common.R.string.pref_bd_output_code).equals(key)) {
       updateOutputTranslators();
-    } else if (context.getString(R.string.pref_brailleime_translator_code).equals(key)) {
+    } else if (context.getString(com.google.android.accessibility.braille.common.R.string.pref_brailleime_translator_code).equals(key)) {
       updateInputTranslator();
-    } else if (context.getString(R.string.pref_braille_contracted_mode).equals(key)) {
+    } else if (context.getString(com.google.android.accessibility.braille.common.R.string.pref_braille_contracted_mode).equals(key)) {
       updateOutputTranslators();
       updateInputTranslator();
     }

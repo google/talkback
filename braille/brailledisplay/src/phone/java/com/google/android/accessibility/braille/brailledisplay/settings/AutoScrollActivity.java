@@ -73,7 +73,7 @@ public class AutoScrollActivity extends PreferencesActivity {
 
     private final OnSharedPreferenceChangeListener onSharedPreferenceChangeListener =
         (SharedPreferences sharedPreferences, String key) -> {
-          if (key.equals(getString(R.string.pref_bd_auto_scroll_duration_key))) {
+          if (key.equals(getString(com.google.android.accessibility.braille.common.R.string.pref_bd_auto_scroll_duration_key))) {
             refresh();
           }
         };

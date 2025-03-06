@@ -21,7 +21,6 @@ import static java.lang.Character.isUpperCase;
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.SpannableUtils;
 import com.google.android.accessibility.utils.output.SpeechCleanupUtils;
 import java.util.ArrayList;
@@ -145,7 +144,7 @@ public final class CompositorUtils {
     if (TextUtils.isEmpty(text)) {
       return "";
     } else if (text.length() == 1 && isUpperCase(text.charAt(0))) {
-      return context.getString(R.string.template_capital_letter, text.charAt(0));
+      return context.getString(com.google.android.accessibility.utils.R.string.template_capital_letter, text.charAt(0));
     } else {
       return text;
     }

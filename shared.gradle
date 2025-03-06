@@ -5,21 +5,19 @@ ext {
 }
 
 android {
-    compileSdkVersion 34
+    compileSdk 34
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
         buildConfigField "String", "APPLICATION_ID", "\"" + talkbackApplicationId + "\""
-        vectorDrawables.useSupportLibrary = true
-        multiDexEnabled true
         minSdkVersion 26
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a"
         }
     }
-    flavorDimensions "target"
+    flavorDimensions += "target"
     productFlavors {
         phone {
             dimension "target"
@@ -27,6 +25,9 @@ android {
         wear {
             dimension "target"
         }
+    }
+    buildFeatures {
+        buildConfig true
     }
 }
 
