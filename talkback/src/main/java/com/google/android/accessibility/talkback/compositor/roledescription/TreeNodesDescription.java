@@ -228,7 +228,10 @@ public class TreeNodesDescription {
     // tree nodes description text.
     if (stateDescriptionIsEmpty
         && srcIsCheckable
+        && !AccessibilityNodeFeedbackUtils.shouldSuppressAuxiliaryCheckableState(node)
         && (role != Role.ROLE_SWITCH
+            && role != Role.ROLE_CHECK_BOX
+            && role != Role.ROLE_RADIO_BUTTON
             && role != Role.ROLE_TOGGLE_BUTTON
             && (role != Role.ROLE_CHECKED_TEXT_VIEW || srcIsChecked))) {
       CharSequence checkedState =
@@ -293,7 +296,13 @@ public class TreeNodesDescription {
               .append(String.format(", isVisible=%b", isVisible))
               .append(String.format(", isAccessibilityFocusable=%b", isAccessibilityFocusable));
 
-          if (isVisible && (!isAccessibilityFocusable || shouldAppendChildNode)) {
+          boolean shouldSkipChildNode =
+              shouldSkipNestedCheckableChild(node, childNode, shouldAppendChildNode);
+          logString.append(String.format(", shouldSkipChildNode=%b", shouldSkipChildNode));
+
+          if (isVisible
+              && !shouldSkipChildNode
+              && (!isAccessibilityFocusable || shouldAppendChildNode)) {
             // Join the tree description of child node.
             CharSequence description =
                 getAppendedTreeDescription(childNode, event, shouldAppendChildNode);
@@ -308,5 +317,28 @@ public class TreeNodesDescription {
     LogUtils.v(TAG, "      treeNodesDescription:  %s", logString.toString());
 
     return CompositorUtils.joinCharSequences(joinList, CompositorUtils.getSeparator(), PRUNE_EMPTY);
+  }
+
+  private static boolean shouldSkipNestedCheckableChild(
+      AccessibilityNodeInfoCompat parentNode,
+      AccessibilityNodeInfoCompat childNode,
+      boolean shouldAppendChildNode) {
+    if (parentNode == null || childNode == null || shouldAppendChildNode) {
+      return false;
+    }
+    int parentRole = Role.getRole(parentNode);
+    if (parentRole == Role.ROLE_GRID || parentRole == Role.ROLE_LIST || parentRole == Role.ROLE_PAGER) {
+      return false;
+    }
+
+    int childRole = Role.getRole(childNode);
+    CharSequence className = childNode.getClassName();
+    String childClassName = (className == null) ? "" : className.toString();
+    boolean isNestedSwitchWidget =
+        childRole == Role.ROLE_SWITCH
+            || childRole == Role.ROLE_TOGGLE_BUTTON
+            || childClassName.contains("Switch")
+            || childClassName.contains("Toggle");
+    return isNestedSwitchWidget && !AccessibilityNodeInfoUtils.isAccessibilityFocusable(childNode);
   }
 }

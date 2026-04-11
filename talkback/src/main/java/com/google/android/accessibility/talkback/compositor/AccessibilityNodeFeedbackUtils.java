@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.Spannable;
 import android.text.TextUtils;
+import android.text.SpannableStringBuilder;
 import android.text.style.LocaleSpan;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -68,8 +69,153 @@ public class AccessibilityNodeFeedbackUtils {
    * <p>Note: It returns the node content description if it is not empty. Or it fallbacks to return
    * node text.
    */
+  public static boolean isLauncherNode(AccessibilityNodeInfoCompat node) {
+    if (node == null) return false;
+    CharSequence pkg = node.getPackageName();
+    if (pkg == null) return false;
+    String pkgName = pkg.toString();
+    return pkgName.contains("launcher") 
+        || pkgName.contains("sec.android.app.launcher") // One UI
+        || pkgName.contains("microsoft.launcher")      // Microsoft Launcher
+        || pkgName.contains("google.android.apps.nexuslauncher"); // Pixel
+  }
+
+  private static boolean containsNumber(CharSequence text) {
+    if (TextUtils.isEmpty(text)) return false;
+    for (int i = 0; i < text.length(); i++) {
+        if (Character.isDigit(text.charAt(i))) return true;
+    }
+    return false;
+  }
+
+  private static boolean isDirectCheckableControl(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return false;
+    }
+    int role = Role.getRole(node);
+    String className = (node.getClassName() == null) ? "" : node.getClassName().toString();
+    return role == Role.ROLE_SWITCH
+        || role == Role.ROLE_CHECK_BOX
+        || role == Role.ROLE_RADIO_BUTTON
+        || role == Role.ROLE_TOGGLE_BUTTON
+        || role == Role.ROLE_CHECKED_TEXT_VIEW
+        || className.contains("Switch")
+        || className.contains("Toggle")
+        || className.contains("CheckBox")
+        || className.contains("RadioButton");
+  }
+
+  private static boolean isSwitchLikeControl(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return false;
+    }
+    int role = Role.getRole(node);
+    String className = (node.getClassName() == null) ? "" : node.getClassName().toString();
+    return role == Role.ROLE_SWITCH
+        || role == Role.ROLE_TOGGLE_BUTTON
+        || className.contains("Switch")
+        || className.contains("Toggle");
+  }
+
+  private static boolean isAuxiliarySelectionControl(AccessibilityNodeInfoCompat node) {
+    if (node == null || isSwitchLikeControl(node)) {
+      return false;
+    }
+    int role = Role.getRole(node);
+    String className = (node.getClassName() == null) ? "" : node.getClassName().toString();
+    return role == Role.ROLE_CHECK_BOX
+        || role == Role.ROLE_RADIO_BUTTON
+        || role == Role.ROLE_CHECKED_TEXT_VIEW
+        || className.contains("CheckBox")
+        || className.contains("RadioButton")
+        || (node.isCheckable() && !TextUtils.isEmpty(node.getText()));
+  }
+
+  private static boolean hasVisiblePrimaryText(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return false;
+    }
+    return !TextUtils.isEmpty(node.getContentDescription())
+        || !TextUtils.isEmpty(node.getText())
+        || !TextUtils.isEmpty(AccessibilityNodeInfoUtils.getHintText(node));
+  }
+
+  private static boolean hasAuxiliaryCheckableChild(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return false;
+    }
+    for (int i = 0; i < Math.min(node.getChildCount(), 6); i++) {
+      AccessibilityNodeInfoCompat child = node.getChild(i);
+      if (child == null) {
+        continue;
+      }
+      if (isAuxiliarySelectionControl(child)) {
+        return true;
+      }
+      for (int j = 0; j < Math.min(child.getChildCount(), 4); j++) {
+        AccessibilityNodeInfoCompat grandChild = child.getChild(j);
+        if (grandChild != null && isAuxiliarySelectionControl(grandChild)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  private static boolean hasVisibleTextChild(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return false;
+    }
+    for (int i = 0; i < Math.min(node.getChildCount(), 6); i++) {
+      AccessibilityNodeInfoCompat child = node.getChild(i);
+      if (child == null) {
+        continue;
+      }
+      if (!TextUtils.isEmpty(child.getContentDescription()) || !TextUtils.isEmpty(child.getText())) {
+        return true;
+      }
+      for (int j = 0; j < Math.min(child.getChildCount(), 4); j++) {
+        AccessibilityNodeInfoCompat grandChild = child.getChild(j);
+        if (grandChild != null
+            && (!TextUtils.isEmpty(grandChild.getContentDescription())
+                || !TextUtils.isEmpty(grandChild.getText()))) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  public static boolean shouldSuppressAuxiliaryCheckableState(AccessibilityNodeInfoCompat node) {
+    if (node == null || isLauncherNode(node) || isDirectCheckableControl(node) || node.getRangeInfo() != null) {
+      return false;
+    }
+    if (!(node.isClickable() || node.isFocusable())) {
+      return false;
+    }
+    return hasAuxiliaryCheckableChild(node)
+        && (hasVisiblePrimaryText(node) || hasVisibleTextChild(node));
+  }
+
   public static CharSequence getNodeTextDescription(
       AccessibilityNodeInfoCompat node, Context context, GlobalVariables globalVariables) {
+    if (node == null) return "";
+    long startTime = System.currentTimeMillis();
+    
+    // Detailed node logging for debugging
+    CharSequence cd = node.getContentDescription();
+    CharSequence txt = node.getText();
+    CharSequence sd = node.getStateDescription();
+    CharSequence hint = AccessibilityNodeInfoUtils.getHintText(node);
+    String viewId = node.getViewIdResourceName();
+    android.util.Log.d("AndroTalkDebug", "Node Analysis: [Pkg: " + node.getPackageName() + "] " +
+                    "[ID: " + viewId + "] " +
+                    "[Class: " + node.getClassName() + "] " +
+                    "[CD: " + cd + "] " +
+                    "[Text: " + txt + "] " +
+                    "[SD: " + sd + "] " +
+                    "[Hint: " + hint + "]");
+
     if (globalVariables.getLastTextEditIsPassword()
         && !globalVariables.shouldSpeakPasswords()
         && (AccessibilityNodeInfoUtils.isKeyboard(node)
@@ -77,18 +223,164 @@ public class AccessibilityNodeFeedbackUtils {
       return context.getString(R.string.symbol_bullet);
     }
 
-    CharSequence contentDescription =
-        getNodeContentDescription(node, context, globalVariables.getUserPreferredLocale());
-    if (!TextUtils.isEmpty(contentDescription)) {
-      return globalVariables.getGlobalSayCapital()
-          ? CompositorUtils.prependCapital(contentDescription, context)
-          : contentDescription;
+    // Capture all text sources
+    CharSequence contentDescription = prepareSpans(cd, node, context, globalVariables.getUserPreferredLocale());
+    CharSequence nodeText = prepareSpans(txt, node, context, globalVariables.getUserPreferredLocale());
+    CharSequence stateDescription = prepareSpans(sd, node, context, globalVariables.getUserPreferredLocale());
+    CharSequence hintText = prepareSpans(hint, node, context, globalVariables.getUserPreferredLocale());
+    
+    CharSequence combinedText;
+    if (isLauncherNode(node)) {
+        // FORCED JOIN for launchers: CD, Text, State, Hint
+        // We ensure that numbers are preserved and name repeats are avoided.
+        SpannableStringBuilder forcedSb = new SpannableStringBuilder();
+        String primaryText = ""; // Usually the app name
+        
+        // 1. Prioritize Content Description (often contains name + badge)
+        if (!TextUtils.isEmpty(contentDescription)) {
+            forcedSb.append(contentDescription);
+            primaryText = contentDescription.toString().split(",")[0].trim();
+        }
+        
+        // 2. Check Text (often just the name or just the badge)
+        if (!TextUtils.isEmpty(nodeText)) {
+            String nt = nodeText.toString().trim();
+            // If Text is just the name and we already have it in CD, skip it.
+            // But if Text contains a number (badge), add it.
+            if (containsNumber(nodeText) || !primaryText.equalsIgnoreCase(nt)) {
+                if (forcedSb.length() > 0 && !forcedSb.toString().contains(nt)) {
+                    forcedSb.append(", ").append(nodeText);
+                } else if (forcedSb.length() == 0) {
+                    forcedSb.append(nodeText);
+                }
+            }
+        }
+        
+        // 3. Add State Description (some launchers put badge here)
+        if (!TextUtils.isEmpty(stateDescription)) {
+            if (forcedSb.length() > 0 && !forcedSb.toString().contains(stateDescription)) {
+                forcedSb.append(", ").append(stateDescription);
+            } else if (forcedSb.length() == 0) {
+                forcedSb.append(stateDescription);
+            }
+        }
+        
+        // 4. Add Hint (backup location for badges)
+        if (!TextUtils.isEmpty(hintText)) {
+            if (forcedSb.length() > 0 && !forcedSb.toString().contains(hintText)) {
+                forcedSb.append(", ").append(hintText);
+            } else if (forcedSb.length() == 0) {
+                forcedSb.append(hintText);
+            }
+        }
+        combinedText = forcedSb;
+    } else {
+        // Standard dedup join for other nodes
+        combinedText =
+            shouldSuppressAuxiliaryCheckableState(node)
+                ? CompositorUtils.dedupJoin(contentDescription, nodeText, "")
+                : CompositorUtils.dedupJoin(contentDescription, nodeText, stateDescription);
+        combinedText = CompositorUtils.dedupJoin(combinedText, hintText, "");
     }
-    // Fallbacks to node text.
-    CharSequence nodeText = getNodeText(node, context, globalVariables.getUserPreferredLocale());
-    return globalVariables.getGlobalSayCapital()
-        ? CompositorUtils.prependCapital(nodeText, context)
-        : nodeText;
+
+    CharSequence finalResult = globalVariables.getGlobalSayCapital()
+        ? CompositorUtils.prependCapital(combinedText, context)
+        : combinedText;
+
+    // Child/sibling badge harvesting is useful for launchers, but on regular screens it can
+    // duplicate visible labels such as settings rows and menu items.
+    if (isLauncherNode(node)) {
+        CharSequence childText = getRecursiveChildText(node, context);
+        if (!TextUtils.isEmpty(childText) && !finalResult.toString().contains(childText.toString())) {
+            finalResult = CompositorUtils.joinCharSequences(finalResult, childText);
+        }
+
+        CharSequence neighborText = getBadgeFromNeighbors(node, context);
+        if (!TextUtils.isEmpty(neighborText)
+            && !finalResult.toString().contains(neighborText.toString())) {
+            finalResult = CompositorUtils.joinCharSequences(finalResult, neighborText);
+        }
+    }
+    
+    long duration = System.currentTimeMillis() - startTime;
+    android.util.Log.d("AndroTalkDebug", "Node Analysis End. Duration: [" + duration + "ms]. Final Result: [" + finalResult + "]");
+    return finalResult;
+  }
+
+  private static boolean isBadgeText(CharSequence text) {
+    if (TextUtils.isEmpty(text)) return false;
+    String s = text.toString().trim();
+    // Matches patterns like "5", "12", "99+", or just numbers.
+    return s.matches("\\d+\\+?");
+  }
+
+  private static CharSequence getBadgeFromNeighbors(AccessibilityNodeInfoCompat node, Context context) {
+    if (node == null) return "";
+    AccessibilityNodeInfoCompat parent = node.getParent();
+    if (parent == null) return "";
+    
+    SpannableStringBuilder sb = new SpannableStringBuilder();
+    int siblingCount = parent.getChildCount();
+    // Optimized: Limit sibling scan to 8 to avoid UI lag
+    for (int i = 0; i < Math.min(siblingCount, 8); i++) {
+        AccessibilityNodeInfoCompat sibling = parent.getChild(i);
+        if (sibling != null && !sibling.equals(node)) {
+            CharSequence text = sibling.getContentDescription();
+            if (TextUtils.isEmpty(text)) text = sibling.getText();
+            
+            String viewId = sibling.getViewIdResourceName();
+            boolean isBadgeId = (viewId != null && (viewId.contains("badge") || viewId.contains("notification_count")));
+            
+            if (isBadgeId || isBadgeText(text)) {
+                if (!TextUtils.isEmpty(text)) {
+                    StringBuilderUtils.appendWithSeparator(sb, text);
+                }
+            }
+        }
+    }
+    return sb;
+  }
+
+  private static CharSequence getRecursiveChildText(AccessibilityNodeInfoCompat node, Context context) {
+    if (node == null) return "";
+    SpannableStringBuilder sb = new SpannableStringBuilder();
+    int childCount = node.getChildCount();
+    // Optimized: Drastically reduced child count to avoid performance issues
+    childCount = Math.min(childCount, 8); 
+    
+    for (int i = 0; i < childCount; i++) {
+        AccessibilityNodeInfoCompat child = node.getChild(i);
+        if (child != null) {
+            // Collect all available text from descendants
+            CharSequence text = child.getContentDescription();
+            if (TextUtils.isEmpty(text)) {
+                text = child.getText();
+            }
+            if (TextUtils.isEmpty(text)) {
+                text = child.getStateDescription();
+            }
+            
+            if (!TextUtils.isEmpty(text)) {
+                StringBuilderUtils.appendWithSeparator(sb, text);
+            }
+            
+            // Recurse into children (max 1 levels deep for performance)
+            if (child.getChildCount() > 0) {
+                 for (int j = 0; j < Math.min(child.getChildCount(), 3); j++) {
+                     AccessibilityNodeInfoCompat grandChild = child.getChild(j);
+                     if (grandChild != null) {
+                        CharSequence gcText = grandChild.getContentDescription();
+                        if (TextUtils.isEmpty(gcText)) gcText = grandChild.getText();
+                        if (TextUtils.isEmpty(gcText)) gcText = grandChild.getStateDescription();
+                        if (!TextUtils.isEmpty(gcText)) {
+                            StringBuilderUtils.appendWithSeparator(sb, gcText);
+                        }
+                     }
+                 }
+            }
+        }
+    }
+    return sb;
   }
 
   /**
@@ -162,9 +454,164 @@ public class AccessibilityNodeFeedbackUtils {
    */
   public static CharSequence getNodeStateDescription(
       AccessibilityNodeInfoCompat node, Context context, Locale userPreferredLocale) {
-    return SpannableUtils.wrapWithNonCopyableTextSpan(
-        prepareSpans(
-            AccessibilityNodeInfoUtils.getState(node), node, context, userPreferredLocale));
+    CharSequence state = prepareSpans(
+            AccessibilityNodeInfoUtils.getState(node), node, context, userPreferredLocale);
+    
+    if (TextUtils.isEmpty(state) && !shouldSuppressAuxiliaryCheckableState(node)) {
+        state = getRecursiveChildState(node, context);
+    }
+    
+    return SpannableUtils.wrapWithNonCopyableTextSpan(state);
+  }
+
+  private static CharSequence getRecursiveChildState(AccessibilityNodeInfoCompat node, Context context) {
+    if (node == null) return "";
+    
+    android.graphics.Rect focusedBounds = new android.graphics.Rect();
+    node.getBoundsInScreen(focusedBounds);
+    
+    // 0. Check the node ITSELF first (Essential for Quick Settings tiles)
+    CharSequence selfState = getNodeState(node, context);
+    if (!TextUtils.isEmpty(selfState)) return selfState;
+    
+    // 1. Search focused node's own children (inside)
+    CharSequence childState = searchForState(node, context, 0, focusedBounds, true);
+    if (!TextUtils.isEmpty(childState)) return childState;
+    
+    // 2. Search neighbors (1st level siblings - around)
+    AccessibilityNodeInfoCompat parent = node.getParent();
+    if (parent != null) {
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            AccessibilityNodeInfoCompat sibling = parent.getChild(i);
+            if (sibling != null && !sibling.equals(node)) {
+                CharSequence siblingState = searchForState(sibling, context, 0, focusedBounds, false);
+                if (!TextUtils.isEmpty(siblingState)) return siblingState;
+            }
+        }
+        
+        // 3. Optimized: DO NOT search the whole neighborhood tree by default
+        // This was the primary cause of 3-4 swipe latency.
+        /* 
+        AccessibilityNodeInfoCompat grandParent = parent.getParent();
+        if (grandParent != null) {
+            CharSequence neighborhoodState = searchForState(grandParent, context, 0, focusedBounds, false);
+            if (!TextUtils.isEmpty(neighborhoodState)) return neighborhoodState;
+        }
+        */
+    }
+    
+    return getSamsungExtraState(node, context);
+  }
+
+  private static CharSequence getNodeState(AccessibilityNodeInfoCompat node, Context context) {
+      if (node == null) return "";
+    
+    // 1. HIGH PRIORITY: RangeInfo (Sliders / SeekBars) - Fixes Quick Settings Brightness Slider focus
+    if (node.getRangeInfo() != null) {
+        AccessibilityNodeInfoCompat.RangeInfoCompat rangeInfo = node.getRangeInfo();
+        float current = rangeInfo.getCurrent();
+        float min = rangeInfo.getMin();
+        float max = rangeInfo.getMax();
+        if (max > min) {
+            int percent = (int) (((current - min) / (max - min)) * 100);
+            return "Yüzde " + percent; 
+        }
+    }
+    
+      int role = Role.getRole(node);
+      String className = (node.getClassName() == null) ? "" : node.getClassName().toString();
+
+      if (shouldSuppressAuxiliaryCheckableState(node)) {
+          return "";
+      }
+      
+      // Only switch-like widgets should be spoken as on/off. Other checkable widgets keep their
+      // checked semantics.
+      boolean isRealSwitch =
+          role == Role.ROLE_SWITCH
+              || role == Role.ROLE_TOGGLE_BUTTON
+              || className.contains("Switch")
+              || className.contains("Toggle");
+      
+      boolean isTile = className.contains("Tile") || className.contains("StatusTile");
+  
+      if (isRealSwitch) {
+          return node.isChecked() ? context.getString(R.string.value_on) : context.getString(R.string.value_off);
+      }
+      if (role == Role.ROLE_CHECK_BOX || role == Role.ROLE_RADIO_BUTTON || role == Role.ROLE_CHECKED_TEXT_VIEW) {
+          return node.isChecked()
+              ? context.getString(R.string.value_checked)
+              : context.getString(R.string.value_not_checked);
+      }
+      
+      if (isTile) {
+          return (node.isChecked() || node.isSelected()) ? context.getString(R.string.value_on) : context.getString(R.string.value_off);
+      }
+    
+    // 3. Last resort: Samsung Extras (only if it looks like it might be interactive)
+    if (node.isClickable()) {
+        return getSamsungExtraState(node, context);
+    }
+    
+    return "";
+  }
+
+  private static CharSequence getSamsungExtraState(AccessibilityNodeInfoCompat node, Context context) {
+    try {
+        android.os.Bundle extras = node.getExtras();
+        if (extras != null) {
+            for (String key : extras.keySet()) {
+                String lowKey = key.toLowerCase();
+                if (lowKey.contains("state") || lowKey.contains("checked") || lowKey.contains("sesl") || lowKey.contains("active")) {
+                    Object val = extras.get(key);
+                    if (val instanceof Boolean) {
+                        return (Boolean) val ? context.getString(R.string.value_on) : context.getString(R.string.value_off);
+                    }
+                    if (val instanceof Integer) {
+                        int v = (Integer) val;
+                        if (v == 1) return context.getString(R.string.value_on);
+                        if (v == 0) return context.getString(R.string.value_off);
+                    }
+                }
+            }
+        }
+    } catch (Exception e) { }
+    return "";
+  }
+
+  private static CharSequence searchForState(AccessibilityNodeInfoCompat node, Context context, int depth, android.graphics.Rect focusedBounds, boolean isSameBranch) {
+    // Optimized: Reduced depth from 3 to 1 for much faster discovery
+    if (depth > 1) return ""; 
+    for (int i = 0; i < Math.min(node.getChildCount(), 10); i++) {
+        AccessibilityNodeInfoCompat child = node.getChild(i);
+        if (child != null) {
+            String className = (child.getClassName() == null) ? "" : child.getClassName().toString();
+            
+            // Selective identity - only recurse if it's very likely a switch or slider
+            boolean isCheckableOrSlider = child.isCheckable() || child.getRangeInfo() != null
+                || className.contains("Switch") || className.contains("CheckBox") || className.contains("Toggle") || className.contains("Tile");
+            
+            if (isCheckableOrSlider) {
+                // VPSD: Visual Proximity State Detection check
+                android.graphics.Rect candBounds = new android.graphics.Rect();
+                child.getBoundsInScreen(candBounds);
+                
+                int candCenterY = candBounds.centerY();
+                // Tighter alignment (2 pixels padding)
+                boolean onSameLine = candCenterY >= (focusedBounds.top - 2) && candCenterY <= (focusedBounds.bottom + 2);
+                boolean verticalOverlap = candBounds.bottom > (focusedBounds.top - 2) && candBounds.top < (focusedBounds.bottom + 2);
+                
+                if (onSameLine || verticalOverlap || isSameBranch) {
+                    CharSequence state = getNodeState(child, context);
+                    if (!TextUtils.isEmpty(state)) return state;
+                }
+            }
+            
+            CharSequence descendantState = searchForState(child, context, depth + 1, focusedBounds, isSameBranch);
+            if (!TextUtils.isEmpty(descendantState)) return descendantState;
+        }
+    }
+    return "";
   }
 
   /**
@@ -191,9 +638,78 @@ public class AccessibilityNodeFeedbackUtils {
    */
   public static CharSequence getNodeRoleDescription(
       AccessibilityNodeInfoCompat node, Context context, GlobalVariables globalVariables) {
-    return SpannableUtils.wrapWithNonCopyableTextSpan(
+    CharSequence roleDescription =
         prepareSpans(
-            node.getRoleDescription(), node, context, globalVariables.getUserPreferredLocale()));
+            node.getRoleDescription(), node, context, globalVariables.getUserPreferredLocale());
+    return SpannableUtils.wrapWithNonCopyableTextSpan(
+        stripRedundantCheckableState(roleDescription, node, context, globalVariables));
+  }
+
+  private static CharSequence stripRedundantCheckableState(
+      CharSequence roleDescription,
+      AccessibilityNodeInfoCompat node,
+      Context context,
+      GlobalVariables globalVariables) {
+    if (TextUtils.isEmpty(roleDescription) || node == null) {
+      return roleDescription;
+    }
+    int role = Role.getRole(node);
+    boolean isCheckableRole =
+        node.isCheckable()
+            || role == Role.ROLE_SWITCH
+            || role == Role.ROLE_TOGGLE_BUTTON
+            || role == Role.ROLE_CHECK_BOX
+            || role == Role.ROLE_CHECKED_TEXT_VIEW;
+    if (!isCheckableRole) {
+      return roleDescription;
+    }
+
+    Locale locale =
+        (globalVariables != null && globalVariables.getUserPreferredLocale() != null)
+            ? globalVariables.getUserPreferredLocale()
+            : AccessibilityNodeInfoUtils.getLocalesByNode(node);
+    CharSequence stateDescription = getNodeStateDescription(node, context, locale);
+    CharSequence sanitized = stripStandaloneToken(roleDescription, stateDescription);
+    if (TextUtils.isEmpty(sanitized)) {
+      CharSequence fallbackState =
+          node.isChecked()
+              ? context.getString(R.string.value_on)
+              : context.getString(R.string.value_off);
+      sanitized = stripStandaloneToken(roleDescription, fallbackState);
+    }
+    return sanitized;
+  }
+
+  private static CharSequence stripStandaloneToken(CharSequence text, CharSequence token) {
+    if (TextUtils.isEmpty(text) || TextUtils.isEmpty(token)) {
+      return text;
+    }
+    String original = text.toString().trim();
+    String originalLower = original.toLowerCase(Locale.ROOT);
+    String tokenLower = token.toString().trim().toLowerCase(Locale.ROOT);
+    if (tokenLower.isEmpty()) {
+      return text;
+    }
+
+    if (originalLower.equals(tokenLower)) {
+      return "";
+    }
+    if (originalLower.startsWith(tokenLower + " ")) {
+      original = original.substring(tokenLower.length()).trim();
+      originalLower = original.toLowerCase(Locale.ROOT);
+    }
+    if (originalLower.startsWith(tokenLower + ",")) {
+      original = original.substring(tokenLower.length() + 1).trim();
+      originalLower = original.toLowerCase(Locale.ROOT);
+    }
+    if (originalLower.endsWith(" " + tokenLower)) {
+      original = original.substring(0, original.length() - tokenLower.length()).trim();
+      originalLower = original.toLowerCase(Locale.ROOT);
+    }
+    if (originalLower.endsWith("," + tokenLower)) {
+      original = original.substring(0, original.length() - tokenLower.length() - 1).trim();
+    }
+    return original;
   }
 
   /**

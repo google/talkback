@@ -16,12 +16,15 @@
 package com.google.android.accessibility.talkback.compositor.roledescription;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.compositor.AccessibilityNodeFeedbackUtils;
 import com.google.android.accessibility.talkback.compositor.GlobalVariables;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.ImageContents;
+import com.google.android.accessibility.utils.Role;
+import java.util.Locale;
 
 /**
  * Role description for default node roles.
@@ -64,11 +67,29 @@ public class DefaultDescription implements RoleDescription {
       AccessibilityNodeInfoCompat node,
       Context context,
       GlobalVariables globalVariables) {
-    return AccessibilityNodeFeedbackUtils.getNodeStateDescription(
+    CharSequence state =
+        AccessibilityNodeFeedbackUtils.getNodeStateDescription(
         node,
         context,
         (globalVariables.getUserPreferredLocale() != null)
             ? globalVariables.getUserPreferredLocale()
             : AccessibilityNodeInfoUtils.getLocalesByNode(node));
+    int role = Role.getRole(node);
+    if ((role == Role.ROLE_CHECK_BOX
+            || role == Role.ROLE_RADIO_BUTTON
+            || role == Role.ROLE_CHECKED_TEXT_VIEW)
+        && containsStandaloneText(nodeName(node, context, globalVariables), state)) {
+      return "";
+    }
+    return state;
+  }
+
+  private static boolean containsStandaloneText(CharSequence text, CharSequence target) {
+    if (TextUtils.isEmpty(text) || TextUtils.isEmpty(target)) {
+      return false;
+    }
+    String normalizedText = " " + text.toString().trim().toLowerCase(Locale.ROOT) + " ";
+    String normalizedTarget = " " + target.toString().trim().toLowerCase(Locale.ROOT) + " ";
+    return normalizedText.contains(normalizedTarget);
   }
 }
