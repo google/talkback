@@ -6,6 +6,10 @@ apply from: "../shared.gradle"
 
 dependencies {
     implementation project(':proguard')
+    // Characterization tests: written against the original Java, then run
+    // unchanged against the converted Kotlin.
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.14.1'
 }
 
 android {
@@ -13,5 +17,10 @@ android {
     defaultConfig {
         buildConfigField("String", "TALKBACK_APPLICATION_ID", '"' + talkbackApplicationId + '"')
         buildConfigField("String", "IS_SYSTEM_PRELOAD", "\"False\"")
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
     }
 }
