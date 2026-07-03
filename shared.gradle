@@ -43,6 +43,16 @@ android {
     }
 }
 
+// Kotlin interface defaults become real Java default methods, so Java
+// implementers keep inheriting them (e.g. GestureConfigProvider), matching the
+// original Java. (Dynamic access because script plugins cannot reference the
+// Kotlin plugin classes by name.)
+tasks.configureEach { task ->
+    if (task.name.startsWith("compile") && task.name.contains("Kotlin")) {
+        task.kotlinOptions.freeCompilerArgs += "-Xjvm-default=all"
+    }
+}
+
 dependencies {
 
     // Google common
