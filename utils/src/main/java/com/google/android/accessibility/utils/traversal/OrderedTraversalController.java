@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.utils.traversal;
 
+import android.content.res.Resources;
+import android.graphics.Rect;
 import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -237,8 +239,12 @@ public class OrderedTraversalController {
   public @Nullable AccessibilityNodeInfoCompat findNext(AccessibilityNodeInfoCompat node) {
     WorkingTree tree = nodeTreeMap.get(node);
     if (tree == null) {
-      LogUtils.w(TAG, "findNext(), can't find WorkingTree for AccessibilityNodeInfo");
-      return null;
+      LogUtils.w(
+          TAG,
+          "findNext(), can't find WorkingTree for AccessibilityNodeInfo; falling back to"
+              + " topmost visible node");
+      WorkingTree fallback = findVisibleEdgeWorkingTree(/* forward= */ true);
+      return (fallback == null) ? null : fallback.getNode();
     }
 
     WorkingTree nextTree = tree.getNext();
@@ -252,8 +258,12 @@ public class OrderedTraversalController {
   public @Nullable AccessibilityNodeInfoCompat findPrevious(AccessibilityNodeInfoCompat node) {
     WorkingTree tree = nodeTreeMap.get(node);
     if (tree == null) {
-      LogUtils.w(TAG, "findPrevious(), can't find WorkingTree for AccessibilityNodeInfo");
-      return null;
+      LogUtils.w(
+          TAG,
+          "findPrevious(), can't find WorkingTree for AccessibilityNodeInfo; falling back to"
+              + " bottommost visible node");
+      WorkingTree fallback = findVisibleEdgeWorkingTree(/* forward= */ false);
+      return (fallback == null) ? null : fallback.getNode();
     }
 
     WorkingTree prevTree = tree.getPrevious();
@@ -262,6 +272,38 @@ public class OrderedTraversalController {
     }
 
     return null;
+  }
+
+  /**
+   * Fallback used when the search pivot node is no longer present in {@link #nodeTreeMap} (e.g.
+   * its underlying view was recycled by the app after a large or multi-step auto-scroll, possibly
+   * across a list that is itself growing via pagination). The pivot's last-known on-screen bounds
+   * are stale once a scroll like that has happened, so comparing them against the freshly-queried
+   * bounds of nodes in the rebuilt tree is unreliable. Instead, this picks the node currently
+   * nearest to the relevant edge of the visible viewport -- the topmost visible node for {@code
+   * forward} (the first thing the user would now encounter reading down), or the bottommost
+   * visible node otherwise -- which is invariant to how far or in how many steps the scroll
+   * actually moved.
+   */
+  private @Nullable WorkingTree findVisibleEdgeWorkingTree(boolean forward) {
+    int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
+
+    WorkingTree best = null;
+    int bestEdge = forward ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+    for (Map.Entry<AccessibilityNodeInfoCompat, WorkingTree> entry : nodeTreeMap.entrySet()) {
+      Rect bounds = new Rect();
+      entry.getKey().getBoundsInScreen(bounds);
+      // Skip nodes that aren't actually on screen (e.g. still attached but scrolled fully out of
+      // the viewport).
+      if (bounds.bottom <= 0 || bounds.top >= screenHeight) {
+        continue;
+      }
+      if (forward ? (bounds.top < bestEdge) : (bounds.bottom > bestEdge)) {
+        bestEdge = forward ? bounds.top : bounds.bottom;
+        best = entry.getValue();
+      }
+    }
+    return best;
   }
 
   /** Searches first node to be focused */
