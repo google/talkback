@@ -67,6 +67,10 @@ int KEY_MAP[][2] = {
     {HID_USG_BRL_DPadDown, HID_KEY_DPadDown},
     {HID_USG_BRL_DPadLeft, HID_KEY_DPadLeft},
     {HID_USG_BRL_DPadRight, HID_KEY_DPadRight},
+    // BP24 internal pan keys.
+    // BP24 exposes them as Button usages 0x14 and 0x15.
+    {0x14, HID_KEY_DPadLeft},
+    {0x15, HID_KEY_DPadRight},
     {HID_USG_BRL_DPadCenter, HID_KEY_DPadCenter},
     {HID_USG_BRL_RockerUp, HID_KEY_RockerUp},
     {HID_USG_BRL_RockerDown, HID_KEY_RockerDown},

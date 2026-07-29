@@ -14,7 +14,9 @@ import java.util.regex.Pattern;
 public class SupportedDeviceHid extends SupportedDevice {
   private static final String HID_STUB_DEVICE_NAME = "HID";
   private static final ImmutableList<Pattern> NAME_REGEXES =
-      ImmutableList.of(Pattern.compile(HID_STUB_DEVICE_NAME));
+      ImmutableList.of(
+              Pattern.compile(HID_STUB_DEVICE_NAME),
+              Pattern.compile("BP24-"));
 
   @Override
   public String driverCode() {
@@ -42,6 +44,12 @@ public class SupportedDeviceHid extends SupportedDevice {
         .add("DPadCenter", R.string.key_dpad_center)
         .add("RockerUp", R.string.key_rocker_up)
         .add("RockerDown", R.string.key_rocker_down)
+        .add("JoystickUp", R.string.key_JoystickUp)
+        .add("JoystickDown", R.string.key_JoystickDown)
+        .add("JoystickLeft", R.string.key_JoystickLeft)
+        .add("JoystickRight", R.string.key_JoystickRight)
+        .add("JoystickCenter", R.string.key_JoystickCenter)
+        .routing()
         .build();
   }
 
