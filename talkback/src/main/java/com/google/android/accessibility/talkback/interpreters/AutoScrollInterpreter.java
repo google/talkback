@@ -54,6 +54,15 @@ public class AutoScrollInterpreter implements ScrollEventHandler {
   private DirectionNavigationActor directionNavigationActor;
   private UniversalSearchActor universalSearchActor;
 
+  /** Actor notified of every scroll event so its fail-fast watchdog sees all activity. */
+  @Nullable private com.google.android.accessibility.talkback.actor.AutoScrollActor scroller;
+
+  /** Lets the interpreter report scroll activity (matched or not) to the actor. */
+  public void setAutoScrollActor(
+      @Nullable com.google.android.accessibility.talkback.actor.AutoScrollActor scroller) {
+    this.scroller = scroller;
+  }
+
   public AutoScrollInterpreter() {
     autoScrollHandler = new AutoScrollHandler(this);
   }
@@ -78,6 +87,12 @@ public class AutoScrollInterpreter implements ScrollEventHandler {
   public void onScrollEvent(
       AccessibilityEvent event, ScrollEventInterpretation interpretation, EventId eventId) {
     LogUtils.d(TAG, "onScrollEvent, event = %s", event);
+
+    // Any scroll activity counts against fail-fast silence, even events that don't
+    // match the current record (e.g. the user's own finger on a still-settling list).
+    if (scroller != null) {
+      scroller.notifyScrollEvent();
+    }
 
     if ((interpretation.scrollInstanceId != UNKNOWN_SCROLL_INSTANCE_ID)
         && (autoScrollRecordId() == interpretation.scrollInstanceId)
@@ -177,6 +192,11 @@ public class AutoScrollInterpreter implements ScrollEventHandler {
     return record;
   }
 
+  /** Flush a pending delayed scroll-success so no swiped-to item is dropped silently. */
+  public void flushPendingAutoScrollSuccess() {
+    autoScrollHandler.flushPendingAutoScrollSuccess();
+  }
+
   static class AutoScrollHandler extends WeakReferenceHandler<AutoScrollInterpreter> {
 
     // We set this delay time bigger than
@@ -194,6 +214,9 @@ public class AutoScrollInterpreter implements ScrollEventHandler {
     private int scrollDeltaSumX = 0;
     private int scrollDeltaSumY = 0;
 
+    /** EventId of the currently delayed success, if any. */
+    private @Nullable EventId pendingSuccessEventId = null;
+
     AutoScrollHandler(AutoScrollInterpreter autoScrollInterpreter) {
       super(autoScrollInterpreter, Looper.myLooper());
     }
@@ -202,10 +225,30 @@ public class AutoScrollInterpreter implements ScrollEventHandler {
         EventId eventId, int scrollDeltaX, int scrollDeltaY, long delay) {
       scrollDeltaSumX += scrollDeltaX;
       scrollDeltaSumY += scrollDeltaY;
+      pendingSuccessEventId = eventId;
 
       Message message =
           obtainMessage(MSG_HANDLE_AUTO_SCROLL_SUCCESS, scrollDeltaSumX, scrollDeltaSumY, eventId);
       sendMessageDelayed(message, delay);
+    }
+
+    /**
+     * Complete a pending delayed scroll-success right now instead of dropping it. A new
+     * navigation while a scroll is settling (fast swiping) used to discard the in-flight item
+     * silently — the delayed handler was reset before it fired, so the swiped-to item never
+     * spoke and the user perceived a stall. Flushing speaks it immediately; the new navigation
+     * then interrupts as usual, so every swipe is heard.
+     */
+    public void flushPendingAutoScrollSuccess() {
+      if (!hasMessages(MSG_HANDLE_AUTO_SCROLL_SUCCESS)) {
+        pendingSuccessEventId = null;
+        return;
+      }
+      removeHandleAutoScrollSuccessMessages();
+      EventId eventId = pendingSuccessEventId;
+      pendingSuccessEventId = null;
+      LogUtils.d(TAG, "Flushing pending auto-scroll success before new navigation.");
+      handleAutoScrollSuccess(eventId, /* scrollDeltaX= */ 0, /* scrollDeltaY= */ 0);
     }
 
     /** Handles auto-scroll success immediately. */

@@ -45,6 +45,7 @@ import com.google.android.accessibility.talkback.focusmanagement.NavigationTarge
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction;
 import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction.ActionType;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
+import com.google.android.accessibility.talkback.interpreters.AutoScrollInterpreter;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Filter;
@@ -117,6 +118,9 @@ public class DirectionNavigationActor implements UserInputEventListener {
   /** Converts direction-actions to focus-actions. */
   private final FocusProcessorForLogicalNavigation focusProcessorForLogicalNavigation;
 
+  /** Interpreter whose pending scroll-success is flushed on each new navigation. */
+  private @Nullable AutoScrollInterpreter autoScrollInterpreter;
+
   public DirectionNavigationActor(
       InputModeTracker inputModeTracker,
       GlobalVariables globalVariables,
@@ -164,6 +168,11 @@ public class DirectionNavigationActor implements UserInputEventListener {
 
   public void setActorState(ActorState actorState) {
     focusProcessorForLogicalNavigation.setActorState(actorState);
+  }
+
+  /** Interpreter flushed on each new navigation so in-flight items are never dropped. */
+  public void setAutoScrollInterpreter(@Nullable AutoScrollInterpreter autoScrollInterpreter) {
+    this.autoScrollInterpreter = autoScrollInterpreter;
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -220,6 +229,11 @@ public class DirectionNavigationActor implements UserInputEventListener {
   }
 
   private boolean sendNavigationAction(NavigationAction action, EventId eventId) {
+    // A previous swipe's scroll may still be settling with its item unspoken; complete
+    // it now so every swipe is heard instead of silently dropped.
+    if (autoScrollInterpreter != null) {
+      autoScrollInterpreter.flushPendingAutoScrollSuccess();
+    }
     boolean result = focusProcessorForLogicalNavigation.onNavigationAction(action, eventId);
     if (result && (action.inputMode != INPUT_MODE_UNKNOWN)) {
       inputModeTracker.setInputMode(action.inputMode);

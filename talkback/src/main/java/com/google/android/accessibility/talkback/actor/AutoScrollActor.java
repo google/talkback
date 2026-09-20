@@ -55,6 +55,18 @@ public class AutoScrollActor {
 
   public static final int UNKNOWN_SCROLL_INSTANCE_ID = -1;
 
+  /**
+   * Fail-fast: if no scroll-progress event arrives within this long after performing a
+   * scroll action, give up early instead of waiting out the full {@link ScrollTimeout}. Fires
+   * only under complete scroll silence (no scroll event of any kind since the action): a working
+   * scroll emits {@code TYPE_VIEW_SCROLLED} within a frame or two, which cancels this watchdog
+   * via {@link #cancelTimeout()}, and even unmatched scroll activity (e.g. the user's own
+   * finger on a still-settling list) suppresses it via {@link #notifyScrollEvent()}. A dead
+   * scroll (an app that never performs the action and never reports progress) hits this and
+   * proceeds to focus+speech hundreds of ms sooner per swipe.
+   */
+  private static final long FAIL_FAST_NO_PROGRESS_MS = 150;
+
   ///////////////////////////////////////////////////////////////////////////////////////
   // Read-only interface
 
@@ -82,6 +94,32 @@ public class AutoScrollActor {
   // pipeline, with single delay-handler for all actors.
   private final DelayHandler<EventIdAnd<Boolean>> postDelayHandler;
 
+  /**
+   * Fail-fast watchdog. Armed alongside {@link #postDelayHandler} in {@link
+   * #setScrollRecord}; disarmed by the first scroll-progress event ({@link #cancelTimeout()}) or
+   * when the record is otherwise resolved. Fires {@link #handleFailFast()} if the app never starts
+   * reporting scroll progress.
+   */
+  private final DelayHandler<EventIdAnd<Boolean>> failFastHandler;
+
+  /** Scroll instance the pending fail-fast watchdog belongs to, or UNKNOWN if none is armed. */
+  private int failFastInstanceId = UNKNOWN_SCROLL_INSTANCE_ID;
+
+  /**
+   * Uptime of the last scroll-related event seen for any scroll (not just the current record).
+   * Updated via {@link #notifyScrollEvent()}; the fail-fast watchdog only fires under complete
+   * scroll silence, so rapid swiping on a still-moving list can never trip it.
+   */
+  private volatile long lastScrollEventUptimeMs = 0;
+
+  /**
+   * Records that some scroll activity happened. Called by the scroll interpreter for every
+   * scroll-related event, matched to the current record or not.
+   */
+  public void notifyScrollEvent() {
+    lastScrollEventUptimeMs = SystemClock.uptimeMillis();
+  }
+
   private Pipeline.EventReceiver pipelineReceiver;
   private Pipeline.FeedbackReturner feedbackReturner;
 
@@ -97,6 +135,13 @@ public class AutoScrollActor {
           @Override
           public void handle(EventIdAnd<Boolean> args) {
             handleAutoScrollFailed();
+          }
+        };
+    failFastHandler =
+        new DelayHandler<EventIdAnd<Boolean>>() {
+          @Override
+          public void handle(EventIdAnd<Boolean> args) {
+            handleFailFast();
           }
         };
   }
@@ -118,6 +163,9 @@ public class AutoScrollActor {
 
   public void cancelTimeout() {
     postDelayHandler.removeMessages();
+    // First scroll-progress event arrived: the scroll is alive, fail-fast no longer needed.
+    failFastHandler.removeMessages();
+    failFastInstanceId = UNKNOWN_SCROLL_INSTANCE_ID;
   }
 
   /**
@@ -255,6 +303,16 @@ public class AutoScrollActor {
     postDelayHandler.removeMessages();
     postDelayHandler.delay(
         scrollTimeout.getTimeoutMillis(), /* handlerArg= */ new EventIdAnd<>(false, null));
+
+    // Fail-fast: never wait longer than FAIL_FAST_NO_PROGRESS_MS for the first sign of
+    // life. Capped by the full timeout so SHORT/LONG semantics are unchanged. The silence
+    // baseline starts at the action: only events arriving after this point count as progress.
+    lastScrollEventUptimeMs = currentTime;
+    failFastHandler.removeMessages();
+    failFastInstanceId = scrollInstanceId;
+    failFastHandler.delay(
+        Math.min(FAIL_FAST_NO_PROGRESS_MS, scrollTimeout.getTimeoutMillis()),
+        /* handlerArg= */ new EventIdAnd<>(false, null));
   }
 
   private void setAutoScrollRecord(ScrollActionRecord newRecord) {
@@ -277,12 +335,44 @@ public class AutoScrollActor {
     // Once the auto scroll is stopped, we should clear scrollActionRecord. So, if
     // scrollActionRecord is null, it means we are not in auto-scrolling.
     scrollActionRecord = null;
+    failFastHandler.removeMessages();
+    failFastInstanceId = UNKNOWN_SCROLL_INSTANCE_ID;
+  }
+
+  /**
+   * Fail-fast: the full scroll timeout has not expired, but no scroll-progress event has
+   * arrived since the action was performed. Treat it exactly like the timeout: move the record to
+   * failed and let the normal {@code SCROLL_TIMEOUT} path (assume-success retry, focus, speech)
+   * run immediately. Safe against races: stale watches (superseded record, or progress that
+   * arrived first and disarmed us) are ignored via the instance check and the disarms above.
+   */
+  private void handleFailFast() {
+    if (scrollActionRecord == null
+        || scrollActionRecord.scrollInstanceId != failFastInstanceId) {
+      return;
+    }
+    if (SystemClock.uptimeMillis() - lastScrollEventUptimeMs < FAIL_FAST_NO_PROGRESS_MS) {
+      // Scroll activity happened since the action (just not for this record): the list is
+      // alive, e.g. still settling from a previous swipe. Stand down and let the normal
+      // timeout path handle it exactly as stock TalkBack would.
+      LogUtils.d(TAG, "Fail-fast suppressed: scroll activity present, waiting out full timeout.");
+      failFastInstanceId = UNKNOWN_SCROLL_INSTANCE_ID;
+      return;
+    }
+    LogUtils.d(
+        TAG,
+        "Fail-fast: no scroll progress in %dms, failing early (full timeout skipped).",
+        FAIL_FAST_NO_PROGRESS_MS);
+    failFastInstanceId = UNKNOWN_SCROLL_INSTANCE_ID;
+    handleAutoScrollFailed();
   }
 
   private void handleAutoScrollFailed() {
     if (scrollActionRecord == null) {
       return;
     }
+    failFastHandler.removeMessages();
+    failFastInstanceId = UNKNOWN_SCROLL_INSTANCE_ID;
     // Caches the failed auto-scroll record, which will be used at {@link
     // AutoScrollInterpreter#handleAutoScrollFailed()}.
     failedScrollActionRecord = scrollActionRecord;
