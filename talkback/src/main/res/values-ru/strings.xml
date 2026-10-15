@@ -467,7 +467,7 @@
   <string name="shortcut_voice_commands">Включить голосовые команды</string>
   <string name="shortcut_last_in_screen">Перейти к последнему объекту на экране</string>
   <string name="shortcut_enable_dimming">Защитить экран</string>
-  <string name="shortcut_disable_dimming">Отменить затемнение экрана</string>
+  <string name="shortcut_disable_dimming">Выключить затемнение экрана</string>
   <string name="shortcut_perform_click_action">Активировать</string>
   <string name="shortcut_perform_double_click_action">Нажать дважды</string>
   <string name="shortcut_perform_long_click_action">Нажать и удерживать</string>
@@ -578,7 +578,7 @@
   <string name="summary_repeat_last_spoken_phrase">Повторение последней произнесённой фразы</string>
   <string name="summary_perform_screen_search">Ввод текста, который нужно найти на экране</string>
   <string name="summary_voice_commands">Управление TalkBack с помощью голосовых команд</string>
-  <string name="summary_show_hide_screen">Затемнение экрана, чтобы окружающие не видели его содержимое. Не забудьте отменить затемнение.</string>
+  <string name="summary_show_hide_screen">Затемнение экрана, чтобы окружающие не видели его содержимое. Не забудьте выключить затемнение.</string>
   <string name="summary_control_speak_time">Выберите, хотите ли вы слышать время, когда включаете экран</string>
   <string name="summary_show_keyboard_shortcuts_preferences">Открыть список быстрых клавиш</string>
   <string name="summary_talkback_preferences">Открыть настройки TalkBack</string>
@@ -1326,7 +1326,7 @@
   <string name="screen_overview_heres_the_elements">Вот какие элементы управления найдены в этом приложении:</string>
   <string name="screen_overview_no_result">Не получается описать содержимое экрана</string>
   <string name="image_caption_no_result">Не удалось описать изображение</string>
-  <string name="image_caption_with_hide_screen">Когда экран затемнён, описания изображений недоступны. Отмените затемнение и повторите попытку.</string>
+  <string name="image_caption_with_hide_screen">Когда экран затемнён, описания изображений недоступны. Выключите затемнение и повторите попытку.</string>
   <string name="feedback_button_state_set">выбрано</string>
   <string name="feedback_button_state_unset">не выбрано</string>
   <string name="action_text_like_button">Отметить как хороший ответ</string>
