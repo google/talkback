@@ -16,12 +16,12 @@
   <string name="manage_label">Управление ярлыками</string>
   <string name="label_manager_no_packages_message">У вас пока нет персональных ярлыков.\n\n<b>Как создать персональный ярлык</b>\nОткройте изображение и создайте ярлык в меню TalkBack.</string>
   <string name="label_manager_timestamp_text">Последнее изменение: %1$s</string>
-  <string name="search_mode_cancel">Поиск отменен.</string>
+  <string name="search_mode_cancel">Поиск отменён.</string>
   <string name="notification_type_status_started">Начато</string>
   <string name="notification_type_status_stopped">Остановлено</string>
   <string name="notification_type_status_connected">подключено</string>
   <string name="notification_battery_level_unknown">неизвестно</string>
-  <string name="notification_battery_saver_mode">Режим энергосбережения включен</string>
+  <string name="notification_battery_saver_mode">Режим энергосбережения включён</string>
   <string name="template_no_text_selected">Текст не выделен</string>
   <string name="template_charging">Зарядка: %1$s. Заряд батареи в процентах: %2$s.</string>
   <string name="template_charging_lite">Статус зарядки: %1$s</string>
@@ -29,14 +29,14 @@
   <string name="template_language_options_menu_item">%1$s (%2$s)</string>
   <string name="value_ringer_vibrate">Вибровызов.</string>
   <string name="value_ringer_silent">Беззвучный режим.</string>
-  <string name="value_screen_on">Экран включен.</string>
+  <string name="value_screen_on">Экран включён.</string>
   <string name="value_screen_off">Экран выключен.</string>
   <string name="value_device_unlocked">Устройство разблокировано.</string>
   <string name="title_pref_category_audio">Аудио</string>
   <string name="title_pref_speech_volume">Громкость речи</string>
   <string name="title_pref_speech_rate">Скорость речи</string>
   <string name="summary_pref_speech_rate">Скорость чтения текста</string>
-  <string name="title_pref_speak_screenoff">Озвучивать уведомления при отключенном экране</string>
+  <string name="title_pref_speak_screenoff">Озвучивать уведомления при отключённом экране</string>
   <string name="title_pref_verbose_scroll_announcement">Озвучивать количество элементов списка</string>
   <string name="summary_pref_verbose_scroll_announcement">Озвучивать число для всех методов прокрутки</string>
   <string name="title_pref_cover_proximity_sensor">Останавливать озвучивание, когда прикрыт датчик расстояния</string>
@@ -47,7 +47,7 @@
   <string name="punctuation_most">Большинство</string>
   <string name="punctuation_some">Некоторые</string>
   <string name="title_pref_count_repeated_symbols">Произносить количество повторяющихся символов</string>
-  <string name="summary_pref_count_repeated_symbols">Число прозвучит, если повторов больше четырех</string>
+  <string name="summary_pref_count_repeated_symbols">Число прозвучит, если повторов больше четырёх</string>
   <string name="learn_more">Подробнее</string>
   <string name="title_pref_capital_letters">Заглавные буквы</string>
   <string name="capital_letters_nothing">Ничего не делать</string>
@@ -66,7 +66,7 @@
   <string name="message_of_typing_focus_delay_reduction_confirm_dialog">Если задержка выбора элемента меньше 0,3 секунды, нажать дважды для ввода текста будет очень сложно. Вы можете активировать ввод текста при отпускании клавиши.\n\nЧтобы ввести символ, удерживайте палец на клавише, а затем уберите его.\n\nЗадать параметры этого способа ввода можно в настройках TalkBack.</string>
   <string name="confirm_typing_focus_delay_reading_control_added_dialog_title">В управление чтением добавлена задержка выбора элемента при вводе</string>
   <string name="confirm_typing_focus_delay_reading_control_added_dialog_message">Если у вас не получается набирать текст, дважды нажимая на клавиши, то проведите по экрану тремя пальцами, чтобы открыть меню управления чтением, и увеличьте задержку выбора элемента при вводе.</string>
-  <string name="gestures_announce_typing_focus_wont_change">Задержка выбора элемента при вводе работает, только когда включен ввод текста при отпускании клавиши.</string>
+  <string name="gestures_announce_typing_focus_wont_change">Задержка выбора элемента при вводе работает, только когда включён ввод текста при отпускании клавиши.</string>
   <string name="confirm_latency_reduction_reading_control_added_dialog_positive_button">ОК</string>
   <string name="reset_letency_reduction_settings_dialog_title">Сбросить настройки задержки?</string>
   <string name="message_reset_letency_reduction_settings_confirm_dialog">Для всех параметров задержки будут восстановлены значения по умолчанию.</string>
@@ -76,7 +76,7 @@
   <string name="reduce_focus_delay_settings_cancel_button">Не переключаться</string>
   <string name="Reset_gesture_settings_dialog_title">Сбросить жесты?</string>
   <string name="Reset_gesture_settings_set_dialog_title">Сбросить жесты этого набора?</string>
-  <string name="message_reset_gesture_settings_confirm_dialog">Для всех жестов будут установлены действия по умолчанию.\n\nВнесенные вами изменения будут отменены.</string>
+  <string name="message_reset_gesture_settings_confirm_dialog">Для всех жестов будут установлены действия по умолчанию.\n\nВнесённые вами изменения будут отменены.</string>
   <string name="reset_button_in_reset_gesture_settings_confirm_dialog">Сбросить</string>
   <string name="gestures_announce_reset_gesture_settings">Настройки жестов сброшены.</string>
   <string name="pref_speak_roles_title">Озвучивать тип элемента</string>
@@ -85,7 +85,7 @@
   <string name="summary_pref_speak_element_ids">Для кнопок без названия</string>
   <string name="pref_speak_system_window_titles_title">Озвучивать названия окон</string>
   <string name="pref_allow_frequent_content_change_announcement_title">Озвучивать уведомления о ходе выполнения</string>
-  <string name="summary_pref_allow_frequent_content_change_announcement">Сюда входят уведомления во время скачивания, навигации и не только. Когда параметр отключен, вы будете получать меньше уведомлений.</string>
+  <string name="summary_pref_allow_frequent_content_change_announcement">Сюда входят уведомления во время скачивания, навигации и не только. Когда параметр отключён, вы будете получать меньше уведомлений.</string>
   <string name="pref_speak_system_window_titles_summary">Озвучивать названия системных окон и окон ввода, например при переходе к строке состояния, уведомлениям или клавиатуре</string>
   <string name="title_pref_explore_by_touch">Изучение касанием</string>
   <string name="title_pref_category_visual">Визуальные</string>
@@ -133,11 +133,11 @@
   <string name="title_pref_advanced_settings">Расширенные настройки</string>
   <string name="title_pref_show_exit_watermark">Показывать инструкцию по отключению TalkBack</string>
   <string name="summary_pref_show_exit_watermark">После включения TalkBack будет появляться сообщение, позволяющее быстро его выключить</string>
-  <string name="talkback_exit_watermark_text">Функция TalkBack включена. Чтобы выключить ее, удерживайте два пальца на экране в течение пяти секунд. Если вы больше не хотите видеть это сообщение, коснитесь экрана тремя пальцами, чтобы открыть меню TalkBack.</string>
-  <string name="talkback_exit_watermark_hint_text">Баннер, указывающий на то, что включена функция TalkBack. Чтобы отключить ее, удерживайте два пальца на экране в течение пяти секунд. Чтобы убрать баннер, перейдите в настройки TalkBack.</string>
+  <string name="talkback_exit_watermark_text">Функция TalkBack включена. Чтобы выключить её, удерживайте два пальца на экране в течение пяти секунд. Если вы больше не хотите видеть это сообщение, коснитесь экрана тремя пальцами, чтобы открыть меню TalkBack.</string>
+  <string name="talkback_exit_watermark_hint_text">Баннер, указывающий на то, что включена функция TalkBack. Чтобы отключить её, удерживайте два пальца на экране в течение пяти секунд. Чтобы убрать баннер, перейдите в настройки TalkBack.</string>
   <string name="reset_gesture_settings_title">Сбросить настройки жестов</string>
   <string name="one_finger_gestures_title">Один палец</string>
-  <string name="one_finger_back_forth_gestures_title">Жесты вперед-назад одним пальцем</string>
+  <string name="one_finger_back_forth_gestures_title">Жесты вперёд-назад одним пальцем</string>
   <string name="one_finger_angle_gestures_title">Угловые жесты одним пальцем</string>
   <string name="two_finger_gestures_title">Два пальца</string>
   <string name="three_finger_gestures_title">Три пальца</string>
@@ -208,7 +208,7 @@
   <string name="keycombo_menu_perform_long_click">Нажать и удерживать</string>
   <string name="keycombo_menu_category_global">Общие действия</string>
   <string name="keycombo_menu_global_back">Назад</string>
-  <string name="keycombo_menu_global_home">Домашний экран</string>
+  <string name="keycombo_menu_global_home">Главный экран</string>
   <string name="keycombo_menu_global_recent">Недавние приложения</string>
   <string name="keycombo_menu_global_notifications">Уведомления</string>
   <string name="keycombo_menu_global_play_pause_media">Начать или приостано­вить вос­произ­ведение</string>
@@ -256,8 +256,8 @@
   <string name="keycombo_menu_web_navigate_to_previous_control">Перейти к предыдущему элементу управления</string>
   <string name="keycombo_menu_web_navigate_to_next_checkbox">Перейти к следующему флажку</string>
   <string name="keycombo_menu_web_navigate_to_previous_checkbox">Перейти к предыдущему флажку</string>
-  <string name="keycombo_menu_web_navigate_to_next_aria_landmark">Перейти к следующей метке ARIA</string>
-  <string name="keycombo_menu_web_navigate_to_previous_aria_landmark">Перейти к предыдущей метке ARIA</string>
+  <string name="keycombo_menu_web_navigate_to_next_aria_landmark">Перейти к следующему ориентиру ARIA</string>
+  <string name="keycombo_menu_web_navigate_to_previous_aria_landmark">Перейти к предыдущему ориентиру ARIA</string>
   <string name="keycombo_menu_web_navigate_to_next_edit_field">Перейти к следующему полю</string>
   <string name="keycombo_menu_web_navigate_to_previous_edit_field">Перейти к предыдущему полю</string>
   <string name="keycombo_menu_web_navigate_to_next_focusable_item">Перейти к следующему объекту</string>
@@ -288,10 +288,10 @@
   <string name="keycombo_menu_web_navigate_to_previous_table">Перейти к предыдущей таблице</string>
   <string name="keycombo_menu_web_navigate_to_next_combobox">Перейти к следующему полю со списком</string>
   <string name="keycombo_menu_web_navigate_to_previous_combobox">Перейти к предыдущему полю со списком</string>
-  <string name="keycombo_menu_web_navigate_to_next_visited_link">Перейти к следующей открытой ссылке</string>
-  <string name="keycombo_menu_web_navigate_to_previous_visited_link">Перейти к предыдущей открытой ссылке</string>
-  <string name="keycombo_menu_web_navigate_to_next_unvisited_link">Перейти к следующей непосещенной ссылке</string>
-  <string name="keycombo_menu_web_navigate_to_previous_unvisited_link">Перейти к предыдущей непосещенной ссылке</string>
+  <string name="keycombo_menu_web_navigate_to_next_visited_link">Перейти к следующей посещённой ссылке</string>
+  <string name="keycombo_menu_web_navigate_to_previous_visited_link">Перейти к предыдущей посещённой ссылке</string>
+  <string name="keycombo_menu_web_navigate_to_next_unvisited_link">Перейти к следующей непосещённой ссылке</string>
+  <string name="keycombo_menu_web_navigate_to_previous_unvisited_link">Перейти к предыдущей непосещённой ссылке</string>
   <string name="keycombo_menu_web_navigate_to_next_radio">Перейти к следующему переключателю</string>
   <string name="keycombo_menu_web_navigate_to_previous_radio">Перейти к предыдущему переключателю</string>
   <string name="keycombo_menu_web_navigate_to_next_row">Перейти к следующей строке</string>
@@ -314,7 +314,7 @@
   <string name="message_in_reset_keymap_confirm_dialog">Вернуть исходные быстрые клавиши для данной раскладки? Это действие нельзя отменить.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Сбросить</string>
   <string name="template_keycombo_menu_browse_mode_command">%1$s в режиме обзора</string>
-  <string name="keycombo_assign_dialog_instruction">Чтобы установить сочетание клавиш для команды, нажмите его. В нем должна быть клавиша ALT или CONTROL.</string>
+  <string name="keycombo_assign_dialog_instruction">Чтобы установить сочетание клавиш для команды, нажмите его. В нём должна быть клавиша ALT или CONTROL.</string>
   <string name="keycombo_assign_dialog_default_keymap_instruction">Чтобы задать сочетание клавиш, нажмите его вместе с клавишей-модификатором %1$s.</string>
   <string name="keycombo_unassigned">Не назначено</string>
   <string name="save_button_in_keycombo_assign_dialog">Сохранить</string>
@@ -357,7 +357,7 @@
   <string name="pref_reduce_window_delay_title">Быстрее озвучивать названия окон</string>
   <string name="title_pref_log_level">Уровень вывода журнала</string>
   <string name="title_pref_diagnosis_mode">Режим диагностики</string>
-  <string name="title_pref_tts_overlay">Преобразовывать речь в текст</string>
+  <string name="title_pref_tts_overlay">Показывать озвучиваемый текст</string>
   <string name="title_pref_multiple_gesture_set">Поддержка нескольких наборов жестов</string>
   <string name="title_pref_echo_recognized_text_speech">Озвучивать распознанную речь</string>
   <string name="title_pref_tree_debug">Включить отладку дерева узлов</string>
@@ -367,7 +367,7 @@
   <string name="title_pref_typing_confirmation">Подтверждение ввода</string>
   <string name="title_pref_typing_long_tap_duration">Задержка при нажатии и удержании во время ввода</string>
   <string name="title_pref_touch_explore_timeout">Задержка выбора элемента при вводе</string>
-  <string name="message_pref_touch_explore_latency">Если задержка выбора элемента при вводе небольшая, озвучивание TalkBack начинается быстрее после того, как вы коснетесь клавиатуры\n\nВыберите задержку</string>
+  <string name="message_pref_touch_explore_latency">Если задержка выбора элемента при вводе небольшая, озвучивание TalkBack начинается быстрее после того, как вы коснётесь клавиатуры\n\nВыберите задержку</string>
   <string name="title_pref_touch_focus_timeout">Задержка выбора элемента</string>
   <string name="summary_pref_touch_focus_time">
 Настройте, как быстро начинается озвучивание TalkBack после того, как вы переключаетесь на другой элемент. Когда задержка небольшая, TalkBack срабатывает быстрее. Однако выполнять двойные и тройные нажатия может быть сложнее.\n\n
@@ -422,11 +422,11 @@
   <string name="dialog_message_on_device_ai_model_download">При переходе к изображению в поддерживаемом приложении вы услышите краткое описание.\n\nИзображения обрабатываются на вашем устройстве и никогда не отправляются в Google.\n\nГенеративный ИИ может допускать ошибки, поскольку это экспериментальная технология. Продолжая, вы принимаете %1$s.</string>
   <string name="title_pref_enable_gemini_support">Включить</string>
   <string name="title_pref_disable_gemini_support">Отключить</string>
-  <string name="summary_pref_gemini_support_enabled">Gemini включен.</string>
-  <string name="summary_pref_gemini_support_disabled">Gemini отключен.</string>
-  <string name="screen_dimmed">Подсветка экрана отключена</string>
-  <string name="screen_brightness_restored">Подсветка экрана включена</string>
-  <string name="screen_dimming_exit_instruction_line1">Сервис специальных возможностей TalkBack отключил подсветку экрана.</string>
+  <string name="summary_pref_gemini_support_enabled">Gemini включён.</string>
+  <string name="summary_pref_gemini_support_disabled">Gemini отключён.</string>
+  <string name="screen_dimmed">Экран затемнён</string>
+  <string name="screen_brightness_restored">Яркость экрана восстановлена</string>
+  <string name="screen_dimming_exit_instruction_line1">Сервис специальных возможностей TalkBack затемнил экран.</string>
   <string name="screen_dimming_exit_instruction_line2">Для изменения этой настройки %1$s, чтобы открыть меню TalkBack, найдите пункт \"%2$s\" и нажмите его два раза.</string>
   <string name="shortcut_title_basic_navigation">Основная навигация</string>
   <string name="shortcut_title_system_actions">Действия в системе</string>
@@ -439,7 +439,7 @@
   <string name="shortcut_disabled_due_to_vibration_watch">Недоступно, когда включено время по вибрации</string>
   <string name="shortcut_next">Следующий объект</string>
   <string name="shortcut_previous">Предыдущий объект</string>
-  <string name="shortcut_scroll_forward">Прокрутить вперед</string>
+  <string name="shortcut_scroll_forward">Прокрутить вперёд</string>
   <string name="shortcut_scroll_back">Прокрутить назад</string>
   <string name="shortcut_scroll_up">Прокрутить вверх</string>
   <string name="shortcut_scroll_down">Прокрутить вниз</string>
@@ -467,14 +467,14 @@
   <string name="shortcut_voice_commands">Включить голосовые команды</string>
   <string name="shortcut_last_in_screen">Перейти к последнему объекту на экране</string>
   <string name="shortcut_enable_dimming">Защитить экран</string>
-  <string name="shortcut_disable_dimming">Включить подсветку экрана</string>
+  <string name="shortcut_disable_dimming">Отменить затемнение экрана</string>
   <string name="shortcut_perform_click_action">Активировать</string>
   <string name="shortcut_perform_double_click_action">Нажать дважды</string>
   <string name="shortcut_perform_long_click_action">Нажать и удерживать</string>
   <string name="talkback_menu_title">Меню TalkBack</string>
   <string name="talkback_menu_close_button_text">@string/close_string</string>
   <string name="talkback_menu_more_options_text">Доп. параметры появятся, когда вы настроите или разблокируете устройство</string>
-  <string name="talkback_menu_title_content_description">Меню TalkBack. Чтобы посмотреть параметры в нем, проведите вправо.\n\nКогда вы будете готовы вернуться к руководству, проведите двумя пальцами влево или вправо от края экрана.</string>
+  <string name="talkback_menu_title_content_description">Меню TalkBack. Чтобы посмотреть параметры в нём, проведите вправо.\n\nКогда вы будете готовы вернуться к руководству, проведите двумя пальцами влево или вправо от края экрана.</string>
   <string name="shortcut_show_language_options">Изменить язык озвучивания</string>
   <string name="shortcut_select_next_setting">Следующий элемент управления чтением</string>
   <string name="shortcut_select_previous_setting">Предыдущий элемент управления чтением</string>
@@ -510,10 +510,10 @@
   <string name="shortcut_speech_pitch_decrease">Понизить тон голоса</string>
   <string name="shortcut_speech_rate_increase">Увеличить скорость речи</string>
   <string name="shortcut_speech_rate_decrease">Снизить скорость речи</string>
-  <string name="shortcut_toggle_selection">Включить или отключить режим выбора</string>
+  <string name="shortcut_toggle_selection">Включить или отключить режим выделения</string>
   <string name="shortcut_show_tutorial">Открыть руководство</string>
-  <string name="shortcut_toggle_braille_contracted_mode">Переход между полной и сокращенной версией</string>
-  <string name="shortcut_toggle_braille_on_screen_overlay">Клавиатура Брайля для подключенных дисплеев Брайля</string>
+  <string name="shortcut_toggle_braille_contracted_mode">Переключить шрифт Брайля: с сокращениями или без них</string>
+  <string name="shortcut_toggle_braille_on_screen_overlay">Показать или скрыть шрифт Брайля на экране</string>
   <string name="shortcut_toggle_sound_feedback">Включить или отключить звуковой отклик (звуковые сигналы)</string>
   <string name="shortcut_show_learn_mode_page">Обучение сочетаниям клавиш</string>
   <string name="shortcut_announce_phonetic_pronunciation">Использовать фонетическое произношение для выделенного элемента</string>
@@ -527,8 +527,8 @@
   <string name="title_web_breakout_prev_control">Предыдущий элемент управления</string>
   <string name="title_edittext_breakout_move_to_beginning">Переместить курсор в начало</string>
   <string name="title_edittext_breakout_move_to_end">Переместить курсор в конец</string>
-  <string name="title_edittext_breakout_start_selection_mode">Включить или отключить режим выбора текста</string>
-  <string name="title_edittext_breakout_end_selection_mode">Завершить выбор текста</string>
+  <string name="title_edittext_breakout_start_selection_mode">Включить или отключить режим выделения текста</string>
+  <string name="title_edittext_breakout_end_selection_mode">Завершить выделение текста</string>
   <string name="title_edittext_typo_suggestions">Исправления грамматики и правописания</string>
   <string name="title_edittext_typo_suggestion">%1$s (вариант написания)</string>
   <string name="title_edittext_grammar_suggestion">%1$s (грамматическое исправление)</string>
@@ -574,11 +574,11 @@
   <string name="summary_read_from_top">Озвучивание всех объектов на экране с начала</string>
   <string name="summary_read_from_current">Озвучить все объекты на экране, начиная с выделенного</string>
   <string name="summary_copy_last_spoken_phrase">Копирование последней озвученной фразы в буфер обмена в виде текста, который можно будет вставить</string>
-  <string name="summary_spell_last_spoken_phrase">Озвучивание по буквам последней произнесенной фразы</string>
-  <string name="summary_repeat_last_spoken_phrase">Повторение последней произнесенной фразы</string>
+  <string name="summary_spell_last_spoken_phrase">Озвучивание по буквам последней произнесённой фразы</string>
+  <string name="summary_repeat_last_spoken_phrase">Повторение последней произнесённой фразы</string>
   <string name="summary_perform_screen_search">Ввод текста, который нужно найти на экране</string>
   <string name="summary_voice_commands">Управление TalkBack с помощью голосовых команд</string>
-  <string name="summary_show_hide_screen">Отключение экрана. Окружающим не будет видно, что на нем изображено. Не забудьте вернуть экран в нормальный режим.</string>
+  <string name="summary_show_hide_screen">Затемнение экрана, чтобы окружающие не видели его содержимое. Не забудьте отменить затемнение.</string>
   <string name="summary_control_speak_time">Выберите, хотите ли вы слышать время, когда включаете экран</string>
   <string name="summary_show_keyboard_shortcuts_preferences">Открыть список быстрых клавиш</string>
   <string name="summary_talkback_preferences">Открыть настройки TalkBack</string>
@@ -598,7 +598,7 @@
   <string name="summary_headings">Перемещение между заголовками</string>
   <string name="summary_controls">Переключение между интерактивными элементами (кнопками, текст. полями)</string>
   <string name="summary_links">Перемещение между ссылками</string>
-  <string name="summary_landmarks">Перемещение по отметкам на страницах в Интернете, таким как \"главная\" или \"навигация\"</string>
+  <string name="summary_landmarks">Перемещение между ориентирами на веб-страницах, например основным содержимым или областью навигации</string>
   <string name="summary_buttons">Перемещение между кнопками на веб-страницах</string>
   <string name="summary_checkboxes">Перемещение между флажками на веб-страницах</string>
   <string name="summary_editfields">Перемещение между текстовыми полями на веб-страницах</string>
@@ -606,7 +606,7 @@
   <string name="summary_h1">Перемещение между заголовками первого уровня на веб-страницах</string>
   <string name="summary_h2">Перемещение между заголовками второго уровня на веб-страницах</string>
   <string name="summary_h3">Перемещение между заголовками третьего уровня на веб-страницах</string>
-  <string name="summary_h4">Перемещение между заголовками четвертого уровня на веб-страницах</string>
+  <string name="summary_h4">Перемещение между заголовками четвёртого уровня на веб-страницах</string>
   <string name="summary_h5">Перемещение между заголовками пятого уровня на веб-страницах</string>
   <string name="summary_h6">Перемещение между заголовками шестого уровня на веб-страницах</string>
   <string name="summary_graphics">Перемещение между изображениями и видео на веб-страницах</string>
@@ -615,7 +615,7 @@
   <string name="summary_tables">Перемещение между таблицами на веб-страницах</string>
   <string name="summary_comboboxes">Перемещение между полями со списками, например раскрывающимися меню, на веб-страницах</string>
   <string name="summary_visited_links">Перемещение между ссылками на веб-странице, которые уже открывались</string>
-  <string name="summary_unvisited_links">Перемещение между ссылками на веб-странице, которые еще не открывались</string>
+  <string name="summary_unvisited_links">Перемещение между ссылками на веб-странице, которые ещё не открывались</string>
   <string name="summary_radios">Перемещение между переключателями на веб-страницах</string>
   <string name="summary_search">Переходить к другим результатам поиска по экрану</string>
   <string name="summary_row_column">Переходить между строками и столбцами в таблице</string>
@@ -628,9 +628,9 @@
   <string name="summary_language">Выберите один из доступных языков озвучивания текста</string>
   <string name="summary_sound_feedback">Воспроизведение во время навигации звуковых эффектов, например сигнала при подтверждении действия</string>
   <string name="summary_vibration_feedback">Использование вибрации при выполнении таких действий, как выбор объекта. Это не влияет на настройки вибрации, заданные в приложении или в системе.</string>
-  <string name="summary_hide_screen">Отключите экран, чтобы окружающие не видели его содержимое.</string>
+  <string name="summary_hide_screen">Затемните экран, чтобы окружающие не видели его содержимое.</string>
   <string name="summary_audio_ducking">Уменьшение громкости других звуков при озвучивании с помощью TalkBack</string>
-  <string name="summary_support_scroll_seq">Прокрутка вперед или назад</string>
+  <string name="summary_support_scroll_seq">Прокрутка вперёд или назад</string>
   <string name="summary_support_change_a11y_volume">Регулировка громкости подсказок</string>
   <string name="summary_support_change_touch_explore_latency">Увеличение или уменьшение задержки выбора элемента при вводе</string>
   <string name="summary_support_change_touch_focus_latency">Увеличить или уменьшить задержку выбора элемента</string>
@@ -734,8 +734,8 @@
   <string name="value_shake_to_read_threshold_very_hard">Очень сильно</string>
   <string name="title_pref_on_screen_keyboard">Экранная клавиатура</string>
   <string name="title_pref_physical_keyboard">Физическая клавиатура</string>
-  <string name="title_pref_keyboard_echo_on_screen">Звук клавиш: экранная клавиатура</string>
-  <string name="title_pref_keyboard_echo_physical">Звук клавиш: физическая клавиатура</string>
+  <string name="title_pref_keyboard_echo_on_screen">Озвучивание клавиш: экранная клавиатура</string>
+  <string name="title_pref_keyboard_echo_physical">Озвучивание клавиш: физическая клавиатура</string>
   <string name="value_keyboard_echo_none">Отключено</string>
   <string name="value_keyboard_echo_characters_only">Символы</string>
   <string name="value_keyboard_echo_words_only">Слова</string>
@@ -752,7 +752,7 @@
   <string name="label_dialog_title_add">Добавление ярлыка</string>
   <string name="label_dialog_title_edit">Изменение ярлыка</string>
   <string name="label_dialog_title_remove">Удалить ярлык</string>
-  <string name="label_dialog_confirm_label_remove">Ярлык удален</string>
+  <string name="label_dialog_confirm_label_remove">Ярлык удалён</string>
   <string name="label_dialog_text">Введите текст ярлыка для выбранного элемента.\nВнутреннее имя: %1$s</string>
   <string name="label_dialog_edit_hint">Текст ярлыка</string>
   <string name="label_import">Импортировать персональные ярлыки</string>
@@ -763,14 +763,14 @@
   <string name="label_export_empty">Ярлыков нет.</string>
   <string name="label_export_failed">Не удалось экспортировать ярлыки</string>
   <string name="label_import_failed">Не удалось импортировать ярлыки</string>
-  <string name="label_import_succeeded">{count,plural, =0{Новых ярлыков нет.}=1{Обновлен # ярлык.}one{Обновлен # ярлык.}few{Обновлено # ярлыка.}many{Обновлено # ярлыков.}other{Обновлено # ярлыка.}}</string>
+  <string name="label_import_succeeded">{count,plural, =0{Новых ярлыков нет.}=1{Обновлён # ярлык.}one{Обновлён # ярлык.}few{Обновлено # ярлыка.}many{Обновлено # ярлыков.}other{Обновлено # ярлыка.}}</string>
   <string name="no_apps_to_import_labels">Приложение для импорта ярлыков не найдено.</string>
   <string name="no_apps_to_export_labels">Приложение для экспорта ярлыков отсутствует.</string>
   <string name="label_choose_app_to_import">Выберите приложение для импорта ярлыков:</string>
   <string name="label_choose_app_to_export">Выберите приложение для экспорта ярлыков:</string>
   <string name="talkback_gesture_change_details">В этой версии TalkBack изменены жесты по умолчанию. Назначить действия для них можно в настройках. Ниже перечислены жесты, которые вы можете использовать, если включено Изучение касанием.\n\n%1$s</string>
   <string name="dialog_title_dim_screen">Защитить экран?</string>
-  <string name="dialog_message_dim_screen">Экран будет отключен для более надежной защиты конфиденциальности. Однако по-прежнему могут показываться сообщения о включении экрана, меню специальных возможностей, таких как TalkBack, и некоторый другой контент.</string>
+  <string name="dialog_message_dim_screen">Экран будет затемнён для более надёжной защиты конфиденциальности. Однако по-прежнему могут показываться сообщения о включении экрана, меню специальных возможностей, таких как TalkBack, и некоторый другой контент.</string>
   <string name="talkback_built_in_gesture_change_details">В этой версии TalkBack мы изменили жесты по умолчанию.\n\nЧтобы перейти к первому объекту на экране, проведите пальцем вверх, а затем вниз. Для перехода к последнему объекту проведите вниз, а затем вверх.\n\nЧтобы изменить уровень детализации чтения, выберите объект, а затем в контекстном меню – степень детализации.\n\nВы можете назначить жестам другие действия в настройках TalkBack.</string>
   <string name="default_action_changed_details">Теперь, чтобы приостановить или воспроизвести медиаконтент, нужно дважды нажать и удерживать экран двумя пальцами.\n\nДругие жесты также были изменены.</string>
   <string name="talkback_built_in_gesture_open_url">Открыть на телефоне, чтобы узнать больше</string>
@@ -792,7 +792,7 @@
   <string name="dialog_message_extend_log_level">Ведение подробных журналов может помочь в отладке, однако есть вероятность, что личные данные появятся в буфере системного журнала.\n\nВключить ведение подробных журналов?</string>
   <string name="dialog_ok_buggon_extend_log_level">Да, включить</string>
   <string name="dialog_title_diagnosis_mode">Включить режим диагностики?</string>
-  <string name="dialog_message_diagnosis_mode">Режим диагностики помогает при отладке.  В нем жест \"Нажатие четырьмя пальцами\" используется для того, чтобы скопировать контент на экране в системные журналы.  Обратите внимание, что этот контент может содержать личную информацию. \n\nВключить режим диагностики?</string>
+  <string name="dialog_message_diagnosis_mode">Режим диагностики помогает при отладке.  В нём жест \"Нажатие четырьмя пальцами\" используется для того, чтобы скопировать контент на экране в системные журналы.  Обратите внимание, что этот контент может содержать личную информацию. \n\nВключить режим диагностики?</string>
   <string name="title_request_phone_permission">Разрешить доступ к телефону?</string>
   <string name="message_request_phone_permission">Это позволит TalkBack отключать некоторые подсказки во время звонка.</string>
   <string name="continue_button">Продолжить</string>
@@ -809,8 +809,8 @@
   <string name="display_name_heading">заголовок</string>
   <string name="display_name_button">кнопка</string>
   <string name="display_name_combobox">поле со списком</string>
-  <string name="display_name_aria_landmark">метка ARIA</string>
-  <string name="display_name_edit_field">изменить значение поля</string>
+  <string name="display_name_aria_landmark">ориентир ARIA</string>
+  <string name="display_name_edit_field">текстовое поле</string>
   <string name="display_name_focusable_item">элемент, который можно выбрать</string>
   <string name="display_name_heading_1">заголовок 1</string>
   <string name="display_name_heading_2">заголовок 2</string>
@@ -825,8 +825,8 @@
   <string name="display_name_list">список</string>
   <string name="display_name_table">таблица</string>
   <string name="display_name_checkbox">флажок</string>
-  <string name="display_name_visited_link">Открытая ссылка</string>
-  <string name="display_name_unvisited_link">Непосещенная ссылка</string>
+  <string name="display_name_visited_link">посещённая ссылка</string>
+  <string name="display_name_unvisited_link">Непосещённая ссылка</string>
   <string name="display_name_radio">переключатель</string>
   <string name="display_name_row">строка</string>
   <string name="display_name_column">столбец</string>
@@ -838,8 +838,8 @@
   <string name="revert_imported_labels">Восстановить импортированные ярлыки</string>
   <string name="imported_labels_reverted">Импортированные ярлыки восстановлены</string>
   <string name="template_dump_event_count">{count,plural, =1{Выбрано # событие}one{Выбрано # событие}few{Выбрано # события}many{Выбрано # событий}other{Выбрано # события}}</string>
-  <string name="template_tv_remote_mode_started">%1$s включен</string>
-  <string name="template_tv_remote_mode_ended">%1$s отключен</string>
+  <string name="template_tv_remote_mode_started">%1$s включён</string>
+  <string name="template_tv_remote_mode_ended">%1$s отключён</string>
   <string name="value_tv_remote_mode_seek_control">Режим ползунка</string>
   <string name="value_hint_tv_remote_mode_seek_control">Чтобы изменить значение, нажимайте клавиши со стрелками. Чтобы выйти из режима ползунка, нажмите \"Выбрать\".</string>
   <string name="reset_user_language_preference">По умолчанию</string>
@@ -851,8 +851,8 @@
   <string name="title_pref_a11y_volume">Громкость подсказок</string>
   <string name="title_pref_touch_explore_latency">Задержка выбора элемента при вводе</string>
   <string name="title_pref_touch_focus_latency">Задержка выбора элемента</string>
-  <string name="message_pref_touch_focus_latency">Если задержка меньше, озвучивание TalkBack начинается быстрее после того, как вы коснетесь экрана</string>
-  <string name="message_pref_typing_method_prefix">Чтобы сделать задержку при вводе минимальной, выберите \"Удерживать любую клавишу и отпустить ее\".</string>
+  <string name="message_pref_touch_focus_latency">Если задержка меньше, озвучивание TalkBack начинается быстрее после того, как вы коснётесь экрана</string>
+  <string name="message_pref_typing_method_prefix">Чтобы сделать задержку при вводе минимальной, выберите \"Удерживать любую клавишу и отпустить её\".</string>
   <string name="message_pref_typing_method_postfix">Вы также можете использовать для ввода текста раздельное нажатие. Просто удерживайте любую клавишу одним пальцем и нажимайте на экран другим.</string>
   <string name="title_pref_talkback_speech_rate">Скорость чтения TalkBack</string>
   <string name="title_pref_selector_adjustable_widget_slider">Отрегулировать ползунок</string>
@@ -864,7 +864,7 @@
   <string name="hint_no_grammar_suggestion">Нет исправлений грамматики.</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Изменить значение</string>
   <string name="title_pref_selector_actions">Действия</string>
-  <string name="title_pref_cache_keyboard_keys">Объявлять клавиши быстрее</string>
+  <string name="title_pref_cache_keyboard_keys">Быстрее озвучивать клавиши</string>
   <string name="title_pref_sound_and_vibration">Звуки и вибрация</string>
   <string name="title_pref_sound">Звук</string>
   <string name="template_text_copied">Скопирован текст \"%1$s\"</string>
@@ -875,7 +875,7 @@
   <string name="title_heading_list_button">Заголовки</string>
   <string name="title_link_list_button">Ссылки</string>
   <string name="title_table_list_button">Таблицы</string>
-  <string name="title_landmark_list_button">Метки</string>
+  <string name="title_landmark_list_button">Ориентиры</string>
   <string name="title_control_list_button">Интерактивные элементы</string>
   <string name="title_all_elements_list_button">Все</string>
   <string name="msg_matches_found">{matches,plural, =0{На этом экране совпадений нет}=1{# совпадение}one{# совпадение}few{# совпадения}many{# совпадений}other{# совпадения}}</string>
@@ -901,7 +901,7 @@
   <string name="screen_search_hint_type_search_tables">Поиск по таблицам</string>
   <string name="talkback_notification_channel_name">@string/talkback_label</string>
   <string name="talkback_notification_channel_description">Канал уведомлений TalkBack</string>
-  <string name="pref_selector_summary">Для выбора настройки проведите %1$s. Чтобы изменить ее, проведите %2$s.</string>
+  <string name="pref_selector_summary">Для выбора настройки проведите %1$s. Чтобы изменить её, проведите %2$s.</string>
   <string name="speech_rate_change">Скорость речи %1$d%%</string>
   <string name="speech_pitch_maximum">Самый высокий тон голоса</string>
   <string name="speech_pitch_minimum">Самый низкий тон голоса</string>
@@ -925,7 +925,7 @@
   <string name="screen_search_keyword_hint">ключевое слово – %1$s</string>
   <string name="screen_search_no_keyword_hint">Нет ключевого слова. Чтобы запустить новый поиск, нажмите на экран тремя пальцами и удерживайте или включите поиск по экрану в меню TalkBack.</string>
   <string name="screen_search_no_keyword_hint_pre_r">Нет ключевого слова. Чтобы запустить новый поиск, проведите по экрану влево, а затем вниз или включите поиск по экрану в меню TalkBack.</string>
-  <string name="switch_to_braille_keyboard_failure_msg">Клавиатура Брайля не включена. Настройте ее в настройках TalkBack и повторите попытку.</string>
+  <string name="switch_to_braille_keyboard_failure_msg">Клавиатура Брайля не включена. Настройте её в настройках TalkBack и повторите попытку.</string>
   <string name="suggestions_window_available">Доступны подсказки</string>
   <string name="suggestions_window_available_with_gesture">Доступны подсказки. Чтобы открыть их, %1$s.</string>
   <string name="heads_up_window_available">Доступно уведомление</string>
@@ -940,11 +940,11 @@
   <string name="training_navigate_up">Наверх</string>
   <string name="training_tip">Совет</string>
   <string name="tv_training_overview_step_title">Как работает TalkBack</string>
-  <string name="tv_training_overview_step_summary">TalkBack – это программа чтения с экрана от Google. Она озвучивает показываемый текст и дает голосовые подсказки, чтобы вы могли пользоваться телевизором, не глядя на экран.\n\nЕсли функция TalkBack включена, она озвучивает выбираемые элементы, иногда добавляя дополнительные сведения или описывая контекст.\n\nЧтобы продолжить, нажмите кнопку \"Выбрать\". Она находится по центру большой круглой кнопки со стрелками вверху пульта ДУ.</string>
+  <string name="tv_training_overview_step_summary">TalkBack – это программа чтения с экрана от Google. Она озвучивает показываемый текст и даёт голосовые подсказки, чтобы вы могли пользоваться телевизором, не глядя на экран.\n\nЕсли функция TalkBack включена, она озвучивает выбираемые элементы, иногда добавляя дополнительные сведения или описывая контекст.\n\nЧтобы продолжить, нажмите кнопку \"Выбрать\". Она находится по центру большой круглой кнопки со стрелками вверху пульта ДУ.</string>
   <string name="tv_training_remote_step_title">Как пользоваться пультом ДУ</string>
-  <string name="tv_training_remote_step_summary">Для навигации по экрану используйте круглую кнопку со стрелками в верхней части пульта. Нажмите по центру этой кнопки, чтобы выбрать объект на экране.\n\nВо втором ряду слева находится кнопка \"Назад\", а справа – кнопка Ассистента.\n\nЛевая кнопка в третьем ряду позволяет вернуться на главный экран, а правая – включить и отключить звук.\n\nВ четвертом ряду слева находится кнопка быстрого запуска YouTube, а справа – Netflix.\n\nВ нижнем ряду также расположены две небольшие кнопки. Левая – это кнопка питания, а правая открывает меню источников входного сигнала телевизора.\n\nКнопки регулировки громкости расположены на правой стороне пульта.\n\nЧтобы продолжить, нажмите кнопку \"Выбрать\".</string>
+  <string name="tv_training_remote_step_summary">Для навигации по экрану используйте круглую кнопку со стрелками в верхней части пульта. Нажмите по центру этой кнопки, чтобы выбрать объект на экране.\n\nВо втором ряду слева находится кнопка \"Назад\", а справа – кнопка Ассистента.\n\nЛевая кнопка в третьем ряду позволяет вернуться на главный экран, а правая – включить и отключить звук.\n\nВ четвёртом ряду слева находится кнопка быстрого запуска YouTube, а справа – Netflix.\n\nВ нижнем ряду также расположены две небольшие кнопки. Левая – это кнопка питания, а правая открывает меню источников входного сигнала телевизора.\n\nКнопки регулировки громкости расположены на правой стороне пульта.\n\nЧтобы продолжить, нажмите кнопку \"Выбрать\".</string>
   <string name="tv_training_shortcut_step_title">Как быстро включать и отключать TalkBack</string>
-  <string name="tv_training_shortcut_step_summary">Для быстрого доступа к TalkBack одновременно нажмите кнопки \"Вниз\" и \"Назад\" и удерживайте их в течение трех секунд. Функция TalkBack включится или отключится.\n\nЭто сочетание клавиш можно найти в настройках телевизора.\n\nЧтобы продолжить, нажмите кнопку \"Выбрать\".</string>
+  <string name="tv_training_shortcut_step_summary">Для быстрого доступа к TalkBack одновременно нажмите кнопки \"Вниз\" и \"Назад\" и удерживайте их в течение трёх секунд. Функция TalkBack включится или отключится.\n\nЭто сочетание клавиш можно найти в настройках телевизора.\n\nЧтобы продолжить, нажмите кнопку \"Выбрать\".</string>
   <string name="new_feature_in_talkback_title">Новые функции в TalkBack</string>
   <string name="exit_tutorial_title">Готово?</string>
   <string name="exit_tutorial_content">Вы можете вернуться к руководству в любое время, зайдя в настройки TalkBack.</string>
@@ -958,7 +958,7 @@
   <string name="onboarding_link_to_talkback_tutorials">Посмотреть все руководства по TalkBack</string>
   <string name="new_shortcut_gesture_pause_media_announcement">Воспроизведение включено или приостановлено. Обычно этот жест используется, чтобы включать или приостанавливать воспроизведение видео или музыки. Для продолжения проведите вправо.</string>
   <string name="new_shortcut_gesture_stop_speech_text">Чтобы временно остановить озвучивание TalkBack, коснитесь экрана двумя пальцами.</string>
-  <string name="new_shortcut_gesture_stop_speech_announcement">Функция озвучивания TalkBack отключена. Обычно этот жест используется, чтобы останавливать озвучивание текущей фразы. Для продолжения проведите вправо.</string>
+  <string name="new_shortcut_gesture_stop_speech_announcement">Озвучивание TalkBack остановлено. Обычно этот жест используется, чтобы останавливать озвучивание текущей фразы. Для продолжения проведите вправо.</string>
   <string name="new_shortcut_gesture_copy_text_text">Чтобы скопировать текст, нажмите дважды на экран тремя пальцами.</string>
   <string name="new_shortcut_gesture_copy_text_announcement">Текст скопирован. Обычно этот жест используется, чтобы копировать выбранный текст. Для продолжения проведите вправо.</string>
   <string name="new_shortcut_gesture_paste_text_text">Чтобы вставить текст, нажмите трижды на экран тремя пальцами.</string>
@@ -966,7 +966,7 @@
   <string name="new_shortcut_gesture_cut_text_text">Чтобы вырезать текст, нажмите дважды на экран тремя пальцами и удерживайте.</string>
   <string name="new_shortcut_gesture_cut_text_announcement">Текст вырезан. Обычно этот жест используется, чтобы вырезать выбранный текст. Для продолжения проведите вправо.</string>
   <string name="new_shortcut_gesture_selection_mode_text">Чтобы включить или отключить режим выбора текста, нажмите дважды на экран двумя пальцами и удерживайте.</string>
-  <string name="new_shortcut_gesture_selection_mode_on_announcement">Режим выбора текста включен или отключен. Обычно этот жест используется, чтобы начинать или завершать выбор текста в поле ввода. Для продолжения проведите вправо.</string>
+  <string name="new_shortcut_gesture_selection_mode_on_announcement">Режим выбора текста включён или отключён. Обычно этот жест используется, чтобы начинать или завершать выбор текста в поле ввода. Для продолжения проведите вправо.</string>
   <string name="new_shortcut_gesture_reading_menu_text">Чтобы использовать элементы управления чтением, проведите тремя пальцами влево, вправо, вверх или вниз.</string>
   <string name="new_shortcut_gesture_note">Примечание. Поскольку вы изменили некоторые жесты, эта информация может быть неточной. Чтобы посмотреть список используемых жестов, перейдите в настройки TalkBack.</string>
   <string name="welcome_to_android11">Представляем TalkBack для Android 11</string>
@@ -1010,7 +1010,7 @@
   <string name="text_formatting_options_settings_path">\"Настройки TalkBack &gt; Детализация &gt; Параметры форматирования текста\"</string>
   <string name="text_formatting_options_settings_path_tts">\"Настройки TalkBack\", \"Детализация\", а затем \"Форматирование текста\"</string>
   <string name="announcing_text_formatiing_sample">Текст &lt;b&gt;полужирный&lt;/b&gt; уверенно, громко читаем,
-&lt;br&gt;&lt;u&gt;Подчеркнутый&lt;/u&gt; – шепчем, да так, словно мы угасаем.&lt;br&gt;
+&lt;br&gt;&lt;u&gt;Подчёркнутый&lt;/u&gt; – шепчем, да так, словно мы угасаем.&lt;br&gt;
 &lt;br&gt;&lt;span style=\"background-color:#f08080;\"&gt;Розы красны,&lt;/span&gt; это истина, классика цвета,
 &lt;br&gt;Мягко &lt;span style=\"background-color:#a1c9ff;\"&gt;фиалки синеют&lt;/span&gt;, понятно и это.
 &lt;br&gt;
@@ -1018,10 +1018,10 @@
 &lt;br&gt;&lt;big&gt;Огромный&lt;/big&gt; – звучит во всю мощь, словно голос поэта.
 &lt;br&gt;
 &lt;br&gt;Яркий, насыщенный цвет виден в тексте прекрасно:
-&lt;br&gt;Здесь &lt;font color=\"#128937\"&gt;травянисто-зеленый&lt;/font&gt; и &lt;font color=\"#db372d\"&gt;огненно-красный&lt;/font&gt;.</string>
+&lt;br&gt;Здесь &lt;font color=\"#128937\"&gt;травянисто-зелёный&lt;/font&gt; и &lt;font color=\"#db372d\"&gt;огненно-красный&lt;/font&gt;.</string>
   <string name="update_welcome_talkback_16.2">В этом обновлении TalkBack: улучшена раскладка для физических клавиатур, добавлена поддержка оповещений о форматировании текста, обновлены настройки и введены другие улучшения, благодаря которым пользоваться TalkBack теперь удобнее.\n\nВы узнаете об изменениях больше на следующих экранах.\n\nЭту информацию также можно найти в настройках TalkBack (раздел \"Новые функции в TalkBack\").</string>
   <string name="update_welcome_talkback_16.2_tts">В этом обновлении TalkBack: улучшена раскладка для физических клавиатур, добавлена поддержка оповещений о форматировании текста, обновлены настройки и введены другие улучшения, благодаря которым пользоваться TalkBack теперь удобнее.\n\nВы узнаете об изменениях больше на следующих экранах.\n\nЭту информацию также можно найти в разделе \"Новые функции в TalkBack\" настроек TalkBack.</string>
-  <string name="new_settings_layout_title">Обновленные настройки</string>
+  <string name="new_settings_layout_title">Обновлённые настройки</string>
   <string name="new_settings_layout_text">Чтобы вам было проще находить нужные функции, мы изменили группы настроек и добавили новые, такие как параметры клавиатуры.</string>
   <string name="split_tap_everywhere_title">Раздельное нажатие по всему экрану</string>
   <string name="split_tap_everywhere_text">Теперь вы можете использовать раздельное нажатие для активации элементов, даже если они находятся не на клавиатуре. Чтобы выбрать нужный элемент, проведите по экрану одним пальцем и удерживайте его, а затем нажмите на экран другим пальцем.</string>
@@ -1031,11 +1031,11 @@
   <string name="keyboard_shortcuts_link_tts">\"Настройки TalkBack\", а затем \"Быстрые клавиши\"</string>
   <string name="braille_display_settings_link">настройках дисплея Брайля</string>
   <string name="keyboard_smart_browse_mode_title">Клавиатура: умный режим обзора</string>
-  <string name="keyboard_smart_browse_mode_text">Если в браузере выбрано поле редактирования, режим обзора отключится, чтобы вы могли ввести текст на физической клавиатуре. Когда вы перейдете к полю, которое нельзя редактировать, режим обзора снова будет включен. Чтобы включить или отключить умный режим обзора, нажмите %1$s.</string>
+  <string name="keyboard_smart_browse_mode_text">Если в браузере выбрано поле редактирования, режим обзора отключится, чтобы вы могли ввести текст на физической клавиатуре. Когда вы перейдёте к полю, которое нельзя редактировать, режим обзора снова будет включён. Чтобы включить или отключить умный режим обзора, нажмите %1$s.</string>
   <string name="advanced_settings_link">\"Настройки TalkBack &gt; Расширенные настройки\"</string>
   <string name="advanced_settings_link_tts">\"Настройки TalkBack\", а затем \"Расширенные настройки\"</string>
   <string name="keyboard_tutorial_title">Руководство по использованию клавиатуры</string>
-  <string name="keyboard_tutorial_text">Теперь в TalkBack есть руководство по использованию физической клавиатуры. В нем вы найдете сочетания клавиш и команды для улучшенной раскладки. Чтобы посмотреть руководство, нажмите %1$s.</string>
+  <string name="keyboard_tutorial_text">Теперь в TalkBack есть руководство по использованию физической клавиатуры. В нём вы найдёте сочетания клавиш и команды для улучшенной раскладки. Чтобы посмотреть руководство, нажмите %1$s.</string>
   <string name="tutorial_link">\"Настройки TalkBack &gt; Руководство по TalkBack\"</string>
   <string name="tutorial_link_tts">\"Настройки TalkBack\", а затем \"Руководство по TalkBack\"</string>
   <string name="tutorial_entry_point_title">Руководство</string>
@@ -1044,18 +1044,18 @@
   <string name="talkback_turn_off_description">TalkBack читает текст на экране вслух и меняет способ взаимодействия с интерфейсом устройства. Чтобы отключить эту функцию, дважды нажмите \"Отключить TalkBack\".</string>
   <string name="turn_off_talkback">Отключить TalkBack</string>
   <string name="tap_again_to_turn_off">Нажмите ещё раз, чтобы отключить</string>
-  <string name="talkback_turn_off_description_pointer_and_touch">TalkBack читает текст на экране вслух и меняет способ взаимодействия с интерфейсом устройства. Если эта функция вам не нужна, выберите \"Отключить TalkBack\" или нажмите на нее два раза.</string>
+  <string name="talkback_turn_off_description_pointer_and_touch">TalkBack читает текст на экране вслух и меняет способ взаимодействия с интерфейсом устройства. Если эта функция вам не нужна, выберите \"Отключить TalkBack\" или нажмите на неё два раза.</string>
   <string name="welcome_to_talkback_text">Функция TalkBack озвучивает текст, чтобы вы могли пользоваться устройством не глядя на экран. Она полезна для людей с нарушениями зрения. \n\nВы можете включать и отключать TalkBack с помощью кнопок регулировки громкости. Для этого нужно установить для них быструю команду в настройках TalkBack.\n\nКогда функция включена, она озвучивает элементы интерфейса, которые вы выбираете.\n\nЧтобы перейти к следующему элементу, нужно провести по экрану вправо, а чтобы вернуться к предыдущему – влево.\n\nСейчас проведите по экрану вправо, чтобы выбрать кнопку \"Далее\".</string>
   <string name="welcome_to_talkback_text_tts">Функция TalkBack озвучивает текст, чтобы вы могли пользоваться устройством не глядя на экран. Она полезна для людей с нарушениями зрения. \n\nВы можете быстро включать и отключать TalkBack с помощью кнопок регулировки громкости. Для этого нужно установить для них быструю команду в настройках TalkBack.\n\nКогда функция включена, она озвучивает элементы интерфейса, которые вы выбираете.\n\nЧтобы перейти к следующему элементу, нужно провести по экрану вправо, а чтобы вернуться к предыдущему – влево.\n\nВыберите кнопку \"Далее\", проведя по экрану вправо.</string>
   <string name="welcome_to_talkback_page_idle_announcement">Выберите кнопку \"Далее\", проведя по экрану вправо</string>
   <string name="explore_by_touch_title">Находите элементы, проводя пальцем по экрану</string>
   <string name="explore_by_touch_text">Вы также можете искать элементы на экране, проводя по нему пальцем.\n\nПопробуйте найти кнопку \"Далее\". Для этого проведите пальцем по экрану в сторону левого нижнего угла.</string>
   <string name="scrolling_title">Прокручивайте страницу, проводя двумя пальцами вверх или вниз</string>
-  <string name="scrolling_text">Попрактикуйтесь на этом экране, пока не найдете кнопку \"Далее\".</string>
+  <string name="scrolling_text">Попрактикуйтесь на этом экране, пока не найдёте кнопку \"Далее\".</string>
   <string name="scrolling_item_text">Попробуйте прокрутить страницу, проведя по экрану двумя пальцами вверх или вниз.</string>
   <string name="scrolling_text_completed">Отлично! Вы прокрутили экран до самого низа.\n\nПроведите по нему вправо, чтобы найти кнопку \"Далее\".</string>
   <string name="system_gestures_title">Выполняйте системные жесты не одним, а двумя пальцами</string>
-  <string name="system_gestures_text">При использовании TalkBack можно перейти к главному экрану, проведя снизу вверх не одним пальцем, а двумя.\n\nЕсли попробовать эти жесты сейчас, руководство будет закрыто. Рекомендуем сделать это позже, когда вы пройдете его до конца.</string>
+  <string name="system_gestures_text">При использовании TalkBack можно перейти к главному экрану, проведя снизу вверх не одним пальцем, а двумя.\n\nЕсли попробовать эти жесты сейчас, руководство будет закрыто. Рекомендуем сделать это позже, когда вы пройдёте его до конца.</string>
   <string name="system_gestures_home_text">Чтобы перейти к главному экрану, проведите снизу вверх двумя пальцами.</string>
   <string name="system_gestures_overview_screen_text">Чтобы открыть список недавно использованных приложений, проведите снизу вверх по экрану двумя пальцами, задержите их, а затем отпустите. Этот жест открывает экран \"Обзор\".</string>
   <string name="system_gestures_back_text">Чтобы вернуться, проведите двумя пальцами от левого или правого края экрана к центру.</string>
@@ -1096,13 +1096,13 @@
   <string name="touch_tutorial_button">Руководство по использованию касаний</string>
   <string name="keyboard_tutorial_button">Руководство по использованию клавиатуры</string>
   <string name="using_text_boxes_title">Использование текстовых полей</string>
-  <string name="using_text_boxes_text">Когда вы выбираете текстовое поле, внизу экрана появляется клавиатура.\n\nЧтобы закрыть ее, дважды нажмите кнопку \"Назад\" в нижнем углу экрана.\n\nПопробуйте активировать и закрыть клавиатуру для текстового поля внизу.</string>
+  <string name="using_text_boxes_text">Когда вы выбираете текстовое поле, внизу экрана появляется клавиатура.\n\nЧтобы закрыть её, дважды нажмите кнопку \"Назад\" в нижнем углу экрана.\n\nПопробуйте активировать и закрыть клавиатуру для текстового поля внизу.</string>
   <string name="edit_box_hint">Текстовое поле</string>
   <string name="enter_text_here">Введите текст</string>
   <string name="typing_text_title">Ввод текста</string>
   <string name="basic_typing_text_text">Когда вы выбираете текстовое поле, внизу экрана появляется клавиатура.</string>
-  <string name="typing_text_text">Двигайте пальцем по клавиатуре, пока не услышите нужную букву. Чтобы ввести ее, отпустите палец.\n\nПопробуйте активировать текстовое поле внизу и напечатать свое имя.</string>
-  <string name="typing_text_with_braille_keyboard_text">Вы также можете вводить текст с помощью клавиатуры Брайля. Чтобы включить ее, перейдите в настройки TalkBack.</string>
+  <string name="typing_text_text">Двигайте пальцем по клавиатуре, пока не услышите нужную букву. Чтобы ввести её, отпустите палец.\n\nПопробуйте активировать текстовое поле внизу и напечатать своё имя.</string>
+  <string name="typing_text_with_braille_keyboard_text">Вы также можете вводить текст с помощью клавиатуры Брайля. Чтобы включить её, перейдите в настройки TalkBack.</string>
   <string name="other_ways_to_type_title">Другие способы ввода</string>
   <string name="other_ways_to_type_text">В TalkBack есть и другие способы ввода текста. Например, вводить буквы можно двойным нажатием.</string>
   <string name="basic_other_ways_to_type_text">В TalkBack есть и другие способы набора текста. Например, вводить буквы можно двойным нажатием. Изменить параметры можно в разделе \"Настройки TalkBack &gt; Экранная клавиатура &gt; Подтверждение ввода\".</string>
@@ -1121,10 +1121,10 @@
   <string name="cut_paste_text_pre_r">Чтобы вырезать или вставить текст, откройте меню TalkBack и дважды нажмите \"Действия\".\n\nПопробуйте вставить слово в текстовое поле ниже.</string>
   <string name="edit_box_hint_paste_text">Вставьте текст</string>
   <string name="typo_correction_title">Проверка правописания</string>
-  <string name="typo_correction_text">Находите орфографические и грамматические ошибки в текстовых полях с помощью функции \"Проверка правописания\".\n\nЧтобы попробовать ее, перейдите к текстовому полю ниже, в котором есть орфографические ошибки. Затем проведите тремя пальцами по экрану вправо, пока не найдете функцию \"Проверка правописания\".</string>
-  <string name="typo_correction_text_pre_r">Находите орфографические и грамматические ошибки в текстовых полях с помощью функции \"Проверка правописания\".\n\nЧтобы попробовать ее, перейдите к текстовому полю ниже, в котором есть орфографические ошибки. Проведите по экрану вниз, а затем вверх, пока не найдете функцию \"Проверка правописания\".</string>
-  <string name="typo_correction_text_supported_but_not_english">Находите орфографические и грамматические ошибки в текстовых полях с помощью функции \"Проверка правописания\".\n\nЧтобы попробовать ее, перейдите к текстовому полю ниже и введите слово с орфографической ошибкой. Затем проведите тремя пальцами по экрану вправо, пока не найдете функцию \"Проверка правописания\".</string>
-  <string name="typo_correction_text_supported_but_not_english_pre_r">Находите орфографические и грамматические ошибки в текстовых полях с помощью функции \"Проверка правописания\".\n\nЧтобы попробовать ее, перейдите к текстовому полю ниже и введите слово с орфографической ошибкой. Проведите по экрану вниз, а затем вверх, пока не найдете функцию \"Проверка правописания\".</string>
+  <string name="typo_correction_text">Находите орфографические и грамматические ошибки в текстовых полях с помощью функции \"Проверка правописания\".\n\nЧтобы попробовать её, перейдите к текстовому полю ниже, в котором есть орфографические ошибки. Затем проведите тремя пальцами по экрану вправо, пока не найдёте функцию \"Проверка правописания\".</string>
+  <string name="typo_correction_text_pre_r">Находите орфографические и грамматические ошибки в текстовых полях с помощью функции \"Проверка правописания\".\n\nЧтобы попробовать её, перейдите к текстовому полю ниже, в котором есть орфографические ошибки. Проведите по экрану вниз, а затем вверх, пока не найдёте функцию \"Проверка правописания\".</string>
+  <string name="typo_correction_text_supported_but_not_english">Находите орфографические и грамматические ошибки в текстовых полях с помощью функции \"Проверка правописания\".\n\nЧтобы попробовать её, перейдите к текстовому полю ниже и введите слово с орфографической ошибкой. Затем проведите тремя пальцами по экрану вправо, пока не найдёте функцию \"Проверка правописания\".</string>
+  <string name="typo_correction_text_supported_but_not_english_pre_r">Находите орфографические и грамматические ошибки в текстовых полях с помощью функции \"Проверка правописания\".\n\nЧтобы попробовать её, перейдите к текстовому полю ниже и введите слово с орфографической ошибкой. Проведите по экрану вниз, а затем вверх, пока не найдёте функцию \"Проверка правописания\".</string>
   <string name="typo_correction_editbox_hint">Введите слово</string>
   <string name="read_by_character_title">Чтение по символам, словам или абзацам</string>
   <string name="read_by_character_text">Вы можете прослушать текст по символам.\n\nДля этого несколько раз проведите тремя пальцами вправо, пока не услышите слово \"%1$s\". Теперь, чтобы вернуться к предыдущему символу, проведите по экрану вверх. Чтобы перейти к следующему символу, проведите по экрану вниз.\n\nПопробуйте прямо сейчас. Проведя тремя пальцами вправо, вы также можете выбрать озвучивание текста по словам или абзацам.</string>
@@ -1133,8 +1133,8 @@
   <string name="jump_between_controls_text">Элементы управления – это интерактивные объекты, такие как кнопки, флажки и текстовые поля.\n\nНа некоторых страницах нужна возможность быстро переключаться между элементами управления, чтобы не тратить время на поиск, например кнопки \"Далее\".\n\nЧтобы воспользоваться этой функцией, несколько раз проведите тремя пальцами вправо, пока не услышите \"%1$s\". Теперь, чтобы вернуться к предыдущему элементу управления на странице, проведите по экрану вверх. Чтобы перейти к следующему элементу, проведите по экрану вниз.\n\nПопробуйте прямо сейчас. Включите навигацию по элементам управления и выберите кнопку \"Далее\".</string>
   <string name="jump_between_controls_text_pre_r">Элементы управления – это интерактивные объекты, такие как кнопки, флажки и текстовые поля.\n\nНа некоторых страницах нужна возможность быстро переключаться между элементами управления, чтобы не тратить время на поиск, например кнопки \"Далее\".\n\nЧтобы воспользоваться этой функцией, проведите вниз, затем вверх несколько раз, пока не услышите \"%1$s\". Теперь, чтобы вернуться к предыдущему элементу управления на странице, проведите по экрану вверх. Чтобы перейти к следующему элементу, проведите по экрану вниз.\n\nПопробуйте прямо сейчас. Включите навигацию по элементам управления и выберите кнопку \"Далее\".</string>
   <string name="jump_between_links_title">Перемещение между ссылками</string>
-  <string name="jump_between_links_text">Вы также можете перемещаться между ссылками на странице.\n\nПопробуйте несколько раз провести тремя пальцами вправо, пока не услышите \"%1$s\". Затем проведите по экрану вниз, чтобы найти ссылку 5. Во время обучения двойное нажатие на нее ни к чему не приведет.\n\nПроведите по экрану вправо, чтобы найти кнопку \"Далее\", и перейдите на следующую страницу.</string>
-  <string name="jump_between_links_text_pre_r">Вы также можете перемещаться между ссылками на странице.\n\nПопробуйте несколько раз провести по экрану вниз, затем вверх, пока не услышите \"%1$s\". После этого проведите по экрану вниз, чтобы найти ссылку 5. Во время обучения двойное нажатие на нее ни к чему не приведет.\n\nПроведите по экрану вправо, чтобы найти кнопку \"Далее\", и перейдите на следующую страницу.</string>
+  <string name="jump_between_links_text">Вы также можете перемещаться между ссылками на странице.\n\nПопробуйте несколько раз провести тремя пальцами вправо, пока не услышите \"%1$s\". Затем проведите по экрану вниз, чтобы найти ссылку 5. Во время обучения двойное нажатие на неё ни к чему не приведёт.\n\nПроведите по экрану вправо, чтобы найти кнопку \"Далее\", и перейдите на следующую страницу.</string>
+  <string name="jump_between_links_text_pre_r">Вы также можете перемещаться между ссылками на странице.\n\nПопробуйте несколько раз провести по экрану вниз, затем вверх, пока не услышите \"%1$s\". После этого проведите по экрану вниз, чтобы найти ссылку 5. Во время обучения двойное нажатие на неё ни к чему не приведёт.\n\nПроведите по экрану вправо, чтобы найти кнопку \"Далее\", и перейдите на следующую страницу.</string>
   <string name="paragraph1_text">Абзац 1.</string>
   <string name="paragraph2_text">Абзац 2.</string>
   <string name="paragraph3_text">Абзац 3.</string>
@@ -1154,7 +1154,7 @@
   <string name="container_find_finish_button_text">Вы вышли из списка контейнеров. Для быстрого доступа к контейнерам их можно в любой момент добавить в элементы управления чтением.\n\nЧтобы найти кнопку \"Готово\", проведите вправо.</string>
   <string name="jump_between_container_title">Переключение между контейнерами</string>
   <string name="jump_between_containers_text">Чтобы выйти из контейнера, например из списка или сетки, проведите влево или вправо четырьмя пальцами. Это пригодится, если в списке много элементов.\n\nПопробуйте провести вправо, чтобы войти в список. Потом проведите в ту же сторону четырьмя пальцами для перехода к следующему контейнеру.</string>
-  <string name="jump_between_containers_text_pre_r">Выйти из контейнера, например из списка или сетки, бывает нужно, если в нем много элементов.\n\nПопробуйте провести вниз, а потом вверх. Прозвучит фраза \"%1$s\". Затем проведите вниз, чтобы перейти к следующему контейнеру.</string>
+  <string name="jump_between_containers_text_pre_r">Выйти из контейнера, например из списка или сетки, бывает нужно, если в нём много элементов.\n\nПопробуйте провести вниз, а потом вверх. Прозвучит фраза \"%1$s\". Затем проведите вниз, чтобы перейти к следующему контейнеру.</string>
   <string name="container_tem_title">Контейнер</string>
   <string name="container_item_subtext">Чтобы перейти к следующему контейнеру, проведите вправо четырьмя пальцами.</string>
   <string name="container_item_exit_subtext">Для выхода из контейнера проведите вправо четырьмя пальцами.</string>
@@ -1163,7 +1163,7 @@
   <string name="voice_commands_title">Голосовые команды</string>
   <string name="voice_commands_text">Чтобы экономить время, управляйте TalkBack голосом.\n\nНапример, с помощью голосовой команды вы можете изменить настройки навигации, перейти к следующему заголовку или скопировать текст.\n\nЧтобы попробовать, проведите вправо, затем вверх.</string>
   <string name="using_screen_search_title">Как пользоваться поиском по экрану</string>
-  <string name="using_screen_search_text">С помощью этой функции можно искать объекты на экране.\n\nЧтобы начать, откройте меню TalkBack, нажав тремя пальцами на экран, и найдите \"Поиск по экрану\". Введите ключевое слово, чтобы найти на экране содержащие его объекты.\n\nНапример, выполните поиск по слову \"далее\", чтобы найти одноименную кнопку.</string>
+  <string name="using_screen_search_text">С помощью этой функции можно искать объекты на экране.\n\nЧтобы начать, откройте меню TalkBack, нажав тремя пальцами на экран, и найдите \"Поиск по экрану\". Введите ключевое слово, чтобы найти на экране содержащие его объекты.\n\nНапример, выполните поиск по слову \"далее\", чтобы найти одноимённую кнопку.</string>
   <string name="screen_search_navigation_title">Как переключаться между результатами поиска</string>
   <string name="screen_search_navigation_text">Выбрав один из результатов поиска по экрану, вы можете быстро переключаться между ними.\n\nДля этого проведите тремя пальцами по экрану вправо или влево, чтобы найти \"Поиск по экрану\".\n\nВыберите эту функцию. Ниже находятся три кнопки, содержащие слово \"действие\". Выполните поиск по этому слову и попробуйте перейти от одного результата к другому.</string>
   <string name="screen_search_action_button_1_text">Действие 1</string>
@@ -1191,7 +1191,7 @@
   <string name="checking_notifications_text_tail_tts">Чтобы проверить, в каких приложениях включены уведомления, откройте настройки и нажмите \"Уведомления\".</string>
   <string name="checking_notifications_tips">Чтобы посмотреть историю уведомлений, проведите двумя пальцами вниз от верхнего края экрана.</string>
   <string name="image_description_playground_title">Как слушать описания изображений</string>
-  <string name="image_description_playground_content_one">Перейдите к изображению, откройте меню TalkBack и выберите \"Описать изображение\".\n\nНиже вы найдете фотографию. Прослушайте ее описание.</string>
+  <string name="image_description_playground_content_one">Перейдите к изображению, откройте меню TalkBack и выберите \"Описать изображение\".\n\nНиже вы найдёте фотографию. Прослушайте её описание.</string>
   <string name="image_description_playground_content_two">Изменить параметры для описаний изображений можно в любое время. Для этого выберите \"Настройки TalkBack &gt; Описания изображений и значков\".</string>
   <string name="image_description_playground_content_two_tts">Изменить параметры для описаний изображений можно в любое время. Для этого выберите \"Настройки TalkBack\", а затем \"Описания изображений и значков\".</string>
   <string name="image_description_sample_image_content_description">Это изображение. Нажмите на него тремя пальцами, чтобы открыть меню TalkBack, и выберите \"Описать изображение\".</string>
@@ -1217,7 +1217,7 @@
   <string name="talkback_inactive_message_practice_gestures">Чтобы попробовать жесты, включите TalkBack.</string>
   <string name="talkback_inactive_message_image_description">Чтобы попробовать автоматическое озвучивание изображений, включите TalkBack.</string>
   <string name="talkback_inactive_close_tutorial_button">Закрыть руководство</string>
-  <string name="wear_training_welcome_paragraph">Если функция TalkBack включена, она озвучивает выделенный элемент интерфейса.\n\nЧтобы перейти к следующему элементу, проведите по экрану вправо. Чтобы вернуться к предыдущему – влево.\n\nСейчас проводите вправо, пока не найдете кнопку \"Далее\".</string>
+  <string name="wear_training_welcome_paragraph">Если функция TalkBack включена, она озвучивает выделенный элемент интерфейса.\n\nЧтобы перейти к следующему элементу, проведите по экрану вправо. Чтобы вернуться к предыдущему – влево.\n\nСейчас проводите вправо, пока не найдёте кнопку \"Далее\".</string>
   <string name="wear_training_scroll_text" tools:ignore="PluralsCandidate">Проведите по экрану %1$d пальцами вверх или вниз.</string>
   <string name="wear_training_go_back_title">Назад</string>
   <string name="wear_training_go_back_text" tools:ignore="PluralsCandidate">Чтобы вернуться, проведите %1$d пальцами вправо от края экрана.</string>
@@ -1244,7 +1244,7 @@
   <string name="wear_new_feature_page_button_content_description">Готово</string>
   <string name="watch_remote_intent_success_confirmation_text">Открыто на телефоне</string>
   <string name="watch_remote_intent_error_confirmation_curved_text">Проверить подключение</string>
-  <string name="watch_remote_intent_error_confirmation_text">Убедитесь, что телефон подключен.</string>
+  <string name="watch_remote_intent_error_confirmation_text">Убедитесь, что телефон подключён.</string>
   <string name="image_qna_voice_input_empty">Речь не распознана.</string>
   <string name="image_qna_answer_unavailable">Нет доступных ответов.</string>
   <string name="title_pref_thick_border">Толстые границы</string>
@@ -1252,8 +1252,8 @@
   <string name="title_pref_default_color">По умолчанию</string>
   <string name="title_pref_red">Красный</string>
   <string name="title_pref_orange">Оранжевый</string>
-  <string name="title_pref_yellow">Желтый</string>
-  <string name="title_pref_green">Зеленый</string>
+  <string name="title_pref_yellow">Жёлтый</string>
+  <string name="title_pref_green">Зелёный</string>
   <string name="title_pref_blue">Синий</string>
   <string name="title_pref_grey">Серый</string>
   <string name="survey_setting_title">Отправить отзыв</string>
@@ -1264,21 +1264,21 @@
   <string name="detected_result">Распознано: %1$s</string>
   <string name="title_image_caption">Описать изображение</string>
   <string name="image_caption_with_gemini_prefix">Опиши это изображение, не используя разметку.</string>
-  <string name="image_qna_with_history">Это разговор ИИ-помощника с пользователем об изображении. Продолжи беседу из приведенной ниже истории и ответь на последнее сообщение ПОЛЬЗОВАТЕЛЯ. Следуй таким инструкциям:
+  <string name="image_qna_with_history">Это разговор ИИ-помощника с пользователем об изображении. Продолжи беседу из приведённой ниже истории и ответь на последнее сообщение ПОЛЬЗОВАТЕЛЯ. Следуй таким инструкциям:
 **Инструкции:**
 * Сначала ответь на вопрос одним предложением.
 * После этого дополни ответ, если есть ещё полезная информация по теме.
-* Вырази свое мнение, только если пользователь попросит тебя об этом. В противном случае придерживайся фактов.
+* Вырази своё мнение, только если пользователь попросит тебя об этом. В противном случае придерживайся фактов.
 * Если пользователь спросит о положении элемента на экране, опиши его относительно всего экрана, например \"на панели вкладок справа в верхней части экрана\". Не упоминай другие элементы на экране. Не путай лево и право.
 * Если пользователь попросит тебя нажать на элемент, прокрутить экран, выбрать или найти объект на экране или выполнить другое действие, сообщи: \"К сожалению, пока я могу только отвечать на вопросы об экране\".
 * Если пользователь спросит о том, что не показано на скриншоте, объясни, что таких сведений на экране нет, а потом ответь на вопрос, основываясь на своих общих знаниях.
 * Не используй разметку при ответе.
 **История запросов:**</string>
-  <string name="screen_qna_with_history">Это разговор ИИ-помощника с пользователем о том, что показано на экране. Продолжи беседу из приведенной ниже истории и ответь на последнее сообщение ПОЛЬЗОВАТЕЛЯ. Следуй таким инструкциям:
+  <string name="screen_qna_with_history">Это разговор ИИ-помощника с пользователем о том, что показано на экране. Продолжи беседу из приведённой ниже истории и ответь на последнее сообщение ПОЛЬЗОВАТЕЛЯ. Следуй таким инструкциям:
 **Инструкции:**
 * Сначала ответь на вопрос одним предложением.
 * После этого дополни ответ, если есть ещё полезная информация по теме.
-* Вырази свое мнение, только если пользователь попросит тебя об этом. В противном случае придерживайся фактов.
+* Вырази своё мнение, только если пользователь попросит тебя об этом. В противном случае придерживайся фактов.
 * Если пользователь спросит о положении элемента на экране, опиши его относительно всего экрана, например \"на панели вкладок справа в верхней части экрана\". Не упоминай другие элементы на экране. Не путай лево и право.
 * Если пользователь попросит тебя нажать на элемент, прокрутить экран, выбрать или найти объект на экране или выполнить другое действие, сообщи: \"К сожалению, пока я могу только отвечать на вопросы об экране\".
 * Если пользователь спросит о том, что не показано на скриншоте, объясни, что таких сведений на экране нет, а потом ответь на вопрос, основываясь на своих общих знаниях.
@@ -1326,13 +1326,13 @@
   <string name="screen_overview_heres_the_elements">Вот какие элементы управления найдены в этом приложении:</string>
   <string name="screen_overview_no_result">Не получается описать содержимое экрана</string>
   <string name="image_caption_no_result">Не удалось описать изображение</string>
-  <string name="image_caption_with_hide_screen">Когда экран отключен, описания изображений недоступны. Включите экран и повторите попытку.</string>
+  <string name="image_caption_with_hide_screen">Когда экран затемнён, описания изображений недоступны. Отмените затемнение и повторите попытку.</string>
   <string name="feedback_button_state_set">выбрано</string>
   <string name="feedback_button_state_unset">не выбрано</string>
   <string name="action_text_like_button">Отметить как хороший ответ</string>
   <string name="action_text_dislike_button">Отметить как плохой ответ</string>
-  <string name="action_text_clear_like_button">Удалить хороший ответ</string>
-  <string name="action_text_clear_dislike_button">Удалить плохой ответ</string>
+  <string name="action_text_clear_like_button">Снять отметку «Хороший ответ»</string>
+  <string name="action_text_clear_dislike_button">Снять отметку «Плохой ответ»</string>
   <string name="action_not_supported">Действие не поддерживается.</string>
   <string name="hint_select_action">Выберите поддерживаемое действие.</string>
   <string name="no_action_available">Нет действий.</string>
@@ -1340,7 +1340,7 @@
   <string name="confirm_download_icon_detection_title">Чтобы получать автоматические описания значков, скачайте соответствующий модуль</string>
   <string name="confirm_download_subtitle_via_wifi">%1$d МБ</string>
   <string name="confirm_download_subtitle_via_mobile_data">Модуль размером %1$d МБ будет скачан через мобильный интернет. За передачу данных может взиматься плата.</string>
-  <string name="confirm_download_icon_detection_message">Когда вы наведете курсор на значок, например на кнопку в приложении, то услышите краткое описание.\n\nИзображения обрабатываются на устройстве и никогда не отправляются в Google.</string>
+  <string name="confirm_download_icon_detection_message">Когда вы наведёте курсор на значок, например на кнопку в приложении, то услышите краткое описание.\n\nИзображения обрабатываются на устройстве и никогда не отправляются в Google.</string>
   <string name="confirm_download_image_description_title">Чтобы получать автоматические описания изображений, скачайте соответствующий модуль</string>
   <string name="confirm_download_image_description_message">При переходе к изображению в поддерживаемом приложении вы услышите краткое описание.</string>
   <string name="confirm_download_all_image_captioning_title">Чтобы получать автоматические описания изображений и значков, скачайте соответствующий модуль</string>
@@ -1350,10 +1350,10 @@
   <string name="confirm_download_negative_button_hint">TalkBack по-прежнему будет описывать текст на изображениях</string>
   <string name="downloading_icon_detection_hint">Скачиваются автоматические описания значков…</string>
   <string name="download_icon_detection_successful_hint">Описания значков скачаны</string>
-  <string name="download_icon_detection_failed_hint">Не удается скачать автоматические описания значков.</string>
+  <string name="download_icon_detection_failed_hint">Не удаётся скачать автоматические описания значков.</string>
   <string name="downloading_image_description_hint">Скачиваются автоматические описания изображений…</string>
   <string name="download_image_description_successful_hint">Автоматические описания изображений скачаны.</string>
-  <string name="download_image_description_failed_hint">Не удается скачать автоматические описания изображений.</string>
+  <string name="download_image_description_failed_hint">Не удаётся скачать автоматические описания изображений.</string>
   <string name="downloading_all_image_captioning_hint">Скачиваются автоматические описания изображений и значков…</string>
   <string name="download_all_image_captioning_successful_hint">Автоматические описания изображений и значков скачаны.</string>
   <string name="download_all_image_captioning_failed_hint">При скачивании произошла ошибка. Повторите попытку позже.</string>
@@ -1405,13 +1405,13 @@
   <string name="image_qna_send_button_text">Спросить</string>
   <string name="image_qna_speak_question_description">Задать вопрос вслух</string>
   <string name="overviews_summary_intro">Обзор этого экрана приложения: %1$s</string>
-  <string name="overviews_node_not_found">Не удается найти эту часть экрана.</string>
+  <string name="overviews_node_not_found">Не удаётся найти эту часть экрана.</string>
   <string name="overviews_images_in_app">Вот какие основные изображения удалось найти</string>
   <string name="overviews_list_item">%1$d. %2$s</string>
   <string name="overviews_actions_in_app">Действия в приложении</string>
   <string name="overviews_actions_in_app_description">Вот что можно сделать на этом экране приложения:</string>
   <string name="overviews_parent_type">Действия в приложении</string>
-  <string name="text_replaced_feedback">Текст заменен</string>
+  <string name="text_replaced_feedback">Текст заменён</string>
   <string name="switch_gesture_set">Сменить набор жестов</string>
   <string name="switch_gesture_set_to">Сменить на набор жестов \"%1$d\"</string>
   <string name="shortcut_row_up">Предыдущая строка</string>
@@ -1421,7 +1421,7 @@
   <string name="table_navigation_not_supported">Навигация по таблицам не поддерживается.</string>
   <string name="pref_auto_enter_table_navigation_title">Автоматически включать навигацию по таблицам, когда вы открываете таблицу</string>
   <string name="title_text_formatting_menu">Описать форматирование текста</string>
-  <string name="summary_text_formatting_menu">Полужирный шрифт, курсив, подчеркивание и т. д.</string>
+  <string name="summary_text_formatting_menu">Полужирный шрифт, курсив, подчёркивание и т. д.</string>
   <string name="title_text_formatting_inline">Озвучивать параметры форматирования текста</string>
   <string name="title_switch_text_formatting">Включить или отключить описание форматирования текста</string>
   <string name="summary_text_formatting_verbosity">Полужирный шрифт, курсив и т. д.</string>
@@ -1431,8 +1431,8 @@
   <string name="header_text_formatting_options">Оповещения о форматировании текста</string>
   <string name="title_formatting_optoin_bold">Полужирный</string>
   <string name="title_formatting_optoin_italic">Курсив</string>
-  <string name="title_formatting_optoin_underline">Подчеркнутый</string>
-  <string name="title_formatting_optoin_strikethrough">Зачеркнутый</string>
+  <string name="title_formatting_optoin_underline">Подчёркнутый</string>
+  <string name="title_formatting_optoin_strikethrough">Зачёркнутый</string>
   <string name="title_formatting_optoin_text_color_name">Название цвета текста</string>
   <string name="title_formatting_optoin_text_color_hex">Шестнадцатеричный код цвета текста</string>
   <string name="title_formatting_optoin_text_size">Размер шрифта</string>
@@ -1449,17 +1449,17 @@
   <string name="required_state_appended">%1$s (обязательно)</string>
   <string name="keyboard_shortcuts_no_results">Результатов нет</string>
   <string name="keyboard_shortcuts_dialog_search_hint">Поиск</string>
-  <string name="browse_mode_on_hint">Режим обзора включен</string>
-  <string name="browse_mode_off_hint">Режим обзора отключен</string>
+  <string name="browse_mode_on_hint">Режим обзора включён</string>
+  <string name="browse_mode_off_hint">Режим обзора отключён</string>
   <string name="browse_mode_double_trigger_modifier">%1$s %1$s</string>
   <string name="title_smart_browse_mode">Умный режим обзора</string>
   <string name="summary_smart_browse_mode">Автоматически включает или отключает режим обзора в зависимости от того, какой элемент выбран. Фокус ввода будет синхронизирован с фокусом TalkBack.</string>
-  <string name="typing_echo_change_visual_feedback">Функция \"Звук клавиш\" для физической клавиатуры. Значение \"%1$s\".</string>
+  <string name="typing_echo_change_visual_feedback">Озвучивание клавиш физической клавиатуры: %1$s.</string>
   <string name="talkback_turn_off_title">Отключить TalkBack?</string>
   <string name="talkback_turn_off_button">Отключить</string>
   <string name="talkback_keep_on_button">Не отключать</string>
   <string name="talkback_speech_bubble_label">@string/talkback_label</string>
   <string name="close_string">Закрыть</string>
   <string name="talkback_label">TalkBack</string>
-  <string name="notifictions_in_lock_screen_notification_content">Чтобы слушать уведомления при выключенном экране, перейдите в настройки детализации TalkBack и включите параметр \"Озвучивать уведомления при отключенном экране\".</string>
+  <string name="notifictions_in_lock_screen_notification_content">Чтобы слушать уведомления при выключенном экране, перейдите в настройки детализации TalkBack и включите параметр \"Озвучивать уведомления при отключённом экране\".</string>
 </resources>
