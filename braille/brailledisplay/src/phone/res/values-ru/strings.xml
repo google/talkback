@@ -29,11 +29,11 @@
   <string name="bd_preferences_banner_talkback_off_button">Перейти к TalkBack</string>
   <string name="bd_preferences_banner_bluetooth_off_subtitle">Чтобы использовать дисплей Брайля, сначала включите Bluetooth.</string>
   <string name="bd_preferences_banner_bluetooth_off_button">Включить Bluetooth</string>
-  <string name="bd_preferences_banner_nearby_devices_permission_not_granted_subtitle">Чтобы использовать дисплей Брайля, предоставьте приложению \"%s\" доступ к устройствам поблизости.</string>
-  <string name="bd_preferences_banner_location_permission_not_granted_subtitle">Прежде чем использовать дисплей Брайля, включите параметр \"Местоположение\" для приложения \"%s\".</string>
+  <string name="bd_preferences_banner_nearby_devices_permission_not_granted_subtitle">Чтобы использовать дисплей Брайля, предоставьте приложению «%s» доступ к устройствам поблизости.</string>
+  <string name="bd_preferences_banner_location_permission_not_granted_subtitle">Прежде чем использовать дисплей Брайля, включите параметр «Местоположение» для приложения «%s».</string>
   <string name="bd_preferences_banner_permission_not_granted_button">Открыть настройки разрешений</string>
   <string name="bd_preferences_banner_permission_not_granted_system_dialog_button">Обновить разрешение</string>
-  <string name="bd_preferences_banner_location_settings_not_enabled_subtitle">Чтобы использовать дисплей Брайля, предоставьте приложению \"%s\" доступ к данным о местоположении устройства.</string>
+  <string name="bd_preferences_banner_location_settings_not_enabled_subtitle">Чтобы использовать дисплей Брайля, предоставьте приложению «%s» доступ к данным о местоположении устройства.</string>
   <string name="bd_preferences_banner_location_settings_not_enabled_button">Открыть настройки геолокации</string>
   <string name="bd_preference_enabler_title">Использовать дисплей Брайля</string>
   <string name="bd_preference_connection_category_title">Устройства</string>
@@ -50,9 +50,9 @@
   <string name="bd_switch_output_code_gesture_tip_dialog_message">Чтобы изменить язык чтения, одновременно нажмите %s.</string>
   <string name="bd_preference_key_advanced_settings_title">Расширенные настройки</string>
   <string name="bd_bt_cancel_button">Отмена</string>
-  <string name="bd_bt_connect_fail_dialog_title_with_name">Не удаётся подключиться к устройству \"%s\"</string>
+  <string name="bd_bt_connect_fail_dialog_title_with_name">Не удаётся подключиться к устройству «%s»</string>
   <string name="bd_bt_connect_fail_dialog_title_without_name">Не удаётся подключиться к устройству</string>
-  <string name="bd_bt_connect_fail_dialog_message">Убедитесь, что дисплей Брайля включён и находится рядом.\n\nЕсли ошибка продолжает появляться, воспользуйтесь другими советами по устранению неполадок. Чтобы открыть их, дважды нажмите \"Подробнее\".</string>
+  <string name="bd_bt_connect_fail_dialog_message">Убедитесь, что дисплей Брайля включён и находится рядом.\n\nЕсли ошибка продолжает появляться, воспользуйтесь другими советами по устранению неполадок. Чтобы открыть их, дважды нажмите «Подробнее».</string>
   <string name="bd_bt_connect_fail_positive_button">Подробнее</string>
   <string name="bd_enhanced_keymap_dialog_title">Переключитесь на улучшенную раскладку</string>
   <string name="bd_enhanced_keymap_dialog_message">Чтобы использовать режим обзора, переключитесь со стандартной раскладки на улучшенную. Некоторые сочетания клавиш для дисплея Брайля будут изменены.</string>
@@ -150,7 +150,7 @@
   <string name="bd_preference_popup_announcement_history_summary">Чтобы посмотреть недавние вызовы, уведомления приложений и другую информацию, нажмите Пробел и точки 1, 3, 4, 5, 7, 8</string>
   <string name="bd_preference_caption_title">Передавать субтитры на дисплей Брайля</string>
   <string name="bd_preference_caption_summary">Для видео и других медиафайлов</string>
-  <string name="bd_bt_connection_with_device_failed_message">Не удаётся подключиться к устройству \"%s\". Повторите попытку.</string>
+  <string name="bd_bt_connection_with_device_failed_message">Не удаётся подключиться к устройству «%s». Повторите попытку.</string>
   <string name="bd_bt_connection_failed_message">Не удаётся подключиться к дисплею Брайля. Повторите попытку.</string>
   <string name="bd_bt_connection_disconnected_message">Дисплей Брайля не подключён.</string>
   <string name="bd_switch_to_braille_hardware_message">Переключение на внешний дисплей Брайля</string>
@@ -160,7 +160,7 @@
   <string name="duration_long">Большая</string>
   <string name="bd_voice_feedback_mute">Отключить звук</string>
   <string name="bd_voice_feedback_unmute">Включить звук</string>
-  <string name="bd_keyboard_showing">Открыта клавиатура \"%s\"</string>
+  <string name="bd_keyboard_showing">Открыта клавиатура «%s»</string>
   <string name="bd_keyboard_hidden">Клавиатура скрыта</string>
   <string name="bd_keyboard">клавиатура</string>
   <plurals name="bd_blinking_interval">
@@ -304,10 +304,10 @@
   <string name="bd_notify_navigation_commands_unavailable_dialog_title">Некоторые команды недоступны</string>
   <string name="bd_notify_navigation_commands_unavailable_dialog_message">При наборе и редактировании текста команды для навигации, настройки шрифта Брайля и некоторые функции TalkBack недоступны.\n\nСначала нужно закрыть клавиатуру.</string>
   <string name="bd_caption_tutorial_dialog_title">Субтитры на дисплее Брайля</string>
-  <string name="bd_caption_tutorial_dialog_message">Чтобы включить или отключить субтитры к видео, нажмите Пробел и точки 1, 4, 7, 8.\n\nДля автоматического включения субтитров выберите параметр \"Показывать субтитры\" в настройках дисплея Брайля.</string>
+  <string name="bd_caption_tutorial_dialog_message">Чтобы включить или отключить субтитры к видео, нажмите Пробел и точки 1, 4, 7, 8.\n\nДля автоматического включения субтитров выберите параметр «Показывать субтитры» в настройках дисплея Брайля.</string>
   <string name="bd_caption_tutorial_dialog_checkbox">Всегда показывать это сообщение, если субтитры доступны</string>
   <string name="bd_usb_connect_dialog_title">Дисплей Брайля подключён к USB</string>
-  <string name="bd_usb_connect_dialog_message">Для зарядки дисплея Брайля используется %s.\n\nЕсли вы хотите подключиться по Bluetooth, отсоедините от дисплея кабель USB и в настройках TalkBack выберите \"Дисплей Брайля\".</string>
+  <string name="bd_usb_connect_dialog_message">Для зарядки дисплея Брайля используется %s.\n\nЕсли вы хотите подключиться по Bluetooth, отсоедините от дисплея кабель USB и в настройках TalkBack выберите «Дисплей Брайля».</string>
   <string name="bd_device">телефон</string>
   <string name="bd_battery_low_dialog_title">Низкий заряд батареи %s</string>
   <string name="bd_battery_low_dialog_message">Для зарядки дисплея Брайля используется %s.\n\nЧтобы сэкономить заряд:\n\n

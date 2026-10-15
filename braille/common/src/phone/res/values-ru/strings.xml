@@ -3,7 +3,7 @@
   <string name="dont_show_again">Больше не показывать</string>
   <string name="number_announcement">Цифра</string>
   <string name="capitalize_announcement">Заглавные буквы</string>
-  <string name="read_out_deleted">Текст \"%s\" удалён</string>
+  <string name="read_out_deleted">Текст «%s» удалён</string>
   <plurals name="braille_dots">
     <item quantity="one">точку %s</item>
     <item quantity="few">точки %s</item>
@@ -106,10 +106,10 @@
   <string name="code_user_facing_name_urdu">Урду</string>
   <string name="code_user_facing_name_vietnamese">Вьетнамский</string>
   <string name="code_user_facing_name_vietnamese_comp8">Вьетнамский (8-точечный компьютерный шрифт Брайля)</string>
-  <string name="screen_away">Режим \"Экран от себя\"</string>
-  <string name="screen_away_detail">Держите устройство экраном от себя (режим \"Экран от себя\").</string>
-  <string name="tabletop">Режим \"Настольный\"</string>
-  <string name="tabletop_detail">Положите устройство на стол (режим \"Настольный\").</string>
+  <string name="screen_away">Режим «Экран от себя»</string>
+  <string name="screen_away_detail">Держите устройство экраном от себя (режим «Экран от себя»).</string>
+  <string name="tabletop">Режим «Настольный»</string>
+  <string name="tabletop_detail">Положите устройство на стол (режим «Настольный»).</string>
   <string name="auto_detect">Адаптировать к положению устройства</string>
   <string name="braille_languages_title">Языки</string>
   <string name="braille_add_a_language_preference_title">Добавление языка</string>
