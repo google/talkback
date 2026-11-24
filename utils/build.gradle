@@ -6,10 +6,13 @@ apply from: "../shared.gradle"
 
 dependencies {
     implementation project(':proguard')
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.16'
 }
 
 android {
     namespace "com.google.android.accessibility.utils"
+    testOptions.unitTests.includeAndroidResources = true
     defaultConfig {
         buildConfigField("String", "TALKBACK_APPLICATION_ID", '"' + talkbackApplicationId + '"')
         buildConfigField("String", "IS_SYSTEM_PRELOAD", "\"False\"")

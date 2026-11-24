@@ -131,19 +131,14 @@ public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChan
   public static class Window {
     public Window() {}
 
-    /**
-     * The most recent title, from either window events or pane events. Used to provide screen
-     * feedback.
-     */
-    public CharSequence title;
+    /** Title of the active accessibility pane, or an empty string if there is none. */
+    private CharSequence accessibilityPaneTitle = "";
 
     /** Title from events windows-changed & window-state-changed excluding pane-changed. */
     private @Nullable CharSequence titleFromWindowChange;
 
     /** Title from TYPE_WINDOW_STATE_CHANGED events that are not announcements. */
     private @Nullable CharSequence titleFromStateChange;
-
-    private boolean hasAccessibilityPane = false;
 
     public void setTitleFromWindowChange(@Nullable CharSequence newTitle) {
       if (!TextUtils.equals(this.titleFromWindowChange, newTitle)) {
@@ -164,12 +159,8 @@ public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChan
       return titleFromStateChange;
     }
 
-    public void setHasAccessibilityPane(boolean hasAccessibilityPane) {
-      this.hasAccessibilityPane = hasAccessibilityPane;
-    }
-
     public boolean hasAccessibilityPane() {
-      return hasAccessibilityPane;
+      return !TextUtils.isEmpty(accessibilityPaneTitle);
     }
 
     @RoleName public int eventSourceRole = ROLE_NONE;
@@ -179,7 +170,7 @@ public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChan
     public String toString() {
       return "{ "
           + StringBuilderUtils.joinFields(
-              StringBuilderUtils.optionalText("title", title),
+              StringBuilderUtils.optionalText("accessibilityPaneTitle", accessibilityPaneTitle),
               StringBuilderUtils.optionalText("titleFromWindowChange", titleFromWindowChange),
               StringBuilderUtils.optionalText(
                   "eventSourceRole", Role.roleToString(eventSourceRole)),
@@ -375,22 +366,17 @@ public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChan
   @Override
   public CharSequence getAccessibilityPaneTitle(int windowId) {
     @Nullable Window window = windowIdToData.get(windowId);
-    if (window == null || !window.hasAccessibilityPane()) {
-      return "";
-    }
-
-    return window.title;
+    return window == null ? "" : window.accessibilityPaneTitle;
   }
 
   private @Nullable CharSequence getWindowTitleInternal(int windowId) {
-    CharSequence titleFromWindowInfo = getWindowTitleFromWindowInfo(windowId);
     @Nullable Window window = windowIdToData.get(windowId);
-    if (window != null && !TextUtils.isEmpty(window.title)) {
-      // Prefer the accessibility pane title first. If title from window info is empty, also use
-      // titles from the cached window data.
-      if (window.hasAccessibilityPane() || TextUtils.isEmpty(titleFromWindowInfo)) {
-        return window.title;
-      }
+    if (window != null && window.hasAccessibilityPane()) {
+      return window.accessibilityPaneTitle;
+    }
+    CharSequence titleFromWindowInfo = getWindowTitleFromWindowInfo(windowId);
+    if (TextUtils.isEmpty(titleFromWindowInfo) && window != null) {
+      return window.getTitleFromWindowChange();
     }
 
     return titleFromWindowInfo;
@@ -945,7 +931,6 @@ public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChan
             } else {
               int role = Role.getSourceRole(event);
               Window window = new Window();
-              window.title = text;
               window.setTitleFromWindowChange(text);
               window.setTitleFromStateChange(text);
               window.eventSourceRole = role;
@@ -971,7 +956,6 @@ public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChan
             if (!TextUtils.isEmpty(title)) {
               Window oldWindow = windowIdToData.get(windowId);
               Window newWindow = (oldWindow == null) ? new Window() : oldWindow;
-              newWindow.title = title;
               newWindow.setTitleFromWindowChange(title);
               windowIdToData.put(windowId, newWindow);
               LogDepth.log(TAG, depth, "windowId=%s %s", windowId, newWindow);
@@ -1036,37 +1020,33 @@ public class WindowEventInterpreter implements WindowsDelegate, DisplayStateChan
     }
 
     int windowId = AccessibilityEventUtils.getWindowId(event);
-    Window oldWindow = windowIdToData.get(windowId);
-    CharSequence title = null;
-    boolean isPaneDisappeared = false;
+    Window window = windowIdToData.get(windowId);
+    CharSequence title;
     if ((event.getContentChangeTypes() & CONTENT_CHANGE_TYPE_PANE_DISAPPEARED) != 0) {
-      isPaneDisappeared = true;
-      // Rollback title to titleFromWindowChange if the title was came from pane and disappeared.
-      if (oldWindow != null && TextUtils.equals(accessibilityPaneTitle, oldWindow.title)) {
-        title = oldWindow.getTitleFromWindowChange();
+      if (window == null
+          || !TextUtils.equals(accessibilityPaneTitle, window.accessibilityPaneTitle)) {
+        return;
       }
+      window.accessibilityPaneTitle = "";
+      title = window.getTitleFromWindowChange();
     } else {
+      if (window == null) {
+        window = new Window();
+        windowIdToData.put(windowId, window);
+      }
+      window.accessibilityPaneTitle = accessibilityPaneTitle;
       title = accessibilityPaneTitle;
     }
-
-    if (TextUtils.isEmpty(title)) {
-      return;
-    }
-    // Only updates title value for pane events.
-    Window newWindow = (oldWindow == null) ? new Window() : oldWindow;
-    newWindow.title = title;
-    newWindow.setHasAccessibilityPane(!isPaneDisappeared);
     if (!sourceAncestorHasPane(event)) {
       // Keep outer-most pane-title for window.
-      newWindow.setTitleFromStateChange(title);
+      window.setTitleFromStateChange(title);
     }
-    windowIdToData.put(windowId, newWindow);
     LogDepth.log(
         TAG,
         depth,
         "windowId=%s %s accessibilityPaneTitle=%s",
         windowId,
-        newWindow,
+        window,
         accessibilityPaneTitle);
   }
 
